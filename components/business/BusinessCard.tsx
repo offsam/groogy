@@ -14,9 +14,16 @@ type BusinessCardProps = {
   business: Business;
   selected?: boolean;
   onSelect?: (id: string) => void;
+  /** Admin moderation: no public links, claim CTA, or analytics. */
+  preview?: boolean;
 };
 
-export function BusinessCard({ business, selected = false, onSelect }: BusinessCardProps) {
+export function BusinessCard({
+  business,
+  selected = false,
+  onSelect,
+  preview = false,
+}: BusinessCardProps) {
   const city = business.city?.trim() || "";
   const isPlaceholder = isPlaceholderBusinessImage(business.imageUrl);
 
@@ -32,11 +39,13 @@ export function BusinessCard({ business, selected = false, onSelect }: BusinessC
       onClick={
         onSelect
           ? () => {
-              trackResourceOpen({
-                kind: "business",
-                id: business.id,
-                pathId: business.slug,
-              });
+              if (!preview) {
+                trackResourceOpen({
+                  kind: "business",
+                  id: business.id,
+                  pathId: business.slug,
+                });
+              }
               onSelect(business.id);
             }
           : undefined
@@ -87,6 +96,12 @@ export function BusinessCard({ business, selected = false, onSelect }: BusinessC
           {business.reviewsCount > 0 && ` · ${business.reviewsCount} отзывов`}
         </p>
 
+        {business.shortDescription ? (
+          <p className="mt-1.5 line-clamp-2 text-sm text-slate-600">
+            {business.shortDescription}
+          </p>
+        ) : null}
+
         {city ? (
           <ul className="mt-2 space-y-1 text-sm text-slate-600">
             <li className="flex items-center gap-1.5 truncate">
@@ -96,27 +111,29 @@ export function BusinessCard({ business, selected = false, onSelect }: BusinessC
           </ul>
         ) : null}
 
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          <Link
-            className="inline-block rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
-            href={`/business/${business.slug}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              trackResourceOpen({
-                kind: "business",
-                id: business.id,
-                pathId: business.slug,
-              });
-            }}
-          >
-            Подробнее
-          </Link>
-          <ClaimBusinessButton
-            businessId={business.id}
-            businessSlug={business.slug}
-            kind="business"
-          />
-        </div>
+        {!preview ? (
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <Link
+              className="inline-block rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
+              href={`/business/${business.slug}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                trackResourceOpen({
+                  kind: "business",
+                  id: business.id,
+                  pathId: business.slug,
+                });
+              }}
+            >
+              Подробнее
+            </Link>
+            <ClaimBusinessButton
+              businessId={business.id}
+              businessSlug={business.slug}
+              kind="business"
+            />
+          </div>
+        ) : null}
       </div>
     </article>
   );

@@ -1,10 +1,12 @@
 import {
-  Briefcase,
+  Building2,
   Calculator,
   CalendarDays,
+  Car,
   Dog,
   Dumbbell,
   GraduationCap,
+  Hammer,
   Home,
   Plane,
   Scale,
@@ -13,7 +15,6 @@ import {
   ShoppingBasket,
   Stethoscope,
   UtensilsCrossed,
-  Wrench,
   type LucideIcon,
 } from "lucide-react";
 
@@ -21,11 +22,11 @@ const icons: Record<string, LucideIcon> = {
   restaurants: UtensilsCrossed,
   groceries: ShoppingBasket,
   beauty: Scissors,
-  auto: Wrench,
+  auto: Car,
   medical: Stethoscope,
   legal: Scale,
   education: GraduationCap,
-  services: Briefcase,
+  services: Hammer,
   real_estate: Home,
   fitness: Dumbbell,
   pets: Dog,
@@ -42,6 +43,6 @@ export function CategoryIcon({
   slug: string | null | undefined;
   className?: string;
 }) {
-  const Icon = (slug && icons[slug]) || Briefcase;
-  return <Icon aria-hidden="true" className={className} />;
+  const Icon = (slug && icons[slug]) || Building2;
+  return <Icon aria-hidden="true" className={className} strokeWidth={1.75} />;
 }

@@ -41,28 +41,29 @@ body {
   font-family: var(--font-sans), "Segoe UI", sans-serif;
 }
 
-/* Home shows the resource strip under the hero — hide only the sticky header duplicate */
+/* Home: hide sticky top counter (hero has section counts). */
+/* Desktop home: hero search only — hide duplicate header search from sm up. */
+@media (min-width: 640px) {
+  body:has(.home-fullwidth) .header-search {
+    display: none;
+  }
+}
+
 body:has(.home-fullwidth) .platform-top-counter-sticky {
   display: none;
 }
 
-/* Explicit mobile / desktop site switch (see ViewModeToggle). */
-html[data-view-mode="mobile"] {
-  background: #0f172a;
+/* Business profile: tighter page chrome, especially on mobile */
+body:has(.business-profile) main {
+  padding-top: 0.75rem;
+  padding-bottom: 1.5rem;
 }
 
-html[data-view-mode="mobile"] .view-shell {
-  width: 100%;
-  max-width: 430px;
-  margin-inline: auto;
-  min-height: 100vh;
-  background: var(--background);
-  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35),
-    0 24px 64px rgba(15, 23, 42, 0.35);
-}
-
-html[data-view-mode="desktop"] .view-shell {
-  min-width: min(100%, 1280px);
+@media (min-width: 640px) {
+  body:has(.business-profile) main {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
 }
 
 /* Не задаём color здесь: иначе перебивается text-white на ссылках-кнопках

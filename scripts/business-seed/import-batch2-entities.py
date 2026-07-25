@@ -72,7 +72,8 @@ UPDATE_TARGETS = {
     "neptune seafood": "fb-post-29-neptune-fish-company",
     "artur arutiunov / car towing": "batch2-car-towing",
     "art 4 kids & teens": "consolidated-art4kidsandteens",
-    "grand auto group oc": "enriched-grand-auto-group-oc",
+    "grand auto group oc": "grand-auto-group",
+    "grand auto group": "grand-auto-group",
     "valeriia realtor": "fb-post-19-valeriia-the-realtor-property-listing",
 }
 

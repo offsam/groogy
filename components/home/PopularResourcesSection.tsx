@@ -16,6 +16,8 @@ import { withHubParam } from "@/lib/regions/hubs";
 type PopularResourcesSectionProps = {
   items: PopularHomeItem[];
   hubIdsParam: string;
+  /** Hub used for SSR items — skip client refetch until region changes. */
+  initialHubId: string;
 };
 
 function KindBadge({ label }: { label: string }) {
@@ -70,6 +72,7 @@ function PopularItemCard({ item }: { item: PopularHomeItem }) {
 export function PopularResourcesSection({
   items: initial,
   hubIdsParam,
+  initialHubId,
 }: PopularResourcesSectionProps) {
   const [items, setItems] = useState(initial);
 
@@ -78,6 +81,12 @@ export function PopularResourcesSection({
   }, [initial]);
 
   useEffect(() => {
+    // Keep SSR feed until the user changes region away from the SSR hub.
+    if (hubIdsParam === initialHubId) {
+      setItems(initial);
+      return;
+    }
+
     let cancelled = false;
     async function load() {
       try {
@@ -98,7 +107,7 @@ export function PopularResourcesSection({
     return () => {
       cancelled = true;
     };
-  }, [hubIdsParam]);
+  }, [hubIdsParam, initialHubId, initial]);
 
   return (
     <section className="mx-auto max-w-[1400px] px-3 pb-12 pt-4 sm:px-6 sm:pb-16 sm:pt-6 lg:px-8">
@@ -115,7 +124,7 @@ export function PopularResourcesSection({
           className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-slate-900"
           href={withHubParam("/search", hubIdsParam)}
         >
-          Смотреть бизнесы
+          Смотреть каталог
           <ArrowRight aria-hidden className="size-4" />
         </Link>
       </div>

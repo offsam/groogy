@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { BusinessList } from "@/components/business/BusinessList";
 import { OfferSearchResults } from "@/components/search/OfferSearchResults";
 import { CategoryFilter } from "@/components/search/CategoryFilter";
@@ -32,7 +33,10 @@ type AiSearchResponse = {
   intent: SearchIntentSummary;
   modelUsed: string | null;
   fallback: boolean;
+  sortedByDistance?: boolean;
 };
+
+type UserCoords = { lat: number; lng: number };
 
 type SearchResultsProps = {
   initialQuery: string;
@@ -62,12 +66,41 @@ function intentHintLabel(
   return parts.length > 0 ? parts.join(" · ") : null;
 }
 
+function readCachedCoords(): UserCoords | null {
+  try {
+    const raw = sessionStorage.getItem("krugi-user-coords");
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { lat?: unknown; lng?: unknown; at?: unknown };
+    const lat = Number(parsed.lat);
+    const lng = Number(parsed.lng);
+    const at = Number(parsed.at);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+    // Cache for 30 minutes
+    if (Number.isFinite(at) && Date.now() - at > 30 * 60_000) return null;
+    return { lat, lng };
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedCoords(coords: UserCoords) {
+  try {
+    sessionStorage.setItem(
+      "krugi-user-coords",
+      JSON.stringify({ ...coords, at: Date.now() }),
+    );
+  } catch {
+    // ignore
+  }
+}
+
 export function SearchResults({
   initialQuery,
   initialCategory,
   initialCity,
   initialHubId,
 }: SearchResultsProps) {
+  const router = useRouter();
   const [category, setCategory] = useState<string | null>(initialCategory);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -75,10 +108,54 @@ export function SearchResults({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [aiHint, setAiHint] = useState<string | null>(null);
+  const [userCoords, setUserCoords] = useState<UserCoords | null>(null);
+  const [sortedByDistance, setSortedByDistance] = useState(false);
 
   useEffect(() => {
     setCategory(initialCategory);
   }, [initialCategory]);
+
+  // Soft geolocation: use cache, then request if permission already granted / available.
+  useEffect(() => {
+    const cached = readCachedCoords();
+    if (cached) {
+      setUserCoords(cached);
+    }
+
+    if (!navigator.geolocation) return;
+
+    let cancelled = false;
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        if (cancelled) return;
+        const next = {
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+        };
+        writeCachedCoords(next);
+        setUserCoords(next);
+      },
+      () => {
+        // Denied / unavailable — keep catalog order.
+      },
+      { enableHighAccuracy: false, timeout: 10_000, maximumAge: 600_000 },
+    );
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  function handleCategoryChange(slug: string | null) {
+    setCategory(slug);
+    const params = new URLSearchParams();
+    if (initialQuery.trim()) params.set("q", initialQuery.trim());
+    if (slug) params.set("category", slug);
+    if (initialCity) params.set("city", initialCity);
+    if (initialHubId) params.set("hub", initialHubId);
+    const qs = params.toString();
+    router.replace(qs ? `/search?${qs}` : "/search", { scroll: false });
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -88,10 +165,14 @@ export function SearchResults({
       setError(null);
       setSelectedId(null);
       setAiHint(null);
+      setSortedByDistance(false);
 
       try {
         const client = createBrowserClient();
         const catsPromise = getActiveCategories(client);
+        const near = userCoords
+          ? { lat: userCoords.lat, lng: userCoords.lng }
+          : null;
 
         if (initialQuery.trim()) {
           const [cats, aiRes] = await Promise.all([
@@ -104,6 +185,7 @@ export function SearchResults({
                 categorySlug: category,
                 city: initialCity,
                 hubId: initialHubId,
+                ...(near ? { lat: near.lat, lng: near.lng } : {}),
               }),
             }),
           ]);
@@ -118,6 +200,7 @@ export function SearchResults({
           setCategories(cats);
           setResults(data.businesses ?? []);
           setAiHint(intentHintLabel(data.intent, cats, data.fallback));
+          setSortedByDistance(Boolean(data.sortedByDistance && near));
           return;
         }
 
@@ -127,12 +210,15 @@ export function SearchResults({
             categorySlug: category,
             city: initialCity,
             hubId: initialHubId,
+            nearLat: near?.lat,
+            nearLng: near?.lng,
           }),
         ]);
 
         if (cancelled) return;
         setCategories(cats);
         setResults(businesses);
+        setSortedByDistance(Boolean(near));
       } catch (err) {
         if (cancelled) return;
         setResults([]);
@@ -146,7 +232,7 @@ export function SearchResults({
     return () => {
       cancelled = true;
     };
-  }, [initialQuery, category, initialCity, initialHubId]);
+  }, [initialQuery, category, initialCity, initialHubId, userCoords]);
 
   return (
     <div className="space-y-4 sm:space-y-5">
@@ -158,7 +244,11 @@ export function SearchResults({
         <SearchBar initialQuery={initialQuery} variant="hero" />
       </div>
 
-      <CategoryFilter categories={categories} onChange={setCategory} selected={category} />
+      <CategoryFilter
+        categories={categories}
+        onChange={handleCategoryChange}
+        selected={category}
+      />
 
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-slate-500">
@@ -172,6 +262,12 @@ export function SearchResults({
                   {" "}
                   по запросу «
                   <span className="font-medium text-slate-900">{initialQuery}</span>»
+                </>
+              )}
+              {sortedByDistance && (
+                <>
+                  {" "}
+                  · <span className="text-slate-600">сначала ближайшие</span>
                 </>
               )}
             </>

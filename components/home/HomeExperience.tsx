@@ -7,10 +7,9 @@ import { HomeActivityMap } from "@/components/home/HomeActivityMap";
 import { useHomeRegion } from "@/components/home/useHomeRegion";
 import { PopularResourcesSection } from "@/components/home/PopularResourcesSection";
 import { ErrorState } from "@/components/ui/DataState";
-import {
-  KrugiPinIcon,
-  type KrugiPinName,
-} from "@/components/brand/KrugiPinIcon";
+import { KrugiPinIcon } from "@/components/brand/KrugiPinIcon";
+import type { HubCategoryCounts } from "@/lib/platform/hub-category-counts";
+import { PLATFORM_SECTIONS } from "@/lib/platform/sections";
 import type { PopularHomeItem } from "@/lib/platform/popular-resources";
 import type { Business } from "@/types/business";
 import type { RegionHub } from "@/lib/regions/hubs";
@@ -21,33 +20,19 @@ type HomeExperienceProps = {
   initialHub: RegionHub;
   initialInLabel: string;
   initialCountyGeoid: string | null;
+  initialSectionCounts: HubCategoryCounts | null;
   popularFeed: PopularHomeItem[];
   newest: Business[];
   popular: Business[];
   error: string | null;
 };
 
-/** Eight main hubs under the map — sheet icons, our product labels. */
-const PLATFORM_PINS: {
-  href: string;
-  title: string;
-  pin: KrugiPinName;
-}[] = [
-  { href: "/search", title: "Бизнесы", pin: "businesses" },
-  { href: "/marketplace", title: "Marketplace", pin: "listings" },
-  { href: "/services", title: "Услуги", pin: "services" },
-  { href: "/lechu", title: "Лечу", pin: "lechu" },
-  { href: "/transfers", title: "Переводы", pin: "transfers" },
-  { href: "/search?category=restaurants", title: "Еда", pin: "food" },
-  { href: "/search?category=auto", title: "Авто", pin: "auto" },
-  { href: "/search?q=работа", title: "Работа", pin: "jobs" },
-];
-
 export function HomeExperience({
   lockedFromProfile,
   initialHub,
   initialInLabel,
   initialCountyGeoid,
+  initialSectionCounts,
   popularFeed,
   newest,
   popular,
@@ -63,9 +48,10 @@ export function HomeExperience({
 
   const directoryPins = useMemo(
     () =>
-      PLATFORM_PINS.map((item) => ({
-        key: `p-${item.pin}`,
-        ...item,
+      PLATFORM_SECTIONS.map((item) => ({
+        key: item.key,
+        title: item.title,
+        pin: item.pin,
         href: withHubParam(item.href, hubIdsParam),
       })),
     [hubIdsParam],
@@ -80,6 +66,8 @@ export function HomeExperience({
         hubIdsParam={hubIdsParam}
         hubs={region.hubs}
         inLabel={region.inLabel}
+        initialSectionCounts={initialSectionCounts}
+        ssrHubId={initialHub.id}
         onAllowGeo={requestGeolocation}
         onDismissGeo={dismissGeoPrompt}
         onChangeHubs={setHubs}
@@ -93,7 +81,10 @@ export function HomeExperience({
       />
 
       <section className="relative z-30 mx-auto max-w-[1400px] px-3 pb-6 pt-2 sm:-mt-24 sm:px-6 sm:pb-8 sm:pt-0 lg:px-8">
-        <div className="grid grid-cols-4 gap-x-2 gap-y-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-7 sm:gap-y-6">
+        <p className="mb-3 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400 sm:mb-4">
+          Разделы
+        </p>
+        <div className="grid grid-cols-5 gap-x-1.5 gap-y-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-7 sm:gap-y-6">
           {directoryPins.map((item) => (
             <Link
               key={item.key}
@@ -119,6 +110,7 @@ export function HomeExperience({
       ) : (
         <PopularResourcesSection
           hubIdsParam={hubIdsParam}
+          initialHubId={initialHub.id}
           items={popularFeed}
         />
       )}

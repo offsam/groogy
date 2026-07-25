@@ -29,6 +29,14 @@ const LINKS = [
     countLabel: "просмотров сегодня",
   },
   {
+    href: "/admin/claims",
+    title: "Заявки на владение",
+    description: "Одобрить или отклонить «Это мой бизнес»",
+    icon: Shield,
+    countKey: null,
+    countLabel: null,
+  },
+  {
     href: "/admin/import-review",
     title: "Импорт → Требуют проверки",
     description: "Очередь Telegram AI Reviewer перед публикацией",

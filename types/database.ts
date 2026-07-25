@@ -136,8 +136,10 @@ export type Database = {
           ai_verified_reviews_count: number;
           transaction_verified_reviews_count: number;
           phone: string | null;
+          email: string | null;
           website: string | null;
           instagram_url: string | null;
+          yelp_url: string | null;
           google_maps_url: string | null;
           google_rating: number | null;
           google_reviews_count: number;
@@ -150,6 +152,7 @@ export type Database = {
           latitude: number | null;
           longitude: number | null;
           location_precision: "street" | "county" | null;
+          opening_hours: import("@/lib/business/opening-hours").OpeningHours | null;
           created_at: string;
           updated_at: string;
         };
@@ -166,8 +169,10 @@ export type Database = {
           ai_verified_reviews_count?: number;
           transaction_verified_reviews_count?: number;
           phone?: string | null;
+          email?: string | null;
           website?: string | null;
           instagram_url?: string | null;
+          yelp_url?: string | null;
           google_maps_url?: string | null;
           google_rating?: number | null;
           google_reviews_count?: number;
@@ -180,6 +185,7 @@ export type Database = {
           latitude?: number | null;
           longitude?: number | null;
           location_precision?: "street" | "county" | null;
+          opening_hours?: import("@/lib/business/opening-hours").OpeningHours | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -1959,6 +1965,30 @@ export type Database = {
       };
       admin_set_user_role: {
         Args: { p_user_id: string; p_role: UserRole };
+        Returns: undefined;
+      };
+      admin_list_pending_business_claims: {
+        Args: Record<string, never>;
+        Returns: {
+          id: string;
+          business_id: string;
+          business_slug: string;
+          business_name: string;
+          user_id: string;
+          applicant_display_name: string | null;
+          applicant_email: string | null;
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          created_at: string;
+        }[];
+      };
+      admin_review_business_claim: {
+        Args: {
+          p_claim_id: string;
+          p_decision: string;
+          p_moderator_note?: string | null;
+        };
         Returns: undefined;
       };
       admin_list_users: {

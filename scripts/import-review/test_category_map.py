@@ -12,7 +12,7 @@ CATS = [
     {"id": "2", "slug": "education", "name": "Образование", "is_active": True},
     {"id": "3", "slug": "auto", "name": "Автосервис", "is_active": True},
     {"id": "4", "slug": "medical", "name": "Медицина", "is_active": True},
-    {"id": "5", "slug": "services", "name": "Услуги", "is_active": True},
+    {"id": "5", "slug": "services", "name": "Мастера / быт", "is_active": True},
     {"id": "6", "slug": "restaurants", "name": "Рестораны", "is_active": True},
     {"id": "7", "slug": "legal", "name": "Юристы", "is_active": True},
     {"id": "8", "slug": "fitness", "name": "Спорт и фитнес", "is_active": True},

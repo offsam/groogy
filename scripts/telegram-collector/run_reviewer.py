@@ -38,6 +38,23 @@ from reviewer import (
 
 FULL_DIR = SCRIPT_DIR / "data" / "full"
 PARTIAL = FULL_DIR / "reviewer_v1.partial.jsonl"
+PREFIX = "fun_for_mom"
+DEFAULT_PREFIX = "fun_for_mom"
+
+
+def configure_reviewer(prefix: str) -> None:
+    """Point reviewer at the matching collector output directory."""
+    global FULL_DIR, PARTIAL, PREFIX
+    PREFIX = prefix.strip()
+    if not PREFIX:
+        raise SystemExit("prefix must be non-empty")
+    if PREFIX == DEFAULT_PREFIX:
+        FULL_DIR = SCRIPT_DIR / "data" / "full"
+    else:
+        FULL_DIR = SCRIPT_DIR / "data" / PREFIX / "full"
+    PARTIAL = FULL_DIR / f"{PREFIX}_reviewer_v1.partial.jsonl"
+    if not FULL_DIR.is_dir():
+        raise SystemExit(f"Missing collector output dir: {FULL_DIR}")
 
 
 def load_json(name: str) -> Any:
@@ -46,6 +63,7 @@ def load_json(name: str) -> Any:
 
 def save_json(name: str, data: Any) -> None:
     path = FULL_DIR / name
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {path}", flush=True)
 
@@ -326,15 +344,23 @@ def build_summary(
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--prefix", type=str, default=DEFAULT_PREFIX)
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--limit", type=int, default=None, help="Optional cap on needs_review for testing")
     args = parser.parse_args()
 
     load_env()
-    accepted_before = load_json("fun_for_mom_accepted.json")["posts"]
-    needs_before = load_json("fun_for_mom_needs_review.json")["posts"]
-    rejected_before = load_json("fun_for_mom_rejected.json")["posts"]
-    all_before = load_json("fun_for_mom_all_analyzed.json")["posts"]
+    configure_reviewer(args.prefix)
+    print(
+        f"=== Reviewer v1 ===\nprefix={PREFIX}\ninput_dir={FULL_DIR}\n"
+        f"telegram_reread=False supabase_write=False",
+        flush=True,
+    )
+
+    accepted_before = load_json(f"{PREFIX}_accepted.json")["posts"]
+    needs_before = load_json(f"{PREFIX}_needs_review.json")["posts"]
+    rejected_before = load_json(f"{PREFIX}_rejected.json")["posts"]
+    all_before = load_json(f"{PREFIX}_all_analyzed.json")["posts"]
 
     before_counts = {
         "accepted": len(accepted_before),
@@ -480,27 +506,27 @@ def main() -> int:
         "new_accepted_top50": new_accepted[:50],
         "marketplace_posts": marketplace_posts,
     }
-    save_json("fun_for_mom_reviewer_v1.json", reviewer_payload)
-    save_json("fun_for_mom_reviewer_summary.json", summary)
-    # Also refresh queue snapshots used for next import prep (not overwriting analyzer originals? user asked create reviewer files; refreshing queues is useful)
+    save_json(f"{PREFIX}_reviewer_v1.json", reviewer_payload)
+    save_json(f"{PREFIX}_reviewer_summary.json", summary)
+    # Also refresh queue snapshots used for next import prep (not overwriting analyzer originals)
     save_json(
-        "fun_for_mom_reviewer_accepted.json",
+        f"{PREFIX}_reviewer_accepted.json",
         {"meta": summary, "posts": accepted},
     )
     save_json(
-        "fun_for_mom_reviewer_needs_review.json",
+        f"{PREFIX}_reviewer_needs_review.json",
         {"meta": summary, "posts": needs},
     )
     save_json(
-        "fun_for_mom_reviewer_rejected.json",
+        f"{PREFIX}_reviewer_rejected.json",
         {"meta": summary, "posts": rejected},
     )
     save_json(
-        "fun_for_mom_reviewer_entities.json",
+        f"{PREFIX}_reviewer_entities.json",
         {"meta": summary, "entities": entities},
     )
     save_json(
-        "fun_for_mom_reviewer_marketplace.json",
+        f"{PREFIX}_reviewer_marketplace.json",
         {"meta": summary, "posts": marketplace_posts},
     )
 

@@ -433,9 +433,10 @@ def publish_one(
                 if contacts.get("instagram")
                 else None
             ),
-            "city": row.get("city"),
+            "city": row.get("city") or "Orange County",
             "status": "approved",
             "state_code": "US-CA",
+            "region": row.get("state") or "CA",
             "category_id": cat_match.get("category_id"),
         }
         created = client.insert_many("businesses", [payload])
@@ -451,39 +452,36 @@ def publish_one(
         if not admins:
             raise RuntimeError("No admin profile to own autopublished listing")
         owner_id = admins[0]["id"]
-        listing = {
-            "owner_id": owner_id,
-            "listing_type": "marketplace_item",
-            "status": "active",
-            "visibility": "public",
-            "title": title,
-            "description": (
-                description
-                + (
-                    f"\n\nИсточник: Telegram, дата: {source_posted}"
-                    if source_posted
-                    else ""
-                )
-            ),
-            "price_amount": row.get("price"),
-            "price_currency": row.get("currency") or "USD",
-            "city": row.get("city"),
-            "state": row.get("state"),
-            "publisher_type": "profile",
-            "published_at": source_posted or datetime.now(timezone.utc).isoformat(),
-        }
-        created = client.insert_many("listings", [listing])
-        entity_id = created[0]["id"]
-        client.insert_many(
-            "marketplace_listing_details",
-            [
-                {
-                    "listing_id": entity_id,
-                    "condition": "good",
-                    "transaction_type": "sell",
-                }
-            ],
+        entity_id = client.rpc_call(
+            "service_autopublish_marketplace_listing",
+            {
+                "p_owner_id": owner_id,
+                "p_title": title,
+                "p_description": (
+                    description
+                    + (
+                        f"\n\nИсточник: Telegram, дата: {source_posted}"
+                        if source_posted
+                        else ""
+                    )
+                ),
+                "p_price_amount": row.get("price"),
+                "p_price_currency": row.get("currency") or "USD",
+                "p_city": row.get("city") or "Orange County",
+                "p_state": row.get("state") or "CA",
+                "p_published_at": source_posted,
+                "p_condition": "good",
+                "p_transaction_type": "sell",
+            },
         )
+        if isinstance(entity_id, list):
+            entity_id = entity_id[0] if entity_id else None
+        if isinstance(entity_id, dict):
+            entity_id = entity_id.get("id") or entity_id.get(
+                "service_autopublish_marketplace_listing"
+            )
+        if not entity_id:
+            raise RuntimeError("service_autopublish_marketplace_listing returned no id")
         entity_type = "listing"
     else:
         raise RuntimeError(f"Unsupported target for publish: {target}")

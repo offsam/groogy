@@ -39,6 +39,11 @@ export type RegionHub = {
   /** Strict bounds for activity pins on the home map */
   mapBounds: RegionMapBounds;
   exampleQueries: readonly string[];
+  /**
+   * City / area name tokens for businesses without coordinates.
+   * Matched case-insensitively against city+region+description location text.
+   */
+  cityAliases?: readonly string[];
 };
 
 /**
@@ -68,6 +73,44 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
       "детский стоматолог Irvine",
       "ремонт машины Anaheim",
     ],
+    cityAliases: [
+      "orange county",
+      "оранж каунти",
+      "irvine",
+      "anaheim",
+      "santa ana",
+      "costa mesa",
+      "huntington beach",
+      "newport beach",
+      "tustin",
+      "orange",
+      "fullerton",
+      "garden grove",
+      "westminster",
+      "mission viejo",
+      "laguna hills",
+      "laguna niguel",
+      "laguna beach",
+      "lake forest",
+      "fountain valley",
+      "buena park",
+      "yorba linda",
+      "placentia",
+      "brea",
+      "cypress",
+      "los alamitos",
+      "seal beach",
+      "san clemente",
+      "san juan capistrano",
+      "dana point",
+      "aliso viejo",
+      "rancho santa margarita",
+      "villa park",
+      "stanton",
+      "la habra",
+      "la palma",
+      "corona del mar",
+    ],
   },
   "los-angeles": {
     id: "los-angeles",
@@ -91,6 +134,31 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
       "маникюр West Hollywood",
       "адвокат Glendale",
     ],
+    cityAliases: [
+      "los angeles",
+      "лос-анджелес",
+      "la",
+      "hollywood hills",
+      "glendale",
+      "burbank",
+      "pasadena",
+      "santa monica",
+      "venice",
+      "hollywood",
+      "west hollywood",
+      "studio city",
+      "sherman oaks",
+      "encino",
+      "van nuys",
+      "north hollywood",
+      "long beach",
+      "torrance",
+      "redondo beach",
+      "culver city",
+      "westwood",
+      "brentwood",
+      "pacific palisades",
+    ],
   },
   "san-diego": {
     id: "san-diego",
@@ -112,6 +180,21 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
       "русский магазин San Diego",
       "стоматолог La Jolla",
       "автосервис Chula Vista",
+    ],
+    cityAliases: [
+      "san diego",
+      "сан-диего",
+      "la jolla",
+      "chula vista",
+      "carlsbad",
+      "oceanside",
+      "escondido",
+      "encinitas",
+      "del mar",
+      "poway",
+      "el cajon",
+      "la mesa",
+      "national city",
     ],
   },
   "new-york": {
@@ -221,6 +304,21 @@ export function isLatLngInHubBounds(
     lng <= b.east &&
     lng >= b.west
   );
+}
+
+/** Text location (city/region) against hub labels + city aliases. */
+export function locationTextMatchesHub(
+  locationText: string,
+  hub: RegionHub,
+): boolean {
+  const loc = locationText.toLowerCase();
+  if (!loc.trim()) return false;
+  const tokens = [
+    hub.shortLabel.toLowerCase(),
+    hub.inLabel.toLowerCase(),
+    ...(hub.cityAliases ?? []),
+  ];
+  return tokens.some((token) => token && loc.includes(token));
 }
 
 export function isLatLngInAnyHub(

@@ -1,4 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Business } from "@/types/business";
+import type { BusinessWithCategory } from "@/types/database";
+import { mapBusiness } from "@/lib/supabase/mappers";
 
 export type AdminBusinessRow = {
   id: string;
@@ -13,8 +16,29 @@ export type AdminBusinessRow = {
   longitude: number | null;
   image_url: string | null;
   short_description: string | null;
+  description: string | null;
+  email: string | null;
+  instagram_url: string | null;
+  yelp_url: string | null;
+  google_maps_url: string | null;
+  google_rating: number | null;
+  google_reviews_count: number | null;
+  rating_avg: number | null;
+  reviews_count: number | null;
+  ai_verified_reviews_count: number | null;
+  transaction_verified_reviews_count: number | null;
+  region: string | null;
+  location_precision: "street" | "county" | null;
+  opening_hours: unknown;
+  category_id: string | null;
   created_at: string;
   offers_count: number;
+  categories: {
+    id: string;
+    slug: string;
+    name: string;
+    icon: string | null;
+  } | null;
 };
 
 export type DuplicateReason = "phone" | "name";
@@ -30,18 +54,76 @@ export type DuplicatePair = {
 const ADMIN_BUSINESS_SELECT = `
   id,
   slug,
+  category_id,
   name,
+  short_description,
+  description,
   status,
+  rating_avg,
+  reviews_count,
+  ai_verified_reviews_count,
+  transaction_verified_reviews_count,
   phone,
+  email,
   website,
-  city,
+  instagram_url,
+  yelp_url,
+  google_maps_url,
+  google_rating,
+  google_reviews_count,
+  image_url,
   address_line,
+  city,
+  region,
   latitude,
   longitude,
-  image_url,
-  short_description,
-  created_at
+  location_precision,
+  opening_hours,
+  created_at,
+  categories (
+    id,
+    slug,
+    name,
+    icon
+  )
 `;
+
+/** Map admin list row → public Business shape for card preview. */
+export function adminBusinessToPreview(row: AdminBusinessRow): Business {
+  return mapBusiness({
+    id: row.id,
+    slug: row.slug,
+    category_id: row.category_id,
+    name: row.name,
+    short_description: row.short_description,
+    description: row.description,
+    status: row.status,
+    rating_avg: row.rating_avg ?? 0,
+    reviews_count: row.reviews_count ?? 0,
+    ai_verified_reviews_count: row.ai_verified_reviews_count ?? 0,
+    transaction_verified_reviews_count:
+      row.transaction_verified_reviews_count ?? 0,
+    phone: row.phone,
+    email: row.email,
+    website: row.website,
+    instagram_url: row.instagram_url,
+    yelp_url: row.yelp_url,
+    google_maps_url: row.google_maps_url,
+    google_rating: row.google_rating,
+    google_reviews_count: row.google_reviews_count ?? 0,
+    image_url: row.image_url,
+    address_line: row.address_line,
+    city: row.city,
+    region: row.region,
+    latitude: row.latitude,
+    longitude: row.longitude,
+    location_precision: row.location_precision,
+    opening_hours: row.opening_hours,
+    created_at: row.created_at,
+    updated_at: row.created_at,
+    categories: row.categories,
+  } as BusinessWithCategory);
+}
 
 export function normalizePhone(phone: string | null | undefined): string | null {
   if (!phone) return null;
@@ -73,7 +155,10 @@ export function normalizeBusinessName(name: string | null | undefined): string {
   return n.replace(/\s+/g, " ").trim();
 }
 
-function preferCanonical(a: AdminBusinessRow, b: AdminBusinessRow): [AdminBusinessRow, AdminBusinessRow] {
+function preferCanonical(
+  a: AdminBusinessRow,
+  b: AdminBusinessRow,
+): [AdminBusinessRow, AdminBusinessRow] {
   const score = (row: AdminBusinessRow) => {
     let s = 0;
     if (row.slug.startsWith("consolidated-")) s += 30;
@@ -113,7 +198,11 @@ export function findDuplicatePairs(rows: AdminBusinessRow[]): DuplicatePair[] {
   const seen = new Set<string>();
   const pairs: DuplicatePair[] = [];
 
-  function addPair(reason: DuplicateReason, items: AdminBusinessRow[], label: string) {
+  function addPair(
+    reason: DuplicateReason,
+    items: AdminBusinessRow[],
+    label: string,
+  ) {
     for (let i = 0; i < items.length; i++) {
       for (let j = i + 1; j < items.length; j++) {
         const [keep, drop] = preferCanonical(items[i], items[j]);
@@ -137,7 +226,6 @@ export function findDuplicatePairs(rows: AdminBusinessRow[]): DuplicatePair[] {
   }
   for (const [, items] of byName) {
     if (items.length < 2) continue;
-    // Skip pure name matches already covered by phone unless different phones/null
     addPair("name", items, "Похожее название");
   }
 
@@ -157,8 +245,22 @@ export async function getAdminBusinesses(
 
   if (error) throw new Error(error.message);
 
-  const rows = (data ?? []) as Omit<AdminBusinessRow, "offers_count">[];
-  if (rows.length === 0) return [];
+  type RawRow = Omit<AdminBusinessRow, "offers_count" | "categories"> & {
+    categories:
+      | AdminBusinessRow["categories"]
+      | NonNullable<AdminBusinessRow["categories"]>[]
+      | null;
+  };
+
+  const rawRows = (data ?? []) as unknown as RawRow[];
+  if (rawRows.length === 0) return [];
+
+  const rows: Omit<AdminBusinessRow, "offers_count">[] = rawRows.map((row) => {
+    const cat = Array.isArray(row.categories)
+      ? (row.categories[0] ?? null)
+      : row.categories;
+    return { ...row, categories: cat };
+  });
 
   const ids = rows.map((r) => r.id);
   const { data: offerRows, error: offerError } = await supabase

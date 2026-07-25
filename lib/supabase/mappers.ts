@@ -1,4 +1,5 @@
 import { sanitizePublicDescription } from "@/lib/content/sanitize-public-description";
+import { parseOpeningHours } from "@/lib/business/opening-hours";
 import type { Business, Category } from "@/types/business";
 import type { BusinessWithCategory, CategoryRow } from "@/types/database";
 
@@ -31,8 +32,10 @@ export function mapBusiness(row: BusinessWithCategory): Business {
       row.transaction_verified_reviews_count ?? 0,
     ),
     phone: row.phone,
+    email: row.email ?? null,
     website: row.website,
     instagramUrl: row.instagram_url ?? null,
+    yelpUrl: row.yelp_url ?? null,
     googleMapsUrl: row.google_maps_url ?? null,
     googleRating:
       row.google_rating == null ? null : Number(row.google_rating),
@@ -44,6 +47,8 @@ export function mapBusiness(row: BusinessWithCategory): Business {
     latitude: row.latitude,
     longitude: row.longitude,
     locationPrecision: row.location_precision ?? null,
+    openingHours: parseOpeningHours(row.opening_hours),
+    createdAt: row.created_at ?? null,
   };
 }
 

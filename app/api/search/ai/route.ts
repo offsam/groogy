@@ -4,6 +4,7 @@ import {
   parseSearchIntent,
   type SearchIntent,
 } from "@/lib/ai/search-intent";
+import { distanceKm } from "@/lib/geo/distance";
 import {
   assertAiSearchRequestAllowed,
   clampSearchQuery,
@@ -16,7 +17,7 @@ import {
 import { safeErrorMessage } from "@/lib/security/redact";
 import { createServerClient } from "@/lib/supabase/server";
 import { getActiveCategories, searchBusinesses } from "@/lib/supabase/queries";
-import type { Business } from "@/types/business";
+import { hasCoordinates, type Business } from "@/types/business";
 
 export const runtime = "nodejs";
 
@@ -30,28 +31,50 @@ function asOptionalString(value: unknown): string | null {
   return trimmed.length > 0 ? trimmed : null;
 }
 
-function rankByHints(businesses: Business[], hints: string[]): Business[] {
-  if (hints.length === 0) return businesses;
-  const normalized = hints.map((h) => h.toLowerCase());
+function asOptionalCoord(value: unknown, kind: "lat" | "lng"): number | null {
+  const n = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(n)) return null;
+  if (kind === "lat" && Math.abs(n) > 90) return null;
+  if (kind === "lng" && Math.abs(n) > 180) return null;
+  return n;
+}
 
+function hintScore(business: Business, hints: string[]): number {
+  if (hints.length === 0) return 0;
+  const haystack = [
+    business.name,
+    business.shortDescription,
+    business.description,
+    business.categoryName,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+  return hints.reduce(
+    (sum, hint) => sum + (haystack.includes(hint.toLowerCase()) ? 1 : 0),
+    0,
+  );
+}
+
+/** Nearest-first when coords present; then soft hint boost; then rating. */
+function rankBusinesses(
+  businesses: Business[],
+  hints: string[],
+  near: { lat: number; lng: number } | null,
+): Business[] {
   return [...businesses].sort((a, b) => {
-    const score = (business: Business) => {
-      const haystack = [
-        business.name,
-        business.shortDescription,
-        business.description,
-        business.categoryName,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return normalized.reduce(
-        (sum, hint) => sum + (haystack.includes(hint) ? 1 : 0),
-        0,
-      );
-    };
-    const diff = score(b) - score(a);
-    if (diff !== 0) return diff;
+    if (near) {
+      const da = hasCoordinates(a)
+        ? distanceKm(near.lat, near.lng, a.latitude, a.longitude)
+        : Number.POSITIVE_INFINITY;
+      const db = hasCoordinates(b)
+        ? distanceKm(near.lat, near.lng, b.latitude, b.longitude)
+        : Number.POSITIVE_INFINITY;
+      if (da !== db) return da - db;
+    }
+
+    const hintDiff = hintScore(b, hints) - hintScore(a, hints);
+    if (hintDiff !== 0) return hintDiff;
     return (b.ratingAvg ?? 0) - (a.ratingAvg ?? 0);
   });
 }
@@ -97,6 +120,10 @@ export async function POST(request: Request) {
   const categoryOverride = asOptionalString(body.categorySlug);
   const cityOverride = asOptionalString(body.city);
   const hubId = asOptionalString(body.hubId);
+  const nearLat = asOptionalCoord(body.lat, "lat");
+  const nearLng = asOptionalCoord(body.lng, "lng");
+  const near =
+    nearLat != null && nearLng != null ? { lat: nearLat, lng: nearLng } : null;
 
   // Reject attempts to smuggle chat/LLM controls through the search API.
   if (
@@ -119,12 +146,15 @@ export async function POST(request: Request) {
       categorySlug: categoryOverride,
       city: cityOverride,
       hubId,
+      nearLat,
+      nearLng,
     });
     return NextResponse.json({
       businesses,
       intent: emptyIntent(),
       modelUsed: null,
       fallback: false,
+      sortedByDistance: Boolean(near),
     });
   }
 
@@ -165,16 +195,67 @@ export async function POST(request: Request) {
         return tokens.length > 0 ? tokens.join(" ") : q;
       })();
 
-  const businesses = await searchBusinesses(client, {
-    query: searchQuery,
+  // County / metro names are hubs, not city ILIKE filters (Irvine ≠ "Orange County").
+  const rawCity = cityOverride ?? intent.city;
+  const cityForFilter = (() => {
+    if (!rawCity) return null;
+    const lower = rawCity.toLowerCase();
+    if (
+      lower.includes("orange county") ||
+      lower.includes("оранж") ||
+      lower === "oc" ||
+      lower.includes("los angeles") ||
+      lower.includes("san diego")
+    ) {
+      return null;
+    }
+    return rawCity;
+  })();
+
+  // Prefer mustHints for ranking only; also fold language hints into soft boost.
+  // If hard keyword AND returns empty, retry with fewer tokens (drop redundant ones).
+  const searchParams = {
     categorySlug: categoryOverride ?? intent.categorySlug,
-    city: cityOverride ?? intent.city,
+    city: cityForFilter,
     hubId,
+    nearLat,
+    nearLng,
+  };
+
+  let businesses = await searchBusinesses(client, {
+    ...searchParams,
+    query: searchQuery,
   });
 
-  const ranked = fallback
-    ? businesses
-    : rankByHints(businesses, intent.mustHints);
+  if (businesses.length === 0 && searchQuery) {
+    const tokens = searchQuery.split(/\s+/).filter(Boolean);
+    if (tokens.length > 1) {
+      // Retry with the longest / most specific token only.
+      const primary = [...tokens].sort((a, b) => b.length - a.length)[0];
+      businesses = await searchBusinesses(client, {
+        ...searchParams,
+        query: primary,
+      });
+    }
+  }
+
+  if (businesses.length === 0 && (categoryOverride ?? intent.categorySlug)) {
+    // Last resort: category + hub, no text tokens.
+    businesses = await searchBusinesses(client, searchParams);
+  }
+
+  const softHints = fallback
+    ? []
+    : [
+        ...intent.mustHints,
+        ...intent.keywords.filter((k) =>
+          ["русский", "russian", "украинский", "ukrainian"].includes(
+            k.toLowerCase(),
+          ),
+        ),
+      ];
+
+  const ranked = rankBusinesses(businesses, softHints, near);
 
   return NextResponse.json({
     businesses: ranked,
@@ -190,5 +271,6 @@ export async function POST(request: Request) {
       : intent,
     modelUsed,
     fallback,
+    sortedByDistance: Boolean(near),
   });
 }

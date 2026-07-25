@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SearchBar } from "@/components/search/SearchBar";
 import { HomeHubCategoryCounts } from "@/components/home/HomeHubCategoryCounts";
 import { RegionHubPicker } from "@/components/regions/RegionHubPicker";
+import type { HubCategoryCounts } from "@/lib/platform/hub-category-counts";
 import type { RegionHub, RegionHubId } from "@/lib/regions/hubs";
 
 type HomeHeroProps = {
@@ -11,6 +12,8 @@ type HomeHeroProps = {
   hubs: RegionHub[];
   inLabel: string;
   hubIdsParam: string;
+  initialSectionCounts?: HubCategoryCounts | null;
+  ssrHubId?: string;
   geoPrompt?: boolean;
   geoLoading?: boolean;
   onAllowGeo?: () => void;
@@ -23,6 +26,8 @@ export function HomeHero({
   hubs,
   inLabel,
   hubIdsParam,
+  initialSectionCounts = null,
+  ssrHubId,
   geoPrompt = false,
   geoLoading = false,
   onAllowGeo,
@@ -88,13 +93,21 @@ export function HomeHero({
               </div>
             </div>
 
-            {/* Header already has search on phones — keep hero search from sm up */}
-            <div className="hidden min-w-0 w-full sm:block lg:mt-1 lg:max-w-[420px] lg:flex-1">
+            {/* Mobile: header search only. Desktop: hero search (header search hidden via CSS). */}
+            <div className="home-hero-search hidden min-w-0 w-full sm:block lg:mt-1 lg:max-w-[420px] lg:flex-1">
               <SearchBar variant="hero" />
             </div>
           </div>
 
-          <HomeHubCategoryCounts hubId={hubIdsParam} variant="hero" />
+          <HomeHubCategoryCounts
+            hubId={hubIdsParam}
+            initial={
+              ssrHubId && hubIdsParam === ssrHubId
+                ? initialSectionCounts
+                : null
+            }
+            variant="hero"
+          />
         </div>
       </div>
 

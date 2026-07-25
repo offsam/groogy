@@ -243,8 +243,10 @@ function CategoriesTab({
 
       {domain === "business" ? (
         <p className="text-sm text-slate-500">
-          Категории бизнеса (таблица categories) — только просмотр. Редактирование
-          Marketplace / Услуг — через listing_categories.
+          Категории бизнесов (таблица <code className="text-xs">categories</code>
+          ) — фильтры на /search, только просмотр. Не путать с разделами
+          платформы (Marketplace / Услуги / Лечу / Переводы) и их{" "}
+          <code className="text-xs">listing_categories</code>.
         </p>
       ) : (
         <div className="space-y-3 rounded-xl border border-slate-200 bg-slate-50 p-4">

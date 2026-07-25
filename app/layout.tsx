@@ -6,7 +6,6 @@ import { Header } from "@/components/layout/Header";
 import { PlatformResourceCounter } from "@/components/layout/PlatformResourceCounter";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
 import { BRAND_NAME } from "@/lib/brand";
-import { VIEW_MODE_STORAGE_KEY } from "@/lib/view-mode";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
@@ -39,8 +38,6 @@ export const viewport: Viewport = {
 
 export const dynamic = "force-dynamic";
 
-const viewModeBootScript = `(function(){try{var m=localStorage.getItem(${JSON.stringify(VIEW_MODE_STORAGE_KEY)});if(m==="mobile"||m==="desktop"){document.documentElement.setAttribute("data-view-mode",m);var meta=document.querySelector('meta[name="viewport"]');if(!meta){meta=document.createElement("meta");meta.setAttribute("name","viewport");document.head.appendChild(meta);}meta.setAttribute("content",m==="desktop"?"width=1280":"width=device-width, initial-scale=1, viewport-fit=cover");}}catch(e){}})();`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,13 +47,9 @@ export default function RootLayout({
     <html
       className={`${manrope.variable} ${literata.variable}`}
       lang="ru"
-      suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: viewModeBootScript }} />
-      </head>
       <body className="overflow-x-hidden font-[family-name:var(--font-sans)]">
-        <div className="view-shell flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-[1001]">
             <div className="platform-top-counter-sticky">
               <Suspense

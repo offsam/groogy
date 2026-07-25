@@ -49,14 +49,18 @@ async function requireOwner(businessId: string) {
   } = await supabase.auth.getUser();
   if (!user) return { supabase, error: "Войдите в аккаунт." as const };
 
-  const { data: owns, error } = await supabase.rpc("owns_business", {
-    p_business_id: businessId,
-  });
+  const [{ data: owns, error }, { data: admin }] = await Promise.all([
+    supabase.rpc("owns_business", { p_business_id: businessId }),
+    supabase.rpc("is_admin"),
+  ]);
   if (error) return { supabase, error: error.message };
-  if (!owns) return { supabase, error: "Вы не владелец этого бизнеса." as const };
 
-  const { data: admin } = await supabase.rpc("is_admin");
-  return { supabase, user, isAdmin: admin === true };
+  const isAdmin = admin === true;
+  if (!owns && !isAdmin) {
+    return { supabase, error: "Вы не владелец этого бизнеса." as const };
+  }
+
+  return { supabase, user, isAdmin };
 }
 
 function revalidateBusinessPaths(businessSlug: string, offerSlug?: string) {

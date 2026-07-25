@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import {
-  HUB_CATEGORY_COUNT_ITEMS,
-  type HubCategoryCounts,
-} from "@/lib/platform/hub-category-counts";
+import type { HubCategoryCounts } from "@/lib/platform/hub-category-counts";
+import { PLATFORM_SECTIONS } from "@/lib/platform/sections";
 import { withHubParam } from "@/lib/regions/hubs";
 import { cn } from "@/lib/utils";
 
@@ -31,10 +29,7 @@ function pluralRu(n: number, one: string, few: string, many: string) {
 }
 
 function totalOf(counts: HubCategoryCounts) {
-  return HUB_CATEGORY_COUNT_ITEMS.reduce(
-    (sum, item) => sum + counts[item.key],
-    0,
-  );
+  return PLATFORM_SECTIONS.reduce((sum, item) => sum + counts[item.key], 0);
 }
 
 export function HomeHubCategoryCounts({
@@ -47,6 +42,16 @@ export function HomeHubCategoryCounts({
   const [loading, setLoading] = useState(!initial);
 
   useEffect(() => {
+    if (initial) {
+      setCounts(initial);
+      setLoading(false);
+    }
+  }, [initial]);
+
+  useEffect(() => {
+    // SSR already filled this hub — skip mount refetch (no "—" flash).
+    if (initial) return;
+
     let cancelled = false;
 
     async function load() {
@@ -72,7 +77,7 @@ export function HomeHubCategoryCounts({
     return () => {
       cancelled = true;
     };
-  }, [hubId]);
+  }, [hubId, initial]);
 
   if (variant === "strip") {
     if (!counts && loading) {
@@ -89,7 +94,7 @@ export function HomeHubCategoryCounts({
       <div className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-[1400px] px-4 py-1.5 sm:px-6 lg:px-8">
           <p className="flex flex-nowrap items-center overflow-x-auto whitespace-nowrap text-xs text-slate-600 sm:text-sm">
-            {HUB_CATEGORY_COUNT_ITEMS.map((item, index) => {
+            {PLATFORM_SECTIONS.map((item, index) => {
               const value = counts[item.key];
               return (
                 <span key={item.key} className="inline-flex shrink-0 items-center">
@@ -150,10 +155,10 @@ export function HomeHubCategoryCounts({
         </div>
 
         <div
-          aria-label="Категории в районе"
+          aria-label="Сводка по разделам"
           className="pointer-events-auto -mx-0.5 flex gap-1.5 overflow-x-auto pb-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2"
         >
-          {HUB_CATEGORY_COUNT_ITEMS.map((item, index) => {
+          {PLATFORM_SECTIONS.map((item, index) => {
             const value = counts?.[item.key];
             const ready = typeof value === "number";
             const unit = ready
@@ -164,7 +169,7 @@ export function HomeHubCategoryCounts({
               <Link
                 key={item.key}
                 className={cn(
-                  "group relative flex min-w-[7.75rem] shrink-0 flex-col gap-0.5 rounded-2xl border border-white/15 bg-white/10 px-2.5 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md transition sm:min-w-[8.25rem] sm:max-w-[10rem] sm:justify-between sm:gap-1.5",
+                  "group relative flex min-w-[7.75rem] shrink-0 flex-col gap-0.5 rounded-2xl border border-white/15 bg-white/10 px-2.5 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md transition sm:min-w-[8.25rem] sm:max-w-[10rem] sm:justify-between sm:gap-1",
                   "hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/18",
                   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow",
                   "motion-safe:animate-[hubCountIn_420ms_ease-out_both]",
@@ -189,10 +194,6 @@ export function HomeHubCategoryCounts({
                     {unit}
                   </p>
                 </div>
-
-                <p className="hidden line-clamp-2 text-[10px] leading-snug text-white/50 sm:block">
-                  {item.hint}
-                </p>
               </Link>
             );
           })}

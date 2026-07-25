@@ -5,8 +5,11 @@ import { mapBusiness, mapCategory } from "@/lib/supabase/mappers";
 import {
   getRegionHubsByIds,
   isLatLngInHubBounds,
+  locationTextMatchesHub,
   parseHubIds,
 } from "@/lib/regions/hubs";
+import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
+import { distanceKm } from "@/lib/geo/distance";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 type Client = SupabaseClient<Database>;
@@ -24,8 +27,10 @@ const BUSINESS_SELECT = `
   ai_verified_reviews_count,
   transaction_verified_reviews_count,
   phone,
+  email,
   website,
   instagram_url,
+  yelp_url,
   google_maps_url,
   google_rating,
   google_reviews_count,
@@ -36,6 +41,7 @@ const BUSINESS_SELECT = `
   latitude,
   longitude,
   location_precision,
+  opening_hours,
   created_at,
   updated_at,
   categories (
@@ -249,8 +255,9 @@ export async function searchBusinesses(
   }
 
   if (query) {
-    // Broad DB filter: each token may match any text field; AND is applied below.
+    // Broad DB filter: each token (+ synonyms) may match any text field; AND below.
     const tokens = searchTokens(query);
+    const expanded = [...new Set(tokens.flatMap((t) => expandSearchToken(t)))];
     const fields = [
       "name",
       "short_description",
@@ -258,7 +265,7 @@ export async function searchBusinesses(
       "city",
       "address_line",
     ] as const;
-    const clauses = tokens.flatMap((token) => {
+    const clauses = expanded.flatMap((token) => {
       const pattern = `%${escapeIlike(token)}%`;
       return fields.map((field) => `${field}.ilike.${pattern}`);
     });
@@ -277,6 +284,7 @@ export async function searchBusinesses(
   let results = ((data ?? []) as BusinessWithCategory[]).map(mapBusiness);
 
   // Match category name against free-text query (not covered by column `.or`).
+  // Synonyms: "маникюр" also matches "manicure" / "nails".
   if (query) {
     const words = searchTokens(query).map((w) => w.toLowerCase());
     if (words.length > 0) {
@@ -292,7 +300,7 @@ export async function searchBusinesses(
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
-        return words.every((word) => haystack.includes(word));
+        return words.every((word) => haystackMatchesToken(haystack, word));
       });
     }
   }
@@ -305,11 +313,28 @@ export async function searchBusinesses(
           isLatLngInHubBounds(business.latitude, business.longitude, hub),
         );
       }
-      const loc = `${business.city ?? ""} ${business.region ?? ""}`.toLowerCase();
-      return hubs.some((hub) => {
-        const tokens = [hub.shortLabel.toLowerCase(), hub.inLabel.toLowerCase()];
-        return tokens.some((token) => token && loc.includes(token));
-      });
+      const loc = `${business.city ?? ""} ${business.region ?? ""} ${business.shortDescription ?? ""}`;
+      return hubs.some((hub) => locationTextMatchesHub(loc, hub));
+    });
+  }
+
+  const nearLat = params.nearLat;
+  const nearLng = params.nearLng;
+  if (
+    typeof nearLat === "number" &&
+    Number.isFinite(nearLat) &&
+    typeof nearLng === "number" &&
+    Number.isFinite(nearLng)
+  ) {
+    results = [...results].sort((a, b) => {
+      const da = hasCoordinates(a)
+        ? distanceKm(nearLat, nearLng, a.latitude, a.longitude)
+        : Number.POSITIVE_INFINITY;
+      const db = hasCoordinates(b)
+        ? distanceKm(nearLat, nearLng, b.latitude, b.longitude)
+        : Number.POSITIVE_INFINITY;
+      if (da !== db) return da - db;
+      return (b.ratingAvg ?? 0) - (a.ratingAvg ?? 0);
     });
   }
 

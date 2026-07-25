@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
-import { BusinessCard } from "@/components/business/BusinessCard";
-import { BusinessHero } from "@/components/business/BusinessHero";
-import { RevealContacts } from "@/components/business/RevealContacts";
-import { BusinessOffersSection } from "@/components/business-offers/BusinessOffersSection";
-import { BusinessReviewsSection } from "@/components/reviews/BusinessReviewsSection";
+import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
 import { getPublicOffersForBusiness } from "@/lib/business-offers/queries";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { createServerClient } from "@/lib/supabase/server";
@@ -16,11 +9,11 @@ import {
   getBusinessBySlug,
   searchBusinesses,
 } from "@/lib/supabase/queries";
-import { formatAddress } from "@/lib/supabase/mappers";
 import {
   getMyReviewForBusiness,
   getPublishedReviewsForBusiness,
   getVerificationSessionForReview,
+  userIsAdmin,
   userOwnsBusiness,
 } from "@/lib/reviews/queries";
 import type { Business } from "@/types/business";
@@ -28,7 +21,7 @@ import type { Review, ReviewVerificationSession } from "@/types/review";
 
 type BusinessPageProps = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ claim?: string }>;
+  searchParams: Promise<{ claim?: string; tab?: string; edit?: string }>;
 };
 
 const SITE_URL =
@@ -65,7 +58,7 @@ export async function generateMetadata({
 
 export default async function BusinessPage({ params, searchParams }: BusinessPageProps) {
   const { slug } = await params;
-  const { claim } = await searchParams;
+  const { claim, tab, edit } = await searchParams;
   const client = await createServerClient();
   const business = await getBusinessBySlug(client, slug);
   if (!business) notFound();
@@ -74,10 +67,11 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, similarPool] = await Promise.all([
+  const [offers, published, owns, isAdmin, similarPool] = await Promise.all([
     getPublicOffersForBusiness(client, business.id),
     getPublishedReviewsForBusiness(client, business.id).catch(() => []),
     user ? userOwnsBusiness(client, business.id) : Promise.resolve(false),
+    user ? userIsAdmin(client).catch(() => false) : Promise.resolve(false),
     business.categoryId
       ? searchBusinesses(client, { categoryId: business.categoryId })
       : getApprovedBusinesses(client, 12),
@@ -97,113 +91,28 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     .filter((b) => b.id !== business.id)
     .slice(0, 4);
 
-  const address = formatAddress(business);
-  const addressWithRegion =
-    address && business.region ? `${address}, ${business.region}` : address;
-  const showGallery = hasRealBusinessPhoto(business.imageUrl);
+  const canManage = owns || isAdmin;
+  const autoClaim = claim === "1" && Boolean(user) && !canManage;
+  const editMode = edit === "1" && canManage;
   const cityOnly = business.city?.trim() || "";
-  const autoClaim = claim === "1" && Boolean(user) && !owns;
 
   return (
-    <div className="mx-auto max-w-5xl space-y-10 pb-12">
-      <Link
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-slate-900"
-        href="/search"
-      >
-        <ArrowLeft aria-hidden="true" className="size-4" />
-        Назад к поиску
-      </Link>
-
-      <BusinessHero
+    <>
+      <BusinessProfileView
+        activeTab={tab}
         autoClaim={autoClaim}
         business={business}
         businessSlug={slug}
-        isOwner={owns}
-      />
-
-      {cityOnly ? (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6">
-          <h2 className="sr-only">Основная информация</h2>
-          <p className="text-sm text-slate-700">{cityOnly}</p>
-        </section>
-      ) : null}
-
-      <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="text-xl font-semibold text-slate-900">Контакты</h2>
-        <RevealContacts
-          address={addressWithRegion}
-          businessId={business.id}
-          businessSlug={slug}
-          initiallyRevealed={owns}
-          phone={business.phone}
-          surface="business"
-          website={business.website}
-        />
-      </section>
-
-      {business.description && (
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-slate-900">О компании</h2>
-          <p className="whitespace-pre-wrap text-slate-600">{business.description}</p>
-        </section>
-      )}
-
-      {showGallery && (
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-slate-900">Галерея</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-slate-100">
-              <Image
-                alt={business.name}
-                className="object-cover"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                src={business.imageUrl!}
-                unoptimized
-              />
-            </div>
-          </div>
-        </section>
-      )}
-
-      <BusinessOffersSection
-        businessSlug={slug}
-        offers={offers}
-        presence={{
-          website: business.website,
-          instagramUrl: business.instagramUrl,
-          googleMapsUrl: business.googleMapsUrl,
-          googleRating: business.googleRating,
-          googleReviewsCount: business.googleReviewsCount,
-          latitude: business.latitude,
-          longitude: business.longitude,
-        }}
-      />
-
-      <BusinessReviewsSection
-        aiVerifiedCount={business.aiVerifiedReviewsCount}
-        businessId={business.id}
-        businessSlug={business.slug}
         currentUserId={user?.id ?? null}
-        isOwner={owns}
+        editMode={editMode}
+        isAdmin={isAdmin}
+        isOwner={canManage}
         myReview={myReview}
         mySession={mySession}
-        ratingAvg={business.ratingAvg}
+        offers={offers}
         reviews={reviews}
-        reviewsCount={business.reviewsCount}
-        transactionVerifiedCount={business.transactionVerifiedReviewsCount}
+        similar={similar}
       />
-
-      {similar.length > 0 && (
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-900">Похожие бизнесы</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {similar.map((item) => (
-              <BusinessCard key={item.id} business={item} />
-            ))}
-          </div>
-        </section>
-      )}
 
       <script
         dangerouslySetInnerHTML={{
@@ -224,6 +133,6 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         }}
         type="application/ld+json"
       />
-    </div>
+    </>
   );
 }

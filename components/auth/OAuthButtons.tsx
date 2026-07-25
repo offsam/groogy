@@ -10,6 +10,7 @@ import {
   safeRedirectPath,
 } from "@/lib/auth/messages";
 import { AuthAlert } from "@/components/auth/AuthShell";
+import { FacebookIcon, GoogleIcon } from "@/components/brand/BrandIcons";
 import { Button } from "@/components/ui/Button";
 
 type OAuthButtonsProps = {
@@ -58,7 +59,9 @@ export function OAuthButtons({ nextPath = "/profile" }: OAuthButtonsProps) {
         >
           {loading === "google" ? (
             <Loader2 aria-hidden="true" className="size-4 animate-spin" />
-          ) : null}
+          ) : (
+            <GoogleIcon className="size-4" />
+          )}
           Google
         </Button>
         <Button
@@ -70,7 +73,9 @@ export function OAuthButtons({ nextPath = "/profile" }: OAuthButtonsProps) {
         >
           {loading === "facebook" ? (
             <Loader2 aria-hidden="true" className="size-4 animate-spin" />
-          ) : null}
+          ) : (
+            <FacebookIcon className="size-4" />
+          )}
           Facebook
         </Button>
       </div>

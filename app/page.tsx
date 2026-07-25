@@ -1,6 +1,7 @@
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { formatBrandHeadline } from "@/lib/brand";
 import { getBrandLocationForProfile } from "@/lib/brand/location";
+import { getHubCategoryCounts } from "@/lib/platform/hub-category-counts";
 import { getPopularHomeResources } from "@/lib/platform/popular-resources";
 import {
   DEFAULT_REGION_HUB,
@@ -27,6 +28,9 @@ export default async function HomePage() {
   let initialHub = DEFAULT_REGION_HUB;
   let initialInLabel = DEFAULT_REGION_HUB.inLabel;
   let initialCountyGeoid: string | null = DEFAULT_REGION_HUB.countyGeoids[0] ?? null;
+  let initialSectionCounts: Awaited<
+    ReturnType<typeof getHubCategoryCounts>
+  > | null = null;
 
   try {
     const client = await createServerClient();
@@ -58,10 +62,15 @@ export default async function HomePage() {
       }
     }
 
-    popularFeed = await getPopularHomeResources(client, {
-      hubId: initialHub.id,
-      limit: 6,
-    }).catch(() => []);
+    const [feed, counts] = await Promise.all([
+      getPopularHomeResources(client, {
+        hubId: initialHub.id,
+        limit: 6,
+      }).catch(() => [] as typeof popularFeed),
+      getHubCategoryCounts(initialHub.id).catch(() => null),
+    ]);
+    popularFeed = feed;
+    initialSectionCounts = counts;
   } catch (err) {
     error = err instanceof Error ? err.message : "Неизвестная ошибка";
   }
@@ -72,6 +81,7 @@ export default async function HomePage() {
       initialCountyGeoid={initialCountyGeoid}
       initialHub={initialHub}
       initialInLabel={initialInLabel}
+      initialSectionCounts={initialSectionCounts}
       lockedFromProfile={lockedFromProfile}
       newest={activityNewest}
       popular={activityPopular}

@@ -5,7 +5,6 @@ import { Shield } from "lucide-react";
 import { BrandMark } from "@/components/brand/BrandMark";
 import { HeaderAuth, HeaderGuestAuth } from "@/components/auth/HeaderAuth";
 import { HeaderRegionChip } from "@/components/layout/HeaderRegionChip";
-import { ViewModeToggle } from "@/components/layout/ViewModeToggle";
 import { SearchBar } from "@/components/search/SearchBar";
 import { BRAND_NAME } from "@/lib/brand";
 import { getBrandLocationForProfile } from "@/lib/brand/location";
@@ -99,9 +98,6 @@ export async function Header() {
         </div>
 
         <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:ml-0 sm:gap-2">
-          <div className="hidden sm:block">
-            <ViewModeToggle variant="header" />
-          </div>
           {isAdmin ? (
             <Link
               className="inline-flex items-center gap-2 rounded-lg border border-brand-blue/25 bg-brand-blue/5 px-2.5 py-2 text-sm font-medium text-brand-blue-deep transition-colors hover:bg-brand-blue/10 sm:px-3"
@@ -118,7 +114,7 @@ export async function Header() {
           )}
         </div>
 
-        <div className="order-last min-w-0 w-full flex-none sm:order-none sm:max-w-md sm:flex-1">
+        <div className="header-search order-last min-w-0 w-full flex-none sm:order-none sm:max-w-md sm:flex-1">
           <SearchBar />
         </div>
       </div>

@@ -1,3 +1,5 @@
+import type { OpeningHours } from "@/lib/business/opening-hours";
+
 export type Category = {
   id: string;
   slug: string;
@@ -20,8 +22,10 @@ export type Business = {
   aiVerifiedReviewsCount: number;
   transactionVerifiedReviewsCount: number;
   phone: string | null;
+  email: string | null;
   website: string | null;
   instagramUrl: string | null;
+  yelpUrl: string | null;
   googleMapsUrl: string | null;
   googleRating: number | null;
   googleReviewsCount: number;
@@ -33,6 +37,8 @@ export type Business = {
   longitude: number | null;
   /** street = точный адрес; county = только район (Orange County и т.п.) */
   locationPrecision: "street" | "county" | null;
+  openingHours: OpeningHours | null;
+  createdAt?: string | null;
 };
 
 export type BusinessSearchParams = {
@@ -42,6 +48,9 @@ export type BusinessSearchParams = {
   city?: string | null;
   /** Filter to a regional hub (map bounds / county label). */
   hubId?: string | null;
+  /** When set, results with coordinates are sorted nearest-first. */
+  nearLat?: number | null;
+  nearLng?: number | null;
 };
 
 export function hasCoordinates(

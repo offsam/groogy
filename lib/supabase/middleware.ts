@@ -36,52 +36,62 @@ function safeNextPath(value: string | null): string {
   return value;
 }
 
+function passThrough(request: NextRequest) {
+  return NextResponse.next({ request });
+}
+
 export async function updateSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({ request });
+  let supabaseResponse = passThrough(request);
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
-  if (!url || !anonKey) {
+  // Missing/invalid env must never take the whole site down.
+  if (!url || !anonKey || !/^https?:\/\//i.test(url)) {
     return supabaseResponse;
   }
 
-  const supabase = createServerClient(url, anonKey, {
-    cookies: {
-      getAll() {
-        return request.cookies.getAll();
+  try {
+    const supabase = createServerClient(url, anonKey, {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => {
+            request.cookies.set(name, value);
+          });
+          supabaseResponse = passThrough(request);
+          cookiesToSet.forEach(({ name, value, options }) => {
+            supabaseResponse.cookies.set(name, value, options);
+          });
+        },
       },
-      setAll(cookiesToSet) {
-        cookiesToSet.forEach(({ name, value }) => {
-          request.cookies.set(name, value);
-        });
-        supabaseResponse = NextResponse.next({ request });
-        cookiesToSet.forEach(({ name, value, options }) => {
-          supabaseResponse.cookies.set(name, value, options);
-        });
-      },
-    },
-  });
+    });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  const { pathname, searchParams } = request.nextUrl;
+    const { pathname, searchParams } = request.nextUrl;
 
-  if (!user && isProtectedPath(pathname)) {
-    const loginUrl = request.nextUrl.clone();
-    loginUrl.pathname = "/login";
-    loginUrl.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
-    return NextResponse.redirect(loginUrl);
+    if (!user && isProtectedPath(pathname)) {
+      const loginUrl = request.nextUrl.clone();
+      loginUrl.pathname = "/login";
+      loginUrl.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    if (user && AUTH_PAGES.has(pathname)) {
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = safeNextPath(searchParams.get("next"));
+      redirectUrl.search = "";
+      return NextResponse.redirect(redirectUrl);
+    }
+
+    return supabaseResponse;
+  } catch {
+    // Auth/session refresh failures must not hard-fail every request.
+    return passThrough(request);
   }
-
-  if (user && AUTH_PAGES.has(pathname)) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = safeNextPath(searchParams.get("next"));
-    redirectUrl.search = "";
-    return NextResponse.redirect(redirectUrl);
-  }
-
-  return supabaseResponse;
 }

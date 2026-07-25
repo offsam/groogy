@@ -1,4 +1,7 @@
-"""Map analyzed Facebook logical posts → import_review_items rows."""
+"""Map analyzed Facebook logical posts → import_review_items rows.
+
+Uses existing table columns only. Extra FB identifiers live in raw_payload.
+"""
 
 from __future__ import annotations
 
@@ -67,18 +70,45 @@ def map_facebook_post(
     if not fingerprint:
         raise ValueError("facebook post missing source_fingerprint")
 
-    # Minimal author fields — display name only if present; no profile objects.
-    author_name = post.get("sender_name")
+    tg = as_list(entity.get("telegram"))
+    telegram_username = tg[0].lstrip("@") if tg else None
+
+    # Review-queue raw_payload: normalized + classification — not full Apify/session blob.
+    raw_payload = {
+        "source": "facebook",
+        "source_platform": post.get("source_platform") or "facebook_group",
+        "source_post_id": post.get("source_post_id") or post.get("facebook_post_id"),
+        "source_group_url": post.get("source_group_url") or post.get("group_url"),
+        "source_fingerprint": fingerprint,
+        "source_url": post.get("source_url"),
+        "published_at": posted_at,
+        "collected_at": post.get("collected_at"),
+        "raw_text": post.get("merged_text") or post.get("text"),
+        "normalized_payload": post.get("normalized")
+        or {
+            "text": post.get("merged_text"),
+            "media": post.get("source_media"),
+        },
+        "classification": post.get("classification"),
+        "confidence": post.get("confidence"),
+        "decision": post.get("decision"),
+        "decision_reason": post.get("decision_reason"),
+        "extracted_entity": entity,
+        "adapter_name": post.get("adapter_name"),
+        "duplicate_status": post.get("duplicate_status"),
+        # Media CDN URLs are ephemeral — never treat as permanent card photos.
+        "media_note": "facebook_cdn_urls_ephemeral_do_not_publish",
+    }
 
     return {
         "source": "facebook",
-        "source_group": post.get("chat_title"),
+        "source_group": post.get("chat_title") or post.get("source_group_name"),
         "source_chat_id": str(post.get("source_chat_id") or "") or None,
         "source_message_ids": [],
         "source_fingerprint": fingerprint,
         "source_author_id": None,
         "source_author_username": None,
-        "source_author_display_name": author_name,
+        "source_author_display_name": post.get("sender_name") or post.get("author_name"),
         "source_posted_at": posted_at,
         "source_text": post.get("merged_text") or post.get("text"),
         "source_url": post.get("source_url") or post.get("facebook_post_link"),
@@ -106,11 +136,7 @@ def map_facebook_post(
         "state": entity.get("state"),
         "phone": as_list(entity.get("phone")),
         "whatsapp": as_list(entity.get("whatsapp")),
-        "telegram_username": (
-            as_list(entity.get("telegram"))[0].lstrip("@")
-            if as_list(entity.get("telegram"))
-            else None
-        ),
+        "telegram_username": telegram_username,
         "telegram_user_id": None,
         "instagram": as_list(entity.get("instagram")),
         "website": as_list(entity.get("website")),
@@ -122,17 +148,6 @@ def map_facebook_post(
         "occurrence_count": post.get("occurrence_count"),
         "first_seen": post.get("first_seen_at"),
         "last_seen": post.get("last_seen_at"),
-        "raw_payload": {
-            "facebook_post_id": post.get("facebook_post_id"),
-            "source_fingerprint": fingerprint,
-            "adapter_name": post.get("adapter_name"),
-            "merged_text": post.get("merged_text"),
-            "source_url": post.get("source_url"),
-            "decision": post.get("decision"),
-            "classification": post.get("classification"),
-            "confidence": post.get("confidence"),
-            "extracted_entity": entity,
-            "duplicate_status": post.get("duplicate_status"),
-        },
+        "raw_payload": raw_payload,
         "review_status": review_status,
     }

@@ -1,0 +1,15 @@
+-- DRAFT ONLY — do not apply for Facebook PoC.
+-- Existing import_review_items already has:
+--   source, source_url, source_fingerprint (UNIQUE), source_text,
+--   source_posted_at, source_media, raw_payload, review_status, …
+-- source_post_id and source_group_url are stored inside raw_payload for PoC.
+--
+-- Apply later only if you need indexed lookups by Facebook post id:
+--
+-- alter table public.import_review_items
+--   add column if not exists source_post_id text;
+-- create index if not exists import_review_items_source_post_id_idx
+--   on public.import_review_items (source, source_post_id)
+--   where source_post_id is not null;
+--
+-- No unique change needed: source_fingerprint unique already prevents re-import.

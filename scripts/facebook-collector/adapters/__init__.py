@@ -1,8 +1,7 @@
-"""Register adapters by name."""
+"""Register Facebook Actor adapters."""
 
 from __future__ import annotations
 
-from adapters.base import FacebookActorAdapter
 from adapters.generic_apify import GenericApifyGroupAdapter
 from adapters.seed_entities import SeedEntitiesAdapter
 
@@ -12,7 +11,7 @@ ADAPTERS: dict[str, type] = {
 }
 
 
-def get_adapter(name: str) -> FacebookActorAdapter:
+def get_adapter(name: str):
     try:
         cls = ADAPTERS[name]
     except KeyError as exc:

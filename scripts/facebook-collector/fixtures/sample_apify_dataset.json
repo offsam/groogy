@@ -7,10 +7,13 @@
     "groupTitle": "PoC Group Fixture",
     "groupUrl": "https://www.facebook.com/groups/107680889267042/",
     "timestamp": "2026-07-22T10:00:00Z",
-    "text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ И НЕ ТОЛЬКО!!! Буду развозить икру по ЛА, валлам, ОС и другим районам. Бренд Silver bay. Цена: 1 упаковка (500 г) — $75. Тел +1-929-340-5993",
-    "user": {"name": "Den Mataev"},
-    "images": ["https://example.com/fixture-caviar.jpg"],
-    "comments": [{"text": "should be dropped by slim_raw"}],
+    "text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ. Бренд Silver bay. 500 г — $75. Телефон для заказа указан в профиле группы.",
+    "user": {"name": "Fixture Author A"},
+    "images": [
+      "https://scontent.xx.fbcdn.net/v/fixture-image-1.jpg",
+      "https://scontent.xx.fbcdn.net/v/fixture-image-2.jpg"
+    ],
+    "comments": [{"text": "dropped by slim_raw"}],
     "members": ["should-not-appear"]
   },
   {
@@ -20,8 +23,8 @@
     "group_id": "107680889267042",
     "groupName": "PoC Group Fixture",
     "time": "2026-07-16T15:30:00Z",
-    "message": "Хотите, чтобы у вашей семьи было больше пространства? Temecula, Murrieta и Winchester. George Khazanovskiy. 619-277-2766.",
-    "authorName": "George Khazanovskiy"
+    "message": "Недвижимость Temecula / Murrieta. Пишите в Direct. Instagram: @fixture.realtor.example",
+    "authorName": "Fixture Author B"
   },
   {
     "type": "post",
@@ -29,9 +32,12 @@
     "permalink": "https://www.facebook.com/groups/107680889267042/permalink/1200000000000003/",
     "groupId": "107680889267042",
     "date": "2026-07-10T12:00:00Z",
-    "postText": "Маникюр / педикюр, запись открыта. Irvine. Instagram: @katrin.nails.example WhatsApp +1 949 555 0100",
-    "author": "Katrin Svt",
-    "photos": ["https://example.com/nails1.jpg", "https://example.com/nails2.jpg"]
+    "postText": "Маникюр / педикюр, запись открыта. Irvine. Сайт https://example-nails.example WhatsApp доступен по запросу.",
+    "author": "Fixture Author C",
+    "photos": [
+      "https://scontent.xx.fbcdn.net/v/fixture-nails-1.jpg",
+      "https://external.xx.fbcdn.net/safe_image.php?url=https%3A%2F%2Fexample.com%2Fx.jpg"
+    ]
   },
   {
     "type": "notice",
@@ -43,12 +49,30 @@
     "url": "https://www.facebook.com/groups/107680889267042/posts/1200000000000001/?ref=share",
     "groupId": "107680889267042",
     "timestamp": "2026-07-22T10:05:00Z",
-    "text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ И НЕ ТОЛЬКО!!! Буду развозить икру по ЛА, валлам, ОС и другим районам. Бренд Silver bay. Цена: 1 упаковка (500 г) — $75. Тел +1-929-340-5993",
-    "userName": "Den Mataev"
+    "text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ. Бренд Silver bay. 500 г — $75. Телефон для заказа указан в профиле группы.",
+    "userName": "Fixture Author A"
   },
   {
     "type": "group_profile",
     "groupId": "107680889267042",
     "memberCount": 99999
+  },
+  {
+    "type": "post",
+    "postId": "1200000000000004",
+    "url": "https://www.facebook.com/groups/107680889267042/posts/1200000000000004/",
+    "groupUrl": "https://www.facebook.com/groups/107680889267042/",
+    "timestamp": "2026-07-08T09:00:00Z",
+    "text": "Предлагаю услуги бухгалтера для малого бизнеса. Работаю в OC. Пишите в Telegram @fixture_accountant",
+    "images": ["https://scontent.xx.fbcdn.net/v/fixture-accountant.jpg"]
+  },
+  {
+    "type": "post",
+    "postId": "1200000000000005",
+    "url": "https://www.facebook.com/groups/107680889267042/posts/1200000000000005/",
+    "groupUrl": "https://www.facebook.com/groups/107680889267042/",
+    "timestamp": "2026-07-05T18:00:00Z",
+    "text": "Продаю детскую коляску, личная вещь, самовывоз Irvine.",
+    "photos": ["https://scontent.xx.fbcdn.net/v/fixture-stroller.jpg"]
   }
 ]

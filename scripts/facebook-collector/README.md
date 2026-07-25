@@ -1,76 +1,130 @@
 # Facebook Groups collector (PoC)
 
-Goal: prove one group → review queue path **without** coupling КРУГИ to a specific Apify Actor.
-
-## Pipeline
+Pull 20–50 posts from **one** Facebook group via Apify, normalize, analyze with the existing Telegram pipeline analyzers, and stage rows in `import_review_items` for **manual** review.
 
 ```text
-Apify dataset (or fixture / seed JSON)
-→ FacebookActorAdapter (swappable)
-→ CanonicalFacebookPost
-→ logical post
-→ existing analyzer (rule_based | llm)
-→ entity dedupe
-→ import_review_items (pending, manual review)
+Facebook → Apify dataset → adapter → normalize → analyze → dedupe → import_review_items
 ```
 
-No cron. No autopublish. Actor format stays behind an adapter.
+No cron. No autopublish to `businesses` / `listings`. No multi-group crawl.
 
-## What we keep
+## 1. Create an Apify token
 
-- post text
-- published_at
-- source_url / facebook_post_id
-- group id/name/url
-- attachments (image/video/link URLs)
-- contacts extracted from the ad text (via analyzer)
+1. Sign in at [Apify Console](https://console.apify.com/).
+2. Settings → Integrations → API tokens → Create token.
+3. Copy the token once (treat it like a password).
 
-## What we do not store
+## 2. Where to put the token
 
-- author profiles / member lists
-- comment threads
-- reaction breakdowns (dropped in adapter slim_raw)
+Add to **local** `.env.local` (gitignored). Never commit real values.
 
-## Incremental sync
+```text
+APIFY_TOKEN=
+APIFY_ACTOR_ID=
+FACEBOOK_GROUP_URL=
+FACEBOOK_DATASET_ID=
+```
 
-Owned by КРУГИ via `source_fingerprint` + unique index on `import_review_items`:
+Placeholders are also listed in `.env.example`.
 
-`facebook:{group_id}:{facebook_post_id}`
+## 3. Choose an Actor
 
-Do **not** rely on any Actor `incrementalMode` flag.
+Pick any Facebook **group posts** Actor on Apify Store. Set:
 
-## Run
+```text
+APIFY_ACTOR_ID=username~actor-name
+```
+
+or pass `--actor-id` on the CLI.
+
+Edit `config.example.json` → `actor_input_template` so field names match that Actor (`startUrls` vs `groupUrls`, limit keys, etc.). The core pipeline never imports Actor-specific fields — only the adapter does.
+
+## 4. Facebook group URL
+
+```text
+FACEBOOK_GROUP_URL=https://www.facebook.com/groups/YOUR_GROUP_ID/
+```
+
+or `--group-url "…"`.
+
+Public groups: cookies often optional. Closed groups: account must be a member; cookies via Apify secrets / `FACEBOOK_COOKIES_JSON` only.
+
+## 5. Dataset ID (Mode A)
+
+If you already ran an Actor in the Console:
+
+1. Open the run → Dataset → copy Dataset ID.
+2. Set `FACEBOOK_DATASET_ID=` or pass `--dataset-id`.
+
+## 6. Dry-run (default)
+
+Does **not** write to Supabase.
 
 ```bash
-# Offline fixture (no Apify, no LLM)
-python3 scripts/facebook-collector/run_poc.py --fixture --analyzer rule_based --dry-run
+# Offline plumbing (no Apify token)
+python3 scripts/facebook-collector/run_facebook_collector.py --fixture --limit 20
 
-# Historical seed texts (~40 posts from the same FB group)
-python3 scripts/facebook-collector/run_poc.py \
-  --input scripts/business-seed/data/facebook_entities_posts_1_41.json \
-  --adapter seed_entities --limit 50 --analyzer rule_based --dry-run
+# Existing Apify dataset
+python3 scripts/facebook-collector/run_facebook_collector.py \
+  --dataset-id "$FACEBOOK_DATASET_ID" \
+  --limit 20
 
-# Real Apify dataset export (after you pick a stable Actor)
-python3 scripts/facebook-collector/run_poc.py \
-  --input /path/to/dataset.json \
-  --adapter generic_apify_group \
-  --analyzer llm --dry-run
-
-# Optional: insert pending rows only (still no public publish)
-python3 scripts/facebook-collector/run_poc.py --fixture --analyzer rule_based --apply
+# Start Actor for one group
+python3 scripts/facebook-collector/run_facebook_collector.py \
+  --actor-id "$APIFY_ACTOR_ID" \
+  --group-url "$FACEBOOK_GROUP_URL" \
+  --limit 20
 ```
 
-## Adapters
+Omit `--apply` ⇒ dry-run. Optional explicit `--dry-run` is fine.
 
-| Name | When |
+## 7. Apply (review queue only)
+
+```bash
+python3 scripts/facebook-collector/run_facebook_collector.py \
+  --dataset-id "$FACEBOOK_DATASET_ID" \
+  --limit 20 \
+  --apply
+```
+
+Inserts `review_status=pending` into `import_review_items` with `source=facebook`.  
+Re-running the same dataset skips existing `source_fingerprint` (unique constraint).
+
+## 8. Where to see results
+
+- Local JSON: `scripts/facebook-collector/data/poc/` (or `--output PATH`)
+- Admin UI: `/admin/import-review` (filter/source facebook when available)
+- CLI prints a stats JSON report (counts, media notes, redacted sample)
+
+## 9. Switch Actor without touching the pipeline
+
+1. Change `APIFY_ACTOR_ID` / `--actor-id`.
+2. Adjust `actor_input_template` in config.
+3. If the dataset schema differs a lot, add `adapters/your_actor.py` and register it in `adapters/__init__.py`.
+4. Keep using `generic_apify_group` when field aliases already match.
+
+## 10. Cookies: add / replace / remove
+
+- **Preferred:** Apify Actor secret / input UI (not in this repo).
+- **Local only:** `FACEBOOK_COOKIES_JSON='[...]'` in `.env.local` (never commit).
+- **Remove:** delete the env var and clear Apify secrets; rotate the Facebook account password if a token leaked.
+- Collector code never writes cookies to DB, fixtures, or stdout.
+
+## Modules
+
+| File | Role |
 |---|---|
-| `generic_apify_group` | Common Apify field aliases (`postId`/`postUrl`/`text`/…) |
-| `seed_entities` | Local `facebook_entities_*.json` with `original_text` |
+| `fetch_apify_dataset.py` | Dataset fetch + Actor run client |
+| `normalize_facebook.py` | URLs, SHA-256 fingerprint, logical post |
+| `models.py` | Normalized post / media types |
+| `adapters/` | Actor-specific row parsing |
+| `map_review.py` | → `import_review_items` columns |
+| `validate.py` | PoC stats + media CDN notes |
+| `run_facebook_collector.py` | CLI |
 
-Add a new module under `adapters/` for a specific Actor instead of branching core code.
+## Safety
 
-## Next after PoC
-
-1. Run one real public (or cookie-backed closed) group, 50–100 posts.
-2. Validate field coverage (id, url, date, text, media).
-3. Only then schedule pulls + production wiring.
+- No cookies/tokens in git
+- Service role only in server scripts (`.env.local`)
+- No cron / multi-group / Playwright login in this PoC
+- Facebook CDN media URLs are stored as ephemeral references only — not permanent card photos

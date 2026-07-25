@@ -1,0 +1,23 @@
+{
+  "entity_type": "Marketplace Listing",
+  "entity_name": "Mikhail Kulesh - Vehicle Rental",
+  "category": "Transportation",
+  "subcategory": "Vehicle Rental",
+  "description": "Vehicle rental services providing cars for temporary use.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Vehicle rental service",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 7,
+  "source_author": "Mikhail Kulesh",
+  "source_post_date": "2026-07-16T00:00:00Z",
+  "needs_enrichment": true,
+  "confidence": "LOW"
+}

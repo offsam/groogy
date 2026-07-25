@@ -1,0 +1,21 @@
+{
+  "id": "anastasia-kinder-nails",
+  "entity_type": "Specialist",
+  "entity_name": "Anastasia Kinder",
+  "category": "Beauty Services",
+  "subcategory": "Manicure & Pedicure",
+  "city": "Irvine",
+  "state": "CA",
+  "instagram": "hair_extension_usa",
+  "services": [
+    "Russian manicure",
+    "Pedicure"
+  ],
+  "promotions": [
+    {
+      "name": "Russian manicure and pedicure package",
+      "price": 140,
+      "currency": "USD"
+    }
+  ]
+}

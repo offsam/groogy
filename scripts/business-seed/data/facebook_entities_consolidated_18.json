@@ -1,0 +1,564 @@
+{
+  "schema_version": "1.0",
+  "dataset_name": "facebook_entities_consolidated_18",
+  "entity_count": 18,
+  "deduplication_rule": "One business or specialist equals one entity. Repeated posts add services, listings, events, promotions or contacts to the existing entity.",
+  "entities": [
+    {
+      "id": "valeriia-andriushchenko",
+      "entity_type": "Specialist",
+      "entity_name": "Valeriia Andriushchenko",
+      "business_name": "Fathom Realty",
+      "category": "Real Estate",
+      "subcategory": "Residential Real Estate Agent",
+      "description": "REALTOR® representing buyers and sellers in California.",
+      "city": "Orange County",
+      "state": "CA",
+      "phones": [
+        "+1-949-531-5828"
+      ],
+      "emails": [
+        "agentvaleriia@gmail.com"
+      ],
+      "licenses": {
+        "dre": "02248658",
+        "broker_license": "01901202"
+      },
+      "services": [
+        "Buyer representation",
+        "Seller representation",
+        "Mortgage broker consultation coordination",
+        "Transaction support through closing"
+      ],
+      "real_estate_listings": [
+        {
+          "property_type": "Townhouse",
+          "address": "5477 Nestle Ave #11, Tarzana, CA",
+          "city": "Tarzana",
+          "state": "CA",
+          "price": 714000,
+          "open_house": {
+            "date": "2026-07-18",
+            "start_time": "14:00",
+            "end_time": "16:00"
+          },
+          "listed_by": "Marina Ionova"
+        },
+        {
+          "property_type": "Condominium",
+          "city": "Santa Ana",
+          "state": "CA",
+          "price": 349900,
+          "bedrooms": 2,
+          "bathrooms": 1.5,
+          "square_feet": 952,
+          "hoa_monthly": 449,
+          "tenant_rent_monthly": 2200,
+          "tenant_lease_end": "2027-01-31",
+          "listed_by": "Ezra Silva"
+        },
+        {
+          "property_type": "Condominium",
+          "city": "Lake Forest",
+          "state": "CA",
+          "price": 399000,
+          "bedrooms": 1,
+          "bathrooms": 1,
+          "square_feet": 560,
+          "hoa_monthly": 484,
+          "features": [
+            "Fully updated",
+            "Private fenced patio",
+            "In-unit washer and dryer",
+            "Covered parking",
+            "Single-story layout"
+          ],
+          "community_amenities": [
+            "3 pools",
+            "3 spas",
+            "Tennis courts",
+            "Basketball courts",
+            "Walking paths",
+            "Ponds and streams",
+            "Guest parking"
+          ],
+          "listed_by": "Gabriel Gonzales"
+        }
+      ],
+      "source_authors": [
+        "Valeriia the Realtor",
+        "Valeriia Andriushchenko"
+      ]
+    },
+    {
+      "id": "olga-osipova-fitness",
+      "entity_type": "Specialist",
+      "entity_name": "Olga Osipova",
+      "category": "Fitness & Wellness",
+      "subcategory": "Fitness Trainer & Nutritionist",
+      "description": "Online fitness and nutrition coaching for women, including clients age 40+.",
+      "state": null,
+      "phones": [],
+      "emails": [],
+      "website": "https://fitness.reflectingclouds.com",
+      "experience_years": 13,
+      "services": [
+        "Strength training",
+        "Pilates",
+        "Yoga",
+        "Stretching",
+        "Cardio",
+        "Personal nutrition plans"
+      ],
+      "pricing": [
+        {
+          "name": "Mini-group training",
+          "price_from": 12,
+          "currency": "USD"
+        },
+        {
+          "name": "Personal training",
+          "price_from": 40,
+          "currency": "USD"
+        }
+      ],
+      "promotions": [
+        "Free trial session"
+      ],
+      "target_audience": [
+        "Women 40+"
+      ]
+    },
+    {
+      "id": "zulya-alieva-homemade-food",
+      "entity_type": "Specialist",
+      "entity_name": "Zulya Alieva",
+      "category": "Food & Catering",
+      "subcategory": "Homemade Food",
+      "description": "Homemade meals and prepared foods made from fresh ingredients.",
+      "city": "Orange County",
+      "state": "CA",
+      "phones": [
+        "+1-949-283-0591"
+      ],
+      "messengers": {
+        "whatsapp": "+1-949-283-0591",
+        "telegram": "https://t.me/+WPf8ype7QG4yODI5"
+      },
+      "services": [
+        "Homemade meal preparation",
+        "Meal preparation for truck drivers",
+        "Custom food orders"
+      ],
+      "products": [
+        "Manty",
+        "Chebureki",
+        "Pelmeni",
+        "Galnash",
+        "Vareniki"
+      ]
+    },
+    {
+      "id": "victoria-kuzyakina-yoga",
+      "entity_type": "Specialist",
+      "entity_name": "Victoria Kuzyakina",
+      "category": "Fitness & Wellness",
+      "subcategory": "Yoga & Meditation",
+      "description": "Yoga, breathing, meditation and body-practice sessions.",
+      "services": [
+        "Yoga",
+        "Meditation",
+        "Asanas",
+        "Nauli",
+        "Vacuum practice",
+        "Yoga Nidra"
+      ],
+      "events": [
+        {
+          "name": "Three-hour yoga practice",
+          "date": "2026-07-19",
+          "start_time": "10:00",
+          "end_time": "13:00",
+          "venue": "Awoken Space",
+          "city": "Malibu",
+          "state": "CA",
+          "registration": "Facebook direct message"
+        }
+      ]
+    },
+    {
+      "id": "inna-meleshko-nails",
+      "entity_type": "Specialist",
+      "entity_name": "Inna Meleshko",
+      "category": "Beauty Services",
+      "subcategory": "Manicure & Pedicure",
+      "city": "Laguna Hills",
+      "state": "CA",
+      "services": [
+        "Manicure",
+        "Gel polish",
+        "Nail strengthening",
+        "Nail leveling",
+        "Pedicure"
+      ],
+      "features": [
+        "Sterile tools",
+        "Professional materials"
+      ]
+    },
+    {
+      "id": "amega-studios",
+      "entity_type": "Organization",
+      "entity_name": "Amega Studios",
+      "category": "Entertainment",
+      "subcategory": "Casting & Video Production",
+      "city": "Westlake Village",
+      "state": "CA",
+      "emails": [
+        "castyoutube@gmail.com"
+      ],
+      "jobs": [
+        {
+          "title": "Actor for paid YouTube project",
+          "age_min": 18,
+          "age_max": 25,
+          "union_status": "Non-Union",
+          "compensation": 100,
+          "compensation_unit": "USD/day",
+          "notes": "Rate applies during the first month."
+        }
+      ]
+    },
+    {
+      "id": "maria-inevatova-beauty-space",
+      "entity_type": "Specialist",
+      "entity_name": "Maria Inevatova",
+      "category": "Commercial Real Estate",
+      "subcategory": "Beauty Workspace Rental",
+      "city": "Tustin",
+      "state": "CA",
+      "addresses": [
+        "18062 Irvine Blvd, Tustin, CA"
+      ],
+      "rentals": [
+        {
+          "name": "Full-time beauty workspace",
+          "price": 400,
+          "currency": "USD",
+          "billing_period": "month",
+          "target_tenants": [
+            "Beauty professionals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenina-law-inc",
+      "entity_type": "Business",
+      "entity_name": "Tenina Law, Inc.",
+      "contact_person": "Alla V. Tenina",
+      "category": "Legal Services",
+      "subcategory": "Tax Law & Personal Injury",
+      "city": "Sherman Oaks",
+      "state": "CA",
+      "addresses": [
+        "15250 Ventura Blvd Suite 1200, Sherman Oaks, CA 91403"
+      ],
+      "phones": [
+        "+1-213-596-0265"
+      ],
+      "website": "https://teninalaw.com",
+      "services": [
+        "Tax law",
+        "Tax audits",
+        "Cryptocurrency tax compliance",
+        "Personal injury",
+        "Car accident representation"
+      ],
+      "specialties": [
+        "Representation of people injured in accidents caused by another party"
+      ]
+    },
+    {
+      "id": "stephen-law-pc",
+      "entity_type": "Business",
+      "entity_name": "Stephen Law PC",
+      "contact_person": "Eugene Stephen",
+      "category": "Legal Services",
+      "subcategory": "Immigration Law",
+      "city": "Sacramento",
+      "state": "CA",
+      "addresses": [
+        "2233 Watt Ave Ste 295, Sacramento, CA 95825"
+      ],
+      "phones": [
+        "+1-916-775-5734",
+        "+1-331-333-9992"
+      ],
+      "emails": [
+        "StephenLawPC@gmail.com"
+      ],
+      "website": "https://StephenLawPC.com",
+      "professional_memberships": [
+        "American Immigration Lawyers Association (AILA)"
+      ],
+      "services": [
+        "Case evaluation",
+        "Political asylum",
+        "Religious asylum",
+        "Deportation defense",
+        "Family immigration",
+        "Immigration interview preparation",
+        "Interview representation",
+        "Court representation"
+      ]
+    },
+    {
+      "id": "ruzanna-melikyan-cleaning",
+      "entity_type": "Specialist",
+      "entity_name": "Ruzanna Melikyan",
+      "category": "Home Services",
+      "subcategory": "Cleaning Services",
+      "city": "Los Angeles",
+      "state": "CA",
+      "phones": [
+        "+1-818-209-8816"
+      ],
+      "services": [
+        "House cleaning",
+        "Apartment cleaning",
+        "Office cleaning"
+      ],
+      "features": [
+        "Own cleaning supplies and equipment",
+        "Two-person team"
+      ]
+    },
+    {
+      "id": "ltd-services-llc",
+      "entity_type": "Business",
+      "entity_name": "LTD Services LLC",
+      "contact_person": "Liudmila Dickerson, EA",
+      "category": "Accounting & Tax",
+      "subcategory": "Accounting Services",
+      "phones": [
+        "+1-919-532-4774"
+      ],
+      "website": "https://www.ltdtaxaccounting.com",
+      "services": [
+        "QuickBooks",
+        "Tax planning",
+        "Payroll",
+        "Business accounting"
+      ]
+    },
+    {
+      "id": "narek-mega-motors-la",
+      "entity_type": "Business",
+      "entity_name": "Narek Mega Motors Los Angeles",
+      "contact_person": "Narek Shahinyan",
+      "category": "Automotive",
+      "subcategory": "Auto Broker",
+      "city": "Los Angeles",
+      "state": "CA",
+      "phones": [
+        "+1-818-301-0030"
+      ],
+      "instagram": "narek.megamotorsla",
+      "services": [
+        "Auto brokerage for all makes and models"
+      ],
+      "promotions": [
+        {
+          "name": "July lease special",
+          "vehicle": "2026 Audi A5 S-Line Premium Plus",
+          "down_payment": 2000,
+          "monthly_payment": 559,
+          "term_months": 36,
+          "annual_miles": 7500,
+          "tax_included": true
+        }
+      ]
+    },
+    {
+      "id": "anastasia-kinder-nails",
+      "entity_type": "Specialist",
+      "entity_name": "Anastasia Kinder",
+      "category": "Beauty Services",
+      "subcategory": "Manicure & Pedicure",
+      "city": "Irvine",
+      "state": "CA",
+      "instagram": "hair_extension_usa",
+      "services": [
+        "Russian manicure",
+        "Pedicure"
+      ],
+      "promotions": [
+        {
+          "name": "Russian manicure and pedicure package",
+          "price": 140,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "aleksey-carp-fishing-trip",
+      "entity_type": "Event Organizer",
+      "entity_name": "Баня от Алексея",
+      "category": "Recreation",
+      "subcategory": "Fishing Trips",
+      "phones": [
+        "+1-323-849-9148"
+      ],
+      "events": [
+        {
+          "name": "Carp fishing trip",
+          "city": "Lake Elsinore",
+          "state": "CA",
+          "postal_code": "92530",
+          "start_date": "2026-07-17",
+          "end_date": "2026-07-19",
+          "arrival_time": "17:00",
+          "pricing": [
+            {
+              "option": "Friday-Sunday",
+              "price": 150,
+              "currency": "USD"
+            },
+            {
+              "option": "Saturday-Sunday",
+              "price": 130,
+              "currency": "USD"
+            }
+          ],
+          "children_policy": "Children under 12 are free",
+          "includes": [
+            "Banya",
+            "Buffet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roman-rybin-karaoke",
+      "entity_type": "Event Organizer",
+      "entity_name": "Roman Rybin",
+      "organization": "БангладешЪ-Оркестр",
+      "category": "Entertainment",
+      "subcategory": "Karaoke Events",
+      "phones": [
+        "+1-916-280-3360"
+      ],
+      "emails": [
+        "Bangladesh.orkestr@gmail.com"
+      ],
+      "payment_methods": {
+        "zelle": "+1-916-280-3360",
+        "venmo": "@Roman-Rybin-1",
+        "paypal": "Bangladesh.orkestr@gmail.com"
+      },
+      "events": [
+        {
+          "name": "Karaoke Summer Night",
+          "date": "2026-07-17",
+          "venue": "Chez Nous Cafe",
+          "city": "Redwood City",
+          "state": "CA",
+          "doors_time": "19:00",
+          "start_time": "20:00",
+          "end_time": "23:30",
+          "advance_ticket_price": 35,
+          "door_ticket_price": 40,
+          "currency": "USD",
+          "equipment": "Evolution professional karaoke system",
+          "featured_performer": "Roman Rybin"
+        }
+      ]
+    },
+    {
+      "id": "kalinka-service",
+      "entity_type": "Business",
+      "entity_name": "Kalinka Service",
+      "contact_person": "Viktor Petrovskiy",
+      "category": "Document & Consular Services",
+      "subcategory": "Russian Passport & Visa Assistance",
+      "phones": [
+        "+1-305-335-0887"
+      ],
+      "emails": [
+        "pasportvisaservice@gmail.com"
+      ],
+      "instagram": "kalinkaservice.us",
+      "messengers": {
+        "whatsapp": "+1-305-335-0887",
+        "viber": "+1-305-335-0887",
+        "messenger": "+1-305-335-0887"
+      },
+      "services": [
+        "Replacement of Russian international passports",
+        "Russian citizenship applications for children",
+        "Russian international passports for children",
+        "Replacement of Russian internal passports",
+        "Three-year Russian visas",
+        "Confirmation of Russian citizenship"
+      ]
+    },
+    {
+      "id": "my-retina-health",
+      "entity_type": "Business",
+      "entity_name": "My Retina Health",
+      "contact_person": "Diana Katsman",
+      "category": "Healthcare",
+      "subcategory": "Ophthalmology & Retina Care",
+      "city": "Sherman Oaks",
+      "state": "CA",
+      "addresses": [
+        "4849 Van Nuys Blvd., Suite 202A, Sherman Oaks, CA"
+      ],
+      "phones": [
+        "+1-310-773-1280"
+      ],
+      "emails": [
+        "myretinahealth@gmail.com"
+      ],
+      "services": [
+        "Retina care",
+        "Ophthalmology appointments",
+        "Insurance eligibility verification"
+      ],
+      "insurance": [
+        "Medi-Cal",
+        "Medicare",
+        "Medicare-Medi-Cal",
+        "Most PPO plans"
+      ],
+      "payment_options": [
+        "Self-pay"
+      ],
+      "accepting_new_patients": true
+    },
+    {
+      "id": "art4kidsandteens",
+      "entity_type": "Business",
+      "entity_name": "Art 4 Kids & Teens",
+      "contact_person": "Natalie Shohdy",
+      "category": "Education",
+      "subcategory": "Art Classes",
+      "city": "Mission Viejo",
+      "state": "CA",
+      "phones": [
+        "+1-949-813-1654"
+      ],
+      "website": "https://www.art4kidsandteens.com",
+      "services": [
+        "Summer art camps",
+        "Intensive summer art program",
+        "Regular art classes for children",
+        "Regular art classes for teenagers"
+      ],
+      "promotions": [
+        "First trial lesson is free"
+      ]
+    }
+  ]
+}

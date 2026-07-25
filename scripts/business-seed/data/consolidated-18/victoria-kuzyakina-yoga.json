@@ -1,0 +1,28 @@
+{
+  "id": "victoria-kuzyakina-yoga",
+  "entity_type": "Specialist",
+  "entity_name": "Victoria Kuzyakina",
+  "category": "Fitness & Wellness",
+  "subcategory": "Yoga & Meditation",
+  "description": "Yoga, breathing, meditation and body-practice sessions.",
+  "services": [
+    "Yoga",
+    "Meditation",
+    "Asanas",
+    "Nauli",
+    "Vacuum practice",
+    "Yoga Nidra"
+  ],
+  "events": [
+    {
+      "name": "Three-hour yoga practice",
+      "date": "2026-07-19",
+      "start_time": "10:00",
+      "end_time": "13:00",
+      "venue": "Awoken Space",
+      "city": "Malibu",
+      "state": "CA",
+      "registration": "Facebook direct message"
+    }
+  ]
+}

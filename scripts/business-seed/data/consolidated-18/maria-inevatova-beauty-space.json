@@ -1,0 +1,23 @@
+{
+  "id": "maria-inevatova-beauty-space",
+  "entity_type": "Specialist",
+  "entity_name": "Maria Inevatova",
+  "category": "Commercial Real Estate",
+  "subcategory": "Beauty Workspace Rental",
+  "city": "Tustin",
+  "state": "CA",
+  "addresses": [
+    "18062 Irvine Blvd, Tustin, CA"
+  ],
+  "rentals": [
+    {
+      "name": "Full-time beauty workspace",
+      "price": 400,
+      "currency": "USD",
+      "billing_period": "month",
+      "target_tenants": [
+        "Beauty professionals"
+      ]
+    }
+  ]
+}

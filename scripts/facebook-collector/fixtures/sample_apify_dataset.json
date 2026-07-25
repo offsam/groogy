@@ -1,0 +1,54 @@
+[
+  {
+    "type": "post",
+    "postId": "1200000000000001",
+    "url": "https://www.facebook.com/groups/107680889267042/posts/1200000000000001/",
+    "groupId": "107680889267042",
+    "groupTitle": "PoC Group Fixture",
+    "groupUrl": "https://www.facebook.com/groups/107680889267042/",
+    "timestamp": "2026-07-22T10:00:00Z",
+    "text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ И НЕ ТОЛЬКО!!! Буду развозить икру по ЛА, валлам, ОС и другим районам. Бренд Silver bay. Цена: 1 упаковка (500 г) — $75. Тел +1-929-340-5993",
+    "user": {"name": "Den Mataev"},
+    "images": ["https://example.com/fixture-caviar.jpg"],
+    "comments": [{"text": "should be dropped by slim_raw"}],
+    "members": ["should-not-appear"]
+  },
+  {
+    "type": "post",
+    "post_id": "1200000000000002",
+    "postUrl": "https://www.facebook.com/groups/107680889267042/posts/1200000000000002/",
+    "group_id": "107680889267042",
+    "groupName": "PoC Group Fixture",
+    "time": "2026-07-16T15:30:00Z",
+    "message": "Хотите, чтобы у вашей семьи было больше пространства? Temecula, Murrieta и Winchester. George Khazanovskiy. 619-277-2766.",
+    "authorName": "George Khazanovskiy"
+  },
+  {
+    "type": "post",
+    "id": "1200000000000003",
+    "permalink": "https://www.facebook.com/groups/107680889267042/permalink/1200000000000003/",
+    "groupId": "107680889267042",
+    "date": "2026-07-10T12:00:00Z",
+    "postText": "Маникюр / педикюр, запись открыта. Irvine. Instagram: @katrin.nails.example WhatsApp +1 949 555 0100",
+    "author": "Katrin Svt",
+    "photos": ["https://example.com/nails1.jpg", "https://example.com/nails2.jpg"]
+  },
+  {
+    "type": "notice",
+    "message": "login wall — should be skipped"
+  },
+  {
+    "type": "post",
+    "postId": "1200000000000001",
+    "url": "https://www.facebook.com/groups/107680889267042/posts/1200000000000001/?ref=share",
+    "groupId": "107680889267042",
+    "timestamp": "2026-07-22T10:05:00Z",
+    "text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ И НЕ ТОЛЬКО!!! Буду развозить икру по ЛА, валлам, ОС и другим районам. Бренд Silver bay. Цена: 1 упаковка (500 г) — $75. Тел +1-929-340-5993",
+    "userName": "Den Mataev"
+  },
+  {
+    "type": "group_profile",
+    "groupId": "107680889267042",
+    "memberCount": 99999
+  }
+]

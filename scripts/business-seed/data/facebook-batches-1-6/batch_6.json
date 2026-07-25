@@ -1,0 +1,181 @@
+{
+  "entity_count": 15,
+  "entities": [
+    {
+      "name": "Natalie Shohdy Art Classes",
+      "category": "Education",
+      "subcategory": "Kids Art School",
+      "phone": "949-813-1654",
+      "website": "art4kidsandteens.com",
+      "location": "Mission Viejo CA",
+      "services": [
+        "Art classes",
+        "Summer camps",
+        "Kids drawing"
+      ]
+    },
+    {
+      "name": "Valeriia Andriushchenko Realtor",
+      "category": "Real Estate",
+      "subcategory": "Realtor",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "company": "Fathom Realty",
+      "services": [
+        "Home buying",
+        "Home selling",
+        "Real estate consultation"
+      ]
+    },
+    {
+      "name": "Neptune Seafood",
+      "category": "Food",
+      "subcategory": "Seafood Delivery",
+      "phone": "916-956-5019",
+      "contact_person": "Karina",
+      "services": [
+        "Fresh seafood",
+        "Fish",
+        "Caviar",
+        "Seafood delivery"
+      ]
+    },
+    {
+      "name": "Merry Hive Early Development School",
+      "category": "Education",
+      "subcategory": "Preschool",
+      "location": "Laguna Hills CA",
+      "services": [
+        "Early development",
+        "Preschool groups",
+        "Sports",
+        "Theater"
+      ]
+    },
+    {
+      "name": "Sunrise Education Center",
+      "category": "Education",
+      "subcategory": "Children Development Center",
+      "phone": [
+        "310-916-7095",
+        "949-335-2827"
+      ],
+      "locations": [
+        "Tustin CA",
+        "Laguna Hills CA"
+      ],
+      "services": [
+        "Preschool",
+        "Afterschool",
+        "Camps",
+        "Russian language",
+        "STEM"
+      ]
+    },
+    {
+      "name": "Good Food",
+      "category": "Retail Food",
+      "subcategory": "Russian Grocery",
+      "address": "25565 Jeronimo Rd Unit 2, Mission Viejo CA",
+      "services": [
+        "Russian products",
+        "Caviar",
+        "Deli products"
+      ]
+    },
+    {
+      "name": "Kaivy Alteration Studio",
+      "category": "Fashion Services",
+      "subcategory": "Tailoring",
+      "phone": "949-736-5075",
+      "location": "Lake Forest CA",
+      "services": [
+        "Clothing alterations",
+        "Wedding dresses"
+      ]
+    },
+    {
+      "name": "Peter Dudarenko",
+      "category": "Home Services",
+      "subcategory": "Remodeling",
+      "phone": "949-226-1258",
+      "services": [
+        "Home renovation",
+        "Property management",
+        "Repairs"
+      ]
+    },
+    {
+      "name": "CaliBuilders",
+      "category": "Home Services",
+      "subcategory": "Construction Recommendation",
+      "phone": "949-345-1118",
+      "services": [
+        "Construction",
+        "Home repair"
+      ]
+    },
+    {
+      "name": "Russ Flooring",
+      "category": "Home Services",
+      "subcategory": "Flooring",
+      "website": "russflooring.net",
+      "services": [
+        "Floor installation"
+      ]
+    },
+    {
+      "name": "Victor Home Repair Specialist",
+      "category": "Home Services",
+      "subcategory": "Handyman",
+      "phone": "424-230-6774",
+      "services": [
+        "Tile",
+        "Painting",
+        "Drywall"
+      ]
+    },
+    {
+      "name": "EVOKIFY",
+      "category": "Photography",
+      "subcategory": "Restaurant Photography",
+      "phone": "213-803-6133",
+      "contact_person": "Artur",
+      "services": [
+        "Photography",
+        "Photographer training"
+      ]
+    },
+    {
+      "name": "Treasure Rack San Diego",
+      "category": "Marketplace",
+      "subcategory": "Community Marketplace",
+      "contact_person": "Elena Nayerman",
+      "location": "San Diego CA"
+    },
+    {
+      "name": "Oksana Spasiuk Photography",
+      "category": "Creative Services",
+      "subcategory": "Photography",
+      "instagram": "oksana.spasiuk.ca_",
+      "services": [
+        "Portraits",
+        "Families",
+        "Events",
+        "Content"
+      ]
+    },
+    {
+      "name": "Ira Azovtseva",
+      "category": "Beauty Wellness",
+      "subcategory": "Body Sculpting",
+      "instagram": "bodysculpting_by_ira",
+      "location": "Laguna Niguel CA",
+      "services": [
+        "Massage",
+        "Body sculpting",
+        "Lymphatic massage"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "roman-rybin-karaoke",
+  "entity_type": "Event Organizer",
+  "entity_name": "Roman Rybin",
+  "organization": "БангладешЪ-Оркестр",
+  "category": "Entertainment",
+  "subcategory": "Karaoke Events",
+  "phones": [
+    "+1-916-280-3360"
+  ],
+  "emails": [
+    "Bangladesh.orkestr@gmail.com"
+  ],
+  "payment_methods": {
+    "zelle": "+1-916-280-3360",
+    "venmo": "@Roman-Rybin-1",
+    "paypal": "Bangladesh.orkestr@gmail.com"
+  },
+  "events": [
+    {
+      "name": "Karaoke Summer Night",
+      "date": "2026-07-17",
+      "venue": "Chez Nous Cafe",
+      "city": "Redwood City",
+      "state": "CA",
+      "doors_time": "19:00",
+      "start_time": "20:00",
+      "end_time": "23:30",
+      "advance_ticket_price": 35,
+      "door_ticket_price": 40,
+      "currency": "USD",
+      "equipment": "Evolution professional karaoke system",
+      "featured_performer": "Roman Rybin"
+    }
+  ]
+}

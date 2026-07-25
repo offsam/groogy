@@ -1,0 +1,34 @@
+{
+  "id": "stephen-law-pc",
+  "entity_type": "Business",
+  "entity_name": "Stephen Law PC",
+  "contact_person": "Eugene Stephen",
+  "category": "Legal Services",
+  "subcategory": "Immigration Law",
+  "city": "Sacramento",
+  "state": "CA",
+  "addresses": [
+    "2233 Watt Ave Ste 295, Sacramento, CA 95825"
+  ],
+  "phones": [
+    "+1-916-775-5734",
+    "+1-331-333-9992"
+  ],
+  "emails": [
+    "StephenLawPC@gmail.com"
+  ],
+  "website": "https://StephenLawPC.com",
+  "professional_memberships": [
+    "American Immigration Lawyers Association (AILA)"
+  ],
+  "services": [
+    "Case evaluation",
+    "Political asylum",
+    "Religious asylum",
+    "Deportation defense",
+    "Family immigration",
+    "Immigration interview preparation",
+    "Interview representation",
+    "Court representation"
+  ]
+}

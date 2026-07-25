@@ -1,0 +1,148 @@
+[
+  {
+    "entity_type": "beauty_salon",
+    "entity_name": "Ivan Stypnik",
+    "category": "Beauty",
+    "subcategory": "Hair Salon",
+    "description": "Профессиональные мужские и женские стрижки.",
+    "services": [
+      "Мужская стрижка",
+      "Удлиненная мужская стрижка",
+      "Женская стрижка"
+    ],
+    "prices": [
+      { "service": "Мужская стрижка", "price": 45, "currency": "USD" },
+      { "service": "Удлиненная мужская стрижка", "price": 55, "currency": "USD" },
+      { "service": "Женская стрижка", "price": 55, "currency": "USD" }
+    ],
+    "experience_years": 10,
+    "address": "1175 Baker St Ste E19",
+    "city": "Costa Mesa",
+    "state": "CA",
+    "booking_url": "https://getsqr.co/ivan-s-21",
+    "source_platform": "facebook",
+    "source_author": "Ivan Stypnik"
+  },
+  {
+    "entity_type": "fitness_trainer",
+    "entity_name": "Dima Yakovlev",
+    "category": "Fitness",
+    "subcategory": "Personal Trainer",
+    "description": "Персональный фитнес-тренер.",
+    "experience_years": 16,
+    "services": [
+      "Персональные тренировки",
+      "Снижение веса",
+      "Набор мышечной массы",
+      "Общая физическая подготовка",
+      "Программа тренировок",
+      "Программа питания",
+      "Детская спортивная подготовка"
+    ],
+    "phone": "949-326-1386",
+    "service_area": ["Orange County", "South Los Angeles"],
+    "source_platform": "facebook",
+    "source_author": "Dima Yakovlev"
+  },
+  {
+    "entity_type": "car_rental",
+    "entity_name": "Toyota Corolla Hybrid 2026 Rental",
+    "category": "Automotive",
+    "subcategory": "Car Rental",
+    "vehicle_make": "Toyota",
+    "vehicle_model": "Corolla Hybrid",
+    "vehicle_year": 2026,
+    "monthly_price": 1200,
+    "deposit": 300,
+    "currency": "USD",
+    "features": [
+      "Full insurance included",
+      "Apple CarPlay",
+      "Lane Keeping Assist",
+      "Parking Sensors",
+      "Backup Camera",
+      "Unlimited Mileage",
+      "Maintenance Included",
+      "Toll Roads Included"
+    ],
+    "phone": "323-536-0428",
+    "city": "Los Angeles",
+    "source_platform": "facebook",
+    "source_author": "Mikhail Kulesh"
+  },
+  {
+    "entity_type": "handyman",
+    "entity_name": "LLC TSISAR",
+    "display_name": "Ivan Handyman",
+    "category": "Home Services",
+    "subcategory": "Handyman",
+    "services": [
+      "House Painting",
+      "Interior Painting",
+      "Cabinet Painting",
+      "Laminate Flooring",
+      "Tile Installation",
+      "Kitchen Installation",
+      "Baseboard Installation",
+      "Drywall Repair",
+      "Fence Installation",
+      "Fence Repair",
+      "House Cleaning",
+      "Texture Application",
+      "Popcorn Ceiling Removal",
+      "Wood Trim",
+      "Furniture Assembly",
+      "Furniture Repair",
+      "General Handyman"
+    ],
+    "phone": "813-220-6026",
+    "website": "https://llctsisarconstruction.com",
+    "offers": ["Free Estimate", "Free Consultation"],
+    "source_platform": "facebook",
+    "source_author": "Ivan Handyman"
+  },
+  {
+    "entity_type": "auto_repair_shop",
+    "entity_name": "Grand Auto Group OC",
+    "contact_person": "Eugene Venger",
+    "category": "Automotive",
+    "subcategory": "Auto Repair",
+    "services": [
+      "Insurance Claim Repairs",
+      "Oil Change",
+      "Wheel Alignment",
+      "A/C Recharge",
+      "Engine Repair",
+      "Engine Replacement",
+      "Transmission Replacement",
+      "Sprinter Service"
+    ],
+    "prices": [
+      { "service": "Oil Change", "price": 89.99, "currency": "USD" }
+    ],
+    "phone": "424-324-0102",
+    "city": "Santa Ana",
+    "source_platform": "facebook",
+    "source_author": "Eugene Venger"
+  },
+  {
+    "entity_type": "art_school",
+    "entity_name": "Art 4 Kids and Teens",
+    "contact_person": "Natalie Shohdy",
+    "category": "Education",
+    "subcategory": "Art Classes",
+    "services": [
+      "Summer Art Camp",
+      "Summer Intensive",
+      "Regular Art Classes"
+    ],
+    "target_audience": ["Children", "Teenagers"],
+    "offers": ["Free Trial Lesson"],
+    "phone": "949-813-1654",
+    "website": "https://www.art4kidsandteens.com",
+    "city": "Mission Viejo",
+    "state": "CA",
+    "source_platform": "facebook",
+    "source_author": "Natalie Shohdy"
+  }
+]

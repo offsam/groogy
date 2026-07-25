@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f97316"/>
+      <stop offset="1" stop-color="#dc2626"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <circle cx="650" cy="120" r="180" fill="#ffffff" opacity="0.08"/>
+  <circle cx="120" cy="500" r="220" fill="#ffffff" opacity="0.08"/>
+  <g transform="translate(400 280)" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.9">
+    <path d="M-60 -70 v70 a20 20 0 0 0 20 20 h0 v60"/>
+    <path d="M-80 -70 v40 M-40 -70 v40"/>
+    <path d="M50 -70 c-25 0 -25 90 0 90 v60 M50 -70 v150"/>
+  </g>
+  <text x="400" y="470" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.95">Рестораны</text>
+</svg>

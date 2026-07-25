@@ -1,0 +1,25 @@
+{
+  "entity_type": "Business",
+  "entity_name": "Narek Mega Motors",
+  "category": "Automotive",
+  "subcategory": "Auto Leasing & Brokerage",
+  "description": "Auto broker for all makes and models. July lease special promotion. 2026 Audi A5 S-Line Premium Plus available.",
+  "city": "Los Angeles",
+  "state": "CA",
+  "price": 559,
+  "phone": [
+    "+1-818-301-0030"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": "narek.megamotorsla",
+  "address": null,
+  "original_text": "JULY LEASE SPECIAL. Auto Broker for All makes & models. 2026 AUDI A5 S-LINE PREMIUM PLUS. $2000 DOWN, 7500 MILES, 36 MONTHS, $559 INCL. TAX.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 39,
+  "source_author": "Narek Shahinyan",
+  "source_post_date": "2026-07-16T04:13:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

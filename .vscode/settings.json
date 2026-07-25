@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/.env": true,
+    "**/.env.local": true,
+    "**/.env.*.local": true
+  },
+  "search.exclude": {
+    "**/.env": true,
+    "**/.env.local": true,
+    "**/.env.*.local": true,
+    "**/*.session": true,
+    "**/*.session-journal": true
+  }
+}

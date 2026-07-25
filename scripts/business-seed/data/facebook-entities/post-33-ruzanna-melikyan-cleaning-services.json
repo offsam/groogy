@@ -1,0 +1,25 @@
+{
+  "entity_type": "Professional Service",
+  "entity_name": "Ruzanna Melikyan - Cleaning Services",
+  "category": "Home Services",
+  "subcategory": "Janitorial & House Cleaning",
+  "description": "Professional quality cleaning of houses, apartments, and offices. Provides own equipment, supplies, and materials. Experienced cleaning professionals.",
+  "city": "Los Angeles",
+  "state": "CA",
+  "price": null,
+  "phone": [
+    "+1-818-209-8816"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Предлагаю качественную уборку домов, апартаментов, офисов! Имею свое оборудование, средства и салфетки. Убираем вдвоем! Создадим чистоту, порядок и уют в вашем доме! Имеем опыт работы в Клининге.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 33,
+  "source_author": "Ruzanna Melikyan",
+  "source_post_date": "2026-07-17T06:43:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

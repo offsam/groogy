@@ -1,0 +1,39 @@
+{
+  "id": "olga-osipova-fitness",
+  "entity_type": "Specialist",
+  "entity_name": "Olga Osipova",
+  "category": "Fitness & Wellness",
+  "subcategory": "Fitness Trainer & Nutritionist",
+  "description": "Online fitness and nutrition coaching for women, including clients age 40+.",
+  "state": null,
+  "phones": [],
+  "emails": [],
+  "website": "https://fitness.reflectingclouds.com",
+  "experience_years": 13,
+  "services": [
+    "Strength training",
+    "Pilates",
+    "Yoga",
+    "Stretching",
+    "Cardio",
+    "Personal nutrition plans"
+  ],
+  "pricing": [
+    {
+      "name": "Mini-group training",
+      "price_from": 12,
+      "currency": "USD"
+    },
+    {
+      "name": "Personal training",
+      "price_from": 40,
+      "currency": "USD"
+    }
+  ],
+  "promotions": [
+    "Free trial session"
+  ],
+  "target_audience": [
+    "Women 40+"
+  ]
+}

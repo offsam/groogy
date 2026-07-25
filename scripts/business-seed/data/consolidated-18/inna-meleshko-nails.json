@@ -1,0 +1,20 @@
+{
+  "id": "inna-meleshko-nails",
+  "entity_type": "Specialist",
+  "entity_name": "Inna Meleshko",
+  "category": "Beauty Services",
+  "subcategory": "Manicure & Pedicure",
+  "city": "Laguna Hills",
+  "state": "CA",
+  "services": [
+    "Manicure",
+    "Gel polish",
+    "Nail strengthening",
+    "Nail leveling",
+    "Pedicure"
+  ],
+  "features": [
+    "Sterile tools",
+    "Professional materials"
+  ]
+}

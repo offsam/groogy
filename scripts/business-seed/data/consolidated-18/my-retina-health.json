@@ -1,0 +1,34 @@
+{
+  "id": "my-retina-health",
+  "entity_type": "Business",
+  "entity_name": "My Retina Health",
+  "contact_person": "Diana Katsman",
+  "category": "Healthcare",
+  "subcategory": "Ophthalmology & Retina Care",
+  "city": "Sherman Oaks",
+  "state": "CA",
+  "addresses": [
+    "4849 Van Nuys Blvd., Suite 202A, Sherman Oaks, CA"
+  ],
+  "phones": [
+    "+1-310-773-1280"
+  ],
+  "emails": [
+    "myretinahealth@gmail.com"
+  ],
+  "services": [
+    "Retina care",
+    "Ophthalmology appointments",
+    "Insurance eligibility verification"
+  ],
+  "insurance": [
+    "Medi-Cal",
+    "Medicare",
+    "Medicare-Medi-Cal",
+    "Most PPO plans"
+  ],
+  "payment_options": [
+    "Self-pay"
+  ],
+  "accepting_new_patients": true
+}

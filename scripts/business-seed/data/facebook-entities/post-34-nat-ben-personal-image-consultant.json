@@ -1,0 +1,23 @@
+{
+  "entity_type": "Specialist",
+  "entity_name": "Nat Ben - Personal Image Consultant",
+  "category": "Professional Services",
+  "subcategory": "Image & Style Consulting",
+  "description": "Strategic wardrobe and personal image consulting for life transitions including new relationships, career growth, and personal transformation.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Когда в жизни происходят крупные повороты, наш гардероб часто отстает от нашей новой реальности. Если вы чувствуете, что готовы к внешним переменам, но не знаете, с чего начать – приглашаю вас на стратегическую сессию.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 34,
+  "source_author": "Nat Ben",
+  "source_post_date": "2026-07-16T10:15:00Z",
+  "needs_enrichment": true,
+  "confidence": "MEDIUM"
+}

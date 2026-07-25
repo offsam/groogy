@@ -1,0 +1,23 @@
+{
+  "id": "amega-studios",
+  "entity_type": "Organization",
+  "entity_name": "Amega Studios",
+  "category": "Entertainment",
+  "subcategory": "Casting & Video Production",
+  "city": "Westlake Village",
+  "state": "CA",
+  "emails": [
+    "castyoutube@gmail.com"
+  ],
+  "jobs": [
+    {
+      "title": "Actor for paid YouTube project",
+      "age_min": 18,
+      "age_max": 25,
+      "union_status": "Non-Union",
+      "compensation": 100,
+      "compensation_unit": "USD/day",
+      "notes": "Rate applies during the first month."
+    }
+  ]
+}

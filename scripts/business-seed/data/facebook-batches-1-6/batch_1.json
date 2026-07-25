@@ -1,0 +1,248 @@
+{
+  "entity_count": 20,
+  "entities": [
+    {
+      "name": "Narek Mega Motors Los Angeles",
+      "category": "Automotive",
+      "subcategory": "Auto Broker",
+      "phone": "818-301-0030",
+      "services": [
+        "Auto brokerage",
+        "Lease specials",
+        "All makes & models"
+      ],
+      "instagram": "narek.megamotorsla",
+      "source": "Facebook"
+    },
+    {
+      "name": "Valeriia Andriushchenko Realtor",
+      "category": "Real Estate",
+      "subcategory": "Realtor",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "services": [
+        "Real estate sales",
+        "Home buying consultation"
+      ],
+      "company": "Fathom Realty",
+      "license": "DRE #02248658",
+      "source": "Facebook"
+    },
+    {
+      "name": "Anastasia Kinder",
+      "category": "Beauty",
+      "subcategory": "Nail Services",
+      "location": "Irvine CA",
+      "instagram": "hair_extension_usa",
+      "services": [
+        "Manicure",
+        "Pedicure"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Chez Nous Cafe Karaoke Summer Night",
+      "category": "Events",
+      "subcategory": "Entertainment",
+      "phone": "916-280-3360",
+      "services": [
+        "Karaoke events"
+      ],
+      "location": "Redwood City CA",
+      "source": "Facebook"
+    },
+    {
+      "name": "Kalinka Service",
+      "category": "Professional Services",
+      "subcategory": "Passport & Visa Services",
+      "phone": "+1 305-335-0887",
+      "email": "pasportvisaservice@gmail.com",
+      "instagram": "kalinkaservice.us",
+      "services": [
+        "Russian passport replacement",
+        "Citizenship services",
+        "Visas"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Sergei Anischenko",
+      "category": "Food",
+      "subcategory": "Homemade Food Delivery",
+      "phone": "818-447-6507",
+      "instagram": "povar_anischenko",
+      "services": [
+        "Dumplings",
+        "Vareniki",
+        "Prepared meals",
+        "Delivery"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Alex Auto Brokering",
+      "category": "Automotive",
+      "subcategory": "Auto Broker",
+      "phone": "951-334-1760",
+      "services": [
+        "Toyota lease",
+        "Lexus lease",
+        "Vehicle brokerage"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Pavel Krylov",
+      "category": "Home Services",
+      "subcategory": "Handyman",
+      "phone": "619-750-5667",
+      "services": [
+        "Handyman",
+        "Electrical",
+        "Furniture assembly",
+        "Home repairs"
+      ],
+      "location": "Orange County",
+      "source": "Facebook"
+    },
+    {
+      "name": "US Vacation",
+      "category": "Travel",
+      "subcategory": "Tour Operator",
+      "phone": "732-567-6760",
+      "services": [
+        "Tours",
+        "Italy tours",
+        "Group travel"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Rita Sarafutdinova",
+      "category": "Legal Services",
+      "subcategory": "Legal Consultation",
+      "phone": "934-444-5871",
+      "services": [
+        "Accident representation",
+        "Driver legal assistance"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Lidia Gordienko",
+      "category": "Transportation",
+      "subcategory": "Premium Taxi",
+      "location": "Orange County",
+      "services": [
+        "Tesla Model Y rides",
+        "Airport trips"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Anna Esthetician",
+      "category": "Beauty",
+      "subcategory": "Lash Artist",
+      "phone": "323-770-4721",
+      "instagram": "elegant_beauty_by_anna",
+      "location": "Huntington Beach",
+      "services": [
+        "Lash extensions",
+        "Lash lamination"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Flora Barshak",
+      "category": "Care Services",
+      "subcategory": "Caregiver Job",
+      "phone": "619-889-3001",
+      "location": "Del Mar San Diego",
+      "services": [
+        "Live-in caregiver"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Valeriia Lake Forest Property",
+      "category": "Real Estate",
+      "subcategory": "Property Listing",
+      "phone": "949-531-5828",
+      "services": [
+        "Home sales"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Ksenia Andreychenko TaxesVIP",
+      "category": "Accounting",
+      "subcategory": "Tax Services",
+      "phone": "310-896-1534",
+      "website": "taxesvip.com",
+      "services": [
+        "Tax returns",
+        "LLC",
+        "QuickBooks",
+        "IRS help"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Artur Arutiunov",
+      "category": "Automotive",
+      "subcategory": "Towing",
+      "phone": "4175101010",
+      "services": [
+        "Tow truck"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Svetlana Melnik Merry Hive",
+      "category": "Education",
+      "subcategory": "Preschool",
+      "location": "Laguna Hills CA",
+      "services": [
+        "Early development school",
+        "Open house"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Yana Hodyniuk",
+      "category": "Food",
+      "subcategory": "Dessert Gifts",
+      "instagram": "_marshmalowmagic_",
+      "services": [
+        "Marshmallow bouquets",
+        "Cakes",
+        "Desserts"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Evgeniia Shtefan",
+      "category": "Beauty",
+      "subcategory": "Lash Artist",
+      "instagram": "lashes_shtefan",
+      "location": "Aliso Viejo",
+      "services": [
+        "Lash extensions"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Natalie Shohdy Art",
+      "category": "Education",
+      "subcategory": "Art Classes",
+      "phone": "949-813-1654",
+      "website": "art4kidsandteens.com",
+      "location": "Mission Viejo",
+      "services": [
+        "Art classes",
+        "Summer camps"
+      ],
+      "source": "Facebook"
+    }
+  ]
+}

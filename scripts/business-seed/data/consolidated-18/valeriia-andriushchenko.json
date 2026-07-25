@@ -1,0 +1,86 @@
+{
+  "id": "valeriia-andriushchenko",
+  "entity_type": "Specialist",
+  "entity_name": "Valeriia Andriushchenko",
+  "business_name": "Fathom Realty",
+  "category": "Real Estate",
+  "subcategory": "Residential Real Estate Agent",
+  "description": "REALTOR® representing buyers and sellers in California.",
+  "city": "Orange County",
+  "state": "CA",
+  "phones": [
+    "+1-949-531-5828"
+  ],
+  "emails": [
+    "agentvaleriia@gmail.com"
+  ],
+  "licenses": {
+    "dre": "02248658",
+    "broker_license": "01901202"
+  },
+  "services": [
+    "Buyer representation",
+    "Seller representation",
+    "Mortgage broker consultation coordination",
+    "Transaction support through closing"
+  ],
+  "real_estate_listings": [
+    {
+      "property_type": "Townhouse",
+      "address": "5477 Nestle Ave #11, Tarzana, CA",
+      "city": "Tarzana",
+      "state": "CA",
+      "price": 714000,
+      "open_house": {
+        "date": "2026-07-18",
+        "start_time": "14:00",
+        "end_time": "16:00"
+      },
+      "listed_by": "Marina Ionova"
+    },
+    {
+      "property_type": "Condominium",
+      "city": "Santa Ana",
+      "state": "CA",
+      "price": 349900,
+      "bedrooms": 2,
+      "bathrooms": 1.5,
+      "square_feet": 952,
+      "hoa_monthly": 449,
+      "tenant_rent_monthly": 2200,
+      "tenant_lease_end": "2027-01-31",
+      "listed_by": "Ezra Silva"
+    },
+    {
+      "property_type": "Condominium",
+      "city": "Lake Forest",
+      "state": "CA",
+      "price": 399000,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "square_feet": 560,
+      "hoa_monthly": 484,
+      "features": [
+        "Fully updated",
+        "Private fenced patio",
+        "In-unit washer and dryer",
+        "Covered parking",
+        "Single-story layout"
+      ],
+      "community_amenities": [
+        "3 pools",
+        "3 spas",
+        "Tennis courts",
+        "Basketball courts",
+        "Walking paths",
+        "Ponds and streams",
+        "Guest parking"
+      ],
+      "listed_by": "Gabriel Gonzales"
+    }
+  ],
+  "source_authors": [
+    "Valeriia the Realtor",
+    "Valeriia Andriushchenko"
+  ]
+}

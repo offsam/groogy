@@ -1,0 +1,24 @@
+{
+  "source": "facebook_entities_consolidated_18.json",
+  "count": 18,
+  "files": [
+    "valeriia-andriushchenko.json",
+    "olga-osipova-fitness.json",
+    "zulya-alieva-homemade-food.json",
+    "victoria-kuzyakina-yoga.json",
+    "inna-meleshko-nails.json",
+    "amega-studios.json",
+    "maria-inevatova-beauty-space.json",
+    "tenina-law-inc.json",
+    "stephen-law-pc.json",
+    "ruzanna-melikyan-cleaning.json",
+    "ltd-services-llc.json",
+    "narek-mega-motors-la.json",
+    "anastasia-kinder-nails.json",
+    "aleksey-carp-fishing-trip.json",
+    "roman-rybin-karaoke.json",
+    "kalinka-service.json",
+    "my-retina-health.json",
+    "art4kidsandteens.json"
+  ]
+}

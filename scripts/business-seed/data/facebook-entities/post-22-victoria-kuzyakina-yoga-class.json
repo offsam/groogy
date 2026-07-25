@@ -1,0 +1,23 @@
+{
+  "entity_type": "Event",
+  "entity_name": "Victoria Kuzyakina - Yoga Class",
+  "category": "Wellness & Fitness",
+  "subcategory": "Yoga",
+  "description": "3-hour yoga session including balance poses, breathing techniques, meditation, Yoga Nidra (Inner Knowledge). Stretching, pilates, yoga, cardio.",
+  "city": "Malibu",
+  "state": "CA",
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": "Awoken Space, Malibu",
+  "original_text": "В это воскресенье, 19 июля, в 10:00 я приглашаю вас в Awoken Space (Малибу) на 3-часовой класс. В программе нашего поглощения: Баланс и Опора (Практика асан). Очищение и Сила (Наули Крийя и Вакуум). Путешествие в Подсознание (Йога-Нидра).",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 22,
+  "source_author": "Victoria Kuzyakina",
+  "source_post_date": "2026-07-17T15:12:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

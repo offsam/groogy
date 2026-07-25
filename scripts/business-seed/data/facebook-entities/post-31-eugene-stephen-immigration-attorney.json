@@ -1,0 +1,26 @@
+{
+  "entity_type": "Professional Service",
+  "entity_name": "Eugene Stephen - Immigration Attorney",
+  "category": "Legal Services",
+  "subcategory": "Immigration Law",
+  "description": "Immigration attorney services including case evaluation, asylum (political and religious), deportation defense, family immigration, interview preparation and representation, court appearances.",
+  "city": "Sacramento",
+  "state": "CA",
+  "price": null,
+  "phone": [
+    "+1-916-775-5734",
+    "+1-331-333-9992"
+  ],
+  "email": "stephenlawpc@gmail.com",
+  "website": "stephenlawpc.com",
+  "facebook_page": null,
+  "instagram": null,
+  "address": "2233 Watt Ave., Ste 295, Sacramento, CA 95825",
+  "original_text": "ИММИГРАЦИОННЫЙ АДВОКАТ. Member of American Immigration Lawyers Association. Оценка и Доработка Кейсов. Политическое Убежище. Религиозное Убежище. Защита от Депортации. Семейная Иммиграция. Подготовка к Интервью. Представительство в Суде. Сопровождение на Интервью.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 31,
+  "source_author": "Eugene Stephen",
+  "source_post_date": "2026-07-17T10:30:00Z",
+  "needs_enrichment": true,
+  "confidence": "HIGH"
+}

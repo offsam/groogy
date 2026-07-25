@@ -1,0 +1,25 @@
+{
+  "entity_type": "Job",
+  "entity_name": "Stelar Tex - Helper Position",
+  "category": "Employment",
+  "subcategory": "Temporary Work",
+  "description": "Looking for helper in Laguna Beach. Temporary/extra work position.",
+  "city": "Laguna Beach",
+  "state": "CA",
+  "price": null,
+  "phone": [
+    "+1-323-819-7960"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Нужен хэлпер Лагуна бич 323 819 79 60 Экстра",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 24,
+  "source_author": "Stelar Tex",
+  "source_post_date": "2026-07-17T11:47:00Z",
+  "needs_enrichment": true,
+  "confidence": "LOW"
+}

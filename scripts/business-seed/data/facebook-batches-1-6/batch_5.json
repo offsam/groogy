@@ -1,0 +1,154 @@
+{
+  "entity_count": 20,
+  "entities": [
+    {
+      "name": "Anastasia Kinder Nail Studio",
+      "category": "Beauty",
+      "subcategory": "Nail Services",
+      "location": "Irvine CA",
+      "instagram": "hair_extension_usa",
+      "services": [
+        "Manicure",
+        "Pedicure"
+      ]
+    },
+    {
+      "name": "Diana Katsman Retina Health",
+      "category": "Healthcare",
+      "subcategory": "Retina Clinic",
+      "phone": "310-773-1280",
+      "email": "myretinahealth@gmail.com",
+      "address": "4849 Van Nuys Blvd Suite 202A, Sherman Oaks CA"
+    },
+    {
+      "name": "Alla Tenina Law",
+      "category": "Legal Services",
+      "subcategory": "Personal Injury Attorney",
+      "phone": "213-596-0265",
+      "address": "15250 Ventura Blvd Suite 1200, Sherman Oaks CA"
+    },
+    {
+      "name": "Natalia Chernetsova Beauty Studio",
+      "category": "Beauty",
+      "subcategory": "Nail Salon Hiring",
+      "instagram": "beautystudio_by_veronika",
+      "location": "Newport Beach CA"
+    },
+    {
+      "name": "Liudmyla Muzyra House Repair",
+      "category": "Home Services",
+      "subcategory": "Repair Specialists",
+      "phone": "949-510-5266",
+      "contact_person": "Ilya"
+    },
+    {
+      "name": "Enna Eskin Party Decor",
+      "category": "Events",
+      "subcategory": "Event Decoration",
+      "services": [
+        "Balloons",
+        "Flowers",
+        "Backdrops",
+        "Table styling"
+      ]
+    },
+    {
+      "name": "Yana Hodyniuk Marshmallow Magic",
+      "category": "Food",
+      "subcategory": "Desserts",
+      "instagram": "_marshmalowmagic_"
+    },
+    {
+      "name": "Evgeniia Shtefan Lashes",
+      "category": "Beauty",
+      "subcategory": "Lash Artist",
+      "instagram": "lashes_shtefan",
+      "location": "Aliso Viejo CA"
+    },
+    {
+      "name": "Viktoriya Adamovskaya Desserts",
+      "category": "Food",
+      "subcategory": "Homemade Desserts",
+      "instagram": "delicious_by_va",
+      "location": "Aliso Viejo CA"
+    },
+    {
+      "name": "Alex Auto Brokering",
+      "category": "Automotive",
+      "subcategory": "Auto Broker",
+      "phone": "951-334-1760",
+      "services": [
+        "Toyota lease",
+        "Lexus lease",
+        "Vehicle selection"
+      ]
+    },
+    {
+      "name": "Kalinka Service",
+      "category": "Professional Services",
+      "subcategory": "Passport and Visa Services",
+      "phone": "+1 305-335-0887",
+      "email": "pasportvisaservice@gmail.com",
+      "instagram": "kalinkaservice.us"
+    },
+    {
+      "name": "US Vacation",
+      "category": "Travel",
+      "subcategory": "Tour Operator",
+      "phone": "+1 732-567-6760"
+    },
+    {
+      "name": "Sergei Anischenko Food Delivery",
+      "category": "Food",
+      "subcategory": "Homemade Food",
+      "phone": "818-447-6507",
+      "instagram": "povar_anischenko"
+    },
+    {
+      "name": "Pavel Krylov Handyman",
+      "category": "Home Services",
+      "subcategory": "Handyman",
+      "phone": "619-750-5667"
+    },
+    {
+      "name": "5 Star Appliance Repair",
+      "category": "Home Services",
+      "subcategory": "Appliance Repair",
+      "phone": "213-698-6267",
+      "website": "5starappliancerepair.pro"
+    },
+    {
+      "name": "Svetlana Pantelic Home Helper",
+      "category": "Home Services",
+      "subcategory": "House Assistant",
+      "location": "Irvine Woodbridge CA"
+    },
+    {
+      "name": "Olena Farah Nail Studio",
+      "category": "Beauty",
+      "subcategory": "Nail Technician",
+      "instagram": "helena_nails_studio",
+      "location": "Los Alamitos CA"
+    },
+    {
+      "name": "Home Swimming Classes Elena",
+      "category": "Sports Education",
+      "subcategory": "Swimming Lessons",
+      "phone": "323-252-6097"
+    },
+    {
+      "name": "Ira Azovtseva Body Sculpting",
+      "category": "Beauty Wellness",
+      "subcategory": "Massage",
+      "instagram": "bodysculpting_by_ira",
+      "location": "Laguna Niguel CA"
+    },
+    {
+      "name": "Oksana Spasiuk Photography",
+      "category": "Creative Services",
+      "subcategory": "Photography",
+      "instagram": "oksana.spasiuk.ca_",
+      "location": "Orange County CA"
+    }
+  ]
+}

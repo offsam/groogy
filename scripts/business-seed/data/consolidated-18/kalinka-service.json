@@ -1,0 +1,28 @@
+{
+  "id": "kalinka-service",
+  "entity_type": "Business",
+  "entity_name": "Kalinka Service",
+  "contact_person": "Viktor Petrovskiy",
+  "category": "Document & Consular Services",
+  "subcategory": "Russian Passport & Visa Assistance",
+  "phones": [
+    "+1-305-335-0887"
+  ],
+  "emails": [
+    "pasportvisaservice@gmail.com"
+  ],
+  "instagram": "kalinkaservice.us",
+  "messengers": {
+    "whatsapp": "+1-305-335-0887",
+    "viber": "+1-305-335-0887",
+    "messenger": "+1-305-335-0887"
+  },
+  "services": [
+    "Replacement of Russian international passports",
+    "Russian citizenship applications for children",
+    "Russian international passports for children",
+    "Replacement of Russian internal passports",
+    "Three-year Russian visas",
+    "Confirmation of Russian citizenship"
+  ]
+}

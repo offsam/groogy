@@ -1,0 +1,28 @@
+# Secrets — never index or expose to Cursor Agent / Tab / @mentions
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Credentials & keys
+**/*credentials*
+**/*secrets*
+**/*.pem
+**/*.key
+**/id_rsa*
+**/*.p12
+**/*.pfx
+**/service-account*.json
+**/google-services.json
+
+# Telegram / Telethon auth sessions
+**/*.session
+**/*.session-journal
+**/scripts/telegram-collector/*.session*
+
+# Local dumps that may contain tokens
+**/tmp/
+**/.venv/
+**/venv/

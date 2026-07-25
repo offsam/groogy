@@ -1,0 +1,25 @@
+{
+  "entity_type": "Professional Service",
+  "entity_name": "Igor Green - Business Licensing Protection",
+  "category": "Legal & Licensing",
+  "subcategory": "Business Compliance",
+  "description": "Help with business licensing and protection from fines during inspections. Movers Permit assistance. BHGS reports.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": [
+    "+1-949-226-1519"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Защити свой бизнес от штрафов при проверках. Лицензии Movers Permit. Отчеты в BHGS. Работа без Movers Permit карается штрафом до $10,000 и/или лишением свободы на срок до 1 года.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 23,
+  "source_author": "Igor Green",
+  "source_post_date": "2026-07-16T23:21:00Z",
+  "needs_enrichment": true,
+  "confidence": "MEDIUM"
+}

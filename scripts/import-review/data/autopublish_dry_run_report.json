@@ -1,0 +1,3367 @@
+{
+  "stats": {
+    "accepted_total": 504,
+    "with_direct_contact": 171,
+    "eligible": 127,
+    "blocked": 377,
+    "blocked_duplicates": 0,
+    "blocked_stale": 229,
+    "blocked_unsupported": 27,
+    "blocked_no_contact": 114,
+    "blocked_no_title": 3,
+    "blocked_no_description": 1,
+    "blocked_no_category": 0,
+    "blocked_no_city": 0,
+    "blocked_low_confidence": 3,
+    "blocked_manual": 0,
+    "entity_type": {
+      "marketplace_listing": 200,
+      "private_specialist": 165,
+      "business": 47,
+      "event": 27,
+      "real_estate": 65
+    },
+    "target_collection": {
+      "marketplace": 201,
+      "private_specialists": 164,
+      "services": 19,
+      "businesses": 25,
+      "organizations": 1,
+      "events": 27,
+      "real_estate": 67
+    },
+    "contacts_all_accepted": {
+      "none": 333,
+      "instagram": 73,
+      "phone": 52,
+      "website": 19,
+      "phone+extras": 24,
+      "telegram_username": 3
+    },
+    "contacts_eligible": {
+      "phone+extras": 16,
+      "phone": 35,
+      "instagram": 62,
+      "website": 12,
+      "telegram_username": 2
+    },
+    "exclusion_primary": {
+      "нет контакта": 114,
+      "неподдерживаемые типы": 27,
+      "низкая confidence": 3,
+      "нет title": 3,
+      "устаревшие": 229,
+      "нет description": 1
+    },
+    "exclusion_reason_tags": {
+      "нет title": 15,
+      "нет контакта": 333,
+      "нет города": 132,
+      "похоже на запрос/обсуждение, не предложение": 1,
+      "неподдерживаемый тип": 27,
+      "низкая confidence": 16,
+      "нет description": 8,
+      "контакт только в исходном тексте, не нормализован": 2,
+      "устаревшая запись": 255
+    }
+  },
+  "candidates": [
+    {
+      "fingerprint": "telegram:-1001333533747:72017,72018,72019,72020",
+      "title": "happy.tails.grooming.oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [
+          "+12089480225"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "happy.tails.grooming.oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-07T03:45:42+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70022",
+      "title": "mama_bear_oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [
+          "+17028869393"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "mama_bear_oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-11T18:03:53+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72362",
+      "title": "bearchildrensacademy.org",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19495729467"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://www.bearchildrensacademy.org/summer",
+          "https://www.bearchildrensacademy.org"
+        ],
+        "email": [
+          "info@bearchildrensacademy.org"
+        ],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-14T12:13:00+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71872",
+      "title": "swimmingcoach_losangeles_oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16195587191"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "swimmingcoach_orange_county",
+          "swimmingcoach_losangeles_oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-03T18:18:40+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70715",
+      "title": "Irin Pilates",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19494247730"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905?isdeal=yes"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-06T17:04:44+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70206",
+      "title": "Денис Шульга",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+13109019284"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "vistatax.us"
+        ],
+        "website": [],
+        "email": [
+          "dshulga@vistatax.us"
+        ],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-17T04:12:41+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70087",
+      "title": "Evgeniya Slimface",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19496883816"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "slimface_massage"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-13T00:41:46+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69910",
+      "title": "Натали",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+17738372363"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "styliststates"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-07T16:48:50+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69611",
+      "title": "Мигель Фигероа",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+13234227999"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "mihel_insurance"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-31T06:52:00+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69566,69567,69568,69569,69570",
+      "title": "Dance PROgression",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+15623942201"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "dance_progressions"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-30T05:06:02+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69353",
+      "title": "Tатьяна",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16304416286",
+          "+17147039906",
+          "+19497451105"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "mi_care_beauty"
+        ],
+        "website": [
+          "https://maps.app.goo.gl/wHCGnYMucuGNNkk67?g_st=atm",
+          "https://maps.app.goo.gl/49fsmGgzTzy4uhan9?g_st=ic",
+          "https://maps.app.goo.gl/PuJVqEUcBkCpNV8w6?g_st=ic",
+          "https://maps.app.goo.gl/4zu7NA5HX4Xbfk6J7?g_st=ic",
+          "https://maps.app.goo.gl/g7ywpBc5VebK2ZyE6?g_st=ic",
+          "https://maps.app.goo.gl/wbgsBanQnucSgGT16?g_st=ic",
+          "https://maps.app.goo.gl/LLaHJYjg3j6gAXEQ7?g_st=ic",
+          "https://maps.app.goo.gl/QeuXGMbhrFhfv2xD9?g_st=ic",
+          "https://maps.app.goo.gl/4yZAf3QWu4EybHus6",
+          "https://maps.app.goo.gl/EB8wR9iddyK9a8pH8",
+          "https://maps.app.goo.gl/5Dvi8U5fe5hoxsMH6?g_st=it",
+          "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7?g_st=ic",
+          "https://ocpl.org/cards",
+          "https://maps.app.goo.gl/pNeSN7R7HDKLm4FN8?g_st=ac",
+          "https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8?g_st=ic",
+          "https://micarebeauty.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+          "https://maps.app.goo.gl/2ohf2LGZHjWKc9Rc7?g_st=ic",
+          "https://maps.app.goo.gl/hK2aZ68GyAF4VNA27?g_st=ic",
+          "https://maps.app.goo.gl/1S7izRQ2m7yHwZDk9?g_st=ic",
+          "https://maps.app.goo.gl/wZz7NHd89Xtz5VzS9?g_st=ic",
+          "https://maps.app.goo.gl/G2jiwp8kKmD4zhYs8?g_st=ic",
+          "https://maps.app.goo.gl/cbgRCpi3hbsnP2xa6?g_st=ic",
+          "https://maps.app.goo.gl/67hGMFict4MwMzuR8?g_st=ic",
+          "https://maps.app.goo.gl/yGBS98YeuFpbZJ1c8?g_st=ic",
+          "https://maps.app.goo.gl/52Wh4qZFgu5EtWv96?g_st=ic",
+          "https://maps.app.goo.gl/zHoLWkmfgJUjHTMG9?g_st=ic",
+          "https://maps.app.goo.gl/CYWCQqgDR22Eq85D8",
+          "https://maps.app.goo.gl/eLjF2NuPW7LPiaLW7?g_st=ic",
+          "https://maps.app.goo.gl/nbhVdte1AGC1STjY6",
+          "https://chat.whatsapp.com/JqAxqNDZ9q0IFiB44Fj4Fy",
+          "https://maps.app.goo.gl/aPGYp2K2qYRXURo39?g_st=ic",
+          "https://maps.app.goo.gl/1DR1W7SLz1PWP6k96?g_st=iw",
+          "https://maps.app.goo.gl/xsc8sWCgLgsWcvdJ6?g_st=ic",
+          "https://maps.app.goo.gl/czTWDKaEGitUHGPy7?g_st=com.google.maps.preview.copy",
+          "https://maps.app.goo.gl/eh3jtj3oCQ3fNHDF7?g_st=ic",
+          "https://maps.app.goo.gl/6GrKPixbSZkaTWfj9?g_st=ic"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-24T22:16:20+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75020",
+      "title": "Анастасия",
+      "target_collection": "services",
+      "entity_type": "business",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16028921348"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "http://sofacleanus.com"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-18T16:30:32+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70464",
+      "title": "Телефон",
+      "target_collection": "services",
+      "entity_type": "business",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+17149170440",
+          "+16572040434"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "avelorea.workshop",
+          "avelorea.jewelry"
+        ],
+        "website": [
+          "https://avelorea.jewelry"
+        ],
+        "email": [
+          "olena@accesscal.org",
+          "viktoriya@accesscal.org",
+          "suzanne@accesscal.org"
+        ],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-26T23:29:31+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70220",
+      "title": "aigerim_bimoldina",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19492306585",
+          "+19496624632"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "ailinjourney",
+          "aigerim_bimoldina"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-18T01:15:08+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69936",
+      "title": "Наргиза",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+15134103875"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "my_brows7"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-08T23:52:24+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69341",
+      "title": "Айзада",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone+extras",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+12242235541"
+        ],
+        "whatsapp": [],
+        "instagram": [
+          "aizada_nailsirvine"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-24T05:22:29+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71977",
+      "title": "Nata",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [
+          "+19495949994"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-06T20:03:30+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74212",
+      "title": "Vivika",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [
+          "+19499905111"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-26T00:09:36+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75808,75809,75810,75811,75812",
+      "title": "Victoria Yakovenko",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+14244214917"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-13T15:20:28+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75602",
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+13239744498"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-06T17:02:13+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75394",
+      "title": "Сергей",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+13053994293"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-30T01:17:33+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75157,75158,75159,75160",
+      "title": "Daniel Mataev",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19293405993"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-22T20:29:22+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75053,75054,75055,75056,75057",
+      "title": "Оксана Амірова",
+      "target_collection": "marketplace",
+      "entity_type": "marketplace_listing",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16264813333"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-20T00:09:33+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74653",
+      "title": "Antonina",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19803391613"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-07T20:34:59+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74603,74604,74605,74606",
+      "title": "Elmira73",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19498706903"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-05T15:19:33+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72713",
+      "title": "StairEdu Sergey",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19493313008"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-21T14:32:50+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72520",
+      "title": "Olga Savitskaya",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19496077054"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-17T19:07:21+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71673",
+      "title": "Tanya",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19499424228"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-01T04:49:27+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70868,70869,70870,70871,70872",
+      "title": "Милана Приглашаю вас",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16578772661"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-11T01:00:27+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70608",
+      "title": "Марина",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+18184169975"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-03T18:31:18+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69968",
+      "title": "Acrossers Dance Studio",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+12136000993"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-10T01:59:06+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69488",
+      "title": "Denis CA Dealer",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16572670000",
+          "+14243436212"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-28T23:04:40+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75490",
+      "title": "Alyona Koolhaas",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16083936578"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-03T01:40:52+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75235",
+      "title": "Татьяна Морщук",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19495311494"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-25T04:50:18+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75077",
+      "title": "Алла",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19495007690"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-20T14:21:16+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74562",
+      "title": "Anastasiya",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+16574652422"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-04T22:18:15+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74270",
+      "title": "Oksana Shaternik",
+      "target_collection": "real_estate",
+      "entity_type": "real_estate",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19496066635"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-27T19:08:02+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73646",
+      "title": "Марина",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+13476281344"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-12T17:17:59+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73441,73442,73443",
+      "title": "Таисия Шаповалова",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19499430838"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-08T05:11:55+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73366",
+      "title": "The Village Spectrum",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19495161466"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-06T20:22:17+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72774",
+      "title": "Anna Ahmatova",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+17473063680"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-23T02:08:24+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72616",
+      "title": "Ирина Кундухова",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+18186998831"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-19T23:03:38+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70881",
+      "title": "Юля",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19493167145"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-11T15:44:28+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69987",
+      "title": "Natalia Belova",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19496839863"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-10T15:44:03+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69801",
+      "title": "Яковлев Дмитрий",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19493261386"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-04T19:19:03+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69445,69446",
+      "title": "Мила",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19492353309"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-27T18:44:57+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69420",
+      "title": "Valentyna Vasiura",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+19497017980"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-27T00:13:30+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69400",
+      "title": "Masha Angel",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [
+          "+13238795141"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-26T20:47:15+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73645",
+      "title": "Cell",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [
+          "+16573356167"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-12T17:15:11+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70211",
+      "title": "Позвоните Татьяне",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [
+          "+19496628430"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-17T16:32:53+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69930",
+      "title": "Галина",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "phone",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [
+          "+19165952348"
+        ],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-08T19:18:37+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75128",
+      "title": "janeoart.kids",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "janeoart.kids"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-21T22:37:39+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72630,72631,72632,72633,72634",
+      "title": "Александра",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "floralex_flowers"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-20T01:43:05+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70311,70312,70313,70314,70315",
+      "title": "София",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "beautytouch_by_sofi"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-21T00:28:56+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69782,69783,69784,69785",
+      "title": "Кристина",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "kristi_haircolourist_",
+          "nailskrisart"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-04T04:08:56+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73171",
+      "title": "alina_oc_hair",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "alina_oc_hair"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-02T05:55:39+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72460",
+      "title": "lindas_bouquet",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "lindas_bouquet"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-16T00:33:56+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72403",
+      "title": "grace_and_bloom_",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "grace_and_bloom_"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-15T01:38:41+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71463",
+      "title": "aleks_bake_",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "aleks_bake_"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-27T18:09:59+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69554",
+      "title": "hammond_cpa",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 1.0,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "hammond_cpa"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-30T00:08:55+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:76036",
+      "title": "Женя",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "lashes_shtefan"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-19T04:07:51+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:76007",
+      "title": "delicious_by_va",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "delicious_by_va"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-17T23:17:50+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75786",
+      "title": "glekel.photo",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "glekel.photo"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-12T00:37:03+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75303",
+      "title": "hair_extension_usa",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "hair_extension_usa"
+        ],
+        "website": [
+          "https://book.squareup.com/appointments/rs9n1t8d3ug3cu/location/L6QVRQQX024AS/services?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaATCgFRwZG9mAmV4dG4DYWVtATEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGn6euoeasPBecDUzDIUcbQqO9hLAZnI9-8Hl4l9o2pk7348zlD9BEz3dYoaq8_aem_MP5JN_LpPkPbhiO7DBlLzQ"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-27T18:07:15+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75272,75273,75274,75275,75276",
+      "title": "alexandra_dessert_studio",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "alexandra_dessert_studio"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-26T04:57:28+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75221",
+      "title": "23peony",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "23peony"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-24T17:46:20+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73938,73939",
+      "title": "onemoreminute.play",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "onemoreminute.play"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-20T16:05:30+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73909",
+      "title": "hairdreams__by_galinakirbaba",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "hairdreams__by_galinakirbaba"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-19T01:15:45+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73725",
+      "title": "diana_california",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "diana_california"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-14T15:59:48+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73702",
+      "title": "kalinka.service",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "kalinka.service"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-13T20:54:50+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73324,73325",
+      "title": "olehkapitanchuk_massage",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "olehkapitanchuk_massage"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-05T22:40:30+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72771",
+      "title": "dr__modarres",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "dr__modarres"
+        ],
+        "website": [
+          "https://www.skinovationcleaning.com"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-22T21:40:12+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72399",
+      "title": "karelin.photography",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "karelin.photography"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-15T01:22:25+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71934,71935,71936,71937,71938,71939",
+      "title": "merengue.desert",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "merengue.desert"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-05T19:58:00+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70913",
+      "title": "Ирина",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "irinatrainer"
+        ],
+        "website": [
+          "https://youtube.com/shorts/zPOjp7SewVI?is=P4XHfXHvcCzrdZSK",
+          "https://youtube.com/shorts/tBi7mXWNNd4?si=LMnbD3aEz00swK0D",
+          "https://youtube.com/shorts/VAkgh3Ohz4A?si=K3aLZ_yZQV0pTVsu",
+          "https://youtu.be/jVfXDWqyANw?si=mcVzPXJbHlOm7Jvb",
+          "https://youtu.be/qgb8IbXyv_w?si=nb446-767ghWWeox",
+          "https://www.youtube.com/@irinatrainer"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-12T13:23:53+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70686",
+      "title": "surprise_me.balloons",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "surprise_me.balloons"
+        ],
+        "website": [
+          "https://surprisemeballoonbar.com/"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-05T18:52:56+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70543,70544,70545,70546,70547",
+      "title": "Леся",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "olena_stet"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-01T20:26:06+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70542",
+      "title": "_teastorm_",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "_teastorm_"
+        ],
+        "website": [
+          "https://teastormus.etsy.com"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-01T19:53:39+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70273,70274,70275",
+      "title": "yummy_homemade_sweets",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "yummy_homemade_sweets"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-19T22:41:36+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69514,69515,69516,69517,69518,69519,69520",
+      "title": "Евгения",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "cakewithlove.ca"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-29T20:51:00+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69413,69414",
+      "title": "Виктория",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "viktoria.bouquetory"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-26T22:16:19+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69386",
+      "title": "photograph_la_alina",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "photograph_la_alina"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-26T04:54:42+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69343",
+      "title": "sugaring_nastena",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "sugaring_nastena"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-24T06:16:06+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75088",
+      "title": "tatkaurbaniq",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "tatkaurbaniq"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-21T04:06:55+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75082",
+      "title": "leisan_hairstylist_oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "leisan_hairstylist_oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-20T23:24:07+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74252",
+      "title": "kids_party_oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "kids_party_oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-27T02:22:04+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74220",
+      "title": "daria_stretch_dance",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "daria_stretch_dance"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-26T04:14:55+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74203",
+      "title": "scgb2025irvine",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "scgb2025irvine"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-25T16:04:34+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73713",
+      "title": "flamellecandles",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "flamellecandles"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-14T02:21:49+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72963",
+      "title": "creatoriakids",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "creatoriakids"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-27T19:10:20+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72383",
+      "title": "facial_massage_oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "facial_massage_oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-14T20:21:10+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72353",
+      "title": "victoria__kei",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "victoria__kei"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-14T01:06:51+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72346",
+      "title": "regyminate",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "regyminate"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-13T23:57:05+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72298",
+      "title": "tati.cake.oc",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "tati.cake.oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-12T22:33:05+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71785",
+      "title": "tetiana.malenkova",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "tetiana.malenkova"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-02T04:26:39+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71327",
+      "title": "julia_life_usa",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "julia_life_usa"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-23T17:28:54+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71268",
+      "title": "pilyulya.me",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "pilyulya.me"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-21T16:53:01+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71265",
+      "title": "sashalashangel",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "sashalashangel"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-21T05:30:15+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71193",
+      "title": "anton_sushev",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "anton_sushev"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-20T03:01:14+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71081",
+      "title": "evgeny_rezko",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "evgeny_rezko"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-16T02:51:14+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71042",
+      "title": "Амина",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "aminotk"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-15T00:04:46+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70916",
+      "title": "открыла свою уютную студию ENDO Studio",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "endo.studio_oc"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-12T15:41:21+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70785",
+      "title": "reel",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "reel"
+        ],
+        "website": [
+          "https://studio.dreem-world.ai/r/Q8890E"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-08T02:28:04+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70536",
+      "title": "nataliawolfstudio",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "nataliawolfstudio"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-01T18:26:20+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70488",
+      "title": "maxgirr",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "maxgirr"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-27T17:32:27+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69828",
+      "title": "kate_yuka_aesthetics",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "kate_yuka_aesthetics"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-05T00:17:58+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69673",
+      "title": "1touch_massage",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "1touch_massage"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-02T03:10:34+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69657",
+      "title": "beauty_skin_by_sandra",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "beauty_skin_by_sandra"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-01T17:57:36+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69763,69764,69766,69767",
+      "title": "dirtybirdfarm",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "instagram",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "dirtybirdfarm"
+        ],
+        "website": [
+          "http://www.dirtybirdranch.com/",
+          "https://www.airbnb.com/rooms/1539266974610649623?viralityEntryPoint=1&s=76",
+          "https://www.airbnb.com/rooms/3826406?viralityEntryPoint=1&s=76"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-03T20:26:34+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:76207",
+      "title": "zpoqmy",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "zpoqmy"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-23T18:12:55+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75612",
+      "title": "aleks_andra020289",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "aleks_andra020289"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-07T00:38:42+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72390",
+      "title": "ekaterinakhomich",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "ekaterinakhomich"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-15T00:01:37+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70862",
+      "title": "khan_archery_club",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "instagram",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [
+          "khan_archery_club"
+        ],
+        "website": [],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-10T22:14:04+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:75548",
+      "title": "Anastasiia",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://turo.com/host/34022386"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-07-04T20:18:08+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:74631",
+      "title": "MA",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://ocacting.com/acting-classes/acting-classes-for-kids/"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-06-06T22:39:27+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73871",
+      "title": "Vika Borel",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://www.metrotech.academy"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-05-18T17:29:57+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72556,72557,72558,72559",
+      "title": "Ekaterina Samsonova",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://threadssequins.etsy.com"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-18T17:55:11+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:72438",
+      "title": "Ida Seidova",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://www.skinovationclinic.com"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-15T21:32:03+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:71718",
+      "title": "Elvira S @mama_print",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://mama-print.ru/blog/links"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-04-01T18:51:56+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70527",
+      "title": "Oksana",
+      "target_collection": "businesses",
+      "entity_type": "business",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://www.stairedu.com/book-online",
+          "https://www.stairedu.com/service-page/robotics-ai-3d-printing-camp-spring-2026?utm_campaign=556c28eb-3c63-4d00-aa12-bf6856b1f308&utm_source=so&utm_medium=mail"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-01T00:49:33+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70102",
+      "title": "Dmitry",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://ti.alter.tax/"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-02-13T17:10:46+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69579",
+      "title": "Mila",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://milatax.com"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-30T17:20:22+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:70722,70851",
+      "title": "Пиклбол в Ирвайне",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt/"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-03-06T20:55:14+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69559",
+      "title": "Anastasiya Posashenko",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://digitalcookie.girlscouts.org/scout/vasilisa910929"
+        ],
+        "email": [],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-30T02:36:47+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:69377",
+      "title": "Natalia Rezvova",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "website",
+      "confidence": 0.9,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [
+          "https://lettersfox.wixsite.com/letterfox"
+        ],
+        "email": [
+          "lettersfox@gmail.com"
+        ],
+        "telegram_username": null
+      },
+      "source_posted_at": "2026-01-25T21:39:44+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73934",
+      "title": "Elena Garmazh FYSM Yoga Coach",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "telegram_username",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": "fysmyogaelenagarmazh"
+      },
+      "source_posted_at": "2026-05-20T02:30:20+00:00"
+    },
+    {
+      "fingerprint": "telegram:-1001333533747:73153",
+      "title": "Евгения Бобровская",
+      "target_collection": "private_specialists",
+      "entity_type": "private_specialist",
+      "contact_kind": "telegram_username",
+      "confidence": 0.95,
+      "contacts": {
+        "phone": [],
+        "whatsapp": [],
+        "instagram": [],
+        "website": [],
+        "email": [],
+        "telegram_username": "slimface4ever"
+      },
+      "source_posted_at": "2026-05-01T20:42:18+00:00"
+    }
+  ],
+  "blocked_sample": [
+    {
+      "title": "⛔️",
+      "reasons": [
+        "нет title",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Екатерина",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Jenny",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Maria K",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Также возможна встреча",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "agnejess",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Volodymyr",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Алёна",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Anastasiia Dannelley",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Оксана Лобанова",
+      "reasons": [
+        "нет контакта",
+        "нет города",
+        "похоже на запрос/обсуждение, не предложение"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Yelyzaveta Stepanenko",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Olyunka Nam",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Lana Cher",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "organizations"
+    },
+    {
+      "title": "Eleonora (Эля)",
+      "reasons": [
+        "неподдерживаемый тип: events"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Aleksandra",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Anna Lukina",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "mary.shlykova",
+      "reasons": [
+        "низкая confidence (0.50 < 0.85)"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Кровать queen size $140, в хорошем состоянии, с матрасом",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Продаем диван $50",
+      "reasons": [
+        "нет description",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Милена",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "G -",
+      "reasons": [
+        "нет title",
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Всем привет !",
+      "reasons": [
+        "низкая confidence (0.70 < 0.85)",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Anna Nesterova",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Kseniia",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Olga O",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Ирина Кундухова",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Sandra",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "My_brows7",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Ирина К",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Aya",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Olga Falevich",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Tanya Forinnaya",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "G -",
+      "reasons": [
+        "нет title",
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "АннА Родная",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "~~~~ $$$$$",
+      "reasons": [
+        "нет title",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Tayka",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Bair",
+      "reasons": [
+        "низкая confidence (0.70 < 0.85)",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Angelina Mel",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Daria__Iz Hair Stylist",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Поменяю 600$ на рубли,  курс 73. Рубли на карту переводом",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Olga Chikirina",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Георгий",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Aliia",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Dasha Sidorina",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Olga Falevich",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reasons": [
+        "нет контакта",
+        "нет города",
+        "контакт только в исходном тексте, не нормализован"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "торговый центр",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "S❄️",
+      "reasons": [
+        "нет title"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Kristina",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Алия Сидорова",
+      "reasons": [
+        "низкая confidence (0.80 < 0.85)"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Lidia L",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Alex",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (48 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Mariia Bezrukova",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (49 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Yelyzaveta Stepanenko",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (49 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "SB",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (50 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "С 12 июля, сдается мастер бедрум со своим сан узлом. Park Place Irvine",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Maxim",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (50 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Здравствуйте.  Есть рубли,  поменяю на $, курс 74",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (50 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Anhelina",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (52 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Svetlana Eiz",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (53 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "FCGB",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (54 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Алла",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "АннА Родная",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Eleni Gorchaniuk",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (56 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Николай Григорьевич",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Tatiana Tatiana",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (58 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "anna_womens_life",
+      "reasons": [
+        "неподдерживаемый тип: events",
+        "устаревшая запись (60 дн.)"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Ами Ами",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (60 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Tanya",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (62 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Yana Khan",
+      "reasons": [
+        "нет контакта",
+        "нет города",
+        "устаревшая запись (63 дн.)"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Natalya Olegovna",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (63 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "movement studio",
+      "reasons": [
+        "устаревшая запись (63 дн.)"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "G -",
+      "reasons": [
+        "нет title",
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Oksi",
+      "reasons": [
+        "устаревшая запись (64 дн.)"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "A.B",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (64 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Ivan Pasko",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (64 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Eleni Gorchaniuk",
+      "reasons": [
+        "нет контакта",
+        "нет города",
+        "устаревшая запись (66 дн.)"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Амина",
+      "reasons": [
+        "неподдерживаемый тип: events",
+        "устаревшая запись (66 дн.)"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Привет! Есть рубли,  нужно обменять на доллары, 1000$.",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (67 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "A",
+      "reasons": [
+        "нет title"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Linara",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (67 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Danielle",
+      "reasons": [
+        "нет контакта",
+        "нет города",
+        "устаревшая запись (68 дн.)"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Anna",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (68 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Алла",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (68 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Маргарита",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "garri garri",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (71 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Дарья Цыман",
+      "reasons": [
+        "неподдерживаемый тип: events",
+        "устаревшая запись (72 дн.)"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Елена",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (73 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "White",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (75 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Воля",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (75 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Anna Kuznetsova",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (76 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Nur",
+      "reasons": [
+        "устаревшая запись (76 дн.)"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Anna Kuznetsova",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (76 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "girlsclub.la",
+      "reasons": [
+        "неподдерживаемый тип: events",
+        "устаревшая запись (77 дн.)"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Gina",
+      "reasons": [
+        "нет контакта",
+        "устаревшая запись (77 дн.)"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Таисия Шаповалова",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    }
+  ]
+}

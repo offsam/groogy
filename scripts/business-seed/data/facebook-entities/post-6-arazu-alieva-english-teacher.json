@@ -1,0 +1,23 @@
+{
+  "entity_type": "Specialist",
+  "entity_name": "Arazu Alieva - English Teacher",
+  "category": "Education",
+  "subcategory": "English Language Tutoring",
+  "description": "English language instruction and tutoring services.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "English teacher providing instruction",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 6,
+  "source_author": "Arazu Alieva",
+  "source_post_date": "2026-07-16T00:00:00Z",
+  "needs_enrichment": true,
+  "confidence": "LOW"
+}

@@ -1,0 +1,27 @@
+{
+  "entity_type": "Job",
+  "entity_name": "Ahmadzhnova Feruza - Beauty Salon Hiring",
+  "category": "Employment",
+  "subcategory": "Beauty Services",
+  "description": "Hiring manicure and pedicure specialists. Competitive compensation package, flexible schedule, team support, modern interior.",
+  "city": "Studio City",
+  "state": "CA",
+  "price": 1500,
+  "phone": [
+    "+1-323-616-5580",
+    "+1-818-852-8808",
+    "+1-213-820-6460"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Приглашаем мастеров. Мы предлагаем: Доход от $1500 в неделю. Постоянную запись, салон с отличной репутацией. Современный европейский интерьер и комфортные условия работы. Дружный коллектив и поддержку администрации. Гибкий график. Требования: Пунктуальность. Ответственность и внимательность к деталям.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 27,
+  "source_author": "Ahmadzhnova Feruza",
+  "source_post_date": "2026-07-16T11:12:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

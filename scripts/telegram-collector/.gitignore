@@ -1,0 +1,12 @@
+*.session
+*.session-journal
+*.phone_code_hash
+.env
+.env.local
+__pycache__/
+.venv/
+venv/
+data/*
+!data/.gitkeep
+!data/README.example.md
+

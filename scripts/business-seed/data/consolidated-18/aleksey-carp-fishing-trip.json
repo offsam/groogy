@@ -1,0 +1,38 @@
+{
+  "id": "aleksey-carp-fishing-trip",
+  "entity_type": "Event Organizer",
+  "entity_name": "Баня от Алексея",
+  "category": "Recreation",
+  "subcategory": "Fishing Trips",
+  "phones": [
+    "+1-323-849-9148"
+  ],
+  "events": [
+    {
+      "name": "Carp fishing trip",
+      "city": "Lake Elsinore",
+      "state": "CA",
+      "postal_code": "92530",
+      "start_date": "2026-07-17",
+      "end_date": "2026-07-19",
+      "arrival_time": "17:00",
+      "pricing": [
+        {
+          "option": "Friday-Sunday",
+          "price": 150,
+          "currency": "USD"
+        },
+        {
+          "option": "Saturday-Sunday",
+          "price": 130,
+          "currency": "USD"
+        }
+      ],
+      "children_policy": "Children under 12 are free",
+      "includes": [
+        "Banya",
+        "Buffet"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "entity_type": "Service",
+  "entity_name": "Den Mataev - Caviar & Seafood Delivery",
+  "category": "Food & Specialty Products",
+  "subcategory": "Seafood & Caviar Delivery",
+  "description": "Caviar and smoked fish delivery service throughout Orange County and Los Angeles area. Premium quality products from direct supplier brand Silver Bay. Kosher caviar and smoked fish available.",
+  "city": "Los Angeles",
+  "state": "CA",
+  "price": 75,
+  "phone": [
+    "+1-929-340-5993"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "ДОСТАВКА ИКРЫ ПО ВСЕМУ ОРЕНДЖ КАУНТИ И НЕ ТОЛЬКО!!! Буду развозить икру по ЛА, валлам, ОС и другим районам в среду 22 июля! Продукт высочайшего качества напрямую от поставщика — бренд Silver bay. Кошерная, с насыщенным вкусом. Цена: 1 упаковка (500 г) — $75. Лосось 1 Паунд - $23. Форель 0.5 паунда $15. Скумбрия по штучно $15-18.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 1,
+  "source_author": "Den Mataev",
+  "source_post_date": "2026-07-22T00:00:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

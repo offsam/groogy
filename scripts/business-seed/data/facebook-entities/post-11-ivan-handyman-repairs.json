@@ -1,0 +1,23 @@
+{
+  "entity_type": "Professional Service",
+  "entity_name": "Ivan - Handyman Repairs",
+  "category": "Home Services",
+  "subcategory": "Handyman & Repairs",
+  "description": "Handyman services for home repairs and maintenance.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Handyman repair services",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 11,
+  "source_author": "Ivan",
+  "source_post_date": "2026-07-16T00:00:00Z",
+  "needs_enrichment": true,
+  "confidence": "LOW"
+}

@@ -1,0 +1,261 @@
+{
+  "entity_count": 20,
+  "entities": [
+    {
+      "name": "Valeriia Realtor Lake Forest",
+      "category": "Real Estate",
+      "subcategory": "Property Listing",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "services": [
+        "Condo sales",
+        "Buyer representation"
+      ],
+      "location": "Lake Forest CA",
+      "source": "Facebook"
+    },
+    {
+      "name": "Valeriia Realtor Santa Ana",
+      "category": "Real Estate",
+      "subcategory": "Property Listing",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "services": [
+        "Apartment sales",
+        "Investment properties"
+      ],
+      "location": "Santa Ana CA",
+      "source": "Facebook"
+    },
+    {
+      "name": "Valeriia Realtor Rancho Mission Viejo",
+      "category": "Real Estate",
+      "subcategory": "Open House",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "services": [
+        "Home sales",
+        "Open house"
+      ],
+      "location": "Rancho Mission Viejo CA",
+      "source": "Facebook"
+    },
+    {
+      "name": "Neptune Seafood Orange County Route",
+      "category": "Food",
+      "subcategory": "Seafood Delivery",
+      "phone": "916-956-5019",
+      "contact_person": "Karina",
+      "services": [
+        "Seafood delivery",
+        "Fish products",
+        "Caviar"
+      ],
+      "location": "Orange County CA",
+      "source": "Facebook"
+    },
+    {
+      "name": "Good Food Mission Viejo",
+      "category": "Retail Food",
+      "subcategory": "Russian Grocery",
+      "address": "25565 Jeronimo Rd Unit 2, Mission Viejo CA",
+      "services": [
+        "Russian products",
+        "Caviar",
+        "Deli products"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Svetlana Melnik Merry Hive",
+      "category": "Education",
+      "subcategory": "Early Childhood School",
+      "location": "Laguna Hills CA",
+      "services": [
+        "Preschool",
+        "English groups",
+        "Sports",
+        "Theater"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Sunrise Education Center Camps",
+      "category": "Education",
+      "subcategory": "Kids Summer Camps",
+      "phone": [
+        "310-916-7095",
+        "949-335-2827"
+      ],
+      "locations": [
+        "Tustin CA",
+        "Laguna Hills CA"
+      ],
+      "services": [
+        "Summer camps",
+        "STEM",
+        "Art camps",
+        "Sports camps"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Art Backyard Design Camp",
+      "category": "Education",
+      "subcategory": "Interior Design Camp",
+      "address": "13031 Newport Ave, Tustin CA",
+      "services": [
+        "Kids interior design",
+        "Creative education"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Merry Hive Open House",
+      "category": "Education",
+      "subcategory": "Preschool Open House",
+      "location": "Laguna Hills CA",
+      "services": [
+        "School enrollment",
+        "Parent tours"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Kaivy Alteration Studio Hiring",
+      "category": "Fashion Services",
+      "subcategory": "Tailoring Employment",
+      "phone": "949-736-5075",
+      "location": "Lake Forest CA",
+      "services": [
+        "Sewing",
+        "Alterations",
+        "Wedding dresses"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Peter Dudarenko Remodeling",
+      "category": "Home Services",
+      "subcategory": "Remodeling",
+      "phone": "949-226-1258",
+      "services": [
+        "Home renovation",
+        "Property maintenance",
+        "Repairs"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Oleh Spasiuk Auto Mechanic",
+      "category": "Automotive",
+      "subcategory": "Mobile Mechanic",
+      "phone": "445-888-0342",
+      "services": [
+        "Diagnostics",
+        "Repair",
+        "Maintenance"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Lidia Gordienko Tesla Taxi",
+      "category": "Transportation",
+      "subcategory": "Private Driver",
+      "services": [
+        "Tesla Model Y rides",
+        "Airport transportation",
+        "Child transport"
+      ],
+      "location": "Orange County CA",
+      "source": "Facebook"
+    },
+    {
+      "name": "Anna Lash Studio",
+      "category": "Beauty",
+      "subcategory": "Lash Extensions",
+      "phone": "323-770-4721",
+      "instagram": "elegant_beauty_by_anna",
+      "location": "Huntington Beach CA",
+      "services": [
+        "Lash extensions",
+        "Lash lamination"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Flora Barshak Caregiver Position",
+      "category": "Care Services",
+      "subcategory": "Caregiver Job",
+      "phone": "619-889-3001",
+      "location": "Del Mar CA",
+      "services": [
+        "Live-in care",
+        "House assistance"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Rita LegalShield",
+      "category": "Legal Services",
+      "subcategory": "Driver Legal Support",
+      "phone": "934-444-5871",
+      "services": [
+        "Accident representation",
+        "DOT issues",
+        "Legal consultation"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Nail Studio by Veronika",
+      "category": "Beauty",
+      "subcategory": "Nail Salon",
+      "instagram": "beautystudio_by_veronika",
+      "location": "Newport Beach CA",
+      "services": [
+        "Manicure",
+        "Pedicure",
+        "Salon hiring"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Merry Hive School Programs",
+      "category": "Education",
+      "subcategory": "Children Programs",
+      "services": [
+        "Development classes",
+        "Science",
+        "Sports",
+        "Theater"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Lena Indiukova Homemade Sweets",
+      "category": "Food",
+      "subcategory": "Desserts",
+      "instagram": "yummy_homemade_sweets",
+      "location": "Irvine CA",
+      "services": [
+        "Cakes",
+        "Desserts"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Ira Body Sculpting Studio",
+      "category": "Beauty",
+      "subcategory": "Massage & Body Care",
+      "instagram": "bodysculpting_by_ira",
+      "location": "Laguna Niguel CA",
+      "services": [
+        "Massage",
+        "Body sculpting",
+        "Wraps"
+      ],
+      "source": "Facebook"
+    }
+  ]
+}

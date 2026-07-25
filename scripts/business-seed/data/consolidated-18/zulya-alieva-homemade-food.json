@@ -1,0 +1,29 @@
+{
+  "id": "zulya-alieva-homemade-food",
+  "entity_type": "Specialist",
+  "entity_name": "Zulya Alieva",
+  "category": "Food & Catering",
+  "subcategory": "Homemade Food",
+  "description": "Homemade meals and prepared foods made from fresh ingredients.",
+  "city": "Orange County",
+  "state": "CA",
+  "phones": [
+    "+1-949-283-0591"
+  ],
+  "messengers": {
+    "whatsapp": "+1-949-283-0591",
+    "telegram": "https://t.me/+WPf8ype7QG4yODI5"
+  },
+  "services": [
+    "Homemade meal preparation",
+    "Meal preparation for truck drivers",
+    "Custom food orders"
+  ],
+  "products": [
+    "Manty",
+    "Chebureki",
+    "Pelmeni",
+    "Galnash",
+    "Vareniki"
+  ]
+}

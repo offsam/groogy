@@ -1,0 +1,25 @@
+{
+  "entity_type": "Professional Service",
+  "entity_name": "Tenina Law, Inc.",
+  "category": "Legal & Tax Services",
+  "subcategory": "Tax & Cryptocurrency Compliance",
+  "description": "Tax compliance services for cryptocurrency investments and transactions. Audits for crypto holdings and trading activity.",
+  "city": "Sherman Oaks",
+  "state": "CA",
+  "price": null,
+  "phone": [
+    "+1-213-596-0265"
+  ],
+  "email": null,
+  "website": "teninalaw.com",
+  "facebook_page": null,
+  "instagram": null,
+  "address": "15250 Ventura Blvd Suite 1200, Sherman Oaks, CA 91403",
+  "original_text": "Задача их проверки - определить, какие операции были совершены, как они должны квалифицироваться с точки зрения налогового законодательства и были ли они корректно отражены в налоговой декларации.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 28,
+  "source_author": "Alla V Tenina",
+  "source_post_date": "2026-07-16T11:04:00Z",
+  "needs_enrichment": true,
+  "confidence": "MEDIUM"
+}

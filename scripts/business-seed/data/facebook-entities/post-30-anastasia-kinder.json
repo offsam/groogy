@@ -1,0 +1,23 @@
+{
+  "entity_type": "Specialist",
+  "entity_name": "Anastasia Kinder",
+  "category": "Beauty Services",
+  "subcategory": "Manicure & Pedicure",
+  "description": "Russian manicure and pedicure services. Special introductory offer valid until end of month. By appointment only.",
+  "city": "Irvine",
+  "state": "CA",
+  "price": 140,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Я начала работать на новом месте и в честь этого запустила специальную акцию для новых клиентов. Это прекрасная возможность познакомиться со мной, моими услугами и посетить новое уютное пространство по приятной цене. Russian Manicure + Pedicure $140. Valid until end of the month.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 30,
+  "source_author": "Anastasia Kinder",
+  "source_post_date": "2026-07-17T14:18:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

@@ -1,0 +1,23 @@
+{
+  "entity_type": "Organization",
+  "entity_name": "Tutowl.com Online School",
+  "category": "Education",
+  "subcategory": "Online Tutoring",
+  "description": "Online school for children and adults living in USA and Canada. Specializes in English language instruction and reading.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": "tutowl.com",
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Tutowl.com онлайн-школа для детей и взрослых живущих в США и Канаде. Хотите, чтобы ребенок хорошо учился в американской школе? Начните не с математики. Начните с чтения...",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 26,
+  "source_author": "Tutowl.com",
+  "source_post_date": "2026-07-16T19:32:00Z",
+  "needs_enrichment": true,
+  "confidence": "MEDIUM"
+}

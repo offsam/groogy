@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "dataset_name": "facebook_entities_batch_2",
+  "entity_count_new": 20,
+  "updates_count": 8,
+  "note": "This file contains only the new batch after the previous 18-entity import. Existing entities should be merged, not duplicated.",
+  "new_entities": [
+    {
+      "name": "Sergei Anischenko",
+      "category": "Homemade Food Delivery"
+    },
+    {
+      "name": "Alex Auto Brokering",
+      "category": "Auto Broker / Leasing"
+    },
+    {
+      "name": "Pavel Krylov",
+      "category": "Handyman"
+    },
+    {
+      "name": "US VACATION",
+      "contact": "Olga Pugacheva",
+      "category": "Travel Tours"
+    },
+    {
+      "name": "Car Towing",
+      "contact": "Artur Arutiunov",
+      "category": "Towing Service"
+    },
+    {
+      "name": "Rita Sarafutdinova",
+      "category": "Legal Services"
+    },
+    {
+      "name": "Lidiia Gordienko",
+      "category": "Premium Taxi"
+    },
+    {
+      "name": "Anna Esthetician",
+      "category": "Lash Artist"
+    },
+    {
+      "name": "Flora Barshak",
+      "category": "Caregiver Job"
+    },
+    {
+      "name": "Tigran Hovhannisyan",
+      "category": "Car Audio / Automotive"
+    },
+    {
+      "name": "Neo Aesthetics & Medical International Academy",
+      "category": "Medical Education"
+    },
+    {
+      "name": "Good Food",
+      "category": "Grocery Store"
+    },
+    {
+      "name": "5 Star Appliance Repair",
+      "contact": "Mayan Hussien",
+      "category": "Appliance Repair"
+    },
+    {
+      "name": "SBSHealth Los Angeles / Step by Step LA",
+      "category": "Health & Wellness"
+    },
+    {
+      "name": "Evgeniy Chebatkov Stand Up Show",
+      "category": "Entertainment Event"
+    },
+    {
+      "name": "Svetlana K Pantelic",
+      "category": "House Assistant Job"
+    },
+    {
+      "name": "Enna Eskin",
+      "category": "Event Decoration Request"
+    },
+    {
+      "name": "Yana Hodyniuk / Marshmallow Magic",
+      "category": "Handmade Sweets"
+    },
+    {
+      "name": "Evgeniia Shtefan",
+      "category": "Lash Artist"
+    },
+    {
+      "name": "Viktoriya Adamovskaya / Delicious by VA",
+      "category": "Homemade Desserts"
+    }
+  ],
+  "updates": [
+    {
+      "entity": "Anastasia Kinder",
+      "changes": [
+        "Irvine location",
+        "Manicure + Pedicure promotion $140"
+      ]
+    },
+    {
+      "entity": "Valeriia Andriushchenko",
+      "changes": [
+        "Added LA studio",
+        "Rancho Mission Viejo",
+        "Jurupa Valley listings"
+      ]
+    },
+    {
+      "entity": "Neptune Seafood",
+      "changes": [
+        "Added LA, San Diego, Orange County delivery dates"
+      ]
+    },
+    {
+      "entity": "Ksenia Andreychenko / Taxes VIP",
+      "changes": [
+        "Added IRS and FTB assistance"
+      ]
+    },
+    {
+      "entity": "Artur Arutiunov / Car Towing",
+      "changes": [
+        "Confirmed towing phone number"
+      ]
+    },
+    {
+      "entity": "Art 4 Kids & Teens",
+      "changes": [
+        "Added summer camps and free trial lesson"
+      ]
+    },
+    {
+      "entity": "Grand Auto Group OC",
+      "changes": [
+        "Added collision center, address, services"
+      ]
+    },
+    {
+      "entity": "Valeriia Realtor",
+      "changes": [
+        "Added new property listings"
+      ]
+    }
+  ]
+}

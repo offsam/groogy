@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#a21caf"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <circle cx="650" cy="120" r="180" fill="#ffffff" opacity="0.08"/>
+  <circle cx="120" cy="500" r="220" fill="#ffffff" opacity="0.08"/>
+  <g transform="translate(400 270)" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.9">
+    <circle cx="-45" cy="55" r="28"/>
+    <circle cx="45" cy="55" r="28"/>
+    <path d="M-30 35 L60 -75 M30 35 L-60 -75"/>
+  </g>
+  <text x="400" y="470" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.95">Красота</text>
+</svg>

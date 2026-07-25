@@ -1,0 +1,44 @@
+# dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+
+# production
+/build
+
+# local environment files (never commit secrets)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# credentials / keys
+*.pem
+*.key
+*.p12
+*.pfx
+**/credentials.json
+**/service-account*.json
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# system
+.DS_Store
+
+# TypeScript
+*.tsbuildinfo
+
+# Telegram Telethon sessions
+*.session
+*.session-journal
+scripts/telegram-collector/*.session*
+
+# Facebook collector PoC outputs
+scripts/facebook-collector/data/poc/

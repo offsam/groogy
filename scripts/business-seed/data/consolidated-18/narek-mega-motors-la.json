@@ -1,0 +1,28 @@
+{
+  "id": "narek-mega-motors-la",
+  "entity_type": "Business",
+  "entity_name": "Narek Mega Motors Los Angeles",
+  "contact_person": "Narek Shahinyan",
+  "category": "Automotive",
+  "subcategory": "Auto Broker",
+  "city": "Los Angeles",
+  "state": "CA",
+  "phones": [
+    "+1-818-301-0030"
+  ],
+  "instagram": "narek.megamotorsla",
+  "services": [
+    "Auto brokerage for all makes and models"
+  ],
+  "promotions": [
+    {
+      "name": "July lease special",
+      "vehicle": "2026 Audi A5 S-Line Premium Plus",
+      "down_payment": 2000,
+      "monthly_payment": 559,
+      "term_months": 36,
+      "annual_miles": 7500,
+      "tax_included": true
+    }
+  ]
+}

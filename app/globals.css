@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+
+  /* КРУГИ logo palette */
+  --brand-yellow: #f5c400;
+  --brand-orange: #f08a1a;
+  --brand-red: #e23b2f;
+  --brand-green: #3faf3a;
+  --brand-green-deep: #2e8b2c;
+  --brand-blue: #1f6fe5;
+  --brand-blue-deep: #1557c0;
+  --brand-warm: linear-gradient(
+    165deg,
+    var(--brand-yellow) 0%,
+    var(--brand-orange) 48%,
+    var(--brand-red) 100%
+  );
+}
+
+@theme inline {
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-red: var(--brand-red);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-deep: var(--brand-green-deep);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-deep: var(--brand-blue-deep);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+}
+
+/* Home shows the resource strip under the hero — hide only the sticky header duplicate */
+body:has(.home-fullwidth) .platform-top-counter-sticky {
+  display: none;
+}
+
+/* Explicit mobile / desktop site switch (see ViewModeToggle). */
+html[data-view-mode="mobile"] {
+  background: #0f172a;
+}
+
+html[data-view-mode="mobile"] .view-shell {
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  min-height: 100vh;
+  background: var(--background);
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35),
+    0 24px 64px rgba(15, 23, 42, 0.35);
+}
+
+html[data-view-mode="desktop"] .view-shell {
+  min-width: min(100%, 1280px);
+}
+
+/* Не задаём color здесь: иначе перебивается text-white на ссылках-кнопках
+   (unlayered CSS сильнее @layer utilities в Tailwind v4). */
+a {
+  text-decoration: none;
+}
+
+/* Leaflet custom markers — brand pin */
+.marker-pin {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--brand-warm);
+  background-color: var(--brand-red);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(226, 59, 47, 0.35);
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.marker-pin::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.marker-pin--active {
+  background: var(--brand-blue);
+  background-color: var(--brand-blue);
+  box-shadow: 0 3px 10px rgba(31, 111, 229, 0.45);
+  transform: rotate(-45deg) scale(1.3);
+}
+
+.leaflet-container {
+  font-family: inherit;
+  z-index: 0;
+}
+
+/* Home 3D map: kill tile fade — it makes pin plates shimmer */
+.home-activity-leaflet.leaflet-fade-anim .leaflet-tile,
+.home-activity-leaflet .leaflet-tile-loaded {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Hide Leaflet's decorative flag only — keep © OpenStreetMap / CARTO text (license). */
+.leaflet-attribution-flag {
+  display: none !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: rgb(100 116 139) !important;
+  font-size: 10px !important;
+  line-height: 1.3 !important;
+  max-width: min(100%, 16rem);
+  padding: 2px 6px !important;
+}
+
+.leaflet-control-attribution a {
+  color: rgb(71 85 105) !important;
+}
+
+@keyframes hubCountIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

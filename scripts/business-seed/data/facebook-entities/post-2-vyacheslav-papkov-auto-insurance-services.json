@@ -1,0 +1,25 @@
+{
+  "entity_type": "Business",
+  "entity_name": "Vyacheslav Papkov - Auto Insurance Services",
+  "category": "Insurance",
+  "subcategory": "Auto Insurance",
+  "description": "Auto insurance services and discounts for Russian-speaking community. Advice on obtaining discounts and comparing insurance options.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": [
+    "+1-619-?????"
+  ],
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "⚠️🔥🔥☝️Вот так делайте и не потеряете скидку на авто страховании!☝️По всем вопросам Страхования ☎️6",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 2,
+  "source_author": "Vyacheslav Papkov",
+  "source_post_date": "2026-07-17T00:00:00Z",
+  "needs_enrichment": true,
+  "confidence": "LOW"
+}

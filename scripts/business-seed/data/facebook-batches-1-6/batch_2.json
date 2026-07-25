@@ -1,0 +1,289 @@
+{
+  "entity_count": 20,
+  "entities": [
+    {
+      "name": "Valeriia Realtor Los Angeles Condo",
+      "category": "Real Estate",
+      "subcategory": "Property Listing",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "services": [
+        "Condo sales",
+        "Buyer consultation"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Grand Auto Group OC",
+      "category": "Automotive",
+      "subcategory": "Collision Center",
+      "phone": "424-324-0102",
+      "contact_person": "Eugene Venger",
+      "address": "1409 E Warner Ave, Santa Ana, CA 92705",
+      "services": [
+        "Collision repair",
+        "Insurance work",
+        "Oil change",
+        "Alignment",
+        "AC service",
+        "Engine repair",
+        "Transmission repair"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Sunrise Education Center",
+      "category": "Education",
+      "subcategory": "Kids Development Center",
+      "phone": [
+        "310-916-7095",
+        "949-335-2827"
+      ],
+      "locations": [
+        "Tustin CA",
+        "Laguna Hills CA"
+      ],
+      "services": [
+        "Preschool",
+        "Afterschool",
+        "Camps",
+        "Art",
+        "Math",
+        "Russian language",
+        "Robotics"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Katia Bulgakova Art Backyard",
+      "category": "Education",
+      "subcategory": "Interior Design Camp",
+      "address": "13031 Newport Ave, Tustin CA",
+      "services": [
+        "Kids interior design camp"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Julia Kolesnikova",
+      "category": "Food",
+      "subcategory": "Custom Cakes",
+      "location": "Los Angeles CA",
+      "instagram": "pastry_kolesnikova",
+      "services": [
+        "Custom cakes",
+        "3D cakes",
+        "Desserts"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Kaivy Alteration Studio",
+      "category": "Fashion Services",
+      "subcategory": "Tailoring",
+      "location": "Lake Forest CA",
+      "phone": "949-736-5075",
+      "services": [
+        "Wedding dress alterations",
+        "Evening dress alterations",
+        "Clothing repair"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Peter Dudarenko",
+      "category": "Home Services",
+      "subcategory": "Remodeling & Property Management",
+      "phone": "949-226-1258",
+      "services": [
+        "Home renovation",
+        "Repairs",
+        "Property management"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Oleh Spasiuk",
+      "category": "Automotive",
+      "subcategory": "Mobile Mechanic",
+      "phone": "445-888-0342",
+      "services": [
+        "Auto repair",
+        "Maintenance",
+        "Diagnostics"
+      ],
+      "location": [
+        "Orange County",
+        "Los Angeles County",
+        "San Diego County"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Neptune Seafood",
+      "category": "Food",
+      "subcategory": "Seafood Delivery",
+      "phone": "916-956-5019",
+      "contact_person": "Karina",
+      "services": [
+        "Fresh fish",
+        "Smoked fish",
+        "Caviar",
+        "Seafood"
+      ],
+      "locations": [
+        "Los Angeles",
+        "San Diego",
+        "Orange County"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Neo Aesthetics & Medical International Academy",
+      "category": "Education",
+      "subcategory": "Medical Assistant Academy",
+      "phone": [
+        "305-972-1130",
+        "754-888-4360"
+      ],
+      "website": "neobeautyschool.com",
+      "address": "1920 E Hallandale Beach Blvd, Hallandale Beach FL",
+      "services": [
+        "Medical assistant program",
+        "Phlebotomy",
+        "IV therapy",
+        "EKG"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Good Food Mission Viejo",
+      "category": "Food",
+      "subcategory": "Grocery Store",
+      "address": "25565 Jeronimo Rd Unit 2, Mission Viejo CA",
+      "services": [
+        "Caviar",
+        "Dairy products",
+        "Prepared foods",
+        "Smoked meats"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "5 Star Appliance Repair",
+      "category": "Home Services",
+      "subcategory": "Appliance Repair",
+      "phone": "213-698-6267",
+      "website": "5starappliancerepair.pro",
+      "services": [
+        "Appliance repair"
+      ],
+      "location": "Orange County",
+      "source": "Facebook"
+    },
+    {
+      "name": "Artur Arutiunov Towing",
+      "category": "Automotive",
+      "subcategory": "Towing",
+      "phone": "4175101010",
+      "services": [
+        "Evacuator"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Svetlana Pantelic",
+      "category": "Home Services",
+      "subcategory": "House Helper",
+      "location": "Woodbridge Irvine CA",
+      "services": [
+        "Cleaning",
+        "Home organization",
+        "Cooking",
+        "Errands"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Enna Eskin",
+      "category": "Events",
+      "subcategory": "Party Decorator",
+      "services": [
+        "Party decoration",
+        "Balloons",
+        "Flowers",
+        "Backdrops",
+        "Table styling"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Viktor Petrovskiy Kalinka Service",
+      "category": "Professional Services",
+      "subcategory": "Passport Services",
+      "phone": "+1 305-335-0887",
+      "services": [
+        "Russian passports",
+        "Citizenship",
+        "Visas"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Lena Indiukova",
+      "category": "Food",
+      "subcategory": "Homemade Desserts",
+      "location": "Irvine Spectrum CA",
+      "instagram": "yummy_homemade_sweets",
+      "services": [
+        "Custom cakes",
+        "Desserts"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Dima Yakovlev",
+      "category": "Sports",
+      "subcategory": "Kids Fitness Coach",
+      "phone": "949-326-1386",
+      "services": [
+        "Physical preparation",
+        "Hockey training",
+        "Figure skating training",
+        "Gymnastics conditioning"
+      ],
+      "location": [
+        "Orange County",
+        "South LA"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Olena Farah",
+      "category": "Beauty",
+      "subcategory": "Nail Studio",
+      "location": "Los Alamitos CA",
+      "instagram": "helena_nails_studio",
+      "services": [
+        "Russian manicure",
+        "Pedicure",
+        "Builder gel",
+        "Nail extensions"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "LÚNELLE Nail Salon",
+      "category": "Beauty",
+      "subcategory": "Nail Salon",
+      "phone": "949-712-8845",
+      "location": "Mission Viejo CA",
+      "services": [
+        "Manicure",
+        "Pedicure",
+        "Hiring nail technicians"
+      ],
+      "source": "Facebook"
+    }
+  ]
+}

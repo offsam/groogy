@@ -1,0 +1,21 @@
+{
+  "id": "ruzanna-melikyan-cleaning",
+  "entity_type": "Specialist",
+  "entity_name": "Ruzanna Melikyan",
+  "category": "Home Services",
+  "subcategory": "Cleaning Services",
+  "city": "Los Angeles",
+  "state": "CA",
+  "phones": [
+    "+1-818-209-8816"
+  ],
+  "services": [
+    "House cleaning",
+    "Apartment cleaning",
+    "Office cleaning"
+  ],
+  "features": [
+    "Own cleaning supplies and equipment",
+    "Two-person team"
+  ]
+}

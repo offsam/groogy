@@ -1,0 +1,23 @@
+{
+  "entity_type": "Property Listing",
+  "entity_name": "Valeriia the Realtor - 2BR Santa Ana Property",
+  "category": "Real Estate",
+  "subcategory": "Residential Property Sale",
+  "description": "2-bedroom, 1.5-bathroom residential property in Santa Ana. 952 square feet.",
+  "city": "Santa Ana",
+  "state": "CA",
+  "price": 349900,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "2-bedroom квартира в Orange County всего за $349,900! Santa Ana. 2 спальни | 1.5 ванные | 952 Sq.Ft.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 41,
+  "source_author": "Valeriia the Realtor",
+  "source_post_date": "2026-07-15T14:07:00Z",
+  "needs_enrichment": true,
+  "confidence": "MEDIUM"
+}

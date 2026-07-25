@@ -1,0 +1,1006 @@
+#!/usr/bin/env python3
+"""Scoped Telegram collector + LLM analyzer with checkpoint/resume.
+
+Default: last 6 months only. Full history requires --allow-full-history.
+Does NOT write to Supabase. Does NOT download media.
+"""
+
+from __future__ import annotations
+
+import argparse
+import asyncio
+import json
+import os
+import sys
+import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import Any
+
+from telethon import TelegramClient
+from telethon.errors import FloodWaitError
+from telethon.tl.functions.messages import GetHistoryRequest
+from telethon.tl.types import MessageService, User
+
+from analyzers import _llm_user_payload, _fill_contacts, _attach_post_fields
+from categories import detect_category
+from collect_messages import media_type_of, private_message_link, should_skip_raw
+from config import SCRIPT_DIR, SESSION_NAME, get_credentials, load_env
+from contacts import has_contact_signal
+from cost import CostTracker, load_max_cost_usd
+from dedupe import apply_deduplication  # per-batch light dedupe before global
+from entities import apply_global_deduplication, build_entities
+from llm_client import LLMClient
+from merge import merge_logical_posts
+from names import extract_names
+from schema import empty_entity, empty_evidence, validate_analysis_result
+
+CHAT_ID = -1001333533747
+ANALYZER_VERSION = "llm_v1"
+DATA_DIR = SCRIPT_DIR / "data"
+FULL_DIR = DATA_DIR / "full"
+BATCH_DIR = FULL_DIR / "batches"
+CHECKPOINT_PATH = DATA_DIR / "full_run_checkpoint.json"
+ERRORS_PATH = FULL_DIR / "llm_errors.jsonl"
+
+BATCH_LOGICAL_TARGET = 500
+DEFAULT_WORKERS = 4
+DEFAULT_MONTHS = 6
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def load_checkpoint() -> dict[str, Any]:
+    if CHECKPOINT_PATH.is_file():
+        return json.loads(CHECKPOINT_path_read())
+    return {
+        "chat_id": CHAT_ID,
+        "oldest_processed_message_id": None,
+        "newest_processed_message_id": None,
+        "processed_raw_messages": 0,
+        "processed_logical_posts": 0,
+        "completed_batches": 0,
+        "last_completed_batch": None,
+        "last_run_at": None,
+        "analyzer_version": ANALYZER_VERSION,
+        "model": None,
+        "status": "not_started",
+        "cost": {},
+        "history_count_estimate": None,
+        "stop_reason": None,
+        "date_newest": None,
+        "date_oldest": None,
+    }
+
+
+def CHECKPOINT_path_read() -> str:
+    return CHECKPOINT_PATH.read_text(encoding="utf-8")
+
+
+def save_checkpoint(cp: dict[str, Any]) -> None:
+    cp["last_run_at"] = utc_now()
+    CHECKPOINT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    tmp = CHECKPOINT_PATH.with_suffix(".tmp")
+    tmp.write_text(json.dumps(cp, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(CHECKPOINT_PATH)
+
+
+def append_error(row: dict[str, Any]) -> None:
+    ERRORS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    # Never include secrets
+    safe = {k: v for k, v in row.items() if k not in {"api_key", "authorization", "session"}}
+    with ERRORS_PATH.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(safe, ensure_ascii=False) + "\n")
+
+
+def sender_info(message) -> tuple[int | None, str | None]:
+    sender = message.sender
+    if sender is None:
+        return None, None
+    if isinstance(sender, User):
+        name = " ".join(
+            part for part in (sender.first_name, sender.last_name) if part
+        ).strip() or None
+        return sender.id, name
+    return getattr(sender, "id", None), getattr(sender, "title", None)
+
+
+async def fetch_raw_batch(
+    client: TelegramClient,
+    entity,
+    *,
+    offset_id: int | None,
+    max_raw: int,
+    date_from: datetime | None = None,
+    date_to: datetime | None = None,
+) -> tuple[list[dict[str, Any]], bool]:
+    """Fetch up to max_raw non-skipped messages older than offset_id (or newest).
+
+    Returns (rows, reached_date_from). When date_from is set, stops once messages
+    older than date_from are reached.
+    """
+    collected_at = utc_now()
+    raw: list[dict[str, Any]] = []
+    kwargs: dict[str, Any] = {}
+    if offset_id:
+        kwargs["offset_id"] = offset_id
+    reached_date_from = False
+
+    async for message in client.iter_messages(entity, **kwargs):
+        msg_date = message.date
+        if msg_date is not None and msg_date.tzinfo is None:
+            msg_date = msg_date.replace(tzinfo=timezone.utc)
+
+        if date_to is not None and msg_date is not None and msg_date > date_to:
+            continue
+        if date_from is not None and msg_date is not None and msg_date < date_from:
+            reached_date_from = True
+            break
+
+        is_service = isinstance(message, MessageService)
+        text = message.message or ""
+        mtype = media_type_of(message)
+        if should_skip_raw(text, bool(message.media), mtype, is_service):
+            continue
+        if text and len(text.strip()) < 10 and not has_contact_signal(text) and not message.grouped_id:
+            continue
+
+        sender_id, sender_name = sender_info(message)
+        has_media = message.media is not None and mtype not in {None, "sticker"}
+        raw.append(
+            {
+                "chat_id": CHAT_ID,
+                "chat_title": getattr(entity, "title", "Fun for Mom"),
+                "message_id": message.id,
+                "message_date": message.date.isoformat() if message.date else None,
+                "sender_id": sender_id,
+                "sender_name": sender_name,
+                "text": text,
+                "has_media": bool(has_media),
+                "media_type": mtype,
+                "grouped_id": message.grouped_id,
+                "reply_to_message_id": message.reply_to_msg_id,
+                "views": message.views,
+                "forwards": message.forwards,
+                "telegram_message_link": private_message_link(CHAT_ID, message.id),
+                "collected_at": collected_at,
+            }
+        )
+        if len(raw) >= max_raw:
+            break
+    return raw, reached_date_from
+
+
+def parse_date_arg(value: str | None, *, end_of_day: bool = False) -> datetime | None:
+    if not value:
+        return None
+    dt = datetime.strptime(value, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    if end_of_day:
+        dt = dt + timedelta(days=1) - timedelta(microseconds=1)
+    return dt
+
+
+def default_six_month_window(today: datetime | None = None) -> tuple[datetime, datetime]:
+    today = today or datetime.now(timezone.utc)
+    date_to = today.replace(hour=23, minute=59, second=59, microsecond=999999)
+    date_from = (today - timedelta(days=182)).replace(
+        hour=0, minute=0, second=0, microsecond=0
+    )
+    return date_from, date_to
+
+
+def prepare_logical_posts(
+    raw_messages: list[dict[str, Any]],
+    batch_no: int,
+    *,
+    assign_ids: bool = True,
+) -> list[dict[str, Any]]:
+    posts = merge_logical_posts(raw_messages)
+    cleaned: list[dict[str, Any]] = []
+    for post in posts:
+        text = (post.get("merged_text") or "").strip()
+        if not text and not post.get("media_count"):
+            continue
+        if text and len(text) < 10 and not has_contact_signal(text):
+            continue
+        post["source_chat_id"] = CHAT_ID
+        if assign_ids:
+            post["internal_post_id"] = (
+                f"ffm_{batch_no:04d}_{post.get('primary_message_id')}_"
+                f"{uuid.uuid4().hex[:8]}"
+            )
+        cleaned.append(post)
+    return cleaned
+
+
+def ground_and_guard(result: dict[str, Any]) -> dict[str, Any]:
+    text = result.get("merged_text") or result.get("text") or ""
+    entity = result.get("extracted_entity") or empty_entity(result)
+    _fill_contacts(entity, text)
+    names = extract_names(text, result.get("sender_name"))
+    if names["extracted_name_source"] in {"explicit_text", "business_brand", "instagram"}:
+        if not entity.get("person_name"):
+            entity["person_name"] = names["person_name"]
+        if not entity.get("business_name"):
+            entity["business_name"] = names["business_name"]
+        entity["extracted_name_source"] = names["extracted_name_source"]
+    elif not entity.get("person_name") and not entity.get("business_name"):
+        entity["extracted_name_source"] = names["extracted_name_source"]
+
+    if not entity.get("category") or entity.get("category") == "other":
+        cat, warns = detect_category(text)
+        entity["category"] = cat
+        result["warnings"] = list(result.get("warnings") or []) + warns
+
+    result["extracted_entity"] = entity
+    # Re-validate decision policy after grounding
+    payload = {
+        "classification": result.get("classification"),
+        "decision": result.get("decision"),
+        "confidence": result.get("confidence"),
+        "decision_reason": result.get("decision_reason"),
+        "advertiser_relationship": result.get("advertiser_relationship"),
+        "extracted_entity": entity,
+        "evidence": result.get("evidence") or empty_evidence(),
+        "missing_fields": result.get("missing_fields") or [],
+        "warnings": result.get("warnings") or [],
+    }
+    validated = validate_analysis_result(payload)
+    result.update(validated)
+
+    # Hard guards
+    import re
+
+    job = re.compile(
+        r"\b(вакансия|hiring|ищу\s+работу|looking\s+for\s+(?:a\s+)?(?:job|position)|front\s*desk)\b",
+        re.I,
+    )
+    marketplace = re.compile(
+        r"\b(прода[юе]м\s+(?:личн|свою|детск)|отда[мю]\s+даром|garage\s+sale)\b",
+        re.I,
+    )
+    housing = re.compile(
+        r"\b(сда[её]тся\s+(?:квартира|комната|дом)|room\s+for\s+rent|прода[её]тся\s+(?:дом|квартира))\b",
+        re.I,
+    )
+    greet = re.compile(
+        r"^(всем\s+привет|добрый\s+день|здравствуйте|девочки)\b",
+        re.I,
+    )
+    for key in ("person_name", "business_name"):
+        val = entity.get(key)
+        if val and greet.match(str(val).strip()):
+            entity[key] = None
+            entity["extracted_name_source"] = "unknown"
+            if result.get("decision") == "accepted":
+                result["decision"] = "needs_review"
+                result["warnings"] = list(result.get("warnings") or []) + ["greeting_name_removed"]
+
+    if job.search(text):
+        result["classification"] = "job_post"
+        result["decision"] = "rejected"
+        result["decision_reason"] = "Вакансия / поиск работы."
+    elif marketplace.search(text) and result.get("decision") == "accepted":
+        result["classification"] = "marketplace_item"
+        result["decision"] = "rejected"
+        result["decision_reason"] = "Личная продажа вещи."
+    elif housing.search(text) and result.get("decision") == "accepted":
+        result["classification"] = "real_estate_listing"
+        result["decision"] = "rejected"
+        result["decision_reason"] = "Единичная недвижимость."
+    if result.get("classification") == "third_party_recommendation":
+        result["decision"] = "needs_review"
+        result["advertiser_relationship"] = "third_party_recommendation"
+
+    result["extracted_entity"] = entity
+    return result
+
+
+def analyze_one(client: LLMClient, post: dict[str, Any]) -> dict[str, Any]:
+    analyzed_at = utc_now()
+    user_payload = _llm_user_payload(post)
+    data = None
+    schema_failure = False
+    try:
+        data, _usage = client.complete_json(user_payload, repair=False)
+    except Exception as exc:  # noqa: BLE001
+        append_error(
+            {
+                "at": analyzed_at,
+                "internal_post_id": post.get("internal_post_id"),
+                "primary_message_id": post.get("primary_message_id"),
+                "error_type": type(exc).__name__,
+                "error": str(exc)[:300],
+                "stage": "request",
+            }
+        )
+        data = None
+
+    if data is not None:
+        try:
+            # normalize list fields
+            entity = data.get("extracted_entity") or {}
+            for key in (
+                "phone", "email", "website", "instagram", "facebook", "telegram",
+                "whatsapp", "services", "prices", "service_area", "languages",
+            ):
+                if key in entity and isinstance(entity[key], str):
+                    entity[key] = [entity[key]] if entity[key].strip() else []
+            data["extracted_entity"] = entity
+            validated = validate_analysis_result(data)
+        except Exception as exc:  # noqa: BLE001
+            # one repair attempt
+            try:
+                data, _usage = client.complete_json(user_payload, repair=True)
+                entity = data.get("extracted_entity") or {}
+                for key in (
+                    "phone", "email", "website", "instagram", "facebook", "telegram",
+                    "whatsapp", "services", "prices", "service_area", "languages",
+                ):
+                    if key in entity and isinstance(entity[key], str):
+                        entity[key] = [entity[key]] if entity[key].strip() else []
+                data["extracted_entity"] = entity
+                validated = validate_analysis_result(data)
+            except Exception as exc2:  # noqa: BLE001
+                schema_failure = True
+                append_error(
+                    {
+                        "at": analyzed_at,
+                        "internal_post_id": post.get("internal_post_id"),
+                        "primary_message_id": post.get("primary_message_id"),
+                        "error_type": type(exc2).__name__,
+                        "error": str(exc2)[:300],
+                        "stage": "schema_repair",
+                    }
+                )
+                validated = None
+    else:
+        validated = None
+
+    if validated is None:
+        entity = empty_entity(post)
+        _fill_contacts(entity, post.get("merged_text") or "")
+        validated = validate_analysis_result(
+            {
+                "classification": "unclear",
+                "decision": "needs_review",
+                "confidence": 0.4,
+                "decision_reason": "LLM schema failure after retry",
+                "advertiser_relationship": "unknown",
+                "extracted_entity": entity,
+                "evidence": empty_evidence(),
+                "missing_fields": [],
+                "warnings": ["llm_schema_failure"],
+            }
+        )
+
+    out = _attach_post_fields(post, validated)
+    out = ground_and_guard(out)
+    out["analyzer_version"] = ANALYZER_VERSION
+    out["llm_provider"] = client.provider
+    out["llm_model"] = client.model
+    out["analyzed_at"] = analyzed_at
+    out["duplicate_status"] = out.get("duplicate_status") or "unique"
+    out["duplicate_of_internal_post_id"] = None
+    out["duplicate_score"] = 0.0
+    out["duplicate_reason"] = None
+    return out
+
+
+def analyze_batch(
+    posts: list[dict[str, Any]],
+    client: LLMClient,
+    tracker: CostTracker,
+    *,
+    workers: int,
+    checkpoint: dict[str, Any],
+    partial_path: Path,
+) -> list[dict[str, Any]]:
+    # Resume from partial JSONL if present
+    done_by_id: dict[str, dict[str, Any]] = {}
+    if partial_path.is_file():
+        with partial_path.open(encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                row = json.loads(line)
+                pid = row.get("internal_post_id")
+                if pid:
+                    done_by_id[pid] = row
+        print(f"  resumed {len(done_by_id)} posts from partial", flush=True)
+
+    pending = [p for p in posts if p.get("internal_post_id") not in done_by_id]
+    results_map = dict(done_by_id)
+
+    def _write_partial(row: dict[str, Any]) -> None:
+        with partial_path.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    if pending:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {
+                pool.submit(analyze_one, client, post): post.get("internal_post_id")
+                for post in pending
+            }
+            done = len(done_by_id)
+            total = len(posts)
+            for fut in as_completed(futures):
+                if tracker.would_exceed():
+                    checkpoint["status"] = "stopped_cost_limit"
+                    checkpoint["stop_reason"] = (
+                        f"Cost limit ${tracker.max_cost_usd} would be exceeded "
+                        f"(current ${tracker.cost_usd:.4f})"
+                    )
+                    checkpoint["cost"] = tracker.as_dict()
+                    save_checkpoint(checkpoint)
+                    raise RuntimeError(checkpoint["stop_reason"])
+                pid = futures[fut]
+                row = fut.result()
+                results_map[pid] = row
+                _write_partial(row)
+                done += 1
+                if done % 25 == 0 or done == total:
+                    print(
+                        f"  analyzed {done}/{total} "
+                        f"cost=${tracker.cost_usd:.4f} tokens_in={tracker.input_tokens}",
+                        flush=True,
+                    )
+                    checkpoint["cost"] = tracker.as_dict()
+                    save_checkpoint(checkpoint)
+
+    # Preserve original order
+    ordered = []
+    for post in posts:
+        pid = post.get("internal_post_id")
+        if pid in results_map:
+            ordered.append(results_map[pid])
+    return ordered
+
+
+def batch_summary(analyzed: list[dict[str, Any]], raw_count: int, batch_no: int) -> dict[str, Any]:
+    from collections import Counter
+
+    return {
+        "batch": batch_no,
+        "raw_messages": raw_count,
+        "logical_posts": len(analyzed),
+        "accepted": sum(1 for a in analyzed if a.get("decision") == "accepted"),
+        "needs_review": sum(1 for a in analyzed if a.get("decision") == "needs_review"),
+        "rejected": sum(1 for a in analyzed if a.get("decision") == "rejected"),
+        "classifications": dict(Counter(a.get("classification") for a in analyzed)),
+        "multi_message_posts": sum(
+            1 for a in analyzed if len(a.get("source_message_ids") or []) > 1
+        ),
+    }
+
+
+def finalize(tracker: CostTracker, checkpoint: dict[str, Any]) -> dict[str, Any]:
+    """Load all batch analyzed files, global dedupe, write final outputs."""
+    from collections import Counter
+
+    all_posts: list[dict[str, Any]] = []
+    for path in sorted(BATCH_DIR.glob("batch_*_analyzed.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        all_posts.extend(payload.get("posts") or [])
+
+    apply_global_deduplication(all_posts)
+    entities = build_entities(all_posts)
+
+    accepted = [p for p in all_posts if p.get("decision") == "accepted"]
+    needs = [p for p in all_posts if p.get("decision") == "needs_review"]
+    rejected = [p for p in all_posts if p.get("decision") == "rejected"]
+    duplicates = [
+        p
+        for p in all_posts
+        if (p.get("duplicate_status") or "unique") != "unique"
+    ]
+
+    dates = [
+        p.get("message_date_start")
+        for p in all_posts
+        if p.get("message_date_start")
+    ]
+    schema_failures = sum(
+        1
+        for p in all_posts
+        if "llm_schema_failure" in (p.get("warnings") or [])
+    )
+    llm_error_lines = 0
+    if ERRORS_PATH.is_file():
+        llm_error_lines = sum(1 for _ in ERRORS_PATH.open(encoding="utf-8"))
+
+    cat_dist = Counter(
+        (e.get("category") or "other")
+        for e in entities
+        if e.get("review_status") in {"ready_for_review", "pending_manual_review"}
+    )
+
+    def contact_count(field: str) -> int:
+        return sum(1 for e in entities if e.get(field))
+
+    summary = {
+        "chat_id": CHAT_ID,
+        "chat_title": "Fun for Mom",
+        "date_range": {
+            "newest": max(dates) if dates else None,
+            "oldest": min(dates) if dates else None,
+        },
+        "raw_messages_read": checkpoint.get("processed_raw_messages"),
+        "logical_posts": len(all_posts),
+        "multi_message_posts": sum(
+            1 for p in all_posts if len(p.get("source_message_ids") or []) > 1
+        ),
+        "accepted": len(accepted),
+        "needs_review": len(needs),
+        "rejected": len(rejected),
+        "duplicate_status": dict(Counter(p.get("duplicate_status") for p in all_posts)),
+        "unique_entities": len(entities),
+        "entities_by_review_status": dict(
+            Counter(e.get("review_status") for e in entities)
+        ),
+        "businesses": sum(1 for e in entities if e.get("entity_type") == "business"),
+        "private_specialists": sum(
+            1 for e in entities if e.get("entity_type") == "private_specialist"
+        ),
+        "categories": dict(cat_dist),
+        "with_phone": contact_count("phone"),
+        "with_instagram": contact_count("instagram"),
+        "with_telegram": contact_count("telegram"),
+        "with_website": contact_count("website"),
+        "with_email": contact_count("email"),
+        "without_direct_contact": sum(
+            1
+            for e in entities
+            if not any(
+                e.get(k)
+                for k in ("phone", "email", "website", "instagram", "telegram", "whatsapp")
+            )
+        ),
+        "third_party_recommendation": sum(
+            1 for p in all_posts if p.get("classification") == "third_party_recommendation"
+        ),
+        "schema_failures": schema_failures,
+        "llm_errors": llm_error_lines,
+        "cost": tracker.as_dict(),
+        "completed_batches": checkpoint.get("completed_batches"),
+        "analyzer_version": ANALYZER_VERSION,
+        "supabase_written": False,
+        "status": checkpoint.get("status"),
+        "stop_reason": checkpoint.get("stop_reason"),
+    }
+
+    FULL_DIR.mkdir(parents=True, exist_ok=True)
+    outputs = {
+        "fun_for_mom_all_analyzed.json": {"meta": summary, "posts": all_posts},
+        "fun_for_mom_entities.json": {"meta": summary, "entities": entities},
+        "fun_for_mom_accepted.json": {"meta": summary, "posts": accepted},
+        "fun_for_mom_needs_review.json": {"meta": summary, "posts": needs},
+        "fun_for_mom_rejected.json": {"meta": summary, "posts": rejected},
+        "fun_for_mom_duplicates.json": {"meta": summary, "posts": duplicates},
+        "fun_for_mom_summary.json": summary,
+    }
+    for name, data in outputs.items():
+        path = FULL_DIR / name
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"Wrote {path}", flush=True)
+    return summary
+
+
+async def estimate_scope(
+    tg: TelegramClient,
+    entity,
+    *,
+    date_from: datetime | None,
+    date_to: datetime | None,
+) -> dict[str, Any]:
+    """Count messages in range and estimate logical posts + cost (no LLM)."""
+    total_raw_kept = 0
+    total_all_seen = 0
+    newest = oldest = None
+    sample_raw: list[dict[str, Any]] = []
+    offset_id = None
+    reached = False
+
+    while not reached:
+        page, reached = await fetch_raw_batch(
+            tg,
+            entity,
+            offset_id=offset_id,
+            max_raw=500,
+            date_from=date_from,
+            date_to=date_to,
+        )
+        if not page and not reached:
+            break
+        if page:
+            total_raw_kept += len(page)
+            total_all_seen += len(page)
+            offset_id = min(m["message_id"] for m in page)
+            dates = [m.get("message_date") for m in page if m.get("message_date")]
+            if dates:
+                newest = max(newest or dates[0], max(dates))
+                oldest = min(oldest or dates[0], min(dates))
+            if len(sample_raw) < 800:
+                sample_raw.extend(page[: max(0, 800 - len(sample_raw))])
+            print(
+                f"  estimate scanned kept_raw={total_raw_kept} oldest_id={offset_id}",
+                flush=True,
+            )
+        if not page:
+            break
+
+    sample_logical = prepare_logical_posts(sample_raw, 0, assign_ids=False) if sample_raw else []
+    ratio = (len(sample_logical) / len(sample_raw)) if sample_raw else 0.66
+    est_logical = int(total_raw_kept * ratio)
+    return {
+        "date_from": date_from.isoformat() if date_from else None,
+        "date_to": date_to.isoformat() if date_to else None,
+        "messages_kept_after_skip": total_raw_kept,
+        "sample_raw": len(sample_raw),
+        "sample_logical": len(sample_logical),
+        "logical_ratio": round(ratio, 4),
+        "estimated_logical_posts": est_logical,
+        "date_newest_seen": newest,
+        "date_oldest_seen": oldest,
+    }
+
+
+async def run(args: argparse.Namespace) -> int:
+    load_env()
+    FULL_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH_DIR.mkdir(parents=True, exist_ok=True)
+
+    # --- Scope guards ---
+    if not args.allow_full_history and not args.date_from:
+        print(
+            "Ошибка: укажите --date-from (по умолчанию история старше 6 месяцев запрещена).\n"
+            "Пример: --date-from 2026-01-24 --date-to 2026-07-24\n"
+            "Полная история только с явным --allow-full-history.",
+            file=sys.stderr,
+        )
+        return 2
+
+    if args.allow_full_history and not args.date_from:
+        date_from = None
+        date_to = parse_date_arg(args.date_to, end_of_day=True) if args.date_to else None
+    else:
+        date_from = parse_date_arg(args.date_from)
+        date_to = parse_date_arg(args.date_to, end_of_day=True) if args.date_to else None
+        if date_from is None:
+            print("Ошибка: неверный --date-from, ожидается YYYY-MM-DD", file=sys.stderr)
+            return 2
+
+    max_cost = load_max_cost_usd(20.0)
+    if not os.getenv("TELEGRAM_LLM_MAX_COST_USD"):
+        os.environ["TELEGRAM_LLM_MAX_COST_USD"] = str(max_cost)
+    os.environ["TELEGRAM_ANALYZER_MODE"] = "llm"
+    os.environ.setdefault("TELEGRAM_LLM_PROVIDER", "openrouter")
+    os.environ.setdefault("TELEGRAM_LLM_MODEL", "openai/gpt-4o-mini")
+
+    tracker = CostTracker(model=os.environ["TELEGRAM_LLM_MODEL"], max_cost_usd=max_cost)
+    checkpoint = load_checkpoint()
+    checkpoint["model"] = os.environ["TELEGRAM_LLM_MODEL"]
+    checkpoint["analyzer_version"] = ANALYZER_VERSION
+    checkpoint["date_from"] = date_from.isoformat() if date_from else None
+    checkpoint["date_to"] = date_to.isoformat() if date_to else None
+
+    api_id, api_hash, _ = get_credentials()
+    tg = TelegramClient(SESSION_NAME, api_id, api_hash)
+    await tg.connect()
+    if not await tg.is_user_authorized():
+        print("Session not authorized", file=sys.stderr)
+        return 1
+    entity = await tg.get_entity(CHAT_ID)
+
+    print("=== Scope estimate (no LLM) ===", flush=True)
+    print(
+        f"date_from={date_from.date() if date_from else 'NONE(full)'} "
+        f"date_to={(date_to.date() if date_to else 'now')} "
+        f"allow_full_history={bool(args.allow_full_history)}",
+        flush=True,
+    )
+    scope = await estimate_scope(tg, entity, date_from=date_from, date_to=date_to)
+    est_cost = tracker.estimate_for_posts(int(scope["estimated_logical_posts"]))
+    tracker.estimated_upfront_usd = est_cost
+    scope["estimated_cost_usd"] = round(est_cost, 4)
+    scope["max_cost_usd"] = max_cost
+    scope["model"] = os.environ["TELEGRAM_LLM_MODEL"]
+    print(json.dumps(scope, ensure_ascii=False, indent=2), flush=True)
+    (FULL_DIR / "scope_estimate.json").write_text(
+        json.dumps(scope, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    if not args.confirm_run:
+        print(
+            "\nОценка завершена. LLM не запускался.\n"
+            "Для запуска добавьте --confirm-run "
+            "(и при необходимости --date-from/--date-to).",
+            flush=True,
+        )
+        # Preserve prior stop status if present
+        prev_status = checkpoint.get("status")
+        if prev_status != "stopped_by_user_scope_change":
+            checkpoint["status"] = "estimate_only"
+            checkpoint["stop_reason"] = "Awaiting --confirm-run"
+        else:
+            checkpoint["stop_reason"] = (
+                "User stopped full-history run; scope changed to last 6 months only. "
+                "Awaiting --confirm-run for scoped window."
+            )
+        checkpoint["cost"] = {
+            **(checkpoint.get("cost") or {}),
+            "estimated_upfront_usd": est_cost,
+            "max_cost_usd": max_cost,
+        }
+        checkpoint["scope_estimate"] = scope
+        checkpoint["last_run_at"] = utc_now()
+        save_checkpoint(checkpoint)
+        await tg.disconnect()
+        return 0
+
+    # --- Confirmed run ---
+    client_llm = LLMClient(tracker, request_delay_s=0.12, timeout_s=90)
+    checkpoint["status"] = "running"
+    checkpoint["stop_reason"] = None
+    checkpoint["scope_estimate"] = scope
+    save_checkpoint(checkpoint)
+
+    try:
+        while True:
+            if tracker.would_exceed():
+                checkpoint["status"] = "stopped_cost_limit"
+                checkpoint["stop_reason"] = f"Reached cost limit ${max_cost}"
+                save_checkpoint(checkpoint)
+                break
+
+            batch_no = int(checkpoint.get("completed_batches") or 0) + 1
+            offset_id = checkpoint.get("oldest_processed_message_id")
+            print(
+                f"\n=== Batch {batch_no:04d} offset_id={offset_id} ===",
+                flush=True,
+            )
+
+            collected_raw: list[dict[str, Any]] = []
+            page_offset = offset_id
+            reached_date_from = False
+            while True:
+                try:
+                    page, reached_date_from = await fetch_raw_batch(
+                        tg,
+                        entity,
+                        offset_id=page_offset,
+                        max_raw=400,
+                        date_from=date_from,
+                        date_to=date_to,
+                    )
+                except FloodWaitError as exc:
+                    print(f"FloodWait {exc.seconds}s", flush=True)
+                    await asyncio.sleep(exc.seconds + 1)
+                    continue
+                if not page:
+                    break
+                collected_raw.extend(page)
+                page_offset = min(m["message_id"] for m in page)
+                tentative = prepare_logical_posts(collected_raw, batch_no, assign_ids=False)
+                print(
+                    f"  fetched_raw={len(collected_raw)} logical≈{len(tentative)} "
+                    f"page_oldest={page_offset}",
+                    flush=True,
+                )
+                if len(tentative) >= BATCH_LOGICAL_TARGET:
+                    break
+                if len(collected_raw) >= BATCH_LOGICAL_TARGET * 4:
+                    break
+                if reached_date_from:
+                    break
+
+            raw = collected_raw
+            if not raw:
+                checkpoint["status"] = "completed"
+                checkpoint["stop_reason"] = None
+                save_checkpoint(checkpoint)
+                print("No more messages in scope. Done.", flush=True)
+                break
+
+            logical = prepare_logical_posts(raw, batch_no)
+            if len(logical) > BATCH_LOGICAL_TARGET:
+                keep = logical[:BATCH_LOGICAL_TARGET]
+                cutoff = min(
+                    mid
+                    for p in keep
+                    for mid in (p.get("source_message_ids") or [p["primary_message_id"]])
+                )
+                logical = [
+                    p
+                    for p in logical
+                    if max(p.get("source_message_ids") or [p["primary_message_id"]]) >= cutoff
+                ][:BATCH_LOGICAL_TARGET]
+                keep_ids = {
+                    mid for p in logical for mid in (p.get("source_message_ids") or [])
+                }
+                raw = [m for m in raw if m["message_id"] in keep_ids]
+
+            if not logical:
+                oldest = min(m["message_id"] for m in raw)
+                newest = max(m["message_id"] for m in raw)
+                checkpoint["oldest_processed_message_id"] = oldest
+                if checkpoint.get("newest_processed_message_id") is None:
+                    checkpoint["newest_processed_message_id"] = newest
+                checkpoint["processed_raw_messages"] = int(
+                    checkpoint.get("processed_raw_messages") or 0
+                ) + len(raw)
+                save_checkpoint(checkpoint)
+                if reached_date_from:
+                    checkpoint["status"] = "completed"
+                    save_checkpoint(checkpoint)
+                    break
+                continue
+
+            raw_path = BATCH_DIR / f"batch_{batch_no:04d}_raw.json"
+            partial_path = BATCH_DIR / f"batch_{batch_no:04d}_analyzed.partial.jsonl"
+            raw_path.write_text(
+                json.dumps(
+                    {
+                        "meta": {"batch": batch_no, "raw_count": len(raw)},
+                        "raw_messages": raw,
+                        "posts": logical,
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            try:
+                analyzed = analyze_batch(
+                    logical,
+                    client_llm,
+                    tracker,
+                    workers=args.workers,
+                    checkpoint=checkpoint,
+                    partial_path=partial_path,
+                )
+            except RuntimeError as exc:
+                print(str(exc), flush=True)
+                break
+
+            apply_deduplication(analyzed)
+            for a in analyzed:
+                a["duplicate_of_internal_post_id"] = a.get("duplicate_of_internal_post_id")
+
+            summary = batch_summary(analyzed, len(raw), batch_no)
+            summary["cost_so_far"] = tracker.as_dict()
+
+            analyzed_path = BATCH_DIR / f"batch_{batch_no:04d}_analyzed.json"
+            summary_path = BATCH_DIR / f"batch_{batch_no:04d}_summary.json"
+            analyzed_path.write_text(
+                json.dumps({"meta": summary, "posts": analyzed}, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            summary_path.write_text(
+                json.dumps(summary, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            # Clear partial after successful batch commit
+            if partial_path.exists():
+                partial_path.unlink()
+
+            oldest = min(m["message_id"] for m in raw)
+            newest = max(m["message_id"] for m in raw)
+            if checkpoint.get("newest_processed_message_id") is None:
+                checkpoint["newest_processed_message_id"] = newest
+            checkpoint["oldest_processed_message_id"] = oldest
+            checkpoint["processed_raw_messages"] = int(
+                checkpoint.get("processed_raw_messages") or 0
+            ) + len(raw)
+            checkpoint["processed_logical_posts"] = int(
+                checkpoint.get("processed_logical_posts") or 0
+            ) + len(analyzed)
+            checkpoint["completed_batches"] = batch_no
+            checkpoint["last_completed_batch"] = f"batch_{batch_no:04d}"
+            checkpoint["cost"] = tracker.as_dict()
+            dates = [m.get("message_date") for m in raw if m.get("message_date")]
+            if dates:
+                checkpoint["date_newest"] = max(
+                    checkpoint.get("date_newest") or dates[0], max(dates)
+                )
+                checkpoint["date_oldest"] = min(
+                    checkpoint.get("date_oldest") or dates[0], min(dates)
+                )
+            save_checkpoint(checkpoint)
+            print(
+                f"Batch {batch_no:04d} done: logical={len(analyzed)} "
+                f"accepted={summary['accepted']} review={summary['needs_review']} "
+                f"rejected={summary['rejected']} cost=${tracker.cost_usd:.4f}",
+                flush=True,
+            )
+
+            if args.max_batches and batch_no >= args.max_batches:
+                checkpoint["status"] = "stopped_max_batches"
+                checkpoint["stop_reason"] = f"max_batches={args.max_batches}"
+                save_checkpoint(checkpoint)
+                break
+
+            if reached_date_from:
+                checkpoint["status"] = "completed"
+                save_checkpoint(checkpoint)
+                print("Reached date_from boundary.", flush=True)
+                break
+
+    finally:
+        await tg.disconnect()
+
+    if int(checkpoint.get("completed_batches") or 0) > 0:
+        print("\n=== Finalizing global outputs ===", flush=True)
+        summary = finalize(tracker, checkpoint)
+        if checkpoint.get("status") == "running":
+            checkpoint["status"] = "completed"
+            save_checkpoint(checkpoint)
+        print(
+            json.dumps(
+                {
+                    k: summary[k]
+                    for k in (
+                        "logical_posts",
+                        "accepted",
+                        "needs_review",
+                        "rejected",
+                        "unique_entities",
+                        "cost",
+                        "date_range",
+                        "status",
+                    )
+                    if k in summary
+                },
+                ensure_ascii=False,
+                indent=2,
+            ),
+            flush=True,
+        )
+    return 0
+
+
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(description="Scoped Fun for Mom Telegram collector")
+    p.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
+    p.add_argument("--max-batches", type=int, default=None, help="Optional cap for testing")
+    p.add_argument("--finalize-only", action="store_true", help="Only rebuild finals from batches")
+    p.add_argument("--date-from", type=str, default=None, help="YYYY-MM-DD inclusive (required unless --allow-full-history)")
+    p.add_argument("--date-to", type=str, default=None, help="YYYY-MM-DD inclusive")
+    p.add_argument(
+        "--allow-full-history",
+        action="store_true",
+        help="Explicitly allow reading history older than 6 months / without date-from",
+    )
+    p.add_argument(
+        "--confirm-run",
+        action="store_true",
+        help="Required to start LLM after estimate. Without it, only estimate runs.",
+    )
+    return p.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    load_env()
+    if args.finalize_only:
+        cp = load_checkpoint()
+        tracker = CostTracker(
+            model=cp.get("model") or "openai/gpt-4o-mini",
+            max_cost_usd=load_max_cost_usd(20.0),
+        )
+        cost = cp.get("cost") or {}
+        tracker.input_tokens = int(cost.get("input_tokens") or 0)
+        tracker.output_tokens = int(cost.get("output_tokens") or 0)
+        tracker.requests = int(cost.get("requests") or 0)
+        finalize(tracker, cp)
+        return 0
+    return asyncio.run(run(args))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

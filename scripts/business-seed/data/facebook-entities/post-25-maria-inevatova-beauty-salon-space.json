@@ -1,0 +1,23 @@
+{
+  "entity_type": "Rental Listing",
+  "entity_name": "Maria Inevatova - Beauty Salon Space",
+  "category": "Commercial Real Estate",
+  "subcategory": "Salon Space",
+  "description": "Professional beauty salon workspace available for rent. Full day rental for established beauty professionals.",
+  "city": "Tustin",
+  "state": "CA",
+  "price": 400,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": "18062 Irvine Blvd, Tustin, CA",
+  "original_text": "Мастера красоты в оранж каунти, сдаютсяя рабочие места по адресу: 18062 Irvine Blvd Tustin. Полный день за 400$ в месяц.",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 25,
+  "source_author": "Maria Inevatova",
+  "source_post_date": "2026-07-16T19:02:00Z",
+  "needs_enrichment": false,
+  "confidence": "HIGH"
+}

@@ -1,0 +1,23 @@
+{
+  "entity_type": "Business",
+  "entity_name": "Eugenia Delaveri - Real Estate Agent",
+  "category": "Real Estate",
+  "subcategory": "Residential Property Sales",
+  "description": "Real estate agent specializing in property sales and listings.",
+  "city": null,
+  "state": null,
+  "price": null,
+  "phone": null,
+  "email": null,
+  "website": null,
+  "facebook_page": null,
+  "instagram": null,
+  "address": null,
+  "original_text": "Real estate agent",
+  "source_post_url": "https://www.facebook.com/groups/107680889267042/",
+  "source_post_number": 13,
+  "source_author": "Eugenia Delaveri",
+  "source_post_date": "2026-07-16T00:00:00Z",
+  "needs_enrichment": true,
+  "confidence": "LOW"
+}

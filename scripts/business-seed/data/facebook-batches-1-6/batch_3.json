@@ -1,0 +1,268 @@
+{
+  "entity_count": 20,
+  "entities": [
+    {
+      "name": "Home Swimming Classes with Elena",
+      "category": "Sports Education",
+      "subcategory": "Swimming Lessons",
+      "phone": "323-252-6097",
+      "services": [
+        "Private swimming lessons",
+        "Home swimming classes"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Ira Azovtseva",
+      "category": "Beauty Wellness",
+      "subcategory": "Body Sculpting Massage",
+      "instagram": "bodysculpting_by_ira",
+      "location": "Laguna Niguel CA",
+      "services": [
+        "Lymphatic massage",
+        "Anti-cellulite massage",
+        "Honey massage",
+        "Body treatments"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Keipikp Georgian Food",
+      "category": "Food",
+      "subcategory": "Georgian Catering",
+      "instagram": "keipikp",
+      "services": [
+        "Georgian cuisine",
+        "Holiday catering",
+        "Homemade food"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Treasure Rack San Diego",
+      "category": "Marketplace",
+      "subcategory": "Community Marketplace",
+      "contact_person": "Elena Nayerman",
+      "location": "San Diego CA",
+      "services": [
+        "Buy and sell items",
+        "Free listings"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Oksana Spasiuk Photography",
+      "category": "Creative Services",
+      "subcategory": "Photography",
+      "instagram": "oksana.spasiuk.ca_",
+      "location": "Orange County CA",
+      "services": [
+        "Portraits",
+        "Families",
+        "Couples",
+        "Events",
+        "Content creation"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "EVOKIFY",
+      "category": "Photography",
+      "subcategory": "Restaurant Photography Company",
+      "phone": "213-803-6133",
+      "contact_person": "Artur",
+      "services": [
+        "Restaurant photography",
+        "Photographer jobs",
+        "Training"
+      ],
+      "locations": [
+        "Orange County",
+        "Long Beach"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Merry Hive Early Development School",
+      "category": "Education",
+      "subcategory": "Preschool",
+      "contact_person": "Svetlana Melnik",
+      "location": "Laguna Hills CA",
+      "services": [
+        "Early development",
+        "Preschool",
+        "Sports",
+        "Theater",
+        "Science programs"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Sunrise Education Center Updated",
+      "category": "Education",
+      "subcategory": "Preschool and Afterschool",
+      "phone": [
+        "310-916-7095",
+        "949-335-2827"
+      ],
+      "locations": [
+        "Tustin CA",
+        "Laguna Hills CA"
+      ],
+      "services": [
+        "Preschool",
+        "Afterschool",
+        "Summer camps",
+        "Kids classes"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Lena Indiukova Desserts",
+      "category": "Food",
+      "subcategory": "Custom Desserts",
+      "instagram": "yummy_homemade_sweets",
+      "location": "Irvine CA",
+      "services": [
+        "Cakes",
+        "Desserts"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Natalie Shohdy Art Classes",
+      "category": "Education",
+      "subcategory": "Kids Art School",
+      "phone": "949-813-1654",
+      "website": "art4kidsandteens.com",
+      "location": "Mission Viejo CA",
+      "services": [
+        "Drawing classes",
+        "Summer art camps"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Valeriia Realtor Jurupa Valley",
+      "category": "Real Estate",
+      "subcategory": "New Home Sales",
+      "phone": "949-531-5828",
+      "email": "agentvaleriia@gmail.com",
+      "services": [
+        "New construction homes",
+        "Mortgage consultation"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Viktoriya Adamovskaya Desserts",
+      "category": "Food",
+      "subcategory": "Homemade Desserts",
+      "instagram": "delicious_by_va",
+      "location": "Aliso Viejo CA",
+      "services": [
+        "Chocolate sausage dessert",
+        "Custom sweets"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Grand Auto Group OC",
+      "category": "Automotive",
+      "subcategory": "Collision Center",
+      "phone": "424-324-0102",
+      "contact_person": "Eugene Venger",
+      "location": "Santa Ana CA",
+      "services": [
+        "Collision repair",
+        "Insurance claims",
+        "Maintenance"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Mayan Hussien Appliance Repair",
+      "category": "Home Services",
+      "subcategory": "Appliance Repair",
+      "phone": "213-698-6267",
+      "website": "5starappliancerepair.pro",
+      "services": [
+        "Appliance repair"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Ksenia Andreychenko TaxesVIP Updated",
+      "category": "Accounting",
+      "subcategory": "Tax Services",
+      "phone": "310-896-1534",
+      "website": "taxesvip.com",
+      "telegram": "@Ksenia_viptaxes",
+      "services": [
+        "Tax returns",
+        "LLC",
+        "C Corp",
+        "S Corp",
+        "QuickBooks"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "CaliBuilders Recommendation",
+      "category": "Home Services",
+      "subcategory": "Construction",
+      "phone": "949-345-1118",
+      "services": [
+        "Construction",
+        "Repairs"
+      ],
+      "source": "Facebook recommendation"
+    },
+    {
+      "name": "Russ Flooring Recommendation",
+      "category": "Home Services",
+      "subcategory": "Flooring",
+      "website": "russflooring.net",
+      "services": [
+        "Floor installation"
+      ],
+      "source": "Facebook recommendation"
+    },
+    {
+      "name": "Victor Home Repair Specialist",
+      "category": "Home Services",
+      "subcategory": "Handyman",
+      "phone": "424-230-6774",
+      "services": [
+        "Tile installation",
+        "Painting",
+        "Drywall"
+      ],
+      "source": "Facebook recommendation"
+    },
+    {
+      "name": "Alla Tenina Law",
+      "category": "Legal Services",
+      "subcategory": "Accident Attorney",
+      "phone": "213-596-0265",
+      "address": "15250 Ventura Blvd Suite 1200, Sherman Oaks CA",
+      "services": [
+        "Car accident claims"
+      ],
+      "source": "Facebook"
+    },
+    {
+      "name": "Diana Katsman Retina Health",
+      "category": "Healthcare",
+      "subcategory": "Retina Clinic",
+      "phone": "310-773-1280",
+      "email": "myretinahealth@gmail.com",
+      "address": "4849 Van Nuys Blvd Suite 202A, Sherman Oaks CA",
+      "services": [
+        "Retina care",
+        "Insurance patients"
+      ],
+      "source": "Facebook"
+    }
+  ]
+}

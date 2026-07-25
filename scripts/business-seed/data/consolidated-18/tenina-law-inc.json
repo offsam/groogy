@@ -1,0 +1,27 @@
+{
+  "id": "tenina-law-inc",
+  "entity_type": "Business",
+  "entity_name": "Tenina Law, Inc.",
+  "contact_person": "Alla V. Tenina",
+  "category": "Legal Services",
+  "subcategory": "Tax Law & Personal Injury",
+  "city": "Sherman Oaks",
+  "state": "CA",
+  "addresses": [
+    "15250 Ventura Blvd Suite 1200, Sherman Oaks, CA 91403"
+  ],
+  "phones": [
+    "+1-213-596-0265"
+  ],
+  "website": "https://teninalaw.com",
+  "services": [
+    "Tax law",
+    "Tax audits",
+    "Cryptocurrency tax compliance",
+    "Personal injury",
+    "Car accident representation"
+  ],
+  "specialties": [
+    "Representation of people injured in accidents caused by another party"
+  ]
+}

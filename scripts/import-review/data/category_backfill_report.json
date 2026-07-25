@@ -1,0 +1,441 @@
+{
+  "platform_categories": [
+    {
+      "slug": "restaurants",
+      "name": "Рестораны"
+    },
+    {
+      "slug": "groceries",
+      "name": "Продукты"
+    },
+    {
+      "slug": "beauty",
+      "name": "Красота"
+    },
+    {
+      "slug": "auto",
+      "name": "Автосервис"
+    },
+    {
+      "slug": "medical",
+      "name": "Медицина"
+    },
+    {
+      "slug": "legal",
+      "name": "Юристы"
+    },
+    {
+      "slug": "education",
+      "name": "Образование"
+    },
+    {
+      "slug": "services",
+      "name": "Услуги"
+    },
+    {
+      "slug": "real_estate",
+      "name": "Недвижимость"
+    },
+    {
+      "slug": "fitness",
+      "name": "Спорт и фитнес"
+    },
+    {
+      "slug": "pets",
+      "name": "Животные"
+    },
+    {
+      "slug": "finance",
+      "name": "Финансы и бухгалтерия"
+    },
+    {
+      "slug": "insurance",
+      "name": "Страхование"
+    },
+    {
+      "slug": "travel",
+      "name": "Путешествия"
+    },
+    {
+      "slug": "events",
+      "name": "Мероприятия"
+    }
+  ],
+  "analysis_accepted": [
+    {
+      "ai_category": "other",
+      "platform_category": "— ручной выбор —",
+      "platform_slug": null,
+      "count_accepted": 161,
+      "needs_manual": true
+    },
+    {
+      "ai_category": "real_estate_services",
+      "platform_category": "Недвижимость",
+      "platform_slug": "real_estate",
+      "count_accepted": 62,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "beauty",
+      "platform_category": "Красота",
+      "platform_slug": "beauty",
+      "count_accepted": 55,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "childcare",
+      "platform_category": "Образование",
+      "platform_slug": "education",
+      "count_accepted": 39,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "food",
+      "platform_category": "Рестораны",
+      "platform_slug": "restaurants",
+      "count_accepted": 32,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "education",
+      "platform_category": "Образование",
+      "platform_slug": "education",
+      "count_accepted": 27,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "health",
+      "platform_category": "Медицина",
+      "platform_slug": "medical",
+      "count_accepted": 25,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "events",
+      "platform_category": "Мероприятия",
+      "platform_slug": "events",
+      "count_accepted": 19,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "fitness",
+      "platform_category": "Спорт и фитнес",
+      "platform_slug": "fitness",
+      "count_accepted": 18,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "auto_services",
+      "platform_category": "Автосервис",
+      "platform_slug": "auto",
+      "count_accepted": 11,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "pet_services",
+      "platform_category": "Животные",
+      "platform_slug": "pets",
+      "count_accepted": 9,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "photography_video",
+      "platform_category": "Услуги",
+      "platform_slug": "services",
+      "count_accepted": 9,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "car_rental",
+      "platform_category": "Автосервис",
+      "platform_slug": "auto",
+      "count_accepted": 7,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "moving",
+      "platform_category": "Услуги",
+      "platform_slug": "services",
+      "count_accepted": 6,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "accounting",
+      "platform_category": "Финансы и бухгалтерия",
+      "platform_slug": "finance",
+      "count_accepted": 6,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "travel",
+      "platform_category": "Путешествия",
+      "platform_slug": "travel",
+      "count_accepted": 5,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "legal",
+      "platform_category": "Юристы",
+      "platform_slug": "legal",
+      "count_accepted": 4,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "cleaning",
+      "platform_category": "Услуги",
+      "platform_slug": "services",
+      "count_accepted": 4,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "home_services",
+      "platform_category": "Услуги",
+      "platform_slug": "services",
+      "count_accepted": 3,
+      "needs_manual": false
+    },
+    {
+      "ai_category": "insurance",
+      "platform_category": "Страхование",
+      "platform_slug": "insurance",
+      "count_accepted": 2,
+      "needs_manual": false
+    }
+  ],
+  "distinct_ai_categories": 20,
+  "published_backfill": [
+    {
+      "title": "happy.tails.grooming.oc",
+      "ai_category": "pet_services",
+      "platform_category": "Животные",
+      "matched_via": "alias:pet_services->pets",
+      "needs_manual": false,
+      "business_id": "451363a6-cac6-44f8-b819-5a5d8963befd",
+      "previous_category_id": null,
+      "new_category_id": "a1000001-0000-4000-8000-00000000000b"
+    },
+    {
+      "title": "mama_bear_oc",
+      "ai_category": "other",
+      "platform_category": "— ручной выбор —",
+      "matched_via": null,
+      "needs_manual": true,
+      "business_id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "previous_category_id": null,
+      "new_category_id": null
+    },
+    {
+      "title": "bearchildrensacademy.org",
+      "ai_category": "education",
+      "platform_category": "Образование",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000007",
+      "new_category_id": "a1000001-0000-4000-8000-000000000007"
+    },
+    {
+      "title": "swimmingcoach_losangeles_oc",
+      "ai_category": "fitness",
+      "platform_category": "Спорт и фитнес",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "d71e0111-bc0c-4742-9221-ed71e9b2de06",
+      "previous_category_id": null,
+      "new_category_id": "a1000001-0000-4000-8000-00000000000a"
+    },
+    {
+      "title": "Irin Pilates",
+      "ai_category": "fitness",
+      "platform_category": "Спорт и фитнес",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "84199fd9-4e20-4d26-ac47-90dc1a90e078",
+      "previous_category_id": null,
+      "new_category_id": "a1000001-0000-4000-8000-00000000000a"
+    },
+    {
+      "title": "Денис Шульга",
+      "ai_category": "accounting",
+      "platform_category": "Финансы и бухгалтерия",
+      "matched_via": "alias:accounting->finance",
+      "needs_manual": false,
+      "business_id": "fff003d8-27aa-491e-b437-7cdb0c191cc4",
+      "previous_category_id": null,
+      "new_category_id": "a1000001-0000-4000-8000-00000000000c"
+    },
+    {
+      "title": "Evgeniya Slimface",
+      "ai_category": "beauty",
+      "platform_category": "Красота",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "cc6b0a7d-8083-4c6d-bc7c-6575d90f6dc1",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000003",
+      "new_category_id": "a1000001-0000-4000-8000-000000000003"
+    },
+    {
+      "title": "Натали",
+      "ai_category": "beauty",
+      "platform_category": "Красота",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "8e8f4a5d-aada-4521-93ef-638ddb7990db",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000003",
+      "new_category_id": "a1000001-0000-4000-8000-000000000003"
+    },
+    {
+      "title": "Мигель Фигероа",
+      "ai_category": "insurance",
+      "platform_category": "Страхование",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "337ff738-d464-4749-863a-815d31671e90",
+      "previous_category_id": null,
+      "new_category_id": "a1000001-0000-4000-8000-00000000000d"
+    },
+    {
+      "title": "Dance PROgression",
+      "ai_category": "fitness",
+      "platform_category": "Спорт и фитнес",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "0dd3b888-0538-4032-a235-93debc6a6ccc",
+      "previous_category_id": null,
+      "new_category_id": "a1000001-0000-4000-8000-00000000000a"
+    },
+    {
+      "title": "Tатьяна",
+      "ai_category": "auto_services",
+      "platform_category": "Автосервис",
+      "matched_via": "alias:auto_services->auto",
+      "needs_manual": false,
+      "business_id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000004",
+      "new_category_id": "a1000001-0000-4000-8000-000000000004"
+    },
+    {
+      "title": "Анастасия",
+      "ai_category": "cleaning",
+      "platform_category": "Услуги",
+      "matched_via": "alias:cleaning->services",
+      "needs_manual": false,
+      "business_id": "d8ad2941-c5d2-4f88-8225-8a4fef53ac1e",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000008",
+      "new_category_id": "a1000001-0000-4000-8000-000000000008"
+    },
+    {
+      "title": "Телефон",
+      "ai_category": "other",
+      "platform_category": "— ручной выбор —",
+      "matched_via": null,
+      "needs_manual": true,
+      "business_id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "previous_category_id": null,
+      "new_category_id": null
+    },
+    {
+      "title": "aigerim_bimoldina",
+      "ai_category": "beauty",
+      "platform_category": "Красота",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "ee1d5f2a-8102-4026-9b53-7903cedc3d50",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000003",
+      "new_category_id": "a1000001-0000-4000-8000-000000000003"
+    },
+    {
+      "title": "Наргиза",
+      "ai_category": "beauty",
+      "platform_category": "Красота",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "b7a5e958-fa07-4aee-96f2-34f8fde1b05d",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000003",
+      "new_category_id": "a1000001-0000-4000-8000-000000000003"
+    },
+    {
+      "title": "Айзада",
+      "ai_category": "beauty",
+      "platform_category": "Красота",
+      "matched_via": "slug",
+      "needs_manual": false,
+      "business_id": "535ad738-419f-4298-bbf4-d844baf7f69e",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000003",
+      "new_category_id": "a1000001-0000-4000-8000-000000000003"
+    },
+    {
+      "title": "Nata",
+      "ai_category": "auto_services",
+      "platform_category": "Автосервис",
+      "matched_via": "alias:auto_services->auto",
+      "needs_manual": false,
+      "business_id": "27801381-892f-4212-a951-5e5b77c0d96b",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000004",
+      "new_category_id": "a1000001-0000-4000-8000-000000000004"
+    },
+    {
+      "title": "Vivika",
+      "ai_category": "cleaning",
+      "platform_category": "Услуги",
+      "matched_via": "alias:cleaning->services",
+      "needs_manual": false,
+      "business_id": "6e904691-f991-4496-9b06-1bcaee649c14",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000008",
+      "new_category_id": "a1000001-0000-4000-8000-000000000008"
+    },
+    {
+      "title": "Victoria Yakovenko",
+      "ai_category": "car_rental",
+      "platform_category": "Автосервис",
+      "matched_via": "alias:car_rental->auto",
+      "needs_manual": false,
+      "business_id": "d7571de1-afa2-4fb6-9af0-5a16edeb2f13",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000004",
+      "new_category_id": "a1000001-0000-4000-8000-000000000004"
+    },
+    {
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "ai_category": "health",
+      "platform_category": "Медицина",
+      "matched_via": "alias:health->medical",
+      "needs_manual": false,
+      "business_id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "previous_category_id": "a1000001-0000-4000-8000-000000000005",
+      "new_category_id": "a1000001-0000-4000-8000-000000000005"
+    }
+  ],
+  "stats": {
+    "mapped_updates": 6,
+    "cleared_manual": 0,
+    "unchanged": 14,
+    "still_services": 2,
+    "needs_manual": 2
+  },
+  "unmapped_ai_categories": [
+    "other"
+  ],
+  "manual": [
+    {
+      "title": "mama_bear_oc",
+      "ai_category": "other",
+      "platform_category": "— ручной выбор —",
+      "matched_via": null,
+      "needs_manual": true,
+      "business_id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "previous_category_id": null,
+      "new_category_id": null
+    },
+    {
+      "title": "Телефон",
+      "ai_category": "other",
+      "platform_category": "— ручной выбор —",
+      "matched_via": null,
+      "needs_manual": true,
+      "business_id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "previous_category_id": null,
+      "new_category_id": null
+    }
+  ]
+}

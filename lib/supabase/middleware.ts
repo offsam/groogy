@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { normalizeSupabaseUrl } from "@/lib/supabase/env";
 
 const AUTH_PAGES = new Set(["/login", "/register", "/forgot-password"]);
 const PROTECTED_PREFIXES = ["/profile", "/auth/update-password", "/admin"];
@@ -43,11 +44,11 @@ function passThrough(request: NextRequest) {
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = passThrough(request);
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
   // Missing/invalid env must never take the whole site down.
-  if (!url || !anonKey || !/^https?:\/\//i.test(url)) {
+  if (!url || !anonKey) {
     return supabaseResponse;
   }
 

@@ -1,6 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
+import { getPublicSupabaseEnv } from "@/lib/supabase/env";
 import type {
   CitySearchResult,
   GeographyCounts,
@@ -19,13 +20,7 @@ const MASTER_DATA_TAG = "master-data";
 const REVALIDATE_SECONDS = 3600;
 
 function createAnonClient(): SupabaseClient<Database> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anonKey) {
-    throw new Error(
-      "Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY",
-    );
-  }
+  const { url, anonKey } = getPublicSupabaseEnv();
   return createClient<Database>(url, anonKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 import type { PlatformResourceStats } from "@/lib/platform/resource-stats";
+import { normalizeSupabaseUrl } from "@/lib/supabase/env";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -38,8 +39,8 @@ function parseStats(raw: Record<string, unknown> | null): PlatformResourceStats 
 
 export async function GET() {
   try {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
+    const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
     if (!url || !anonKey) {
       return NextResponse.json({ error: "missing env" }, { status: 500 });
     }

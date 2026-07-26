@@ -1,6 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
+import { getPublicSupabaseEnv } from "@/lib/supabase/env";
 
 export type PlatformResourceStats = {
   total: number;
@@ -50,11 +51,7 @@ function parseStats(raw: Record<string, unknown> | null): PlatformResourceStats 
 }
 
 async function fetchPlatformResourceStats(): Promise<PlatformResourceStats> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anonKey) {
-    throw new Error("Missing Supabase public env");
-  }
+  const { url, anonKey } = getPublicSupabaseEnv();
 
   const supabase = createClient<Database>(url, anonKey, {
     auth: { persistSession: false, autoRefreshToken: false },

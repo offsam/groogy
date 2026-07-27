@@ -1,0 +1,5 @@
+Fable run started: Mon Jul 27 10:28:28 PDT 2026
+10:32 P1: added classification_confidence/classification_reason columns (additive migration 20260727210000)
+10:32 P1 Phase1 SQL: events=122, real_estate=25 tagged in import_review_items
+10:34 P1: applied 1636 HIGH (business 1320, specialist 312, lechu 3, RE 1); tagging medium/gate3 with [needs_manual_type]
+10:34 P1 DONE: classified 1783 (business 1320, specialist 312, event 122, real_estate 26, lechu 3); 2738 still NULL all tagged [needs_manual_type], 333 carry medium proposals

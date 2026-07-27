@@ -3,7 +3,7 @@
 **Date:** 2026-07-27
 **Scope:** minimum field set required before a row is allowed to reach a public `status` (`approved`/`active`/`published`) per entity type.
 **Rule applied:** max 5–6 fields per type, no soft "nice to have" mixed into the gate. Fields are named by exact DB column (or `table.column` for detail tables). Live fill rates are from the verified live-DB pass (matches `PLATFORM_DATA_AUDIT_V1.md` exactly, spot-checked 2026-07-27).
-**This is a publish gate, not a schema change.** Enforce at the `approveImportReviewItemAction` / admin-publish layer (see `PHASE_PLAN_V1.md` §Phase 2), not as new `NOT NULL` constraints — tightening `NOT NULL` overnight would break the ~96–99% of already-published rows that predate this rule.
+**This is a publish gate, not a schema change.** Since 2026-07-27 the gate is enforced in the database — `public.import_review_publish_gate_errors()` (single source of truth, consulted by the admin action and script autopublish, re-raised inside both mark-approved RPCs; see `ARCHITECTURE_STABILIZATION_V1.md`). Not implemented as new `NOT NULL` constraints — tightening `NOT NULL` overnight would break the ~96–99% of already-published rows that predate this rule.
 
 Companion: [DATA_CLEANUP_PLAN_V1.md](./DATA_CLEANUP_PLAN_V1.md), [ENTITY_AUDIT_V1.md](./ENTITY_AUDIT_V1.md)
 

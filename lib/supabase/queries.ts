@@ -494,7 +494,9 @@ export async function searchBusinesses(
   const { data, error } = await request
     .order("rating_avg", { ascending: false })
     .order("name", { ascending: true })
-    .limit(250);
+    // Hub filter is applied in memory; pull a wide slice so regional counts
+    // aren't capped by the national top-N (was showing ~18 for OC).
+    .limit(params.hubId ? 5000 : query ? 400 : 800);
 
   if (error) throw error;
 

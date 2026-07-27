@@ -40,6 +40,7 @@ from common import SupabaseRest, load_env  # noqa: E402
 from web_enrichment import (  # noqa: E402
     extract_instagram_profile,
     extract_website_profile,
+    extract_website_profile_deep,
 )
 
 UA = "Mozilla/5.0 (compatible; KrugiBizEnrich/1.0; +https://krugi.app)"
@@ -579,8 +580,13 @@ def enrich_one(biz: dict[str, Any]) -> dict[str, Any]:
         report["skipped"] = "no_or_junk_website"
         return report
 
-    profile = extract_website_profile(website)
+    # Deep fetch: homepage + a few contact-ish subpages (hours/address are
+    # frequently on /contact or /hours, not the homepage) — see
+    # extract_website_profile_deep() in web_enrichment.py.
+    profile = extract_website_profile_deep(website)
     report["website_profile_status"] = profile.get("status")
+    if profile.get("pages_tried"):
+        report["pages_tried"] = profile["pages_tried"]
     if profile.get("status") != "ok":
         report["notes"].append(f"website:{profile.get('error') or profile.get('status')}")
         # still try yelp/geo with existing fields

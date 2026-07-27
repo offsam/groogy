@@ -39,6 +39,43 @@ HOURS_HINT_RE = re.compile(
     r"\d{1,2}:\d{2}\s*[-–—]\s*\d{1,2}:\d{2})",
     re.I,
 )
+# A line that actually pairs a day name with a time range — used to confirm a
+# hours-hint match is really hours, not just a stray weekday word.
+DAY_TIME_LINE_RE = re.compile(
+    r"(mon|monday|tue|tuesday|wed|wednesday|thu|thursday|fri|friday|sat|saturday|sun|sunday)"
+    r"[^\n]{0,60}?\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?\s*[-–—to]{1,3}\s*\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?",
+    re.I,
+)
+HOURS_SECTION_HEADING_RE = re.compile(
+    r"^(hours|business\s*hours|store\s*hours|opening\s*hours|working\s*hours|"
+    r"часы\s*работы|режим\s*работы|мы\s*работаем)\b",
+    re.I,
+)
+# US street-address shape: house number + street name + a common suffix.
+# NOTE: longer alternatives (Drive/Street/...) must come before their
+# abbreviations (Dr/St/...) — regex alternation matches the first
+# alternative that fits at a position, not the longest, so "Dr|Drive" would
+# match "Dr" and stop mid-word inside "Drive".
+ADDRESS_LINE_RE = re.compile(
+    r"\b\d{1,6}\s+[A-Za-z0-9.'\-]+(?:\s+[A-Za-z0-9.'\-]+){0,4}\s+"
+    r"(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|Lane|Ln|Way|"
+    r"Parkway|Pkwy|Court|Ct|Place|Pl|Highway|Hwy|Circle|Cir|Terrace|Ter)\.?"
+    r"(?:\s*,?\s*(?:Suite|Ste|Unit|#)\s*[A-Za-z0-9\-]+)?"
+    r"(?:,\s*[A-Za-z .'\-]+)?(?:,\s*[A-Z]{2})?(?:\s*\d{5}(?:-\d{4})?)?",
+    re.I,
+)
+CONTACT_PATHS = (
+    "",
+    "/contact",
+    "/contact-us",
+    "/contactus",
+    "/hours",
+    "/about",
+    "/about-us",
+    "/location",
+    "/locations",
+    "/visit",
+)
 
 
 class _HomeParser(HTMLParser):
@@ -52,6 +89,8 @@ class _HomeParser(HTMLParser):
         self._json_ld: list[Any] = []
         self._capture_ld = False
         self._ld_chunks: list[str] = []
+        self._in_address = False
+        self._address_chunks: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         ad = {k.lower(): (v or "") for k, v in attrs}
@@ -83,10 +122,15 @@ class _HomeParser(HTMLParser):
         if tag == "script" and "ld+json" in (ad.get("type") or "").lower():
             self._capture_ld = True
             self._ld_chunks = []
+        if tag == "address":
+            self._in_address = True
+            self._address_chunks.append("")
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "title":
             self._in_title = False
+        if tag == "address":
+            self._in_address = False
         if tag == "script" and self._capture_ld:
             self._capture_ld = False
             raw = "".join(self._ld_chunks).strip()
@@ -107,6 +151,16 @@ class _HomeParser(HTMLParser):
                 self.title = t
         if self._capture_ld:
             self._ld_chunks.append(data)
+        if self._in_address and self._address_chunks:
+            self._address_chunks[-1] += data
+
+    @property
+    def address_tag_text(self) -> str | None:
+        for chunk in self._address_chunks:
+            t = re.sub(r"\s+", " ", chunk).strip(" ,")
+            if t and len(t) >= 8:
+                return t
+        return None
 
 
 def _http_get_text(url: str) -> str | None:
@@ -169,6 +223,88 @@ def _ig_username(raw: str) -> str | None:
     if not re.fullmatch(r"[A-Za-z0-9._]{2,30}", value):
         return None
     return value
+
+
+def _visible_text(html: str) -> str:
+    """Strip script/style/tags to plain text, one visible chunk per line."""
+    text = html_lib.unescape(re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.I))
+    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", "\n", text)
+    text = re.sub(r"[ \t]+", " ", text)
+    return text
+
+
+_DAY_ONLY_RE = re.compile(
+    r"^(mon|monday|tue|tuesday|wed|wednesday|thu|thursday|fri|friday|sat|saturday|sun|sunday)\.?:?$",
+    re.I,
+)
+_TIME_ONLY_RE = re.compile(
+    r"\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?\s*[-–—to]{1,3}\s*\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?"
+)
+
+
+def _merge_day_time_lines(lines: list[str]) -> list[str]:
+    """Table/grid-layout hours render day and time as separate lines
+    ("Mon" / "9:00 am – 5:00 pm" as two <div>s) — tag-stripping turns each
+    into its own line, so a day name and its time range never land in the
+    same chunk for the downstream parser. Recombine adjacent day-only +
+    time-only line pairs before handing the blob off.
+    """
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if (
+            _DAY_ONLY_RE.match(line)
+            and i + 1 < len(lines)
+            and _TIME_ONLY_RE.search(lines[i + 1])
+            and not _DAY_ONLY_RE.match(lines[i + 1])
+        ):
+            out.append(f"{line} {lines[i + 1]}")
+            i += 2
+            continue
+        out.append(line)
+        i += 1
+    return out
+
+
+def extract_hours_text(html: str) -> str | None:
+    """Find an hours blob in visible page text (not just JSON-LD).
+
+    Most small-business sites (Squarespace/Wix/plain HTML) render hours as
+    plain text in a footer or a "Hours" section rather than structured
+    OpeningHoursSpecification markup — this is why hours previously stayed
+    empty even when the JSON-LD scan found nothing. Root-caused: HOURS_HINT_RE
+    existed in this file but was never actually applied to anything.
+    """
+    lines = [ln.strip() for ln in _visible_text(html).splitlines() if ln.strip()]
+    # 1) A labeled "Hours" section — grab the heading + next few lines,
+    # recombining day/time pairs that a grid layout split across lines.
+    for i, ln in enumerate(lines):
+        if HOURS_SECTION_HEADING_RE.search(ln):
+            window = _merge_day_time_lines(lines[i : i + 16])
+            blob = "; ".join(window)
+            if DAY_TIME_LINE_RE.search(blob) or HOURS_HINT_RE.search(blob):
+                return blob[:600]
+    # 2) No heading found — recombine the whole page then fall back to any
+    # line(s) that directly pair a day name with a time range.
+    merged = _merge_day_time_lines(lines)
+    matches = [ln for ln in merged if DAY_TIME_LINE_RE.search(ln)]
+    if matches:
+        return "; ".join(matches[:10])[:600]
+    return None
+
+
+def extract_address_text(html: str, address_tag_text: str | None) -> str | None:
+    """Find a street address in visible text when JSON-LD has none."""
+    if address_tag_text and ADDRESS_LINE_RE.search(address_tag_text):
+        return address_tag_text[:200]
+    lines = [ln.strip() for ln in _visible_text(html).splitlines() if ln.strip()]
+    for ln in lines:
+        m = ADDRESS_LINE_RE.search(ln)
+        if m:
+            return m.group(0).strip()[:200]
+    return None
 
 
 def extract_website_profile(url: str) -> dict[str, Any]:
@@ -266,11 +402,24 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         phones.append(urllib.parse.unquote(m.group(1)))
     for m in EMAIL_RE.finditer(html):
         emails.append(m.group(0))
-    # Conservative phone harvest from meta/JSON only already done; add a few from body
-    for m in PHONE_RE.finditer(re.sub(r"<[^>]+>", " ", html)[:8000]):
+    # Conservative phone harvest from meta/JSON only already done; add a few
+    # from visible body text. Previously capped to html[:8000], which for a
+    # typical page is still <head>/nav — a footer phone number never got
+    # scanned. Now scans the full cleaned visible text (page is already
+    # capped at MAX_HTML on fetch, so this stays bounded).
+    for m in PHONE_RE.finditer(_visible_text(html)):
         candidate = re.sub(r"[^\d+]", "", m.group(0))
         if 10 <= len(candidate) <= 15:
             phones.append(m.group(0).strip())
+
+    # Hours: JSON-LD found nothing above — try visible page text.
+    if not hours:
+        hours = extract_hours_text(html)
+
+    # Address: JSON-LD found nothing above — try an <address> tag, then
+    # a plain-text street-address pattern anywhere on the page.
+    if not address:
+        address = extract_address_text(html, parser.address_tag_text)
 
     for href in parser.links:
         abs_u = _abs(norm, href) or href
@@ -298,6 +447,52 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         }
     )
     return out
+
+
+def extract_website_profile_deep(
+    url: str, *, max_pages: int = 4
+) -> dict[str, Any]:
+    """Fetch the homepage plus a few contact-ish subpages until hours,
+    address, and phone are all found (or pages run out).
+
+    Hours/address are frequently on a dedicated /contact or /hours page,
+    not the homepage — the single-page extract_website_profile() never had
+    a chance to find them there. This tries CONTACT_PATHS in order and
+    merges into the homepage result via merge_website_profiles(), stopping
+    early once nothing is left to find.
+    """
+    base = _normalize_website(url)
+    if not base:
+        return {"source": SOURCE_WEBSITE, "url": url, "status": "unavailable", "error": "bad_url"}
+    parsed = urllib.parse.urlparse(base)
+    root = f"{parsed.scheme}://{parsed.netloc}"
+
+    candidates: list[str] = []
+    seen_keys: set[str] = set()
+    for path in ("",) + CONTACT_PATHS:
+        u = base if path == "" and not candidates else (
+            urllib.parse.urljoin(root + "/", path.lstrip("/")) if path else root + "/"
+        )
+        key = u.rstrip("/").lower()
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        candidates.append(u)
+
+    merged: dict[str, Any] | None = None
+    pages_tried: list[dict[str, Any]] = []
+    for page_url in candidates[:max_pages]:
+        profile = extract_website_profile(page_url)
+        pages_tried.append({"url": page_url, "status": profile.get("status")})
+        if profile.get("status") == "ok":
+            merged = merge_website_profiles(merged, profile)
+            if merged and merged.get("hours") and merged.get("address") and merged.get("phone"):
+                break
+
+    if merged is None:
+        merged = {"source": SOURCE_WEBSITE, "url": base, "status": "unavailable", "error": "fetch_failed"}
+    merged["pages_tried"] = pages_tried
+    return merged
 
 
 def extract_instagram_profile(username_or_url: str) -> dict[str, Any]:

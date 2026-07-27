@@ -220,6 +220,12 @@ Format: goal / result / depends on / complexity / risk / prerequisites.
 
 ### Stage B — Runtime Cleanup (the canon starts breathing)
 
+> **STATUS: B1+B2 DONE 2026-07-27.** B1: pg_cron enabled in Supabase, job
+> `platform-maintenance` runs `run_scheduled_maintenance()` daily 09:00 UTC — no
+> external host needed after all. B2: `scripts/runtime/consume_domain_events.py` —
+> handler-registry worker pattern, event #1 consumed end-to-end; `domain_events`
+> granted select+update(processed_at) to service_role. B3–B5 remain.
+
 | T | Task | Result | Deps | Cx | Risk | Ready-before |
 |---|---|---|---|---|---|---|
 | B1 | Point an external cron at `run_scheduled_maintenance()` (P-17) | verification expiry actually runs; heartbeat event visible | — | S | low | choose cron host |
@@ -229,6 +235,12 @@ Format: goal / result / depends on / complexity / risk / prerequisites.
 | B5 | Enrichment runs emit `enrichment.completed` (P-14) | every `--apply` visible in-system | B2 | S | low | — |
 
 ### Stage C — Objects Cleanup
+
+> **STATUS: C1 DONE 2026-07-27.** Sync triggers for businesses/events/listings
+> (marketplace_item/job/vehicle/transfer/transport_carry→lechu; `service`/`resume`
+> deliberately unregistered — no registry kind, they are offer surfaces), backfill
+> complete: registry now holds 7 kinds / ~3,978 objects, counts match live tables;
+> trigger firing verified on a live row. C2–C5 remain.
 
 | T | Task | Result | Deps | Cx | Risk | Ready-before |
 |---|---|---|---|---|---|---|

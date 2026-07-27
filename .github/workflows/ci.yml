@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Typecheck (whole repo)
+        run: npx tsc --noEmit
+      - name: Lint (error-clean dirs only — app/ carries legacy debt, see roadmap C2)
+        run: npx eslint lib components types --quiet
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile all pipeline scripts
+        run: |
+          find scripts -name '*.py' -not -path '*/.venv/*' -print0 \
+            | xargs -0 python3 -m py_compile
+      - name: Contract & registry drift tests
+        run: |
+          python3 scripts/import-review/test_review_tags.py
+          python3 scripts/import-review/test_extraction_contract.py
+      - name: Pipeline unit tests
+        run: |
+          python3 scripts/import-review/test_category_map.py
+          python3 scripts/import-review/test_eligibility.py

@@ -13,6 +13,7 @@ Compact TOC only. No explanations.
 - Index: [`runtime/INDEX.md`](./runtime/INDEX.md)
 - Live map: [`../architecture/runtime/PLATFORM_LIFECYCLE_V1.md`](../architecture/runtime/PLATFORM_LIFECYCLE_V1.md)
 - Canonical card pipeline: [`../architecture/runtime/CARD_PROCESSING_ARCHITECTURE_V1.md`](../architecture/runtime/CARD_PROCESSING_ARCHITECTURE_V1.md)
+- Extraction/classification contract (P2–P3, drift-checked in CI): [`../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md)
 - Card lifecycle: [`../architecture/card/CARD_LIFECYCLE_ARCHITECTURE_V1.md`](../architecture/card/CARD_LIFECYCLE_ARCHITECTURE_V1.md)
 - Stabilization: [`../architecture/runtime/ARCHITECTURE_STABILIZATION_V1.md`](../architecture/runtime/ARCHITECTURE_STABILIZATION_V1.md)
 

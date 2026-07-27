@@ -7,7 +7,7 @@ Navigation only. **Live schema SoT = applied migrations**, not prose proposals.
 ## Tables / schema
 
 - Migrations (live history): [`../../../supabase/migrations/`](../../../supabase/migrations/)
-- Generated client types: [`../../../types/database.ts`](../../../types/database.ts)
+- Generated client types: [`../../../types/database.ts`](../../../types/database.ts) — hand-maintained; after schema migrations follow [`DB_TYPES_RITUAL_V1.md`](../../architecture/runtime/DB_TYPES_RITUAL_V1.md)
 - Alignment notes: [`../../architecture/entity-model-v1/DATABASE_ALIGNMENT_V1.md`](../../architecture/entity-model-v1/DATABASE_ALIGNMENT_V1.md)
 - Draft additive SQL (architecture; **not** auto-applied): [`../../architecture/entity-model-v1/001_additive_schema.sql`](../../architecture/entity-model-v1/001_additive_schema.sql), [`002_seed_platform_categories.sql`](../../architecture/entity-model-v1/002_seed_platform_categories.sql)
 - ⚠️ Proposal doc (not live SoT): [`../../database-schema.md`](../../database-schema.md)

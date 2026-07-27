@@ -201,6 +201,13 @@ Format: goal / result / depends on / complexity / risk / prerequisites.
 
 ### Stage A — Foundation Cleanup (agent-safety; canon becomes executable)
 
+> **STATUS: DONE 2026-07-27** (same day). A1 applied to live DB (2,574 untyped rows
+> verified blocked); A2 registry + drift test; A3 orchestrator smoke-tested end-to-end;
+> A4 contract doc CI-pinned to code; A5 workflow live (`.github/workflows/ci.yml` —
+> lint gated on error-clean dirs only, app/ carries legacy debt); A6 ritual documented
+> (`runtime/DB_TYPES_RITUAL_V1.md`); A7 navigation reviewed+committed, QUALITY_CARD
+> synced. Remaining Stage-A note: B1 needs the user to choose a cron host.
+
 | T | Task | Result | Deps | Cx | Risk | Ready-before |
 |---|---|---|---|---|---|---|
 | A1 | Harden G3: error on `target_collection IS NULL` (P-20) | gate returns explicit error; F4/F6 leak closed | — | S | low | none |

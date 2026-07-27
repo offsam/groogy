@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-07-27T18:34:05.384798+00:00",
+  "mode": "dry-run",
+  "entity": "business",
+  "processed": 5,
+  "updated": 0,
+  "step_hits": {
+    "source_text": 0,
+    "website": 0,
+    "directories": 0
+  },
+  "field_hits": {},
+  "avg_score_before": 29.8,
+  "avg_score_after": 29.8,
+  "records": [
+    {
+      "id": "000ed7e1-2285-465e-9edc-be67e72fbe72",
+      "label": "legispro",
+      "score_before": 18,
+      "score_after": 18,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "005c2daf-bf87-4043-8c86-44d1fc1d8a02",
+      "label": "skillhub.cyber",
+      "score_before": 36,
+      "score_after": 36,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00708993-b843-4e9e-be8f-7a5f5382f856",
+      "label": "S❄️",
+      "score_before": 36,
+      "score_after": 36,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00b32d1e-4552-424a-9118-a27fda054f59",
+      "label": "Πέτρο,",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00d9df8d-d431-4cda-855e-e280b4c165ef",
+      "label": "legispro",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    }
+  ]
+}

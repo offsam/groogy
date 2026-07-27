@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-07-27T18:34:35.008978+00:00",
+  "mode": "dry-run",
+  "entity": "professional",
+  "processed": 5,
+  "updated": 0,
+  "step_hits": {
+    "source_text": 0,
+    "website": 0,
+    "directories": 0
+  },
+  "field_hits": {},
+  "avg_score_before": 49.0,
+  "avg_score_after": 49.0,
+  "records": [
+    {
+      "id": "006a92ed-b785-498c-be3b-28f965ab451f",
+      "label": "Рафаэль",
+      "score_before": 58,
+      "score_after": 58,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0082a7d6-f2af-4639-a3bd-386fbf3b1292",
+      "label": "Alex",
+      "score_before": 58,
+      "score_after": 58,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00c6da41-2e35-40e4-a7f4-5e3aee4f1a37",
+      "label": "🇹🇯 MOON HALAL RESTAURANT 🇹🇯",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00f12bca-92b5-4cba-8fdf-a3656b230cb4",
+      "label": "Alex",
+      "score_before": 58,
+      "score_after": 58,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "01431baa-d029-4a3a-b000-acdc4a8230f9",
+      "label": "**Новое хобби?**",
+      "score_before": 45,
+      "score_after": 45,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    }
+  ]
+}

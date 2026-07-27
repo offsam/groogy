@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-07-27T18:34:37.170424+00:00",
+  "mode": "dry-run",
+  "entity": "listing",
+  "processed": 5,
+  "updated": 1,
+  "step_hits": {
+    "source_text": 0,
+    "website": 1,
+    "directories": 0
+  },
+  "field_hits": {
+    "email": 1
+  },
+  "avg_score_before": 58.0,
+  "avg_score_after": 58.0,
+  "records": [
+    {
+      "id": "009bbb7e-54aa-4d42-a41f-fa42635dd1b3",
+      "label": "🇺🇸",
+      "score_before": 55,
+      "score_after": 55,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0127754d-a788-4afb-8cab-b13f39045050",
+      "label": "🇺🇸",
+      "score_before": 55,
+      "score_after": 55,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "06492717-6277-4b5e-b412-996e49468a89",
+      "label": "В наличии 2 коробки.",
+      "score_before": 55,
+      "score_after": 55,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "07935245-abe9-4a7d-9259-78d603d07363",
+      "label": "Милена",
+      "score_before": 55,
+      "score_after": 55,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "094a2b74-b7d0-4494-910a-8bf549f48f0e",
+      "label": "Yulia",
+      "score_before": 70,
+      "score_after": 70,
+      "patch": {
+        "email": [
+          "logo_49a8de52-52e2-4246-8700-44690739f3a8_260x@2x.png"
+        ]
+      },
+      "steps": {
+        "source_text": [],
+        "website": [
+          "email"
+        ],
+        "directories": []
+      },
+      "directory_match": null
+    }
+  ]
+}

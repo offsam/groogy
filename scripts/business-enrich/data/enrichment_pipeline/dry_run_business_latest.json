@@ -1,0 +1,693 @@
+{
+  "generated_at": "2026-07-27T18:34:25.317871+00:00",
+  "mode": "dry-run",
+  "entity": "business",
+  "processed": 50,
+  "updated": 4,
+  "step_hits": {
+    "source_text": 0,
+    "website": 4,
+    "directories": 0
+  },
+  "field_hits": {
+    "email": 4
+  },
+  "avg_score_before": 28.7,
+  "avg_score_after": 28.9,
+  "records": [
+    {
+      "id": "000ed7e1-2285-465e-9edc-be67e72fbe72",
+      "label": "legispro",
+      "score_before": 18,
+      "score_after": 18,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "005c2daf-bf87-4043-8c86-44d1fc1d8a02",
+      "label": "skillhub.cyber",
+      "score_before": 36,
+      "score_after": 36,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00708993-b843-4e9e-be8f-7a5f5382f856",
+      "label": "S❄️",
+      "score_before": 36,
+      "score_after": 36,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00b32d1e-4552-424a-9118-a27fda054f59",
+      "label": "Πέτρο,",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00d9df8d-d431-4cda-855e-e280b4c165ef",
+      "label": "legispro",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "00fb0c41-970d-429b-8623-48c90ff36d19",
+      "label": "Леонид. сервисный центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0139b5ec-1666-42de-83c3-56020bc4f212",
+      "label": "Команда Pets Delivery Expert LLC",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "01b8cd7e-a68a-4986-8ec8-840d404bba0f",
+      "label": "o_khismik",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "01c8a3a7-6dfb-4f87-ab8f-dd1c073173d1",
+      "label": "Леонид. сервисный центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "01e6d54f-45c1-486b-9886-a7968618a9fc",
+      "label": "Тетяна",
+      "score_before": 20,
+      "score_after": 20,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "01ea67a0-10ff-49dd-ad7c-83256a1e18bd",
+      "label": "peasmaker1",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "01f21dd7-881f-41c4-9ddb-a545026f0bba",
+      "label": "S_A",
+      "score_before": 22,
+      "score_after": 22,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "020d5639-3ff1-4250-a814-eef8aa8337ab",
+      "label": "GBG CONSTRUCTION INC",
+      "score_before": 33,
+      "score_after": 35,
+      "patch": {
+        "email": [
+          "gbgconstructioninc@gmail.com"
+        ]
+      },
+      "steps": {
+        "source_text": [],
+        "website": [
+          "email"
+        ],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0241415b-53a4-4354-92a4-d2cae2a67437",
+      "label": "Леонид. сервисный центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "02745bbb-d8ce-4445-b559-4a787e1a4236",
+      "label": "360_tint_wrap",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "02896766-a39f-4076-ae1a-4eb81a02d217",
+      "label": "360_tint_wrap",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "02c8a23b-fc31-41d6-a05c-d20cc5ce7c24",
+      "label": "Леонид. сервисный центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "02ee2b60-e95f-43fb-b641-eec2a46a8910",
+      "label": "vadyao_ink_lover",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0309cd81-c1ac-43f7-9a7e-11a62dc70ca9",
+      "label": "bykoffautomotive",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0359965a-cb74-4eb6-8750-4d1f2d8a1a0f",
+      "label": "Happy4thOfJuly #SacramentoRealtor #CaliforniaRealEstate #Sac",
+      "score_before": 25,
+      "score_after": 25,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0372a616-72df-4c75-9988-907e8b8e1c60",
+      "label": "beata_in_america",
+      "score_before": 33,
+      "score_after": 33,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0381b365-4a17-4cc0-88b7-b759bc134b5e",
+      "label": "droksana",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "03cc2432-e316-4059-975c-5599355f4028",
+      "label": "om_barber_sacramento",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0427fb49-c7f3-432d-a5ec-04c22acb5c3b",
+      "label": "360_tint_wrap",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "042abf57-aa9a-480b-903d-10f9284f2181",
+      "label": "om_barber_sacramento",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0445158b-b0f7-4f85-965a-cfb7ff139b19",
+      "label": "ivanov_alexandr",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "044ac5b9-191b-4a1e-a422-b5c1ec254df0",
+      "label": "kchlash",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "045a0f70-8b77-464a-bd70-2c639bfd3a27",
+      "label": "legispro",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "045cd36d-16b1-4e85-9bb7-9a65108f36f3",
+      "label": "beata_in_america",
+      "score_before": 33,
+      "score_after": 33,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "04c5f94d-8000-43ad-aac6-202f33727767",
+      "label": "beata_in_america",
+      "score_before": 33,
+      "score_after": 33,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "04f27daf-77d8-41fd-b4d5-3fc41764f8c6",
+      "label": "AS24 Tax Services LLC",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "05157676-34a9-4f81-8cf0-df493db18607",
+      "label": "beata_in_america",
+      "score_before": 33,
+      "score_after": 33,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "05442b3d-e1d0-48f0-8eae-3c34ebd05c14",
+      "label": "GBG CONSTRUCTION INC",
+      "score_before": 33,
+      "score_after": 35,
+      "patch": {
+        "email": [
+          "gbgconstructioninc@gmail.com"
+        ]
+      },
+      "steps": {
+        "source_text": [],
+        "website": [
+          "email"
+        ],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "05596a34-89fb-4c8c-8053-15302f47c499",
+      "label": "Кот",
+      "score_before": 30,
+      "score_after": 30,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "055a0ff5-29de-4f93-8cbb-4f83da96b2a4",
+      "label": "Леонид. сервисный центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "06050220-0c99-4f41-91ca-ea1cf0db9e05",
+      "label": "legispro",
+      "score_before": 26,
+      "score_after": 26,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "060f8f06-7730-47a9-bf65-29224c7d8436",
+      "label": "vadyao_tattoo",
+      "score_before": 18,
+      "score_after": 18,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0610b303-4961-4598-8fda-2d6694163563",
+      "label": "Ресурсный Центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "06171b60-575b-4f92-bfff-25c2ad1fb3a5",
+      "label": "Uliana Kim",
+      "score_before": 23,
+      "score_after": 23,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "063233f1-0433-450a-bae4-fb48bdeb5733",
+      "label": "pavlosacramento",
+      "score_before": 18,
+      "score_after": 18,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "065ff998-e1ad-45a8-977d-d90dbf9152e9",
+      "label": "Школа пилотов DIVA Flight School",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0694eb45-e3df-4db3-b42e-0990fd9fba61",
+      "label": "GBG CONSTRUCTION INC",
+      "score_before": 33,
+      "score_after": 35,
+      "patch": {
+        "email": [
+          "gbgconstructioninc@gmail.com"
+        ]
+      },
+      "steps": {
+        "source_text": [],
+        "website": [
+          "email"
+        ],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "06a29121-60e7-4b72-b4fe-8809a61cc8b6",
+      "label": "om_barber_sacramento",
+      "score_before": 33,
+      "score_after": 33,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "06ea8565-1986-4678-ab8d-e8ed240a596d",
+      "label": "360_tint_wrap",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0733a67b-efa1-4892-86c8-30d47b9e52a4",
+      "label": "Леонид. сервисный центр",
+      "score_before": 28,
+      "score_after": 28,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "074bc6bd-5fac-44c4-a738-a8e48ec90518",
+      "label": "ruscoupon",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "0759d2cc-b800-401d-bd11-7fac37aa118b",
+      "label": "Лицензированная автомастерская Dream Car LLC",
+      "score_before": 25,
+      "score_after": 25,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "07bf29b9-2797-4e06-82eb-fac019bf294c",
+      "label": "anber",
+      "score_before": 33,
+      "score_after": 33,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "07f4e48f-f127-4c4f-9464-74f698453ab7",
+      "label": "GBG CONSTRUCTION INC",
+      "score_before": 33,
+      "score_after": 35,
+      "patch": {
+        "email": [
+          "gbgconstructioninc@gmail.com"
+        ]
+      },
+      "steps": {
+        "source_text": [],
+        "website": [
+          "email"
+        ],
+        "directories": []
+      },
+      "directory_match": null
+    },
+    {
+      "id": "08634651-93e8-4b1f-93b8-af06d9fb0138",
+      "label": "360_tint_wrap",
+      "score_before": 31,
+      "score_after": 31,
+      "patch": {},
+      "steps": {
+        "source_text": [],
+        "website": [],
+        "directories": []
+      },
+      "directory_match": null
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
 import { BusinessCardContactIcons } from "@/components/business/BusinessCardContactIcons";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { businessCardBlurb } from "@/lib/business/card-blurb";
 import { normalizeUsZip } from "@/lib/brand";
 import { cn } from "@/lib/utils";
@@ -44,9 +45,10 @@ export function BusinessCard({
     categoryName: business.categoryName,
   });
   const isPlaceholder = isPlaceholderBusinessImage(business.imageUrl);
+  const href = `/business/${business.slug}`;
 
   const className = cn(
-    "flex gap-3 rounded-xl border bg-white p-3 transition-all sm:gap-4 sm:p-4",
+    "relative flex gap-3 rounded-xl border bg-white p-3 transition-all sm:gap-4 sm:p-4",
     !preview && "cursor-pointer",
     selected
       ? "border-slate-900 shadow-md ring-1 ring-slate-900"
@@ -73,7 +75,7 @@ export function BusinessCard({
       </div>
 
       <div className="min-w-0 flex-1">
-        <div className="flex items-start justify-between gap-2">
+        <div className="flex items-start justify-between gap-2 pr-9">
           <h3 className="truncate font-semibold text-slate-900">{business.name}</h3>
           {business.reviewsCount > 0 && (
             <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-amber-50 px-1.5 py-0.5 text-sm font-semibold text-amber-700">
@@ -117,19 +119,29 @@ export function BusinessCard({
   }
 
   return (
-    <Link
-      className={className}
-      href={`/business/${business.slug}`}
-      onClick={() => {
-        trackResourceOpen({
-          kind: "business",
-          id: business.id,
-          pathId: business.slug,
-        });
-        onSelect?.(business.id);
-      }}
-    >
-      {body}
-    </Link>
+    <article className={className}>
+      <div className="absolute right-2 top-2 z-10">
+        <ShareEntityButton
+          className="size-8 bg-white/95 shadow-sm"
+          stopPropagation
+          title={business.name}
+          url={href}
+        />
+      </div>
+      <Link
+        className="flex min-w-0 flex-1 gap-3 sm:gap-4"
+        href={href}
+        onClick={() => {
+          trackResourceOpen({
+            kind: "business",
+            id: business.id,
+            pathId: business.slug,
+          });
+          onSelect?.(business.id);
+        }}
+      >
+        {body}
+      </Link>
+    </article>
   );
 }

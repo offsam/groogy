@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Briefcase, MapPin } from "lucide-react";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import {
   formatJobCardEmployer,
@@ -25,7 +26,15 @@ export function JobCard({ job }: JobCardProps) {
   const location = formatJobCardLocation(job);
 
   return (
-    <article className="overflow-hidden rounded-xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+    <article className="relative overflow-hidden rounded-xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+      <div className="absolute right-2 top-2 z-10">
+        <ShareEntityButton
+          className="size-8 bg-white/95 shadow-sm"
+          stopPropagation
+          title={job.title}
+          url={href}
+        />
+      </div>
       <Link className="block" href={href}>
         <div className="relative aspect-[4/3] bg-slate-100">
           {photo ? (

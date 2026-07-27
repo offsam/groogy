@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { Briefcase, MapPin } from "lucide-react";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { formatJobCardLocation } from "@/lib/jobs/mappers";
 import { getJobBySlug } from "@/lib/jobs/queries";
 import { createServiceRoleClient } from "@/lib/supabase/service";
@@ -48,22 +49,29 @@ export default async function JobDetailPage({ params }: PageProps) {
         </div>
 
         <div className="space-y-4 p-4 sm:p-6">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-              Работа
-            </p>
-            <h1 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-slate-900">
-              {job.title}
-            </h1>
-            <p className="mt-2 text-sm font-medium text-slate-800">
-              Частный работодатель
-            </p>
-            {location ? (
-              <p className="mt-1.5 inline-flex items-start gap-1.5 text-sm text-slate-600">
-                <MapPin aria-hidden className="mt-0.5 size-4 shrink-0" />
-                <span>{location}</span>
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+                Работа
               </p>
-            ) : null}
+              <h1 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-slate-900">
+                {job.title}
+              </h1>
+              <p className="mt-2 text-sm font-medium text-slate-800">
+                Частный работодатель
+              </p>
+              {location ? (
+                <p className="mt-1.5 inline-flex items-start gap-1.5 text-sm text-slate-600">
+                  <MapPin aria-hidden className="mt-0.5 size-4 shrink-0" />
+                  <span>{location}</span>
+                </p>
+              ) : null}
+            </div>
+            <ShareEntityButton
+              title={job.title}
+              url={`/jobs/${job.slug}`}
+              variant="button"
+            />
           </div>
 
           {job.description ? (

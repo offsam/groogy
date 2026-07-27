@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
 import { LikeFollowButtons } from "@/components/engagement/LikeFollowButtons";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { formatProfessionalPrice } from "@/lib/professional/mappers";
 import { ProfessionalContactsCard } from "@/components/professional/ProfessionalContactsCard";
 import { ProfessionalOriginBadges } from "@/components/professional/ProfessionalOriginBadges";
@@ -116,7 +117,7 @@ export function ProfessionalProfileView({
           <div className="mt-2">
             <ProfessionalOriginBadges professional={professional} />
           </div>
-          <div className="mt-3">
+          <div className="mt-3 flex flex-wrap items-center gap-2">
             <LikeFollowButtons
               followersCount={engagementState.followersCount}
               initialFollowed={engagementState.followedByMe}
@@ -126,6 +127,11 @@ export function ProfessionalProfileView({
               likesCount={engagementState.likesCount}
               slug={professional.slug}
               targetId={professional.id}
+            />
+            <ShareEntityButton
+              title={professional.displayName}
+              url={`/professional/${professional.slug}`}
+              variant="button"
             />
           </div>
         </div>

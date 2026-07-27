@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { CalendarCheck, MessageCircle, Share2 } from "lucide-react";
+import { CalendarCheck, MessageCircle } from "lucide-react";
 import { LikeFollowButtons } from "@/components/engagement/LikeFollowButtons";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { cn } from "@/lib/utils";
 
 type BusinessHeaderActionsProps = {
@@ -20,9 +20,6 @@ type BusinessHeaderActionsProps = {
   className?: string;
 };
 
-const iconBtn =
-  "inline-flex size-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 sm:size-8 sm:rounded-lg";
-
 export function BusinessHeaderActions({
   businessId,
   businessSlug,
@@ -38,7 +35,6 @@ export function BusinessHeaderActions({
 }: BusinessHeaderActionsProps) {
   const trimmed = email?.trim() || null;
   const bookHref = bookingUrl?.trim() || null;
-  const [copied, setCopied] = useState(false);
 
   function onAsk() {
     if (trimmed) {
@@ -48,21 +44,6 @@ export function BusinessHeaderActions({
     }
     const el = document.getElementById("business-contacts");
     el?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }
-
-  async function onShare() {
-    const url = typeof window !== "undefined" ? window.location.href : "";
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: businessName, url });
-        return;
-      }
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      /* cancelled */
-    }
   }
 
   return (
@@ -102,15 +83,10 @@ export function BusinessHeaderActions({
         slug={businessSlug}
         targetId={businessId}
       />
-      <button
-        aria-label={copied ? "Ссылка скопирована" : "Поделиться"}
-        className={iconBtn}
-        title={copied ? "Скопировано" : "Поделиться"}
-        type="button"
-        onClick={() => void onShare()}
-      >
-        <Share2 aria-hidden="true" className="size-3.5" />
-      </button>
+      <ShareEntityButton
+        title={businessName}
+        url={`/business/${businessSlug}`}
+      />
     </div>
   );
 }

@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-07-27T18:14:27.709158+00:00",
+  "mode": "dry-run",
+  "scanned": 964,
+  "updated": 6,
+  "fields": {
+    "city": 6
+  },
+  "samples": [
+    {
+      "slug": "svoi-sarina-browndorf-realtor",
+      "name": "Sarina Browndorf – Realtor",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    },
+    {
+      "slug": "svoi-julia-lobova-realtor",
+      "name": "Julia Lobova- Realtor",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    },
+    {
+      "slug": "svoi-elena-rozen",
+      "name": "Elena Rozen",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    },
+    {
+      "slug": "svoi-anatoly-sigalov",
+      "name": "Anatoly Sigalov",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    },
+    {
+      "slug": "svoi-olga-johnson-music-teacher",
+      "name": "Olga Johnson- Music Teacher",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    },
+    {
+      "slug": "alyona-koolhaas-150611",
+      "name": "Alyona Koolhaas",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    }
+  ]
+}

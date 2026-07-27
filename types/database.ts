@@ -100,7 +100,7 @@ export type Database = {
           name_en: string | null;
           description: string | null;
           disclaimer_text: string | null;
-          domain: ListingDomain;
+          domain: string;
           icon: string | null;
           sort_order: number;
           is_active: boolean;
@@ -113,7 +113,7 @@ export type Database = {
           name_en?: string | null;
           description?: string | null;
           disclaimer_text?: string | null;
-          domain?: ListingDomain;
+          domain?: string;
           icon?: string | null;
           sort_order?: number;
           is_active?: boolean;

@@ -191,8 +191,9 @@ export default async function AdminPage() {
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {LINKS.map((item) => {
           const Icon = item.icon;
-          const count =
+          const raw =
             item.countKey != null ? counts[item.countKey] : null;
+          const count = typeof raw === "number" ? raw : null;
           const hasQueue = count != null;
           const busy = hasQueue && count > 0;
 

@@ -141,6 +141,7 @@ export function importReviewToBusinessPreview(
     googleMapsUrl: null,
     googleRating: null,
     googleReviewsCount: 0,
+    bookingUrl: null,
     imageUrl,
     addressLine: null,
     city: item.city?.trim() || null,

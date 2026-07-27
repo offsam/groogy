@@ -2,6 +2,7 @@ import type {
   AuthorVisibility,
   Listing,
   ListingCategory,
+  ListingDomain,
   ListingMedia,
   ListingPublisher,
   ListingStatus,
@@ -48,7 +49,7 @@ export function mapCategory(row: CategoryRow): ListingCategory {
     nameRu: row.name_ru,
     nameEn: row.name_en,
     sortOrder: row.sort_order,
-    domain: row.domain,
+    domain: row.domain as ListingDomain | undefined,
   };
 }
 

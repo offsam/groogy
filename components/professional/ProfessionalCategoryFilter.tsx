@@ -20,7 +20,7 @@ export function ProfessionalCategoryFilter({
   const allowed = new Set<string>(PROFESSIONAL_CATEGORY_SLUGS);
   const bySlug = new Map(categories.map((c) => [c.slug, c]));
   const items = PROFESSIONAL_CATEGORY_SLUGS.map((slug) => bySlug.get(slug)).filter(
-    (c): c is Category => Boolean(c) && allowed.has(c.slug),
+    (c): c is Category => c != null && allowed.has(c.slug),
   );
 
   return (

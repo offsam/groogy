@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
@@ -11,6 +12,11 @@ import type {
   ImportReviewStatus,
   ImportReviewTargetCollection,
 } from "@/types/import-review";
+
+/** Untyped access until generated Database types include professionals/events. */
+function untyped(client: SupabaseClient) {
+  return client as unknown as SupabaseClient;
+}
 
 function resolveImportLocation(item: {
   city?: string | null;
@@ -396,11 +402,7 @@ export async function approveImportReviewItemAction(input: {
   let publishedEntityId: string;
   const loc = resolveImportLocation(item);
   const locationPrecision =
-    loc.region && !loc.city
-      ? ("county" as const)
-      : loc.city
-        ? ("city" as const)
-        : null;
+    loc.region && !loc.city ? ("county" as const) : null;
 
   if (collection === "private_specialists") {
     const {
@@ -418,7 +420,7 @@ export async function approveImportReviewItemAction(input: {
       : item.source?.toLowerCase().includes("telegram")
         ? "TELEGRAM"
         : "IMPORT";
-    const { data: inserted, error: insertError } = await supabase
+    const { data: inserted, error: insertError } = await untyped(supabase)
       .from("professionals")
       .insert({
         owner_profile_id: null,
@@ -456,7 +458,7 @@ export async function approveImportReviewItemAction(input: {
       return fail(insertError?.message || "Не удалось создать professional.");
     }
     publishedEntityType = "professional";
-    publishedEntityId = inserted.id;
+    publishedEntityId = (inserted as { id: string }).id;
   } else if (
     collection === "businesses" ||
     collection === "services" ||
@@ -613,7 +615,7 @@ export async function approveImportReviewItemAction(input: {
 
     const eventTitle = String(title).trim();
     const slug = slugify(eventTitle);
-    const { data: inserted, error: insertError } = await supabase
+    const { data: inserted, error: insertError } = await untyped(supabase)
       .from("events")
       .insert({
         owner_profile_id: user.id,
@@ -634,7 +636,7 @@ export async function approveImportReviewItemAction(input: {
       return fail(insertError?.message || "Не удалось создать event.");
     }
     publishedEntityType = "event";
-    publishedEntityId = inserted.id;
+    publishedEntityId = (inserted as { id: string }).id;
   } else {
     return fail(`Неизвестная коллекция: ${collection}`);
   }

@@ -20,7 +20,7 @@ export function businessCompletenessScore(business: Business): number {
 
   if (hasCoordinates(business)) score += 4;
   if (business.locationPrecision === "street") score += 3;
-  else if (business.locationPrecision === "city") score += 1;
+  else if (business.locationPrecision === "county") score += 1;
 
   if (business.categoryId) score += 2;
 

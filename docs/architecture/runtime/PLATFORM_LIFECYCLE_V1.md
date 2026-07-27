@@ -651,3 +651,19 @@ needing schema go through their own workstream):
 | Field survival source→web | `audits/PIPELINE_AUDIT_V1.md` |
 | Cleanup phases & RE plan | `audits/PHASE_PLAN_V1.md`, `audits/DATA_CLEANUP_PLAN_V1.md` |
 | This run's change log | `audits/FABLE_RUN_LOG.txt` |
+
+---
+
+## Addendum 2026-07-27 — ARCHITECTURE_STABILIZATION_V1
+
+Findings status after the stabilization stage (see
+[ARCHITECTURE_STABILIZATION_V1.md](./ARCHITECTURE_STABILIZATION_V1.md)):
+
+| Finding | Status |
+|---|---|
+| V-5 (gates only in TS) | **CLOSED** — single DB gate `import_review_publish_gate_errors`, backstopped inside both mark-approved RPCs |
+| V-8 (jobs dual-home) | **CLOSED** — queue jobs now publish into `jobs`; 0 legacy rows existed in `listings` |
+| V-9 (verification expiry never runs) | **Entry point ready** — `run_scheduled_maintenance()`; still needs an external cron to call it |
+| V-15 (merge unaudited) | **CLOSED** — merge summary persisted as `business.merged` domain event |
+| V-16 (listing_type enum drift) | **CLOSED** — repair migration |
+| §10 event model | **Outbox exists** — `domain_events` table + `emit_domain_event()`; consumers still to be built |

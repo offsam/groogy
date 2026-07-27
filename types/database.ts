@@ -1878,6 +1878,10 @@ export type Database = {
         };
         Returns: Database["public"]["Tables"]["import_review_items"]["Row"];
       };
+      import_review_publish_gate_check: {
+        Args: { p_item_id: string };
+        Returns: string[];
+      };
       admin_import_review_write_audit: {
         Args: {
           p_item_id: string;

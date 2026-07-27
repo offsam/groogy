@@ -596,6 +596,15 @@ def publish_one(
     note: str = AUTO_NOTE,
 ) -> dict[str, Any]:
     row = item["row"]
+    # Single publish gate — same DB function the human approve path uses
+    # (import_review_publish_gate_check). Fail BEFORE creating any entity so
+    # nothing is orphaned; mark_autopublished re-checks as a backstop.
+    gate_errors = (
+        client.rpc_call("import_review_publish_gate_check", {"p_item_id": item_id})
+        or []
+    )
+    if gate_errors:
+        raise RuntimeError("publish gate failed: " + "; ".join(gate_errors))
     contacts = item["result"]["contacts"]
     title = (
         row.get("title")

@@ -333,86 +333,6 @@ async function findDuplicateMatches(
   });
 }
 
-// Minimum-quality publish gate per target type (QUALITY_CARD_RULES_V1).
-// Contact path = phone / website / instagram / telegram — deliberately NOT
-// email or source_url (see the cross-type note in that doc).
-function publishGateErrors(item: {
-  target_collection: string | null;
-  category: string | null;
-  description: string | null;
-  source_text: string | null;
-  preview_image_url: string | null;
-  photos_count: number | null;
-  price: number | null;
-  phone: string[] | null;
-  whatsapp: string[] | null;
-  website: string[] | null;
-  instagram: string[] | null;
-  telegram_username: string | null;
-  telegram_user_id: string | null;
-  review_notes: string | null;
-}): string[] {
-  const missing: string[] = [];
-  const hasContact =
-    (item.phone?.length ?? 0) > 0 ||
-    (item.whatsapp?.length ?? 0) > 0 ||
-    (item.website?.length ?? 0) > 0 ||
-    (item.instagram?.length ?? 0) > 0 ||
-    Boolean(item.telegram_username) ||
-    Boolean(item.telegram_user_id);
-  const hasDescription = Boolean(
-    (item.description ?? "").trim() || (item.source_text ?? "").trim(),
-  );
-  const hasImage =
-    Boolean(item.preview_image_url) || (item.photos_count ?? 0) > 0;
-
-  switch (item.target_collection) {
-    case "businesses":
-    case "services":
-    case "organizations":
-      if (!(item.category ?? "").trim()) missing.push("category");
-      if (!hasContact) missing.push("контакт (телефон/сайт/Instagram/Telegram)");
-      if (!hasDescription) missing.push("description");
-      if (!hasImage) missing.push("image (preview_image_url или фото)");
-      break;
-    case "private_specialists":
-      if (!hasContact) missing.push("контакт (телефон/сайт/Instagram/Telegram)");
-      if (
-        (item.category ?? "").trim() === "other" &&
-        !(item.review_notes ?? "").includes("[human_confirmed]")
-      ) {
-        missing.push(
-          "category = other без [human_confirmed] в review_notes",
-        );
-      }
-      break;
-    case "marketplace":
-      // Публикация из очереди всегда создаёт transaction_type='sell'.
-      if (item.price == null) {
-        missing.push("price_amount (для 'free'/'wanted' публикуйте вручную)");
-      }
-      break;
-    case "transfers":
-      missing.push("fee_percent или fee_fixed_usd (нет в данных поста)");
-      break;
-    case "lechu":
-      missing.push("departure_date (нет в данных поста)");
-      break;
-    case "events":
-      // starts_at/event_at_label не извлекаются пайплайном — событие без даты
-      // не публикуется, дату нужно подтвердить вручную в review_notes.
-      if (!(item.review_notes ?? "").includes("[event_date_confirmed]")) {
-        missing.push(
-          "starts_at/event_at_label (добавьте [event_date_confirmed] в review_notes после проверки даты)",
-        );
-      }
-      break;
-    default:
-      break;
-  }
-  return missing;
-}
-
 export async function approveImportReviewItemAction(input: {
   id: string;
   force?: boolean;
@@ -476,10 +396,17 @@ export async function approveImportReviewItemAction(input: {
     return fail("Укажите entity_type.");
   }
 
-  const gateErrors = publishGateErrors(item);
-  if (gateErrors.length > 0) {
+  // Publish gate — single source of truth lives in the DB
+  // (import_review_publish_gate_errors, QUALITY_CARD_RULES_V1); the same
+  // function backstops mark_approved and the service autopublish path.
+  const { data: gateErrors, error: gateError } = await supabase.rpc(
+    "import_review_publish_gate_check",
+    { p_item_id: input.id },
+  );
+  if (gateError) return fail(mapDbError(gateError));
+  if ((gateErrors ?? []).length > 0) {
     return fail(
-      `Публикация заблокирована — не заполнено: ${gateErrors.join("; ")}`,
+      `Публикация заблокирована — не заполнено: ${(gateErrors ?? []).join("; ")}`,
     );
   }
 
@@ -637,10 +564,47 @@ export async function approveImportReviewItemAction(input: {
       extras.telegram_url = `https://t.me/${telegramUsername}`;
     }
     await supabase.from("businesses").update(extras).eq("id", publishedEntityId);
+  } else if (collection === "jobs") {
+    // Jobs live in the jobs table only (V-8: the old route into listings made
+    // queue-published jobs invisible on /jobs, which reads the jobs table).
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return fail("Нужно войти в аккаунт.");
+
+    const jobSlug = `${slugify(String(title))}-${input.id.slice(0, 8)}`.slice(
+      0,
+      80,
+    );
+    const { data: inserted, error: insertError } = await untyped(supabase)
+      .from("jobs")
+      .insert({
+        owner_profile_id: user.id,
+        created_by_profile_id: user.id,
+        title: String(title).trim().slice(0, 200),
+        slug: jobSlug,
+        description: item.description ?? item.source_text ?? null,
+        city: loc.city ?? item.city,
+        state_code: loc.stateCode ?? null,
+        status: "published",
+        visibility: "public",
+        source_type: item.source?.toLowerCase().startsWith("facebook")
+          ? "FACEBOOK"
+          : "TELEGRAM",
+        source_url: item.source_url?.trim() || null,
+        imported_at: new Date().toISOString(),
+        imported_by_profile_id: user.id,
+      })
+      .select("id")
+      .single();
+    if (insertError || !inserted) {
+      return fail(insertError?.message || "Не удалось создать job.");
+    }
+    publishedEntityType = "job";
+    publishedEntityId = (inserted as { id: string }).id;
   } else if (
     collection === "marketplace" ||
-    collection === "real_estate" ||
-    collection === "jobs"
+    collection === "real_estate"
   ) {
     // Create as draft listing owned by approving admin — then activate via admin_set_listing_status.
     const {
@@ -648,12 +612,7 @@ export async function approveImportReviewItemAction(input: {
     } = await supabase.auth.getUser();
     if (!user) return fail("Нужно войти в аккаунт.");
 
-    const listingType =
-      collection === "jobs"
-        ? "job"
-        : collection === "real_estate"
-          ? "marketplace_item"
-          : "marketplace_item";
+    const listingType = "marketplace_item";
 
     const { data: inserted, error: insertError } = await supabase
       .from("listings")

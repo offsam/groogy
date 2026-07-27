@@ -333,6 +333,86 @@ async function findDuplicateMatches(
   });
 }
 
+// Minimum-quality publish gate per target type (QUALITY_CARD_RULES_V1).
+// Contact path = phone / website / instagram / telegram — deliberately NOT
+// email or source_url (see the cross-type note in that doc).
+function publishGateErrors(item: {
+  target_collection: string | null;
+  category: string | null;
+  description: string | null;
+  source_text: string | null;
+  preview_image_url: string | null;
+  photos_count: number | null;
+  price: number | null;
+  phone: string[] | null;
+  whatsapp: string[] | null;
+  website: string[] | null;
+  instagram: string[] | null;
+  telegram_username: string | null;
+  telegram_user_id: string | null;
+  review_notes: string | null;
+}): string[] {
+  const missing: string[] = [];
+  const hasContact =
+    (item.phone?.length ?? 0) > 0 ||
+    (item.whatsapp?.length ?? 0) > 0 ||
+    (item.website?.length ?? 0) > 0 ||
+    (item.instagram?.length ?? 0) > 0 ||
+    Boolean(item.telegram_username) ||
+    Boolean(item.telegram_user_id);
+  const hasDescription = Boolean(
+    (item.description ?? "").trim() || (item.source_text ?? "").trim(),
+  );
+  const hasImage =
+    Boolean(item.preview_image_url) || (item.photos_count ?? 0) > 0;
+
+  switch (item.target_collection) {
+    case "businesses":
+    case "services":
+    case "organizations":
+      if (!(item.category ?? "").trim()) missing.push("category");
+      if (!hasContact) missing.push("контакт (телефон/сайт/Instagram/Telegram)");
+      if (!hasDescription) missing.push("description");
+      if (!hasImage) missing.push("image (preview_image_url или фото)");
+      break;
+    case "private_specialists":
+      if (!hasContact) missing.push("контакт (телефон/сайт/Instagram/Telegram)");
+      if (
+        (item.category ?? "").trim() === "other" &&
+        !(item.review_notes ?? "").includes("[human_confirmed]")
+      ) {
+        missing.push(
+          "category = other без [human_confirmed] в review_notes",
+        );
+      }
+      break;
+    case "marketplace":
+      // Публикация из очереди всегда создаёт transaction_type='sell'.
+      if (item.price == null) {
+        missing.push("price_amount (для 'free'/'wanted' публикуйте вручную)");
+      }
+      break;
+    case "transfers":
+      missing.push("fee_percent или fee_fixed_usd (нет в данных поста)");
+      break;
+    case "lechu":
+      missing.push("departure_date (нет в данных поста)");
+      break;
+    case "events":
+      // starts_at/event_at_label не извлекаются пайплайном — событие без даты
+      // не публикуется, дату нужно подтвердить вручную в review_notes.
+      if (!(item.review_notes ?? "").includes("[event_date_confirmed]")) {
+        missing.push(
+          "starts_at/event_at_label (добавьте [event_date_confirmed] в review_notes после проверки даты)",
+        );
+      }
+      break;
+    default:
+      break;
+  }
+  return missing;
+}
+
 export async function approveImportReviewItemAction(input: {
   id: string;
   force?: boolean;
@@ -355,6 +435,28 @@ export async function approveImportReviewItemAction(input: {
     });
   }
 
+  // Real estate is frozen: real_estate_listings does not exist yet, and the old
+  // route dumped these into listings as marketplace_item (see PHASE_PLAN_V1 §3.3).
+  if (
+    item.entity_type === "real_estate" ||
+    item.target_collection === "real_estate"
+  ) {
+    await supabase.rpc("admin_import_review_set_status", {
+      p_item_id: input.id,
+      p_status: "needs_more_info",
+      p_notes: "RE table not ready. Wait for Phase 3.",
+      p_reject_reason: null,
+      p_duplicate_of_item_id: null,
+      p_duplicate_of_entity_type: null,
+      p_duplicate_of_entity_id: null,
+    });
+    revalidatePath("/admin/import-review");
+    revalidatePath(`/admin/import-review/${input.id}`);
+    return fail(
+      "Real estate не публикуется: RE table not ready. Wait for Phase 3.",
+    );
+  }
+
   const resolvedName = resolveImportDisplayName({
     title: item.title,
     business_name: item.business_name,
@@ -372,6 +474,13 @@ export async function approveImportReviewItemAction(input: {
   }
   if (!item.entity_type) {
     return fail("Укажите entity_type.");
+  }
+
+  const gateErrors = publishGateErrors(item);
+  if (gateErrors.length > 0) {
+    return fail(
+      `Публикация заблокирована — не заполнено: ${gateErrors.join("; ")}`,
+    );
   }
 
   const hasContact =

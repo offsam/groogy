@@ -4,3 +4,9 @@ Fable run started: Mon Jul 27 10:28:28 PDT 2026
 10:34 P1: applied 1636 HIGH (business 1320, specialist 312, lechu 3, RE 1); tagging medium/gate3 with [needs_manual_type]
 10:34 P1 DONE: classified 1783 (business 1320, specialist 312, event 122, real_estate 26, lechu 3); 2738 still NULL all tagged [needs_manual_type], 333 carry medium proposals
 11:12 P2 DONE: completeness_score backfilled — businesses 2038/2038 avg 42.0 (min 17, max 94); professionals 964/964 avg 64.4 (min 28, max 93). Added REST pagination fix to completeness_score.py (1000-row cap)
+11:14 P3: enrich_from_import_sources --apply done
+11:14 P3 SKIP: enrich_professional_locations --apply skipped — all 6 candidates derive city from corrupted svoi card text (identical FCH CONSTRUCTION description on unrelated cards); flagged for human review
+11:17 P3: professionals city fill — 0 safe fills possible: 399/423 already have region=Orange County from prior group-fallback runs, city unknowable from source (county-level by design); 19 IMPORT rows have no group signal. No writes made.
+11:20 P3: filled import_review_items.price from collector-extracted payload for unambiguous values; ambiguous '$18.000' (21 rows) skipped
+11:26 P4: publish gates live in approveImportReviewItemAction — per-type minimum-quality checks (QUALITY_CARD_RULES_V1): businesses/services/orgs need category+contact+description+image; specialists need contact (+human confirm for category=other); marketplace needs price; events need [event_date_confirmed]; transfers/lechu hard-blocked (fee/date not in pipeline). Jobs left ungated per doc (compensation/employment_type at 0%, needs pipeline fix first)
+11:26 P4: real_estate approvals frozen — auto-set needs_more_info "RE table not ready. Wait for Phase 3." (stops the old misroute into listings as marketplace_item). tsc + eslint clean

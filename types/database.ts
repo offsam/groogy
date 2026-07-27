@@ -135,6 +135,8 @@ export type Database = {
           reviews_count: number;
           ai_verified_reviews_count: number;
           transaction_verified_reviews_count: number;
+          likes_count: number;
+          followers_count: number;
           phone: string | null;
           email: string | null;
           website: string | null;
@@ -176,6 +178,8 @@ export type Database = {
           reviews_count?: number;
           ai_verified_reviews_count?: number;
           transaction_verified_reviews_count?: number;
+          likes_count?: number;
+          followers_count?: number;
           phone?: string | null;
           email?: string | null;
           website?: string | null;
@@ -987,6 +991,68 @@ export type Database = {
         >;
         Relationships: [];
       };
+      business_likes: {
+        Row: {
+          user_id: string;
+          business_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id?: string;
+          business_id: string;
+          created_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["business_likes"]["Insert"]>;
+        Relationships: [];
+      };
+      business_followers: {
+        Row: {
+          user_id: string;
+          business_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id?: string;
+          business_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["business_followers"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      professional_likes: {
+        Row: {
+          user_id: string;
+          professional_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id?: string;
+          professional_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["professional_likes"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      professional_followers: {
+        Row: {
+          user_id: string;
+          professional_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id?: string;
+          professional_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["professional_followers"]["Insert"]
+        >;
+        Relationships: [];
+      };
       listing_reports: {
         Row: {
           id: string;
@@ -1485,6 +1551,8 @@ export type Database = {
           reviews_count: number;
           ai_verified_reviews_count: number;
           transaction_verified_reviews_count: number;
+          likes_count: number;
+          followers_count: number;
           google_rating: number | null;
           google_reviews_count: number;
           yelp_rating: number | null;

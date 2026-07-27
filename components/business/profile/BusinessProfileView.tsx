@@ -8,12 +8,14 @@ import {
   Briefcase,
   Camera,
   FileText,
+  Heart,
   MessageSquare,
   Percent,
   Plus,
   Sparkles,
   Star,
   Store,
+  Users,
 } from "lucide-react";
 import { BusinessCard } from "@/components/business/BusinessCard";
 import { AdminChangeCategoryButton } from "@/components/business/AdminChangeCategoryButton";
@@ -55,6 +57,7 @@ import {
   type BusinessLocation,
 } from "@/types/business-location";
 import type { Review, ReviewVerificationSession } from "@/types/review";
+import type { EntityEngagement } from "@/types/engagement";
 
 type EditSection =
   | "photo"
@@ -85,6 +88,7 @@ type BusinessProfileViewProps = {
   currentUserId: string | null;
   myReview: Review | null;
   mySession: ReviewVerificationSession | null;
+  engagement?: EntityEngagement;
   activeTab?: string | null;
   editMode?: boolean;
 };
@@ -141,6 +145,7 @@ export function BusinessProfileView({
   currentUserId,
   myReview,
   mySession,
+  engagement,
   activeTab: activeTabProp,
   editMode = false,
 }: BusinessProfileViewProps) {
@@ -193,11 +198,18 @@ export function BusinessProfileView({
     .sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured))
     .slice(0, 6);
   const previewReview = reviews[0] ?? null;
+  const publishedReviewsCount = Math.max(business.reviewsCount, reviews.length);
   const previewMention = communityMentions[0] ?? null;
   const since = platformSinceLabel(business.createdAt);
   const showVerified =
     business.aiVerifiedReviewsCount > 0 ||
     business.transactionVerifiedReviewsCount > 0;
+  const engagementState: EntityEngagement = engagement ?? {
+    likesCount: business.likesCount ?? 0,
+    followersCount: business.followersCount ?? 0,
+    likedByMe: false,
+    followedByMe: false,
+  };
 
   const copy = structureBusinessProfileCopy(
     business.description,
@@ -320,7 +332,7 @@ export function BusinessProfileView({
               </p>
 
               <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                {business.reviewsCount > 0 ? (
+                {publishedReviewsCount > 0 ? (
                   <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
                     <Star
                       aria-hidden="true"
@@ -328,12 +340,22 @@ export function BusinessProfileView({
                     />
                     {business.ratingAvg.toFixed(1)}
                     <span className="font-normal text-slate-500">
-                      ({business.reviewsCount})
+                      ({publishedReviewsCount})
                     </span>
                   </span>
                 ) : (
                   <span className="text-slate-500">Пока нет отзывов</span>
                 )}
+                {engagementState.likesCount > 0 ? (
+                  <span className="text-slate-500">
+                    {engagementState.likesCount} лайков
+                  </span>
+                ) : null}
+                {engagementState.followersCount > 0 ? (
+                  <span className="text-slate-500">
+                    {engagementState.followersCount} подписчиков
+                  </span>
+                ) : null}
                 {business.aiVerifiedReviewsCount > 0 ? (
                   <span className="inline-flex items-center gap-1 text-slate-600">
                     <Sparkles aria-hidden="true" className="size-3.5 text-sky-500" />
@@ -416,17 +438,31 @@ export function BusinessProfileView({
 
               <BusinessHeaderActions
                 bookingUrl={business.bookingUrl}
+                businessId={business.id}
                 businessName={business.name}
+                businessSlug={businessSlug}
                 className="mt-3 w-full sm:hidden"
                 email={actionEmail}
+                followedByMe={engagementState.followedByMe}
+                followersCount={engagementState.followersCount}
+                isAuthenticated={Boolean(currentUserId)}
+                likedByMe={engagementState.likedByMe}
+                likesCount={engagementState.likesCount}
               />
             </div>
           </div>
           <BusinessHeaderActions
             bookingUrl={business.bookingUrl}
+            businessId={business.id}
             businessName={business.name}
+            businessSlug={businessSlug}
             className="hidden sm:flex"
             email={actionEmail}
+            followedByMe={engagementState.followedByMe}
+            followersCount={engagementState.followersCount}
+            isAuthenticated={Boolean(currentUserId)}
+            likedByMe={engagementState.likedByMe}
+            likesCount={engagementState.likesCount}
           />
         </header>
 
@@ -691,39 +727,45 @@ export function BusinessProfileView({
                         href={`/business/${businessSlug}?tab=reviews`}
                         scroll={false}
                       >
-                        Все ({business.reviewsCount})
+                        Все ({publishedReviewsCount})
                       </Link>
                     </div>
-                    <div className="mt-3">
-                      <div className="flex items-center gap-2">
-                        <div
-                          aria-hidden="true"
-                          className="flex size-9 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600"
-                        >
-                          {(previewReview.authorDisplayName ?? "К").slice(0, 1).toUpperCase()}
-                        </div>
-                        <div className="min-w-0">
-                          <p className="truncate text-sm font-medium text-slate-900">
-                            {previewReview.authorDisplayName ?? "Пользователь"}
-                          </p>
-                          <div className="flex items-center gap-0.5">
-                            {Array.from({ length: 5 }, (_, i) => (
-                              <Star
-                                key={i}
-                                aria-hidden="true"
-                                className={`size-3 ${
-                                  i < previewReview.rating
-                                    ? "fill-amber-500 text-amber-500"
-                                    : "text-slate-300"
-                                }`}
-                              />
-                            ))}
+                    <div className="mt-3 space-y-4">
+                      {reviews.slice(0, 3).map((review) => (
+                        <div key={review.id}>
+                          <div className="flex items-center gap-2">
+                            <div
+                              aria-hidden="true"
+                              className="flex size-9 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600"
+                            >
+                              {(review.authorDisplayName ?? "К")
+                                .slice(0, 1)
+                                .toUpperCase()}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="truncate text-sm font-medium text-slate-900">
+                                {review.authorDisplayName ?? "Пользователь"}
+                              </p>
+                              <div className="flex items-center gap-0.5">
+                                {Array.from({ length: 5 }, (_, i) => (
+                                  <Star
+                                    key={i}
+                                    aria-hidden="true"
+                                    className={`size-3 ${
+                                      i < review.rating
+                                        ? "fill-amber-500 text-amber-500"
+                                        : "text-slate-300"
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
                           </div>
+                          <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-slate-600">
+                            {review.body}
+                          </p>
                         </div>
-                      </div>
-                      <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-slate-600">
-                        {previewReview.body}
-                      </p>
+                      ))}
                     </div>
                   </div>
                 ) : null}
@@ -748,7 +790,7 @@ export function BusinessProfileView({
                     <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
                       <MessageSquare aria-hidden="true" className="mx-auto size-4 text-slate-400" />
                       <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">
-                        {business.reviewsCount}
+                        {publishedReviewsCount}
                       </p>
                       <p className="text-[11px] text-slate-500">Отзывы</p>
                     </div>
@@ -758,6 +800,20 @@ export function BusinessProfileView({
                         {gallery.length}
                       </p>
                       <p className="text-[11px] text-slate-500">Фото</p>
+                    </div>
+                    <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
+                      <Heart aria-hidden="true" className="mx-auto size-4 text-slate-400" />
+                      <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">
+                        {engagementState.likesCount}
+                      </p>
+                      <p className="text-[11px] text-slate-500">Лайки</p>
+                    </div>
+                    <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
+                      <Users aria-hidden="true" className="mx-auto size-4 text-slate-400" />
+                      <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">
+                        {engagementState.followersCount}
+                      </p>
+                      <p className="text-[11px] text-slate-500">Подписчики</p>
                     </div>
                     {jobs.length > 0 || copy.jobs ? (
                       <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
@@ -916,7 +972,7 @@ export function BusinessProfileView({
                   mySession={mySession}
                   ratingAvg={business.ratingAvg}
                   reviews={reviews}
-                  reviewsCount={business.reviewsCount}
+                  reviewsCount={publishedReviewsCount}
                   transactionVerifiedCount={business.transactionVerifiedReviewsCount}
                 />
               </section>

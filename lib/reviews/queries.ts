@@ -112,6 +112,40 @@ function mapSession(
   return session;
 }
 
+const REVIEW_REPLY_SELECT = `
+  review_replies (
+    id,
+    review_id,
+    business_id,
+    author_user_id,
+    body,
+    created_at,
+    updated_at
+  )
+` as const;
+
+/** Public list — no profiles embed (anon cannot read profiles; would empty the list). */
+const PUBLIC_REVIEW_SELECT = `
+  id,
+  business_id,
+  user_id,
+  rating,
+  body,
+  moderation_status,
+  verification_level,
+  verification_score,
+  verification_summary,
+  verification_completed_at,
+  transaction_verified_at,
+  published_at,
+  expires_at,
+  author_display_name,
+  created_at,
+  updated_at,
+  ${REVIEW_REPLY_SELECT}
+` as const;
+
+/** Owner/admin/self paths may join profiles when the caller can read them. */
 const REVIEW_SELECT = `
   id,
   business_id,
@@ -133,15 +167,7 @@ const REVIEW_SELECT = `
     id,
     display_name
   ),
-  review_replies (
-    id,
-    review_id,
-    business_id,
-    author_user_id,
-    body,
-    created_at,
-    updated_at
-  )
+  ${REVIEW_REPLY_SELECT}
 ` as const;
 
 export async function getPublishedReviewsForBusiness(
@@ -150,14 +176,22 @@ export async function getPublishedReviewsForBusiness(
 ): Promise<Review[]> {
   const { data, error } = await client
     .from("reviews")
-    .select(REVIEW_SELECT)
+    .select(PUBLIC_REVIEW_SELECT)
     .eq("business_id", businessId)
     .eq("moderation_status", "published")
     .order("published_at", { ascending: false })
     .order("created_at", { ascending: false });
 
   if (error) throw error;
-  return ((data ?? []) as ReviewQueryRow[]).map((row) => mapReview(row, false));
+  return ((data ?? []) as ReviewQueryRow[]).map((row) =>
+    mapReview(
+      {
+        ...row,
+        profiles: null,
+      },
+      false,
+    ),
+  );
 }
 
 export async function getMyReviewForBusiness(
@@ -167,13 +201,15 @@ export async function getMyReviewForBusiness(
 ): Promise<Review | null> {
   const { data, error } = await client
     .from("reviews")
-    .select(REVIEW_SELECT)
+    .select(PUBLIC_REVIEW_SELECT)
     .eq("business_id", businessId)
     .eq("user_id", userId)
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapReview(data as ReviewQueryRow, false) : null;
+  return data
+    ? mapReview({ ...(data as ReviewQueryRow), profiles: null }, false)
+    : null;
 }
 
 export async function getVerificationSessionForReview(

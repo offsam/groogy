@@ -67,6 +67,8 @@ export function mapProfessionalPublic(row: ProfessionalPublicRow): Professional 
     availabilityText: row.availability_text,
     ratingAvg: Number(row.rating_avg) || 0,
     reviewsCount: row.reviews_count ?? 0,
+    likesCount: Number(row.likes_count ?? 0),
+    followersCount: Number(row.followers_count ?? 0),
     city: row.city,
     region: row.region,
     stateCode: row.state_code,

@@ -123,6 +123,8 @@ export function importReviewToBusinessPreview(
     reviewsCount: 0,
     aiVerifiedReviewsCount: 0,
     transactionVerifiedReviewsCount: 0,
+    likesCount: 0,
+    followersCount: 0,
     phone,
     email,
     website,

@@ -1,14 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { Bookmark, CalendarCheck, MessageCircle, Share2 } from "lucide-react";
+import { CalendarCheck, MessageCircle, Share2 } from "lucide-react";
+import { LikeFollowButtons } from "@/components/engagement/LikeFollowButtons";
 import { cn } from "@/lib/utils";
 
 type BusinessHeaderActionsProps = {
+  businessId: string;
+  businessSlug: string;
   businessName: string;
   email?: string | null;
   /** Public online booking URL (Book Now). */
   bookingUrl?: string | null;
+  likesCount?: number;
+  followersCount?: number;
+  likedByMe?: boolean;
+  followedByMe?: boolean;
+  isAuthenticated?: boolean;
   className?: string;
 };
 
@@ -16,9 +24,16 @@ const iconBtn =
   "inline-flex size-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 sm:size-8 sm:rounded-lg";
 
 export function BusinessHeaderActions({
+  businessId,
+  businessSlug,
   businessName,
   email = null,
   bookingUrl = null,
+  likesCount = 0,
+  followersCount = 0,
+  likedByMe = false,
+  followedByMe = false,
+  isAuthenticated = false,
   className,
 }: BusinessHeaderActionsProps) {
   const trimmed = email?.trim() || null;
@@ -76,26 +91,26 @@ export function BusinessHeaderActions({
         <MessageCircle aria-hidden="true" className="size-3.5 text-slate-500" />
         Задать вопрос
       </button>
-      <div className="flex items-center gap-1.5">
-        <button
-          aria-label={copied ? "Ссылка скопирована" : "Поделиться"}
-          className={iconBtn}
-          title={copied ? "Скопировано" : "Поделиться"}
-          type="button"
-          onClick={() => void onShare()}
-        >
-          <Share2 aria-hidden="true" className="size-3.5" />
-        </button>
-        <button
-          aria-disabled="true"
-          aria-label="Сохранить"
-          className={cn(iconBtn, "cursor-default text-slate-400")}
-          title="Скоро"
-          type="button"
-        >
-          <Bookmark aria-hidden="true" className="size-3.5" />
-        </button>
-      </div>
+      <LikeFollowButtons
+        compact
+        followersCount={followersCount}
+        initialFollowed={followedByMe}
+        initialLiked={likedByMe}
+        isAuthenticated={isAuthenticated}
+        kind="business"
+        likesCount={likesCount}
+        slug={businessSlug}
+        targetId={businessId}
+      />
+      <button
+        aria-label={copied ? "Ссылка скопирована" : "Поделиться"}
+        className={iconBtn}
+        title={copied ? "Скопировано" : "Поделиться"}
+        type="button"
+        onClick={() => void onShare()}
+      >
+        <Share2 aria-hidden="true" className="size-3.5" />
+      </button>
     </div>
   );
 }

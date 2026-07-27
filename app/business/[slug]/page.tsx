@@ -26,8 +26,10 @@ import {
   userIsAdmin,
   userOwnsBusiness,
 } from "@/lib/reviews/queries";
+import { getBusinessEngagement } from "@/lib/engagement/queries";
 import type { Business, Category } from "@/types/business";
 import type { Review, ReviewVerificationSession } from "@/types/review";
+import type { EntityEngagement } from "@/types/engagement";
 
 type BusinessPageProps = {
   params: Promise<{ slug: string }>;
@@ -87,13 +89,16 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, isAdmin, similarPool, communityMentions, locations, categories] =
+  const [offers, published, owns, isAdmin, similarPool, communityMentions, locations, categories, engagement] =
     await Promise.all([
     getPublicOffersForBusiness(client, fullBusiness.id, {
       businessSlug: fullBusiness.slug,
       businessName: fullBusiness.name,
     }),
-    getPublishedReviewsForBusiness(client, fullBusiness.id).catch(() => []),
+    getPublishedReviewsForBusiness(catalog, fullBusiness.id).catch((err) => {
+      console.error("[business/reviews]", err);
+      return [] as Review[];
+    }),
     user ? userOwnsBusiness(client, fullBusiness.id) : Promise.resolve(false),
     user ? userIsAdmin(client).catch(() => false) : Promise.resolve(false),
     fullBusiness.categoryId
@@ -104,6 +109,17 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     ),
     listPublishedBusinessLocations(catalog, fullBusiness.id).catch(() => []),
     getActiveCategories(catalog).catch(() => [] as Category[]),
+    getBusinessEngagement(client, fullBusiness.id, user?.id ?? null, {
+      likesCount: fullBusiness.likesCount ?? 0,
+      followersCount: fullBusiness.followersCount ?? 0,
+    }).catch(
+      (): EntityEngagement => ({
+        likesCount: fullBusiness.likesCount ?? 0,
+        followersCount: fullBusiness.followersCount ?? 0,
+        likedByMe: false,
+        followedByMe: false,
+      }),
+    ),
   ]);
 
   const canManageEarly = owns || isAdmin;
@@ -151,6 +167,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         offers={offers}
         jobs={jobs}
         reviews={reviews}
+        engagement={engagement}
         communityMentions={communityMentions}
         locations={locations}
         similar={similar}

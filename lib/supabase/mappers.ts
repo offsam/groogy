@@ -78,6 +78,8 @@ function baseBusiness(
     transactionVerifiedReviewsCount: Number(
       row.transaction_verified_reviews_count ?? 0,
     ),
+    likesCount: Number(row.likes_count ?? 0),
+    followersCount: Number(row.followers_count ?? 0),
     googleRating:
       row.google_rating == null ? null : Number(row.google_rating),
     googleReviewsCount: Number(row.google_reviews_count ?? 0),

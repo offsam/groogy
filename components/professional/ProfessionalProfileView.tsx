@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
+import { LikeFollowButtons } from "@/components/engagement/LikeFollowButtons";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { formatProfessionalPrice } from "@/lib/professional/mappers";
 import { ProfessionalContactsCard } from "@/components/professional/ProfessionalContactsCard";
 import { ProfessionalOriginBadges } from "@/components/professional/ProfessionalOriginBadges";
 import { ProfessionalSourceCard } from "@/components/professional/ProfessionalSourceCard";
+import type { EntityEngagement } from "@/types/engagement";
 import type { Professional, ProfessionalService } from "@/types/professional";
 
 type ProfessionalProfileViewProps = {
@@ -13,6 +16,7 @@ type ProfessionalProfileViewProps = {
   services: ProfessionalService[];
   isOwner: boolean;
   currentUserId: string | null;
+  engagement?: EntityEngagement;
 };
 
 function initials(name: string) {
@@ -27,6 +31,7 @@ export function ProfessionalProfileView({
   services,
   isOwner,
   currentUserId,
+  engagement,
 }: ProfessionalProfileViewProps) {
   const location = [professional.city, professional.region || professional.stateCode]
     .filter(Boolean)
@@ -42,6 +47,14 @@ export function ProfessionalProfileView({
     professional.description !== professional.shortDescription
       ? professional.description
       : null;
+  const engagementState: EntityEngagement = engagement ?? {
+    likesCount: professional.likesCount ?? 0,
+    dislikesCount: professional.dislikesCount ?? 0,
+    followersCount: professional.followersCount ?? 0,
+    likedByMe: false,
+    dislikedByMe: false,
+    followedByMe: false,
+  };
 
   return (
     <div className="mx-auto max-w-5xl space-y-4 px-3 py-6 sm:px-6 sm:py-8">
@@ -87,6 +100,15 @@ export function ProfessionalProfileView({
                 </span>
               </span>
             ) : null}
+            {engagementState.likesCount > 0 ? (
+              <span>{engagementState.likesCount} лайков</span>
+            ) : null}
+            {engagementState.dislikesCount > 0 ? (
+              <span>{engagementState.dislikesCount} дизлайков</span>
+            ) : null}
+            {engagementState.followersCount > 0 ? (
+              <span>{engagementState.followersCount} подписчиков</span>
+            ) : null}
             {professional.experienceYears != null ? (
               <span>Опыт: {professional.experienceYears} лет</span>
             ) : null}
@@ -99,6 +121,25 @@ export function ProfessionalProfileView({
           </div>
           <div className="mt-2">
             <ProfessionalOriginBadges professional={professional} />
+          </div>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <LikeFollowButtons
+              dislikesCount={engagementState.dislikesCount}
+              followersCount={engagementState.followersCount}
+              initialDisliked={engagementState.dislikedByMe}
+              initialFollowed={engagementState.followedByMe}
+              initialLiked={engagementState.likedByMe}
+              isAuthenticated={Boolean(currentUserId)}
+              kind="professional"
+              likesCount={engagementState.likesCount}
+              slug={professional.slug}
+              targetId={professional.id}
+            />
+            <ShareEntityButton
+              title={professional.displayName}
+              url={`/professional/${professional.slug}`}
+              variant="button"
+            />
           </div>
         </div>
       </header>

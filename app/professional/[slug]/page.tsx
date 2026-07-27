@@ -7,9 +7,11 @@ import {
   getProfessionalServices,
   userOwnsProfessional,
 } from "@/lib/professional/queries";
+import { getProfessionalEngagement } from "@/lib/engagement/queries";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
+import type { EntityEngagement } from "@/types/engagement";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -72,9 +74,30 @@ export default async function ProfessionalPage({ params }: PageProps) {
     () => [],
   );
 
+  const engagement = await getProfessionalEngagement(
+    client,
+    professional.id,
+    user?.id ?? null,
+    {
+      likesCount: professional.likesCount ?? 0,
+      dislikesCount: professional.dislikesCount ?? 0,
+      followersCount: professional.followersCount ?? 0,
+    },
+  ).catch(
+    (): EntityEngagement => ({
+      likesCount: professional.likesCount ?? 0,
+      dislikesCount: professional.dislikesCount ?? 0,
+      followersCount: professional.followersCount ?? 0,
+      likedByMe: false,
+      dislikedByMe: false,
+      followedByMe: false,
+    }),
+  );
+
   return (
     <ProfessionalProfileView
       currentUserId={user?.id ?? null}
+      engagement={engagement}
       isOwner={isOwner}
       professional={professional}
       services={services}

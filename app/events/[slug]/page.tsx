@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
 import { getPublishedEventBySlug } from "@/lib/events/queries";
 import { eventTimingLabel } from "@/lib/events/timing";
@@ -137,17 +138,23 @@ export default async function EventDetailPage({ params }: PageProps) {
               {sourceHost ? ` · ${sourceHost}` : null}
             </p>
           </div>
-          <span
-            className={`shrink-0 rounded-md px-2 py-1 text-xs font-medium ${
-              timing.kind === "past"
-                ? "bg-slate-200 text-slate-700"
-                : timing.kind === "upcoming"
-                  ? "bg-brand-green/15 text-emerald-800"
-                  : "bg-slate-100 text-slate-600"
-            }`}
-          >
-            {timing.kind === "past" ? "Уже прошло" : timing.text}
-          </span>
+          <div className="flex shrink-0 items-start gap-2">
+            <ShareEntityButton
+              title={event.title}
+              url={`/events/${event.slug}`}
+            />
+            <span
+              className={`rounded-md px-2 py-1 text-xs font-medium ${
+                timing.kind === "past"
+                  ? "bg-slate-200 text-slate-700"
+                  : timing.kind === "upcoming"
+                    ? "bg-brand-green/15 text-emerald-800"
+                    : "bg-slate-100 text-slate-600"
+              }`}
+            >
+              {timing.kind === "past" ? "Уже прошло" : timing.text}
+            </span>
+          </div>
         </header>
 
         {event.cover_image_url ? (

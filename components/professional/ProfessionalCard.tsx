@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
+import { ShareEntityButton } from "@/components/engagement/ShareEntityButton";
 import { ProfessionalOriginBadges } from "@/components/professional/ProfessionalOriginBadges";
 import { normalizeUsZip } from "@/lib/brand";
 import { resolvePublicCityPostal } from "@/lib/address/normalize";
@@ -100,7 +101,17 @@ export function ProfessionalCard({
   );
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+      {preview ? null : (
+        <div className="absolute right-2 top-2 z-10">
+          <ShareEntityButton
+            className="size-8 bg-white/95 shadow-sm"
+            stopPropagation
+            title={professional.displayName}
+            url={`/professional/${professional.slug}`}
+          />
+        </div>
+      )}
       {preview ? (
         <div className="flex h-full flex-col">{body}</div>
       ) : (

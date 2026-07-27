@@ -34,6 +34,9 @@ export type Professional = {
   availabilityText: string | null;
   ratingAvg: number;
   reviewsCount: number;
+  likesCount: number;
+  dislikesCount: number;
+  followersCount: number;
   city: string | null;
   region: string | null;
   stateCode: string | null;
@@ -90,6 +93,9 @@ export type ProfessionalPublicRow = {
   availability_text: string | null;
   rating_avg: number | string;
   reviews_count: number;
+  likes_count?: number;
+  dislikes_count?: number;
+  followers_count?: number;
   city: string | null;
   region: string | null;
   state_code: string | null;

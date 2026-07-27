@@ -24,6 +24,12 @@ export type Business = {
   reviewsCount: number;
   aiVerifiedReviewsCount: number;
   transactionVerifiedReviewsCount: number;
+  /** Platform likes on the business card. */
+  likesCount: number;
+  /** Platform dislikes on the business card. */
+  dislikesCount: number;
+  /** Platform subscribers/followers on the business card. */
+  followersCount: number;
   /** Null on list/public payloads — contacts load after auth via API. */
   phone: string | null;
   email: string | null;

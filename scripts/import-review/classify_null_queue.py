@@ -27,6 +27,7 @@ import json
 import os
 import sys
 from collections import Counter
+from review_tags import TAG_NEEDS_MANUAL_TYPE, proposed_tag
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -223,12 +224,12 @@ def main() -> None:
         targets: list[tuple[str, str, str, str]] = []  # id, tag, confidence, reason
         for r in results:
             if r["confidence"] == "medium" and r["proposed_type"]:
-                tag = f"[needs_manual_type][proposed:{r['proposed_type']}:medium]"
+                tag = f"{TAG_NEEDS_MANUAL_TYPE}{proposed_tag(r['proposed_type'])}"
             elif r["confidence"] == "none":
-                tag = "[needs_manual_type]"
+                tag = TAG_NEEDS_MANUAL_TYPE
             else:
                 continue
-            if "[needs_manual_type]" in notes_by_id.get(r["id"], ""):
+            if TAG_NEEDS_MANUAL_TYPE in notes_by_id.get(r["id"], ""):
                 continue
             targets.append((r["id"], tag, r["confidence"], r["reason"]))
 

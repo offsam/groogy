@@ -278,6 +278,30 @@ PROFESSIONAL_SELECT = (
 )
 
 
+def _fetch_all(client: SupabaseRest, path: str, select: str, total_limit: int) -> list[dict[str, Any]]:
+    """Paginate past the PostgREST max-rows cap (1000/request)."""
+    rows: list[dict[str, Any]] = []
+    page = 1000
+    offset = 0
+    while len(rows) < total_limit:
+        batch = client._request(
+            "GET",
+            path,
+            params={
+                "select": select,
+                "status": "eq.approved",
+                "order": "id.asc",
+                "limit": str(min(page, total_limit - len(rows))),
+                "offset": str(offset),
+            },
+        ) or []
+        rows.extend(batch)
+        if len(batch) < page:
+            break
+        offset += page
+    return rows
+
+
 def _fetch_business_extras(client: SupabaseRest, business_ids: list[str]) -> dict[str, dict[str, int]]:
     """One pass over business_offers + jobs for the given business ids."""
     extras: dict[str, dict[str, int]] = {
@@ -339,16 +363,7 @@ def main() -> int:
     results: list[dict[str, Any]] = []
 
     if args.entity == "business":
-        rows = client._request(
-            "GET",
-            "/businesses",
-            params={
-                "select": BUSINESS_SELECT,
-                "status": "eq.approved",
-                "order": "updated_at.asc",
-                "limit": str(args.limit),
-            },
-        ) or []
+        rows = _fetch_all(client, "/businesses", BUSINESS_SELECT, args.limit)
         extras = _fetch_business_extras(client, [r["id"] for r in rows])
         for r in rows:
             merged = {**r, **extras.get(r["id"], {})}
@@ -363,16 +378,7 @@ def main() -> int:
                     prefer="return=minimal",
                 )
     else:
-        rows = client._request(
-            "GET",
-            "/professionals",
-            params={
-                "select": PROFESSIONAL_SELECT,
-                "status": "eq.approved",
-                "order": "updated_at.asc",
-                "limit": str(args.limit),
-            },
-        ) or []
+        rows = _fetch_all(client, "/professionals", PROFESSIONAL_SELECT, args.limit)
         for r in rows:
             scored = calculate_professional_completeness_score(r)
             results.append({"id": r["id"], "slug": r.get("slug"), **scored})

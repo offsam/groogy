@@ -54,6 +54,7 @@ export default async function AdminRecommendationsPage({
   const bucket = (
     BUCKETS.has(rawBucket) ? rawBucket : "all"
   ) as RecommendationTargetBucket | "all";
+  const category = params.category || "all";
 
   let items: Awaited<ReturnType<typeof listCommentRecommendations>>["items"] =
     [];
@@ -134,13 +135,14 @@ export default async function AdminRecommendationsPage({
         </div>
       ) : (
         <CommentRecommendationsPanel
-          items={items}
-          total={total}
-          page={page}
-          pageSize={pageSize}
           bucket={bucket}
           bucketCounts={bucketCounts}
+          category={category}
+          items={items}
+          page={page}
+          pageSize={pageSize}
           status={status}
+          total={total}
         />
       )}
     </div>

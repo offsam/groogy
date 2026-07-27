@@ -1,0 +1,510 @@
+[
+  {
+    "id": "afcea481-4285-4f50-8a27-15cf06aaea43",
+    "name": "World Travel and Tours",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "3530 W Peterson Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Peterson%20Ave%203530%20%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+13143087566"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ec9a7670-3b5f-4312-839c-3f082b19819c",
+      "slug": "svoi-world-travel-and-tours"
+    }
+  },
+  {
+    "id": "8072aa46-66da-4875-8776-520dc4a2b926",
+    "name": "Northwestern Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "849 North Western Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Western%20Avenue%20849%2C%20Chicago%2C%20IL%2060622",
+      "phone": "+17732788844"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a47184d6-371b-4a3e-84ee-b857b299baa9",
+      "slug": "svoi-northwestern-travel"
+    }
+  },
+  {
+    "id": "d2e54488-cdd6-4c18-a5af-214186318f28",
+    "name": "ATA American Travel Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "2222 West Chicago Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chicago%20Avenue%202222%2C%20Chicago%2C%20IL%2060622",
+      "phone": "+17732359322"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "977829da-49aa-4588-b99d-7ba70688c46a",
+      "slug": "svoi-ata-american-travel-agency"
+    }
+  },
+  {
+    "id": "5c470161-f446-415c-95c4-83de4d5e71ab",
+    "name": "International Educational Tours, Inc.",
+    "changes": {},
+    "fill": {
+      "city": "IL 60664",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%2060664",
+      "phone": "+17736330877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "66848868-b8dc-4ef6-b3ea-9e23b9b79579",
+    "name": "Express Travel DG",
+    "changes": {},
+    "fill": {
+      "address_line": "N. LaSalle St.",
+      "location_precision": "street",
+      "city": "Suite 407  770",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20LaSalle%20St.%2C%20Suite%20407%20%20770%20%2C%20Chicago%2C%20IL%20%2060654",
+      "phone": "+13127550155"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f6d2d940-54fc-4a91-9dda-7e65da69633f",
+      "slug": "svoi-express-travel-dg"
+    }
+  },
+  {
+    "id": "aaa00b8d-8ce1-4092-b021-e1cef9e4297e",
+    "name": "Dr. Marina Z. Burstein, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "24013 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Calabasas",
+      "state_code": "US-CA",
+      "postal_code": "91302",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2024013%2C%20Calabasas%2C%20CA%2091302",
+      "phone": "+18182222443"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "330b0566-da36-45a2-a298-17317acc7106",
+      "slug": "svoi-dr-marina-z-burstein-md"
+    }
+  },
+  {
+    "id": "66e8782d-c691-43a7-a656-18085cae7882",
+    "name": "Марина Бурштейн, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "24013 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=24013%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://lavalleypediatrics.com",
+      "phone": "+18182222443"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "merge",
+      "id": "330b0566-da36-45a2-a298-17317acc7106"
+    }
+  },
+  {
+    "id": "7ce57d20-4494-4ba4-b3ca-134f2ac1e6dd",
+    "name": "Гарабед Каекджян, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "18250 Roscoe Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91325",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18250%20Roscoe%20Blvd%2C%20Los%20Angeles%2C%20CA%2091325",
+      "phone": "+18189988097"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ac79cb12-8867-4614-af60-c87aa2f13380",
+      "slug": "svoi-md-3"
+    }
+  },
+  {
+    "id": "78042156-0392-45fa-9b23-73ae93ae02fa",
+    "name": "Dr. Larissa Gushansky, DDS.",
+    "changes": {},
+    "fill": {
+      "address_line": "887 East 2nd Street",
+      "location_precision": "street",
+      "city": "Pomona",
+      "state_code": "US-CA",
+      "postal_code": "91766",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%202nd%20Street%20887%2C%20Pomona%2C%20CA%2091766",
+      "phone": "+19098658595"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "749483c6-84d2-40af-8ab6-92684213a13e",
+      "slug": "svoi-dr-larissa-gushansky-dds"
+    }
+  },
+  {
+    "id": "4ace6f3a-a718-499a-af49-044e954d65a3",
+    "name": "Доктор Юрий Бершадский, DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "10108 Topanga Canyon Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91311",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10108%20Topanga%20Canyon%20Blvd%2C%20Los%20Angeles%2C%20CA%2091311",
+      "website": "http://www.la-dentalarts.com",
+      "phone": "+18187096713",
+      "yelp_url": "https://www.yelp.com/biz/la-dental-arts-chatsworth",
+      "email": "dryurydds@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e15e528d-0477-4076-88a8-04525922e353",
+      "slug": "svoi-dds"
+    }
+  },
+  {
+    "id": "5f088175-0e25-4b88-be86-9036d3800596",
+    "name": "Dr. Vladislav Viksman DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "24011 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Calabasas",
+      "state_code": "US-CA",
+      "postal_code": "91302",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2024011%2C%20Calabasas%2C%20CA%2091302",
+      "phone": "+18182227399"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "526a732e-a31b-4810-b165-fd20cd7afdb8",
+      "slug": "svoi-dr-vladislav-viksman-dds"
+    }
+  },
+  {
+    "id": "29f432eb-1b07-4ac5-b098-dded71b267d1",
+    "name": "Давид Лисов",
+    "changes": {},
+    "fill": {
+      "address_line": "13148 Courbet Ln",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13148%20Courbet%20Ln%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18185174343"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8bf33f01-6e88-4a33-9bde-f45c2d6457fc",
+      "slug": "svoi-biz-28"
+    }
+  },
+  {
+    "id": "3b7e2ce2-2846-49af-8e5c-4011a03f97ab",
+    "name": "Shushan Khachatryan",
+    "changes": {},
+    "fill": {
+      "address_line": "14305 Morgan Street",
+      "location_precision": "street",
+      "city": "Baldwin Park",
+      "state_code": "US-CA",
+      "postal_code": "91706",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Morgan%20Street%2014305%2C%20Baldwin%20Park%2C%20CA%2091706",
+      "phone": "+16262699677"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "66a9bb0c-dcaf-4943-8e8d-7cc915a9ed6e",
+      "slug": "svoi-shushan-khachatryan"
+    }
+  },
+  {
+    "id": "471a8efe-69e9-4238-9124-58aff112f90e",
+    "name": "Шуб Валерий Владимирович",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%20ted%20States",
+      "phone": "+18188257448"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "d2c35ff5-b4de-4714-a20c-686ddf7cc78b",
+    "name": "Доктор Руслана Кадзе, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "5525 Etiwanda Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5525%20Etiwanda%20Ave%2C%20Los%20Angeles%2C%20CA%2091356",
+      "website": "https://www.drkadze.com",
+      "phone": "+18182131892"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "bda7a2d9-83a6-4916-afe4-5aa238d979bb",
+      "slug": "svoi-md-4"
+    }
+  },
+  {
+    "id": "c0fc2815-c4a5-460c-ba51-39d4b4d3855e",
+    "name": "Dr Henry Hasserjian MD Santa Monica",
+    "changes": {},
+    "fill": {
+      "address_line": "20th Street 1301",
+      "location_precision": "street",
+      "city": "Santa monica",
+      "state_code": "US-CA",
+      "postal_code": "90404",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=20th%20Street%201301%2C%20Santa%20monica%2C%20CA%2090404",
+      "phone": "+13108288585"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "11410fcf-f66a-4ef7-9b9c-5124441963f6",
+      "slug": "svoi-dr-henry-hasserjian-md-santa-monica"
+    }
+  },
+  {
+    "id": "53ce7a73-2a46-4849-aa81-f81470976b48",
+    "name": "Santa Ana Health Group: Sirakoff Dimitri DO",
+    "changes": {},
+    "fill": {
+      "address_line": "17th Street 1206",
+      "location_precision": "street",
+      "city": "Santa ana",
+      "state_code": "US-CA",
+      "postal_code": "92701",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17th%20Street%201206%2C%20Santa%20ana%2C%20CA%2092701",
+      "phone": "+17148353500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "3b227626-380d-4515-8f4b-87a8e0b2030a",
+      "slug": "svoi-santa-ana-health-group-sirakoff-dimitri-do"
+    }
+  },
+  {
+    "id": "be4c9b88-ffd6-475e-a4ca-9103fee432cd",
+    "name": "Dr. Ludmila W. Afonicheva, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "3655 Lomita Boulevard",
+      "location_precision": "street",
+      "city": "Torrance",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lomita%20Boulevard%203655%2C%20Torrance%2C%20CA",
+      "phone": "+13103282146"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b325ef59-6e16-4561-875b-c8d1b3f8a2da",
+      "slug": "svoi-dr-ludmila-w-afonicheva-md"
+    }
+  },
+  {
+    "id": "0a3b1a91-464f-4321-9688-54d974720aae",
+    "name": "Tilkian Ara Cardiology",
+    "changes": {},
+    "fill": {
+      "address_line": "16542 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91405",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=16542%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA%2091405",
+      "website": "https://www.healthyhearts.com",
+      "phone": "+18187825041"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "919e78c6-664d-4471-8b8a-1ffcfaed4957",
+      "slug": "svoi-tilkian-ara-cardiology"
+    }
+  },
+  {
+    "id": "2ae62367-b9d2-43ba-9948-0124c2e73660",
+    "name": "Доктор Реймонд Равен III, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2625 W Alameda Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2625%20W%20Alameda%20Ave%2C%20Los%20Angeles%2C%20CA%20bank",
+      "website": "http://www.rayravenmd.com",
+      "phone": "+18188413936",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "instagram_url": "https://www.instagram.com/drraven",
+      "email": "groupmnscsmntarzanadr.raven@cshs.org"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "1c65e4c7-5fad-4616-af26-a84c28bf203e",
+      "slug": "svoi-iii-md"
+    }
+  }
+]

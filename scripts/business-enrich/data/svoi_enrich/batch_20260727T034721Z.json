@@ -1,0 +1,1203 @@
+[
+  {
+    "id": "af4a97bd-1b2e-476a-8fc2-2203c84d9dcb",
+    "name": "Галушко Марина",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "909 East Las Olas Boulevard",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33301",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Las%20Olas%20Boulevard%20909%2C%20Fort%20lauderdale%2C%20FL%2033301",
+      "phone": "+15618277711"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "26f717b7-e256-466c-9a43-b6658b9f1ddd",
+      "slug": "svoi-biz-20"
+    }
+  },
+  {
+    "id": "d17ec2ea-5e59-4a68-aa46-62058fb3fc70",
+    "name": "Светлана и Михаил Соколовы",
+    "changes": {},
+    "fill": {
+      "address_line": "5200 North Federal Highway",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33308",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Federal%20Highway%205200%2C%20Fort%20lauderdale%2C%20FL%2033308",
+      "phone": "+19543483976"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7fb5d28c-1cd0-4da1-95b5-3f30c03cd10d",
+      "slug": "svoi-biz-86"
+    }
+  },
+  {
+    "id": "6d6823b4-51d0-4677-9502-fd4175de9578",
+    "name": "Berkowitz Pollack Brant Advisors and Accountants",
+    "changes": {},
+    "fill": {
+      "address_line": "515 E Las Olas Blvd",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33301",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E%20Las%20Olas%20Blvd%20515%2C%20Fort%20lauderdale%2C%20FL%2033301",
+      "phone": "+19547128906"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ded3d66-2e16-44d3-a1e2-23072af653e0",
+      "slug": "svoi-berkowitz-pollack-brant-advisors-and-accountants"
+    }
+  },
+  {
+    "id": "4318eb71-a82a-406b-8d69-002c83ba6bd9",
+    "name": "Back Alley Bar & BBQ",
+    "changes": {},
+    "fill": {
+      "address_line": "234 Almond Ave",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33316",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Almond%20Ave%20234%2C%20Fort%20lauderdale%2C%20FL%2033316",
+      "website": "http://backalleybar.com",
+      "phone": "+19546521278"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f89a5d13-d189-45ef-a2a0-c56116a6fd61",
+      "slug": "svoi-back-alley-bar-bbq"
+    }
+  },
+  {
+    "id": "bb93886b-4f38-482c-ac44-3074160c49ed",
+    "name": "Cafe Vico Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "1125 North Federal Hwy",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33304",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Federal%20Hwy%201125%2C%20Fort%20lauderdale%2C%20FL%20%2033304",
+      "website": "http://cafevicorestaurant.com",
+      "phone": "+12015920944"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9892d9df-daa6-4982-a0e3-855f148eee15",
+      "slug": "svoi-cafe-vico-restaurant"
+    }
+  },
+  {
+    "id": "30bcc646-60a3-4d51-8a3d-63ee4eb2a5a9",
+    "name": "Joseph Kilshtok, D.D.S.",
+    "changes": {},
+    "fill": {
+      "address_line": "407 Lincoln Road",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Road%20407%2C%20Miami%20Beach%2C%20FL",
+      "phone": "+13055300706"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2beb68cf-6de8-494c-9e26-ad84778bbbcc",
+      "slug": "svoi-joseph-kilshtok-d-d-s"
+    }
+  },
+  {
+    "id": "b314ba68-e231-42d2-96dc-8c6bc4a9e7b4",
+    "name": "Mount Sinai Medical Center - Медицинский центр Mount Sinai",
+    "changes": {},
+    "fill": {
+      "address_line": "4300 Alton Road",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33140",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alton%20Road%204300%2C%20Miami%20Beach%2C%20FL%2033140",
+      "phone": "+13056742121"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bcfa9aa7-5ab9-4087-992d-9fa5a1afa17f",
+      "slug": "svoi-mount-sinai-medical-center-mount-sinai"
+    }
+  },
+  {
+    "id": "3003cf8e-a4cf-4ad7-9064-d382a58fa549",
+    "name": "Irina Kim Sang Luxury Broker Associate, MBA, MPhil",
+    "changes": {},
+    "fill": {
+      "address_line": "1691 Michigan Avenue",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33139",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Michigan%20Avenue%201691%2C%20Miami%20Beach%2C%20FL%20%2033139",
+      "phone": "+13055625864"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d14df6c0-f1f7-45eb-a73e-995e36a38ab1",
+      "slug": "svoi-irina-kim-sang-luxury-broker-associate-mba-mphil"
+    }
+  },
+  {
+    "id": "93f73c56-9a61-42c2-aa46-eebe33b276ea",
+    "name": "South Beach Body Waxing Co",
+    "changes": {},
+    "fill": {
+      "address_line": "1352 Washington Avenue",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33139",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Avenue%201352%2C%20Miami%20Beach%2C%20FL%2033139",
+      "phone": "+13055313130"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "180f5646-243c-4d84-a912-3044f0937e71",
+      "slug": "svoi-south-beach-body-waxing-co"
+    }
+  },
+  {
+    "id": "6dfb49ad-498d-44fa-bae5-45fcdfea3a1d",
+    "name": "RUSSIAN-AMERICAN CONSULTING MIAMI OFFICE",
+    "changes": {},
+    "fill": {
+      "address_line": "1540 Meridian Avenue",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33139",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Meridian%20Avenue%201540%2C%20Miami%20Beach%2C%20FL%20%2033139",
+      "phone": "+13055070445"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f75c0c09-f4f0-4322-8270-b850a4878916",
+      "slug": "svoi-russian-american-consulting-miami-office"
+    }
+  },
+  {
+    "id": "c212c6be-b1c5-4fda-a5b3-8842304fa4db",
+    "name": "Photographer Alexey Olivenko",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%20Beach%2C%20FL",
+      "phone": "+17864772807"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8550c410-659f-4237-b875-a1a44675f380",
+    "name": "Izzy's Fish & Oyster",
+    "changes": {},
+    "fill": {
+      "address_line": "423 Washington Avenue",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33139",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Avenue%20423%2C%20Miami%20Beach%2C%20FL%2033139",
+      "phone": "+13053978843"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "beb38286-631c-4756-b882-0b56b079dcdb",
+      "slug": "svoi-izzy-s-fish-oyster"
+    }
+  },
+  {
+    "id": "fcd6ad5a-a0b1-4654-8614-5d1673d3e9d5",
+    "name": "Tantra Restaurant And Lounge",
+    "changes": {},
+    "fill": {
+      "address_line": "1445 Pennsylvania Avenue",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pennsylvania%20Avenue%201445%2C%20Miami%20Beach%2C%20FL",
+      "phone": "+13056724765"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "845225d2-f4d1-4b06-90ac-6244364e27f3",
+      "slug": "svoi-tantra-restaurant-and-lounge"
+    }
+  },
+  {
+    "id": "4785898f-bf0a-4672-9c45-48b8f6f4075b",
+    "name": "Dr. Dina Bobrova DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "17100 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2017100%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059447706"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e1802994-a81b-4528-97d2-11717308f678",
+      "slug": "svoi-dr-dina-bobrova-dds"
+    }
+  },
+  {
+    "id": "924b840b-21fa-455a-b5aa-1890b07989e9",
+    "name": "Floridakids LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "19201 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2019201%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+19548897781"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "35f7f6d3-8151-446d-82b4-887738f2c330",
+      "slug": "svoi-floridakids-llc"
+    }
+  },
+  {
+    "id": "36524682-e249-429a-a314-4f3f80c2eeb8",
+    "name": "Sunny Isles Eye Center",
+    "changes": {},
+    "fill": {
+      "address_line": "17100 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2017100%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059171037"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "74a8b2a0-f4c1-401e-b95c-77d7e1b861f0",
+      "slug": "svoi-sunny-isles-eye-center"
+    }
+  },
+  {
+    "id": "4a3d3cb4-c0bc-42c9-a18b-ef9bb7b44efe",
+    "name": "American Hercules ,inc",
+    "changes": {},
+    "fill": {
+      "city": "FL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunny%20Isles%20Beach%2C%20FL%20ted%20States",
+      "phone": "+13058782563"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5182181e-5d6d-4093-a528-cfbab2e2667f",
+    "name": "Miami Auto Concierge Car Rentals",
+    "changes": {},
+    "fill": {
+      "address_line": "19201 Collins Ave",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Ave%2019201%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "website": "http://www.miamiautoconcierge.com",
+      "phone": "+13056377565",
+      "instagram_url": "https://www.instagram.com/miami_auto_concierge"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "65e25a52-9f38-4e77-8e12-44d31a9181ff",
+      "slug": "svoi-miami-auto-concierge-car-rentals"
+    }
+  },
+  {
+    "id": "1be95086-fcf6-48f5-aea5-df8b82c3f949",
+    "name": "Boris Repair Services",
+    "changes": {},
+    "fill": {
+      "address_line": "400 Kings Point Drive",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kings%20Point%20Drive%20400%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13056130014"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "da02d2b5-137f-4392-9f4d-0cecb799e30c",
+      "slug": "svoi-boris-repair-services"
+    }
+  },
+  {
+    "id": "5562a031-40b8-4711-a9c5-7dcb3b5e03f6",
+    "name": "Real Estate Schools of America",
+    "changes": {},
+    "fill": {
+      "address_line": "17070 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2017070%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13053953859"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5eb29219-7dca-4e17-b04b-d293abb747ab",
+      "slug": "svoi-real-estate-schools-of-america"
+    }
+  },
+  {
+    "id": "5c75cb2b-bcc0-4c7b-a40a-1ac3f4a37969",
+    "name": "Академическая Школа Рисования",
+    "changes": {},
+    "fill": {
+      "address_line": "17070 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2017070%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "website": "http://artacademymiami.com",
+      "phone": "+13059491617",
+      "instagram_url": "https://www.instagram.com/artacademyofmiami",
+      "email": "info@artacademymiami.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "76400e88-9c32-4e47-b00c-aa86542f3848"
+    }
+  },
+  {
+    "id": "a907d0b6-b03a-482c-8e51-7a9d99cd5f94",
+    "name": "Alexander Nevidomy REALTOR",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059319063"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6a1aeb48-d089-4fb1-9510-6f1396697f58",
+      "slug": "svoi-alexander-nevidomy-realtor"
+    }
+  },
+  {
+    "id": "a987d0e5-b2e5-48e1-b124-8c3a55df7535",
+    "name": "All Nations Realty - Isaac Feldman",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33009",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL%2033009",
+      "phone": "+13057050050"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7a038642-d991-467f-8a87-29f780da5ed5",
+      "slug": "svoi-all-nations-realty-isaac-feldman"
+    }
+  },
+  {
+    "id": "d9a2d6f1-cfab-4f5f-bc59-ae92c3e945e4",
+    "name": "All Nations Realty Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "16850 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33009",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2016850%2C%20Sunny%20Isles%20Beach%2C%20FL%2033009",
+      "phone": "+13057258799"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e951c7d5-7e9f-4073-809b-3ea8e96a8f11",
+      "slug": "svoi-all-nations-realty-inc"
+    }
+  },
+  {
+    "id": "37b1ee6a-c49b-4f40-a74e-1941a700c3d1",
+    "name": "Yanina Balashov",
+    "changes": {},
+    "fill": {
+      "city": "FL 33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13124781106"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "416fb022-ba60-4f09-878a-98a5fd539616",
+    "name": "Bellami Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "17395 North Bay Road",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Bay%20Road%2017395%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059317750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "94858ca7-2c48-445f-af49-efd0616dff12",
+      "slug": "svoi-bellami-salon"
+    }
+  },
+  {
+    "id": "d06c1182-3327-49ed-9e89-3afdbe4a10e5",
+    "name": "GALA BEAUTY Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "395 North Bay Road 17",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Bay%20Road%2017%20395%20%2C%20Sunny%20Isles%20Beach%2C%20FL%20%2033160",
+      "phone": "+10568042803"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c5777043-1019-41a5-9420-0c0a0373c3c4",
+      "slug": "svoi-gala-beauty-salon"
+    }
+  },
+  {
+    "id": "35b3f778-d22f-46b5-8b8c-c4957ef451a3",
+    "name": "L'Image the Salon at the Trump Hair & Nails",
+    "changes": {},
+    "fill": {
+      "address_line": "18001 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018001%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059351919"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fbdf6d20-5f8e-4d6b-b591-017d7646b428",
+      "slug": "svoi-l-image-the-salon-at-the-trump-hair-nails"
+    }
+  },
+  {
+    "id": "e902bd5e-8c12-4763-8716-8ae61c87e9ea",
+    "name": "Alltrust Insurance Group",
+    "changes": {},
+    "fill": {
+      "address_line": "17038 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2017038%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059440002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "83936ec4-66d8-407d-bab0-b2f6529cc3c1",
+      "slug": "svoi-alltrust-insurance-group"
+    }
+  },
+  {
+    "id": "313fc41a-edf5-4ddc-bdae-2bc7626bd5fe",
+    "name": "Insurance & Financial Center",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "phone": "+19546079631"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8f05a8b1-4150-422c-994d-2ec3f675c1d0",
+      "slug": "svoi-insurance-financial-center"
+    }
+  },
+  {
+    "id": "088d62c9-fb99-41e6-be42-4bcad7b793b6",
+    "name": "Amber Cruises and Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Ave",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Ave%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "website": "http://www.ambercruises.com",
+      "phone": "+13057922192",
+      "email": "maribel@ambercruises.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "00a9156d-3441-4c77-86cf-594a9468f8e8",
+      "slug": "svoi-amber-cruises-and-travel"
+    }
+  },
+  {
+    "id": "bc4b6205-bd0a-45b0-b89a-78d556f7dcad",
+    "name": "Elite Travel Group",
+    "changes": {},
+    "fill": {
+      "address_line": "174th Street 210",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=174th%20Street%20210%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "website": "http://www.etg-travel.com",
+      "phone": "+13059740136"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "43104232-f464-4c04-a99b-f198b2c89ba5",
+      "slug": "svoi-elite-travel-group"
+    }
+  },
+  {
+    "id": "645581a9-9098-4da7-9216-d1337864ab08",
+    "name": "Russian Service Bureau",
+    "changes": {},
+    "fill": {
+      "address_line": "19201 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2019201%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13057927272"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "412ec1ec-b58e-4869-a8db-f44dc5ea9ddc",
+      "slug": "svoi-russian-service-bureau"
+    }
+  },
+  {
+    "id": "70786cd3-7dc5-4d71-b8a7-785d5f7ac74a",
+    "name": "American Business Standard",
+    "changes": {},
+    "fill": {
+      "address_line": "18801 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018801%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+18888999872"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9eb75343-d532-4402-a7f3-db274aabba34",
+      "slug": "svoi-american-business-standard"
+    }
+  },
+  {
+    "id": "0642b0ae-3834-4110-b751-91621a5eb8f7",
+    "name": "Chess lessons/уроки шахмат",
+    "changes": {},
+    "fill": {
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=%D0%A1%D0%B0%D0%BD%D0%BD%D0%B8-%D0%90%D0%B9%D0%BB%D1%81-%D0%91%D0%B8%D1%87%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "phone": "+13056327743"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "66dcf55a-d306-4d4c-8753-ae5fdf84d047",
+    "name": "Russian Passport Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "17100 Collins Ave",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Ave%2017100%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "website": "http://russianpassportagency.com",
+      "phone": "+18004850470",
+      "instagram_url": "https://www.instagram.com/russianagency_official",
+      "email": "order@russianagency.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "54807d91-7c74-4fe1-87b3-69fe394ed4db",
+      "slug": "svoi-russian-passport-agency"
+    }
+  },
+  {
+    "id": "62646859-293b-4f31-84f1-19aad7419c1e",
+    "name": "Baltic Shipping Express",
+    "changes": {},
+    "fill": {
+      "address_line": "18401 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018401%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "website": "http://www.cheapship.narod.ru",
+      "phone": "+13056821772"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "24b8b939-f721-4ae8-bff9-3e29d6f0095d",
+      "slug": "svoi-baltic-shipping-express"
+    }
+  },
+  {
+    "id": "1aa3361b-139c-4c32-b562-338293e71441",
+    "name": "SHIPPING EXPRESS",
+    "changes": {},
+    "fill": {
+      "address_line": "18401 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018401%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "phone": "+13053890631"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6dc668d-e6b8-4dd8-82eb-323b3377da48",
+      "slug": "svoi-shipping-express"
+    }
+  },
+  {
+    "id": "22d82863-2ed6-4842-8e02-699604d13648",
+    "name": "Alla Braverman, Personal Banker Citibank",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+17862717388"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4f0608b6-b684-48c6-9930-246e6abb97bc",
+      "slug": "svoi-alla-braverman-personal-banker-citibank"
+    }
+  },
+  {
+    "id": "4ad122af-6b9b-403c-b343-342b10869d0f",
+    "name": "Kalinka",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "website": "http://kalinkaeurodeli.com",
+      "phone": "+13057059333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2dab3e0f-e1d3-463e-8087-084ebdb96c63",
+      "slug": "svoi-kalinka"
+    }
+  },
+  {
+    "id": "f889cdd1-d223-4efc-8812-bdc8239d0974",
+    "name": "NUT Cracker",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "phone": "+13054963673"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "254c1211-0f74-440d-95f7-3709d3690dfb",
+      "slug": "svoi-nut-cracker"
+    }
+  },
+  {
+    "id": "c53ee443-01b4-4565-93d5-e60f49b20a8b",
+    "name": "Nut Cracker - Tea&Coffee",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins ave",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20ave%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "phone": "+17863279172"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "19bc8fbb-3361-4308-941b-031ceca4ea19",
+      "slug": "svoi-nut-cracker-tea-coffee"
+    }
+  },
+  {
+    "id": "9bdc1973-4387-4633-9474-77c1e6208e72",
+    "name": "Sunny Isles Liquors",
+    "changes": {},
+    "fill": {
+      "address_line": "18180 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%20%2018180%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059325782"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "536d16e5-2f2a-4d88-855f-952640196b49",
+      "slug": "svoi-sunny-isles-liquors"
+    }
+  },
+  {
+    "id": "fbef4e5f-f1bf-4bb7-ad11-0723d9add69c",
+    "name": "Family Fresh Cafe",
+    "changes": {},
+    "fill": {
+      "address_line": "18288 Collins Ave",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Ave%2018288%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059330199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "443a5ec8-6504-42cf-a415-967123894af4",
+      "slug": "svoi-family-fresh-cafe"
+    }
+  },
+  {
+    "id": "17916376-9056-4ab7-87b7-de32efd21420",
+    "name": "Lula Kebab House",
+    "changes": {},
+    "fill": {
+      "address_line": "18100 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018100%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13057920151"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4bde596-bdb7-42e9-bd35-350cf123570b",
+      "slug": "svoi-lula-kebab-house"
+    }
+  },
+  {
+    "id": "9b8545c4-8669-4769-a095-fde605c154c5",
+    "name": "Matryoshka Deli Food",
+    "changes": {},
+    "fill": {
+      "address_line": "18220 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018220%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059740250"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "33f75507-eaae-4c9a-979e-4a7d02567043",
+      "slug": "svoi-matryoshka-deli-food"
+    }
+  },
+  {
+    "id": "18431abc-ba3c-4175-b946-ca2d168acc0c",
+    "name": "ALEX POPOV ARENDA AFTOMOBILY",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20monica%2C%20CA",
+      "phone": "+18182611560"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "209f5c9d-0e6a-4a38-87a8-7d6275a527b2",
+    "name": "Aвтосервис",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Anaheim%2C%20CA%20ted%20States",
+      "phone": "+19499229051"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

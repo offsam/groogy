@@ -1,0 +1,51 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-elza-gousseva-nezlin",
+      "display_name": "Elza Gousseva-Nezlin",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Anaheim",
+          "phone": "+13103870500",
+          "website": "http://elzagus.wix.com/elzanotary"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://elzagus.wix.com/elzanotary",
+          "_fetch_url": "https://elzagus.wixsite.com/elzanotary",
+          "address_line": "397 W Summerfield Cir",
+          "city": "Anaheim",
+          "postal_code": "92802",
+          "phone": "+13103870500",
+          "email": "elzagus@hotmail.com",
+          "website": "https://elzagus.wixsite.com/elzanotary",
+          "image_url": "https://www.wix.com/favicon.ico"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/notary-translation/elza-gousseva-nezlin/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "city": "Anaheim",
+        "phone": "+13103870500",
+        "website": "https://elzagus.wixsite.com/elzanotary",
+        "address_line": "397 W Summerfield Cir",
+        "postal_code": "92802",
+        "email": "elzagus@hotmail.com"
+      },
+      "patch": {
+        "private_address_line": "397 W Summerfield Cir",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "92802",
+        "website": "https://elzagus.wixsite.com/elzanotary",
+        "email": "elzagus@hotmail.com"
+      }
+    }
+  ]
+}

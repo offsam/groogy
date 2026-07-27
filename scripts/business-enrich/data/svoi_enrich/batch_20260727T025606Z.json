@@ -1,0 +1,521 @@
+[
+  {
+    "id": "aae04d42-a946-4a6b-9dd1-49d6c32c1a38",
+    "name": "Southampton Spa",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "2nd Street Pike 141",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2nd%20Street%20Pike%20141%2C%20Southampton%2C%20PA%20%2018966",
+      "website": "http://southamptonspa.com",
+      "phone": "+12159424646"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "3546a2be-3336-4dd5-bfb9-f6018b0497e4",
+      "slug": "svoi-southampton-spa"
+    }
+  },
+  {
+    "id": "266b1dc8-d686-44d3-adf0-710d4d4415fe",
+    "name": "Posrednik newspaper",
+    "changes": {},
+    "fill": {
+      "address_line": "1300 Industrial Boulevard",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Industrial%20Boulevard%201300%2C%20Southampton%2C%20PA%2018966",
+      "phone": "+12153962626"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "59baa8b4-b945-4271-a99f-9c64767a4432",
+      "slug": "svoi-posrednik-newspaper"
+    }
+  },
+  {
+    "id": "4ebd05ac-a35b-4a1e-b511-6cfe2fc873b7",
+    "name": "Philadelphia News",
+    "changes": {},
+    "fill": {
+      "address_line": "9998 Global Road",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Global%20Road%209998%2C%20Philadelphia%2C%20PA",
+      "phone": "+12159699779"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "667a3e3c-800b-4f99-be48-0dceb06c6278",
+      "slug": "svoi-philadelphia-news"
+    }
+  },
+  {
+    "id": "112198d3-f492-44b0-8cbd-ca7eb807b706",
+    "name": "Russian Market - Русский маркет",
+    "changes": {},
+    "fill": {
+      "city": "PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philadelphia%2C%20PA",
+      "phone": "+12159380102"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "f036e730-e7b1-4934-994b-24c6f3a7c37c",
+    "name": "Western Dental Centers",
+    "changes": {},
+    "fill": {
+      "address_line": "1468 East Valley Parkway",
+      "location_precision": "street",
+      "city": "Escondido",
+      "state_code": "US-CA",
+      "postal_code": "92025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Valley%20Parkway%201468%2C%20Escondido%2C%20CA%2092025",
+      "phone": "+17604808700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "333edd66-e754-4e22-b6db-5055c427fac2",
+      "slug": "svoi-western-dental-centers"
+    }
+  },
+  {
+    "id": "96afe430-e635-4231-ae68-99e69f6ecb7f",
+    "name": "Anna Durkin DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "1344 East Mission Road",
+      "location_precision": "street",
+      "city": "San marcos",
+      "state_code": "US-CA",
+      "postal_code": "92069",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Mission%20Road%201344%2C%20San%20marcos%2C%20CA%2092069",
+      "website": "http://annadurkindds.com",
+      "phone": "+17607400070"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6667ffc7-b5fe-4f49-a69a-c83a78d4ac46",
+      "slug": "svoi-anna-durkin-dds"
+    }
+  },
+  {
+    "id": "0ade1c39-f0a1-401d-b539-d35345751b4b",
+    "name": "Dr. Natalia Petrova / Наталья Петрова , DMD",
+    "changes": {},
+    "fill": {
+      "address_line": "997 W San Marcos Blvd",
+      "location_precision": "street",
+      "city": "San marcos",
+      "state_code": "US-CA",
+      "postal_code": "92078",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20San%20Marcos%20Blvd%20997%20%20%2C%20San%20marcos%2C%20CA%2092078",
+      "website": "http://www.drpetrova.com",
+      "phone": "+17607610905"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "fb968ebe-e02e-4e95-b739-ffab8fbf0c79",
+      "slug": "svoi-dr-natalia-petrova-dmd"
+    }
+  },
+  {
+    "id": "15e54f6c-c6ce-46af-ab6e-b7907c65a929",
+    "name": "ANDREI MIKHALYTCHEV",
+    "changes": {},
+    "fill": {
+      "address_line": "14612 CAMINITO ORENSE ESTE",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=CAMINITO%20ORENSE%20ESTE%2014612%2C%20San%20diego%2C%20CA",
+      "phone": "+16198044413"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f839dcd4-b6de-4f9a-a0d4-40120a4d1000",
+      "slug": "svoi-andrei-mikhalytchev"
+    }
+  },
+  {
+    "id": "22d73c86-b17e-48c6-9a0e-a4f25f732096",
+    "name": "ANDREI ANDREEV",
+    "changes": {},
+    "fill": {
+      "address_line": "7910 IVANHOE AVE.",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=IVANHOE%20AVE.%207910%2C%20San%20diego%2C%20CA",
+      "phone": "+16198900252"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2853cd91-856b-4478-a632-4ab371e3abd2",
+      "slug": "svoi-andrei-andreev"
+    }
+  },
+  {
+    "id": "55647f9d-37c1-400f-ae25-5b39f978a787",
+    "name": "Susanna Lenkova Moneva",
+    "changes": {},
+    "fill": {
+      "address_line": "5252 Balboa Ave",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Balboa%20Ave%205252%20%2C%20San%20diego%2C%20CA%2092117",
+      "phone": "+16195774340"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "205e02b5-ff4b-493b-b7b4-9ecbddf4330b",
+      "slug": "svoi-susanna-lenkova-moneva"
+    }
+  },
+  {
+    "id": "9da8cc2d-d959-40a2-9646-54c09c6326b1",
+    "name": "Caring Doctor Medical Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "1675 Morena Boulevard",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92110",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Morena%20Boulevard%201675%2C%20San%20diego%2C%20CA%2092110",
+      "phone": "+16197083332"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "03238195-7ca4-4ec4-baf1-e79867249faf",
+      "slug": "svoi-caring-doctor-medical-clinic"
+    }
+  },
+  {
+    "id": "a184c385-5484-414d-b742-74d2dfb63fe4",
+    "name": "iAesthetics",
+    "changes": {},
+    "fill": {
+      "address_line": "334 Encinitas Blvd Ste A",
+      "location_precision": "street",
+      "city": "Encinitas",
+      "state_code": "US-CA",
+      "postal_code": "92024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Encinitas%20Blvd%20Ste%20A%20334%20%2C%20Encinitas%2C%20CA%2092024",
+      "website": "http://www.iaesthetics.skincaretherapy.net",
+      "phone": "+18583368082"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a8bd166e-9110-4bad-8ec9-ea3884ec5a85",
+      "slug": "svoi-iaesthetics"
+    }
+  },
+  {
+    "id": "31157acf-4e50-473b-ac6d-70e54af6ce3d",
+    "name": "ShapeWork",
+    "changes": {},
+    "fill": {
+      "address_line": "Van Nuys Street",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Nuys%20Street%2C%20San%20diego%2C%20CA",
+      "phone": "+18189191996"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "592db54b-9879-4827-9283-8102a66bbd9b",
+      "slug": "svoi-shapework"
+    }
+  },
+  {
+    "id": "f87eba38-a77c-49e9-9a16-46149e131ca6",
+    "name": "Electrolysis and Skin Care by Kate Brodsky",
+    "changes": {},
+    "fill": {
+      "address_line": "2180 Garnet Avenue",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92109",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Garnet%20Avenue%202180%2C%20San%20diego%2C%20CA%2092109",
+      "phone": "+18582735437"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d2ceae2-d7ef-4295-a158-a2184d93fed8",
+      "slug": "svoi-electrolysis-and-skin-care-by-kate-brodsky"
+    }
+  },
+  {
+    "id": "45fa393b-da94-4b1f-9423-0d4d3524c553",
+    "name": "Pure Zen Wellness",
+    "changes": {},
+    "fill": {
+      "address_line": "317 North El Camino Real",
+      "location_precision": "street",
+      "city": "Encinitas",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20El%20Camino%20Real%20317%2C%20Encinitas%2C%20CA%20initas",
+      "website": "http://purezenwellness.com",
+      "phone": "+17607100234",
+      "state_code": "US-CA",
+      "postal_code": "92024",
+      "yelp_url": "https://www.yelp.com/biz/pure-zen-wellness-encinitas",
+      "email": "anna@purezenwellness.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4ad0aede-95d5-4081-9ead-fa264e5242cc",
+      "slug": "svoi-pure-zen-wellness"
+    }
+  },
+  {
+    "id": "11c41c5a-d2a2-40ac-b7f7-6f4a9064fe18",
+    "name": "Alexander Shikhman MD at Scripps Green Hospital",
+    "changes": {},
+    "fill": {
+      "address_line": "12865 Pointe Del Mar Way",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pointe%20Del%20Mar%20Way%2012865%2C%20San%20diego%2C%20CA",
+      "phone": "+18587949192"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "f0b620a5-72c3-4d19-82cb-47f564f2f2f7",
+      "slug": "svoi-alexander-shikhman-md-at-scripps-green-hospital"
+    }
+  },
+  {
+    "id": "f5a473f6-f0fe-497f-8fc5-87fba7d5122d",
+    "name": "Scripps Clinic: Shikhman Alexander R MD",
+    "changes": {},
+    "fill": {
+      "address_line": "10666 North Torrey Pines Road",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92037",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Torrey%20Pines%20Road%2010666%2C%20San%20diego%2C%20CA%2092037",
+      "website": "https://www.scripps.org",
+      "phone": "+18584559100",
+      "instagram_url": "https://www.instagram.com/scrippshealth",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d2c86cf4-efd7-44f2-ab4b-14564a9e864b",
+      "slug": "svoi-scripps-clinic-shikhman-alexander-r-md"
+    }
+  },
+  {
+    "id": "d95bf0c7-fde3-4982-a60b-b6def56d291f",
+    "name": "Clairemont Villa - Adult Day Health Care Center",
+    "changes": {},
+    "fill": {
+      "address_line": "5150 Murphy Canyon Road",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92131",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Murphy%20Canyon%20Road%20%205150%2C%20San%20diego%2C%20CA%20%2092131",
+      "phone": "+19166518848"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0983bffe-462c-4451-907a-ca0f387e2ffc",
+      "slug": "svoi-clairemont-villa-adult-day-health-care-center"
+    }
+  },
+  {
+    "id": "51ca24ce-1389-4f15-b453-bef12953eb17",
+    "name": "Youngevity",
+    "changes": {},
+    "fill": {
+      "address_line": "2400 Boswell Rd",
+      "location_precision": "street",
+      "city": "Chula vista",
+      "state_code": "US-CA",
+      "postal_code": "91914",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boswell%20Rd%202400%2C%20Chula%20vista%2C%20CA%2091914",
+      "phone": "+16199343980"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e0678bda-754e-42bf-8486-79897481bc69",
+      "slug": "svoi-youngevity"
+    }
+  },
+  {
+    "id": "80ab9cff-560d-46bc-9e00-f91d2d4123b0",
+    "name": "Balboa Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "6465 Balboa Avenue",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Balboa%20Avenue%206465%2C%20San%20diego%2C%20CA",
+      "phone": "+18582780111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "50dfff12-e68a-45a5-b5dd-95fd27fb6708",
+      "slug": "svoi-balboa-pharmacy"
+    }
+  }
+]

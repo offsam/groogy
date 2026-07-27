@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-07-27T14:32:00.180463+00:00",
+  "mode": "dry-run",
+  "category": "pro_other",
+  "scanned": 5,
+  "updated": 4,
+  "errors": 0,
+  "field_hits": {
+    "private_address_line": 4,
+    "location_precision": 4,
+    "public_exact_address": 4,
+    "postal_code": 3
+  },
+  "samples": [
+    {
+      "slug": "svoi-biz-7",
+      "name": "Детский Массаж",
+      "source_url": "https://svoi.us/company/det-skiy-massazh-6957",
+      "svoi": {
+        "address_line": "32 Apple Tree Hill Rd",
+        "city": "Hopkinton",
+        "postal_code": "01748",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "32 Apple Tree Hill Rd",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01748"
+      }
+    },
+    {
+      "slug": "svoi-dr-konstantin-salkinder-md",
+      "name": "Dr. Konstantin Salkinder, MD",
+      "source_url": "https://svoi.us/company/dr-konstantin-salkinder-md-412",
+      "svoi": {
+        "address_line": "6221 Wilshire Boulevard",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": [
+          "http://www.miraclemile-ent.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "6221 Wilshire Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-russian-turkish-baths",
+      "name": "Russian Turkish Baths",
+      "source_url": "https://svoi.us/company/russian-turkish-baths-1099",
+      "svoi": {
+        "address_line": "268 East 10th Street",
+        "city": "New York",
+        "postal_code": "10009",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "268 East 10th Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "10009"
+      }
+    },
+    {
+      "slug": "svoi-dr-irina-s-zaydman-md",
+      "name": "Dr. Irina S. Zaydman, MD",
+      "source_url": "https://svoi.us/company/dr-irina-s-zaydman-md-709",
+      "svoi": {
+        "address_line": "16659 Southwest Freeway",
+        "city": "Sugar Land",
+        "postal_code": "77479",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "16659 Southwest Freeway",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "77479"
+      }
+    }
+  ]
+}

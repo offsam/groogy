@@ -751,6 +751,12 @@ async def estimate_scope(
 async def run(args: argparse.Namespace) -> int:
     global CHAT_TITLE
     load_env()
+    if getattr(args, "max_cost_usd", None) is not None and args.max_cost_usd > 0:
+        os.environ["TELEGRAM_LLM_MAX_COST_USD"] = str(args.max_cost_usd)
+    if getattr(args, "llm_provider", None):
+        os.environ["TELEGRAM_LLM_PROVIDER"] = str(args.llm_provider)
+    if getattr(args, "llm_model", None):
+        os.environ["TELEGRAM_LLM_MODEL"] = str(args.llm_model)
     configure_run(
         chat_id=args.chat_id,
         prefix=args.prefix,
@@ -798,6 +804,11 @@ async def run(args: argparse.Namespace) -> int:
     os.environ["TELEGRAM_ANALYZER_MODE"] = "llm"
     os.environ.setdefault("TELEGRAM_LLM_PROVIDER", "openrouter")
     os.environ.setdefault("TELEGRAM_LLM_MODEL", "openai/gpt-4o-mini")
+    print(
+        f"LLM provider={os.environ['TELEGRAM_LLM_PROVIDER']} "
+        f"model={os.environ['TELEGRAM_LLM_MODEL']} max_cost=${max_cost}",
+        flush=True,
+    )
 
     tracker = CostTracker(model=os.environ["TELEGRAM_LLM_MODEL"], max_cost_usd=max_cost)
     checkpoint = load_checkpoint()
@@ -1294,12 +1305,37 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Required to start LLM after estimate. Without it, only estimate runs.",
     )
+    p.add_argument(
+        "--max-cost-usd",
+        type=float,
+        default=None,
+        help="Override TELEGRAM_LLM_MAX_COST_USD after loading .env (per-run budget)",
+    )
+    p.add_argument(
+        "--llm-provider",
+        type=str,
+        default=None,
+        choices=["openrouter", "openai", "anthropic"],
+        help="Override TELEGRAM_LLM_PROVIDER after loading .env",
+    )
+    p.add_argument(
+        "--llm-model",
+        type=str,
+        default=None,
+        help="Override TELEGRAM_LLM_MODEL after loading .env",
+    )
     return p.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     load_env()
+    if args.max_cost_usd is not None and args.max_cost_usd > 0:
+        os.environ["TELEGRAM_LLM_MAX_COST_USD"] = str(args.max_cost_usd)
+    if args.llm_provider:
+        os.environ["TELEGRAM_LLM_PROVIDER"] = args.llm_provider
+    if args.llm_model:
+        os.environ["TELEGRAM_LLM_MODEL"] = args.llm_model
     configure_run(
         chat_id=args.chat_id,
         prefix=args.prefix,

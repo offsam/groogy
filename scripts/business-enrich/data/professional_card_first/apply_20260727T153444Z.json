@@ -1,0 +1,45 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "irina-krasnodemsky-205029-f2f2",
+      "display_name": "Irina Krasnodemsky",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "phone": "+19165954431",
+          "website": "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905",
+          "_fetch_url": "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905",
+          "city": "San Francisco",
+          "image_url": "https://vagaro.azureedge.net/static-content/PublicImages/Images/vagaro-og-img-17.png",
+          "website": "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905",
+          "email": "arrow-dropdown@2x.png",
+          "instagram_url": "https://www.instagram.com/vagaropro/"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27093559740308403",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "phone": "+19165954431",
+        "website": "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905",
+        "image_url": "https://vagaro.azureedge.net/static-content/PublicImages/Images/vagaro-og-img-17.png",
+        "email": "arrow-dropdown@2x.png",
+        "instagram_url": "https://www.instagram.com/vagaropro/"
+      },
+      "patch": {
+        "email": "arrow-dropdown@2x.png",
+        "instagram_url": "https://www.instagram.com/vagaropro/"
+      }
+    }
+  ]
+}

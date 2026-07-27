@@ -1,0 +1,38 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "pro-71a6dc73ce",
+      "display_name": "Екатерина Улицкая",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://oclandfills.com/hazardous-waste"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://oclandfills.com/hazardous-waste",
+          "_fetch_url": "https://oclandfills.com/hazardous-waste",
+          "website": "https://oclandfills.com/hazardous-waste",
+          "phone": "+18558865400",
+          "image_url": "https://oclandfills.com/themes/custom/countyoc/images/logo-occ.png"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/75182",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "website": "https://oclandfills.com/hazardous-waste",
+        "phone": "+18558865400",
+        "image_url": "https://oclandfills.com/themes/custom/countyoc/images/logo-occ.png"
+      },
+      "patch": {
+        "phone": "+18558865400",
+        "image_url": "https://oclandfills.com/themes/custom/countyoc/images/logo-occ.png"
+      }
+    }
+  ]
+}

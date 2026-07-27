@@ -1,0 +1,198 @@
+[
+  {
+    "id": "a7b6063c-52af-4b1e-9d00-21cccab0d24f",
+    "name": "Автошкола Foothill",
+    "changes": {},
+    "fill": {
+      "address_line": "8119 Foothill Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=8119%20Foothill%20Blvd%2C%20Los%20Angeles%2C%20CA%2091040%20United%20Sta",
+      "website": "http://www.foothilldriving.com",
+      "phone": "+18183533187"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "c97a9bc4-a924-4c20-871d-985128fdade5",
+      "slug": "svoi-foothill"
+    }
+  },
+  {
+    "id": "6581303a-e54e-4b4a-a450-98f223d50cb6",
+    "name": "Favorite Limousine Services",
+    "changes": {},
+    "fill": {
+      "address_line": "18220 Oxnard St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18220%20Oxnard%20St%2C%20Los%20Angeles%2C%20CA%2091356",
+      "phone": "+18183440404"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "f28bbdf3-a795-4ddb-a779-aba4265cd2a6",
+      "slug": "svoi-favorite-limousine-services"
+    }
+  },
+  {
+    "id": "36ea6a92-82d2-492f-b983-9aaef7a25d7e",
+    "name": "Alliance Limousine, Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "14533 Delano St",
+      "location_precision": "street",
+      "city": "Van Nuys",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=14533%20Delano%20St%2C%20Van%20Nuys%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://www.alliancelimo.net",
+      "phone": "+13234659406"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "c5e05037-b221-4ec7-8aae-9459c22db53a",
+      "slug": "svoi-alliance-limousine-inc"
+    }
+  },
+  {
+    "id": "10aca01a-de83-4547-8fad-1362e0dde7af",
+    "name": "AGBU Manoogian-Demirdjian School",
+    "changes": {},
+    "fill": {
+      "address_line": "6844 Oakdale Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91306",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oakdale%20Avenue%206844%2C%20Los%20Angeles%2C%20CA%2091306",
+      "website": "https://www.agbumds.org",
+      "phone": "+18188832428",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "a03d0087-0567-4c92-8dd7-9e2594afa246",
+      "slug": "svoi-agbu-manoogian-demirdjian-school"
+    }
+  },
+  {
+    "id": "3bbe2a7c-aa1b-4bfd-aefc-8e2a0038877d",
+    "name": "VB Fine Art Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "6615 Valjean Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6615%20Valjean%20Ave%2C%20Los%20Angeles%2C%20CA%2090335%20United%20Sta",
+      "phone": "+18183310820"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "49280558-8d99-4b26-aca1-c0a117716885",
+      "slug": "svoi-vb-fine-art-studio"
+    }
+  },
+  {
+    "id": "91d6ad63-9496-421e-9d94-08f92ef85040",
+    "name": "Русская детская театральная школа",
+    "changes": {},
+    "fill": {
+      "address_line": "6015 Reseda Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reseda%20Blvd%206015%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18182106399"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "5ce06809-7557-47db-ac42-80b8c65224e2",
+      "slug": "svoi-biz"
+    }
+  },
+  {
+    "id": "bea8ade1-ae6b-4d65-8c34-d9fcab90ab41",
+    "name": "Law Office of Grace White",
+    "changes": {},
+    "fill": {
+      "address_line": "21700 Oxnard Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oxnard%20Street%2021700%2C%20Los%20Angeles%2C%20CA%2091367",
+      "phone": "+18185388795"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "69c3f9ce-aeb5-4f34-b92c-86921ae71611",
+      "slug": "svoi-law-office-of-grace-white"
+    }
+  },
+  {
+    "id": "ae37eeb4-a910-4eba-b5a7-cd5e6e7ab481",
+    "name": "Sostrin Immigration Lawyers, LLP",
+    "changes": {},
+    "fill": {
+      "address_line": "Oxnard St #860",
+      "location_precision": "street",
+      "city": "21700",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oxnard%20St%20%23860%2C%2021700%2C%20Los%20Angeles%2C%20CA%2091367",
+      "website": "https://sostrin.com",
+      "phone": "+18184353500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "3071d63b-7185-4bad-ad5c-1de62db0af65",
+      "slug": "svoi-sostrin-immigration-lawyers-llp"
+    }
+  }
+]

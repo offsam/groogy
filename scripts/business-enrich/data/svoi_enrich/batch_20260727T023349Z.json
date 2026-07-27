@@ -1,0 +1,524 @@
+[
+  {
+    "id": "926ced5f-16ec-4993-9b3a-91c8cfa2e515",
+    "name": "Raffi Margossian DDS MSD",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "239 W Olive Ave Burbank",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=239%20W%20Olive%20Ave%20Burbank%2C%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18188427999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "36c70b92-5f2b-41aa-9341-4d8ab5cefe1c",
+      "slug": "svoi-raffi-margossian-dds-msd"
+    }
+  },
+  {
+    "id": "047f46e5-78f5-4787-9f4e-3141dd2c4469",
+    "name": "Доктор Виктория Голденберг",
+    "changes": {},
+    "fill": {
+      "address_line": "6433 Fallbrook Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91307",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6433%20Fallbrook%20Ave%2C%20Los%20Angeles%2C%20CA%2091307",
+      "website": "http://www.westhillsoptometry.com",
+      "phone": "+18187031410"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "dd51cdae-5953-4a69-b5a5-1e3df41ae81c",
+      "slug": "svoi-biz-2"
+    }
+  },
+  {
+    "id": "de16151d-3bb9-4623-97cc-19554318a08d",
+    "name": "Dr. Lydia Matkovich MD",
+    "changes": {},
+    "fill": {
+      "address_line": "Crenshaw Blvd",
+      "location_precision": "street",
+      "city": "Suite 104  23560",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Crenshaw%20Blvd%2C%20Suite%20104%20%2023560%20%2C%20Torrance%2C%20CA%2090505%20%20%28310%29%20986",
+      "phone": "+13106522005"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c10b6913-1ff3-460f-9d08-91bebc81234f",
+      "slug": "svoi-dr-lydia-matkovich-md"
+    }
+  },
+  {
+    "id": "7583dd08-4c51-4fd3-baf7-26573ac87cff",
+    "name": "Мишель Бабаджанян, MD, FACS",
+    "changes": {},
+    "fill": {
+      "address_line": "2080 Century Park E",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2080%20Century%20Park%20E%2C%20Los%20Angeles%2C%20CA%2090067",
+      "website": "https://www.otosurgical.com",
+      "phone": "+13102010007",
+      "yelp_url": "https://www.yelp.com/biz/michel-babajanian-md-facs-los-angeles",
+      "email": "centurycitydoctors@gmail.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "5ae201ae-7a2a-47d8-ad7b-9ba5a229d3c3",
+      "slug": "svoi-md-facs"
+    }
+  },
+  {
+    "id": "2b424c37-0152-4c34-8d33-075243825dc3",
+    "name": "Dr. Adel Zaretsky",
+    "changes": {},
+    "fill": {
+      "address_line": "6225 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%206225%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://lahearingaid.com",
+      "phone": "+13239541388",
+      "yelp_url": "https://www.yelp.com/biz/international-hearing-aid-center-los-angeles%20",
+      "email": "lainternationalhac@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "68c2ee8f-d80c-4dc6-ba82-267e53aaea0e",
+      "slug": "svoi-dr-adel-zaretsky"
+    }
+  },
+  {
+    "id": "d285e48f-6d67-408a-b712-702a2d50244d",
+    "name": "Dr. Konstantin Salkinder, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "6221 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%206221%2C%20Los%20Angeles%2C%20CA%20Angeles",
+      "website": "http://www.miraclemile-ent.com",
+      "phone": "+13239338477"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "04908daf-e6e1-4788-a234-e8fb738ff999",
+      "slug": "svoi-dr-konstantin-salkinder-md"
+    }
+  },
+  {
+    "id": "7b72838f-6aa3-4eb9-92ca-0f7260321513",
+    "name": "Salibian Arthur MD Physicians-Plastic and Reconstructive Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "1201 West La Veta Avenue",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "postal_code": "92868",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20La%20Veta%20Avenue%201201%2C%20Orange%2C%20CA%2092868",
+      "phone": "+17149974848"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c5975f07-3179-4e20-9bf0-07061feea8dc",
+      "slug": "svoi-salibian-arthur-md-physicians-plastic-and-recons"
+    }
+  },
+  {
+    "id": "4e6626f6-b7f7-4e2a-b858-8e470fe86383",
+    "name": "Shu Olessya Victorovna",
+    "changes": {},
+    "fill": {
+      "address_line": "2951",
+      "location_precision": "street",
+      "city": "Santa ana",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2951%20%2C%20Santa%20ana%2C%20CA",
+      "website": "http://www.olessya.flp.com",
+      "phone": "+17605217700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bb5346b9-22f9-4943-a5d4-627567a1ee19",
+      "slug": "svoi-shu-olessya-victorovna"
+    }
+  },
+  {
+    "id": "b1a350a7-e488-48a3-b04e-e9ada59a1753",
+    "name": "Amerian Mary Lee MD Dermatology",
+    "changes": {},
+    "fill": {
+      "address_line": "2336 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "Santa monica",
+      "state_code": "US-CA",
+      "postal_code": "90404",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%202336%2C%20Santa%20monica%2C%20CA%2090404",
+      "phone": "+13108299396"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e0e7295a-02ad-4da3-a00c-4cf13c4fa847",
+      "slug": "svoi-amerian-mary-lee-md-dermatology"
+    }
+  },
+  {
+    "id": "fbe45bdb-0430-43c1-9cb6-aa4192412581",
+    "name": "Наталья Ратинер MD",
+    "changes": {},
+    "fill": {
+      "address_line": "13713 Burbank Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13713%20Burbank%20Blvd%2C%20Los%20Angeles%2C%20CA%20Angeles",
+      "phone": "+18187860277"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "41811ce2-8e04-4add-8f93-7d9164a654a7",
+      "slug": "svoi-md-5"
+    }
+  },
+  {
+    "id": "ba862560-62f7-4d92-8b52-2e293540a94e",
+    "name": "Доктор Александр Ройзман",
+    "changes": {},
+    "fill": {
+      "address_line": "6850 Van Nuys Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91405",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Nuys%20Blvd%20%20%206850%2C%20Los%20Angeles%2C%20CA%2091405",
+      "phone": "+18187807557"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b73bf4ef-f106-4508-b61a-b0ef443e059d",
+      "slug": "svoi-biz-3"
+    }
+  },
+  {
+    "id": "ac709b32-5c15-4581-b653-3612e616e439",
+    "name": "Gadi Kaufman, C.N.M.T.,",
+    "changes": {},
+    "fill": {
+      "address_line": "7th Street 1460",
+      "location_precision": "street",
+      "city": "Santa monica",
+      "state_code": "US-CA",
+      "postal_code": "90401",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=7th%20Street%201460%2C%20Santa%20monica%2C%20CA%2090401",
+      "phone": "+13104514113"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dc2868dc-982c-444a-bbaf-ce4222860246",
+      "slug": "svoi-gadi-kaufman-c-n-m-t"
+    }
+  },
+  {
+    "id": "4261c182-b62f-4df3-bb59-26b1c5182fdc",
+    "name": "California Chiropractic",
+    "changes": {},
+    "fill": {
+      "address_line": "159 North Raymond Avenue",
+      "location_precision": "street",
+      "city": "Fullerton",
+      "state_code": "US-CA",
+      "postal_code": "92831",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Raymond%20Avenue%20159%2C%20Fullerton%2C%20CA%2092831",
+      "phone": "+17148712497"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "66740307-2d7b-4c7b-a881-f900117fead3",
+      "slug": "svoi-california-chiropractic"
+    }
+  },
+  {
+    "id": "8e30101c-664e-4a99-9098-cd0b8e27d3da",
+    "name": "Vladimir Kaye MD at California Spine and Sports",
+    "changes": {},
+    "fill": {
+      "address_line": "159 North Raymond Avenue",
+      "location_precision": "street",
+      "city": "Fullerton",
+      "state_code": "US-CA",
+      "postal_code": "92831",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Raymond%20Avenue%20159%2C%20Fullerton%2C%20CA%2092831",
+      "website": "http://www.californiaspineandsports.com",
+      "phone": "+17148712495"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "473a3078-a39f-42df-a031-c408ce94aa8b",
+      "slug": "svoi-vladimir-kaye-md-at-california-spine-and-sports"
+    }
+  },
+  {
+    "id": "f0052c32-a87c-434c-9fff-70687e0a886f",
+    "name": "One Stop Rent-A-Car",
+    "changes": {},
+    "fill": {
+      "address_line": "6050 Vineland Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vineland%20Ave%20%206050%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18187618000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "45d72333-0e5b-4e12-87a7-2e3fc2573d08",
+      "slug": "svoi-one-stop-rent-a-car"
+    }
+  },
+  {
+    "id": "d97d5e52-b651-432a-957e-96169e14e8a7",
+    "name": "Keyes Audi",
+    "changes": {},
+    "fill": {
+      "address_line": "5700 Van Nuys Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Nuys%20Boulevard%205700%2C%20Los%20Angeles%2C%20CA%2091401%26quot%3B",
+      "website": "https://www.keyesaudi.com",
+      "phone": "+13238722112"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08c8ea4c-24dc-441c-9424-674c6b55a32d",
+      "slug": "svoi-keyes-audi"
+    }
+  },
+  {
+    "id": "f41435e7-366b-481c-9093-ff83803ef60c",
+    "name": "Northridge Driving& Traffic",
+    "changes": {},
+    "fill": {
+      "address_line": "9029 Reseda Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reseda%20Boulevard%209029%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://northridgedriving.com",
+      "phone": "+13235956335"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ce5f8dac-2a07-43c1-8409-0fd2db7004fb",
+      "slug": "svoi-northridge-driving-traffic"
+    }
+  },
+  {
+    "id": "c4393553-0f23-4d37-86ec-f0ddc4a38475",
+    "name": "Unique Towncar Service",
+    "changes": {},
+    "fill": {
+      "address_line": "17120 Vose St Van Nuys",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91411",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17120%20Vose%20St%20Van%20Nuys%2C%20Los%20Angeles%2C%20CA%2091411",
+      "website": "http://ulimos.com",
+      "phone": "+18005200003"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0d2bb28b-d70c-4945-bb4e-9ea3be73244d",
+      "slug": "svoi-unique-towncar-service"
+    }
+  },
+  {
+    "id": "8159c7b7-95d5-41d3-a5d0-4bb81c9dc3f6",
+    "name": "Camp Alonim",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 Pepper Tree Lane",
+      "location_precision": "street",
+      "city": "Brandeis",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pepper%20Tree%20Lane%201101%2C%20Brandeis%2C%20CA%20ifornia%2093064",
+      "website": "http://www.alonim.com",
+      "phone": "+18055824450"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a3b01484-a0ed-4c19-9998-01f72fdd62f7",
+      "slug": "svoi-camp-alonim"
+    }
+  },
+  {
+    "id": "b8ab57c5-3e24-4391-a2b1-69f0e25cb0b8",
+    "name": "Organic Kid Care",
+    "changes": {},
+    "fill": {
+      "address_line": "8336 Faust Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Faust%20Avenue%208336%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://www.organickidcare.com",
+      "phone": "+18188848180"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e4a26c5b-cdbb-4bf5-b5b3-b799874bf01f",
+      "slug": "svoi-organic-kid-care"
+    }
+  }
+]

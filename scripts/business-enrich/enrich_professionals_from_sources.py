@@ -613,6 +613,11 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--skip-telegram-photos", action="store_true")
     parser.add_argument("--skip-web-images", action="store_true")
+    parser.add_argument(
+        "--category",
+        default="",
+        help="Only enrich this category slug (e.g. pro_other)",
+    )
     args = parser.parse_args()
     if not args.apply and not args.dry_run:
         args.dry_run = True
@@ -625,6 +630,21 @@ def main() -> int:
         return 1
     client = SupabaseRest(url, key)
 
+    extra: dict[str, str] = {"status": "eq.approved"}
+    if args.category.strip():
+        cats = (
+            client._request(
+                "GET",
+                "/categories",
+                params={"select": "id,slug", "slug": f"eq.{args.category.strip()}"},
+            )
+            or []
+        )
+        if not cats:
+            print(f"category not found: {args.category}", file=sys.stderr)
+            return 1
+        extra["category_id"] = f"eq.{cats[0]['id']}"
+
     pros = [
         p
         for p in fetch_all(
@@ -632,11 +652,13 @@ def main() -> int:
             "/professionals",
             "id,display_name,slug,source_type,source_url,source_record_id,"
             "image_url,phone,email,website,instagram_url,telegram_url,"
-            "description,short_description,headline,city",
-            extra={"status": "eq.approved"},
+            "description,short_description,headline,city,category_id",
+            extra=extra,
         )
         if needs_gap(p)
     ]
+    if args.limit and len(pros) > args.limit:
+        pros = pros[: args.limit]
     items = fetch_all(
         client,
         "/import_review_items",

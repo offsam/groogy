@@ -1,0 +1,1239 @@
+[
+  {
+    "id": "ead04f16-dab7-493c-b3c8-68476abfc703",
+    "name": "Flowers Divine Studio",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "4400 San Juan Avenue",
+      "location_precision": "street",
+      "city": "Fair Oaks",
+      "state_code": "US-CA",
+      "postal_code": "95628",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Juan%20Avenue%204400%2C%20Fair%20Oaks%2C%20CA%2095628",
+      "phone": "+19166275435"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ca033c7-780f-444a-ba7c-542c573704b7",
+      "slug": "svoi-flowers-divine-studio"
+    }
+  },
+  {
+    "id": "21c61e46-9d50-491c-b27b-a466758763ea",
+    "name": "Everest Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "7137 Walerga Road",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Walerga%20Road%207137%2C%20North%20Highlands%2C%20CA",
+      "website": "http://everestflowers.com",
+      "phone": "+19163314151",
+      "postal_code": "95842",
+      "instagram_url": "https://www.instagram.com/everest_florist",
+      "yelp_url": "https://www.yelp.com/biz/everest-florist-and-gifts-sacramento#query:everest\\u202c",
+      "email": "hello@everestflowers.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "78215f25-7461-4ec7-a487-89ada197e3ab",
+      "slug": "svoi-everest-flowers"
+    }
+  },
+  {
+    "id": "005a115c-b81b-4153-afbd-fb1385637502",
+    "name": "Pizza Guy's",
+    "changes": {},
+    "fill": {
+      "address_line": "612 East Bidwell Street",
+      "location_precision": "street",
+      "city": "Folsom",
+      "state_code": "US-CA",
+      "postal_code": "95630",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Bidwell%20Street%20612%2C%20Folsom%2C%20CA%2095630",
+      "phone": "+19169830300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "064c52d8-1a4c-4a5c-8fbb-b484ef6b8c0f",
+      "slug": "svoi-pizza-guy-s"
+    }
+  },
+  {
+    "id": "1cbb81ac-26bd-4e8a-be07-a192f97972be",
+    "name": "Royal Kebab",
+    "changes": {},
+    "fill": {
+      "address_line": "8055 Greenback Lane",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenback%20Lane%208055%2C%20Sitres%20heights%2C%20CA%2095610",
+      "phone": "+19165603230"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06f67b84-a419-48b3-b9dc-9d53431b0d11",
+      "slug": "svoi-royal-kebab"
+    }
+  },
+  {
+    "id": "8f07b28b-d14c-4f48-b852-d64f98763438",
+    "name": "Platinum Palace",
+    "changes": {},
+    "fill": {
+      "address_line": "11076 Coloma Road",
+      "location_precision": "street",
+      "city": "Rancho Cordova",
+      "state_code": "US-CA",
+      "postal_code": "95670",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coloma%20Road%2011076%20%2C%20Rancho%20Cordova%2C%20CA%2095670",
+      "website": "http://platinumpalacebanquethall.com",
+      "phone": "+19166719999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0227218a-6eb6-4eb2-a08c-04776f6c9ff8",
+      "slug": "svoi-platinum-palace"
+    }
+  },
+  {
+    "id": "804af032-a56c-4ea6-b4d7-527dd4247cba",
+    "name": "Afisha Magazine",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Highlands%2C%20CA",
+      "phone": "+19164879701"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0a3145ff-008d-407d-b4a6-ca7678314259",
+    "name": "Russian American Media",
+    "changes": {},
+    "fill": {
+      "address_line": "2935 Fulton Avenue",
+      "location_precision": "street",
+      "city": "Arden arcade",
+      "state_code": "US-CA",
+      "postal_code": "95821",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fulton%20Avenue%202935%2C%20Arden%20arcade%2C%20CA%2095821",
+      "website": "http://www.russianamericanmedia.com",
+      "phone": "+19162991777",
+      "instagram_url": "https://www.instagram.com/ramers.live",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2d3b58d5-6961-411b-8212-723382fc21b0",
+      "slug": "svoi-russian-american-media"
+    }
+  },
+  {
+    "id": "f79ddaa7-5596-4c60-8ee7-917552502ab9",
+    "name": "Russian Time Magazine",
+    "changes": {},
+    "fill": {
+      "address_line": "2935 Fulton Avenue",
+      "location_precision": "street",
+      "city": "Arden arcade",
+      "state_code": "US-CA",
+      "postal_code": "95821",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fulton%20Avenue%202935%2C%20Arden%20arcade%2C%20CA%20%2095821",
+      "website": "http://russiantimemagazine.com",
+      "phone": "+16209483802",
+      "instagram_url": "https://www.instagram.com/russiantimemagazine"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7a8ffa2e-c6df-4e89-b6b3-f003f448c382",
+      "slug": "svoi-russian-time-magazine"
+    }
+  },
+  {
+    "id": "6ca04a4b-712f-4616-8421-4a2c2afabd43",
+    "name": "Dr. Irina S. Zaydman, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "16659 Southwest Freeway",
+      "location_precision": "street",
+      "city": "Sugar Land",
+      "state_code": "US-TX",
+      "postal_code": "77479",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%20Freeway%2016659%2C%20Sugar%20Land%2C%20TX%2077479",
+      "phone": "+12812652272"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0b7b98e9-44b4-4843-b8bd-01548bb8935a",
+      "slug": "svoi-dr-irina-s-zaydman-md"
+    }
+  },
+  {
+    "id": "48d7bd60-335a-4377-a36e-69bd9815420e",
+    "name": "NewAge Dentistry",
+    "changes": {},
+    "fill": {
+      "address_line": "8200 Wednesbury Lane",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77074",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wednesbury%20Lane%208200%2C%20Houston%2C%20TX%2077074",
+      "phone": "+12243929450"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "22eeefae-f56a-456c-8675-46d65fdcc7db",
+      "slug": "svoi-newage-dentistry"
+    }
+  },
+  {
+    "id": "bc4221e5-4e29-4b8a-bcd3-8c89f18775c0",
+    "name": "Bellaire Smiles Center",
+    "changes": {},
+    "fill": {
+      "address_line": "6800 West Loop South Freeway",
+      "location_precision": "street",
+      "city": "Bellaire",
+      "state_code": "US-TX",
+      "postal_code": "77401",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Loop%20South%20Freeway%206800%2C%20Bellaire%2C%20TX%2077401",
+      "phone": "+17136608011"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ca4b645-b76d-4cae-85af-648f080bcf8b",
+      "slug": "svoi-bellaire-smiles-center"
+    }
+  },
+  {
+    "id": "4cf92394-c09e-4b64-a537-1d9b20f8d9e3",
+    "name": "Dr. Leila G Vizirov, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1631 North Loop West",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Loop%20West%201631%2C%20Houston%2C%20TX",
+      "phone": "+17138694404"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b7a0a1bb-3fa4-4603-92b9-725b8c507910",
+      "slug": "svoi-dr-leila-g-vizirov-md"
+    }
+  },
+  {
+    "id": "3f587881-bfe6-4335-8530-d5285d3d2d69",
+    "name": "Dr. Luda Kamenetsky, MD at Medical Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "1315 Saint Joseph Parkway",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77002",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Saint%20Joseph%20Parkway%201315%2C%20Houston%2C%20TX%2077002",
+      "phone": "+17136593781"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "1f567738-1846-467f-a82a-569ec5acd506",
+      "slug": "svoi-dr-luda-kamenetsky-md-at-medical-associates"
+    }
+  },
+  {
+    "id": "7f62694f-17df-451a-85cf-1b762ae642cf",
+    "name": "Dr Edward Berzin at Medical Center for Plastic Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "6560 Fannin Street",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fannin%20Street%206560%2C%20Houston%2C%20TX",
+      "website": "http://www.drberzin.com",
+      "phone": "+17137220111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f1533b67-a63b-4b13-8b78-a73ddca0a080",
+      "slug": "svoi-dr-edward-berzin-at-medical-center-for-plastic-s"
+    }
+  },
+  {
+    "id": "77233cc7-ad9e-4375-ba95-484b4151e716",
+    "name": "Beauty Medica, INC",
+    "changes": {},
+    "fill": {
+      "address_line": "3334 Richmond Avenue",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77098",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Richmond%20Avenue%203334%2C%20Houston%2C%20TX%2077098",
+      "phone": "+18322667109"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bdcab865-af3c-419c-9270-a0eac0d22c4a",
+      "slug": "svoi-beauty-medica-inc"
+    }
+  },
+  {
+    "id": "ec732c4c-f5f8-4325-a9af-5ad8d0c2b27a",
+    "name": "HoustonRekiHypnosis LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "12645 Memorial Drive",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Memorial%20Drive%2012645%2C%20Houston%2C%20TX%2077024",
+      "phone": "+18323787773"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "94fa5400-52ac-43cd-bcb6-a690c5c75562",
+      "slug": "svoi-houstonrekihypnosis-llc"
+    }
+  },
+  {
+    "id": "a04a6508-1db0-4c6a-bad3-683631d8fe13",
+    "name": "Д-е Александр Генсон DC",
+    "changes": {},
+    "fill": {
+      "address_line": "6006 Bellaire Boulevard",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bellaire%20Boulevard%206006%2C%20Houston%2C%20TX",
+      "phone": "+17136675198"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "3d1e6e8a-3744-4493-8be1-6a9cbc963d1b",
+      "slug": "svoi-dc"
+    }
+  },
+  {
+    "id": "7d6c7199-451c-4888-906b-e52ff9db53f5",
+    "name": "Dr. Farah Mamedov, MD at Steeplechase Pediatric Center",
+    "changes": {},
+    "fill": {
+      "address_line": "13114 FM 1960 Road West",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77065",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=FM%201960%20Road%20West%2013114%2C%20Houston%2C%20TX%2077065",
+      "phone": "+12814692838"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d684e8e1-77d1-4da9-a243-e2b40b6520dd",
+      "slug": "svoi-dr-farah-mamedov-md-at-steeplechase-pediatric-ce"
+    }
+  },
+  {
+    "id": "3b21e833-59f6-4006-b1e5-77d3e3128bba",
+    "name": "Трансфер в аэропорт",
+    "changes": {},
+    "fill": {
+      "city": "TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX",
+      "phone": "+18326948137"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3400890d-b169-486c-8dd9-7513b9cf12e9",
+    "name": "Russian School and Preschool - детский сад Теремок",
+    "changes": {},
+    "fill": {
+      "city": "TX ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The%20Woodlands%2C%20TX%20ted%20States",
+      "phone": "+18329288327"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bff47b82-4d3a-4e42-afc7-f70cad6bcec8",
+    "name": "Masha Russian Day Care",
+    "changes": {},
+    "fill": {
+      "address_line": "910 Mill Valley Drive",
+      "location_precision": "street",
+      "city": "Sugar Land",
+      "state_code": "US-TX",
+      "postal_code": "77498",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mill%20Valley%20Drive%20910%2C%20Sugar%20Land%2C%20TX%2077498",
+      "phone": "+12814917805"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7eedaa27-304b-44cb-a86f-7186c106ad2e",
+      "slug": "svoi-masha-russian-day-care"
+    }
+  },
+  {
+    "id": "b5ed673e-0715-4701-ae90-a65ae6d639a5",
+    "name": "RE/MAX The Woodlands & Spring",
+    "changes": {},
+    "fill": {
+      "address_line": "6620 Woodlands Parkway",
+      "location_precision": "street",
+      "city": "The Woodlands",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodlands%20Parkway%206620%2C%20The%20Woodlands%2C%20TX",
+      "phone": "+18323810017"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b9a2f91b-4923-45f3-ba7e-bfda1c38e422",
+      "slug": "svoi-re-max-the-woodlands-spring"
+    }
+  },
+  {
+    "id": "ea3f4280-130a-43d8-9295-816413498319",
+    "name": "Real Estate Investments & services",
+    "changes": {},
+    "fill": {
+      "address_line": "Woodstead Court",
+      "location_precision": "street",
+      "city": "Suite 121 1776",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodstead%20Court%2C%20Suite%20121%201776%2C%20The%20Woodlands%2C%20TX%2077830",
+      "phone": "+18324822564"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "95792da8-85e4-440b-a19b-c71e5632c5dd",
+      "slug": "svoi-real-estate-investments-services"
+    }
+  },
+  {
+    "id": "889b400d-125f-4880-a69a-60304db2394a",
+    "name": "Keller Williams Realty The Woodlands",
+    "changes": {},
+    "fill": {
+      "address_line": "1401 Woodlands Parkway",
+      "location_precision": "street",
+      "city": "The Woodlands",
+      "state_code": "US-TX",
+      "postal_code": "77380",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodlands%20Parkway%201401%2C%20The%20Woodlands%2C%20TX%20%2077380",
+      "phone": "+17134177907"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fab058ba-9da8-40b6-b5d8-de3b3f52dd09",
+      "slug": "svoi-keller-williams-realty-the-woodlands"
+    }
+  },
+  {
+    "id": "c64ae360-0a1e-4bb8-8c9b-0a13d5febe47",
+    "name": "Dextra Air, Inc",
+    "changes": {},
+    "fill": {
+      "city": "TX ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX%20ted%20States",
+      "phone": "+17139738484"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8e95170f-343f-47bc-9b4f-dddc36631a3d",
+    "name": "ABC Draperies",
+    "changes": {},
+    "fill": {
+      "address_line": "5815 Elm st",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77006",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elm%20st%205815%2C%20Houston%2C%20TX%2077006",
+      "phone": "+12817486943"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d7c2e6e1-0303-4171-956a-b446f171c647",
+      "slug": "svoi-abc-draperies"
+    }
+  },
+  {
+    "id": "00c778f7-dd9a-490a-8cb0-33da82641926",
+    "name": "Светлана Кларк - парикмахер - модельер",
+    "changes": {},
+    "fill": {
+      "address_line": "2650 Pearland Parkway",
+      "location_precision": "street",
+      "city": "Pearland",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pearland%20Parkway%202650%2C%20Pearland%2C%20TX",
+      "phone": "+17137256603"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1d4fe805-2cd1-4b9e-8ec9-02e19e65a6dd",
+      "slug": "svoi-biz-63"
+    }
+  },
+  {
+    "id": "9e244fde-c818-466d-9bf7-c76f8e39e1e0",
+    "name": "Piramide Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "14080 Memorial Drive",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77079",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Memorial%20Drive%2014080%2C%20Houston%2C%20TX%2077079",
+      "phone": "+12813520227"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0867b309-7ede-42ea-9f64-5491f8204774",
+      "slug": "svoi-piramide-salon"
+    }
+  },
+  {
+    "id": "96fd1850-918b-45b2-9620-bf561964f4ec",
+    "name": "МАНИКЮР И ПЕДИКЮР ХЬЮСТОН",
+    "changes": {},
+    "fill": {
+      "city": "TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX",
+      "phone": "+18327054024"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a7e3eb97-c4e6-4b01-83c1-c2c138535ee6",
+    "name": "Mokritsky Insurance Agency",
+    "changes": {},
+    "fill": {
+      "city": "TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX",
+      "phone": "+17133044004"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "e90386e5-2727-44a7-a1a9-3ea3ed1028bf",
+    "name": "HCC Insurance Holdings, Inc.",
+    "changes": {},
+    "fill": {
+      "city": "TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX",
+      "phone": "+17139961219"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7a008ef9-e332-42e2-8f25-0b7cde040c5c",
+    "name": "WESTOR TRAVEL - full service agency",
+    "changes": {},
+    "fill": {
+      "address_line": "4615 Castlewood Street",
+      "location_precision": "street",
+      "city": "Sugar Land",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Castlewood%20Street%204615%2C%20Sugar%20Land%2C%20TX",
+      "phone": "+12812421932"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "43ea245c-0226-42d8-b172-210b166f1805",
+      "slug": "svoi-westor-travel-full-service-agency"
+    }
+  },
+  {
+    "id": "3c447c6f-087f-4a7a-94c3-7e55a811df67",
+    "name": "Flamingo Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "6006 Bellaire Boulevard",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77042",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bellaire%20Boulevard%206006%2C%20Houston%2C%20TX%20%2077042",
+      "phone": "+17137824343"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5020e44f-3f6f-4678-8a15-d587a48a6ede",
+      "slug": "svoi-flamingo-travel"
+    }
+  },
+  {
+    "id": "e67d9e2d-95a2-4bf9-af86-0c47b0bba800",
+    "name": "MTA Tours & Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "4738 West Alabama Street",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Alabama%20Street%204738%2C%20Houston%2C%20TX",
+      "phone": "+17136299991"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c00072c1-960b-4496-8f17-3b5b619f08a1",
+      "slug": "svoi-mta-tours-travel"
+    }
+  },
+  {
+    "id": "0fd57e6d-9b23-4243-a270-49f58eb90815",
+    "name": "Translation and Document Assistance",
+    "changes": {},
+    "fill": {
+      "address_line": "7142 Lake Paloma Trail",
+      "location_precision": "street",
+      "city": "Spring",
+      "state_code": "US-TX",
+      "postal_code": "77389",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lake%20Paloma%20Trail%207142%2C%20Spring%2C%20TX%2077389",
+      "phone": "+12815162215"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e664ffae-78c9-4b61-ab0e-18a3820a8306",
+      "slug": "svoi-translation-and-document-assistance"
+    }
+  },
+  {
+    "id": "f930fdc4-5290-4d24-9c98-8530d2d93833",
+    "name": "MasterWord Services Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "303 Stafford Street",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77079",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stafford%20Street%20303%2C%20Houston%2C%20TX%2077079",
+      "phone": "+12815890810"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e2ac8cfc-5f70-4c24-b25d-0587cfc51e5e",
+      "slug": "svoi-masterword-services-inc"
+    }
+  },
+  {
+    "id": "7a9299bc-765d-4676-b187-a92c11cd0e42",
+    "name": "Produce Pro LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "2925 Richmond Ave",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2925%20Richmond%20Ave%2C%20Houston%2C%20TX",
+      "phone": "+17138705371"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "62628663-3054-4b50-bd80-f28bdb227181",
+      "slug": "svoi-produce-pro-llc"
+    }
+  },
+  {
+    "id": "4cb79f61-64ba-4e4b-ac43-44c359614c20",
+    "name": "KRC Print",
+    "changes": {},
+    "fill": {
+      "address_line": "19321 Park Row Drive",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77084",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Row%20Drive%2019321%2C%20Houston%2C%20TX%2077084",
+      "website": "http://krcprint.com",
+      "phone": "+18007978603"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ee3ef29b-bb2c-4176-90d8-ab866d63138d",
+      "slug": "svoi-krc-print"
+    }
+  },
+  {
+    "id": "abd12751-8f41-45e2-8bd3-226964e5f118",
+    "name": "Atlantic Express Pasadena",
+    "changes": {},
+    "fill": {
+      "address_line": "749 Crenshaw Road",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77504",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Crenshaw%20Road%20749%2C%20Houston%2C%20TX%2077504",
+      "phone": "+17139443232"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1a0cfed9-2cb7-4f11-a899-f5a5853db7c9",
+      "slug": "svoi-atlantic-express-pasadena"
+    }
+  },
+  {
+    "id": "386413fa-ca12-4ba8-987a-f25b4487d919",
+    "name": "Mediterraneo Market and Cafe",
+    "changes": {},
+    "fill": {
+      "address_line": "18033 Upper Bay Road",
+      "location_precision": "street",
+      "city": "Nassau Bay",
+      "state_code": "US-TX",
+      "postal_code": "77058",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Upper%20Bay%20Road%2018033%2C%20Nassau%20Bay%2C%20TX%2077058",
+      "phone": "+12813333180"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8dba937e-602a-445e-9e4d-8eb84521b624",
+      "slug": "svoi-mediterraneo-market-and-cafe"
+    }
+  },
+  {
+    "id": "89c75f90-d98f-4157-a633-4842917c2252",
+    "name": "Russian General Store",
+    "changes": {},
+    "fill": {
+      "address_line": "9629 Hillcroft Avenue",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77096",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hillcroft%20Avenue%209629%2C%20Houston%2C%20TX%2077096",
+      "website": "http://russiangeneralstore.com",
+      "phone": "+17137217595"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "42ee29b1-dab3-4ef1-b9a4-74230056cf70",
+      "slug": "svoi-russian-general-store"
+    }
+  },
+  {
+    "id": "5ec39d82-af23-4ac9-95cd-7da777b10895",
+    "name": "Golden grain Russian Groceries and Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "5406 Birdwood Road",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Birdwood%20Road%205406%2C%20Houston%2C%20TX",
+      "website": "http://www.goldengraintexas.com",
+      "phone": "+18327788255",
+      "email": "goldengrain@sbcglobal.net"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3f8267d8-c061-493d-88c4-df2f41427082",
+      "slug": "svoi-golden-grain-russian-groceries-and-deli"
+    }
+  },
+  {
+    "id": "7b04ceac-d8d4-4a9c-9ba4-dc3302ad0dfe",
+    "name": "Anna's Cakes and Pastries",
+    "changes": {},
+    "fill": {
+      "city": "TX ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX%20ted%20States",
+      "phone": "+17137289970"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "56367a05-a472-4e08-84df-0cac8ed838ac",
+    "name": "Empire Turkish Grill",
+    "changes": {},
+    "fill": {
+      "address_line": "12448 Memorial Drive",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Memorial%20Drive%2012448%2C%20Houston%2C%20TX%2077024",
+      "phone": "+17138277475"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "24d1aced-1dd3-4ea6-a5ff-147ec1e2e781",
+      "slug": "svoi-empire-turkish-grill"
+    }
+  },
+  {
+    "id": "abe4d17d-5c61-49a6-8f1e-17da8dcb9247",
+    "name": "Polonia Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "1780 Blalock Road",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77080",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Blalock%20Road%201780%2C%20Houston%2C%20TX%2077080",
+      "website": "http://poloniarestaurant.com",
+      "phone": "+17134649900",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b53d3b26-9bc0-4eb5-aaa8-df6702725b10",
+      "slug": "svoi-polonia-restaurant"
+    }
+  },
+  {
+    "id": "e0479899-ebc6-4c60-a073-1ced3b5435aa",
+    "name": "T L Health Management Center",
+    "changes": {},
+    "fill": {
+      "address_line": "20255 Sunset Ranch Drive",
+      "location_precision": "street",
+      "city": "Katy",
+      "state_code": "US-TX",
+      "postal_code": "77449",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Ranch%20Drive%2020255%2C%20Katy%2C%20TX%2077449",
+      "phone": "+12815508213"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8d73bfef-b7c0-4d23-9202-bbad14b2ae1a",
+      "slug": "svoi-t-l-health-management-center"
+    }
+  },
+  {
+    "id": "99f6c362-f7bc-4918-b5bc-1fb752b75f3e",
+    "name": "Газета \"Наш Техас\"",
+    "changes": {},
+    "fill": {
+      "address_line": "2337 Bissonnet Street",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77005",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bissonnet%20Street%202337%2C%20Houston%2C%20TX%2077005",
+      "phone": "+17133953302"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "29372366-ca58-4457-a600-4294ca8a1c4f",
+      "slug": "svoi-biz-64"
+    }
+  },
+  {
+    "id": "526f5f98-2fc1-423f-a3b2-a7d59adcd766",
+    "name": "Newspaper Our Texas",
+    "changes": {},
+    "fill": {
+      "address_line": "2337 Bissonnet Street",
+      "location_precision": "street",
+      "city": "Houston",
+      "state_code": "US-TX",
+      "postal_code": "77005",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bissonnet%20Street%202337%2C%20Houston%2C%20TX%2077005",
+      "phone": "+17133953301"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5fb7ae2d-2e0e-45a0-a0b6-7565fffb8a89",
+      "slug": "svoi-newspaper-our-texas"
+    }
+  },
+  {
+    "id": "5028ae7f-2ad8-439d-a509-3f390c922926",
+    "name": "Dr. Boris Braslavsky, DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "7531 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207531%2C%20West%20Hollywood%2C%20CA%2090046",
+      "website": "http://www.westhollywoodsmile.com",
+      "phone": "+13238760346",
+      "email": "drsteveib@yahoo.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6cb27f30-fa6f-4da8-ad75-cf3676e48551",
+      "slug": "svoi-dr-boris-braslavsky-dds"
+    }
+  },
+  {
+    "id": "3e8cc306-30b3-4de3-9a68-a7ed07c91ce4",
+    "name": "Dr. Victoria Olshansky DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "1136 North Fairfax Avenue",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Fairfax%20Avenue%201136%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236506936"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b952e38e-24a4-47b6-8047-5b39f4870add",
+      "slug": "svoi-dr-victoria-olshansky-dds"
+    }
+  }
+]

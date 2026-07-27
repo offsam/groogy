@@ -84,6 +84,14 @@ const LINKS: LinkItem[] = [
     countLabel: "карточек",
   },
   {
+    href: "/admin/telegram-groups",
+    title: "Telegram-группы",
+    description: "Sacramento / SF / San Diego и др. — отдельный блок на группу",
+    icon: MessageSquareWarning,
+    countKey: "telegramPending",
+    countLabel: "карточек",
+  },
+  {
     href: "/admin/businesses",
     title: "Бизнесы",
     description: "Одобрить, редактировать, удалить, смержить дубликаты",
@@ -156,6 +164,8 @@ export default async function AdminPage() {
     recommendationsPending: 0,
     yellowPagesPending: 0,
     directoryPendingBySource: {},
+    telegramPendingBySource: {},
+    telegramPending: 0,
   };
   try {
     counts = await getAdminDashboardCounts(supabase);

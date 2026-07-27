@@ -1,0 +1,500 @@
+[
+  {
+    "id": "f9c898bc-9978-47ee-a288-1b071c2be01c",
+    "name": "Massage Services - Pukhovich, Iosif",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "12000 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2012000%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12672301172"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dbc51e5a-6b2e-495d-a3cd-c19cf6f67423",
+      "slug": "svoi-massage-services-pukhovich-iosif"
+    }
+  },
+  {
+    "id": "1b2ece57-9118-4554-9709-160551dd03ee",
+    "name": "Galowitz Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "405 Floral Vale Boulevard",
+      "location_precision": "street",
+      "city": "Morrisville",
+      "state_code": "US-PA",
+      "postal_code": "19067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Floral%20Vale%20Boulevard%20405%2C%20Morrisville%2C%20PA%2019067",
+      "phone": "+12155040440"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b2997455-825b-4bd1-ae84-fecc7576fdb0",
+      "slug": "svoi-galowitz-insurance-agency"
+    }
+  },
+  {
+    "id": "b8e1f96c-bf1d-4648-9957-bea355c7a4d7",
+    "name": "Priority Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "3802 Waltham Court",
+      "location_precision": "street",
+      "city": "Morrisville",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waltham%20Court%203802%2C%20Morrisville%2C%20PA",
+      "phone": "+12154934920"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "05b41902-4075-4a47-b7c6-5c4be340aba9",
+      "slug": "svoi-priority-insurance"
+    }
+  },
+  {
+    "id": "50800003-6edc-4698-8fef-fad3e57309aa",
+    "name": "Jefferson-Pilot в Западный Честер",
+    "changes": {},
+    "fill": {
+      "address_line": "200 Willowbrook Lane",
+      "location_precision": "street",
+      "city": "West Chester",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Willowbrook%20Lane%20200%2C%20West%20Chester%2C%20PA",
+      "phone": "+16106968855"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c28f1f0f-dcc7-46b0-8322-06940b09423a",
+      "slug": "svoi-jefferson-pilot"
+    }
+  },
+  {
+    "id": "23d437dc-74c5-40da-b782-2affe1b3e09c",
+    "name": "Jen Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "11880 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011880%2C%20Philadelphia%2C%20PA",
+      "phone": "+12672506020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "05671741-602d-4d71-9652-a3e5cf920fe1",
+      "slug": "svoi-jen-travel"
+    }
+  },
+  {
+    "id": "f742ce21-b5f9-4049-a01c-cc8407354635",
+    "name": "Real Travel Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "10226 Rubin Lane",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rubin%20Lane%2010226%2C%20Philadelphia%2C%20PA",
+      "phone": "+12156736381"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3d616da1-f359-4aef-b336-3620eaa9542e",
+      "slug": "svoi-real-travel-agency"
+    }
+  },
+  {
+    "id": "75c48753-400e-40d3-a4fc-07330d6b01b5",
+    "name": "Active Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "738 Red Lion Road",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Red%20Lion%20Road%20738%2C%20Philadelphia%2C%20PA",
+      "phone": "+12156772177"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb167dc1-7421-428b-9aa3-6dcd12492357",
+      "slug": "svoi-active-travel"
+    }
+  },
+  {
+    "id": "ca8d2681-02c4-4384-8502-df8a322b37fe",
+    "name": "A Filinov Translation",
+    "changes": {},
+    "fill": {
+      "address_line": "55 South Valley Road",
+      "location_precision": "street",
+      "city": "Paoli",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Valley%20Road%2055%2C%20Paoli%2C%20PA",
+      "website": "http://www.afilinovtranslation.com",
+      "phone": "+14847848068"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "187c4280-d9b7-4565-b240-d6b761b0d74b",
+      "slug": "svoi-a-filinov-translation"
+    }
+  },
+  {
+    "id": "84779c64-96b9-49bf-834a-64733d58dca0",
+    "name": "RUSSIAN NOTARIAL OFFICE",
+    "changes": {},
+    "fill": {
+      "address_line": "10890 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2010890%2C%20Philadelphia%2C%20PA",
+      "phone": "+12156982770"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7581dd8a-5341-4c94-a95d-c150cc1a387a",
+      "slug": "svoi-russian-notarial-office"
+    }
+  },
+  {
+    "id": "2bc69f77-f19a-4776-8f01-ad24204ef157",
+    "name": "Hi-Tech Accounting",
+    "changes": {},
+    "fill": {
+      "address_line": "8510 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%208510%2C%20Philadelphia%2C%20PA",
+      "phone": "+12157459225"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c2085fa6-b72d-44d5-a761-a7445807f524",
+      "slug": "svoi-hi-tech-accounting"
+    }
+  },
+  {
+    "id": "a65809f5-5221-4794-a444-e9c933965c33",
+    "name": "Position Wanted ТРАК И ВЭН",
+    "changes": {},
+    "fill": {
+      "city": "PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philadelphia%2C%20PA",
+      "phone": "+17182349658"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8222b49c-3880-46af-9eb1-8058854fbf6c",
+    "name": "One Of A Kind Visual Concepts",
+    "changes": {},
+    "fill": {
+      "address_line": "512 Laura Lane",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Laura%20Lane%20512%2C%20Philadelphia%2C%20PA",
+      "phone": "+18664833157"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb2f19ed-5c48-4149-be12-eca745abb0e2",
+      "slug": "svoi-one-of-a-kind-visual-concepts"
+    }
+  },
+  {
+    "id": "d25ffd8c-3bd4-4ddd-8cef-5edd54ff9954",
+    "name": "All State Signs PA",
+    "changes": {},
+    "fill": {
+      "address_line": "1251 Byberry Road",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Byberry%20Road%201251%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156710646"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "44d68c75-f380-45d4-b65a-60f9c0c4b2eb",
+      "slug": "svoi-all-state-signs-pa"
+    }
+  },
+  {
+    "id": "0aa8daf7-c1fa-4151-80de-3b8466c129df",
+    "name": "Bravo Sign Corporation",
+    "changes": {},
+    "fill": {
+      "address_line": "33 Tomlinson Road",
+      "location_precision": "street",
+      "city": "Lower Moreland Township",
+      "state_code": "US-PA",
+      "postal_code": "19006",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tomlinson%20Road%2033%2C%20Lower%20Moreland%20Township%2C%20PA%2019006",
+      "phone": "+12159142200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9e864409-165f-4016-876d-3d30c99dc6e3",
+      "slug": "svoi-bravo-sign-corporation"
+    }
+  },
+  {
+    "id": "6325e74d-aa39-4599-b662-fd25c57d5059",
+    "name": "Irena's Tailoring and Alterations",
+    "changes": {},
+    "fill": {
+      "address_line": "2805 Concord Pike",
+      "location_precision": "street",
+      "city": "Wilmington",
+      "state_code": "US-DE",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Concord%20Pike%202805%2C%20Wilmington%2C%20DE",
+      "phone": "+13024770722"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "345da36f-4685-435c-b8c5-bc3a678440f0",
+      "slug": "svoi-irena-s-tailoring-and-alterations"
+    }
+  },
+  {
+    "id": "50868b1b-925a-41b3-add7-2a7c4082912b",
+    "name": "Payless Cleaners",
+    "changes": {},
+    "fill": {
+      "address_line": "15200 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2015200%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156764735"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ea7ed754-b510-43ce-81e5-87f288f5d6ad",
+      "slug": "svoi-payless-cleaners"
+    }
+  },
+  {
+    "id": "11ccb731-6dd1-4ab5-9030-37ec5f49dd6a",
+    "name": "Boyka's Alterations &; Creation в North Marlton",
+    "changes": {},
+    "fill": {
+      "address_line": "35 East Main Street",
+      "location_precision": "street",
+      "city": "Evesham Township",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Main%20Street%2035%2C%20Evesham%20Township%2C%20NJ",
+      "phone": "+18569858047"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d087f9a2-f033-42e2-a68c-d5b558fff543",
+      "slug": "svoi-boyka-s-alterations-creation-north-marlton"
+    }
+  },
+  {
+    "id": "829d386d-2b13-4999-86e7-ee1888199464",
+    "name": "Galichina Ukrainian Post",
+    "changes": {},
+    "fill": {
+      "address_line": "11880 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011880%2C%20Philadelphia%2C%20PA",
+      "website": "http://www.galichina.us",
+      "phone": "+12153424245"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "84530299-1e71-47a6-8a58-2574a5b81775",
+      "slug": "svoi-galichina-ukrainian-post"
+    }
+  },
+  {
+    "id": "55cac6c9-2748-4944-9ef6-aa0244acc0a0",
+    "name": "Ukraine Express Philadelphia",
+    "changes": {},
+    "fill": {
+      "address_line": "8400 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19152",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%208400%2C%20Philadelphia%2C%20PA%2019152",
+      "phone": "+12672971010"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ec3d713-ced0-425a-9995-04f18878d384",
+      "slug": "svoi-ukraine-express-philadelphia"
+    }
+  },
+  {
+    "id": "ccc6ee94-1336-4ce6-bcc2-6b20f5ad9af9",
+    "name": "Dnipro Co",
+    "changes": {},
+    "fill": {
+      "address_line": "1801 Cottman Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cottman%20Avenue%201801%2C%20Philadelphia%2C%20PA",
+      "phone": "+12157286040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "050f9b99-bbcb-45cb-973c-b37bb42e16b8",
+      "slug": "svoi-dnipro-co"
+    }
+  }
+]

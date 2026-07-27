@@ -1,4 +1,5 @@
 import type { Business } from "@/types/business";
+import type { Listing } from "@/types/listing";
 import type { Professional } from "@/types/professional";
 import { computePresenceFlags } from "@/lib/business/presence-flags";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
@@ -49,12 +50,100 @@ function slugFromName(name: string, id: string): string {
   return `${base}-${id.slice(0, 8)}`;
 }
 
+/** Cyrillic city labels from to4ka / directories → English catalog city. */
+const CYRILLIC_CITY_TO_EN: Record<string, string> = {
+  "нью-йорк": "New York",
+  "нью йорк": "New York",
+  "лос-анджелес": "Los Angeles",
+  "лос анджелес": "Los Angeles",
+  "сан-франциско": "San Francisco",
+  "сан франциско": "San Francisco",
+  "сан-диего": "San Diego",
+  "сан диего": "San Diego",
+  чикаго: "Chicago",
+  бостон: "Boston",
+  майами: "Miami",
+  филадельфия: "Philadelphia",
+  сакраменто: "Sacramento",
+  глендейл: "Glendale",
+  сиэтл: "Seattle",
+  сиэттл: "Seattle",
+  хьюстон: "Houston",
+  даллас: "Dallas",
+  атланта: "Atlanta",
+  "лас-вегас": "Las Vegas",
+  "лас вегас": "Las Vegas",
+  бруклин: "Brooklyn",
+  "статен-айленд": "Staten Island",
+  бруклинн: "Brooklyn",
+};
+
+function normalizeInferredCity(raw: string): string | null {
+  const cleaned = raw
+    .replace(/\s+/g, " ")
+    .replace(/^[,.\s]+|[,.\s]+$/g, "")
+    .trim();
+  if (!cleaned) return null;
+  if (/^(usa|us|united states|america)$/i.test(cleaned)) return null;
+  if (/^[A-Z]{2}$/i.test(cleaned)) return null;
+  if (/^\d+$/.test(cleaned)) return null;
+  const mapped = CYRILLIC_CITY_TO_EN[cleaned.toLowerCase()];
+  if (mapped) return mapped;
+  // Title-case simple Latin city names; keep mixed Cyrillic as-is if unmapped
+  if (/^[a-z .'-]+$/i.test(cleaned)) {
+    return cleaned.replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+  return cleaned;
+}
+
+/**
+ * City for preview/completeness: DB city, else parse from address in notes
+ * (to4ka often has «2116 Avenue P, Нью-Йорк, NY, USA» with city=null).
+ */
+export function resolveYellowPagesCity(
+  item: Pick<CommentRecommendation, "city" | "notes">,
+): string | null {
+  const direct = item.city?.trim() || null;
+  if (direct) return normalizeInferredCity(direct) || direct;
+
+  const address = noteField(item.notes, "address");
+  if (!address) return null;
+
+  // «street, City, ST, USA» or «street, City, ST»
+  const withState = address.match(
+    /,\s*([^,]+?)\s*,\s*([A-Za-zА-Яа-яЁё]{2})\s*(?:,\s*(?:USA|United States))?\s*$/i,
+  );
+  if (withState?.[1]) {
+    const city = normalizeInferredCity(withState[1]);
+    if (city) return city;
+  }
+
+  // «City, USA» / «City, ST»
+  const cityOnly = address.match(
+    /^([^,]+?)\s*,\s*(?:USA|United States|[A-Z]{2})\s*$/i,
+  );
+  if (cityOnly?.[1] && !/\d/.test(cityOnly[1])) {
+    const city = normalizeInferredCity(cityOnly[1]);
+    if (city) return city;
+  }
+
+  return null;
+}
+
+
+export type YellowPagesPreviewKind = "professional" | "business" | "service";
+
 export function yellowPagesEntityKind(
   item: CommentRecommendation,
-): "professional" | "business" {
+): YellowPagesPreviewKind {
+  if (item.target_bucket === "professional") return "professional";
+  if (item.target_bucket === "business") return "business";
+  if (item.target_bucket === "service") return "service";
+
   const fromNotes = noteField(item.notes, "entity")?.toLowerCase();
   if (fromNotes === "professional") return "professional";
   if (fromNotes === "business") return "business";
+  if (fromNotes === "service") return "service";
   const cat = (item.category_guess || "").toLowerCase();
   if (
     /юрист|нотариус|риэлтор|массаж|обучен|бухгалтер|учитель|репетитор|перевод/.test(
@@ -111,6 +200,7 @@ export function yellowPagesToBusinessPreview(
 ): Business {
   const name = item.display_name?.trim() || "Без названия";
   const c = contactBits(item);
+  const city = resolveYellowPagesCity(item);
   const presenceFlags = computePresenceFlags({
     phone: c.phone,
     email: c.email,
@@ -152,7 +242,7 @@ export function yellowPagesToBusinessPreview(
     bookingUrl: null,
     imageUrl: item.cover_image_url,
     addressLine: c.address,
-    city: item.city,
+    city,
     region: c.region,
     stateCode: "US-CA",
     postalCode: null,
@@ -170,6 +260,7 @@ export function yellowPagesToProfessionalPreview(
 ): Professional {
   const name = item.display_name?.trim() || "Без названия";
   const c = contactBits(item);
+  const city = resolveYellowPagesCity(item);
   return {
     id: item.id,
     slug: slugFromName(name, item.id),
@@ -184,7 +275,7 @@ export function yellowPagesToProfessionalPreview(
     availabilityText: null,
     ratingAvg: 0,
     reviewsCount: 0,
-    city: item.city,
+    city,
     region: c.region,
     stateCode: "US-CA",
     postalCode: null,
@@ -215,3 +306,102 @@ export function yellowPagesToProfessionalPreview(
     selfAdMentionCount: item.self_ad_mention_count,
   };
 }
+
+/** Service / listing card preview for recommendation queue. */
+export function yellowPagesToServicePreview(
+  item: CommentRecommendation,
+): Listing {
+  const name = item.display_name?.trim() || "Без названия";
+  const c = contactBits(item);
+  const city = resolveYellowPagesCity(item);
+  const categoryLabel = item.category_guess?.trim() || null;
+  const category = categoryLabel
+    ? {
+        id: "preview-cat",
+        slug: slugFromName(categoryLabel, item.id),
+        nameRu: categoryLabel,
+        nameEn: null,
+        sortOrder: 0,
+      }
+    : null;
+
+  return {
+    id: `preview-${item.id}`,
+    ownerId: "preview",
+    listingType: "service",
+    status: "active",
+    visibility: "public",
+    authorVisibility: "public",
+    title: name,
+    description: c.description || "",
+    priceAmount: null,
+    priceCurrency: "USD",
+    isNegotiable: true,
+    city,
+    state: null,
+    stateCode: "US-CA",
+    cityGeoid: null,
+    latitude: null,
+    longitude: null,
+    contactPreference: c.phone ? "phone" : "any",
+    publisherType: "profile",
+    publisherBusinessId: null,
+    sourceUrl: c.sourceUrl,
+    sourceKind: "platform",
+    hasSource: Boolean(c.sourceUrl),
+    publishedAt: item.created_at,
+    reservedAt: null,
+    completedAt: null,
+    pausedAt: null,
+    archivedAt: null,
+    expiresAt: null,
+    moderationReason: null,
+    favoritesCount: 0,
+    createdAt: item.created_at,
+    updatedAt: item.created_at,
+    media: item.cover_image_url
+      ? [
+          {
+            id: `preview-media-${item.id}`,
+            listingId: item.id,
+            storagePath: item.cover_image_url,
+            sortOrder: 0,
+            publicUrl: item.cover_image_url,
+          },
+        ]
+      : [],
+    author: {
+      mode: "public",
+      label: name,
+      avatarUrl: null,
+      username: first(item.instagram),
+      profilePath: null,
+    },
+    publisher: {
+      publisherType: "profile",
+      businessId: null,
+      slug: null,
+      name,
+      logoUrl: null,
+    },
+    favoritedByMe: false,
+    service: {
+      serviceCategoryId: null,
+      pricingType: "contact_for_price",
+      priceFrom: null,
+      priceTo: null,
+      priceUnit: null,
+      serviceModes: ["in_person"],
+      serviceArea: [city, c.region].filter(Boolean).join(", ") || null,
+      experienceYears: null,
+      languages: ["ru"],
+      licenseInfo: null,
+      insuranceStatus: null,
+      availabilityText: null,
+      offersFreeEstimate: false,
+      offersEmergencyService: false,
+      category,
+    },
+  };
+}
+

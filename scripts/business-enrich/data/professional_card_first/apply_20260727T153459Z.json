@@ -1,0 +1,31 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "kirill",
+      "display_name": "Kirill",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://www.usmobile.com/referrals"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.usmobile.com/referrals",
+          "_fetch_url": "https://www.usmobile.com/referrals",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/74997",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "website": "https://www.usmobile.com/referrals"
+      },
+      "patch": {}
+    }
+  ]
+}

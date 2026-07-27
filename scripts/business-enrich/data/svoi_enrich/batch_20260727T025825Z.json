@@ -1,0 +1,1258 @@
+[
+  {
+    "id": "cb23398e-5f84-417f-b2d5-3de464f7e2e7",
+    "name": "Vladimir Watch and Clock Repair",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "6179 Lake Murray Boulevard",
+      "location_precision": "street",
+      "city": "La mesa",
+      "state_code": "US-CA",
+      "postal_code": "91942",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lake%20Murray%20Boulevard%206179%2C%20La%20mesa%2C%20CA%2091942",
+      "phone": "+16194609627"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e3e12d2-0470-4f43-adf1-f7aa7dcac246",
+      "slug": "svoi-vladimir-watch-and-clock-repair"
+    }
+  },
+  {
+    "id": "cd0d5b5d-c0b7-41b5-9e8e-8ac3126f1b12",
+    "name": "Услуги по перевозке",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20diego%2C%20CA%20ted%20States",
+      "phone": "+16199202574"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b6d79a74-3d1d-47ee-b540-0665ae2972bb",
+    "name": "Angel Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "7733 Lucia Court",
+      "location_precision": "street",
+      "city": "Carlsbad",
+      "state_code": "US-CA",
+      "postal_code": "92009",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lucia%20Court%207733%2C%20Carlsbad%2C%20CA%2092009",
+      "phone": "+17606331705"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "35565cf1-7d88-4be7-a0e0-757fc5360591",
+      "slug": "svoi-angel-academy"
+    }
+  },
+  {
+    "id": "afb32ebf-7af6-4140-a924-c1f31ff476c1",
+    "name": "Детский сад Teddy Bear",
+    "changes": {},
+    "fill": {
+      "address_line": "7383 Rancho Catalina Trail",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92127",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rancho%20Catalina%20Trail%207383%2C%20San%20diego%2C%20CA%2092127",
+      "phone": "+18584374317"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "34d0f6a4-8f86-4af9-99dc-25e094d56684",
+      "slug": "svoi-teddy-bear"
+    }
+  },
+  {
+    "id": "b31f5bc2-a039-4fdc-a1b8-b3f316aa8fd6",
+    "name": "бейбиситер",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Del%20mar%2C%20CA",
+      "phone": "+18583827985"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "4327d1e2-b7c4-4a8c-b73f-f79f88d338c4",
+    "name": "Champion Rhythmics",
+    "changes": {},
+    "fill": {
+      "address_line": "9586 Distribution Ave",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9586%20Distribution%20Ave%2C%20San%20diego%2C%20CA",
+      "website": "https://championrhythmics.com",
+      "phone": "+18584967522"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d648f744-aed6-45ee-b30f-001837bafaa2",
+      "slug": "svoi-champion-rhythmics"
+    }
+  },
+  {
+    "id": "fe7237d9-6ab7-4eb4-8a1a-7ea11b47a1c0",
+    "name": "Детский Музыкальный Театр-студия Лукоморье",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20diego%2C%20CA%20ted%20States",
+      "phone": "+16199944435"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "ffc7bf68-bae3-42a2-aa01-d136153d47a2",
+    "name": "Boris Dadiomov, Bluefire Realty,",
+    "changes": {},
+    "fill": {
+      "address_line": "2121 Palomar Airport Road",
+      "location_precision": "street",
+      "city": "Carlsbad",
+      "state_code": "US-CA",
+      "postal_code": "92011",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Palomar%20Airport%20Road%202121%2C%20Carlsbad%2C%20CA%2092011",
+      "website": "http://bluefirerealestate.com",
+      "phone": "+18587176726"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bb94db48-0b50-426e-b943-b11980149465",
+      "slug": "svoi-boris-dadiomov-bluefire-realty"
+    }
+  },
+  {
+    "id": "4b01f3e0-37d1-40ac-a391-05cab7bf2648",
+    "name": "Irina Ovchinnikova / Ирина Овчинникова",
+    "changes": {},
+    "fill": {
+      "address_line": "Levante St",
+      "location_precision": "street",
+      "city": "2920 2920",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Levante%20St%2C%202920%202920%2C%20Carlsbad%2C%20CA%2092009",
+      "phone": "+17608288472"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7febdbc1-5fd8-4924-8382-4b1a5efc71cf",
+      "slug": "svoi-irina-ovchinnikova"
+    }
+  },
+  {
+    "id": "f70a5f6d-a5c6-4003-b962-8980066338ac",
+    "name": "Nino Kiria at Weichert Realtors Elite",
+    "changes": {},
+    "fill": {
+      "address_line": "10815 Rancho Bernardo Road",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rancho%20Bernardo%20Road%2010815%2C%20San%20diego%2C%20CA",
+      "phone": "+18582432173"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "34186a10-7870-4171-b6ae-cff6dfe6ab64",
+      "slug": "svoi-nino-kiria-at-weichert-realtors-elite"
+    }
+  },
+  {
+    "id": "89f24610-c732-43a8-b2af-15ee4dfdb48e",
+    "name": "VS Construction Group",
+    "changes": {},
+    "fill": {
+      "address_line": "502564 Rancho Carmel Dr",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92150",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rancho%20Carmel%20Dr%20502564%2C%20San%20diego%2C%20CA%2092150",
+      "website": "http://www.vsconstructiongroup.com",
+      "phone": "+18583366284",
+      "email": "info@vsconstructiongroup.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2096d04a-e70f-4448-b357-026326d10f85",
+      "slug": "svoi-vs-construction-group"
+    }
+  },
+  {
+    "id": "f29e940b-8e35-489c-832c-5552bcb26ec8",
+    "name": "A Bit of Help",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20diego%2C%20CA%20ted%20States",
+      "website": "http://www.san-diego-handyman.com",
+      "phone": "+16193544455"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a73f4cce-5992-4ea2-b6c9-202c9d92ccb1",
+    "name": "Igor Remodeling and Repairs",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20diego%2C%20CA%20ted%20States",
+      "phone": "+18583537623"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "20803e0f-8a8f-4b51-8be5-35bec0a51064",
+    "name": "SDGE",
+    "changes": {},
+    "fill": {
+      "address_line": "4760 Clairemont Mesa Blvd",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Clairemont%20Mesa%20Blvd%204760%20%2C%20San%20diego%2C%20CA%2092117",
+      "website": "http://www.sdge.com",
+      "phone": "+18004117343",
+      "instagram_url": "https://www.instagram.com/sdge"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f11cda08-f9ba-4d2c-8512-bf02dd19b939",
+      "slug": "svoi-sdge"
+    }
+  },
+  {
+    "id": "2b042d92-1114-480a-957c-c97a324de040",
+    "name": "Atlas HVAC Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "16016 Babcock",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92127",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Babcock%2016016%2C%20San%20diego%2C%20CA%2092127",
+      "website": "http://atlascoolingandheating.com",
+      "phone": "+16199172003",
+      "instagram_url": "https://www.instagram.com/atlashvacinc",
+      "yelp_url": "https://www.yelp.com/biz/atlas-hvac-san-diego-2"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8cb5eaf8-8811-4702-be4f-6371a7e16b26",
+      "slug": "svoi-atlas-hvac-inc"
+    }
+  },
+  {
+    "id": "24c38879-14b0-4da1-bc1c-399c4285b83e",
+    "name": "Reliable Service Co",
+    "changes": {},
+    "fill": {
+      "address_line": "324 Coogan Way",
+      "location_precision": "street",
+      "city": "EL KAHON",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coogan%20Way%20324%2C%20EL%20KAHON%2C%20CA",
+      "phone": "+16195892313"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "48baaed7-2dc3-4abb-9254-6adc08e8f36a",
+      "slug": "svoi-reliable-service-co"
+    }
+  },
+  {
+    "id": "9821cd31-9955-48a5-acf1-4df1692f9c9c",
+    "name": "Quality Mechanical",
+    "changes": {},
+    "fill": {
+      "address_line": "1536 Fayette Street",
+      "location_precision": "street",
+      "city": "EL KAHON",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fayette%20Street%201536%2C%20EL%20KAHON%2C%20CA",
+      "phone": "+16194492735"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f0702ac8-192e-4564-b5f5-b620dd5e1876",
+      "slug": "svoi-quality-mechanical"
+    }
+  },
+  {
+    "id": "960fffb2-5e7e-4398-af71-ac53fa943e2d",
+    "name": "Milana Skin Care",
+    "changes": {},
+    "fill": {
+      "address_line": "1130 Camino Del Ma",
+      "location_precision": "street",
+      "city": "Del mar",
+      "state_code": "US-CA",
+      "postal_code": "92014",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Camino%20Del%20Ma%201130%2C%20Del%20mar%2C%20CA%2092014",
+      "phone": "+17608775932"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "84d3587b-7fde-4af6-be6a-cbcb77901bc0",
+      "slug": "svoi-milana-skin-care"
+    }
+  },
+  {
+    "id": "1bc734d3-939e-4493-98ab-3b0b10c5b2f0",
+    "name": "Mariya's | European Skin Care",
+    "changes": {},
+    "fill": {
+      "address_line": "10225 Barnes Canyon Road",
+      "location_precision": "street",
+      "city": "San diego",
+      "state_code": "US-CA",
+      "postal_code": "92122",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Barnes%20Canyon%20Road%2010225%2C%20San%20diego%2C%20CA%2092122",
+      "phone": "+18583821618"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9ec009d1-35e1-4608-ae30-7d965e8bec44",
+      "slug": "svoi-mariya-s-european-skin-care"
+    }
+  },
+  {
+    "id": "f47c9af8-55c8-4b7f-ac7c-79ab45914647",
+    "name": "Aintablian Ighia MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1510 South Central Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Central%20Avenue%201510%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185008822"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ff2863eb-655e-48cb-bf3b-183577d93e6b",
+      "slug": "svoi-aintablian-ighia-md"
+    }
+  },
+  {
+    "id": "c8ce6024-9e41-46e3-8d67-b76bc639573e",
+    "name": "Dr. Nune Simonian MD",
+    "changes": {},
+    "fill": {
+      "address_line": "435 Arden Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arden%20Avenue%20435%2C%20Glendale%2C%20CA%2091203",
+      "phone": "+18182423916"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "77905256-54c1-47aa-b6e7-07236cee9b66",
+      "slug": "svoi-dr-nune-simonian-md"
+    }
+  },
+  {
+    "id": "a3afc68a-2ab1-4377-be90-6cb34b9a3c55",
+    "name": "Melidonian Hovig H MD Physicians-Pedatrics",
+    "changes": {},
+    "fill": {
+      "address_line": "318 West Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Colorado%20Street%20318%2C%20Glendale%2C%20CA",
+      "phone": "+18185482618"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "1969dc67-d9ae-408e-968d-509f157c6451",
+      "slug": "svoi-melidonian-hovig-h-md-physicians-pedatrics"
+    }
+  },
+  {
+    "id": "16687470-07e5-4142-a655-31396d88a10e",
+    "name": "Albarian Alex DDS Dentist",
+    "changes": {},
+    "fill": {
+      "address_line": "411 N. Central Ave",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Central%20Ave%20411%2C%20Glendale%2C%20CA%2091203",
+      "phone": "+18182470085"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "060fd84c-bb66-43a2-8d9b-37c5ad1f790a",
+      "slug": "svoi-albarian-alex-dds-dentist"
+    }
+  },
+  {
+    "id": "96eb7534-aabc-47ce-803a-1dfdab00624d",
+    "name": "Amayak Gagik DDS Dentist",
+    "changes": {},
+    "fill": {
+      "address_line": "1160 N. Central Ave.",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Central%20Ave.%201160%2C%20Glendale%2C%20CA%2091203",
+      "phone": "+18182400051"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "be676876-86bc-45e1-93cf-9249e21ddfa2",
+      "slug": "svoi-amayak-gagik-dds-dentist"
+    }
+  },
+  {
+    "id": "fcc2b48d-ae27-42b2-b8f1-2bef6611cbe5",
+    "name": "Antranik Laleian DDS Dentist",
+    "changes": {},
+    "fill": {
+      "address_line": "300 W. Glenoaks Blvd",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.%20Glenoaks%20Blvd%20300%2C%20Glendale%2C%20CA%2091202",
+      "phone": "+18185003991"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d25a909c-8706-488e-b3ce-ccf57a4328f4",
+      "slug": "svoi-antranik-laleian-dds-dentist"
+    }
+  },
+  {
+    "id": "74b61c6d-883c-4a24-af44-340712f978fa",
+    "name": "Boghosian Shahen MD Physicians-Urology",
+    "changes": {},
+    "fill": {
+      "address_line": "1030 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%201030%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185074340"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d4691c60-91cf-4577-8279-56c280b5778d",
+      "slug": "svoi-boghosian-shahen-md-physicians-urology"
+    }
+  },
+  {
+    "id": "3faa593d-1c41-4555-808f-f6700c080dea",
+    "name": "Dr Zarie Shahgaldian MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1030 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%201030%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185009909"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "5a2debeb-a965-4805-8fcd-cd888e3459af",
+      "slug": "svoi-dr-zarie-shahgaldian-md"
+    }
+  },
+  {
+    "id": "cea01617-43c3-4eb9-874c-a5f56cf40419",
+    "name": "Dr. Abraham Maissian, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1737 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201737%2C%20Glendale%2C%20CA%2091201",
+      "phone": "+18182431186"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "192fbbaa-56cf-4b9b-b7a8-aac0706a3c76",
+      "slug": "svoi-dr-abraham-maissian-md"
+    }
+  },
+  {
+    "id": "5895aa84-1f7b-4280-b739-17ea7bd840bc",
+    "name": "Dr. Agop Aintablian",
+    "changes": {},
+    "fill": {
+      "address_line": "416 East Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Colorado%20Street%20416%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185071305"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "89075bc8-2751-4446-9223-a369ac02e970",
+      "slug": "svoi-dr-agop-aintablian"
+    }
+  },
+  {
+    "id": "bdea2f4d-87d7-4e57-9d0d-6ada93d4e330",
+    "name": "Glendale Breast Center Breast Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "1220 South Central Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Central%20Avenue%201220%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185079777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9eb9527e-c05d-4430-b342-9e53d0e4498f",
+      "slug": "svoi-glendale-breast-center-breast-surgery"
+    }
+  },
+  {
+    "id": "f9d0ef60-da9e-49b9-9034-af94a39279f8",
+    "name": "Karayan Sooren MD Physicians-orthopaedic Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "1510 South Central Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Central%20Avenue%201510%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185070686"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6d94120f-a190-41b1-bbc9-181122e50ec7",
+      "slug": "svoi-karayan-sooren-md-physicians-orthopaedic-surgery"
+    }
+  },
+  {
+    "id": "0dc82295-50ac-45b1-b5a1-9e44d2a9c4d5",
+    "name": "Specialty Eye Care Medical Center",
+    "changes": {},
+    "fill": {
+      "address_line": "409 North Central Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Central%20Avenue%20409%2C%20Glendale%2C%20CA",
+      "website": "http://specialtyicare.com",
+      "phone": "+18182657777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "70202e6b-02b2-4a23-a950-9bbde1eb74a4",
+      "slug": "svoi-specialty-eye-care-medical-center"
+    }
+  },
+  {
+    "id": "aedfe792-fe2a-4b14-b777-d248ecfbbdda",
+    "name": "Kokshanian Artine MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1030 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%201030%2C%20Glendale%2C%20CA%2091205",
+      "website": "https://www.adventisthealth.org",
+      "phone": "+18182404283",
+      "instagram_url": "https://www.instagram.com/adventisthealth"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b557667a-441e-4421-81f9-0bf040ac27d2",
+      "slug": "svoi-kokshanian-artine-md"
+    }
+  },
+  {
+    "id": "405d1a4e-7473-48ca-8264-1bb56a1b47d0",
+    "name": "Cosmetologist",
+    "changes": {},
+    "fill": {
+      "address_line": "1000 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%201000%2C%20Glendale%2C%20CA",
+      "phone": "+18184451754"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "88fff641-b9d4-453e-a1d4-3f5b94d74505",
+      "slug": "svoi-cosmetologist"
+    }
+  },
+  {
+    "id": "862eca5c-ab60-4c4c-91ab-a4cfbd229133",
+    "name": "Daydream Acupuncture",
+    "changes": {},
+    "fill": {
+      "address_line": "600 West Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Broadway%20600%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185507860"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9690ccbc-3636-4b80-8a25-cc2d1e0cdade",
+      "slug": "svoi-daydream-acupuncture"
+    }
+  },
+  {
+    "id": "9963e579-bbe6-4c1d-9b14-c9eb03a2501d",
+    "name": "Ace Chiro Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "501 West Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Colorado%20Street%20501%2C%20Glendale%2C%20CA%2091204",
+      "website": "http://acechiropracticclinic.com",
+      "phone": "+18182477566",
+      "instagram_url": "https://www.instagram.com/acechiropractic",
+      "yelp_url": "https://www.yelp.com/biz/ace-chiropractic-clinic-glendale"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c8d6a8c5-5e65-4be0-8e3e-6cdd9416c025",
+      "slug": "svoi-ace-chiro-clinic"
+    }
+  },
+  {
+    "id": "b4d2d892-4cbf-4dee-a1c1-0db7d1b4eee8",
+    "name": "All For Health",
+    "changes": {},
+    "fill": {
+      "address_line": "519 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%20519%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18184093020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f9309903-9705-49b4-938d-b3c640226d58",
+      "slug": "svoi-all-for-health"
+    }
+  },
+  {
+    "id": "2044783e-c09d-4023-83f2-e536e8e10a8b",
+    "name": "Armenian Relief Center Glendale",
+    "changes": {},
+    "fill": {
+      "address_line": "1735 Hale Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hale%20Street%201735%2C%20Glendale%2C%20CA%20%2091201",
+      "website": "http://www.arswestusa.org",
+      "phone": "+18182422390",
+      "instagram_url": "https://www.instagram.com/ars_wusa"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "af053edc-bbc5-4d40-b2d9-e913e6559d04",
+      "slug": "svoi-armenian-relief-center-glendale"
+    }
+  },
+  {
+    "id": "8baa4aee-d6c9-4ee5-b59c-296ac53ae0a5",
+    "name": "AGAPI PHARMACY-CA",
+    "changes": {},
+    "fill": {
+      "address_line": "6501 San Fernando Road",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Fernando%20Road%206501%2C%20Glendale%2C%20CA%20%2091201",
+      "phone": "+18182464433"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fd093ad7-b2ce-44ca-a0a8-d266a9bedb0d",
+      "slug": "svoi-agapi-pharmacy-ca"
+    }
+  },
+  {
+    "id": "440f5930-a7ad-4fcf-90e4-beffb46a6abb",
+    "name": "Ararat Plaza Pharmacy Pharmacies",
+    "changes": {},
+    "fill": {
+      "address_line": "1248 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%201248%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18186372177"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ed282224-41c6-4e85-844d-16e5df69007a",
+      "slug": "svoi-ararat-plaza-pharmacy-pharmacies"
+    }
+  },
+  {
+    "id": "fe93da18-dd6f-482f-8760-1a3ade57a91a",
+    "name": "Arden Medical Pharmacy Pharmacies",
+    "changes": {},
+    "fill": {
+      "address_line": "435 Arden Ave # 110",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arden%20Ave%20%23%20110%20435%2C%20Glendale%2C%20CA%2091203",
+      "phone": "+18182471842"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a8bcf1a8-94bf-4fe1-9fe3-423aa7962da3",
+      "slug": "svoi-arden-medical-pharmacy-pharmacies"
+    }
+  },
+  {
+    "id": "dad38381-86ab-4ca5-8985-93a9db78b9d6",
+    "name": "Future Auto Sales & Leasing Auto Brokers",
+    "changes": {},
+    "fill": {
+      "address_line": "1711 South Brand Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Brand%20Boulevard%201711%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18182400099"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2199bec7-bc48-49d2-98c1-39250a174127",
+      "slug": "svoi-future-auto-sales-leasing-auto-brokers"
+    }
+  },
+  {
+    "id": "bf840583-99b8-4787-957c-2be3f03cd8b2",
+    "name": "Millennium Auto Group, Inc. Auto Brokers",
+    "changes": {},
+    "fill": {
+      "address_line": "333 South Central Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Central%20Avenue%20333%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18183351221"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3362a339-8dd2-402c-aba9-8df2d9b2ffe9",
+      "slug": "svoi-millennium-auto-group-inc-auto-brokers"
+    }
+  },
+  {
+    "id": "9d4a9483-5151-4093-9ac1-2b39d8938600",
+    "name": "Pacific Auto Sales & Leasing (PAL), Auto Brokers",
+    "changes": {},
+    "fill": {
+      "address_line": "225 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%20225%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185433333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d99a58af-4cec-4ae8-b768-f2e98575776f",
+      "slug": "svoi-pacific-auto-sales-leasing-pal-auto-brokers"
+    }
+  },
+  {
+    "id": "01d1acbc-71e9-4b90-897b-dc88f6c2f270",
+    "name": "Brother's Automotive Auto Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "625 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%20625%2C%20Glendale%2C%20CA",
+      "phone": "+18182438836"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "86830723-1507-4e97-8b78-37766314e02c",
+      "slug": "svoi-brother-s-automotive-auto-repair"
+    }
+  },
+  {
+    "id": "38f222a1-ac58-49f3-8f75-4ec5fad0a3f4",
+    "name": "Chase Auto Body Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "4506 San Fernando Road",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Fernando%20Road%204506%2C%20Glendale%2C%20CA",
+      "phone": "+18185074242"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "39b2abba-7980-49fa-b348-f59f74184aa5",
+      "slug": "svoi-chase-auto-body-shop"
+    }
+  },
+  {
+    "id": "8317bdba-31d6-439f-8eeb-10b1151f1b58",
+    "name": "Glendale Auto Sound",
+    "changes": {},
+    "fill": {
+      "address_line": "364 West Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Colorado%20Street%20364%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18182463085"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ca963de7-50a8-42a3-b141-837eea5b5b53",
+      "slug": "svoi-glendale-auto-sound"
+    }
+  },
+  {
+    "id": "3034aa1a-7ccf-4c05-beab-61138d85d7af",
+    "name": "Hye Traffic School",
+    "changes": {},
+    "fill": {
+      "address_line": "1950 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201950%2C%20Glendale%2C%20CA%2091201%20United%20Sta",
+      "phone": "+18185480007"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "df9f1365-86fc-472f-8ca7-6a5dbff4243b",
+      "slug": "svoi-hye-traffic-school"
+    }
+  },
+  {
+    "id": "2f597d5c-1de8-4928-8973-f0a550cda8f8",
+    "name": "A. Bros. Express, LLC",
+    "changes": {},
+    "fill": {
+      "city": "CA 91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glendale%2C%20CA%2091205",
+      "phone": "+18184341500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8c6b6a02-c405-43a3-9ceb-4c4f2898a2cf",
+    "name": "Artek Child Education Center Child Care",
+    "changes": {},
+    "fill": {
+      "address_line": "546 West Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Broadway%20546%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185023388"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "acd73add-5080-4d12-83a5-30bf52970020",
+      "slug": "svoi-artek-child-education-center-child-care"
+    }
+  }
+]

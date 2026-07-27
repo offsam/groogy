@@ -1,0 +1,479 @@
+[
+  {
+    "id": "c8400053-0402-4416-83a3-502254708e79",
+    "name": "Day Spa & Sauna Resort",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "Broadway 24-20",
+      "location_precision": "street",
+      "city": "Fair lone",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Broadway%2024-20%2C%20Fair%20lone%2C%20NJ",
+      "phone": "+12017973002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6454ff01-c52c-47b7-8844-a9327fbeef47",
+      "slug": "svoi-day-spa-sauna-resort"
+    }
+  },
+  {
+    "id": "dce4de0e-1112-44cb-b5f7-5ddaf6c095c5",
+    "name": "Wellness Heat Club",
+    "changes": {},
+    "fill": {
+      "address_line": "HOPE AVE 163 HOPE AVE Passaic",
+      "location_precision": "street",
+      "city": "New Jerse",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=HOPE%20AVE%20163%20HOPE%20AVE%20Passaic%2C%20New%20Jerse%2C%20Passaic%2C%20NJ",
+      "website": "http://www.wellnessheatclub.com",
+      "phone": "+19737773466"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c9770b42-4943-42fe-942e-fef4191e092f",
+      "slug": "svoi-wellness-heat-club"
+    }
+  },
+  {
+    "id": "1717b36e-1850-46b7-b55d-1dc058b44914",
+    "name": "International Steam Baths",
+    "changes": {},
+    "fill": {
+      "address_line": "163 Hope Avenue",
+      "location_precision": "street",
+      "city": "Passaic",
+      "state_code": "US-NJ",
+      "postal_code": "07055",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hope%20Avenue%20163%2C%20Passaic%2C%20NJ%2007055",
+      "phone": "+19737773466"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "merge",
+      "id": "c9770b42-4943-42fe-942e-fef4191e092f"
+    }
+  },
+  {
+    "id": "730e2ad7-8caa-4ffa-9f92-82a22b1f6b3e",
+    "name": "Foxy Gentlemen’s Club",
+    "changes": {},
+    "fill": {
+      "address_line": "1201 Surf Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11224",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Surf%20Avenue%201201%2C%20New%20York%2C%20NY%2011224",
+      "phone": "+17184491240"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1d2a1d6d-948d-4e28-93b2-693b6da3ade8",
+      "slug": "svoi-foxy-gentlemen-s-club"
+    }
+  },
+  {
+    "id": "86c8b2ea-1f85-4442-93c8-3b107116d5ab",
+    "name": "Mermaid Spa in Sea Gate",
+    "changes": {},
+    "fill": {
+      "address_line": "3703 Mermaid Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11224",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mermaid%20Avenue%203703%2C%20New%20York%2C%20NY%2011224",
+      "phone": "+13474622166"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "708c28c7-8de6-403f-98f8-da3a32b0445a",
+      "slug": "svoi-mermaid-spa-in-sea-gate"
+    }
+  },
+  {
+    "id": "36e56bbd-ee15-406c-887a-06fbd18d1a74",
+    "name": "Bally Total Fitness NY",
+    "changes": {},
+    "fill": {
+      "address_line": "Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%2C%20New%20York%2C%20NY%202%20Coney%20Island%20A",
+      "phone": "+17182666300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "650d0e0a-5055-4e5a-b807-1c8679883da7",
+      "slug": "svoi-bally-total-fitness-ny"
+    }
+  },
+  {
+    "id": "d223bf23-accf-4893-a5a4-fd96f589a350",
+    "name": "Russian Bath-B",
+    "changes": {},
+    "fill": {
+      "address_line": "1200 Gravesend Neck Rd.",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gravesend%20Neck%20Rd.%201200%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+17183321676"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "923da323-1dd6-4400-b593-b1c50e851b86",
+      "slug": "svoi-russian-bath-b"
+    }
+  },
+  {
+    "id": "545199ac-b6bc-42a4-8a5d-23270dec542f",
+    "name": "Only You",
+    "changes": {},
+    "fill": {
+      "address_line": "2508 Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%202508%2C%20New%20York%2C%20NY%2011223",
+      "website": "http://clubonlyyou.com/ru",
+      "phone": "+17183038090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "45d9fcd0-061a-41ad-bba2-1037c009b916",
+      "slug": "svoi-only-you"
+    }
+  },
+  {
+    "id": "4efa8162-7f9b-4b80-8a7b-1856ba70b423",
+    "name": "КАРАОКЕ-БАР Estelle",
+    "changes": {},
+    "fill": {
+      "address_line": "1824 Avenue U",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20U%201824%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+19173648362"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "19ee2323-8f3c-4782-b321-e93c511206c7",
+      "slug": "svoi-estelle"
+    }
+  },
+  {
+    "id": "cb2e4cc0-4c85-4a06-a893-d8e82c17cb5f",
+    "name": "Brooklyn Health and Racquet Club",
+    "changes": {},
+    "fill": {
+      "address_line": "4400 Glenwood Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glenwood%20Road%204400%2C%20New%20York%2C%20NY",
+      "phone": "+17183774646"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c058e31d-a8f2-45b7-91c1-5a179bfc7576",
+      "slug": "svoi-brooklyn-health-and-racquet-club"
+    }
+  },
+  {
+    "id": "39e1aef1-dd68-4b1a-9075-91ac44afd81b",
+    "name": "Single Club Together",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+17182887989"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "c2a11459-b673-4bd9-ab42-70066bf4beb2",
+    "name": "Клуб At First Sight",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+13474474755"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7b82bdbc-31fb-4e2a-a137-b608439ff9dd",
+    "name": "Клуб знакомств Eva''s Apple",
+    "changes": {},
+    "fill": {
+      "city": "NY 10016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY%2010016",
+      "phone": "+13477287364"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "847a7116-7c7b-4a97-9a55-eb75b6a2b3e9",
+    "name": "Bally's Sports Clubs",
+    "changes": {},
+    "fill": {
+      "address_line": "139 West 32nd Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%2032nd%20Street%20139%2C%20New%20York%2C%20NY",
+      "phone": "+12124651750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3d86ad06-af6f-49a4-8350-033f764f73e1",
+      "slug": "svoi-bally-s-sports-clubs"
+    }
+  },
+  {
+    "id": "e4e804a3-c1f4-4d74-8fac-1ffd10f75aec",
+    "name": "Le Cachet Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "39 East 30th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2030th%20Street%2039%2C%20New%20York%2C%20NY",
+      "website": "http://www.lecachetspa.com",
+      "phone": "+12124489823"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "75fd4b70-9507-4e53-8559-9c7a6ee66457",
+      "slug": "svoi-le-cachet-spa"
+    }
+  },
+  {
+    "id": "e7e53382-4b37-405a-a87c-7f5a76339c7f",
+    "name": "Russian Turkish Baths",
+    "changes": {},
+    "fill": {
+      "address_line": "268 East 10th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10009",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2010th%20Street%20268%2C%20New%20York%2C%20NY%2010009",
+      "phone": "+12126749250"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "05d70e22-3815-49e5-bb3b-ff71f8caff5b",
+      "slug": "svoi-russian-turkish-baths"
+    }
+  },
+  {
+    "id": "9796daa1-2fc7-43d0-8304-78e98c7bb8c8",
+    "name": "Cafe Matreshka - Restaurants",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+12127775227"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "4166228d-c758-4884-8538-fb6268e89aac",
+    "name": "The Wall Street Bath and Spa Русская Баня",
+    "changes": {},
+    "fill": {
+      "address_line": "88 Fulton Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fulton%20Street%2088%2C%20New%20York%2C%20NY",
+      "website": "http://www.wallstreetbath.com",
+      "phone": "+12127668600",
+      "instagram_url": "https://www.instagram.com/wallstreetbath"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ddc09069-73cc-4887-8eb3-d182a457c0e7",
+      "slug": "svoi-the-wall-street-bath-and-spa"
+    }
+  },
+  {
+    "id": "1f08b276-516a-4edc-8c96-5dc55667268d",
+    "name": "Sergejs General Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "3060 Edwin Avenue",
+      "location_precision": "street",
+      "city": "Fort lee",
+      "state_code": "US-NJ",
+      "postal_code": "07024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Edwin%20Avenue%203060%2C%20Fort%20lee%2C%20NJ%2007024",
+      "phone": "+19143097321"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8fcc48d8-355b-4995-9d46-fb0b5d7a876e",
+      "slug": "svoi-sergejs-general-construction"
+    }
+  },
+  {
+    "id": "39daa923-b34c-43ed-bf50-d567d32962fc",
+    "name": "agir elektrical solution",
+    "changes": {},
+    "fill": {
+      "address_line": "2755 Harway Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harway%20Avenue%202755%2C%20New%20York%2C%20NY",
+      "phone": "+17186760564"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d0137f92-f19e-4b3b-ae37-38688120b28f",
+      "slug": "svoi-agir-elektrical-solution"
+    }
+  }
+]

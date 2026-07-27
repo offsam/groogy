@@ -1,0 +1,487 @@
+[
+  {
+    "id": "ff3c7a0f-8f97-4ea3-b0bc-f8ca66a45158",
+    "name": "Ulibka Childrens House",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "6763 Longtree Drive",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Longtree%20Drive%206763%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472790277"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f3143365-7571-4f20-b692-3a6c69f90a19",
+      "slug": "svoi-ulibka-childrens-house"
+    }
+  },
+  {
+    "id": "2676e517-9ccd-4fc4-9e41-58a0d125668c",
+    "name": "NELSON CHILDCARE",
+    "changes": {},
+    "fill": {
+      "address_line": "3835 Willow Road",
+      "location_precision": "street",
+      "city": "Northfield Township",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Willow%20Road%203835%2C%20Northfield%20Township%2C%20IL",
+      "website": "http://gbnchildcare.com",
+      "phone": "+18475643305",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4141d1b5-ad8b-4737-907b-336c4b59d374",
+      "slug": "svoi-nelson-childcare"
+    }
+  },
+  {
+    "id": "0a4bc368-93f3-459a-9265-f56519757804",
+    "name": "NORTHBROOK",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL",
+      "phone": "+18476630708"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "31c29005-01aa-4132-8303-ac91bbc5f9ae",
+    "name": "COUNTYSIDE MONTESSORI SCHOOL",
+    "changes": {},
+    "fill": {
+      "address_line": "1985 Pfingsten Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pfingsten%20Road%201985%2C%20Northbrook%2C%20IL",
+      "website": "http://www.countrysidemontessori.org",
+      "phone": "+18474981105"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eed7074c-33d7-475d-a454-72e2325e9b98",
+      "slug": "svoi-countyside-montessori-school"
+    }
+  },
+  {
+    "id": "a8730205-2396-47ae-8fe8-86752ba1effc",
+    "name": "BMW Knauz",
+    "changes": {},
+    "fill": {
+      "address_line": "407 Skokie Highway",
+      "location_precision": "street",
+      "city": "Lake bluff",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Highway%20407%2C%20Lake%20bluff%2C%20IL",
+      "phone": "+18476045001"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3de003a7-8ebb-4c6e-80a6-db324c3a1be9",
+      "slug": "svoi-bmw-knauz"
+    }
+  },
+  {
+    "id": "08d100dd-e279-431a-b5fc-d3aa64cc4ba9",
+    "name": "Bill Sullivan Pontiac INC",
+    "changes": {},
+    "fill": {
+      "address_line": "777 West Dundee Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%20777%2C%20Arlington%20heights%2C%20IL",
+      "phone": "+18473926660"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dcf27010-0bff-42c7-8ff4-f8f09b4fce86",
+      "slug": "svoi-bill-sullivan-pontiac-inc"
+    }
+  },
+  {
+    "id": "7ed0b083-f6a4-43e5-8bc7-e7fa078a9795",
+    "name": "Chicagoland Auto Exchange",
+    "changes": {},
+    "fill": {
+      "address_line": "1st Street 2050",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1st%20Street%202050%2C%20Highland%20Park%2C%20IL",
+      "phone": "+18479260200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9bc52ca2-c91b-49eb-beb8-d8b23ab94ee0",
+      "slug": "svoi-chicagoland-auto-exchange"
+    }
+  },
+  {
+    "id": "f932102c-faae-40e2-a7eb-f9de16b13609",
+    "name": "BMW By Fields",
+    "changes": {},
+    "fill": {
+      "address_line": "700 Frontage Road",
+      "location_precision": "street",
+      "city": "Northfield",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Frontage%20Road%20700%2C%20Northfield%2C%20IL",
+      "phone": "+18474415300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "df47432a-8592-4a67-a31e-02841dd35fbe",
+      "slug": "svoi-bmw-by-fields"
+    }
+  },
+  {
+    "id": "3ea04f1a-d33f-4537-a63c-20dee515e742",
+    "name": "Bredemann Lexus In Glenview",
+    "changes": {},
+    "fill": {
+      "address_line": "2000 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%202000%2C%20Glenview%2C%20IL",
+      "website": "http://www.bredemannlexus.com",
+      "phone": "+18477296000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "97c1bc62-651a-4442-ab3a-af05d65bbdcd",
+      "slug": "svoi-bredemann-lexus-in-glenview"
+    }
+  },
+  {
+    "id": "08c4b0a5-740e-4573-be9b-063e8ee2c830",
+    "name": "Autobarn VW Chrysler-Jeep",
+    "changes": {},
+    "fill": {
+      "address_line": "1012 Chicago Avenue",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%20Avenue%201012%2C%20Evanston%2C%20IL",
+      "phone": "+18478667600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ebb94200-9595-497f-825d-4c303645b483",
+      "slug": "svoi-autobarn-vw-chrysler-jeep"
+    }
+  },
+  {
+    "id": "87a39a88-51a0-42a6-b768-d59aeaee0fe9",
+    "name": "Bernard Auto Group",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+18473621400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2296d992-7416-4c46-bc1b-4d69d4be9156",
+    "name": "Alex Kelrikh Mortgage Consulting",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buffalo%20grove%2C%20IL",
+      "phone": "+18479620848"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "028ae0d8-42ab-4cea-9bc8-bd01cfb9b8d2",
+    "name": "Diversified Alliance Funding",
+    "changes": {},
+    "fill": {
+      "address_line": "289 Brunswick Drive",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brunswick%20Drive%20%20289%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18472243817"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bebdb30b-6d37-4f42-89e5-7938df16590d",
+      "slug": "svoi-diversified-alliance-funding"
+    }
+  },
+  {
+    "id": "eb291746-4693-49a8-a1f2-bc3d279f2ea6",
+    "name": "Vitaliy Feldman Financial Services Representative",
+    "changes": {},
+    "fill": {
+      "address_line": "2150 East Lake Cook Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lake%20Cook%20Road%202150%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474953830"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "40b75e90-712b-4e9d-bf41-4f87f4919b7e",
+      "slug": "svoi-vitaliy-feldman-financial-services-representativ"
+    }
+  },
+  {
+    "id": "b251675c-d0f1-411d-8a2a-e869b96cfe62",
+    "name": "Lion Financial Business Group",
+    "changes": {},
+    "fill": {
+      "address_line": "624 Anthony Trail",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Anthony%20Trail%20624%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18472911624"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "75e9fc5c-d970-4814-b261-e9cfb2fe307d",
+      "slug": "svoi-lion-financial-business-group"
+    }
+  },
+  {
+    "id": "7933e8fa-a84a-4e79-9ae5-9ad6a4b815a6",
+    "name": "Lora Bezborodko CPA",
+    "changes": {},
+    "fill": {
+      "address_line": "1040 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%201040%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18476685672"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "59722f97-7845-4a3e-a73e-df409ef5a913",
+      "slug": "svoi-lora-bezborodko-cpa"
+    }
+  },
+  {
+    "id": "41847a40-951c-4ae5-b5e2-9077deb6caab",
+    "name": "A-1 Mortgage",
+    "changes": {},
+    "fill": {
+      "address_line": "95 Revere Drive",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Revere%20Drive%2095%2C%20Northbrook%2C%20IL%2060062",
+      "website": "http://mya1mortgage.com",
+      "phone": "+18475599282"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "204656e8-3c39-40e9-b9d1-244714fe5969",
+      "slug": "svoi-a-1-mortgage"
+    }
+  },
+  {
+    "id": "735860d2-8e7d-40b9-a374-ae6fee0e4394",
+    "name": "Robbins & Lloyd Mortgage: Sofya Fliman",
+    "changes": {},
+    "fill": {
+      "address_line": "Pfingsten Rd",
+      "location_precision": "street",
+      "city": "suite B 2847",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pfingsten%20Rd%2C%20suite%20B%202847%20%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18479108933"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f5f87b7b-93da-498c-9d21-17c51e3217d0",
+      "slug": "svoi-robbins-lloyd-mortgage-sofya-fliman"
+    }
+  },
+  {
+    "id": "5b9424dd-8a7a-4c67-9d22-e1045d393c55",
+    "name": "Gary Kreymer",
+    "changes": {},
+    "fill": {
+      "address_line": "4251 Commercial Way",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Commercial%20Way%204251%2C%20Glenview%2C%20IL",
+      "phone": "+18477360233"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "01fb4409-f2a5-4f9b-995d-908b77422c22",
+      "slug": "svoi-gary-kreymer"
+    }
+  },
+  {
+    "id": "ce033689-7d39-41ca-b0f2-f9445d9565c3",
+    "name": "WGS FInancial, Galina Feldman",
+    "changes": {},
+    "fill": {
+      "address_line": "4251 Commercial Way",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Commercial%20Way%204251%2C%20Glenview%2C%20IL",
+      "phone": "+18474789470"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a7de38aa-2c27-4f71-8f4e-c6c8c4cba9ff",
+      "slug": "svoi-wgs-financial-galina-feldman"
+    }
+  }
+]

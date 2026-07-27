@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-07-27T14:36:03.470447+00:00",
+  "mode": "apply",
+  "scanned": 964,
+  "updated": 4,
+  "fields": {
+    "city": 2,
+    "private_address_line": 2
+  },
+  "samples": [
+    {
+      "slug": "business-biz-205424-2829",
+      "name": "Ƥєđѫџʜѧ",
+      "patch": {
+        "city": "Irvine"
+      }
+    },
+    {
+      "slug": "svoi-holistic-weight-loss-with-lavender-lane-women-s-",
+      "name": "Holistic Weight Loss with Lavender Lane Women’s Health & Wellness",
+      "patch": {
+        "private_address_line": "4747 Holistic Weight Loss with Lavender Lane"
+      }
+    },
+    {
+      "slug": "svoi-kokshanian-artine-md",
+      "name": "Kokshanian Artine MD",
+      "patch": {
+        "private_address_line": "90 communities on the West Coast"
+      }
+    },
+    {
+      "slug": "yana-shvedova-180927",
+      "name": "Yana Shvedova",
+      "patch": {
+        "city": "Los Angeles"
+      }
+    }
+  ]
+}

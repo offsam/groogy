@@ -1,0 +1,200 @@
+{
+  "updated": 0,
+  "total": 11,
+  "rop_cards_indexed": 27,
+  "report": [
+    {
+      "slug": "svoi-julia-lobova-realtor",
+      "display_name": "Julia Lobova- Realtor",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/julia-lobova-realtor/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "region": "Orange County",
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-elena-rozen",
+      "display_name": "Elena Rozen",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/elena-rozen/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "region": "Orange County",
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-svetlana-cameron-senior-mortgage-loan-officer",
+      "display_name": "Svetlana Cameron – Senior Mortgage Loan Officer",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/loan-officer-svetlana-brikina-new-ad/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://lo.primelending.com/svetlana.cameron",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "postal_code": "92618",
+        "city": "Irvine",
+        "region": "Orange County",
+        "email": "svetlana.cameron@primelending.com"
+      }
+    },
+    {
+      "slug": "svoi-anatoly-sigalov",
+      "display_name": "Anatoly Sigalov",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/anatoly-sigalov-new/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "region": "Orange County",
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-elza-gousseva-nezlin",
+      "display_name": "Elza Gousseva-Nezlin",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/notary-translation/elza-gousseva-nezlin/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "http://elzagus.wix.com/elzanotary",
+        "address": null,
+        "image": false
+      },
+      "patch": {
+        "city": "Anaheim",
+        "region": "Orange County"
+      }
+    },
+    {
+      "slug": "svoi-olga-johnson-music-teacher",
+      "display_name": "Olga Johnson- Music Teacher",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/education-activities/olga-johnson-music-teacher/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "region": "Orange County",
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-holistic-weight-loss-with-lavender-lane-women-s-",
+      "display_name": "Holistic Weight Loss with Lavender Lane Women’s Health & Wellness",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/medical-doctors/holistic-weight-loss-with-lavender-lane-womens-health-wellness-new-ad/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://lavlane.com/#contact",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "private_address_line": "2026 Olga Lannom 117 0 Lavender Lane",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "region": "Orange County",
+        "email": "info@lavlane.com"
+      }
+    },
+    {
+      "slug": "svoi-svetlana-boukhny-lawyer",
+      "display_name": "Svetlana Boukhny – Lawyer",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/lawyers/law-offices-of-svetlana-boukhny-2/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "private_address_line": "8335 28356 Chat Dr",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "92677",
+        "city": "Laguna Niguel",
+        "region": "Orange County",
+        "website": null,
+        "email": "sboukhny@gmail.com"
+      }
+    },
+    {
+      "slug": "svoi-massage-viktoria-dolidze",
+      "display_name": "Massage: Viktoria Dolidze",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/medical-doctors/viktoria-dolidze-new/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.HealthAndHealingOasis.com",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "private_address_line": "4590 McArthur Blvd., Suite 550",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "92660",
+        "city": "Newport Beach",
+        "region": "Orange County",
+        "email": "viktoria@tut.by"
+      }
+    },
+    {
+      "slug": "svoi-sarina-browndorf-realtor",
+      "display_name": "Sarina Browndorf – Realtor",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/sarina-browndorf-realtor-new-ad/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "region": "Orange County",
+        "website": null
+      }
+    },
+    {
+      "slug": "alyona-koolhaas-150611",
+      "display_name": "Alyona Koolhaas",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/education-activities/esl-and-russian-teacher-alyona-koolhaas-new/",
+      "had_card": true,
+      "before": {
+        "city": "Orange",
+        "website": "https://www.fchconstruction.org",
+        "address": null,
+        "image": true
+      },
+      "patch": {
+        "region": "Orange County",
+        "website": null,
+        "email": "alyona.koolhaas@gmail.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+[
+  {
+    "id": "8bac185a-97d3-4f2c-a647-1fd52a430ee8",
+    "name": "Atlantic Express",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "8801 S. 78 Avenue",
+      "location_precision": "street",
+      "city": "Bridgeview",
+      "state_code": "US-IL",
+      "postal_code": "60455",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%2078%20Avenue%208801%2C%20Bridgeview%2C%20IL%20%2060455",
+      "phone": "+17085999680"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c024939f-ab4e-48d5-860b-c09b619281bc",
+      "slug": "svoi-atlantic-express"
+    }
+  },
+  {
+    "id": "b6e29fd5-13c7-4abb-9244-9764a7a6ed06",
+    "name": "Компанія Чайка / Chaika Company",
+    "changes": {},
+    "fill": {
+      "address_line": "5736 West Belmont Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60634",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Belmont%20Avenue%205736%2C%20Chicago%2C%20IL%2060634",
+      "phone": "+17738584141"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "67b713c7-053a-475e-a3a3-d187b8e440d5",
+      "slug": "svoi-chaika-company"
+    }
+  },
+  {
+    "id": "d420dd36-c713-43b1-b67f-577dfac2a514",
+    "name": "Chaika Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "2319 W Chicago Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Chicago%20Ave%202319%2C%20Chicago%2C%20IL%2060622",
+      "phone": "+17734866563"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a09c4081-6646-4e5e-aafd-141bb3bf8a92",
+      "slug": "svoi-chaika-inc"
+    }
+  },
+  {
+    "id": "94cb6f96-5d6b-4d0c-9884-e4c7aeea0713",
+    "name": "Meest - Chicago",
+    "changes": {},
+    "fill": {
+      "address_line": "2235 West Chicago Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chicago%20Avenue%202235%2C%20Chicago%2C%20IL",
+      "phone": "+17734899225"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aa593ec5-3660-4517-a0a2-c27dc7a69785",
+      "slug": "svoi-meest-chicago"
+    }
+  },
+  {
+    "id": "da9e6fe5-31e4-4c37-902e-93249eba4f70",
+    "name": "Z Fine Jewelry and Art",
+    "changes": {},
+    "fill": {
+      "address_line": "511 Hawthorn Center",
+      "location_precision": "street",
+      "city": "Vernon Hills",
+      "state_code": "US-IL",
+      "postal_code": "60061",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hawthorn%20Center%20511%2C%20Vernon%20Hills%2C%20IL%2060061",
+      "phone": "+18476808570"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "16a26ee8-fe6b-4f42-a6f3-74eac1c0ec67",
+      "slug": "svoi-z-fine-jewelry-and-art"
+    }
+  },
+  {
+    "id": "a7a130ee-c830-42ad-9990-b7f826dace70",
+    "name": "Alkota Russian Treasures Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "212 E. Scranton Avenue",
+      "location_precision": "street",
+      "city": "Lake bluff",
+      "state_code": "US-IL",
+      "postal_code": "60044",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E.%20Scranton%20Avenue%20212%2C%20Lake%20bluff%2C%20IL%2060044",
+      "phone": "+18476159138"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5073f3d4-cdfd-47a8-8058-c22ac7e123f1",
+      "slug": "svoi-alkota-russian-treasures-inc"
+    }
+  },
+  {
+    "id": "abee1b9b-6dea-4f60-80b8-d71bb1775aff",
+    "name": "DorTrak Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "Lincoln Avenue 27W570",
+      "location_precision": "street",
+      "city": "Winfield",
+      "state_code": "US-IL",
+      "postal_code": "60190",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Avenue%2027W570%2C%20Winfield%2C%20IL%2060190",
+      "phone": "+18478889791"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6b3a0ba7-4704-4b99-b620-f296bf7f9e08",
+      "slug": "svoi-dortrak-inc"
+    }
+  },
+  {
+    "id": "c18ed191-e93f-4b18-9326-aa5ab7ff2530",
+    "name": "IDS Interior Design Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "2170 Plum Grove Road",
+      "location_precision": "street",
+      "city": "Rolling Meadows",
+      "state_code": "US-IL",
+      "postal_code": "60008",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Plum%20Grove%20Road%202170%2C%20Rolling%20Meadows%2C%20IL%2060008",
+      "phone": "+18477011500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e15f766b-710d-4239-9b71-bc6a51bed494",
+      "slug": "svoi-ids-interior-design-studio"
+    }
+  },
+  {
+    "id": "1572be80-dd3c-4638-b200-05ec677c7a43",
+    "name": "Al and Al Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "400 West Dundee Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%20400%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18479417500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f400489c-f070-4826-b1c0-0ec42211392d",
+      "slug": "svoi-al-and-al-flowers"
+    }
+  },
+  {
+    "id": "78b8378a-6fc2-45e4-99e1-fd778c1ad252",
+    "name": "Flower 21",
+    "changes": {},
+    "fill": {
+      "address_line": "1145 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Riverwoods",
+      "state_code": "US-IL",
+      "postal_code": "60015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%201145%2C%20Riverwoods%2C%20IL%2060015",
+      "phone": "+18474199600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4ef903e-2627-4c02-960c-831b39d3a2e4",
+      "slug": "svoi-flower-21"
+    }
+  },
+  {
+    "id": "aec9b2a6-8c04-4173-8d23-9c9eb5838644",
+    "name": "Yanni Design Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "500 Quail Hollow Drive",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Quail%20Hollow%20Drive%20500%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18474199999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3fa786fc-7b16-41eb-9015-a4672c6280bd",
+      "slug": "svoi-yanni-design-studio"
+    }
+  },
+  {
+    "id": "47a71462-802d-4cb7-a44e-ac0410b817f3",
+    "name": "Russian Shop-Maison Russe",
+    "changes": {},
+    "fill": {
+      "address_line": "1720 Ogden Avenue",
+      "location_precision": "street",
+      "city": "Lyle",
+      "state_code": "US-IL",
+      "postal_code": "60532",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ogden%20Avenue%201720%2C%20Lyle%2C%20IL%2060532",
+      "phone": "+16309635160"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "588de0f6-d6b0-4c50-b83e-8453deee1805",
+      "slug": "svoi-russian-shop-maison-russe"
+    }
+  },
+  {
+    "id": "0f5a9055-f12f-4b6f-afa3-862d73debcb5",
+    "name": "Zlata",
+    "changes": {},
+    "fill": {
+      "address_line": "822 Dawes Avenue",
+      "location_precision": "street",
+      "city": "Wheaton",
+      "state_code": "US-IL",
+      "postal_code": "60189",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dawes%20Avenue%20822%2C%20Wheaton%2C%20IL%2060189",
+      "phone": "+16309239521"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "88931158-4fe0-45cf-89ae-2eee57158b72",
+      "slug": "svoi-zlata"
+    }
+  },
+  {
+    "id": "84f47e8a-d090-47ae-91e4-fe82a7732e66",
+    "name": "C.D.Peacock",
+    "changes": {},
+    "fill": {
+      "address_line": "140 Woodfield Mall",
+      "location_precision": "street",
+      "city": "Schaumburg",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodfield%20Mall%20140%2C%20Schaumburg%2C%20IL",
+      "website": "http://www.cdpeacock.com",
+      "phone": "+18476196560",
+      "instagram_url": "https://www.instagram.com/cdpeacock",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7d4f0120-66af-44d8-94a4-fdfd40728782",
+      "slug": "svoi-c-d-peacock"
+    }
+  },
+  {
+    "id": "f479d8dc-28bf-4db9-8443-610679fd6ac9",
+    "name": "CITY OF JOY Skokie",
+    "changes": {},
+    "fill": {
+      "city": "56",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.Milwaukee%2C%2056%20%2C%20Wheeling%2C%20IL",
+      "phone": "+18476771236"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "077124d8-c802-4c9d-b6a8-d6988dc2be9c",
+    "name": "Di Moda Jewelers",
+    "changes": {},
+    "fill": {
+      "address_line": "337 East Dundee Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dundee%20Road%20337%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18474595915"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6b3a3523-9e54-4757-9a41-ee4f8ef3410a",
+      "slug": "svoi-di-moda-jewelers"
+    }
+  },
+  {
+    "id": "41451dde-fbc5-49d1-8c55-40e3ff01a5a7",
+    "name": "A Zodiac Flowers Gifts",
+    "changes": {},
+    "fill": {
+      "address_line": "600 Central Avenue",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-IL",
+      "postal_code": "60035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Central%20Avenue%20600%2C%20Highland%20Park%2C%20IL%2060035",
+      "phone": "+18472663502"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "27dec52a-ba4b-4b91-972e-9536676bb182",
+      "slug": "svoi-a-zodiac-flowers-gifts"
+    }
+  },
+  {
+    "id": "9fa91b2d-f7b7-47f6-8ba7-6996d26199e5",
+    "name": "Lana's Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "9208 Waukegan Road",
+      "location_precision": "street",
+      "city": "Morton Grove",
+      "state_code": "US-IL",
+      "postal_code": "60053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%209208%2C%20Morton%20Grove%2C%20IL%2060053",
+      "phone": "+18474708010"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ee527f4-25fd-4734-9c28-c073e7f31afa",
+      "slug": "svoi-lana-s-flowers"
+    }
+  },
+  {
+    "id": "0fabc0a1-bc08-4dd6-9580-07bb5813e89a",
+    "name": "Anthony Fur Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "7900 N. Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Milwaukee%20Ave%207900%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18475830530"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7e66a832-fc54-46e8-bca3-38b027db0b37",
+      "slug": "svoi-anthony-fur-studio"
+    }
+  },
+  {
+    "id": "c5fdc17e-a100-424f-815e-92129ce043e3",
+    "name": "TRAEGER FURS",
+    "changes": {},
+    "fill": {
+      "address_line": "7841 Lincoln Ave",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Ave%207841%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18476735078"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "df5db673-365b-4b7e-89fd-8b06560d288c",
+      "slug": "svoi-traeger-furs"
+    }
+  }
+]

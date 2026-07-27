@@ -4,7 +4,11 @@ export type DirectorySourceId =
   | "svoi"
   | "boston_pages"
   | "zerkalo_mn"
-  | "ruspagesusa";
+  | "ruspagesusa"
+  | "to4ka"
+  | "slavic_seattle"
+  | "our_texas"
+  | "echoru";
 
 export type DirectorySourceMeta = {
   id: DirectorySourceId;
@@ -77,6 +81,46 @@ export const DIRECTORY_SOURCES: Record<DirectorySourceId, DirectorySourceMeta> =
         "Национальный каталог ruspagesusa.com (карточки компаний)",
       homepage: "https://ruspagesusa.com/catalog/",
       regionHint: "USA",
+    },
+    to4ka: {
+      id: "to4ka",
+      slug: "to4ka",
+      title: "to4ka.us",
+      shortTitle: "to4ka",
+      description:
+        "Каталог «Бизнес и услуги» to4ka.us (объявления по США)",
+      homepage: "https://to4ka.us/catalog/all-usa",
+      regionHint: "USA",
+    },
+    slavic_seattle: {
+      id: "slavic_seattle",
+      slug: "slavic-seattle",
+      title: "Slavic Seattle",
+      shortTitle: "Slavic Seattle",
+      description:
+        "Каталог русскоязычных бизнесов Вашингтона (slavicseattle.com)",
+      homepage: "https://slavicseattle.com/businesses",
+      regionHint: "Washington",
+    },
+    our_texas: {
+      id: "our_texas",
+      slug: "our-texas",
+      title: "Our Texas",
+      shortTitle: "Our Texas",
+      description:
+        "Бизнес-справочник газеты «Наш Техас» (ourtx.com/yellow-pages)",
+      homepage: "https://ourtx.com/yellow-pages",
+      regionHint: "Texas",
+    },
+    echoru: {
+      id: "echoru",
+      slug: "echoru",
+      title: "EchoRU",
+      shortTitle: "EchoRU",
+      description:
+        "Справочник русских бизнесов LA / San Diego / Phoenix (echoru.com)",
+      homepage: "https://www.echoru.com/russian-business-directory/",
+      regionHint: "SoCal / Arizona",
     },
   };
 

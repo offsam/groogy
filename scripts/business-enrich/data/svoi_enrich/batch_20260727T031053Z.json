@@ -1,0 +1,1318 @@
+[
+  {
+    "id": "7b7e034b-70ad-460a-95a0-014bce3ca6bf",
+    "name": "OnQ Financial Inc. / ипотечный консультант - Габор Влад",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "201 NE Park Plaza Drive",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=201%20NE%20Park%20Plaza%20Drive%2C%20Vancouver%2C%20WA",
+      "phone": "+15033801636"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6be09ccf-c39f-4850-88d2-2284dec96abf",
+      "slug": "svoi-onq-financial-inc"
+    }
+  },
+  {
+    "id": "e37de32c-4614-456c-901a-5b93f66fad79",
+    "name": "Landmark Professional Mortgage Company",
+    "changes": {},
+    "fill": {
+      "address_line": "9020 SW Washington Sq Rd",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9020%20SW%20Washington%20Sq%20Rd%2C%20Portland%2C%20OR",
+      "website": "http://www.landmarkprofessional.net",
+      "phone": "+15035818100",
+      "email": "hello@landmarkprofessional.net"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "911a1f6e-5ff4-49ed-b07c-fe9a909c551b",
+      "slug": "svoi-landmark-professional-mortgage-company"
+    }
+  },
+  {
+    "id": "ec144f98-9e5b-4ed2-a283-23f254f297d7",
+    "name": "Financial Advisor at Edward Jones - Ben Chumov",
+    "changes": {},
+    "fill": {
+      "address_line": "722 N Main Avenue",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=722%20N%20Main%20Avenue%2C%20Portland%2C%20OR",
+      "website": "https://www.edwardjones.com/financial-advisor",
+      "phone": "+15034222982"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "728a3ac6-5167-47fe-ad8a-956b96e4e36d",
+      "slug": "svoi-financial-advisor-at-edward-jones-ben-chumov"
+    }
+  },
+  {
+    "id": "db876b49-89bd-4cd7-9e8d-055f67d9ffd6",
+    "name": "Umpqua Bank",
+    "changes": {},
+    "fill": {
+      "address_line": "1 SW Columbia St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1%20SW%20Columbia%20St%2C%20Portland%2C%20OR",
+      "website": "http://www.umpquabank.com",
+      "phone": "+18664867782"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6a719b9-1bfd-4400-ac46-f5d3d14ea3ec",
+      "slug": "svoi-umpqua-bank"
+    }
+  },
+  {
+    "id": "cd1d7284-09e0-4810-9722-a87f1a8b4845",
+    "name": "Vadimages",
+    "changes": {},
+    "fill": {
+      "address_line": "2266 Southeast 174th Avenue",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97233",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%20174th%20Avenue%202266%2C%20Portland%2C%20OR%2097233",
+      "website": "http://vadimages.com",
+      "phone": "+19712552633",
+      "instagram_url": "https://www.instagram.com/vadimages",
+      "email": "create@vadimages.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b8317859-adf2-4a7e-aa75-ce47cfc5c01b",
+      "slug": "svoi-vadimages"
+    }
+  },
+  {
+    "id": "3180c72e-d947-49f1-97d8-59832790ddbc",
+    "name": "Журнал Афиша",
+    "changes": {},
+    "fill": {
+      "address_line": "17235 SE Division St.",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17235%20SE%20Division%20St.%2C%20Portland%2C%20OR",
+      "phone": "+19712384687"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "36aaafb7-66fc-4e9f-abc1-5efd407c18ab",
+      "slug": "svoi-biz-57"
+    }
+  },
+  {
+    "id": "6225ca22-9bbc-4ddc-b0b9-18abc77f1950",
+    "name": "Premier Euro Market",
+    "changes": {},
+    "fill": {
+      "address_line": "11216 NE Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11216%20NE%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA",
+      "website": "https://premiereurofoodmarket.business.site",
+      "phone": "+13608859384"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e3173216-97d7-4367-8d75-fa98abed8441",
+      "slug": "svoi-premier-euro-market"
+    }
+  },
+  {
+    "id": "366d252d-8636-48fc-8dc8-c562fa4246af",
+    "name": "Victoria Volkov - Viking Furniture",
+    "changes": {},
+    "fill": {
+      "address_line": "11300 NE Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11300%20NE%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA",
+      "website": "http://www.vikingfurnitureonline.com",
+      "phone": "+13608828088",
+      "instagram_url": "https://www.instagram.com/expireddomainscom"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b2b23f0a-03e7-49aa-8587-b9a20d339ec5",
+      "slug": "svoi-victoria-volkov-viking-furniture"
+    }
+  },
+  {
+    "id": "e5586f9f-e602-4817-82c5-4057b9e4eeb4",
+    "name": "Andreys Produce",
+    "changes": {},
+    "fill": {
+      "address_line": "11210 NE Fourth Plain Rd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11210%20NE%20Fourth%20Plain%20Rd%2C%20Vancouver%2C%20WA%2098662",
+      "phone": "+13602130272"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2f7039c0-fa19-4f1e-8262-f943d5e03cc4",
+      "slug": "svoi-andreys-produce"
+    }
+  },
+  {
+    "id": "d9b5aa01-23a9-4a1f-a9d5-08f24836943d",
+    "name": "Mama's Russian Food - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "623 N Pacific Hwy",
+      "location_precision": "street",
+      "city": "Woodburn",
+      "state_code": "US-OR",
+      "postal_code": "97071",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=623%20N%20Pacific%20Hwy%2C%20Woodburn%2C%20OR%2097071",
+      "phone": "+15039810981"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "84d9f8e9-c5f4-45d7-b917-76567d1713cd",
+      "slug": "svoi-mama-s-russian-food-restaurants"
+    }
+  },
+  {
+    "id": "f07dac14-e3b1-45c1-8fe4-d1ec53f9c1cf",
+    "name": "Royal Bakery",
+    "changes": {},
+    "fill": {
+      "address_line": "1884 SW 35th Street",
+      "location_precision": "street",
+      "city": "Gresham",
+      "state_code": "US-OR",
+      "postal_code": "97080",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1884%20SW%2035th%20Street%2C%20Gresham%2C%20OR%2097080",
+      "phone": "+15033510638"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "333e4128-84f8-4e14-9a1f-7371af03f564",
+      "slug": "svoi-royal-bakery"
+    }
+  },
+  {
+    "id": "86d1010d-81de-4d5c-9371-ee95d77e06ee",
+    "name": "Global Importing Group / CEO - Mike Sharyan",
+    "changes": {},
+    "fill": {
+      "address_line": "4201 NE 161st Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4201%20NE%20161st%20Ave%2C%20Portland%2C%20OR",
+      "website": "http://globalimportinggroup.com",
+      "phone": "+15033348564"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "caff67f5-aa0a-4df6-999c-6bfcf78f33f0",
+      "slug": "svoi-global-importing-group-ceo-mike-sharyan"
+    }
+  },
+  {
+    "id": "426703d9-6abb-4240-a5ae-518e3303f3b2",
+    "name": "O Flowers",
+    "changes": {},
+    "fill": {
+      "city": "OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oregon%2C%20OR",
+      "phone": "+15038165561"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "34e0fe70-6b7c-4aba-bd95-30edb4878b10",
+    "name": "Gastronome: European Grocery & Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "2707 NE 114th Ave",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2707%20NE%20114th%20Ave%2C%20Vancouver%2C%20WA",
+      "website": "http://www.stumptowncoffee.com",
+      "phone": "+13602581185",
+      "postal_code": "97214",
+      "instagram_url": "https://www.instagram.com/stumptowncoffee"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "794dbdd9-15da-4283-9d84-79f8079bb5d7",
+      "slug": "svoi-gastronome-european-grocery-deli"
+    }
+  },
+  {
+    "id": "afc2d719-79ba-4439-85db-029289016a85",
+    "name": "Morgan Jewelers (Happy Valley)",
+    "changes": {},
+    "fill": {
+      "address_line": "12000 SE 82nd Ave",
+      "location_precision": "street",
+      "city": "Happy valley",
+      "state_code": "US-OR",
+      "postal_code": "97086",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=12000%20SE%2082nd%20Ave%2C%20Happy%20valley%2C%20OR%2097086",
+      "website": "https://www.morganjewelers.com",
+      "phone": "+15036536086",
+      "instagram_url": "https://www.instagram.com/officialmorganjewelers"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "72a8422c-c27d-49e7-af92-2108701c3c0c",
+      "slug": "svoi-morgan-jewelers-happy-valley"
+    }
+  },
+  {
+    "id": "0da3e42c-9876-42ce-8ad0-dc37908f117a",
+    "name": "Natalia's Cafe - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "437 NE 4th Ave",
+      "location_precision": "street",
+      "city": "Camas",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=437%20NE%204th%20Ave%2C%20Camas%2C%20WA",
+      "website": "http://natalias-cafe-camas.sites.tablehero.com",
+      "phone": "+13608343421"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bf2d6f43-1b01-46df-b6f3-4ce765f741c3",
+      "slug": "svoi-natalia-s-cafe-restaurants"
+    }
+  },
+  {
+    "id": "2f2e6f15-05dc-43d1-8f32-472ba77df3e8",
+    "name": "Svitoch",
+    "changes": {},
+    "fill": {
+      "address_line": "4804 NE Thurston Way",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4804%20NE%20Thurston%20Way%2C%20Vancouver%2C%20WA%2098662",
+      "website": "http://sweet-touchbakery.com",
+      "phone": "+13608966693",
+      "instagram_url": "https://www.instagram.com/sweettouchcafe",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e9b6a0b4-d94f-4b28-83dd-ef7260a1ba74",
+      "slug": "svoi-svitoch"
+    }
+  },
+  {
+    "id": "9d49f903-fbaf-48e5-8ef3-e0fb62386e74",
+    "name": "Style Your Event",
+    "changes": {},
+    "fill": {
+      "address_line": "116 Northwest 153rd Street",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98685",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%20153rd%20Street%20116%2C%20Vancouver%2C%20WA%2098685",
+      "website": "https://www.styleyourevents.co.uk",
+      "phone": "+13608526947"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "be2714fe-be7f-45f8-8349-d54ffbc82c0b",
+      "slug": "svoi-style-your-event"
+    }
+  },
+  {
+    "id": "0e331337-f632-44e0-b0ef-609136e25835",
+    "name": "Elegant Weddings by Lana",
+    "changes": {},
+    "fill": {
+      "address_line": "19300 SE 9th Cir",
+      "location_precision": "street",
+      "city": "Camas",
+      "state_code": "US-WA",
+      "postal_code": "98607",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=19300%20SE%209th%20Cir%2C%20Camas%2C%20WA%2098607",
+      "phone": "+13606244063"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1a51a974-e54b-4621-8880-f627d2d3d339",
+      "slug": "svoi-elegant-weddings-by-lana"
+    }
+  },
+  {
+    "id": "d711a456-47ae-4a44-a68f-f7f64bd0284d",
+    "name": "Luxury Events by Victoria",
+    "changes": {},
+    "fill": {
+      "address_line": "8678 Southeast 133rd Place",
+      "location_precision": "street",
+      "city": "Happy valley",
+      "state_code": "US-OR",
+      "postal_code": "97086",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%20133rd%20Place%208678%2C%20Happy%20valley%2C%20OR%2097086",
+      "website": "http://nwluxuryevents.com",
+      "phone": "+15035228267"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ad42fe48-de60-4054-9a44-243f7db7780b",
+      "slug": "svoi-luxury-events-by-victoria"
+    }
+  },
+  {
+    "id": "feb12710-97de-4358-b4ff-ea65e4966983",
+    "name": "INTRODUCING SILVER STAR FREIGHT, INC.",
+    "changes": {},
+    "fill": {
+      "address_line": "17002 NE 28t",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17002%20NE%2028t%2C%20Vancouver%2C%20WA",
+      "website": "https://www.silverstarfreight.com",
+      "phone": "+18666527195",
+      "postal_code": "98682",
+      "email": "silverstarfreightinc@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8601af0b-62b9-4d49-b1c1-dbbb4b453fc8",
+      "slug": "svoi-introducing-silver-star-freight-inc"
+    }
+  },
+  {
+    "id": "bd3f29ea-161a-4978-a6fd-dfda98f86517",
+    "name": "Русское Радио Америка 105.5 FM",
+    "changes": {},
+    "fill": {
+      "address_line": "16022 SE Stark St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=16022%20SE%20Stark%20St%2C%20Portland%2C%20OR",
+      "website": "http://www.rusradio.fm",
+      "phone": "+19718001055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "029d33b2-dfe6-4c9e-9f92-1618928c6715",
+      "slug": "svoi-105-5-fm"
+    }
+  },
+  {
+    "id": "f4678864-764c-47f7-a03a-06b49c646d6c",
+    "name": "Радио СВЕТ - 1520 AM - Портлендское Христианское Радио",
+    "changes": {},
+    "fill": {
+      "address_line": "5110 SE Stark St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5110%20SE%20Stark%20St%2C%20Portland%2C%20OR",
+      "website": "https://www.pdxrr.com",
+      "phone": "+15039721130"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0df40000-73f4-46d8-aa84-21a4ca7eee73",
+      "slug": "svoi-1520-am"
+    }
+  },
+  {
+    "id": "1e087659-a73d-4b8a-a957-a5301d7bae88",
+    "name": "Slavic Family Media Center - Olga Anischenko",
+    "changes": {},
+    "fill": {
+      "address_line": "17231 SE Division St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17231%20SE%20Division%20St%2C%20Portland%2C%20OR",
+      "website": "http://slavicfamily.org",
+      "phone": "+19713191130"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2574ce18-9bcc-4acd-b293-fefe22c1c768",
+      "slug": "svoi-slavic-family-media-center-olga-anischenko"
+    }
+  },
+  {
+    "id": "f7f1cc5a-2021-4ddd-99ca-a76e2363e0ca",
+    "name": "Библейская церковь ''Слово Благодати''",
+    "changes": {},
+    "fill": {
+      "address_line": "1317 NW 12th Ave",
+      "location_precision": "street",
+      "city": "Battle Ground",
+      "state_code": "US-WA",
+      "postal_code": "98604",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1317%20NW%2012th%20Ave%2C%20Battle%20Ground%2C%20WA%2098604",
+      "website": "https://www.slovo.org",
+      "phone": "+13606873962",
+      "instagram_url": "https://www.instagram.com/slovomedia"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7706a7ee-5200-44d4-9eaf-58a371f45dc3",
+      "slug": "svoi-biz-58"
+    }
+  },
+  {
+    "id": "a53e9c26-0a1c-4c03-8b89-a4c4ff4a702b",
+    "name": "TGR Logistics - Anatoly Rudnitsky",
+    "changes": {},
+    "fill": {
+      "address_line": "13990 Fir St",
+      "location_precision": "street",
+      "city": "Oregon",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13990%20Fir%20St%2C%20Oregon%2C%20OR",
+      "website": "https://www.tgrlogistics.com",
+      "phone": "+15039087200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "50a2e441-0c4e-4809-9714-d33071c79244",
+      "slug": "svoi-tgr-logistics-anatoly-rudnitsky"
+    }
+  },
+  {
+    "id": "a58bcb6f-9950-4629-ad07-92e083056ecf",
+    "name": "Дмитрий Алексеев - Klinger IGI, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "9325 SW Ridder Rd.",
+      "location_precision": "street",
+      "city": "# 420  Wilsonville",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9325%20SW%20Ridder%20Rd.%2C%20%23%20420%20%20Wilsonville%2C%20Oregon%2C%20OR",
+      "website": "http://klingerigi.com",
+      "phone": "+18004447157",
+      "email": "websales@klingerigi.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9c3633a6-5c8a-489f-b68b-b992ce9f41cd",
+      "slug": "svoi-klinger-igi-inc"
+    }
+  },
+  {
+    "id": "dede31a7-33a1-4432-959a-fa03cf0146c5",
+    "name": "Rocklin Plaza Dental",
+    "changes": {},
+    "fill": {
+      "address_line": "2160 Sunset Boulevard",
+      "location_precision": "street",
+      "city": "Rocklin",
+      "state_code": "US-CA",
+      "postal_code": "95765",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Boulevard%202160%2C%20Rocklin%2C%20CA%2095765",
+      "website": "http://www.rocklinplazadental.com",
+      "phone": "+19167874141"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5c96a6b1-0f8b-4269-a224-16665ffb4e15",
+      "slug": "svoi-rocklin-plaza-dental"
+    }
+  },
+  {
+    "id": "9d5ec4d8-6ccf-4c0d-87a2-8a47d9435892",
+    "name": "Family Tree Dental",
+    "changes": {},
+    "fill": {
+      "address_line": "6819 Lonetree Boulevard",
+      "location_precision": "street",
+      "city": "Rocklin",
+      "state_code": "US-CA",
+      "postal_code": "95765",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lonetree%20Boulevard%206819%2C%20Rocklin%2C%20CA%2095765",
+      "phone": "+19168653500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7ff28e2f-b070-4c65-bb58-3e4962bbcd6f",
+      "slug": "svoi-family-tree-dental"
+    }
+  },
+  {
+    "id": "7ef35a44-d585-4403-a304-0801a2104106",
+    "name": "Folsom Dental Group",
+    "changes": {},
+    "fill": {
+      "address_line": "1840 Prairie City Rd #200",
+      "location_precision": "street",
+      "city": "Folsom",
+      "state_code": "US-CA",
+      "postal_code": "95630",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1840%20Prairie%20City%20Rd%20%23200%2C%2C%20Folsom%2C%20CA%2095630",
+      "website": "http://www.folsomdentalgroup.com",
+      "phone": "+19163519808"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "761c3a2f-5ce9-40f3-abd7-dc39aa2e7a68",
+      "slug": "svoi-folsom-dental-group"
+    }
+  },
+  {
+    "id": "8b409af0-802d-4242-b00f-281cfe11cf67",
+    "name": "Каган Александр",
+    "changes": {},
+    "fill": {
+      "address_line": "3430 Balmoral Drive",
+      "location_precision": "street",
+      "city": "Arden arcade",
+      "state_code": "US-CA",
+      "postal_code": "95821",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Balmoral%20Drive%203430%2C%20Arden%20arcade%2C%20CA%2095821",
+      "phone": "+19166077478"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9c60527c-2688-4dce-a2fc-1d9b4e55a159",
+      "slug": "svoi-biz-59"
+    }
+  },
+  {
+    "id": "95f06dee-add0-40fb-9cd2-23519adb5e39",
+    "name": "Dr. Svetlana T. Vardanian, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2261 Douglas Boulevard",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "postal_code": "95661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Douglas%20Boulevard%202261%2C%20Roseville%2C%20CA%2095661",
+      "phone": "+19167837109"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "75ba2118-db15-4f51-83bc-f057993f93fc",
+      "slug": "svoi-dr-svetlana-t-vardanian-md"
+    }
+  },
+  {
+    "id": "8adf5ed9-4f36-4e8e-aa47-1c184abe6119",
+    "name": "Dufour Chiropractic",
+    "changes": {},
+    "fill": {
+      "address_line": "5959 Greenback Lane",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95621",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenback%20Lane%205959%2C%20Sitres%20heights%2C%20CA%2095621",
+      "phone": "+19163444590"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04eb28ad-1fc3-45f5-b4fe-b233d2d43d72",
+      "slug": "svoi-dufour-chiropractic"
+    }
+  },
+  {
+    "id": "cfecadaf-769e-4e88-b84f-326ded30b3db",
+    "name": "Терапевт Галина Бондар",
+    "changes": {},
+    "fill": {
+      "address_line": "2310 Van Ufford Lane",
+      "location_precision": "street",
+      "city": "Carmichael",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Ufford%20Lane%202310%2C%20Carmichael%2C%20CA",
+      "phone": "+19166165563"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "83d5445a-035d-4d6d-81a3-57f942161641",
+      "slug": "svoi-biz-8"
+    }
+  },
+  {
+    "id": "46c6ed01-dabd-4be1-b11a-efba85b066f0",
+    "name": "Victorias Health Products Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "6041 Greenback Lane",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenback%20Lane%206041%2C%20Sitres%20heights%2C%20CA",
+      "phone": "+19167221122"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8016a251-9b8e-468b-8af9-93069caf51d9",
+      "slug": "svoi-victorias-health-products-inc"
+    }
+  },
+  {
+    "id": "27df62b7-36c0-46f0-935f-2c0dc4ed8005",
+    "name": "Vitamin CA",
+    "changes": {},
+    "fill": {
+      "address_line": "4207 Elverta Road",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "postal_code": "95843",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elverta%20Road%204207%2C%20Antelope%2C%20CA%2095843",
+      "phone": "+19167296881"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "558699b5-93f0-42bb-a8c5-3c5f49ae534a",
+      "slug": "svoi-vitamin-ca"
+    }
+  },
+  {
+    "id": "46e1cbc2-f83c-4185-8e6f-2eb19eb6bd1b",
+    "name": "Antelope Parmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "4207 Elverta Road",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "postal_code": "95843",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elverta%20Road%204207%2C%20Antelope%2C%20CA%20%2095843",
+      "phone": "+19167296884"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5a716fbf-57c9-4ea1-b781-3c95d6ecb344",
+      "slug": "svoi-antelope-parmacy"
+    }
+  },
+  {
+    "id": "a9ed3ed2-f31e-4354-b656-afea53027b32",
+    "name": "Harbor Medical Supply Co.",
+    "changes": {},
+    "fill": {
+      "address_line": "2917 West Capitol Avenue",
+      "location_precision": "street",
+      "city": "West Sacramento",
+      "state_code": "US-CA",
+      "postal_code": "95691",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Capitol%20Avenue%202917%2C%20West%20Sacramento%2C%20CA%2095691",
+      "phone": "+19164832000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7fbad70c-f701-4c13-a6b2-1efe5ca0957c",
+      "slug": "svoi-harbor-medical-supply-co"
+    }
+  },
+  {
+    "id": "d77e7ba7-ceb9-46ff-8f13-d0b4faa73f64",
+    "name": "TLS Auto Recycling Truly Loyal Service",
+    "changes": {},
+    "fill": {
+      "address_line": "3811 Recycle Road",
+      "location_precision": "street",
+      "city": "Rancho Cordova",
+      "state_code": "US-CA",
+      "postal_code": "95742",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Recycle%20Road%203811%2C%20Rancho%20Cordova%2C%20CA%2095742",
+      "phone": "+18772471717"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d91e763e-3272-4e9c-92b1-0d84049bff1c",
+      "slug": "svoi-tls-auto-recycling-truly-loyal-service"
+    }
+  },
+  {
+    "id": "044137b6-2e0f-46b5-b06a-589dc231e604",
+    "name": "Vitek Transportation",
+    "changes": {},
+    "fill": {
+      "address_line": "4585 Pell Drive",
+      "location_precision": "street",
+      "city": "Sacramento",
+      "state_code": "US-CA",
+      "postal_code": "95838",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pell%20Drive%204585%2C%20Sacramento%2C%20CA%2095838",
+      "phone": "+19163443000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "96ca2ded-5ef2-431d-b40e-1abe4d8531b9",
+      "slug": "svoi-vitek-transportation"
+    }
+  },
+  {
+    "id": "e8f06088-e4d1-4e18-be2e-3963c689eaa6",
+    "name": "Hanlees Davis Toyota",
+    "changes": {},
+    "fill": {
+      "address_line": "4202 Chiles Road",
+      "location_precision": "street",
+      "city": "Davis",
+      "state_code": "US-CA",
+      "postal_code": "95618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chiles%20Road%204202%2C%20Davis%2C%20CA%2095618",
+      "phone": "+15307533352"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e19fcfdc-3958-434c-af2e-ed7b2f757f6d",
+      "slug": "svoi-hanlees-davis-toyota"
+    }
+  },
+  {
+    "id": "93e2b933-c02c-43d5-a28e-2c6ca6df5d78",
+    "name": "Truck Trailer Repair Altex - Used Cars Direct",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sacramento%2C%20CA%20ted%20States",
+      "phone": "+19163430077"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2da26885-6a77-4144-8cb4-53f673657b5e",
+    "name": "Stanick's Auto Parts",
+    "changes": {},
+    "fill": {
+      "address_line": "3791 Recycle Road Suite A",
+      "location_precision": "street",
+      "city": "Rancho Cordova",
+      "state_code": "US-CA",
+      "postal_code": "95742",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Recycle%20Road%20Suite%20A%20%203791%2C%20Rancho%20Cordova%2C%20CA%2095742",
+      "phone": "+19165488025"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a41be35b-7e47-4819-afc3-c3fc552c8fa0",
+      "slug": "svoi-stanick-s-auto-parts"
+    }
+  },
+  {
+    "id": "ea4faa2a-71fb-46f7-b74c-2abda56f0937",
+    "name": "All Trucks",
+    "changes": {},
+    "fill": {
+      "address_line": "11407 Elks Circle",
+      "location_precision": "street",
+      "city": "Rancho Cordova",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elks%20Circle%2011407%2C%20Rancho%20Cordova%2C%20CA",
+      "phone": "+19166383500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "05283819-8b26-4d4f-a920-6e4ee192e2b5",
+      "slug": "svoi-all-trucks"
+    }
+  },
+  {
+    "id": "7f6cfd2f-97fd-470b-aa18-e3a725c97369",
+    "name": "World Auto Parts",
+    "changes": {},
+    "fill": {
+      "address_line": "3606 Recycle Road",
+      "location_precision": "street",
+      "city": "Rancho Cordova",
+      "state_code": "US-CA",
+      "postal_code": "95742",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Recycle%20Road%203606%2C%20Rancho%20Cordova%2C%20CA%2095742",
+      "phone": "+19166354191"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6a1615a0-41f8-4083-93ff-523e2e62331b",
+      "slug": "svoi-world-auto-parts"
+    }
+  },
+  {
+    "id": "52565928-578e-4a12-872a-a7d33db6f866",
+    "name": "Safe Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "7473 Reese Road",
+      "location_precision": "street",
+      "city": "Florin",
+      "state_code": "US-CA",
+      "postal_code": "95828",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reese%20Road%207473%2C%20Florin%2C%20CA%2095828",
+      "phone": "+19168424020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "20f55fe3-5956-48a3-82cc-154892c25652",
+      "slug": "svoi-safe-driving-school"
+    }
+  },
+  {
+    "id": "11922dbe-58fa-4741-9b1b-43847893bce7",
+    "name": "Coastal Breeze Limousine",
+    "changes": {},
+    "fill": {
+      "address_line": "4878 Pasadena Avenue",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95841",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pasadena%20Avenue%204878%2C%20North%20Highlands%2C%20CA%2095841",
+      "phone": "+19167285466"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b39f37a7-92ec-4a90-b76a-a63ade9dde6c",
+      "slug": "svoi-coastal-breeze-limousine"
+    }
+  },
+  {
+    "id": "2149f5c8-63af-4992-9d95-3959b00a0726",
+    "name": "Tanik Transport",
+    "changes": {},
+    "fill": {
+      "address_line": "3728 Lenore Way",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95660",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lenore%20Way%203728%2C%20North%20Highlands%2C%20CA%2095660",
+      "phone": "+19162082146"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d165df2-b375-4895-8b72-d8fed9d70990",
+      "slug": "svoi-tanik-transport"
+    }
+  },
+  {
+    "id": "b53e17b0-187c-42e8-8d99-13a455016d6e",
+    "name": "MGM Limousines, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "3321 Orange Grove Avenue",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95660",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Orange%20Grove%20Avenue%203321%2C%20North%20Highlands%2C%20CA%20%2095660",
+      "website": "http://limomgm.com",
+      "phone": "+19168045466"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5ecc6aec-3c14-4754-a547-8be661fa28db",
+      "slug": "svoi-mgm-limousines-llc"
+    }
+  },
+  {
+    "id": "1162ce61-a287-4750-9d80-6882d60f7847",
+    "name": "Zvezdochka Family Child Care",
+    "changes": {},
+    "fill": {
+      "address_line": "300 Phebe Court",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "postal_code": "95661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Phebe%20Court%20300%2C%20Roseville%2C%20CA%2095661",
+      "phone": "+19167813235"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "af533e45-8efe-4654-be39-ea36bffd5201",
+      "slug": "svoi-zvezdochka-family-child-care"
+    }
+  }
+]

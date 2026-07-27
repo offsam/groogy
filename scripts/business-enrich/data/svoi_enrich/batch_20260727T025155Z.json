@@ -1,0 +1,520 @@
+[
+  {
+    "id": "c54e9ba4-2f59-4d20-ac41-6d9a7e62d5fd",
+    "name": "Dr. Selkova Olga",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "11880 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011880%2C%20Philadelphia%2C%20PA%209116",
+      "phone": "+12155012142"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0f91cd32-7d5d-489f-90fc-a2bcfd7e679d",
+      "slug": "svoi-dr-selkova-olga"
+    }
+  },
+  {
+    "id": "b6017feb-e460-4af9-acd5-9a50161ff8f6",
+    "name": "Hirudotherapy",
+    "changes": {},
+    "fill": {
+      "address_line": "11400 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011400%2C%20Philadelphia%2C%20PA",
+      "website": "http://www.leechtherapyusa.com",
+      "phone": "+12676325393",
+      "email": "lakkoni@gmail.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8f0f9250-4413-405a-aa6b-1868e50b1333",
+      "slug": "svoi-hirudotherapy"
+    }
+  },
+  {
+    "id": "ffe75122-17f3-4bb3-90bb-f969cba278a1",
+    "name": "Dr. Kane,Michael",
+    "changes": {},
+    "fill": {
+      "address_line": "1520 West Street Road",
+      "location_precision": "street",
+      "city": "Warminster",
+      "state_code": "US-PA",
+      "postal_code": "18974",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Street%20Road%201520%2C%20Warminster%2C%20PA%2018974",
+      "phone": "+12156753210"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2adf2a1e-ca38-4635-8194-e69b5421bc0b",
+      "slug": "svoi-dr-kane-michael"
+    }
+  },
+  {
+    "id": "8531dfce-ef45-496a-8e38-15c0888196a3",
+    "name": "Infinity of Care",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Park Lane",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19043",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Lane%202%2C%20Feasterville-Trevos%2C%20PA%2019043",
+      "website": "http://infinityofcare.com",
+      "phone": "+12159539944",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ccde7dd0-9627-46c1-8798-8a42a2a7642b",
+      "slug": "svoi-infinity-of-care"
+    }
+  },
+  {
+    "id": "85978540-99bb-4fc8-ac30-5163c170c7ce",
+    "name": "Dr. Adamov Victor",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Park Lane",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Lane%202%2C%20Feasterville-Trevos%2C%20PA%209053",
+      "phone": "+12155520077"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "650dd753-447b-413f-93fc-e8180cd60356",
+      "slug": "svoi-dr-adamov-victor"
+    }
+  },
+  {
+    "id": "5bdf7951-e1e9-4a67-ad28-7e51c1d917a0",
+    "name": "AllTown Pharmacy Feasterville",
+    "changes": {},
+    "fill": {
+      "address_line": "1137 Bustleton Pike",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Pike%201137%2C%20Feasterville-Trevos%2C%20PA%2019053",
+      "website": "http://www.alltownpharmacy.com",
+      "phone": "+12153549440"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c2641a5e-77a5-459b-8c75-42a8802d1310",
+      "slug": "svoi-alltown-pharmacy-feasterville"
+    }
+  },
+  {
+    "id": "c89b143e-c381-4674-9427-ac6029b4bf0e",
+    "name": "Firstx Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "12043 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2012043%2C%20Philadelphia%2C%20PA%2019116",
+      "website": "http://www.firxstpharmacy.com",
+      "phone": "+12156138065"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5f468c5a-ebcc-4056-9935-2bed5181cedf",
+      "slug": "svoi-firstx-pharmacy"
+    }
+  },
+  {
+    "id": "000a4973-cc25-42ca-b933-86ddf1ac31ad",
+    "name": "CVS",
+    "changes": {},
+    "fill": {
+      "address_line": "10901 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2010901%2C%20Philadelphia%2C%20PA",
+      "phone": "+12156772122"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e9e70965-7667-4c22-ab79-40cf6b96162b",
+      "slug": "svoi-cvs"
+    }
+  },
+  {
+    "id": "34a48b6a-b000-47ce-ad65-63bd62d5de9f",
+    "name": "FSI Mechanical Lifts",
+    "changes": {},
+    "fill": {
+      "address_line": "60 Princenton Road",
+      "location_precision": "street",
+      "city": "Upper Southampton Township",
+      "state_code": "US-PA",
+      "postal_code": "19006",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Princenton%20Road%2060%2C%20Upper%20Southampton%20Township%2C%20PA%2019006",
+      "phone": "+12679701188"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "70657ee5-e7a9-49de-ab1d-23c136feca7a",
+      "slug": "svoi-fsi-mechanical-lifts"
+    }
+  },
+  {
+    "id": "45c9f65b-debe-4e64-a705-9a99bf6bbcf2",
+    "name": "Best Medical Supply-PA",
+    "changes": {},
+    "fill": {
+      "address_line": "13023 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2013023%2C%20Philadelphia%2C%20PA",
+      "phone": "+12159047815"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d6aef84c-d567-43a9-8b0f-645ce825b7f1",
+      "slug": "svoi-best-medical-supply-pa"
+    }
+  },
+  {
+    "id": "6fff7261-88f7-4679-a936-39e0dd0513b9",
+    "name": "Alpha-Beta Medical Equipment",
+    "changes": {},
+    "fill": {
+      "address_line": "10890 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2010890%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156767622"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5fa4f329-d80e-4647-8f13-d24308969995",
+      "slug": "svoi-alpha-beta-medical-equipment"
+    }
+  },
+  {
+    "id": "0a1525e9-5207-436a-9ef7-ad2d598ac5c9",
+    "name": "Dog School – Lyonya",
+    "changes": {},
+    "fill": {
+      "address_line": "13083 Cardella Place",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cardella%20Place%2013083%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156775067"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "39c2f028-cac8-4a25-86dd-758b26372426",
+      "slug": "svoi-dog-school-lyonya"
+    }
+  },
+  {
+    "id": "658b639e-9b7d-40ea-8760-9df5e3bb3885",
+    "name": "World of Animals",
+    "changes": {},
+    "fill": {
+      "address_line": "2621 Philmont Avenue",
+      "location_precision": "street",
+      "city": "Lower Moreland Township",
+      "state_code": "US-PA",
+      "postal_code": "19006",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philmont%20Avenue%202621%2C%20Lower%20Moreland%20Township%2C%20PA%2019006",
+      "phone": "+12159475110"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e87d57e8-0ca4-4e8b-8720-c1169ad17314",
+      "slug": "svoi-world-of-animals"
+    }
+  },
+  {
+    "id": "15113c88-a4cc-41c9-8a37-185198c19428",
+    "name": "a plus tex experts",
+    "changes": {},
+    "fill": {
+      "address_line": "1300 Industrial Boulevard",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Industrial%20Boulevard%201300%2C%20Southampton%2C%20PA",
+      "phone": "+12158335681"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dcb18e69-6ba8-4353-a0e1-8bd639a59215",
+      "slug": "svoi-a-plus-tex-experts"
+    }
+  },
+  {
+    "id": "6605e761-f7ad-45d4-ac28-a055c04c0ebe",
+    "name": "acap construction group",
+    "changes": {},
+    "fill": {
+      "address_line": "1300 Industrial Boulevard",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Industrial%20Boulevard%201300%2C%20Southampton%2C%20PA",
+      "phone": "+12158335681"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "dcb18e69-6ba8-4353-a0e1-8bd639a59215"
+    }
+  },
+  {
+    "id": "72de7618-fc66-4824-a163-7c3761874e26",
+    "name": "Grace Import Motors",
+    "changes": {},
+    "fill": {
+      "address_line": "654 West Bridge Street",
+      "location_precision": "street",
+      "city": "Morrisville",
+      "state_code": "US-PA",
+      "postal_code": "19067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Bridge%20Street%20654%2C%20Morrisville%2C%20PA%2019067",
+      "phone": "+12154284995"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b9e6afdc-ac9f-40a7-b70c-f48409cb4d84",
+      "slug": "svoi-grace-import-motors"
+    }
+  },
+  {
+    "id": "50ca170a-439c-4947-8ef7-848c43f41424",
+    "name": "Q.E. AUTO BODY, INC",
+    "changes": {},
+    "fill": {
+      "address_line": "945 Lincoln Highway",
+      "location_precision": "street",
+      "city": "Falls Township",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Highway%20945%2C%20Falls%20Township%2C%20PA",
+      "phone": "+12154289011"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ae80fbba-bf7c-42c9-b3d2-dc6174ac1620",
+      "slug": "svoi-q-e-auto-body-inc"
+    }
+  },
+  {
+    "id": "1f5c0736-ddfd-4527-8b6d-396daf64424f",
+    "name": "Williams Custom Tops & Interiors",
+    "changes": {},
+    "fill": {
+      "address_line": "910 Woodbourne Road",
+      "location_precision": "street",
+      "city": "Woodbourne",
+      "state_code": "US-PA",
+      "postal_code": "19047",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodbourne%20Road%20910%2C%20Woodbourne%2C%20PA%2019047",
+      "website": "http://williamsautointeriors.com",
+      "phone": "+12157573100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6d4e0d6f-e097-4c81-bc21-93d27e4df8f6",
+      "slug": "svoi-williams-custom-tops-interiors"
+    }
+  },
+  {
+    "id": "a8880046-0286-44ca-ab4c-7a6d2febefbd",
+    "name": "занятия по вождению траков CDL class A",
+    "changes": {},
+    "fill": {
+      "address_line": "11601 Caroline Rd",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19154",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Caroline%20Rd%2011601%2C%20Philadelphia%2C%20PA%2019154",
+      "phone": "+12245203169"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c12fb952-f8c4-4678-bbee-c9c15638f32d",
+      "slug": "svoi-cdl-class-a"
+    }
+  },
+  {
+    "id": "d92ecabe-748b-489c-8feb-8594508396d6",
+    "name": "Vilchik Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "9130 Mather Street",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mather%20Street%209130%2C%20Philadelphia%2C%20PA%2019124",
+      "phone": "+12672357172"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "feb90c1c-04bb-4f4c-a3fd-3fb8bbc7ad2e",
+      "slug": "svoi-vilchik-driving-school"
+    }
+  }
+]

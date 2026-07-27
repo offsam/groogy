@@ -1,0 +1,31 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "dirtybirdfarm",
+      "display_name": "dirtybirdfarm",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "http://www.dirtybirdranch.com/"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://www.dirtybirdranch.com/",
+          "_fetch_url": "https://www.dirtybirdranch.com/",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/69763",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "website": "http://www.dirtybirdranch.com/"
+      },
+      "patch": {}
+    }
+  ]
+}

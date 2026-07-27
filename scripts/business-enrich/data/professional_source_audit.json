@@ -1,0 +1,4207 @@
+{
+  "generated_at": "2026-07-27T15:03:29.782403+00:00",
+  "scanned": 120,
+  "verdicts": {
+    "keep_specialist": 9,
+    "review": 8,
+    "move_to_business": 46,
+    "likely_business": 57
+  },
+  "enrichment_gaps_still_open": {},
+  "move_to_business": [
+    {
+      "id": "156417ca-9f05-4ecc-af30-c56a690cf418",
+      "slug": "svoi-sarina-browndorf-realtor",
+      "name": "Sarina Browndorf – Realtor",
+      "category": "real_estate",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/sarina-browndorf-realtor-new-ad/",
+      "website_on_pro": "https://www.fchconstruction.org",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://www.fchconstruction.org/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "real-estate-mortgage"
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "45a8e9af-30b9-4b9a-8fe6-1051a5011aaf",
+      "slug": "svoi-julia-lobova-realtor",
+      "name": "Julia Lobova- Realtor",
+      "category": "real_estate",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/julia-lobova-realtor/",
+      "website_on_pro": "https://www.fchconstruction.org",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://www.fchconstruction.org/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "julia-lobova-realtor"
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "6a1aeb48-d089-4fb1-9510-6f1396697f58",
+      "slug": "svoi-alexander-nevidomy-realtor",
+      "name": "Alexander Nevidomy REALTOR",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/alexander-nevidomy-realtor-9698",
+      "website_on_pro": null,
+      "street_on_pro": "18090 Collins Avenue",
+      "city": "Sunny Isles Beach",
+      "zip": "33160",
+      "source": {
+        "kind": "svoi",
+        "address": "18090 Collins Avenue",
+        "city": "Sunny Isles Beach",
+        "zip": "33160",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b8fcd16e-94a1-4a00-86fb-3241a31428e5",
+      "slug": "svoi-s-r-insurance-financial-services",
+      "name": "S& R INSURANCE & FINANCIAL SERVICES (Стелла Кравец)",
+      "category": "insurance",
+      "source_url": "https://svoi.us/company/s-r-insurance-financial-services-stella-kravets-10925",
+      "website_on_pro": null,
+      "street_on_pro": "8485 Underwood Lane North",
+      "city": "Maple Grove",
+      "zip": "55369",
+      "source": {
+        "kind": "svoi",
+        "address": "8485 Underwood Lane North",
+        "city": "Maple Grove",
+        "zip": "55369",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2a649d5a-d9e7-4738-8f4d-1d4d980a7087",
+      "slug": "svoi-paparella-ear-institute",
+      "name": "​Paparella Ear Institute. Д-р Олег Фраймович",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/paparella-ear-institute-d-r-oleg-fraymovich-10902",
+      "website_on_pro": null,
+      "street_on_pro": "9825 Hospital Drive",
+      "city": "Maple Grove",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "9825 Hospital Drive",
+        "city": "Maple Grove",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "c93ab5cc-4fc4-47d2-b464-4ad4e7351389",
+      "slug": "svoi-dr-alexander-axelrod-md",
+      "name": "Dr. Alexander Axelrod MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-alexander-axelrod-md-1817",
+      "website_on_pro": null,
+      "street_on_pro": "4201 Excelsior Boulevard",
+      "city": "St. Louis Park",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "4201 Excelsior Boulevard",
+        "city": "St. Louis Park",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "7c91b550-9b32-46c9-8fb3-81fe8da64d64",
+      "slug": "svoi-spa-habitat-west-village",
+      "name": "Spa Habitat West Village",
+      "category": "beauty",
+      "source_url": "https://svoi.us/company/spa-habitat-west-village-9242",
+      "website_on_pro": null,
+      "street_on_pro": "McKinney Ave #304 (West Village) 3699",
+      "city": "Dallas",
+      "zip": "75204",
+      "source": {
+        "kind": "svoi",
+        "address": "McKinney Ave #304 (West Village) 3699",
+        "city": "Dallas",
+        "zip": "75204",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "99966636-5ef6-4382-8bb8-1a7886147038",
+      "slug": "svoi-dr-valery-n-lipenko-md-at-neurology-specialists",
+      "name": "Dr. Valery N. Lipenko, MD at Neurology Specialists",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-valery-n-lipenko-md-at-neurology-specialists-2711",
+      "website_on_pro": "http://www.neurologyspecialistsnt.com",
+      "street_on_pro": "1604 Hospital Parkway",
+      "city": "Bedford",
+      "zip": "76022",
+      "source": {
+        "kind": "svoi",
+        "address": "1604 Hospital Parkway",
+        "city": "Bedford",
+        "zip": "76022",
+        "websites": [
+          "http://www.neurologyspecialistsnt.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "38ec99b6-bdc9-44c7-a14c-8d814a90d257",
+      "slug": "svoi-dr-isaac-z-pugach-md-complete-med-care",
+      "name": "Dr. Isaac Z. Pugach, MD - Complete Med Care",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-isaac-z-pugach-md-complete-med-care-2698",
+      "website_on_pro": null,
+      "street_on_pro": "8989 Forest Lane",
+      "city": "Dallas",
+      "zip": "75243",
+      "source": {
+        "kind": "svoi",
+        "address": "8989 Forest Lane",
+        "city": "Dallas",
+        "zip": "75243",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 7,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "5564a97e-aa0b-465c-a90c-c29a9d3a7a0b",
+      "slug": "svoi-family-and-cosmetic-dentistry",
+      "name": "Family and Cosmetic Dentistry",
+      "category": "health",
+      "source_url": "https://svoi.us/company/family-and-cosmetic-dentistry-533",
+      "website_on_pro": null,
+      "street_on_pro": "5509 Pleasant Valley Drive",
+      "city": "Plano",
+      "zip": "75023",
+      "source": {
+        "kind": "svoi",
+        "address": "5509 Pleasant Valley Drive",
+        "city": "Plano",
+        "zip": "75023",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "435723b6-a06c-4be0-8ead-c37ecdc61f30",
+      "slug": "svoi-dr-naum-becker-md",
+      "name": "Dr. Naum Becker, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-naum-becker-md-2718",
+      "website_on_pro": null,
+      "street_on_pro": "12801 Midway Road",
+      "city": "Dallas",
+      "zip": "75244",
+      "source": {
+        "kind": "svoi",
+        "address": "12801 Midway Road",
+        "city": "Dallas",
+        "zip": "75244",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "15fa6739-489a-48ba-9319-6d752c6d2e0e",
+      "slug": "svoi-dr-taras-mahlay-md",
+      "name": "Dr. Taras Mahlay, MD",
+      "category": "creative",
+      "source_url": "https://svoi.us/company/dr-taras-mahlay-md-14583",
+      "website_on_pro": null,
+      "street_on_pro": "7255 Old Oak Blvd",
+      "city": "Middleberg Heights",
+      "zip": "44130",
+      "source": {
+        "kind": "svoi",
+        "address": "7255 Old Oak Blvd",
+        "city": "Middleberg Heights",
+        "zip": "44130",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "e8289264-6a36-4557-aa03-9d26bc6d1efa",
+      "slug": "svoi-pro-dental-care-olga-prokopets-dds-and-mikhael-p",
+      "name": "Pro-Dental Care - Olga Prokopets, DDS and Mikhael Prokopets, DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/pro-dental-care-olga-prokopets-dds-and-mikhael-prokopets-dds-2376",
+      "website_on_pro": "http://www.pro-dentalcare.com",
+      "street_on_pro": "N Tatum Blvd",
+      "city": "28260",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "N Tatum Blvd",
+        "city": "28260",
+        "zip": null,
+        "websites": [
+          "http://www.pro-dentalcare.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "16eabe33-7374-42ee-a7a4-8a714881f6f1",
+      "slug": "svoi-yelena-grinchuk-realtor",
+      "name": "Yelena Grinchuk, Realtor",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/yelena-grinchuk-realtor-10589",
+      "website_on_pro": null,
+      "street_on_pro": "13720 Freemanville Road",
+      "city": "Milton",
+      "zip": "30004",
+      "source": {
+        "kind": "svoi",
+        "address": "13720 Freemanville Road",
+        "city": "Milton",
+        "zip": "30004",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "015cd0f6-ed47-4f44-a25e-0db1c9cc81ab",
+      "slug": "svoi-la-vista-family-medicine-gorokhov-mikhail-e-md",
+      "name": "La Vista Family Medicine: Gorokhov Mikhail E MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/la-vista-family-medicine-gorokhov-mikhail-e-md-8563",
+      "website_on_pro": null,
+      "street_on_pro": "2012 Harobi Drive",
+      "city": "Tucker",
+      "zip": "30084",
+      "source": {
+        "kind": "svoi",
+        "address": "2012 Harobi Drive",
+        "city": "Tucker",
+        "zip": "30084",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 7,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "28939e93-4546-4268-993d-55cd3bcad421",
+      "slug": "svoi-dr-leonid-yelizarov-dmd",
+      "name": "Dr. Leonid Yelizarov DMD",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-leonid-yelizarov-dmd-8538",
+      "website_on_pro": null,
+      "street_on_pro": "11925 Jones Bridge Road",
+      "city": "Jones creek",
+      "zip": "30005",
+      "source": {
+        "kind": "svoi",
+        "address": "11925 Jones Bridge Road",
+        "city": "Jones creek",
+        "zip": "30005",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "744c6165-d6a6-4468-9e93-8999fc51cd47",
+      "slug": "svoi-enigma-day-spa-welness",
+      "name": "Enigma Day Spa & Welness",
+      "category": "beauty",
+      "source_url": "https://svoi.us/company/enigma-day-spa-welness-5886",
+      "website_on_pro": "http://www.enigmadayspa.com",
+      "street_on_pro": null,
+      "city": "MD",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "Millersville",
+        "city": "MD",
+        "zip": null,
+        "websites": [
+          "http://www.enigmadayspa.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 7,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "has_website",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "e3abe23f-85c0-4baf-8101-29ec68a917e7",
+      "slug": "svoi-eleonora-gokoyeva-md-medstar-health",
+      "name": "Eleonora Gokoyeva, MD / MedStar Health",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/eleonora-gokoyeva-md-medstar-health-15118",
+      "website_on_pro": "http://www.medstarhealth.org",
+      "street_on_pro": "200 E 33rd Street",
+      "city": "Suite 487",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "200 E 33rd Street",
+        "city": "Suite 487",
+        "zip": null,
+        "websites": [
+          "http://www.medstarhealth.org"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "83c2a5d6-c5d7-4f20-a4e9-7a879f27aae3",
+      "slug": "svoi-whiteeth-esthetic-dentistry",
+      "name": "Доктор Лилия Ризберг, Whiteeth Esthetic Dentistry.",
+      "category": "health",
+      "source_url": "https://svoi.us/company/whiteeth-esthetic-dentistry-doktor-liliya-rizberg-5658",
+      "website_on_pro": "https://websitewhiteeth.com",
+      "street_on_pro": "7861 Belle Point Drive",
+      "city": "Greenbelt",
+      "zip": "20770",
+      "source": {
+        "kind": "svoi",
+        "address": "7861 Belle Point Drive",
+        "city": "Greenbelt",
+        "zip": "20770",
+        "websites": [
+          "https://websitewhiteeth.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 9,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "has_website",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "3244f158-9442-4d66-baab-ddb336d79de5",
+      "slug": "svoi-my-boston-realtor-karina",
+      "name": "My Boston Realtor, Karina",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/my-boston-realtor-karina-6049",
+      "website_on_pro": null,
+      "street_on_pro": "420 Harvard Street",
+      "city": "Brooklyn",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "420 Harvard Street",
+        "city": "Brooklyn",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2d207862-4faa-4452-ab68-9a870c632fae",
+      "slug": "svoi-boris-orkin-md",
+      "name": "Boris Orkin, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/boris-orkin-md-6953",
+      "website_on_pro": "http://www.abortion-clinic-boston.com",
+      "street_on_pro": "1180 Beacon Street",
+      "city": "Brooklyn",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "1180 Beacon Street",
+        "city": "Brooklyn",
+        "zip": null,
+        "websites": [
+          "http://www.abortion-clinic-boston.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2ae32be0-4f68-40b4-a99a-a41b57c6b772",
+      "slug": "svoi-churukian-michael-m-md-physicians-plastic-and-re",
+      "name": "Churukian Michael M MD Physicians-Plastic and Reconstructive Surgery",
+      "category": "beauty",
+      "source_url": "https://svoi.us/company/churukian-michael-m-md-physicians-plastic-and-reconstructive-surgery-3507",
+      "website_on_pro": null,
+      "street_on_pro": "414 North Camden Drive",
+      "city": "Beverly Hills",
+      "zip": "90210",
+      "source": {
+        "kind": "svoi",
+        "address": "414 North Camden Drive",
+        "city": "Beverly Hills",
+        "zip": "90210",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 7,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "707bc11e-b0e1-4a5d-97e1-ff7bbc8ee3c4",
+      "slug": "svoi-yuri-s-oleynikov-md-phd-2",
+      "name": "Yuri S. Oleynikov, MD, PhD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/yuri-s-oleynikov-md-phd-1920",
+      "website_on_pro": "http://www.oleynikov.com",
+      "street_on_pro": "415 North Crescent Drive",
+      "city": "Beverly Hills",
+      "zip": "90210",
+      "source": {
+        "kind": "svoi",
+        "address": "415 North Crescent Drive",
+        "city": "Beverly Hills",
+        "zip": "90210",
+        "websites": [
+          "http://www.oleynikov.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "dd9f363a-0b56-47cf-aaf4-eb82b1eee19d",
+      "slug": "svoi-yuri-s-oleynikov-md-phd",
+      "name": "Yuri S. Oleynikov MD PhD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/yuri-s-oleynikov-md-phd-1921",
+      "website_on_pro": "http://www.oleynikov.com",
+      "street_on_pro": "50 North La Cienega Boulevard",
+      "city": "Beverly Hills",
+      "zip": "90211",
+      "source": {
+        "kind": "svoi",
+        "address": "50 North La Cienega Boulevard",
+        "city": "Beverly Hills",
+        "zip": "90211",
+        "websites": [
+          "http://www.oleynikov.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "593d2471-4e70-49a3-b68d-6999c8829027",
+      "slug": "svoi-dr-eleanor-lavretsky",
+      "name": "Dr. Eleanor Lavretsky",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-eleanor-lavretsky-13893",
+      "website_on_pro": null,
+      "street_on_pro": "462 N Linden Dr",
+      "city": "Beverly Hills",
+      "zip": "90212",
+      "source": {
+        "kind": "svoi",
+        "address": "462 N Linden Dr",
+        "city": "Beverly Hills",
+        "zip": "90212",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2cfecbc5-c548-487f-b661-143b31e3c19f",
+      "slug": "svoi-a-j-boyajian-d-m-d-cosmetic-dentists",
+      "name": "A.J. Boyajian, D.M.D. Cosmetic Dentists",
+      "category": "health",
+      "source_url": "https://svoi.us/company/a-j-boyajian-d-m-d-cosmetic-dentists-4554",
+      "website_on_pro": null,
+      "street_on_pro": "9400 Brighton Way",
+      "city": "Beverly Hills",
+      "zip": "90210",
+      "source": {
+        "kind": "svoi",
+        "address": "9400 Brighton Way",
+        "city": "Beverly Hills",
+        "zip": "90210",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "6b7a4cb0-32ee-4379-8892-4314c3fffa58",
+      "slug": "svoi-zakari-victor-md-physicians-obstetrics-gynecolog",
+      "name": "Zakari Victor MD Physicians-Obstetrics &Gynecology",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/zakari-victor-md-physicians-obstetrics-gynecology-3380",
+      "website_on_pro": null,
+      "street_on_pro": "2625 West Alameda Avenue",
+      "city": "Burbank",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "2625 West Alameda Avenue",
+        "city": "Burbank",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "5e228648-36b3-4cc0-9eed-f18cadeee359",
+      "slug": "svoi-abdulian-misak-h-md-physicians-thoracic-cardiova",
+      "name": "Abdulian Misak H MD Physicians-Thoracic & Cardiovascular Surgery",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/abdulian-misak-h-md-physicians-thoracic-cardiovascular-surgery-2404",
+      "website_on_pro": null,
+      "street_on_pro": "2701 West Alameda Avenue",
+      "city": "Burbank",
+      "zip": "91505",
+      "source": {
+        "kind": "svoi",
+        "address": "2701 West Alameda Avenue",
+        "city": "Burbank",
+        "zip": "91505",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 7,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "001a573d-1910-409f-a65d-9f11f75f67aa",
+      "slug": "svoi-arthur-gulesserian-dds-dentist",
+      "name": "Arthur Gulesserian DDS Dentist",
+      "category": "health",
+      "source_url": "https://svoi.us/company/arthur-gulesserian-dds-dentist-3051",
+      "website_on_pro": "http://www.burbankdentist.com",
+      "street_on_pro": "539 North Glenoaks Boulevard",
+      "city": "Burbank",
+      "zip": "91502",
+      "source": {
+        "kind": "svoi",
+        "address": "539 North Glenoaks Boulevard",
+        "city": "Burbank",
+        "zip": "91502",
+        "websites": [
+          "http://www.burbankdentist.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "5b9cc609-27d3-40d7-af60-85ca7325b500",
+      "slug": "svoi-dr-yelena-vidgop-md",
+      "name": "Dr. Yelena Vidgop, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-yelena-vidgop-md-9565",
+      "website_on_pro": null,
+      "street_on_pro": "21097 Northeast 27th Court",
+      "city": "Aventura",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "21097 Northeast 27th Court",
+        "city": "Aventura",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "d7a40163-c639-4497-9474-0a71d1521fc4",
+      "slug": "svoi-uromedix-md-2",
+      "name": "UroMedix / Борис Клопух, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/uromedix-boris-klopukh-md-8736",
+      "website_on_pro": "http://uromedix.org",
+      "street_on_pro": "21150 Biscayne Boulevard",
+      "city": "Aventura",
+      "zip": "33180",
+      "source": {
+        "kind": "svoi",
+        "address": "21150 Biscayne Boulevard",
+        "city": "Aventura",
+        "zip": "33180",
+        "websites": [
+          "http://uromedix.org"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "9eebf065-41ba-402f-8466-9fd8c632b183",
+      "slug": "svoi-unity-medical-group-faina-zlatogorov-m-d",
+      "name": "Unity Medical Group- Faina Zlatogorov, M.D.",
+      "category": "health",
+      "source_url": "https://svoi.us/company/unity-medical-group-faina-zlatogorov-m-d-6334",
+      "website_on_pro": null,
+      "street_on_pro": "7531 Santa Monica Boulevard",
+      "city": "West Hollywood",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "7531 Santa Monica Boulevard",
+        "city": "West Hollywood",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "1f567738-1846-467f-a82a-569ec5acd506",
+      "slug": "svoi-dr-luda-kamenetsky-md-at-medical-associates",
+      "name": "Dr. Luda Kamenetsky, MD at Medical Associates",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-luda-kamenetsky-md-at-medical-associates-2700",
+      "website_on_pro": null,
+      "street_on_pro": "1315 Saint Joseph Parkway",
+      "city": "Houston",
+      "zip": "77002",
+      "source": {
+        "kind": "svoi",
+        "address": "1315 Saint Joseph Parkway",
+        "city": "Houston",
+        "zip": "77002",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 9,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "person_at_practice",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "48afa91d-2532-482c-b5b3-ad5a13a8e48f",
+      "slug": "svoi-aleksandra-sokolova-notary-services",
+      "name": "Aleksandra Sokolova Notary Services",
+      "category": "legal",
+      "source_url": "https://svoi.us/company/aleksandra-sokolova-notary-services-12788",
+      "website_on_pro": null,
+      "street_on_pro": "7560 Widgeon Way",
+      "city": "Fair Oaks",
+      "zip": "95628",
+      "source": {
+        "kind": "svoi",
+        "address": "7560 Widgeon Way",
+        "city": "Fair Oaks",
+        "zip": "95628",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "4f9354b2-4049-4383-bccd-11c523c677c7",
+      "slug": "svoi-enigma-spa",
+      "name": "Enigma Spa",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/enigma-spa-686",
+      "website_on_pro": null,
+      "street_on_pro": "6929 Sunrise Boulevard",
+      "city": "Sitres heights",
+      "zip": "95610",
+      "source": {
+        "kind": "svoi",
+        "address": "6929 Sunrise Boulevard",
+        "city": "Sitres heights",
+        "zip": "95610",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 8,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "744708e5-8a31-4f2c-a958-badd78552e60",
+      "slug": "svoi-euro-spa-resort",
+      "name": "Euro Spa Resort",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/euro-spa-resort-12800",
+      "website_on_pro": "http://eurotouchmassage.com",
+      "street_on_pro": "6848 Five Star Blvd",
+      "city": "Roseville",
+      "zip": "95677",
+      "source": {
+        "kind": "svoi",
+        "address": "6848 Five Star Blvd",
+        "city": "Roseville",
+        "zip": "95677",
+        "websites": [
+          "http://eurotouchmassage.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 9,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "has_website",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "e064b6d0-49f7-416a-8280-ac644e8fc2a5",
+      "slug": "svoi-gilah-ellyason-realtor",
+      "name": "Gilah Ellyason Realtor",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/gilah-ellyason-realtor-5015",
+      "website_on_pro": null,
+      "street_on_pro": "5930 Granite Lake Drive",
+      "city": "Granite bay",
+      "zip": "95746",
+      "source": {
+        "kind": "svoi",
+        "address": "5930 Granite Lake Drive",
+        "city": "Granite bay",
+        "zip": "95746",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "75ba2118-db15-4f51-83bc-f057993f93fc",
+      "slug": "svoi-dr-svetlana-t-vardanian-md",
+      "name": "Dr. Svetlana T. Vardanian, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-svetlana-t-vardanian-md-2768",
+      "website_on_pro": null,
+      "street_on_pro": "2261 Douglas Boulevard",
+      "city": "Roseville",
+      "zip": "95661",
+      "source": {
+        "kind": "svoi",
+        "address": "2261 Douglas Boulevard",
+        "city": "Roseville",
+        "zip": "95661",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "16a9b914-d882-4f05-80d2-bf074ee2710b",
+      "slug": "svoi-adroit-family-dental",
+      "name": "Adroit Family Dental - Доктор Кирилл Смирнов",
+      "category": "health",
+      "source_url": "https://svoi.us/company/adroit-family-dental-8846",
+      "website_on_pro": "http://www.adroitdental.com",
+      "street_on_pro": "5493 Amy Street",
+      "city": "West Lynn",
+      "zip": "97068",
+      "source": {
+        "kind": "svoi",
+        "address": "5493 Amy Street",
+        "city": "West Lynn",
+        "zip": "97068",
+        "websites": [
+          "http://www.adroitdental.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 6,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b557667a-441e-4421-81f9-0bf040ac27d2",
+      "slug": "svoi-kokshanian-artine-md",
+      "name": "Kokshanian Artine MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/kokshanian-artine-md-3450",
+      "website_on_pro": "https://www.adventisthealth.org",
+      "street_on_pro": "1030 South Glendale Avenue",
+      "city": "Glendale",
+      "zip": "91205",
+      "source": {
+        "kind": "svoi",
+        "address": "1030 South Glendale Avenue",
+        "city": "Glendale",
+        "zip": "91205",
+        "websites": [
+          "https://www.adventisthealth.org"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "6d94120f-a190-41b1-bbc9-181122e50ec7",
+      "slug": "svoi-karayan-sooren-md-physicians-orthopaedic-surgery",
+      "name": "Karayan Sooren MD Physicians-orthopaedic Surgery",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/karayan-sooren-md-physicians-orthopaedic-surgery-3470",
+      "website_on_pro": null,
+      "street_on_pro": "1510 South Central Avenue",
+      "city": "Glendale",
+      "zip": "91204",
+      "source": {
+        "kind": "svoi",
+        "address": "1510 South Central Avenue",
+        "city": "Glendale",
+        "zip": "91204",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 7,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "1969dc67-d9ae-408e-968d-509f157c6451",
+      "slug": "svoi-melidonian-hovig-h-md-physicians-pedatrics",
+      "name": "Melidonian Hovig H MD Physicians-Pedatrics",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/melidonian-hovig-h-md-physicians-pedatrics-3431",
+      "website_on_pro": null,
+      "street_on_pro": "318 West Colorado Street",
+      "city": "Glendale",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "318 West Colorado Street",
+        "city": "Glendale",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 4,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "f0b620a5-72c3-4d19-82cb-47f564f2f2f7",
+      "slug": "svoi-alexander-shikhman-md-at-scripps-green-hospital",
+      "name": "Alexander Shikhman MD at Scripps Green Hospital",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/alexander-shikhman-md-at-scripps-green-hospital-10371",
+      "website_on_pro": null,
+      "street_on_pro": "12865 Pointe Del Mar Way",
+      "city": "San diego",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "12865 Pointe Del Mar Way",
+        "city": "San diego",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 9,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "person_at_practice",
+        "street_address",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "fb968ebe-e02e-4e95-b739-ffab8fbf0c79",
+      "slug": "svoi-dr-natalia-petrova-dmd",
+      "name": "Dr. Natalia Petrova / Наталья Петрова , DMD",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-natalia-petrova-natalya-petrova-dmd-14494",
+      "website_on_pro": "http://www.drpetrova.com",
+      "street_on_pro": "997 W San Marcos Blvd",
+      "city": "San marcos",
+      "zip": "92078",
+      "source": {
+        "kind": "svoi",
+        "address": "997 W San Marcos Blvd",
+        "city": "San marcos",
+        "zip": "92078",
+        "websites": [
+          "http://www.drpetrova.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "6667ffc7-b5fe-4f49-a69a-c83a78d4ac46",
+      "slug": "svoi-anna-durkin-dds",
+      "name": "Anna Durkin DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/anna-durkin-dds-6176",
+      "website_on_pro": "http://annadurkindds.com",
+      "street_on_pro": "1344 East Mission Road",
+      "city": "San marcos",
+      "zip": "92069",
+      "source": {
+        "kind": "svoi",
+        "address": "1344 East Mission Road",
+        "city": "San marcos",
+        "zip": "92069",
+        "websites": [
+          "http://annadurkindds.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 5,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "credentialed_at_org"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "3546a2be-3336-4dd5-bfb9-f6018b0497e4",
+      "slug": "svoi-southampton-spa",
+      "name": "Southampton Spa",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/southampton-spa-2758",
+      "website_on_pro": "http://southamptonspa.com",
+      "street_on_pro": "2nd Street Pike 141",
+      "city": "Southampton",
+      "zip": "18966",
+      "source": {
+        "kind": "svoi",
+        "address": "2nd Street Pike 141",
+        "city": "Southampton",
+        "zip": "18966",
+        "websites": [
+          "http://southamptonspa.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "move_to_business",
+      "biz_score": 9,
+      "solo_score": 0,
+      "reasons": [
+        "biz_tokens_in_name",
+        "street_address",
+        "has_website",
+        "org_brand_name"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    }
+  ],
+  "likely_business": [
+    {
+      "id": "e1802994-a81b-4528-97d2-11717308f678",
+      "slug": "svoi-dr-dina-bobrova-dds",
+      "name": "Dr. Dina Bobrova DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-dina-bobrova-dds-1757",
+      "website_on_pro": null,
+      "street_on_pro": "17100 Collins Avenue",
+      "city": "Sunny Isles Beach",
+      "zip": "33160",
+      "source": {
+        "kind": "svoi",
+        "address": "17100 Collins Avenue",
+        "city": "Sunny Isles Beach",
+        "zip": "33160",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "26f717b7-e256-466c-9a43-b6658b9f1ddd",
+      "slug": "svoi-biz-20",
+      "name": "Галушко Марина",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/galushko-marina-11719",
+      "website_on_pro": null,
+      "street_on_pro": "909 East Las Olas Boulevard",
+      "city": "Fort lauderdale",
+      "zip": "33301",
+      "source": {
+        "kind": "svoi",
+        "address": "909 East Las Olas Boulevard",
+        "city": "Fort lauderdale",
+        "zip": "33301",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2c779337-ae60-4c68-8997-ba8ec9214c26",
+      "slug": "svoi-md-7",
+      "name": "Д-р Александр Зубков MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/d-r-aleksandr-zubkov-md-10671",
+      "website_on_pro": null,
+      "street_on_pro": "3400 West 66th Street",
+      "city": "Idaina",
+      "zip": "55435",
+      "source": {
+        "kind": "svoi",
+        "address": "3400 West 66th Street",
+        "city": "Idaina",
+        "zip": "55435",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "ae520168-d617-4e0b-ad9d-3ec06b602945",
+      "slug": "svoi-dr-oleg-froymovich-md",
+      "name": "Dr. Oleg Froymovich MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-oleg-froymovich-md-10669",
+      "website_on_pro": null,
+      "street_on_pro": "25th Ave S #200 701",
+      "city": "Minneapolis",
+      "zip": "55454",
+      "source": {
+        "kind": "svoi",
+        "address": "25th Ave S #200 701",
+        "city": "Minneapolis",
+        "zip": "55454",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "4e046537-b0fa-4072-9089-c79fe8615ca1",
+      "slug": "svoi-dimple-malik-dds",
+      "name": "Dimple Malik DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dimple-malik-dds-10659",
+      "website_on_pro": null,
+      "street_on_pro": "4227 Winnetka Avenue North",
+      "city": "New hop",
+      "zip": "55428",
+      "source": {
+        "kind": "svoi",
+        "address": "4227 Winnetka Avenue North",
+        "city": "New hop",
+        "zip": "55428",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "9862d977-3297-4f14-bb74-f471e89db9e9",
+      "slug": "svoi-inna-muravin",
+      "name": "Inna Muravin",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/inna-muravin-14538",
+      "website_on_pro": "http://www.imrealtygroup.com",
+      "street_on_pro": "7400 Center Street",
+      "city": "Mentor",
+      "zip": "44060",
+      "source": {
+        "kind": "svoi",
+        "address": "7400 Center Street",
+        "city": "Mentor",
+        "zip": "44060",
+        "websites": [
+          "http://www.imrealtygroup.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "6aaba343-20fe-48b6-b245-9515a35b4793",
+      "slug": "svoi-yuri-novitsky-md",
+      "name": "Yuri Novitsky, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/yuri-novitsky-md-14541",
+      "website_on_pro": "http://www.uhhospitals.org/find-a-doctor/novitsky-yuri-19419",
+      "street_on_pro": "11100 Euclid Ave",
+      "city": "Cleveland",
+      "zip": "44106",
+      "source": {
+        "kind": "svoi",
+        "address": "11100 Euclid Ave",
+        "city": "Cleveland",
+        "zip": "44106",
+        "websites": [
+          "http://www.uhhospitals.org/find-a-doctor/novitsky-yuri-19419"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "639875c4-ddc7-47d9-a83d-c6b56123023f",
+      "slug": "svoi-dr-yakov-l-elgudin-md",
+      "name": "Dr. Yakov L. Elgudin, MD",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-yakov-l-elgudin-md-14540",
+      "website_on_pro": "http://doctor.webmd.com/doctor/yakov-elgudin-md-5925dce5-3c0f-42f0-9853-237996748961-overview",
+      "street_on_pro": "11100 Euclid Ave",
+      "city": "Cleveland",
+      "zip": "44106",
+      "source": {
+        "kind": "svoi",
+        "address": "11100 Euclid Ave",
+        "city": "Cleveland",
+        "zip": "44106",
+        "websites": [
+          "http://doctor.webmd.com/doctor/yakov-elgudin-md-5925dce5-3c0f-42f0-9853-237996748961-overview"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "73df9e2b-6ea4-4100-9101-5a498d0a2229",
+      "slug": "svoi-biz-18",
+      "name": "Беликов Владимир",
+      "category": "health",
+      "source_url": "https://svoi.us/company/belikov-vladimir-10070",
+      "website_on_pro": null,
+      "street_on_pro": "6151 Wilson Mills Road",
+      "city": "Highland Heights",
+      "zip": "44143",
+      "source": {
+        "kind": "svoi",
+        "address": "6151 Wilson Mills Road",
+        "city": "Highland Heights",
+        "zip": "44143",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "825828cf-be8e-4c3d-aebb-a61aece0be37",
+      "slug": "svoi-nella-blyumin-md",
+      "name": "Nella Blyumin, MD",
+      "category": "creative",
+      "source_url": "https://svoi.us/company/nella-blyumin-md-14575",
+      "website_on_pro": "http://health.usnews.com/doctors/nella-blyumin-186155",
+      "street_on_pro": "9500 Euclid Ave",
+      "city": "Cleveland",
+      "zip": "44195",
+      "source": {
+        "kind": "svoi",
+        "address": "9500 Euclid Ave",
+        "city": "Cleveland",
+        "zip": "44195",
+        "websites": [
+          "http://health.usnews.com/doctors/nella-blyumin-186155"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "0d3c8d22-ada6-401b-b169-12d6baf919f8",
+      "slug": "svoi-biz-17",
+      "name": "Педиатр Алла Шерман",
+      "category": "creative",
+      "source_url": "https://svoi.us/company/pediatr-alla-sherman-14626",
+      "website_on_pro": "http://health.usnews.com/doctors/alla-sherman-440090",
+      "street_on_pro": "3619 Park East Dr",
+      "city": "Beechwood",
+      "zip": "44122",
+      "source": {
+        "kind": "svoi",
+        "address": "3619 Park East Dr",
+        "city": "Beechwood",
+        "zip": "44122",
+        "websites": [
+          "http://health.usnews.com/doctors/alla-sherman-440090"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "bbba48c6-d2f8-4fa1-b714-d371bcedf2c9",
+      "slug": "svoi-dr-mikhail-i-shtivelband-md",
+      "name": "Dr. Mikhail I Shtivelband MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-mikhail-i-shtivelband-md-2383",
+      "website_on_pro": null,
+      "street_on_pro": "695 South Dobson Road",
+      "city": "Chandler",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "695 South Dobson Road",
+        "city": "Chandler",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "0c0170d8-6fe4-4685-8a2f-920e94c34317",
+      "slug": "svoi-dr-ludmila-t-pyter-kabat-md",
+      "name": "Dr. Ludmila T Pyter-Kabat MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-ludmila-t-pyter-kabat-md-2380",
+      "website_on_pro": null,
+      "street_on_pro": "3648 West Anthem Way",
+      "city": "New river",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "3648 West Anthem Way",
+        "city": "New river",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "945f7ae1-3948-4e84-9f7b-d28df552edcd",
+      "slug": "svoi-kavkaz-kebab",
+      "name": "Kavkaz Kebab",
+      "category": "home_food",
+      "source_url": "https://svoi.us/company/kavkaz-kebab-5830",
+      "website_on_pro": "http://www.kavkazkebabowingsmills.com",
+      "street_on_pro": "10902 Boulevard Circle",
+      "city": "Owings Mills",
+      "zip": "21117",
+      "source": {
+        "kind": "svoi",
+        "address": "10902 Boulevard Circle",
+        "city": "Owings Mills",
+        "zip": "21117",
+        "websites": [
+          "http://www.kavkazkebabowingsmills.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2367ff7e-eeff-4900-86b4-8d659803c302",
+      "slug": "svoi-hair-systems",
+      "name": "Hair Systems",
+      "category": "beauty",
+      "source_url": "https://svoi.us/company/hair-systems-273",
+      "website_on_pro": "https://www.yelp.com/biz/hair-systems-rockville",
+      "street_on_pro": "5214 Randolph Road",
+      "city": "North Bethesda",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "5214 Randolph Road",
+        "city": "North Bethesda",
+        "zip": null,
+        "websites": [
+          "https://www.yelp.com/biz/hair-systems-rockville"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "3c74ff05-c14b-47bc-8784-dd05aa1bc4b1",
+      "slug": "svoi-dr-alexander-pokov",
+      "name": "Dr. Alexander Pokov",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-alexander-pokov-101",
+      "website_on_pro": null,
+      "street_on_pro": "6821 Reisterstown Road",
+      "city": "Baltimore",
+      "zip": "21215",
+      "source": {
+        "kind": "svoi",
+        "address": "6821 Reisterstown Road",
+        "city": "Baltimore",
+        "zip": "21215",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "cb24984c-6dc8-49ce-ade8-d8dac1b5564f",
+      "slug": "svoi-biz-16",
+      "name": "Виталий Брейзер доктор",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/vitaliy-breyzer-doktor-5618",
+      "website_on_pro": null,
+      "street_on_pro": "3655 Old Court Road",
+      "city": "Pikesville",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "3655 Old Court Road",
+        "city": "Pikesville",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "41219e99-5eb1-4dfa-af2d-90b9096a82a4",
+      "slug": "svoi-biz-15",
+      "name": "Доктор Олег Шпак",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/doktor-oleg-shpak-5613",
+      "website_on_pro": "https://www.yelp.com/biz/shpak-oleg-b-md-lanham?osq=Dr.+Oleg+B+Shpak",
+      "street_on_pro": "9470 Annapolis Road",
+      "city": "Lanham",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "9470 Annapolis Road",
+        "city": "Lanham",
+        "zip": null,
+        "websites": [
+          "https://www.yelp.com/biz/shpak-oleg-b-md-lanham?osq=Dr.+Oleg+B+Shpak"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "e1ae31f6-f62a-4338-877c-7e24ad79f1fb",
+      "slug": "svoi-orthosports-and-aquatic-physical-therapy",
+      "name": "Orthosports and Aquatic Physical Therapy",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/orthosports-and-aquatic-physical-therapy-13565",
+      "website_on_pro": null,
+      "street_on_pro": "637 Washington Street",
+      "city": "Brooklyn",
+      "zip": "02446",
+      "source": {
+        "kind": "svoi",
+        "address": "637 Washington Street",
+        "city": "Brooklyn",
+        "zip": "02446",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "918fa820-e04e-42ae-910b-3de4c98b6a45",
+      "slug": "svoi-boris-prilutsky",
+      "name": "Boris Prilutsky",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/boris-prilutsky-2459",
+      "website_on_pro": "http://medicalmassage-edu.com",
+      "street_on_pro": "9033 Wilshire Boulevard",
+      "city": "Beverly Hills",
+      "zip": "90211",
+      "source": {
+        "kind": "svoi",
+        "address": "9033 Wilshire Boulevard",
+        "city": "Beverly Hills",
+        "zip": "90211",
+        "websites": [
+          "http://medicalmassage-edu.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "7f025249-44e8-48cf-8263-3ee3ec41a20c",
+      "slug": "svoi-boris-zaks-md",
+      "name": "Boris Zaks MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/boris-zaks-md-7460",
+      "website_on_pro": null,
+      "street_on_pro": "435 North Roxbury Drive",
+      "city": "Beverly Hills",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "435 North Roxbury Drive",
+        "city": "Beverly Hills",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "627c864d-5eda-4a7c-a1c4-507fab8f5f3c",
+      "slug": "svoi-dr-lilia-agadganian-dds",
+      "name": "Dr. Lilia Agadganian DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-lilia-agadganian-dds-1688",
+      "website_on_pro": null,
+      "street_on_pro": "8500 Wilshire Boulevard",
+      "city": "Beverly Hills",
+      "zip": "90211",
+      "source": {
+        "kind": "svoi",
+        "address": "8500 Wilshire Boulevard",
+        "city": "Beverly Hills",
+        "zip": "90211",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2dfce6f4-6f7d-4193-b1a2-b9361c3ce9f8",
+      "slug": "svoi-dr-joseph-stan-dds",
+      "name": "Dr. Joseph Stan DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-joseph-stan-dds-1550",
+      "website_on_pro": null,
+      "street_on_pro": "448 North Bedford Drive",
+      "city": "Beverly Hills",
+      "zip": "90210",
+      "source": {
+        "kind": "svoi",
+        "address": "448 North Bedford Drive",
+        "city": "Beverly Hills",
+        "zip": "90210",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "67c4b195-ae7c-48c8-a8b7-7c4c964841ba",
+      "slug": "svoi-dr-sofya-b-tsyganovskaya-md",
+      "name": "Dr. Sofya B. Tsyganovskaya, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-sofya-b-tsyganovskaya-md-2282",
+      "website_on_pro": "http://sofyatsyganovskayamd.com",
+      "street_on_pro": "1411 W.Olive Ave",
+      "city": "Burbank",
+      "zip": "91506",
+      "source": {
+        "kind": "svoi",
+        "address": "1411 W.Olive Ave",
+        "city": "Burbank",
+        "zip": "91506",
+        "websites": [
+          "http://sofyatsyganovskayamd.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "06d1d607-6423-4c69-9479-ad1a96027fcc",
+      "slug": "svoi-demerjian-gary-dds-dentist",
+      "name": "Demerjian Gary DDS Dentist",
+      "category": "health",
+      "source_url": "https://svoi.us/company/demerjian-gary-dds-dentist-13142",
+      "website_on_pro": null,
+      "street_on_pro": "2701 W. Alameda Ave",
+      "city": "Burbank",
+      "zip": "91505",
+      "source": {
+        "kind": "svoi",
+        "address": "2701 W. Alameda Ave",
+        "city": "Burbank",
+        "zip": "91505",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "4d88d12e-ae02-4bb0-a398-8f8bab5ecc4c",
+      "slug": "svoi-biz-14",
+      "name": "РУССКИЕ и ТУРЕЦКИЕ БАНИ",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/russkiye-i-turetskiye-bani-4608",
+      "website_on_pro": "http://www.russianandturkishbaths.com",
+      "street_on_pro": "5445 Collins Avenue",
+      "city": "Miami Beach",
+      "zip": "33140",
+      "source": {
+        "kind": "svoi",
+        "address": "5445 Collins Avenue",
+        "city": "Miami Beach",
+        "zip": "33140",
+        "websites": [
+          "http://www.russianandturkishbaths.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "2c0ae187-72f5-4f1d-80e8-550e24e61ec7",
+      "slug": "svoi-dr-larisa-b-elberg-md",
+      "name": "Dr. Larisa B Elberg MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-larisa-b-elberg-md-984",
+      "website_on_pro": null,
+      "street_on_pro": "2801 Northwest 87th Avenue",
+      "city": "Doral",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "2801 Northwest 87th Avenue",
+        "city": "Doral",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "267ab56b-752c-4868-8b62-d72352870ccc",
+      "slug": "svoi-minsu-healing-oasis",
+      "name": "Minsu Healing Oasis",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/minsu-healing-oasis-11109",
+      "website_on_pro": null,
+      "street_on_pro": "260 Palermo Avenue",
+      "city": "Coral gables",
+      "zip": "33134",
+      "source": {
+        "kind": "svoi",
+        "address": "260 Palermo Avenue",
+        "city": "Coral gables",
+        "zip": "33134",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "ab2b6b60-6609-4ab6-a54e-4f0c1f109388",
+      "slug": "svoi-marianna-blyumin-karasik-md",
+      "name": "Marianna Blyumin-Karasik, MD",
+      "category": "beauty",
+      "source_url": "https://svoi.us/company/marianna-blyumin-karasik-md-9842",
+      "website_on_pro": null,
+      "street_on_pro": "3501 S University Dr",
+      "city": "Davey",
+      "zip": "33328",
+      "source": {
+        "kind": "svoi",
+        "address": "3501 S University Dr",
+        "city": "Davey",
+        "zip": "33328",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "c982388b-efc9-40c8-8831-7784033df90c",
+      "slug": "svoi-alexander-chaplik-m-d",
+      "name": "Alexander Chaplik, M.D.",
+      "category": "creative",
+      "source_url": "https://svoi.us/company/alexander-chaplik-m-d-2655",
+      "website_on_pro": "http://www.chaplikcardiology.com",
+      "street_on_pro": "W Atlantic Ave",
+      "city": "6238",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "W Atlantic Ave",
+        "city": "6238",
+        "zip": null,
+        "websites": [
+          "http://www.chaplikcardiology.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "958cf940-669d-4f49-ad7d-05c827ea9959",
+      "slug": "svoi-dr-alexander-m-chaplik-md",
+      "name": "Dr. Alexander M Chaplik MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-alexander-m-chaplik-md-2102",
+      "website_on_pro": null,
+      "street_on_pro": "6238 West Atlantic Avenue",
+      "city": "Kings point",
+      "zip": "33484",
+      "source": {
+        "kind": "svoi",
+        "address": "6238 West Atlantic Avenue",
+        "city": "Kings point",
+        "zip": "33484",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "36d819ed-c669-4b27-9867-0b1a43cc2ad6",
+      "slug": "svoi-dr-svetlana-maslyak-md",
+      "name": "Dr. Svetlana Maslyak, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-svetlana-maslyak-md-2100",
+      "website_on_pro": null,
+      "street_on_pro": "3990 Sheridan Street",
+      "city": "Hollywood",
+      "zip": "33021",
+      "source": {
+        "kind": "svoi",
+        "address": "3990 Sheridan Street",
+        "city": "Hollywood",
+        "zip": "33021",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "445b1da3-cfa2-46e6-bc08-7f51a3e2890c",
+      "slug": "svoi-uromedix-md",
+      "name": "UroMedix /Борис Клопух, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/uromedix-boris-klopukh-md-11150",
+      "website_on_pro": null,
+      "street_on_pro": "400 West 41st Street",
+      "city": "Miami Beach",
+      "zip": "33140",
+      "source": {
+        "kind": "svoi",
+        "address": "400 West 41st Street",
+        "city": "Miami Beach",
+        "zip": "33140",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "65a3ee4e-c61a-448e-a1fc-ab793fb9d6c8",
+      "slug": "svoi-biz-9",
+      "name": "Зельцман Марат",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/zeltsman-marat-10517",
+      "website_on_pro": "https://www.mhs.net/physicians/z/zeltsman-marat",
+      "street_on_pro": "21097 Northeast 27th Court",
+      "city": "Aventura",
+      "zip": "33180",
+      "source": {
+        "kind": "svoi",
+        "address": "21097 Northeast 27th Court",
+        "city": "Aventura",
+        "zip": "33180",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "09a91983-eba3-443d-9c17-d1745524242a",
+      "slug": "svoi-dr-elena-vaynerov",
+      "name": "Dr. Elena Vaynerov",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-elena-vaynerov-2116",
+      "website_on_pro": null,
+      "street_on_pro": "7559 Santa Monica Boulevard",
+      "city": "West Hollywood",
+      "zip": "90046",
+      "source": {
+        "kind": "svoi",
+        "address": "7559 Santa Monica Boulevard",
+        "city": "West Hollywood",
+        "zip": "90046",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b2594f31-e9a9-4aba-a6b0-3ba70e0091c0",
+      "slug": "svoi-dr-galina-makovoz",
+      "name": "Dr. Galina Makovoz",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-galina-makovoz-2024",
+      "website_on_pro": null,
+      "street_on_pro": "7607 Santa Monica Boulevard",
+      "city": "West Hollywood",
+      "zip": "90046",
+      "source": {
+        "kind": "svoi",
+        "address": "7607 Santa Monica Boulevard",
+        "city": "West Hollywood",
+        "zip": "90046",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "c19eb314-acc8-437f-a16f-2b56c1d5b53c",
+      "slug": "svoi-dr-boris-shemer-md",
+      "name": "Dr. Boris Shemer MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-boris-shemer-md-2027",
+      "website_on_pro": null,
+      "street_on_pro": "7607 Santa Monica Boulevard",
+      "city": "West Hollywood",
+      "zip": "90046",
+      "source": {
+        "kind": "svoi",
+        "address": "7607 Santa Monica Boulevard",
+        "city": "West Hollywood",
+        "zip": "90046",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b952e38e-24a4-47b6-8047-5b39f4870add",
+      "slug": "svoi-dr-victoria-olshansky-dds",
+      "name": "Dr. Victoria Olshansky DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-victoria-olshansky-dds-1580",
+      "website_on_pro": null,
+      "street_on_pro": "1136 North Fairfax Avenue",
+      "city": "West Hollywood",
+      "zip": "90046",
+      "source": {
+        "kind": "svoi",
+        "address": "1136 North Fairfax Avenue",
+        "city": "West Hollywood",
+        "zip": "90046",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "6cb27f30-fa6f-4da8-ad75-cf3676e48551",
+      "slug": "svoi-dr-boris-braslavsky-dds",
+      "name": "Dr. Boris Braslavsky, DDS",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-boris-braslavsky-dds-1604",
+      "website_on_pro": "http://www.westhollywoodsmile.com",
+      "street_on_pro": "7531 Santa Monica Boulevard",
+      "city": "West Hollywood",
+      "zip": "90046",
+      "source": {
+        "kind": "svoi",
+        "address": "7531 Santa Monica Boulevard",
+        "city": "West Hollywood",
+        "zip": "90046",
+        "websites": [
+          "http://www.westhollywoodsmile.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "3d1e6e8a-3744-4493-8be1-6a9cbc963d1b",
+      "slug": "svoi-dc",
+      "name": "Д-е Александр Генсон DC",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/d-ye-aleksandr-genson-dc-1494",
+      "website_on_pro": null,
+      "street_on_pro": "6006 Bellaire Boulevard",
+      "city": "Houston",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "6006 Bellaire Boulevard",
+        "city": "Houston",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b7a0a1bb-3fa4-4603-92b9-725b8c507910",
+      "slug": "svoi-dr-leila-g-vizirov-md",
+      "name": "Dr. Leila G Vizirov, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-leila-g-vizirov-md-2721",
+      "website_on_pro": null,
+      "street_on_pro": "1631 North Loop West",
+      "city": "Houston",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "1631 North Loop West",
+        "city": "Houston",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "0b7b98e9-44b4-4843-b8bd-01548bb8935a",
+      "slug": "svoi-dr-irina-s-zaydman-md",
+      "name": "Dr. Irina S. Zaydman, MD",
+      "category": "education",
+      "source_url": "https://svoi.us/company/dr-irina-s-zaydman-md-709",
+      "website_on_pro": null,
+      "street_on_pro": "16659 Southwest Freeway",
+      "city": "Sugar Land",
+      "zip": "77479",
+      "source": {
+        "kind": "svoi",
+        "address": "16659 Southwest Freeway",
+        "city": "Sugar Land",
+        "zip": "77479",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "83d5445a-035d-4d6d-81a3-57f942161641",
+      "slug": "svoi-biz-8",
+      "name": "Терапевт Галина Бондар",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/terapevt-galina-bondar-1091",
+      "website_on_pro": null,
+      "street_on_pro": "2310 Van Ufford Lane",
+      "city": "Carmichael",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "2310 Van Ufford Lane",
+        "city": "Carmichael",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "50599d6d-8794-4673-8072-ddde9cdb428b",
+      "slug": "svoi-aram-stepanian-cpa-accountants",
+      "name": "Aram Stepanian CPA Accountants",
+      "category": "finance",
+      "source_url": "https://svoi.us/company/aram-stepanian-cpa-accountants-8447",
+      "website_on_pro": "http://www.cpaforyou.com",
+      "street_on_pro": "1243 Virginia Avenue",
+      "city": "Glendale",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "1243 Virginia Avenue",
+        "city": "Glendale",
+        "zip": null,
+        "websites": [
+          "http://www.cpaforyou.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "89075bc8-2751-4446-9223-a369ac02e970",
+      "slug": "svoi-dr-agop-aintablian",
+      "name": "Dr. Agop Aintablian",
+      "category": "creative",
+      "source_url": "https://svoi.us/company/dr-agop-aintablian-2082",
+      "website_on_pro": null,
+      "street_on_pro": "416 East Colorado Street",
+      "city": "Glendale",
+      "zip": "91205",
+      "source": {
+        "kind": "svoi",
+        "address": "416 East Colorado Street",
+        "city": "Glendale",
+        "zip": "91205",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "192fbbaa-56cf-4b9b-b7a8-aac0706a3c76",
+      "slug": "svoi-dr-abraham-maissian-md",
+      "name": "Dr. Abraham Maissian, MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-abraham-maissian-md-2002",
+      "website_on_pro": null,
+      "street_on_pro": "1737 West Glenoaks Boulevard",
+      "city": "Glendale",
+      "zip": "91201",
+      "source": {
+        "kind": "svoi",
+        "address": "1737 West Glenoaks Boulevard",
+        "city": "Glendale",
+        "zip": "91201",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "5a2debeb-a965-4805-8fcd-cd888e3459af",
+      "slug": "svoi-dr-zarie-shahgaldian-md",
+      "name": "Dr Zarie Shahgaldian MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-zarie-shahgaldian-md-7367",
+      "website_on_pro": null,
+      "street_on_pro": "1030 South Glendale Avenue",
+      "city": "Glendale",
+      "zip": "91205",
+      "source": {
+        "kind": "svoi",
+        "address": "1030 South Glendale Avenue",
+        "city": "Glendale",
+        "zip": "91205",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "d4691c60-91cf-4577-8279-56c280b5778d",
+      "slug": "svoi-boghosian-shahen-md-physicians-urology",
+      "name": "Boghosian Shahen MD Physicians-Urology",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/boghosian-shahen-md-physicians-urology-3526",
+      "website_on_pro": null,
+      "street_on_pro": "1030 South Glendale Avenue",
+      "city": "Glendale",
+      "zip": "91205",
+      "source": {
+        "kind": "svoi",
+        "address": "1030 South Glendale Avenue",
+        "city": "Glendale",
+        "zip": "91205",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "d25a909c-8706-488e-b3ce-ccf57a4328f4",
+      "slug": "svoi-antranik-laleian-dds-dentist",
+      "name": "Antranik Laleian DDS Dentist",
+      "category": "health",
+      "source_url": "https://svoi.us/company/antranik-laleian-dds-dentist-13154",
+      "website_on_pro": null,
+      "street_on_pro": "300 W. Glenoaks Blvd",
+      "city": "Glendale",
+      "zip": "91202",
+      "source": {
+        "kind": "svoi",
+        "address": "300 W. Glenoaks Blvd",
+        "city": "Glendale",
+        "zip": "91202",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "be676876-86bc-45e1-93cf-9249e21ddfa2",
+      "slug": "svoi-amayak-gagik-dds-dentist",
+      "name": "Amayak Gagik DDS Dentist",
+      "category": "health",
+      "source_url": "https://svoi.us/company/amayak-gagik-dds-dentist-13156",
+      "website_on_pro": null,
+      "street_on_pro": "1160 N. Central Ave.",
+      "city": "Glendale",
+      "zip": "91203",
+      "source": {
+        "kind": "svoi",
+        "address": "1160 N. Central Ave.",
+        "city": "Glendale",
+        "zip": "91203",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "060fd84c-bb66-43a2-8d9b-37c5ad1f790a",
+      "slug": "svoi-albarian-alex-dds-dentist",
+      "name": "Albarian Alex DDS Dentist",
+      "category": "health",
+      "source_url": "https://svoi.us/company/albarian-alex-dds-dentist-13158",
+      "website_on_pro": null,
+      "street_on_pro": "411 N. Central Ave",
+      "city": "Glendale",
+      "zip": "91203",
+      "source": {
+        "kind": "svoi",
+        "address": "411 N. Central Ave",
+        "city": "Glendale",
+        "zip": "91203",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "77905256-54c1-47aa-b6e7-07236cee9b66",
+      "slug": "svoi-dr-nune-simonian-md",
+      "name": "Dr. Nune Simonian MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/dr-nune-simonian-md-2061",
+      "website_on_pro": null,
+      "street_on_pro": "435 Arden Avenue",
+      "city": "Glendale",
+      "zip": "91203",
+      "source": {
+        "kind": "svoi",
+        "address": "435 Arden Avenue",
+        "city": "Glendale",
+        "zip": "91203",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "ff2863eb-655e-48cb-bf3b-183577d93e6b",
+      "slug": "svoi-aintablian-ighia-md",
+      "name": "Aintablian Ighia MD",
+      "category": "pro_other",
+      "source_url": "https://svoi.us/company/aintablian-ighia-md-2076",
+      "website_on_pro": null,
+      "street_on_pro": "1510 South Central Avenue",
+      "city": "Glendale",
+      "zip": "91204",
+      "source": {
+        "kind": "svoi",
+        "address": "1510 South Central Avenue",
+        "city": "Glendale",
+        "zip": "91204",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "410d525b-d889-47a9-8c55-3876509f1faa",
+      "slug": "svoi-the-furniture-doctor-valeriy-melnikov",
+      "name": "The Furniture Doctor - Valeriy Melnikov",
+      "category": "health",
+      "source_url": "https://svoi.us/company/the-furniture-doctor-valeriy-melnikov-14432",
+      "website_on_pro": "http://www.furniturerepairsandiego.com",
+      "street_on_pro": "8796 BLUE LAKE DR",
+      "city": "San diego",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "8796 BLUE LAKE DR",
+        "city": "San diego",
+        "zip": null,
+        "websites": [
+          "http://www.furniturerepairsandiego.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 0,
+      "reasons": [
+        "street_address",
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "4ad0aede-95d5-4081-9ead-fa264e5242cc",
+      "slug": "svoi-pure-zen-wellness",
+      "name": "Pure Zen Wellness",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/pure-zen-wellness-6321",
+      "website_on_pro": "http://purezenwellness.com",
+      "street_on_pro": "317 North El Camino Real",
+      "city": "Encinitas",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "317 North El Camino Real",
+        "city": "Encinitas",
+        "zip": null,
+        "websites": [
+          "http://purezenwellness.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 3,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b173c02c-df10-410a-83d0-40ed78188ed6",
+      "slug": "svoi-granovsky-alla",
+      "name": "Granovsky Alla",
+      "category": "finance",
+      "source_url": "https://svoi.us/company/granovsky-alla-5934",
+      "website_on_pro": null,
+      "street_on_pro": "275 East Street Road",
+      "city": "Feasterville-Trevos",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "275 East Street Road",
+        "city": "Feasterville-Trevos",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 1,
+      "reasons": [
+        "street_address",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "650dd753-447b-413f-93fc-e8180cd60356",
+      "slug": "svoi-dr-adamov-victor",
+      "name": "Dr. Adamov Victor",
+      "category": "health",
+      "source_url": "https://svoi.us/company/dr-adamov-victor-5918",
+      "website_on_pro": null,
+      "street_on_pro": "2 Park Lane",
+      "city": "Feasterville-Trevos",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "2 Park Lane",
+        "city": "Feasterville-Trevos",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "likely_business",
+      "biz_score": 2,
+      "solo_score": 0,
+      "reasons": [
+        "street_address"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    }
+  ],
+  "keep_specialist": [
+    {
+      "id": "1b5578bb-139f-49bf-819b-a7a4fa756d2b",
+      "slug": "svoi-massage-viktoria-dolidze",
+      "name": "Massage: Viktoria Dolidze",
+      "category": "massage_wellness",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/medical-doctors/viktoria-dolidze-new/",
+      "website_on_pro": "https://www.HealthAndHealingOasis.com",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "http://www.healthandhealingoasis.com/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "medical-doctors"
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 1,
+      "solo_score": 2,
+      "reasons": [
+        "has_website",
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "b01de293-ed44-4094-95d4-412d8fd0106c",
+      "slug": "svoi-olga-johnson-music-teacher",
+      "name": "Olga Johnson- Music Teacher",
+      "category": "home_services",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/education-activities/olga-johnson-music-teacher/",
+      "website_on_pro": "https://www.fchconstruction.org",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://www.fchconstruction.org/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "education-activities"
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 1,
+      "solo_score": 3,
+      "reasons": [
+        "has_website",
+        "solo_role_title",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "90bc6fa1-5d05-4ad7-8a36-d32266c03d77",
+      "slug": "svoi-svetlana-cameron-senior-mortgage-loan-officer",
+      "name": "Svetlana Cameron – Senior Mortgage Loan Officer",
+      "category": "real_estate",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/loan-officer-svetlana-brikina-new-ad/",
+      "website_on_pro": "https://lo.primelending.com/svetlana.cameron",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://lo.primelending.com/svetlana.cameron"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "real-estate-mortgage"
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 1,
+      "solo_score": 2,
+      "reasons": [
+        "has_website",
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "25afb22d-e91d-46e8-bc15-5b1d2af1a841",
+      "slug": "svoi-natalia-kocherinskaya-fresh-massage-therapy",
+      "name": "Natalia Kocherinskaya - Fresh Massage Therapy",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/natalia-kocherinskaya-fresh-massage-therapy-14318",
+      "website_on_pro": null,
+      "street_on_pro": null,
+      "city": "GA",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "Atlanta",
+        "city": "GA",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 0,
+      "solo_score": 2,
+      "reasons": [
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "3e642786-ced2-40e9-8e1c-c46187004534",
+      "slug": "svoi-shell-enterprises",
+      "name": "Переводчик и нотариус Shell Enterprises",
+      "category": "legal",
+      "source_url": "https://svoi.us/company/perevodchik-i-notarius-shell-enterprises-5849",
+      "website_on_pro": null,
+      "street_on_pro": "939 Cromwell Bridge Road",
+      "city": "Tauson",
+      "zip": "21286",
+      "source": {
+        "kind": "svoi",
+        "address": "939 Cromwell Bridge Road",
+        "city": "Tauson",
+        "zip": "21286",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 2,
+      "solo_score": 2,
+      "reasons": [
+        "street_address",
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "9c94c65f-7340-4654-a9fd-dae78109c7c1",
+      "slug": "svoi-biz-13",
+      "name": "Нотариус русскоязычный",
+      "category": "legal",
+      "source_url": "https://svoi.us/company/notarius-russkoyazychnyy-4760",
+      "website_on_pro": null,
+      "street_on_pro": null,
+      "city": "FL ted States",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "Pompano Beach",
+        "city": "FL ted States",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 0,
+      "solo_score": 2,
+      "reasons": [
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "ecd3e4df-a6fc-4c96-a83f-a8492bcf03cd",
+      "slug": "svoi-biz-12",
+      "name": "Массаж & Аппаратная косметология",
+      "category": "beauty",
+      "source_url": "https://svoi.us/company/massazh-apparatnaya-kosmetologiya-14275",
+      "website_on_pro": null,
+      "street_on_pro": "3800 S Osean Dr",
+      "city": "Hollywood",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "3800 S Osean Dr",
+        "city": "Hollywood",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 2,
+      "solo_score": 2,
+      "reasons": [
+        "street_address",
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "a810a448-247c-494a-ad2f-9eca373fe86b",
+      "slug": "svoi-biz-11",
+      "name": "Тайский массаж - Лилия",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/tayskiy-massazh-liliya-14234",
+      "website_on_pro": null,
+      "street_on_pro": null,
+      "city": "FL",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "Miami",
+        "city": "FL",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 0,
+      "solo_score": 2,
+      "reasons": [
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "4c5cb745-c799-44ba-95b3-e6c79f06c34a",
+      "slug": "svoi-massage-for-health",
+      "name": "Massage for Health",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/massage-for-health-6357",
+      "website_on_pro": null,
+      "street_on_pro": "2700 NE Andresen Rd",
+      "city": "Vancouver",
+      "zip": "98661",
+      "source": {
+        "kind": "svoi",
+        "address": "2700 NE Andresen Rd",
+        "city": "Vancouver",
+        "zip": "98661",
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "keep_specialist",
+      "biz_score": 2,
+      "solo_score": 2,
+      "reasons": [
+        "street_address",
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    }
+  ],
+  "review": [
+    {
+      "id": "9ffa5fce-b8aa-4ebb-81bb-a0eaf5b9039c",
+      "slug": "svoi-svetlana-boukhny-lawyer",
+      "name": "Svetlana Boukhny – Lawyer",
+      "category": "legal",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/lawyers/law-offices-of-svetlana-boukhny-2/",
+      "website_on_pro": "https://www.fchconstruction.org",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://www.fchconstruction.org/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "lawyers"
+      },
+      "verdict": "review",
+      "biz_score": 1,
+      "solo_score": 0,
+      "reasons": [
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "957e8c4b-5231-4732-83dc-69f79ec49535",
+      "slug": "svoi-elza-gousseva-nezlin",
+      "name": "Elza Gousseva-Nezlin",
+      "category": "pro_other",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/notary-translation/elza-gousseva-nezlin/",
+      "website_on_pro": "http://elzagus.wix.com/elzanotary",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "http://elzagus.wix.com/elzanotary"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "notary-translation"
+      },
+      "verdict": "review",
+      "biz_score": 1,
+      "solo_score": 0,
+      "reasons": [
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "703329f1-bee4-4402-9a27-8c15ae8bfb64",
+      "slug": "svoi-elena-rozen",
+      "name": "Elena Rozen",
+      "category": "finance",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/elena-rozen/",
+      "website_on_pro": "https://www.fchconstruction.org",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://www.fchconstruction.org/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "accounting-and-tax-services"
+      },
+      "verdict": "review",
+      "biz_score": 1,
+      "solo_score": 1,
+      "reasons": [
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "98ce1ad0-e98d-4c4f-a088-c7a51ab99c6c",
+      "slug": "svoi-anatoly-sigalov",
+      "name": "Anatoly Sigalov",
+      "category": "finance",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/anatoly-sigalov-new/",
+      "website_on_pro": "https://www.fchconstruction.org",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://www.fchconstruction.org/"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "accounting-and-tax-services"
+      },
+      "verdict": "review",
+      "biz_score": 1,
+      "solo_score": 1,
+      "reasons": [
+        "has_website",
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "a0b6151a-b50c-4266-8fe4-eb9a07eda413",
+      "slug": "svoi-holistic-weight-loss-with-lavender-lane-women-s-",
+      "name": "Holistic Weight Loss with Lavender Lane Women’s Health & Wellness",
+      "category": "massage_wellness",
+      "source_url": "https://www.russianorangepages.com/community/russian-services/medical-doctors/holistic-weight-loss-with-lavender-lane-womens-health-wellness-new-ad/",
+      "website_on_pro": "https://lavlane.com/#contact",
+      "street_on_pro": null,
+      "city": "Orange",
+      "zip": null,
+      "source": {
+        "kind": "orange_pages",
+        "address": null,
+        "city": null,
+        "zip": null,
+        "websites": [
+          "https://gmpg.org/xfn/11",
+          "https://fonts.googleapis.com/css?family=Open%20Sans&#038;display=swap&#038;ver=1769814617",
+          "https://lavlane.com/#contact"
+        ],
+        "cover": false,
+        "error": null,
+        "dir_cat": "medical-doctors"
+      },
+      "verdict": "review",
+      "biz_score": 1,
+      "solo_score": 0,
+      "reasons": [
+        "has_website"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "4d6cef9b-4031-4f9a-b21e-d95cc8e8cefe",
+      "slug": "svoi-biz-19",
+      "name": "Карина Абраамян",
+      "category": "real_estate",
+      "source_url": "https://svoi.us/company/karina-abraamyan-14620",
+      "website_on_pro": null,
+      "street_on_pro": null,
+      "city": "OH",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "Twinsburg",
+        "city": "OH",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "review",
+      "biz_score": 0,
+      "solo_score": 1,
+      "reasons": [
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "929ee507-6eaa-4a1b-9848-0beef909ce54",
+      "slug": "svoi-biz-10",
+      "name": "Андрей Соколов",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/andrey-sokolov-8362",
+      "website_on_pro": null,
+      "street_on_pro": null,
+      "city": "FL",
+      "zip": null,
+      "source": {
+        "kind": "svoi",
+        "address": "Miami",
+        "city": "FL",
+        "zip": null,
+        "websites": [],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "review",
+      "biz_score": 0,
+      "solo_score": 1,
+      "reasons": [
+        "person_name_shape"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    },
+    {
+      "id": "c45bd600-224d-4662-bd3a-15e1195ac4e7",
+      "slug": "svoi-reyou-massage",
+      "name": "reYOU Massage",
+      "category": "massage_wellness",
+      "source_url": "https://svoi.us/company/reyou-massage-5897",
+      "website_on_pro": "http://reyoumassage.com",
+      "street_on_pro": "13037 Bustleton Avenue",
+      "city": "Philadelphia",
+      "zip": "19116",
+      "source": {
+        "kind": "svoi",
+        "address": "13037 Bustleton Avenue",
+        "city": "Philadelphia",
+        "zip": "19116",
+        "websites": [
+          "http://reyoumassage.com"
+        ],
+        "cover": true,
+        "error": null,
+        "dir_cat": null
+      },
+      "verdict": "review",
+      "biz_score": 3,
+      "solo_score": 2,
+      "reasons": [
+        "street_address",
+        "has_website",
+        "solo_role_title"
+      ],
+      "gaps": {
+        "need_website": false,
+        "need_street": false,
+        "need_zip": false,
+        "need_photo": false
+      }
+    }
+  ]
+}

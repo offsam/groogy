@@ -1,0 +1,34 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-svetlana-boukhny-lawyer",
+      "display_name": "Svetlana Boukhny – Lawyer",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/lawyers/law-offices-of-svetlana-boukhny-2/",
+          "city": "Laguna Niguel",
+          "postal_code": "92677",
+          "phone": "+19492780834",
+          "email": "sboukhny@gmail.com",
+          "image_url": "https://www.russianorangepages.com/community/wp-content/uploads/BuchnyPic_00013-243x300.jpg",
+          "_via": "rop_dump"
+        }
+      },
+      "found": {
+        "city": "Laguna Niguel",
+        "postal_code": "92677",
+        "phone": "+19492780834",
+        "email": "sboukhny@gmail.com",
+        "image_url": "https://www.russianorangepages.com/community/wp-content/uploads/BuchnyPic_00013-243x300.jpg"
+      },
+      "patch": {}
+    }
+  ]
+}

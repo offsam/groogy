@@ -1,0 +1,514 @@
+[
+  {
+    "id": "4226cc93-9930-46c7-a059-3fefd91eef9d",
+    "name": "Dr. Anna Petrov, MD",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wheeling%2C%20IL%20ted%20States",
+      "phone": "+17732446517"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "54697dd9-f329-40aa-9d9c-2c6d814558ae",
+      "slug": "svoi-dr-anna-petrov-md"
+    }
+  },
+  {
+    "id": "60e09619-02a9-4762-8cd9-749b8b2fc663",
+    "name": "Northwest Orthopedic Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "1120 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%201120%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18478704200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b01cd44e-8701-4764-81cc-53a8bb54ef59",
+      "slug": "svoi-northwest-orthopedic-surgery"
+    }
+  },
+  {
+    "id": "5b2db770-f8f1-4a07-ac92-a35f971a968e",
+    "name": "Gordin Medical Center",
+    "changes": {},
+    "fill": {
+      "address_line": "350 E. Dundee Rd.",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E.%20Dundee%20Rd.%20350%2C%20Wheeling%2C%20IL%2060090",
+      "website": "http://www.gordinmedical.com",
+      "phone": "+18472432110"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "63db081d-8e7b-4d02-ac39-a403d8a6b140",
+      "slug": "svoi-gordin-medical-center"
+    }
+  },
+  {
+    "id": "03c21294-e1aa-46b9-a31f-e32262c5c25a",
+    "name": "Mildun Medical Center",
+    "changes": {},
+    "fill": {
+      "address_line": "77 Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20Ave%20%2077%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18473928080"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7e03dada-ed93-4d42-91d9-ea19cad875ac",
+      "slug": "svoi-mildun-medical-center"
+    }
+  },
+  {
+    "id": "baa2e984-3c1e-4f3b-9764-5f602b8e6be7",
+    "name": "Бухало Юрий",
+    "changes": {},
+    "fill": {
+      "address_line": "880 Central Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60005",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Central%20Road%20880%2C%20Arlington%20heights%2C%20IL%2060005",
+      "phone": "+18472550900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "14d3c2c6-9fb5-4ae5-bec2-14a4cbc225d2",
+      "slug": "svoi-biz-23"
+    }
+  },
+  {
+    "id": "9a5e0449-1248-4eba-8687-762d3344d04e",
+    "name": "EUGENE ISYANOV, M.S., L.C.P.C",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Highland%20Park%2C%20IL",
+      "phone": "+18479224326"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "6c516294-cd9d-4505-8cfc-1150cc3e6b1d",
+    "name": "East West Internal Medicine Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "342 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%20342%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18475208909"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eaf1eeca-61f8-4bda-898e-b4d12ad6fe77",
+      "slug": "svoi-east-west-internal-medicine-associates"
+    }
+  },
+  {
+    "id": "ad622876-a9e4-4068-a343-33fe8d3fe93a",
+    "name": "Access Health Center, Ltd.",
+    "changes": {},
+    "fill": {
+      "address_line": "75th Street 1700",
+      "location_precision": "street",
+      "city": "Downers grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=75th%20Street%201700%2C%20Downers%20grove%2C%20IL",
+      "phone": "+18472440552"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bf5cd617-fa41-4ce0-8fa3-ddcf7bc7b994",
+      "slug": "svoi-access-health-center-ltd"
+    }
+  },
+  {
+    "id": "427d2162-ceb9-4150-952a-2c0ca00fbbb8",
+    "name": "Dr. Yan Katsnelson, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "4141 East Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dundee%20Road%204141%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18475938460"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "24358682-6df3-4db8-be6f-bfbbdccf72ab",
+      "slug": "svoi-dr-yan-katsnelson-md"
+    }
+  },
+  {
+    "id": "966fdf94-cd67-4bae-b2dd-6bfd181dbb2f",
+    "name": "Melamed Weight and Wellness",
+    "changes": {},
+    "fill": {
+      "address_line": "707 Lake Cook Road",
+      "location_precision": "street",
+      "city": "Deerfield",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lake%20Cook%20Road%20707%2C%20Deerfield%2C%20IL",
+      "website": "http://doctor4diet.com",
+      "phone": "+18474183308",
+      "postal_code": "60015",
+      "instagram_url": "https://www.instagram.com/melamedwellness",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "79d7bd3f-c49e-4b52-85e5-b2a09bdd7188",
+      "slug": "svoi-melamed-weight-and-wellness"
+    }
+  },
+  {
+    "id": "c026a37d-72fe-4866-9199-f290734116e4",
+    "name": "Womens and Children Health Care Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "800 Biesterfield Road",
+      "location_precision": "street",
+      "city": "Elk Grove Village",
+      "state_code": "US-IL",
+      "postal_code": "60007",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biesterfield%20Road%20800%2C%20Elk%20Grove%20Village%2C%20IL%2060007",
+      "phone": "+18475936600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5ee6bf9b-901a-4f8e-84eb-9827147a661d",
+      "slug": "svoi-womens-and-children-health-care-associates"
+    }
+  },
+  {
+    "id": "15984f76-f8bc-4423-b75a-b6ac65dfe63d",
+    "name": "Lifewave Institute",
+    "changes": {},
+    "fill": {
+      "address_line": "3113 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203113%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+12247235693"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "af0c4f12-d9f7-4cd9-95b1-4afa38d4a77d",
+      "slug": "svoi-lifewave-institute"
+    }
+  },
+  {
+    "id": "95280b1d-20da-45f8-8072-204228d0e551",
+    "name": "Aanchor Health Center",
+    "changes": {},
+    "fill": {
+      "address_line": "1186 Roosevelt Road",
+      "location_precision": "street",
+      "city": "Glen ellyn",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Roosevelt%20Road%201186%2C%20Glen%20ellyn%2C%20IL",
+      "website": "http://www.aanchorhealthcenter.com",
+      "phone": "+16304954400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "373e5372-255d-443f-a14a-dc2489fa80ee",
+      "slug": "svoi-aanchor-health-center"
+    }
+  },
+  {
+    "id": "a0caf581-08fb-4294-8db5-ca6933f58c54",
+    "name": "Dr. Alexander Prager - JW CENTER",
+    "changes": {},
+    "fill": {
+      "address_line": "1500 Shermer Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shermer%20Road%201500%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18472910858"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "11dba860-9114-4d2e-81e6-3b81f7d06acb",
+      "slug": "svoi-dr-alexander-prager-jw-center"
+    }
+  },
+  {
+    "id": "a42d0836-0596-46e7-ad69-e8bc68232fc4",
+    "name": "Городецкий Александр",
+    "changes": {},
+    "fill": {
+      "address_line": "1247 Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20Avenue%201247%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18472982200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9dee9bd6-b0e8-46d8-976e-e47f1576a7f4",
+      "slug": "svoi-biz-24"
+    }
+  },
+  {
+    "id": "1a801909-a647-4c9e-9b62-587f5a5f62e9",
+    "name": "Treatment of Neck, Back, Joinnts and Muscle Pain",
+    "changes": {},
+    "fill": {
+      "address_line": "3633 West Lake Ave",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60026",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Lake%20Ave%203633%20%2C%20Glenview%2C%20IL%2060026",
+      "phone": "+18477241777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e0b10b76-7831-4e53-ab17-8b737fe9fa83",
+      "slug": "svoi-treatment-of-neck-back-joinnts-and-muscle-pain"
+    }
+  },
+  {
+    "id": "6c141317-55f4-4f71-b94e-f3620dc9dd61",
+    "name": "Illinois Foot and Ankle Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "1400 East Golf Road",
+      "location_precision": "street",
+      "city": "Des plains",
+      "state_code": "US-IL",
+      "postal_code": "60016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Golf%20Road%201400%2C%20Des%20plains%2C%20IL%2060016",
+      "phone": "+18472983338"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b2e4c866-90f4-4514-816d-5a296c42644f",
+      "slug": "svoi-illinois-foot-and-ankle-clinic"
+    }
+  },
+  {
+    "id": "b733bc0e-ca33-4745-8e90-07346d2d958a",
+    "name": "JourneyCare",
+    "changes": {},
+    "fill": {
+      "address_line": "2050 Claire Court",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Claire%20Court%202050%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18474677423"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7f2887b3-2d68-41cb-b86f-e6f14f69fdeb",
+      "slug": "svoi-journeycare"
+    }
+  },
+  {
+    "id": "ff3d2e3c-1e31-455e-912e-e262f381a656",
+    "name": "IMED MRI & VEIN",
+    "changes": {},
+    "fill": {
+      "address_line": "7804 West College Drive",
+      "location_precision": "street",
+      "city": "Palos heights",
+      "state_code": "US-IL",
+      "postal_code": "60463",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20College%20Drive%207804%2C%20Palos%20heights%2C%20IL%2060463",
+      "phone": "+18472982200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "9dee9bd6-b0e8-46d8-976e-e47f1576a7f4"
+    }
+  },
+  {
+    "id": "857d4751-2033-4060-b48e-4e798f86e0b5",
+    "name": "ACU Health Center Ltd",
+    "changes": {},
+    "fill": {
+      "address_line": "736 North York Road",
+      "location_precision": "street",
+      "city": "Hinsdale",
+      "state_code": "US-IL",
+      "postal_code": "60521",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20York%20Road%20736%2C%20Hinsdale%2C%20IL%2060521",
+      "phone": "+16307940645"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "30ad1626-ca52-4f9f-821f-4d545cafe411",
+      "slug": "svoi-acu-health-center-ltd"
+    }
+  }
+]

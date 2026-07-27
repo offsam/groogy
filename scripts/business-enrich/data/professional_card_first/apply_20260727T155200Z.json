@@ -1,0 +1,41 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "alevtina-kis-205116-a644",
+      "display_name": "Alevtina Kis",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "website": "https://ocpl.org/cards",
+          "instagram_url": "https://www.instagram.com/only_nails_usa"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://ocpl.org/cards",
+          "_fetch_url": "https://ocpl.org/cards",
+          "city": "Aliso Viejo",
+          "website": "https://ocpl.org/cards",
+          "phone": "+18558865400",
+          "image_url": "https://ocpl.org/themes/custom/countyoc/images/logo-occ.png"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/26048812988116422",
+          "_via": "import_review",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "website": "https://ocpl.org/cards",
+        "instagram_url": "https://www.instagram.com/only_nails_usa",
+        "phone": "+18558865400",
+        "image_url": "https://ocpl.org/themes/custom/countyoc/images/logo-occ.png"
+      },
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,511 @@
+[
+  {
+    "id": "d7bd4fe2-15cf-4dd7-b18e-3f9198da33fc",
+    "name": "Guess Driving School",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Moncler%2C%20NJ",
+      "phone": "+19737831772"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "e15d4168-439f-4957-8ae0-74d496680d22",
+    "name": "Автошкола Аuto start",
+    "changes": {},
+    "fill": {
+      "address_line": "3171 Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%203171%2C%20New%20York%2C%20NY",
+      "phone": "+17186151629"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cbf671af-b37a-469f-ae2b-261cf281eb5d",
+      "slug": "svoi-uto-start"
+    }
+  },
+  {
+    "id": "a6c8efc4-8101-46d8-87ac-66075d8d127c",
+    "name": "Autocraft Driving School Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "Queens Blvd 118-20",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11375",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Queens%20Blvd%20118-20%2C%20New%20York%2C%20NY%2011375",
+      "phone": "+17185751770"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "46fc396d-de50-487d-975a-5e2ca467c81a",
+      "slug": "svoi-autocraft-driving-school-inc"
+    }
+  },
+  {
+    "id": "7f62cb84-9f84-4140-9a29-85f9f409e695",
+    "name": "Amethyst Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "1601 Gravesend Neck Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gravesend%20Neck%20Road%201601%2C%20New%20York%2C%20NY%2011229",
+      "website": "http://www.amethystdrivingschool.com",
+      "phone": "+17187584740",
+      "instagram_url": "https://www.instagram.com/amethystdrivingschool",
+      "email": "amethystdriving@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d82027e-a648-4a31-a02d-e850a6321423",
+      "slug": "svoi-amethyst-driving-school"
+    }
+  },
+  {
+    "id": "68260d2a-b545-4530-9f91-ad62ecf09249",
+    "name": "Amethyst Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "1601 Gravesend Neck Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gravesend%20Neck%20Road%201601%2C%20New%20York%2C%20NY%2011229%2C",
+      "website": "http://www.amethystdrivingschool.com",
+      "phone": "+17189753917",
+      "instagram_url": "https://www.instagram.com/amethystdrivingschool",
+      "email": "amethystdriving@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a5a9af18-701f-432b-86a6-95db24e9c30e",
+      "slug": "svoi-amethyst-driving-school-2"
+    }
+  },
+  {
+    "id": "c332bf44-489b-4ab3-8881-99be3f0ffb59",
+    "name": "Confidence Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "108th St. 63-52",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11375",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=108th%20St.%2063-52%2C%20New%20York%2C%20NY%20%20%20%2011375",
+      "phone": "+17189977713"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "19aa89db-7cdd-45e6-88d9-29c8106517bc",
+      "slug": "svoi-confidence-driving-school"
+    }
+  },
+  {
+    "id": "45803e35-82f5-4450-93da-c762a7ca94b4",
+    "name": "Friendly Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%2C%20New%20York%2C%20NY",
+      "phone": "+17187431162"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "592b2218-a508-4fdf-bb2b-ffb51064a504",
+      "slug": "svoi-friendly-driving-school"
+    }
+  },
+  {
+    "id": "5cda7fb9-53cd-40a1-a9de-692fe4c133e5",
+    "name": "Ark Auto School",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 Avenue U",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20U%201101%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17183766381"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "360cf550-66ed-48fb-aa46-0d8d54fbb51f",
+      "slug": "svoi-ark-auto-school"
+    }
+  },
+  {
+    "id": "e376d1bb-1a9d-4590-841f-1d1173a84ae5",
+    "name": "УРОКИ ВОЖДЕНИЯ Brooklyn, NY",
+    "changes": {},
+    "fill": {
+      "address_line": "2029 East 38th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11234",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2038th%20Street%202029%2C%20New%20York%2C%20NY%2011234",
+      "phone": "+17187918419"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eaf21b86-6c5e-4c10-8c6d-dd4084d01af3",
+      "slug": "svoi-brooklyn-ny"
+    }
+  },
+  {
+    "id": "746de478-ff75-489b-9b31-63e9eb0c1788",
+    "name": "Автошкола FORWARDS",
+    "changes": {},
+    "fill": {
+      "address_line": "101 Avenue U",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20U%20101%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+19173851709"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4b2c929c-01a2-4146-b968-5631dbd0ce27",
+      "slug": "svoi-forwards"
+    }
+  },
+  {
+    "id": "a89f48c8-6166-48b1-b053-7ee1436b912d",
+    "name": "\"Одисей\"/ \"ODISSEY\"",
+    "changes": {},
+    "fill": {
+      "address_line": "101 Avenue South",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20South%20101%2C%20New%20York%2C%20NY",
+      "phone": "+17182564947"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e39950c7-7c90-4916-9d17-94b28ac54f86",
+      "slug": "svoi-odissey"
+    }
+  },
+  {
+    "id": "dce52018-1639-4f47-a064-7b8f7b4af648",
+    "name": "TLC WHEELCHAIR ACCESSIBLE VEHICLE CLASSES & TRAINING",
+    "changes": {},
+    "fill": {
+      "address_line": "2002 McDonald Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McDonald%20Avenue%202002%2C%20New%20York%2C%20NY",
+      "website": "http://www.ccgc.nyc",
+      "phone": "+19298886888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06d1bd6b-8939-441b-955a-5e7e3c5b6222",
+      "slug": "svoi-tlc-wheelchair-accessible-vehicle-classes-traini"
+    }
+  },
+  {
+    "id": "da5be4d4-a223-4d22-a525-5b74c5571f37",
+    "name": "LADA Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "1118 Quentin Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Quentin%20Road%201118%2C%20New%20York%2C%20NY%2011204",
+      "phone": "+17189989347"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b3813fee-0602-4264-aa9a-aa5e9765e2ff",
+      "slug": "svoi-lada-driving-school"
+    }
+  },
+  {
+    "id": "349f6315-acac-4ae6-8a64-f4087fb4eb32",
+    "name": "Infinity Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "1301 Kings Highway",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kings%20Highway%201301%2C%20New%20York%2C%20NY",
+      "phone": "+17186459400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fc59f66e-2236-4029-8e0f-3a8d01b0f0c2",
+      "slug": "svoi-infinity-driving-school"
+    }
+  },
+  {
+    "id": "71443e91-e4c1-41fc-901e-0d3c75eb64b6",
+    "name": "Left turn driving school",
+    "changes": {},
+    "fill": {
+      "address_line": "1635 East 19th Street 2nd Fl.",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2019th%20Street%202nd%20Fl.%201635%20%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+17187437761"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9c61ea4c-d16b-4114-8f85-cb3422a21247",
+      "slug": "svoi-left-turn-driving-school"
+    }
+  },
+  {
+    "id": "dc24c6d4-2aff-4f8b-958f-309c9a46c256",
+    "name": "АВТОШКОЛА LICENSED BY NY STATE,",
+    "changes": {},
+    "fill": {
+      "address_line": "1914 Avenue M",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11230",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20M%201914%2C%20New%20York%2C%20NY%2011230",
+      "phone": "+17189721745"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9a29a584-141d-4570-81db-98f976e48475",
+      "slug": "svoi-licensed-by-ny-state"
+    }
+  },
+  {
+    "id": "f06bff10-a280-40a9-b15b-a9c23766f135",
+    "name": "Miglya Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "303 Avenue M",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11230",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20M%20303%2C%20New%20York%2C%20NY%2011230",
+      "phone": "+19177708357"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d088b7df-3739-4a5c-ac93-9d10740e949c",
+      "slug": "svoi-miglya-driving-school"
+    }
+  },
+  {
+    "id": "fbd68fe7-2710-4b04-941a-895690e134f7",
+    "name": "ITC, International Drivers Document - International Tourist Club,",
+    "changes": {},
+    "fill": {
+      "address_line": "14th Avenue 6408",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=14th%20Avenue%206408%2C%20New%20York%2C%20NY",
+      "phone": "+17182321223"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c7699e2d-f813-4db8-b5b8-36c57f71011e",
+      "slug": "svoi-itc-international-drivers-document-international"
+    }
+  },
+  {
+    "id": "5e13763a-6164-4cd9-a0d2-6ce078839b4f",
+    "name": "R and M Business Services",
+    "changes": {},
+    "fill": {
+      "address_line": "535 Cranbury Road",
+      "location_precision": "street",
+      "city": "East Brunswick",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cranbury%20Road%20535%2C%20East%20Brunswick%2C%20NJ",
+      "website": "http://rmbusinessonline.com",
+      "phone": "+17323901660",
+      "email": "info@rmbusinessonline.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "659a4705-a3c8-4c97-a5d0-b4f2394f0065",
+      "slug": "svoi-r-and-m-business-services"
+    }
+  },
+  {
+    "id": "9ddce775-0025-4bad-8507-84839017fa88",
+    "name": "Professional Accounting Julia Popova",
+    "changes": {},
+    "fill": {
+      "city": "NJ ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Brunswick%2C%20NJ%20ted%20States",
+      "phone": "+17329556578"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

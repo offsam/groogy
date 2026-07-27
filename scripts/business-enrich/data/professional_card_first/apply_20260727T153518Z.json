@@ -1,0 +1,34 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "lynn-j-english-205002-47f7",
+      "display_name": "Lynn J English",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "http://www.lynnjenglish.com/"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://www.lynnjenglish.com/",
+          "_fetch_url": "https://www.lynnjenglish.com/",
+          "phone": "+19168792892",
+          "website": "https://www.lynnjenglish.com/",
+          "image_url": "https://static.parastorage.com/client/pfavico.ico"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/26072557139075340",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "website": "https://www.lynnjenglish.com/",
+        "phone": "+19168792892"
+      },
+      "patch": {}
+    }
+  ]
+}

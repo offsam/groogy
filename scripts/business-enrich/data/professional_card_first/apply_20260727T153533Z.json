@@ -1,0 +1,33 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "guncha-atajanova-205252-7ab3",
+      "display_name": "Guncha Atajanova",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "website": "https://www.amway.com/myshop/QUALITYLIFE999"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.amway.com/myshop/QUALITYLIFE999",
+          "_fetch_url": "https://www.amway.com/myshop/QUALITYLIFE999",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27158179223846454",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "website": "https://www.amway.com/myshop/QUALITYLIFE999"
+      },
+      "patch": {}
+    }
+  ]
+}

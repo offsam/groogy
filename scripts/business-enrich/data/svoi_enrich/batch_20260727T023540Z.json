@@ -1,0 +1,540 @@
+[
+  {
+    "id": "37d4c766-f49f-4a48-9286-1bc09b588783",
+    "name": "Детский сад Кораблик",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "22960 Burbank Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Burbank%20Blvd%20%0922960%2C%20Los%20Angeles%2C%20CA%2091367",
+      "website": "http://www.mykorablik.com",
+      "phone": "+18188883413"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "07c8fb00-f1b4-4f31-8138-e9a1fc7f705e",
+      "slug": "svoi-biz-29"
+    }
+  },
+  {
+    "id": "5f07426f-10dc-4c54-9547-23471b12d3ad",
+    "name": "Радистка Кэт",
+    "changes": {},
+    "fill": {
+      "address_line": "5915 Westminster Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5915%20Westminster%20Blvd%2C%20Los%20Angeles%2C%20CA"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f854309f-48fa-4874-8d7d-5fa912b138c4",
+      "slug": "svoi-biz-30"
+    }
+  },
+  {
+    "id": "dcb7a5bc-9d99-4701-85cd-379ade98a68e",
+    "name": "Детский Русский Клуб",
+    "changes": {},
+    "fill": {
+      "address_line": "731 South Averill Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90732",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Averill%20Avenue%20731%2C%20Los%20Angeles%2C%20CA%2090732",
+      "website": "http://www.ruskidsclub.com/ru",
+      "phone": "+14247854898",
+      "instagram_url": "https://www.instagram.com/russiankidsclub",
+      "email": "info@royalbasketballschool.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6085a24b-0d62-49e0-9a25-c8fea8fc4f1b",
+      "slug": "svoi-biz-31"
+    }
+  },
+  {
+    "id": "02c95609-cbab-4abe-b269-14d23488d8c9",
+    "name": "Grace Rhythmic",
+    "changes": {},
+    "fill": {
+      "address_line": "8859 WILBUR AVE",
+      "location_precision": "street",
+      "city": "NORTHRIDGE",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=8859%20WILBUR%20AVE%2C%20NORTHRIDGE%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://www.gracerhythmics.com",
+      "phone": "+18184727206",
+      "instagram_url": "https://www.instagram.com/gracerhythmicsacademy",
+      "yelp_url": "https://www.yelp.com/biz/grace-rhythmics-northridge",
+      "email": "yulia@gracerhythmics.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2f5175b1-0fbb-4607-902d-3a56c8341f83",
+      "slug": "svoi-grace-rhythmic"
+    }
+  },
+  {
+    "id": "3dc2e6e6-3e4c-488f-ab45-e79368da7b02",
+    "name": "White and Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "21550 Oxnard Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oxnard%20Street%2021550%2C%20Los%20Angeles%2C%20CA%2091367",
+      "website": "https://bridgewest.com",
+      "phone": "+18187303540"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "689ff92a-c552-4bdc-baf4-6d6ee02a392c",
+      "slug": "svoi-white-and-associates"
+    }
+  },
+  {
+    "id": "3de5c602-6e13-401f-8793-1d88189f2a54",
+    "name": "Адвокатское бюро Питера Сварта",
+    "changes": {},
+    "fill": {
+      "address_line": "6520 Platt Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91307",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6520%20Platt%20Ave%2C%20Los%20Angeles%2C%20CA%2091307",
+      "website": "http://www.swarthlaw.com",
+      "phone": "+18188878800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "7a1a8b2c-646e-48d1-943a-31ad9f3cfaa1",
+      "slug": "svoi-biz-4"
+    }
+  },
+  {
+    "id": "0987d49c-39ac-4ff4-83cb-05ddc17e9a9f",
+    "name": "Leslie Richards Law Offices",
+    "changes": {},
+    "fill": {
+      "address_line": "17337 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17337%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://www.leslierichards.com",
+      "phone": "+18187815000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "33cc329f-86d8-41d1-a376-44a3ed16bf90",
+      "slug": "svoi-leslie-richards-law-offices"
+    }
+  },
+  {
+    "id": "d4e267a5-7d28-4652-ac9b-47f750763171",
+    "name": "Law Office of Ruzanna Poghosyan",
+    "changes": {},
+    "fill": {
+      "address_line": "16861 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Encino",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=16861%20Ventura%20Blvd%2C%20Encino%2C%20Los%20Angeles%2C%20CA%20ted%20States",
+      "phone": "+18182548278"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "112c1b16-e76b-45e0-aab7-017815b52eb5",
+      "slug": "svoi-law-office-of-ruzanna-poghosyan"
+    }
+  },
+  {
+    "id": "148b9fd5-e548-4c5f-8ba7-eb4ec99c0dee",
+    "name": "Kaloustian Law Group",
+    "changes": {},
+    "fill": {
+      "address_line": "21031 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=21031%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA%2091367",
+      "website": "http://www.kaloustianlegal.com",
+      "phone": "+18185940739"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "50539318-912b-45c3-9729-025ceadc0dd6",
+      "slug": "svoi-kaloustian-law-group"
+    }
+  },
+  {
+    "id": "35c4ffdc-2cb0-4cee-96c2-98eb30e0ce0c",
+    "name": "Юридическая компания Хавкин и Шраго",
+    "changes": {},
+    "fill": {
+      "address_line": "5950 Canoga Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91364",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5950%20Canoga%20Ave%2C%20Los%20Angeles%2C%20CA%2091364",
+      "website": "http://www.havkinandshrago.com",
+      "phone": "+18189991568"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "82e5fc76-2af0-4ea1-be15-59901f5a0964",
+      "slug": "svoi-biz-32"
+    }
+  },
+  {
+    "id": "08c65977-b1ef-487e-b8f8-c86da0223e6b",
+    "name": "Law offices of Vadim Felix Frish",
+    "changes": {},
+    "fill": {
+      "address_line": "18607 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Blvd%2018607%2C%20Los%20Angeles%2C%20CA%2091356",
+      "website": "http://www.lalitigationlawfirm.com",
+      "phone": "+18188272633",
+      "instagram_url": "https://www.instagram.com/frishlawgroupla"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47e0660c-f48f-4ecd-aafa-373a7be871c0",
+      "slug": "svoi-law-offices-of-vadim-felix-frish"
+    }
+  },
+  {
+    "id": "11eb28c1-6725-4fca-bbf5-5eda34804598",
+    "name": "Angela Schmidt - LegalDocsA2Z",
+    "changes": {},
+    "fill": {
+      "address_line": "4122 E Chapman Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4122%20E%20Chapman%20Ave%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://legaldocsa2z.com",
+      "phone": "+17143903766"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "85db4c6f-9df7-4830-bfba-e82b9987f3a7",
+      "slug": "svoi-angela-schmidt-legaldocsa2z"
+    }
+  },
+  {
+    "id": "73e37abf-d697-4228-9021-00f031474ff6",
+    "name": "Law Offices of Marina Ayzenstein",
+    "changes": {},
+    "fill": {
+      "address_line": "21241 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2021241%2C%20Los%20Angeles%2C%20CA%20ted%20States",
+      "website": "http://www.818lawyer.com",
+      "phone": "+18186602078"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c58d2a70-e243-4149-90db-08857f0933c1",
+      "slug": "svoi-law-offices-of-marina-ayzenstein"
+    }
+  },
+  {
+    "id": "b7a38154-6c13-4c99-89c9-380b4d0bcbd2",
+    "name": "Адвокатское бюро Тодда Бекрафта",
+    "changes": {},
+    "fill": {
+      "address_line": "3450 Wilshire Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90010",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=3450%20Wilshire%20Blvd%2C%20Los%20Angeles%2C%20CA%2090010",
+      "website": "http://becraftimmigrationlaw.com",
+      "phone": "+12133881821"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "49a3531c-a571-4865-9fce-24c644d6d334",
+      "slug": "svoi-biz-33"
+    }
+  },
+  {
+    "id": "4240bc57-5698-4877-acfe-92cd1fa50e61",
+    "name": "MCIS Lawyers Personal Injury Law Firm",
+    "changes": {},
+    "fill": {
+      "address_line": "20300 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91364",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=20300%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA%2091364",
+      "website": "https://www.mcislawyers.com",
+      "phone": "+18189991184",
+      "email": "isherman@mcislawyers.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "82962ad7-22a1-44dc-9f70-c5318f3033b7",
+      "slug": "svoi-mcis-lawyers-personal-injury-law-firm"
+    }
+  },
+  {
+    "id": "477ea5c1-340f-472d-8ebe-7b303d62a1c5",
+    "name": "Адвокатское бюро Алекс Берлин",
+    "changes": {},
+    "fill": {
+      "address_line": "18425 Burbank Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Burbank%20Boulevard%2018425%2C%20Los%20Angeles%2C%20CA%2091356",
+      "website": "http://members.calbar.ca.gov/fal/Licensee/Detail/169147",
+      "phone": "+18187583531",
+      "instagram_url": "https://www.instagram.com/statebarca"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0967160c-78c1-497f-ad67-4199d0ec6fda",
+      "slug": "svoi-biz-34"
+    }
+  },
+  {
+    "id": "18ccb9a5-0868-4e62-82e7-e7d671247702",
+    "name": "Brandon King - Realty Executives",
+    "changes": {},
+    "fill": {
+      "address_line": "26650 The Old Road",
+      "location_precision": "street",
+      "city": "#300",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=26650%20The%20Old%20Road%2C%20%23300%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://bkingrealestate.com/default.aspx",
+      "phone": "+16614383052"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1bbac4a8-c11b-4a39-9f19-c5564004010b",
+      "slug": "svoi-brandon-king-realty-executives"
+    }
+  },
+  {
+    "id": "433776d5-717a-4e29-80fb-0ee7c9e64aa3",
+    "name": "Century 21 Troop Real Estate",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20clarita%2C%20CA%20ted%20States",
+      "phone": "+16613121152"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "6ea77d2e-385d-4488-b6a0-3937e6d69a96",
+    "name": "Erika Rudner- Wish Sotheby’s International The Michelle Hirsch Group",
+    "changes": {},
+    "fill": {
+      "address_line": "26050 Mureau Road",
+      "location_precision": "street",
+      "city": "Suite 105  Calabasas",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=26050%20Mureau%20Road%2C%20Suite%20105%20%20Calabasas%2C%20Calabasas%2C%20CA",
+      "website": "https://michellehirsch.com/about-erika-rudner",
+      "phone": "+18185157476",
+      "email": "erikarudner@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a1586de5-5262-42bb-9229-a1630eef92bd",
+      "slug": "svoi-erika-rudner-wish-sotheby-s-international-the-mi"
+    }
+  },
+  {
+    "id": "30433a72-fefc-4eb6-89e1-fcd4fa142a59",
+    "name": "P & S Hollywood Development",
+    "changes": {},
+    "fill": {
+      "address_line": "4844 Hollywood Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90027",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hollywood%20Boulevard%204844%2C%20Los%20Angeles%2C%20CA%2090027",
+      "website": "http://www.pshollywooddevelopment.com",
+      "phone": "+13236633922"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f34e5123-e257-4797-982a-678e14c29766",
+      "slug": "svoi-p-s-hollywood-development"
+    }
+  }
+]

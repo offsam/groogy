@@ -1,0 +1,478 @@
+[
+  {
+    "id": "66af8b33-1151-43d2-bb1c-61e9000f15de",
+    "name": "Tickets Confirmed Inc",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "830 S. Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%20Buffalo%20Grove%20Road%20830%2C%20Buffalo%20grove%2C%20IL%20%2060089",
+      "phone": "+18479990606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "747b3249-bc3d-4642-90b6-9315703c02f3",
+      "slug": "svoi-tickets-confirmed-inc"
+    }
+  },
+  {
+    "id": "e1c009bc-b08e-473a-9e99-c9e4be0d02cc",
+    "name": "Milavia International Ltd",
+    "changes": {},
+    "fill": {
+      "address_line": "250 Lake Blvd",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lake%20Blvd%20250%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18472791667"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c00ad069-739f-4a3f-92d4-9071a11091ed",
+      "slug": "svoi-milavia-international-ltd"
+    }
+  },
+  {
+    "id": "f6c5640b-4ace-4ddf-8bc0-bf80e052cb1d",
+    "name": "Alfa Travel Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "1000 Half Day Road",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-IL",
+      "postal_code": "60035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Half%20Day%20Road%201000%2C%20Highland%20Park%2C%20IL%2060035",
+      "phone": "+18477361338"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ba985113-164f-462c-9185-7a2117c69494",
+      "slug": "svoi-alfa-travel-inc"
+    }
+  },
+  {
+    "id": "70bae3c1-2fc1-44cb-8ac5-25c332a61af7",
+    "name": "Travel Selection",
+    "changes": {},
+    "fill": {
+      "address_line": "18 Schoenbeck Rd",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Schoenbeck%20Rd%2018%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18478089178"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "77067d15-fffa-44c0-ab5b-bb02f1315889",
+      "slug": "svoi-travel-selection"
+    }
+  },
+  {
+    "id": "01b26100-417a-412b-87e4-59b2486057f4",
+    "name": "Intourist",
+    "changes": {},
+    "fill": {
+      "address_line": "482 N Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Milwaukee%20Ave%20%20482%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472432121"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ec57dd2c-06c6-476d-a33f-fdf0919da9d0",
+      "slug": "svoi-intourist"
+    }
+  },
+  {
+    "id": "69288c4b-2105-4d1a-8ff2-cb0fae54bf26",
+    "name": "Milar Travel, Inc",
+    "changes": {},
+    "fill": {
+      "city": "Suite 113 2970",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Maria%20Av%2C%20Suite%20113%202970%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18475647780"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5973e013-7e81-48a0-9c1d-283b695a75f6",
+    "name": "Travel Team",
+    "changes": {},
+    "fill": {
+      "address_line": "1040 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%201040%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18474659100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ea9c7846-5340-4d11-a6a9-d4be151e3d01",
+      "slug": "svoi-travel-team"
+    }
+  },
+  {
+    "id": "5184cfbb-1d21-43b2-9a40-d7a4c76fd10f",
+    "name": "Bravo Travel | City Travel Club",
+    "changes": {},
+    "fill": {
+      "address_line": "1098 S Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Проспект Хайтс",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Milwaukee%20Ave%201098%2C%20%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A5%D0%B0%D0%B9%D1%82%D1%81%2C%20IL%2060090",
+      "phone": "+18472150423"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a247f547-1d3c-40da-aa87-d0c171ffa3c3",
+      "slug": "svoi-bravo-travel-city-travel-club"
+    }
+  },
+  {
+    "id": "71a57515-0e93-431d-af93-5ea5ef5884c4",
+    "name": "A World Class Travel",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Downers%20grove%2C%20IL",
+      "phone": "+16305151551"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a8667f58-7864-428c-8bb9-878485c3ff55",
+    "name": "EZ GO Travel",
+    "changes": {},
+    "fill": {
+      "city": "IL 60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL%2060062",
+      "website": "http://ezgotravel.com",
+      "phone": "+18472960230",
+      "email": "ezgo@ezgotravel.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2fccf196-d646-4202-8a81-927e25b636ee",
+    "name": "Experienced Travel Agent Needed",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL",
+      "phone": "+18474143079"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "44a72900-0a9a-41cd-9703-dc0032862ac5",
+    "name": "Stargate Travels Group, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "518 Zenith Dr",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Zenith%20Dr%20%20518%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18478272724"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "102e0aa2-afaf-454b-bcd7-e0b4b0760eb5",
+      "slug": "svoi-stargate-travels-group-inc"
+    }
+  },
+  {
+    "id": "3356b341-6caa-446b-8621-ef230b36ca60",
+    "name": "Chicago Russian Tours IL",
+    "changes": {},
+    "fill": {
+      "address_line": "2474 East Dempster Street",
+      "location_precision": "street",
+      "city": "Des plains",
+      "state_code": "US-IL",
+      "postal_code": "60016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dempster%20Street%202474%2C%20Des%20plains%2C%20IL%2060016",
+      "website": "http://www.chicagorussiantours.com",
+      "phone": "+18472982523"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a026f6f9-4c81-4fc9-9b7a-a44453da73d3",
+      "slug": "svoi-chicago-russian-tours-il"
+    }
+  },
+  {
+    "id": "06a685a7-a7e0-4131-b96e-a94452250680",
+    "name": "American Travel Abroad, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "8616 Golf Rd",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Golf%20Rd%208616%20%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18472960033"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04f9af2c-ac82-4204-b179-7fde32e6ea54",
+      "slug": "svoi-american-travel-abroad-inc"
+    }
+  },
+  {
+    "id": "b22577ea-0ac9-4e78-8dbe-3cb036bf7f37",
+    "name": "Aeroflot Cargo",
+    "changes": {},
+    "fill": {
+      "address_line": "Manheim Road 5600 N",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60666",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Manheim%20Road%205600%20N%2C%20Chicago%2C%20IL%20%2060666",
+      "phone": "+18005065544"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2003c938-6ce4-4ab7-92e4-ddfb06ccdf89",
+      "slug": "svoi-aeroflot-cargo"
+    }
+  },
+  {
+    "id": "63d136c5-a32f-47ac-988d-c859c5703366",
+    "name": "Prime Travel company",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glenview%2C%20IL",
+      "phone": "+18472972772"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5aa5e813-bc77-4f08-9bdf-1319222171aa",
+    "name": "Millennium Tours Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "9933 Lawler Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lawler%20Avenue%209933%2C%20Skoki%2C%20IL%2060077",
+      "website": "http://www.millenniumtoursusa.com",
+      "phone": "+18473244090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7b2db7b9-d92b-4b7f-a032-2b322635f1a7",
+      "slug": "svoi-millennium-tours-inc"
+    }
+  },
+  {
+    "id": "25d184b1-67f2-4d49-8333-572d0435e02d",
+    "name": "Your Travel Agent Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "7321 Waukegan Road",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%207321%2C%20Niles%2C%20IL%2060714",
+      "website": "http://yourtravelagentinc.com",
+      "phone": "+18476477750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5eb9fc13-5167-4e9b-adf1-7b28d3632453",
+      "slug": "svoi-your-travel-agent-inc"
+    }
+  },
+  {
+    "id": "95adf769-d144-47c6-90fb-76b65ff7fc18",
+    "name": "Chez Fare Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "8850 Skokie Blvd",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Blvd%208850%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18476794800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7143b1e1-20e7-4b89-959e-a7112c9072ab",
+      "slug": "svoi-chez-fare-travel"
+    }
+  },
+  {
+    "id": "0576bffc-a172-4418-a04f-bd3ee219ea11",
+    "name": "Party of Chicago",
+    "changes": {},
+    "fill": {
+      "address_line": "4606 Fargo Ave",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fargo%20Ave%204606%2C%20Skoki%2C%20IL%20%2060076",
+      "phone": "+18477707494"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b2c9be02-b954-4c8a-8afb-78930d896e07",
+      "slug": "svoi-party-of-chicago"
+    }
+  }
+]

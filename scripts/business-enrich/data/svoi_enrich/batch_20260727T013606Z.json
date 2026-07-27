@@ -1,0 +1,37 @@
+[
+  {
+    "id": "29f432eb-1b07-4ac5-b098-dded71b267d1",
+    "name": "Давид Лисов",
+    "changes": {},
+    "places_decision": "error",
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3b7e2ce2-2846-49af-8e5c-4011a03f97ab",
+    "name": "Shushan Khachatryan",
+    "changes": {},
+    "places_decision": "error",
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "471a8efe-69e9-4238-9124-58aff112f90e",
+    "name": "Шуб Валерий Владимирович",
+    "changes": {},
+    "places_decision": "error",
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

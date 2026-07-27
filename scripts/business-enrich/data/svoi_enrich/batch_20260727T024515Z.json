@@ -1,0 +1,509 @@
+[
+  {
+    "id": "96209ad0-1178-4221-a181-5b9d9bb9392d",
+    "name": "Dr. Valery Abramovich",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "10 Langley Road",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "postal_code": "02459",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Langley%20Road%2010%2C%20Newton%2C%20MA%2002459",
+      "phone": "+16178790055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ce3b975e-ccf4-47fc-96b9-0dcc5f04038d",
+      "slug": "svoi-dr-valery-abramovich"
+    }
+  },
+  {
+    "id": "c268ec6f-93ca-425c-b9a5-5573a43a631d",
+    "name": "Dr. Michael Grossman",
+    "changes": {},
+    "fill": {
+      "address_line": "565 Turnpike Street",
+      "location_precision": "street",
+      "city": "Норт Андовер",
+      "state_code": "US-MA",
+      "postal_code": "01845",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Turnpike%20Street%20565%20%2C%20%D0%9D%D0%BE%D1%80%D1%82%20%D0%90%D0%BD%D0%B4%D0%BE%D0%B2%D0%B5%D1%80%2C%20MA%2001845",
+      "phone": "+19786822121"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e748e000-f9db-45f8-8872-2690fed2ba59",
+      "slug": "svoi-dr-michael-grossman"
+    }
+  },
+  {
+    "id": "c11a742a-4b7f-40f3-b017-219232e6a64b",
+    "name": "Yana Barbalat, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "75 Herrick Street",
+      "location_precision": "street",
+      "city": "Beverly",
+      "state_code": "US-MA",
+      "postal_code": "01915",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Herrick%20Street%2075%2C%20Beverly%2C%20MA%2001915",
+      "phone": "+19789270714"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "787f350f-482a-496c-bbe6-083b73739e93",
+      "slug": "svoi-yana-barbalat-md"
+    }
+  },
+  {
+    "id": "fb1c2b8f-009f-487d-83a2-79c832b89870",
+    "name": "Sofia Melenevskaya, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "67 Union Street",
+      "location_precision": "street",
+      "city": "Natick",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Union%20Street%2067%2C%20Natick%2C%20MA",
+      "phone": "+15086535989"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "62fb1163-7416-437e-bffe-3768bdaab167",
+      "slug": "svoi-sofia-melenevskaya-md"
+    }
+  },
+  {
+    "id": "310365cd-6fed-436b-a2ec-df6d7cccedc5",
+    "name": "Southboro Medical-Framingham: Bolkhovsky Alla MD",
+    "changes": {},
+    "fill": {
+      "address_line": "761 Worcester Road",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01701",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Worcester%20Road%20761%2C%20Framingham%2C%20MA%2001701",
+      "phone": "+15088723254"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "259371c7-d36e-441f-8174-b031ab06f820",
+      "slug": "svoi-southboro-medical-framingham-bolkhovsky-alla-md"
+    }
+  },
+  {
+    "id": "90973429-8603-475b-b29d-c221f8954701",
+    "name": "Dr. Katya Divari, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "336 Union Avenue",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01702",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Union%20Avenue%20336%2C%20Framingham%2C%20MA%2001702",
+      "phone": "+15088722002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "30dfff78-61d0-4b07-b67e-f88f0a845cff",
+      "slug": "svoi-dr-katya-divari-md"
+    }
+  },
+  {
+    "id": "2f3b4359-7c1d-4b3e-b0a1-aa2d1b1a27b7",
+    "name": "Dr. Marina J Estrin MD at Metrowest Internal Medicine",
+    "changes": {},
+    "fill": {
+      "address_line": "61 Lincoln Street",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01702",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Street%2061%2C%20Framingham%2C%20MA%2001702",
+      "phone": "+15088790077"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ba17ba5b-2794-41ab-b004-81dde963524c",
+      "slug": "svoi-dr-marina-j-estrin-md-at-metrowest-internal-medi"
+    }
+  },
+  {
+    "id": "58bd647c-3624-4a1f-a09a-f8fff80d120c",
+    "name": "Dr. Boris O. Bergus MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Park Central Drive",
+      "location_precision": "street",
+      "city": "Southborough",
+      "state_code": "US-MA",
+      "postal_code": "01772",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Central%20Drive%202%2C%20Southborough%2C%20MA%2001772",
+      "phone": "+15084818346"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "815781fb-704a-4b06-ab54-93f9ea3f24d6",
+      "slug": "svoi-dr-boris-o-bergus-md"
+    }
+  },
+  {
+    "id": "f750b763-6113-4395-ad9f-29b1e42caba7",
+    "name": "Леонид Дабужский, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "11 Nevins Street",
+      "location_precision": "street",
+      "city": "Boston",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Nevins%20Street%2011%2C%20Boston%2C%20MA%20ghton%2011%20Nevins",
+      "phone": "+16177796182"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "8ac226d3-5ec7-44ba-b2d1-2dfe009c9701",
+      "slug": "svoi-md-6"
+    }
+  },
+  {
+    "id": "9cacbde6-9e8f-404c-a19f-21b0d73e35f4",
+    "name": "Advanced Vision Center",
+    "changes": {},
+    "fill": {
+      "address_line": "423 Paradise Road",
+      "location_precision": "street",
+      "city": "Suompscott",
+      "state_code": "US-MA",
+      "postal_code": "01907",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Paradise%20Road%20423%2C%20Suompscott%2C%20MA%2001907",
+      "website": "http://visionsource-avcma.com",
+      "phone": "+13394405105"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "68d8b6fb-d139-4f8d-a6a0-87e4ec03e1cc",
+      "slug": "svoi-advanced-vision-center"
+    }
+  },
+  {
+    "id": "90abfad3-d7f2-4a29-a32b-381aaaf28d0a",
+    "name": "Sergey Urman, MD, New England Eye Center",
+    "changes": {},
+    "fill": {
+      "address_line": "1371 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201371%2C%20Brooklyn%2C%20MA",
+      "phone": "+16177341396"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cac3d2a5-f41f-4131-a4a9-34b405021ccd",
+      "slug": "svoi-sergey-urman-md-new-england-eye-center"
+    }
+  },
+  {
+    "id": "6b1932d1-463a-4667-9651-ad4d8c115db1",
+    "name": "Arthur Shekhtman/ Wellesley Cosmetic Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "332 Washington Street",
+      "location_precision": "street",
+      "city": "Wellesley",
+      "state_code": "US-MA",
+      "postal_code": "02481",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%20332%2C%20Wellesley%2C%20MA%2002481",
+      "phone": "+17812390680"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "da6fecea-c471-4c02-8c7f-f7b564504f0d",
+      "slug": "svoi-arthur-shekhtman-wellesley-cosmetic-surgery"
+    }
+  },
+  {
+    "id": "18b107fa-bcdc-4791-8410-63e34ab2ee39",
+    "name": "Visage Sculpture",
+    "changes": {},
+    "fill": {
+      "address_line": "31 Channing Street",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "postal_code": "02458",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Channing%20Street%2031%2C%20Newton%2C%20MA%2002458",
+      "phone": "+16177950201"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "13580ae6-22f5-4a51-addb-953b15f2aef2",
+      "slug": "svoi-visage-sculpture"
+    }
+  },
+  {
+    "id": "dd1d0695-411a-43ea-afb0-74ce4cfc8b32",
+    "name": "Whole Beauty and Health",
+    "changes": {},
+    "fill": {
+      "address_line": "Myrtle Street",
+      "location_precision": "street",
+      "city": "Suite A  24",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Myrtle%20Street%2C%20Suite%20A%20%2024%2C%20Framingham%2C%20MA%2001702",
+      "phone": "+16172231941"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "83dcd127-fdb7-4189-bd9f-3809a7202085",
+      "slug": "svoi-whole-beauty-and-health"
+    }
+  },
+  {
+    "id": "fd6be4d4-1be5-483f-b363-4070f4265e82",
+    "name": "Dr. Natalia Epstein",
+    "changes": {},
+    "fill": {
+      "address_line": "230 Lowell Street",
+      "location_precision": "street",
+      "city": "Уилмингтон",
+      "state_code": "US-MA",
+      "postal_code": "01887",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lowell%20Street%20230%2C%20%D0%A3%D0%B8%D0%BB%D0%BC%D0%B8%D0%BD%D0%B3%D1%82%D0%BE%D0%BD%2C%20MA%2001887",
+      "phone": "+13399274428"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b385a0c4-cb57-4a78-8d61-db2a70685529",
+      "slug": "svoi-dr-natalia-epstein"
+    }
+  },
+  {
+    "id": "a8508e7a-e766-470f-8277-1817cee60925",
+    "name": "Yuri Shkuratov",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Newton%2C%20MA",
+      "phone": "+16179394521"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3379a52a-2c91-453c-89b6-af4f23893de2",
+    "name": "Dr. E. Yagudin",
+    "changes": {},
+    "fill": {
+      "address_line": "74 Main Street",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01702",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%2074%2C%20Framingham%2C%20MA%2001702",
+      "phone": "+15082708844"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "bb0990e4-69ca-4482-a3dd-cad451cedb2c",
+      "slug": "svoi-dr-e-yagudin"
+    }
+  },
+  {
+    "id": "5527b687-33f4-4014-951d-a31f07bde223",
+    "name": "Allied Physical Therapy (Framingham)",
+    "changes": {},
+    "fill": {
+      "address_line": "188 Concord Street",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01702",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Concord%20Street%20188%2C%20Framingham%2C%20MA%2001702",
+      "website": "http://allied-physicaltherapy.com/physical-therapy-in-framingham-ma.html",
+      "phone": "+15088757627"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8edd9f9d-6071-46f3-a6a2-2ea2f273c8a6",
+      "slug": "svoi-allied-physical-therapy-framingham"
+    }
+  },
+  {
+    "id": "d21696d4-c942-4678-96c1-189dda9f0278",
+    "name": "Здоровье",
+    "changes": {},
+    "fill": {
+      "address_line": "17 Strathmore Road",
+      "location_precision": "street",
+      "city": "Natick",
+      "state_code": "US-MA",
+      "postal_code": "01760",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Strathmore%20Road%2017%2C%20Natick%2C%20MA%2001760",
+      "phone": "+15086500144"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "12013b1a-551d-454a-97a1-73ad3c51632c",
+      "slug": "svoi-biz-41"
+    }
+  },
+  {
+    "id": "b8efab79-15fc-4321-bdb6-ae54c79be61c",
+    "name": "FLAG MED PHARMACY-MA",
+    "changes": {},
+    "fill": {
+      "address_line": "7 Willow Street",
+      "location_precision": "street",
+      "city": "Lynn",
+      "state_code": "US-MA",
+      "postal_code": "01901",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Willow%20Street%207%2C%20Lynn%2C%20MA%2001901",
+      "website": "http://www.flagpharmacy.com",
+      "phone": "+17815995900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6be65e3c-f186-4ce5-8d7e-a4556451fa1a",
+      "slug": "svoi-flag-med-pharmacy-ma"
+    }
+  }
+]

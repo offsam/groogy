@@ -1,0 +1,45 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-svetlana-cameron-senior-mortgage-loan-officer",
+      "display_name": "Svetlana Cameron – Senior Mortgage Loan Officer",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://lo.primelending.com/svetlana.cameron"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://lo.primelending.com/svetlana.cameron",
+          "_fetch_url": "https://lo.primelending.com/svetlana.cameron",
+          "phone": "+14253444562",
+          "website": "https://lo.primelending.com/svetlana.cameron",
+          "email": "svetlana.cameron@primelending.com",
+          "image_url": "https://lo.primelending.com/us-en/images/color-logo-single-line.png"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/loan-officer-svetlana-brikina-new-ad/",
+          "city": "Irvine",
+          "postal_code": "92618",
+          "phone": "+14253444562",
+          "email": "svetlana.cameron@primelending.com",
+          "website": "https://lo.primelending.com/svetlana.cameron",
+          "image_url": "https://www.russianorangepages.com/community/wp-content/uploads/2014/04/Sv.webp",
+          "_via": "rop_dump"
+        }
+      },
+      "found": {
+        "website": "https://lo.primelending.com/svetlana.cameron",
+        "phone": "+14253444562",
+        "email": "svetlana.cameron@primelending.com",
+        "image_url": "https://lo.primelending.com/us-en/images/color-logo-single-line.png",
+        "city": "Irvine",
+        "postal_code": "92618"
+      },
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,1243 @@
+[
+  {
+    "id": "7bb18d91-13fb-4ee3-aeaf-5b323c1a6425",
+    "name": "Szechuan Wok",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "11714 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%20%2011714%20%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14105264225"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9b0f2abb-bbaf-4828-9e19-ff14b1c8610c",
+      "slug": "svoi-szechuan-wok"
+    }
+  },
+  {
+    "id": "385c0dd0-2daf-46a8-9e13-0e43c75b9283",
+    "name": "Kavkaz Kebab",
+    "changes": {},
+    "fill": {
+      "address_line": "10902 Boulevard Circle",
+      "location_precision": "street",
+      "city": "Owings Mills",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boulevard%20Circle%2010902%2C%20Owings%20Mills%2C%20MD%2021117",
+      "website": "http://www.kavkazkebabowingsmills.com",
+      "phone": "+14109989004"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "945f7ae1-3948-4e84-9f7b-d28df552edcd",
+      "slug": "svoi-kavkaz-kebab"
+    }
+  },
+  {
+    "id": "8e68ba71-e278-47d4-8722-3baf2b719a04",
+    "name": "Jumbo Seafood",
+    "changes": {},
+    "fill": {
+      "address_line": "48 East Sudbrook Lane",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Sudbrook%20Lane%2048%2C%20Pikesville%2C%20MD",
+      "website": "http://www.jumboseafoodpikesville.com",
+      "phone": "+14106021441"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fbf49fb7-6ca1-4ad7-8a92-0c0d8c4ef5ea",
+      "slug": "svoi-jumbo-seafood"
+    }
+  },
+  {
+    "id": "3f48bafd-539f-4760-afbf-77bae5485220",
+    "name": "Ольга Голдина / художник по керамике",
+    "changes": {},
+    "fill": {
+      "address_line": "206 Sacred Heart Lane",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sacred%20Heart%20Lane%20206%2C%20Reisterstown%2C%20MD%2021136",
+      "website": "http://www.goldinceramics.com",
+      "phone": "+14105267031"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5b40460d-f0ec-494e-a611-7a0f7d7307f0",
+      "slug": "svoi-biz-76"
+    }
+  },
+  {
+    "id": "941814db-bd30-4e1c-9905-19d2b4944b3b",
+    "name": "Елена Таланова - AquaSafe Pool Management, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "7466 New Ridge Road",
+      "location_precision": "street",
+      "city": "Suite 18",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=7466%20New%20Ridge%20Road%2C%20Suite%2018%2C%20%D0%A5%D0%B0%D0%BD%D0%BE%D0%B2%D0%B5%D1%80%2C%20MD",
+      "website": "http://www.aquasafepool.com",
+      "phone": "+13018500143",
+      "instagram_url": "https://www.instagram.com/guardyourstate"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2df101bd-0006-480b-87d0-0b638ab86a68",
+      "slug": "svoi-aquasafe-pool-management-inc"
+    }
+  },
+  {
+    "id": "19669ba3-beb7-4f81-b025-a26c887ff98f",
+    "name": "Rainbow Adult Day Health Care Center",
+    "changes": {},
+    "fill": {
+      "address_line": "4001 Seven Mile Lane",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Seven%20Mile%20Lane%204001%2C%20Pikesville%2C%20MD%2021205",
+      "website": "http://rainbow-adultdaycare.com",
+      "phone": "+14105801200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c35dffdb-eb62-408a-aa06-32d6b002783b",
+      "slug": "svoi-rainbow-adult-day-health-care-center"
+    }
+  },
+  {
+    "id": "e715bd59-63d3-4845-9a5f-531fe1e7a620",
+    "name": "Family Dentistry of Forsyth",
+    "changes": {},
+    "fill": {
+      "address_line": "3130 Mathis Airport Parkway",
+      "location_precision": "street",
+      "city": "Савани",
+      "state_code": "US-GA",
+      "postal_code": "30024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mathis%20Airport%20Parkway%203130%2C%20%D0%A1%D0%B0%D0%B2%D0%B0%D0%BD%D0%B8%2C%20GA%2030024",
+      "phone": "+14045515550"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "285b3e5a-3bbe-4a98-b159-18ca4bc2dd4b",
+      "slug": "svoi-family-dentistry-of-forsyth"
+    }
+  },
+  {
+    "id": "7210ce25-f6d4-4a4f-9244-b8ce5ec82760",
+    "name": "Eisenstein Orthodontics",
+    "changes": {},
+    "fill": {
+      "address_line": "295 Molly Lane",
+      "location_precision": "street",
+      "city": "Woodstock",
+      "state_code": "US-GA",
+      "postal_code": "30189",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Molly%20Lane%20295%2C%20Woodstock%2C%20GA%2030189",
+      "website": "http://eisensteinorthodontics.com",
+      "phone": "+17709289227"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7c71913c-e488-4c82-a1d9-a68e54ebd1d0",
+      "slug": "svoi-eisenstein-orthodontics"
+    }
+  },
+  {
+    "id": "9db87ce4-0d83-4c19-9df3-4afdbb6d0d83",
+    "name": "Dr. Leonid Yelizarov DMD",
+    "changes": {},
+    "fill": {
+      "address_line": "11925 Jones Bridge Road",
+      "location_precision": "street",
+      "city": "Jones creek",
+      "state_code": "US-GA",
+      "postal_code": "30005",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jones%20Bridge%20Road%2011925%2C%20Jones%20creek%2C%20GA%2030005",
+      "phone": "+17707720606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "28939e93-4546-4268-993d-55cd3bcad421",
+      "slug": "svoi-dr-leonid-yelizarov-dmd"
+    }
+  },
+  {
+    "id": "f59bb0b7-29ed-43ae-9a17-5bca464cb509",
+    "name": "Alpharetta Womens Healthcare",
+    "changes": {},
+    "fill": {
+      "address_line": "3400 Old Milton Parkway",
+      "location_precision": "street",
+      "city": "Alfareta",
+      "state_code": "US-GA",
+      "postal_code": "30005",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Milton%20Parkway%203400%2C%20Alfareta%2C%20GA%2030005",
+      "phone": "+17706674280"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "66c332ac-29ca-418a-b046-d3171e9c5048",
+      "slug": "svoi-alpharetta-womens-healthcare"
+    }
+  },
+  {
+    "id": "5b10740d-48c2-495b-89ec-39113a20c7b1",
+    "name": "La Vista Family Medicine: Gorokhov Mikhail E MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2012 Harobi Drive",
+      "location_precision": "street",
+      "city": "Tucker",
+      "state_code": "US-GA",
+      "postal_code": "30084",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harobi%20Drive%202012%2C%20Tucker%2C%20GA%2030084",
+      "phone": "+14043206050"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "015cd0f6-ed47-4f44-a25e-0db1c9cc81ab",
+      "slug": "svoi-la-vista-family-medicine-gorokhov-mikhail-e-md"
+    }
+  },
+  {
+    "id": "26b3a9f2-4000-4307-a5b5-b19f86358ee7",
+    "name": "Grigoriy Solomon OD at Druid Hills Eyecare",
+    "changes": {},
+    "fill": {
+      "address_line": "2957 North Druid Hills Road",
+      "location_precision": "street",
+      "city": "North Druid Hills",
+      "state_code": "US-GA",
+      "postal_code": "30329",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Druid%20Hills%20Road%202957%2C%20North%20Druid%20Hills%2C%20GA%2030329",
+      "phone": "+14044719990"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1e9eb3e-3ce8-4a08-9a4b-f0b5808afd19",
+      "slug": "svoi-grigoriy-solomon-od-at-druid-hills-eyecare"
+    }
+  },
+  {
+    "id": "79dd6306-d7e3-422b-89f5-bbbed1e89105",
+    "name": "International Optics",
+    "changes": {},
+    "fill": {
+      "address_line": "250 Spring Street Northwest",
+      "location_precision": "street",
+      "city": "Atlanta",
+      "state_code": "US-GA",
+      "postal_code": "30303",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Spring%20Street%20Northwest%20250%2C%20Atlanta%2C%20GA%2030303",
+      "phone": "+14045247249"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "defea8a4-0913-4724-a08a-836afb88f58c",
+      "slug": "svoi-international-optics"
+    }
+  },
+  {
+    "id": "8a6ea292-23f8-4721-8458-3f9a7cdbb85d",
+    "name": "Nirvana Medspa & Laser Center",
+    "changes": {},
+    "fill": {
+      "address_line": "4380 Kimball Bridge Road",
+      "location_precision": "street",
+      "city": "Alfareta",
+      "state_code": "US-GA",
+      "postal_code": "30022",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kimball%20Bridge%20Road%204380%2C%20Alfareta%2C%20GA%2030022",
+      "phone": "+16782566304"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9ad51522-91fd-4fd3-b1a2-0ee564cab7a4",
+      "slug": "svoi-nirvana-medspa-laser-center"
+    }
+  },
+  {
+    "id": "7a7d5afb-9352-4370-8340-20ca15327b53",
+    "name": "Логопед (Speech-Language Therapy)",
+    "changes": {},
+    "fill": {
+      "address_line": "North Shallowford Road",
+      "location_precision": "street",
+      "city": "Dunwoody",
+      "state_code": "US-GA",
+      "postal_code": "30338",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Shallowford%20Road%2C%20Dunwoody%2C%20GA%2030338",
+      "phone": "+14046679230"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6600b74f-fa58-406d-bbe0-6c2fd25c487e",
+      "slug": "svoi-speech-language-therapy"
+    }
+  },
+  {
+    "id": "255ebdb3-229e-42d7-bfe5-3502c47f3acf",
+    "name": "Хиропрактор Дмитрий Середа",
+    "changes": {},
+    "fill": {
+      "address_line": "855 Mount Vernon Highway Northeast",
+      "location_precision": "street",
+      "city": "Sandy Springs",
+      "state_code": "US-GA",
+      "postal_code": "30328",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mount%20Vernon%20Highway%20Northeast%20855%2C%20Sandy%20Springs%2C%20GA%2030328",
+      "phone": "+17703941336"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ac985f95-22af-4e80-b887-135003750537",
+      "slug": "svoi-biz-77"
+    }
+  },
+  {
+    "id": "f874477c-257f-409f-b553-b9078d7bd96a",
+    "name": "Resurgens Orthopaedics: Tamara Chachashvili, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "758 Old Norcross Road",
+      "location_precision": "street",
+      "city": "Lawrenceville",
+      "state_code": "US-GA",
+      "postal_code": "30046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Norcross%20Road%20758%2C%20Lawrenceville%2C%20GA%2030046",
+      "phone": "+17709624300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "afb21fa8-6a11-4cce-bcbc-05d19cb85321",
+      "slug": "svoi-resurgens-orthopaedics-tamara-chachashvili-m-d"
+    }
+  },
+  {
+    "id": "0249abd6-26fa-4238-b4b5-ca8ffa2685c5",
+    "name": "Georgia Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "6330 Primrose Hill Court",
+      "location_precision": "street",
+      "city": "Peachtree Corners",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Primrose%20Hill%20Court%206330%2C%20Peachtree%20Corners%2C%20GA",
+      "website": "http://www.gaclinicpc.com",
+      "phone": "+17709030120"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5b29af2b-000f-42e9-ac38-96860bab24d9",
+      "slug": "svoi-georgia-clinic"
+    }
+  },
+  {
+    "id": "e1dd832c-878a-4407-bf3a-9f6c016616cb",
+    "name": "KO-AM Gwinnett Medical",
+    "changes": {},
+    "fill": {
+      "address_line": "6062 Buford Hwy Suite 114 Norcross",
+      "location_precision": "street",
+      "city": "Norcross",
+      "state_code": "US-GA",
+      "postal_code": "30071",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buford%20Hwy%20Suite%20114%20Norcross%206062%2C%20Norcross%2C%20GA%2030071",
+      "phone": "+16784424310"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c9ad0623-7cd4-4582-bf91-e99bcccd7ceb",
+      "slug": "svoi-ko-am-gwinnett-medical"
+    }
+  },
+  {
+    "id": "0f556542-7531-48fb-8e2f-37082a1e1887",
+    "name": "Buckhead Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "2915 Piedmont Road Northeast",
+      "location_precision": "street",
+      "city": "Atlanta",
+      "state_code": "US-GA",
+      "postal_code": "30305",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Piedmont%20Road%20Northeast%202915%2C%20Atlanta%2C%20GA%2030305",
+      "phone": "+14042617775"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1a0aefe9-42d2-4bdb-98dc-f0de3ba1e541",
+      "slug": "svoi-buckhead-pharmacy"
+    }
+  },
+  {
+    "id": "d4be76dd-3eba-4817-8d8f-61266c472344",
+    "name": "S & S Auto Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "3346 Trickum Road",
+      "location_precision": "street",
+      "city": "Woodstock",
+      "state_code": "US-GA",
+      "postal_code": "30188",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Trickum%20Road%203346%2C%20Woodstock%2C%20GA%2030188",
+      "phone": "+16784947676"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fd2da83f-9b3c-4196-8606-3f4d8eee76d3",
+      "slug": "svoi-s-s-auto-inc"
+    }
+  },
+  {
+    "id": "f34a268b-a617-4c84-99db-47c772ed8f28",
+    "name": "Holcomb Auto Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "2965 Holcomb Bridge Road",
+      "location_precision": "street",
+      "city": "Roswell",
+      "state_code": "US-GA",
+      "postal_code": "30022",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Holcomb%20Bridge%20Road%202965%2C%20Roswell%2C%20GA%2030022",
+      "phone": "+17706407087"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e2c9cac3-ffba-41f9-93a3-37f97bdf04f8",
+      "slug": "svoi-holcomb-auto-inc"
+    }
+  },
+  {
+    "id": "a317c75b-7a6e-4281-9656-d719a9697167",
+    "name": "GS Driving School Lilburn",
+    "changes": {},
+    "fill": {
+      "address_line": "1025 Denham Ln",
+      "location_precision": "street",
+      "city": "Lilburn",
+      "state_code": "US-GA",
+      "postal_code": "30047",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Denham%20Ln%201025%2C%20Lilburn%2C%20GA%2030047",
+      "phone": "+17705976926"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "efa86854-7305-4cd0-91f1-ef2fec60e5b6",
+      "slug": "svoi-gs-driving-school-lilburn"
+    }
+  },
+  {
+    "id": "25f15a57-edaf-405f-bcb3-23f737ab493d",
+    "name": "Автошкола Alex Driving School",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "phone": "+14045424930"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "81291960-d578-4b69-b4f4-5789f04fdab6",
+    "name": "Автошкола - Atlanta",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "phone": "+14075745476"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "6b669288-cc64-4647-ae42-d4fe1a148e01",
+    "name": "North Springs UMC Preschool",
+    "changes": {},
+    "fill": {
+      "address_line": "7770 Roswell Road",
+      "location_precision": "street",
+      "city": "Sandy Springs",
+      "state_code": "US-GA",
+      "postal_code": "30350",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Roswell%20Road%207770%2C%20Sandy%20Springs%2C%20GA%2030350",
+      "phone": "+17703968615"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e336550c-c983-436e-ac01-430fd0bd2844",
+      "slug": "svoi-north-springs-umc-preschool"
+    }
+  },
+  {
+    "id": "dc82fa5f-ff68-45a6-957a-07f0f97890a0",
+    "name": "The Goddard School, Atlanta (Buckhead)",
+    "changes": {},
+    "fill": {
+      "address_line": "3525 Piedmont Road Northeast",
+      "location_precision": "street",
+      "city": "Atlanta",
+      "state_code": "US-GA",
+      "postal_code": "30305",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Piedmont%20Road%20Northeast%203525%2C%20Atlanta%2C%20GA%2030305",
+      "phone": "+14044677577"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "72a8699c-3baf-4a80-a3ab-83cc6305edf7",
+      "slug": "svoi-the-goddard-school-atlanta-buckhead"
+    }
+  },
+  {
+    "id": "8691d164-161a-491a-92d2-999c7e9b2876",
+    "name": "Georgia School of Dental Assisting",
+    "changes": {},
+    "fill": {
+      "address_line": "1230 Upper Hembree Road",
+      "location_precision": "street",
+      "city": "Alfareta",
+      "state_code": "US-GA",
+      "postal_code": "30076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Upper%20Hembree%20Road%201230%2C%20Alfareta%2C%20GA%2030076",
+      "website": "https://gadentalassisting.com",
+      "phone": "+16786895905",
+      "instagram_url": "https://www.instagram.com/georgiaschoolofdentalassisting"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "87b4299a-6fc5-482f-b8cf-6b845c018301",
+      "slug": "svoi-georgia-school-of-dental-assisting"
+    }
+  },
+  {
+    "id": "70fa8bbf-5fd2-4f35-ad4e-37df4948ad13",
+    "name": "Solo School of Fine Arts",
+    "changes": {},
+    "fill": {
+      "address_line": "1335 Northmeadow Parkway",
+      "location_precision": "street",
+      "city": "Roswell",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northmeadow%20Parkway%201335%2C%20Roswell%2C%20GA%20well",
+      "website": "http://soloschool.org",
+      "phone": "+14047322449"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f0393381-63eb-4768-814f-cc1e93f67815",
+      "slug": "svoi-solo-school-of-fine-arts"
+    }
+  },
+  {
+    "id": "829b26f7-49e5-4362-b392-e0e75183eb66",
+    "name": "Школа при Русско-Американской Федерации",
+    "changes": {},
+    "fill": {
+      "address_line": "1978 Mount Vernon Road",
+      "location_precision": "street",
+      "city": "Dunwoody",
+      "state_code": "US-GA",
+      "postal_code": "30338",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mount%20Vernon%20Road%201978%2C%20Dunwoody%2C%20GA%20%2030338",
+      "website": "http://www.russianschoolatlanta.org/ru",
+      "phone": "+16785583043"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0242e164-76aa-4a5b-824c-49b40c7ac571",
+      "slug": "svoi-biz-78"
+    }
+  },
+  {
+    "id": "c2c13e7f-b468-4cca-8d99-e52f8981eeeb",
+    "name": "Yelena Grinchuk, Realtor",
+    "changes": {},
+    "fill": {
+      "address_line": "13720 Freemanville Road",
+      "location_precision": "street",
+      "city": "Milton",
+      "state_code": "US-GA",
+      "postal_code": "30004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Freemanville%20Road%2013720%2C%20Milton%2C%20GA%2030004",
+      "phone": "+14046427772"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "16eabe33-7374-42ee-a7a4-8a714881f6f1",
+      "slug": "svoi-yelena-grinchuk-realtor"
+    }
+  },
+  {
+    "id": "3fb49e58-effe-4d7e-98a0-49a4f717a64c",
+    "name": "Sandra Churilova at First United Realty",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alfareta%2C%20GA",
+      "phone": "+16789382533"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b9822e69-a6b3-4c9d-90c5-37962d7f045e",
+    "name": "The Butler/Swayne Team-North Atlanta Real Estate Specialists",
+    "changes": {},
+    "fill": {
+      "address_line": "11525 Haynes Bridge Road",
+      "location_precision": "street",
+      "city": "Alfareta",
+      "state_code": "US-GA",
+      "postal_code": "30009",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Haynes%20Bridge%20Road%2011525%2C%20Alfareta%2C%20GA%2030009",
+      "phone": "+17704750505"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "54f781d2-ce35-4efd-b460-13c5f477b429",
+      "slug": "svoi-the-butler-swayne-team-north-atlanta-real-estate"
+    }
+  },
+  {
+    "id": "78dfe530-be6a-4c71-a9aa-e0093a125f0d",
+    "name": "Vogue Hair Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "5620 Commerce Boulevard",
+      "location_precision": "street",
+      "city": "Alfareta",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Commerce%20Boulevard%205620%2C%20Alfareta%2C%20GA%20haretta",
+      "website": "http://www.hairsalonalpharettaga.com",
+      "phone": "+14045798693",
+      "state_code": "US-GA",
+      "postal_code": "30004",
+      "instagram_url": "https://www.instagram.com/voguehair_spa",
+      "email": "voguehairsalon.ga@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f27fa413-77c3-45f4-9420-b0887ea5b99e",
+      "slug": "svoi-vogue-hair-salon"
+    }
+  },
+  {
+    "id": "69f2bf31-e4db-4669-b975-a8150e651742",
+    "name": "Buckhead Grand Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "3338 Peachtree Road Northeast",
+      "location_precision": "street",
+      "city": "Atlanta",
+      "state_code": "US-GA",
+      "postal_code": "30326",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Peachtree%20Road%20Northeast%203338%2C%20Atlanta%2C%20GA%2030326",
+      "phone": "+14048164511"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06015d36-81ef-421b-ad2f-3d86dc519228",
+      "slug": "svoi-buckhead-grand-spa"
+    }
+  },
+  {
+    "id": "9307e621-74f0-42d9-9cca-a1d4bb3ad5e2",
+    "name": "Sofiya Derehuz - BeautiControl",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "phone": "+18006244573"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "f151df39-2a0b-48e2-834a-1f885a3cc0e0",
+    "name": "Natalia Kocherinskaya - Fresh Massage Therapy",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "phone": "+17706557506"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "25afb22d-e91d-46e8-bc15-5b1d2af1a841",
+      "slug": "svoi-natalia-kocherinskaya-fresh-massage-therapy"
+    }
+  },
+  {
+    "id": "24ac89b3-6acf-42a7-bb03-cfdbdcea4c65",
+    "name": "Medical Insurances",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kennesaw%2C%20GA",
+      "phone": "+14049108593"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1f196eae-e740-4301-ad55-a5598a7becad",
+    "name": "Sahar Kazemi - Farmers Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "10360 Medlock Bridge Rd",
+      "location_precision": "street",
+      "city": "Jones creek",
+      "state_code": "US-GA",
+      "postal_code": "30097",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Medlock%20Bridge%20Rd%2010360%2C%20Jones%20creek%2C%20GA%2030097",
+      "phone": "+16788194919"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b8baa86e-bf84-45ed-bc5d-fb86ecc7953b",
+      "slug": "svoi-sahar-kazemi-farmers-insurance"
+    }
+  },
+  {
+    "id": "d02d3f7c-963c-40bc-9e01-0ac23fd35f5f",
+    "name": "Genius Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "110 Mansell Circle",
+      "location_precision": "street",
+      "city": "Roswell",
+      "state_code": "US-GA",
+      "postal_code": "30075",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mansell%20Circle%20110%2C%20Roswell%2C%20GA%2030075",
+      "website": "http://geniusinsure.com/main_page.html",
+      "phone": "+17705708167"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "71db2c14-ac04-4a11-a92e-5c84a4495f58",
+      "slug": "svoi-genius-insurance"
+    }
+  },
+  {
+    "id": "c13e213e-5a41-4999-842d-8936608e5b08",
+    "name": "AgentSky.net",
+    "changes": {},
+    "fill": {
+      "address_line": "1185 Grimes Bridge Road",
+      "location_precision": "street",
+      "city": "Roswell",
+      "state_code": "US-GA",
+      "postal_code": "30075",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Grimes%20Bridge%20Road%201185%2C%20Roswell%2C%20GA%2030075",
+      "phone": "+14042509422"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "41607dbb-806c-4b91-af9a-ff32654432ab",
+      "slug": "svoi-agentsky-net"
+    }
+  },
+  {
+    "id": "c93e23ef-e203-490b-ab32-fa46cb802808",
+    "name": "Go to Russia",
+    "changes": {},
+    "fill": {
+      "address_line": "309 Peters Street Southwest",
+      "location_precision": "street",
+      "city": "Atlanta",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Peters%20Street%20Southwest%20309%2C%20Atlanta%2C%20GA%2030313%20USA",
+      "website": "http://www.gotorussia.com",
+      "phone": "+18882630023",
+      "email": "info@gotorussia.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "643d6a45-b2ea-4535-9ce5-ed632a2b51cf",
+      "slug": "svoi-go-to-russia"
+    }
+  },
+  {
+    "id": "609a2fa0-4115-4487-83be-d084e5daf4ba",
+    "name": "Russian Interpreters Network",
+    "changes": {},
+    "fill": {
+      "address_line": "2834 Rock Bridge Road Northeast",
+      "location_precision": "street",
+      "city": "Marietta",
+      "state_code": "US-GA",
+      "postal_code": "30066",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rock%20Bridge%20Road%20Northeast%202834%2C%20Marietta%2C%20GA%2030066",
+      "phone": "+16784810184"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "93e72b1f-e57c-4d9e-b215-17dadfe35997",
+      "slug": "svoi-russian-interpreters-network"
+    }
+  },
+  {
+    "id": "acbd8139-4f22-4ade-8746-dd8bd63e0396",
+    "name": "Екатерина Хамфри - Услуги русско-английского перевода",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "phone": "+17705295147"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "43c2c2cf-ec4f-47d2-b492-8101215cf947",
+    "name": "I V I Express Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "4314 Parks Ridge Dr",
+      "location_precision": "street",
+      "city": "Snelvil",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Parks%20Ridge%20Dr%204314%2C%20Snelvil%2C%20GA",
+      "phone": "+17709821298"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "70514d92-ffc0-4e9f-8705-c03a698e4821",
+      "slug": "svoi-i-v-i-express-inc"
+    }
+  },
+  {
+    "id": "d0b8aa35-4c4f-438c-9680-f5af2ca18b7a",
+    "name": "Status Transportation Atlanta",
+    "changes": {},
+    "fill": {
+      "address_line": "4851 Georgia Hwy  85",
+      "location_precision": "street",
+      "city": "Forest Park",
+      "state_code": "US-GA",
+      "postal_code": "30297",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Georgia%20Hwy%20%2085%204851%2C%20Forest%20Park%2C%20GA%20%2030297",
+      "phone": "+14045514884"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "adf09163-043e-430b-afbc-d2800a12c7fd",
+      "slug": "svoi-status-transportation-atlanta"
+    }
+  },
+  {
+    "id": "37e5041f-6233-4a7d-99e2-6666ca838ca4",
+    "name": "Vladimir Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "795 Suwanee Lakes Circle Northwest",
+      "location_precision": "street",
+      "city": "Савани",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Suwanee%20Lakes%20Circle%20Northwest%20795%2C%20%D0%A1%D0%B0%D0%B2%D0%B0%D0%BD%D0%B8%2C%20GA",
+      "phone": "+17709638123"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f46a94dd-7fef-4981-8df5-b79679572e20",
+      "slug": "svoi-vladimir-inc"
+    }
+  },
+  {
+    "id": "ecabccb9-90a8-4eed-bf78-106486caf53a",
+    "name": "Meest South",
+    "changes": {},
+    "fill": {
+      "address_line": "3851 Holcomb Bridge Road",
+      "location_precision": "street",
+      "city": "Peachtree Corners",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Holcomb%20Bridge%20Road%203851%2C%20Peachtree%20Corners%2C%20GA%20cross",
+      "website": "http://www.meestcentral.com",
+      "phone": "+17704171770"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fdbd2c76-de35-4edc-bf65-2c2159e9dea8",
+      "slug": "svoi-meest-south"
+    }
+  },
+  {
+    "id": "588be74f-f11e-4cfd-b3bd-b631e84be00f",
+    "name": "Live IMG Photography",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "website": "http://www.live-img.com",
+      "phone": "+14046936874"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a3aeee7b-a518-4e65-8c5a-591e6bd31e2c",
+    "name": "Atlanta Tax & Accounting",
+    "changes": {},
+    "fill": {
+      "address_line": "3235 Satellite Blvd",
+      "location_precision": "street",
+      "city": "Dalut",
+      "state_code": "US-GA",
+      "postal_code": "30096",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Satellite%20Blvd%203235%2C%20Dalut%2C%20GA%2030096",
+      "website": "https://www.atltaxcpa.com",
+      "phone": "+14045851040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0062cc36-18a1-4abf-b1ec-f877c9560277",
+      "slug": "svoi-atlanta-tax-accounting"
+    }
+  }
+]

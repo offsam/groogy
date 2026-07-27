@@ -1,0 +1,494 @@
+[
+  {
+    "id": "7254fc7c-d583-4b9c-bc1c-ef7ff8826619",
+    "name": "Felix Driving School",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "PA 19124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philadelphia%2C%20PA%2019124",
+      "phone": "+12155197998"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "edb14f3e-9388-4bd3-8e23-35a78c42f276",
+    "name": "National Limousine Service PA,",
+    "changes": {},
+    "fill": {
+      "address_line": "53 Fern Road",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fern%20Road%2053%2C%20Southampton%2C%20PA%2018966",
+      "phone": "+12159537278"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eaeb0f86-7cf2-4048-8386-5ec0970a5022",
+      "slug": "svoi-national-limousine-service-pa"
+    }
+  },
+  {
+    "id": "8fe24cb7-78d4-427d-8c1d-cd4eed259eb5",
+    "name": "Сергей - услуги водителя",
+    "changes": {},
+    "fill": {
+      "city": "PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philadelphia%2C%20PA",
+      "phone": "+12674696171"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3f9fdd44-6d0b-438f-aca7-d3f60ec20268",
+    "name": "Right Steps",
+    "changes": {},
+    "fill": {
+      "address_line": "29 Tanyard Road",
+      "location_precision": "street",
+      "city": "Richborough",
+      "state_code": "US-PA",
+      "postal_code": "18954",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tanyard%20Road%2029%2C%20Richborough%2C%20PA%2018954",
+      "website": "http://www.rightstepseducation.com",
+      "phone": "+12153554116",
+      "instagram_url": "https://www.instagram.com/rightstepseducation"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d3e5d2a7-f7ad-4f9f-acd3-1bbda8d7d3bf",
+      "slug": "svoi-right-steps"
+    }
+  },
+  {
+    "id": "5b930b07-cda3-4859-9c59-0f1564f1551d",
+    "name": "Five Golden Stars Day Care",
+    "changes": {},
+    "fill": {
+      "address_line": "239 Highland Avenue",
+      "location_precision": "street",
+      "city": "Penndel",
+      "state_code": "US-PA",
+      "postal_code": "19047",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Highland%20Avenue%20239%2C%20Penndel%2C%20PA%2019047",
+      "phone": "+12155282110"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "523755ed-b47e-4b18-bf50-b3139616a54b",
+      "slug": "svoi-five-golden-stars-day-care"
+    }
+  },
+  {
+    "id": "9665f7ac-9331-4eb3-86de-914c89ebc874",
+    "name": "Rising Stars Day Care Center",
+    "changes": {},
+    "fill": {
+      "address_line": "1411 Highland Avenue",
+      "location_precision": "street",
+      "city": "Middletown Township",
+      "state_code": "US-PA",
+      "postal_code": "19047",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Highland%20Avenue%201411%2C%20Middletown%20Township%2C%20PA%2019047",
+      "phone": "+12157578350"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "21a3db7e-9813-4faa-a5ac-f2ee7711110a",
+      "slug": "svoi-rising-stars-day-care-center"
+    }
+  },
+  {
+    "id": "93b8f7f3-0ad0-4caf-91dd-8208e20c3ef4",
+    "name": "Музыкальная Школа Имени Моцарта/Mozart Music School",
+    "changes": {},
+    "fill": {
+      "address_line": "25 North State Street",
+      "location_precision": "street",
+      "city": "Newtown",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20State%20Street%2025%2C%20Newtown%2C%20PA",
+      "phone": "+12672619529"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d262a239-6047-426f-815c-1e2ceb679f14",
+      "slug": "svoi-mozart-music-school"
+    }
+  },
+  {
+    "id": "bef5a2c7-ddfc-462d-b242-fd517699d3b6",
+    "name": "Land of Children",
+    "changes": {},
+    "fill": {
+      "address_line": "1331 O'Reilly Drive",
+      "location_precision": "street",
+      "city": "Lower Southampton Township",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=O%27Reilly%20Drive%201331%2C%20Lower%20Southampton%20Township%2C%20PA%2019053",
+      "website": "http://www.landofchildren.org",
+      "phone": "+12153649575",
+      "email": "landofchildren2003@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "22614429-62de-48dc-bf56-387f9473c4c6",
+      "slug": "svoi-land-of-children"
+    }
+  },
+  {
+    "id": "184baa1f-1ab0-4450-bcde-ca2c6df76c48",
+    "name": "First Children's Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "520 Street Road",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Street%20Road%20520%2C%20Southampton%2C%20PA",
+      "phone": "+12153966600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6b184037-af46-43a8-8cc7-d5e6cfd591bf",
+      "slug": "svoi-first-children-s-academy"
+    }
+  },
+  {
+    "id": "5bda6fb5-04cb-468a-a1fb-ccd5e2e174e9",
+    "name": "Keller Williams - Jujuna Rogers",
+    "changes": {},
+    "fill": {
+      "address_line": "584 Middletown Boulevard",
+      "location_precision": "street",
+      "city": "Middletown Township",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Middletown%20Boulevard%20584%2C%20Middletown%20Township%2C%20PA%209047",
+      "phone": "+12157576100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3b3e141e-629b-4c3c-90f1-1f7a2522b040",
+      "slug": "svoi-keller-williams-jujuna-rogers"
+    }
+  },
+  {
+    "id": "896957c3-b3a4-4cb4-ba17-64752fa6c394",
+    "name": "Fairfield Apartment Complex, LP",
+    "changes": {},
+    "fill": {
+      "address_line": "61 Silo Hill Drive",
+      "location_precision": "street",
+      "city": "Northampton Township",
+      "state_code": "US-PA",
+      "postal_code": "18954",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Silo%20Hill%20Drive%2061%2C%20Northampton%20Township%2C%20PA%2018954",
+      "phone": "+12158375951"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "111be5b6-2530-4044-ae4c-cec4f7830dd8",
+      "slug": "svoi-fairfield-apartment-complex-lp"
+    }
+  },
+  {
+    "id": "cf8cdd4d-3047-4128-8702-7b831851fc9c",
+    "name": "Brownstone Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "130 Almshouse Road",
+      "location_precision": "street",
+      "city": "Richborough",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Almshouse%20Road%20130%2C%20Richborough%2C%20PA",
+      "phone": "+12153222400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "417b8e52-ab9f-4449-b6bc-879c15a62d4a",
+      "slug": "svoi-brownstone-realty"
+    }
+  },
+  {
+    "id": "8416cf95-9e68-4b6c-9210-d6cfb532a50f",
+    "name": "Mr. Electric",
+    "changes": {},
+    "fill": {
+      "city": "PA 18974",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Warminster%2C%20PA%2018974",
+      "phone": "+12154913550"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0de2e936-1fe9-41df-aecc-462b9dfa160f",
+    "name": "Comfort Air Control",
+    "changes": {},
+    "fill": {
+      "address_line": "111 Steele Way",
+      "location_precision": "street",
+      "city": "Lower Moreland Township",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Steele%20Way%20111%2C%20Lower%20Moreland%20Township%2C%20PA",
+      "website": "http://www.comfortaircontrolhvac.com",
+      "phone": "+12158203288"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5c1d5a56-db0b-4e4c-9827-983fde544036",
+      "slug": "svoi-comfort-air-control"
+    }
+  },
+  {
+    "id": "5c4ee793-6330-4473-8d28-3346cfd3a7cc",
+    "name": "Plumbing & Heating Co. – Mashkovich, Leon",
+    "changes": {},
+    "fill": {
+      "address_line": "181 Pheasant Lane",
+      "location_precision": "street",
+      "city": "Lower Moreland Township",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pheasant%20Lane%20181%2C%20Lower%20Moreland%20Township%2C%20PA",
+      "phone": "+12158521452"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2b044cd8-b8f7-4a4d-ac57-f7e68a467c56",
+      "slug": "svoi-plumbing-heating-co-mashkovich-leon"
+    }
+  },
+  {
+    "id": "4b70244f-dd5f-4d67-9a2f-a8f5b71f6684",
+    "name": "Stellar HVAC",
+    "changes": {},
+    "fill": {
+      "address_line": "33 Tomlinson Road",
+      "location_precision": "street",
+      "city": "Lower Moreland Township",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tomlinson%20Road%2033%2C%20Lower%20Moreland%20Township%2C%20PA",
+      "phone": "+12154324123"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4741ba2-00b6-48c0-870b-60075270af4c",
+      "slug": "svoi-stellar-hvac"
+    }
+  },
+  {
+    "id": "c95c8065-c3cd-40aa-a094-b0c8b067d04b",
+    "name": "George's Barber Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "1922 County Line Road",
+      "location_precision": "street",
+      "city": "Montgomery Township",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=County%20Line%20Road%201922%2C%20Montgomery%20Township%2C%20PA",
+      "phone": "+12153229850"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f7ccb4a5-ed72-4365-b31c-052828402e18",
+      "slug": "svoi-george-s-barber-shop"
+    }
+  },
+  {
+    "id": "7ceb3675-c92e-42bc-b840-2f99226b55b8",
+    "name": "Millennium Salon Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "295 Buck Road",
+      "location_precision": "street",
+      "city": "Northampton Township",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buck%20Road%20295%2C%20Northampton%20Township%2C%20PA%20%2018966",
+      "phone": "+12159536705"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a68036f9-8a34-41ad-8513-378e045db908",
+      "slug": "svoi-millennium-salon-spa"
+    }
+  },
+  {
+    "id": "04a13b75-d797-42dc-a435-fc1232f6b5d2",
+    "name": "Beauty Salon Belissimo",
+    "changes": {},
+    "fill": {
+      "address_line": "1139 Bustleton Pike",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Pike%201139%2C%20Feasterville-Trevos%2C%20PA",
+      "phone": "+12153540607"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8306c789-91cc-4906-a86c-9c9d54e6d750",
+      "slug": "svoi-beauty-salon-belissimo"
+    }
+  },
+  {
+    "id": "0c816b02-4b7f-4588-af0c-967dc65885a7",
+    "name": "reYOU Massage",
+    "changes": {},
+    "fill": {
+      "address_line": "13037 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2013037%2C%20Philadelphia%2C%20PA%2019116",
+      "website": "http://reyoumassage.com",
+      "phone": "+17077396801"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c45bd600-224d-4662-bd3a-15e1195ac4e7",
+      "slug": "svoi-reyou-massage"
+    }
+  }
+]

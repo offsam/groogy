@@ -166,6 +166,17 @@ def extract_street(text: str) -> str | None:
     # Don't keep if it looks like a phone-ish number dump
     if len(street) < 8 or len(street) > 90:
         return None
+    words = street.split()
+    if len(words) > 8:
+        return None
+    # Reject business-name false positives: "4747 Holistic Weight Loss … Lane"
+    if re.search(
+        r"\b(weight|loss|health|wellness|massage|clinic|center|centre|community|"
+        r"communities|cosmetic|surgery|realtor|attorney|lawyer|holistic)\b",
+        street,
+        re.I,
+    ):
+        return None
     return street
 
 

@@ -1,5 +1,6 @@
 import type { Business } from "@/types/business";
 import type { BusinessOffer } from "@/types/business-offer";
+import type { Professional } from "@/types/professional";
 import type { ImportReviewItem } from "@/types/import-review";
 import { computePresenceFlags } from "@/lib/business/presence-flags";
 import {
@@ -152,6 +153,82 @@ export function importReviewToBusinessPreview(
     openingHours: null,
     createdAt: null,
     presenceFlags,
+  };
+}
+
+/** Map an import-review row → public Professional for card / profile preview. */
+export function importReviewToProfessionalPreview(
+  item: ImportReviewPreviewFields,
+): Professional {
+  const resolved = resolveImportDisplayName(item);
+  const name = resolved.name;
+  const description = item.description?.trim() || null;
+  const services = item.services ?? [];
+  const website = asHttpUrl(
+    first(
+      (item.website ?? []).filter(
+        (w) => !/facebook\.com|fb\.com|instagram\.com/i.test(w),
+      ),
+    ),
+  );
+  const igHandle = sanitizeInstagramHandles(item.instagram)[0] ?? null;
+  const instagram = asHttpUrl(igHandle);
+  const phone = first(item.phone);
+  const email = first(item.email);
+  const categoryLabel = importCategoryLabel(item.category);
+  const imageUrl = item.preview_image_url?.trim() || null;
+  const tg =
+    item.telegram_username?.trim()
+      ? `https://t.me/${item.telegram_username.replace(/^@/, "")}`
+      : null;
+
+  return {
+    id: item.id,
+    slug: `preview-${item.id.slice(0, 8)}`,
+    displayName: name,
+    headline: categoryLabel || shortFrom(description, services),
+    shortDescription: shortFrom(description, services),
+    description,
+    imageUrl,
+    status: "pending",
+    experienceYears: null,
+    languages: ["ru"],
+    availabilityText: null,
+    ratingAvg: 0,
+    reviewsCount: 0,
+    city: item.city?.trim() || null,
+    region: item.state?.trim() || null,
+    stateCode: item.state?.trim() || null,
+    postalCode: null,
+    latitude: null,
+    longitude: null,
+    serviceAreaText: [item.city, item.state].filter(Boolean).join(", ") || null,
+    publishedAt: null,
+    createdAt: null,
+    categoryId: null,
+    categorySlug: item.category?.trim() || null,
+    categoryName: categoryLabel,
+    presenceFlags: {
+      hasPhone: Boolean(phone),
+      hasEmail: Boolean(email),
+      hasWebsite: Boolean(website),
+      hasInstagram: Boolean(instagram),
+      hasTelegram: Boolean(tg),
+      hasSource: Boolean(item.source_url?.trim()),
+    },
+    phone,
+    email,
+    website,
+    instagramUrl: instagram,
+    telegramUrl: tg,
+    sourceUrl: item.source_url?.trim() || null,
+    sourceKind: item.source_url?.trim()
+      ? item.source?.toLowerCase().startsWith("facebook")
+        ? "facebook"
+        : "telegram"
+      : null,
+    servicePreviewTitles: services.slice(0, 3),
+    serviceCount: services.length || undefined,
   };
 }
 

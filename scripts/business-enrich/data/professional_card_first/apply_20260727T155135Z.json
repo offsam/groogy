@@ -1,0 +1,35 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "natalia-rezvova",
+      "display_name": "Natalia Rezvova",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "email": "lettersfox@gmail.com",
+          "website": "https://lettersfox.wixsite.com/letterfox"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://lettersfox.wixsite.com/letterfox",
+          "_fetch_url": "https://lettersfox.wixsite.com/letterfox",
+          "image_url": "https://static.wixstatic.com/media/57faa5_69a7c7e5861644718983fee01da5be82%7Emv2.png/v1/fit/w_2500,h_1330,al_c/57faa5_69a7c7e5861644718983fee01da5be82%7Emv2.png",
+          "website": "https://lettersfox.wixsite.com/letterfox"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/71868",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "email": "lettersfox@gmail.com",
+        "website": "https://lettersfox.wixsite.com/letterfox",
+        "image_url": "https://static.wixstatic.com/media/57faa5_69a7c7e5861644718983fee01da5be82%7Emv2.png/v1/fit/w_2500,h_1330,al_c/57faa5_69a7c7e5861644718983fee01da5be82%7Emv2.png"
+      },
+      "patch": {}
+    }
+  ]
+}

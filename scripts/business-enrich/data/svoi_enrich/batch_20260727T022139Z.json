@@ -1,0 +1,524 @@
+[
+  {
+    "id": "13ee1465-b641-476c-87ea-8117ab023421",
+    "name": "Contacts and Specs",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "3123 North Broadway",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60657",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Broadway%203123%2C%20Chicago%2C%20IL%2060657",
+      "phone": "+17738805400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4c1549c0-2fc9-4c04-9cc7-120556d80754",
+      "slug": "svoi-contacts-and-specs"
+    }
+  },
+  {
+    "id": "cbfacd8a-fa84-4d76-923a-6435da6a67af",
+    "name": "O P Eyecare Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "815 West Van Buren Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Van%20Buren%20Street%20815%2C%20Chicago%2C%20IL%20icago",
+      "phone": "+13128298844"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "31e929aa-eaec-4f0e-ac87-ec82d0b98ea5",
+      "slug": "svoi-o-p-eyecare-inc"
+    }
+  },
+  {
+    "id": "2122c58f-3987-4538-ae65-09b49e0adf56",
+    "name": "LensCrafters",
+    "changes": {},
+    "fill": {
+      "address_line": "225 North Michigan Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60601",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Michigan%20Avenue%20225%2C%20Chicago%2C%20IL%2060601",
+      "phone": "+13128190199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ab97471a-c5de-457e-8b32-f5d1bc83d4a3",
+      "slug": "svoi-lenscrafters"
+    }
+  },
+  {
+    "id": "cfc71535-6678-4eea-8f15-789329d17098",
+    "name": "James L. Sementilli, OD",
+    "changes": {},
+    "fill": {
+      "address_line": "205 North Michigan Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60601",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Michigan%20Avenue%20205%2C%20Chicago%2C%20IL%2060601",
+      "phone": "+13128190205"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6fccf37f-9ebc-45b7-9866-a65776572814",
+      "slug": "svoi-james-l-sementilli-od"
+    }
+  },
+  {
+    "id": "891ebc79-135f-4ecd-abd2-e1486b66e7a9",
+    "name": "Dr. William Lissner, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "25 East Washington Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60602",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Washington%20Street%2025%2C%20Chicago%2C%20IL%2060602",
+      "phone": "+13123372020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "f95efbe0-779a-4310-b919-05f3a828705a",
+      "slug": "svoi-dr-william-lissner-md"
+    }
+  },
+  {
+    "id": "92a10519-71bb-4f02-bc65-cfc87031c982",
+    "name": "Illinois Retina Assoc",
+    "changes": {},
+    "fill": {
+      "address_line": "25 East Washington Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60602",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Washington%20Street%2025%2C%20Chicago%2C%20IL%2060602",
+      "website": "http://www.illinoisretina.com",
+      "phone": "+13127264949",
+      "instagram_url": "https://www.instagram.com/illiretina",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6dcabc59-441a-4a5d-a3b3-49d9a17faaec",
+      "slug": "svoi-illinois-retina-assoc"
+    }
+  },
+  {
+    "id": "f2a7d60a-f8a1-41dd-a4ae-38dfb3d098a9",
+    "name": "Dina Kaner, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "3385 N. Arlington Heights Rd",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Arlington%20Heights%20Rd%203385%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18474523077"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e550b576-d913-4812-8b8c-0820a811ded4",
+      "slug": "svoi-dina-kaner-m-d"
+    }
+  },
+  {
+    "id": "15e7d4be-ffa8-4e70-b8a6-5f3f3b8ca283",
+    "name": "Dr. Dina Kaner, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "3385 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%203385%2C%20Arlington%20heights%2C%20IL%2060004",
+      "website": "http://dinakaner.com",
+      "phone": "+18476320600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "32a5d642-fd5c-48f4-bf03-2eaf42be12ea",
+      "slug": "svoi-dr-dina-kaner-md"
+    }
+  },
+  {
+    "id": "f0a8df85-d419-4981-9e3c-df998ef7d2f2",
+    "name": "Advocate Medical Group: Bayer-Kuznetso Victor MD",
+    "changes": {},
+    "fill": {
+      "address_line": "9301 West Golf Road",
+      "location_precision": "street",
+      "city": "Meng Township",
+      "state_code": "US-IL",
+      "postal_code": "60016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Golf%20Road%209301%2C%20Meng%20Township%2C%20IL%2060016",
+      "phone": "+18472945490"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c14ba0ae-d28e-4d34-ba3b-5012f7b37b06",
+      "slug": "svoi-advocate-medical-group-bayer-kuznetso-victor-md"
+    }
+  },
+  {
+    "id": "ef6602f2-74ee-4691-b14d-3f95d3162b8c",
+    "name": "Д-р Татьяна Сколин MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1803 Glenview Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glenview%20Road%201803%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+14105836800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "78f88462-3028-4c10-97bd-4879dabfb4d8",
+      "slug": "svoi-md-2"
+    }
+  },
+  {
+    "id": "a0a1ba35-565d-4418-9164-e7c3f7a16927",
+    "name": "Dr. Natalya Vernovsky MD",
+    "changes": {},
+    "fill": {
+      "address_line": "240 Waukegan Rd",
+      "location_precision": "street",
+      "city": "Glenview",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Rd%20240%2C%20Glenview%2C%20IL%20es",
+      "phone": "+18472968127"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d15587ba-cb9e-446e-83b1-a1bc6e708cbd",
+      "slug": "svoi-dr-natalya-vernovsky-md"
+    }
+  },
+  {
+    "id": "67ca6bbb-c501-44f5-a69e-d2e8e58b40ea",
+    "name": "Dr. Tatyana Kagan MD",
+    "changes": {},
+    "fill": {
+      "address_line": "9933 Lawler Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lawler%20Avenue%209933%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18476260303"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "76d3c8c9-9983-4887-9b07-70e50bf4765f",
+      "slug": "svoi-dr-tatyana-kagan-md"
+    }
+  },
+  {
+    "id": "1350f762-0b9f-4c7b-8993-b4cd5989cbdf",
+    "name": "West Suburban Pediatric Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "947 South Mannheim Road",
+      "location_precision": "street",
+      "city": "Westchester",
+      "state_code": "US-IL",
+      "postal_code": "60154",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Mannheim%20Road%20947%2C%20Westchester%2C%20IL%2060154",
+      "phone": "+17083431300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ff1b312c-1fbb-44b4-b6e5-c2cb061bdbba",
+      "slug": "svoi-west-suburban-pediatric-associates"
+    }
+  },
+  {
+    "id": "2ce26e0d-2332-463a-9af0-257c03aa8773",
+    "name": "Dr. Lia A Arber MD",
+    "changes": {},
+    "fill": {
+      "address_line": "7447 West Talcott Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Talcott%20Avenue%207447%2C%20Chicago%2C%20IL",
+      "phone": "+17737748990"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "47600e1a-686e-4f66-b1d0-0f4638f5ffdf",
+      "slug": "svoi-dr-lia-a-arber-md"
+    }
+  },
+  {
+    "id": "a1fee1df-cab1-4600-9fb7-082b7c2772f7",
+    "name": "Meest Karpaty",
+    "changes": {},
+    "fill": {
+      "address_line": "761 South Benton Street",
+      "location_precision": "street",
+      "city": "Palatine",
+      "state_code": "US-IL",
+      "postal_code": "60067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Benton%20Street%20761%2C%20Palatine%2C%20IL%2060067",
+      "phone": "+18472088451"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7e6a7e61-a339-4309-bbae-72c4040a0e40",
+      "slug": "svoi-meest-karpaty"
+    }
+  },
+  {
+    "id": "5496c826-24ed-4cc8-a656-630f9ee90c32",
+    "name": "Kalina Corporation",
+    "changes": {},
+    "fill": {
+      "address_line": "338 South Rohlwing Road",
+      "location_precision": "street",
+      "city": "Palatine",
+      "state_code": "US-IL",
+      "postal_code": "60074",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Rohlwing%20Road%20338%2C%20Palatine%2C%20IL%2060074",
+      "phone": "+18477767766"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f33799b4-b8a8-421b-afea-8ab09fd5faee",
+      "slug": "svoi-kalina-corporation"
+    }
+  },
+  {
+    "id": "a68c155e-29da-4d31-890a-ee992c6fbfbe",
+    "name": "Eastern Express Восточный Экспресс",
+    "changes": {},
+    "fill": {
+      "address_line": "271 East Dundee Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dundee%20Road%20271%2C%20Wheeling%2C%20IL",
+      "phone": "+18472290200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f865ad03-6ee7-4bc1-a5ed-fb9cdb177c58",
+      "slug": "svoi-eastern-express"
+    }
+  },
+  {
+    "id": "235a7868-f70a-46da-beb4-9286f212eea2",
+    "name": "Meest Chicago Shipping LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "820 North Ridge Avenue",
+      "location_precision": "street",
+      "city": "Pawnshop",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Ridge%20Avenue%20820%2C%20Pawnshop%2C%20IL",
+      "phone": "+18778891103"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "46bd59f9-eaed-4f64-93b8-acaac1082f1c",
+      "slug": "svoi-meest-chicago-shipping-llc"
+    }
+  },
+  {
+    "id": "ef9dc6c9-eafa-4f08-a6f8-481ad46cab2f",
+    "name": "Meest Chicag",
+    "changes": {},
+    "fill": {
+      "address_line": "820 Ridge Ave",
+      "location_precision": "street",
+      "city": "Pawnshop",
+      "state_code": "US-IL",
+      "postal_code": "60148",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ridge%20Ave%20%20820%2C%20Pawnshop%2C%20IL%20%2060148",
+      "website": "http://meestchicago.com",
+      "phone": "+16308891100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "77537606-59b1-40c2-b736-1e91d6164a64",
+      "slug": "svoi-meest-chicag"
+    }
+  },
+  {
+    "id": "d6da50e0-68e7-427d-be03-1d98919bf22e",
+    "name": "US AUTO SHIPPING",
+    "changes": {},
+    "fill": {
+      "address_line": "72nd st 15w754",
+      "location_precision": "street",
+      "city": "Burr Ridge",
+      "state_code": "US-IL",
+      "postal_code": "60527",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=72nd%20st%2015w754%2C%20Burr%20Ridge%2C%20IL%2060527",
+      "phone": "+13128345030"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "db1a5c1e-1659-4a72-855b-9977b8f05e6c",
+      "slug": "svoi-us-auto-shipping"
+    }
+  }
+]

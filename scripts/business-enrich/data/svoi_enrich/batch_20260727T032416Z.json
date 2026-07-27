@@ -1,0 +1,1275 @@
+[
+  {
+    "id": "a4bff257-ef74-4b45-b464-f5b849944c2a",
+    "name": "USA Tile and Marble",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "14700 Biscayne Boulevard",
+      "location_precision": "street",
+      "city": "North Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33181",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biscayne%20Boulevard%2014700%2C%20North%20Miami%20Beach%2C%20FL%2033181",
+      "phone": "+13059400021"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bd97546d-cd3c-42ec-918f-1a199d889649",
+      "slug": "svoi-usa-tile-and-marble"
+    }
+  },
+  {
+    "id": "0fb8ea3a-ed8d-4086-bc00-bd57152181c4",
+    "name": "Fleur Flower Boutique",
+    "changes": {},
+    "fill": {
+      "address_line": "16167 Biscayne Boulevard",
+      "location_precision": "street",
+      "city": "North miami",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biscayne%20Boulevard%2016167%2C%20North%20miami%2C%20FL%2033160",
+      "phone": "+17869754011"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2f146669-87a8-492f-9729-85d18eae9c57",
+      "slug": "svoi-fleur-flower-boutique"
+    }
+  },
+  {
+    "id": "032981ff-39ae-4901-ad83-491ceddb1c38",
+    "name": "Ahead of Time Miami",
+    "changes": {},
+    "fill": {
+      "address_line": "18090 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018090%2C%20Sunny%20Isles%20Beach%2C%20FL%20%2033160",
+      "phone": "+19547782980"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5a0ddf08-d264-458c-8015-9707210eb8cd",
+      "slug": "svoi-ahead-of-time-miami"
+    }
+  },
+  {
+    "id": "86a5c86f-02ca-49d4-8e2e-385be990c72d",
+    "name": "Provence Cafe & Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "209 Southeast 1st Avenue",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33432",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%201st%20Avenue%20209%2C%20Boca%20raton%2C%20FL%2033432",
+      "phone": "+17864445554"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7d92cee8-53c7-4f3d-927c-e6c75242d74f",
+      "slug": "svoi-provence-cafe-shop"
+    }
+  },
+  {
+    "id": "cf3e594a-db73-452a-9859-f7446d27b89d",
+    "name": "The Village",
+    "changes": {},
+    "fill": {
+      "address_line": "7128 Beracasa Way",
+      "location_precision": "street",
+      "city": "Boca del mar",
+      "state_code": "US-FL",
+      "postal_code": "33433",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beracasa%20Way%207128%2C%20Boca%20del%20mar%2C%20FL%2033433",
+      "phone": "+15614652979"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a4389978-2621-4f38-baff-e72d525329cc",
+      "slug": "svoi-the-village"
+    }
+  },
+  {
+    "id": "00712941-89a5-4272-a0dd-10ce55263f95",
+    "name": "Havana 1957",
+    "changes": {},
+    "fill": {
+      "address_line": "1451 South Miami Avenue",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33131",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Miami%20Avenue%201451%2C%20Miami%2C%20FL%2033131",
+      "phone": "+13053816651"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "470c01d2-7b34-4068-9496-51718b263dd0",
+      "slug": "svoi-havana-1957"
+    }
+  },
+  {
+    "id": "e187236b-23de-4ba1-beb5-cbc31b9d0b18",
+    "name": "РУССКИЕ и ТУРЕЦКИЕ БАНИ",
+    "changes": {},
+    "fill": {
+      "address_line": "5445 Collins Avenue",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33140",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%205445%2C%20Miami%20Beach%2C%20FL%2033140",
+      "website": "http://www.russianandturkishbaths.com",
+      "phone": "+13058655409",
+      "instagram_url": "https://www.instagram.com/russianturkishbaths",
+      "email": "contact@russianandturkishbaths.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4d88d12e-ae02-4bb0-a398-8f8bab5ecc4c",
+      "slug": "svoi-biz-14"
+    }
+  },
+  {
+    "id": "e84d33d6-7edb-46e1-9605-32af20d99a1c",
+    "name": "Miami Shores Country Club",
+    "changes": {},
+    "fill": {
+      "address_line": "10000 Biscayne Boulevard",
+      "location_precision": "street",
+      "city": "Miami Shores",
+      "state_code": "US-FL",
+      "postal_code": "33138",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biscayne%20Boulevard%2010000%2C%20Miami%20Shores%2C%20FL%2033138",
+      "phone": "+13057952360"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0a585100-513d-4e51-a027-1a613ba8a0e7",
+      "slug": "svoi-miami-shores-country-club"
+    }
+  },
+  {
+    "id": "4e382e8f-fc66-4a10-87ad-711f97f1c3c4",
+    "name": "Hollywood Health Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "230 North Broadwalk",
+      "location_precision": "street",
+      "city": "Hollywood",
+      "state_code": "US-FL",
+      "postal_code": "33019",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Broadwalk%20230%2C%20Hollywood%2C%20FL%2033019",
+      "phone": "+19549217333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7d780bb5-3c5d-4d68-b1ab-7ea8fedb0001",
+      "slug": "svoi-hollywood-health-spa"
+    }
+  },
+  {
+    "id": "b6d9c6dc-1a3e-4491-bd80-702de03154e5",
+    "name": "LiteMiami: 101.5 LITE FM Radio",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+18004691015"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "90b5c676-f12f-41ad-8743-073c04a06731",
+    "name": "газета РЕКЛАМА МАЙАМИ",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "website": "http://www.reklamamiami.com",
+      "phone": "+19543447797"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "ec59a572-e275-401c-9949-a08fbb44d2a3",
+    "name": "журнал КОНТУР/The Russian Magazine “Contour”",
+    "changes": {},
+    "fill": {
+      "city": "FL 33077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coral%20Springs%2C%20FL%2033077",
+      "website": "http://www.russiancontour.com",
+      "phone": "+19542278291"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "150f769d-a23d-47fe-9a37-a7c51d31d6f9",
+    "name": "Arthur Gulesserian DDS Dentist",
+    "changes": {},
+    "fill": {
+      "address_line": "539 North Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glenoaks%20Boulevard%20539%2C%20Burbank%2C%20CA%2091502",
+      "website": "http://www.burbankdentist.com",
+      "phone": "+18182609000",
+      "instagram_url": "https://www.instagram.com/provident_dental",
+      "yelp_url": "https://www.yelp.com/biz/provident-dental-group-burbank-2",
+      "email": "reception@burbankdentist.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "001a573d-1910-409f-a65d-9f11f75f67aa",
+      "slug": "svoi-arthur-gulesserian-dds-dentist"
+    }
+  },
+  {
+    "id": "f14a2706-54f8-40d4-b005-80cbc1974dfe",
+    "name": "Brenn Orthodontics",
+    "changes": {},
+    "fill": {
+      "address_line": "Olive Ave",
+      "location_precision": "street",
+      "city": "1400 W",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Olive%20Ave%2C%20%201400%20W%2C%20Burbank%2C%20CA%20%2091506",
+      "phone": "+17472226877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c5bc84c7-0111-4d6b-be7e-8c5ba937acb5",
+      "slug": "svoi-brenn-orthodontics"
+    }
+  },
+  {
+    "id": "67b4d039-6b9f-4485-a264-17fbff03ce4e",
+    "name": "Demerjian Gary DDS Dentist",
+    "changes": {},
+    "fill": {
+      "address_line": "2701 W. Alameda Ave",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.%20Alameda%20Ave%20%202701%20%2C%20Burbank%2C%20CA%20%2091505",
+      "phone": "+18182389865"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "06d1d607-6423-4c69-9479-ad1a96027fcc",
+      "slug": "svoi-demerjian-gary-dds-dentist"
+    }
+  },
+  {
+    "id": "f81a9fff-765f-4b4c-8921-08343ceb039e",
+    "name": "Abdulian Misak H MD Physicians-Thoracic & Cardiovascular Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "2701 West Alameda Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Alameda%20Avenue%202701%2C%20Burbank%2C%20CA%2091505",
+      "phone": "+18188450611"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "5e228648-36b3-4cc0-9eed-f18cadeee359",
+      "slug": "svoi-abdulian-misak-h-md-physicians-thoracic-cardiova"
+    }
+  },
+  {
+    "id": "59ea9260-d4f4-4a4f-975c-ebe9fe7d313f",
+    "name": "Dr. Sofya B. Tsyganovskaya, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1411 W.Olive Ave",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91506",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.Olive%20Ave%201411%2C%20Burbank%2C%20CA%2091506",
+      "website": "http://sofyatsyganovskayamd.com",
+      "phone": "+18188431884"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "67c4b195-ae7c-48c8-a8b7-7c4c964841ba",
+      "slug": "svoi-dr-sofya-b-tsyganovskaya-md"
+    }
+  },
+  {
+    "id": "92c2a380-16ff-438f-8705-9f61214f51dc",
+    "name": "Zakari Victor MD Physicians-Obstetrics &Gynecology",
+    "changes": {},
+    "fill": {
+      "address_line": "2625 West Alameda Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Alameda%20Avenue%202625%2C%20Burbank%2C%20CA",
+      "phone": "+18188432826"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6b7a4cb0-32ee-4379-8892-4314c3fffa58",
+      "slug": "svoi-zakari-victor-md-physicians-obstetrics-gynecolog"
+    }
+  },
+  {
+    "id": "f030cabf-f97a-4f30-ae6e-08fe19b45a60",
+    "name": "Burbank Treatment Center",
+    "changes": {},
+    "fill": {
+      "address_line": "716 South Victory Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Victory%20Boulevard%20716%2C%20Burbank%2C%20CA%20%2091502",
+      "phone": "+18188484459"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "96a496e2-eb70-4624-8d56-4a63a7f39da7",
+      "slug": "svoi-burbank-treatment-center"
+    }
+  },
+  {
+    "id": "1a2ede3c-f40c-417d-9b88-1fde0a879c90",
+    "name": "Glenoaks Pharmacy and Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "303 South Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glenoaks%20Boulevard%20303%2C%20Burbank%2C%20CA%2091502",
+      "website": "http://glenoakspharmacy.com",
+      "phone": "+18188469011"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f3750ed0-5adc-4a41-90c9-9133b9498713",
+      "slug": "svoi-glenoaks-pharmacy-and-medical-supply"
+    }
+  },
+  {
+    "id": "3f2ae41d-0ca0-4ee6-82e4-71745cebb9e0",
+    "name": "GLENOAKS PHARMACY AND SUPPLY",
+    "changes": {},
+    "fill": {
+      "address_line": "303 South Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glenoaks%20Boulevard%20303%2C%20Burbank%2C%20CA%20%2091502",
+      "phone": "+18185776060"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6ffc4085-0b3b-4a03-9862-735f2647f735",
+      "slug": "svoi-glenoaks-pharmacy-and-supply"
+    }
+  },
+  {
+    "id": "8659021b-22ce-4a5f-86b3-9feb3ee370f0",
+    "name": "KD Pharmacy Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "10970 Sherman Way",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sherman%20Way%2010970%2C%20Burbank%2C%20CA",
+      "phone": "+18188478600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d68ed00b-09c9-4599-b344-8a066cbb3787",
+      "slug": "svoi-kd-pharmacy-inc"
+    }
+  },
+  {
+    "id": "7bfa2250-d862-4f89-8489-d5d37d026e6d",
+    "name": "P&D Auto Body Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "825 North Hollywood Way",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Hollywood%20Way%20825%2C%20Burbank%2C%20CA",
+      "phone": "+18188436085"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "efa76f31-fc5a-45c0-acfa-b2eb0ccbb23c",
+      "slug": "svoi-p-d-auto-body-shop"
+    }
+  },
+  {
+    "id": "7124fb8b-d42d-428d-a10e-37c6a67d9072",
+    "name": "Hay Tracking School",
+    "changes": {},
+    "fill": {
+      "address_line": "3615 North San Fernando Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20San%20Fernando%20Boulevard%203615%2C%20Burbank%2C%20CA%2091505",
+      "phone": "+13238685800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb50bc11-a64b-4a86-8492-260dfd39e100",
+      "slug": "svoi-hay-tracking-school"
+    }
+  },
+  {
+    "id": "7577f55f-d206-41a4-adad-0c5032704cb1",
+    "name": "Star Driving and Traffic School",
+    "changes": {},
+    "fill": {
+      "address_line": "239 East Alameda Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Alameda%20Avenue%20239%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18188482268"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "81a5ac49-8fcc-45c2-834d-e81b0f3198a7",
+      "slug": "svoi-star-driving-and-traffic-school"
+    }
+  },
+  {
+    "id": "4bba135e-4479-49bc-b02b-859195a13528",
+    "name": "Автошкола STAR",
+    "changes": {},
+    "fill": {
+      "address_line": "239 E Alameda Ave",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=239%20E%20Alameda%20Ave%2C%20Burbank%2C%20CA",
+      "website": "http://star818.com",
+      "phone": "+18188482268"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "81a5ac49-8fcc-45c2-834d-e81b0f3198a7"
+    }
+  },
+  {
+    "id": "f6cae1ef-5ddd-4f9a-9849-023237ce664d",
+    "name": "Five Star Limousine of LA Burbank",
+    "changes": {},
+    "fill": {
+      "address_line": "150 East Angeleno Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Angeleno%20Avenue%20150%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18188236530"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e68d71fb-f265-45e0-bc05-1a51679d4eca",
+      "slug": "svoi-five-star-limousine-of-la-burbank"
+    }
+  },
+  {
+    "id": "19fd2db9-2c97-4cde-a332-9db12d4f7c7b",
+    "name": "Muse Dental Group",
+    "changes": {},
+    "fill": {
+      "address_line": "Riverside Dr",
+      "location_precision": "street",
+      "city": "# 307",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Riverside%20Dr%2C%20%23%20307%2C%203808%20W%20%2C%20Burbank%2C%20CA%20%2091505",
+      "phone": "+18186168824"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "31e4f4e8-d2e9-4a21-b46e-fe511cd32842",
+      "slug": "svoi-muse-dental-group"
+    }
+  },
+  {
+    "id": "db720696-a51e-42c0-9061-00537b987051",
+    "name": "Scholars Preparatory School",
+    "changes": {},
+    "fill": {
+      "address_line": "1001 South Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glenoaks%20Boulevard%201001%2C%20Burbank%2C%20CA",
+      "website": "http://www.scholarsprepschool.com",
+      "phone": "+18182423344"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "54221f77-a19e-4a6f-91a8-7a13b9ab2375",
+      "slug": "svoi-scholars-preparatory-school"
+    }
+  },
+  {
+    "id": "d3f8c958-f298-4f81-8084-b5756c0e8df1",
+    "name": "CashNvestor",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Burbank%2C%20CA",
+      "phone": "+13236462525"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "e316b796-0804-414b-991e-eb3ab6597c94",
+    "name": "Fred Sands Realtors - Gary Papoport",
+    "changes": {},
+    "fill": {
+      "address_line": "3500 W Olive Ave",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=3500%20W%20Olive%20Ave%2C%20Burbank%2C%20CA",
+      "website": "http://www.garyrapoport.com",
+      "phone": "+18183999981"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1eca3e9b-cb4c-4ec4-be6e-b728d7d24016",
+      "slug": "svoi-fred-sands-realtors-gary-papoport"
+    }
+  },
+  {
+    "id": "abed150a-bdeb-4109-a4e8-70a0fe743a6e",
+    "name": "JohnHart Real Estate - Lily Galadzhyan",
+    "changes": {},
+    "fill": {
+      "address_line": "1415 W. Magnolia Blvd. Suite 101",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1415%20W.%20Magnolia%20Blvd.%20Suite%20101%2C%20Burbank%2C%20CA",
+      "website": "https://lilyg.jhagents.com",
+      "phone": "+18188248676",
+      "postal_code": "91502",
+      "instagram_url": "https://www.instagram.com/lilygaladzhyan"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08771b0b-d5e4-4797-8fca-485db3a7d24d",
+      "slug": "svoi-johnhart-real-estate-lily-galadzhyan"
+    }
+  },
+  {
+    "id": "519a4886-cd6e-4acb-aeeb-95ee240cc289",
+    "name": "Levon Gyonjyan Electricians",
+    "changes": {},
+    "fill": {
+      "address_line": "630 South Lake Street",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Lake%20Street%20630%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18187306777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2c4bcde2-5a63-4ad4-b668-570b5cdb7b1e",
+      "slug": "svoi-levon-gyonjyan-electricians"
+    }
+  },
+  {
+    "id": "d2667064-08f5-4b4b-a159-8b718b3002c5",
+    "name": "Passion Beauty Salon Hair Salons",
+    "changes": {},
+    "fill": {
+      "address_line": "539 North Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glenoaks%20Boulevard%20539%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18188436465"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "301d84b3-d055-4ccb-8f6f-cf31f81f512f",
+      "slug": "svoi-passion-beauty-salon-hair-salons"
+    }
+  },
+  {
+    "id": "2c040b95-d6e6-47e2-b0dd-971b08349d11",
+    "name": "Sophia Beauty Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "2128 North Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glenoaks%20Boulevard%202128%2C%20Burbank%2C%20CA",
+      "phone": "+17272383950"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e56ea15f-fe10-4ed3-9012-c6244ea30a2f",
+      "slug": "svoi-sophia-beauty-salon"
+    }
+  },
+  {
+    "id": "e04078cf-5644-421c-97fe-7e61b9b1291b",
+    "name": "Anush Insurance Services",
+    "changes": {},
+    "fill": {
+      "address_line": "132 South Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glenoaks%20Boulevard%20132%2C%20Burbank%2C%20CA",
+      "phone": "+18188408012"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6a596e58-0c30-4168-87a9-03424b097457",
+      "slug": "svoi-anush-insurance-services"
+    }
+  },
+  {
+    "id": "64294585-87c0-475e-a964-93c6693d2c84",
+    "name": "Calico Insurance Services, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "10970 Sherman Way",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sherman%20Way%2010970%2C%20Burbank%2C%20CA%2091505",
+      "phone": "+18183330515"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ac1a07c0-4c12-4d4e-988f-0d17f04b4ef0",
+      "slug": "svoi-calico-insurance-services-inc"
+    }
+  },
+  {
+    "id": "9a100e37-e7da-4bee-a812-8708c05a7a8a",
+    "name": "Doug Auzat State Farm Insurance .-A",
+    "changes": {},
+    "fill": {
+      "address_line": "4421 Riverside Drive",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Riverside%20Drive%204421%2C%20Burbank%2C%20CA%2091505",
+      "phone": "+13104098904"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5567e30b-33be-4dcf-a3d9-bcf0ae38448e",
+      "slug": "svoi-doug-auzat-state-farm-insurance-a"
+    }
+  },
+  {
+    "id": "cf1c3d5e-2b26-49d1-b75c-563420a603c1",
+    "name": "Armko Travel Travel Agencies",
+    "changes": {},
+    "fill": {
+      "address_line": "178 S Victory Blvd # 207",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Victory%20Blvd%20%23%20207%20178%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18188597282"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "446a4b4c-d94a-4f8b-b180-8d945e64f3f3",
+      "slug": "svoi-armko-travel-travel-agencies"
+    }
+  },
+  {
+    "id": "fe2a1d12-f4c9-46c2-958e-3ae2f02121f6",
+    "name": "INES TOURS AND TRAVEL",
+    "changes": {},
+    "fill": {
+      "address_line": "1010 West Magnolia Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Magnolia%20Boulevard%201010%2C%20Burbank%2C%20CA",
+      "website": "http://inestoursandtravel.com",
+      "phone": "+18184787200",
+      "instagram_url": "https://www.instagram.com/inestoursandtravel",
+      "yelp_url": "https://www.yelp.com/biz/ines-tours-and-travel-burbank-6",
+      "email": "info@inestoursandtravel.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0b05ca89-093c-4ad8-a42b-1227d79ebf3c",
+      "slug": "svoi-ines-tours-and-travel"
+    }
+  },
+  {
+    "id": "86dc5e1b-3677-428b-b6df-0f2b922fe23a",
+    "name": "M.S. Travel & Tours",
+    "changes": {},
+    "fill": {
+      "address_line": "1911 West Magnolia Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91506",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Magnolia%20Boulevard%201911%2C%20Burbank%2C%20CA%2091506",
+      "phone": "+18183330077"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "77feddda-0164-46f3-a7fc-e971b18dbd88",
+      "slug": "svoi-m-s-travel-tours"
+    }
+  },
+  {
+    "id": "b0795c96-8d9c-4142-945a-ad8bae9f2003",
+    "name": "Yulia Tailoring",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Burbank%2C%20CA",
+      "phone": "+18182389363"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "6d0accf2-88de-4697-a801-ed8cdd4c1c43",
+    "name": "Royal Gor Photo & Video Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "1631 Maria Street",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91504",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Maria%20Street%201631%2C%20Burbank%2C%20CA%2091504",
+      "phone": "+12137927102"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5c79aa6f-ed7c-40ec-9764-36399b00da44",
+      "slug": "svoi-royal-gor-photo-video-studio"
+    }
+  },
+  {
+    "id": "9835fee1-7686-4bd5-a117-aaf03611cd84",
+    "name": "Der Sarkissian Roubina Real Estate Loans",
+    "changes": {},
+    "fill": {
+      "address_line": "150 East Olive Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Olive%20Avenue%20150%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18188425261"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a0f6c112-892c-464e-8cdf-40860ce4e3e0",
+      "slug": "svoi-der-sarkissian-roubina-real-estate-loans"
+    }
+  },
+  {
+    "id": "ba8a1db4-df95-4541-8409-8541357f976a",
+    "name": "Gefer Farms Market",
+    "changes": {},
+    "fill": {
+      "address_line": "822 S San Fernando Blvd",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20San%20Fernando%20Blvd%20822%2C%20Burbank%2C%20CA%20%2091502",
+      "phone": "+18189557717"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "330bdad1-1e44-4535-a70c-0b3afd1040b2",
+      "slug": "svoi-gefer-farms-market"
+    }
+  },
+  {
+    "id": "2da1e1bf-3373-4d9d-bb9f-ebe6450f6d51",
+    "name": "Magnolia Fresh Market",
+    "changes": {},
+    "fill": {
+      "address_line": "418 North Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glenoaks%20Boulevard%20418%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18185571329"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6b4074d-8eb9-4314-a9c6-fb4ae23dcbb2",
+      "slug": "svoi-magnolia-fresh-market"
+    }
+  },
+  {
+    "id": "2d30d512-ef74-4080-a8cc-1a522d5d3866",
+    "name": "Raffi's Market",
+    "changes": {},
+    "fill": {
+      "address_line": "324 North Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91501",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glenoaks%20Boulevard%20324%2C%20Burbank%2C%20CA%2091501",
+      "phone": "+18187299000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "82325e1a-fe2e-4cdb-b8db-7fef29d9ee65",
+      "slug": "svoi-raffi-s-market"
+    }
+  },
+  {
+    "id": "15aa60ac-061a-4d2a-94f3-5510d4f9b20a",
+    "name": "Burbank Florist & Gifts",
+    "changes": {},
+    "fill": {
+      "address_line": "3515 West Burbank Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Burbank%20Boulevard%203515%2C%20Burbank%2C%20CA%2091505",
+      "website": "http://www.burbankfloristandgifts.com",
+      "phone": "+18188465111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e8ea8822-b203-4499-bb40-5a8e28ca3586",
+      "slug": "svoi-burbank-florist-gifts"
+    }
+  },
+  {
+    "id": "bf7ae943-5e8c-48f7-b107-a3ec821a0306",
+    "name": "Gianni Deloro Jewelry Planner",
+    "changes": {},
+    "fill": {
+      "address_line": "Alameda Ave. 124 E.",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alameda%20Ave.%20124%20E.%2C%20Burbank%2C%20CA%2091502",
+      "website": "http://www.giannideloro.com",
+      "phone": "+18188459286",
+      "instagram_url": "https://www.instagram.com/giannideloro"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f6dc6cd5-8058-46ef-b59e-a28905de691e",
+      "slug": "svoi-gianni-deloro-jewelry-planner"
+    }
+  },
+  {
+    "id": "e45ed1bc-c675-48c2-80a0-719795ce272b",
+    "name": "Speaking Roses",
+    "changes": {},
+    "fill": {
+      "address_line": "711 South San Fernando Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20San%20Fernando%20Boulevard%20711%2C%20Burbank%2C%20CA%2091502",
+      "phone": "+18184337781"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ad98902d-3d98-47fe-931a-121be022249f",
+      "slug": "svoi-speaking-roses"
+    }
+  }
+]

@@ -1,0 +1,508 @@
+[
+  {
+    "id": "ebd61867-071a-48e1-94a7-d8f833a3d237",
+    "name": "Andrew Shevelev, American Real Estate Services",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "20594 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Vernon Township",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%2020594%2C%20Vernon%20Township%2C%20IL",
+      "phone": "+18475021744"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9f404219-bdbe-4d9f-8b41-0e9b91cc90f8",
+      "slug": "svoi-andrew-shevelev-american-real-estate-services"
+    }
+  },
+  {
+    "id": "77afca97-23cc-4982-b4cd-d3dbc8ba4fe6",
+    "name": "Realtor Katerina Belajeva",
+    "changes": {},
+    "fill": {
+      "address_line": "Bloomingdale Rd 107 S",
+      "location_precision": "street",
+      "city": "Bloomingdale",
+      "state_code": "US-IL",
+      "postal_code": "60108",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bloomingdale%20Rd%20107%20S%20%2C%20Bloomingdale%2C%20IL%20%2060108",
+      "phone": "+16307093425"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "8591c517-1bf0-49f7-9cbf-e1f627068520",
+      "slug": "svoi-realtor-katerina-belajeva"
+    }
+  },
+  {
+    "id": "9fd3b8c9-a9b9-4836-9f9e-8b5f8625ccb1",
+    "name": "Alla Kimbarovsky Broker",
+    "changes": {},
+    "fill": {
+      "address_line": "607 Central Avenue",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-IL",
+      "postal_code": "60035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Central%20Avenue%20607%2C%20Highland%20Park%2C%20IL%2060035",
+      "phone": "+18474320700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3a89f3c7-1a8f-4b2a-a9a5-1197591eb5ff",
+      "slug": "svoi-alla-kimbarovsky-broker"
+    }
+  },
+  {
+    "id": "6b42cedf-f45d-4d10-9f37-5b3a985ccbf2",
+    "name": "Alla Haham",
+    "changes": {},
+    "fill": {
+      "address_line": "81-B S. Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%20Milwaukee%20Ave%2081-B%2C%20Wheeling%2C%20IL%2060089",
+      "phone": "+18478301750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1b7c0a07-31fc-46c4-82e3-ef770c56a507",
+      "slug": "svoi-alla-haham"
+    }
+  },
+  {
+    "id": "d3ca62d4-e0c7-4518-8881-5ab906f2ae99",
+    "name": "Coldwell Banker (Highland Park) - Oleg Trifonov",
+    "changes": {},
+    "fill": {
+      "address_line": "2nd 1741",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-IL",
+      "postal_code": "60035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2nd%201741%2C%20Highland%20Park%2C%20IL%2060035",
+      "phone": "+18475297780"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "27b4cae4-932c-45f3-b931-6a8748a14a90",
+      "slug": "svoi-coldwell-banker-highland-park-oleg-trifonov"
+    }
+  },
+  {
+    "id": "64f3f18a-a713-447e-8db0-6007f2a956e5",
+    "name": "Synergy Realty & Property Management",
+    "changes": {},
+    "fill": {
+      "address_line": "212 Milwaukee ave",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20ave%20212%20%2C%20Wheeling%2C%20IL%20%2060090",
+      "phone": "+18477960056"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ddde7232-6eae-42f1-85b6-f216625c87f2",
+      "slug": "svoi-synergy-realty-property-management"
+    }
+  },
+  {
+    "id": "3016e6bb-735f-4433-a4b3-df0e1f19d702",
+    "name": "RE/MAX International",
+    "changes": {},
+    "fill": {
+      "address_line": "401 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%20401%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472155555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b0121c90-646e-4cec-aa5e-e508ffa93911",
+      "slug": "svoi-re-max-international"
+    }
+  },
+  {
+    "id": "e63bf517-0cab-4661-821f-e94310474605",
+    "name": "Irina Khaykin RE Broker",
+    "changes": {},
+    "fill": {
+      "address_line": "4179 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%204179%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18476507497"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "45ad4d00-8c0c-4cc0-a4f0-37e33dc4de33",
+      "slug": "svoi-irina-khaykin-re-broker"
+    }
+  },
+  {
+    "id": "cd34d722-3688-439b-93a6-9d67f633f214",
+    "name": "Перски Галина",
+    "changes": {},
+    "fill": {
+      "address_line": "4179 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%204179%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18476121996"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "37c9d52b-f496-4be2-a3b5-668737e582ec",
+      "slug": "svoi-biz-6"
+    }
+  },
+  {
+    "id": "fe05c430-679c-4774-a89e-086ca7da5da6",
+    "name": "Cambridge Title Company",
+    "changes": {},
+    "fill": {
+      "address_line": "3100 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203100%2C%20Northbrook%2C%20IL%2060062",
+      "website": "http://cambridgetitleco.com",
+      "phone": "+12243301886",
+      "email": "title@cambridgetitleco.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6ca580ff-c3ff-44a0-b0fb-6aefa01afb5d",
+      "slug": "svoi-cambridge-title-company"
+    }
+  },
+  {
+    "id": "7ab30b9d-8add-444b-983e-1e701b082fe5",
+    "name": "Лисица Нона",
+    "changes": {},
+    "fill": {
+      "address_line": "3137 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203137%2C%20Northbrook%2C%20IL",
+      "phone": "+18472041776"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "993cb8c5-f9b9-4388-9145-54e31301cacb",
+      "slug": "svoi-biz-7"
+    }
+  },
+  {
+    "id": "02f7e646-6465-4aa3-904e-8dcf91ea95af",
+    "name": "Злотник Михаил",
+    "changes": {},
+    "fill": {
+      "address_line": "3000 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203000%2C%20Northbrook%2C%20IL",
+      "phone": "+12246282901"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6faac655-a41a-4e6f-a8b4-82dfe03f6b56",
+      "slug": "svoi-biz-8"
+    }
+  },
+  {
+    "id": "7e886c08-d70d-4009-9248-f4bc55b8c345",
+    "name": "Полищук Феликс",
+    "changes": {},
+    "fill": {
+      "address_line": "3000 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203000%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+12243052471"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c2f41ed4-bdb4-4906-aa37-e0790d91796c",
+      "slug": "svoi-biz-9"
+    }
+  },
+  {
+    "id": "d931e41e-fb0c-4dd0-9e99-3230782d5b3c",
+    "name": "Viktoryia Yanuchkouskaya Core Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "3000 Dundee Rd",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Rd%203000%2C%20Northbrook%2C%20IL%2060062",
+      "website": "http://chicagorealty.jimdo.com",
+      "phone": "+17739439725"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dc250b6e-d279-41d1-b6a7-f6d276e205a9",
+      "slug": "svoi-viktoryia-yanuchkouskaya-core-realty"
+    }
+  },
+  {
+    "id": "ef380ab3-b426-4018-91b6-fed7b10d2519",
+    "name": "Левин Лора",
+    "changes": {},
+    "fill": {
+      "address_line": "3137 West Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%203137%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18473471973"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1fad8e21-d82e-4e6b-8e81-fbe5a350eb0f",
+      "slug": "svoi-biz-10"
+    }
+  },
+  {
+    "id": "aae11aed-a196-4654-b906-2f6c81a0c42f",
+    "name": "Bluebird Realty",
+    "changes": {},
+    "fill": {
+      "city": "IL 60515",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Downers%20grove%2C%20IL%2060515",
+      "website": "http://bluebirdrealtor.com",
+      "phone": "+16302342642",
+      "address_line": "321 Green St",
+      "location_precision": "street",
+      "state_code": "US-IL",
+      "postal_code": "60540",
+      "email": "office@bluebirdrealtor.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a4f78d70-743a-4726-8704-2edc3c6af756",
+      "slug": "svoi-bluebird-realty"
+    }
+  },
+  {
+    "id": "94fe406f-1899-42f5-8e43-9c438c38d082",
+    "name": "OKSANA CHURA",
+    "changes": {},
+    "fill": {
+      "city": "IL 60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL%2060062",
+      "phone": "+18475026299"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2f2d16d1-295b-4fb1-bd33-e255365507ec",
+    "name": "SKY REALTY GROUP",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL%20ted%20States",
+      "phone": "+18475614285"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "c09791dd-e78d-4288-9c7b-f45db9497f72",
+    "name": "Житницкая Талла",
+    "changes": {},
+    "fill": {
+      "address_line": "1438 Techny Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Techny%20Road%201438%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18474984422"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1d525b5a-7410-4a1b-a320-807a481a00b5",
+      "slug": "svoi-biz-11"
+    }
+  },
+  {
+    "id": "6b32d781-7eeb-4fda-a52a-e45656530054",
+    "name": "Cambridge Title Company",
+    "changes": {},
+    "fill": {
+      "address_line": "400 Central Avenue",
+      "location_precision": "street",
+      "city": "Northfield",
+      "state_code": "US-IL",
+      "postal_code": "60093",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Central%20Avenue%20400%2C%20Northfield%2C%20IL%2060093",
+      "website": "http://cambridgetitleco.com",
+      "phone": "+18474463000",
+      "email": "title@cambridgetitleco.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ef93e70f-e3eb-4bba-909a-a978f7cc6fee",
+      "slug": "svoi-cambridge-title-company-2"
+    }
+  }
+]

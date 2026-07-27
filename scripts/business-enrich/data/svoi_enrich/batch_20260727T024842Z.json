@@ -1,0 +1,468 @@
+[
+  {
+    "id": "c2ec2f5e-8248-4ccc-9ce5-8ad5e8f18090",
+    "name": "Natalia Semenova Наталья Семенова",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Norwood%2C%20MA",
+      "phone": "+16177555004"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8fb416a8-190b-4183-a853-fbbfc00e008b",
+    "name": "Translator \"Victori\" H.",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boston%2C%20MA",
+      "website": "http://translator-ve.ru",
+      "phone": "+16177847872"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b88b00e8-605d-446e-8eb5-b9f60c50a27b",
+    "name": "International Documentation Center",
+    "changes": {},
+    "fill": {
+      "address_line": "398 Columbus Avenue",
+      "location_precision": "street",
+      "city": "Boston",
+      "state_code": "US-MA",
+      "postal_code": "02116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Columbus%20Avenue%20398%2C%20Boston%2C%20MA%2002116",
+      "phone": "+16174279813"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e60bd7c-6398-44da-97dd-c98f239e2224",
+      "slug": "svoi-international-documentation-center"
+    }
+  },
+  {
+    "id": "1f56aa02-9b6f-460d-9395-8075eaadc6eb",
+    "name": "Autoshippingoverseas.com",
+    "changes": {},
+    "fill": {
+      "address_line": "134 Newbury Street",
+      "location_precision": "street",
+      "city": "Peabody",
+      "state_code": "US-MA",
+      "postal_code": "01960",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Newbury%20Street%20134%2C%20Peabody%2C%20MA%2001960",
+      "phone": "+19782785446"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4566086d-7f65-44c7-ba82-d9037104439d",
+      "slug": "svoi-autoshippingoverseas-com"
+    }
+  },
+  {
+    "id": "871f7e8e-b922-43b7-870f-de8b6898450d",
+    "name": "Genuine Movers",
+    "changes": {},
+    "fill": {
+      "city": "MA 01907",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Suompscott%2C%20MA%2001907",
+      "website": "http://www.genuinemovers.com",
+      "phone": "+16178555570"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bef96b34-b171-473c-9511-38b61612f8d1",
+    "name": "Good Choice Movers LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "285 Lynn Shore Dr",
+      "location_precision": "street",
+      "city": "Lynn",
+      "state_code": "US-MA",
+      "postal_code": "01902",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lynn%20Shore%20Dr%20285%2C%20Lynn%2C%20MA%2001902",
+      "website": "http://goodchoicemovers.com",
+      "phone": "+18579199521"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0dea6e32-a88e-472f-baa6-e547074c5755",
+      "slug": "svoi-good-choice-movers-llc"
+    }
+  },
+  {
+    "id": "dad0ab61-fc48-4d53-88a0-21162503c080",
+    "name": "M-Graphics Co.",
+    "changes": {},
+    "fill": {
+      "address_line": "1 Dead Eye Run",
+      "location_precision": "street",
+      "city": "Suompscott",
+      "state_code": "US-MA",
+      "postal_code": "01907",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dead%20Eye%20Run%201%2C%20Suompscott%2C%20MA%2001907",
+      "phone": "+17815956863"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "97de2157-5eb6-4a84-a8e6-9fa2991e9df3",
+      "slug": "svoi-m-graphics-co"
+    }
+  },
+  {
+    "id": "3aaed728-1e8a-4622-9cc8-d2f84ea6441b",
+    "name": "Glad Acres Dry Cleaners & Tlrs в West Bridgewater",
+    "changes": {},
+    "fill": {
+      "address_line": "320 West Center Street",
+      "location_precision": "street",
+      "city": "West Bridgewater",
+      "state_code": "US-MA",
+      "postal_code": "02379",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Center%20Street%20320%2C%20West%20Bridgewater%2C%20MA%2002379",
+      "phone": "+15085805878"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "92d4d0da-9035-4977-9356-208a1f7bf50e",
+      "slug": "svoi-glad-acres-dry-cleaners-tlrs-west-bridgewater"
+    }
+  },
+  {
+    "id": "21c08282-e43c-41d9-813f-8922e51075ef",
+    "name": "Alla Tailoring",
+    "changes": {},
+    "fill": {
+      "address_line": "302 Watertown Street",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Watertown%20Street%20302%2C%20Newton%2C%20MA",
+      "phone": "+16179648212"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f01e7d7f-a7e6-495a-bb5e-9c0379e7ce96",
+      "slug": "svoi-alla-tailoring"
+    }
+  },
+  {
+    "id": "b872439c-1121-4489-a6c6-2d4f6db91cf6",
+    "name": "Alexandre Designs в Рослиндейл",
+    "changes": {},
+    "fill": {
+      "address_line": "4164 Washington Street",
+      "location_precision": "street",
+      "city": "Boston",
+      "state_code": "US-MA",
+      "postal_code": "02131",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%204164%2C%20Boston%2C%20MA%2002131",
+      "phone": "+16173233768"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cecb5862-6b6b-4930-b87a-3027343c2d09",
+      "slug": "svoi-alexandre-designs"
+    }
+  },
+  {
+    "id": "91a6a6f8-d869-41a0-bad6-55a3659826a9",
+    "name": "Three Star Freight Services",
+    "changes": {},
+    "fill": {
+      "address_line": "134 Newbury Street",
+      "location_precision": "street",
+      "city": "Peabody",
+      "state_code": "US-MA",
+      "postal_code": "01960",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Newbury%20Street%20134%2C%20Peabody%2C%20MA%2001960",
+      "website": "http://www.autoshippingoverseas.com",
+      "phone": "+16175676300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "31218251-9f09-483e-bdab-6a3b6c4176a1",
+      "slug": "svoi-three-star-freight-services"
+    }
+  },
+  {
+    "id": "2bedbafa-9f98-4eb5-8d91-23ac8a99241d",
+    "name": "JVS Boston",
+    "changes": {},
+    "fill": {
+      "address_line": "29 Winter Street",
+      "location_precision": "street",
+      "city": "Boston",
+      "state_code": "US-MA",
+      "postal_code": "02108",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Winter%20Street%2029%2C%20Boston%2C%20MA%2002108",
+      "website": "http://www.jvs-boston.org",
+      "phone": "+16173993131",
+      "instagram_url": "https://www.instagram.com/jvsboston"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "84817841-1dd1-4fa8-b877-6a06168e8520",
+      "slug": "svoi-jvs-boston"
+    }
+  },
+  {
+    "id": "d7393432-37bc-4ff4-b9ab-fb9f2a84b31e",
+    "name": "Anya Kod Photography",
+    "changes": {},
+    "fill": {
+      "address_line": "26 Longwood Drive",
+      "location_precision": "street",
+      "city": "Suompscott",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Longwood%20Drive%2026%2C%20Suompscott%2C%20MA",
+      "phone": "+16179596181"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e7010b4b-0941-49aa-a491-1e9eaa37cba5",
+      "slug": "svoi-anya-kod-photography"
+    }
+  },
+  {
+    "id": "4d123b84-cb2e-4353-90d1-7d16f24acb23",
+    "name": "IgorEvents PhotographyBoston",
+    "changes": {},
+    "fill": {
+      "city": "MA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Needham%2C%20MA%20ted%20States",
+      "phone": "+16178180690"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2ed41056-7e92-40e3-b9ff-c36fc6ec0939",
+    "name": "Fenix-Video",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woburn%2C%20MA",
+      "phone": "+16175966299"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "e8277d73-fb2f-4a61-a5fd-e17fabc09574",
+    "name": "Igor Katsemba, EA, MBA",
+    "changes": {},
+    "fill": {
+      "address_line": "1 Essex Terrace",
+      "location_precision": "street",
+      "city": "Suompscott",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Essex%20Terrace%201%2C%20Suompscott%2C%20MA",
+      "phone": "+17817750244"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a76326d5-d7f1-4dcc-a4d4-3d99123b52b5",
+      "slug": "svoi-igor-katsemba-ea-mba"
+    }
+  },
+  {
+    "id": "b4b78515-45c0-49ed-a5aa-ace6d38fb11d",
+    "name": "Sklyar Accounting Services",
+    "changes": {},
+    "fill": {
+      "address_line": "275 Grove St",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "postal_code": "02466",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Grove%20St%20%20275%20%2C%20Newton%2C%20MA%20%2002466",
+      "website": "http://www.taxfileinc.com",
+      "phone": "+16179393275"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d6a7ecb5-2821-4eca-9479-0b24fb9eb012",
+      "slug": "svoi-sklyar-accounting-services"
+    }
+  },
+  {
+    "id": "8dcb78c4-fe2f-48e9-9827-4a6dc75e559d",
+    "name": "Agranovich Accounting and Payroll",
+    "changes": {},
+    "fill": {
+      "address_line": "1009 Chestnut Street",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chestnut%20Street%201009%2C%20Newton%2C%20MA",
+      "phone": "+16178400982"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b9f86f1a-6478-4d6f-8e3a-39ed457c7a06",
+      "slug": "svoi-agranovich-accounting-and-payroll"
+    }
+  },
+  {
+    "id": "b9ecb779-76c1-4765-beec-c46662888d11",
+    "name": "Шустер Геннадий",
+    "changes": {},
+    "fill": {
+      "address_line": "377 Simarano Drive",
+      "location_precision": "street",
+      "city": "Marlborough",
+      "state_code": "US-MA",
+      "postal_code": "01752",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Simarano%20Drive%20377%2C%20Marlborough%2C%20MA%2001752",
+      "phone": "+15083824916"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3d04db2c-a232-400f-89c9-e4b7c212f4df",
+      "slug": "svoi-biz-45"
+    }
+  },
+  {
+    "id": "f8302112-1a8d-440c-ab1b-4800bd8bc9ee",
+    "name": "Lev Vaysburd, Newton Mortgage Company",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Framingham%2C%20MA",
+      "phone": "+16172563306"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

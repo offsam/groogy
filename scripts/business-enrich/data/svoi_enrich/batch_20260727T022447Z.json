@@ -1,0 +1,483 @@
+[
+  {
+    "id": "b580a515-dee5-4688-8c94-94c576e31643",
+    "name": "Auto Repair With Steve",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1131 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%201131%2C%20Glenview%2C%20IL%20enview",
+      "phone": "+18476578452"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "96b336c7-f33e-4279-b4d8-86c6ea5feee4",
+      "slug": "svoi-auto-repair-with-steve"
+    }
+  },
+  {
+    "id": "4743ae50-cbef-4fa4-af19-511fc697bfa0",
+    "name": "Magic Touch Paintless Dent Repair",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glenview%2C%20IL",
+      "phone": "+18472933333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8d277352-0d67-4dd9-95a2-496688501330",
+    "name": "Merlin Muffler & Brake",
+    "changes": {},
+    "fill": {
+      "address_line": "6108 West Dempster Street",
+      "location_precision": "street",
+      "city": "Morton Grove",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dempster%20Street%206108%2C%20Morton%20Grove%2C%20IL%20rton%20Grove",
+      "website": "http://www.merlins.com",
+      "phone": "+18479666350",
+      "instagram_url": "https://www.instagram.com/merlincompleteautocare"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5f960740-c416-486f-8a07-4012e920ef0a",
+      "slug": "svoi-merlin-muffler-brake"
+    }
+  },
+  {
+    "id": "7dfbaabc-a392-4ecb-a99a-4b3fa0a926d7",
+    "name": "Duxler Complete Auto Care",
+    "changes": {},
+    "fill": {
+      "address_line": "2620 Green Bay Road",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "postal_code": "60201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Green%20Bay%20Road%202620%2C%20Evanston%2C%20IL%2060201",
+      "phone": "+18478693200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e479a506-912e-4977-bce4-63c1cec98f90",
+      "slug": "svoi-duxler-complete-auto-care"
+    }
+  },
+  {
+    "id": "07493586-4fea-476f-b63c-53d16d859247",
+    "name": "3C Automotive and Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "8256 Lincoln Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Avenue%208256%2C%20Skoki%2C%20IL%2060077",
+      "website": "http://www.3cauto.com",
+      "phone": "+18479286560",
+      "email": "contact@3cauto.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f2d3b1cf-167d-47f3-b2ff-c6920dfe48dc",
+      "slug": "svoi-3c-automotive-and-repair"
+    }
+  },
+  {
+    "id": "0ba6895f-730f-473a-b70e-033e2ee2b912",
+    "name": "Accurate Auto Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "7890 Lincoln Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Avenue%207890%2C%20Skoki%2C%20IL%20okie",
+      "phone": "+18476773960"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3f08f957-5232-4b90-9b6d-e54739f5517e",
+      "slug": "svoi-accurate-auto-repair"
+    }
+  },
+  {
+    "id": "b278d352-e034-461d-b837-e62a943692a0",
+    "name": "Bee-Zee Body Shop",
+    "changes": {},
+    "fill": {
+      "city": "IL 60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skoki%2C%20IL%2060076",
+      "phone": "+18476732400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b3516fe4-b0d4-4ae4-b25d-7a0829122a3c",
+    "name": "Lincolnwood Auto Body Customizing & Collision",
+    "changes": {},
+    "fill": {
+      "address_line": "Central Park Ave. 7334 N.",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Central%20Park%20Ave.%207334%20N.%2C%20Skoki%2C%20IL%2060076",
+      "website": "http://www.lincolnwoodautobody.com",
+      "phone": "+18479821980"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "52939b36-db19-405f-af1c-df8c8058a730",
+      "slug": "svoi-lincolnwood-auto-body-customizing-collision"
+    }
+  },
+  {
+    "id": "b79f4180-802e-4185-ac04-730b52146d27",
+    "name": "North Auto Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "1211 Howard Street",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Howard%20Street%201211%2C%20Evanston%2C%20IL",
+      "phone": "+18478691441"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0423663b-7be0-48f4-a83c-cdbf3f199010",
+      "slug": "svoi-north-auto-clinic"
+    }
+  },
+  {
+    "id": "e0fd61c3-570e-4932-844a-4e238054d695",
+    "name": "Howard & Bell Auto Center Copmlete Auto Body Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "2255 West Howard Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Howard%20Street%202255%2C%20Chicago%2C%20IL",
+      "phone": "+17732623550"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "00c67a0f-6759-4b3e-9f4e-18f6aa9c0b81",
+      "slug": "svoi-howard-bell-auto-center-copmlete-auto-body-shop"
+    }
+  },
+  {
+    "id": "16ef924c-181c-4f93-9067-d582e9b22ce9",
+    "name": "ARCADIA AUTO REPAIR",
+    "changes": {},
+    "fill": {
+      "address_line": "5655 West Grand Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60639",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Grand%20Avenue%205655%2C%20Chicago%2C%20IL%2060639",
+      "phone": "+17736220698"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "63d7ce4a-544a-4443-a360-ff84bc3b08fe",
+      "slug": "svoi-arcadia-auto-repair"
+    }
+  },
+  {
+    "id": "4a1e051c-a040-4cb4-ab8c-49df75c7e3a7",
+    "name": "Advance Auto Center",
+    "changes": {},
+    "fill": {
+      "address_line": "3433 North Pulaski Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60641",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Pulaski%20Road%203433%2C%20Chicago%2C%20IL%2060641",
+      "website": "http://www.advancecenter.com",
+      "phone": "+17735888094"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ed4e2305-88be-4385-a133-28febcf04ad1",
+      "slug": "svoi-advance-auto-center"
+    }
+  },
+  {
+    "id": "3be8de23-9628-4a27-bc56-280e897b448d",
+    "name": "AA Tempo Auto",
+    "changes": {},
+    "fill": {
+      "address_line": "3431 North Pulaski Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Pulaski%20Road%203431%2C%20Chicago%2C%20IL%20icago",
+      "phone": "+17735836387"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bcdbbc94-132b-4ad5-ba28-76f8851d2f82",
+      "slug": "svoi-aa-tempo-auto"
+    }
+  },
+  {
+    "id": "40c439e5-f5ee-41cb-a0ac-3526103e08d9",
+    "name": "Harolds Radiator and Air Service",
+    "changes": {},
+    "fill": {
+      "address_line": "2015 N Cicero Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60639",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Cicero%20Ave%202015%2C%20Chicago%2C%20IL%2060639",
+      "phone": "+17736224133"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eb6d8184-d300-4f76-b9b9-3818392b504c",
+      "slug": "svoi-harolds-radiator-and-air-service"
+    }
+  },
+  {
+    "id": "2cba8ccc-91f0-40f4-8fbc-a9e60ea1eb51",
+    "name": "Luxury Rides",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "website": "https://www.vegasluxuryrides.com/exotic-car-rental-contact.php",
+      "phone": "+13128787777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "678f35ad-9133-402a-b90e-9398670648fe",
+    "name": "Здоровая домашняя кухня",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vernon%20Hills%2C%20IL",
+      "phone": "+18473442201"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "c63eab45-c9ff-491b-abf7-cb2543ef6ab2",
+    "name": "Astoria Exquisite Banquets",
+    "changes": {},
+    "fill": {
+      "address_line": "1375 West Dundee Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%201375%2C%20Buffalo%20grove%2C%20IL",
+      "phone": "+18473927500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d138c7d3-4138-4302-ad06-4a9ba9d65d9b",
+      "slug": "svoi-astoria-exquisite-banquets"
+    }
+  },
+  {
+    "id": "803050ef-8577-4c12-9cb7-e9e8fac6989d",
+    "name": "Ресторан Версаль (Versailles Restaurant)",
+    "changes": {},
+    "fill": {
+      "address_line": "100 West Dundee Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%20100%2C%20Arlington%20heights%2C%20IL",
+      "phone": "+18474651526"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "992e5e52-54a7-4bbb-9cfa-761bd0fe1e96",
+      "slug": "svoi-versailles-restaurant"
+    }
+  },
+  {
+    "id": "65c354e3-43fa-4d06-a39b-c319690fb3cb",
+    "name": "Pavilion Restaurant and Bar",
+    "changes": {},
+    "fill": {
+      "address_line": "100 McHenry Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McHenry%20Road%20100%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474651508"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ffe2e2e5-123c-4445-befc-6a76ad1fb3b0",
+      "slug": "svoi-pavilion-restaurant-and-bar"
+    }
+  },
+  {
+    "id": "ce3d00c5-a1f2-4ba3-a29a-c52daf14994d",
+    "name": "Versailles",
+    "changes": {},
+    "fill": {
+      "address_line": "100 McHenry Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McHenry%20Road%20100%2C%20Buffalo%20grove%2C%20IL%20%2060089",
+      "phone": "+18474659444"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c99ce085-7eac-437d-aa97-b72069b9c039",
+      "slug": "svoi-versailles"
+    }
+  }
+]

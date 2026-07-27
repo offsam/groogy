@@ -62,45 +62,27 @@ function DuplicateSummaryCard({
   onOpen: () => void;
 }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-3 text-sm">
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div>
-          {badge ? (
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-              {badge}
-            </p>
-          ) : null}
-          <button
-            className="text-left font-semibold text-slate-900 hover:underline"
-            onClick={onOpen}
-            type="button"
-          >
-            {row.name}
-          </button>
-          <p className="mt-0.5 font-mono text-xs text-slate-500">{row.slug}</p>
-        </div>
+    <div className="space-y-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-0.5">
+        {badge ? (
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+            {badge}
+          </p>
+        ) : (
+          <span />
+        )}
         <span className="rounded-md bg-slate-100 px-2 py-0.5 text-xs text-slate-700">
           {STATUS_LABELS[row.status]}
         </span>
       </div>
-      <dl className="mt-2 grid gap-1 text-slate-600">
-        <div>
-          <dt className="inline text-slate-400">Телефон: </dt>
-          <dd className="inline">{row.phone ?? "—"}</dd>
-        </div>
-        <div>
-          <dt className="inline text-slate-400">Город: </dt>
-          <dd className="inline">{row.city ?? "—"}</dd>
-        </div>
-        <div>
-          <dt className="inline text-slate-400">Адрес: </dt>
-          <dd className="inline">{row.address_line ?? "—"}</dd>
-        </div>
-        <div>
-          <dt className="inline text-slate-400">Офферы: </dt>
-          <dd className="inline">{row.offers_count}</dd>
-        </div>
-      </dl>
+      <button
+        className="w-full rounded-xl text-left transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+        onClick={onOpen}
+        type="button"
+      >
+        <BusinessCard business={adminBusinessToPreview(row)} preview />
+      </button>
+      <p className="px-0.5 font-mono text-[11px] text-slate-400">{row.slug}</p>
     </div>
   );
 }

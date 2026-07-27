@@ -1,0 +1,790 @@
+{
+  "generated_at": "2026-07-27T01:37:33.443887+00:00",
+  "mode": "dry-run",
+  "scanned": 747,
+  "linked_to_import": 553,
+  "unlinked": 194,
+  "updated": 747,
+  "regions_after_resolve": {
+    "Orange County": 517,
+    "Sacramento County": 112,
+    "Sacramento": 32,
+    "Los Angeles": 19,
+    "(null)": 19,
+    "San Francisco County": 18,
+    "San Francisco Bay Area": 15,
+    "CA": 6,
+    "Southern California": 5,
+    "Los Angeles County": 2,
+    "San Diego": 2
+  },
+  "samples": [
+    {
+      "slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "San Francisco",
+        "region": "San Francisco County"
+      },
+      "source_group": "Русские в Сан-Франциско - Russians in San Francisco",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "pro-71a793a03e",
+      "name": "Амина",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "vera-zhezherun-204839-82b3",
+      "name": "Vera Zhezherun",
+      "before": {
+        "city": "North Highlands",
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "North Highlands",
+        "region": "Sacramento County"
+      },
+      "source_group": "ВСЕ ОБЪЯВЛЕНИЯ САКРАМЕНТО Работа | Жилье | Услуги | Анонсы | Взаимопомощь",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "michael-sorokin-205104-3904",
+      "name": "Michael  Sorokin",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "San Francisco",
+        "region": "San Francisco County"
+      },
+      "source_group": "Русские в Сан-Франциско - Russians in San Francisco",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Sacramento",
+        "region": "Sacramento County"
+      },
+      "source_group": "Russian Sacramento - Русский Сакраменто",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "pro-c4e1bc2d00",
+      "name": "Позвоните Татьяне",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "valter-eslon-205228-0ffb",
+      "name": "Valter Eslon",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Sacramento",
+        "region": "Sacramento County"
+      },
+      "source_group": "ВСЕ ОБЪЯВЛЕНИЯ САКРАМЕНТО Работа | Жилье | Услуги | Анонсы | Взаимопомощь",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "alexandra-dessert-studio-150632",
+      "name": "alexandra_dessert_studio",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "business-biz-180942",
+      "name": "Всеволод Климчук",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "fedor-tsvang-1",
+      "name": "Fedor Tsvang",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "diana-california-150634",
+      "name": "diana_california",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "ange-205707-630e",
+      "name": "Ange",
+      "before": {
+        "city": "Anaheim",
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Anaheim",
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "consolidated-valeriia-andriushchenko",
+      "name": "Valeriia Andriushchenko",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "andrey-ka-204830-8347",
+      "name": "Andrey Ka",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Sacramento",
+        "region": "Sacramento County"
+      },
+      "source_group": "ВСЕ ОБЪЯВЛЕНИЯ САКРАМЕНТО Работа | Жилье | Услуги | Анонсы | Взаимопомощь",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "pro-71a6dc73ce",
+      "name": "Екатерина Улицкая",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "toujours-flower-boutique-172155",
+      "name": "Toujours Flower Boutique",
+      "before": {
+        "city": null,
+        "region": "Southern California"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "alina-205601-d7e9",
+      "name": "Alina",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "evgeny-rezko-150656",
+      "name": "evgeny_rezko",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "russ-russell-205215-bbbb",
+      "name": "Russ Russell",
+      "before": {
+        "city": null,
+        "region": "Sacramento"
+      },
+      "after": {
+        "city": "Sacramento",
+        "region": "Sacramento County"
+      },
+      "source_group": "ВСЕ ОБЪЯВЛЕНИЯ САКРАМЕНТО Работа | Жилье | Услуги | Анонсы | Взаимопомощь",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "pro-49b60ee02b",
+      "name": "Ольге",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Tustin",
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "igor-pchelintsev-172216",
+      "name": "Igor Pchelintsev",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "pro-67e0ab57c8",
+      "name": "Алекс",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "business-biz-205526-b5d4",
+      "name": "Сергей",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "pro-5526b99ca9",
+      "name": "Константин",
+      "before": {
+        "city": "Сакраменто",
+        "region": "Sacramento"
+      },
+      "after": {
+        "city": "Сакраменто",
+        "region": "Sacramento"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "pro-b74df323e3",
+      "name": "OC Acting",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "dmitry-belyaev-204806-7a4e",
+      "name": "Dmitry Belyaev",
+      "before": {
+        "city": null,
+        "region": "San Francisco Bay Area"
+      },
+      "after": {
+        "city": "San Francisco",
+        "region": "San Francisco County"
+      },
+      "source_group": "Русские в Сан-Франциско - Russians in San Francisco",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "business-9165592087-204917-92d5",
+      "name": "Александр Кл",
+      "before": {
+        "city": "Сакраменто",
+        "region": "Sacramento"
+      },
+      "after": {
+        "city": "Sacramento",
+        "region": "Sacramento County"
+      },
+      "source_group": "Russian Sacramento - Русский Сакраменто",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "saida-saida",
+      "name": "SAida SAida",
+      "before": {
+        "city": null,
+        "region": "Los Angeles"
+      },
+      "after": {
+        "city": "Irvine",
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "location_precision",
+        "region"
+      ]
+    },
+    {
+      "slug": "maria-masha-tumanyan-172155",
+      "name": "Maria (Masha) Tumanyan",
+      "before": {
+        "city": null,
+        "region": "Southern California"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "larisa-grib-205459-d906",
+      "name": "Larisa Grib",
+      "before": {
+        "city": "Сан-Франциско",
+        "region": "San Francisco Bay Area"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "location_precision",
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "denis-vyatkin",
+      "name": "Denis Vyatkin",
+      "before": {
+        "city": "Сан-Франциско",
+        "region": "San Francisco Bay Area"
+      },
+      "after": {
+        "city": "Сан-Франциско",
+        "region": "San Francisco Bay Area"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "the-village-spectrum-150616",
+      "name": "The Village Spectrum",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "bekbolat-181530-3fa0",
+      "name": "Bekbolat",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "LA_OrangeCounty",
+      "source": "telegram:la_orange_county",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "vika-borel",
+      "name": "Vika Borel",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "mike-california-180856",
+      "name": "Mike California",
+      "before": {
+        "city": "Newport Beach",
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Newport Beach",
+        "region": "Orange County"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "business-4084605611-204936-5f25",
+      "name": "Виктория Волоскова",
+      "before": {
+        "city": "Walnut Creek",
+        "region": "San Francisco Bay Area"
+      },
+      "after": {
+        "city": "Walnut Creek",
+        "region": "San Francisco County"
+      },
+      "source_group": "Русские в Сан-Франциско - Russians in San Francisco",
+      "source": "facebook",
+      "linked": true,
+      "patch_keys": [
+        "public_exact_address",
+        "region"
+      ]
+    },
+    {
+      "slug": "consolidated-amega-studios",
+      "name": "Amega Studios",
+      "before": {
+        "city": "Westlake Village",
+        "region": "Los Angeles"
+      },
+      "after": {
+        "city": "Westlake Village",
+        "region": "Los Angeles"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "arut-pogosjan",
+      "name": "Arut Pogosjan",
+      "before": {
+        "city": "Лос-Анджелес",
+        "region": "Los Angeles"
+      },
+      "after": {
+        "city": "Лос-Анджелес",
+        "region": "Los Angeles"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "yummy-homemade-sweets-150641-1",
+      "name": "yummy_homemade_sweets",
+      "before": {
+        "city": "Los Olivos at Irvine Spectrum",
+        "region": "Orange County"
+      },
+      "after": {
+        "city": "Irvine",
+        "region": "Orange County"
+      },
+      "source_group": "Fun for Mom",
+      "source": "telegram",
+      "linked": true,
+      "patch_keys": [
+        "city",
+        "public_exact_address"
+      ]
+    },
+    {
+      "slug": "business-biz-181006",
+      "name": "Влад Нестеренко",
+      "before": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "after": {
+        "city": null,
+        "region": "Orange County"
+      },
+      "source_group": null,
+      "source": null,
+      "linked": false,
+      "patch_keys": [
+        "location_precision",
+        "public_exact_address"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1323 @@
+[
+  {
+    "id": "ac8a2135-52e5-4679-a459-12e1b18a0606",
+    "name": "General Dentistry, Kira Meyerkova, D.D.S, Aleksey Fuks, D.D.S\"",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "8205 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208205%2C%20West%20Hollywood%2C%20CA",
+      "phone": "+13236501001"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ed412580-a65a-43c3-b9db-7267e945a94c",
+      "slug": "svoi-general-dentistry-kira-meyerkova-d-d-s-aleksey-f"
+    }
+  },
+  {
+    "id": "4b0350ed-f42f-435c-b0c2-74eac11769c3",
+    "name": "Brentview Medical Urgent Care & Walk-In Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "8264 Santa Monica Blvd",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Blvd%208264%2C%20West%20Hollywood%2C%20CA%20%2090046",
+      "phone": "+13235222222"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "762e5894-8e5b-47cb-b5f5-b02326e2273f",
+      "slug": "svoi-brentview-medical-urgent-care-walk-in-clinic"
+    }
+  },
+  {
+    "id": "876d5888-037b-4578-9cb3-96d26fed6f9a",
+    "name": "Igor Shnayder, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "7737 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207737%2C%20West%20Hollywood%2C%20CA%20Angeles",
+      "phone": "+13238930640"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0e5bef86-8217-4bd8-9d23-bf2697be483d",
+      "slug": "svoi-igor-shnayder-m-d"
+    }
+  },
+  {
+    "id": "f547394d-074e-4a6a-b5f8-011f0a57c928",
+    "name": "Unity Medical Group- Faina Zlatogorov, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "7531 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207531%2C%20West%20Hollywood%2C%20CA%20t%20Hollywood",
+      "phone": "+13238763700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "9eebf065-41ba-402f-8466-9fd8c632b183",
+      "slug": "svoi-unity-medical-group-faina-zlatogorov-m-d"
+    }
+  },
+  {
+    "id": "7fe7d8d6-acb9-4cee-a109-d025aa135520",
+    "name": "Dr. Boris Shemer MD",
+    "changes": {},
+    "fill": {
+      "address_line": "7607 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207607%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236567094"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c19eb314-acc8-437f-a16f-2b56c1d5b53c",
+      "slug": "svoi-dr-boris-shemer-md"
+    }
+  },
+  {
+    "id": "e8489b40-4f74-4f2f-90c5-5eb49e746868",
+    "name": "Dr. Elena Chetverukhina",
+    "changes": {},
+    "fill": {
+      "address_line": "7531 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207531%2C%20West%20Hollywood%2C%20CA",
+      "phone": "+13236502991"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "95ed131e-6f77-4793-93af-4e3a787f2973",
+      "slug": "svoi-dr-elena-chetverukhina"
+    }
+  },
+  {
+    "id": "0d6534bd-a479-4520-916e-145066423c84",
+    "name": "Dr. Galina Makovoz",
+    "changes": {},
+    "fill": {
+      "address_line": "7607 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207607%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236505494"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b2594f31-e9a9-4aba-a6b0-3ba70e0091c0",
+      "slug": "svoi-dr-galina-makovoz"
+    }
+  },
+  {
+    "id": "505dfbc2-143a-4c1d-8f5a-178c2dffe3f8",
+    "name": "Benjamin Eye Institute",
+    "changes": {},
+    "fill": {
+      "address_line": "9201 Sunset Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90069",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Boulevard%209201%2C%20West%20Hollywood%2C%20CA%2090069",
+      "website": "http://www.benjamineye.com",
+      "phone": "+13105077988",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "044d0d31-d764-4617-bb7b-ad3be1ff108d",
+      "slug": "svoi-benjamin-eye-institute"
+    }
+  },
+  {
+    "id": "53e5e936-3ecd-438f-a6d7-8eea463985af",
+    "name": "Dr. Arthur Benjamin",
+    "changes": {},
+    "fill": {
+      "address_line": "9201 Sunset Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90069",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Boulevard%209201%2C%20West%20Hollywood%2C%20CA%2090069",
+      "website": "http://www.benjamineye.com",
+      "phone": "+13108544433",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0882ba7d-bc03-47aa-9c8b-07eabbc72d97",
+      "slug": "svoi-dr-arthur-benjamin"
+    }
+  },
+  {
+    "id": "b136d1f1-8b42-48be-af03-3981deba89b7",
+    "name": "Eye Care Medical Center",
+    "changes": {},
+    "fill": {
+      "address_line": "7739 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207739%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236567771"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d8600342-631b-4ac6-ae88-d5e834ef247d",
+      "slug": "svoi-eye-care-medical-center"
+    }
+  },
+  {
+    "id": "97a61c7e-3f5c-435c-93fe-f4abfa721b80",
+    "name": "Yuri Ovchinnikov, LAC",
+    "changes": {},
+    "fill": {
+      "address_line": "8205 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208205%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236565115"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5c1affad-7585-407e-9da5-b035e18306f3",
+      "slug": "svoi-yuri-ovchinnikov-lac"
+    }
+  },
+  {
+    "id": "524fa31d-e5aa-41b0-8e91-005976ba0cb5",
+    "name": "Zaytzev Victor",
+    "changes": {},
+    "fill": {
+      "address_line": "7531 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207531%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236502750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1bfaf8fa-e60e-487c-b4ba-7cf474a15560",
+      "slug": "svoi-zaytzev-victor"
+    }
+  },
+  {
+    "id": "91e29496-cb11-4cda-a920-5eac3ffb71c4",
+    "name": "Benjamin Institute",
+    "changes": {},
+    "fill": {
+      "city": "Suite 709 9201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Boulevard%2C%20Suite%20709%209201%2C%20West%20Hollywood%2C%20CA%2090069",
+      "website": "http://www.benjamineye.com/ru",
+      "phone": "+13105077988",
+      "address_line": "9201 West Sunset Boulevard Suite 709",
+      "location_precision": "street",
+      "state_code": "US-CA",
+      "postal_code": "90069",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "044d0d31-d764-4617-bb7b-ad3be1ff108d"
+    }
+  },
+  {
+    "id": "191eecb1-197b-4b86-bb95-5114542be76f",
+    "name": "Dr. Elena Vaynerov",
+    "changes": {},
+    "fill": {
+      "address_line": "7559 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207559%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13238782523"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "09a91983-eba3-443d-9c17-d1745524242a",
+      "slug": "svoi-dr-elena-vaynerov"
+    }
+  },
+  {
+    "id": "2842a9d4-c87d-423e-8fdf-247e5d8d5db1",
+    "name": "Dr. Galina Sobolev",
+    "changes": {},
+    "fill": {
+      "address_line": "7531 Santa Monica Blvd",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Blvd%207531%2C%20West%20Hollywood%2C%20CA%20%2090046",
+      "phone": "+13238765207"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bff2bac2-dc3f-46be-9008-cc29b7d49dd1",
+      "slug": "svoi-dr-galina-sobolev"
+    }
+  },
+  {
+    "id": "d608ccf4-2f12-4baa-a091-d2d62d4500da",
+    "name": "Affordable Vision Center",
+    "changes": {},
+    "fill": {
+      "address_line": "7976 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207976%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236500988"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7e50ce86-8a1d-4261-9664-fc81d12ec4a8",
+      "slug": "svoi-affordable-vision-center"
+    }
+  },
+  {
+    "id": "cee53f5d-b7e1-41b3-a5a2-f0dbd39f11d2",
+    "name": "Care Plus Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "8607 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208607%2C%20West%20Hollywood%2C%20CA",
+      "phone": "+13106599810"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b1330dd4-4925-4058-b8fa-87f8ea08a963",
+      "slug": "svoi-care-plus-pharmacy"
+    }
+  },
+  {
+    "id": "bb0f6c7c-40e2-4f5b-8b8b-7531c89740b0",
+    "name": "Curson Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "7559 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207559%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13238782555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d3684fe6-f091-4df4-8810-1c71e7329db3",
+      "slug": "svoi-curson-pharmacy"
+    }
+  },
+  {
+    "id": "280c5e88-2a05-44ed-b5ed-a54b3657406d",
+    "name": "Star Medical & Surgical Supplies",
+    "changes": {},
+    "fill": {
+      "address_line": "7768 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207768%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236569921"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e58dc74f-09bb-4f80-a341-5815a5dbdb64",
+      "slug": "svoi-star-medical-surgical-supplies"
+    }
+  },
+  {
+    "id": "8b8844aa-626d-45f1-8085-55d78965d1de",
+    "name": "Vine Medical Supplies",
+    "changes": {},
+    "fill": {
+      "address_line": "7406 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207406%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13234692255"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3bff85d9-3795-489d-b3a8-cd4c6dbec605",
+      "slug": "svoi-vine-medical-supplies"
+    }
+  },
+  {
+    "id": "64cca818-990c-418e-bc00-c15f36fe5dde",
+    "name": "Affordable West Hollywood",
+    "changes": {},
+    "fill": {
+      "address_line": "1040 North La Brea Avenue",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20La%20Brea%20Avenue%201040%2C%20West%20Hollywood%2C%20CA",
+      "website": "http://westhollywoodcarrent.com",
+      "phone": "+13234677182"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bb1e8180-4b74-47ae-9775-c395688d546b",
+      "slug": "svoi-affordable-west-hollywood"
+    }
+  },
+  {
+    "id": "19f9d0eb-0c50-476d-a759-8252fb8a46cd",
+    "name": "ABC Little Schools West Hollywood",
+    "changes": {},
+    "fill": {
+      "address_line": "927 North Fairfax Avenue",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Fairfax%20Avenue%20927%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236549920"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ae691648-57c7-4734-96de-d03acb41aa27",
+      "slug": "svoi-abc-little-schools-west-hollywood"
+    }
+  },
+  {
+    "id": "bb031ae2-7682-4253-9ddf-5d25c6f0a803",
+    "name": "Happyland Child Day Care",
+    "changes": {},
+    "fill": {
+      "address_line": "1204 N Detroit St",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Detroit%20St%201204%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13238283481"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "641314b3-ca10-4119-8164-8df37d312bd1",
+      "slug": "svoi-happyland-child-day-care"
+    }
+  },
+  {
+    "id": "92ff2583-d349-466e-b850-2f4f2207e547",
+    "name": "WEST HOLLYWOOD CHILDREN'S ACADEMY",
+    "changes": {},
+    "fill": {
+      "address_line": "1030 North Vista Street",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Vista%20Street%201030%2C%20West%20Hollywood%2C%20CA%2090046",
+      "website": "http://www.whca91.com",
+      "phone": "+13235123946",
+      "instagram_url": "https://www.instagram.com/SLOT"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "90d54139-28af-4868-ba50-3986e258ee3d",
+      "slug": "svoi-west-hollywood-children-s-academy"
+    }
+  },
+  {
+    "id": "25614fac-b67b-4a3a-8cdc-38e3e0d5beb5",
+    "name": "Dvorskaya Alternative School",
+    "changes": {},
+    "fill": {
+      "address_line": "1317 N. CRESENT HEIGHTS BLVD.",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1317%20N.%20CRESENT%20HEIGHTS%20BLVD.%2C%20%2C%20West%20Hollywood%2C%20CA",
+      "website": "http://childcarecenter.us",
+      "phone": "+13238227900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "71b4a77c-ce1f-4ea7-ad0b-ff019dfbe4d7",
+      "slug": "svoi-dvorskaya-alternative-school"
+    }
+  },
+  {
+    "id": "faad7045-6be0-44d5-9429-199178287113",
+    "name": "Alex Gritsenko",
+    "changes": {},
+    "fill": {
+      "address_line": "8159 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208159%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13233338691"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1c4e9b1d-8f0a-44a6-b7dc-d317c2a62cf6",
+      "slug": "svoi-alex-gritsenko"
+    }
+  },
+  {
+    "id": "2b417506-21fe-424b-9c7a-0e9e54438381",
+    "name": "European Beauty Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "7858 Santa Monica Blvd",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Blvd%207858%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236508288"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c8ad8985-9155-456b-9341-e35de6660cc1",
+      "slug": "svoi-european-beauty-salon"
+    }
+  },
+  {
+    "id": "b275ef2f-f15d-4b76-95ee-02fd60472e94",
+    "name": "Star Nails Co.",
+    "changes": {},
+    "fill": {
+      "address_line": "7854 Santa Monica Blvd",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Blvd%20%207854%20%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236549385"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "91ed45e5-60e2-4792-a10b-f350366d7e01",
+      "slug": "svoi-star-nails-co"
+    }
+  },
+  {
+    "id": "561b76d5-e8d4-49bf-9437-a73391e5806a",
+    "name": "Tease Hair Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "8149 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208149%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13108046190"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dfb4fc30-8102-4457-93dc-83062cd8aa69",
+      "slug": "svoi-tease-hair-salon"
+    }
+  },
+  {
+    "id": "9df5c8ba-862e-4e23-86c5-792165622d9b",
+    "name": "MP Insurance Service",
+    "changes": {},
+    "fill": {
+      "address_line": "7607 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207607%2C%20West%20Hollywood%2C%20CA%20ollywood",
+      "website": "http://mpgetinsured.com",
+      "phone": "+13236543616"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "59900db3-e7dd-47f5-b915-f74e85c36b71",
+      "slug": "svoi-mp-insurance-service"
+    }
+  },
+  {
+    "id": "efda5b34-9caa-4fac-8473-9ee77e320197",
+    "name": "Asap Travel Deals",
+    "changes": {},
+    "fill": {
+      "address_line": "7856 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207856%2C%20West%20Hollywood%2C%20CA%20%2090046",
+      "phone": "+13233786289"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5c836747-9c3a-413f-8559-31b02be94a1c",
+      "slug": "svoi-asap-travel-deals"
+    }
+  },
+  {
+    "id": "1ecd06ba-95f3-4f8a-a6bf-4cc6062afb31",
+    "name": "Golden Star Tour, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "7925 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207925%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236567700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "95c8e127-6dbb-4603-a41f-8217469f83b1",
+      "slug": "svoi-golden-star-tour-inc"
+    }
+  },
+  {
+    "id": "fa843eee-fea4-4e3a-a410-46c2f558ec6c",
+    "name": "Golden Star Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "7925 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207925%2C%20West%20Hollywood%2C%20CA%2090046%26quot%3B",
+      "phone": "+13238223877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5988c462-0ed9-49dc-8430-1dde6a0ab259",
+      "slug": "svoi-golden-star-travel"
+    }
+  },
+  {
+    "id": "13e36957-15da-4f5d-9c04-4ecf9fff5efe",
+    "name": "Agency California",
+    "changes": {},
+    "fill": {
+      "address_line": "7547 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207547%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13238487325"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb4fd93f-813a-4196-a0dc-b1b9f66a2825",
+      "slug": "svoi-agency-california"
+    }
+  },
+  {
+    "id": "55cf34bf-b6f0-477f-8be0-ff5a04f1246f",
+    "name": "Rush In Documentation Center",
+    "changes": {},
+    "fill": {
+      "address_line": "1001 N Fairfax Ave",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Fairfax%20Ave%201001%2C%20West%20Hollywood%2C%20CA",
+      "phone": "+13236502011"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "25ea44aa-50ff-4b89-9546-36ecf4496069",
+      "slug": "svoi-rush-in-documentation-center"
+    }
+  },
+  {
+    "id": "da1c9642-6510-4862-8acf-6901d728cb1d",
+    "name": "TodayConsult",
+    "changes": {},
+    "fill": {
+      "address_line": "7703 Santa Monica Blvd",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Blvd%207703%2C%20West%20Hollywood%2C%20CA%2090046",
+      "website": "http://todayconsult.com",
+      "phone": "+17472722222",
+      "instagram_url": "https://www.instagram.com/todayconsult_com",
+      "yelp_url": "https://www.yelp.com/biz/todayconsult-west-hollywood-2",
+      "email": "info@todayconsult.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b6479dcd-30d6-4c72-bf62-5f15129f2961",
+      "slug": "svoi-todayconsult"
+    }
+  },
+  {
+    "id": "348612d1-37d7-47ab-8722-0fea060235e3",
+    "name": "General Moving Group",
+    "changes": {},
+    "fill": {
+      "address_line": "7545 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207545%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+18003606403"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4cb5b2a4-a24c-4ba8-bb7e-7da7687523da",
+      "slug": "svoi-general-moving-group"
+    }
+  },
+  {
+    "id": "7e9bef61-f95c-44ce-ab2b-4b394d642368",
+    "name": "Lanas Alterations",
+    "changes": {},
+    "fill": {
+      "address_line": "7551 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207551%2C%20West%20Hollywood%2C%20CA",
+      "phone": "+13238767484"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "878b6a42-7963-46d8-bfc4-a3917feff813",
+      "slug": "svoi-lanas-alterations"
+    }
+  },
+  {
+    "id": "b065e561-fc29-471f-8c1e-62dde8dbe07e",
+    "name": "Услуги по ремонту одежды",
+    "changes": {},
+    "fill": {
+      "address_line": "7748 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207748%2C%20West%20Hollywood%2C%20CA",
+      "phone": "+14242783317"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "477f8fa9-90ea-4e73-a7d9-fa7c5666a191",
+      "slug": "svoi-biz-65"
+    }
+  },
+  {
+    "id": "35708853-2f91-4cd5-8cbf-6258e147a806",
+    "name": "K & M Temporary Employment Services",
+    "changes": {},
+    "fill": {
+      "address_line": "7822 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207822%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236504728"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dacae188-93e6-46ee-9852-df99252eb9c3",
+      "slug": "svoi-k-m-temporary-employment-services"
+    }
+  },
+  {
+    "id": "df2a25b2-f2e6-438d-9a22-3cc880de36c7",
+    "name": "Absolute Caviar",
+    "changes": {},
+    "fill": {
+      "address_line": "7740 Santa Monica Blvd",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Blvd%207740%20%2C%20West%20Hollywood%2C%20CA%20%2090046",
+      "website": "http://www.absolutecaviar.com",
+      "phone": "+13236302250",
+      "instagram_url": "https://www.instagram.com/absolute_caviar",
+      "email": "alex@absolutecaviar.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1afb00f8-95d3-4a34-ad45-fc27a51f6ba2",
+      "slug": "svoi-absolute-caviar"
+    }
+  },
+  {
+    "id": "4232ddca-7a7e-4e70-ad29-aef92da06c8e",
+    "name": "Arbat Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "7868 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207868%20%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13238489676"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cc98a321-4823-4e56-b71d-d82c11ee2750",
+      "slug": "svoi-arbat-deli"
+    }
+  },
+  {
+    "id": "a98dc6c8-c69b-4c2a-a7e0-2c7ac5537aa9",
+    "name": "Cherry Garden Market",
+    "changes": {},
+    "fill": {
+      "address_line": "7820 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207820%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236560902"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0e5d8b6c-407d-484a-a3ab-99b73d57ef3f",
+      "slug": "svoi-cherry-garden-market"
+    }
+  },
+  {
+    "id": "b088f382-d508-495e-b05f-6cea4ba3d401",
+    "name": "Quality Imports Gift Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "7742 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207742%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236548242"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8c1025b5-5251-4a9a-ab08-b2f168a71d46",
+      "slug": "svoi-quality-imports-gift-shop"
+    }
+  },
+  {
+    "id": "1dc36e7d-44c2-49f0-a01d-173c2ab6bb55",
+    "name": "Victorias Jewelry",
+    "changes": {},
+    "fill": {
+      "address_line": "7857 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207857%2C%20West%20Hollywood%2C%20CA%2090046",
+      "website": "http://www.victoriasjewelrybcd.com",
+      "phone": "+13236543607",
+      "email": "victoriasjewelrybcd@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f109d973-d4f0-42f7-ad69-ac4729207ba3",
+      "slug": "svoi-victorias-jewelry"
+    }
+  },
+  {
+    "id": "f05a03a3-2dea-48d0-af65-8591bc6973e6",
+    "name": "West Hollywood Florist",
+    "changes": {},
+    "fill": {
+      "address_line": "8205 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208205%2C%20West%20Hollywood%2C%20CA%2090046",
+      "website": "http://www.westhollywoodflorist.com",
+      "phone": "+13236568833",
+      "instagram_url": "https://www.instagram.com/westhollywoodflorist",
+      "yelp_url": "https://www.yelp.com/biz/west-hollywood-florist-west-hollywood"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "00021ed6-aceb-429a-a44e-6b9ad44ef307",
+      "slug": "svoi-west-hollywood-florist"
+    }
+  },
+  {
+    "id": "748c48bf-5e12-49f0-a79c-727eb144dac0",
+    "name": "Big Mama's & Papa's Pizza West Hollywood",
+    "changes": {},
+    "fill": {
+      "address_line": "8424 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90069",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%208424%2C%20West%20Hollywood%2C%20CA%2090069",
+      "phone": "+13236544040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0712bb2c-4958-4793-ae11-b4b7b34f270d",
+      "slug": "svoi-big-mama-s-papa-s-pizza-west-hollywood"
+    }
+  },
+  {
+    "id": "8e2fe8c3-cf41-4375-9dfb-fed6618f032e",
+    "name": "Crystal",
+    "changes": {},
+    "fill": {
+      "address_line": "7901 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%207901%2C%20West%20Hollywood%2C%20CA%2090046",
+      "phone": "+13236541188"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "896ea530-b8ff-4ce4-9599-ef67d0aae090",
+      "slug": "svoi-crystal"
+    }
+  },
+  {
+    "id": "8a9a1c84-e955-4964-a37f-3226f88f5a74",
+    "name": "Flavor of India West Hollywood",
+    "changes": {},
+    "fill": {
+      "address_line": "9045 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "West Hollywood",
+      "state_code": "US-CA",
+      "postal_code": "90069",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%209045%2C%20West%20Hollywood%2C%20CA%20%2090069",
+      "phone": "+13102741715"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "978e0007-58ad-4a6d-a20e-182987442a22",
+      "slug": "svoi-flavor-of-india-west-hollywood"
+    }
+  },
+  {
+    "id": "0e488203-12b2-4051-a091-e7452d4b7a38",
+    "name": "Sunny Medical Center",
+    "changes": {},
+    "fill": {
+      "address_line": "17070 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2017070%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13053060000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d7498fbf-99e5-4663-b2fa-01571815e1d1",
+      "slug": "svoi-sunny-medical-center"
+    }
+  }
+]

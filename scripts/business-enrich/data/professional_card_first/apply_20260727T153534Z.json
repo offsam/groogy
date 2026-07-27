@@ -1,0 +1,33 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "arman-movsesian-205308-b5d0",
+      "display_name": "Arman Movsesian",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "website": "https://www.indiegogo.com/en/projects/armaniman222/from-immigration-to-ai-pow"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.indiegogo.com/en/projects/armaniman222/from-immigration-to-ai-pow",
+          "_fetch_url": "https://www.indiegogo.com/en/projects/armaniman222/from-immigration-to-ai-pow",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27486924674305239",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "website": "https://www.indiegogo.com/en/projects/armaniman222/from-immigration-to-ai-pow"
+      },
+      "patch": {}
+    }
+  ]
+}

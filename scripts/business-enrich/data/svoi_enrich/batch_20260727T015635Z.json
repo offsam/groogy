@@ -1,0 +1,514 @@
+[
+  {
+    "id": "1b3b573c-5e96-4e38-979f-091c990897e0",
+    "name": "Lali Nanidzhanyan",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "804 Franklin Avenue",
+      "location_precision": "street",
+      "city": "Franklin lakes",
+      "state_code": "US-NJ",
+      "postal_code": "07470",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Franklin%20Avenue%20804%2C%20Franklin%20lakes%2C%20NJ%2007470",
+      "phone": "+12018484002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3f2caca9-87e5-4e80-af9a-b7654b0cc436",
+      "slug": "svoi-lali-nanidzhanyan"
+    }
+  },
+  {
+    "id": "f93805c6-61a4-402e-aa3f-8bfb46b19563",
+    "name": "Weichert Realtors – Gershburg, Alla",
+    "changes": {},
+    "fill": {
+      "address_line": "784 Franklin Avenue",
+      "location_precision": "street",
+      "city": "Franklin lakes",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Franklin%20Avenue%20784%2C%20Franklin%20lakes%2C%20NJ",
+      "phone": "+12018916900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d982bdb8-1292-42ce-9877-dc8dae403f71",
+      "slug": "svoi-weichert-realtors-gershburg-alla"
+    }
+  },
+  {
+    "id": "63273af1-9b59-40a2-8490-1e21c856ae5c",
+    "name": "Re/Max First Choice Realtors – Michael Gorvitz",
+    "changes": {},
+    "fill": {
+      "address_line": "1160 Route 46",
+      "location_precision": "street",
+      "city": "Parsipini-Troy Hills",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Route%2046%201160%2C%20Parsipini-Troy%20Hills%2C%20NJ",
+      "phone": "+19733354600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "034f50c6-ca88-4d16-849a-d44abc2f94b1",
+      "slug": "svoi-re-max-first-choice-realtors-michael-gorvitz"
+    }
+  },
+  {
+    "id": "3dd64f9c-235f-4b67-9f7f-786e0417c7a1",
+    "name": "Capital Property Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "303 Amboy Avenue",
+      "location_precision": "street",
+      "city": "Metachen",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Amboy%20Avenue%20303%2C%20Metachen%2C%20NJ",
+      "phone": "+17329069400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d9576359-75c5-47c9-8739-6852896e6c1b",
+      "slug": "svoi-capital-property-realty"
+    }
+  },
+  {
+    "id": "0a5c65c0-4618-40b3-8d30-dcdded08cc7d",
+    "name": "Century 21 - Miele, Oksana",
+    "changes": {},
+    "fill": {
+      "address_line": "460 Main Street",
+      "location_precision": "street",
+      "city": "Metachen",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%20460%2C%20Metachen%2C%20NJ",
+      "phone": "+18482036370"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0628f537-e00e-4001-ad23-13661b9fe522",
+      "slug": "svoi-century-21-miele-oksana"
+    }
+  },
+  {
+    "id": "2f01b5ea-5f47-49d6-af93-3aa4cba1920b",
+    "name": "Weichert Realtors – Gorelik, Michael",
+    "changes": {},
+    "fill": {
+      "address_line": "991 Hamburg Turnpike",
+      "location_precision": "street",
+      "city": "Wayne",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hamburg%20Turnpike%20991%2C%20Wayne%2C%20NJ",
+      "phone": "+19736966660"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "53e03ce2-15ec-4b2c-b4a7-3ca26dc15716",
+      "slug": "svoi-weichert-realtors-gorelik-michael"
+    }
+  },
+  {
+    "id": "85c36b1e-4ec3-407e-9332-a1a0f618c600",
+    "name": "Coldwell Banker",
+    "changes": {},
+    "fill": {
+      "address_line": "1410 Valley Road",
+      "location_precision": "street",
+      "city": "Wayne",
+      "state_code": "US-NJ",
+      "postal_code": "07470",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Valley%20Road%201410%2C%20Wayne%2C%20NJ%2007470",
+      "phone": "+19736948000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "69ea9211-6088-445f-bb5d-990525d64d22",
+      "slug": "svoi-coldwell-banker"
+    }
+  },
+  {
+    "id": "a0189df9-1a3e-4891-b54a-78067334f986",
+    "name": "Coldwell Banker - Kugel, Lyuba",
+    "changes": {},
+    "fill": {
+      "address_line": "44 Franklin Ave",
+      "location_precision": "street",
+      "city": "Ridgewood",
+      "state_code": "US-NJ",
+      "postal_code": "07450",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Franklin%20Ave%20%2044%2C%20Ridgewood%2C%20NJ%2007450",
+      "phone": "+12014459400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7880b5bd-f2ec-42db-a8c4-2c6efbdc2e99",
+      "slug": "svoi-coldwell-banker-kugel-lyuba"
+    }
+  },
+  {
+    "id": "2cbeeb65-8249-4d43-bee1-912e0478c842",
+    "name": "ChasinHomes",
+    "changes": {},
+    "fill": {
+      "address_line": "488 Springfield Avenue",
+      "location_precision": "street",
+      "city": "Summit",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Springfield%20Avenue%20488%2C%20Summit%2C%20NJ",
+      "phone": "+19733760033"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aabe961b-7849-423f-9dbf-2754fa50ed7d",
+      "slug": "svoi-chasinhomes"
+    }
+  },
+  {
+    "id": "c7e77262-bb8a-421a-b8ba-4d4e2e0da104",
+    "name": "Inna Vayser - RE/MAX Elite",
+    "changes": {},
+    "fill": {
+      "address_line": "7001 Amboy Rd Staten Island",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=7001%20Amboy%20Rd%20Staten%20Island%2C%20New%20York%2C%20NY",
+      "phone": "+19176884358"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "83aad647-a416-4f8b-838b-07b123afe563",
+      "slug": "svoi-inna-vayser-re-max-elite"
+    }
+  },
+  {
+    "id": "aee20c02-0682-4d62-84bb-98a8ded08e7f",
+    "name": "Raymond-Rhodes Real Estate",
+    "changes": {},
+    "fill": {
+      "address_line": "290 Lafayette Avenue",
+      "location_precision": "street",
+      "city": "Hawthorn",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lafayette%20Avenue%20290%2C%20Hawthorn%2C%20NJ",
+      "phone": "+19734272727"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d71e2049-4872-44b7-b3e8-42b29b1c72f9",
+      "slug": "svoi-raymond-rhodes-real-estate"
+    }
+  },
+  {
+    "id": "e66689c6-284f-497a-8759-d1aa97e5d8f1",
+    "name": "Burgdorff Realtors – Ginzburg, Sofia",
+    "changes": {},
+    "fill": {
+      "address_line": "97 South Livingston Avenue",
+      "location_precision": "street",
+      "city": "Livingstone",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Livingston%20Avenue%2097%2C%20Livingstone%2C%20NJ",
+      "phone": "+19735359800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "32f2b60b-9b71-46b4-ab9f-1fcb754571fa",
+      "slug": "svoi-burgdorff-realtors-ginzburg-sofia"
+    }
+  },
+  {
+    "id": "0f1aab47-33f9-4798-a83f-3e9b70951f4c",
+    "name": "Re/Max Properties – Kapon, Joseph",
+    "changes": {},
+    "fill": {
+      "address_line": "River Road 13-17",
+      "location_precision": "street",
+      "city": "Fair lone",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=River%20Road%2013-17%2C%20Fair%20lone%2C%20NJ",
+      "phone": "+12018520711"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7e663103-cf89-4b28-8874-8c327024cde7",
+      "slug": "svoi-re-max-properties-kapon-joseph"
+    }
+  },
+  {
+    "id": "0533454c-a175-4ad1-8916-3008625684f7",
+    "name": "The Babekov Team",
+    "changes": {},
+    "fill": {
+      "address_line": "1129 Northern Blvd Manhasset",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1129%20Northern%20Blvd%20Manhasset%2C%20New%20York%2C%20NY",
+      "website": "https://alexandra.newyork.herggroup.com",
+      "phone": "+19173593999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "260626a2-3ec5-4bb3-9a1a-718f08c3e59d",
+      "slug": "svoi-the-babekov-team"
+    }
+  },
+  {
+    "id": "f2153cba-6b68-4238-8ceb-e0f0dd26fba2",
+    "name": "VI Properties",
+    "changes": {},
+    "fill": {
+      "address_line": "1208 Broadway",
+      "location_precision": "street",
+      "city": "Hewlett",
+      "state_code": "US-NY",
+      "postal_code": "11557",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Broadway%201208%2C%20Hewlett%2C%20NY%2011557",
+      "phone": "+15167911313"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dfc196ed-4075-44de-94a6-99ea9fbb1603",
+      "slug": "svoi-vi-properties"
+    }
+  },
+  {
+    "id": "17bbfb8a-0920-4bdb-84e1-1fe495e4ab50",
+    "name": "Dr. Tanaya Bhowmick",
+    "changes": {},
+    "fill": {
+      "address_line": "1 Robert Wood Johnson Pl",
+      "location_precision": "street",
+      "city": "New brunswick",
+      "state_code": "US-NJ",
+      "postal_code": "08901",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Robert%20Wood%20Johnson%20Pl%201%2C%20New%20brunswick%2C%20NJ%2008901",
+      "phone": "+17322357060"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "03bb41cd-27b7-43dc-b5e7-065b9bebc725",
+      "slug": "svoi-dr-tanaya-bhowmick"
+    }
+  },
+  {
+    "id": "d72941ba-c731-4405-971f-257690e687f6",
+    "name": "Dr. Faina Gutin",
+    "changes": {},
+    "fill": {
+      "address_line": "18 North 3rd Avenue",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-NJ",
+      "postal_code": "08904",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%203rd%20Avenue%2018%2C%20Highland%20Park%2C%20NJ%2008904",
+      "phone": "+17325450094"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c3c51654-3dbf-49df-bb49-b901b74a3ffc",
+      "slug": "svoi-dr-faina-gutin"
+    }
+  },
+  {
+    "id": "154c7c28-c74c-4f86-a5de-a62297663021",
+    "name": "Dr Aliona Rudys ME",
+    "changes": {},
+    "fill": {
+      "address_line": "Fair Lawn Avenue 19-21",
+      "location_precision": "street",
+      "city": "Fair lone",
+      "state_code": "US-NJ",
+      "postal_code": "07410",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fair%20Lawn%20Avenue%2019-21%2C%20Fair%20lone%2C%20NJ%2007410",
+      "phone": "+12014754091"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "93c1d002-3338-443e-9fe5-9a42fc2b8814",
+      "slug": "svoi-dr-aliona-rudys-me"
+    }
+  },
+  {
+    "id": "f8591a56-72fd-424b-a3e6-5255136b45d0",
+    "name": "Slawomir Kosinski, MD.",
+    "changes": {},
+    "fill": {
+      "address_line": "703 Main Street",
+      "location_precision": "street",
+      "city": "Paterson",
+      "state_code": "US-NJ",
+      "postal_code": "07503",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%20703%2C%20Paterson%2C%20NJ%2007503",
+      "phone": "+19739772000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b9c3ea8b-c618-4cd1-8def-aa4450d8b97c",
+      "slug": "svoi-slawomir-kosinski-md"
+    }
+  },
+  {
+    "id": "c4a84b91-1970-4561-9bb3-4626b9833497",
+    "name": "Daman, Harlan",
+    "changes": {},
+    "fill": {
+      "address_line": "11 Ralph Place",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10304",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ralph%20Place%2011%2C%20New%20York%2C%20NY%20%2010304",
+      "phone": "+17182739111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f0e8de62-d173-4415-b48c-14e7d0a34208",
+      "slug": "svoi-daman-harlan"
+    }
+  }
+]

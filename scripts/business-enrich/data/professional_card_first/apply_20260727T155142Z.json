@@ -1,0 +1,28 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "sabina-yarantseva-205604-4676",
+      "display_name": "Sabina Yarantseva",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "telegram_url": "sabina_yara"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/71462",
+          "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/3c3ad07e-e3d3-4798-bc8b-988274ff49e6/fcc64193205885cc.webp",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "telegram_url": "sabina_yara",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/3c3ad07e-e3d3-4798-bc8b-988274ff49e6/fcc64193205885cc.webp"
+      },
+      "patch": {}
+    }
+  ]
+}

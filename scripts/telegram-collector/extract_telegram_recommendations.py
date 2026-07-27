@@ -50,6 +50,36 @@ REVIEWER_PATHS = [
         ROOT
         / "scripts/telegram-collector/data/la_orange_county/full/la_orange_county_reviewer_v1.json",
     ),
+    (
+        "Sacramento_Adaptation",
+        ROOT
+        / "scripts/telegram-collector/data/sacramento_adaptation/full/sacramento_adaptation_reviewer_v1.json",
+    ),
+    (
+        "Sacramento_RusRek",
+        ROOT
+        / "scripts/telegram-collector/data/sacramento_rusrek/full/sacramento_rusrek_reviewer_v1.json",
+    ),
+    (
+        "SF_RusRek",
+        ROOT
+        / "scripts/telegram-collector/data/sf_rusrek/full/sf_rusrek_reviewer_v1.json",
+    ),
+    (
+        "SF_General",
+        ROOT
+        / "scripts/telegram-collector/data/sf_general/full/sf_general_reviewer_v1.json",
+    ),
+    (
+        "SD_RusRek",
+        ROOT
+        / "scripts/telegram-collector/data/sd_rusrek/full/sd_rusrek_reviewer_v1.json",
+    ),
+    (
+        "SD_General",
+        ROOT
+        / "scripts/telegram-collector/data/sd_general/full/sd_general_reviewer_v1.json",
+    ),
 ]
 RAW_BATCH_DIRS = [
     (
@@ -60,7 +90,43 @@ RAW_BATCH_DIRS = [
         "LA_OrangeCounty",
         ROOT / "scripts/telegram-collector/data/la_orange_county/full/batches",
     ),
+    (
+        "Sacramento_Adaptation",
+        ROOT / "scripts/telegram-collector/data/sacramento_adaptation/full/batches",
+    ),
+    (
+        "Sacramento_RusRek",
+        ROOT / "scripts/telegram-collector/data/sacramento_rusrek/full/batches",
+    ),
+    (
+        "SF_RusRek",
+        ROOT / "scripts/telegram-collector/data/sf_rusrek/full/batches",
+    ),
+    (
+        "SF_General",
+        ROOT / "scripts/telegram-collector/data/sf_general/full/batches",
+    ),
+    (
+        "SD_RusRek",
+        ROOT / "scripts/telegram-collector/data/sd_rusrek/full/batches",
+    ),
+    (
+        "SD_General",
+        ROOT / "scripts/telegram-collector/data/sd_general/full/batches",
+    ),
 ]
+
+# Maps extract groupLabel → directory_source id for admin panels
+GROUP_DIRECTORY_SOURCE: dict[str, str] = {
+    "Fun for Mom": "tg_fun_for_mom",
+    "LA_OrangeCounty": "tg_la_orange_county",
+    "Sacramento_Adaptation": "tg_sacramento_adaptation",
+    "Sacramento_RusRek": "tg_sacramento_rusrek",
+    "SF_RusRek": "tg_sf_rusrek",
+    "SF_General": "tg_sf_general",
+    "SD_RusRek": "tg_sd_rusrek",
+    "SD_General": "tg_sd_general",
+}
 OUT_JSON = (
     ROOT
     / "scripts/telegram-collector/data"
@@ -108,6 +174,14 @@ JUNK_HANDLES = {
     "telegram",
     "funformom",
     "la_orangecounty",
+    "adaptationinsacramento",
+    "chat_sacramento_rusrek",
+    "chat_rusrek_sanfrancisco",
+    "chat_rusrek_sandiego",
+    "san_franciscochat",
+    "sandiegov",
+    "rusrekoff",
+    "rusrekbot_bot",
     "gram",
     "com",
     "www",
@@ -187,7 +261,17 @@ def city_for_group(group: str) -> str:
         return "Orange County / LA"
     if "Fun for Mom" in group:
         return "Orange County"
+    if "Sacramento" in group:
+        return "Sacramento, CA"
+    if group.startswith("SF_"):
+        return "San Francisco, CA"
+    if group.startswith("SD_"):
+        return "San Diego, CA"
     return "California"
+
+
+def directory_source_for_group(group: str) -> str | None:
+    return GROUP_DIRECTORY_SOURCE.get(group)
 
 
 def website_root_host(href: str) -> str | None:
@@ -218,6 +302,24 @@ def website_root_host(href: str) -> str | None:
     return host
 
 
+def as_str_list(value: Any) -> list[str]:
+    """Normalize LLM entity fields that may be str | list | None."""
+    if value is None:
+        return []
+    if isinstance(value, str):
+        v = value.strip()
+        return [v] if v else []
+    if isinstance(value, (list, tuple, set)):
+        out: list[str] = []
+        for item in value:
+            s = str(item).strip()
+            if s:
+                out.append(s)
+        return out
+    s = str(value).strip()
+    return [s] if s else []
+
+
 def extract_contacts(
     text: str,
     *,
@@ -231,27 +333,29 @@ def extract_contacts(
     emails: list[str] = []
 
     ent = entity or {}
-    for raw in ent.get("phone") or []:
+    for raw in as_str_list(ent.get("phone")) + as_str_list(ent.get("whatsapp")):
         n = normalize_phone(str(raw))
         if n and n not in phones:
             phones.append(n)
-    for raw in ent.get("instagram") or []:
+    for raw in as_str_list(ent.get("instagram")):
         handle = normalize_instagram(str(raw))
         if handle and handle.lower() not in JUNK_HANDLES and handle not in ig:
             ig.append(handle)
-    for raw in ent.get("website") or []:
+    for raw in as_str_list(ent.get("website")):
         href = str(raw)
         if not href.lower().startswith("http"):
             href = f"https://{href}"
         if website_root_host(href) and href not in websites:
             websites.append(href.split("?")[0][:200])
-    for raw in ent.get("email") or []:
+    for raw in as_str_list(ent.get("email")):
         em = str(raw).strip().lower()
         if EMAIL_RE.fullmatch(em) and em not in emails:
             emails.append(em)
-    tg_ent = normalize_telegram_username(ent.get("telegram_username"))
-    if tg_ent and tg_ent.lower() not in JUNK_HANDLES:
-        telegrams.append(tg_ent)
+    tg_raw = ent.get("telegram_username") or ent.get("telegram")
+    for raw in as_str_list(tg_raw):
+        tg_ent = normalize_telegram_username(raw)
+        if tg_ent and tg_ent.lower() not in JUNK_HANDLES and tg_ent not in telegrams:
+            telegrams.append(tg_ent)
 
     for raw in PHONE_RE.findall(text or ""):
         n = normalize_phone(raw)
@@ -401,6 +505,9 @@ def empty_row(key: str, contacts: dict[str, Any], *, kind: str = "profi") -> dic
         "last_posted_at": None,
         "event_at": None,
         "city": None,
+        "directory_source": None,
+        "target_bucket": "professional",
+        "cover_image_url": None,
     }
 
 
@@ -467,6 +574,9 @@ def merge_into(
         row["source_post_urls"].append(url)
     if group not in row["source_groups"]:
         row["source_groups"].append(group)
+    ds = directory_source_for_group(group)
+    if ds and not row.get("directory_source"):
+        row["directory_source"] = ds
     if author and author not in row["recommender_names"] and len(row["recommender_names"]) < 12:
         if is_recommendation:
             row["recommender_names"].append(author)
@@ -793,16 +903,43 @@ def build_clusters() -> dict[str, Any]:
     }
 
 
-def upsert_clusters(client: SupabaseRest, items: list[dict[str, Any]]) -> int:
-    # Replace only telegram source rows — keep Facebook recommendations.
-    client._request(
-        "DELETE",
-        "/import_comment_recommendations",
-        params={"source_channel": "eq.telegram"},
-        prefer="return=minimal",
-    )
+def upsert_clusters(
+    client: SupabaseRest,
+    items: list[dict[str, Any]],
+    *,
+    replace_directory_sources: list[str] | None = None,
+) -> int:
+    """Upsert telegram rows. Optionally clear pending rows for given directory_source ids first.
+
+    Never wipes unrelated telegram groups or Facebook rows.
+    """
+    if replace_directory_sources:
+        # Delete only pending rows for the sources we are re-importing
+        for ds in replace_directory_sources:
+            try:
+                client._request(
+                    "DELETE",
+                    "/import_comment_recommendations",
+                    params={
+                        "source_channel": "eq.telegram",
+                        "directory_source": f"eq.{ds}",
+                        "status": "eq.pending",
+                    },
+                    prefer="return=minimal",
+                )
+                print(f"  cleared pending telegram rows for {ds}", flush=True)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  warn clear {ds}: {exc}", flush=True)
+
     payload = []
     for item in items:
+        groups = item.get("source_groups") or []
+        directory_source = item.get("directory_source")
+        if not directory_source:
+            for g in groups:
+                directory_source = directory_source_for_group(g)
+                if directory_source:
+                    break
         row = {
             "cluster_key": item["cluster_key"],
             "kind": item.get("kind") or "profi",
@@ -820,12 +957,15 @@ def upsert_clusters(client: SupabaseRest, items: list[dict[str, Any]]) -> int:
             "comment_texts": item.get("comment_texts") or [],
             "request_snippets": item.get("request_snippets") or [],
             "source_post_urls": item.get("source_post_urls") or [],
-            "source_groups": item.get("source_groups") or [],
+            "source_groups": groups,
             "category_guess": item.get("category_guess"),
             "recommender_names": item.get("recommender_names") or [],
             "last_posted_at": item.get("last_posted_at"),
             "event_at": item.get("event_at"),
             "city": item.get("city"),
+            "cover_image_url": item.get("cover_image_url"),
+            "directory_source": directory_source,
+            "target_bucket": item.get("target_bucket") or "professional",
             "source_channel": "telegram",
             "status": "pending",
             "notes": (
@@ -833,6 +973,7 @@ def upsert_clusters(client: SupabaseRest, items: list[dict[str, Any]]) -> int:
                 if item.get("_emails")
                 else None
             ),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
         }
         # If counters were never set, treat total as self-ads (legacy ads dominate).
         if (
@@ -852,25 +993,66 @@ def upsert_clusters(client: SupabaseRest, items: list[dict[str, Any]]) -> int:
         payload.append(row)
 
     n = 0
-    for i in range(0, len(payload), 100):
-        chunk = payload[i : i + 100]
-        client._request(
-            "POST",
-            "/import_comment_recommendations",
-            body=chunk,
-            prefer="return=minimal",
-        )
-        n += len(chunk)
-        print(f"  upserted {n}/{len(payload)}")
+    for i in range(0, len(payload), 50):
+        chunk = payload[i : i + 50]
+        for row in chunk:
+            try:
+                client._request(
+                    "POST",
+                    "/import_comment_recommendations",
+                    body=row,
+                    prefer="resolution=merge-duplicates,return=minimal",
+                    params={"on_conflict": "source_channel,cluster_key"},
+                )
+                n += 1
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ERR {row.get('display_name')!r}: {exc}", flush=True)
+        print(f"  upserted {n}/{len(payload)}", flush=True)
     return n
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
+    parser.add_argument(
+        "--groups",
+        type=str,
+        default="",
+        help="Comma-separated group labels to include (default: all present)",
+    )
+    parser.add_argument(
+        "--ca-cities-only",
+        action="store_true",
+        help="Only Sacramento / SF / SD groups",
+    )
     args = parser.parse_args()
 
+    allow = {
+        g.strip()
+        for g in args.groups.split(",")
+        if g.strip()
+    }
+    if args.ca_cities_only:
+        allow = {
+            "Sacramento_Adaptation",
+            "Sacramento_RusRek",
+            "SF_RusRek",
+            "SF_General",
+            "SD_RusRek",
+            "SD_General",
+        }
+
     report = build_clusters()
+    if allow:
+        before = len(report["items"])
+        report["items"] = [
+            i
+            for i in report["items"]
+            if any(g in allow for g in (i.get("source_groups") or []))
+        ]
+        print(f"filtered groups {allow}: {before} → {len(report['items'])}")
+        report["cluster_count"] = len(report["items"])
+
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -885,7 +1067,7 @@ def main() -> int:
         print(
             f"  ×{item['mention_count']:>2}  {item.get('category_guess')}"
             f"  {item.get('display_name')}  {item['cluster_key']}"
-            f"  groups={item.get('source_groups')}"
+            f"  groups={item.get('source_groups')} ds={item.get('directory_source')}"
         )
 
     if args.apply:
@@ -894,7 +1076,31 @@ def main() -> int:
             os.environ["NEXT_PUBLIC_SUPABASE_URL"],
             os.environ["SUPABASE_SERVICE_ROLE_KEY"],
         )
-        n = upsert_clusters(client, report["items"])
+        # Only clear pending rows for groups we intentionally imported.
+        # Cross-group clusters may carry extra labels — do NOT wipe those queues.
+        if allow:
+            replace_ds = sorted(
+                {
+                    directory_source_for_group(g)
+                    for g in allow
+                    if directory_source_for_group(g)
+                }
+            )
+        else:
+            replace_ds = sorted(
+                {
+                    directory_source_for_group(g)
+                    for item in report["items"]
+                    for g in (item.get("source_groups") or [])
+                    if directory_source_for_group(g)
+                }
+            )
+        print(f"replace_directory_sources={replace_ds}", flush=True)
+        n = upsert_clusters(
+            client,
+            report["items"],
+            replace_directory_sources=replace_ds,
+        )
         print(f"applied {n} telegram recommendation rows")
     else:
         print("dry-run only; pass --apply to write to Supabase")

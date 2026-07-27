@@ -1,0 +1,39 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-enigma-day-spa-welness",
+      "display_name": "Enigma Day Spa & Welness",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14109615353",
+          "website": "http://www.enigmadayspa.com"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://www.enigmadayspa.com",
+          "_fetch_url": "https://www.enigmadayspa.com",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/enigma-day-spa-welness-5886",
+          "city": "MD",
+          "website": "http://www.enigmadayspa.com",
+          "phone": "+14109615353",
+          "image_url": "https://svoi.us/files/images/119f038606326cd1aa6a389465b61f41.jpeg",
+          "_via": "svoi_page"
+        }
+      },
+      "found": {
+        "phone": "+14109615353",
+        "website": "http://www.enigmadayspa.com",
+        "city": "MD",
+        "image_url": "https://svoi.us/files/images/119f038606326cd1aa6a389465b61f41.jpeg"
+      },
+      "patch": {}
+    }
+  ]
+}

@@ -1,0 +1,437 @@
+[
+  {
+    "id": "a2af0d06-3a0a-49e5-97ae-1427a86ae131",
+    "name": "Alex Grinspun/Olde Financial",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1701 East Lake Avenue",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lake%20Avenue%201701%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18479987400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4db26829-f943-4cd1-9b79-9e6b571f3d9f",
+      "slug": "svoi-alex-grinspun-olde-financial"
+    }
+  },
+  {
+    "id": "70c9e9ad-2196-415d-b3dd-13f94a4df755",
+    "name": "Solutions Financial Mortgage Co.",
+    "changes": {},
+    "fill": {
+      "address_line": "1701 East Lake Avenue",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lake%20Avenue%201701%2C%20Glenview%2C%20IL%2060025",
+      "website": "http://www.solutionsfn.com",
+      "phone": "+18478340100",
+      "instagram_url": "https://www.instagram.com/sfmcmortgages"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6151f241-8a09-4e01-9928-1dc035afed60",
+      "slug": "svoi-solutions-financial-mortgage-co"
+    }
+  },
+  {
+    "id": "b6269820-2113-43a8-9a52-55a6675139d7",
+    "name": "Investment Mortgage Group Борис Жилин",
+    "changes": {},
+    "fill": {
+      "address_line": "5266 Lincoln Ave",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Ave%205266%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18474019002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3048eefa-09dc-4143-a8dc-6e6235430221",
+      "slug": "svoi-investment-mortgage-group"
+    }
+  },
+  {
+    "id": "cb4bc278-7d1d-4b32-9775-52c68456f569",
+    "name": "Century Mortgage",
+    "changes": {},
+    "fill": {
+      "address_line": "6710 N. Crawford",
+      "location_precision": "street",
+      "city": "Lincolnwood",
+      "state_code": "US-IL",
+      "postal_code": "60646",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Crawford%206710%2C%20Lincolnwood%2C%20IL%2060646",
+      "phone": "+18476741801"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4208e3db-0664-4b70-bd04-752659e7096e",
+      "slug": "svoi-century-mortgage"
+    }
+  },
+  {
+    "id": "8cfd7c4b-f7e5-4cd8-8726-a45cd373701e",
+    "name": "Zhukov Studios",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vernon%20Hills%2C%20IL%20ted%20States",
+      "website": "http://www.keeperexpert.com",
+      "phone": "+13474151381",
+      "yelp_url": "http://www.yelp.com/biz/keeper-expert-mount-prospect",
+      "email": "help@smugmug.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2af99316-a9af-4459-93a7-56ecde8a8ff2",
+    "name": "Digital Creations & Rstrtn in Carol Stream",
+    "changes": {},
+    "fill": {
+      "address_line": "883 Hampton Drive",
+      "location_precision": "street",
+      "city": "Karol Stream",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hampton%20Drive%20883%2C%20Karol%20Stream%2C%20IL",
+      "phone": "+16306656474"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3b9700d9-bf34-4f54-aa05-5965a5a4c9de",
+      "slug": "svoi-digital-creations-rstrtn-in-carol-stream"
+    }
+  },
+  {
+    "id": "172461fd-fe5d-4fe6-83cc-58401a43cb5c",
+    "name": "BRIDGE TV Intl / Michael Shurov",
+    "changes": {},
+    "fill": {
+      "address_line": "426 Hazelwood Ter",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hazelwood%20Ter%20426%2C%20Buffalo%20grove%2C%20IL%20426%20Hazelwood%20Te",
+      "phone": "+18474651504"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "05c0620c-b748-4109-8739-0330aa85c956",
+      "slug": "svoi-bridge-tv-intl-michael-shurov"
+    }
+  },
+  {
+    "id": "2e6dc3f0-6e73-4395-aec0-be95ad9cffd2",
+    "name": "Yakovs Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "Milwaukee Ave 718 S",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20Ave%20718%20S%2C%20Wheeling%2C%20IL",
+      "phone": "+18473221811"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ca449c3-af28-4ae0-bd3c-effc4e6a5df5",
+      "slug": "svoi-yakovs-studio"
+    }
+  },
+  {
+    "id": "34df37e9-f522-457f-aafb-46c8cebf3934",
+    "name": "Photo Lab",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skoki%2C%20IL%20ted%20States",
+      "phone": "+18473299242"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8b6073a7-074b-443a-b3ac-fea2f48d6a40",
+    "name": "Sentury One Hour Photo",
+    "changes": {},
+    "fill": {
+      "address_line": "2802 North Clark Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Clark%20Street%202802%2C%20Chicago%2C%20IL",
+      "phone": "+17734048756"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0683e0f7-c38b-4c73-add2-521f88687424",
+      "slug": "svoi-sentury-one-hour-photo"
+    }
+  },
+  {
+    "id": "dfae81a6-6d42-422f-9641-1b41658b0b74",
+    "name": "AGStudio Co",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17732137575"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b7bac190-ef6d-427f-803f-66973c2ea3d0",
+    "name": "AGStudio Co.",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17732757575"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0d48cf49-7b47-4af1-bca4-e8b51d6b839e",
+    "name": "DeFranko Photo Studio",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17739681681"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "aa90b925-94c1-46c1-8fd6-4147f8b4dc82",
+    "name": "Ksju Kami Photography",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+18478571828"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8385f123-8848-451c-b9a6-e74424710faa",
+    "name": "Mantas Ivanauskas Photography",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "website": "http://mantasivanauskas.com",
+      "phone": "+18474146729"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "e7033919-ea61-4027-a583-87af47e7104c",
+    "name": "Иван Глощанюк",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+16303376542"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "fd71c312-da28-4602-a91e-bac822d63d93",
+    "name": "Ukrainian Chicago Magazine™",
+    "changes": {},
+    "fill": {
+      "city": "IL 60159",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Schaumburg%2C%20IL%2060159",
+      "website": "http://missukrainiandiaspora.com",
+      "phone": "+13125545064",
+      "instagram_url": "https://www.instagram.com/missdiaspora"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "55530aff-d84d-47f3-ba69-de1791f6f0e6",
+    "name": "Ethnic Media Company",
+    "changes": {},
+    "fill": {
+      "address_line": "615 Academy Drive",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Academy%20Drive%20615%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18777020220"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "26301aca-0eb7-4669-9948-3abbff26f5e3",
+      "slug": "svoi-ethnic-media-company"
+    }
+  },
+  {
+    "id": "644c53be-ebf4-4a2d-b26b-38a3785113d9",
+    "name": "Reklama Media Company",
+    "changes": {},
+    "fill": {
+      "address_line": "3100 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203100%2C%20Northbrook%2C%20IL%2062",
+      "phone": "+18472720707"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "94b79bb7-dcf6-4b59-88b4-dfc56237458f",
+      "slug": "svoi-reklama-media-company"
+    }
+  },
+  {
+    "id": "6c670431-def8-43ec-beec-c46f5071e528",
+    "name": "SVET Russian Media Group",
+    "changes": {},
+    "fill": {
+      "address_line": "900 Skokie Boulevard",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Boulevard%20900%2C%20Northbrook%2C%20IL%20thbrook",
+      "phone": "+18477159407"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "af06f4a5-a5ef-4dfc-94dd-1a0ecf2c1437",
+      "slug": "svoi-svet-russian-media-group"
+    }
+  }
+]

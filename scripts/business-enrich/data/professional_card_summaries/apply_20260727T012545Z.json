@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-07-27T01:25:45.760793+00:00",
+  "mode": "apply",
+  "scanned": 747,
+  "updated": 720,
+  "samples": [
+    {
+      "slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "summary": "Экскурсионные туры на русском языке с вылетом из любого города США",
+      "source": "llm"
+    },
+    {
+      "slug": "pro-71a793a03e",
+      "name": "Амина",
+      "summary": "Уроки английского",
+      "source": "heuristic"
+    },
+    {
+      "slug": "vera-zhezherun-204839-82b3",
+      "name": "Vera Zhezherun",
+      "summary": "Домашний детский сад",
+      "source": "heuristic"
+    },
+    {
+      "slug": "michael-sorokin-205104-3904",
+      "name": "Michael  Sorokin",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "summary": "Уроки английского",
+      "source": "heuristic"
+    },
+    {
+      "slug": "valter-eslon-205228-0ffb",
+      "name": "Valter Eslon",
+      "summary": "Аренда мастер-бэдрума в частном доме с удобствами, Wi-Fi, грилем и большой кухней.",
+      "source": "llm"
+    },
+    {
+      "slug": "alexandra-dessert-studio-150632",
+      "name": "alexandra_dessert_studio",
+      "summary": "Создание авторских тортов и десертов на заказ, ручная работа, более 6 лет опыта.",
+      "source": "llm"
+    },
+    {
+      "slug": "business-biz-180942",
+      "name": "Всеволод Климчук",
+      "summary": "Уроки английского",
+      "source": "heuristic"
+    },
+    {
+      "slug": "fedor-tsvang-1",
+      "name": "Fedor Tsvang",
+      "summary": "Домашний детский сад и услуги няни для заботы о детях",
+      "source": "llm"
+    },
+    {
+      "slug": "diana-california-150634",
+      "name": "diana_california",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "ange-205707-630e",
+      "name": "Ange",
+      "summary": "Уроки тенниса для детей от 4 лет и старше, индивидуальные и групповые занятия, цены от $N",
+      "source": "llm"
+    },
+    {
+      "slug": "consolidated-valeriia-andriushchenko",
+      "name": "Valeriia Andriushchenko",
+      "summary": "Покупка и продажа недвижимости в Калифорнии с профессиональным сопровождением.",
+      "source": "llm"
+    },
+    {
+      "slug": "andrey-ka-204830-8347",
+      "name": "Andrey Ka",
+      "summary": "Детский сад Kwinta Kids Academy, место для малышей 1-2 лет, с заботливыми педагогами и интересными занятиями",
+      "source": "llm"
+    },
+    {
+      "slug": "pro-71a6dc73ce",
+      "name": "Екатерина Улицкая",
+      "summary": "Услуга по утилизации опасных отходов: электроприборы, батарейки, лампы и прочее.",
+      "source": "llm"
+    },
+    {
+      "slug": "toujours-flower-boutique-172155",
+      "name": "Toujours Flower Boutique",
+      "summary": "Цветы к Дню святого Валентина от L'amour Toujours Flower Boutique, заказывайте заранее.",
+      "source": "llm"
+    },
+    {
+      "slug": "alina-205601-d7e9",
+      "name": "Alina",
+      "summary": "Мастер-класс по приготовлению торта «Медовик» с поддержкой и понятными инструкциями",
+      "source": "llm"
+    },
+    {
+      "slug": "evgeny-rezko-150656",
+      "name": "evgeny_rezko",
+      "summary": "Онлайн-марафон по йоге для улучшения самочувствия, гибкости и снятия боли, от $30",
+      "source": "llm"
+    },
+    {
+      "slug": "russ-russell-205215-bbbb",
+      "name": "Russ Russell",
+      "summary": "Тату услуги в Сакраменто без маленьких тату, запись через Instagram, июль-август",
+      "source": "llm"
+    },
+    {
+      "slug": "pro-49b60ee02b",
+      "name": "Ольге",
+      "summary": "Аренда меблированного офиса 300 кв. футов с современным интерьером и быстрым интернетом",
+      "source": "llm"
+    },
+    {
+      "slug": "igor-pchelintsev-172216",
+      "name": "Igor Pchelintsev",
+      "summary": "Помощь в оформлении лицензий и открытии бизнеса, скидки до 25% до 31 мая",
+      "source": "llm"
+    },
+    {
+      "slug": "pro-67e0ab57c8",
+      "name": "Алекс",
+      "summary": "Услуги визажа и красоты от Алекса, качество и довольные клиенты.",
+      "source": "llm"
+    },
+    {
+      "slug": "business-biz-205526-b5d4",
+      "name": "Сергей",
+      "summary": "Реклама для бизнеса в соцсетях, услуги по таргету, SMM, созданию сайтов и рекламе Google и TikTok.",
+      "source": "llm"
+    },
+    {
+      "slug": "pro-5526b99ca9",
+      "name": "Константин",
+      "summary": "Услуги сантехника по ремонту и установке, вызов мастера от $50.",
+      "source": "llm"
+    },
+    {
+      "slug": "pro-b74df323e3",
+      "name": "OC Acting",
+      "summary": "Репетитор по актерскому мастерству для детей, обучение по доступным ценам.",
+      "source": "llm"
+    },
+    {
+      "slug": "dmitry-belyaev-204806-7a4e",
+      "name": "Dmitry Belyaev",
+      "summary": "Уроки английского",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-9165592087-204917-92d5",
+      "name": "Александр Кл",
+      "summary": "Выездная диагностика авто от $50, ремонт от $100, замена масла $80, запуск авто $20, замена ДВС от $400",
+      "source": "llm"
+    },
+    {
+      "slug": "saida-saida",
+      "name": "SAida SAida",
+      "summary": "Доставка из США в страны СНГ с тарифами от $12, бесплатная доставка по Бишкеку.",
+      "source": "llm"
+    },
+    {
+      "slug": "maria-masha-tumanyan-172155",
+      "name": "Maria (Masha) Tumanyan",
+      "summary": "Помогаем подготовиться к интервью по убежищу, документы и юридическая помощь, услуги переводчика.",
+      "source": "llm"
+    },
+    {
+      "slug": "larisa-grib-205459-d906",
+      "name": "Larisa Grib",
+      "summary": "Эфирные масла для улучшения сна, энергии и эмоционального баланса, подарки при покупке до 30 апреля",
+      "source": "llm"
+    },
+    {
+      "slug": "denis-vyatkin",
+      "name": "Denis Vyatkin",
+      "summary": "Аренда гибридных авто от $600 в месяц или $170 в неделю, страховка не включена",
+      "source": "llm"
+    }
+  ]
+}

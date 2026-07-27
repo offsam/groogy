@@ -40,6 +40,10 @@ def card_to_row(card: dict[str, Any]) -> dict[str, Any]:
         or ("russian_miami" if str(card.get("cluster_key") or "").startswith("ramia-") else None)
         or ("russian_chicago" if str(card.get("cluster_key") or "").startswith("rachi-") else None)
         or ("ruspagesusa" if str(card.get("cluster_key") or "").startswith("rpu-") else None)
+        or ("to4ka" if str(card.get("cluster_key") or "").startswith("t4k-") else None)
+        or ("slavic_seattle" if str(card.get("cluster_key") or "").startswith("sls-") else None)
+        or ("our_texas" if str(card.get("cluster_key") or "").startswith("otx-") else None)
+        or ("echoru" if str(card.get("cluster_key") or "").startswith("ech-") else None)
         or "orange_pages"
     )
     notes_parts = [
@@ -74,6 +78,14 @@ def card_to_row(card: dict[str, Any]) -> dict[str, Any]:
             source_groups = ["Zerkalo Minnesota"]
         elif directory_source == "ruspagesusa":
             source_groups = ["RusPagesUSA"]
+        elif directory_source == "to4ka":
+            source_groups = ["to4ka.us"]
+        elif directory_source == "slavic_seattle":
+            source_groups = ["Slavic Seattle"]
+        elif directory_source == "our_texas":
+            source_groups = ["Our Texas"]
+        elif directory_source == "echoru":
+            source_groups = ["EchoRU"]
         elif directory_source == "russian_miami":
             source_groups = ["Russian Miami"]
         elif directory_source == "russian_chicago":
@@ -162,8 +174,15 @@ def main() -> int:
                 "test company",
                 "seks-shop",
                 "sex shop",
+                "ясновидящ",
+                "гадалка",
+                "цыганка",
+                "экстрасенс",
             )
         ):
+            skipped += 1
+            continue
+        if len(name) > 100:
             skipped += 1
             continue
         has_contact = bool(r.get("phones") or r.get("websites") or "address:" in (r.get("notes") or ""))

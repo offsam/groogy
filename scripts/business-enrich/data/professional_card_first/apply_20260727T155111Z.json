@@ -1,0 +1,41 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "mila-190940",
+      "display_name": "Mila",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18582320575",
+          "website": "https://milatax.com"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://milatax.com",
+          "_fetch_url": "https://milatax.com",
+          "city": "Irvine",
+          "instagram_url": "https://www.instagram.com/mila_tax",
+          "image_url": "https://milatax.com/og-image.jpg",
+          "website": "https://milatax.com"
+        },
+        "source": {
+          "_from": "source",
+          "_url": ""
+        }
+      },
+      "found": {
+        "phone": "+18582320575",
+        "website": "https://milatax.com",
+        "city": "Irvine",
+        "instagram_url": "https://www.instagram.com/mila_tax",
+        "image_url": "https://milatax.com/og-image.jpg"
+      },
+      "patch": {
+        "city": "Irvine",
+        "instagram_url": "https://www.instagram.com/mila_tax"
+      }
+    }
+  ]
+}

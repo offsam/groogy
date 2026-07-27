@@ -39,6 +39,8 @@ export type CommentRecommendation = {
   source_channel: string;
   status: string;
   notes: string | null;
+  published_entity_type?: string | null;
+  published_entity_id?: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -59,6 +61,11 @@ export async function listCommentRecommendations(
     bucket?: RecommendationTargetBucket | "all";
     excludeBuckets?: RecommendationTargetBucket[];
     directorySource?: string;
+    sourceChannel?: string;
+    /** professional | business | service — filters target_bucket */
+    entity?: "all" | "professional" | "business" | "service";
+    /** Exact category_guess values to include */
+    categoryGuesses?: string[];
   } = {},
 ): Promise<{ items: CommentRecommendation[]; total: number }> {
   const page = Math.max(1, opts.page ?? 1);
@@ -78,7 +85,12 @@ export async function listCommentRecommendations(
   if (opts.kind && opts.kind !== "all") {
     query = query.eq("kind", opts.kind);
   }
-  if (opts.bucket && opts.bucket !== "all") {
+  if (opts.sourceChannel) {
+    query = query.eq("source_channel", opts.sourceChannel);
+  }
+  if (opts.entity && opts.entity !== "all") {
+    query = query.eq("target_bucket", opts.entity);
+  } else if (opts.bucket && opts.bucket !== "all") {
     query = query.eq("target_bucket", opts.bucket);
   } else if (opts.excludeBuckets?.length) {
     for (const b of opts.excludeBuckets) {
@@ -87,6 +99,9 @@ export async function listCommentRecommendations(
   }
   if (opts.directorySource) {
     query = query.eq("directory_source", opts.directorySource);
+  }
+  if (opts.categoryGuesses?.length) {
+    query = query.in("category_guess", opts.categoryGuesses);
   }
 
   const { data, error, count } = await query;
@@ -102,6 +117,71 @@ export async function listCommentRecommendations(
     })),
     total: count ?? 0,
   };
+}
+
+/** Facet counts for entity type + category within a source/queue. */
+export async function countRecommendationFacets(
+  client: Client,
+  opts: {
+    status?: string;
+    kind?: "profi" | "event" | "all";
+    directorySource?: string;
+    sourceChannel?: string;
+    excludeBuckets?: RecommendationTargetBucket[];
+    entity?: "all" | "professional" | "business" | "service";
+  } = {},
+): Promise<{
+  byEntity: Record<string, number>;
+  byCategoryGuess: Record<string, number>;
+}> {
+  let query = recommendationsTable(client).select(
+    "target_bucket, category_guess",
+  );
+  if (opts.status && opts.status !== "all") {
+    query = query.eq("status", opts.status);
+  }
+  if (opts.kind && opts.kind !== "all") {
+    query = query.eq("kind", opts.kind);
+  }
+  if (opts.sourceChannel) {
+    query = query.eq("source_channel", opts.sourceChannel);
+  }
+  if (opts.directorySource) {
+    query = query.eq("directory_source", opts.directorySource);
+  }
+  if (opts.entity && opts.entity !== "all") {
+    query = query.eq("target_bucket", opts.entity);
+  } else if (opts.excludeBuckets?.length) {
+    for (const b of opts.excludeBuckets) {
+      query = query.neq("target_bucket", b);
+    }
+  }
+
+  const { data, error } = await query;
+  if (error) throw error;
+
+  const byEntity: Record<string, number> = {
+    all: 0,
+    professional: 0,
+    business: 0,
+    service: 0,
+    other: 0,
+    unclassified: 0,
+  };
+  const byCategoryGuess: Record<string, number> = {};
+
+  for (const row of (data ?? []) as {
+    target_bucket?: string | null;
+    category_guess?: string | null;
+  }[]) {
+    const bucket = row.target_bucket || "unclassified";
+    byEntity.all += 1;
+    byEntity[bucket] = (byEntity[bucket] ?? 0) + 1;
+    const guess = (row.category_guess || "").trim() || "услуга / специалист";
+    byCategoryGuess[guess] = (byCategoryGuess[guess] ?? 0) + 1;
+  }
+
+  return { byEntity, byCategoryGuess };
 }
 
 export async function countYellowPagesByDirectorySource(

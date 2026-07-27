@@ -7,6 +7,7 @@ import type { PlatformSectionKey } from "@/lib/platform/sections";
 /** How the admin preview card should render. */
 export type ImportPreviewKind =
   | "business"
+  | "professional"
   | "marketplace"
   | "real_estate"
   | "services"
@@ -17,6 +18,7 @@ export type ImportPreviewKind =
 
 export const IMPORT_PREVIEW_KIND_LABELS: Record<ImportPreviewKind, string> = {
   business: "Бизнес",
+  professional: "Профи",
   marketplace: "Marketplace",
   real_estate: "Недвижимость",
   services: "Услуги",
@@ -28,6 +30,7 @@ export const IMPORT_PREVIEW_KIND_LABELS: Record<ImportPreviewKind, string> = {
 
 export const IMPORT_PREVIEW_KIND_HINTS: Record<ImportPreviewKind, string> = {
   business: "карточка в каталоге бизнесов",
+  professional: "карточка специалиста",
   marketplace: "объявление на Marketplace",
   real_estate: "объявление о недвижимости",
   services: "карточка услуги / мастера",
@@ -57,11 +60,11 @@ export function resolveImportPreviewKind(input: {
   if (target === "real_estate" || entity === "real_estate") {
     return "real_estate";
   }
-  if (target === "services" || entity === "private_specialist") {
+  if (target === "services") {
     return "services";
   }
-  if (target === "private_specialists") {
-    return "services";
+  if (target === "private_specialists" || entity === "private_specialist") {
+    return "professional";
   }
   if (target === "jobs" || entity === "job") {
     return "jobs";
@@ -77,7 +80,7 @@ export function resolveImportPreviewKind(input: {
   }
 
   // Heuristic fallback from entity alone
-  if (entity === "private_specialist") return "services";
+  if (entity === "private_specialist") return "professional";
 
   return "business";
 }
@@ -93,6 +96,8 @@ export function previewKindToPlatformSection(
     case "real_estate":
       return "marketplace";
     case "services":
+      return "professionals";
+    case "professional":
       return "professionals";
     case "lechu":
       return "lechu";

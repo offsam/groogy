@@ -1,0 +1,478 @@
+[
+  {
+    "id": "bdd73393-87e8-4f87-a3fa-973ffce2cc0d",
+    "name": "Dr. Iliya Khramov MD",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1740 Northwest North River Drive",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33125",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%20North%20River%20Drive%201740%2C%20Miami%2C%20FL%2033125",
+      "phone": "+17862177666"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c876b4e2-516d-486e-911a-439fcf86ab37",
+      "slug": "svoi-dr-iliya-khramov-md"
+    }
+  },
+  {
+    "id": "58968638-1e4a-4414-8e20-b61ce8fc1675",
+    "name": "Miami Lighthouse for the Blind",
+    "changes": {},
+    "fill": {
+      "address_line": "601 Southwest 8th Avenue",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%208th%20Avenue%20601%2C%20Miami%2C%20FL%2033130",
+      "website": "http://www.miamilighthouse.com",
+      "phone": "+13058562288",
+      "instagram_url": "https://www.instagram.com/themiamilighthouse"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "379b4412-ca52-49e2-8f06-52610496d04d",
+      "slug": "svoi-miami-lighthouse-for-the-blind"
+    }
+  },
+  {
+    "id": "d74d54d1-d5f6-4ecd-af6c-4fb0fb9ec78d",
+    "name": "Miami Car Rental Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "3245 Northwest 37th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%2037th%20Street%203245%2C%20Miami%2C%20FL%2042",
+      "website": "http://miamirentauto.com",
+      "phone": "+17862177383"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7b0bd565-99e9-4f13-9e40-5511560f27a8",
+      "slug": "svoi-miami-car-rental-inc"
+    }
+  },
+  {
+    "id": "0ae0f527-7213-4387-a4f6-38b4d0d9c045",
+    "name": "Bee Car",
+    "changes": {},
+    "fill": {
+      "address_line": "1038 Northwest 36th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%2036th%20Street%201038%2C%20Miami%2C%20FL",
+      "phone": "+13056340380"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2c422ba0-52c0-43d2-ac27-220290b7ad3d",
+      "slug": "svoi-bee-car"
+    }
+  },
+  {
+    "id": "0dbc40b2-3899-4abe-8619-f149cd85e87b",
+    "name": "Alex Koifman REAL ESTATE AGENTS",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+15617032200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1d292eb3-e2e7-48f9-8579-e1bed1b15243",
+    "name": "Mikhail Petoukhov Real Estate Specialist",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17869730977"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8321ae9a-8d08-4d45-8ea7-b2184a483d17",
+    "name": "Nadezhda Zaitseva",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13057679063"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "86f2fd61-6ee8-49f9-b15e-673e2909d7d4",
+    "name": "Natalia Zhukova, Licensed Insurance Broker",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17866296649"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a27348bb-da6d-461d-9eb3-88ba55bbfa3e",
+    "name": "Экскурсии и трансферы в Майами",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+19542904606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3470944b-3279-445b-9113-76f53c0bafaa",
+    "name": "ABC Movers",
+    "changes": {},
+    "fill": {
+      "address_line": "18235 Northeast 4th Court",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33162",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%204th%20Court%2018235%2C%20Miami%2C%20FL%2033162",
+      "phone": "+19545590159"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "45a03fb6-916a-4887-96e4-95c3ca1887f8",
+      "slug": "svoi-abc-movers"
+    }
+  },
+  {
+    "id": "f363809e-5e57-43e6-820d-7efd02dbf33d",
+    "name": "Southern Accounting",
+    "changes": {},
+    "fill": {
+      "address_line": "80 Southwest 8th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%208th%20Street%2080%2C%20Miami%2C%20FL%2033130",
+      "phone": "+17863030568"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "acfb9fc0-35bf-453b-a8a8-21b70a316737",
+      "slug": "svoi-southern-accounting"
+    }
+  },
+  {
+    "id": "c345a605-a025-4f9e-993d-090e17f2dafa",
+    "name": "The Russian Store",
+    "changes": {},
+    "fill": {
+      "address_line": "687 Northeast 79th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33138",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%2079th%20Street%20687%2C%20Miami%2C%20FL%2033138",
+      "phone": "+13057582005"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7154f849-f55f-45aa-a382-8275a99ef693",
+      "slug": "svoi-the-russian-store"
+    }
+  },
+  {
+    "id": "1b981f39-0ac2-4f86-9a96-3e49354091d4",
+    "name": "Dr. Raisa Gaines MD at Metrowest Pediatrics",
+    "changes": {},
+    "fill": {
+      "address_line": "33 Edgell Road",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01701",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Edgell%20Road%2033%2C%20Framingham%2C%20MA%2001701",
+      "phone": "+15086206615"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2862e81e-50ce-4242-91a2-f6ae8d835e66",
+      "slug": "svoi-dr-raisa-gaines-md-at-metrowest-pediatrics"
+    }
+  },
+  {
+    "id": "a0cdca8c-8f74-4eb7-97e0-5caf2edafa30",
+    "name": "Dr. Vladimir Gleyzer MD",
+    "changes": {},
+    "fill": {
+      "address_line": "21 Main Street",
+      "location_precision": "street",
+      "city": "North Reading",
+      "state_code": "US-MA",
+      "postal_code": "01864",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%2021%2C%20North%20Reading%2C%20MA%2001864",
+      "phone": "+19786644698"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0a0410fa-d014-4040-a386-eb7fde8a4c74",
+      "slug": "svoi-dr-vladimir-gleyzer-md"
+    }
+  },
+  {
+    "id": "8fef772e-aa37-4636-99bb-e22349b0f435",
+    "name": "Universal Pediatric Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "422 Worcester Street",
+      "location_precision": "street",
+      "city": "Wellesley",
+      "state_code": "US-MA",
+      "postal_code": "02481",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Worcester%20Street%20422%2C%20Wellesley%2C%20MA%2002481",
+      "phone": "+17812359737"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "947b7d94-1ff2-485b-8376-b6d7795001bb",
+      "slug": "svoi-universal-pediatric-associates"
+    }
+  },
+  {
+    "id": "0263fc37-1f5b-434c-96a4-8f99afd1299a",
+    "name": "All Dental of Westborough",
+    "changes": {},
+    "fill": {
+      "address_line": "76 Otis Street",
+      "location_precision": "street",
+      "city": "Westboro",
+      "state_code": "US-MA",
+      "postal_code": "01581",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Otis%20Street%2076%2C%20Westboro%2C%20MA%2001581",
+      "phone": "+18886729127"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "58a3ed9f-5197-4656-9781-2a640ae364a2",
+      "slug": "svoi-all-dental-of-westborough"
+    }
+  },
+  {
+    "id": "542dd1db-9973-498f-952c-54330aa85ac3",
+    "name": "Др. Андрей Мазо DMD",
+    "changes": {},
+    "fill": {
+      "address_line": "76 Otis Street",
+      "location_precision": "street",
+      "city": "Westboro",
+      "state_code": "US-MA",
+      "postal_code": "01581",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Otis%20Street%2076%2C%20Westboro%2C%20MA%2001581",
+      "phone": "+15088701911"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c2027a02-a33a-4f00-9a40-a2a6213eb16c",
+      "slug": "svoi-dmd"
+    }
+  },
+  {
+    "id": "a8e33b98-a398-40fe-a6f7-b846b8775bdb",
+    "name": "Др. Анна Кальманович DMD",
+    "changes": {},
+    "fill": {
+      "address_line": "629 Massachusetts Avenue",
+      "location_precision": "street",
+      "city": "Boxboro",
+      "state_code": "US-MA",
+      "postal_code": "01719",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Massachusetts%20Avenue%20629%2C%20Boxboro%2C%20MA%2001719",
+      "website": "http://www.boxboroughteeth.com",
+      "phone": "+19782638950",
+      "email": "todaysdentalob@hotmail.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0f9d0601-5780-4e49-b177-33d968c52421",
+      "slug": "svoi-dmd-2"
+    }
+  },
+  {
+    "id": "27dd3157-2584-4fe8-9a67-597a606a8921",
+    "name": "Brockton Hospital: Verbitsky Elena A MD",
+    "changes": {},
+    "fill": {
+      "address_line": "680 Centre Street",
+      "location_precision": "street",
+      "city": "Brockton",
+      "state_code": "US-MA",
+      "postal_code": "02302",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Centre%20Street%20680%2C%20Brockton%2C%20MA%2002302",
+      "phone": "+15089417228"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2c1f1786-0b68-487c-9e62-bbe4bb274851",
+      "slug": "svoi-brockton-hospital-verbitsky-elena-a-md"
+    }
+  },
+  {
+    "id": "78b45997-71c6-4f8c-b528-f18042e730c6",
+    "name": "Dr. Yefim Magitsky",
+    "changes": {},
+    "fill": {
+      "address_line": "490 Lynnfield Street",
+      "location_precision": "street",
+      "city": "Lynn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lynnfield%20Street%20490%2C%20Lynn%2C%20MA",
+      "phone": "+17814773950"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "502ed10a-eb83-4235-8747-d80a0cd158b9",
+      "slug": "svoi-dr-yefim-magitsky"
+    }
+  }
+]

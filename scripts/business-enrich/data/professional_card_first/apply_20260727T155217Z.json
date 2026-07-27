@@ -1,0 +1,31 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-professional-massage-complex-by-alexey",
+      "display_name": "Professional Massage Complex by Alexey",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19172511520"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/professional-massage-complex-by-alexey-8310",
+          "city": "NY  91423",
+          "phone": "+19172511520",
+          "image_url": "https://svoi.us/files/images/deaa2315e5435ca3586cd8200f416325.jpeg",
+          "_via": "svoi_page"
+        }
+      },
+      "found": {
+        "phone": "+19172511520",
+        "city": "NY  91423",
+        "image_url": "https://svoi.us/files/images/deaa2315e5435ca3586cd8200f416325.jpeg"
+      },
+      "patch": {}
+    }
+  ]
+}

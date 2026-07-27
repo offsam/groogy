@@ -1,0 +1,40 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "business-biz-205226-834c",
+      "display_name": "Евгения",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "email": "yougenius.coach@gmail.com",
+          "website": "https://yougenius.coach/p/lingua",
+          "telegram_url": "eugenie_gr_personal"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://yougenius.coach/p/lingua",
+          "_fetch_url": "https://yougenius.coach/p/lingua",
+          "image_url": "https://taplink.st/a/5/f/c/e/b889dd.jpg?1",
+          "website": "https://yougenius.coach/p/lingua"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/75494",
+          "website": "https://yougenius.coach/p/lingua",
+          "email": "yougenius.coach@gmail.com",
+          "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/9a0b1651-a381-4bbb-997e-a860e0862534/ab7d06a57f3fb367.webp",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "email": "yougenius.coach@gmail.com",
+        "website": "https://yougenius.coach/p/lingua",
+        "telegram_url": "eugenie_gr_personal",
+        "image_url": "https://taplink.st/a/5/f/c/e/b889dd.jpg?1"
+      },
+      "patch": {}
+    }
+  ]
+}

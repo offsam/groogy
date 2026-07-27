@@ -1,0 +1,484 @@
+[
+  {
+    "id": "d4abda4f-b4b8-4f63-bcb8-c47f0533235d",
+    "name": "Centurion Funding Corp",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=%D0%AD%D0%B9%D0%B2%D0%BE%D0%BD%2C%20MA",
+      "phone": "+18008339222"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "daab1918-fac1-4f84-9ed7-1cfa56ae5106",
+    "name": "Radius Bank",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boston%2C%20MA",
+      "website": "https://www.radiusbank.com",
+      "phone": "+16173037487",
+      "address_line": "88 Kearny Street, Suite 600",
+      "location_precision": "street",
+      "state_code": "US-CA",
+      "postal_code": "94108",
+      "instagram_url": "https://www.instagram.com/happenbank"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5434121f-3adf-4748-aacb-360e56e09912",
+      "slug": "svoi-radius-bank"
+    }
+  },
+  {
+    "id": "29af222e-0778-4cfc-b6a2-f0d1da40ae7f",
+    "name": "Bazaar West",
+    "changes": {},
+    "fill": {
+      "address_line": "855 Worcester Road",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01702",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Worcester%20Road%20855%2C%20Framingham%2C%20MA%2001702",
+      "phone": "+15088727272"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ddc458f-5705-4bcb-965c-849a3c838a64",
+      "slug": "svoi-bazaar-west"
+    }
+  },
+  {
+    "id": "bed7e544-74f6-4364-87ba-9e1d2d36e2e7",
+    "name": "Bread and Butter",
+    "changes": {},
+    "fill": {
+      "address_line": "374 South Main Street",
+      "location_precision": "street",
+      "city": "Sharon",
+      "state_code": "US-MA",
+      "postal_code": "02067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Main%20Street%20374%2C%20Sharon%2C%20MA%20%2002067",
+      "phone": "+17817840080"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7dbd5ec4-41d7-4a9e-ae1c-bf727db11680",
+      "slug": "svoi-bread-and-butter"
+    }
+  },
+  {
+    "id": "5b7dea81-9a3a-4423-9a24-5534b60ec593",
+    "name": "Culinary Delights in Natick",
+    "changes": {},
+    "fill": {
+      "address_line": "229 North Main Street",
+      "location_precision": "street",
+      "city": "Natick",
+      "state_code": "US-MA",
+      "postal_code": "01760",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Main%20Street%20229%2C%20Natick%2C%20MA%2001760",
+      "phone": "+15086535553"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1d3119af-6329-4775-878e-be1e0c8ef90f",
+      "slug": "svoi-culinary-delights-in-natick"
+    }
+  },
+  {
+    "id": "ecf51437-71e4-4834-92a7-e9940298905c",
+    "name": "Антикварный магазин в Марлборо",
+    "changes": {},
+    "fill": {
+      "address_line": "305 Lincoln Street",
+      "location_precision": "street",
+      "city": "Marlborough",
+      "state_code": "US-MA",
+      "postal_code": "01752",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Street%20305%2C%20Marlborough%2C%20MA%2001752",
+      "phone": "+16176696170"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6fcdda99-e529-4ca8-aecf-ba276686a040",
+      "slug": "svoi-biz-46"
+    }
+  },
+  {
+    "id": "c132293d-77da-431c-806e-63917b5f739c",
+    "name": "Gabriella's Gifts",
+    "changes": {},
+    "fill": {
+      "city": "MA 02072",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stoughton%2C%20MA%2002072",
+      "phone": "+16177339209"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3d1d1dd8-93c0-445a-be86-9185958eb899",
+    "name": "Barats Jewelry Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "100 Independence Way",
+      "location_precision": "street",
+      "city": "Dunvers",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Independence%20Way%20%20100%20%2C%20Dunvers%2C%20MA",
+      "phone": "+19786468884"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3401308b-8d97-4c41-8ef3-21da295db2f7",
+      "slug": "svoi-barats-jewelry-repair"
+    }
+  },
+  {
+    "id": "087b0f2a-c345-4b9b-96c5-c806f547fda6",
+    "name": "Bistro 45",
+    "changes": {},
+    "fill": {
+      "address_line": "45 North Washington Street",
+      "location_precision": "street",
+      "city": "North Attleboro",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Washington%20Street%2045%2C%20North%20Attleboro%2C%20MA",
+      "website": "http://www.nabistro45.com",
+      "phone": "+15086994677"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb816c15-b059-454e-bcaa-a98ad52a7564",
+      "slug": "svoi-bistro-45"
+    }
+  },
+  {
+    "id": "860f0ab3-a769-4fe4-b6a8-0a71a9bc8ae4",
+    "name": "Royal Mandarin в New Marlborough",
+    "changes": {},
+    "fill": {
+      "address_line": "350 East Main Street",
+      "location_precision": "street",
+      "city": "Marlborough",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Main%20Street%20350%2C%20Marlborough%2C%20MA",
+      "phone": "+15084812885"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "40bb0f4f-7e6f-4023-9acc-e342b0d5621e",
+      "slug": "svoi-royal-mandarin-new-marlborough"
+    }
+  },
+  {
+    "id": "b15eb685-5c49-4ec1-931a-57e3db490765",
+    "name": "Timothy S Hopkins Catering",
+    "changes": {},
+    "fill": {
+      "address_line": "9 Old Right Road",
+      "location_precision": "street",
+      "city": "Ipswich",
+      "state_code": "US-MA",
+      "postal_code": "01938",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Right%20Road%209%2C%20Ipswich%2C%20MA%2001938",
+      "phone": "+19783560548"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ebc95c20-6dc8-418e-b4c3-4902a053fda0",
+      "slug": "svoi-timothy-s-hopkins-catering"
+    }
+  },
+  {
+    "id": "55319f06-b51a-42df-b644-836166f3da8b",
+    "name": "Lenzi's Millhouse & Catering в Dracut",
+    "changes": {},
+    "fill": {
+      "address_line": "810 Merrimack Avenue",
+      "location_precision": "street",
+      "city": "Drakat",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Merrimack%20Avenue%20810%2C%20Drakat%2C%20MA",
+      "phone": "+19784582323"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ac02443-e790-433f-8a49-239545198e19",
+      "slug": "svoi-lenzi-s-millhouse-catering-dracut"
+    }
+  },
+  {
+    "id": "8b4bcf72-03c2-40b5-a50d-2ac947a0f12d",
+    "name": "Русская баня MA",
+    "changes": {},
+    "fill": {
+      "address_line": "42 Beacon Street",
+      "location_precision": "street",
+      "city": "Framingham",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%2042%2C%20Framingham%2C%20MA%20mingham",
+      "phone": "+17742444213"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b4bb1d3e-2b16-4ece-bb6b-afb6358d9e04",
+      "slug": "svoi-ma"
+    }
+  },
+  {
+    "id": "a3d72ce3-e93c-439b-aa10-2b2aec58deab",
+    "name": "Mobile Sauna",
+    "changes": {},
+    "fill": {
+      "address_line": "24 Beach St",
+      "location_precision": "street",
+      "city": "Quincy",
+      "state_code": "US-MA",
+      "postal_code": "02170",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beach%20St%2024%2C%20Quincy%2C%20MA%2002170",
+      "phone": "+17816545522"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "de2f3b59-a59f-4c3e-a1bd-806cb836bc7d",
+      "slug": "svoi-mobile-sauna"
+    }
+  },
+  {
+    "id": "711c588d-2165-4e03-a748-ef8d9f7f37fb",
+    "name": "Russian Bulletin",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Newton%2C%20MA",
+      "website": "http://russianmass.com",
+      "phone": "+16179698081"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b4a0dc94-3ac2-447d-9a21-18507ed402ca",
+    "name": "Panrus",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Somerville%2C%20MA",
+      "website": "http://www.panrus.com/books",
+      "phone": "+16176253635"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "37ff61db-73ae-40ab-89ae-610309998ca2",
+    "name": "Verree Pediatrics – Dr. Privorotskaya, Galina",
+    "changes": {},
+    "fill": {
+      "address_line": "10125 Verree Road",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Verree%20Road%2010125%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12155529060"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "766928a7-a042-4a9e-9a45-081c7b6ee6e1",
+      "slug": "svoi-verree-pediatrics-dr-privorotskaya-galina"
+    }
+  },
+  {
+    "id": "86473c9d-0fcc-4b39-8eb3-c43e524ca2b7",
+    "name": "Dr. Kobets",
+    "changes": {},
+    "fill": {
+      "address_line": "8556 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19152",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%208556%2C%20Philadelphia%2C%20PA%2019152",
+      "phone": "+12153794385"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1af1e9b0-a22a-43f8-8d32-082463edec24",
+      "slug": "svoi-dr-kobets"
+    }
+  },
+  {
+    "id": "4e588efa-8677-4cee-836d-a43f8241762b",
+    "name": "Advanced Dental Group",
+    "changes": {},
+    "fill": {
+      "address_line": "528 Street Road",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Street%20Road%20528%2C%20Southampton%2C%20PA%2018966",
+      "phone": "+12153222262"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bcc8c5c4-3602-4bd4-9626-126a1758d7a9",
+      "slug": "svoi-advanced-dental-group"
+    }
+  },
+  {
+    "id": "56d8bc7d-d3ea-4a17-9431-cec370cbb353",
+    "name": "Absolute Smile",
+    "changes": {},
+    "fill": {
+      "address_line": "1045 Street Road",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "19166",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Street%20Road%201045%2C%20Southampton%2C%20PA%2019166",
+      "phone": "+12153554007"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cba2a110-e5c3-412d-a417-27df2e04a7c1",
+      "slug": "svoi-absolute-smile"
+    }
+  }
+]

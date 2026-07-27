@@ -1,0 +1,25 @@
+Starting detailed svoi full run batch=25 sleep=0.8 log=/Users/sammov/Russian business AI/scripts/business-enrich/data/svoi_enrich/full_run_20260727T015310Z.log
+
+===== ROUND 1 2026-07-27T01:53:10Z =====
+targets=25 dry_run=False publish=True places=True publish_enriched=False
+
+[1/25] Employment Agency. "Bridge to Success" (Агентство “Мост к Успеху”)
+  svoi: webs=0 phones=3 addr=421 Brighton Beach Avenue
+  no company website
+  places: error
+  places quota exhausted — continuing without Places
+  fill keys: ['address_line', 'city', 'google_maps_url', 'location_precision', 'phone', 'postal_code', 'state_code']
+  recommendation updated
+  publish: {'entity': 'business', 'action': 'create', 'id': 'ec1f3f3d-69f4-4b96-b562-89f52dcb9704', 'slug': 'svoi-employment-agency-bridge-to-success'}
+
+[2/25] Агентство “Мост к успеху”
+  svoi: webs=0 phones=1 addr=421 Brighton Beach ave
+  no company website
+  fill keys: ['address_line', 'city', 'google_maps_url', 'location_precision', 'phone', 'postal_code', 'state_code']
+  recommendation updated
+  publish: {'entity': 'business', 'action': 'merge', 'id': 'ec1f3f3d-69f4-4b96-b562-89f52dcb9704'}
+
+[3/25] Агентство “Мост к Успеху”.
+  svoi: webs=0 phones=2 addr=421 Brighton Beach ave.
+  no company website
+  fill keys: ['address_line', 'city', 'google_maps_url', 'location_precision', 'phone', 'postal_code', 'state_code']

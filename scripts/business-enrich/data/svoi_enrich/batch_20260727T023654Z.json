@@ -1,0 +1,512 @@
+[
+  {
+    "id": "eb6f7f3e-dd08-4bc7-a789-92c84f049303",
+    "name": "Lawyer Alexander Edward Gilburg",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "16209 Victory Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91406",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Victory%20Blvd%2016209%2C%20Los%20Angeles%2C%20CA%2091406",
+      "website": "http://www.gilburglaw.com",
+      "phone": "+18187807373"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "36b86710-d22a-492a-8024-1e40fbd61222",
+      "slug": "svoi-lawyer-alexander-edward-gilburg"
+    }
+  },
+  {
+    "id": "8c6f0efc-e871-46d6-8d61-4cb6a953e71d",
+    "name": "TITAN AEC",
+    "changes": {},
+    "fill": {
+      "address_line": "633 W. 5th Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90744",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=633%20W.%205th%20Street%2C%20Los%20Angeles%2C%20CA%2090744",
+      "website": "http://www.titanaec.com",
+      "phone": "+13106516867",
+      "instagram_url": "https://www.instagram.com/titanaec"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e58a978-9faf-4655-b07b-e37672e5ef84",
+      "slug": "svoi-titan-aec"
+    }
+  },
+  {
+    "id": "f46538f5-4240-41da-9925-18f680a01b2f",
+    "name": "Green CalState Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "18340 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18340%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://greencalstateconstruction.com",
+      "phone": "+18186002618"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2d3902fa-8b44-4010-a08f-6f2204e37e25",
+      "slug": "svoi-green-calstate-construction"
+    }
+  },
+  {
+    "id": "c21579f6-0837-41ef-a43a-d397efe67d56",
+    "name": "Engineer Framing System",
+    "changes": {},
+    "fill": {
+      "address_line": "13659 Victory Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91401",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Victory%20Boulevard%2013659%2C%20Los%20Angeles%2C%20CA%2091401",
+      "phone": "+18182009200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2ed1153d-3e5c-474d-9022-c0ded21da9a6",
+      "slug": "svoi-engineer-framing-system"
+    }
+  },
+  {
+    "id": "8a663fd2-1d84-4d6e-b98e-4f43d4c9f961",
+    "name": "EZ Plumbing & Rooter Plumbing Contractors",
+    "changes": {},
+    "fill": {
+      "address_line": "11478 Burbank Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11478%20Burbank%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://www.ez-plumbing.com",
+      "phone": "+18189002778"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "03f219fc-9e8a-43be-9ffe-6362d1fd21cb",
+      "slug": "svoi-ez-plumbing-rooter-plumbing-contractors"
+    }
+  },
+  {
+    "id": "fa25013e-cd35-4b9c-879a-92ba4456c542",
+    "name": "Master Rooter",
+    "changes": {},
+    "fill": {
+      "address_line": "1773 W San Bernardino Rd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1773%20W%20San%20Bernardino%20Rd%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18183813044"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e7c7479-1c97-4e69-b53d-1929f92a8947",
+      "slug": "svoi-master-rooter"
+    }
+  },
+  {
+    "id": "5ff6e36b-2306-4ee3-a2ac-4109158eeaa1",
+    "name": "New Flow Plumbing and Rooter Services",
+    "changes": {},
+    "fill": {
+      "address_line": "6718 Katherine Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Katherine%20Avenue%206718%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://newflowplumbing.com",
+      "phone": "+18185384958",
+      "postal_code": "91405",
+      "yelp_url": "https://www.yelp.com/biz/new-flow-plumbing-van-nuys-4"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "542ff2d7-2346-473d-8169-fadeed301d45",
+      "slug": "svoi-new-flow-plumbing-and-rooter-services"
+    }
+  },
+  {
+    "id": "829d4479-dd53-4ed5-9a3d-947a9eb5d96a",
+    "name": "Precision Electric",
+    "changes": {},
+    "fill": {
+      "address_line": "10446 Variel Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Variel%20Avenue%2010446%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://www.precisionelectric.ca",
+      "phone": "+18187000134"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "842f3137-90e0-43d0-a168-87922c46ceb0",
+      "slug": "svoi-precision-electric"
+    }
+  },
+  {
+    "id": "9cf60471-125f-491b-b67a-ff1f0401b106",
+    "name": "Юрий Котлерман Электрик",
+    "changes": {},
+    "fill": {
+      "address_line": "8901 Wilbur Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilbur%20Avenue%208901%2C%20Los%20Angeles%2C%20CA%2091324",
+      "website": "https://yurykotlermanelectric.com",
+      "phone": "+18184937233"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9b9d90df-f73f-4cde-8519-00c9db687c0a",
+      "slug": "svoi-biz-35"
+    }
+  },
+  {
+    "id": "dae55b36-0879-4c36-a6e6-453938857603",
+    "name": "S H S Electrical Company",
+    "changes": {},
+    "fill": {
+      "address_line": "16739 Vanowen St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91406",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vanowen%20St%2016739%2C%20Los%20Angeles%2C%20CA%2091406",
+      "website": "http://www.snselectrical.com",
+      "phone": "+16022530245"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d0982a23-b510-43b5-bfce-3130378156fa",
+      "slug": "svoi-s-h-s-electrical-company"
+    }
+  },
+  {
+    "id": "6788703c-4765-4eac-92ee-3009631abca5",
+    "name": "A Professional Handyman",
+    "changes": {},
+    "fill": {
+      "city": "CA 90027",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%2090027",
+      "phone": "+18183553882"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5cd5ae52-58bd-4a3f-862a-fbd6587548ca",
+    "name": "Master Cabinets Company",
+    "changes": {},
+    "fill": {
+      "address_line": "9710 Owensmouth Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91311",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9710%20Owensmouth%20Ave%2C%20Los%20Angeles%2C%20CA%2091311",
+      "website": "https://mastercabinets.com",
+      "phone": "+18184260526",
+      "yelp_url": "https://www.yelp.com/biz/master-cabinets-company-los-angeles",
+      "email": "custom@mastercabinets.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "03280c8d-d3e5-4f70-a3cd-51259b776d5f",
+      "slug": "svoi-master-cabinets-company"
+    }
+  },
+  {
+    "id": "647f24a2-77ee-4e4c-8d24-fb1958fb43e1",
+    "name": "J. Alexander Furniture",
+    "changes": {},
+    "fill": {
+      "address_line": "6931 Stanford Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6931%20Stanford%20Ave%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://jalexanderfurniture.com",
+      "phone": "+13237539239"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "66b30cb4-74f3-4970-811c-a82e89f58ac3",
+      "slug": "svoi-j-alexander-furniture"
+    }
+  },
+  {
+    "id": "fb939271-7262-409f-9d46-7e714ec9330a",
+    "name": "LAComfy Furniture Store Los Angeles",
+    "changes": {},
+    "fill": {
+      "address_line": "929 N Western Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=929%20N%20Western%20Ave%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://lacomfy.com",
+      "phone": "+18189004646"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e8a04699-7d9e-46bd-8e5c-855c5f03fdb9",
+      "slug": "svoi-lacomfy-furniture-store-los-angeles"
+    }
+  },
+  {
+    "id": "f2379b88-ebc2-4f03-b770-0cbc8e5b5c0d",
+    "name": "Ремонтные работы - шпаклевка и покраска стен",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA",
+      "phone": "+18184149356"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "84ef49fc-a667-4188-b986-12f9719e2d53",
+    "name": "Строительная компания Sky Tunnel Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "5832 Carlton Way",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5832%20Carlton%20Way%2C%20Los%20Angeles%2C%20CA%20ted%20States",
+      "website": "https://www.skytunnelconstruction.com",
+      "phone": "+12132734110"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7eb2ccd9-2d7a-4490-b8ae-cf0d99d86da6",
+      "slug": "svoi-sky-tunnel-construction"
+    }
+  },
+  {
+    "id": "7e745dd8-dce3-4c89-a294-b8274daf7936",
+    "name": "AirCrew",
+    "changes": {},
+    "fill": {
+      "city": "CA  91381",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stevenson%20Ranch%2C%20CA%20%2091381",
+      "phone": "+18185612739"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b72cbbd6-e47b-4d69-b420-98187baca503",
+    "name": "Advanced Handyman Services",
+    "changes": {},
+    "fill": {
+      "address_line": "7139 Pomelo Drive",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91307",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pomelo%20Drive%207139%2C%20Los%20Angeles%2C%20CA%2091307",
+      "website": "https://laheatingairconditioning.com",
+      "phone": "+18183413406",
+      "instagram_url": "https://www.instagram.com/la_heating_ac",
+      "yelp_url": "https://www.yelp.com/biz/la-heating-and-air-conditioning-woodland-hills"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c67f3313-4fce-4130-a544-84a117403776",
+      "slug": "svoi-advanced-handyman-services"
+    }
+  },
+  {
+    "id": "9ca5ce8f-8ed1-4a26-8a1a-43996ae9a8b7",
+    "name": "Trident Plumbing",
+    "changes": {},
+    "fill": {
+      "address_line": "7738 Gentry Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gentry%20Avenue%207738%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+13232050001"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c916abb0-7994-47a0-8fe8-3d0c34c755ad",
+      "slug": "svoi-trident-plumbing"
+    }
+  },
+  {
+    "id": "2da30f24-1e5b-426f-9c76-a456162145e7",
+    "name": "Urgent House Cleaning",
+    "changes": {},
+    "fill": {
+      "address_line": "6936 Peach Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91406",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Peach%20Avenue%206936%2C%20Los%20Angeles%2C%20CA%2091406",
+      "phone": "+18187315062"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2f705640-4a93-42ed-9adb-2c68e04de9ab",
+      "slug": "svoi-urgent-house-cleaning"
+    }
+  }
+]

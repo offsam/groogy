@@ -1,0 +1,507 @@
+[
+  {
+    "id": "35181713-e6e3-49c7-bfbb-db7ffb86869f",
+    "name": "True Ward Carpet Cleaning, Carpet & Rug Cleaners",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%20ted%20States",
+      "phone": "+13236650606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "2f71eb4a-cea8-41ad-8791-16e11796a80f",
+    "name": "Prime Termite",
+    "changes": {},
+    "fill": {
+      "address_line": "2829 N. San Fernando Rd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90065",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20San%20Fernando%20Rd%202829%2C%20Los%20Angeles%2C%20CA%2090065",
+      "website": "https://primetermite.com",
+      "phone": "+18889983764"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1da8d72d-a297-46ef-a265-95efeb846857",
+      "slug": "svoi-prime-termite"
+    }
+  },
+  {
+    "id": "1a20ce81-b7d5-496d-af4a-35cc4a742992",
+    "name": "Marina Clark - Savvolio Real Estate Services",
+    "changes": {},
+    "fill": {
+      "address_line": "17207 Ventura Blvd Suite # 2",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17207%20Ventura%20Blvd%20Suite%20%23%202%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://www.youandothersellers.com",
+      "phone": "+18189320072"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7094b4f7-0ce1-4837-9e99-0b2f8fbbf953",
+      "slug": "svoi-marina-clark-savvolio-real-estate-services"
+    }
+  },
+  {
+    "id": "c46a2cdb-657f-4bff-a7b4-fc31083d1a04",
+    "name": "Beginyan's Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "7252 Bellaire Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91605",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bellaire%20Avenue%207252%2C%20Los%20Angeles%2C%20CA%2091605",
+      "website": "http://www.losangelestileandstone.com",
+      "phone": "+18185030833"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7f6ad5c3-138c-4331-ab51-0e566d9b0a6d",
+      "slug": "svoi-beginyan-s-inc"
+    }
+  },
+  {
+    "id": "d0151971-374c-4f04-971c-fccd1914d59b",
+    "name": "Remodelzz",
+    "changes": {},
+    "fill": {
+      "address_line": "11400 Olympic Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11400%20Olympic%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://www.remodelzz.com",
+      "phone": "+13103067536"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b63e7a48-3f48-4248-81da-a913c79d2f5c",
+      "slug": "svoi-remodelzz"
+    }
+  },
+  {
+    "id": "27df639b-1dc9-4cf4-8e74-14417ae57fc8",
+    "name": "Beguile Beauty",
+    "changes": {},
+    "fill": {
+      "address_line": "1633 East Lincoln Avenue",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "postal_code": "92865",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lincoln%20Avenue%201633%2C%20Orange%2C%20CA%2092865",
+      "phone": "+17144946133"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e9c5fc04-be0b-4eef-beb4-1839b452e45c",
+      "slug": "svoi-beguile-beauty"
+    }
+  },
+  {
+    "id": "95010e86-1059-4919-8684-888b4946c4c8",
+    "name": "The Executive Barbershop & Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "22201 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91436",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=22201%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA%2091436",
+      "phone": "+18189144933"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4f9fef8-7edd-48dd-a06a-1ffe04fc9b09",
+      "slug": "svoi-the-executive-barbershop-salon"
+    }
+  },
+  {
+    "id": "4466cf08-9f7c-4a2d-9b27-37b92bd153e9",
+    "name": "Image Hair Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "9301 Tampa Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tampa%20Avenue%209301%2C%20Los%20Angeles%2C%20CA%2091324",
+      "phone": "+18187010777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9211f50e-c254-40b1-bcaf-2183a2f167c3",
+      "slug": "svoi-image-hair-studio"
+    }
+  },
+  {
+    "id": "3ab76d75-bd4c-4416-993b-c7bb846eea6d",
+    "name": "Two Brown Eyed Girls",
+    "changes": {},
+    "fill": {
+      "address_line": "1864 South Sepulveda Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Sepulveda%20Boulevard%201864%2C%20Los%20Angeles%2C%20CA%2090025",
+      "website": "http://www.twobrowneyedgirls.com",
+      "phone": "+13104443900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5787c3b1-ecb7-4a8f-8123-fa3ed34cb519",
+      "slug": "svoi-two-brown-eyed-girls"
+    }
+  },
+  {
+    "id": "07b9a094-3381-4cfb-b711-43094424377b",
+    "name": "Santa Clarita Massage by Natalya",
+    "changes": {},
+    "fill": {
+      "address_line": "27600 Bouquet Canyon Road",
+      "location_precision": "street",
+      "city": "Santa clarita",
+      "state_code": "US-CA",
+      "postal_code": "91350",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bouquet%20Canyon%20Road%2027600%2C%20Santa%20clarita%2C%20CA%2091350",
+      "website": "http://www.russianmasseuse.com",
+      "phone": "+16619938465",
+      "instagram_url": "https://www.instagram.com/santaclaritamassagebynatalya",
+      "yelp_url": "https://www.yelp.com/biz/santa-clarita-massage-by-natalya-santa-clarita-8",
+      "email": "natalya@santaclaritamassage.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "59ce2814-73b7-4dcd-bbde-476abec191ea",
+      "slug": "svoi-santa-clarita-massage-by-natalya"
+    }
+  },
+  {
+    "id": "15052936-b5b0-4971-b990-b3b57baa0f5f",
+    "name": "Massage Therapy, Natasha",
+    "changes": {},
+    "fill": {
+      "city": "CA 92708",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fountain%20Valley%2C%20CA%2092708",
+      "phone": "+14803138192"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "62de970f-5e84-4377-9900-fdb2b8d4856e",
+      "slug": "svoi-massage-therapy-natasha"
+    }
+  },
+  {
+    "id": "14c84822-ffb8-4171-8f1b-6dbd9acdca71",
+    "name": "Professional Massage Complex by Alexey",
+    "changes": {},
+    "fill": {
+      "city": "NY  91423",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY%20%2091423",
+      "phone": "+19172511520"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0a968a25-4d19-404f-a497-dba14d4a549b",
+      "slug": "svoi-professional-massage-complex-by-alexey"
+    }
+  },
+  {
+    "id": "8e2a113e-e0bc-4cf3-9de9-46e031af9858",
+    "name": "ROBERT HICKEY - Farmers Insurance Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "5855 East Naples Plaza",
+      "location_precision": "street",
+      "city": "Long beach",
+      "state_code": "US-CA",
+      "postal_code": "90803",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Naples%20Plaza%205855%2C%20Long%20beach%2C%20CA%2090803",
+      "phone": "+15624330928"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c15d2215-3957-4355-a1f7-eec7b18d01fc",
+      "slug": "svoi-robert-hickey-farmers-insurance-agent"
+    }
+  },
+  {
+    "id": "cdb6c9f5-7ca7-443e-9f98-cb7e3d69c625",
+    "name": "Absolute Value Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "5525 Oakdale Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91364",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oakdale%20Avenue%205525%2C%20Los%20Angeles%2C%20CA%2091364",
+      "phone": "+18182641939"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6c3a77b2-5140-4a41-8679-58421a780411",
+      "slug": "svoi-absolute-value-insurance"
+    }
+  },
+  {
+    "id": "73d983fe-65b0-4c9d-a9ea-f1955af6448e",
+    "name": "Absolute Value Insurance Services - Игорь Шухман",
+    "changes": {},
+    "fill": {
+      "address_line": "5525 Oakdale Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91364",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5525%20Oakdale%20Ave%2C%20Los%20Angeles%2C%20CA%2091364",
+      "website": "https://www.absolutevalueinsurance.com",
+      "phone": "+18182641939"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "6c3a77b2-5140-4a41-8679-58421a780411"
+    }
+  },
+  {
+    "id": "a4920224-fab6-481d-91a6-4a94cff03c06",
+    "name": "Eugene Appliance Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "18743 Hatteras Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hatteras%20Street%2018743%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+13238426606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e845c5b9-0e1a-4c37-8df1-d00a5ec0e42e",
+      "slug": "svoi-eugene-appliance-repair"
+    }
+  },
+  {
+    "id": "80ffbc8d-ee05-4138-8553-4149edfdcade",
+    "name": "CompuSerge",
+    "changes": {},
+    "fill": {
+      "address_line": "17929 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91316",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17929%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA%2091316",
+      "website": "http://www.compuserge.net",
+      "phone": "+18182570589"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "525d5e6a-bf13-4bb8-a115-5d7e8071f948",
+      "slug": "svoi-compuserge"
+    }
+  },
+  {
+    "id": "5759016e-ea8c-487f-a61a-0aefc645c5fd",
+    "name": "Logical Edge Services",
+    "changes": {},
+    "fill": {
+      "address_line": "1456 North Sierra Bonita Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Sierra%20Bonita%20Avenue%201456%2C%20Los%20Angeles%2C%20CA%2090046",
+      "website": "https://logicaledge.com",
+      "phone": "+13235124411",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5108be55-b538-4a7d-b726-6cdb2ba0dff6",
+      "slug": "svoi-logical-edge-services"
+    }
+  },
+  {
+    "id": "a3f3515b-197d-43d7-9897-ad1e229cfe7e",
+    "name": "Владимир Деркач",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Malibu%2C%20CA",
+      "phone": "+13109483703"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "30d03b47-75f5-4721-9a0a-6044cf05c9b8",
+    "name": "California Land Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "10469",
+      "location_precision": "street",
+      "city": "Larwin Ave",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10469%2C%20Larwin%20Ave%2C%20Los%20Angeles%2C%20CA%2091311",
+      "website": "https://californialandtravel.com",
+      "phone": "+13104904852"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c3b9666e-5e36-4b2a-ab16-d28b52ba9e32",
+      "slug": "svoi-california-land-travel"
+    }
+  }
+]

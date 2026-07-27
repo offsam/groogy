@@ -1,0 +1,505 @@
+[
+  {
+    "id": "d1897fa1-67cd-4617-b7f1-1f128ebee97e",
+    "name": "Trio Hair Salon",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "712 North Wabash Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60611",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Wabash%20Avenue%20712%2C%20Chicago%2C%20IL%2060611",
+      "phone": "+13129446999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1bc1f64f-cc08-454c-96b7-b8fa24f78d8f",
+      "slug": "svoi-trio-hair-salon"
+    }
+  },
+  {
+    "id": "c4fe0ad7-7f55-485d-94a2-10c8f599a9a6",
+    "name": "Zeza Hair Salon &Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "211 East Ontario Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60611",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Ontario%20Street%20211%2C%20Chicago%2C%20IL%2060611",
+      "website": "http://www.zezasalon.com",
+      "phone": "+13129329262"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "27a57da2-cf8f-41c7-8c86-0ac79a8745d4",
+      "slug": "svoi-zeza-hair-salon-spa"
+    }
+  },
+  {
+    "id": "22cea781-ee11-405a-8b59-a1de22489598",
+    "name": "Anna George Hair Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "233 N. Michigan Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60601",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Michigan%20Avenue%20%20233%2C%20Chicago%2C%20IL%2060601",
+      "phone": "+13128560252"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "00676b68-641c-4601-b897-35f609adc232",
+      "slug": "svoi-anna-george-hair-salon"
+    }
+  },
+  {
+    "id": "1caa365f-4c10-4453-90c4-4c5db11cdf19",
+    "name": "EXTENSION EYELASHES",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "phone": "+13128345030"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7a826ea8-de89-4bed-892f-f99c0864aa2c",
+    "name": "Anna Amelina",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "website": "http://annaamelina.com/en/content/127-bio",
+      "phone": "+13127710308"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "97e18e92-c4d9-4dc9-9ce9-99f02192347c",
+    "name": "Olga Zarkh, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1401 W Dundee Rd",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Dundee%20Rd%201401%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "website": "http://www.yourpersonaldoctor.com",
+      "phone": "+18478187700",
+      "instagram_url": "https://www.instagram.com/zarkholga"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "9e26015f-1bff-477e-9fd5-c386f6c9436d",
+      "slug": "svoi-olga-zarkh-md"
+    }
+  },
+  {
+    "id": "9f5c5f4a-c23e-41bd-95ce-b980d7d8ece0",
+    "name": "Dr. Yakov Ryabov, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "201 East Strong Street",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Strong%20Street%20201%2C%20Wheeling%2C%20IL",
+      "phone": "+18474191900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "bcb2ffa1-f415-41c9-97b6-75c3ad073209",
+      "slug": "svoi-dr-yakov-ryabov-md"
+    }
+  },
+  {
+    "id": "4d7fc398-06de-48ea-86b4-29fb2e611fdb",
+    "name": "Dr. Rimma Polotskaya M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "3633 East Lake Avenue",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lake%20Avenue%203633%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18476577963"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4b6dce1e-5f22-4f06-a56d-7777f2b13d56",
+      "slug": "svoi-dr-rimma-polotskaya-m-d"
+    }
+  },
+  {
+    "id": "4fbc8a15-cd74-49e8-9fd9-3c2ed66e0ec4",
+    "name": "Леонид Блумин, D.P.M.",
+    "changes": {},
+    "fill": {
+      "address_line": "1405 W Morse Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60626",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Morse%20Ave%201405%2C%20Chicago%2C%20IL%2060626",
+      "phone": "+17737435100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "84cc25ca-9a68-47d5-af78-a2d020ef4910",
+      "slug": "svoi-d-p-m"
+    }
+  },
+  {
+    "id": "c2448bac-edfe-4302-ac2d-59f523ce8797",
+    "name": "Dr. Yevgeny Odessky MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2921 West Devon Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Devon%20Avenue%202921%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+17732628820"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c82dd8ca-27f6-40f7-acea-14de8db8064e",
+      "slug": "svoi-dr-yevgeny-odessky-md"
+    }
+  },
+  {
+    "id": "92755a76-c801-4095-9508-dc32f4a710a5",
+    "name": "Dr. Yelena Oleynikov, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "4025 North Western Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Western%20Avenue%204025%2C%20Chicago%2C%20IL%2060618",
+      "phone": "+17732757700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6f2789c8-ad22-4347-ae9d-11b8ed414ffc",
+      "slug": "svoi-dr-yelena-oleynikov-md"
+    }
+  },
+  {
+    "id": "c02006b5-e3b7-4a29-bad7-e3b3a4b35483",
+    "name": "Dr. Halyna Boryslavska",
+    "changes": {},
+    "fill": {
+      "address_line": "2246 West Chicago Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chicago%20Avenue%202246%2C%20Chicago%2C%20IL%2060622",
+      "phone": "+17732766831"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e891fe8d-b03f-4a15-9022-37a334ff12c5",
+      "slug": "svoi-dr-halyna-boryslavska"
+    }
+  },
+  {
+    "id": "533294d7-6bfc-4348-a33e-d6ca91b09e1c",
+    "name": "Art of Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "3233 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%203233%2C%20Arlington%20heights%2C%20IL",
+      "phone": "+18474839999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "062f3ea3-f15d-4e41-a1a2-833de8f6c1e5",
+      "slug": "svoi-art-of-insurance-agency"
+    }
+  },
+  {
+    "id": "9fd22687-f03a-44b1-9b24-779a7e5255a5",
+    "name": "AllState",
+    "changes": {},
+    "fill": {
+      "address_line": "813 West Rand Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Rand%20Road%20813%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18473983600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8a1a85fd-9b76-49af-9eda-c470d3f4a75d",
+      "slug": "svoi-allstate"
+    }
+  },
+  {
+    "id": "93b19304-e23a-4883-81ce-6c8e581369ae",
+    "name": "Insurance Car Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "1117 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Riverwoods",
+      "state_code": "US-IL",
+      "postal_code": "60015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%201117%2C%20Riverwoods%2C%20IL%2060015",
+      "phone": "+18472152030"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e3edc1b-0ed4-4f80-9f05-1d8c4055e7cd",
+      "slug": "svoi-insurance-car-insurance"
+    }
+  },
+  {
+    "id": "77bc28cb-16ee-4d52-924b-dd6934174ce5",
+    "name": "Tolvaisaite Renata",
+    "changes": {},
+    "fill": {
+      "address_line": "325 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%20325%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472158989"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2fcaafa1-fddd-4f64-ab11-d87e65485bed",
+      "slug": "svoi-tolvaisaite-renata"
+    }
+  },
+  {
+    "id": "c1c597e5-0c77-42e8-87bb-49953347dcc1",
+    "name": "All Insurance Services",
+    "changes": {},
+    "fill": {
+      "address_line": "212 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%20212%2C%20Wheeling%2C%20IL",
+      "phone": "+18476302833"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0acca8c7-15bd-4426-8f48-087f703119f6",
+      "slug": "svoi-all-insurance-services"
+    }
+  },
+  {
+    "id": "8f1a6205-0bf0-44be-b985-b013a18eb537",
+    "name": "Свистун Александр",
+    "changes": {},
+    "fill": {
+      "address_line": "225 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Elk Grove Village",
+      "state_code": "US-IL",
+      "postal_code": "60007",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%20225%2C%20Elk%20Grove%20Village%2C%20IL%2060007",
+      "phone": "+18472262451"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ad3c6cb-4949-49b2-8c7d-d44f6d7a9b31",
+      "slug": "svoi-biz-27"
+    }
+  },
+  {
+    "id": "1376f8a5-1d54-40b0-bebc-69678a552ba2",
+    "name": "Iryna Dovbenko - Farmers Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "1431 OPUS PL",
+      "location_precision": "street",
+      "city": "Downers grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=OPUS%20PL%201431%2C%20Downers%20grove%2C%20IL",
+      "phone": "+13057072585"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9af176ca-c203-4a35-8aa5-23af9766fb46",
+      "slug": "svoi-iryna-dovbenko-farmers-insurance"
+    }
+  },
+  {
+    "id": "b0be539a-d3ef-4159-85dc-ace606e8950d",
+    "name": "Anna Yukhvidina / Universal Insurance Group",
+    "changes": {},
+    "fill": {
+      "address_line": "400 Skokie Boulevard",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Boulevard%20400%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+12246391435"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8cbe12a5-689c-440a-8ec5-be1c8348c777",
+      "slug": "svoi-anna-yukhvidina-universal-insurance-group"
+    }
+  }
+]

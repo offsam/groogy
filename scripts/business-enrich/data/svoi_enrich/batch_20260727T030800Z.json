@@ -1,0 +1,1357 @@
+[
+  {
+    "id": "a0f92eea-6078-4d28-9bc6-0a4d5a4bb77d",
+    "name": "Herron Law",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "5285 Meadows Road",
+      "location_precision": "street",
+      "city": "Lake oswego",
+      "state_code": "US-OR",
+      "postal_code": "97035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5285%20Meadows%20Road%2C%20Lake%20oswego%2C%20OR%2097035",
+      "website": "http://www.portlandinjuryfirm.com",
+      "phone": "+15036996496",
+      "email": "olga@portlandinjuryfirm.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fe488534-13b6-4412-8fd9-0e37ce4f58e9",
+      "slug": "svoi-herron-law"
+    }
+  },
+  {
+    "id": "6de04ab7-14d6-46be-9315-422fed7c3c5a",
+    "name": "Nexus Realty International - Pavel Stepanov",
+    "changes": {},
+    "fill": {
+      "address_line": "4020 Lake Washington Blvd NE",
+      "location_precision": "street",
+      "city": "Kirkland",
+      "state_code": "US-WA",
+      "postal_code": "98033",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4020%20Lake%20Washington%20Blvd%20NE%2C%20Kirkland%2C%20WA%2098033",
+      "website": "https://mynexusrealty.com",
+      "phone": "+12066834386"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ffa76881-afcf-44ee-9152-eeb6589fc265",
+      "slug": "svoi-nexus-realty-international-pavel-stepanov"
+    }
+  },
+  {
+    "id": "bfc80b2b-f854-457f-b9d7-30f5a6312232",
+    "name": "VirtuDesk",
+    "changes": {},
+    "fill": {
+      "address_line": "4020 Lake Washington Blvd",
+      "location_precision": "street",
+      "city": "Seattle",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4020%20Lake%20Washington%20Blvd%2C%20Seattle%2C%20WA",
+      "website": "https://myvirtudesk.com",
+      "phone": "+13603346464",
+      "instagram_url": "https://www.instagram.com/virtudesk.inc"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1529726d-08af-4b70-8d03-5691c936b396",
+      "slug": "svoi-virtudesk"
+    }
+  },
+  {
+    "id": "47a81056-862e-4989-ae3a-51df8ccc528c",
+    "name": "The Handris Realty Company - Petr Zhukivskiy",
+    "changes": {},
+    "fill": {
+      "address_line": "2008 Willamette Falls Dr",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2008%20Willamette%20Falls%20Dr%2C%20Portland%2C%20OR",
+      "website": "http://petrzhukivskiy.handrisrealty.com/getagent/show.php",
+      "phone": "+15034211730"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "17ffc13e-2acd-428d-8857-b892006649ad",
+      "slug": "svoi-the-handris-realty-company-petr-zhukivskiy"
+    }
+  },
+  {
+    "id": "2b86990d-7b40-4fe0-b044-88fdaf5cf8f1",
+    "name": "Строительная компания Ameridream Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "4204 NE 78th St",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98665",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4204%20NE%2078th%20St%2C%20Vancouver%2C%20WA%2098665",
+      "phone": "+13609098902"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "701874e6-580b-429c-84eb-6d889329dd86",
+      "slug": "svoi-ameridream-construction"
+    }
+  },
+  {
+    "id": "89f65a3c-e390-4e65-9b0a-d14eab1a1c25",
+    "name": "Hawthorne Realty LLC - Lili Dezhnyuk",
+    "changes": {},
+    "fill": {
+      "address_line": "10117 SE Sunnyside Road",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10117%20SE%20Sunnyside%20Road%2C%20Portland%2C%20OR",
+      "phone": "+15032097561"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7473c69e-b3d6-4822-b854-b0c68b2bb9f0",
+      "slug": "svoi-hawthorne-realty-llc-lili-dezhnyuk"
+    }
+  },
+  {
+    "id": "69235252-e781-4542-a9a4-55eb75e313ae",
+    "name": "Украинский объединенный кредитный союз (Ванкувер)",
+    "changes": {},
+    "fill": {
+      "address_line": "11208 NE Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11208%20NE%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA%2098662",
+      "website": "http://rufcu.org",
+      "phone": "+13605972096"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6912871-82e4-4b32-bd68-8f523556f652",
+      "slug": "svoi-biz-56"
+    }
+  },
+  {
+    "id": "5e11ad7c-7f14-4071-9a2b-535ea8565a07",
+    "name": "On Q Financial - Lana's Team",
+    "changes": {},
+    "fill": {
+      "address_line": "201 NE Park Plaza Dr",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=201%20NE%20Park%20Plaza%20Dr%2C%20Vancouver%2C%20WA",
+      "website": "https://onqfinancial.com/washington/vancouver/lana-geraghty",
+      "phone": "+13602074677"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2e4fa2ab-edfc-4b9b-9b22-72c7e8bea459",
+      "slug": "svoi-on-q-financial-lana-s-team"
+    }
+  },
+  {
+    "id": "b14cc3ee-4326-48b1-b984-26c794e166e0",
+    "name": "Ukrainian Federal Credit Union",
+    "changes": {},
+    "fill": {
+      "address_line": "11050 Powell Blvd",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97266",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11050%20Powell%20Blvd%2C%20Portland%2C%20OR%2097266",
+      "website": "https://ukrainianfcu.org",
+      "phone": "+15037741444"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c7733182-18ce-4f42-9f39-72bc3d2d4163",
+      "slug": "svoi-ukrainian-federal-credit-union"
+    }
+  },
+  {
+    "id": "519a8f72-cfb0-4c88-b18f-343e2644e58f",
+    "name": "Porch Light Appraisal",
+    "changes": {},
+    "fill": {
+      "address_line": "800 NE Tenney Rd.",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=800%20NE%20Tenney%20Rd.%2C%20Vancouver%2C%20WA",
+      "website": "https://www.porchlightappraisal.com",
+      "phone": "+13609539547",
+      "instagram_url": "https://www.instagram.com/porchlightappraisal",
+      "email": "info@porchlightappraisal.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "93262388-e970-4433-b5df-c20a8e6ccfed",
+      "slug": "svoi-porch-light-appraisal"
+    }
+  },
+  {
+    "id": "d935c552-4320-4021-bf43-d625e9523aa6",
+    "name": "DM Stone Construction inc",
+    "changes": {},
+    "fill": {
+      "address_line": "10215 NE 116 Ct",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10215%20NE%20116%20Ct%2C%20Vancouver%2C%20WA",
+      "website": "http://dmstone.construction",
+      "phone": "+15039977509"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ce9a51a1-e8b6-4f06-9ef9-5ccbf2e6f024",
+      "slug": "svoi-dm-stone-construction-inc"
+    }
+  },
+  {
+    "id": "30565e5e-8250-4a5c-bcc9-6d3cb17be539",
+    "name": "Peter Drokin - Drokin Brothers INC",
+    "changes": {},
+    "fill": {
+      "address_line": "10919 Ne 88th St",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10919%20Ne%2088th%20St%2C%20Vancouver%2C%20WA",
+      "phone": "+13608524777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "455154a7-69ff-4781-ac6b-61e2e2f7910f",
+      "slug": "svoi-peter-drokin-drokin-brothers-inc"
+    }
+  },
+  {
+    "id": "b1f04743-75a0-4c7f-921e-1b2e44b3352b",
+    "name": "Andrey Zhuk Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "12811 SE Cooper St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97236",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=12811%20SE%20Cooper%20St%2C%20Portland%2C%20OR%2097236",
+      "phone": "+15038301885"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1f18df06-2f45-41e8-8713-25e969522c78",
+      "slug": "svoi-andrey-zhuk-construction"
+    }
+  },
+  {
+    "id": "fa93f9d0-74cf-49ee-b555-1587fb43dc07",
+    "name": "Lily Cabinets and Countertops",
+    "changes": {},
+    "fill": {
+      "address_line": "18513 Northeast Fourth Plain Boulevard",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98682",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20Fourth%20Plain%20Boulevard%2018513%2C%20Vancouver%2C%20WA%2098682",
+      "phone": "+13607984036"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b3d20cb5-7deb-48ec-9333-8225621661b8",
+      "slug": "svoi-lily-cabinets-and-countertops"
+    }
+  },
+  {
+    "id": "85141030-a527-4c62-a716-34a34e89d410",
+    "name": "Creative Cabinets",
+    "changes": {},
+    "fill": {
+      "address_line": "2700 NE Andresen Rd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2700%20NE%20Andresen%20Rd%2C%20Vancouver%2C%20WA%2098661",
+      "website": "http://www.dreamlinecabinets.com",
+      "phone": "+15038418575",
+      "instagram_url": "https://www.instagram.com/dreamline_customcabinets",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c36c7087-3bba-4ca8-b252-b3c65a57529d",
+      "slug": "svoi-creative-cabinets"
+    }
+  },
+  {
+    "id": "67747c15-8a09-45d5-ad4b-fcac821d30bd",
+    "name": "Cascade Home Decor",
+    "changes": {},
+    "fill": {
+      "address_line": "12810 NE Airport Way",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97230",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=12810%20NE%20Airport%20Way%2C%20Portland%2C%20OR%2097230",
+      "website": "https://cascadehomedecor.com",
+      "phone": "+15038948877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "57d3c78b-5b12-4b30-b4b6-b2199c32eae2",
+      "slug": "svoi-cascade-home-decor"
+    }
+  },
+  {
+    "id": "4599ac64-3fa7-4989-8248-8c58f2829001",
+    "name": "A to Z Custom Painting",
+    "changes": {},
+    "fill": {
+      "address_line": "2717 NE 102nd St",
+      "location_precision": "street",
+      "city": "Salmon creek",
+      "state_code": "US-WA",
+      "postal_code": "98686",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=NE%20102nd%20St%202717%2C%20Salmon%20creek%2C%20WA%2098686",
+      "website": "http://atozcustompainting.ephicientdesign.com",
+      "phone": "+13605210438"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "30b45023-3980-495f-aeb1-c9a9998ccb7b",
+      "slug": "svoi-a-to-z-custom-painting"
+    }
+  },
+  {
+    "id": "63e7ba7f-ec82-4b90-bbfe-4bf58ad584de",
+    "name": "Let's Remodel",
+    "changes": {},
+    "fill": {
+      "address_line": "12518 Northeast Airport Way",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97230",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20Airport%20Way%2012518%2C%20Portland%2C%20OR%2097230",
+      "website": "https://letsremodel.net",
+      "phone": "+15032083687",
+      "instagram_url": "https://www.instagram.com/letsremodelpdx",
+      "yelp_url": "https://www.yelp.com/biz/lets-remodel-portland",
+      "email": "info@letsremodel.net",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "12ad3484-cf09-4398-906a-b67f3302a3dc",
+      "slug": "svoi-let-s-remodel"
+    }
+  },
+  {
+    "id": "f9b2f354-e9f4-437c-9261-754f570aa07b",
+    "name": "Perfect Carpet Cleaning",
+    "changes": {},
+    "fill": {
+      "address_line": "604 Northwest 16th Street",
+      "location_precision": "street",
+      "city": "Battle Ground",
+      "state_code": "US-WA",
+      "postal_code": "98604",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%2016th%20Street%20604%2C%20Battle%20Ground%2C%20WA%2098604",
+      "phone": "+13602134875"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "751015c9-81e9-47ee-8b58-51f9af8ec8fd",
+      "slug": "svoi-perfect-carpet-cleaning"
+    }
+  },
+  {
+    "id": "b3cd1330-0a5d-4835-a781-c724d242825f",
+    "name": "A&D Carpet Cleaning",
+    "changes": {},
+    "fill": {
+      "address_line": "2448 Northwest Ava Avenue",
+      "location_precision": "street",
+      "city": "Gresham",
+      "state_code": "US-OR",
+      "postal_code": "97030",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%20Ava%20Avenue%202448%2C%20Gresham%2C%20OR%2097030",
+      "phone": "+15038902130"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d6104687-dfd0-41ea-a05a-19408fae241e",
+      "slug": "svoi-a-d-carpet-cleaning"
+    }
+  },
+  {
+    "id": "3bf276be-36b6-4484-a04f-6224047dac84",
+    "name": "Marks Professional Carpet Cleaning",
+    "changes": {},
+    "fill": {
+      "address_line": "5005 Southwest Texas Street",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97219",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%20Texas%20Street%205005%2C%20Portland%2C%20OR%2097219",
+      "phone": "+15037020018"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1da7992-887d-46c4-94e0-f798fffd59c4",
+      "slug": "svoi-marks-professional-carpet-cleaning"
+    }
+  },
+  {
+    "id": "85253f3e-c9b6-4e64-bf6e-2d03eccf4ecd",
+    "name": "JIS Pashur Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "6203 Northeast 38th Street",
+      "location_precision": "street",
+      "city": "Minnehaha",
+      "state_code": "US-WA",
+      "postal_code": "98661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%2038th%20Street%206203%2C%20Minnehaha%2C%20WA%2098661",
+      "phone": "+13604487052"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "59709ee0-ffe8-4bb7-9b53-75684e8c560d",
+      "slug": "svoi-jis-pashur-construction"
+    }
+  },
+  {
+    "id": "6b980175-00c5-4b90-8355-1a1ab59b1651",
+    "name": "Wandor Construction",
+    "changes": {},
+    "fill": {
+      "address_line": "17005 Southwest Hall Boulevard",
+      "location_precision": "street",
+      "city": "Tigard",
+      "state_code": "US-OR",
+      "postal_code": "97224",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%20Hall%20Boulevard%2017005%2C%20Tigard%2C%20OR%2097224",
+      "phone": "+13605677117"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f40eade5-f7b7-4850-9470-e4733f156fd8",
+      "slug": "svoi-wandor-construction"
+    }
+  },
+  {
+    "id": "91e83955-67af-4530-af64-bc44fd2af5a6",
+    "name": "Trinity Flooring",
+    "changes": {},
+    "fill": {
+      "address_line": "15500 SW 72nd Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=15500%20SW%2072nd%20Ave%2C%20Portland%2C%20OR",
+      "website": "https://www.trinityflooring.biz",
+      "phone": "+15036672200",
+      "postal_code": "97224",
+      "instagram_url": "https://www.instagram.com/trinityflooring",
+      "yelp_url": "https://www.yelp.com/biz/trinity-flooring-portland",
+      "email": "sales@trinityflooring.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9f4519b4-1898-4346-8e81-b63da7188301",
+      "slug": "svoi-trinity-flooring"
+    }
+  },
+  {
+    "id": "72479833-d912-4cf7-bef7-4bb05303841b",
+    "name": "Yurkshat design",
+    "changes": {},
+    "fill": {
+      "address_line": "Powell Blvd",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Powell%20Blvd%2C%20Portland%2C%20OR",
+      "website": "http://olgayurkshat.com",
+      "phone": "+15039898503"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "901058d8-6ade-42a7-ad0f-061cb803cdf1",
+      "slug": "svoi-yurkshat-design"
+    }
+  },
+  {
+    "id": "e85f4973-9c01-4d86-84dc-247876763e1d",
+    "name": "Парикмахерский салон Haircut Now",
+    "changes": {},
+    "fill": {
+      "address_line": "11306 NE Fourth Plain Rd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11306%20NE%20Fourth%20Plain%20Rd%2C%20Vancouver%2C%20WA%2098662",
+      "website": "http://www.haircutlocations.com",
+      "phone": "+13609448300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "484d916d-7f64-4b23-94d0-4f66e7ba2046",
+      "slug": "svoi-haircut-now"
+    }
+  },
+  {
+    "id": "48de9cc2-e1d0-40a5-9b9d-dc1df62fbc0c",
+    "name": "Салон красоты Divine",
+    "changes": {},
+    "fill": {
+      "address_line": "11505 NE Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11505%20NE%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA%2098662",
+      "website": "http://starwoodhotels.com",
+      "phone": "+13606045661"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "66b86f0b-acf4-43c2-a3d5-b85ea820d83a",
+      "slug": "svoi-divine"
+    }
+  },
+  {
+    "id": "d0c02177-b025-4993-8a82-d0962ac3d357",
+    "name": "Olena European Spa and Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "8800 SE Sunnyside Rd",
+      "location_precision": "street",
+      "city": "Clackamas",
+      "state_code": "US-OR",
+      "postal_code": "97015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=8800%20SE%20Sunnyside%20Rd%2C%20Clackamas%2C%20OR%2097015",
+      "website": "https://www.olenasdayspa.com",
+      "phone": "+15037750900",
+      "email": "info@olenasdayspa.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6d51db89-198a-4fea-910f-e6ce80a37f0d",
+      "slug": "svoi-olena-european-spa-and-salon"
+    }
+  },
+  {
+    "id": "e71dc047-e8fc-43fc-a22f-96181c311f71",
+    "name": "Allure Tan & Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "10408 SE 82nd Ave",
+      "location_precision": "street",
+      "city": "Happy valley",
+      "state_code": "US-OR",
+      "postal_code": "97086",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10408%20SE%2082nd%20Ave%2C%20Happy%20valley%2C%20OR%2097086",
+      "website": "http://alluretansalon.com",
+      "phone": "+15037717733"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "348a7c49-9261-4c68-86a5-7542811ced93",
+      "slug": "svoi-allure-tan-salon"
+    }
+  },
+  {
+    "id": "5bd966f5-ffb3-468b-8c2e-466ff5cb2264",
+    "name": "Massage for Health",
+    "changes": {},
+    "fill": {
+      "address_line": "2700 NE Andresen Rd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2700%20NE%20Andresen%20Rd%2C%20Vancouver%2C%20WA%2098661",
+      "phone": "+13606353098"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4c5cb745-c799-44ba-95b3-e6c79f06c34a",
+      "slug": "svoi-massage-for-health"
+    }
+  },
+  {
+    "id": "62af9268-5244-4cc5-986b-3968b8628e3f",
+    "name": "Powerful Touch Bodywork",
+    "changes": {},
+    "fill": {
+      "address_line": "10001 Southeast Sunnyside Road",
+      "location_precision": "street",
+      "city": "Sunnyside",
+      "state_code": "US-OR",
+      "postal_code": "97015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%20Sunnyside%20Road%2010001%2C%20Sunnyside%2C%20OR%2097015",
+      "phone": "+15038106436"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ed526f4a-9adc-45e6-91af-b7c7b2c6ffed",
+      "slug": "svoi-powerful-touch-bodywork"
+    }
+  },
+  {
+    "id": "8bb37a02-fbc1-40cd-af8d-f301614ac309",
+    "name": "Computer Technical Support",
+    "changes": {},
+    "fill": {
+      "address_line": "2506 Northeast 176th Avenue",
+      "location_precision": "street",
+      "city": "Mill Plain",
+      "state_code": "US-WA",
+      "postal_code": "98684",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20176th%20Avenue%202506%2C%20Mill%20Plain%2C%20WA%2098684",
+      "phone": "+15035392811"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8ea73c2a-5e4c-4c81-8418-ed9752f0db7c",
+      "slug": "svoi-computer-technical-support"
+    }
+  },
+  {
+    "id": "dc8fa1e4-16e7-4330-852e-344cffbfd50e",
+    "name": "ITS Yuriy Zaslavskiy",
+    "changes": {},
+    "fill": {
+      "address_line": "10930 SE Stark St.",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10930%20SE%20Stark%20St.%2C%20Portland%2C%20OR",
+      "phone": "+15039283085"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e7c3bb69-24f5-4127-8ff4-a51cf6fe49da",
+      "slug": "svoi-its-yuriy-zaslavskiy"
+    }
+  },
+  {
+    "id": "012fa514-0c7c-49a1-8ea8-de2f081d06b4",
+    "name": "Fixoid",
+    "changes": {},
+    "fill": {
+      "address_line": "10180 SE Washington St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97216",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10180%20SE%20Washington%20St%2C%20Portland%2C%20OR%2097216",
+      "website": "http://fixoid.com",
+      "phone": "+15035443227",
+      "instagram_url": "https://www.instagram.com/fixoid_vancouver"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "48e387fc-8f4b-409b-a50c-0cc4517bc3ab",
+      "slug": "svoi-fixoid"
+    }
+  },
+  {
+    "id": "1963b877-e6f7-44b9-8e38-11f4a0266836",
+    "name": "Natalie’s Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "11615 SE Fuller Rd",
+      "location_precision": "street",
+      "city": "Milwaukie",
+      "state_code": "US-OR",
+      "postal_code": "97222",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11615%20SE%20Fuller%20Rd%2C%20Milwaukie%2C%20OR%2097222",
+      "phone": "+15037222907"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "67e6a48d-9724-4fa8-9da2-aea1187f7188",
+      "slug": "svoi-natalie-s-travel"
+    }
+  },
+  {
+    "id": "16e8c98b-edba-432b-99ae-8a5241931703",
+    "name": "Best Of Portland Tours",
+    "changes": {},
+    "fill": {
+      "city": "OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Portland%2C%20OR",
+      "website": "http://www.bestofportlandtours.com",
+      "phone": "+15035228745"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7ff33f7f-fa60-41df-8216-369068c7529c",
+    "name": "Alpha Tax and Immigration Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "2714 Northeast 165th Avenue",
+      "location_precision": "street",
+      "city": "Mill Plain",
+      "state_code": "US-WA",
+      "postal_code": "98684",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20165th%20Avenue%202714%2C%20Mill%20Plain%2C%20WA%2098684",
+      "phone": "+15037563520"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "78897f3a-7b26-4d1c-a643-928bbf2ffd12",
+      "slug": "svoi-alpha-tax-and-immigration-inc"
+    }
+  },
+  {
+    "id": "63bd4a70-2808-4526-ab7e-44b23eef0321",
+    "name": "Russian Language Service",
+    "changes": {},
+    "fill": {
+      "address_line": "5909 SW Southview Pl",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5909%20SW%20Southview%20Pl%2C%20Portland%2C%20OR",
+      "phone": "+15032460329"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6ed577a8-ce82-400b-90ce-98c4f1985412",
+      "slug": "svoi-russian-language-service"
+    }
+  },
+  {
+    "id": "212bd178-b7cc-40dc-9b9c-2cd8035aeedd",
+    "name": "RAISA West inc. - Ирина Кочаров",
+    "changes": {},
+    "fill": {
+      "address_line": "1122 NE 122 Ave.",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1122%20NE%20122%20Ave.%2C%20Portland%2C%20OR",
+      "phone": "+15039977609"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8589510e-1dee-4341-a48e-65a8ebf031df",
+      "slug": "svoi-raisa-west-inc"
+    }
+  },
+  {
+    "id": "e147332d-ccf1-4144-8073-32dbcb44c4d1",
+    "name": "Western Group inc. distribution center",
+    "changes": {},
+    "fill": {
+      "address_line": "9700 ne 126 th ave",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98606",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9700%20ne%20126%20th%20ave%2C%20Vancouver%2C%20WA%2098606",
+      "phone": "+15038304855"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8fff90cc-5d3d-46a7-b625-6b1953a70e03",
+      "slug": "svoi-western-group-inc-distribution-center"
+    }
+  },
+  {
+    "id": "f69c0601-42d5-4989-b3ca-b4803df64a5c",
+    "name": "Diesel Auto Express",
+    "changes": {},
+    "fill": {
+      "address_line": "12711 NE 95th St",
+      "location_precision": "street",
+      "city": "Orchards",
+      "state_code": "US-WA",
+      "postal_code": "98682",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=12711%20NE%2095th%20St%2C%20Orchards%2C%20WA%2098682",
+      "website": "https://dieselautoexpress.com",
+      "phone": "+13605398600",
+      "instagram_url": "https://www.instagram.com/dieselautoexpress",
+      "yelp_url": "https://www.yelp.com/biz/diesel-auto-express-vancouver"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "575ee115-1510-4be9-8daf-7fa90ea40c97",
+      "slug": "svoi-diesel-auto-express"
+    }
+  },
+  {
+    "id": "509bc6e2-b23b-4dce-9ccf-1f0441b61d68",
+    "name": "NV Transport",
+    "changes": {},
+    "fill": {
+      "address_line": "2021 Northwest Sundial Road",
+      "location_precision": "street",
+      "city": "Troutdale",
+      "state_code": "US-OR",
+      "postal_code": "97060",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%20Sundial%20Road%202021%2C%20Troutdale%2C%20OR%2097060",
+      "website": "https://nvtransport.com",
+      "phone": "+18889900688"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b7424d48-e3ff-4b7d-bfb1-256a3c965736",
+      "slug": "svoi-nv-transport"
+    }
+  },
+  {
+    "id": "0c257512-ef94-4a9a-8bb2-ab24202fde1e",
+    "name": "PAEC Packages - Кристина Костин",
+    "changes": {},
+    "fill": {
+      "address_line": "13008 142nd Ave E",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "98360",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13008%20142nd%20Ave%20E%2C%20Portland%2C%20OR%2098360",
+      "website": "http://atlanticexpresscorp.com",
+      "phone": "+12532101090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eb70952e-31c8-4734-aa86-ee09655f5674",
+      "slug": "svoi-paec-packages"
+    }
+  },
+  {
+    "id": "eaf79834-3fef-4a01-87bc-388eb5996d67",
+    "name": "Warehouse Service",
+    "changes": {},
+    "fill": {
+      "address_line": "4240 NW Yeon Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97060",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4240%20NW%20Yeon%20Ave%2C%20Portland%2C%20OR%2097060",
+      "website": "http://wsionline.com",
+      "phone": "+15032208008"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "26ee63db-6d6a-4e2f-81ab-bb4a95eef05b",
+      "slug": "svoi-warehouse-service"
+    }
+  },
+  {
+    "id": "2cb58548-71b7-494e-afef-8fb0ca42d94d",
+    "name": "Oleksandr Photography",
+    "changes": {},
+    "fill": {
+      "address_line": "1501 SE 3rd Ave",
+      "location_precision": "street",
+      "city": "Battle Ground",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1501%20SE%203rd%20Ave%2C%20Battle%20Ground%2C%20WA",
+      "website": "http://theoleksandr.com",
+      "phone": "+13602819575"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04616fb2-7210-4fca-b9eb-dc57602f48f2",
+      "slug": "svoi-oleksandr-photography"
+    }
+  },
+  {
+    "id": "219ed205-79f5-4647-a599-631b9c24d60c",
+    "name": "Видеостудия Living Light Productions",
+    "changes": {},
+    "fill": {
+      "address_line": "4413 Northeast 41st Street",
+      "location_precision": "street",
+      "city": "Minnehaha",
+      "state_code": "US-WA",
+      "postal_code": "98661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%2041st%20Street%204413%2C%20Minnehaha%2C%20WA%2098661",
+      "phone": "+15035220728"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bee68347-0f6f-4ee0-a860-5b26bec57386",
+      "slug": "svoi-living-light-productions"
+    }
+  },
+  {
+    "id": "fa8c1302-d193-4105-ac43-dee5e399af61",
+    "name": "Studio Krasa LLC - Сергей Какорин",
+    "changes": {},
+    "fill": {
+      "address_line": "3509 Y St",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=3509%20Y%20St%2C%20Vancouver%2C%20WA",
+      "website": "http://studiokrasa.com",
+      "phone": "+13609047794"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1a7e2d97-d452-442d-ae3c-11adf1c60a77",
+      "slug": "svoi-studio-krasa-llc"
+    }
+  },
+  {
+    "id": "0232dfd9-8616-4810-a2d7-dcaf17726940",
+    "name": "Five Star Tax Service Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "34800 SE Jennings Rd",
+      "location_precision": "street",
+      "city": "Washougal",
+      "state_code": "US-WA",
+      "postal_code": "98671",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=34800%20SE%20Jennings%20Rd%2C%20Washougal%2C%20WA%2098671",
+      "phone": "+15035134944"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c1c18ac3-2a59-4437-a06e-3a0f6c4096f2",
+      "slug": "svoi-five-star-tax-service-inc"
+    }
+  },
+  {
+    "id": "ee97287d-9332-47d1-8a18-a70f6bd28916",
+    "name": "Olaru's Premier Tax Services Inc. - Юлия Олару, AFSP",
+    "changes": {},
+    "fill": {
+      "address_line": "14602 NE Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98682",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=14602%20NE%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA%2098682",
+      "website": "https://www.olarustaxaccounting.com",
+      "phone": "+13607194973"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "14d582fb-6953-4485-b1c9-34494804aa34",
+      "slug": "svoi-olaru-s-premier-tax-services-inc-afsp"
+    }
+  },
+  {
+    "id": "1979fcf3-d618-4060-9c42-afd46a3c8522",
+    "name": "PrimeLending - Тупикова Светлана",
+    "changes": {},
+    "fill": {
+      "address_line": "1406 Southeast 164th Avenue",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%20164th%20Avenue%201406%2C%20Vancouver%2C%20WA%2098662",
+      "website": "https://www.primelending.com",
+      "phone": "+13605211571",
+      "instagram_url": "https://www.instagram.com/primelending"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "097e8aa2-b352-4ca9-9baf-1626c9d08b45",
+      "slug": "svoi-primelending"
+    }
+  }
+]

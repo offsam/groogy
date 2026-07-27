@@ -1,0 +1,1280 @@
+[
+  {
+    "id": "8b78898c-e244-4438-859f-1f786e44d7fb",
+    "name": "Olga's Family Child Care",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "5625 Melbury Way",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "postal_code": "95843",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Melbury%20Way%205625%2C%20Antelope%2C%20CA%2095843",
+      "phone": "+19167298019"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ad8ffd4-df0e-46e1-81ea-a0d80964fba4",
+      "slug": "svoi-olga-s-family-child-care"
+    }
+  },
+  {
+    "id": "aaa18d86-4bea-4792-9dbc-14cdf50e1f7a",
+    "name": "Always You",
+    "changes": {},
+    "fill": {
+      "address_line": "3945 Tarmigan Drive",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tarmigan%20Drive%203945%2C%20Antelope%2C%20CA",
+      "phone": "+19164129998"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6e1c5fd2-9a65-4131-8be8-7e33bfbc0b4c",
+      "slug": "svoi-always-you"
+    }
+  },
+  {
+    "id": "7dab3920-60ba-4334-b1a3-753669ad53e9",
+    "name": "Charter School K-8",
+    "changes": {},
+    "fill": {
+      "address_line": "5325 Engle Road",
+      "location_precision": "street",
+      "city": "Carmichael",
+      "state_code": "US-CA",
+      "postal_code": "95608",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Engle%20Road%205325%2C%20Carmichael%2C%20CA%2095608",
+      "phone": "+19163339639"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0335e20a-6beb-4e8d-a653-ccd62b219f53",
+      "slug": "svoi-charter-school-k-8"
+    }
+  },
+  {
+    "id": "dc3b286b-aeb9-4590-a68c-5d1a10935375",
+    "name": "Школа Русское Наследие",
+    "changes": {},
+    "fill": {
+      "address_line": "3800 Bolivar Avenue",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95660",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bolivar%20Avenue%203800%2C%20North%20Highlands%2C%20CA%2095660",
+      "phone": "+19168323715"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "66903c60-cd4f-46f3-9246-149a6c0948fa",
+      "slug": "svoi-biz-60"
+    }
+  },
+  {
+    "id": "d99e4cc2-547e-4ffb-974f-24b42249a649",
+    "name": "Gateway International School",
+    "changes": {},
+    "fill": {
+      "address_line": "900 Morse Avenue",
+      "location_precision": "street",
+      "city": "Arden arcade",
+      "state_code": "US-CA",
+      "postal_code": "95864",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Morse%20Avenue%20900%2C%20Arden%20arcade%2C%20CA%2095864",
+      "phone": "+19162861985"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "601c1041-9aff-4e7b-9383-143997f26839",
+      "slug": "svoi-gateway-international-school"
+    }
+  },
+  {
+    "id": "f11b787d-5a3a-43bc-be72-7b0303b07b3e",
+    "name": "Gilah Ellyason Realtor",
+    "changes": {},
+    "fill": {
+      "address_line": "5930 Granite Lake Drive",
+      "location_precision": "street",
+      "city": "Granite bay",
+      "state_code": "US-CA",
+      "postal_code": "95746",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Granite%20Lake%20Drive%205930%2C%20Granite%20bay%2C%20CA%20%2095746",
+      "phone": "+19165499332"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e064b6d0-49f7-416a-8280-ac644e8fc2a5",
+      "slug": "svoi-gilah-ellyason-realtor"
+    }
+  },
+  {
+    "id": "bbdf4754-82ed-480e-9c04-84b059ec9c9e",
+    "name": "Realty One Group",
+    "changes": {},
+    "fill": {
+      "address_line": "1150 Sunset Blvd",
+      "location_precision": "street",
+      "city": "Rocklin",
+      "state_code": "US-CA",
+      "postal_code": "95765",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Blvd%201150%2C%20Rocklin%2C%20CA%2095765",
+      "phone": "+19164350404"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a7d81c20-3ecc-4c86-86ca-03bcb2329d2b",
+      "slug": "svoi-realty-one-group"
+    }
+  },
+  {
+    "id": "d7bd3775-4ec7-4676-b8fa-e3228723d135",
+    "name": "Barbara Sowa Excel Realty Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "8300 Sierra College Boulevard",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sierra%20College%20Boulevard%208300%2C%20Roseville%2C%20CA",
+      "phone": "+19165056438"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1bbae370-0f49-4250-9c06-f0ddb42fa24d",
+      "slug": "svoi-barbara-sowa-excel-realty-inc"
+    }
+  },
+  {
+    "id": "680e832b-662a-43fc-a75a-f577d868f952",
+    "name": "All Weather Air Comfort",
+    "changes": {},
+    "fill": {
+      "address_line": "10107 Iron Rock Way",
+      "location_precision": "street",
+      "city": "Elk Grove",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Iron%20Rock%20Way%2010107%2C%20Elk%20Grove%2C%20CA",
+      "phone": "+19163961641"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "84fc7600-90a7-4a50-a6f7-1b24945026dc",
+      "slug": "svoi-all-weather-air-comfort"
+    }
+  },
+  {
+    "id": "0fd79e71-0613-4250-b0a4-f2e9bfa64cb3",
+    "name": "Alex’s Company",
+    "changes": {},
+    "fill": {
+      "address_line": "7650 Sunset Ave",
+      "location_precision": "street",
+      "city": "Fair Oaks",
+      "state_code": "US-CA",
+      "postal_code": "95628",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Ave%207650%2C%20Fair%20Oaks%2C%20CA%2095628",
+      "phone": "+19168138252"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e5515bae-c2bf-41c2-b54f-b8bb59410471",
+      "slug": "svoi-alex-s-company"
+    }
+  },
+  {
+    "id": "34b1a61d-da85-4904-ad94-3e141604816b",
+    "name": "High Performance Heating And Air",
+    "changes": {},
+    "fill": {
+      "address_line": "5338 Elgin Hills Way",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "postal_code": "95843",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elgin%20Hills%20Way%205338%20%2C%20Antelope%2C%20CA%2095843",
+      "phone": "+19162189699"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "895106c2-94c2-4e66-b70a-31cdc4043327",
+      "slug": "svoi-high-performance-heating-and-air"
+    }
+  },
+  {
+    "id": "13e418d2-3f1e-4a21-9186-c2f68c628ba6",
+    "name": "Euro Spa Resort",
+    "changes": {},
+    "fill": {
+      "address_line": "6848 Five Star Blvd",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "postal_code": "95677",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Five%20Star%20Blvd%206848%2C%20Roseville%2C%20CA%2095677",
+      "website": "http://eurotouchmassage.com",
+      "phone": "+19167815499",
+      "instagram_url": "https://www.instagram.com/europeanmassage",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "744708e5-8a31-4f2c-a958-badd78552e60",
+      "slug": "svoi-euro-spa-resort"
+    }
+  },
+  {
+    "id": "cf3e961f-6057-4e11-a16b-76f504b9652e",
+    "name": "Creatif Hair Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "1000 Sunrise Avenue",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "postal_code": "95661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Avenue%201000%2C%20Roseville%2C%20CA%2095661",
+      "phone": "+19167712737"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "81b3a235-79f4-4f42-8ee2-438ca10d3c40",
+      "slug": "svoi-creatif-hair-studio"
+    }
+  },
+  {
+    "id": "8c660672-bd13-4f6d-9950-5952056dea3b",
+    "name": "Enigma Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "6929 Sunrise Boulevard",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Boulevard%206929%2C%20Sitres%20heights%2C%20CA%2095610",
+      "phone": "+19167296929"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4f9354b2-4049-4383-bccd-11c523c677c7",
+      "slug": "svoi-enigma-spa"
+    }
+  },
+  {
+    "id": "e5b4ed8f-70e6-4b89-a6d0-e06c9fd6fa40",
+    "name": "Ella Pilipovich Insurance Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "11971 Foundation Pl Rancho",
+      "location_precision": "street",
+      "city": "Gold river",
+      "state_code": "US-CA",
+      "postal_code": "95670",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Foundation%20Pl%20Rancho%2011971%2C%20Gold%20river%2C%20CA%2095670",
+      "phone": "+19169351691"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "56dd9bab-4406-4509-a9aa-d8ddab4370a7",
+      "slug": "svoi-ella-pilipovich-insurance-agent"
+    }
+  },
+  {
+    "id": "f881db8e-0025-4451-8529-017eb3ffd2a8",
+    "name": "Хаштюк Инна",
+    "changes": {},
+    "fill": {
+      "address_line": "6929 Sunrise Boulevard",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Boulevard%206929%2C%20Sitres%20heights%2C%20CA%2095610",
+      "phone": "+19166013912"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8d0f3530-1469-485c-b163-c322de281d4d",
+      "slug": "svoi-biz-61"
+    }
+  },
+  {
+    "id": "c62d1a82-7894-4e79-83fd-f60742e2898d",
+    "name": "Valentina Gaiduchik Insurance Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "8051 Greenback Ln",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenback%20Ln%208051%2C%20Sitres%20heights%2C%20CA%2095610",
+      "phone": "+19167264205"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "576344fc-370a-446d-a9cd-17246707f763",
+      "slug": "svoi-valentina-gaiduchik-insurance-agent"
+    }
+  },
+  {
+    "id": "29c0911f-219d-4e61-a249-0581dc72759b",
+    "name": "Mission Valley Travel, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "5200 Sunrise Boulevard Ste 7",
+      "location_precision": "street",
+      "city": "Fair Oaks",
+      "state_code": "US-CA",
+      "postal_code": "95628",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Boulevard%20Ste%207%205200%20%2C%20Fair%20Oaks%2C%20CA%2095628",
+      "phone": "+19162414033"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c924f15b-b6bf-43b1-9bf9-c47e6043b02e",
+      "slug": "svoi-mission-valley-travel-inc"
+    }
+  },
+  {
+    "id": "5bb9d82a-7f14-4540-98b0-f5c6e7bc962e",
+    "name": "International Travel Agency Avant Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "6240 San Juan Avenue",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Juan%20Avenue%206240%2C%20Sitres%20heights%2C%20CA%2095610",
+      "phone": "+15033741002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ad6778f-608d-4d9d-9f3f-c7b3ba4c735f",
+      "slug": "svoi-international-travel-agency-avant-travel"
+    }
+  },
+  {
+    "id": "226861b4-e1bc-4dd1-931d-38c71b659ed8",
+    "name": "YMD Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "9309 Boxelder Way",
+      "location_precision": "street",
+      "city": "Elk Grove",
+      "state_code": "US-CA",
+      "postal_code": "95758",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boxelder%20Way%209309%2C%20Elk%20Grove%2C%20CA%2095758",
+      "phone": "+19166846442"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "86c3f14c-7cf2-4847-9a0d-252cd5dfbbae",
+      "slug": "svoi-ymd-travel"
+    }
+  },
+  {
+    "id": "ae026af9-f379-4c7e-8c69-26dce0cdfb7e",
+    "name": "Forest Hill",
+    "changes": {},
+    "fill": {
+      "address_line": "800 Sunrise Ave",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=800%20Sunrise%20Ave%2C%20Roseville%2C%20CA",
+      "phone": "+19165320812"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "19f11259-80f5-4fdb-9018-7a5cebbf3f24",
+      "slug": "svoi-forest-hill"
+    }
+  },
+  {
+    "id": "9dc5bf21-22f0-49df-b4bc-5b8583cb40de",
+    "name": "Aleksandra Sokolova Notary Services",
+    "changes": {},
+    "fill": {
+      "address_line": "7560 Widgeon Way",
+      "location_precision": "street",
+      "city": "Fair Oaks",
+      "state_code": "US-CA",
+      "postal_code": "95628",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Widgeon%20Way%207560%2C%20Fair%20Oaks%2C%20CA%2095628",
+      "phone": "+19168043340"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "48afa91d-2532-482c-b5b3-ad5a13a8e48f",
+      "slug": "svoi-aleksandra-sokolova-notary-services"
+    }
+  },
+  {
+    "id": "702163b7-98fb-4516-8e47-0227abcfae48",
+    "name": "DV Lottery",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sacramento%2C%20CA",
+      "phone": "+19166282065"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "9592c1cf-19aa-4312-a9a2-9b886b50876d",
+    "name": "Tims Trucking",
+    "changes": {},
+    "fill": {
+      "address_line": "6640 Filbert Avenue",
+      "location_precision": "street",
+      "city": "Orangevale",
+      "state_code": "US-CA",
+      "postal_code": "95662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Filbert%20Avenue%206640%2C%20Orangevale%2C%20CA%2095662",
+      "phone": "+19162248974"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9939de4c-57fe-4c05-a475-0b743b76519a",
+      "slug": "svoi-tims-trucking"
+    }
+  },
+  {
+    "id": "a196ee08-e15a-4ec7-acf5-25d37fc31fac",
+    "name": "Baytrans Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "1850 Reynolds Way",
+      "location_precision": "street",
+      "city": "Sacramento",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1850%20Reynolds%20Way%2C%20Sacramento%2C%20CA",
+      "phone": "+19169008355"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7744a999-1bd0-40ee-8d5e-ce98fdc0a139",
+      "slug": "svoi-baytrans-inc"
+    }
+  },
+  {
+    "id": "451a0a88-23b2-4bcc-838e-ecb4a1cf6dc8",
+    "name": "Cornerstone Transport",
+    "changes": {},
+    "fill": {
+      "address_line": "4141 Power Inn Road",
+      "location_precision": "street",
+      "city": "Sacramento",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Power%20Inn%20Road%204141%2C%20Sacramento%2C%20CA",
+      "phone": "+19167698155"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9807cc7c-6c88-48a3-8a5e-f63530439640",
+      "slug": "svoi-cornerstone-transport"
+    }
+  },
+  {
+    "id": "46f481ab-0900-40e3-9911-19b226465c0e",
+    "name": "Eagle Signs & Graphics",
+    "changes": {},
+    "fill": {
+      "address_line": "6026 San Juan Avenue",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Juan%20Avenue%206026%2C%20Sitres%20heights%2C%20CA%2095610",
+      "phone": "+19167281661"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bac7c6de-ea48-4219-b390-ba9c0aca6866",
+      "slug": "svoi-eagle-signs-graphics"
+    }
+  },
+  {
+    "id": "e02b88c1-c607-4787-8d57-d9d72d149581",
+    "name": "Advance Printing and Signs",
+    "changes": {},
+    "fill": {
+      "address_line": "3440 Auburn Boulevard",
+      "location_precision": "street",
+      "city": "Arden arcade",
+      "state_code": "US-CA",
+      "postal_code": "95821",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Auburn%20Boulevard%203440%2C%20Arden%20arcade%2C%20CA%2095821",
+      "phone": "+19164840772"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ecc128a8-20b3-40eb-b3ac-d9a39db9c522",
+      "slug": "svoi-advance-printing-and-signs"
+    }
+  },
+  {
+    "id": "e0c35d3c-ec28-494d-90fd-9bb1da01a935",
+    "name": "Action Printers",
+    "changes": {},
+    "fill": {
+      "address_line": "3343 Arden Way",
+      "location_precision": "street",
+      "city": "Arden arcade",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arden%20Way%203343%2C%20Arden%20arcade%2C%20CA",
+      "phone": "+19164830478"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4213b40e-99df-4e4e-bf29-5d0352e27bb5",
+      "slug": "svoi-action-printers"
+    }
+  },
+  {
+    "id": "3213a80d-38ac-4b1b-b6d9-4e4fb7ae6d61",
+    "name": "Bellissimo Tailoring and Alterations",
+    "changes": {},
+    "fill": {
+      "address_line": "6909 Greenback Lane",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95621",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenback%20Lane%206909%2C%20Sitres%20heights%2C%20CA%2095621",
+      "phone": "+19168474828"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9c60e607-da18-404a-afd2-6c98683035e6",
+      "slug": "svoi-bellissimo-tailoring-and-alterations"
+    }
+  },
+  {
+    "id": "5b1f3aa8-46ac-4763-82a5-67d87db79cc6",
+    "name": "Dream Design",
+    "changes": {},
+    "fill": {
+      "address_line": "10150 Coloma Road",
+      "location_precision": "street",
+      "city": "Rancho Cordova",
+      "state_code": "US-CA",
+      "postal_code": "95670",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coloma%20Road%2010150%2C%20Rancho%20Cordova%2C%20CA%2095670",
+      "phone": "+19163665848"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4968cde-3003-447e-8cae-1b254ededb74",
+      "slug": "svoi-dream-design"
+    }
+  },
+  {
+    "id": "5bd24a0d-a01e-4aa1-9592-67e021e47c81",
+    "name": "Save On Cleaners",
+    "changes": {},
+    "fill": {
+      "address_line": "5500 Madison Avenue",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95841",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Madison%20Avenue%205500%2C%20North%20Highlands%2C%20CA%2095841",
+      "phone": "+19163322000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3198c8bc-9954-4235-ac6f-03ce079c6a56",
+      "slug": "svoi-save-on-cleaners"
+    }
+  },
+  {
+    "id": "d0397514-3ba9-420b-882a-148bbd9e3ff0",
+    "name": "Global Express",
+    "changes": {},
+    "fill": {
+      "address_line": "2540 Athens Ave",
+      "location_precision": "street",
+      "city": "Lincoln",
+      "state_code": "US-CA",
+      "postal_code": "95648",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Athens%20Ave%202540%2C%20Lincoln%2C%20CA%2095648",
+      "phone": "+19164349900"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "78e0ec68-a31e-47e8-8c75-ab72d3671a0d",
+      "slug": "svoi-global-express"
+    }
+  },
+  {
+    "id": "f6e5f0f2-b979-4bda-bda2-c0ad307a69e3",
+    "name": "Славянская Почта",
+    "changes": {},
+    "fill": {
+      "address_line": "7137 Walerga Road",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95842",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Walerga%20Road%207137%2C%20North%20Highlands%2C%20CA%2095842",
+      "phone": "+19163342632"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ec4400a6-7a1e-4f0a-895a-b79f321a77e3",
+      "slug": "svoi-biz-62"
+    }
+  },
+  {
+    "id": "8e4972bc-e423-40b0-85d7-f93b231fb659",
+    "name": "Albatross Express",
+    "changes": {},
+    "fill": {
+      "address_line": "4811 Chippendale Drive",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95841",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chippendale%20Drive%204811%2C%20North%20Highlands%2C%20CA%2095841",
+      "phone": "+19163332954"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "302f7e31-584f-4a38-84ce-8d0d116fc8e7",
+      "slug": "svoi-albatross-express"
+    }
+  },
+  {
+    "id": "29597e65-24a7-47bd-b0ab-f66ff38ca83f",
+    "name": "Ernie Geefay Productions in El Dorado Hills",
+    "changes": {},
+    "fill": {
+      "address_line": "4162 Alta Sierra Way",
+      "location_precision": "street",
+      "city": "Eldorado Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alta%20Sierra%20Way%204162%2C%20Eldorado%20Hills%2C%20CA",
+      "phone": "+19169335351"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cbb03f51-e877-4884-985b-4c96478cf159",
+      "slug": "svoi-ernie-geefay-productions-in-el-dorado-hills"
+    }
+  },
+  {
+    "id": "4d2bbeff-416f-46c9-b812-14622f264962",
+    "name": "Videolife Production Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "6929 Sunrise Boulevard",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Boulevard%206929%2C%20Sitres%20heights%2C%20CA",
+      "phone": "+19167190906"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dc8bb8e6-e494-4929-b31b-bf7e5551523e",
+      "slug": "svoi-videolife-production-studio"
+    }
+  },
+  {
+    "id": "db903e0e-aa2b-49ad-9fb5-65f70cc65a74",
+    "name": "Andrey Perepelitsa MC Studios Photography",
+    "changes": {},
+    "fill": {
+      "address_line": "7820 Shell Beach Drive",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shell%20Beach%20Drive%207820%2C%20Antelope%2C%20CA",
+      "phone": "+19168128200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "99c52cb0-e8c1-4c31-b6c9-4f115e3d866e",
+      "slug": "svoi-andrey-perepelitsa-mc-studios-photography"
+    }
+  },
+  {
+    "id": "c7a23e84-3e78-42b7-b7fc-cb89113bc71a",
+    "name": "Tax Shark",
+    "changes": {},
+    "fill": {
+      "address_line": "1700 Eureka Road",
+      "location_precision": "street",
+      "city": "Roseville",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Eureka%20Road%201700%2C%20Roseville%2C%20CA%20eville",
+      "website": "http://www.taxshark.net",
+      "phone": "+19162206684"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ba3ce4f4-7cc2-4f12-bc58-cbab31380682",
+      "slug": "svoi-tax-shark"
+    }
+  },
+  {
+    "id": "097718c8-5155-42c9-a26d-4c9214f60658",
+    "name": "SK Tax Service",
+    "changes": {},
+    "fill": {
+      "address_line": "6381 Auburn Boulevard",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Auburn%20Boulevard%206381%2C%20Sitres%20heights%2C%20CA",
+      "phone": "+19163421203"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "21f67862-c769-471c-947c-834220f3a7f9",
+      "slug": "svoi-sk-tax-service"
+    }
+  },
+  {
+    "id": "7ed00756-878c-4e5f-9984-2ac51b5f4b54",
+    "name": "Alexander Perepelitsa AGP Financial Services",
+    "changes": {},
+    "fill": {
+      "address_line": "7820 Shell Beach Drive",
+      "location_precision": "street",
+      "city": "Antelope",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shell%20Beach%20Drive%207820%2C%20Antelope%2C%20CA",
+      "phone": "+19165444688"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ca0743df-95c7-448c-b08a-2156ea2ea72a",
+      "slug": "svoi-alexander-perepelitsa-agp-financial-services"
+    }
+  },
+  {
+    "id": "b4cce2d9-21ad-48ef-812c-00cc333c6657",
+    "name": "Alpine Mortgage Planing",
+    "changes": {},
+    "fill": {
+      "address_line": "2281 Lava Ridge Court",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "postal_code": "95661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lava%20Ridge%20Court%202281%2C%20Roseville%2C%20CA%2095661",
+      "phone": "+19162243216"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "086ca1a7-cb67-40c4-a504-4cab05b497d6",
+      "slug": "svoi-alpine-mortgage-planing"
+    }
+  },
+  {
+    "id": "ac4a67aa-4975-4014-8781-0dcb98e42258",
+    "name": "Alexander Polyakh",
+    "changes": {},
+    "fill": {
+      "address_line": "970 Reserve Drive",
+      "location_precision": "street",
+      "city": "Roseville",
+      "state_code": "US-CA",
+      "postal_code": "95678",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reserve%20Drive%20970%2C%20Roseville%2C%20CA%20%2095678",
+      "phone": "+19162968327"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "01acdbb6-d798-47b7-816f-a83d0779e451",
+      "slug": "svoi-alexander-polyakh"
+    }
+  },
+  {
+    "id": "226f1a9f-c2e5-43f3-b546-aaaf5fa8a69f",
+    "name": "Роман Митрос (Prime Time Mortgage Corp.)",
+    "changes": {},
+    "fill": {
+      "address_line": "6300 Garfield Avenue",
+      "location_precision": "street",
+      "city": "Sacramento",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Garfield%20Avenue%206300%2C%20Sacramento%2C%20CA",
+      "phone": "+19168657888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "491a4fb7-1da4-44ae-aa21-f3e9bd743ab1",
+      "slug": "svoi-prime-time-mortgage-corp"
+    }
+  },
+  {
+    "id": "7f18bc8a-1bb0-4edb-b902-182510f9b1cc",
+    "name": "Afisha Russian Advertising",
+    "changes": {},
+    "fill": {
+      "address_line": "4555 Auburn Boulevard",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95841",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Auburn%20Boulevard%204555%2C%20North%20Highlands%2C%20CA%2095841",
+      "phone": "+19164825432"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47cc3918-6873-41e2-84ee-af0da191691e",
+      "slug": "svoi-afisha-russian-advertising"
+    }
+  },
+  {
+    "id": "50559d01-199d-4030-8349-4fea96de87a7",
+    "name": "Russian Cultural Center",
+    "changes": {},
+    "fill": {
+      "address_line": "4555 Auburn Boulevard",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95841",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Auburn%20Boulevard%204555%2C%20North%20Highlands%2C%20CA%2095841",
+      "phone": "+19164824090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5182fe68-a221-4503-95ac-a135720f01ab",
+      "slug": "svoi-russian-cultural-center"
+    }
+  },
+  {
+    "id": "420639d6-e82a-4191-b6eb-899adc175620",
+    "name": "Beryozka European Market & Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "6845 Five Star Boulevard",
+      "location_precision": "street",
+      "city": "Rocklin",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Five%20Star%20Boulevard%206845%2C%20Rocklin%2C%20CA",
+      "phone": "+19166240630"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6da58cb6-5e5c-4724-971e-d6bf85bdeaa2",
+      "slug": "svoi-beryozka-european-market-deli"
+    }
+  },
+  {
+    "id": "6c777685-9e51-4fc6-9e78-c97ea733b10b",
+    "name": "Pacific Coast Food",
+    "changes": {},
+    "fill": {
+      "address_line": "7263 Greenback Lane",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "postal_code": "95621",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenback%20Lane%207263%2C%20Sitres%20heights%2C%20CA%2095621",
+      "phone": "+19167213050"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "38303885-aaab-406c-8f9f-9455329858bc",
+      "slug": "svoi-pacific-coast-food"
+    }
+  },
+  {
+    "id": "10bde300-321e-4ef9-a1a7-3f2aed1fa69f",
+    "name": "MNM Food Market",
+    "changes": {},
+    "fill": {
+      "address_line": "7117 Walerga Road",
+      "location_precision": "street",
+      "city": "North Highlands",
+      "state_code": "US-CA",
+      "postal_code": "95842",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Walerga%20Road%207117%2C%20North%20Highlands%2C%20CA%2095842",
+      "phone": "+19163393023"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d219eff3-61d9-438d-8a4b-9a0254874c49",
+      "slug": "svoi-mnm-food-market"
+    }
+  },
+  {
+    "id": "499016ec-e692-46b8-a510-3939f8a5c5a3",
+    "name": "Citrus Plaza Gifts and Books",
+    "changes": {},
+    "fill": {
+      "address_line": "6240 San Juan Avenue",
+      "location_precision": "street",
+      "city": "Sitres heights",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Juan%20Avenue%206240%2C%20Sitres%20heights%2C%20CA",
+      "phone": "+19167252757"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "da4de784-acff-440f-8666-c37c59b84d2e",
+      "slug": "svoi-citrus-plaza-gifts-and-books"
+    }
+  }
+]

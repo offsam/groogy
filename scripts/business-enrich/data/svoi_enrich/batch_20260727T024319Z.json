@@ -1,0 +1,555 @@
+[
+  {
+    "id": "be782c05-0ffe-49f1-a98d-f60a3b345a86",
+    "name": "Angi's Flower Designs Florists",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "Serving El Paso Area 6521 N Mesa St El Paso",
+      "location_precision": "street",
+      "city": "Техас Сити",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Serving%20El%20Paso%20Area%206521%20N%20Mesa%20St%20El%20Paso%2C%20%D0%A2%D0%B5%D1%85%D0%B0%D1%81%20%D0%A1%D0%B8%D1%82%D0%B8%2C%20TX",
+      "website": "http://www.angiesfloraldesigns.com",
+      "phone": "+19158456303",
+      "instagram_url": "https://www.instagram.com/angiesfloraldesigns"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4d2bf537-64de-468d-b5e6-3e5fd057d3f9",
+      "slug": "svoi-angi-s-flower-designs-florists"
+    }
+  },
+  {
+    "id": "71e13bca-6090-46b7-851b-9fc791e7fe52",
+    "name": "Hart's Jewelers & Pawn",
+    "changes": {},
+    "fill": {
+      "address_line": "6362 Van Nuys Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Nuys%20Boulevard%206362%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://hartspawnshop.net",
+      "phone": "+18187854558"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ef5811ce-8b47-4ac0-aefb-d10091c1a58e",
+      "slug": "svoi-hart-s-jewelers-pawn"
+    }
+  },
+  {
+    "id": "cfebb16f-566a-40f8-8e7d-027876eaac88",
+    "name": "Persia Restaurant- Fine Cuisine",
+    "changes": {},
+    "fill": {
+      "address_line": "27600 Bouquet Canyon Road",
+      "location_precision": "street",
+      "city": "Santa clarita",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bouquet%20Canyon%20Road%2027600%2C%20Santa%20clarita%2C%20CA",
+      "phone": "+16615130077"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "436a2d20-b323-41b5-84e0-326a30f73ad1",
+      "slug": "svoi-persia-restaurant-fine-cuisine"
+    }
+  },
+  {
+    "id": "6ad0c640-3055-4880-933b-affe03a789c2",
+    "name": "Пиццерия \"Большая мама и папа\" в Канога Парке",
+    "changes": {},
+    "fill": {
+      "address_line": "8221 Canoga Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=8221%20Canoga%20Ave%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://ordernow.bigmamaspizza.com/locations/canoga",
+      "phone": "+18187109977"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "17d7580a-3e6f-4371-82b3-3389cd3b8c42",
+      "slug": "svoi-biz-38"
+    }
+  },
+  {
+    "id": "4ebd44a4-e019-47a5-81d6-77ce32d961a7",
+    "name": "Big Mama's & Papa's Pizza Tarzana",
+    "changes": {},
+    "fill": {
+      "address_line": "19527 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2019527%2C%20Los%20Angeles%2C%20CA%2091356",
+      "website": "http://tarzana.bigmamasandpapas.com",
+      "phone": "+18183448866",
+      "instagram_url": "https://www.instagram.com/BigMamasNPapas"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "50d4fed4-e6d2-4556-833d-5f8f11f75cbd",
+      "slug": "svoi-big-mama-s-papa-s-pizza-tarzana"
+    }
+  },
+  {
+    "id": "4818d442-d7a3-43b6-9e57-c4ddff9e41d0",
+    "name": "LAБАНДА",
+    "changes": {},
+    "fill": {
+      "address_line": "12062 Moorpark str",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Moorpark%20str%2012062%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://labandaru.com",
+      "phone": "+18182359336",
+      "instagram_url": "https://www.instagram.com/labandaru"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d95551ab-7f5d-44d2-8a81-34dbc13c1c23",
+      "slug": "svoi-la"
+    }
+  },
+  {
+    "id": "af8c7919-f117-4659-8a4d-df357c097a19",
+    "name": "Same Day Marriage in Los Angeles",
+    "changes": {},
+    "fill": {
+      "address_line": "5202 Laurel Canyon Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90048",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5202%20Laurel%20Canyon%20Blvd%2C%20Los%20Angeles%2C%20CA%2090048",
+      "website": "http://www.samedaymarriage.com",
+      "phone": "+13236555804"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e8d3c4c7-9439-4ad7-b357-4728a0e58d31",
+      "slug": "svoi-same-day-marriage-in-los-angeles"
+    }
+  },
+  {
+    "id": "e2b632a7-519d-46a9-a36a-f0aacc3ff8b2",
+    "name": "Tic-Tock Couture Florals",
+    "changes": {},
+    "fill": {
+      "address_line": "1603 N La Brea Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90028",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1603%20N%20La%20Brea%20Ave%2C%20Los%20Angeles%2C%20CA%2090028",
+      "website": "https://tictock.com",
+      "phone": "+13238743034",
+      "instagram_url": "https://www.instagram.com/tictockflorals",
+      "yelp_url": "https://www.yelp.com/biz/tic-tock-couture-florals-los-angeles",
+      "email": "assist@tictock.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "52bfba2b-9989-485f-bc25-66827a3cfc2c",
+      "slug": "svoi-tic-tock-couture-florals"
+    }
+  },
+  {
+    "id": "4325a5f8-149c-43cb-b4d4-02a686d50b40",
+    "name": "The Broad Stage",
+    "changes": {},
+    "fill": {
+      "address_line": "11th Street 1310",
+      "location_precision": "street",
+      "city": "Santa monica",
+      "state_code": "US-CA",
+      "postal_code": "90401",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11th%20Street%201310%2C%20Santa%20monica%2C%20CA%2090401",
+      "phone": "+13104343200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "981be1d5-4cc1-4182-9346-7300ea57f753",
+      "slug": "svoi-the-broad-stage"
+    }
+  },
+  {
+    "id": "da6d7f5d-e94e-4538-9a5e-af42ed2acba5",
+    "name": "Edgemar Center for the Arts",
+    "changes": {},
+    "fill": {
+      "address_line": "2437 Main Street",
+      "location_precision": "street",
+      "city": "Santa monica",
+      "state_code": "US-CA",
+      "postal_code": "90405",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%202437%2C%20Santa%20monica%2C%20CA%2090405",
+      "phone": "+13103920815"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f387f655-1b84-47e7-83b9-d429ddcbfda5",
+      "slug": "svoi-edgemar-center-for-the-arts"
+    }
+  },
+  {
+    "id": "64312010-bcfc-44ea-ad67-f351236f00e3",
+    "name": "Кукольный театр Волшебное дерево",
+    "changes": {},
+    "fill": {
+      "address_line": "12222 Moorpark St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=12222%20Moorpark%20St%2C%20Los%20Angeles%2C%20CA%20ted%20States",
+      "website": "http://puppettheaterla.com",
+      "phone": "+13104309452"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d5c74ba4-c927-4c9f-b3c5-e38a56493297",
+      "slug": "svoi-biz-39"
+    }
+  },
+  {
+    "id": "9c00a9dd-60d4-492c-a35d-06ff5316cfcf",
+    "name": "Aama-American Association of Musical Artists",
+    "changes": {},
+    "fill": {
+      "address_line": "5275 Del Moreno Dr Woodland Hills",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5275%20Del%20Moreno%20Dr%20Woodland%20Hills%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18188880588"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9228f42c-e27a-4219-b956-20a256682191",
+      "slug": "svoi-aama-american-association-of-musical-artists"
+    }
+  },
+  {
+    "id": "97a70cc2-073b-4875-a3d8-c673981a8f78",
+    "name": "Drop Set Fitness",
+    "changes": {},
+    "fill": {
+      "address_line": "18377 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Blvd%2018377%2C%20Los%20Angeles%2C%20CA%2091356",
+      "website": "https://dropsetfitness.com",
+      "phone": "+18186719806"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b7b47622-50f7-4b85-b412-238ba9ff778c",
+      "slug": "svoi-drop-set-fitness"
+    }
+  },
+  {
+    "id": "a826b66e-676f-4aa4-8a67-b59daa9d5f7a",
+    "name": "Premier Russian Radio",
+    "changes": {},
+    "fill": {
+      "address_line": "20121 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91364",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2020121%2C%20Los%20Angeles%2C%20CA%2091364",
+      "website": "http://radiopremier.net",
+      "phone": "+18885059528"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cb6ab8d8-260e-4103-adb5-d5e9f5db8e0f",
+      "slug": "svoi-premier-russian-radio"
+    }
+  },
+  {
+    "id": "3e731a37-438e-442f-a284-d8e19ea66e36",
+    "name": "Газета Ракурс",
+    "changes": {},
+    "fill": {
+      "address_line": "425 South Fairfax Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90036",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Fairfax%20Avenue%20425%2C%20Los%20Angeles%2C%20CA%2090036",
+      "website": "http://www.lakurier.com",
+      "phone": "+13236341831",
+      "instagram_url": "https://www.instagram.com/workwithatom",
+      "email": "service@atom.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "80d2ff80-484d-4035-9bb3-eb94138a2f41",
+      "slug": "svoi-biz-40"
+    }
+  },
+  {
+    "id": "80d5f4d1-af55-4c86-bea9-319ccb6d1802",
+    "name": "Horizon Armenian TV",
+    "changes": {},
+    "fill": {
+      "address_line": "1203 North Vermont Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Vermont%20Avenue%201203%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://www.horizonatv.com",
+      "phone": "+12133570757"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0b4a5ad5-eb98-4007-b264-f5d22cde03c1",
+      "slug": "svoi-horizon-armenian-tv"
+    }
+  },
+  {
+    "id": "1efea4da-d1c8-45f5-9241-06ebf0a9db46",
+    "name": "Hollywood Forever",
+    "changes": {},
+    "fill": {
+      "address_line": "6000 Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "90038",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Monica%20Boulevard%206000%2C%20Los%20Angeles%2C%20CA%2090038",
+      "website": "http://www.hollywoodforever.com",
+      "phone": "+13233857003",
+      "instagram_url": "https://www.instagram.com/hwdforever",
+      "yelp_url": "https://www.yelp.com/biz/hollywood-forever-cemetery-los-angeles-6"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "238c8ca5-907b-4b1f-8ab3-1e2620023f6a",
+      "slug": "svoi-hollywood-forever"
+    }
+  },
+  {
+    "id": "17378759-6022-47aa-b2d0-b81406079721",
+    "name": "Zepter International Livelonger Online",
+    "changes": {},
+    "fill": {
+      "address_line": "12141 Monogram Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91344",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Monogram%20Avenue%2012141%2C%20Los%20Angeles%2C%20CA%2091344",
+      "website": "http://www.zepterware.com/zepter.php",
+      "phone": "+18183687646"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bfaa8b4f-b297-4528-a9ab-6dbe10f1317a",
+      "slug": "svoi-zepter-international-livelonger-online"
+    }
+  },
+  {
+    "id": "064d3f72-0d0a-44d1-8ee3-3876d806b988",
+    "name": "WE The People",
+    "changes": {},
+    "fill": {
+      "address_line": "7219 Balboa Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91406",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Balboa%20Boulevard%207219%2C%20Los%20Angeles%2C%20CA%2091406",
+      "website": "https://www.wethepeopleusa.com",
+      "phone": "+18189897431"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fc315203-7a96-422f-9f64-b7d9f5d670e9",
+      "slug": "svoi-we-the-people"
+    }
+  },
+  {
+    "id": "82c33154-9ad4-44ae-ac17-26fbe34a28a4",
+    "name": "TicketsR",
+    "changes": {},
+    "fill": {
+      "address_line": "14044 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91423",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2014044%2C%20Los%20Angeles%2C%20CA%2091423",
+      "website": "http://ticketsr.com",
+      "phone": "+18183772101"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e03862f1-2eed-4279-8b71-506890f96db0",
+      "slug": "svoi-ticketsr"
+    }
+  }
+]

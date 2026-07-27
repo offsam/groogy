@@ -1,0 +1,520 @@
+[
+  {
+    "id": "3eadef77-7ea7-4657-94e4-9f515e3c1f5a",
+    "name": "Доктор Лев Барский MD",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "64th Road 97-09",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11374",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=64th%20Road%2097-09%2C%20New%20York%2C%20NY%2011374",
+      "phone": "+17185443273"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b68e3ab1-3dd8-4799-8417-7ed4ef83d649",
+      "slug": "svoi-md"
+    }
+  },
+  {
+    "id": "6dd92c5e-1dde-437b-b9b7-a2e060a8b0a3",
+    "name": "Edward Gindi",
+    "changes": {},
+    "fill": {
+      "address_line": "1636 East 14th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2014th%20Street%201636%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+17183766425"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ee7d01b9-2762-4f15-9f1c-c2785a55f7a1",
+      "slug": "svoi-edward-gindi"
+    }
+  },
+  {
+    "id": "87fae10a-62a4-4667-97c7-9e0c5675ca29",
+    "name": "BELOSTOTSKY, OLGA, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "47 East 77th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2077th%20Street%2047%2C%20New%20York%2C%20NY%20YORK",
+      "phone": "+16466883443"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "8e14dcbc-83a2-4b30-b153-78ecfe204b6c",
+      "slug": "svoi-belostotsky-olga-m-d"
+    }
+  },
+  {
+    "id": "8389bb85-14a6-4dae-b68d-c2ba3d77969e",
+    "name": "Chandler, Michael",
+    "changes": {},
+    "fill": {
+      "address_line": "115 East 61st Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10065",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2061st%20Street%20115%2C%20New%20York%2C%20NY%2010065",
+      "phone": "+12124866715"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "87560109-d2c9-4752-a627-ed814c59990f",
+      "slug": "svoi-chandler-michael"
+    }
+  },
+  {
+    "id": "f2664437-3380-4f47-a55d-6aaafb98ccc9",
+    "name": "Ast, Frederick",
+    "changes": {},
+    "fill": {
+      "address_line": "20 Park Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Avenue%2020%2C%20New%20York%2C%20NY%2010016",
+      "phone": "+12127257027"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "18c4d67e-f445-4004-8db5-d7f544cf1f39",
+      "slug": "svoi-ast-frederick"
+    }
+  },
+  {
+    "id": "75b12601-b06a-4024-836a-641e9293dc69",
+    "name": "Allergy & Asthma Care of New York - Clifford Bassett",
+    "changes": {},
+    "fill": {
+      "address_line": "Park Ave S",
+      "location_precision": "street",
+      "city": "381",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Ave%20S%2C%20381%2C%20New%20York%2C%20NY%2010003",
+      "website": "http://allergyreliefnyc.com",
+      "phone": "+12122606078",
+      "postal_code": "10016",
+      "instagram_url": "https://www.instagram.com/schweigerderm",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "966dbd24-51f0-408b-8aeb-536053367fbd",
+      "slug": "svoi-allergy-asthma-care-of-new-york-clifford-bassett"
+    }
+  },
+  {
+    "id": "beb7ba60-f412-4f44-a3bd-9cc9275dee58",
+    "name": "Arthritis-Internal Medicine Associates Of Middlesex ,P.C.",
+    "changes": {},
+    "fill": {
+      "address_line": "63 Brunswick Woods Drive",
+      "location_precision": "street",
+      "city": "East Brunswick",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brunswick%20Woods%20Drive%2063%2C%20East%20Brunswick%2C%20NJ",
+      "phone": "+17326131900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b28b812e-6f77-40e2-a523-2bbeb54cbe04",
+      "slug": "svoi-arthritis-internal-medicine-associates-of-middle"
+    }
+  },
+  {
+    "id": "e4a1e83e-8703-4b0f-a5e5-8aec77bc5298",
+    "name": "World Health Foundation The Center Of Holistic & Integrated Medicine",
+    "changes": {},
+    "fill": {
+      "address_line": "37 Saw Mill River Road",
+      "location_precision": "street",
+      "city": "Hawthorne",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Saw%20Mill%20River%20Road%2037%2C%20Hawthorne%2C%20NY",
+      "phone": "+19144693037"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "304b8d82-a4f2-4cc8-b3a5-6adcd30d04a2",
+      "slug": "svoi-world-health-foundation-the-center-of-holistic-i"
+    }
+  },
+  {
+    "id": "2042fcbd-94c6-4e60-8943-1d00421e7442",
+    "name": "Acupuncture For Family, PC",
+    "changes": {},
+    "fill": {
+      "address_line": "4 Broadway",
+      "location_precision": "street",
+      "city": "Valhalla",
+      "state_code": "US-NY",
+      "postal_code": "10595",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Broadway%204%2C%20Valhalla%2C%20NY%2010595",
+      "phone": "+19149494969"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "49f9c562-5118-4e19-8f5d-b6f0a84a3fb9",
+      "slug": "svoi-acupuncture-for-family-pc"
+    }
+  },
+  {
+    "id": "de758073-58e0-45a3-8e0a-f884b997294b",
+    "name": "Acupuncture For Health & Rejuvenation",
+    "changes": {},
+    "fill": {
+      "address_line": "3944 Merrick Road",
+      "location_precision": "street",
+      "city": "Seaford",
+      "state_code": "US-NY",
+      "postal_code": "11783",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Merrick%20Road%203944%2C%20Seaford%2C%20NY%2011783",
+      "phone": "+15163181080"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47af102c-f0b7-4b65-90bf-0b6e865185be",
+      "slug": "svoi-acupuncture-for-health-rejuvenation"
+    }
+  },
+  {
+    "id": "2f5b0471-bb21-4ac3-9a73-44ed442bfcf4",
+    "name": "Alexei Belfer, MS, LMT, APP POLARITY, LLC,",
+    "changes": {},
+    "fill": {
+      "address_line": "330 Mockingbird Lane",
+      "location_precision": "street",
+      "city": "Marlboro Township",
+      "state_code": "US-NJ",
+      "postal_code": "07751",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mockingbird%20Lane%20330%2C%20Marlboro%20Township%2C%20NJ%2007751",
+      "phone": "+17329703855"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8882ecb9-f81f-4e14-8ec1-d730116d74aa",
+      "slug": "svoi-alexei-belfer-ms-lmt-app-polarity-llc"
+    }
+  },
+  {
+    "id": "6ac2c34d-cd35-4cb6-82e4-c6027b32d26c",
+    "name": "Traditional Acupuncture & Herb Center",
+    "changes": {},
+    "fill": {
+      "address_line": "134 East Route 59",
+      "location_precision": "street",
+      "city": "Hires",
+      "state_code": "US-NY",
+      "postal_code": "10954",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Route%2059%20134%2C%20Hires%2C%20NY%20%2010954",
+      "phone": "+18456234187"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a5b7103b-c29a-452f-a6b5-85ba2b360396",
+      "slug": "svoi-traditional-acupuncture-herb-center"
+    }
+  },
+  {
+    "id": "d507460e-9701-47d4-86d1-a336db560550",
+    "name": "Longevity Medical LLC.",
+    "changes": {},
+    "fill": {
+      "address_line": "540 Bordentown Avenue",
+      "location_precision": "street",
+      "city": "South Amboy",
+      "state_code": "US-NJ",
+      "postal_code": "08879",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bordentown%20Avenue%20540%2C%20South%20Amboy%2C%20NJ%2008879",
+      "phone": "+17327216789"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e7eddeb1-9718-4222-8896-bd912f24bbbe",
+      "slug": "svoi-longevity-medical-llc"
+    }
+  },
+  {
+    "id": "9ee73b8e-1d65-4de1-8c6d-0bf70f5a6da5",
+    "name": "Santegra USA, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "1 Mountain St.",
+      "location_precision": "street",
+      "city": "Middleton",
+      "state_code": "US-NJ",
+      "postal_code": "07732",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mountain%20St.%201%2C%20Middleton%2C%20NJ%2007732",
+      "phone": "+17324928080"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ede45a98-d47b-45cd-8204-dd09f2d69172",
+      "slug": "svoi-santegra-usa-inc"
+    }
+  },
+  {
+    "id": "ad789289-f233-4502-acd5-1215be84983a",
+    "name": "Liang Sally, M.S., C.A.",
+    "changes": {},
+    "fill": {
+      "address_line": "530 North Maple Avenue",
+      "location_precision": "street",
+      "city": "Ridgewood",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Maple%20Avenue%20530%2C%20Ridgewood%2C%20NJ",
+      "phone": "+12016892332"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4dd90ea9-a9c0-4889-8863-d2f08e673f42",
+      "slug": "svoi-liang-sally-m-s-c-a"
+    }
+  },
+  {
+    "id": "5fb1699e-0761-46ca-8f1d-6a81239aebe8",
+    "name": "Integrative Medicine of Long Island",
+    "changes": {},
+    "fill": {
+      "address_line": "W Waukena Avе  326",
+      "location_precision": "street",
+      "city": "Oceanside",
+      "state_code": "US-NY",
+      "postal_code": "11572",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Waukena%20Av%D0%B5%20%20326%20%2C%20Oceanside%2C%20NY%2011572",
+      "phone": "+15165221890"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "979aff31-270f-4ba9-b5a8-b67168a737d0",
+      "slug": "svoi-integrative-medicine-of-long-island"
+    }
+  },
+  {
+    "id": "286bab7d-272b-4378-b9da-19ed683764f5",
+    "name": "Holmdel Acupuncture & Natural Medicine Center",
+    "changes": {},
+    "fill": {
+      "address_line": "721 Holmdel",
+      "location_precision": "street",
+      "city": "Hazlet",
+      "state_code": "US-NJ",
+      "postal_code": "07733",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Holmdel%20721%2C%20Hazlet%2C%20NJ%2007733",
+      "phone": "+17328884910"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d9678a1c-5379-44f1-9f15-4748c1e533b9",
+      "slug": "svoi-holmdel-acupuncture-natural-medicine-center"
+    }
+  },
+  {
+    "id": "d8a0f9de-6b2c-459b-94f1-be00ec42d5c3",
+    "name": "Natural Acu-Med - Hongtao Xiao, LAC",
+    "changes": {},
+    "fill": {
+      "address_line": "1025 Northern Boulevard",
+      "location_precision": "street",
+      "city": "Flower hill",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northern%20Boulevard%201025%2C%20Flower%20hill%2C%20NY",
+      "phone": "+15168690234"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8b60f9a5-8a7c-40aa-932f-d8d1e16afdde",
+      "slug": "svoi-natural-acu-med-hongtao-xiao-lac"
+    }
+  },
+  {
+    "id": "d025330c-26a0-483c-a85f-9c02dec0b9aa",
+    "name": "Integrating Traditional & Alternative Medicine",
+    "changes": {},
+    "fill": {
+      "address_line": "475 Tuckahoe Road",
+      "location_precision": "street",
+      "city": "Yonkers",
+      "state_code": "US-NY",
+      "postal_code": "10710",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tuckahoe%20Road%20475%2C%20Yonkers%2C%20NY%2010710",
+      "phone": "+19147931824"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "020f8dae-e759-4d44-bc17-d95f1d702b09",
+      "slug": "svoi-integrating-traditional-alternative-medicine"
+    }
+  },
+  {
+    "id": "600277c1-1935-48ef-aa7a-41202ca8bb4b",
+    "name": "Staten Island Center For Alternative Therapies",
+    "changes": {},
+    "fill": {
+      "address_line": "520 Bloomingdale Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10309",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bloomingdale%20Road%20520%2C%20New%20York%2C%20NY%20%2010309",
+      "phone": "+17186051300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1f1cbe1b-4c26-43f1-95b1-fa87ba437749",
+      "slug": "svoi-staten-island-center-for-alternative-therapies"
+    }
+  }
+]

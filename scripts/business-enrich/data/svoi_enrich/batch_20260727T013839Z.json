@@ -1,0 +1,103 @@
+[
+  {
+    "id": "9f15a0d4-88b0-4388-9cfa-b8fac5a569e1",
+    "name": "Hachigian Mark P MD Inc. Colon & Rectal Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "Cherry Street 10931",
+      "location_precision": "street",
+      "city": "Los alamitos",
+      "state_code": "US-CA",
+      "postal_code": "90720",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cherry%20Street%2010931%2C%20Los%20alamitos%2C%20CA%2090720",
+      "phone": "+15625967700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "494a18ad-e849-41c7-b16c-4c5c11878ebd",
+    "name": "Dr. Lydia Matkovich M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "Telo Avenue 23600",
+      "location_precision": "street",
+      "city": "Torrance",
+      "state_code": "US-CA",
+      "postal_code": "90505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Telo%20Avenue%2023600%2C%20Torrance%2C%20CA%2090505",
+      "phone": "+13106268055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1f75285d-2f87-4536-b089-e439c1be3974",
+    "name": "Rehabilitation Institute of Southern California",
+    "changes": {},
+    "fill": {
+      "address_line": "1800 E La Veta Ave Orange",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1800%20E%20La%20Veta%20Ave%20Orange%2C%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://riorehab.org",
+      "phone": "+17146337400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0619d028-28fc-4350-a544-36db49609b68",
+    "name": "Market Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "9250 Reseda 2C",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9250%20Reseda%202C%2C%20Los%20Angeles%2C%20CA%2091324",
+      "website": "https://www.marketcompoundingpharmacy.com",
+      "phone": "+18187017777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7f97ebbf-a944-44ac-b10e-5cf10d6d9db6",
+    "name": "Northridge Plaza Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "18546 Roscoe Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18546%20Roscoe%20Blvd%2C%20Los%20Angeles%2C%20CA%2091324",
+      "phone": "+18189988700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

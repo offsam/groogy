@@ -1,0 +1,33 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "margarita-shvalikovskaya-205653-ef12",
+      "display_name": "Margarita Shvalikovskaya",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "http://www.mygnp.com/index"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://www.mygnp.com/index",
+          "_fetch_url": "https://www.mygnp.com/index",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/74248",
+          "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/cea6b032-0f88-409b-a330-2600ac1235f9/8b6351e4f7c39f2c.webp",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "website": "http://www.mygnp.com/index",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/cea6b032-0f88-409b-a330-2600ac1235f9/8b6351e4f7c39f2c.webp"
+      },
+      "patch": {}
+    }
+  ]
+}

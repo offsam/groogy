@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "63ceb1be-37c6-46e2-8d53-2ae9d1493c33",
+    "name": "Elena Voronkova Realty",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "6070 North Federal Highway",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33487",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Federal%20Highway%206070%2C%20Boca%20raton%2C%20FL%2033487",
+      "phone": "+15613050604"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ff5d5817-6900-43f1-b41e-be4821a29e5c",
+      "slug": "svoi-elena-voronkova-realty"
+    }
+  },
+  {
+    "id": "f86f34ff-51ab-4069-85b2-9f046be183c1",
+    "name": "Realty World International Gateway - Елена Кужильная Эдвардс",
+    "changes": {},
+    "fill": {
+      "address_line": "11430 North Kendall Drive",
+      "location_precision": "street",
+      "city": "Kendall",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Kendall%20Drive%2011430%2C%20Kendall%2C%20FL",
+      "phone": "+17865258286"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1892ad44-58d8-49b8-a738-8f7169ff201e",
+      "slug": "svoi-realty-world-international-gateway"
+    }
+  },
+  {
+    "id": "83384a65-de12-4742-b927-9ff9f346af38",
+    "name": "Владимир Бугера / Vladimir Bugera",
+    "changes": {},
+    "fill": {
+      "address_line": "11420 North Kendall Drive",
+      "location_precision": "street",
+      "city": "Kendall",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Kendall%20Drive%2011420%2C%20Kendall%2C%20FL",
+      "phone": "+13059044490"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a7ae8953-2050-4385-bc37-1ae2bd9fd550",
+      "slug": "svoi-vladimir-bugera"
+    }
+  },
+  {
+    "id": "4b596647-492f-4b91-a246-033d9d0c1d67",
+    "name": "Alex general contractor",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13059791878"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7d7ded86-82c5-40f6-b423-0741501a2691",
+    "name": "“Mr. Air”",
+    "changes": {},
+    "fill": {
+      "address_line": "4650 Powerline Road",
+      "location_precision": "street",
+      "city": "Deerfield Beach",
+      "state_code": "US-FL",
+      "postal_code": "33073",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Powerline%20Road%204650%2C%20Deerfield%20Beach%2C%20FL%2033073",
+      "website": "http://www.mrair.biz",
+      "phone": "+19549740650"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06c6c9bb-5450-4d84-be99-0747c3dd5b35",
+      "slug": "svoi-mr-air"
+    }
+  },
+  {
+    "id": "901fa76a-2664-4222-b649-96bd20b1f362",
+    "name": "“Mr. Air”, Яков",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+18886724740"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "df081db8-ed8e-40db-a952-616b2432889e",
+    "name": "Design Studio by Natalia",
+    "changes": {},
+    "fill": {
+      "address_line": "242 Southwest 5th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%205th%20Street%20242%2C%20Miami%2C%20FL%2033130",
+      "website": "http://designstudiobynatalia.com",
+      "phone": "+17869428315"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cf54a455-716b-4913-85bc-bc3c9b1d21ae",
+      "slug": "svoi-design-studio-by-natalia"
+    }
+  },
+  {
+    "id": "ffc7ee83-5915-4553-b313-00962076f1b0",
+    "name": "Mariya Interior Decor, Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "2715 East Commercial Boulevard",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33308",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Commercial%20Boulevard%202715%2C%20Fort%20lauderdale%2C%20FL%2033308",
+      "phone": "+19547723271"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0e0fe057-d4fd-4743-b8d4-77371ddbaa4c",
+      "slug": "svoi-mariya-interior-decor-inc"
+    }
+  },
+  {
+    "id": "5be08203-9e68-4548-9282-50f1f6274193",
+    "name": "Rafael Davila Design Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "11844 Griffing Boulevard",
+      "location_precision": "street",
+      "city": "Biscayne Park",
+      "state_code": "US-FL",
+      "postal_code": "33161",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Griffing%20Boulevard%2011844%2C%20Biscayne%20Park%2C%20FL%2033161",
+      "phone": "+13058912953"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47950a24-ece6-41ba-886a-f4df6b935663",
+      "slug": "svoi-rafael-davila-design-studio"
+    }
+  },
+  {
+    "id": "ecc44b93-d315-4071-897f-3b68ed46d940",
+    "name": "k.d.lashes",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17863543371"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3a4ea7f7-923a-4ad6-8f76-a9c2182af542",
+    "name": "Shugaring by Maria Miami",
+    "changes": {},
+    "fill": {
+      "city": "FL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL%20ted%20States",
+      "phone": "+17545817870"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "704fb8cc-b2d8-4a66-ac72-fbeca94629c3",
+    "name": "Ирина наращивание ресниц",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13058968565"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "9dae4b1e-6e59-4606-ba47-6b2400e6fea4",
+    "name": "Андрей Соколов",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17869759138"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "929ee507-6eaa-4a1b-9848-0beef909ce54",
+      "slug": "svoi-biz-10"
+    }
+  },
+  {
+    "id": "352d3977-553d-442c-9338-fdcfb7628cb1",
+    "name": "Тайский массаж - Лилия",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17868307371"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "a810a448-247c-494a-ad2f-9eca373fe86b",
+      "slug": "svoi-biz-11"
+    }
+  },
+  {
+    "id": "2b2f513d-0c1b-4f23-a7b5-488315c058c5",
+    "name": "Массаж & Аппаратная косметология",
+    "changes": {},
+    "fill": {
+      "address_line": "3800 S Osean Dr",
+      "location_precision": "street",
+      "city": "Hollywood",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Osean%20Dr%203800%2C%20Hollywood%2C%20FL",
+      "phone": "+13059515028"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ecd3e4df-a6fc-4c96-a83f-a8492bcf03cd",
+      "slug": "svoi-biz-12"
+    }
+  },
+  {
+    "id": "c2424073-62dd-44e0-9ef4-8a756b976ae2",
+    "name": "Royal Florida Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "2900 North Military Trail",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33431",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Military%20Trail%202900%2C%20Boca%20raton%2C%20FL%2033431",
+      "website": "http://www.royalfli.com",
+      "phone": "+15619952100",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "452966c3-655e-42ce-bdff-3afc85124efb",
+      "slug": "svoi-royal-florida-insurance"
+    }
+  },
+  {
+    "id": "a51f7e08-8d8e-4256-9d2b-0e1cb2490926",
+    "name": "Royal Florida Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "2900 North Military Trail",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33431",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Military%20Trail%202900%2C%20Boca%20raton%2C%20FL%20%2033431",
+      "phone": "+15614001177"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1da8855b-bb9d-467f-badd-235caffc03e7",
+      "slug": "svoi-royal-florida-insurance-2"
+    }
+  },
+  {
+    "id": "8466ab0d-f865-4196-bac9-ec84d0f41f3e",
+    "name": "ELENA KISELGOF INSURANCE AGENCY",
+    "changes": {},
+    "fill": {
+      "address_line": "299 Camino Gardens Boulevard",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33432",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Camino%20Gardens%20Boulevard%20299%2C%20Boca%20raton%2C%20FL%2033432",
+      "website": "http://www.kiselgofinsurance.com",
+      "phone": "+15615441577",
+      "email": "info@kiselgofinsurance.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d63bbb9e-6f6e-4b58-968d-e6bb059e1749",
+      "slug": "svoi-elena-kiselgof-insurance-agency"
+    }
+  },
+  {
+    "id": "177c44d0-c928-419b-8f8a-2d88f4eb934d",
+    "name": "Netsphere Travel, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "11753 Preservation Lane",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33498",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Preservation%20Lane%2011753%2C%20Boca%20raton%2C%20FL%2033498",
+      "website": "http://www.netspheretravel.com/4025964_32729.htm",
+      "phone": "+15614871101"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c1c2e317-9c48-4f2a-97e9-82ebafc0bbce",
+      "slug": "svoi-netsphere-travel-inc"
+    }
+  },
+  {
+    "id": "140d0379-5f3e-46d2-a1ce-9915fe083463",
+    "name": "Экскурсии по Майами и туры по Флориде",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13059790475"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bbc660b0-ec97-4532-8f3b-40b36e08a584",
+    "name": "O.S. Tour",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+19542474435"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "97c41b29-a79c-489c-bbcf-9aaf1f5f9a52",
+    "name": "Нотариальные услуги/ Апостиль/Переводчик",
+    "changes": {},
+    "fill": {
+      "address_line": "908 North Dixie Highway",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33432",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Dixie%20Highway%20908%2C%20Boca%20raton%2C%20FL%20%2033432",
+      "phone": "+19545575425"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4276b727-7b6c-4025-92e8-05b4273439ac",
+      "slug": "svoi-biz-68"
+    }
+  },
+  {
+    "id": "e583f3f5-f11f-4b63-8a31-935b613bfe0a",
+    "name": "Профессиональные переводы",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13055887327"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "54bb8e01-5fb1-4154-9999-85e58433cd04",
+    "name": "Нотариус русскоязычный",
+    "changes": {},
+    "fill": {
+      "city": "FL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pompano%20Beach%2C%20FL%20ted%20States",
+      "phone": "+15129633228"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "9c94c65f-7340-4654-a9fd-dae78109c7c1",
+      "slug": "svoi-biz-13"
+    }
+  },
+  {
+    "id": "c41405cd-c919-478b-91bf-c4728e0a3932",
+    "name": "Brickell Key Moving and Storage",
+    "changes": {},
+    "fill": {
+      "address_line": "1652 Brickell Avenue",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33129",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brickell%20Avenue%201652%2C%20Miami%2C%20FL%2033129",
+      "website": "http://www.brickellkeymovers.com",
+      "phone": "+17862882666"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c5a00641-1631-4c9d-b013-7ecbc929353d",
+      "slug": "svoi-brickell-key-moving-and-storage"
+    }
+  },
+  {
+    "id": "82174300-5026-4d81-9980-f721e5871f3a",
+    "name": "Furniture transportation",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17732947250"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "d536e872-27db-4c85-8048-176bc04033d2",
+    "name": "Услуги по переезду - Виктор",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+12159349740"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "be5712b6-1924-4a86-b0d8-3c4710d89162",
+    "name": "Graphic Design & Print Miami",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17542480041"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "ab32a3e0-2c49-4d82-8af9-1f05d3988ba9",
+    "name": "Signs One Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "101 Southeast 3rd Avenue",
+      "location_precision": "street",
+      "city": "Denmark Beach",
+      "state_code": "US-FL",
+      "postal_code": "33004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%203rd%20Avenue%20101%2C%20Denmark%20Beach%2C%20FL%20%2033004",
+      "phone": "+19546654744"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4f5be8f8-4189-4d3e-9398-ccdba89e31a4",
+      "slug": "svoi-signs-one-inc"
+    }
+  },
+  {
+    "id": "c4ad080d-6e12-432c-8595-fec9b6a7749b",
+    "name": "Tonya Tailor Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "105 South Federal Highway",
+      "location_precision": "street",
+      "city": "Denmark Beach",
+      "state_code": "US-FL",
+      "postal_code": "33004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Federal%20Highway%20105%2C%20Denmark%20Beach%2C%20FL%2033004",
+      "phone": "+19549236698"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "255bc87b-67a4-4ccd-83a4-8a1da8456c73",
+      "slug": "svoi-tonya-tailor-shop"
+    }
+  },
+  {
+    "id": "3337a79d-461b-4f76-a45e-abb5024a70a6",
+    "name": "Miami Best Movers Moving Company",
+    "changes": {},
+    "fill": {
+      "address_line": "270 East Flagler Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33131",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Flagler%20Street%20270%2C%20Miami%2C%20FL%2033131",
+      "phone": "+13054249252"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1bba83dc-25df-448e-896f-e4d4d4f222ef",
+      "slug": "svoi-miami-best-movers-moving-company"
+    }
+  },
+  {
+    "id": "e3c00ce1-35ad-4f24-9032-e106322eef23",
+    "name": "Atlantic Express",
+    "changes": {},
+    "fill": {
+      "address_line": "3601 Northwest 60th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33142",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%2060th%20Street%203601%2C%20Miami%2C%20FL%2033142",
+      "website": "http://www.atlanticexpresscorp.com",
+      "phone": "+13056343560"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b780c2fc-e3e4-4e99-817d-4bc331e08521",
+      "slug": "svoi-atlantic-express-2"
+    }
+  },
+  {
+    "id": "f6688867-64b7-4e89-bc12-caa220d8a880",
+    "name": "World Wide Express",
+    "changes": {},
+    "fill": {
+      "address_line": "6000 Northwest 32nd Court",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%2032nd%20Court%206000%2C%20Miami%2C%20FL",
+      "website": "http://www.wwellc.net",
+      "phone": "+13056333030"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "babf343d-0c40-456e-93a6-6bccbd914c8e",
+      "slug": "svoi-world-wide-express"
+    }
+  },
+  {
+    "id": "6937562c-bbe1-4a08-bb90-603a718a7868",
+    "name": "HelpDetected",
+    "changes": {},
+    "fill": {
+      "address_line": "17555 Collins Avenue #404",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%20%23404%2017555%2C%20Sunny%20Isles%20Beach%2C%20FL%2017555%20Collins%20Av",
+      "website": "http://helpdetected.com",
+      "phone": "+18004399849"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "888dfde2-8a66-470e-8b79-365e8e2d7961",
+      "slug": "svoi-helpdetected"
+    }
+  },
+  {
+    "id": "314720e9-627b-496c-bda8-dbf0752aa70c",
+    "name": "Employment Services LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "Harrison St",
+      "location_precision": "street",
+      "city": "Ste 204 1918",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harrison%20St%2C%20Ste%20204%201918%20%2C%20Hollywood%2C%20FL%2033020",
+      "phone": "+19548259199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "23131a7d-df6b-4cf4-b998-a4a7fcdbfe90",
+      "slug": "svoi-employment-services-llc"
+    }
+  },
+  {
+    "id": "ae852bba-6ef4-4f4a-967a-94a22f1a4257",
+    "name": "Alex R Photography",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "website": "http://www.alexfloridaphotography.smugmug.com",
+      "phone": "+19545040515"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "999a0082-4f07-431b-97b3-ad27fbef9c75",
+    "name": "Byilus",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "website": "http://www.byilus.com",
+      "phone": "+13473051050",
+      "email": "info@byilus.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "b993e3ef-c32f-4a37-b0bb-eaad743bd62c",
+    "name": "elenadarikophotography.com",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "website": "http://ru.elenadarikophotography.com",
+      "phone": "+13059055615"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5b911f4f-4810-4992-bac0-207b64878b50",
+    "name": "Hernandez & Company",
+    "changes": {},
+    "fill": {
+      "address_line": "2320 Ponce De Leon Blvd",
+      "location_precision": "street",
+      "city": "Coral gables",
+      "state_code": "US-FL",
+      "postal_code": "33134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ponce%20De%20Leon%20Blvd%202320%2C%20Coral%20gables%2C%20FL%2033134",
+      "phone": "+13054448800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08ebb2f1-38fc-4bc9-b9ea-f8cbf2af3a17",
+      "slug": "svoi-hernandez-company"
+    }
+  },
+  {
+    "id": "870c7d4f-3320-4810-b328-16178507fac9",
+    "name": "Елена Сосновская",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+19546995969"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "4e2029f9-295e-4e5f-bcfe-95ec58ab7536",
+    "name": "FINCOM Group USA",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13057674607"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bc6f0acf-e67c-400b-902a-b96163077f22",
+    "name": "Bridge Real Estate",
+    "changes": {},
+    "fill": {
+      "address_line": "7284 W. Palmetto Park Rd",
+      "location_precision": "street",
+      "city": "Boca del mar",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.%20Palmetto%20Park%20Rd%207284%20%2C%20Boca%20del%20mar%2C%20FL%2033433%20%7C",
+      "phone": "+19169476569"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "81f011a8-b1c3-4d5d-bef9-b7e56002356c",
+      "slug": "svoi-bridge-real-estate"
+    }
+  },
+  {
+    "id": "7b7d3880-9dbc-49e8-86ea-93fe362ee366",
+    "name": "THE MORTGAGE FIRM",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+17274527273"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "aad0e6b9-0d49-4ea9-a065-9d55207bb062",
+    "name": "Kenneth Arena - Senior Financial Consultant",
+    "changes": {},
+    "fill": {
+      "address_line": "101 North Riverside Drive",
+      "location_precision": "street",
+      "city": "Pompano Beach",
+      "state_code": "US-FL",
+      "postal_code": "33062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Riverside%20Drive%20101%2C%20Pompano%20Beach%2C%20FL%20%2033062",
+      "phone": "+19547848545"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3197dbef-59a1-4a95-ba7f-6b296c2a3165",
+      "slug": "svoi-kenneth-arena-senior-financial-consultant"
+    }
+  },
+  {
+    "id": "4d130ab6-b177-46ac-845a-68b88f464b76",
+    "name": "InfoEmpire Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "301 Yamato Road",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Yamato%20Road%20301%2C%20Boca%20raton%2C%20FL",
+      "phone": "+18774824678"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3f5203e2-bf98-477d-9c0e-c6663b738d7f",
+      "slug": "svoi-infoempire-inc"
+    }
+  },
+  {
+    "id": "802ecb44-55d2-465f-9fc5-e18f8f1c239a",
+    "name": "Mobile Billboard Advertising",
+    "changes": {},
+    "fill": {
+      "city": "FL 33140",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%20Beach%2C%20FL%2033140",
+      "phone": "+15617135670"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a0a32d40-baff-46cb-8c3e-ab410503de0d",
+    "name": "Hughes Group",
+    "changes": {},
+    "fill": {
+      "address_line": "16850 Collins Ave #106-B",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Ave%20%23106-B%2016850%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13057133885"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d2c6cb59-0a09-49f3-a17a-57556c4c254c",
+      "slug": "svoi-hughes-group"
+    }
+  },
+  {
+    "id": "c3f06cd0-81a2-430e-a497-4ae9180b51f6",
+    "name": "Russian & International Market",
+    "changes": {},
+    "fill": {
+      "address_line": "8903 Glades Road",
+      "location_precision": "street",
+      "city": "Hamptons-at-Boca Raton",
+      "state_code": "US-FL",
+      "postal_code": "33434",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glades%20Road%208903%2C%20Hamptons-at-Boca%20Raton%2C%20FL%2033434",
+      "phone": "+15614836020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0f64d9c7-1767-4fc8-8a0d-dda2834af319",
+      "slug": "svoi-russian-international-market"
+    }
+  },
+  {
+    "id": "5681b3c1-d312-4baa-ba43-dd9c832f1044",
+    "name": "INTERNATIONAL FOOD MARKET FL",
+    "changes": {},
+    "fill": {
+      "address_line": "422 East Sample Road",
+      "location_precision": "street",
+      "city": "Pompano Beach",
+      "state_code": "US-FL",
+      "postal_code": "33064",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Sample%20Road%20422%2C%20Pompano%20Beach%2C%20FL%2033064",
+      "phone": "+19547844990"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8b4d7ad3-2ad3-4508-a07e-f051a37386a7",
+      "slug": "svoi-international-food-market-fl"
+    }
+  },
+  {
+    "id": "c99a5603-7193-4607-9bbc-e8f567defa41",
+    "name": "Brickell",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13055310038"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

@@ -1,0 +1,522 @@
+[
+  {
+    "id": "d9717902-d226-480c-9168-b277bf57fa4a",
+    "name": "Dr. Rhode, James",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "602 Lakeside Drive",
+      "location_precision": "street",
+      "city": "Upper Southampton Township",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lakeside%20Drive%20602%2C%20Upper%20Southampton%20Township%2C%20PA",
+      "phone": "+12153969515"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3429951b-5309-4579-8a9d-2bdeb2c9123b",
+      "slug": "svoi-dr-rhode-james"
+    }
+  },
+  {
+    "id": "fe76dc6b-8c27-47ed-9f82-2a178ce36ee6",
+    "name": "Dr. Nemirovsky Natan",
+    "changes": {},
+    "fill": {
+      "address_line": "11500 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011500%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12158567140"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "74424850-0a38-4ac1-ab67-25b5d069f2e0",
+      "slug": "svoi-dr-nemirovsky-natan"
+    }
+  },
+  {
+    "id": "6685e1ac-1864-4172-883a-d87ab80aa0e2",
+    "name": "Dr. Irine Feigin",
+    "changes": {},
+    "fill": {
+      "address_line": "2375 Woodward Street",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19115",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodward%20Street%202375%2C%20Philadelphia%2C%20PA%2019115",
+      "phone": "+12159692420"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d3d9205b-6290-466e-9b5f-93b528de82b5",
+      "slug": "svoi-dr-irine-feigin"
+    }
+  },
+  {
+    "id": "a5e5f311-e969-4934-a3be-182db813c8ef",
+    "name": "New Life of Community Health",
+    "changes": {},
+    "fill": {
+      "address_line": "6722 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%206722%2C%20Philadelphia%2C%20PA",
+      "phone": "+12157081645"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4bda2da3-abb1-46a7-862e-143274670097",
+      "slug": "svoi-new-life-of-community-health"
+    }
+  },
+  {
+    "id": "a60fdec2-a6f1-43ba-a80e-67f95690c0a0",
+    "name": "Dr. Mosidze-Hammond, Meggy",
+    "changes": {},
+    "fill": {
+      "address_line": "826 Bustleton Pike",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Pike%20826%2C%20Feasterville-Trevos%2C%20PA%2019053",
+      "phone": "+12153549150"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ec6d03de-712b-4c10-8a05-a94d85f57a26",
+      "slug": "svoi-dr-mosidze-hammond-meggy"
+    }
+  },
+  {
+    "id": "20dd3e81-c00a-436b-89d5-e3f135d32651",
+    "name": "Womens Health Network",
+    "changes": {},
+    "fill": {
+      "address_line": "1904 County Line Road",
+      "location_precision": "street",
+      "city": "Upper Morland Township",
+      "state_code": "US-PA",
+      "postal_code": "19006",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=County%20Line%20Road%201904%2C%20Upper%20Morland%20Township%2C%20PA%2019006",
+      "phone": "+12153223022"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "91a1f93a-bd7b-48b6-aa94-950490ea6e4e",
+      "slug": "svoi-womens-health-network"
+    }
+  },
+  {
+    "id": "6ff29b9e-281d-4a53-86a9-c62d54c695d8",
+    "name": "Urologic Consultants - Dr. J. Weissman",
+    "changes": {},
+    "fill": {
+      "address_line": "9880 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%209880%2C%20Philadelphia%2C%20PA",
+      "phone": "+12156770667"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "33039286-920b-4c16-9d25-3013492f09b1",
+      "slug": "svoi-urologic-consultants-dr-j-weissman"
+    }
+  },
+  {
+    "id": "874b08cd-921e-4fee-bbc5-14fa496a5b92",
+    "name": "Dr. Ilkovych, Yuriy",
+    "changes": {},
+    "fill": {
+      "address_line": "826 Bustleton Pike",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Pike%20826%2C%20Feasterville-Trevos%2C%20PA%2019053",
+      "phone": "+12153058206"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9146d069-1ac8-49bd-b237-c2c1577cbd33",
+      "slug": "svoi-dr-ilkovych-yuriy"
+    }
+  },
+  {
+    "id": "fc88a094-c64a-42ef-abc4-f9a9e99f4c53",
+    "name": "Dr. Azrilevich, Michael",
+    "changes": {},
+    "fill": {
+      "address_line": "14500 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2014500%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12159345555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0d75af4c-d72f-4100-a743-9adb9a0a47b5",
+      "slug": "svoi-dr-azrilevich-michael"
+    }
+  },
+  {
+    "id": "bd396ebc-0916-4282-948f-379797b6f4af",
+    "name": "Dr. Alexander D. Tarnopolsky, DO",
+    "changes": {},
+    "fill": {
+      "address_line": "14200 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2014200%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156710900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "9bbd3ee8-3a91-42a3-a10e-b20d03eb1bea",
+      "slug": "svoi-dr-alexander-d-tarnopolsky-do"
+    }
+  },
+  {
+    "id": "3b091928-bfd2-4495-ae0b-ec4c8a51c3cd",
+    "name": "Feasterville Foot Care Center – Dr. Nelson, Howard",
+    "changes": {},
+    "fill": {
+      "address_line": "826 Bustleton Pike",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Pike%20826%2C%20Feasterville-Trevos%2C%20PA%2019053",
+      "website": "http://www.feastervillefootcare.com",
+      "phone": "+12159531181"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f5ce3aed-37bb-44f9-97c8-9fad6fa7caf5",
+      "slug": "svoi-feasterville-foot-care-center-dr-nelson-howard"
+    }
+  },
+  {
+    "id": "534f0f49-f780-4be7-bf26-e4ed2eb78891",
+    "name": "Matossian Eye Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Capital Way",
+      "location_precision": "street",
+      "city": "Hopewell Township",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Capital%20Way%202%2C%20Hopewell%20Township%2C%20NJ",
+      "phone": "+16098828833"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1b2d3923-da03-4649-b025-9b3cf9b6f3f7",
+      "slug": "svoi-matossian-eye-associates"
+    }
+  },
+  {
+    "id": "367224d2-c455-4d69-a786-e001f8c82f71",
+    "name": "Dr. Batushansky, Milla",
+    "changes": {},
+    "fill": {
+      "address_line": "2nd Street Pike 1075",
+      "location_precision": "street",
+      "city": "Richborough",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2nd%20Street%20Pike%201075%2C%20Richborough%2C%20PA",
+      "phone": "+12157100694"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9a2877e1-8645-42d0-8ac3-a24994aabafe",
+      "slug": "svoi-dr-batushansky-milla"
+    }
+  },
+  {
+    "id": "69405e6b-affe-4646-82f6-c2235e688e94",
+    "name": "Deputy Eyewear",
+    "changes": {},
+    "fill": {
+      "address_line": "13020 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2013020%2C%20Philadelphia%2C%20PA%2019116",
+      "website": "http://www.deputyeyewear.com",
+      "phone": "+12156731267"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6bd6ac85-83e6-4d7e-bc7b-68a83eea891b",
+      "slug": "svoi-deputy-eyewear"
+    }
+  },
+  {
+    "id": "7cb99197-3109-4bc4-ab5f-0fe41080d340",
+    "name": "Best Impression",
+    "changes": {},
+    "fill": {
+      "address_line": "1050 Dekalb Pike",
+      "location_precision": "street",
+      "city": "Blue bell",
+      "state_code": "US-PA",
+      "postal_code": "19422",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dekalb%20Pike%201050%2C%20Blue%20bell%2C%20PA%2019422",
+      "website": "http://drmirabile.com",
+      "phone": "+16102728821",
+      "instagram_url": "https://www.instagram.com/drvivianhsu"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "27e00f4b-8cac-476b-9c1f-e32e8691890e",
+      "slug": "svoi-best-impression"
+    }
+  },
+  {
+    "id": "e0656204-5856-4e7b-874c-e52d1999a12e",
+    "name": "Dr. Antonov, Oleg",
+    "changes": {},
+    "fill": {
+      "address_line": "11400 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011400%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12677881424"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5623ebcf-00b5-4ad6-a512-852cde5dea9d",
+      "slug": "svoi-dr-antonov-oleg"
+    }
+  },
+  {
+    "id": "21bfcf35-3f18-406d-95de-49c531580d37",
+    "name": "Center for Plastic and Reconstructive Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "19 Montgomery Avenue",
+      "location_precision": "street",
+      "city": "Bala Cynwyd",
+      "state_code": "US-PA",
+      "postal_code": "19004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Montgomery%20Avenue%2019%2C%20Bala%20Cynwyd%2C%20PA%2019004",
+      "phone": "+16106671888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "39ebde33-6a56-4ec0-88b7-e866b31a2ad4",
+      "slug": "svoi-center-for-plastic-and-reconstructive-surgery"
+    }
+  },
+  {
+    "id": "8b8afa12-70af-4409-8f7a-011d768175d9",
+    "name": "Dr. Pantelyat Susanna MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2112 Welsh Road",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19115",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Welsh%20Road%202112%2C%20Philadelphia%2C%20PA%2019115",
+      "phone": "+12156731498"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "90f885e6-ac6a-450c-9548-6149fe18a574",
+      "slug": "svoi-dr-pantelyat-susanna-md"
+    }
+  },
+  {
+    "id": "4eb2f9bd-bde5-44c1-82af-72e505d8a5f9",
+    "name": "Dr. Levin Moisey",
+    "changes": {},
+    "fill": {
+      "address_line": "Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2C%20Philadelphia%2C%20PA",
+      "phone": "+12157223211"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "dbfafa01-785d-4547-a768-156456b29555",
+      "slug": "svoi-dr-levin-moisey"
+    }
+  },
+  {
+    "id": "9dc46176-c844-4bf5-9acd-572a81c712e9",
+    "name": "Dr. Bob Rush Chiropractic Relief & Wellness",
+    "changes": {},
+    "fill": {
+      "address_line": "13044 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2013044%20%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156772225"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "384781b4-0cb2-45c6-b170-2b0025fd0369",
+      "slug": "svoi-dr-bob-rush-chiropractic-relief-wellness"
+    }
+  }
+]

@@ -1,0 +1,477 @@
+[
+  {
+    "id": "2043365c-4bbb-4022-b603-3a97c2f52045",
+    "name": "Acton Real Estate Company, LLC",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "525 Massachusetts Ave #105",
+      "location_precision": "street",
+      "city": "Acton",
+      "state_code": "US-MA",
+      "postal_code": "01720",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Massachusetts%20Ave%20%23105%20525%2C%20Acton%2C%20MA%20%2001720",
+      "website": "http://www.acton-realestate.com",
+      "phone": "+19782631166",
+      "instagram_url": "https://www.instagram.com/barrettsothebysrealty"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1252949f-65b1-465a-a1de-0b38e94c1ec9",
+      "slug": "svoi-acton-real-estate-company-llc"
+    }
+  },
+  {
+    "id": "0a003cba-9c74-498b-9b50-a1731f537833",
+    "name": "Homes-R-US Realty of MA",
+    "changes": {},
+    "fill": {
+      "address_line": "9 Green Street",
+      "location_precision": "street",
+      "city": "Holiston",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Green%20Street%209%2C%20Holiston%2C%20MA",
+      "phone": "+15084290909"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "453263af-55cd-460b-a60b-5de0846d2eab",
+      "slug": "svoi-homes-r-us-realty-of-ma"
+    }
+  },
+  {
+    "id": "4984dac3-d165-48d6-9d50-8f5c6c6280cb",
+    "name": "Milendorf Real Estate Development",
+    "changes": {},
+    "fill": {
+      "address_line": "25 Waltham Street",
+      "location_precision": "street",
+      "city": "Lexington",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waltham%20Street%2025%2C%20Lexington%2C%20MA",
+      "phone": "+17816969462"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3cfe887c-765d-434e-8e59-e4cd90fab821",
+      "slug": "svoi-milendorf-real-estate-development"
+    }
+  },
+  {
+    "id": "9367ac35-2184-47b0-aba8-70db8df1b2ca",
+    "name": "HOMEDOCTOR",
+    "changes": {},
+    "fill": {
+      "address_line": "183 Oak",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "postal_code": "02464",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oak%20%20183%2C%20Newton%2C%20MA%2002464",
+      "phone": "+16173328685"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dac2b603-458b-4db4-8990-a50cd2852ff4",
+      "slug": "svoi-homedoctor"
+    }
+  },
+  {
+    "id": "27fbe07f-aa70-43e1-8cc8-6bb5221400f7",
+    "name": "David Tesler",
+    "changes": {},
+    "fill": {
+      "address_line": "54 Leigh",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01701",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Leigh%20%2054%2C%20Framingham%2C%20MA%2001701",
+      "phone": "+15088775639"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "83214eaa-0bcc-4366-884e-503e888795b1",
+      "slug": "svoi-david-tesler"
+    }
+  },
+  {
+    "id": "5e0478ab-60bf-45ca-8199-5d66de05422b",
+    "name": "Ace Air",
+    "changes": {},
+    "fill": {
+      "city": "MA 02459",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Newton%2C%20MA%2002459",
+      "phone": "+17817245949"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5e70ed07-d2d0-4957-a320-d599eca4344c",
+    "name": "Air Stream HVAC",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boston%2C%20MA",
+      "phone": "+17817045057"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "695a3f7a-7a76-4789-8eca-fa07d8c882bd",
+    "name": "Architect Samuel Volchek",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sudbury%2C%20MA",
+      "phone": "+16177871183"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "6309ad9e-3de0-4a54-b91a-45b521f5baf5",
+    "name": "YM Design, INC",
+    "changes": {},
+    "fill": {
+      "address_line": "302 Winchester Street N",
+      "location_precision": "street",
+      "city": "Newton",
+      "state_code": "US-MA",
+      "postal_code": "02461",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Winchester%20Street%20N%20302%2C%20Newton%2C%20MA%2002461",
+      "website": "http://www.ymarchitect.com",
+      "phone": "+16173062898"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "039d11fe-ec6b-4135-a954-3021fa5579ac",
+      "slug": "svoi-ym-design-inc"
+    }
+  },
+  {
+    "id": "6f12f2be-affd-4d7b-9a27-f5801301cc61",
+    "name": "Michail Oratovcky - Licensed architect",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boston%2C%20MA",
+      "phone": "+16173881374"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "68d2dca5-f228-4b33-a414-ab3117823cd9",
+    "name": "Hair At The Emery Board в Плейнвилл",
+    "changes": {},
+    "fill": {
+      "address_line": "60 Man-Mar Drive",
+      "location_precision": "street",
+      "city": "Plainville",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Man-Mar%20Drive%2060%2C%20Plainville%2C%20MA",
+      "phone": "+15086992094"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5ab0f3cb-1d2f-454d-8898-d2966ce1e601",
+      "slug": "svoi-hair-at-the-emery-board"
+    }
+  },
+  {
+    "id": "0300857d-90b3-4b19-911a-29233cc203cd",
+    "name": "Kids Entertainment and Face Painting by Tania",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Pelham Avenue",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pelham%20Avenue%202%2C%20Framingham%2C%20MA",
+      "phone": "+17816403681"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b679dbda-cac7-4f2d-8c80-044ee38e5d11",
+      "slug": "svoi-kids-entertainment-and-face-painting-by-tania"
+    }
+  },
+  {
+    "id": "1fb2ccbb-0b17-4d0b-be52-4d2f1ca65084",
+    "name": "Beauty Studio",
+    "changes": {},
+    "fill": {
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Natick%2C%20Framingham%2C%20MA",
+      "phone": "+16176450109"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "886aae57-0722-462d-9aea-68b42179a454",
+    "name": "Детский Массаж",
+    "changes": {},
+    "fill": {
+      "address_line": "32 Apple Tree Hill Rd",
+      "location_precision": "street",
+      "city": "Hopkinton",
+      "state_code": "US-MA",
+      "postal_code": "01748",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Apple%20Tree%20Hill%20Rd%2032%2C%20Hopkinton%2C%20MA%2001748",
+      "phone": "+17742306287"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "040c283c-7cbf-4fbc-9afc-679425ad46b1",
+      "slug": "svoi-biz-7"
+    }
+  },
+  {
+    "id": "2a1f65a3-a0fb-4347-8def-169e0ae4f6c3",
+    "name": "Nangle Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "287 Appleton Street",
+      "location_precision": "street",
+      "city": "Lowell",
+      "state_code": "US-MA",
+      "postal_code": "01852",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Appleton%20Street%20287%2C%20Lowell%2C%20MA%2001852",
+      "phone": "+19789340697"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8dbc1be1-c0f5-4f67-933e-20f34293978e",
+      "slug": "svoi-nangle-insurance"
+    }
+  },
+  {
+    "id": "c5f9148a-cbb8-44c7-996d-933ec105963e",
+    "name": "Екатерина Максимова",
+    "changes": {},
+    "fill": {
+      "address_line": "405 Cochituate Road",
+      "location_precision": "street",
+      "city": "Framingham",
+      "state_code": "US-MA",
+      "postal_code": "01701",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cochituate%20Road%20405%2C%20Framingham%2C%20MA%2001701",
+      "phone": "+15089072396"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ed77a73-6267-498d-b451-8920774431c9",
+      "slug": "svoi-biz-43"
+    }
+  },
+  {
+    "id": "beb72f54-323f-43ac-87e3-d8456be2c6bf",
+    "name": "Катерина Музиро Страховой Агент",
+    "changes": {},
+    "fill": {
+      "address_line": "10 Federal Street Suite 11",
+      "location_precision": "street",
+      "city": "Salem",
+      "state_code": "US-MA",
+      "postal_code": "01970",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Federal%20Street%20Suite%2011%2010%2C%20Salem%2C%20MA%2001970",
+      "phone": "+16172751796"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3b245708-c65f-460f-999c-2a803227faaf",
+      "slug": "svoi-biz-44"
+    }
+  },
+  {
+    "id": "e7f95271-2c27-41e9-bcce-6ca60f89854a",
+    "name": "Viva Travel в Лоренс",
+    "changes": {},
+    "fill": {
+      "address_line": "607 Common Street",
+      "location_precision": "street",
+      "city": "Lawrence",
+      "state_code": "US-MA",
+      "postal_code": "01840",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Common%20Street%20607%2C%20Lawrence%2C%20MA%2001840",
+      "phone": "+19786866610"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "62af756f-972b-43fa-8bcb-40bc519db0e5",
+      "slug": "svoi-viva-travel"
+    }
+  },
+  {
+    "id": "c6d58883-9c9c-41e1-af9c-9b998d81b974",
+    "name": "All Seasons Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "174 Lynn Street",
+      "location_precision": "street",
+      "city": "Peabody",
+      "state_code": "US-MA",
+      "postal_code": "01960",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lynn%20Street%20174%2C%20Peabody%2C%20MA%2001960",
+      "phone": "+19785316300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e14b568e-1a16-4b48-b1f3-69ccffdb253f",
+      "slug": "svoi-all-seasons-travel"
+    }
+  },
+  {
+    "id": "df5c875f-74d1-401b-b56d-87fb171206da",
+    "name": "Romantic Tour",
+    "changes": {},
+    "fill": {
+      "address_line": "33 Birch Street",
+      "location_precision": "street",
+      "city": "Westwood",
+      "state_code": "US-MA",
+      "postal_code": "02090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Birch%20Street%2033%2C%20Westwood%2C%20MA%2002090",
+      "website": "http://oknovevropu.com",
+      "phone": "+17813200102"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bc34093d-aa61-4846-8cc1-24235e4c4a2c",
+      "slug": "svoi-romantic-tour"
+    }
+  }
+]

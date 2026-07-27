@@ -1,0 +1,23 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-julia-lobova-realtor",
+      "display_name": "Julia Lobova- Realtor",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/julia-lobova-realtor/",
+          "_via": "rop_dump"
+        }
+      },
+      "found": {},
+      "patch": {}
+    }
+  ]
+}

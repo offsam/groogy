@@ -67,8 +67,10 @@ PHONE_RE = re.compile(r"(?:\+?1[\s\-.]?)?\(?\d{3}\)?[\s\-.]?\d{3}[\s\-.]?\d{4}")
 EMAIL_RE = re.compile(r"[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}", re.I)
 CITY_RE = re.compile(
     r"\b(Costa Mesa|Newport Beach|Fullerton|Irvine|Anaheim|Tustin|"
-    r"Fountain Valley|Mission Viejo|Laguna Woods|Lake Forest|Long Beach|"
-    r"Santa Ana|Orange County|OC)\b",
+    r"Fountain Valley|Mission Viejo|Laguna Woods|Laguna Niguel|Lake Forest|"
+    r"Long Beach|Santa Ana|Huntington Beach|Garden Grove|Yorba Linda|"
+    r"San Clemente|Brea|Placentia|Westminster|Buena Park|"
+    r"Orange County|Orange(?!\s+County)|OC)\b",
     re.I,
 )
 
@@ -397,15 +399,20 @@ def main() -> int:
     latest = OUT / "rop_cards_latest.json"
     payload = {
         "source": "https://www.russianorangepages.com/community/",
+        "directory_source": "orange_pages",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "count": len(cards),
         "errors": errors,
         "cards": cards,
     }
+    OUT.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    latest.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    if cards:
+        latest.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    else:
+        print("skip updating latest — zero cards", flush=True)
     print(json.dumps({"wrote": str(out_path), "count": len(cards), "errors": len(errors)}, ensure_ascii=False))
-    return 0
+    return 0 if cards else 1
 
 
 if __name__ == "__main__":

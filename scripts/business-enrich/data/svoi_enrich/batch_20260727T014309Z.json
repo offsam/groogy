@@ -1,0 +1,253 @@
+[
+  {
+    "id": "18431abc-ba3c-4175-b946-ca2d168acc0c",
+    "name": "ALEX POPOV ARENDA AFTOMOBILY",
+    "changes": {},
+    "fill": {
+      "address_line": "Santa monica",
+      "location_precision": "street",
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20monica%2C%20CA",
+      "phone": "+18182611560"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "245ae93c-cefb-4d4e-b66b-6f3198afd669",
+      "slug": "svoi-alex-popov-arenda-aftomobily"
+    }
+  },
+  {
+    "id": "41febcc2-e3fc-4056-a95c-5c6b34a0aa02",
+    "name": "AutoVista Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "10315 Woodley Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91344",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10315%20Woodley%20Ave%2C%20Los%20Angeles%2C%20CA%2091344",
+      "website": "http://autovistasales.com",
+      "phone": "+18187002886"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "594427b8-97be-49fb-baa1-4c19d251c678",
+      "slug": "svoi-autovista-inc"
+    }
+  },
+  {
+    "id": "5a8694ca-89ef-4678-a161-b232787e7131",
+    "name": "Auto-CarSale",
+    "changes": {},
+    "fill": {
+      "address_line": "11571 Sheldon St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91352",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11571%20Sheldon%20St%2C%20Los%20Angeles%2C%20CA%2091352",
+      "website": "http://auto-carsale.com",
+      "phone": "+18005799428"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "2de41db4-b9b9-4cd1-abf2-c44c1419fcff",
+      "slug": "svoi-auto-carsale"
+    }
+  },
+  {
+    "id": "86862a5b-bacf-43d2-96c7-795c8807dc55",
+    "name": "Auto Insurance Services",
+    "changes": {},
+    "fill": {
+      "address_line": "6411 Sepulveda Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91405",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sepulveda%20Boulevard%206411%2C%20Los%20Angeles%2C%20CA%2091405",
+      "phone": "+18189097486"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "4edbb6a5-ac15-4247-adc1-bd56943fe0d0",
+      "slug": "svoi-auto-insurance-services"
+    }
+  },
+  {
+    "id": "7c8998ba-f101-4501-b9c5-58527f9c3d2b",
+    "name": "Royalty Financial & Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "14545 Victory Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91411",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Victory%20Boulevard%2014545%2C%20Los%20Angeles%2C%20CA%2091411",
+      "website": "http://www.royaltytruckinsurance.com",
+      "phone": "+18189898999",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "7a7bb454-42a7-482b-8a6c-481c39c21120",
+      "slug": "svoi-royalty-financial-insurance"
+    }
+  },
+  {
+    "id": "407a91a3-6b66-4bb6-a133-97ebdb49016e",
+    "name": "Farmers Insurance - Аида Келеджян",
+    "changes": {},
+    "fill": {
+      "address_line": "6400 Laurel Canyon Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91401",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6400%20Laurel%20Canyon%20Blvd%2C%20Los%20Angeles%2C%20CA%2091401",
+      "website": "https://agents.farmers.com/ca/van-nuys/aida-keledzhyan",
+      "phone": "+18185303409"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "3467a196-9199-435c-8ea4-5fd2ff111a48",
+      "slug": "svoi-farmers-insurance"
+    }
+  },
+  {
+    "id": "52ad3301-4079-4fb6-b163-bec0ee690d7e",
+    "name": "Gary's Auto Collision Center, Auto Body Reapair and Paint",
+    "changes": {},
+    "fill": {
+      "address_line": "24247 Railroad Avenue",
+      "location_precision": "street",
+      "city": "Santa clarita",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Railroad%20Avenue%2024247%2C%20Santa%20clarita%2C%20CA",
+      "phone": "+16612551340"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "17a57b32-157f-4806-a906-7949ea661339",
+      "slug": "svoi-gary-s-auto-collision-center-auto-body-reapair-a"
+    }
+  },
+  {
+    "id": "209f5c9d-0e6a-4a38-87a8-7d6275a527b2",
+    "name": "Aвтосервис",
+    "changes": {},
+    "fill": {
+      "address_line": "Anaheim",
+      "location_precision": "street",
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Anaheim%2C%20CA%20ted%20States",
+      "phone": "+19499229051"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "1bd151e1-0aed-4ea3-bfe5-2e26cd6e8093",
+      "slug": "svoi-a"
+    }
+  },
+  {
+    "id": "b30a24eb-d272-448e-becb-8eb09418fd41",
+    "name": "Advantech Auto Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "20138 Roscoe Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=20138%20Roscoe%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://www.advantecauto.com",
+      "phone": "+18188868324"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "20bdb6f7-49aa-47b4-b586-9569f2e1fb8c",
+      "slug": "svoi-advantech-auto-repair"
+    }
+  },
+  {
+    "id": "2b86bb60-588f-47c4-8a65-1ff6bd8d2f3f",
+    "name": "Angels Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "20935 Vanowen St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91303",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=20935%20Vanowen%20St%2C%20Los%20Angeles%2C%20CA%2091303",
+      "website": "https://angelsdrivingschool.com",
+      "phone": "+18006066635"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "action": "create",
+      "id": "ab8f10c9-0425-415e-a65e-4713a85ca68a",
+      "slug": "svoi-angels-driving-school"
+    }
+  }
+]

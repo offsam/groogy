@@ -1,0 +1,529 @@
+[
+  {
+    "id": "3cc79ff1-d15d-4763-84a6-911e80784ade",
+    "name": "Philip Anthony Salon",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "859 Sanders Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sanders%20Road%20859%2C%20Northbrook%2C%20IL",
+      "phone": "+18474807895"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a3e457bd-7126-4418-a01e-c5c067a79f41",
+      "slug": "svoi-philip-anthony-salon"
+    }
+  },
+  {
+    "id": "1e8a3201-3659-4b2c-a7cc-71c0ce5a0adf",
+    "name": "Charles Ifergan Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "380 Lake Cook Road",
+      "location_precision": "street",
+      "city": "Deerfield",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lake%20Cook%20Road%20380%2C%20Deerfield%2C%20IL",
+      "phone": "+18479400900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e1d52f53-af58-4818-a5f3-809b546d6b30",
+      "slug": "svoi-charles-ifergan-salon"
+    }
+  },
+  {
+    "id": "0a027478-0ab0-4552-930d-9f0542b67202",
+    "name": "Mederma Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "1710 Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20Avenue%201710%2C%20Glenview%2C%20IL",
+      "website": "http://www.lipomassagechicago.com",
+      "phone": "+18472577373",
+      "instagram_url": "https://www.instagram.com/3"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b05172f9-638f-4db2-9705-599d3d207e60",
+      "slug": "svoi-mederma-spa"
+    }
+  },
+  {
+    "id": "72c4bae0-b509-4d6c-ad85-63451d8dd3c5",
+    "name": "Audras Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "314 West Ogden Avenue",
+      "location_precision": "street",
+      "city": "Downers grove township",
+      "state_code": "US-IL",
+      "postal_code": "60559",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Ogden%20Avenue%20314%2C%20Downers%20grove%20township%2C%20IL%2060559",
+      "website": "http://www.audrasspa.com",
+      "phone": "+16309604004"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f7b14150-757f-4bce-b7f7-b151b222d770",
+      "slug": "svoi-audras-spa"
+    }
+  },
+  {
+    "id": "89036bdd-a732-4905-ba97-656fbca6603b",
+    "name": "KEITH'S Ltd.",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 Lee Street",
+      "location_precision": "street",
+      "city": "Des plains",
+      "state_code": "US-IL",
+      "postal_code": "60016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lee%20Street%201101%2C%20Des%20plains%2C%20IL%2060016",
+      "phone": "+18472986727"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d5ca2f13-9f89-4285-bc1a-d8a7d4a45986",
+      "slug": "svoi-keith-s-ltd"
+    }
+  },
+  {
+    "id": "2102e348-2c65-4be0-901e-c4e69615e1dc",
+    "name": "La Mode Hair Design & Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "1811 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%201811%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18477290196"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1f1aaa14-4fef-45c5-8327-8dbf6da4c719",
+      "slug": "svoi-la-mode-hair-design-spa"
+    }
+  },
+  {
+    "id": "0d381823-f203-49b2-9ad2-b94b29991cb4",
+    "name": "Pavilion Salon & Spa Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "5441 North East River Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60656",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20East%20River%20Road%205441%2C%20Chicago%2C%20IL%2060656",
+      "phone": "+17734442410"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2c77269d-b87f-4081-a9ea-63f555867f2f",
+      "slug": "svoi-pavilion-salon-spa-inc"
+    }
+  },
+  {
+    "id": "84b9c7b4-bd3e-4ec4-9419-942cc6bf97af",
+    "name": "Eva Hair Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "9449 Ogden Avenue",
+      "location_precision": "street",
+      "city": "Brookfield",
+      "state_code": "US-IL",
+      "postal_code": "60513",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ogden%20Avenue%209449%2C%20Brookfield%2C%20IL%2060513",
+      "phone": "+17084850632"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d83c57fe-cc45-4269-8229-64245fa369a6",
+      "slug": "svoi-eva-hair-salon"
+    }
+  },
+  {
+    "id": "e3e4c4e5-d5a0-4c17-9ada-f6d43d7bc493",
+    "name": "Exotic Tan and Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "5128 North Harlem Avenue",
+      "location_precision": "street",
+      "city": "Harwood Heights",
+      "state_code": "US-IL",
+      "postal_code": "60706",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Harlem%20Avenue%205128%2C%20Harwood%20Heights%2C%20IL%2060706",
+      "website": "http://glowsalon.us",
+      "phone": "+17088671500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ffc3544c-05ef-414e-a97b-9cb2ed2fc66f",
+      "slug": "svoi-exotic-tan-and-spa"
+    }
+  },
+  {
+    "id": "d74323e4-c627-4fe0-a888-3bf72b968c2d",
+    "name": "Vergo Salon Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "6706 North Crawford Avenue",
+      "location_precision": "street",
+      "city": "Lincolnwood",
+      "state_code": "US-IL",
+      "postal_code": "60712",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Crawford%20Avenue%206706%2C%20Lincolnwood%2C%20IL%2060712",
+      "phone": "+18476752720"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bb595815-8d0c-48b8-81d0-19a8e03c055e",
+      "slug": "svoi-vergo-salon-spa"
+    }
+  },
+  {
+    "id": "9a470200-a49f-4710-b751-5ae2ccf0e0c3",
+    "name": "Stephanies Touch Of Class",
+    "changes": {},
+    "fill": {
+      "address_line": "6155 South Archer Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60638",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Archer%20Avenue%206155%2C%20Chicago%2C%20IL%2060638",
+      "phone": "+17735857366"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6fff10c5-a0a5-4fed-98ff-3aea3774f634",
+      "slug": "svoi-stephanies-touch-of-class"
+    }
+  },
+  {
+    "id": "65109dc1-41dd-4760-abe4-7ee3dad0905e",
+    "name": "XOX Salon and Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "4458 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60630",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%204458%2C%20Chicago%2C%20IL%2060630",
+      "phone": "+17737779997"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cfe6cad4-a338-47b9-a284-14e386c376f2",
+      "slug": "svoi-xox-salon-and-spa"
+    }
+  },
+  {
+    "id": "39c21bdd-be57-4ff0-94cc-d0008b77acf7",
+    "name": "Salon Quest Locs",
+    "changes": {},
+    "fill": {
+      "address_line": "6810 South Paulina Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60636",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Paulina%20Street%206810%2C%20Chicago%2C%20IL%2060636",
+      "phone": "+17734989230"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "700d02b8-d68e-4022-931a-56ed24771c8d",
+      "slug": "svoi-salon-quest-locs"
+    }
+  },
+  {
+    "id": "c7a3a0c7-431c-491d-9e7b-4a61d2047b32",
+    "name": "Yehia & Co Hair Designs",
+    "changes": {},
+    "fill": {
+      "address_line": "1455 East 53rd Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60615",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2053rd%20Street%201455%2C%20Chicago%2C%20IL%2060615",
+      "phone": "+17736671154"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2780b44b-fa7a-4edc-8ae6-1f773cfc1478",
+      "slug": "svoi-yehia-co-hair-designs"
+    }
+  },
+  {
+    "id": "157478fe-fc6b-4a8a-880a-48c07b5524fa",
+    "name": "Professional Medical Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "2832 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%202832%2C%20Chicago%2C%20IL%2060618",
+      "phone": "+18152420619"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "266f671b-4909-43aa-a338-57970974796d",
+      "slug": "svoi-professional-medical-spa"
+    }
+  },
+  {
+    "id": "60146601-26ae-47de-9a2a-52f0488e1855",
+    "name": "Amber Electrolysis",
+    "changes": {},
+    "fill": {
+      "address_line": "1471 West Irving Park Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60613",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Irving%20Park%20Road%201471%2C%20Chicago%2C%20IL%2060613",
+      "phone": "+17739177647"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8f127fb3-4333-4b6d-b624-16fc68fbfc0f",
+      "slug": "svoi-amber-electrolysis"
+    }
+  },
+  {
+    "id": "030098e8-7abb-49f6-a9c8-aee77830ef66",
+    "name": "Essence VIP Hairdesigners & Wellness Center",
+    "changes": {},
+    "fill": {
+      "address_line": "2551 North Clark Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60614",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Clark%20Street%202551%2C%20Chicago%2C%20IL%2060614",
+      "phone": "+18727040232"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ac27f035-738f-43a9-89fb-a5b385148993",
+      "slug": "svoi-essence-vip-hairdesigners-wellness-center"
+    }
+  },
+  {
+    "id": "80a77167-3acb-4625-8c12-f44148e2a0cb",
+    "name": "Endermologie Chicago",
+    "changes": {},
+    "fill": {
+      "address_line": "34 East Oak Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Oak%20Street%2034%2C%20Chicago%2C%20IL",
+      "website": "http://shop.usasib.com",
+      "phone": "+12243923223"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f3eb1f5a-7c15-4ea1-a36f-26e072445332",
+      "slug": "svoi-endermologie-chicago"
+    }
+  },
+  {
+    "id": "a1c43eab-0992-4609-9699-4a6f7223b74b",
+    "name": "Best Chicago Barbers",
+    "changes": {},
+    "fill": {
+      "address_line": "67 East Oak Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60611",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Oak%20Street%2067%2C%20Chicago%2C%20IL%2060611",
+      "phone": "+17085406376"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "995a36dd-5ea4-4764-9458-1bc5b23fc995",
+      "slug": "svoi-best-chicago-barbers"
+    }
+  },
+  {
+    "id": "71a17a4c-0406-4c1d-8f49-1e2a77629707",
+    "name": "Elizabeth Adam Salon & Day Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "845 North Michigan Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60611",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Michigan%20Avenue%20%20845%2C%20Chicago%2C%20IL%2060611",
+      "phone": "+13129444311"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d97c6dce-6ada-460d-a7c0-4c62d6642dcb",
+      "slug": "svoi-elizabeth-adam-salon-day-spa"
+    }
+  }
+]

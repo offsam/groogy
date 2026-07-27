@@ -1,0 +1,1232 @@
+[
+  {
+    "id": "30c43253-d876-4e26-aa85-568a0a61a3a9",
+    "name": "SaveRite Tax and Accounting Service",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "5425 Peachtree Parkway",
+      "location_precision": "street",
+      "city": "Peachtree Corners",
+      "state_code": "US-GA",
+      "postal_code": "30071",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Peachtree%20Parkway%205425%2C%20Peachtree%20Corners%2C%20GA%2030071",
+      "phone": "+14045329606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f4dbc1da-bd85-4ddd-b2eb-4b1fb18f2be5",
+      "slug": "svoi-saverite-tax-and-accounting-service"
+    }
+  },
+  {
+    "id": "35cb9c25-e3f9-4525-b4da-d956e0d76116",
+    "name": "Franklin Accounting & Tax",
+    "changes": {},
+    "fill": {
+      "address_line": "4864 Jimmy Carter Boulevard",
+      "location_precision": "street",
+      "city": "Norcross",
+      "state_code": "US-GA",
+      "postal_code": "30093",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jimmy%20Carter%20Boulevard%204864%2C%20Norcross%2C%20GA%20%2030093",
+      "website": "http://franklintaxpro.com",
+      "phone": "+16783596598"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "715e4d8e-53b8-44df-bba0-7566179c0ba0",
+      "slug": "svoi-franklin-accounting-tax"
+    }
+  },
+  {
+    "id": "8ccc5b6c-02a4-4890-bc1f-f18b587c207b",
+    "name": "IR S Corporation",
+    "changes": {},
+    "fill": {
+      "address_line": "3855 Shallowford Road",
+      "location_precision": "street",
+      "city": "Marietta",
+      "state_code": "US-GA",
+      "postal_code": "30062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shallowford%20Road%203855%2C%20Marietta%2C%20GA%2030062",
+      "phone": "+17706935301"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "20fe4a76-cfeb-429f-bb1b-75942dbfd496",
+      "slug": "svoi-ir-s-corporation"
+    }
+  },
+  {
+    "id": "8d682262-dee5-4794-8664-0bcbaf43f386",
+    "name": "Homeland Financial",
+    "changes": {},
+    "fill": {
+      "address_line": "2030 Beaver Ruin Road",
+      "location_precision": "street",
+      "city": "Norcross",
+      "state_code": "US-GA",
+      "postal_code": "30071",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beaver%20Ruin%20Road%202030%2C%20Norcross%2C%20GA%2030071",
+      "phone": "+16786381200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8079d920-4fed-42a5-beb1-e9290bd408fc",
+      "slug": "svoi-homeland-financial"
+    }
+  },
+  {
+    "id": "5819288d-0c98-4e9a-a0f9-b0041b7e695c",
+    "name": "Васильев Виталий",
+    "changes": {},
+    "fill": {
+      "address_line": "5725 Buford Hwy",
+      "location_precision": "street",
+      "city": "Doraville",
+      "state_code": "US-GA",
+      "postal_code": "30340",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buford%20Hwy%205725%2C%20Doraville%2C%20GA%2030340",
+      "phone": "+14049184037"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bedafdf1-9d7f-4324-bc3a-31ea589cf502",
+      "slug": "svoi-biz-79"
+    }
+  },
+  {
+    "id": "200d92b1-2064-4fac-adbc-7f5a69564710",
+    "name": "Golden Key European Food Store",
+    "changes": {},
+    "fill": {
+      "address_line": "2569 Peachtree Pkwy",
+      "location_precision": "street",
+      "city": "Cumming",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Peachtree%20Pkwy%202569%2C%20Cumming%2C%20GA",
+      "phone": "+17706381101"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c5d21f82-6ff6-476e-bfd6-724c6fcd1d5f",
+      "slug": "svoi-golden-key-european-food-store"
+    }
+  },
+  {
+    "id": "f215791b-ca9e-47ad-8967-b02a81249a93",
+    "name": "European Deli and Bakery",
+    "changes": {},
+    "fill": {
+      "address_line": "11950 Jones Bridge Road",
+      "location_precision": "street",
+      "city": "Jones creek",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jones%20Bridge%20Road%2011950%2C%20Jones%20creek%2C%20GA",
+      "phone": "+17706644999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b9437ba2-cd48-422a-b039-687b70336a01",
+      "slug": "svoi-european-deli-and-bakery"
+    }
+  },
+  {
+    "id": "b56c5dc0-5412-452d-a8b5-b23be64c529a",
+    "name": "Golden Key Lilburn",
+    "changes": {},
+    "fill": {
+      "address_line": "4760 Lawrenceville Highway",
+      "location_precision": "street",
+      "city": "Lilburn",
+      "state_code": "US-GA",
+      "postal_code": "30047",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lawrenceville%20Highway%204760%2C%20Lilburn%2C%20GA%2030047",
+      "phone": "+13609212328"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb4307a6-c9f5-433d-aa9a-90c5b104cead",
+      "slug": "svoi-golden-key-lilburn"
+    }
+  },
+  {
+    "id": "33217e0a-7286-4434-8e66-79ecfc52788c",
+    "name": "Христианский Книжный Магазин Родник",
+    "changes": {},
+    "fill": {
+      "address_line": "128 Bear Cave Trail",
+      "location_precision": "street",
+      "city": "Woodstock",
+      "state_code": "US-GA",
+      "postal_code": "30189",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bear%20Cave%20Trail%20128%2C%20Woodstock%2C%20GA%2030189",
+      "phone": "+17189978237"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e328862-fda1-46d9-a52d-ee2ef3a43227",
+      "slug": "svoi-biz-80"
+    }
+  },
+  {
+    "id": "1b5af26d-bd14-4c04-8b72-b2fb7e5b06f5",
+    "name": "911 Appliance Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "4270 Sugarloaf Parkway",
+      "location_precision": "street",
+      "city": "Lawrenceville",
+      "state_code": "US-GA",
+      "postal_code": "30044",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sugarloaf%20Parkway%204270%2C%20Lawrenceville%2C%20GA%2030044",
+      "phone": "+16783763731"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6329c3e1-49e5-4ed8-8704-63938d294079",
+      "slug": "svoi-911-appliance-repair"
+    }
+  },
+  {
+    "id": "83d7b699-578d-4b81-9ab1-d026b7c148fc",
+    "name": "Patak Meat Products",
+    "changes": {},
+    "fill": {
+      "address_line": "4107 Ewing Road",
+      "location_precision": "street",
+      "city": "Austell",
+      "state_code": "US-GA",
+      "postal_code": "30106",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ewing%20Road%204107%2C%20Austell%2C%20GA%2030106",
+      "phone": "+17709417993"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e988084-837a-486e-89c1-369503610b9a",
+      "slug": "svoi-patak-meat-products"
+    }
+  },
+  {
+    "id": "6c5f7d66-bc0e-4bf5-bd92-1dca4ee6dd9b",
+    "name": "A-Priori Bar & Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "5953 Buford Hwy NE",
+      "location_precision": "street",
+      "city": "Doraville",
+      "state_code": "US-GA",
+      "postal_code": "30340",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buford%20Hwy%20NE%205953%20%2C%20Doraville%2C%20GA%2030340",
+      "phone": "+16789783174"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3802b8a5-0eea-4b8b-b116-8e01191441fa",
+      "slug": "svoi-a-priori-bar-restaurant"
+    }
+  },
+  {
+    "id": "a657193b-b469-4b1d-bdcc-3d467692ad84",
+    "name": "Variety of foods incl. Pizza and Russian",
+    "changes": {},
+    "fill": {
+      "city": "Atlanta",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The%20Perimeter%2C%20Atlanta%2C%20GA",
+      "phone": "+19703283663"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "39a1ac24-1233-4663-8aad-7d13729eca40",
+    "name": "Кейтеринговая компания Maxim",
+    "changes": {},
+    "fill": {
+      "city": "GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA",
+      "phone": "+16788607557"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "34d603b6-c85b-4529-bec6-3df8cf802d0e",
+    "name": "Sova Magazine - Русский Стандарт, Журнал \"СОВА\"",
+    "changes": {},
+    "fill": {
+      "address_line": "10585 Wynbridge Drive",
+      "location_precision": "street",
+      "city": "Jones creek",
+      "state_code": "US-GA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wynbridge%20Drive%2010585%2C%20Jones%20creek%2C%20GA",
+      "phone": "+17703678712"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f3284b0f-b589-4d36-8208-4959cc81c1bc",
+      "slug": "svoi-sova-magazine"
+    }
+  },
+  {
+    "id": "339eef68-edaf-4b0f-b918-561f32098745",
+    "name": "Russian House Atlanta",
+    "changes": {},
+    "fill": {
+      "address_line": "1185 Grimes Bridge Rd",
+      "location_precision": "street",
+      "city": "Roswell",
+      "state_code": "US-GA",
+      "postal_code": "30075",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Grimes%20Bridge%20Rd%201185%2C%20Roswell%2C%20GA%2030075",
+      "phone": "+17706437997"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "95ddf06f-32ea-4007-ae04-221f558ae072",
+      "slug": "svoi-russian-house-atlanta"
+    }
+  },
+  {
+    "id": "89f1af91-befb-4e6b-93a0-ffdc51a93300",
+    "name": "The newspaper & Russian House",
+    "changes": {},
+    "fill": {
+      "city": "GA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atlanta%2C%20GA%20ted%20States",
+      "website": "http://russiahousenews.info",
+      "phone": "+17707897761"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "62015bc9-3263-47f2-9690-517783281630",
+    "name": "Pro-Dental Care - Olga Prokopets, DDS and Mikhael Prokopets, DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "N Tatum Blvd",
+      "location_precision": "street",
+      "city": "28260",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Tatum%20Blvd%2C%2028260%2C%20Phoenix%2C%20AZ",
+      "website": "http://www.pro-dentalcare.com",
+      "phone": "+14805151464"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e8289264-6a36-4557-aa03-9d26bc6d1efa",
+      "slug": "svoi-pro-dental-care-olga-prokopets-dds-and-mikhael-p"
+    }
+  },
+  {
+    "id": "55bfe255-cd2d-41e2-8e30-aaab1ac91fa1",
+    "name": "Dr. Ludmila T Pyter-Kabat MD",
+    "changes": {},
+    "fill": {
+      "address_line": "3648 West Anthem Way",
+      "location_precision": "street",
+      "city": "New river",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Anthem%20Way%203648%2C%20New%20river%2C%20AZ",
+      "phone": "+16234346444"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0c0170d8-6fe4-4685-8a2f-920e94c34317",
+      "slug": "svoi-dr-ludmila-t-pyter-kabat-md"
+    }
+  },
+  {
+    "id": "ec19e3de-9005-44b8-a256-b72bf909dc0c",
+    "name": "Dr. Mikhail I Shtivelband MD",
+    "changes": {},
+    "fill": {
+      "address_line": "695 South Dobson Road",
+      "location_precision": "street",
+      "city": "Chandler",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Dobson%20Road%20695%2C%20Chandler%2C%20AZ",
+      "phone": "+14808212838"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "bbba48c6-d2f8-4fa1-b714-d371bcedf2c9",
+      "slug": "svoi-dr-mikhail-i-shtivelband-md"
+    }
+  },
+  {
+    "id": "91f24a99-8dda-4b55-a496-24eda7141a3d",
+    "name": "Arizona Home Health, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "14631 N Cave Creek Rd # 104",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85022",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Cave%20Creek%20Rd%20%23%20104%2014631%2C%20Phoenix%2C%20AZ%2085022",
+      "website": "http://arizonahomehealth.com",
+      "phone": "+16029230111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5a96b830-b57f-4bdb-a870-f13c49343e97",
+      "slug": "svoi-arizona-home-health-llc"
+    }
+  },
+  {
+    "id": "bfd70ea1-3438-44a4-a324-7ad3af7c96a4",
+    "name": "Biltmore Colon Hydrotherapy &Wellness Center",
+    "changes": {},
+    "fill": {
+      "address_line": "4629 North 24th Street",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%2024th%20Street%204629%2C%20Phoenix%2C%20AZ%20%2085016",
+      "phone": "+16028200673"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08f405de-9f5b-4ea1-b232-c1e5e75346f0",
+      "slug": "svoi-biltmore-colon-hydrotherapy-wellness-center"
+    }
+  },
+  {
+    "id": "a805ae8e-7da9-4855-ad11-4e1157a6fd6a",
+    "name": "Play and Learn Child Care - Детский сад Играй и Учись",
+    "changes": {},
+    "fill": {
+      "address_line": "4859 East Greenway Road",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Greenway%20Road%204859%2C%20Phoenix%2C%20AZ",
+      "phone": "+16027880191"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "478cf22d-6753-469a-b5e0-d5d8c9ffdf40",
+      "slug": "svoi-play-and-learn-child-care"
+    }
+  },
+  {
+    "id": "b8da3f46-ff5b-4b6c-8ca7-03895b3070da",
+    "name": "Re/Max 2000 - Nina DeWys",
+    "changes": {},
+    "fill": {
+      "city": "Gilbert",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Tan%20Ranch%20Trail%2C%20Gilbert%2C%20AZ",
+      "phone": "+16027415970"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a6d3e7e5-16f1-49df-ae8a-7eeaad74f8e0",
+    "name": "DPR Realty - Dave and Iryna Brundage",
+    "changes": {},
+    "fill": {
+      "address_line": "Windsor Ave",
+      "location_precision": "street",
+      "city": "Goodyear",
+      "state_code": "US-AZ",
+      "postal_code": "85395",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Windsor%20Ave%2C%20Goodyear%2C%20AZ%2085395",
+      "phone": "+16024004032"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c67d23e6-8322-439b-a2c4-c55ba35c6b9a",
+      "slug": "svoi-dpr-realty-dave-and-iryna-brundage"
+    }
+  },
+  {
+    "id": "548ed90f-8999-467b-8f14-85c8db2d25be",
+    "name": "Nikolai Riasnianski",
+    "changes": {},
+    "fill": {
+      "address_line": "17001 North Del Webb Boulevard",
+      "location_precision": "street",
+      "city": "Sun city",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Del%20Webb%20Boulevard%2017001%2C%20Sun%20city%2C%20AZ",
+      "phone": "+16236946578"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "de9cbdcf-e39c-4327-8419-2cabfa2aac49",
+      "slug": "svoi-nikolai-riasnianski"
+    }
+  },
+  {
+    "id": "d39344f1-e7d1-43b7-998b-c56a5f1711d0",
+    "name": "On Q Financial, Inc. - Luba Vakulsky",
+    "changes": {},
+    "fill": {
+      "address_line": "615 S. River Dr",
+      "location_precision": "street",
+      "city": "Tempe",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=615%20S.%20River%20Dr%2C%20Tempe%2C%20AZ",
+      "website": "https://www.onqfinancial.com",
+      "phone": "+18666673279"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9fc7c3b7-3e23-4aa3-a9a6-9f96c184a8af",
+      "slug": "svoi-on-q-financial-inc-luba-vakulsky"
+    }
+  },
+  {
+    "id": "b19f6f30-f31d-4ccf-9569-49372bd42306",
+    "name": "Sam's Barber and Beauty Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "7100 East Cave Creek Road",
+      "location_precision": "street",
+      "city": "Cave creek",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Cave%20Creek%20Road%207100%2C%20Cave%20creek%2C%20AZ",
+      "phone": "+14804883929"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "069e93df-960e-430d-a64d-57a50825ec01",
+      "slug": "svoi-sam-s-barber-and-beauty-shop"
+    }
+  },
+  {
+    "id": "9daa8767-eff5-4fa9-8dac-daab786a5f01",
+    "name": "Gold Scissors Barber Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "13802 North Scottsdale Road",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Scottsdale%20Road%2013802%2C%20Phoenix%2C%20AZ",
+      "phone": "+14806072897"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "19afd3e9-9848-4c70-adc8-091cce9c202f",
+      "slug": "svoi-gold-scissors-barber-shop"
+    }
+  },
+  {
+    "id": "e51fc21f-a2e5-4af5-afac-ad07ceeabcdb",
+    "name": "NV Hair Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "1608 Bethany Home Road",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bethany%20Home%20Road%201608%2C%20Phoenix%2C%20AZ",
+      "phone": "+16022795113"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4c96349b-147a-4204-baa9-dd085ba83e3f",
+      "slug": "svoi-nv-hair-studio"
+    }
+  },
+  {
+    "id": "5a9683e7-be47-4464-9219-c40e43c39ef9",
+    "name": "Arizona Insurance Specialists",
+    "changes": {},
+    "fill": {
+      "address_line": "13630 West Redfield Road",
+      "location_precision": "street",
+      "city": "Surprise",
+      "state_code": "US-AZ",
+      "postal_code": "85379",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Redfield%20Road%2013630%2C%20Surprise%2C%20AZ%2085379",
+      "phone": "+16027174992"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4815eb13-0e7d-4721-b8c1-509595a39b06",
+      "slug": "svoi-arizona-insurance-specialists"
+    }
+  },
+  {
+    "id": "65e81e6e-0047-40a9-9fc4-1370a0a2b95b",
+    "name": "Azcal Insurance Services Inc - Sofya Nektalova",
+    "changes": {},
+    "fill": {
+      "address_line": "7689 E Paradise Lane",
+      "location_precision": "street",
+      "city": "Scottsdale",
+      "state_code": "US-AZ",
+      "postal_code": "85260",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E%20Paradise%20Lane%207689%20%2C%20Scottsdale%2C%20AZ%2085260",
+      "phone": "+14809488008"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a2dfee10-dc89-4d1e-9a92-367c18879de5",
+      "slug": "svoi-azcal-insurance-services-inc-sofya-nektalova"
+    }
+  },
+  {
+    "id": "f1c305d0-2376-4c3f-8f8d-a6952ed05ef8",
+    "name": "Aquamarine Cruises and Tours",
+    "changes": {},
+    "fill": {
+      "address_line": "550 West Baseline Road",
+      "location_precision": "street",
+      "city": "Mesa",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Baseline%20Road%20550%2C%20Mesa%2C%20AZ",
+      "phone": "+14806485388"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e183a691-a79d-44f7-99c4-8a2175b90cbd",
+      "slug": "svoi-aquamarine-cruises-and-tours"
+    }
+  },
+  {
+    "id": "b09d203e-58d3-43ac-9d40-dc8e0a276f6a",
+    "name": "Tamara M. Abramova",
+    "changes": {},
+    "fill": {
+      "address_line": "15620 North 35th Avenue",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%2035th%20Avenue%2015620%2C%20Phoenix%2C%20AZ%2085053",
+      "phone": "+16029935500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "560876ae-aba7-4bc4-8af5-3d75df3d2fc9",
+      "slug": "svoi-tamara-m-abramova"
+    }
+  },
+  {
+    "id": "60d133f1-5508-43c6-867b-ee99e30b07b2",
+    "name": "AZ Interpreter",
+    "changes": {},
+    "fill": {
+      "address_line": "1001 East Forest Hills Drive",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85022",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Forest%20Hills%20Drive%201001%2C%20Phoenix%2C%20AZ%2085022",
+      "phone": "+14804552606"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "60c8602c-1d17-4ce3-8b72-c355c1920f7a",
+      "slug": "svoi-az-interpreter"
+    }
+  },
+  {
+    "id": "76e12679-76c4-4502-bf4b-cb222ce246f3",
+    "name": "Alex & Sasha&Slyuseranskiy",
+    "changes": {},
+    "fill": {
+      "city": "AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tempe%2C%20AZ",
+      "phone": "+17204341697"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "4b05e8a0-20c3-47ac-9424-b8ff2d2baf15",
+    "name": "A to Z Moving Pros",
+    "changes": {},
+    "fill": {
+      "address_line": "11050 North Biltmore Drive",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85029",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Biltmore%20Drive%2011050%2C%20Phoenix%2C%20AZ%2085029",
+      "phone": "+16196775964"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1874644-a1fc-42b3-8b8b-6365b0af02d1",
+      "slug": "svoi-a-to-z-moving-pros"
+    }
+  },
+  {
+    "id": "20c1d51d-7115-4b77-a54b-0dfc2f235a68",
+    "name": "Greg Schuster",
+    "changes": {},
+    "fill": {
+      "city": "AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chandler%2C%20AZ",
+      "phone": "+16173477353"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "cbe6bee7-d607-4979-8299-97aa92073cb6",
+    "name": "Finel Tax and Accounting",
+    "changes": {},
+    "fill": {
+      "city": "AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Phoenix%2C%20AZ",
+      "phone": "+16024512242"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "231733b3-5703-4ace-84cf-417c53ab41e6",
+    "name": "Asiana Market",
+    "changes": {},
+    "fill": {
+      "address_line": "4410 West Union Hills Drive",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85308",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Union%20Hills%20Drive%204410%2C%20Phoenix%2C%20AZ%2085308",
+      "phone": "+16237801234"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "69512dc4-2b73-434c-b74d-ef246364b53b",
+      "slug": "svoi-asiana-market"
+    }
+  },
+  {
+    "id": "0797c470-5a0e-448a-b55b-677b1ad06e5d",
+    "name": "Yasha From Russia",
+    "changes": {},
+    "fill": {
+      "address_line": "10240 North 32nd Street",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%2032nd%20Street%2010240%2C%20Phoenix%2C%20AZ",
+      "phone": "+16023476055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "68c0c862-5239-4fd5-9635-a6b6e055b8c4",
+      "slug": "svoi-yasha-from-russia"
+    }
+  },
+  {
+    "id": "c62f1a13-a5ba-4a2a-b5db-2189f590228f",
+    "name": "Phoenix Russian Market",
+    "changes": {},
+    "fill": {
+      "address_line": "7828 North 19th Avenue",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85021",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%2019th%20Avenue%207828%2C%20Phoenix%2C%20AZ%2085021",
+      "phone": "+16024332525"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "68f06084-c85a-4d0e-a1b0-2303a900e868",
+      "slug": "svoi-phoenix-russian-market"
+    }
+  },
+  {
+    "id": "6d0dde9d-d65a-4fea-9693-44fdcae517f2",
+    "name": "The Russian Store AZ",
+    "changes": {},
+    "fill": {
+      "address_line": "4939 West Ray Road",
+      "location_precision": "street",
+      "city": "Chandler",
+      "state_code": "US-AZ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Ray%20Road%204939%2C%20Chandler%2C%20AZ",
+      "phone": "+14806641383"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e9bdf38-4af0-4652-ba1f-2c6b283b440c",
+      "slug": "svoi-the-russian-store-az"
+    }
+  },
+  {
+    "id": "514d0192-175e-491a-a92e-ec503811c60a",
+    "name": "Olive Garden Italian Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "2626 North 75th Avenue",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%2075th%20Avenue%202626%2C%20Phoenix%2C%20AZ%2085035",
+      "phone": "+18889013201"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eac0a3cb-ffbf-4be9-9020-a5aebeca8af9",
+      "slug": "svoi-olive-garden-italian-restaurant"
+    }
+  },
+  {
+    "id": "1b378c5e-0ca6-4633-b0f1-1ae4740d1cd5",
+    "name": "Samarkand",
+    "changes": {},
+    "fill": {
+      "address_line": "7823 North 19th Avenue",
+      "location_precision": "street",
+      "city": "Phoenix",
+      "state_code": "US-AZ",
+      "postal_code": "85021",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%2019th%20Avenue%207823%2C%20Phoenix%2C%20AZ%2085021",
+      "phone": "+16023318991"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "29659db0-a506-4203-8c55-af39213ea12b",
+      "slug": "svoi-samarkand"
+    }
+  },
+  {
+    "id": "b25ad6de-9db7-487d-bfae-db0899ba7ba0",
+    "name": "Arizona Leech Therapy",
+    "changes": {},
+    "fill": {
+      "address_line": "5011 N. Granite Reef Rd",
+      "location_precision": "street",
+      "city": "Scottsdale",
+      "state_code": "US-AZ",
+      "postal_code": "85250",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Granite%20Reef%20Rd%205011%2C%20Scottsdale%2C%20AZ%2085250",
+      "website": "http://arizonaleechtherapy.com",
+      "phone": "+14802500685"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3a213caa-bca3-4643-acfe-d08b1419a6e3",
+      "slug": "svoi-arizona-leech-therapy"
+    }
+  },
+  {
+    "id": "e744a8bc-e686-4fbf-b0b3-9ec4649a8395",
+    "name": "Педиатр Алла Шерман",
+    "changes": {},
+    "fill": {
+      "address_line": "3619 Park East Dr",
+      "location_precision": "street",
+      "city": "Beechwood",
+      "state_code": "US-OH",
+      "postal_code": "44122",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20East%20Dr%203619%2C%20Beechwood%2C%20OH%2044122",
+      "website": "http://health.usnews.com/doctors/alla-sherman-440090",
+      "phone": "+12165148881"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0d3c8d22-ada6-401b-b169-12d6baf919f8",
+      "slug": "svoi-biz-17"
+    }
+  },
+  {
+    "id": "faf2647f-39c2-4675-8a73-81c5c1f4b00f",
+    "name": "Nella Blyumin, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "9500 Euclid Ave",
+      "location_precision": "street",
+      "city": "Cleveland",
+      "state_code": "US-OH",
+      "postal_code": "44195",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Euclid%20Ave%209500%2C%20Cleveland%2C%20OH%2044195",
+      "website": "http://health.usnews.com/doctors/nella-blyumin-186155",
+      "phone": "+18002232273"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "825828cf-be8e-4c3d-aebb-a61aece0be37",
+      "slug": "svoi-nella-blyumin-md"
+    }
+  },
+  {
+    "id": "9545d024-b161-4db7-89d8-f0de2fc81f93",
+    "name": "Buckeye Dental & Braces",
+    "changes": {},
+    "fill": {
+      "address_line": "36900 Detroit Rd",
+      "location_precision": "street",
+      "city": "Avon",
+      "state_code": "US-OH",
+      "postal_code": "44011",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Detroit%20Rd%2036900%2C%20Avon%2C%20OH%2044011",
+      "website": "http://buckeyedentaltoday.com",
+      "phone": "+14409343333",
+      "instagram_url": "https://www.instagram.com/buckeyedentalandbraces"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "42199d46-15d7-4188-8058-3eec922229ea",
+      "slug": "svoi-buckeye-dental-braces"
+    }
+  },
+  {
+    "id": "1d2680d8-5dc4-4ebc-9f29-97aef8480360",
+    "name": "Яровицкая Ирина",
+    "changes": {},
+    "fill": {
+      "address_line": "481 East 260th Street",
+      "location_precision": "street",
+      "city": "Euclid",
+      "state_code": "US-OH",
+      "postal_code": "44132",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20260th%20Street%20481%2C%20Euclid%2C%20OH%2044132",
+      "phone": "+12162890890"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "937417c3-e8b5-4efc-b162-5d2534bf2512",
+      "slug": "svoi-biz-81"
+    }
+  }
+]

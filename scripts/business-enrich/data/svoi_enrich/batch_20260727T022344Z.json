@@ -1,0 +1,498 @@
+[
+  {
+    "id": "070da76e-4eaa-4b92-9072-018fa245ed29",
+    "name": "Michaels Green Store",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "2957 West Devon Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Devon%20Avenue%202957%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+17734651804"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1ea27f7-40c6-4691-af89-c4ed1d2c146b",
+      "slug": "svoi-michaels-green-store"
+    }
+  },
+  {
+    "id": "c0986e4a-178c-4ab6-aa4c-f8009b81a0e3",
+    "name": "Hahn Liquors Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "1410 West Devon Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Devon%20Avenue%201410%2C%20Chicago%2C%20IL",
+      "phone": "+17733389344"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "685d9b32-1434-449e-842e-f6e7017b5ad4",
+      "slug": "svoi-hahn-liquors-inc"
+    }
+  },
+  {
+    "id": "6ba6462f-0b9b-4ef6-a62b-1cd1952de84e",
+    "name": "Hanson Liquors",
+    "changes": {},
+    "fill": {
+      "address_line": "5834 West Fullerton Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Fullerton%20Avenue%205834%2C%20Chicago%2C%20IL",
+      "phone": "+17736373624"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9dbf619f-77cc-4a5a-ad79-fe0559ea0a39",
+      "slug": "svoi-hanson-liquors"
+    }
+  },
+  {
+    "id": "2576e6bf-b251-43f6-9dfc-30c8c5a36178",
+    "name": "Star Distributors Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "3500 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60641",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%203500%2C%20Chicago%2C%20IL%2060641",
+      "phone": "+17737257770"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6ee41182-d626-4107-9786-1583403b4f82",
+      "slug": "svoi-star-distributors-inc"
+    }
+  },
+  {
+    "id": "5a2a27bf-7262-4383-ad62-4b58a5be7130",
+    "name": "Remodelers Supply Center",
+    "changes": {},
+    "fill": {
+      "address_line": "2500 North Pulaski Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60639",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Pulaski%20Road%202500%2C%20Chicago%2C%20IL%2060639",
+      "phone": "+17732352500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e2a66eb8-7b7e-47da-a382-ff05bfa51916",
+      "slug": "svoi-remodelers-supply-center"
+    }
+  },
+  {
+    "id": "773b8005-7545-44d6-8554-8faa65ec3914",
+    "name": "Andy’s Furniture",
+    "changes": {},
+    "fill": {
+      "address_line": "2870 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%202870%20%2C%20Chicago%2C%20IL%2060618",
+      "phone": "+17737723404"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2a4e3295-a40b-4505-8524-cac9c457e5e0",
+      "slug": "svoi-andy-s-furniture"
+    }
+  },
+  {
+    "id": "6e572493-48ec-4fdc-af1c-ecdb3a439171",
+    "name": "Mila Design Special Florist",
+    "changes": {},
+    "fill": {
+      "address_line": "2325 West Huron Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60612",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Huron%20Street%202325%2C%20Chicago%2C%20IL%2060612",
+      "phone": "+17733950231"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7dcd9a73-44ca-4c5a-9b5e-6b9caf860485",
+      "slug": "svoi-mila-design-special-florist"
+    }
+  },
+  {
+    "id": "fbec4b2e-ce50-4619-abd8-2476d29a77d2",
+    "name": "Delta Import Co.",
+    "changes": {},
+    "fill": {
+      "address_line": "2242 West Chicago Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chicago%20Avenue%202242%2C%20Chicago%2C%20IL",
+      "phone": "+17732357788"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6dfb3047-410b-4c34-a520-4c172b88c160",
+      "slug": "svoi-delta-import-co"
+    }
+  },
+  {
+    "id": "f2b8cda0-25f4-4d81-b45e-393fe3ae4930",
+    "name": "Groove-Union Media Corp.",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+14032423342"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "aede9793-ab92-4c2c-9514-7d81cef608bf",
+    "name": "Dr. Alexander Golbin, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "565 Lakeview Parkway",
+      "location_precision": "street",
+      "city": "Vernon Hills",
+      "state_code": "US-IL",
+      "postal_code": "60061",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lakeview%20Parkway%20565%20%2C%20Vernon%20Hills%2C%20IL%2060061",
+      "phone": "+18479846585"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "8edd4ad0-ab38-4029-bfa3-0c7740531e05",
+      "slug": "svoi-dr-alexander-golbin-md"
+    }
+  },
+  {
+    "id": "171cbda6-b3bf-45b7-85f9-b0e90bc0cd90",
+    "name": "Marina Didenko, LCSW, P.C.",
+    "changes": {},
+    "fill": {
+      "address_line": "1699 Wall Street",
+      "location_precision": "street",
+      "city": "Mount Prospect",
+      "state_code": "US-IL",
+      "postal_code": "60056",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wall%20Street%201699%2C%20Mount%20Prospect%2C%20IL%2060056",
+      "phone": "+13129709555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a645cc2c-5972-4369-a9ca-2b14c77af71e",
+      "slug": "svoi-marina-didenko-lcsw-p-c"
+    }
+  },
+  {
+    "id": "6e31958a-4f04-414f-829a-2e7404ad3451",
+    "name": "Lifeline Counseling Center",
+    "changes": {},
+    "fill": {
+      "address_line": "333 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%20333%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18476265001"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c213d9cf-ef6e-48e7-805c-f87e3db0eabf",
+      "slug": "svoi-lifeline-counseling-center"
+    }
+  },
+  {
+    "id": "f8a32f82-6bac-49d3-ae58-0a9302ff58e8",
+    "name": "Associates in Psychiatric Wellness, LP - Mark Shukhman, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "4711 Golf Rd #1200",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Golf%20Rd%20%231200%204711%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18475634488"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6c438bd9-cff8-4690-a104-9094826fdc63",
+      "slug": "svoi-associates-in-psychiatric-wellness-lp-mark-shukh"
+    }
+  },
+  {
+    "id": "eb87efe8-13df-42e4-bae7-4bd58b50cb87",
+    "name": "AUTOPOINT",
+    "changes": {},
+    "fill": {
+      "address_line": "2314 North Rand Road",
+      "location_precision": "street",
+      "city": "Palatine Township",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Rand%20Road%202314%2C%20Palatine%20Township%2C%20IL",
+      "phone": "+18473583333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "40183bc8-8985-455e-a74d-31d31a930814",
+      "slug": "svoi-autopoint"
+    }
+  },
+  {
+    "id": "b16889d3-007a-434b-be28-1cf4819632ad",
+    "name": "Albo Auto Body and Sales",
+    "changes": {},
+    "fill": {
+      "address_line": "505 West Colfax Street",
+      "location_precision": "street",
+      "city": "Palatine",
+      "state_code": "US-IL",
+      "postal_code": "60067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Colfax%20Street%20505%2C%20Palatine%2C%20IL%2060067",
+      "phone": "+18479919905"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1f837232-6a7b-466a-8530-4d69be725648",
+      "slug": "svoi-albo-auto-body-and-sales"
+    }
+  },
+  {
+    "id": "1f6c53ba-f746-4e33-9d3c-b8318f4df9e8",
+    "name": "Foran Financial, Inc.",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wheeling%2C%20IL%20ted%20States",
+      "phone": "+18475376688"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b86cb2c8-28c3-4cb5-be08-ce638d5b1aac",
+    "name": "Windsor Mobil",
+    "changes": {},
+    "fill": {
+      "address_line": "1315 East Palatine Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Palatine%20Road%201315%2C%20Arlington%20heights%2C%20IL%20%2060004",
+      "phone": "+18476703308"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e9413b57-c47b-47c6-938e-dc2163edda6d",
+      "slug": "svoi-windsor-mobil"
+    }
+  },
+  {
+    "id": "1dcffaee-0c35-48b6-a100-32f318ddb520",
+    "name": "HI-TECH",
+    "changes": {},
+    "fill": {
+      "address_line": "890 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%20890%2C%20Wheeling%2C%20IL",
+      "phone": "+18478089544"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c8013229-5978-45e3-a25a-b2bcf4680d3b",
+      "slug": "svoi-hi-tech"
+    }
+  },
+  {
+    "id": "46af61c0-34b6-4d15-a32c-a19045ceb88f",
+    "name": "AMERICAN GROUP SERVICES, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "419 West Touhy Avenue",
+      "location_precision": "street",
+      "city": "Des plains",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Touhy%20Avenue%20419%2C%20Des%20plains%2C%20IL",
+      "phone": "+18477681200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b231ec2f-e69f-4b27-93c0-33b5feebe162",
+      "slug": "svoi-american-group-services-inc"
+    }
+  },
+  {
+    "id": "a9931cf1-73cf-4f82-a78f-16bf99eee10f",
+    "name": "Golf Mill Auto Center",
+    "changes": {},
+    "fill": {
+      "address_line": "9600 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%209600%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18476356640"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "27ca6bb2-44b0-450c-b106-7d84527d0722",
+      "slug": "svoi-golf-mill-auto-center"
+    }
+  }
+]

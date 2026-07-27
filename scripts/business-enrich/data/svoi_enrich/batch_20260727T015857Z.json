@@ -1,0 +1,501 @@
+[
+  {
+    "id": "e1c2212b-fd77-4754-8eec-ae9d8af5ebfb",
+    "name": "Salt Breeze",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "Saddle River Rd 5-05",
+      "location_precision": "street",
+      "city": "Saddle Brook",
+      "state_code": "US-NJ",
+      "postal_code": "07410",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Saddle%20River%20Rd%205-05%20%2C%20Saddle%20Brook%2C%20NJ%20%2007410",
+      "website": "http://www.saltbreezenj.com",
+      "phone": "+12012549492"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5431e177-8ff7-4fdf-95f5-830e63644aff",
+      "slug": "svoi-salt-breeze"
+    }
+  },
+  {
+    "id": "59f4759c-75ec-4d71-9832-5a9fa3d35dc5",
+    "name": "Mark Morillo - Healing Practitioner",
+    "changes": {},
+    "fill": {
+      "address_line": "2816 Morris Avenue",
+      "location_precision": "street",
+      "city": "Union",
+      "state_code": "US-NJ",
+      "postal_code": "07083",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Morris%20Avenue%202816%2C%20Union%2C%20NJ%2007083",
+      "phone": "+19083043608"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "14d8c432-7a5a-4b2c-ae66-fbfc6d8d311b",
+      "slug": "svoi-mark-morillo-healing-practitioner"
+    }
+  },
+  {
+    "id": "63cff3ed-458d-4773-9a43-da6f1e6ac86b",
+    "name": "Adriana Petterman H.H.C",
+    "changes": {},
+    "fill": {
+      "address_line": "230 Middle Neck Road",
+      "location_precision": "street",
+      "city": "Great Neck Estates",
+      "state_code": "US-NY",
+      "postal_code": "11021",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Middle%20Neck%20Road%20230%2C%20Great%20Neck%20Estates%2C%20NY%2011021",
+      "phone": "+15167084709"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "370538ba-208f-4960-8b3b-40d675cb0ba5",
+      "slug": "svoi-adriana-petterman-h-h-c"
+    }
+  },
+  {
+    "id": "6eaa8738-8223-4486-bab5-09f88479c5e2",
+    "name": "ИГЛОТЕРАПИЯ И ТРАВОЛЕЧЕНИЕ Доктор Shugui Cui, L.Ac.2",
+    "changes": {},
+    "fill": {
+      "address_line": "Roosevelt Avenue 144-48",
+      "location_precision": "street",
+      "city": "New York",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Roosevelt%20Avenue%20144-48%2C%20New%20York%2C%20NY%2054",
+      "phone": "+17183590956"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b483a818-e78d-4e83-af96-8ae0ce578188",
+      "slug": "svoi-shugui-cui-l-ac-2"
+    }
+  },
+  {
+    "id": "ba859e30-fe5d-4471-a69f-f26a71f084c0",
+    "name": "Ho-Juan Song, O.M.D., C.A.",
+    "changes": {},
+    "fill": {
+      "address_line": "185 Bridge Plaza North",
+      "location_precision": "street",
+      "city": "Fort lee",
+      "state_code": "US-NJ",
+      "postal_code": "07024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bridge%20Plaza%20North%20185%2C%20Fort%20lee%2C%20NJ%2007024",
+      "phone": "+12015855359"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d36cf48-a129-4020-ae71-f832f2c18451",
+      "slug": "svoi-ho-juan-song-o-m-d-c-a"
+    }
+  },
+  {
+    "id": "b9490cdb-7265-474c-984d-71b6bd16bdf2",
+    "name": "Dr. David Hung, Ph.D.",
+    "changes": {},
+    "fill": {
+      "city": "NY 11355",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY%2011355",
+      "phone": "+17188864431"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3d806ed5-2d82-4b41-8397-228f646dab9c",
+    "name": "Thriftway Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "324 Route 9 North",
+      "location_precision": "street",
+      "city": "Marlboro Township",
+      "state_code": "US-NJ",
+      "postal_code": "07726",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Route%209%20North%20324%2C%20Marlboro%20Township%2C%20NJ%2007726",
+      "phone": "+17329722333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e9e092f1-812a-40e8-8711-c6d12829afda",
+      "slug": "svoi-thriftway-pharmacy"
+    }
+  },
+  {
+    "id": "cc5b74bd-9306-4298-a29e-a910625fb4f5",
+    "name": "AllTown Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "158 Wyckoff Road",
+      "location_precision": "street",
+      "city": "Eatontown",
+      "state_code": "US-NJ",
+      "postal_code": "07724",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wyckoff%20Road%20158%2C%20Eatontown%2C%20NJ%2007724",
+      "phone": "+17325427773"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2ed6420f-88a7-4571-ad62-02fa723f78e8",
+      "slug": "svoi-alltown-pharmacy"
+    }
+  },
+  {
+    "id": "a514202f-b425-4fb9-8f43-2ca69d09969e",
+    "name": "FUTURE PHARMACY",
+    "changes": {},
+    "fill": {
+      "address_line": "72 State Route 34",
+      "location_precision": "street",
+      "city": "Old Bridge Township",
+      "state_code": "US-NJ",
+      "postal_code": "08857",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Route%2034%20%2072%2C%20Old%20Bridge%20Township%2C%20NJ%2008857",
+      "website": "http://www.futurepharmacynj.com",
+      "phone": "+17329525550",
+      "email": "futurerx3@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5ab08927-9b96-40d9-9c57-1aec82e6353b",
+      "slug": "svoi-future-pharmacy"
+    }
+  },
+  {
+    "id": "e199969d-4cba-43a4-b461-80bb56bce8f9",
+    "name": "Greenhills Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "164 Parsippany Road",
+      "location_precision": "street",
+      "city": "Parsipini-Troy Hills",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Parsippany%20Road%20164%2C%20Parsipini-Troy%20Hills%2C%20NJ",
+      "phone": "+19738879444"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cf710f69-ca41-4267-8fd7-5cc1a293ef02",
+      "slug": "svoi-greenhills-pharmacy"
+    }
+  },
+  {
+    "id": "46468840-5c05-47e5-9559-828adc65c722",
+    "name": "Plainfield Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "603 West 4th Street",
+      "location_precision": "street",
+      "city": "Plainfield",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%204th%20Street%20603%2C%20Plainfield%2C%20NJ",
+      "phone": "+19087562599"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9b427d33-5c25-4cd2-ab17-9e621da07808",
+      "slug": "svoi-plainfield-pharmacy"
+    }
+  },
+  {
+    "id": "5626a6d8-3153-4b59-8cab-3cfd5ab1c9c6",
+    "name": "Rapps Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "611 Park Avenue",
+      "location_precision": "street",
+      "city": "Plainfield",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Avenue%20611%2C%20Plainfield%2C%20NJ",
+      "website": "http://www.rappspharmacy.com",
+      "phone": "+19087560008"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "32094be5-5009-45b1-bf03-c66229458847",
+      "slug": "svoi-rapps-pharmacy"
+    }
+  },
+  {
+    "id": "0dcd7c79-7ade-4b1f-aeec-4b81c7ed95d5",
+    "name": "East Hills Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "310 Roslyn Road",
+      "location_precision": "street",
+      "city": "East Hills",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Roslyn%20Road%20310%2C%20East%20Hills%2C%20NY",
+      "phone": "+15166217373"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "edea0443-07c0-4aa7-a51b-3cc6fd9c4ce1",
+      "slug": "svoi-east-hills-pharmacy"
+    }
+  },
+  {
+    "id": "8541ab03-0665-4a2b-8ef3-46331ef53e9d",
+    "name": "Avel Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "550 North Avenue",
+      "location_precision": "street",
+      "city": "New Rochelle",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Avenue%20550%2C%20New%20Rochelle%2C%20NY",
+      "phone": "+19142354422"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4f4942f3-3ec2-4c2b-8c19-de2de6bef190",
+      "slug": "svoi-avel-pharmacy"
+    }
+  },
+  {
+    "id": "63b8cd70-1c81-4045-ba49-b532f57f3c70",
+    "name": "Livingston Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "91 East Mount Pleasant Avenue",
+      "location_precision": "street",
+      "city": "Livingstone",
+      "state_code": "US-NJ",
+      "postal_code": "07039",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Mount%20Pleasant%20Avenue%2091%2C%20Livingstone%2C%20NJ%20%2007039",
+      "phone": "+19735971200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "32cb0283-3a4f-4c47-bb06-02c87fb53912",
+      "slug": "svoi-livingston-pharmacy"
+    }
+  },
+  {
+    "id": "c86c54ff-eeaf-4b80-92ed-0fcb9de8badc",
+    "name": "Fair Lawn Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "Plaza Road 14-25",
+      "location_precision": "street",
+      "city": "Fair lone",
+      "state_code": "US-NJ",
+      "postal_code": "07410",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Plaza%20Road%2014-25%2C%20Fair%20lone%2C%20NJ%2007410",
+      "website": "http://www.fairlawnpharmacy.com",
+      "phone": "+12017736090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0c43432f-47be-44c6-b25c-37c26af3c7c4",
+      "slug": "svoi-fair-lawn-pharmacy"
+    }
+  },
+  {
+    "id": "fd8d4d04-33e0-43fb-abc7-6752b00b8881",
+    "name": "Garden Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "River Road 13-38",
+      "location_precision": "street",
+      "city": "Fair lone",
+      "state_code": "US-NJ",
+      "postal_code": "07410",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=River%20Road%2013-38%2C%20Fair%20lone%2C%20NJ%2007410",
+      "phone": "+12017976888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "746708cf-6a62-4396-8b45-08f2c9be8930",
+      "slug": "svoi-garden-pharmacy"
+    }
+  },
+  {
+    "id": "56c67791-195a-4495-b135-ff52e475bf07",
+    "name": "Grand Central Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "420 Central Ave # A",
+      "location_precision": "street",
+      "city": "Sidarhurst",
+      "state_code": "US-NY",
+      "postal_code": "11516",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Central%20Ave%20%23%20A%20420%2C%20Sidarhurst%2C%20NY%2011516",
+      "phone": "+15162958880"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d31dbc3b-11b1-40d1-beb8-c66896ddd1c1",
+      "slug": "svoi-grand-central-pharmacy"
+    }
+  },
+  {
+    "id": "2b2b88e2-937a-4748-8a65-ab75456a2391",
+    "name": "Medical Center Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "365 East Northfield Road",
+      "location_precision": "street",
+      "city": "Livingstone",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Northfield%20Road%20365%2C%20Livingstone%2C%20NJ",
+      "phone": "+19735350900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1e1ef5ce-49ec-49a6-b3dd-c7fc37fc4752",
+      "slug": "svoi-medical-center-pharmacy"
+    }
+  },
+  {
+    "id": "4dd128ee-fa6a-4a5d-8d1b-63c925bd19ca",
+    "name": "Friendly Pharmacy",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+17183371900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

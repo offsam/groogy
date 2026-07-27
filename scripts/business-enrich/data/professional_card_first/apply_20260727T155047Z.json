@@ -1,0 +1,33 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "pro-ca48a2fb58-1",
+      "display_name": "Пиклбол в Ирвайне",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://learning.northeastern.edu/ai-student-guides-using-claude-learning-mode-to-study/"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://learning.northeastern.edu/ai-student-guides-using-claude-learning-mode-to-study/",
+          "_fetch_url": "https://learning.northeastern.edu/ai-student-guides-using-claude-learning-mode-to-study/",
+          "image_url": "https://learning.northeastern.edu/wp-content/uploads/2025/07/CATLR-Tips-Resources-Template-50.png",
+          "website": "https://learning.northeastern.edu/ai-student-guides-using-claude-learning-mode-to-study/"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/75198",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "website": "https://learning.northeastern.edu/ai-student-guides-using-claude-learning-mode-to-study/",
+        "image_url": "https://learning.northeastern.edu/wp-content/uploads/2025/07/CATLR-Tips-Resources-Template-50.png"
+      },
+      "patch": {}
+    }
+  ]
+}

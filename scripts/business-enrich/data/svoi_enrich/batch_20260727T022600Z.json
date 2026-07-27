@@ -1,0 +1,530 @@
+[
+  {
+    "id": "905c0be5-9457-4467-8eea-a877ba55776f",
+    "name": "Ресторан XО",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1057 East Lake Cook Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lake%20Cook%20Road%201057%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472291010"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "670dc913-5262-479e-aa19-922af1313ad3",
+      "slug": "svoi-x"
+    }
+  },
+  {
+    "id": "8c4e4492-9445-4407-add2-27fe706bfbde",
+    "name": "Bait Cafe",
+    "changes": {},
+    "fill": {
+      "address_line": "706 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20706%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18472291434"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4277d021-9019-4332-8bf6-269db1395bda",
+      "slug": "svoi-bait-cafe"
+    }
+  },
+  {
+    "id": "cc06f03d-3766-4eeb-aa38-08eb70f9749e",
+    "name": "Bait cafe & Banquets",
+    "changes": {},
+    "fill": {
+      "address_line": "706 S Buffalo Grove Rd",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Buffalo%20Grove%20Rd%20706%2C%20Buffalo%20grove%2C%20IL",
+      "phone": "+18472291434"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "4277d021-9019-4332-8bf6-269db1395bda"
+    }
+  },
+  {
+    "id": "8efd0cd8-6490-4097-8584-7501729b9d0e",
+    "name": "Jazz Cafe - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "250 McHenry Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McHenry%20Road%20250%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18475375299"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f90a097f-6c06-4524-8794-d8257303188f",
+      "slug": "svoi-jazz-cafe-restaurants"
+    }
+  },
+  {
+    "id": "206a619d-ccaf-4382-87e6-01a5ee83cfbd",
+    "name": "Old Town Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "113 Stephen Street",
+      "location_precision": "street",
+      "city": "Lemont",
+      "state_code": "US-IL",
+      "postal_code": "60439",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stephen%20Street%20113%2C%20Lemont%2C%20IL%20%2060439",
+      "phone": "+16302577570"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1d79262c-5384-460f-aa06-6bf54a1a53b5",
+      "slug": "svoi-old-town-restaurant"
+    }
+  },
+  {
+    "id": "ab0d1615-704a-4a8d-9d59-03aafe324557",
+    "name": "La Mirage",
+    "changes": {},
+    "fill": {
+      "address_line": "3223 West Algonquin Road",
+      "location_precision": "street",
+      "city": "Rolling Meadows",
+      "state_code": "US-IL",
+      "postal_code": "60008",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Algonquin%20Road%203223%2C%20Rolling%20Meadows%2C%20IL%2060008",
+      "website": "http://www.lamiragechicago.com",
+      "phone": "+18472221222"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "91b08ee4-ab72-4a9d-8230-f9d3937f371a",
+      "slug": "svoi-la-mirage"
+    }
+  },
+  {
+    "id": "b7a61009-a1dc-40c4-a47c-bcd0a6841e69",
+    "name": "Maestro Seafood and Grill",
+    "changes": {},
+    "fill": {
+      "address_line": "500 Anthony Trail",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Anthony%20Trail%20500%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18472728111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4b1eeec0-a8d1-47bc-b40e-65d24ff2820a",
+      "slug": "svoi-maestro-seafood-and-grill"
+    }
+  },
+  {
+    "id": "7331987b-3ed4-4b5b-92ae-86d374fd125d",
+    "name": "Bohemian Garden Restaurant - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "75th Street 980",
+      "location_precision": "street",
+      "city": "Downers grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=75th%20Street%20980%2C%20Downers%20grove%2C%20IL",
+      "phone": "+16309600078"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "347bb7f4-3cd9-479f-937e-3284e2884a6e",
+      "slug": "svoi-bohemian-garden-restaurant-restaurants"
+    }
+  },
+  {
+    "id": "02cad2b6-662e-42e2-b85d-3b6ee8e5219a",
+    "name": "Max and Benny's Restaurant & Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "461 Waukegan Road",
+      "location_precision": "street",
+      "city": "Northfield Township",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%20461%2C%20Northfield%20Township%2C%20IL%2060062",
+      "phone": "+18472729490"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f54726f6-0f67-4b4e-9081-d12ef028d27b",
+      "slug": "svoi-max-and-benny-s-restaurant-deli"
+    }
+  },
+  {
+    "id": "228acb1a-67da-4020-907d-49c44c8abc7e",
+    "name": "Pavilion Restaurant and Lounge",
+    "changes": {},
+    "fill": {
+      "address_line": "577 South Waukegan Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Waukegan%20Road%20577%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18477159440"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "83399111-1939-4b7d-8409-e08007ac04dd",
+      "slug": "svoi-pavilion-restaurant-and-lounge"
+    }
+  },
+  {
+    "id": "c4b696fe-19b8-4df9-8c57-4b717a6a057c",
+    "name": "Ресторан Петергоф",
+    "changes": {},
+    "fill": {
+      "address_line": "577 South Waukegan Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Waukegan%20Road%20577%2C%20Northbrook%2C%20IL%2060062",
+      "website": "http://petergofchicago.com",
+      "phone": "+18477159445",
+      "instagram_url": "https://www.instagram.com/passagevenue",
+      "email": "info@passagechicago.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04c6aadc-09e2-458e-bc94-56d8d73af257",
+      "slug": "svoi-biz-25"
+    }
+  },
+  {
+    "id": "cdf7ecaa-8aca-4573-a63c-e1dee8983398",
+    "name": "U Gazdy Polish Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "270 West Irving Park Road",
+      "location_precision": "street",
+      "city": "Wood dale",
+      "state_code": "US-IL",
+      "postal_code": "60191",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Irving%20Park%20Road%20270%2C%20Wood%20dale%2C%20IL%2060191",
+      "website": "http://u-gazdy.com",
+      "phone": "+16306945840",
+      "instagram_url": "https://www.instagram.com/ugazdy"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5bc79819-a1c8-4d34-a306-4eb7074ee2ca",
+      "slug": "svoi-u-gazdy-polish-restaurant"
+    }
+  },
+  {
+    "id": "b2079f98-105a-413f-b70e-9b56844993e1",
+    "name": "Bohemian Crystal Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "639 North Blackhawk Drive",
+      "location_precision": "street",
+      "city": "Westmont",
+      "state_code": "US-IL",
+      "postal_code": "60559",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Blackhawk%20Drive%20639%2C%20Westmont%2C%20IL%2060559",
+      "phone": "+16307891981"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3210138f-9319-4968-b7a1-e2d164100323",
+      "slug": "svoi-bohemian-crystal-restaurant"
+    }
+  },
+  {
+    "id": "8a29b8ab-6366-4dc8-afd7-23956a3ceefe",
+    "name": "Old Georgia Tiflis",
+    "changes": {},
+    "fill": {
+      "address_line": "874 Green Bay Road",
+      "location_precision": "street",
+      "city": "Winnetka",
+      "state_code": "US-IL",
+      "postal_code": "60093",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Green%20Bay%20Road%20874%2C%20Winnetka%2C%20IL%2060093",
+      "phone": "+18474416871"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "356719f3-99cc-46f5-87e4-f87113e6c344",
+      "slug": "svoi-old-georgia-tiflis"
+    }
+  },
+  {
+    "id": "78336cb0-136f-4ede-86b7-20a8b91fbe37",
+    "name": "Casa Royale Banquets",
+    "changes": {},
+    "fill": {
+      "address_line": "783 Lee Street",
+      "location_precision": "street",
+      "city": "Des plains",
+      "state_code": "US-IL",
+      "postal_code": "60016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lee%20Street%20783%2C%20Des%20plains%2C%20IL%2060016",
+      "phone": "+18472976640"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d3e5a101-80bd-4418-89fd-fd575212197c",
+      "slug": "svoi-casa-royale-banquets"
+    }
+  },
+  {
+    "id": "7dae835c-1848-4efa-be36-53363f6f8781",
+    "name": "Omega Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "9100 Golf Road",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Golf%20Road%209100%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18472967777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "022e104c-75e3-4041-9950-255638324342",
+      "slug": "svoi-omega-restaurant"
+    }
+  },
+  {
+    "id": "306b1ee6-270d-486d-bfc3-cdb936128afe",
+    "name": "Chateau Ritz",
+    "changes": {},
+    "fill": {
+      "address_line": "9100 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%209100%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18472980700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6f25df75-7e29-411b-a794-4888cc9b62a1",
+      "slug": "svoi-chateau-ritz"
+    }
+  },
+  {
+    "id": "664ac58a-dee8-4aba-ad97-813160820f18",
+    "name": "Harry Caray’s Italian Steakhouse",
+    "changes": {},
+    "fill": {
+      "address_line": "10233 West Higgins Road",
+      "location_precision": "street",
+      "city": "Rosemont",
+      "state_code": "US-IL",
+      "postal_code": "60018",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Higgins%20Road%2010233%2C%20Rosemont%2C%20IL%2060018",
+      "phone": "+18476991200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f008487e-93cc-44e8-96bd-362c01be5dd1",
+      "slug": "svoi-harry-caray-s-italian-steakhouse"
+    }
+  },
+  {
+    "id": "a01c1759-644f-4cbd-b787-70704b754b5a",
+    "name": "Bagel Restaurant and Deli Skokie",
+    "changes": {},
+    "fill": {
+      "address_line": "50 Old Orchard Shopping Center",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Orchard%20Shopping%20Center%2050%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18476770100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "75ed995f-bfdd-4e7b-869c-9d347635f160",
+      "slug": "svoi-bagel-restaurant-and-deli-skokie"
+    }
+  },
+  {
+    "id": "5066d310-ca56-4864-a4d0-2ba225cf12eb",
+    "name": "Hyatt Regency OHare",
+    "changes": {},
+    "fill": {
+      "address_line": "9300 Bryn Mawr Avenue",
+      "location_precision": "street",
+      "city": "Rosemont",
+      "state_code": "US-IL",
+      "postal_code": "60018",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bryn%20Mawr%20Avenue%209300%2C%20Rosemont%2C%20IL%2060018",
+      "phone": "+18476961234"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "57e3c80e-21a5-4a0e-9934-3bfbb0c1a056",
+      "slug": "svoi-hyatt-regency-ohare"
+    }
+  }
+]

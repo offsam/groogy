@@ -1,0 +1,512 @@
+[
+  {
+    "id": "d2c53564-5f3c-4f4a-982f-d92c29f43f66",
+    "name": "Taxation and Accounting Services",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "67 Culford Place",
+      "location_precision": "street",
+      "city": "Marlboro Township",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Culford%20Place%2067%2C%20Marlboro%20Township%2C%20NJ",
+      "phone": "+17325013528"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "428c52c4-f681-420a-8dc9-8df8784e0ad2",
+      "slug": "svoi-taxation-and-accounting-services"
+    }
+  },
+  {
+    "id": "f11c6f06-7809-45df-aeaf-14476d26becd",
+    "name": "Avi Labkovski CPA, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "200 Sheffield Street",
+      "location_precision": "street",
+      "city": "Mountainside",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sheffield%20Street%20200%2C%20Mountainside%2C%20NJ",
+      "phone": "+19082327900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ae42773-380c-44bb-aa0e-0195eebe7fdf",
+      "slug": "svoi-avi-labkovski-cpa-llc"
+    }
+  },
+  {
+    "id": "54aa00a6-1784-40f1-afc7-7b5a90de17f9",
+    "name": "Spot-On Tax Services",
+    "changes": {},
+    "fill": {
+      "address_line": "340 Bloomfield Avenue",
+      "location_precision": "street",
+      "city": "Caldwell",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bloomfield%20Avenue%20340%2C%20Caldwell%2C%20NJ",
+      "website": "http://www.spotonmanagement.com",
+      "phone": "+19735002888",
+      "email": "info@spotonmanagement.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "83b25585-73aa-41ef-8ce9-e08a6ce0d964",
+      "slug": "svoi-spot-on-tax-services"
+    }
+  },
+  {
+    "id": "2330a56a-9aca-4705-883c-653e5c93a00a",
+    "name": "Барри Лэнди CPA, PC",
+    "changes": {},
+    "fill": {
+      "address_line": "99 Tulip Avenue",
+      "location_precision": "street",
+      "city": "Floral park",
+      "state_code": "US-NY",
+      "postal_code": "11001",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tulip%20Avenue%20%2099%2C%20Floral%20park%2C%20NY%2011001",
+      "website": "http://www.blandycpa.com",
+      "phone": "+15165821982"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e555106f-87a3-4a65-8330-9fc12d024f0d",
+      "slug": "svoi-cpa-pc"
+    }
+  },
+  {
+    "id": "0d5b2feb-0739-494f-8a73-19730bbd6223",
+    "name": "Verta Consulting & Accounting Services",
+    "changes": {},
+    "fill": {
+      "address_line": "54 Sherwood Road",
+      "location_precision": "street",
+      "city": "Tenafly",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sherwood%20Road%2054%2C%20Tenafly%2C%20NJ",
+      "website": "http://www.vertagroup.com",
+      "phone": "+12015684530",
+      "email": "verta@vertagroup.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e685f552-682b-4255-88bb-5c07bae70f99",
+      "slug": "svoi-verta-consulting-accounting-services"
+    }
+  },
+  {
+    "id": "cc7b6a26-36f4-420b-8b38-cbd2e23bd200",
+    "name": "Goldenthal and Suss (CPA)",
+    "changes": {},
+    "fill": {
+      "address_line": "2791 Richmond Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Richmond%20Avenue%202791%2C%20New%20York%2C%20NY",
+      "phone": "+17184944321"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5bc97c08-e491-4f3b-9a2b-3f5f817ecfe2",
+      "slug": "svoi-goldenthal-and-suss-cpa"
+    }
+  },
+  {
+    "id": "a021e10f-2a36-47c6-9c42-8933e28b506a",
+    "name": "iTAX SOLUTIONS",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+19172320877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "31ea5d09-fd67-4411-a865-8f90a0bd38f7",
+    "name": "Business Service and Tax Preparation",
+    "changes": {},
+    "fill": {
+      "address_line": "606 Brighton Beach Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20Avenue%20606%2C%20New%20York%2C%20NY",
+      "phone": "+17183682256"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a54ce4fc-9651-45fc-970f-167da403f778",
+      "slug": "svoi-business-service-and-tax-preparation"
+    }
+  },
+  {
+    "id": "44295ff7-48f4-4d4e-80c2-7ccfb7c20ade",
+    "name": "G &T tax INCOME TAX",
+    "changes": {},
+    "fill": {
+      "address_line": "1047 Brighton Beach",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%201047%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17187956447"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1960d9d-7101-40ed-b8cc-3f3398d4dc32",
+      "slug": "svoi-g-t-tax-income-tax"
+    }
+  },
+  {
+    "id": "16520f08-057d-4268-8cd9-77ca81cf378b",
+    "name": "Tax Target Group L.L.T.",
+    "changes": {},
+    "fill": {
+      "address_line": "1047 Brighton Beach Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20Avenue%201047%2C%20New%20York%2C%20NY%2011235",
+      "website": "http://taxtargetgroup.com/en",
+      "phone": "+17186150639"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "30e2562f-89b2-476a-84a3-e880b461a865",
+      "slug": "svoi-tax-target-group-l-l-t"
+    }
+  },
+  {
+    "id": "f499a471-76ce-4449-b361-aa1feceafda6",
+    "name": "Tax Target Group LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "1047 Brighton Beach Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20Avenue%201047%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17186150500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9a2e5cd6-d5f1-4462-837e-d45468c9567f",
+      "slug": "svoi-tax-target-group-llc"
+    }
+  },
+  {
+    "id": "ca838c5e-7e12-4d62-925f-2571be42b7cb",
+    "name": "Mayya Shneyder, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "174 Brighton 11th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%2011th%20Street%20174%2C%20New%20York%2C%20NY",
+      "phone": "+17186460337"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a1fef8a6-48b1-4de9-84a1-3a8a059c2078",
+      "slug": "svoi-mayya-shneyder-inc"
+    }
+  },
+  {
+    "id": "0caf7930-8c77-4c03-9abe-cc8b7ef6745d",
+    "name": "Eric Krupnik, CPA",
+    "changes": {},
+    "fill": {
+      "address_line": "852 Avenue Z",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20Z%20852%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17186480312"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c55ebad3-0461-4833-ad88-f99dfecd47bd",
+      "slug": "svoi-eric-krupnik-cpa"
+    }
+  },
+  {
+    "id": "43c3cee5-6297-429c-bc9b-f9102ede2572",
+    "name": "Advanced Accounting and Professional Services",
+    "changes": {},
+    "fill": {
+      "address_line": "2903 Ocean Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ocean%20Avenue%202903%2C%20New%20York%2C%20NY",
+      "phone": "+17187433047"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "129fd6fb-a789-429a-8e11-f148944bad54",
+      "slug": "svoi-advanced-accounting-and-professional-services"
+    }
+  },
+  {
+    "id": "45934eb6-8818-4e44-a38d-3425bc996797",
+    "name": "Налоговые декларации",
+    "changes": {},
+    "fill": {
+      "address_line": "2751 Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%202751%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+16466101801"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "114f33fa-02a0-4876-b1b7-839dfd6b8df1",
+      "slug": "svoi-biz-4"
+    }
+  },
+  {
+    "id": "092a12f0-8381-4091-a88d-b264ba12a7c4",
+    "name": "Center of Consulting Service",
+    "changes": {},
+    "fill": {
+      "address_line": "86th Street 2916",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=86th%20Street%202916%2C%20New%20York%2C%20NY",
+      "phone": "+17184496952"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a84083c2-ac19-46a4-a565-6fe886b019e7",
+      "slug": "svoi-center-of-consulting-service"
+    }
+  },
+  {
+    "id": "68c4a872-5e8d-42d5-b0ba-bddcdcb60f70",
+    "name": "Alla Popov CPA",
+    "changes": {},
+    "fill": {
+      "address_line": "2602 Avenue U",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20U%202602%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+17183320000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08b552bf-184d-48af-893f-3ca442374942",
+      "slug": "svoi-alla-popov-cpa"
+    }
+  },
+  {
+    "id": "8038c765-8014-40fe-b1e8-a09c731791f4",
+    "name": "Kraven Capital",
+    "changes": {},
+    "fill": {
+      "address_line": "187 Avenue U",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Avenue%20U%20187%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+17186483333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "78557fa5-f682-4073-95a8-a18ee3583ab2",
+      "slug": "svoi-kraven-capital"
+    }
+  },
+  {
+    "id": "0271bcc2-7a6a-4457-9c4e-cadaeb2c900c",
+    "name": "Genius Kids",
+    "changes": {},
+    "fill": {
+      "address_line": "701 Ginesi Drive",
+      "location_precision": "street",
+      "city": "Marlboro Township",
+      "state_code": "US-NJ",
+      "postal_code": "07751",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ginesi%20Drive%20701%2C%20Marlboro%20Township%2C%20NJ%2007751",
+      "phone": "+17328516427"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "70217b38-d555-4cff-a216-0acd66a1ebf0",
+      "slug": "svoi-genius-kids"
+    }
+  },
+  {
+    "id": "8c0ab25b-4cb0-4a9d-8ab2-8c36cb709e6c",
+    "name": "Genius Kids Day Care",
+    "changes": {},
+    "fill": {
+      "address_line": "701 Ginesi Drive",
+      "location_precision": "street",
+      "city": "Marlboro Township",
+      "state_code": "US-NJ",
+      "postal_code": "07751",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ginesi%20Drive%20701%2C%20Marlboro%20Township%2C%20NJ%2007751",
+      "phone": "+17329771702"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7f7e8bfc-5002-4349-a09d-d951225bb642",
+      "slug": "svoi-genius-kids-day-care"
+    }
+  }
+]

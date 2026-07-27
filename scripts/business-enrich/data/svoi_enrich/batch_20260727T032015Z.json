@@ -1,0 +1,1213 @@
+[
+  {
+    "id": "0d2c4938-a67f-49ce-a9a5-485f67b81d81",
+    "name": "Зельцман Марат",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "21097 Northeast 27th Court",
+      "location_precision": "street",
+      "city": "Aventura",
+      "state_code": "US-FL",
+      "postal_code": "33180",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%2027th%20Court%2021097%2C%20Aventura%2C%20FL%2033180",
+      "phone": "+13056829877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "65a3ee4e-c61a-448e-a1fc-ab793fb9d6c8",
+      "slug": "svoi-biz-9"
+    }
+  },
+  {
+    "id": "4fcd957a-1112-45fd-a559-f675973ae930",
+    "name": "Polo Dental",
+    "changes": {},
+    "fill": {
+      "address_line": "5030 Champion Boulevard",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "postal_code": "33496",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Champion%20Boulevard%205030%2C%20Boca%20raton%2C%20FL%2033496",
+      "phone": "+15612417656"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d5b24dfa-1dd4-43e6-8b30-5eb728f75096",
+      "slug": "svoi-polo-dental"
+    }
+  },
+  {
+    "id": "a909261f-1b3b-4d20-b282-f6addbff43f1",
+    "name": "Dr. Dennis Sierra D.M.D.- General Practice & Cosmetic Dentistry",
+    "changes": {},
+    "fill": {
+      "address_line": "20283 North State Road 7",
+      "location_precision": "street",
+      "city": "Mission Bay",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20State%20Road%207%2020283%2C%20Mission%20Bay%2C%20FL",
+      "website": "http://www.drsierragp.com",
+      "phone": "+15614702345"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "84ca61b8-a602-4852-bd1d-9653ac78aa1e",
+      "slug": "svoi-dr-dennis-sierra-d-m-d-general-practice-cosmetic"
+    }
+  },
+  {
+    "id": "831dc579-7fa5-4227-beaf-66742c63d6e2",
+    "name": "ANGELA BERKOVICH",
+    "changes": {},
+    "fill": {
+      "address_line": "1348 East Hillsboro Boulevard",
+      "location_precision": "street",
+      "city": "Deerfield Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Hillsboro%20Boulevard%201348%2C%20Deerfield%20Beach%2C%20FL",
+      "website": "http://www.drberkovich.com",
+      "phone": "+19547157006",
+      "postal_code": "33441",
+      "instagram_url": "https://www.instagram.com/dentistryofsouthflorida",
+      "yelp_url": "https://www.yelp.com/biz/angela-berkovich-dmd-deerfield-beach-2",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "88bcf001-05b5-461a-bf49-343b9e889929",
+      "slug": "svoi-angela-berkovich"
+    }
+  },
+  {
+    "id": "8c915bd8-03c0-47d0-bd1d-e7340009c756",
+    "name": "Sofia Art Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "17070 Collins Ave.",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Ave.%20%2017070%20%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "website": "http://artacademymiami.com",
+      "phone": "+13059491617",
+      "instagram_url": "https://www.instagram.com/artacademyofmiami",
+      "email": "info@artacademymiami.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "76400e88-9c32-4e47-b00c-aa86542f3848",
+      "slug": "svoi-sofia-art-academy"
+    }
+  },
+  {
+    "id": "8e9e7300-6d39-4d11-9158-10668784f7b8",
+    "name": "Delta Psychological Group",
+    "changes": {},
+    "fill": {
+      "address_line": "17501 Biscayne Boulevard",
+      "location_precision": "street",
+      "city": "North Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biscayne%20Boulevard%2017501%2C%20North%20Miami%20Beach%2C%20FL%2033160",
+      "phone": "+13059335733"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "db6bbf34-363b-453b-a2c6-387ee872df2f",
+      "slug": "svoi-delta-psychological-group"
+    }
+  },
+  {
+    "id": "93210d7f-04f0-464b-9cdd-a55a958a92d0",
+    "name": "Alina Gershonov",
+    "changes": {},
+    "fill": {
+      "address_line": "1380 NE Miami Gardens Drive",
+      "location_precision": "street",
+      "city": "Ojas",
+      "state_code": "US-FL",
+      "postal_code": "33179",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=NE%20Miami%20Gardens%20Drive%201380%2C%20Ojas%2C%20FL%2033179",
+      "phone": "+17543681997"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d807f3cf-1bfc-484b-a53e-a2888e158891",
+      "slug": "svoi-alina-gershonov"
+    }
+  },
+  {
+    "id": "3fc0eddc-3557-4bc8-b9b2-e9df464e1914",
+    "name": "UroMedix /Борис Клопух, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "400 West 41st Street",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33140",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%2041st%20Street%20400%2C%20Miami%20Beach%2C%20FL%2033140",
+      "phone": "+13055882820"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "445b1da3-cfa2-46e6-bc08-7f51a3e2890c",
+      "slug": "svoi-uromedix-md"
+    }
+  },
+  {
+    "id": "8af69760-2795-4487-b27e-788f882d3245",
+    "name": "UroMedix / Борис Клопух, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "21150 Biscayne Boulevard",
+      "location_precision": "street",
+      "city": "Aventura",
+      "state_code": "US-FL",
+      "postal_code": "33180",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biscayne%20Boulevard%2021150%2C%20Aventura%2C%20FL%2033180",
+      "website": "http://uromedix.org",
+      "phone": "+13054669111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d7a40163-c639-4497-9474-0a71d1521fc4",
+      "slug": "svoi-uromedix-md-2"
+    }
+  },
+  {
+    "id": "a541671f-f6f3-43a8-a53f-9cceb6ffd000",
+    "name": "Dr. Svetlana Maslyak, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "3990 Sheridan Street",
+      "location_precision": "street",
+      "city": "Hollywood",
+      "state_code": "US-FL",
+      "postal_code": "33021",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sheridan%20Street%203990%2C%20Hollywood%2C%20FL%20%2033021",
+      "phone": "+19545054458"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "36d819ed-c669-4b27-9867-0b1a43cc2ad6",
+      "slug": "svoi-dr-svetlana-maslyak-md"
+    }
+  },
+  {
+    "id": "9c23bd4f-9233-4938-9252-a27a456a8ed2",
+    "name": "Dr. Alexander M Chaplik MD",
+    "changes": {},
+    "fill": {
+      "address_line": "6238 West Atlantic Avenue",
+      "location_precision": "street",
+      "city": "Kings point",
+      "state_code": "US-FL",
+      "postal_code": "33484",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Atlantic%20Avenue%206238%2C%20Kings%20point%2C%20FL%2033484",
+      "phone": "+15614998200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "958cf940-669d-4f49-ad7d-05c827ea9959",
+      "slug": "svoi-dr-alexander-m-chaplik-md"
+    }
+  },
+  {
+    "id": "87a79b93-dc0c-4b3a-b1fc-21c24262d3d1",
+    "name": "Alexander Chaplik, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "W Atlantic Ave",
+      "location_precision": "street",
+      "city": "6238",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Atlantic%20Ave%2C%206238%2C%20Kings%20point%2C%20FL%2033484",
+      "website": "http://www.chaplikcardiology.com",
+      "phone": "+13059354640"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c982388b-efc9-40c8-8831-7784033df90c",
+      "slug": "svoi-alexander-chaplik-m-d"
+    }
+  },
+  {
+    "id": "5a853f47-dec5-45b4-8a5b-a98e668c83a2",
+    "name": "Генадий ВЕНГЕРОВИЧ",
+    "changes": {},
+    "fill": {
+      "address_line": "840 NW 144 St",
+      "location_precision": "street",
+      "city": "Golden Glades",
+      "state_code": "US-FL",
+      "postal_code": "33168",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=NW%20144%20St%20840%2C%20Golden%20Glades%2C%20FL%2033168",
+      "phone": "+19542652750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04ccc233-2817-4823-b808-c9a102b9ec4e",
+      "slug": "svoi-biz-66"
+    }
+  },
+  {
+    "id": "d5b87c6a-2972-4725-af62-551c2d8a3bfc",
+    "name": "JHONNY SALOMON",
+    "changes": {},
+    "fill": {
+      "address_line": "6705 Red Road",
+      "location_precision": "street",
+      "city": "Coral gables",
+      "state_code": "US-FL",
+      "postal_code": "33143",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Red%20Road%206705%2C%20Coral%20gables%2C%20FL%2033143",
+      "phone": "+13052701361"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "51f9d0d5-2b76-45b1-81fb-7c1cc512d3bf",
+      "slug": "svoi-jhonny-salomon"
+    }
+  },
+  {
+    "id": "96e921ce-b47a-4de6-b1cb-64da1b684c3e",
+    "name": "Услуги косметолога. Майами",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "653add80-698d-46f1-9eb4-b39f1f329896",
+    "name": "Baumann Cosmetic & Research Institute",
+    "changes": {},
+    "fill": {
+      "address_line": "4500 Biscayne Boulevard",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33137",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biscayne%20Boulevard%204500%2C%20Miami%2C%20FL%2033137",
+      "phone": "+13055325552"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c1636979-dc91-4d04-a222-0e721ccb4bb1",
+      "slug": "svoi-baumann-cosmetic-research-institute"
+    }
+  },
+  {
+    "id": "03f0f6d7-ff58-4243-839b-6bf7e18df257",
+    "name": "Marianna Blyumin-Karasik, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "3501 S University Dr",
+      "location_precision": "street",
+      "city": "Davey",
+      "state_code": "US-FL",
+      "postal_code": "33328",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20University%20Dr%203501%2C%20Davey%2C%20FL%2033328",
+      "phone": "+19549980345"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ab2b6b60-6609-4ab6-a54e-4f0c1f109388",
+      "slug": "svoi-marianna-blyumin-karasik-md"
+    }
+  },
+  {
+    "id": "fae93020-71df-468e-aa99-5019b9a928d5",
+    "name": "Dr. Yelena Vidgop, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "21097 Northeast 27th Court",
+      "location_precision": "street",
+      "city": "Aventura",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%2027th%20Court%2021097%2C%20Aventura%2C%20FL",
+      "phone": "+17866232000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "5b9cc609-27d3-40d7-af60-85ca7325b500",
+      "slug": "svoi-dr-yelena-vidgop-md"
+    }
+  },
+  {
+    "id": "76e53047-de9e-433b-85ac-856a3e43ee8c",
+    "name": "Minsu Healing Oasis",
+    "changes": {},
+    "fill": {
+      "address_line": "260 Palermo Avenue",
+      "location_precision": "street",
+      "city": "Coral gables",
+      "state_code": "US-FL",
+      "postal_code": "33134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Palermo%20Avenue%20260%2C%20Coral%20gables%2C%20FL%2033134",
+      "phone": "+13054556190"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "267ab56b-752c-4868-8b62-d72352870ccc",
+      "slug": "svoi-minsu-healing-oasis"
+    }
+  },
+  {
+    "id": "28f09ce2-4f5e-44a7-8fff-7d31d238436e",
+    "name": "Ismael E. Caicedo, DI, Hom, MPH",
+    "changes": {},
+    "fill": {
+      "address_line": "1730 Weston Road",
+      "location_precision": "street",
+      "city": "Weston",
+      "state_code": "US-FL",
+      "postal_code": "33326",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Weston%20Road%201730%2C%20Weston%2C%20FL%2033326",
+      "phone": "+19545588654"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a2fbe415-7e37-42cd-9ef4-0ef87d8ba60f",
+      "slug": "svoi-ismael-e-caicedo-di-hom-mph"
+    }
+  },
+  {
+    "id": "2c993a40-1f89-4f58-bb08-0a9e68e01e34",
+    "name": "Surfside Pain Control Center",
+    "changes": {},
+    "fill": {
+      "address_line": "95th Street 260",
+      "location_precision": "street",
+      "city": "Surfside",
+      "state_code": "US-FL",
+      "postal_code": "33154",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=95th%20Street%20260%2C%20Surfside%2C%20FL%2033154",
+      "phone": "+13058610078"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "30046ec5-ee6c-4d35-b46d-0d104bb5025b",
+      "slug": "svoi-surfside-pain-control-center"
+    }
+  },
+  {
+    "id": "5ba478ed-e9f2-4bec-9ad2-e18d0c78bb26",
+    "name": "Dr. Larisa B Elberg MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2801 Northwest 87th Avenue",
+      "location_precision": "street",
+      "city": "Doral",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%2087th%20Avenue%202801%2C%20Doral%2C%20FL",
+      "phone": "+13056535155"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2c0ae187-72f5-4f1d-80e8-550e24e61ec7",
+      "slug": "svoi-dr-larisa-b-elberg-md"
+    }
+  },
+  {
+    "id": "19311f2f-5f45-4c11-aa15-b7c688343b7a",
+    "name": "Angels Care Home Health",
+    "changes": {},
+    "fill": {
+      "address_line": "2260 Southwest 8th Street",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33135",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%208th%20Street%202260%2C%20Miami%2C%20FL%2033135",
+      "phone": "+13053649898"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c8ff1094-bd6c-4338-a07e-4b35ffd1ec60",
+      "slug": "svoi-angels-care-home-health"
+    }
+  },
+  {
+    "id": "c31d9ee8-f003-494f-8f3e-e70e46bb76f3",
+    "name": "Miami-Mama",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+19049000003"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a2d0c57c-52bf-467f-b313-9fad9e657fd2",
+    "name": "RX MELI Pharmacy & Supplies",
+    "changes": {},
+    "fill": {
+      "address_line": "1432 East 4th Avenue",
+      "location_precision": "street",
+      "city": "Hialeah",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%204th%20Avenue%201432%2C%20Hialeah%2C%20FL",
+      "phone": "+13058637211"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d909f92-d37e-485b-9a69-780bc751289d",
+      "slug": "svoi-rx-meli-pharmacy-supplies"
+    }
+  },
+  {
+    "id": "8a7a9208-9c92-49aa-8224-445b4301f108",
+    "name": "CareMed Pharmacy, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "15450 New Barn Road",
+      "location_precision": "street",
+      "city": "Miami Lakes",
+      "state_code": "US-FL",
+      "postal_code": "33014",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20Barn%20Road%2015450%2C%20Miami%20Lakes%2C%20FL%2033014",
+      "phone": "+13054551250"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f0ee4217-5fb1-48a0-9608-3dedadb1a738",
+      "slug": "svoi-caremed-pharmacy-llc"
+    }
+  },
+  {
+    "id": "20f06396-26df-4192-8f79-1460ed71a20b",
+    "name": "Solutions Pharmacy L.L.C.",
+    "changes": {},
+    "fill": {
+      "address_line": "Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13059458977"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "09f991ff-46bd-414a-a304-f06bdbd40a80",
+      "slug": "svoi-solutions-pharmacy-l-l-c"
+    }
+  },
+  {
+    "id": "1b5f3aaf-9704-45b9-a937-42edddcb8924",
+    "name": "National Medical Equipment, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "2675 W 76th st",
+      "location_precision": "street",
+      "city": "Hialeah",
+      "state_code": "US-FL",
+      "postal_code": "33016",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%2076th%20st%202675%2C%20Hialeah%2C%20FL%2033016",
+      "website": "http://www.nationalmedicaldme.com",
+      "phone": "+13056889991",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "459f4fdc-b220-4d28-9c0c-ed5f6b0cb408",
+      "slug": "svoi-national-medical-equipment-inc"
+    }
+  },
+  {
+    "id": "9c3707a5-06a5-418e-b169-6245459fbaa5",
+    "name": "Eco Deco Pet Hospital",
+    "changes": {},
+    "fill": {
+      "address_line": "1539 Alton Road",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "postal_code": "33139",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alton%20Road%201539%2C%20Miami%20Beach%2C%20FL%2033139",
+      "phone": "+13057638009"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e40fb46e-f25e-460e-a9a3-064325452aa7",
+      "slug": "svoi-eco-deco-pet-hospital"
+    }
+  },
+  {
+    "id": "85c38e5d-904a-48f9-88bc-47563ef25803",
+    "name": "Animal Hospital of Hallandale",
+    "changes": {},
+    "fill": {
+      "address_line": "904 Hallandale Beach Boulevard",
+      "location_precision": "street",
+      "city": "Hallandale Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hallandale%20Beach%20Boulevard%20904%2C%20Hallandale%20Beach%2C%20FL",
+      "website": "http://animalhospitalofhallandale.com",
+      "phone": "+19544583040",
+      "instagram_url": "https://www.instagram.com/animalhospitalofhallandale"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "363f991f-bcee-4e8d-8ea2-f9bab726801d",
+      "slug": "svoi-animal-hospital-of-hallandale"
+    }
+  },
+  {
+    "id": "45a6d35c-d72b-4dc2-ae30-327ef79be2a4",
+    "name": "Hallandale Pet salon",
+    "changes": {},
+    "fill": {
+      "address_line": "1025 East Hallandale Beach Boulevard",
+      "location_precision": "street",
+      "city": "Hallandale Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Hallandale%20Beach%20Boulevard%201025%2C%20Hallandale%20Beach%2C%20FL",
+      "phone": "+19544568070"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9da4c567-9c16-456b-a926-3b6e972b7915",
+      "slug": "svoi-hallandale-pet-salon"
+    }
+  },
+  {
+    "id": "0c1d4b68-0cd4-443a-9194-25597e8ac2cc",
+    "name": "VIP CAR RENTAL",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13059003012"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bf57a02f-7f71-47a6-b933-f36e0bca73f7",
+    "name": "РЕНТ ЛЕГКОВЫХ АВТОМОБИЛЕЙ",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+19547094628"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0fa20960-496c-4ba3-8e68-07f316b6e71c",
+    "name": "Super Cars of Miami",
+    "changes": {},
+    "fill": {
+      "address_line": "420 Lincoln Road",
+      "location_precision": "street",
+      "city": "Miami Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Road%20420%2C%20Miami%20Beach%2C%20FL",
+      "website": "http://www.supercarsofmiami.com",
+      "phone": "+13058348284",
+      "instagram_url": "https://www.instagram.com/supercarsofmiami",
+      "yelp_url": "http://www.yelp.com/biz/super-cars-of-miami-miami-beach"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bdb670fd-a69f-4a66-a00f-b1a2ac7fa598",
+      "slug": "svoi-super-cars-of-miami"
+    }
+  },
+  {
+    "id": "16cdf552-4a17-40a4-8106-d6129e4dc951",
+    "name": "Vista BMW",
+    "changes": {},
+    "fill": {
+      "address_line": "4401 West Sample Road",
+      "location_precision": "street",
+      "city": "Coconut Creek",
+      "state_code": "US-FL",
+      "postal_code": "33073",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Sample%20Road%204401%2C%20Coconut%20Creek%2C%20FL%2033073",
+      "phone": "+19549352700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4f9a6ba2-c2c1-4b9e-b57f-055577ef3b3b",
+      "slug": "svoi-vista-bmw"
+    }
+  },
+  {
+    "id": "4db1f062-cfc2-4121-8ef4-07a01f87c690",
+    "name": "Champion Porsche",
+    "changes": {},
+    "fill": {
+      "address_line": "500 West Copans Road",
+      "location_precision": "street",
+      "city": "Pompano Beach",
+      "state_code": "US-FL",
+      "postal_code": "33064",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Copans%20Road%20500%2C%20Pompano%20Beach%2C%20FL%2033064",
+      "phone": "+19549464020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b99c80b4-c297-4980-8552-7c016b58a86b",
+      "slug": "svoi-champion-porsche"
+    }
+  },
+  {
+    "id": "eb599818-48e0-41e1-804e-5aaaddc2d5ed",
+    "name": "Pembroke Pines Lexus",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pembroke%20Pines%2C%20FL",
+      "phone": "+18882200088"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "47f50c2f-1592-4576-82f7-b62766b7cd23",
+    "name": "MAZEL AUTO REPAIR",
+    "changes": {},
+    "fill": {
+      "address_line": "802 North Dixie Highway",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Dixie%20Highway%20802%2C%20Boca%20raton%2C%20FL",
+      "phone": "+15617868446"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8ff9b54c-9da4-433a-b661-0fdf6f28ce70",
+      "slug": "svoi-mazel-auto-repair"
+    }
+  },
+  {
+    "id": "e0ac3a00-a427-471e-baf7-116adfd28989",
+    "name": "Kib Engineering",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "phone": "+13235323932"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "49633fe9-1eb1-49ca-a1b7-53131117f4b6",
+    "name": "Miami Cardoctor",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "website": "http://www.miamicardoctor.com",
+      "phone": "+17862592509"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3139a200-ebac-4ec4-8e85-c0b97e2bb3f1",
+    "name": "Admiral Limousine Service",
+    "changes": {},
+    "fill": {
+      "address_line": "13255 West Dixie Highway",
+      "location_precision": "street",
+      "city": "North miami",
+      "state_code": "US-FL",
+      "postal_code": "33161",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dixie%20Highway%2013255%2C%20North%20miami%2C%20FL%2033161",
+      "phone": "+13058999320"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7fb326fb-0c2d-4184-aa9d-189499000ad0",
+      "slug": "svoi-admiral-limousine-service"
+    }
+  },
+  {
+    "id": "ce87d5de-b550-4318-a9cf-099dda724866",
+    "name": "услуги водителя FL",
+    "changes": {},
+    "fill": {
+      "city": "FL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hollywood%2C%20FL%20ted%20States",
+      "phone": "+19548605310"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "6339a1e5-7f43-4010-b8eb-499552badd98",
+    "name": "Транспорт - Автобус Мерседес Спринтер с водителем (Олег Лапшин)",
+    "changes": {},
+    "fill": {
+      "city": "FL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hollywood%2C%20FL%20ted%20States",
+      "phone": "+13059045750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0cbf9e3f-1180-4f5c-8fcc-b6948ede5c8a",
+    "name": "Vunder kid",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sunny%20Isles%20Beach%2C%20FL",
+      "website": "http://vunderkid.us/en/branches/vunder-kid-orange-county",
+      "phone": "+19492728543"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7e3966b0-1f88-4e64-887d-7791bb48df02",
+    "name": "Sunny Isles Kids Club",
+    "changes": {},
+    "fill": {
+      "address_line": "17395 North Bay Road",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Bay%20Road%2017395%2C%20Sunny%20Isles%20Beach%2C%20FL",
+      "phone": "+13059333888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "77b32b99-de2e-4b91-802e-1df447b31617",
+      "slug": "svoi-sunny-isles-kids-club"
+    }
+  },
+  {
+    "id": "67b08c35-f549-4bac-a391-dbb3c9f27106",
+    "name": "Smart Kids",
+    "changes": {},
+    "fill": {
+      "address_line": "18260 Collins Avenue",
+      "location_precision": "street",
+      "city": "Sunny Isles Beach",
+      "state_code": "US-FL",
+      "postal_code": "33160",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Collins%20Avenue%2018260%2C%20Sunny%20Isles%20Beach%2C%20FL%2033160",
+      "phone": "+13053908261"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "77623851-5b57-4037-be6e-ac40e44f59bb",
+      "slug": "svoi-smart-kids"
+    }
+  },
+  {
+    "id": "8a78fe85-5e95-4fc3-b3c3-68ea826145ff",
+    "name": "BIS - Elite Arts School",
+    "changes": {},
+    "fill": {
+      "address_line": "2298 Northwest Boca Raton Boulevard",
+      "location_precision": "street",
+      "city": "Boca raton",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northwest%20Boca%20Raton%20Boulevard%202298%2C%20Boca%20raton%2C%20FL",
+      "phone": "+19544150041"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "93bc3577-b81f-4f97-a1af-df98b142c455",
+      "slug": "svoi-bis-elite-arts-school"
+    }
+  },
+  {
+    "id": "2ee769e7-ca62-42b1-b88d-0314a0ca80e7",
+    "name": "FLORIDA PREP школа-пансион",
+    "changes": {},
+    "fill": {
+      "city": "FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Miami%2C%20FL",
+      "website": "http://www.flprep.com",
+      "phone": "+13217233211",
+      "instagram_url": "https://www.instagram.com/floridaprepacademy",
+      "email": "admissions@flprep.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "21f41a63-086b-433e-a393-752c7ebea042",
+    "name": "Open Hearts Language Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "825 Brickell Bay Drive",
+      "location_precision": "street",
+      "city": "Miami",
+      "state_code": "US-FL",
+      "postal_code": "33131",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brickell%20Bay%20Drive%20825%2C%20Miami%2C%20FL%2033131",
+      "phone": "+13053794027"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4a8c8acd-a41e-46b4-9fe9-702257d9ee07",
+      "slug": "svoi-open-hearts-language-academy"
+    }
+  },
+  {
+    "id": "0b6b4ba1-44c9-4312-ab90-661ac5b07f09",
+    "name": "Театрально-Музыкальная Студия ЭТЮД",
+    "changes": {},
+    "fill": {
+      "address_line": "Hallandale Beach Blvd 780 E",
+      "location_precision": "street",
+      "city": "Hallandale Beach",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hallandale%20Beach%20Blvd%20780%20E%2C%20Hallandale%20Beach%2C%20FL",
+      "phone": "+17863090404"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "56e0f9a8-637a-4d77-bf5a-e22db2e5c2ce",
+      "slug": "svoi-biz-67"
+    }
+  }
+]

@@ -1,0 +1,3496 @@
+{
+  "source": "https://slavicseattle.com/businesses",
+  "directory_source": "slavic_seattle",
+  "generated_at": "2026-07-27T01:42:01.801743+00:00",
+  "count": 106,
+  "errors": [
+    {
+      "url": "https://slavicseattle.com/businesses/мебельная-фабрика",
+      "error": "'ascii' codec can't encode characters in position 16-24: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/наращивания-ресниц",
+      "error": "'ascii' codec can't encode characters in position 16-26: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/производство-и-доставка-копченого-мя",
+      "error": "'ascii' codec can't encode characters in position 16-27: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/wedding-and-event-photography-📸",
+      "error": "'ascii' codec can't encode character '\\U0001f4f8' in position 46: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/консультант-мери-кей",
+      "error": "'ascii' codec can't encode characters in position 16-26: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/страхование-авто-недвижимость-и-бизн",
+      "error": "'ascii' codec can't encode characters in position 16-26: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/наращивание-ресниц-и-ламинирование",
+      "error": "'ascii' codec can't encode characters in position 16-26: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/занятия-балетом",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/услуги-фотографа",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/ооо-′′-мальвер-стройка-и-перестройка",
+      "error": "'ascii' codec can't encode characters in position 16-18: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/страховой-агент-2",
+      "error": "'ascii' codec can't encode characters in position 16-24: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/продажа-цветов",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/риэлтор",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/помощь-в-получении-страховки",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/мягкое-стекло",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/авторемонт-в-мастерской",
+      "error": "'ascii' codec can't encode characters in position 16-25: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/курс-индивидуальных-занятий-по-фотог",
+      "error": "'ascii' codec can't encode characters in position 16-19: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/центр-здоровья",
+      "error": "'ascii' codec can't encode characters in position 16-20: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/автомобильные-аварии",
+      "error": "'ascii' codec can't encode characters in position 16-28: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/английский-язык",
+      "error": "'ascii' codec can't encode characters in position 16-25: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/страхование-2",
+      "error": "'ascii' codec can't encode characters in position 16-26: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/бухгалтерское-обслуживание",
+      "error": "'ascii' codec can't encode characters in position 16-28: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/школа-cdl",
+      "error": "'ascii' codec can't encode characters in position 16-20: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/печать-на-холсте",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/иммиграционный-адвокат-pidgeon-attorney-at-law-p-s",
+      "error": "'ascii' codec can't encode characters in position 16-29: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/семейный-психолог",
+      "error": "'ascii' codec can't encode characters in position 16-23: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/работа-с-детьми",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/логопец",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/уроки-английского",
+      "error": "'ascii' codec can't encode characters in position 16-20: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/уроки-математики",
+      "error": "'ascii' codec can't encode characters in position 16-20: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/занятия-по-английскому-языку",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/компания-по-установке-окон",
+      "error": "'ascii' codec can't encode characters in position 16-23: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/продажа-свадебных-платьев-2",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/преподаватель-русского-языка-и-литер",
+      "error": "'ascii' codec can't encode characters in position 16-28: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/работа-с-домами",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/замена-паспортов",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/натуральная-продукция-для-тела",
+      "error": "'ascii' codec can't encode characters in position 16-26: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/продажа-свадебных-платьев",
+      "error": "'ascii' codec can't encode characters in position 16-22: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/обучаю-ремонту-бытовой-техники",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    },
+    {
+      "url": "https://slavicseattle.com/businesses/русско-американский-детский-садик-busy-bee-в",
+      "error": "'ascii' codec can't encode characters in position 16-21: ordinal not in range(128)"
+    }
+  ],
+  "cards": [
+    {
+      "cluster_key": "sls-3e2e23818541fe50",
+      "display_name": "E.Z. DENTAL CLINIC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "health",
+      "category_guess": "стоматология",
+      "city": "Bellevue",
+      "address": "1130 140th Ave NE, Bellevue, WA, 98005",
+      "phones": [
+        "+14257466090"
+      ],
+      "emails": [
+        "info@ezdentalbellevue.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://www.ezdentalbellevue.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/ez-dental-clinic-bellevue-1768494062658.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/ez-dental-clinic-bellevue-1768494062658.webp",
+        "https://images.slavicseattle.com/businesses/ez-dental-clinic-bellevue-1768494063990.webp",
+        "https://images.slavicseattle.com/businesses/ez-dental-clinic-bellevue-1768494065345.webp",
+        "https://images.slavicseattle.com/businesses/ez-dental-clinic-bellevue-1768494066671.webp",
+        "https://images.slavicseattle.com/businesses/ez-dental-clinic-bellevue-1768494068042.webp"
+      ],
+      "short_description": "EZ Dental Clinic - это современная стоматологическая клиника в Bellevue, штат Вашингтон. Команда опытных стоматологов специализируется на уходе за полостью рта и использует самое современное оборудование для определения наиболее подходящего плана лечения для конкретных потребност",
+      "description": "EZ Dental Clinic - это современная стоматологическая клиника в Bellevue, штат Вашингтон. Команда опытных стоматологов специализируется на уходе за полостью рта и использует самое современное оборудование для определения наиболее подходящего плана лечения для конкретных потребностей пациента. В стоматологической клинике EZ Dental Clinic процедура обогащения тромбоцитами фибрина, при которой они используют собственные тромбоциты пациента для ускорения процесса заживления после операции, является уникальной и позволяет быстрее и эффективнее выздороветь. Кроме того, это одна из немногих практик, использующих имплантаты из безметаллового циркония наряду с использованием собственного компьютерного томографа для 3D-рентгеновских лучей. EZ Dental Clinic специализируется на восстановительных, косметических и профилактических процедурах. Квалифицированная команда предлагает различные восстановительные и косметические процедуры, включая зубные имплантаты, коронки, мосты, зубные протезы, отбеливание зубов и корневых каналов. Мы также предлагаем профилактические процедуры, такие как чистка зубов, установка каппы, зубные герметики и композитные пломбы цвета зубов. Стоматологическая практика направлена ​​на то, чтобы помочь всем пациентам составить план более эффективного лечения. Имея широкий выбор вариантов реставрации, пациенты могут выбрать то, что лучше всего соответствует их потребностям. Лучшие цены в Bellevue. Принимаем детей. Работаем со всеми видами страховок и медкупонами.",
+      "source_url": "https://slavicseattle.com/businesses/e-z-dental-clinic",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.620110+00:00"
+    },
+    {
+      "cluster_key": "sls-cef5762895ce2006",
+      "display_name": "QuickSigns LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Lynnwood",
+      "address": "15115 Highway 99, Lynnwood, WA, 98087",
+      "phones": [
+        "+14256268070"
+      ],
+      "emails": [
+        "mail@quicksigns.org"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://quicksignsllc.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/user/c631ab1f-cf03-4cf4-aab7-d82af685b0c5/1768918346655-ps7fk9.webp",
+      "images": [
+        "https://images.slavicseattle.com/user/c631ab1f-cf03-4cf4-aab7-d82af685b0c5/1768918346655-ps7fk9.webp"
+      ],
+      "short_description": "QuickSigns LLC — Ваш надёжный партнёр по изготовлению вывесок в Lynnwood и округе.Компания QuickSigns LLC — это команда профессионалов с более чем 15-летним опытом в производстве наружной и интерьерной рекламы. Основанная мастером из Москвы и работающая в штате Вашингтон уже боле",
+      "description": "QuickSigns LLC — Ваш надёжный партнёр по изготовлению вывесок в Lynnwood и округе.Компания QuickSigns LLC — это команда профессионалов с более чем 15-летним опытом в производстве наружной и интерьерной рекламы. Основанная мастером из Москвы и работающая в штате Вашингтон уже более года, мы объединили европейское качество с американскими стандартами, чтобы предложить местным компаниям высококлассные решения для брендинга и визуального оформления.📍 Наше производство расположено в Lynnwood, WA, и мы обеспечиваем полный цикл услуг:Консультация и проектированиеПодготовка технической документации и согласование с городомИзготовление конструкций в собственном цеху (лазерная и фрезерная резка, гибка, сварка, покраска)Монтаж и последующее обслуживание🔧 Мы изготавливаем:Световые короба и фасадные вывескиОбъёмные буквы (в том числе с внутренней или лицевой подсветкой)Навигационные таблички и офисные панелиПерсонализированные решения для ресторанов, клиник, магазинов и офисов💬 С нами работают как небольшие семейные предприятия, так и крупные сетевые компании. Мы тщательно подходим к каждой задаче, обеспечивая индивидуальный подход, оперативность и высочайшее качество исполнения.📞 Свяжитесь с нами:QuickSigns LLC📍 Lynnwood, WA 15115 99Hwy 98087📱 4256268070📧 mail@quicksigns.org",
+      "source_url": "https://slavicseattle.com/businesses/quicksigns-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.645417+00:00"
+    },
+    {
+      "cluster_key": "sls-8291ea693217e090",
+      "display_name": "Газета Перспектива",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Federal Way",
+      "address": "500 South 336th Street, Federal Way, WA, 98003",
+      "phones": [
+        "+12062279904"
+      ],
+      "emails": [
+        "info@goperspective.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/gazeta-perspektiva-federal-way-1768494162781.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/gazeta-perspektiva-federal-way-1768494162781.webp",
+        "https://images.slavicseattle.com/businesses/gazeta-perspektiva-federal-way-1768494165155.webp",
+        "https://images.slavicseattle.com/businesses/gazeta-perspektiva-federal-way-1768494167687.webp"
+      ],
+      "short_description": "Ежемесячное рекламное обозрение \"Перспектива\", издается с 1994 года и распространяется бесплатно в штате Вашингтон. Журнал «Перспектива» может похвастаться 100% распространением каждого издания. Благодаря качеству журнала «Перспектива», каждый экземпляр нашего журнала живет своей",
+      "description": "Ежемесячное рекламное обозрение \"Перспектива\", издается с 1994 года и распространяется бесплатно в штате Вашингтон. Журнал «Перспектива» может похвастаться 100% распространением каждого издания. Благодаря качеству журнала «Перспектива», каждый экземпляр нашего журнала живет своей долгой жизнью. Если вам нужно привлечь внимание русскоязычного населения штата Вашингтон и всего Северо-Запада, Perspective Journal - отличная возможность для этого.Если вы воспользуетесь нашей услугой по производству рекламы и дадите нам четкие инструкции, вы получите грамотно написанное рекламное сообщение.Если у вас уже есть объявление, но вам нужно воспользоваться нашими услугами по переводу, команда переводчиков, которую мы имеем в штате, может вам помочь. Они адаптируют вашу рекламу для русскоязычных пользователей, не меняя ее смысла.Поскольку наши дизайнеры, рекламщики, копирайтеры и переводчики знакомы со спецификой славянской культуры и менталитета, они помогут вам добиться наибольшего успеха в привлечении потенциальных клиентов.",
+      "source_url": "https://slavicseattle.com/businesses/perspective-mountly-russian-business-journal",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.678238+00:00"
+    },
+    {
+      "cluster_key": "sls-12c1c61b602a4022",
+      "display_name": "Inline Security Fence",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Tukwila",
+      "address": "11061 Tukwila International Blvd, Tukwila, WA, 98168",
+      "phones": [
+        "+12068651011"
+      ],
+      "emails": [
+        "office@inlinesecurityfence.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://inlinesecurityfence.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Inline Security Fence is a premier commercial security fence company dedicated to providing top-notch fencing solutions tailored to meet the unique security needs of businesses. Our comprehensive range of services includes expert installation of security fences, crafting custom f",
+      "description": "Inline Security Fence is a premier commercial security fence company dedicated to providing top-notch fencing solutions tailored to meet the unique security needs of businesses. Our comprehensive range of services includes expert installation of security fences, crafting custom fabricated gates, and offering competitive pricing that surpasses other companies in the industry. With a team of skilled professionals, we prioritize excellence in every aspect of our work, ensuring that our clients receive superior-quality fencing solutions that enhance the safety and protection of their commercial properties while adhering to their specific requirements and budget constraints.",
+      "source_url": "https://slavicseattle.com/businesses/inline-security-fence",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.685104+00:00"
+    },
+    {
+      "cluster_key": "sls-3148b7bcf7b887f1",
+      "display_name": "Power wash solutions LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Lynnwood",
+      "address": "4925 168th St SW, Lynnwood, WA, 98037",
+      "phones": [
+        "+12068222579"
+      ],
+      "emails": [
+        "pwsolutionsteam@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/power-wash-solutions-llc-lynnwood-1768494192278.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/power-wash-solutions-llc-lynnwood-1768494192278.webp",
+        "https://images.slavicseattle.com/businesses/power-wash-solutions-llc-lynnwood-1768494195934.webp",
+        "https://images.slavicseattle.com/businesses/power-wash-solutions-llc-lynnwood-1768494200508.webp"
+      ],
+      "short_description": "Power Wash Solutions, предлагает высокий уровень сервиса и профессиональных услуг в сфере ухода и мойки траков, авто, фасадов, крыш домов, заборов и патио.",
+      "description": "Power Wash Solutions, предлагает высокий уровень сервиса и профессиональных услуг в сфере ухода и мойки траков, авто, фасадов, крыш домов, заборов и патио.",
+      "source_url": "https://slavicseattle.com/businesses/power-wash-solutions-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.689618+00:00"
+    },
+    {
+      "cluster_key": "sls-362ccbf726807dc1",
+      "display_name": "VV Estate Sales LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Federal Way",
+      "address": "Federal Way, WA",
+      "phones": [
+        "+12538861346"
+      ],
+      "emails": [
+        "info@vvestatesales.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "VV Estate Sales LLC – Liquidation ServicesSpecializing in Personal Property Liquidation:· estate sale,· senior downsizing,· business liquidation,· estate auction,· property liquidation,· antique and collectible auctions.We offer a professional option to the traditional estate sal",
+      "description": "VV Estate Sales LLC – Liquidation ServicesSpecializing in Personal Property Liquidation:· estate sale,· senior downsizing,· business liquidation,· estate auction,· property liquidation,· antique and collectible auctions.We offer a professional option to the traditional estate sale or auction process. From start to finish we will customize the liquidation process to your specific needs.Regardless of the situation, relocation/downsizing can be stressful and overwhelming. VV Estate Sales offers streamlined support to take the stress off your plate and facilitate a stress-free transition, taking care of all sides of your relocation. That’s why we are proud to offer our additional services with discount:· Clean out and cleaning services· Contractor services – a professional team specializing in preparing properties for sale· Real Estate servicesLet us take care of all your needs!Our Fees are based on a percentage of the total sales and the number of services you use with us.What makes us different?Extensive experience in retail sales from auctions!Being a reseller for a long time helped me develop the skill to estimate the value of your belongings very precisely. Nothing that values will be set aside and I’ll try to make the maximum out of the value of each thing you have! I know that in most cases the cost of the things means more than money to you … So, I’ll treat your property with respect and love like it’s mine as I know what these things mean to you!Being a customer of other auctioneers in the area allowed me to learn their ways of doing business and learn from their mistakes, but also adopt good practices which I’ll apply to ensure your best interests!Schedule a NO OBLIGATION, FREE consultation with us!Call Victoria at (253) 886-1346info@vvestatesales.comWe speak English, Russian, Ukrainian, Italian, and German",
+      "source_url": "https://slavicseattle.com/businesses/vv-estate-sales-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.953847+00:00"
+    },
+    {
+      "cluster_key": "sls-a685d428bb7a8e05",
+      "display_name": "Paul's Clean",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Federal Way",
+      "address": "Federal Way, WA",
+      "phones": [
+        "+12532582569"
+      ],
+      "emails": [
+        "iisusgeroy@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Здравствуйте. Ежедневно мы садимся или ложимся на диван большое количество раз, то и дело оставляя на нем различные загрязнения. Даже если ваш диван используется редко - на нем скапливается пыль и его все равно необходимо чистить примерно раз в год. чистая мебель это и комфорт и ",
+      "description": "Здравствуйте. Ежедневно мы садимся или ложимся на диван большое количество раз, то и дело оставляя на нем различные загрязнения. Даже если ваш диван используется редко - на нем скапливается пыль и его все равно необходимо чистить примерно раз в год. чистая мебель это и комфорт и безопасность, как для вас так и для ваших детей и домашних питомцев. Я выполняю чистку диванов, матрасов и ковров от различных загрязнений, используя только биоразглагаемые химические средства, хотя и не оставляю на поверхностях никаких остатков растворов. Для заказа химчистки мебели, матрасов или ковров отправляйте фото и я обязательно отвечу!",
+      "source_url": "https://slavicseattle.com/businesses/pauls-clean",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:54.979791+00:00"
+    },
+    {
+      "cluster_key": "sls-d845ad74b36fdea4",
+      "display_name": "Wallis Law Firm, PLLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Tacoma",
+      "address": "1101 Fawcett Avenue, Tacoma, WA, 98402",
+      "phones": [
+        "+12532721245"
+      ],
+      "emails": [
+        "paralegal@wallislawfirm.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://www.wallislawfirm.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Wallis Law Firm, PLLC",
+      "description": "Wallis Law Firm, PLLC",
+      "source_url": "https://slavicseattle.com/businesses/wallis-law-firm-pllc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.144990+00:00"
+    },
+    {
+      "cluster_key": "sls-ca1b56351a54ee7a",
+      "display_name": "BRV Remodeling Inc.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Lake Tapps",
+      "address": "2704 216th Avenue Ct E, Lake Tapps, WA, 98391",
+      "phones": [
+        "+12533179445"
+      ],
+      "emails": [
+        "brvremodeling@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://brvremodeling.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-storefront.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-storefront.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-4.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-8.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-9.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-10.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-11.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-12.webp",
+        "https://images.slavicseattle.com/businesses/brv-remodeling-inc-lake-tapps-photo-13.webp"
+      ],
+      "short_description": "BRV Remodeling Inc. is a licensed and insured general contractor based in Lake Tapps, Washington, specializing in kitchen remodeling, bathroom renovations, and full home remodeling projects.With more than 20 years of construction experience, we focus on delivering high-quality cr",
+      "description": "BRV Remodeling Inc. is a licensed and insured general contractor based in Lake Tapps, Washington, specializing in kitchen remodeling, bathroom renovations, and full home remodeling projects.With more than 20 years of construction experience, we focus on delivering high-quality craftsmanship, reliable project management, and strong attention to detail on every project. Whether you are planning a complete home renovation, a custom kitchen, or a modern bathroom upgrade, our team works closely with homeowners to bring their vision to life.We specialize in custom showers, heated floors, cabinetry installation, tile work, and full interior remodeling. Our team maintains clean job sites, uses quality materials, and follows professional construction standards to ensure long-lasting results.From initial planning to final completion, BRV Remodeling Inc. provides structured project management, clear communication, and dependable service throughout the remodeling process.Proudly serving Lake Tapps, Bonney Lake, Auburn, Sumner, and surrounding communities.Contact BRV Remodeling Inc. at (253) 317-9445 to schedule a consultation and discuss your remodeling project.",
+      "source_url": "https://slavicseattle.com/businesses/brv-remodeling-inc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.204703+00:00"
+    },
+    {
+      "cluster_key": "sls-c2894a1999c9d5f8",
+      "display_name": "Federal Way Dentistry",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "health",
+      "category_guess": "стоматология",
+      "city": "Federal Way",
+      "address": "32225 Pacific Hwy S, Federal Way, WA, 98003",
+      "phones": [
+        "+12535295100"
+      ],
+      "emails": [
+        "federalwaydentistry@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Federal Way Dentistry",
+      "description": "Federal Way Dentistry",
+      "source_url": "https://slavicseattle.com/businesses/federal-way-dentistry",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.208620+00:00"
+    },
+    {
+      "cluster_key": "sls-3e6261e240d4f7ac",
+      "display_name": "Rainbow Restoration of Bothell",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Sultan",
+      "address": "11125 323rd Ave SE, Sultan, WA, 98294",
+      "phones": [
+        "+14256591177"
+      ],
+      "emails": [
+        "Bothell@rainbowintl.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://rainbowrestores.com/bothell"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Since 1981, Rainbow Restoration of Bothell has been at the forefront of residential and commercial restoration services. Whether you need water damage restoration, fire and smoke damage restoration, odor removal, or mold remediation, our team of professionals is on-hand and ready",
+      "description": "Since 1981, Rainbow Restoration of Bothell has been at the forefront of residential and commercial restoration services. Whether you need water damage restoration, fire and smoke damage restoration, odor removal, or mold remediation, our team of professionals is on-hand and ready to serve you 24-hours a day, seven days a week. Our team of dedicated professionals is trained and fully certified by the International Institute of Inspection, Cleaning, and Restoration Certification (IICRC). We are a proud franchise member of Neighborly Brands and stand behind the Neighborly Done Right Promise: If the job is not done right, we'll make it right. Call us today for all your restoration needs!",
+      "source_url": "https://slavicseattle.com/businesses/rainbow-restoration-of-bothell",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.258183+00:00"
+    },
+    {
+      "cluster_key": "sls-04fc807365601aba",
+      "display_name": "INNA LOBAN LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Bellevue",
+      "address": "15600 NE 8th St, Bellevue, WA, 98008",
+      "phones": [
+        "+14256154701"
+      ],
+      "emails": [
+        "innaloban85@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Салон красоты, предлагающий широкий спектр парикмахерских услуг для женщин и мужчин. Более 15 лет опыта в индустрии. Специализация — современные техники окрашивания: Балаяж, AirTouch, Baby Blonde, Бразильский блонд и другие сложные виды окрашивания. Выполняем стрижки любой сложно",
+      "description": "Салон красоты, предлагающий широкий спектр парикмахерских услуг для женщин и мужчин. Более 15 лет опыта в индустрии. Специализация — современные техники окрашивания: Балаяж, AirTouch, Baby Blonde, Бразильский блонд и другие сложные виды окрашивания. Выполняем стрижки любой сложности, укладки, уходовые процедуры для волос. Работаем только на качественных материалах. Индивидуальный подход к каждому клиенту, уютная атмосфера, внимание к деталям и стремление к идеальному результату.",
+      "source_url": "https://slavicseattle.com/businesses/inna-loban-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.270952+00:00"
+    },
+    {
+      "cluster_key": "sls-89ca5242ee059dda",
+      "display_name": "S Class Window Tint",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12532937365"
+      ],
+      "emails": [
+        "SClassWindowTint@usa.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Тонирование окон с выездом на адрес : - авто - офис - дом Seattle - Tacoma and area 253 293 7365 text/call",
+      "description": "Тонирование окон с выездом на адрес : - авто - офис - дом Seattle - Tacoma and area 253 293 7365 text/call",
+      "source_url": "https://slavicseattle.com/businesses/s-class-window-tint",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.287078+00:00"
+    },
+    {
+      "cluster_key": "sls-c0633906f623956e",
+      "display_name": "Decks Restore",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "RoofingContractor",
+      "city": "Federal Way",
+      "address": "35116 11th Pl SW, Federal Way, WA, 98023",
+      "phones": [
+        "+12536770290"
+      ],
+      "emails": [
+        "infodecksrestore@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://decksrestore.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "A satisfied customer is a customer for life. If we have done our job well, you will have been served by courteous, honest and skilled experts. Most important, you will be absolutely satisfied once your project is completed. This is the only way we know how to create a customer fo",
+      "description": "A satisfied customer is a customer for life. If we have done our job well, you will have been served by courteous, honest and skilled experts. Most important, you will be absolutely satisfied once your project is completed. This is the only way we know how to create a customer for life. As a deck builder in Federal Way we specialize in custom decks, pool decks, elevated decks, rooftop decks, wood fences and deck resurfacing, as well as all phases of general contracting and so much more. Our company is the contractor you will need to hire to get the perfect deck for your house. We will guide you from the initial stage of planning and designing up until we finish building your decks. We ensure that you are making the right choice to decking to make your deck the best fit for you. We can assure you that we",
+      "source_url": "https://slavicseattle.com/businesses/decks-restore",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.312955+00:00"
+    },
+    {
+      "cluster_key": "sls-595034ec7cffca50",
+      "display_name": "Supraten Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12069995659"
+      ],
+      "emails": [
+        "info@supratengroup.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://supratengroup.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "HOME REMODELING SEATTLEWe pride ourselves on our high end designs, quality of home remodeling in Seattle, and most importantly, our client satisfaction. We understand that a kitchen or bathroom renovation can be a stressful process and that is why we are committed to providing th",
+      "description": "HOME REMODELING SEATTLEWe pride ourselves on our high end designs, quality of home remodeling in Seattle, and most importantly, our client satisfaction. We understand that a kitchen or bathroom renovation can be a stressful process and that is why we are committed to providing the best customer experience in the industry. We treat every client’s needs uniquely and our workers respect their home as they would their own.",
+      "source_url": "https://slavicseattle.com/businesses/supraten-group",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.462201+00:00"
+    },
+    {
+      "cluster_key": "sls-b70e7f89a56295aa",
+      "display_name": "Star Construction WA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Burien",
+      "address": "12261 20th Ave S, Burien, WA, 98168",
+      "phones": [
+        "+12532326335"
+      ],
+      "emails": [
+        "infostarconstructionwa@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://starconstructionwa.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Louvers have unmatched versatility, convenience and low-maintenance durability. They can be placed anywhere within their range of motion for the desired amount of protection or ventilation, and they’re easily integrated into smart-home technology. Enjoy sunny rays during a beauti",
+      "description": "Louvers have unmatched versatility, convenience and low-maintenance durability. They can be placed anywhere within their range of motion for the desired amount of protection or ventilation, and they’re easily integrated into smart-home technology. Enjoy sunny rays during a beautiful spring day or block out the rain to keep dry – operation has never been simpler. And with such a contemporary look and feel, there’s an option to complement any architectural style.",
+      "source_url": "https://slavicseattle.com/businesses/star-construction-wa",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.513475+00:00"
+    },
+    {
+      "cluster_key": "sls-f642980ee381480e",
+      "display_name": "Ramex Excavating",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Graham",
+      "address": "325 Main St, Graham, WA, 98338",
+      "phones": [
+        "+12532302215"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ramex Excavating is located in Graham, Washington. This organization primarily operates in the Excavation Work business / industry within the Construction - Special Trade Contractors sector. This organization has been operating for approximately 4 years.",
+      "description": "Ramex Excavating is located in Graham, Washington. This organization primarily operates in the Excavation Work business / industry within the Construction - Special Trade Contractors sector. This organization has been operating for approximately 4 years.",
+      "source_url": "https://slavicseattle.com/businesses/ramex-excavating",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.729747+00:00"
+    },
+    {
+      "cluster_key": "sls-734282f7e80e4bda",
+      "display_name": "Lana's alterations",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Bellevue",
+      "address": "Bellevue, WA",
+      "phones": [
+        "+14254408307"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Переделка женской, мужской и детской одежды. Лана.",
+      "description": "Переделка женской, мужской и детской одежды. Лана.",
+      "source_url": "https://slavicseattle.com/businesses/lanas-alterations",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.738028+00:00"
+    },
+    {
+      "cluster_key": "sls-dff83ef74a6f672f",
+      "display_name": "Red Square Euro Foods",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Federal Way",
+      "address": "28855 Military Rd S, Federal Way, WA, 98003",
+      "phones": [
+        "+12535295894"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Red Square Euro Foods",
+      "description": "Red Square Euro Foods",
+      "source_url": "https://slavicseattle.com/businesses/red-square-euro-foods",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.738968+00:00"
+    },
+    {
+      "cluster_key": "sls-9f7083942e0e283b",
+      "display_name": "Inessa's cake",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "food",
+      "category_guess": "еда",
+      "city": "Tacoma",
+      "address": "301 133rd St S, Tacoma, WA, 98444",
+      "phones": [
+        "+12533103928",
+        "+12533145520"
+      ],
+      "emails": [
+        "inessacake@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Приготовление еды. Inessa Burlya-owner. Fax: (253) 314-5520",
+      "description": "Приготовление еды. Inessa Burlya-owner. Fax: (253) 314-5520",
+      "source_url": "https://slavicseattle.com/businesses/inessas-cake",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.792572+00:00"
+    },
+    {
+      "cluster_key": "sls-0c6fce21a274a8f5",
+      "display_name": "LVP Wedding and Event Design LLG",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "EventVenue",
+      "city": "Everett",
+      "address": "Everett, WA",
+      "phones": [
+        "+14259239596"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Позвоните нам и мы поможем вам сделать свадьбу вашей мечты!",
+      "description": "Позвоните нам и мы поможем вам сделать свадьбу вашей мечты!",
+      "source_url": "https://slavicseattle.com/businesses/lvp-wedding-and-event-design-llg",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.862639+00:00"
+    },
+    {
+      "cluster_key": "sls-ebfb0883b850a023",
+      "display_name": "NW Cabinetry",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "FurnitureStore",
+      "city": "Lacey",
+      "address": "8470 30th Ave NE, Lacey, WA, 98516",
+      "phones": [
+        "+12068873170"
+      ],
+      "emails": [
+        "siarheyrabushka@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Изготавливаем Кабинеты для Кухни!!!! Большой выбор материалов!!!Материал премиум класса !!! Индивидуальный подход к каждому клиенту!!!",
+      "description": "Изготавливаем Кабинеты для Кухни!!!! Большой выбор материалов!!!Материал премиум класса !!! Индивидуальный подход к каждому клиенту!!!",
+      "source_url": "https://slavicseattle.com/businesses/nw-cabinetry",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:55.986148+00:00"
+    },
+    {
+      "cluster_key": "sls-a3f5df0bc1dd720f",
+      "display_name": "Услуги",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+15039293062"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Мы предоставляем следующие услуги… Регистрация нового бизнесаРегистрация траковой компанииНалоговая консультацияПодача документов на гражданство СШАОбновление паспортов и грин карт По этим и другим вопросам обращайтесь по телефону.",
+      "description": "Мы предоставляем следующие услуги… Регистрация нового бизнесаРегистрация траковой компанииНалоговая консультацияПодача документов на гражданство СШАОбновление паспортов и грин карт По этим и другим вопросам обращайтесь по телефону.",
+      "source_url": "https://slavicseattle.com/businesses/uslugi",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.020455+00:00"
+    },
+    {
+      "cluster_key": "sls-73d5a12d239834df",
+      "display_name": "Посиделки \"Мы за чаем не скучаем\"",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Seattle",
+      "address": "704 19th Ave E, Seattle, WA, 98112",
+      "phones": [
+        "+12063233877",
+        "+12062281053",
+        "+12067067483"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Русский Центр Культуры г. Сиэтла (Малый зал)Традиционно, последнюю пятницу каждого месяца -Посиделки «Мы за Чаем не скучаем»28 мая (пятница) 2021 г19:00 ч. до 21:30 ч- День славянской культуры и письменности отмечаем,- немного музыки, - общение. Благотворительный взнос: $5, (18+)",
+      "description": "Русский Центр Культуры г. Сиэтла (Малый зал)Традиционно, последнюю пятницу каждого месяца -Посиделки «Мы за Чаем не скучаем»28 мая (пятница) 2021 г19:00 ч. до 21:30 ч- День славянской культуры и письменности отмечаем,- немного музыки, - общение. Благотворительный взнос: $5, (18+)Дополнительная информация: 206-228-1053, 206-706-7483.У Вас есть идеи и желание участвовать в мероприятиях Центра или Вы хотите провести своё мероприятие, звоните.",
+      "source_url": "https://slavicseattle.com/businesses/posidelki-my-za-chaem-ne-skuchaem",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.077193+00:00"
+    },
+    {
+      "cluster_key": "sls-90ede9ef27402772",
+      "display_name": "Подключение интернета в доме",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Federal Way",
+      "address": "Federal Way, WA",
+      "phones": [
+        "+12532935345"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Подключаем Интернет в доме - cable, в траке - Wireles 4G speed. Big discount -$9.95/mo для получателей MediCal, FoodStamp, SSI.... или $20/мо для всех . Телефонная линия для дома -от $5мо дополнительные телефонные номера - звонят на любой ваш существующий номер - $60/ год Василий",
+      "description": "Подключаем Интернет в доме - cable, в траке - Wireles 4G speed. Big discount -$9.95/mo для получателей MediCal, FoodStamp, SSI.... или $20/мо для всех . Телефонная линия для дома -от $5мо дополнительные телефонные номера - звонят на любой ваш существующий номер - $60/ год Василий",
+      "source_url": "https://slavicseattle.com/businesses/podklyuchenie-interneta-v-dome",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.174464+00:00"
+    },
+    {
+      "cluster_key": "sls-ac3fad68fbbfa23d",
+      "display_name": "Консультации и информационная поддержка",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Bellevue",
+      "address": "Bellevue, WA",
+      "phones": [
+        "+14258022158"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Здравствуйте, я проработала 15+ лет в Америке в social services agency, и хотела бы предложить консультации (consulting) на тему social services, programs and benefits, а также информационную поддержку и options counseling по ряду вопросов.В рамках консультаций предоставляется ин",
+      "description": "Здравствуйте, я проработала 15+ лет в Америке в social services agency, и хотела бы предложить консультации (consulting) на тему social services, programs and benefits, а также информационную поддержку и options counseling по ряду вопросов.В рамках консультаций предоставляется информация, options counceling, life coaching. Вы можете получить информацию по местным ресурсам относительно вопросов социального жилья, возможностей транспорта и передвижения по городу, сдачи экзамена на гражданство и подготовке к нему, с переводом во время самого экзамена на гражданство; различных социальных льгот, медицинского обслуживания, часов по уходу, государственного страхования, субсидированного жилья, медицинского оборудования, что такое Advanced Directive, life button для ситуаций, когда пожилые люди живут или подолгу остаются одни; grief counceling, а также информация о других ресурсах, имеющихся в наличии для определённых категорий людей (таких как малоимущие; вновь прибывшие иммигранты; пожилые люди; люди с определёнными заболеваниями; социально-изолированные люди; люди с недостаточным знанием английского языка, люди с ограниченной возможностью передвижения, инвалидностью, для людей переживших гетто, концлагеря, нацизм (Holocaust Survivors), и т.д.Консультации могут включать в себя объяснения / информацию, заполнение бланков на различные программы; информацию о том, какие именно имеются программы, и какие из них могут подойти именно вам или вашим близким; помощь с коммуникацией и переводами в инстанциях, таких как иммиграционная служба, велфер (DSHS), Social Security Administration (Отдел Социального Обеспечения), Housing Authority (жилищное управление); а также с визитами к врачам, и в другие учреждения.Могу делать также и companionship - это проводить quality time с пожилыми людьми, найти им помощь и ресурсы для с ежедневных задач, с которыми они сами не справляются (такими как, например звонки и поездки в различные инстанции, медицинские офисы, аптеки; заполнение различных бланков.",
+      "source_url": "https://slavicseattle.com/businesses/konsultaczii-i-informaczionnaya-podderzhka",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.208922+00:00"
+    },
+    {
+      "cluster_key": "sls-924c90e80668854a",
+      "display_name": "Wise choice insurance agency",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "insurance",
+      "category_guess": "страхование",
+      "city": "Vancouver",
+      "address": "Vancouver, WA",
+      "phones": [
+        "+13607876786"
+      ],
+      "emails": [
+        "viktor@wisecia.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Independent Insurance agency provide service for Auto, Home, Commercial, Motorcycle, Boat, Rv and Trucking!",
+      "description": "Independent Insurance agency provide service for Auto, Home, Commercial, Motorcycle, Boat, Rv and Trucking!",
+      "source_url": "https://slavicseattle.com/businesses/wise-choice-insurance-agency",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.275451+00:00"
+    },
+    {
+      "cluster_key": "sls-486fef2c9a1d5724",
+      "display_name": "SLAVLAV",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "retail",
+      "category_guess": "магазины",
+      "city": "Bellevue",
+      "address": "Bellevue, WA",
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "A clothing brand celebrating and enjoying the Slavic Culture",
+      "description": "A clothing brand celebrating and enjoying the Slavic Culture",
+      "source_url": "https://slavicseattle.com/businesses/slavlav-2",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.321223+00:00"
+    },
+    {
+      "cluster_key": "sls-11f917fffcfa9d51",
+      "display_name": "Колготки Conte и многое другое ... Сделано в Беларуси",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "ClothingStore",
+      "city": "Puyallup",
+      "address": "Puyallup, WA, 98373",
+      "phones": [
+        "+12538882394"
+      ],
+      "emails": [
+        "ConteByOksana@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Здравствуйте, девочки, мамочки и бабушки !!!Может кому-то здесь будет интересно Я продаю колготки и многое другое для всей семьи, made in Belarus.Эта фабрика входит в десятку наилучшего производства по всему миру. Если кто ещё не пробовал, очень советую Живу и продаю в Америке, р",
+      "description": "Здравствуйте, девочки, мамочки и бабушки !!!Может кому-то здесь будет интересно Я продаю колготки и многое другое для всей семьи, made in Belarus.Эта фабрика входит в десятку наилучшего производства по всему миру. Если кто ещё не пробовал, очень советую Живу и продаю в Америке, рассылаю во все Штаты бесплатно, если покупка на $50 и больше... Имею свой сайт - www.ConteByOksana.comгруппу на Viber - Join Conte - Made in Belarus on Viber https://invite.viber.com/?g2=AQBJwFBNwLtLv0xd7HYEQYo3A3jSPMYTxsTjo4xd8woEil%2BuU1vZbwa6YIzzBBi2и на Facebook -https://www.facebook.com/groups/ConteByOksana & Instagram - https://www.instagram.com/contebyoksana/ Сейчас я уже имею в наличии колготки, лосины, женские и детские, классические, моделирующие и тёплые, из микрофибры и хлопковые, от 8 ден до 450 ден плотность, носки для всей семьи, детские шапочки, осенние и тёплые с завязками и многое другое... ПОДРОБНЕЕ o компании Conte: Компания Conte появилась в 1997 году в городе Гродно (Беларусь).С момента своего основания и до сегодняшнего времени СООО «Конте Спа» специализируется на производстве чулочно-носочной продукции и трикотажа для женщин, мужчин и детей.С 2001 года компания сосредоточила деятельность на собственном бренде Conte elegant, развивая дизайнерские линейки и совершенствуя технологии производства.Каждый сезон бренд Conte elegant представляет широкий коллекционный ассортимент в цвете, дизайне и декоре.Компания «Конте Спа» активно развивает не только женскую торговую марку Conte elegant, но и мужской бренд DiWaRi, детский Сonte-Kids, известный своей замечательной хлопковой коллекцией и ярким творческим подходом к дизайну, а также марку ESLI, выпускающую трикотажные изделия для всей семьи.Широкий модельный ассортимент классических, корректирующих, фантазийных и теплых колготок, изысканных чулок, хлопковых носков и гольфов, колготок для школьниц и маленьких модниц, белья для женщин и мужчин делают компанию универсальной и амбициозной.",
+      "source_url": "https://slavicseattle.com/businesses/conte-pantyhose-much-more-made-in-belarus",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.513546+00:00"
+    },
+    {
+      "cluster_key": "sls-7a1f76bc059f3afa",
+      "display_name": "Nelsus Hair Restoration",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Bellevue",
+      "address": "1260 116th Ave NE, Bellevue, WA, 98004",
+      "phones": [
+        "+14255958911"
+      ],
+      "emails": [
+        "info@nelsushair.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "The experts at Nelsus Hair Restoration can treat your hair loss, including male pattern baldness, quickly and easily using Follicular Unit Extraction (FUE). This revolutionary hair transplantation method uses the latest technology to restore your own natural hair, with a minimall",
+      "description": "The experts at Nelsus Hair Restoration can treat your hair loss, including male pattern baldness, quickly and easily using Follicular Unit Extraction (FUE). This revolutionary hair transplantation method uses the latest technology to restore your own natural hair, with a minimally invasiveprocedure that’s safe and effective.",
+      "source_url": "https://slavicseattle.com/businesses/nelsus-hair-restoration",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.539300+00:00"
+    },
+    {
+      "cluster_key": "sls-65360522ad0a7cba",
+      "display_name": "Формирование речи у детей",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Bellevue",
+      "address": "Bellevue, WA",
+      "phones": [
+        "+14252085329"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Формирование правильной речи у детей с нарушением темпа, ритма и плавности речи.",
+      "description": "Формирование правильной речи у детей с нарушением темпа, ритма и плавности речи.",
+      "source_url": "https://slavicseattle.com/businesses/formirovanie-rechi-u-detej",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.546353+00:00"
+    },
+    {
+      "cluster_key": "sls-037503aa5098a2f4",
+      "display_name": "Instant solutions detailing",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "auto",
+      "category_guess": "автосервис",
+      "city": "Lynnwood",
+      "address": "4925 168th St SW, Lynnwood, WA, 98037",
+      "phones": [
+        "+14255915070"
+      ],
+      "emails": [
+        "detailingcar8@aol.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "we carry out high-quality detailing of your car",
+      "description": "we carry out high-quality detailing of your car",
+      "source_url": "https://slavicseattle.com/businesses/instant-solutions-detailing",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.582469+00:00"
+    },
+    {
+      "cluster_key": "sls-be331782da31dce5",
+      "display_name": "Northwest Law Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Bellevue",
+      "address": "11900 NE 1st St, Bellevue, WA, 98005",
+      "phones": [
+        "+14259989724"
+      ],
+      "emails": [
+        "Alice@northwestlawgroup.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://www.northwestlawgroup.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Northwest Law Group",
+      "description": "Northwest Law Group",
+      "source_url": "https://slavicseattle.com/businesses/northwest-law-group",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.602079+00:00"
+    },
+    {
+      "cluster_key": "sls-f8d84d5796a2c06f",
+      "display_name": "Zepter international",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "retail",
+      "category_guess": "магазины",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12063938184"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Zepter international Это здоровье, престиж, красота. Уникальная, высококачественная посуда Zepter: обеспечивает здоровое питание сохраняет витамины и минералы снижает риск заболеваний снижает уровень холестерина понижает кровяное давление сокращает время приготовления уменьшает р",
+      "description": "Zepter international Это здоровье, престиж, красота. Уникальная, высококачественная посуда Zepter: обеспечивает здоровое питание сохраняет витамины и минералы снижает риск заболеваний снижает уровень холестерина понижает кровяное давление сокращает время приготовления уменьшает расход энергоносителя Возможен гибкий план оплаты. Zepter-не только посуда...",
+      "source_url": "https://slavicseattle.com/businesses/zepter-international",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.610284+00:00"
+    },
+    {
+      "cluster_key": "sls-e03ee147ba10176f",
+      "display_name": "Valeriia BROWPM",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Bellevue",
+      "address": "1803 132nd Ave NE, Bellevue, WA, 98005",
+      "phones": [
+        "+14256146613"
+      ],
+      "emails": [
+        "lerabrow2020@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Хотите всегда выглядеть ухоженно, тратя при этом минимум времени? Приходите ко мне, на процедуру перманентного макияжа. * Перманентный макияж бровей, пудровое напыление * Перекрытие старого некрасивого татуажа* Стрелочка, тени для век* Акварельные/ нюдовые губки* Период заживлени",
+      "description": "Хотите всегда выглядеть ухоженно, тратя при этом минимум времени? Приходите ко мне, на процедуру перманентного макияжа. * Перманентный макияж бровей, пудровое напыление * Перекрытие старого некрасивого татуажа* Стрелочка, тени для век* Акварельные/ нюдовые губки* Период заживления 4-7 дней* Делается коррекция через 1-1,5 месяца* Эффект сохраняется в течении 1-3х лет,в зависимости от особенностей кожи и соблюдения всех правил* Цена процедуры с учетом скидки 400$(цена на май)* Коррекция через месяц 150$* Работа только на сертифицированных пигментах США. * Прошла обучение в России и США. Работаю в самых свежих техниках перманентного макияжа, на пигментах нового поколения!Bellevue WAЗвоните по телефону 4256146613instagram: @valeriiabrowpm Permanent makeup for eyebrows, lips, eyeliners and eyeshadow. I work in the hardware technique Powdery eyebrows and the FlaxTap micropigmentation technique. Correcting the color of the old tattoo. Experienced Certified / Licensed Craftsman. Call / write to 4256146613. I work at Bellevue.",
+      "source_url": "https://slavicseattle.com/businesses/valeriia-browpm",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.618730+00:00"
+    },
+    {
+      "cluster_key": "sls-5e285a021976d807",
+      "display_name": "Rose flower nails",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "NailSalon",
+      "city": "Federal Way",
+      "address": "Federal Way, WA, 98003",
+      "phones": [
+        "+12535073471"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Русский гелевый маникюр Модный френч и дизайны Гелевое наращивание Укрепление ногтевой пластины Материалы американских брендов",
+      "description": "Русский гелевый маникюр Модный френч и дизайны Гелевое наращивание Укрепление ногтевой пластины Материалы американских брендов",
+      "source_url": "https://slavicseattle.com/businesses/rose-flower-nails",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.778882+00:00"
+    },
+    {
+      "cluster_key": "sls-021eeab3465e58d4",
+      "display_name": "Lana's Elite Bridal",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "ClothingStore",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12063591063"
+      ],
+      "emails": [
+        "lanag1217@yaho.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/lanas-elite-bridal-seattle-1768494141331.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/lanas-elite-bridal-seattle-1768494141331.webp"
+      ],
+      "short_description": "Продаем и сдаем в аренду шикарные свадебные платья и фаты по доступным ценам. Огромный выбор элегантных и эксклюзивных свадебных платьев и фаты по моде 2020 года.",
+      "description": "Продаем и сдаем в аренду шикарные свадебные платья и фаты по доступным ценам. Огромный выбор элегантных и эксклюзивных свадебных платьев и фаты по моде 2020 года.",
+      "source_url": "https://slavicseattle.com/businesses/lanas-elite-bridal",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.832194+00:00"
+    },
+    {
+      "cluster_key": "sls-f4f25b857bf94e4a",
+      "display_name": "Ремонт компьютеров",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12063758376"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонт компьютеров любой сложности. Установка ПО. Сборка ПК на заказ. Восстановление информации. Установка СНПЧ на принтера. Заправка картриджей. Индивидуальный подход к работе. Доступные цены.",
+      "description": "Ремонт компьютеров любой сложности. Установка ПО. Сборка ПК на заказ. Восстановление информации. Установка СНПЧ на принтера. Заправка картриджей. Индивидуальный подход к работе. Доступные цены.",
+      "source_url": "https://slavicseattle.com/businesses/remont-kompyuterov",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:56.892406+00:00"
+    },
+    {
+      "cluster_key": "sls-fb386d4aa0a44a94",
+      "display_name": "Narva Real Estate",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "University Place",
+      "address": "3800 Bridgeport Way W, University Place, WA, 98466",
+      "phones": [
+        "+12066785322"
+      ],
+      "emails": [
+        "PNWLiving777@outlook.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "18 лет опыта работы в штате Вашингтон. Говорю по Русски и по Англиски. Звоните с вопросами. На данный момент у меня 13 комплексов около 3000 крартир. Могу помочь с покупкой комлексов, excellent investment, а также с любой покупкой продажей недвижимости или бизнесса. Звоните с воп",
+      "description": "18 лет опыта работы в штате Вашингтон. Говорю по Русски и по Англиски. Звоните с вопросами. На данный момент у меня 13 комплексов около 3000 крартир. Могу помочь с покупкой комлексов, excellent investment, а также с любой покупкой продажей недвижимости или бизнесса. Звоните с вопросами.",
+      "source_url": "https://slavicseattle.com/businesses/narva-real-estate",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.057954+00:00"
+    },
+    {
+      "cluster_key": "sls-5b1406f599f6257a",
+      "display_name": "Comprehensive General Dentistry Dr. Razoumovich",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "health",
+      "category_guess": "стоматология",
+      "city": "Bellevue",
+      "address": "4301 Factoria Blvd SE, Bellevue, WA, 98006",
+      "phones": [
+        "+14255029415"
+      ],
+      "emails": [
+        "hello@xpertsmile.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/comprehensive-general-dentistry-dr-razoumovich-bellevue-1768494089332.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/comprehensive-general-dentistry-dr-razoumovich-bellevue-1768494089332.webp"
+      ],
+      "short_description": "Профилактика и лечение зубов, корневых каналов, наращивание кости для имплантов, импланты. Протезирование - протезы на имплантах. Лечение десен лазером. Использование лазерной технологии в лечении зубов. 3D сканирование, панорамный рентген. Принимаются все страховки / All insuran",
+      "description": "Профилактика и лечение зубов, корневых каналов, наращивание кости для имплантов, импланты. Протезирование - протезы на имплантах. Лечение десен лазером. Использование лазерной технологии в лечении зубов. 3D сканирование, панорамный рентген. Принимаются все страховки / All insurances accepted United Health, Apple, Medicaid, DSHS Fillings Crowns Implants Implant suppoted dentures We also offer laser gum treatments and laser surgery State-of-the-art advanced panoramic and 3D x-rays for implant placement and bone grafting, cosmetic treatments BOTOX and FILLERS",
+      "source_url": "https://slavicseattle.com/businesses/comprehensive-general-dentistry-dr-razoumovich",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.062461+00:00"
+    },
+    {
+      "cluster_key": "sls-b444d1dd31a83c5e",
+      "display_name": "Rubinstein Law Office",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Bellevue",
+      "address": "875 140th Ave NE, Bellevue, WA, 98005",
+      "phones": [
+        "+14256881100"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Автомобильные аварии Юридическая помощь Нотариальные услуги Страховое право Защита интересов в судах Защита прав водителя",
+      "description": "Автомобильные аварии Юридическая помощь Нотариальные услуги Страховое право Защита интересов в судах Защита прав водителя",
+      "source_url": "https://slavicseattle.com/businesses/rubinnstein-law-office",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.063067+00:00"
+    },
+    {
+      "cluster_key": "sls-5628f055d1781c27",
+      "display_name": "Ignition Interlock of Auburn | Window Tinting | Car Alarm | Remote Start | Car Stereo",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "auto",
+      "category_guess": "автосервис",
+      "city": "Auburn",
+      "address": "412 8th St SW, Auburn, WA, 98001",
+      "phones": [
+        "+12068008468"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/ignition-interlock-of-auburn-window-tinting-car-al-auburn-1768494129612.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/ignition-interlock-of-auburn-window-tinting-car-al-auburn-1768494129612.webp"
+      ],
+      "short_description": "Services We Offer: Window Tinting Headlights & Taillight Tint Security Car Alarms | Remote Start Car Stereo | Back Up Cameras Auto Detail Ignition Interlock Installation (DUI) Call or Text: (206) 800 - 8468",
+      "description": "Services We Offer: Window Tinting Headlights & Taillight Tint Security Car Alarms | Remote Start Car Stereo | Back Up Cameras Auto Detail Ignition Interlock Installation (DUI) Call or Text: (206) 800 - 8468",
+      "source_url": "https://slavicseattle.com/businesses/ignition-interlock-of-auburn-window-tinting-car-alarm-remote-start-3",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.073174+00:00"
+    },
+    {
+      "cluster_key": "sls-c8d8e0dc59057c80",
+      "display_name": "Law offices of Maxim Lissak, PLLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Bellevue",
+      "address": "400 112th Ave NE, Bellevue, WA, 98004",
+      "phones": [
+        "+12062296602"
+      ],
+      "emails": [
+        "maxim@lissaklawfirm.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Споры по недвижимости Юридическая помощь в сделке с коммерческой и жилой недвижимостью Завещание и наследство Представительство в судах Расторжение браков Сопровождение юридических лиц Автомобильные аварии",
+      "description": "Споры по недвижимости Юридическая помощь в сделке с коммерческой и жилой недвижимостью Завещание и наследство Представительство в судах Расторжение браков Сопровождение юридических лиц Автомобильные аварии",
+      "source_url": "https://slavicseattle.com/businesses/law-offices-of-maxim-lissak-pllc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.122549+00:00"
+    },
+    {
+      "cluster_key": "sls-57ef1979a1ce6652",
+      "display_name": "LEGEND AUTO SALES",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "AutoDealer",
+      "city": "Burien",
+      "address": "14650 1st Ave S, Burien, WA, 98168",
+      "phones": [
+        "+12065022821"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://www.legendautosales.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/legend-auto-sales-burien-1768494117440.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/legend-auto-sales-burien-1768494117440.webp",
+        "https://images.slavicseattle.com/businesses/legend-auto-sales-burien-1768494120082.webp",
+        "https://images.slavicseattle.com/businesses/legend-auto-sales-burien-1768494122004.webp",
+        "https://images.slavicseattle.com/businesses/legend-auto-sales-burien-1768494123634.webp",
+        "https://images.slavicseattle.com/businesses/legend-auto-sales-burien-1768494125434.webp"
+      ],
+      "short_description": "Добро пожаловать в Legend Auto Sales, ваш источник качественных подержанных грузовиков, внедорожников и автомобилей для продажи в Бурьене и Южном Сиэтле, штат Вашингтон. Как один из крупнейших дилерских центров по продаже подержанных автомобилей в Вашингтоне, мы предлагаем не тол",
+      "description": "Добро пожаловать в Legend Auto Sales, ваш источник качественных подержанных грузовиков, внедорожников и автомобилей для продажи в Бурьене и Южном Сиэтле, штат Вашингтон. Как один из крупнейших дилерских центров по продаже подержанных автомобилей в Вашингтоне, мы предлагаем не только широкий выбор автомобилей последних моделей для продажи по конкурентоспособным ценам, но и нанимаем персонал для финансирования и обслуживания, чтобы удовлетворить все ваши потребности в автомобилях. Наша миссия - не только предоставить автомобили на любой стиль жизни и бюджет, но и помочь каждому из наших клиентов найти свой следующий пикап, внедорожник или автомобиль по отличной цене! Познакомьтесь с нашим ассортиментом онлайн или на месте в Burien сегодня и узнайте, почему Legend Auto Sales - это намного больше, чем просто дилер подержанных автомобилей! Welcome to Legend Auto Sales, your source for quality pre-owned trucks, SUVs and cars for sale in the Burien and South Seattle, WA area. As one of Washingtons, largest pre-owned car dealerships, we offer not only an extensive selection of late-model vehicles for sale at competitive prices, but we employ financing and service staff to ensure that all of your automotive needs are met here. Our mission is to not only provide vehicles to fit every lifestyle and budget, but to help each of our customers find their next pickup truck, SUV or car at a great price! Shop our selection online or on-site in Burien today, and discover why Legend Auto Sales is so much more than a pre-owned car dealer! Сервис и продажа машин Делаем все виды ремонта машин Меняем timing belt Ремонт двигателей Трансмиссии, Сцепление Расточка тормозных дисков и барабанов Продаем резину и диски Undercoat Бортировка и балансировка Развал и схождение колес (wheel aligment) Продаем любые автозапчасти 300 автомобилей в наличии Компьютерная диагностика AIR CONDITIONING даже новые системы Говорим по-русски",
+      "source_url": "https://slavicseattle.com/businesses/legend-auto-sales",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.262958+00:00"
+    },
+    {
+      "cluster_key": "sls-92012df9ae8f18f9",
+      "display_name": "Good Time Construction",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+14253505967"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/good-time-construction-seattle-1768494086978.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/good-time-construction-seattle-1768494086978.webp"
+      ],
+      "short_description": "Всем привет ? Ищу проекты ? заборы, деки,кришы,...Так же можно и демо абсолютно всего что касается строительства .♻️Есть лайсенс ✅ трак ✅ страховка ✅ автобус✅ Пишите в телефон ☎ или в Facebook ?",
+      "description": "Всем привет ? Ищу проекты ? заборы, деки,кришы,...Так же можно и демо абсолютно всего что касается строительства .♻️Есть лайсенс ✅ трак ✅ страховка ✅ автобус✅ Пишите в телефон ☎ или в Facebook ?",
+      "source_url": "https://slavicseattle.com/businesses/good-time-construction",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.267123+00:00"
+    },
+    {
+      "cluster_key": "sls-2c53b7d262fdc9fc",
+      "display_name": "Юлия Хорун - адвокат по семейному праву",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Redmond",
+      "address": "15600 Redmond Way, Redmond, WA, 98052",
+      "phones": [
+        "+14257484776"
+      ],
+      "emails": [
+        "info@khorunlaw.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.khorunlaw.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/yuliya-horun-advokat-po-semeynomu-pravu-redmond-1768494070022.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/yuliya-horun-advokat-po-semeynomu-pravu-redmond-1768494070022.webp",
+        "https://images.slavicseattle.com/businesses/yuliya-horun-advokat-po-semeynomu-pravu-redmond-1768494072370.webp",
+        "https://images.slavicseattle.com/businesses/yuliya-horun-advokat-po-semeynomu-pravu-redmond-1768494074234.webp"
+      ],
+      "short_description": "Адвокатское бюро Юлии Хорун. Семейное право: расторжение и аннулирование брака, раздел имущества, алименты вопросы по установлению родительских планов общения с детьми после развода помощь пострадавшим от насилия составление договоров об определении имущества до и после заключени",
+      "description": "Адвокатское бюро Юлии Хорун. Семейное право: расторжение и аннулирование брака, раздел имущества, алименты вопросы по установлению родительских планов общения с детьми после развода помощь пострадавшим от насилия составление договоров об определении имущества до и после заключения брака. Наследство: составление завещаний, доверенностей юридическая помощь в процессе получения наследства или завершения дел после смерти близкого человека. Помощь при авариях - Вам не придется ничего платить, если не удастся получить компенсацию от страховой компании. Мы - юридическая фирма, базирующаяся в Редмонде, штат Вашингтон, специализирующаяся на семейном праве и делах о личных травмах. Юлия Хорун, наш адвокат-учредитель, является опытным переговорщиком, которая вела множество дел о семейном праве и личных травмах в штате Вашингтон. Мы твердо верим в решение юридических вопросов путем переговоров и без неопределенности, затрат и беспокойства клиентов, связанных с судебным разбирательством. Тем не менее, Юлия имеет значительный судебный опыт и при необходимости с готовностью передаст дело в суд. Мы верим в индивидуальный подход к каждому отдельному случаю, независимо от того, насколько он велик или мал. Юлия принимает активное участие в рассмотрении каждого дела, которое ведет наша адвокатская контора, поэтому вы можете быть уверены, что ваше дело будет рассмотрено опытным юристом от начала до конца.",
+      "source_url": "https://slavicseattle.com/businesses/julia-khorun-law",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.291666+00:00"
+    },
+    {
+      "cluster_key": "sls-bf43bfb6268b6311",
+      "display_name": "Piroshky and Crepes European Bakery and Cafe",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "food",
+      "category_guess": "рестораны",
+      "city": "Everett",
+      "address": "1327 112th St SE, Everett, WA, 98208",
+      "phones": [
+        "+14252256694"
+      ],
+      "emails": [
+        "piroshkiandcrepes@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Piroshky and Crepes, расположенное в районе Сильверлейк города Эверетт, открылось в 2011 году.С момента основания кафе стало местом, где подают французские блины, русскую выпечку, фирменные десерты и восхитительные чаи.Настоящая европейская пекарня «Пирошки и блины» готовит пирож",
+      "description": "Piroshky and Crepes, расположенное в районе Сильверлейк города Эверетт, открылось в 2011 году.С момента основания кафе стало местом, где подают французские блины, русскую выпечку, фирменные десерты и восхитительные чаи.Настоящая европейская пекарня «Пирошки и блины» готовит пирожки, выпечку для завтрака, блины, пироги, французские макаронc, торты, печенье с ручной росписью и другие угощения с нуля и из натуральных ингредиентов.Меню было разработано по старинным семейным рецептам и наполнено блюдами, которые узнают те, кто имеет славянское наследие.Новые владельцы, мать и дочь, Марина и Марина, перешли в собственность в 2018 году и изменили внешний вид на уютное место.Обе марины имеют опыт работы в сфере финансов и прошли путь от банковского дела до выпечки, и им это НРАВИТСЯ!«Кормить людей хорошей едой и делать их счастливыми у нас в крови», - обычно говорят они.В светлом уютном кафе, открытом на завтрак, обед и ужин, подают домашние пирошки, выпечку, борщ (свекольный суп) и блины.Цель состоит в том, чтобы «Пирошки» и кафе «Блинчики» оставались в этом месте на долгие годы и сохраняли аутентичность рецептов.",
+      "source_url": "https://slavicseattle.com/businesses/piroshky-and-crepes-european-bakery-and-cafe",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.308372+00:00"
+    },
+    {
+      "cluster_key": "sls-eecae0357c527635",
+      "display_name": "Ram Development LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Bellevue",
+      "address": "Bellevue, WA",
+      "phones": [
+        "+12069209659"
+      ],
+      "emails": [
+        "ramdevnw@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Отремонтируем быстро и качественно любой дом или квартиру. Выполняем наружные и внутренние работы любой сложности. Бесплатный естимэйт",
+      "description": "Отремонтируем быстро и качественно любой дом или квартиру. Выполняем наружные и внутренние работы любой сложности. Бесплатный естимэйт",
+      "source_url": "https://slavicseattle.com/businesses/ram-development-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.432371+00:00"
+    },
+    {
+      "cluster_key": "sls-5676c6421520c536",
+      "display_name": "Mikshanskiy Team - Realtors",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Fircrest",
+      "address": "6412 20th St Ct W, Fircrest, WA, 98466",
+      "phones": [
+        "+12532751346"
+      ],
+      "emails": [
+        "marianna@mikshanskiyteam.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/mikshanskiy-team-realtors-fircrest-1768494056715.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/mikshanskiy-team-realtors-fircrest-1768494056715.webp",
+        "https://images.slavicseattle.com/businesses/mikshanskiy-team-realtors-fircrest-1768494058309.webp",
+        "https://images.slavicseattle.com/businesses/mikshanskiy-team-realtors-fircrest-1768494059704.webp"
+      ],
+      "short_description": "Sterling Johnston Real Estate Команда Микшанского была создана в 2003 году. Виталий и Марианна проживают в Юниверсити Плейс, Такома, и посещают Славянский христианский центр со своей 15-летней дочерью. Виталий и Марианна имеют более чем 10-летний опыт продажи различных типов недв",
+      "description": "Sterling Johnston Real Estate Команда Микшанского была создана в 2003 году. Виталий и Марианна проживают в Юниверсити Плейс, Такома, и посещают Славянский христианский центр со своей 15-летней дочерью. Виталий и Марианна имеют более чем 10-летний опыт продажи различных типов недвижимости в Вашингтоне, а также являются одной из самых успешных команд по объему сделок.Виталий и Марианна специализируются на коротких продажах, выкупе, инвестиционной недвижимости, жилой недвижимости и земле в течение последних 14 лет. Семья Микшанских известна своими непоколебимыми стандартами, порядочностью, обширными знаниями и бескомпромиссными ценностями при представлении продавцов и покупателей. Их профессиональное обслуживание каждого из своих клиентов создало им репутацию, которая принесла им внушительный список благодарных клиентов. Наша команда нацелена на то, чтобы предоставить вам наилучшие возможности, и на все 100% стремится к совершенству! The Mikshanskiy Team was established in 2003. Vitaliy and Marianna, reside in University Place, Tacoma, and attend Slavic Christian Center with their 15-year-old daughter. The Mikshanskiy Team is one of the highest producing residential teams in Pierce County based on sales volume. Vitaliy and Marianna have over 10 years of experience in selling various types of Real Estate Opportunities in Washington. Vitaliy & Marianna Specialize in Short Sales, Foreclosures, Investment Properties, Residential and Land in Tacoma, and the Greater South Puget Sound Area for the past 14 years. The Mikshanskiy’s are known for their unwavering standards, integrity, extensive knowledge, and uncompromising values in representing sellers and buyers. Their professional service to each of their clients has built them a reputation that has earned them an impressive roster of repeat and referral business. Our team is dedicated to giving you the best experience possible and 100 percent committed to providing excellence! Дома и участки Коммерческая недвижимость Бесплатная оценка недвижимости!",
+      "source_url": "https://slavicseattle.com/businesses/mikshanskiy-team-realtors",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.458332+00:00"
+    },
+    {
+      "cluster_key": "sls-392927a64e755687",
+      "display_name": "KAMOSKA COMPANY LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Mill Creek",
+      "address": "13510 N Creek Dr, Mill Creek, WA, 98012",
+      "phones": [
+        "+12066608737"
+      ],
+      "emails": [
+        "kamoskacompany@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/kamoska-company-llc-mill-creek-1768494047782.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/kamoska-company-llc-mill-creek-1768494047782.webp"
+      ],
+      "short_description": "Компания KAMOSKА COMPANY LLC генеральный строительный подрядчик штата Вашингтон. Компания успешно занимается установкой (укладкой) кафеля всех видов, гранита, мрамора и т.д. Теплые полы, строительство душевых кабин, ванн это все входит в предостовляемые услуги. Гарантия, качество",
+      "description": "Компания KAMOSKА COMPANY LLC генеральный строительный подрядчик штата Вашингтон. Компания успешно занимается установкой (укладкой) кафеля всех видов, гранита, мрамора и т.д. Теплые полы, строительство душевых кабин, ванн это все входит в предостовляемые услуги. Гарантия, качество!",
+      "source_url": "https://slavicseattle.com/businesses/kamoska-company-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.561570+00:00"
+    },
+    {
+      "cluster_key": "sls-cdd0a7208299a936",
+      "display_name": "Marsik Movers",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "MovingCompany",
+      "city": "Pacific",
+      "address": "Pacific, WA",
+      "phones": [
+        "+13022178320"
+      ],
+      "emails": [
+        "marsikmovers@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://marsikmovers.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/marsik-movers-pacific-1768494061310.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/marsik-movers-pacific-1768494061310.webp"
+      ],
+      "short_description": "Marsik Movers is family owned and operated. We offer local moves starting at $110/hr for 2 Men & 1 Truck. Call (302) 217-8320 to inquire about immediate openings! We're a full-service moving company located in the Bellevue area. Moving to a new home or business can be time consum",
+      "description": "Marsik Movers is family owned and operated. We offer local moves starting at $110/hr for 2 Men & 1 Truck. Call (302) 217-8320 to inquire about immediate openings! We're a full-service moving company located in the Bellevue area. Moving to a new home or business can be time consuming, stressful and expensive. But it doesn't have to be. The professionals at Marsik Movers have perfected the relocation process. Our company provide services all around Washington State.",
+      "source_url": "https://slavicseattle.com/businesses/marsik-movers",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.566122+00:00"
+    },
+    {
+      "cluster_key": "sls-a0d200553d827a38",
+      "display_name": "Eurasia Deli House",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "GroceryStore",
+      "city": "Kent",
+      "address": "25650 102nd Pl SE, Kent, WA, 98030",
+      "phones": [
+        "+12535200870"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/eurasia-deli-house-kent-1768494037449.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/eurasia-deli-house-kent-1768494037449.webp",
+        "https://images.slavicseattle.com/businesses/eurasia-deli-house-kent-1768494040232.webp",
+        "https://images.slavicseattle.com/businesses/eurasia-deli-house-kent-1768494042273.webp",
+        "https://images.slavicseattle.com/businesses/eurasia-deli-house-kent-1768494044983.webp"
+      ],
+      "short_description": "Высокое качество! Превосходный сервис! Свежие пироги и беляши. Большой выбор вин. Сувениры и видео.",
+      "description": "Высокое качество! Превосходный сервис! Свежие пироги и беляши. Большой выбор вин. Сувениры и видео.",
+      "source_url": "https://slavicseattle.com/businesses/eurasia-deli-house",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.597094+00:00"
+    },
+    {
+      "cluster_key": "sls-a3e9eb852a124019",
+      "display_name": "Наращивание ресниц - Nataliia Milokhina",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Everett",
+      "address": "Everett, WA",
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/naraschivanie-resnits-nataliia-milokhina-everett-1768494016588.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/naraschivanie-resnits-nataliia-milokhina-everett-1768494016588.webp",
+        "https://images.slavicseattle.com/businesses/naraschivanie-resnits-nataliia-milokhina-everett-1768494019166.webp",
+        "https://images.slavicseattle.com/businesses/naraschivanie-resnits-nataliia-milokhina-everett-1768494021777.webp",
+        "https://images.slavicseattle.com/businesses/naraschivanie-resnits-nataliia-milokhina-everett-1768494024335.webp",
+        "https://images.slavicseattle.com/businesses/naraschivanie-resnits-nataliia-milokhina-everett-1768494026744.webp"
+      ],
+      "short_description": "Здравствуйте дорогие девушки! Я мастер по наращиванию ресниц. Я помогу сделать ваши глазки ещё более выразительными и красивыми! Индивидуальный подбор длины, моделирования и объёма под ваш тип глаз и реснички! Преимущества наращивания ресниц • Моментальный эффект • Не нужно трати",
+      "description": "Здравствуйте дорогие девушки! Я мастер по наращиванию ресниц. Я помогу сделать ваши глазки ещё более выразительными и красивыми! Индивидуальный подбор длины, моделирования и объёма под ваш тип глаз и реснички! Преимущества наращивания ресниц • Моментальный эффект • Не нужно тратить много времени на макияж • Если у вас от природы опущенное веко, наращенные ресницы помогут сделать взгляд более открытым • Процедура наращивания ресниц, конечно же, при условии профессионализма мастера, – безопасна и безболезненна Буду рада видеть Вас у себя!",
+      "source_url": "https://slavicseattle.com/businesses/nataliia-milokhina",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.755918+00:00"
+    },
+    {
+      "cluster_key": "sls-2444407828226176",
+      "display_name": "Marysville Russian Manicure",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "NailSalon",
+      "city": "Marysville",
+      "address": "Marysville, WA",
+      "phones": [
+        "+12062273521"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/marysville-russian-manicure-marysville-1768493986632.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/marysville-russian-manicure-marysville-1768493986632.webp"
+      ],
+      "short_description": "Привет, я Оксана. nail business instructor творю искусство на ногтях более 5 тысячи довольных клиентов Услуги: маникюр (комби или аппаратный) без покрытия 30$ маникюр с покрытием гель-лак $50 маникюр укрепление ногтей с покрытием 60$ наращивание от 80$ дизайн одного ногтя от 2$ с",
+      "description": "Привет, я Оксана. nail business instructor творю искусство на ногтях более 5 тысячи довольных клиентов Услуги: маникюр (комби или аппаратный) без покрытия 30$ маникюр с покрытием гель-лак $50 маникюр укрепление ногтей с покрытием 60$ наращивание от 80$ дизайн одного ногтя от 2$ снятие чужого покрытия 10$",
+      "source_url": "https://slavicseattle.com/businesses/marysville-russian-manicure",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.806047+00:00"
+    },
+    {
+      "cluster_key": "sls-8474b8778637f751",
+      "display_name": "House painting services",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "HousePainter",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+14256258055"
+      ],
+      "emails": [
+        "alexseilukyanov@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/house-painting-services-seattle-1768493984225.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/house-painting-services-seattle-1768493984225.webp"
+      ],
+      "short_description": "I will carry out paintwork in your home. The prices will surprise you. For all questions write messages.",
+      "description": "I will carry out paintwork in your home. The prices will surprise you. For all questions write messages.",
+      "source_url": "https://slavicseattle.com/businesses/house-painting-services",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.827612+00:00"
+    },
+    {
+      "cluster_key": "sls-cfaada80fad43abe",
+      "display_name": "Славик Боришкевич - Real Estate Broker",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Federal Way",
+      "address": "Federal Way, WA",
+      "phones": [
+        "+12533343909"
+      ],
+      "emails": [
+        "slavicre@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/slavik-borishkevich-real-estate-broker-federal-way-1768493981600.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/slavik-borishkevich-real-estate-broker-federal-way-1768493981600.webp"
+      ],
+      "short_description": "Real Estate Broker Покупка и продажа недвижимости во всех районах штата Вашингтон: Homes Condominiums Land Помогу выгодно купить/продать ВАШ домЗвоните сегодня для бесплатной консультации",
+      "description": "Real Estate Broker Покупка и продажа недвижимости во всех районах штата Вашингтон: Homes Condominiums Land Помогу выгодно купить/продать ВАШ домЗвоните сегодня для бесплатной консультации",
+      "source_url": "https://slavicseattle.com/businesses/slavic-borishkevich",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.834804+00:00"
+    },
+    {
+      "cluster_key": "sls-576d8c74c07e12b9",
+      "display_name": "Beauty.Code.101",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Kent",
+      "address": "Kent, WA",
+      "phones": [
+        "+13059038116"
+      ],
+      "emails": [
+        "beautycode101@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/beautycode101-kent-1768493979513.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/beautycode101-kent-1768493979513.webp"
+      ],
+      "short_description": "Наши услуги: аппаратный гель маникюр и педикюр укрепление ногтевой платины твёрдым гелем наращивание твёрдым гелем ручная роспись ногтей А так же: ламинация бровей (длительная укладка, уплотнение волосков), окраска бровей. Опыт 12 лет. Европейские материалы. Все инструменты стери",
+      "description": "Наши услуги: аппаратный гель маникюр и педикюр укрепление ногтевой платины твёрдым гелем наращивание твёрдым гелем ручная роспись ногтей А так же: ламинация бровей (длительная укладка, уплотнение волосков), окраска бровей. Опыт 12 лет. Европейские материалы. Все инструменты стерильны. Лицензия и страховка!",
+      "source_url": "https://slavicseattle.com/businesses/beauty-code-101",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:57.868133+00:00"
+    },
+    {
+      "cluster_key": "sls-34836326cebac4d4",
+      "display_name": "Wais Wazeri Shot Sale Specialist",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Bellevue",
+      "address": "606 120th Ave NE, Bellevue, WA, 98005",
+      "phones": [
+        "+14253011861",
+        "+14259226991"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/wais-wazeri-shot-sale-specialist-bellevue-1768494126817.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/wais-wazeri-shot-sale-specialist-bellevue-1768494126817.webp"
+      ],
+      "short_description": "Выплата при shot sale по программе HAFA увеличилась с $3,000 до $30,000 За Primary Residence Only Вам не обязательно терять свой дом в FORECLOSURE! Вы можете прожить до 165 дней дольше в вашем доме Получите деньги на переезд (30,000) Негативное влияние на ваш кредит будет не таки",
+      "description": "Выплата при shot sale по программе HAFA увеличилась с $3,000 до $30,000 За Primary Residence Only Вам не обязательно терять свой дом в FORECLOSURE! Вы можете прожить до 165 дней дольше в вашем доме Получите деньги на переезд (30,000) Негативное влияние на ваш кредит будет не таким существенным, как при FORECLOSURE Бесплатные квалификации для программ HAFA или COOPERATIVE SHOT SALE Тел. (425)922-6991 - русскоговорящая линия Emiliya Wazeri",
+      "source_url": "https://slavicseattle.com/businesses/wais-wazeri-shot-sale-specialist",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.121288+00:00"
+    },
+    {
+      "cluster_key": "sls-bf43adf0d5e47be2",
+      "display_name": "ConteByOksana",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "ClothingStore",
+      "city": "Puyallup",
+      "address": "Puyallup, WA, 98373",
+      "phones": [
+        "+12538882394"
+      ],
+      "emails": [
+        "ConteByOksana@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/contebyoksana-puyallup-1768493972579.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/contebyoksana-puyallup-1768493972579.webp"
+      ],
+      "short_description": "Продаю колготки Conte - Made in Belarus. Эта фабрика входит в десятку самых лучших производств колготок и прочего для всей семьи. Имею свой сайт www.ConteByOksana.com, группу на Viber и на Facebook.",
+      "description": "Продаю колготки Conte - Made in Belarus. Эта фабрика входит в десятку самых лучших производств колготок и прочего для всей семьи. Имею свой сайт www.ConteByOksana.com, группу на Viber и на Facebook.",
+      "source_url": "https://slavicseattle.com/businesses/contebyoksana",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.124897+00:00"
+    },
+    {
+      "cluster_key": "sls-2dbd916c7d4175ba",
+      "display_name": "Family First Life",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "insurance",
+      "category_guess": "страхование",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12532173507"
+      ],
+      "emails": [
+        "vitaliyfflnw@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/family-first-life-seattle-1768493968055.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/family-first-life-seattle-1768493968055.webp"
+      ],
+      "short_description": "Life insurance Broker Working with 18 different companies life: Mutual of Omaha, Americo, American Amicable, AIG and many more. Handling: Final Expense Life Insurance- Burial insurance, Term Life insurance, Whole Life Insurance, Annuities, Retirement planning, IUL, Mortgage Prote",
+      "description": "Life insurance Broker Working with 18 different companies life: Mutual of Omaha, Americo, American Amicable, AIG and many more. Handling: Final Expense Life Insurance- Burial insurance, Term Life insurance, Whole Life Insurance, Annuities, Retirement planning, IUL, Mortgage Protection. Брокер по страхованию жизни Мы работаем с 18 разными компаниями: Mutual of Omaha, Americo, American Amicable, AIG и многими другими. Мы занимаемся: Final Expense Life Insurance- Burial insurance, Term Life insurance, Whole Life Insurance, Annuities, Retirement planning, IUL, Mortgage Protection.",
+      "source_url": "https://slavicseattle.com/businesses/family-first-life",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.137235+00:00"
+    },
+    {
+      "cluster_key": "sls-cf4ac1152fc85f35",
+      "display_name": "NM construction",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12532283546"
+      ],
+      "emails": [
+        "rovenskiy80@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/nm-construction-seattle-1768493965879.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/nm-construction-seattle-1768493965879.webp"
+      ],
+      "short_description": "NM construction",
+      "description": "NM construction",
+      "source_url": "https://slavicseattle.com/businesses/nm-construction",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.159694+00:00"
+    },
+    {
+      "cluster_key": "sls-5853ad649cc7987c",
+      "display_name": "AV Global Construction",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Renton",
+      "address": "Renton, WA",
+      "phones": [
+        "+12063064183"
+      ],
+      "emails": [
+        "avglobalcs@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/av-global-construction-renton-1768493970121.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/av-global-construction-renton-1768493970121.webp"
+      ],
+      "short_description": "AV Global Construction",
+      "description": "AV Global Construction",
+      "source_url": "https://slavicseattle.com/businesses/av-global-construction",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.183575+00:00"
+    },
+    {
+      "cluster_key": "sls-267b69c140843401",
+      "display_name": "Master's Touch Painting Service",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "HousePainter",
+      "city": "Renton",
+      "address": "Renton, WA",
+      "phones": [
+        "+12063064183"
+      ],
+      "emails": [
+        "mtpsvlad@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://paintstouch.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/masters-touch-painting-service-renton-1768493954050.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/masters-touch-painting-service-renton-1768493954050.webp",
+        "https://images.slavicseattle.com/businesses/masters-touch-painting-service-renton-1768493956214.webp",
+        "https://images.slavicseattle.com/businesses/masters-touch-painting-service-renton-1768493958807.webp",
+        "https://images.slavicseattle.com/businesses/masters-touch-painting-service-renton-1768493960671.webp",
+        "https://images.slavicseattle.com/businesses/masters-touch-painting-service-renton-1768493962998.webp"
+      ],
+      "short_description": "Master's Touch Painting Service",
+      "description": "Master's Touch Painting Service",
+      "source_url": "https://slavicseattle.com/businesses/masters-touch-painting-service",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.300699+00:00"
+    },
+    {
+      "cluster_key": "sls-f09ba1bbd468d9b8",
+      "display_name": "Two Sisters Soaps",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "retail",
+      "category_guess": "магазины",
+      "city": "Mount Vernon",
+      "address": "Mount Vernon, WA, 98273, Mount Vernon, WA, 98273",
+      "phones": [],
+      "emails": [
+        "2sisterssoaps2@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://ru.twosistrsoaps.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/two-sisters-soaps-mount-vernon-1768493997121.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/two-sisters-soaps-mount-vernon-1768493997121.webp",
+        "https://images.slavicseattle.com/businesses/two-sisters-soaps-mount-vernon-1768493999772.webp",
+        "https://images.slavicseattle.com/businesses/two-sisters-soaps-mount-vernon-1768494002172.webp",
+        "https://images.slavicseattle.com/businesses/two-sisters-soaps-mount-vernon-1768494004512.webp",
+        "https://images.slavicseattle.com/businesses/two-sisters-soaps-mount-vernon-1768494006965.webp"
+      ],
+      "short_description": "Мыло TWO SISTERS SOAPS - это небольшие партии, созданные с осторожностью с использованием древнего метода, который позволяет мне, как мыловару, выбирать каждый премиальный натуральный ингредиент в соответствии с преимуществами ухода за кожей и желаемыми ароматами. Это роскошное м",
+      "description": "Мыло TWO SISTERS SOAPS - это небольшие партии, созданные с осторожностью с использованием древнего метода, который позволяет мне, как мыловару, выбирать каждый премиальный натуральный ингредиент в соответствии с преимуществами ухода за кожей и желаемыми ароматами. Это роскошное мыло изготовлено полностью вручную в традиции холодного процесса. “Сделано вручную” означает ручное перемешивание и смешивание, заливку, резку, обрезку и обертывание каждого уникального бруска. От рецептуры до смешивания, отдыха и отверждения-каждый батончик прошел по крайней мере четырехнедельный процесс, чтобы добраться до вашего дома. Мы верим, что когда вы начинаете с прекрасных ингредиентов, таких как масло ши и какао, оливковое и миндальное масло, козье молоко, мед, травы, растения, активированный уголь, куркума, шелк, глина и эфирные масла, вы можете создать прекрасное мыло. Это также гарантирует, что мыло TWO SISTERS станет роскошным способом побаловать своих близких и себя каждый день.",
+      "source_url": "https://slavicseattle.com/businesses/two-sisters-soaps",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.426885+00:00"
+    },
+    {
+      "cluster_key": "sls-9a73bc4e531af417",
+      "display_name": "SK Auto Glass",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "auto",
+      "category_guess": "автосервис",
+      "city": "Kent",
+      "address": "Kent, WA",
+      "phones": [
+        "+12537096431"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/sk-auto-glass-kent-1768494009475.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/sk-auto-glass-kent-1768494009475.webp",
+        "https://images.slavicseattle.com/businesses/sk-auto-glass-kent-1768494011589.webp"
+      ],
+      "short_description": "Установка и тонировка автомобильных лобовых, задних, боковых стекол на любые машины и траки. Самые низкие цены! Сергей",
+      "description": "Установка и тонировка автомобильных лобовых, задних, боковых стекол на любые машины и траки. Самые низкие цены! Сергей",
+      "source_url": "https://slavicseattle.com/businesses/sk-auto-glass",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.607954+00:00"
+    },
+    {
+      "cluster_key": "sls-dfdfef313d35a8de",
+      "display_name": "Modern & Art Construction LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12532928187"
+      ],
+      "emails": [
+        "valeriuesanusa@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/modern-amp-art-construction-llc-seattle-1768493944860.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/modern-amp-art-construction-llc-seattle-1768493944860.webp"
+      ],
+      "short_description": "Pressure washer Interior and exterior painting Remodeling and repainting kitchen cabinets Carpeting installing Trim baseboards and Crownmolding",
+      "description": "Pressure washer Interior and exterior painting Remodeling and repainting kitchen cabinets Carpeting installing Trim baseboards and Crownmolding",
+      "source_url": "https://slavicseattle.com/businesses/modern-art-construction-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.624086+00:00"
+    },
+    {
+      "cluster_key": "sls-6eb9c11bcd8438e0",
+      "display_name": "Auburn Auto Clinic Llc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "AutoBodyShop",
+      "city": "Auburn",
+      "address": "4044 Auburn Way N, Auburn, WA, 98002",
+      "phones": [
+        "+12538560397"
+      ],
+      "emails": [
+        "auburnautoclinic@hotmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/auburn-auto-clinic-llc-auburn-1768493937006.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/auburn-auto-clinic-llc-auburn-1768493937006.webp"
+      ],
+      "short_description": "Auto body repair and paint, collision repair, insurance claims, all makes and models.",
+      "description": "Auto body repair and paint, collision repair, insurance claims, all makes and models.",
+      "source_url": "https://slavicseattle.com/businesses/auburn-auto-clinic-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.631441+00:00"
+    },
+    {
+      "cluster_key": "sls-fa78130e9c17fdee",
+      "display_name": "MKZConstruction LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "HousePainter",
+      "city": "Kirkland",
+      "address": "12450 NE 130th Ct, Kirkland, WA, 98034",
+      "phones": [
+        "+14255591595"
+      ],
+      "emails": [
+        "mail@mkz.construction"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://mkz.construction"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/mkzconstruction-llc-kirkland-1768493947364.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/mkzconstruction-llc-kirkland-1768493947364.webp"
+      ],
+      "short_description": "We do quality work and strive for perfection! exterior painting interior painting deck staining painting cabinets pressure washing",
+      "description": "We do quality work and strive for perfection! exterior painting interior painting deck staining painting cabinets pressure washing",
+      "source_url": "https://slavicseattle.com/businesses/mkzconstruction-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.635039+00:00"
+    },
+    {
+      "cluster_key": "sls-70436774268e9638",
+      "display_name": "Uplift Movers LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "MovingCompany",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12532300659"
+      ],
+      "emails": [
+        "upliftmoverswa@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/uplift-movers-llc-seattle-1768493941891.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/uplift-movers-llc-seattle-1768493941891.webp"
+      ],
+      "short_description": "Uplift Movers LLC has affordable rates and provides quality moving,packing/unpacking and delivery services. We also move heavy items and pianos. We Serve Seattle,Bellevue and Surrounding Area. From Olympia to Everett - Bremerton to Snoqualmie. We do long distance moves within Was",
+      "description": "Uplift Movers LLC has affordable rates and provides quality moving,packing/unpacking and delivery services. We also move heavy items and pianos. We Serve Seattle,Bellevue and Surrounding Area. From Olympia to Everett - Bremerton to Snoqualmie. We do long distance moves within Washington state. Наша компания стремится предоставить каждому клиенту качественный переезд без стресса. Если вы переезжаете в несколько кварталов или в любой город штата Вашингтон, мы всегда здесь, чтобы помочь!",
+      "source_url": "https://slavicseattle.com/businesses/uplift-movers-llc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.639444+00:00"
+    },
+    {
+      "cluster_key": "sls-6ae19ee0c983420a",
+      "display_name": "Piano tuning and repair",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12534571079"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/piano-tuning-and-repair-seattle-1768493949609.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/piano-tuning-and-repair-seattle-1768493949609.webp",
+        "https://images.slavicseattle.com/businesses/piano-tuning-and-repair-seattle-1768493952055.webp"
+      ],
+      "short_description": "Piano tuning and repair",
+      "description": "Piano tuning and repair",
+      "source_url": "https://slavicseattle.com/businesses/piano-tuning-and-repair",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.796581+00:00"
+    },
+    {
+      "cluster_key": "sls-fd3503517fd14e7a",
+      "display_name": "IT courses",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [],
+      "emails": [
+        "kulakov.angel@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/it-courses-seattle-1768493939309.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/it-courses-seattle-1768493939309.webp"
+      ],
+      "short_description": "Направления: Computer Science WEB-разработка (с нуля до профессионала) Верстка HTML5/CSS3 Java Script - Node.js Java Script - React.js PHP Laravel Не знаете, что выбрать? Пишите нам, пообщаемся!))",
+      "description": "Направления: Computer Science WEB-разработка (с нуля до профессионала) Верстка HTML5/CSS3 Java Script - Node.js Java Script - React.js PHP Laravel Не знаете, что выбрать? Пишите нам, пообщаемся!))",
+      "source_url": "https://slavicseattle.com/businesses/it-courses",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.803755+00:00"
+    },
+    {
+      "cluster_key": "sls-41f77959166795b5",
+      "display_name": "Pidgeon Attorney at Law",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Everett",
+      "address": "12322 Hwy 99, Everett, WA, 98204",
+      "phones": [
+        "+14252326665"
+      ],
+      "emails": [
+        "vitaliy@pidgeonlaw.net"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/pidgeon-attorney-at-law-everett-1768493977512.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/pidgeon-attorney-at-law-everett-1768493977512.webp"
+      ],
+      "short_description": "Мы помогаем с оформлением статуса в США по программе ЕВ-3 для квалифицированных и неквалифицированных работников. По статистике USCIS в 2019 году 73197 (!!!) человек получили одобрение по этой программе. Виза ُEB-3. Данная программа позволяет получить Green Card и иммигрировать в",
+      "description": "Мы помогаем с оформлением статуса в США по программе ЕВ-3 для квалифицированных и неквалифицированных работников. По статистике USCIS в 2019 году 73197 (!!!) человек получили одобрение по этой программе. Виза ُEB-3. Данная программа позволяет получить Green Card и иммигрировать в США при условии работы на американского работодателя. Программа EB-3 имеет три рабочих типа: -Квалифицированные рабочие (Skilled Workers); Профессионалы (professionals); Неквалифицированные рабочие (Unskilled or other workers). У нас есть также возможность делать Визы Е-2 с Украины, Кыргызстана, Израиля, Казахстана, Молдавии... а также по Визе ЕВ-2 или EB-3 работать с работодателями и делать петиции для работников, которые могут получить Грин карту всей семьёй. Этот процесс занимает от 8 до 16 месяцев(есть полная презентация). Вам или вашим знакомым возможно, подойдёт Виза EB-3? Пришлите пожалуйста подтверждение о вашем образовании и резюме(СV). Мы работаем с 9 утра до 5 вечера по нашему времени Сиэтла. Ответы на ваши вопросы вы можете найти на нашем сайте. Для вас мой Viber/WhatsApp/Telegram Vitaliy Musiyenko или +1(425)232-6665. Первые 15 минут консультации всегда бесплатны. После-$150. С уважением,Виталий Мусиенко Полезные ссылки Иммиграционные визы EB Способы легальной иммиграции в США",
+      "source_url": "https://slavicseattle.com/businesses/pidgeon-attorney-at-law",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.818534+00:00"
+    },
+    {
+      "cluster_key": "sls-ff16dc987f7c4582",
+      "display_name": "Pavel Limo - прокат лимузина",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "AutoRental",
+      "city": "Federal Way",
+      "address": "Federal Way, WA",
+      "phones": [
+        "+12536327285"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/pavel-limo-prokat-limuzina-federal-way-1768493934275.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/pavel-limo-prokat-limuzina-federal-way-1768493934275.webp"
+      ],
+      "short_description": "Наш сервис проката лимузина обеспечит комфорт и элегантность в Ваш знаменательный день. Please feel free to contact Pavel for any questions regarding limousine services.",
+      "description": "Наш сервис проката лимузина обеспечит комфорт и элегантность в Ваш знаменательный день. Please feel free to contact Pavel for any questions regarding limousine services.",
+      "source_url": "https://slavicseattle.com/businesses/pavel-limo",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:58.819448+00:00"
+    },
+    {
+      "cluster_key": "sls-0dee78c390e3f589",
+      "display_name": "Marina Ionova| Loan Officer |MLO - 1655632",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+14257379845"
+      ],
+      "emails": [
+        "mionova@goldstarfinancial.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://wabe01.mymortgage-online.com/MarinaIonova.html"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Whether you’re purchasing your first home, upgrading to accommodate an expanding family - or refinancing to obtain more favorable terms or remodeling funds, I’ll ensure your best interests are at the heart of the loan solution I’ll choose for you. My rock solid reputation is base",
+      "description": "Whether you’re purchasing your first home, upgrading to accommodate an expanding family - or refinancing to obtain more favorable terms or remodeling funds, I’ll ensure your best interests are at the heart of the loan solution I’ll choose for you. My rock solid reputation is based upon integrity-based lending practices and a program portfolio that suits even the most challenging financing situations. From application through closing and every step along the way, you’ll be confident in Gold Star’s truly simple, transparent and award-winning process. I understand it’s both my privilege and responsibility to earn your trust, and I’ll never be satisfied until you are delighted with your experience.",
+      "source_url": "https://slavicseattle.com/businesses/marina-ionova-loan-officer-mlo-1655632",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.001717+00:00"
+    },
+    {
+      "cluster_key": "sls-dea2908f8b8a53bd",
+      "display_name": "NWQUALITYFLOORS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12532822418"
+      ],
+      "emails": [
+        "nwqualityfloors@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/nwqualityfloors-seattle-1768493919712.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/nwqualityfloors-seattle-1768493919712.webp"
+      ],
+      "short_description": "Мы выполняем все виды работ по укладке паркета, ламината, ковролина и кафеля с использованием экологически чистых, качественных материалов и специализированного оборудования. Все работы производятся в срок и по адекватной цене.",
+      "description": "Мы выполняем все виды работ по укладке паркета, ламината, ковролина и кафеля с использованием экологически чистых, качественных материалов и специализированного оборудования. Все работы производятся в срок и по адекватной цене.",
+      "source_url": "https://slavicseattle.com/businesses/nwqualityfloors",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.009760+00:00"
+    },
+    {
+      "cluster_key": "sls-19445ef99cb1305c",
+      "display_name": "MASSAGE LILIYA WILCOX",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "спа",
+      "city": "Stanwood",
+      "address": "28521 69th Dr NW, Stanwood, WA, 98292",
+      "phones": [
+        "+14253226511"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/massage-liliya-wilcox-stanwood-1768493931668.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/massage-liliya-wilcox-stanwood-1768493931668.webp"
+      ],
+      "short_description": "Deep tissue massage Глубокий массаж тканей70$ (60 minutes); 100$ (90 minutes) Swedish relaxing massageШведский расслабляющий массаж70$ (60 minutes); 100$ (90 minutes) Anti - cellulite massage + wrapping (chocolate, seaweed) Анти - целлюлитный массаж + обертывание (шоколад, водоро",
+      "description": "Deep tissue massage Глубокий массаж тканей70$ (60 minutes); 100$ (90 minutes) Swedish relaxing massageШведский расслабляющий массаж70$ (60 minutes); 100$ (90 minutes) Anti - cellulite massage + wrapping (chocolate, seaweed) Анти - целлюлитный массаж + обертывание (шоколад, водоросли)$80 (90 minutes) Facial massage+soothing lifting maskМассаж лица и успокаивающая лифтинг маска$70 (80 minutes) Hot & Cold Stone massage Массаж горячими и холодными камнями$70 (60 minutes) Cupping massageБаночный массаж30$ (30 minutes) Honey massageМедовый массаж30$ (30 minutes) Neck and head massageМассаж шеи и головы30$ (30 minutes) Visceral massage (abdominal massageВисцеральный массаж (массаж живота)30$ (30 minutes)",
+      "source_url": "https://slavicseattle.com/businesses/massage-liliya-wilcox",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.023744+00:00"
+    },
+    {
+      "cluster_key": "sls-f7008552d2a74017",
+      "display_name": "PF Carpentry - ремонтные работы",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Milton",
+      "address": "Milton, WA",
+      "phones": [
+        "+12069098444"
+      ],
+      "emails": [
+        "nadia.plotnikov@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/pf-carpentry-remontnye-raboty-milton-1768493924915.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/pf-carpentry-remontnye-raboty-milton-1768493924915.webp"
+      ],
+      "short_description": "Все виды внутренних работ: внутренняя отделка установка и ремонт декоративных молдингов установка кухонных шкафов установка или замена внутренних и наружных дверей много другое PF Carpentry стремится к совершенству в каждом аспекте нашего бизнеса. Мы придерживаемся стандарта чест",
+      "description": "Все виды внутренних работ: внутренняя отделка установка и ремонт декоративных молдингов установка кухонных шкафов установка или замена внутренних и наружных дверей много другое PF Carpentry стремится к совершенству в каждом аспекте нашего бизнеса. Мы придерживаемся стандарта честности и личной ответственностью. Наше отличие - это качество обслуживания, которое мы предоставляем нашим клиентам. Точное знание нашей профессии в сочетании со способностями-вот что делает нас настоящими профессионалами. Прежде всего, мы внимательно относимся к интересам наших клиентов и делаем их интересы основой нашего бизнеса.",
+      "source_url": "https://slavicseattle.com/businesses/pf-carpentry",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.130292+00:00"
+    },
+    {
+      "cluster_key": "sls-a5aea7f36dfd459e",
+      "display_name": "Therapeutic Lats Massage Therapy",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Tukwila",
+      "address": "7100 Fun Center Way, Tukwila, WA, 98188",
+      "phones": [
+        "+12064782824"
+      ],
+      "emails": [
+        "olhaz87@hotmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/therapeutic-lats-massage-therapy-tukwila-1768493914709.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/therapeutic-lats-massage-therapy-tukwila-1768493914709.webp"
+      ],
+      "short_description": "Visit our convenient, same day, no appointment necessary, newly built clinic, Washington Chiropractic. With plentiful parking, open hours from Monday through Saturday, and house Exercise Therapy and Massage Therapy. Washington Chiropractic is ready to see you today. Welcoming peo",
+      "description": "Visit our convenient, same day, no appointment necessary, newly built clinic, Washington Chiropractic. With plentiful parking, open hours from Monday through Saturday, and house Exercise Therapy and Massage Therapy. Washington Chiropractic is ready to see you today. Welcoming people, young and old, from all walks of life seeking relief from everyday aches, long term pain, or injury from sports, work, or auto accidents. Accepting most major insurances, Washington Chiropractic is dedicated to affordable natural healthcare plans for all its patients. Посетите нашу удобную недавно построенную клинику Washington Chiropractic в тот же день, без предварительной записи. С большой парковкой, часами работы с понедельника по субботу, а также лечебной физкультурой и массажем. Мы готовы принять вас уже сегодня. Мы приветствуем людей, молодых и не очень, из всех слоев общества, ищущих облегчения от повседневных болей, долговременной боли или травм в результате занятий спортом, работы или автокатастроф. Принимаем большинство основных страховок, Washington Chiropractic предлагаем доступные планы естественного здравоохранения для всех своих пациентов.",
+      "source_url": "https://slavicseattle.com/businesses/therapeutic-lats-massage-therapy",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.150205+00:00"
+    },
+    {
+      "cluster_key": "sls-9c71d2096a12f1c6",
+      "display_name": "Изготовление памятников EDGEWOOD MONUMENTS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Puyallup",
+      "address": "111 W Meeker, Puyallup, WA, 98371",
+      "phones": [
+        "+12534426777"
+      ],
+      "emails": [
+        "art@EtchStone.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/izgotovlenie-pamyatnikov-edgewood-monuments-puyallup-1768493905185.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/izgotovlenie-pamyatnikov-edgewood-monuments-puyallup-1768493905185.webp"
+      ],
+      "short_description": "Изготовление памятников Лазерные портреты, надписи, рисунки, доставка, установка и многое другое! Приглашаем посетить наш выставочный зал с большим выбором памятников - более 40 видов! Вы можете оформить заказ по телефону или электронной почте.",
+      "description": "Изготовление памятников Лазерные портреты, надписи, рисунки, доставка, установка и многое другое! Приглашаем посетить наш выставочный зал с большим выбором памятников - более 40 видов! Вы можете оформить заказ по телефону или электронной почте.",
+      "source_url": "https://slavicseattle.com/businesses/edgewood-monuments",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.164244+00:00"
+    },
+    {
+      "cluster_key": "sls-71a6d2f1c61f227d",
+      "display_name": "MARVEL Food & Deli",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "GroceryStore",
+      "city": "Auburn",
+      "address": "615 C St SW, Auburn, WA, 98001",
+      "phones": [
+        "+12538878181"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/marvel-food-deli-auburn-1768493907111.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/marvel-food-deli-auburn-1768493907111.webp"
+      ],
+      "short_description": "Приглашаем Вас посетить наш продуктовый магазин для гурманов, который специализируется на европейских продуктах из таких стран, как Россия, Украина, Венгрия, Германия, Италия, Франция и другие. Мы гордимся тем, что не только предлагаем широкий выбор блюд, но и знаем, что такое ка",
+      "description": "Приглашаем Вас посетить наш продуктовый магазин для гурманов, который специализируется на европейских продуктах из таких стран, как Россия, Украина, Венгрия, Германия, Италия, Франция и другие. Мы гордимся тем, что не только предлагаем широкий выбор блюд, но и знаем, что такое каждый продукт, как его следует готовить и как его подавать. Наши низкие цены придадут Вам праздничное настроение и помогут украсить Ваш стол.",
+      "source_url": "https://slavicseattle.com/businesses/marvel-food-deli",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.338610+00:00"
+    },
+    {
+      "cluster_key": "sls-2e5542ca736ed078",
+      "display_name": "ACS Carpet Cleaning",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Seattle",
+      "address": "Seattle, WA",
+      "phones": [
+        "+12067197518"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/acs-carpet-cleaning-seattle-1768493900326.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/acs-carpet-cleaning-seattle-1768493900326.webp"
+      ],
+      "short_description": "Профессиональная чистка карпета, мягкой мебели и салона автомашин Моем бетонные покрытия, driveways Обслуживаем все города Большого Сиэтла Быстро и качественно по доступным ценам! Павел 206-719-751",
+      "description": "Профессиональная чистка карпета, мягкой мебели и салона автомашин Моем бетонные покрытия, driveways Обслуживаем все города Большого Сиэтла Быстро и качественно по доступным ценам! Павел 206-719-751",
+      "source_url": "https://slavicseattle.com/businesses/acs-carpet-cleaning",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.424522+00:00"
+    },
+    {
+      "cluster_key": "sls-2e19781aa6133565",
+      "display_name": "SAFETY SYSTEM GROUP",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Federal Way",
+      "address": "500 S 336th St, Federal Way, WA, 98003",
+      "phones": [
+        "+17736764769"
+      ],
+      "emails": [
+        "request@safetysystemgroup.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/safety-system-group-federal-way-1768493883691.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/safety-system-group-federal-way-1768493883691.webp"
+      ],
+      "short_description": "SERVICES WE PROVIDE Присутствие на слушании за Вас. Не тратьте свое время в суде, адвокат будет защищать Ваши интересы. Покрытие по всей стране. Не важно в какой части США Вы получили штраф, мы покрываем. Помощь со всеми видами нарушений. Мы работаем как с нарушениями, связанными",
+      "description": "SERVICES WE PROVIDE Присутствие на слушании за Вас. Не тратьте свое время в суде, адвокат будет защищать Ваши интересы. Покрытие по всей стране. Не важно в какой части США Вы получили штраф, мы покрываем. Помощь со всеми видами нарушений. Мы работаем как с нарушениями, связанными с движущимся транспортом (превышение скорости, пересечение на красный свет), так и с другими (equipment, log bookviolations и т.д.) Индивидуальный подход. Мы не гонимся за количеством, наша цель - качество. DATAQ. Мы заполняем DataQ Chellenge за Вас, чтобы снять нарушения с истории. SAFETY IFTA Registrations USR 2290 HHUSE tax Insurance quotes DataQ chellenge Audits (DOT/IRP) Company review MC/DOT BOC-3 form Permits Business License /EIN Claims And much more! We have everything to start and run your business! INSURANCE HOME AUTO TRUCKING BUSINESS Driver membership $35 в месяц или $360 за год Owner-operator membership $45 в месяц или $480 за год",
+      "source_url": "https://slavicseattle.com/businesses/safety-system-group",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.500162+00:00"
+    },
+    {
+      "cluster_key": "sls-f0de78b5a3aaef3b",
+      "display_name": "VIKO Landscaping",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Federal Way",
+      "address": "34818 13th Ct SW, Federal Way, WA, 98023",
+      "phones": [
+        "+14259227101",
+        "+12533321377"
+      ],
+      "emails": [
+        "vikoland@msn.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/viko-landscaping-federal-way-1768493873236.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/viko-landscaping-federal-way-1768493873236.webp"
+      ],
+      "short_description": "Мы делаем: Patio and walk ways (из бетона, кирпича или натурального камня) Стенки из камня или блоков Planters из дерева, кирпича, блоков или прессованного камня Речки, водопады, песочницы, заборы любого типа Осушаем мокрые участки, дренажные и поливные системы, освещение Кладем ",
+      "description": "Мы делаем: Patio and walk ways (из бетона, кирпича или натурального камня) Стенки из камня или блоков Planters из дерева, кирпича, блоков или прессованного камня Речки, водопады, песочницы, заборы любого типа Осушаем мокрые участки, дренажные и поливные системы, освещение Кладем новую или меняем старую траву, обрезаем деревья, посыпаем барком, новой землей и многое другое . Гарантируем качество и умеренные цены. Николай Cell: (425) 922-7101 Виктор Cell: (253) 332-1377 Experienced * Licensed * Bonded * Insured",
+      "source_url": "https://slavicseattle.com/businesses/viko-landscaping",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.543048+00:00"
+    },
+    {
+      "cluster_key": "sls-c9e9c8c944e84be7",
+      "display_name": "Seattle Slavic Association",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Everett",
+      "address": "830 SE Everett Mall Way, Everett, WA, 98208",
+      "phones": [
+        "+14253674877"
+      ],
+      "emails": [
+        "info@ssawa.org"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/seattle-slavic-association-everett-1768493881372.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/seattle-slavic-association-everett-1768493881372.webp"
+      ],
+      "short_description": "Иммиграционные вопросы: Гражданство США Грин Карты (оформление, обновление) Травел Документы Воссоединение семей (супругов, родителей, детей) Оформление документов при браке в США Гостевые и бизнес приглашения в США (В1/В2 - visa) Визы для женихов и невест (K - visa) Визы для рел",
+      "description": "Иммиграционные вопросы: Гражданство США Грин Карты (оформление, обновление) Травел Документы Воссоединение семей (супругов, родителей, детей) Оформление документов при браке в США Гостевые и бизнес приглашения в США (В1/В2 - visa) Визы для женихов и невест (K - visa) Визы для религиозных работников (R - visa) Продление виз и изменение статуса в США Политическое убежище Восстановление Статуса Постоянного Жителя / Грин Карты Сотрудничество с адвокатами штата Ваингтон Консульская поддержка: Паспорта России, Украины, Беларуси, Молдовы и СНГ Доставка паспортов из консульства Украины Продление паспортов Украины, Беларуси и других стран СНГ Восстановление гражданства Украины и других стран СНГ Постановка на консульский учет Восстановление утерянных документов из стран СНГ Визы в Европу, Россию, Беларусь, СНГ и другие страны мира Переводы / Услуги Нотариуса: Свидетельство о Рождении, Браке, справки, дипломы Составление контрактов и деловых писем Нотаризация документов Апостиль Гостевые и бизнес Визы в США: Рекомендации по открытию Виз Оформление приглашений Спонсорские аффидевиты Отправка пакетов за границу Подготовка к собеседованию Обновление и восстановление Green Card В случае выхода срока годности Исполнении детям лет Потере или краже Семьи и лица с ограниченным доходом Для Вас специальные услуги, не требующие оплаты за иммиграционные взносы если вы подаете на: Гражданство США Обновление Грин Карт Натурализационные Сертификаты для детей Доверенности / Завещания Контракты / Справки для стран СНГ и США Генеральные, разовые и дарственные доверенности Healthcare Power of Attorney (США) / Завещания (Wills) Договора об аренде жилья Контракты и деловые письма Разрешения на путешествие с детьми",
+      "source_url": "https://slavicseattle.com/businesses/seattle-slavic-association",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.655013+00:00"
+    },
+    {
+      "cluster_key": "sls-a16c7f82d4d588f7",
+      "display_name": "PHARMACY PLUS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "Pharmacy",
+      "city": "Bellevue",
+      "address": "1299 156th Ave NE, Bellevue, WA, 98007",
+      "phones": [
+        "+14256448887"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/pharmacy-plus-bellevue-1768493891089.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/pharmacy-plus-bellevue-1768493891089.webp"
+      ],
+      "short_description": "Новые поступления! Продукция со всего мира! SagaPro - Ирландия Тигровый бальзам т пластырь - Сингапур Traumaplant - Германия WHITE2NITE - США Nature's Beauty - Новая Зеландия И многое другое!",
+      "description": "Новые поступления! Продукция со всего мира! SagaPro - Ирландия Тигровый бальзам т пластырь - Сингапур Traumaplant - Германия WHITE2NITE - США Nature's Beauty - Новая Зеландия И многое другое!",
+      "source_url": "https://slavicseattle.com/businesses/pharmacy-plus",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.656137+00:00"
+    },
+    {
+      "cluster_key": "sls-1aee79760c5f4a1e",
+      "display_name": "Caliber Home Loans / Lana's team",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Vancouver",
+      "address": "17200 SE Mill Plain Blvd, Vancouver, WA, 98683",
+      "phones": [
+        "+13602074677"
+      ],
+      "emails": [
+        "lana.geraghty@caliberhomeloans.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/caliber-home-loans-lanas-team-vancouver-1768493869270.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/caliber-home-loans-lanas-team-vancouver-1768493869270.webp"
+      ],
+      "short_description": "At Caliber, our clients will be able to have access to: Personalized service. Our team will be with you every step of the way throught the mortgage process. More loan options. Caliber has a large array of home financing solutions that can meet your individual needs. Cutting-edge ",
+      "description": "At Caliber, our clients will be able to have access to: Personalized service. Our team will be with you every step of the way throught the mortgage process. More loan options. Caliber has a large array of home financing solutions that can meet your individual needs. Cutting-edge tehnology. Use the latest technology to help reduce your paperwork with electronic verification to help make the loan process go faster. Lasting relationship. After closing. we'll most likely manage your loan, because we service the majority of our loans. Whether you're thinking about buying or refinancing, our team is ready to help. Ready to get started? Call us today!",
+      "source_url": "https://slavicseattle.com/businesses/caliber-home-loans-lanas-team",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.671398+00:00"
+    },
+    {
+      "cluster_key": "sls-32f014b00a77c7b1",
+      "display_name": "Travel Flex",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Bellevue",
+      "address": "330 112th Ave NE, Bellevue, WA, 98004",
+      "phones": [
+        "+12064411106"
+      ],
+      "emails": [
+        "travelflex@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/travel-flex-bellevue-1768493871306.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/travel-flex-bellevue-1768493871306.webp"
+      ],
+      "short_description": "Изготовление и вклеивание дополнительных страниц в паспорта США. Помощь в оформлении документов для Российских паспортов. Срочное оформление виз во все страны.",
+      "description": "Изготовление и вклеивание дополнительных страниц в паспорта США. Помощь в оформлении документов для Российских паспортов. Срочное оформление виз во все страны.",
+      "source_url": "https://slavicseattle.com/businesses/travel-flex",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.703031+00:00"
+    },
+    {
+      "cluster_key": "sls-5fe0f797f530538b",
+      "display_name": "Law offices of DANIEL J. MCCORMICK",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Bellevue",
+      "address": "155 108th Ave NE, Bellevue, WA, 98004",
+      "phones": [
+        "+14259987864"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/law-offices-of-daniel-j-mccormick-bellevue-1768493861977.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/law-offices-of-daniel-j-mccormick-bellevue-1768493861977.webp"
+      ],
+      "short_description": "Семейное право: Разводы без взаимного согласия (Contested Divorce) Разводы по взаимному согласию (Uncontested Divorce) Порядок уплаты алиментов (Child Sopport and Alimony) Модификация алиментов (Child Sopport Modification) Вопросы о месте проживания детей Изменение и установление",
+      "description": "Семейное право: Разводы без взаимного согласия (Contested Divorce) Разводы по взаимному согласию (Uncontested Divorce) Порядок уплаты алиментов (Child Sopport and Alimony) Модификация алиментов (Child Sopport Modification) Вопросы о месте проживания детей Изменение и установление родительских прав Protection & Restraining Orders Domestic Violence Spousal Threats of Deportation Child Abuse Child Protective Services Abuse",
+      "source_url": "https://slavicseattle.com/businesses/law-offices-of-daniel-j-mccormick",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.843560+00:00"
+    },
+    {
+      "cluster_key": "sls-692eb8726c8d6ebd",
+      "display_name": "Install tile",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Federal Way",
+      "address": "1201 S 336th St, Federal Way, WA, 98003",
+      "phones": [
+        "+13157345597"
+      ],
+      "emails": [
+        "khavela1234@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/install-tile-federal-way-1768493922329.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/install-tile-federal-way-1768493922329.webp"
+      ],
+      "short_description": "Install tile",
+      "description": "Install tile",
+      "source_url": "https://slavicseattle.com/businesses/install-tile",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.874346+00:00"
+    },
+    {
+      "cluster_key": "sls-ea2324192cb854c9",
+      "display_name": "Kesselman Law Firm",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Kirkland",
+      "address": "7333 7th Ave, Kirkland, WA, 98033",
+      "phones": [
+        "+14254991939"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/kesselman-law-firm-kirkland-1768493860147.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/kesselman-law-firm-kirkland-1768493860147.webp"
+      ],
+      "short_description": "Иммиграционное право Автомобильные аварии и несчастные случаи Банкротство Семейное право Контракты ИММИГРАЦИОННОЕ ПРАВО Помощь в оформлении документов по правилам DACA Защита в иммиграционном суде и отмена депортации Апелляция в Федеральном Суде и Board of Immigration Appeals Пол",
+      "description": "Иммиграционное право Автомобильные аварии и несчастные случаи Банкротство Семейное право Контракты ИММИГРАЦИОННОЕ ПРАВО Помощь в оформлении документов по правилам DACA Защита в иммиграционном суде и отмена депортации Апелляция в Федеральном Суде и Board of Immigration Appeals Политическое убежище в США Оформление документов на гражданство США или Grean Card (в том числе и при наличии судимости) Воссоединение семей Визы для женихов и невест граждан США Оформление гостевых, бизнес и инвестиционных приглашений и виз Оформление разрешения на работу и повторный въезд в США (Travel Documents) OLGA BAGDASAROV Immigration Case Manager (425) 454 - 1920 Сертифицированные переводы и нотаризация любых документов, доверенности, апостиль АВТОМОБИЛЬНЫЕ АВАРИИ И ДРУГИЕ НЕСЧАСТНЫЕ СЛУЧАИ Аварии на большегрузных автомобилях Велосипедные аварии Мотоциклетные аварии Аварии с участием пешеходов Укусы собак KEN POLONSKY Personal Injury Case Manager (425) 499 -1939 Оплата услуг только после получения компенсации. Обслуживаем все города Западного Вашингтона. Банкротство.",
+      "source_url": "https://slavicseattle.com/businesses/kesselman-law-firm",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.884885+00:00"
+    },
+    {
+      "cluster_key": "sls-6c8d034e23184499",
+      "display_name": "MARVEL Food & Deli Tacoma",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "EventVenue",
+      "city": "Tacoma",
+      "address": "301 133rd St S, Tacoma, WA, 98444",
+      "phones": [
+        "+12535371008"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/marvel-food-deli-tacoma-tacoma-1768493909672.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/marvel-food-deli-tacoma-tacoma-1768493909672.webp"
+      ],
+      "short_description": "Weddings Parties Family Events Funerals Beautiful, Modern & Spacious.... fits up to 300 peaple!",
+      "description": "Weddings Parties Family Events Funerals Beautiful, Modern & Spacious.... fits up to 300 peaple!",
+      "source_url": "https://slavicseattle.com/businesses/marvel-food-deli-tacoma",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.906134+00:00"
+    },
+    {
+      "cluster_key": "sls-7cbb5cc76f70f841",
+      "display_name": "Taylor Law Firm",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Kent",
+      "address": "1048 W James St, Kent, WA, 98032",
+      "phones": [
+        "+14252350202"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/taylor-law-firm-kent-1768493858144.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/taylor-law-firm-kent-1768493858144.webp"
+      ],
+      "short_description": "Более 40 лет мы боремся за ваши права! 206.817.2950 - 24/7 Russian-line Доверьтесь нашему опыту! Наши квалифицированные специалисты предоставляют исключительную юридическую помощь для Русской и Украинской общины. Вникнув в суть Вашей проблемы, мы предложим оптимальный выход из сл",
+      "description": "Более 40 лет мы боремся за ваши права! 206.817.2950 - 24/7 Russian-line Доверьтесь нашему опыту! Наши квалифицированные специалисты предоставляют исключительную юридическую помощь для Русской и Украинской общины. Вникнув в суть Вашей проблемы, мы предложим оптимальный выход из сложившейся ситуации. Наша цель - Ваша максимальная компенсация и возмещение ущерба! Адвокаты представляют Ваши интересы в суде: досудебное представительство, подготовка процессуальных документов, судебное представительство. Мы проконсультируем Вас бесплатно на Вашем языке. Не откладывайте решение Ваших проблем на завтрашний день! Позвоните нам сегодня!",
+      "source_url": "https://slavicseattle.com/businesses/taylor-law-firm",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.926762+00:00"
+    },
+    {
+      "cluster_key": "sls-ce363e45a4770c39",
+      "display_name": "Elite Home Care",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Redmond",
+      "address": "8118 165th Ave NE, Redmond, WA, 98052",
+      "phones": [
+        "+14259572002"
+      ],
+      "emails": [
+        "elitehomecare@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/elite-home-care-redmond-1768493902783.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/elite-home-care-redmond-1768493902783.webp"
+      ],
+      "short_description": "Квалифицированные работники агентства Elite ухаживают за пожилыми или больными людьми и предоставляют помощь по персональному уходу и домашним делам. НАША МИССИЯ Обслуживание людей, нуждающихся в помощи и личной заботе, в комфорте и удобстве собственного дома. Мы работаем с новой",
+      "description": "Квалифицированные работники агентства Elite ухаживают за пожилыми или больными людьми и предоставляют помощь по персональному уходу и домашним делам. НАША МИССИЯ Обслуживание людей, нуждающихся в помощи и личной заботе, в комфорте и удобстве собственного дома. Мы работаем с новой программой для пожилых людей. Эта программа позволяет работникам ухаживать за своими родственниками. Если Вы собираетесь открыть программу по уходу, обращайтесь к нам за информацией. Мы понимаем Вас и говорим на Вашем родном языке. Elite Home Care обслуживает все районы Большого Сиэтла в округе Кинг (all King Country).",
+      "source_url": "https://slavicseattle.com/businesses/elite-home-care",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:41:59.945675+00:00"
+    },
+    {
+      "cluster_key": "sls-e7d564cac39712d1",
+      "display_name": "Tsiprin Law Group, PLLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Bellevue",
+      "address": "2223 112th Ave NE, Bellevue, WA, 98004",
+      "phones": [
+        "+14254546277"
+      ],
+      "emails": [
+        "ken@tsilawgroup.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/tsiprin-law-group-pllc-bellevue-1768493853911.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/tsiprin-law-group-pllc-bellevue-1768493853911.webp"
+      ],
+      "short_description": "Превышение Скорости: мы можем сохранить Ваш водительский учет чистым, а страховой платеж - низким. ВСЕ ВИДЫ ШТРАФОВ (TICKETS) КРИМИНАЛЬНОЕ ПРАВО: Невнимательное / неосторожное вождение (Reckless / negligent driving) Вождение в нетрезвом состоянии (DUI) Вождение без прав Воровство",
+      "description": "Превышение Скорости: мы можем сохранить Ваш водительский учет чистым, а страховой платеж - низким. ВСЕ ВИДЫ ШТРАФОВ (TICKETS) КРИМИНАЛЬНОЕ ПРАВО: Невнимательное / неосторожное вождение (Reckless / negligent driving) Вождение в нетрезвом состоянии (DUI) Вождение без прав Воровство и кража (THEFT) Все виды штрафов (Tickets)",
+      "source_url": "https://slavicseattle.com/businesses/tsiprin-law-group-pllc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.013113+00:00"
+    },
+    {
+      "cluster_key": "sls-bf39efaa5a739fe4",
+      "display_name": "Law office of Boris Davidovskiy, P.C.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Mountlake Terrace",
+      "address": "6100 219th St SW, Mountlake Terrace, WA, 98043",
+      "phones": [
+        "+14255825200"
+      ],
+      "emails": [
+        "firm@davidovskiylaw.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/law-office-of-boris-davidovskiy-pc-mountlake-terrace-1768493852536.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/law-office-of-boris-davidovskiy-pc-mountlake-terrace-1768493852536.webp"
+      ],
+      "short_description": "Мы фокусируемся на представлении интересов наших клиентов в судах штатов и в федеральных судах, начиная от подачи дела в суд, во время суда присяжных и в случае апелляции. Мы работаем на результат! высокий профессионализм внимательное отношение к клиенту НАШИ ОБЛАСТИ ПРАВА: Защит",
+      "description": "Мы фокусируемся на представлении интересов наших клиентов в судах штатов и в федеральных судах, начиная от подачи дела в суд, во время суда присяжных и в случае апелляции. Мы работаем на результат! высокий профессионализм внимательное отношение к клиенту НАШИ ОБЛАСТИ ПРАВА: Защита интересов в судах (Civil Ligation) Защита недвижимости от взыскания (Foreclosure Defense) и другие вопросы, связанные с правами на недвижимость (Real Estate) Защита прав потребителя (Consumer Protection), включая защиту от коллекторов, исправление и очистку кредитной истории Споры с банками и другими кредиторами (Lender Liability) Споры со страховыми компаниями, включая защиту интересов при отказе в выплате или занижении суммы выплаты (Insurance Coverage) Автомобильные аварии и травмы (Personal Injury)",
+      "source_url": "https://slavicseattle.com/businesses/law-ofiice-of-boris-davidovskiy-p-c",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.057572+00:00"
+    },
+    {
+      "cluster_key": "sls-74740c975f2cf1e2",
+      "display_name": "MY INJURY LAW FIRM, PLLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Seattle",
+      "address": "1201 Third Avenue, Seattle, WA, 98101",
+      "phones": [
+        "+12066731612"
+      ],
+      "emails": [
+        "myinjurylawfirm@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/my-injury-law-firm-pllc-seattle-1768493850657.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/my-injury-law-firm-pllc-seattle-1768493850657.webp"
+      ],
+      "short_description": "Когда вы получили травму в автомобильной аварии, последнее, о чем вы должны беспокоиться, это растущие медицинские счета и сложные страховые полисы. My Injury Law Firm поможет вам на каждом этапе судебного процесса. Адвокаты по дорожно-транспортным происшествиям и травмам. Мы раб",
+      "description": "Когда вы получили травму в автомобильной аварии, последнее, о чем вы должны беспокоиться, это растущие медицинские счета и сложные страховые полисы. My Injury Law Firm поможет вам на каждом этапе судебного процесса. Адвокаты по дорожно-транспортным происшествиям и травмам. Мы работаем по схеме условного вознаграждения. Вы платите за наши услуги только в случае выигранного дела. Звоните сегодня для бесплатной консультации с русскоговорящим адвокатом.",
+      "source_url": "https://slavicseattle.com/businesses/my-injury-law-firm-pllc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.174891+00:00"
+    },
+    {
+      "cluster_key": "sls-e545060a277c3ab5",
+      "display_name": "ALLA LOKHMATOV Real Estate Broker",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Seattle",
+      "address": "3250 Airport Way S, Seattle, WA, 98134",
+      "phones": [
+        "+14254570842"
+      ],
+      "emails": [
+        "Alla.Lokhmatov@compass.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/alla-lokhmatov-real-estate-broker-seattle-1768493848545.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/alla-lokhmatov-real-estate-broker-seattle-1768493848545.webp"
+      ],
+      "short_description": "ALLA LOKHMATOV Real Estate Broker ПОКУПАЕТЕ / ПРОДАЕТЕ Дом, квартиру, землю, коммерческое здание? Звоните сегодня для бесплатной консультации",
+      "description": "ALLA LOKHMATOV Real Estate Broker ПОКУПАЕТЕ / ПРОДАЕТЕ Дом, квартиру, землю, коммерческое здание? Звоните сегодня для бесплатной консультации",
+      "source_url": "https://slavicseattle.com/businesses/alla-lokhmatov-real-estate-broker",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.200075+00:00"
+    },
+    {
+      "cluster_key": "sls-b5d115f7a3bbb595",
+      "display_name": "IRINA BOBKO insurance agent",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "insurance",
+      "category_guess": "страхование",
+      "city": "Tukwila",
+      "address": "17250 Southcenter Pkwy, Tukwila, WA, 98188",
+      "phones": [
+        "+12066697150"
+      ],
+      "emails": [
+        "irinabobko@aaawa.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/irina-bobko-insurance-agent-tukwila-1768493844844.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/irina-bobko-insurance-agent-tukwila-1768493844844.webp"
+      ],
+      "short_description": "Звоните сегодня для бесплатной расценки! Личный профессиональный опыт Быстрое обслуживание Надежные страховые компании Доступные цены Call today for a free quote! Personal, professional experience Fast service Reliable insurance companies Reasonable prices",
+      "description": "Звоните сегодня для бесплатной расценки! Личный профессиональный опыт Быстрое обслуживание Надежные страховые компании Доступные цены Call today for a free quote! Personal, professional experience Fast service Reliable insurance companies Reasonable prices",
+      "source_url": "https://slavicseattle.com/businesses/irina-bobko-inncurance-agent",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.200813+00:00"
+    },
+    {
+      "cluster_key": "sls-1c426e1f5f1ae5c7",
+      "display_name": "Школа CDL в Такоме",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "education",
+      "category_guess": "образование",
+      "city": "Fife",
+      "address": "7495 26th St E, Fife, WA, 98424",
+      "phones": [
+        "+12532100505"
+      ],
+      "emails": [
+        "info@nstschool.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://nstschool.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/shkola-cdl-v-takome-fife-1768493846900.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/shkola-cdl-v-takome-fife-1768493846900.webp"
+      ],
+      "short_description": "New Sound Trucking School Дружественная атмосфера Комфортабельные классы Асфальтированная площадка Трудоустройство Финансирование Новые траки",
+      "description": "New Sound Trucking School Дружественная атмосфера Комфортабельные классы Асфальтированная площадка Трудоустройство Финансирование Новые траки",
+      "source_url": "https://slavicseattle.com/businesses/new-sound-truck-driving-school",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.201620+00:00"
+    },
+    {
+      "cluster_key": "sls-f4fb259eecfb57be",
+      "display_name": "Cosmopolitan Legal PLLC",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Bellevue",
+      "address": "155 108th Ave NE, Bellevue, WA, 98004",
+      "phones": [
+        "+14252968868"
+      ],
+      "emails": [
+        "info@cosmopolitanlegal.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/cosmopolitan-legal-pllc-bellevue-1768493840504.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/cosmopolitan-legal-pllc-bellevue-1768493840504.webp",
+        "https://images.slavicseattle.com/businesses/cosmopolitan-legal-pllc-bellevue-1768493842654.webp"
+      ],
+      "short_description": "ЮРИДИЧЕСКАЯ ПОМОЩЬ БЕЖЕНЦАМ С УКРАИНЫ Адвокат Ольга Ефимова Беженство в США Гражданство в США Иммиграционные визы",
+      "description": "ЮРИДИЧЕСКАЯ ПОМОЩЬ БЕЖЕНЦАМ С УКРАИНЫ Адвокат Ольга Ефимова Беженство в США Гражданство в США Иммиграционные визы",
+      "source_url": "https://slavicseattle.com/businesses/cosmopolitan-legal-pllc",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.205637+00:00"
+    },
+    {
+      "cluster_key": "sls-e12570bfd3ad7986",
+      "display_name": "Galuna's Salon",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Kent",
+      "address": "22212 111th Pl SE, Kent, WA, 98031",
+      "phones": [
+        "+12068417873"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/galunas-salon-kent-1768493836382.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/galunas-salon-kent-1768493836382.webp"
+      ],
+      "short_description": "Женские стрижки Мужские стрижки Детские стрижки Мелирование Химические завивки Прически для особых мероприятий Восковая эпиляция По предварительной записи",
+      "description": "Женские стрижки Мужские стрижки Детские стрижки Мелирование Химические завивки Прически для особых мероприятий Восковая эпиляция По предварительной записи",
+      "source_url": "https://slavicseattle.com/businesses/galunas-salon",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.255015+00:00"
+    },
+    {
+      "cluster_key": "sls-eb1e6384a5f2c91f",
+      "display_name": "RIMMA ISRAYELYAN LOAN ADVISOR",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Bellevue",
+      "address": "301 116th St SE, Bellevue, WA, 98004",
+      "phones": [
+        "+12066125622"
+      ],
+      "emails": [
+        "rimma.israyelyan@apmortgage.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/rimma-israyelyan-loan-advisor-bellevue-1768493833963.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/rimma-israyelyan-loan-advisor-bellevue-1768493833963.webp"
+      ],
+      "short_description": "Хотите жить в Bellevue, Kirkland,Redmond или других городах Eastside? Не хватает средств для down payment? Моя новейшая программа даст Вам до $30.000 yна down payment бесплатно - под невероятные 0 %. Это возможность купить дом Вашей мечты в лучших районах и городах региона. Гаран",
+      "description": "Хотите жить в Bellevue, Kirkland,Redmond или других городах Eastside? Не хватает средств для down payment? Моя новейшая программа даст Вам до $30.000 yна down payment бесплатно - под невероятные 0 %. Это возможность купить дом Вашей мечты в лучших районах и городах региона. Гарантия своевременного закрытия заёма!!! Я помогу Вам получить займ на $20,000 -$30.000 больше, при тех же условиях (доход, кредитная история, процент и т.д.). И я полагаюсь не на \"волшебство\" в финансировании, а на свои знания и опыт! Я помогаю людям покупать лучшие дома на самых выгодных условиях!",
+      "source_url": "https://slavicseattle.com/businesses/rimma-israyelyan-loan-advisor",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.391314+00:00"
+    },
+    {
+      "cluster_key": "sls-2422e61cafea1195",
+      "display_name": "Michael's Watch & Jewelry Repair",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Renton",
+      "address": "601 S Graddy Way, Renton, WA, 98057",
+      "phones": [
+        "+14252262156"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/michaels-watch-jewelry-repair-renton-1768493831228.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/michaels-watch-jewelry-repair-renton-1768493831228.webp"
+      ],
+      "short_description": "Ремонт часов и ювелирных изделий. Замена батарейки $10 We buy and Sell Gold & Jewelry",
+      "description": "Ремонт часов и ювелирных изделий. Замена батарейки $10 We buy and Sell Gold & Jewelry",
+      "source_url": "https://slavicseattle.com/businesses/michaels-watch-jewelry-repair",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.391951+00:00"
+    },
+    {
+      "cluster_key": "sls-d5165027bf273bbc",
+      "display_name": "Gold Star Mortgage Financial Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "бизнес",
+      "city": "Bellevue",
+      "address": "12727 Northup Way, Bellevue, WA, 98005",
+      "phones": [
+        "+12067789507"
+      ],
+      "emails": [
+        "emalyuta@goldstarfinancial.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://goldstarfinancial.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/gold-star-mortgage-financial-group-bellevue-1768493814905.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/gold-star-mortgage-financial-group-bellevue-1768493814905.webp"
+      ],
+      "short_description": "Elena Malyuta Branch Manager MLO - 40784 Строительные займы Займы FHA, VA, USDA, Jumbo Рефинансирование Займы для домов, нуждающихся в ремонте (стоимость ремонта входит в заём) Жить в своем доме становится выгоднее, чем арендовать!",
+      "description": "Elena Malyuta Branch Manager MLO - 40784 Строительные займы Займы FHA, VA, USDA, Jumbo Рефинансирование Займы для домов, нуждающихся в ремонте (стоимость ремонта входит в заём) Жить в своем доме становится выгоднее, чем арендовать!",
+      "source_url": "https://slavicseattle.com/businesses/gold-star-mortgage-financial-group",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.472532+00:00"
+    },
+    {
+      "cluster_key": "sls-14948635e11fedfe",
+      "display_name": "Washington Translation Bureau",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "Notary",
+      "city": "Spanaway",
+      "address": "2431 198th St Ct E, Spanaway, WA, 98387",
+      "phones": [
+        "+12532711388"
+      ],
+      "emails": [
+        "info@watransbureau.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/washington-translation-bureau-spanaway-1768493817453.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/washington-translation-bureau-spanaway-1768493817453.webp"
+      ],
+      "short_description": "Вашингтонское бюро переводов (Washington Translation Bureau) было основано в 1997 г. в городе Сиэтле, штат Вашингтон. За эти годы мы предоставили услуги тысячам клиентов в США, Канаде, России и других странах мира. Переводы со всех языков бывшего СССР, оформление всех видов докум",
+      "description": "Вашингтонское бюро переводов (Washington Translation Bureau) было основано в 1997 г. в городе Сиэтле, штат Вашингтон. За эти годы мы предоставили услуги тысячам клиентов в США, Канаде, России и других странах мира. Переводы со всех языков бывшего СССР, оформление всех видов документов и текстов любой сложности: составление резюме (CV) для трудоустройства составление заявлений, деловых писем, жалоб и ходатайств перевод дипломов, аттестатов для оценки образования в США перевод любых медицинских документов, историй болезней заполнение заявлений и форм для подачи иммиграционным властям, в консульские учреждения и другие государственные инстанции машинописные услуги на всех языках стран бывшего СССР заявления в колледжи и университеты, репетиторство оформление трудовой пенсии гражданам России и других стран бывшего СССР, проживающим за рубежом составление писем о факте нахождения в живых сертификация, услуги нотариуса и апостили Грамотное и надежное исполнение с большим накопленным практическим опытом. Наталья Гончарова в бизнесе с 1997 года.",
+      "source_url": "https://slavicseattle.com/businesses/washington-translation-bureau",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:00.507089+00:00"
+    },
+    {
+      "cluster_key": "sls-ea82c137614a9959",
+      "display_name": "RAINIER DELIVERY - your local movers!",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "slavic_seattle",
+      "category_slug": "other",
+      "category_guess": "MovingCompany",
+      "city": "Auburn",
+      "address": "Auburn, WA, 98001",
+      "phones": [
+        "+12067781827"
+      ],
+      "emails": [
+        "rainierdelivery@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "https://rainierdelivery.com"
+      ],
+      "cover_image_url": "https://images.slavicseattle.com/businesses/rainier-delivery-your-local-movers-auburn-1768493810417.webp",
+      "images": [
+        "https://images.slavicseattle.com/businesses/rainier-delivery-your-local-movers-auburn-1768493810417.webp"
+      ],
+      "short_description": "С 2011 года мы выполнили тысячи местных переездов. Наша репутация основана на отличном обслуживании клиентов, профессионализме и справедливых ценах. Мы понимаем, насколько захватывающим и напряженным может быть процесс переезда, поэтому всегда приходим подготовленными и готовыми ",
+      "description": "С 2011 года мы выполнили тысячи местных переездов. Наша репутация основана на отличном обслуживании клиентов, профессионализме и справедливых ценах. Мы понимаем, насколько захватывающим и напряженным может быть процесс переезда, поэтому всегда приходим подготовленными и готовыми We are your all-in-one services provider. We provide a variety of services in addition to household moving and furniture delivery. we disassemble and assemble furniture, pack/unpack your moving truck, POD, trailer/container, take unwanted items to Goodwill or transfer station. Pack a flat-screen TV, hook up a refrigerator, washer/dryer, or electronics, and of course, provide the highest level of quality within a reasonable time frame. FURNITURE PICK UP / DELIVERY RESIDENTIAL / COMMERCIAL MOVING LOADING / UNLOADING PACKING / UNPACKING ASSEMBLY / DISASSEMBLY DISPOSAL / DONATION",
+      "source_url": "https://slavicseattle.com/businesses/moving-services-test",
+      "source_channel": "other",
+      "source_groups": [
+        "Slavic Seattle"
+      ],
+      "region": "WA",
+      "scraped_at": "2026-07-27T01:42:01.780248+00:00"
+    }
+  ]
+}

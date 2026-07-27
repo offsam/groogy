@@ -1,0 +1,71 @@
+[
+  {
+    "id": "596194db-3a65-4c86-b3cb-fddbc6faedb4",
+    "name": "“Real Care”",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+17186450004"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8cbd37db-2740-4654-b37e-3704a6862abf",
+    "name": "US-Консалтинг",
+    "changes": {},
+    "fill": {
+      "address_line": "424 Brighton Beach Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20Avenue%20424%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+13474880019"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6875c9d4-ad20-4bf1-89a8-8f67564ba37e",
+      "slug": "svoi-us"
+    }
+  },
+  {
+    "id": "950922da-5c9e-4dca-b0c3-1c63a5fa0e9d",
+    "name": "Simply Solution, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "406 Brighton Beach Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20Avenue%20406%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17183327608"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4c6d02da-b5a1-494b-8a8f-b6a39e027d3c",
+      "slug": "svoi-simply-solution-llc"
+    }
+  }
+]

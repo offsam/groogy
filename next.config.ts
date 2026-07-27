@@ -16,6 +16,19 @@ const nextConfig: NextConfig = {
         hostname: "*.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
+      {
+        protocol: "https",
+        hostname: "svoi.us",
+        pathname: "/files/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.russianorangepages.com",
+      },
+      {
+        protocol: "https",
+        hostname: "russianorangepages.com",
+      },
     ],
   },
 };

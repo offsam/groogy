@@ -1,0 +1,490 @@
+[
+  {
+    "id": "e50ffd04-76c7-4d68-9849-b4d9bbf86533",
+    "name": "Vlads Photography",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Medford%2C%20NJ",
+      "phone": "+16095010607"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b44089e0-38f2-44cc-9286-f3c0f556ea0e",
+    "name": "AK Productions",
+    "changes": {},
+    "fill": {
+      "address_line": "692 Street Road",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Street%20Road%20692%2C%20Feasterville-Trevos%2C%20PA%20%2019053",
+      "phone": "+12675719299"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "007e68cc-06ed-4ef9-baf3-047c26d3fea8",
+      "slug": "svoi-ak-productions"
+    }
+  },
+  {
+    "id": "4e30cdb0-0539-4e30-9ebf-3858dc9fe57a",
+    "name": "Creative Photography by Maya",
+    "changes": {},
+    "fill": {
+      "address_line": "1051 County Line Road",
+      "location_precision": "street",
+      "city": "Upper Southampton Township",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=County%20Line%20Road%201051%2C%20Upper%20Southampton%20Township%2C%20PA%20tingdon%20Valley",
+      "phone": "+12678471971"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "57f8c8c5-84c4-49a3-a979-069c1367cebb",
+      "slug": "svoi-creative-photography-by-maya"
+    }
+  },
+  {
+    "id": "a2fbb329-e49d-40f9-9bd5-0555bd0fc23b",
+    "name": "Guber Eileen",
+    "changes": {},
+    "fill": {
+      "address_line": "428 Sweetbriar Drive",
+      "location_precision": "street",
+      "city": "Warminster",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sweetbriar%20Drive%20428%2C%20Warminster%2C%20PA",
+      "phone": "+12153850339"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b5e4808b-2d54-4fec-b423-52e31ebbcd21",
+      "slug": "svoi-guber-eileen"
+    }
+  },
+  {
+    "id": "8d6dec94-94dc-435f-b352-9f865a2c0448",
+    "name": "IVS Financial & Accounting Services",
+    "changes": {},
+    "fill": {
+      "address_line": "1111 Street Road",
+      "location_precision": "street",
+      "city": "Southampton",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Street%20Road%201111%2C%20Southampton%2C%20PA%20ice%2010%20Southampt",
+      "phone": "+12679186318"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3fa7155f-dabc-40b3-b218-3dba2f7726bb",
+      "slug": "svoi-ivs-financial-accounting-services"
+    }
+  },
+  {
+    "id": "28a940a9-95a6-45d8-83bc-52924e97d955",
+    "name": "Granovsky Alla",
+    "changes": {},
+    "fill": {
+      "address_line": "275 East Street Road",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Street%20Road%20275%2C%20Feasterville-Trevos%2C%20PA%209053",
+      "phone": "+12154949176"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b173c02c-df10-410a-83d0-40ed78188ed6",
+      "slug": "svoi-granovsky-alla"
+    }
+  },
+  {
+    "id": "ac2b8e8f-d6ab-4e2b-9d37-8a26aa1ba038",
+    "name": "First Union Securities Financial Network",
+    "changes": {},
+    "fill": {
+      "address_line": "1665 Bridgetown Pike",
+      "location_precision": "street",
+      "city": "Feasterville-Trevos",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bridgetown%20Pike%201665%2C%20Feasterville-Trevos%2C%20PA%2019053",
+      "phone": "+12153223652"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d98f51da-2b27-497b-bf3b-7224384c7020",
+      "slug": "svoi-first-union-securities-financial-network"
+    }
+  },
+  {
+    "id": "2d9104bf-5e4d-4eeb-aa92-56a272de356e",
+    "name": "Primerica - Tidman, Olga",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 W. Dekalb Pike",
+      "location_precision": "street",
+      "city": "Wayne",
+      "state_code": "US-PA",
+      "postal_code": "19087",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.%20Dekalb%20Pike%201101%2C%20Wayne%2C%20PA%2019087",
+      "phone": "+12153274496"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d96bd0f4-0659-435c-aa70-eb1e1534d184",
+      "slug": "svoi-primerica-tidman-olga"
+    }
+  },
+  {
+    "id": "c9b02fea-acd3-4bb1-ad94-a85c5b8bbdee",
+    "name": "AT Mortgage, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "12045 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "postal_code": "19116",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2012045%2C%20Philadelphia%2C%20PA%2019116",
+      "phone": "+12156775007"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "63b27d57-e77e-4050-aa57-10f99248212d",
+      "slug": "svoi-at-mortgage-inc"
+    }
+  },
+  {
+    "id": "298b9dbb-d998-400f-8d9e-a1c22f20e210",
+    "name": "Bunn's Natural Foods",
+    "changes": {},
+    "fill": {
+      "address_line": "1007 Street Road",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Street%20Road%201007%2C%20Southampton%2C%20PA%20%2018966",
+      "phone": "+12153551165"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3d578c9c-a294-40ca-956b-ed90f2278cf7",
+      "slug": "svoi-bunn-s-natural-foods"
+    }
+  },
+  {
+    "id": "b31588e6-a9c3-40a3-9407-789ebe02e991",
+    "name": "Fruit Garden",
+    "changes": {},
+    "fill": {
+      "address_line": "13032 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2013032%2C%20Philadelphia%2C%20PA",
+      "phone": "+12156772131"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "adb973ab-b87d-4dd7-83d8-47210863208e",
+      "slug": "svoi-fruit-garden"
+    }
+  },
+  {
+    "id": "6018a808-2854-4127-91ff-cb0e674242fc",
+    "name": "Net Cost Market",
+    "changes": {},
+    "fill": {
+      "address_line": "11701 Bustleton Avenue",
+      "location_precision": "street",
+      "city": "Philadelphia",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bustleton%20Avenue%2011701%2C%20Philadelphia%2C%20PA",
+      "phone": "+12676722500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9bf13a01-47fa-460f-8888-771292e54f51",
+      "slug": "svoi-net-cost-market"
+    }
+  },
+  {
+    "id": "5c12667b-3873-449d-8fee-d1783820ad4a",
+    "name": "Russian Legacy",
+    "changes": {},
+    "fill": {
+      "address_line": "26 Trolley Square",
+      "location_precision": "street",
+      "city": "Wilmington",
+      "state_code": "US-DE",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Trolley%20Square%2026%2C%20Wilmington%2C%20DE",
+      "phone": "+18888081333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "db9ef0ea-5245-4b7c-8aea-1fd48afd0f9a",
+      "slug": "svoi-russian-legacy"
+    }
+  },
+  {
+    "id": "61cc9aa9-a088-4699-ab20-a7dc85e80473",
+    "name": "Always Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "110 Buck Rd",
+      "location_precision": "street",
+      "city": "Southampton",
+      "state_code": "US-PA",
+      "postal_code": "18966",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buck%20Rd%20110%2C%20Southampton%2C%20PA%2018966",
+      "phone": "+12153550225"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "113a7182-3edb-4a35-bd5b-1b7edb655bfe",
+      "slug": "svoi-always-flowers"
+    }
+  },
+  {
+    "id": "62066018-62cc-4d97-8a4c-32834c40b068",
+    "name": "Lowes",
+    "changes": {},
+    "fill": {
+      "city": "PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Warrington%20Township%2C%20PA",
+      "phone": "+12154915968"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3478ae97-f790-4dbb-8bc3-3a6b2c4d72a0",
+    "name": "Florentino's",
+    "changes": {},
+    "fill": {
+      "address_line": "18 South State Street",
+      "location_precision": "street",
+      "city": "Newtown",
+      "state_code": "US-PA",
+      "postal_code": "18940",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20State%20Street%2018%2C%20Newtown%2C%20PA%2018940",
+      "phone": "+12158601133"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2cb1971c-f175-4864-a7f6-1426757d1a11",
+      "slug": "svoi-florentino-s"
+    }
+  },
+  {
+    "id": "39056c4e-acd4-46fb-8b76-6da039bc744f",
+    "name": "Woodstown Diner-Restaurant в Sewell",
+    "changes": {},
+    "fill": {
+      "address_line": "16 East Ave",
+      "location_precision": "street",
+      "city": "Woodstown",
+      "state_code": "US-NJ",
+      "postal_code": "08098",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Ave%2016%2C%20Woodstown%2C%20NJ%2008098",
+      "phone": "+18567691140"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "64d7380b-9f21-4f78-b82e-88d083c41c61",
+      "slug": "svoi-woodstown-diner-restaurant-sewell"
+    }
+  },
+  {
+    "id": "de0c9bb8-95dd-4412-a475-e3e426ad8312",
+    "name": "Black Bull",
+    "changes": {},
+    "fill": {
+      "address_line": "1470 Buck Road",
+      "location_precision": "street",
+      "city": "Northampton Township",
+      "state_code": "US-PA",
+      "postal_code": "19053",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buck%20Road%201470%2C%20Northampton%20Township%2C%20PA%2019053",
+      "phone": "+12677570111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f882c8b2-97e5-487c-94aa-8a9c2cf633d1",
+      "slug": "svoi-black-bull"
+    }
+  },
+  {
+    "id": "4805a5ff-9614-431e-8ca3-af3d870a0ba3",
+    "name": "Newtown Athletic Club",
+    "changes": {},
+    "fill": {
+      "address_line": "209 Penns Trail",
+      "location_precision": "street",
+      "city": "Newtown",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Penns%20Trail%20209%2C%20Newtown%2C%20PA",
+      "phone": "+12159680600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dea6ba66-8dfb-4406-ab1a-473740f912b2",
+      "slug": "svoi-newtown-athletic-club"
+    }
+  },
+  {
+    "id": "877cc010-88d4-48d9-a702-f4bae3f2078a",
+    "name": "LA Fitness",
+    "changes": {},
+    "fill": {
+      "address_line": "500 Rockhill Drive",
+      "location_precision": "street",
+      "city": "Bensalem",
+      "state_code": "US-PA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rockhill%20Drive%20500%2C%20Bensalem%2C%20PA",
+      "phone": "+12153574311"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "82f967f1-9b69-48e5-912d-8f3be297498d",
+      "slug": "svoi-la-fitness"
+    }
+  }
+]

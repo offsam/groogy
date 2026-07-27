@@ -6,9 +6,11 @@ import { ListingCard } from "@/components/marketplace/ListingCard";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { LechuCard } from "@/components/lechu/LechuCard";
 import { TransferCard } from "@/components/transfers/TransferCard";
+import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
 import {
   importReviewItemToPreviewFields,
   importReviewToBusinessPreview,
+  importReviewToProfessionalPreview,
   type ImportReviewPreviewFields,
 } from "@/lib/import-review/to-business-preview";
 import { importReviewToListingPreview } from "@/lib/import-review/to-listing-preview";
@@ -136,6 +138,13 @@ export function ImportReviewTypedCard({
   if (kind === "business") {
     card = (
       <BusinessCard business={importReviewToBusinessPreview(fields)} preview />
+    );
+  } else if (kind === "professional") {
+    card = (
+      <ProfessionalCard
+        professional={importReviewToProfessionalPreview(fields)}
+        preview
+      />
     );
   } else if (kind === "services") {
     card = (

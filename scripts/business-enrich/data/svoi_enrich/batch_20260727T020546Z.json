@@ -1,0 +1,400 @@
+[
+  {
+    "id": "42b79980-ac94-446c-9818-4bf5bf9560c6",
+    "name": "POWER NYC SIGNS & ELECTRIC",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "6402 Bay Parkway",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bay%20Parkway%206402%2C%20New%20York%2C%20NY%2011204",
+      "phone": "+17187693769"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ea6b8856-ebad-465a-8f9e-555f17728997",
+      "slug": "svoi-power-nyc-signs-electric"
+    }
+  },
+  {
+    "id": "415540bc-b144-4a8b-825f-4c53b1a6c14b",
+    "name": "ECTACO, INC",
+    "changes": {},
+    "fill": {
+      "address_line": "31st STREET 3121",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=31st%20STREET%203121%2C%20New%20York%2C%20NY",
+      "phone": "+17187286110"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e318197d-690d-4be7-8784-78792264f307",
+      "slug": "svoi-ectaco-inc"
+    }
+  },
+  {
+    "id": "1548489f-0e8d-4b30-83b5-84b44c1b3b4f",
+    "name": "The Old Electrical Corp.",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+19177539575"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5f0aa8d8-c2e2-4f5c-8de9-1afb56420642",
+    "name": "ЕЛЕКТРИК.Проводим електрические работы ( panels, switch, outlets,spotlights),",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+19179951902"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "83fb0646-1d6b-4b09-9725-346de542a1ba",
+    "name": "Опытный электрик в Бруклине",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+19172387314"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0fd44b8f-dda9-4154-ab54-29e1a9176252",
+    "name": "Профессиональный электрик бруклин",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+19175452021"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8eefb637-69a6-4dbd-a6bf-a8b6cb1b59f8",
+    "name": "Электрики Мы постараемся вам помочь",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+13476008184"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3db03c35-45ea-4acc-b47c-c832a74b55d2",
+    "name": "Электромонтажные услуги",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+13478962972"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0a49612d-2f14-42d2-82c5-588aa26b2ad7",
+    "name": "Aleta Industries",
+    "changes": {},
+    "fill": {
+      "address_line": "242 Eagle Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11222",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Eagle%20Street%20242%2C%20New%20York%2C%20NY%2011222",
+      "phone": "+17183490040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "389347db-8fd0-4907-b17f-74b8f89dea0e",
+      "slug": "svoi-aleta-industries"
+    }
+  },
+  {
+    "id": "72df8fbf-51e8-49ad-8884-c5113b6329e6",
+    "name": "Contact Plus Services Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "247 Van Brunt Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Brunt%20Street%20247%2C%20New%20York%2C%20NY",
+      "phone": "+17182540360"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "969574bb-87e2-4071-b2b6-be06ab9735b6",
+      "slug": "svoi-contact-plus-services-inc"
+    }
+  },
+  {
+    "id": "38ba5efb-33c5-4790-828f-14a79179268f",
+    "name": "Сантехник, электрик",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+16464284810"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "14bdf950-20c9-4708-b68c-0e7536c7d2b2",
+    "name": "умный дом",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+13476940245"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "cf2e485e-c7eb-4a8d-b4bf-08fee503e0a8",
+    "name": "Электрические работы",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+13474958651"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "cd34b987-76b0-43a3-9ff5-ffde4f5c491e",
+    "name": "автоэлектрик",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+15039138293"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "899c64f2-4140-4882-9e2f-4b8f17457e98",
+    "name": "Профессиональный электрик",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+17183826137"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b9ecb681-daca-428b-9708-478aab6ac856",
+    "name": "Chel Group Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "1204 West Northwest Highway",
+      "location_precision": "street",
+      "city": "Palatine",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Northwest%20Highway%201204%2C%20Palatine%2C%20IL",
+      "phone": "+18474525584"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "faba1e52-5794-4107-ab14-abb2c0522264",
+      "slug": "svoi-chel-group-realty"
+    }
+  },
+  {
+    "id": "1371d403-7a7d-43e0-a299-d9a8947b9841",
+    "name": "Yana Vilchynsky - Terra Property Group",
+    "changes": {},
+    "fill": {
+      "address_line": "2118 Brandywyn Ln",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brandywyn%20Ln%202118%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18477225774"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7c5a4306-961a-4f6b-b256-e412f6ab373a",
+      "slug": "svoi-yana-vilchynsky-terra-property-group"
+    }
+  },
+  {
+    "id": "2f9f1314-7c04-483c-923f-778f5dd27164",
+    "name": "Перепелицкая Клара",
+    "changes": {},
+    "fill": {
+      "address_line": "250 Parkway Drive",
+      "location_precision": "street",
+      "city": "Lincolnshire",
+      "state_code": "US-IL",
+      "postal_code": "60069",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Parkway%20Drive%20250%2C%20Lincolnshire%2C%20IL%2060069",
+      "phone": "+18474091493"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7bfec467-3ed7-45f9-8394-fdb89b528fb1",
+      "slug": "svoi-biz-5"
+    }
+  },
+  {
+    "id": "c70aff1c-544a-4565-aac2-26d066c3e2ad",
+    "name": "Royal Service Realty Home Sweet Home",
+    "changes": {},
+    "fill": {
+      "city": "602",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stratford%20Sq%2C%20602%2C%20Bloomingdale%2C%20IL%2060108",
+      "phone": "+16309247212"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "dae1fd91-344e-429e-a585-72d3f94854dd",
+    "name": "Gold & Azen Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "785 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20785%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474190007"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "99545dac-2692-4f47-83d6-e20c2f00b00b",
+      "slug": "svoi-gold-azen-realty"
+    }
+  }
+]

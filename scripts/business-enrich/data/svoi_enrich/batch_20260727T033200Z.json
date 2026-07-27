@@ -1,0 +1,1235 @@
+[
+  {
+    "id": "a01904a0-2dd1-4336-97f7-544feda33a9f",
+    "name": "GT Performance Inc.",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "2113 Columbia Park Drive",
+      "location_precision": "street",
+      "city": "Edgewood",
+      "state_code": "US-MD",
+      "postal_code": "21040",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Columbia%20Park%20Drive%202113%2C%20Edgewood%2C%20MD%2021040",
+      "website": "http://gtperformanceinc.com/",
+      "phone": "+14105383400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d998fbb-ddc9-44a8-9424-da1970473aa2",
+      "slug": "svoi-gt-performance-inc"
+    }
+  },
+  {
+    "id": "bb54084d-7305-4bea-8b59-83668ce68aa8",
+    "name": "Access Driving Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "3460 Olney Laytonsville Road",
+      "location_precision": "street",
+      "city": "Olney",
+      "state_code": "US-MD",
+      "postal_code": "20832",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Olney%20Laytonsville%20Road%203460%2C%20Olney%2C%20MD%2020832",
+      "website": "http://www.accessdrivingacademy.com",
+      "phone": "+13015706400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "171c163c-a6f8-4d3f-9436-0cdb3f5a6164",
+      "slug": "svoi-access-driving-academy"
+    }
+  },
+  {
+    "id": "f568a5a6-3f5a-4695-b83c-6c7f1fdfdf23",
+    "name": "Nataly Transportation",
+    "changes": {},
+    "fill": {
+      "address_line": "7 Tartan Court",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tartan%20Court%207%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14108339140"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "01c4e55e-7cc0-418a-a1c2-e24abc1973af",
+      "slug": "svoi-nataly-transportation"
+    }
+  },
+  {
+    "id": "12ec1eb3-22f6-40be-9f0c-bbfb2cff9971",
+    "name": "V and L Van Services Co Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "7620 Carla Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Carla%20Road%207620%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14106023427"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "32f14ced-a576-4360-9dda-cf1c40b1af21",
+      "slug": "svoi-v-and-l-van-services-co-inc"
+    }
+  },
+  {
+    "id": "47d818bd-ff66-4047-9742-d725ec6b0b40",
+    "name": "Sky Star Inc.",
+    "changes": {},
+    "fill": {
+      "city": "MD 21202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Baltimore%2C%20MD%2021202",
+      "website": "http://skystarinc.com",
+      "phone": "+14438446703"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "ba591d9b-6d67-4ae8-9f41-2d6e156bd7ed",
+    "name": "Простоквашино",
+    "changes": {},
+    "fill": {
+      "address_line": "5412 Marlin Street",
+      "location_precision": "street",
+      "city": "Aspen Hill",
+      "state_code": "US-MD",
+      "postal_code": "20853",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Marlin%20Street%205412%2C%20Aspen%20Hill%2C%20MD%2020853",
+      "website": "http://www.prostodc.com",
+      "phone": "+12404839801",
+      "email": "info@prostodc.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bef72c9d-9c94-431d-a46a-064d3b001005",
+      "slug": "svoi-biz-72"
+    }
+  },
+  {
+    "id": "9522fde9-6c12-4456-84b9-e47e244deff3",
+    "name": "Russian Maryland Cultural Center (RMCC) Matryoshka",
+    "changes": {},
+    "fill": {
+      "address_line": "6151 Day Long Lane",
+      "location_precision": "street",
+      "city": "Colombia",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Day%20Long%20Lane%206151%2C%20Colombia%2C%20MD",
+      "phone": "+14435274375"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f6d74573-4a0b-4f88-b247-46314017531f",
+      "slug": "svoi-russian-maryland-cultural-center-rmcc-matryoshka"
+    }
+  },
+  {
+    "id": "638c7272-d12d-415f-a49e-5720496afec2",
+    "name": "Emilia's Acrobatics & Gymnastics Training Center",
+    "changes": {},
+    "fill": {
+      "address_line": "9525 Berger Road",
+      "location_precision": "street",
+      "city": "Colombia",
+      "state_code": "US-MD",
+      "postal_code": "21046",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Berger%20Road%209525%2C%20Colombia%2C%20MD%2021046",
+      "website": "http://eagcgym.com",
+      "phone": "+14103817565",
+      "instagram_url": "https://www.instagram.com/EAGCgym",
+      "email": "info@eagcgym.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "85a5a428-1197-4ba7-94de-f10194431fa0",
+      "slug": "svoi-emilia-s-acrobatics-gymnastics-training-center"
+    }
+  },
+  {
+    "id": "5beb8fc3-8b33-485f-8705-f9af6122402d",
+    "name": "Lebowitz & Mzhen",
+    "changes": {},
+    "fill": {
+      "address_line": "9 Park Center Ct",
+      "location_precision": "street",
+      "city": "Harrison",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Center%20Ct%209%2C%20Harrison%2C%20MD%2021117",
+      "website": "http://www.marylandinjurylawyer.net",
+      "phone": "+14106543602"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "50087291-1820-4ccb-95cd-49b29d35c3a3",
+      "slug": "svoi-lebowitz-mzhen"
+    }
+  },
+  {
+    "id": "2f7797e1-14a4-4fc4-a37d-58ccfa5e4052",
+    "name": "Long & Foster Realtors",
+    "changes": {},
+    "fill": {
+      "address_line": "8737 COLESVILLE RD",
+      "location_precision": "street",
+      "city": "Силвер-Спринг",
+      "state_code": "US-MD",
+      "postal_code": "20910",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=COLESVILLE%20RD%208737%2C%20%D0%A1%D0%B8%D0%BB%D0%B2%D0%B5%D1%80-%D0%A1%D0%BF%D1%80%D0%B8%D0%BD%D0%B3%2C%20MD%2020910",
+      "website": "https://www.longandfoster.com",
+      "phone": "+13016504400"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ca228c2-d63a-41cf-b6b1-71a049408093",
+      "slug": "svoi-long-foster-realtors"
+    }
+  },
+  {
+    "id": "f6b14d8c-527a-46f8-b22c-759bff90c569",
+    "name": "AmericanRealtor - Vitaly Petrov",
+    "changes": {},
+    "fill": {
+      "address_line": "1600 Elton Road",
+      "location_precision": "street",
+      "city": "Millersville",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elton%20Road%201600%2C%20Millersville%2C%20MD%20hington%20DC%20Russi",
+      "website": "http://www.americanrealtor.us",
+      "phone": "+14434499883"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cc9c58e0-ea93-464a-851c-0b1eeed71ecd",
+      "slug": "svoi-americanrealtor-vitaly-petrov"
+    }
+  },
+  {
+    "id": "b56107ce-ffdd-49cf-9d46-f492a59c82e2",
+    "name": "Long & Foster Real Estate, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "321 Main Street",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%20%20321%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14108335400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bee8ee31-d394-4461-9676-730537cc58cc",
+      "slug": "svoi-long-foster-real-estate-inc"
+    }
+  },
+  {
+    "id": "dc00afa9-0caf-4ed7-8dba-88797c9e3c1e",
+    "name": "Electric Contractor- Armelcom",
+    "changes": {},
+    "fill": {
+      "address_line": "4611 Coachway",
+      "location_precision": "street",
+      "city": "North Bethesda",
+      "state_code": "US-MD",
+      "postal_code": "20852",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coachway%204611%2C%20North%20Bethesda%2C%20MD%2020852",
+      "website": "http://www.armelcom.com",
+      "phone": "+13012548513",
+      "yelp_url": "https://www.yelp.com/biz/armelcom-rockville",
+      "email": "info@armelcom.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "91f91f5d-0ee6-47e6-a513-05ffb0de830c",
+      "slug": "svoi-electric-contractor-armelcom"
+    }
+  },
+  {
+    "id": "cdf3bd6b-f7a1-4732-bdda-65bb1cb0a739",
+    "name": "Patriot Electric",
+    "changes": {},
+    "fill": {
+      "address_line": "238 Chartley Drive",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chartley%20Drive%20238%2C%20Reisterstown%2C%20MD%20yland%20%28MD%29",
+      "phone": "+14103569554"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "647df8e7-86ae-4eaf-8198-6a7013aaf060",
+      "slug": "svoi-patriot-electric"
+    }
+  },
+  {
+    "id": "4bb062e5-9384-47b5-b831-b6acc788c37a",
+    "name": "Kolb Electric",
+    "changes": {},
+    "fill": {
+      "address_line": "6774 Dorsey Road",
+      "location_precision": "street",
+      "city": "Elkridge",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dorsey%20Road%206774%2C%20Elkridge%2C%20MD",
+      "website": "https://kolbelectric.com",
+      "phone": "+14105795800",
+      "postal_code": "20879"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4a4e54d0-713d-4ed3-b889-9d0588196144",
+      "slug": "svoi-kolb-electric"
+    }
+  },
+  {
+    "id": "571a8a56-f2b5-4443-8506-720bf553ceb5",
+    "name": "Edward's Heating and Air Conditioning",
+    "changes": {},
+    "fill": {
+      "address_line": "12132 Velvet Hill Drive",
+      "location_precision": "street",
+      "city": "Glyndon",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Velvet%20Hill%20Drive%2012132%2C%20Glyndon%2C%20MD%20timore",
+      "phone": "+14438650288"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "55208dfa-8da2-49d1-98f1-e5cc2a36f913",
+      "slug": "svoi-edward-s-heating-and-air-conditioning"
+    }
+  },
+  {
+    "id": "27a1705b-6c73-4ec2-8efd-7597a17d45fc",
+    "name": "Susanna Salon & Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "1334 East Gude Drive",
+      "location_precision": "street",
+      "city": "Rockville",
+      "state_code": "US-MD",
+      "postal_code": "20850",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Gude%20Drive%201334%2C%20Rockville%2C%20MD%2020850",
+      "website": "http://www.susannasalonandspa.com",
+      "phone": "+12406147519"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06c42611-815b-4d6f-9928-5cfc4c560bb9",
+      "slug": "svoi-susanna-salon-spa"
+    }
+  },
+  {
+    "id": "06e16828-7424-4bd9-b924-aba609c5a65b",
+    "name": "Hair Systems",
+    "changes": {},
+    "fill": {
+      "address_line": "5214 Randolph Road",
+      "location_precision": "street",
+      "city": "North Bethesda",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Randolph%20Road%205214%2C%20North%20Bethesda%2C%20MD",
+      "phone": "+13018810338"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2367ff7e-eeff-4900-86b4-8d659803c302",
+      "slug": "svoi-hair-systems"
+    }
+  },
+  {
+    "id": "ebdc7b0e-38ea-448e-83db-e99f55745acf",
+    "name": "Enigma Day Spa & Welness",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "website": "http://www.enigmadayspa.com",
+      "phone": "+14109615353"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "744c6165-d6a6-4468-9e93-8999fc51cd47",
+      "slug": "svoi-enigma-day-spa-welness"
+    }
+  },
+  {
+    "id": "12f6ae9d-e6eb-47aa-bc41-fa13ae096116",
+    "name": "Ирина",
+    "changes": {},
+    "fill": {
+      "address_line": "11 Warren Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Warren%20Road%2011%2C%20Pikesville%2C%20MD",
+      "phone": "+14436684150"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5aed61d1-068f-4100-88f3-e8cbf730c31c",
+      "slug": "svoi-biz-73"
+    }
+  },
+  {
+    "id": "2cabadfd-17d0-4584-9abf-a4539fbedcb2",
+    "name": "Русскоговорящий страховой агент Игорь Черняк",
+    "changes": {},
+    "fill": {
+      "address_line": "18213 Flower Hill Way",
+      "location_precision": "street",
+      "city": "Redland",
+      "state_code": "US-MD",
+      "postal_code": "20879",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Flower%20Hill%20Way%2018213%2C%20Redland%2C%20MD%2020879",
+      "phone": "+12402525035"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "677b4a52-913a-4b2f-847c-01bf5d54e344",
+      "slug": "svoi-biz-74"
+    }
+  },
+  {
+    "id": "acdbb74c-1d41-4723-9d53-df2426d67b2e",
+    "name": "Central Atlantic Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "11710 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%2011710%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14105262616"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e111baa2-d7e4-4d8e-8152-a27bb9e9ead5",
+      "slug": "svoi-central-atlantic-insurance-agency"
+    }
+  },
+  {
+    "id": "9234295f-b85f-4e3d-aa35-bcd27d7904ea",
+    "name": "Jeffrey Griffin - - Reisterstown Insurance Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "11710 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%20%2011710%20%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14105264200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b87d984e-babd-409f-8338-0cd711428ca8",
+      "slug": "svoi-jeffrey-griffin-reisterstown-insurance-agent"
+    }
+  },
+  {
+    "id": "45710745-5016-4af5-8f0e-9fc97a102e42",
+    "name": "A and A Travel - Anna Toporovsky",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "website": "http://annatoporovsky.com",
+      "phone": "+14105260290",
+      "email": "annatoporovsky@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "ae55c6b4-d823-4be9-8b24-c33f3d767aaa",
+    "name": "Marshrutka",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "website": "http://www.marshrutka.com/index.php/ru",
+      "phone": "+13019284199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "e8d845c7-a497-46d2-980e-7aa7c92774ac",
+    "name": "Компания Vera's Co",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "phone": "+13019262885"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1b3570bc-5ad7-40ce-b82b-e00a41909897",
+    "name": "Переводчик и нотариус Shell Enterprises",
+    "changes": {},
+    "fill": {
+      "address_line": "939 Cromwell Bridge Road",
+      "location_precision": "street",
+      "city": "Tauson",
+      "state_code": "US-MD",
+      "postal_code": "21286",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cromwell%20Bridge%20Road%20939%2C%20Tauson%2C%20MD%2021286",
+      "phone": "+14108828721"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "3e642786-ced2-40e9-8e1c-c46187004534",
+      "slug": "svoi-shell-enterprises"
+    }
+  },
+  {
+    "id": "4a816bb2-12c0-439e-858a-a7059e322f08",
+    "name": "Инна Браславская",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Baltimore%2C%20MD",
+      "phone": "+14105260598"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "141d3986-b70d-406b-88d9-1f2355a52c49",
+    "name": "Russian/English Language Tutor/Interpreter/Translator",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Baltimore%2C%20MD",
+      "phone": "+14438139637"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "add47b0e-55eb-4e56-9e3b-cfbd1a3bd909",
+    "name": "Unified Moving Services",
+    "changes": {},
+    "fill": {
+      "address_line": "2013 Beaver Rd",
+      "location_precision": "street",
+      "city": "Грэйтер Ландовер",
+      "state_code": "US-MD",
+      "postal_code": "20785",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beaver%20Rd%202013%2C%20%D0%93%D1%80%D1%8D%D0%B9%D1%82%D0%B5%D1%80%20%D0%9B%D0%B0%D0%BD%D0%B4%D0%BE%D0%B2%D0%B5%D1%80%2C%20MD%2020785",
+      "website": "http://www.unifiedmovingservices.com",
+      "phone": "+18004061649"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d350078c-4f8e-4b56-88b6-826de61bb5c7",
+      "slug": "svoi-unified-moving-services"
+    }
+  },
+  {
+    "id": "01729a7d-bcac-43bb-9e15-589a5d65ce2a",
+    "name": "Advance Relocation",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "website": "https://www.advancerelo.com",
+      "phone": "+18884474244",
+      "address_line": "11500 Crossroads Circle",
+      "location_precision": "street",
+      "postal_code": "21220",
+      "instagram_url": "https://www.instagram.com/advancerelocationsystems",
+      "email": "info@advancerelo.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "937a1b17-095b-4436-bfa3-869c2c8ad228",
+      "slug": "svoi-advance-relocation"
+    }
+  },
+  {
+    "id": "a1d9bd6b-ac9e-4cd7-9b64-a27b60049884",
+    "name": "Braun Moving",
+    "changes": {},
+    "fill": {
+      "address_line": "11717 Greenspring Avenue",
+      "location_precision": "street",
+      "city": "Sparks",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenspring%20Avenue%2011717%2C%20Sparks%2C%20MD",
+      "phone": "+14432509492"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "280cccd9-a46a-4bbc-a980-29ae21548c72",
+      "slug": "svoi-braun-moving"
+    }
+  },
+  {
+    "id": "f4ce7dbc-ebb7-4eb8-833a-fecdf51e41a2",
+    "name": "Wedding and Evening Gowns",
+    "changes": {},
+    "fill": {
+      "address_line": "21204 Owings Mills Boulevard",
+      "location_precision": "street",
+      "city": "Glyndon",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Owings%20Mills%20Boulevard%2021204%2C%20Glyndon%2C%20MD",
+      "phone": "+14434653273"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ad10769-7e19-45da-8d0c-fdd668900912",
+      "slug": "svoi-wedding-and-evening-gowns"
+    }
+  },
+  {
+    "id": "12877fed-4230-419f-8238-a5b336277fbc",
+    "name": "Luda's Tailoring",
+    "changes": {},
+    "fill": {
+      "address_line": "25 Hooks Lane",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hooks%20Lane%2025%2C%20Pikesville%2C%20MD",
+      "phone": "+14106020150"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "313a07b8-468b-42ea-828f-0a315935a1ed",
+      "slug": "svoi-luda-s-tailoring"
+    }
+  },
+  {
+    "id": "de70f40c-3b0e-4a49-96bb-e24aa7f47828",
+    "name": "Zinaida Shvartsman",
+    "changes": {},
+    "fill": {
+      "address_line": "3 Willwood Court",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Willwood%20Court%203%2C%20Pikesville%2C%20MD",
+      "phone": "+14104846799"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "29b82cfb-84a6-4cbb-89ba-04bbc7d629e7",
+      "slug": "svoi-zinaida-shvartsman"
+    }
+  },
+  {
+    "id": "f359eb4a-02d9-4377-8018-a84e13201172",
+    "name": "Dave's Portrait Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "914 East-West Highway",
+      "location_precision": "street",
+      "city": "Tacoma Park",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East-West%20Highway%20914%2C%20Tacoma%20Park%2C%20MD",
+      "phone": "+13012708350"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "187a1107-64f3-4ebd-9be1-db109563307c",
+      "slug": "svoi-dave-s-portrait-studio"
+    }
+  },
+  {
+    "id": "3a0a1969-0600-4e50-8648-edcc06ed2940",
+    "name": "Oleg's Video & Photo",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "phone": "+14105269290"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "904549f4-65ee-470c-8c87-5b4865dc653c",
+    "name": "Photography by Katya Chilingiri",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Millersville%2C%20MD",
+      "website": "http://www.katyachilingiri.com",
+      "phone": "+14438129003"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0f2f4cab-f9a1-4bf0-bd94-56704d297048",
+    "name": "Alexander Shvartsman",
+    "changes": {},
+    "fill": {
+      "address_line": "3763 Stepping Stone Lane",
+      "location_precision": "street",
+      "city": "Fairland",
+      "state_code": "US-MD",
+      "postal_code": "20866",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stepping%20Stone%20Lane%203763%2C%20Fairland%2C%20MD%2020866",
+      "phone": "+13018473667"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6a60cb1d-4cea-48da-a381-d3559a5249b5",
+      "slug": "svoi-alexander-shvartsman"
+    }
+  },
+  {
+    "id": "75e332d2-5a59-4637-94c2-975c27db3e8e",
+    "name": "Александр Турецкий / Alexander Turetsky, C.P.A. candidate",
+    "changes": {},
+    "fill": {
+      "city": "MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Baltimore%2C%20MD",
+      "phone": "+14104848679"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "c5c06162-28b0-42ac-90eb-2bf5a095c1ce",
+    "name": "Irina Spector-Kantorovich Chief Executive Officer",
+    "changes": {},
+    "fill": {
+      "address_line": "4 Park Center Court",
+      "location_precision": "street",
+      "city": "Harrison",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Center%20Court%204%2C%20Harrison%2C%20MD%2021117",
+      "phone": "+18775531275"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7f0df287-6fd3-40b3-a603-eec1b11e93ff",
+      "slug": "svoi-irina-spector-kantorovich-chief-executive-office"
+    }
+  },
+  {
+    "id": "2ecbb4eb-7813-4b3e-abe5-8105131c4ba5",
+    "name": "CIC Wealth",
+    "changes": {},
+    "fill": {
+      "address_line": "25 Crossroads Drive",
+      "location_precision": "street",
+      "city": "Harrison",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Crossroads%20Drive%20%20%2025%2C%20Harrison%2C%20MD%2021117",
+      "phone": "+14103634683"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "03fe5cfb-9eba-4c68-9ca0-31994ddb605e",
+      "slug": "svoi-cic-wealth"
+    }
+  },
+  {
+    "id": "b2228b67-fe8d-4447-baf0-814fb8a86b20",
+    "name": "Алекс Гузман",
+    "changes": {},
+    "fill": {
+      "address_line": "107 Sudbrook Lane",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sudbrook%20Lane%20107%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14104863333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6020c3af-0ace-4128-a37f-4f3bb1b85f04",
+      "slug": "svoi-biz-75"
+    }
+  },
+  {
+    "id": "cf145809-e970-4d96-acf8-884e0521f0b3",
+    "name": "Currency Exchange International",
+    "changes": {},
+    "fill": {
+      "address_line": "7000 Arundel Mills Circle",
+      "location_precision": "street",
+      "city": "Хановер",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=7000%20Arundel%20Mills%20Circle%2C%20%D0%A5%D0%B0%D0%BD%D0%BE%D0%B2%D0%B5%D1%80%2C%20MD",
+      "phone": "+18889983948"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ace5f98-e5b1-484a-81b8-6ca5572808b4",
+      "slug": "svoi-currency-exchange-international"
+    }
+  },
+  {
+    "id": "94397d4b-65ef-4fb2-8d0f-c1dec51d2c1e",
+    "name": "Магазин International Beer, Wine and Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "912 East-West Highway",
+      "location_precision": "street",
+      "city": "Tacoma Park",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East-West%20Highway%20912%2C%20Tacoma%20Park%2C%20MD",
+      "phone": "+13018911316"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ea46775-2150-456c-b940-7a4f3b9aaeef",
+      "slug": "svoi-international-beer-wine-and-deli"
+    }
+  },
+  {
+    "id": "6282efa8-a1b1-45c2-9232-ae0dcbad85cd",
+    "name": "Global Gourmet",
+    "changes": {},
+    "fill": {
+      "address_line": "128 Chartley Drive",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chartley%20Drive%20128%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14105173033"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ee98f826-6efa-4478-8390-2925cd0c2f4f",
+      "slug": "svoi-global-gourmet"
+    }
+  },
+  {
+    "id": "501410ac-678a-4299-8303-658628545ec3",
+    "name": "Synopsys - Ludmila Klimkina",
+    "changes": {},
+    "fill": {
+      "address_line": "10440 Little Patuxent Parkway Suite 300",
+      "location_precision": "street",
+      "city": "Мэриленд Сити",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10440%20Little%20Patuxent%20Parkway%20Suite%20300%2C%20%D0%9C%D1%8D%D1%80%D0%B8%D0%BB%D0%B5%D0%BD%D0%B4%20%D0%A1%D0%B8%D1%82%D0%B8%2C%20MD",
+      "website": "https://www.synopsys.com",
+      "phone": "+16505845000",
+      "instagram_url": "https://www.instagram.com/synopsyslife"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9c1e56f9-a6ff-4385-b396-4b74c9caa73e",
+      "slug": "svoi-synopsys-ludmila-klimkina"
+    }
+  },
+  {
+    "id": "3d871593-e45d-4ab0-9825-d305d7218d0c",
+    "name": "Магазин Miki's Treasures",
+    "changes": {},
+    "fill": {
+      "address_line": "1532 Liberty Road",
+      "location_precision": "street",
+      "city": "Eldersberg",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Liberty%20Road%201532%2C%20Eldersberg%2C%20MD",
+      "website": "http://mikistreasures.com",
+      "phone": "+14107957782"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8dfef510-ce2e-456b-9458-3ee4ff588765",
+      "slug": "svoi-miki-s-treasures"
+    }
+  },
+  {
+    "id": "d314804a-a38c-4474-9070-9f6fe8350750",
+    "name": "Rukodelnitsa Club",
+    "changes": {},
+    "fill": {
+      "address_line": "552 Kennington Road",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kennington%20Road%20552%2C%20Reisterstown%2C%20MD",
+      "phone": "+14436227400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d6668bea-79de-48e9-abba-ad699c348237",
+      "slug": "svoi-rukodelnitsa-club"
+    }
+  },
+  {
+    "id": "d6540b55-4a83-4947-8346-c6060f8ef55c",
+    "name": "Antony Jewelers",
+    "changes": {},
+    "fill": {
+      "address_line": "9720 Groffs Mill Dr",
+      "location_precision": "street",
+      "city": "Owings Mills",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Groffs%20Mill%20Dr%209720%2C%20Owings%20Mills%2C%20MD%2021117",
+      "website": "http://www.antonyjewelers.com",
+      "phone": "+14105813679",
+      "instagram_url": "https://www.instagram.com/antonyjewelers"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4587f880-8d51-4d77-8211-4b32e37c52a2",
+      "slug": "svoi-antony-jewelers"
+    }
+  }
+]

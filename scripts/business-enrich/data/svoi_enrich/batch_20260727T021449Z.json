@@ -1,0 +1,467 @@
+[
+  {
+    "id": "640a4422-057b-479c-b764-1bd4c057fe34",
+    "name": "Газета Земляки",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "5440 Fargo Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fargo%20Avenue%205440%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+17736983072"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3e1a740f-792c-4050-a8f7-5a69c8e2d032",
+      "slug": "svoi-biz-18"
+    }
+  },
+  {
+    "id": "1b0ba745-b503-45f0-8ecb-f24cd187ba62",
+    "name": "Third Eye Magazine",
+    "changes": {},
+    "fill": {
+      "address_line": "4948 West Irving Park Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60641",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Irving%20Park%20Road%204948%2C%20Chicago%2C%20IL%2060641",
+      "phone": "+18472088773"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7206000c-d0b0-4cd2-8bdf-fc7b9a0a18b6",
+      "slug": "svoi-third-eye-magazine"
+    }
+  },
+  {
+    "id": "51f8e7f6-f261-4950-8b58-cf8f675663a2",
+    "name": "VS Modern Media Group, Inc",
+    "changes": {},
+    "fill": {
+      "city": "IL 60610",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%2060610",
+      "phone": "+17738440401"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "378745f5-afb0-446d-b4a7-c16935406faf",
+    "name": "A Express Moving and Delivery",
+    "changes": {},
+    "fill": {
+      "address_line": "Severn Court",
+      "location_precision": "street",
+      "city": "Naperville",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Severn%20Court%2C%20Naperville%2C%20IL",
+      "phone": "+17735079293"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "72b1f05d-7b3f-4591-9848-96edaa44bd43",
+      "slug": "svoi-a-express-moving-and-delivery"
+    }
+  },
+  {
+    "id": "e7a4d129-1fae-4f70-8453-b1e4f9016853",
+    "name": "Fortune Moving and Delivery Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "Severn Court",
+      "location_precision": "street",
+      "city": "Naperville",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Severn%20Court%2C%20Naperville%2C%20IL",
+      "phone": "+18479626563"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "de041d5b-0036-48d9-bff3-f603f4efcd89",
+      "slug": "svoi-fortune-moving-and-delivery-inc"
+    }
+  },
+  {
+    "id": "9f09724b-9568-4020-a6fe-d45f240a4f6e",
+    "name": "Sams Delivery and Moving",
+    "changes": {},
+    "fill": {
+      "address_line": "Severn Court",
+      "location_precision": "street",
+      "city": "Naperville",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Severn%20Court%2C%20Naperville%2C%20IL",
+      "phone": "+17737611423"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2a235bb3-3e8f-4d57-9cbf-3c79b8c6fe71",
+      "slug": "svoi-sams-delivery-and-moving"
+    }
+  },
+  {
+    "id": "b0115c38-9ad7-4466-b248-3d9757af59fa",
+    "name": "Wheeling Transportation Co., Inc.",
+    "changes": {},
+    "fill": {
+      "city": "IL 2120",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Inverness%2C%20IL%202120",
+      "website": "http://www.wheelingtrans.com",
+      "phone": "+18479349299",
+      "address_line": "2120 Rand Road",
+      "location_precision": "street",
+      "state_code": "US-IL",
+      "postal_code": "60074"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a72b7e4a-d487-433d-935f-8e1a68d6b22b",
+      "slug": "svoi-wheeling-transportation-co-inc"
+    }
+  },
+  {
+    "id": "291464c9-ff9e-461f-ae97-b22bf55a309b",
+    "name": "KA Logistics",
+    "changes": {},
+    "fill": {
+      "address_line": "14459 Stately Oaks Circle",
+      "location_precision": "street",
+      "city": "Homer glen",
+      "state_code": "US-IL",
+      "postal_code": "60491",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stately%20Oaks%20Circle%2014459%2C%20Homer%20glen%2C%20IL%2060491",
+      "phone": "+18007095595"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "44d68c16-221d-4814-b0d7-64801e132916",
+      "slug": "svoi-ka-logistics"
+    }
+  },
+  {
+    "id": "46e3d1c4-812b-446e-a4c3-9a9123830409",
+    "name": "Moving Services IL",
+    "changes": {},
+    "fill": {
+      "address_line": "240 Raupp Boulevard",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Raupp%20Boulevard%20240%2C%20Buffalo%20grove%2C%20IL%20%2060089",
+      "phone": "+12245957701"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "765cb6ce-6c59-464c-bbee-bed0c8851679",
+      "slug": "svoi-moving-services-il"
+    }
+  },
+  {
+    "id": "40f79798-3ecd-4d18-9416-a2dc699146d3",
+    "name": "ECOSMART TRUCKS CO",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rolling%20Meadows%2C%20IL%20ted%20States",
+      "phone": "+17733229193"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5ecf18dd-deff-4340-89e7-b3dc602dc00e",
+    "name": "Orest Express",
+    "changes": {},
+    "fill": {
+      "address_line": "221 Joey Drive",
+      "location_precision": "street",
+      "city": "Elk Grove Village",
+      "state_code": "US-IL",
+      "postal_code": "60007",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Joey%20Drive%20221%2C%20Elk%20Grove%20Village%2C%20IL%2060007",
+      "phone": "+16303766373"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5245b3ec-8a99-42ab-b429-8e2d3961e8e4",
+      "slug": "svoi-orest-express"
+    }
+  },
+  {
+    "id": "ff2d7845-aa40-440e-9030-b1e9585d11f0",
+    "name": "Cross-docking 24/7",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hodgkins%2C%20IL%20ted%20States",
+      "phone": "+17572158949"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "f259ba03-3ad7-4c91-8fc2-37a2fa73efa4",
+    "name": "Roy Movers",
+    "changes": {},
+    "fill": {
+      "address_line": "9934 Wilson Avenue",
+      "location_precision": "street",
+      "city": "Schiller Park",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilson%20Avenue%209934%2C%20Schiller%20Park%2C%20IL",
+      "phone": "+18476711554"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7db473b6-0d29-48a6-ab3d-26de5d9b1e8b",
+      "slug": "svoi-roy-movers"
+    }
+  },
+  {
+    "id": "1d658d96-f41c-45c7-9827-93e8b5e41ec7",
+    "name": "John Galt Group",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=River%20grove%2C%20IL%20ted%20States",
+      "phone": "+18889587563"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "917d77ce-dc3a-416e-978a-8406bda98e76",
+    "name": "DVL Express Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "1346 Hannah Avenue",
+      "location_precision": "street",
+      "city": "Forest Park",
+      "state_code": "US-IL",
+      "postal_code": "60130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hannah%20Avenue%201346%2C%20Forest%20Park%2C%20IL%2060130",
+      "phone": "+13125329523"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e9b2f02a-eada-4699-b9b0-b62f1222b647",
+      "slug": "svoi-dvl-express-inc"
+    }
+  },
+  {
+    "id": "8842e2f8-36b0-4753-8b77-60b3cee50583",
+    "name": "Brite Logistics",
+    "changes": {},
+    "fill": {
+      "address_line": "5000 S Homan Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60632",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Homan%20Ave%205000%2C%20Chicago%2C%20IL%2060632",
+      "website": "http://www.britelogistics.com",
+      "phone": "+13128466858",
+      "instagram_url": "https://www.instagram.com/britelogistics"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a1979b68-75cc-4386-8067-15edca09887b",
+      "slug": "svoi-brite-logistics"
+    }
+  },
+  {
+    "id": "94468809-704e-4793-9dbe-77d2d7b9998e",
+    "name": "Trade Movers Corp",
+    "changes": {},
+    "fill": {
+      "address_line": "1647 S Blue Island Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60608",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Blue%20Island%20Ave%201647%2C%20Chicago%2C%20IL%2060608",
+      "phone": "+18556966833"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5f079a5d-78ef-44ae-8fe6-9a44849de1ec",
+      "slug": "svoi-trade-movers-corp"
+    }
+  },
+  {
+    "id": "d68b891b-f5b2-4cc5-8f3a-6b3b71dd2b19",
+    "name": "Sams Moving and Delivery",
+    "changes": {},
+    "fill": {
+      "address_line": "78 E Washington St",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60602",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E%20Washington%20St%2078%20%2C%20Chicago%2C%20IL%2060602",
+      "website": "http://samsmoving.com",
+      "phone": "+18472782260"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "126fba09-b3dc-4c83-8c19-02c93fff5c39",
+      "slug": "svoi-sams-moving-and-delivery"
+    }
+  },
+  {
+    "id": "525ddbbd-71c4-4c52-bbf4-010a0f8074b4",
+    "name": "A&IN Group, LLC",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17739900903"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "93c6e475-7003-4433-874f-32fdfa350db0",
+    "name": "Transport company CDL",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "phone": "+17737176602"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

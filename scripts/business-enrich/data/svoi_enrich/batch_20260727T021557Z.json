@@ -1,0 +1,442 @@
+[
+  {
+    "id": "02abbe7c-1a7b-4444-a7c2-26ed569ea677",
+    "name": "Duct Cleaning Group",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "647 North Central Avenue",
+      "location_precision": "street",
+      "city": "Wood dale",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Central%20Avenue%20647%2C%20Wood%20dale%2C%20IL",
+      "phone": "+18472938880"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f1fe747b-e798-4d62-8803-6ef7b479939d",
+      "slug": "svoi-duct-cleaning-group"
+    }
+  },
+  {
+    "id": "6d6a6441-bf2f-4637-975e-fdbdcb21bd6b",
+    "name": "AHR Ozon Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "4032 Tower Circle",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tower%20Circle%204032%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18479221677"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d08e67e-935a-4d80-9663-7260b4961ea8",
+      "slug": "svoi-ahr-ozon-inc"
+    }
+  },
+  {
+    "id": "eb72502f-9316-4063-bc24-a8e58bbc8493",
+    "name": "American Vintage Home Heating",
+    "changes": {},
+    "fill": {
+      "address_line": "1523 Payne Street",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Payne%20Street%201523%2C%20Evanston%2C%20IL",
+      "phone": "+18472515255"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c58f7d6f-69a2-44ed-8c19-8ad23b18a719",
+      "slug": "svoi-american-vintage-home-heating"
+    }
+  },
+  {
+    "id": "c8ee14b9-e614-40c2-a8df-a3b40c879163",
+    "name": "Comfort Temperature Systems",
+    "changes": {},
+    "fill": {
+      "address_line": "8221 N Kimball Rd.",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Kimball%20Rd.%208221%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18476763550"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3d53b57f-894f-4963-909f-d9fd1bb80299",
+      "slug": "svoi-comfort-temperature-systems"
+    }
+  },
+  {
+    "id": "ecb892ca-9c5d-4592-9b32-f3c7530bce9e",
+    "name": "Alliance Consulting",
+    "changes": {},
+    "fill": {
+      "address_line": "830 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20830%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474970656"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "146eab5f-b907-432a-ab1f-1255075ba73f",
+      "slug": "svoi-alliance-consulting"
+    }
+  },
+  {
+    "id": "667a4534-9118-46fb-9a00-2ecc5a184629",
+    "name": "Fikrat Consulting Inc.",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wheeling%2C%20IL",
+      "website": "http://www.fikratconsulting.com",
+      "phone": "+18474950255",
+      "email": "info@fikratconsulting.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "33974fba-5f4a-4fd5-b142-353733ee95e2",
+    "name": "Natalia А.",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arlington%20heights%2C%20IL%20ted%20States",
+      "phone": "+18472088302"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "948b3d37-9575-434f-935d-f89fe11d9799",
+    "name": "Notary Consulting Group",
+    "changes": {},
+    "fill": {
+      "address_line": "325 Oak Creek Dr",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oak%20Creek%20Dr%20%20325%20%2C%20Wheeling%2C%20IL%20ted%20States",
+      "phone": "+18477222002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4b275429-2325-4d52-ae69-4bf15e67d0cc",
+      "slug": "svoi-notary-consulting-group"
+    }
+  },
+  {
+    "id": "eb5d3979-aaa8-4f0b-9cdf-059a2d5bb525",
+    "name": "Notary Public Service. Legaline International, LLC",
+    "changes": {},
+    "fill": {
+      "city": "IL 60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skoki%2C%20IL%2060076",
+      "phone": "+18473222786"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b95b66c1-800c-4fa8-8262-69c21b9d8407",
+    "name": "Russian City Bureau",
+    "changes": {},
+    "fill": {
+      "address_line": "6405 North California Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20California%20Avenue%206405%2C%20Chicago%2C%20IL",
+      "phone": "+17732620550"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6b6c8236-30a3-42f3-b54c-f249d54b805a",
+      "slug": "svoi-russian-city-bureau"
+    }
+  },
+  {
+    "id": "65f9453d-5c64-48db-a0a1-87e26a870e03",
+    "name": "Russian Interpretation Svc",
+    "changes": {},
+    "fill": {
+      "address_line": "920 West Lakeside Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Lakeside%20Avenue%20920%2C%20Chicago%2C%20IL",
+      "phone": "+13129335844"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "43aa727f-9a72-47df-b06c-21e21b3ee9bc",
+      "slug": "svoi-russian-interpretation-svc"
+    }
+  },
+  {
+    "id": "8e4942cc-67ee-4812-b12d-b90db3dd7a35",
+    "name": "Say It In Russian/Russian Type",
+    "changes": {},
+    "fill": {
+      "address_line": "1722 West Nelson Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Nelson%20Street%201722%2C%20Chicago%2C%20IL",
+      "phone": "+17734048016"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b3fe6ce6-e28b-41e2-bc6e-b901ae92f598",
+      "slug": "svoi-say-it-in-russian-russian-type"
+    }
+  },
+  {
+    "id": "93f2a3df-e685-498d-9fda-3e55a7832255",
+    "name": "Наталья Ганзенко",
+    "changes": {},
+    "fill": {
+      "address_line": "212 East Ohio Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60611",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Ohio%20Street%20212%2C%20Chicago%2C%20IL%2060611",
+      "phone": "+13129335370"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0970c9d8-13fd-41f2-822d-ffcfd6da57e3",
+      "slug": "svoi-biz-19"
+    }
+  },
+  {
+    "id": "524b7980-d670-4f11-8a12-eafb4d6b5cce",
+    "name": "Accurate Russian Ukrainian Translation Services",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17737908913"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8996359a-30c3-48ca-b45f-b50b999af3cb",
+    "name": "Prime Language Services",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "website": "http://www.foreigndocumenttranslation.com/faq",
+      "phone": "+19522209627"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "da49aa2c-26b9-4971-9dd3-44da1fcb923b",
+    "name": "Translation Center NOBBY",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+13612380008"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bb036bc9-919d-42ea-938e-16ba93b796b0",
+    "name": "Дмитрий Васильев",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+18478005302"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "0c49ec9c-b64a-43d8-9f88-b91c0c2d88d4",
+    "name": "Facial",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buffalo%20grove%2C%20IL%20ted%20States",
+      "phone": "+12243057464"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3b595919-53a8-4545-a1ea-65dcb90f999c",
+    "name": "Dr. Vladimir Panine, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2605 Lincoln Highway",
+      "location_precision": "street",
+      "city": "Olympia fields",
+      "state_code": "US-IL",
+      "postal_code": "60461",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Highway%202605%2C%20Olympia%20fields%2C%20IL%2060461",
+      "phone": "+17084819370"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6ffb74a5-51ba-4aa8-b847-abb4c98294c7",
+      "slug": "svoi-dr-vladimir-panine-md"
+    }
+  },
+  {
+    "id": "256f464b-3146-47ed-a4a1-cf52bca3c582",
+    "name": "Northern Illinois Plastic Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "950 North York Road",
+      "location_precision": "street",
+      "city": "Hinsdale",
+      "state_code": "US-IL",
+      "postal_code": "60521",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20York%20Road%20950%2C%20Hinsdale%2C%20IL%2060521",
+      "phone": "+16303232369"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e9a5bf4-cdc5-4766-9a71-c885dbf073ed",
+      "slug": "svoi-northern-illinois-plastic-surgery"
+    }
+  }
+]

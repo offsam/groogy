@@ -1,0 +1,495 @@
+[
+  {
+    "id": "48395add-3541-4cce-bed0-4ee95f974a22",
+    "name": "Айсен Лиза",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1204 North Holder Lane",
+      "location_precision": "street",
+      "city": "Northfield",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Holder%20Lane%201204%2C%20Northfield%2C%20IL%20ted%20States",
+      "phone": "+18475255820"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "0e872fb8-8150-4fcd-abbe-a9be6a859769",
+      "slug": "svoi-biz"
+    }
+  },
+  {
+    "id": "4dc37403-2e9e-43ba-84b5-d5fdd3df272a",
+    "name": "Alla Aizenberg at ReMax United",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glenview%2C%20IL",
+      "phone": "+18477788000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "80179a08-f975-49b5-86d7-d5ad5692a175",
+    "name": "Prime Realty Group",
+    "changes": {},
+    "fill": {
+      "address_line": "9651 N Milwuakee Ave",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Milwuakee%20Ave%209651%2C%20Niles%2C%20IL%2060714",
+      "phone": "+12246281469"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bdee0240-6a41-433a-baa3-f16ae6a7a729",
+      "slug": "svoi-prime-realty-group"
+    }
+  },
+  {
+    "id": "8de5e65d-d157-4cc6-b649-ace2192c2555",
+    "name": "Нападов Валерий",
+    "changes": {},
+    "fill": {
+      "address_line": "1245 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%201245%2C%20Glenview%2C%20IL%20nview",
+      "phone": "+18476579100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "994d0d7b-771e-4412-9fbe-ada1c8f20b73",
+      "slug": "svoi-biz-12"
+    }
+  },
+  {
+    "id": "f5a4191c-ea31-4a2b-a5ee-7a1821a4eb8b",
+    "name": "Царфис Мила",
+    "changes": {},
+    "fill": {
+      "address_line": "1245 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%201245%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18476121100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cff57f64-e9a1-44e8-be77-32fca03bf3fd",
+      "slug": "svoi-biz-13"
+    }
+  },
+  {
+    "id": "92eff7ee-77d8-42aa-8d9e-793b7afe1b89",
+    "name": "USA Realty Group - Alexander Savin",
+    "changes": {},
+    "fill": {
+      "address_line": "714 Enterprise Dr",
+      "location_precision": "street",
+      "city": "Ok brook",
+      "state_code": "US-IL",
+      "postal_code": "60523",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Enterprise%20Dr%20714%2C%20Ok%20brook%2C%20IL%2060523",
+      "website": "http://www.savinproperties.com",
+      "phone": "+17083694836"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d167a5a-0e69-412e-a0f2-effadb3c6e40",
+      "slug": "svoi-usa-realty-group-alexander-savin"
+    }
+  },
+  {
+    "id": "38673a4b-7ebc-4f98-a492-581133e9f69f",
+    "name": "AHA Realty North Shore",
+    "changes": {},
+    "fill": {
+      "address_line": "30 Green Bay Road",
+      "location_precision": "street",
+      "city": "Winnetka",
+      "state_code": "US-IL",
+      "postal_code": "60093",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Green%20Bay%20Road%2030%2C%20Winnetka%2C%20IL%2060093",
+      "phone": "+18478810200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f8484279-81ca-4685-aaa8-1f3f6f061344",
+      "slug": "svoi-aha-realty-north-shore"
+    }
+  },
+  {
+    "id": "382c60b9-0643-4850-8cb5-fbe05073e77e",
+    "name": "Re/Max Properties Northwest",
+    "changes": {},
+    "fill": {
+      "address_line": "37 South Prospect Avenue",
+      "location_precision": "street",
+      "city": "Park ridge",
+      "state_code": "US-IL",
+      "postal_code": "60068",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Prospect%20Avenue%2037%2C%20Park%20ridge%2C%20IL%2060068",
+      "website": "http://parkridgerealestate.com",
+      "phone": "+18476987000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "061a747d-1b8a-46bf-a7a8-be4f34dbd988",
+      "slug": "svoi-re-max-properties-northwest"
+    }
+  },
+  {
+    "id": "7a94a7cb-4022-43ba-a37d-b5ef64591780",
+    "name": "Aleks Yakovenko Broker",
+    "changes": {},
+    "fill": {
+      "address_line": "219 West Hillgrove Avenue",
+      "location_precision": "street",
+      "city": "La grange",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Hillgrove%20Avenue%20219%2C%20La%20grange%2C%20IL",
+      "phone": "+16306736593"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f3d6eb41-4bc0-4fa4-959e-e9d70a3e9ddc",
+      "slug": "svoi-aleks-yakovenko-broker"
+    }
+  },
+  {
+    "id": "4c8a4ea1-01c7-4fe3-a29f-a7ec491c3edf",
+    "name": "Olga Horechko& Gobber Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "1860 S. Mannheim Rd",
+      "location_precision": "street",
+      "city": "Westchester",
+      "state_code": "US-IL",
+      "postal_code": "60154",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%20Mannheim%20Rd%201860%2C%20Westchester%2C%20IL%2060154",
+      "phone": "+17083597617"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bcd06d76-3601-4f56-a84f-851a9dedc57a",
+      "slug": "svoi-olga-horechko-gobber-realty"
+    }
+  },
+  {
+    "id": "3c219d73-8259-48a1-b3b6-4d80ad598d0a",
+    "name": "Alliance Title Corp",
+    "changes": {},
+    "fill": {
+      "address_line": "5523 North Cumberland Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60656",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Cumberland%20Avenue%205523%2C%20Chicago%2C%20IL%2060656",
+      "website": "http://www.alliancetitlecorp.com",
+      "phone": "+17735562222",
+      "instagram_url": "https://www.instagram.com/alliancetitlecorp",
+      "email": "avega@mailatc.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c79c9e54-4ff8-432d-822e-ab398b0745c5",
+      "slug": "svoi-alliance-title-corp"
+    }
+  },
+  {
+    "id": "6bd6acb2-3fd4-4e52-a9e9-114c590942be",
+    "name": "Remax 1st class",
+    "changes": {},
+    "fill": {
+      "address_line": "3947 Dempster",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dempster%20%20%09%20%20%20%20%20%203947%20%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18476749797"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fc9bacd4-9f30-4a2b-a967-67b921b667f9",
+      "slug": "svoi-remax-1st-class"
+    }
+  },
+  {
+    "id": "01176c34-1b91-4025-b173-863e3fedaa3f",
+    "name": "A and M Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "4117 Oakton Street",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oakton%20Street%204117%2C%20Skoki%2C%20IL%2060076",
+      "website": "http://www.amrealty.com",
+      "phone": "+18476260500",
+      "email": "alexl@amrealty.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e1e2953-8742-42bf-b36c-35d7b55d38c9",
+      "slug": "svoi-a-and-m-realty"
+    }
+  },
+  {
+    "id": "670e7c27-98ee-469d-99bd-1ed4215e8a69",
+    "name": "American International Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "6138 North Lincoln Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Lincoln%20Avenue%206138%2C%20Chicago%2C%20IL%2060659",
+      "website": "http://www.airealtyco.com",
+      "phone": "+17735099493"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2f93ecca-7d84-40c7-b744-4ebe03f29451",
+      "slug": "svoi-american-international-realty"
+    }
+  },
+  {
+    "id": "c0b30e8c-9875-4610-a501-e6703b5fac8c",
+    "name": "Dralyuk Real Estate",
+    "changes": {},
+    "fill": {
+      "address_line": "5419 North Sheridan Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60640",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Sheridan%20Road%205419%2C%20Chicago%2C%20IL%2060640",
+      "website": "http://www.bestrealestatechicagoil.com",
+      "phone": "+17732758520"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "56c96217-2520-469e-8f44-91978affb1de",
+      "slug": "svoi-dralyuk-real-estate"
+    }
+  },
+  {
+    "id": "dbe8922d-dac4-402b-84c6-c2ba59a051e8",
+    "name": "Svetlana Simkin",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buffalo%20grove%2C%20IL",
+      "phone": "+18473128604"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "49c9e676-3a4c-40c2-bb59-02db809d1526",
+    "name": "Wonders of Nature",
+    "changes": {},
+    "fill": {
+      "address_line": "714 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20714%2C%20Buffalo%20grove%2C%20IL",
+      "phone": "+18472299450"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "09978c3f-1e8e-41c9-912b-4a5ee00d8eae",
+      "slug": "svoi-wonders-of-nature"
+    }
+  },
+  {
+    "id": "3619b83b-b60a-4591-b7df-0c1433357fef",
+    "name": "Dr. Olga Roshior",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wheaton%2C%20IL%20ted%20States",
+      "phone": "+16304606733"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "7341f2e7-7cb1-42b8-b20c-41765dc0dde8",
+      "slug": "svoi-dr-olga-roshior"
+    }
+  },
+  {
+    "id": "d0b5c476-1a1c-46d5-91d0-8293bc52a6fc",
+    "name": "Healing Arts of Oriental Medicine",
+    "changes": {},
+    "fill": {
+      "address_line": "405 Lake Cook Road",
+      "location_precision": "street",
+      "city": "Deerfield",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lake%20Cook%20Road%20405%2C%20Deerfield%2C%20IL",
+      "website": "http://deerfieldcommunityacupuncture.com",
+      "phone": "+18478454090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "33a17d03-7707-447c-8168-7baebf0036c4",
+      "slug": "svoi-healing-arts-of-oriental-medicine"
+    }
+  },
+  {
+    "id": "a063e487-e5f6-476a-87d2-ecfc5c350a48",
+    "name": "NER-PA",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL%20ted%20States",
+      "phone": "+18475074074"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

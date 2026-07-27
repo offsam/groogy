@@ -1,0 +1,511 @@
+[
+  {
+    "id": "35075fdf-dc68-4cd4-a7f7-8a78c2db8fd1",
+    "name": "Ocean Park Drugs",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+17184712500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1d574af9-d094-4af6-80ee-8ea4a0b4f1b6",
+    "name": "Rx Canada Info",
+    "changes": {},
+    "fill": {
+      "address_line": "355 N State Rt 17",
+      "location_precision": "street",
+      "city": "Paramus",
+      "state_code": "US-NJ",
+      "postal_code": "07652",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20State%20Rt%2017%20355%2C%20Paramus%2C%20NJ%2007652",
+      "phone": "+17329205000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5277cfc9-72e0-468a-9dba-b57c992fb6d5",
+      "slug": "svoi-rx-canada-info"
+    }
+  },
+  {
+    "id": "fba2d0f9-6d64-4a5c-bfb4-d3259067bb3b",
+    "name": "Ideal Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "2333 Morris Avenue",
+      "location_precision": "street",
+      "city": "Union",
+      "state_code": "US-NJ",
+      "postal_code": "07083",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Morris%20Avenue%202333%2C%20Union%2C%20NJ%2007083",
+      "phone": "+19086881801"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7de8b346-269f-4f09-920e-d12f62f03069",
+      "slug": "svoi-ideal-pharmacy"
+    }
+  },
+  {
+    "id": "2f6143ae-afd5-439a-9a62-3d69b09b9ebd",
+    "name": "Delco Drugs",
+    "changes": {},
+    "fill": {
+      "address_line": "3833 Richmond Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10312",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Richmond%20Avenue%203833%2C%20New%20York%2C%20NY%20%2010312",
+      "phone": "+17189846600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "634de0c8-7a65-4ba1-9978-cbdb12b7d7e7",
+      "slug": "svoi-delco-drugs"
+    }
+  },
+  {
+    "id": "0dbfcd11-cb26-4a0c-9739-eef2a5fa90c0",
+    "name": "Roselle Park Rita Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "200 Chestnut Street",
+      "location_precision": "street",
+      "city": "Rosle park",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chestnut%20Street%20200%2C%20Rosle%20park%2C%20NJ",
+      "website": "http://www.mygnp.com/index",
+      "phone": "+19082451396"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3c915b65-683d-4dc8-a6c3-b5f9c345b4e5",
+      "slug": "svoi-roselle-park-rita-pharmacy"
+    }
+  },
+  {
+    "id": "d0f81971-ca72-42c9-abed-ef4b57491a7b",
+    "name": "LeRoy/LeMed Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "159 East Gun Hill Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Gun%20Hill%20Road%20159%2C%20New%20York%2C%20NY",
+      "phone": "+17182314040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9bf7162d-0710-4766-9854-a14087f8767a",
+      "slug": "svoi-leroy-lemed-pharmacy"
+    }
+  },
+  {
+    "id": "58610a1d-96a6-4ad1-817f-99ea6e09ac48",
+    "name": "United Coach Line",
+    "changes": {},
+    "fill": {
+      "address_line": "480 Wild Ave",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "10314",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wild%20Ave%20480%2C%20New%20York%2C%20NY%2010314",
+      "website": "http://unitedcoachline.com/index.php",
+      "phone": "+17189664033"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b2b9a114-a284-48d2-82b1-129f5dbfdad1",
+      "slug": "svoi-united-coach-line"
+    }
+  },
+  {
+    "id": "fe45abbc-f17d-40cd-ba7e-eb8c5e3a7aed",
+    "name": "Rent - a - Wreck",
+    "changes": {},
+    "fill": {
+      "address_line": "2981 Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%202981%2C%20New%20York%2C%20NY%20%2011235",
+      "phone": "+17182370200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4d1c2d88-cc8d-45d9-bc42-41ed660556cc",
+      "slug": "svoi-rent-a-wreck"
+    }
+  },
+  {
+    "id": "a047c3b0-5ff4-450d-bc9a-d94d56b09c44",
+    "name": "Rafik Nazarov",
+    "changes": {},
+    "fill": {
+      "address_line": "1750 East 14th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2014th%20Street%201750%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+19172000012"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0e2f6e2b-e7eb-4578-80a2-a0f38990acc7",
+      "slug": "svoi-rafik-nazarov"
+    }
+  },
+  {
+    "id": "a95ab932-c8e3-4db3-b669-35ae441194b4",
+    "name": "Alex Express Car and Limo",
+    "changes": {},
+    "fill": {
+      "address_line": "275 Kings Highway",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kings%20Highway%20275%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+17189989800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b5306086-65c1-475c-9b97-eaf8debfc44e",
+      "slug": "svoi-alex-express-car-and-limo"
+    }
+  },
+  {
+    "id": "0ffc58cb-1639-424e-96ee-85e4c754079e",
+    "name": "Nationwide",
+    "changes": {},
+    "fill": {
+      "address_line": "44th Street 1338",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11219",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=44th%20Street%201338%2C%20New%20York%2C%20NY%2011219",
+      "phone": "+17184356000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2b0b6847-c9c9-4a3a-82d2-6ce2171bbd9f",
+      "slug": "svoi-nationwide"
+    }
+  },
+  {
+    "id": "b1ed15a8-8495-4cb4-9339-d0411c3181f4",
+    "name": "Auto Palace",
+    "changes": {},
+    "fill": {
+      "address_line": "36th Street 1269",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=36th%20Street%201269%2C%20New%20York%2C%20NY",
+      "phone": "+17184371817"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "11aa20c2-e098-4efc-b5ba-a2dff156ccf6",
+      "slug": "svoi-auto-palace"
+    }
+  },
+  {
+    "id": "74cccd04-10f2-4e50-ba23-431243b69a92",
+    "name": "The Art of Decoration",
+    "changes": {},
+    "fill": {
+      "address_line": "46 Bergen Street",
+      "location_precision": "street",
+      "city": "Englewood",
+      "state_code": "US-NJ",
+      "postal_code": "07631",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bergen%20Street%2046%2C%20Englewood%2C%20NJ%2007631",
+      "phone": "+12018716818"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "32da5d69-51b2-4db4-a993-51a799857f50",
+      "slug": "svoi-the-art-of-decoration"
+    }
+  },
+  {
+    "id": "1b11e0ed-f6b9-4a26-9f99-07a2da9657d1",
+    "name": "AHIM - EL DECOR",
+    "changes": {},
+    "fill": {
+      "address_line": "1954 Coney Island Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Avenue%201954%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+17183325102"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0651cfae-b724-4191-8743-18c238e31fe4",
+      "slug": "svoi-ahim-el-decor"
+    }
+  },
+  {
+    "id": "8b315349-b027-4265-af4a-5c82948a4bfb",
+    "name": "Accentuations By Design",
+    "changes": {},
+    "fill": {
+      "address_line": "60th Street  1501",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11219",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=60th%20Street%20%201501%2C%20New%20York%2C%20NY%2011219",
+      "website": "http://accentuationsbydesign.com",
+      "phone": "+17189722300",
+      "instagram_url": "https://www.instagram.com/abode_central"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4dc4d588-4fb3-4ddf-9f15-f15a55d9377d",
+      "slug": "svoi-accentuations-by-design"
+    }
+  },
+  {
+    "id": "4d6eb682-fdb4-4941-a1c2-3f40bb610dff",
+    "name": "Архитектор с лицензией",
+    "changes": {},
+    "fill": {
+      "city": "NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20York%2C%20NY",
+      "phone": "+13477136141"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7dfbe792-dd95-4ab3-8882-f962809a0bce",
+    "name": "European Closet And Cabinet",
+    "changes": {},
+    "fill": {
+      "address_line": "49th Street 214",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=49th%20Street%20214%2C%20New%20York%2C%20NY",
+      "website": "http://europeancloset.com",
+      "phone": "+17185677121",
+      "postal_code": "11220",
+      "instagram_url": "https://www.instagram.com/europeanclosetnyc",
+      "email": "info@europeancloset.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08767f5c-c5c9-48c4-9434-3aa20442a937",
+      "slug": "svoi-european-closet-and-cabinet"
+    }
+  },
+  {
+    "id": "9f33f174-80a0-48f1-8737-8a4ca304a2ea",
+    "name": "Design By Violetta",
+    "changes": {},
+    "fill": {
+      "address_line": "7th Street 168",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=7th%20Street%20168%2C%20New%20York%2C%20NY",
+      "phone": "+19173196886"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47b0ace3-72a2-4d31-8f46-29dc9a2fe7d6",
+      "slug": "svoi-design-by-violetta"
+    }
+  },
+  {
+    "id": "e4ddc09b-b3a8-45bb-a96e-823974264c63",
+    "name": "Garden State Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "365 Spotswood Englishtown Road",
+      "location_precision": "street",
+      "city": "Monroe Township",
+      "state_code": "US-NJ",
+      "postal_code": "08831",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Spotswood%20Englishtown%20Road%20365%2C%20Monroe%20Township%2C%20NJ%2008831",
+      "website": "http://gardenstatedrivingschool.com",
+      "phone": "+17322517171"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aae249f7-868d-47bf-a120-5bb443f95131",
+      "slug": "svoi-garden-state-driving-school"
+    }
+  },
+  {
+    "id": "18002147-a3e9-4c00-945c-bdadc7a3bfe5",
+    "name": "American Ace",
+    "changes": {},
+    "fill": {
+      "address_line": "280 North Farview Avenue",
+      "location_precision": "street",
+      "city": "Paramus",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Farview%20Avenue%20280%2C%20Paramus%2C%20NJ",
+      "phone": "+12012627272"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "68b48f9c-575f-4acc-ad82-6a5128a7f6bc",
+      "slug": "svoi-american-ace"
+    }
+  }
+]

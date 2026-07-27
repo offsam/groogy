@@ -1,0 +1,38 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "vika-borel",
+      "display_name": "Vika Borel",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://www.metrotech.academy"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.metrotech.academy",
+          "_fetch_url": "https://www.metrotech.academy",
+          "image_url": "https://metrotech.academy/preview.jpg",
+          "website": "https://www.metrotech.academy",
+          "phone": "+14629114062"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/73871",
+          "website": "https://www.metrotech.academy",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "website": "https://www.metrotech.academy",
+        "image_url": "https://metrotech.academy/preview.jpg",
+        "phone": "+14629114062"
+      },
+      "patch": {
+        "phone": "+14629114062"
+      }
+    }
+  ]
+}

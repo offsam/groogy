@@ -1,0 +1,41 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "elena-205143-1f35",
+      "display_name": "Elena",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "email": "help@lastbottlewines.com",
+          "website": "https://lastbottlewines.com",
+          "instagram_url": "https://www.instagram.com/lastbottlewines",
+          "telegram_url": "signalyrev"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://lastbottlewines.com",
+          "_fetch_url": "https://lastbottlewines.com",
+          "email": "help@lastbottlewines.com",
+          "image_url": "https://lastbottlewines.com/cdn/shop/files/LastBottleLogo.png?v=1699284919",
+          "website": "https://lastbottlewines.com",
+          "instagram_url": "https://www.instagram.com/LastBottleWines/"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/71423",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "email": "help@lastbottlewines.com",
+        "website": "https://lastbottlewines.com",
+        "instagram_url": "https://www.instagram.com/lastbottlewines",
+        "telegram_url": "signalyrev",
+        "image_url": "https://lastbottlewines.com/cdn/shop/files/LastBottleLogo.png?v=1699284919"
+      },
+      "patch": {}
+    }
+  ]
+}

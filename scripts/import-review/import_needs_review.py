@@ -432,8 +432,8 @@ def main() -> int:
         return 1
 
     data = json.loads(args.source.read_text(encoding="utf-8"))
-    # Stage-1 sanity on full reviewer file when not limited
-    if args.limit is None:
+    # Stage-1 sanity on the historical LA Orange County reviewer snapshot only.
+    if args.limit is None and "la_orange_county" in str(args.source):
         all_posts = data.get("posts") or []
         counts = Counter(p.get("decision") for p in all_posts)
         print(
@@ -453,7 +453,11 @@ def main() -> int:
             )
             return 2
 
-    posts = [p for p in data.get("posts") or [] if p.get("decision") == "needs_review"]
+    posts = [
+        p
+        for p in data.get("posts") or []
+        if p.get("decision") in {"needs_review", "accepted"}
+    ]
     if args.limit:
         posts = posts[: args.limit]
 

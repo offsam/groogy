@@ -1,0 +1,299 @@
+{
+  "updated": 0,
+  "total": 12,
+  "report": [
+    {
+      "slug": "yelena-lobko-205006-7852",
+      "display_name": "Yelena Lobko",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/201388609209577/permalink/1052114617470301",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {},
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-elza-gousseva-nezlin",
+      "display_name": "Elza Gousseva-Nezlin",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Anaheim",
+          "phone": "+13103870500",
+          "website": "http://elzagus.wix.com/elzanotary"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://elzagus.wix.com/elzanotary",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/notary-translation/elza-gousseva-nezlin/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "city": "Anaheim",
+        "phone": "+13103870500",
+        "website": "http://elzagus.wix.com/elzanotary"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-md-7",
+      "display_name": "Д-р Александр Зубков MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19529207200"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/d-r-aleksandr-zubkov-md-10671",
+          "phone": "+19529207200",
+          "image_url": "https://svoi.us/files/images/786922428b5d388f98247a14dac7ac48.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19529207200",
+        "image_url": "https://svoi.us/files/images/786922428b5d388f98247a14dac7ac48.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-dr-oleg-froymovich-md",
+      "display_name": "Dr. Oleg Froymovich MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16123392124"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-oleg-froymovich-md-10669",
+          "image_url": "https://svoi.us/files/images/a5c1fcca51ed119c699f93d3cb492251.png"
+        }
+      },
+      "found": {
+        "phone": "+16123392124",
+        "image_url": "https://svoi.us/files/images/a5c1fcca51ed119c699f93d3cb492251.png"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-paparella-ear-institute",
+      "display_name": "​Paparella Ear Institute. Д-р Олег Фраймович",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16123392836"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/paparella-ear-institute-d-r-oleg-fraymovich-10902",
+          "image_url": "https://svoi.us/files/images/2f614fb5dc914fc32147aaca2f87db21.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+16123392836",
+        "image_url": "https://svoi.us/files/images/2f614fb5dc914fc32147aaca2f87db21.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-dr-alexander-axelrod-md",
+      "display_name": "Dr. Alexander Axelrod MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19529338900"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://www.lifemedical.us/",
+          "address_line": "4207 Excelsior Blvd, Minneapolis, MN, 55416-4728",
+          "phone": "+19529338900",
+          "image_url": "https://lirp.cdn-website.com/c6fd1f96/dms3rep/multi/opt/Color-4x-8+%281%29-1920w.png",
+          "email": "jmirman@lifemedical.us",
+          "instagram_url": "https://www.instagram.com/lifemedical.pa/"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-alexander-axelrod-md-1817",
+          "website": "http://www.lifemedical.us/",
+          "image_url": "https://svoi.us/files/images/be620999586ddf815118fb35c9bc31c7.png"
+        }
+      },
+      "found": {
+        "phone": "+19529338900",
+        "address_line": "4207 Excelsior Blvd, Minneapolis, MN, 55416-4728",
+        "image_url": "https://lirp.cdn-website.com/c6fd1f96/dms3rep/multi/opt/Color-4x-8+%281%29-1920w.png",
+        "email": "jmirman@lifemedical.us",
+        "instagram_url": "https://www.instagram.com/lifemedical.pa/",
+        "website": "http://www.lifemedical.us/"
+      },
+      "patch": {
+        "website": "http://www.lifemedical.us/",
+        "email": "jmirman@lifemedical.us",
+        "instagram_url": "https://www.instagram.com/lifemedical.pa/"
+      }
+    },
+    {
+      "slug": "svoi-dr-isaac-z-pugach-md-complete-med-care",
+      "display_name": "Dr. Isaac Z. Pugach, MD - Complete Med Care",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19727927777"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-isaac-z-pugach-md-complete-med-care-2698",
+          "image_url": "https://svoi.us/files/images/d21ba617049aa500664dfba7a8152091.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19727927777",
+        "image_url": "https://svoi.us/files/images/d21ba617049aa500664dfba7a8152091.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-dr-naum-becker-md",
+      "display_name": "Dr. Naum Becker, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19727635551"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-naum-becker-md-2718",
+          "image_url": "https://svoi.us/files/images/a5c84bacb75b43b8dcfc6289880c89e6.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19727635551",
+        "image_url": "https://svoi.us/files/images/a5c84bacb75b43b8dcfc6289880c89e6.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-dr-mikhail-i-shtivelband-md",
+      "display_name": "Dr. Mikhail I Shtivelband MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14808212838"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-mikhail-i-shtivelband-md-2383",
+          "image_url": "https://svoi.us/files/images/97ae8f637304d559bbec50e4a871b34f.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14808212838",
+        "image_url": "https://svoi.us/files/images/97ae8f637304d559bbec50e4a871b34f.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-dr-ludmila-t-pyter-kabat-md",
+      "display_name": "Dr. Ludmila T Pyter-Kabat MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16234346444"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-ludmila-t-pyter-kabat-md-2380",
+          "image_url": "https://svoi.us/files/images/54a1aa814552467001bbcb57c69e2b52.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+16234346444",
+        "image_url": "https://svoi.us/files/images/54a1aa814552467001bbcb57c69e2b52.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-la-vista-family-medicine-gorokhov-mikhail-e-md",
+      "display_name": "La Vista Family Medicine: Gorokhov Mikhail E MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14043206050"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/la-vista-family-medicine-gorokhov-mikhail-e-md-8563",
+          "image_url": "https://svoi.us/files/images/3aacccd75f112688e3b328b9dc5a011d.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14043206050",
+        "image_url": "https://svoi.us/files/images/3aacccd75f112688e3b328b9dc5a011d.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    },
+    {
+      "slug": "svoi-dr-alexander-pokov",
+      "display_name": "Dr. Alexander Pokov",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14103589159"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-alexander-pokov-101",
+          "image_url": "https://svoi.us/files/images/dbcd2accbaf325f959471c5529922652.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14103589159",
+        "image_url": "https://svoi.us/files/images/dbcd2accbaf325f959471c5529922652.jpeg"
+      },
+      "patch": {
+        "website": null
+      }
+    }
+  ]
+}

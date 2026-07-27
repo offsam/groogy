@@ -1,0 +1,495 @@
+[
+  {
+    "id": "bf808709-325e-4976-be2b-27cc08f65469",
+    "name": "LA Cruise Tours",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "21650 Oxnard Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oxnard%20Street%2021650%2C%20Los%20Angeles%2C%20CA%2091367",
+      "website": "http://www.LACruiseTours.com",
+      "phone": "+18184571520"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d312a3f-7e29-4c99-9c09-af489cc70db8",
+      "slug": "svoi-la-cruise-tours"
+    }
+  },
+  {
+    "id": "0ad9ae4d-5223-4f19-9a21-84135d9299bb",
+    "name": "Elza Gousseva-Nezlin",
+    "changes": {},
+    "fill": {
+      "city": "Anaheim",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Summerfield%20Circle%2C%20Anaheim%2C%20CA",
+      "phone": "+13103870500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8abf6e57-5216-4546-a54a-24365cad3492",
+    "name": "Алла Гринберг",
+    "changes": {},
+    "fill": {
+      "address_line": "20750 Ventura Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=20750%20Ventura%20Blvd%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18184217926"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "30815e61-566d-47c8-8f84-a1fdc68dff3e",
+      "slug": "svoi-biz-36"
+    }
+  },
+  {
+    "id": "ae46ffa0-d74f-4347-9532-3abe24eaa513",
+    "name": "Tarzana Documentation Services",
+    "changes": {},
+    "fill": {
+      "address_line": "5521 Reseda Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reseda%20Boulevard%205521%2C%20Los%20Angeles%2C%20CA%2091356",
+      "website": "http://www.tarzanadocs.com",
+      "phone": "+18186664645"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1963912b-22d7-41e2-addc-1eb92750b3a4",
+      "slug": "svoi-tarzana-documentation-services"
+    }
+  },
+  {
+    "id": "d98027a6-37c2-49b9-baeb-9e39967e6b00",
+    "name": "Нотариус Виктор Цатурян",
+    "changes": {},
+    "fill": {
+      "address_line": "13307 Ratner Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ratner%20Street%2013307%2C%20Los%20Angeles%2C%20CA%20605",
+      "phone": "+18182092509"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "44df8ef3-80e6-4ec9-b03e-1b07c55edc22",
+      "slug": "svoi-biz-5"
+    }
+  },
+  {
+    "id": "93b2edd0-cc39-41c3-8f9c-216a15b1644a",
+    "name": "Torrance Movers",
+    "changes": {},
+    "fill": {
+      "address_line": "22113 Ocean Avenue",
+      "location_precision": "street",
+      "city": "Torrance",
+      "state_code": "US-CA",
+      "postal_code": "90503",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ocean%20Avenue%2022113%2C%20Torrance%2C%20CA%2090503",
+      "phone": "+14242712118"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "76456242-3297-4fe4-bddc-15b238f3345b",
+      "slug": "svoi-torrance-movers"
+    }
+  },
+  {
+    "id": "4967d68b-02b2-49cf-a41f-c255884e4e65",
+    "name": "S & A Registration Services",
+    "changes": {},
+    "fill": {
+      "address_line": "14621 Titus St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=14621%20Titus%20St%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://saregistration.com",
+      "phone": "+18184533535",
+      "email": "info@saregistration.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e4baa1b8-3f2c-447b-aa0b-0102129fc01b",
+      "slug": "svoi-s-a-registration-services"
+    }
+  },
+  {
+    "id": "62fea794-95dd-4c1d-9f41-787e5598b5ea",
+    "name": "General Container Line",
+    "changes": {},
+    "fill": {
+      "address_line": "20675 South Western Avenue",
+      "location_precision": "street",
+      "city": "Torrance",
+      "state_code": "US-CA",
+      "postal_code": "90501",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Western%20Avenue%2020675%2C%20Torrance%2C%20CA%2090501",
+      "website": "http://shipgcl.com",
+      "phone": "+13108784111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e8d3e1ca-8970-4297-87ee-0a2051a08c5d",
+      "slug": "svoi-general-container-line"
+    }
+  },
+  {
+    "id": "1571f4d2-3415-495e-870d-d4c1be831ff9",
+    "name": "I Stitch & Print",
+    "changes": {},
+    "fill": {
+      "address_line": "13333 Saticoy St",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91605",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13333%20Saticoy%20St%2C%20Los%20Angeles%2C%20CA%2091605",
+      "website": "http://istitchandprint.com",
+      "phone": "+18189356116",
+      "instagram_url": "https://www.instagram.com/istitchandprint"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "97bb69d4-9a0b-4968-919e-ebb9254f57ff",
+      "slug": "svoi-i-stitch-print"
+    }
+  },
+  {
+    "id": "3a29cf82-7c20-40cc-abcf-1335bd4be17e",
+    "name": "Vadeal Print Printing Services",
+    "changes": {},
+    "fill": {
+      "address_line": "11823 Slauson Ave",
+      "location_precision": "street",
+      "city": "Santa Fe Springs",
+      "state_code": "US-CA",
+      "postal_code": "90670",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Slauson%20Ave%2011823%2C%20Santa%20Fe%20Springs%2C%20CA%2090670",
+      "phone": "+13233488522"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "024b13d6-a9cb-43c8-8701-8c7bc2db009c",
+      "slug": "svoi-vadeal-print-printing-services"
+    }
+  },
+  {
+    "id": "2541c5f1-ba50-49c4-999c-cf61f01fc495",
+    "name": "R & R Copy & Printing",
+    "changes": {},
+    "fill": {
+      "address_line": "2550 Foothill Boulevard",
+      "location_precision": "street",
+      "city": "La Crescent-Montrose",
+      "state_code": "US-CA",
+      "postal_code": "91214",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Foothill%20Boulevard%202550%2C%20La%20Crescent-Montrose%2C%20CA%2091214",
+      "phone": "+18189575761"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "138e8671-14dc-4620-831b-f2a979038baf",
+      "slug": "svoi-r-r-copy-printing"
+    }
+  },
+  {
+    "id": "742db6cf-3959-4de8-8dfb-298e7afd3d96",
+    "name": "Northridge Cleaners",
+    "changes": {},
+    "fill": {
+      "address_line": "9250 Reseda Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9250%20Reseda%20Blvd%2C%20Los%20Angeles%2C%20CA%2091324",
+      "website": "http://www.northridge-cleaners.com",
+      "phone": "+18188861002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a84f7947-adbe-462c-8e75-f98c5aa625bb",
+      "slug": "svoi-northridge-cleaners"
+    }
+  },
+  {
+    "id": "cb49d91b-81ad-4c7c-9843-47db7c635d6a",
+    "name": "World Class Cleaners",
+    "changes": {},
+    "fill": {
+      "address_line": "6750 White Oak Ave",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91406",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6750%20White%20Oak%20Ave%2C%20Los%20Angeles%2C%20CA%2091406",
+      "website": "http://worldclasscleaners.net",
+      "phone": "+18183448448"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c8027a2d-4387-49be-88d9-d54abd90c275",
+      "slug": "svoi-world-class-cleaners"
+    }
+  },
+  {
+    "id": "6fa76625-816a-44aa-8dd0-49de36413e63",
+    "name": "Extreme Carpet Cleaning",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%20ted%20States",
+      "phone": "+13235471949"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "bdd01d53-f003-4102-90e1-9c414f81399d",
+    "name": "Посылочка",
+    "changes": {},
+    "fill": {
+      "address_line": "13609 Victory Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91411",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13609%20Victory%20Blvd%2C%20Los%20Angeles%2C%20CA%2091411",
+      "website": "http://posilochka-usa.com",
+      "phone": "+18187674552"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9ad00aee-f219-4230-b8ad-c887e645df41",
+      "slug": "svoi-biz-37"
+    }
+  },
+  {
+    "id": "d845798b-227f-4875-a5a2-2ff4a6b26fad",
+    "name": "A&A International Shipping Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "15914 South Avalon Boulevard",
+      "location_precision": "street",
+      "city": "West Rancho Dominguez",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Avalon%20Boulevard%2015914%2C%20West%20Rancho%20Dominguez%2C%20CA",
+      "phone": "+13109650044"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "16066a2e-dea5-4411-ac6f-3e669c56456f",
+      "slug": "svoi-a-a-international-shipping-inc"
+    }
+  },
+  {
+    "id": "d2b18393-f6ac-4761-8ac2-15ac6708d040",
+    "name": "Illuminous Image",
+    "changes": {},
+    "fill": {
+      "address_line": "710 South Melrose Street",
+      "location_precision": "street",
+      "city": "Anaheim",
+      "state_code": "US-CA",
+      "postal_code": "92805",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Melrose%20Street%20710%2C%20Anaheim%2C%20CA%2092805",
+      "phone": "+17143053043"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a582da97-a2c6-4afb-be86-e63eec40cfee",
+      "slug": "svoi-illuminous-image"
+    }
+  },
+  {
+    "id": "7c2497b8-c852-4f9e-9d71-4fab510e23eb",
+    "name": "Vadim Sokolov Photography",
+    "changes": {},
+    "fill": {
+      "city": "CA 91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%2091367",
+      "phone": "+18182165753"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "47d4f08c-0b49-4c0b-9c42-17943b9ed6e0",
+    "name": "24KT Sound &Video DJ Entertainment",
+    "changes": {},
+    "fill": {
+      "city": "CA ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%20ted%20States",
+      "website": "http://24ktsound.com",
+      "phone": "+13105474702",
+      "email": "marc@24ktsound.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "db13b3da-4d86-48e1-b411-3340f4af2372",
+    "name": "Lanas Bridal",
+    "changes": {},
+    "fill": {
+      "address_line": "9520 Topanga Canyon Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91311",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Topanga%20Canyon%20Boulevard%209520%2C%20Los%20Angeles%2C%20CA%2091311",
+      "website": "http://www.lanasbridal.com",
+      "phone": "+13308698889"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "28938850-c5dc-4282-b8a0-8c4ab2f5199e",
+      "slug": "svoi-lanas-bridal"
+    }
+  }
+]

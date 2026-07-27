@@ -1,0 +1,500 @@
+[
+  {
+    "id": "befd0b71-6557-4c80-afb2-9ba68875223a",
+    "name": "Michael Abrams",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1901 North Clybourn Ave.",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60614",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Clybourn%20Ave.%201901%20%2C%20Chicago%2C%20IL%2060614",
+      "phone": "+17732483039"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "03e27409-b89c-4a02-a876-eb7f2d635611",
+      "slug": "svoi-michael-abrams"
+    }
+  },
+  {
+    "id": "f2479ef9-fc82-45a8-b7ab-ad30aa66585c",
+    "name": "MetroTax International, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "100 South Saunders Road",
+      "location_precision": "street",
+      "city": "Lake forest",
+      "state_code": "US-IL",
+      "postal_code": "60045",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Saunders%20Road%20100%2C%20Lake%20forest%2C%20IL%2060045",
+      "website": "http://mtaxinternational.com",
+      "phone": "+18474311989"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ab4198b-8755-496e-9154-3900fcb35efd",
+      "slug": "svoi-metrotax-international-llc"
+    }
+  },
+  {
+    "id": "1330a4f2-1275-48a1-9dd1-6fef09b4e98f",
+    "name": "Дмитрий Вайсбург",
+    "changes": {},
+    "fill": {
+      "address_line": "1425 McHenry Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McHenry%20Road%201425%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474947670"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9503e262-1e2c-4b1e-99c7-f660207a0808",
+      "slug": "svoi-biz-15"
+    }
+  },
+  {
+    "id": "16b36b2d-982f-4840-a405-521b0c3810c4",
+    "name": "Oleg Gurevich CPA",
+    "changes": {},
+    "fill": {
+      "address_line": "251 N.Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.Milwaukee%20Ave%20251%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18479625199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d43a5192-5998-4aaa-bbd4-c9122ae4db0c",
+      "slug": "svoi-oleg-gurevich-cpa"
+    }
+  },
+  {
+    "id": "da154eff-45ac-4d36-8cba-69a1c8288bb7",
+    "name": "Верная помощь",
+    "changes": {},
+    "fill": {
+      "address_line": "395 East Dundee Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dundee%20Road%20395%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472432232"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d455bb9d-ab0a-4bb3-90ad-faa769e9b18b",
+      "slug": "svoi-biz-16"
+    }
+  },
+  {
+    "id": "3acaa227-bddc-4e81-8607-32da415ab6af",
+    "name": "TM Accountant, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "212 S Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Milwaukee%20Ave%20212%2C%20Wheeling%2C%20IL%2060090",
+      "website": "http://www.tmaccountant.us",
+      "phone": "+18473225784"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e7732c97-aec6-42bb-84be-06af345f1890",
+      "slug": "svoi-tm-accountant-inc"
+    }
+  },
+  {
+    "id": "f4b5c904-e1d3-4032-8ad9-1fbf01361ab6",
+    "name": "Dmitriy Polyakov CPA at S and P Tax Solutions LTD",
+    "changes": {},
+    "fill": {
+      "address_line": "95 Revere Drive",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Revere%20Drive%2095%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18474804400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6849c6ae-9edd-47c1-8796-57411efc3bc6",
+      "slug": "svoi-dmitriy-polyakov-cpa-at-s-and-p-tax-solutions-lt"
+    }
+  },
+  {
+    "id": "afcc0a19-85bc-44dd-a51b-c4b71e196e46",
+    "name": "Narod Consulting Group",
+    "changes": {},
+    "fill": {
+      "address_line": "601 Skokie Blvd # 503",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Blvd%20%23%20503%20601%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18474982225"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04b2f38f-1594-4cad-9cd7-3f857d0e3869",
+      "slug": "svoi-narod-consulting-group"
+    }
+  },
+  {
+    "id": "f7f1a3dc-93c5-46c8-a119-397706a21ba4",
+    "name": "СЛАВА ВАГУН",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL%20ted%20States",
+      "phone": "+18475142274"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "d6e8e29f-1b3b-4d19-b03b-8baa5205b430",
+    "name": "Alexander Narod CPA PC",
+    "changes": {},
+    "fill": {
+      "address_line": "601 Skokie Blvd",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Blvd%20%20601%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18475621040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "f6e54d5d-63c9-4c6a-b061-ab80afefe6d1",
+      "slug": "svoi-alexander-narod-cpa-pc"
+    }
+  },
+  {
+    "id": "a98bc6ce-fd39-455c-afbf-a6df684fc99a",
+    "name": "J&R Accounting Group LLC",
+    "changes": {},
+    "fill": {
+      "city": "Elk Grove Village",
+      "state_code": "US-IL",
+      "postal_code": "60007",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elk%20Grove%2C%20Elk%20Grove%20Village%2C%20IL%20%2060007",
+      "phone": "+18552701120"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "16d8a885-bcc8-419b-a63b-0a8dd4491b9e",
+    "name": "Tanya N. Agurkov, CPA",
+    "changes": {},
+    "fill": {
+      "address_line": "6 Civic Center Plaza Shopping Center",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Civic%20Center%20Plaza%20Shopping%20Center%206%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18476518043"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "af567dc3-3058-41ae-a64e-a6242ac7d851",
+      "slug": "svoi-tanya-n-agurkov-cpa"
+    }
+  },
+  {
+    "id": "ad3c382b-9f30-4c49-8121-e1e04138ac98",
+    "name": "Ellina Dementeva,СРА",
+    "changes": {},
+    "fill": {
+      "address_line": "3415 Church St",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Church%20St%203415%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18475681442"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "f0f22378-302d-4fcd-993a-9fb56335c0be",
+      "slug": "svoi-ellina-dementeva"
+    }
+  },
+  {
+    "id": "ef710e86-3709-4493-bcb0-a170164775d2",
+    "name": "Bogachkov Alexander, CPA",
+    "changes": {},
+    "fill": {
+      "address_line": "4020 Greenleaf",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Greenleaf%204020%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18476734902"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "d2e9fcea-f00a-4535-addf-88fe1c6f0f94",
+      "slug": "svoi-bogachkov-alexander-cpa"
+    }
+  },
+  {
+    "id": "f4c01963-f44b-4e36-843d-59d99a254d3f",
+    "name": "Bella Verkhovsky & Associate",
+    "changes": {},
+    "fill": {
+      "address_line": "6329 North California Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20California%20Avenue%206329%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+17737431793"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ec6f7d65-48f8-4f3b-9e3b-a32b5f46ac5e",
+      "slug": "svoi-bella-verkhovsky-associate"
+    }
+  },
+  {
+    "id": "e3b6b3de-6421-4841-a086-6e67c7f99900",
+    "name": "VOKK Consulting, Inc.",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "phone": "+13127888347"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "705eb514-2043-429d-b543-d5cd6bdfd788",
+    "name": "Сказочный Остров",
+    "changes": {},
+    "fill": {
+      "address_line": "1141 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%201141%2C%20Buffalo%20grove%2C%20IL%20%2060089",
+      "phone": "+18479477554"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6556134-cacc-4c54-b687-604cf9527b12",
+      "slug": "svoi-biz-17"
+    }
+  },
+  {
+    "id": "55d85d4b-2b86-4a05-97e4-bacb00ebcc3e",
+    "name": "Bright Stars Kids University",
+    "changes": {},
+    "fill": {
+      "address_line": "100 Village Green Suite 100",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Village%20Green%20Suite%20100%20100%2C%20Buffalo%20grove%2C%20IL%20ted%20States",
+      "website": "http://www.starsuniversity.com",
+      "phone": "+18479550000",
+      "state_code": "US-IL",
+      "postal_code": "60069",
+      "yelp_url": "https://www.yelp.com/biz/bright-stars-kids-university-lincolnshire"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7bf15738-43f9-4588-a21f-fa988f8879d7",
+      "slug": "svoi-bright-stars-kids-university"
+    }
+  },
+  {
+    "id": "87f1b03c-8c63-400b-ac47-52fdf222c5a2",
+    "name": "Fleur De La Via Daycare",
+    "changes": {},
+    "fill": {
+      "address_line": "110 West Boeger Drive",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Boeger%20Drive%20110%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18478708006"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "288a326b-556d-4739-af26-c0da01f87db1",
+      "slug": "svoi-fleur-de-la-via-daycare"
+    }
+  },
+  {
+    "id": "5b9c6a22-dd83-4173-b095-258dbc1d9149",
+    "name": "Детский сад North Stars Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "20845 Dogwood Street",
+      "location_precision": "street",
+      "city": "Deerfield",
+      "state_code": "US-IL",
+      "postal_code": "60015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dogwood%20Street%2020845%2C%20Deerfield%2C%20IL%2060015",
+      "phone": "+18472934004"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "73ea950b-03f0-440f-8948-455454701010",
+      "slug": "svoi-north-stars-academy"
+    }
+  }
+]

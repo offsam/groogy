@@ -1,0 +1,27 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "irina-electrolysis-205451-0a8b",
+      "display_name": "Irina Electrolysis",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "telegram_url": "epil_by_irina"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1955320601/272605",
+          "_via": "import_review",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "telegram_url": "epil_by_irina"
+      },
+      "patch": {}
+    }
+  ]
+}

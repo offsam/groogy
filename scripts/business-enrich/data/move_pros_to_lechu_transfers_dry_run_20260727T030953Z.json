@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-07-27T03:09:53.142561+00:00",
+  "mode": "dry-run",
+  "owner_id": "56d4ff6a-6b1f-4509-b34b-6c45b3babd61",
+  "results": [
+    {
+      "slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "kind": "lechu",
+      "pro_id": "a1c477ce-af23-4d32-98ce-d6f26cd1d1bc",
+      "title": "Лечу из Москвы в США — посылки, документы, лекарства",
+      "category": "lechu-ru-us",
+      "listing_body": {
+        "owner_id": "56d4ff6a-6b1f-4509-b34b-6c45b3babd61",
+        "listing_type": "transport_carry",
+        "status": "active",
+        "visibility": "public",
+        "author_visibility": "public",
+        "title": "Лечу из Москвы в США — посылки, документы, лекарства",
+        "description": "Personal courier service from Moscow to USA. Can transport packages, documents, and medications.\n\nOriginal post:\n#27 августа лечу из Москвы! Могу привезти посылки, документы, лекарства!\n\n---FACEBOOK_SOURCE---\n{\"address\": null, \"category\": \"Logistics & Delivery\", \"city\": null, \"confidence\": \"LOW\", \"description\": \"Personal courier service from Moscow to USA. Can transport packages, documents, and medications.\", \"email\": null, \"entity_name\": \"Kristina Immerman - Moscow-to-USA Courier\", \"entity_type\": \"Service\", \"facebook_page\": null, \"instagram\": null, \"needs_enrichment\": true, \"original_text\": \"#27 августа лечу из Москвы! Могу привезти посылки, документы, лекарства!\", \"phone\": null, \"price\": null, \"source_author\": \"Kristina Immerman\", \"source_post_date\": \"2026-07-16T06:24:00Z\", \"source_post_number\": 37, \"source_post_url\": \"https://www.facebook.com/groups/107680889267042/\", \"state\": null, \"subcategory\": \"International Courier Service\", \"website\": null}\n\nPersonal courier service from Moscow to USA. Can transport packages, documents, and medications.",
+        "price_amount": null,
+        "price_currency": "USD",
+        "is_negotiable": true,
+        "city": null,
+        "state": null,
+        "state_code": null,
+        "publisher_type": "profile",
+        "source_kind": "platform",
+        "source_url": null,
+        "published_at": "2026-07-27T03:09:52.451355+00:00"
+      },
+      "detail_table": "lechu_listing_details",
+      "detail_body": {
+        "category_id": "e41beda8-490a-4fc1-90b2-ddf23880d4ed",
+        "departure_country": "RU",
+        "destination_country": "US",
+        "departure_date": null,
+        "carry_types": [
+          "packages",
+          "documents",
+          "medications"
+        ],
+        "max_weight_kg": null,
+        "size_limit": null,
+        "reward_type": "negotiable"
+      },
+      "status": "dry-run"
+    },
+    {
+      "slug": "jane-oc",
+      "kind": "lechu",
+      "pro_id": "360839a6-05fd-411c-9faa-3e4c1eecbcb1",
+      "title": "Таня летит — могу взять посылку",
+      "category": "lechu-other",
+      "listing_body": {
+        "owner_id": "56d4ff6a-6b1f-4509-b34b-6c45b3babd61",
+        "listing_type": "transport_carry",
+        "status": "active",
+        "visibility": "public",
+        "author_visibility": "public",
+        "title": "Таня летит — могу взять посылку",
+        "description": "Таня летит 9494320911\n\nуслуга / специалист\n\nКонтакты:\nТелефон: +19494320911",
+        "price_amount": null,
+        "price_currency": "USD",
+        "is_negotiable": true,
+        "city": null,
+        "state": "CA",
+        "state_code": "US-CA",
+        "publisher_type": "profile",
+        "source_kind": "telegram",
+        "source_url": "https://t.me/c/1333533747/69983",
+        "published_at": "2026-07-27T03:09:52.746670+00:00"
+      },
+      "detail_table": "lechu_listing_details",
+      "detail_body": {
+        "category_id": "05643309-7656-4ce1-87f2-586364c568c5",
+        "departure_country": "US",
+        "destination_country": "Other",
+        "departure_date": null,
+        "carry_types": [
+          "packages",
+          "documents"
+        ],
+        "max_weight_kg": null,
+        "size_limit": null,
+        "reward_type": "negotiable"
+      },
+      "status": "dry-run"
+    },
+    {
+      "slug": "lana-205640-2183",
+      "kind": "transfer",
+      "pro_id": "d0bc23ab-e7cf-44ce-ac4e-0e5c9281eb4e",
+      "title": "Оплата покупок и услуг рублями (Zelle / ЦБ)",
+      "category": "transfer-us-ru",
+      "listing_body": {
+        "owner_id": "56d4ff6a-6b1f-4509-b34b-6c45b3babd61",
+        "listing_type": "transfer",
+        "status": "active",
+        "visibility": "public",
+        "author_visibility": "public",
+        "title": "Оплата покупок и услуг рублями (Zelle / ЦБ)",
+        "description": "Оплачу Вашу любую покупку или произведу оплату любых услуг рублями (доставку продуктов и подарков , цветов, курсы, ж/д и авиабилеты, коммунальные услуги , налоги и так далее). Без никакой комиссии. За рубли просто по курсу ЦБ переведете доллары на Zelle с личного аккаунта (не бизнес-аккаунта).Уточнение: простой перевод или обмен не делаю, только покупку товаров и услуг. Пишите , пожалуйста, в личку.\n\nКонтакты: Telegram: @Lanahalmg\n\nИсточник: Telegram, дата: 2026-01-29T03:47:31+00:00\n\nОплачу Вашу любую покупку или произведу оплату любых услуг рублями (доставку продуктов и подарков , цветов, курсы, ж/д и авиабилеты, коммунальные услуги , налоги и так далее). Без никакой комиссии. За рубли просто по курсу ЦБ переведете дол\n\nОплачу Вашу любую покупку или произведу оплату любых услуг рублями (доставку продуктов и подарков , цветов, курсы, ж/д и авиабилеты, коммунальные услуги , налог\n\nКонтакты:\nTelegram: https://t.me/Lanahalmg",
+        "price_amount": null,
+        "price_currency": "USD",
+        "is_negotiable": true,
+        "city": null,
+        "state": "CA",
+        "state_code": "US-CA",
+        "publisher_type": "profile",
+        "source_kind": "telegram",
+        "source_url": "https://t.me/c/1333533747/69497",
+        "published_at": "2026-07-27T03:09:52.950251+00:00"
+      },
+      "detail_table": "transfer_listing_details",
+      "detail_body": {
+        "category_id": "8041dae1-6796-4fa1-b4fc-7677c7de0425",
+        "from_country": "US",
+        "to_country": "RU",
+        "transfer_method": "other",
+        "fee_percent": null,
+        "fee_fixed_usd": null,
+        "min_amount_usd": null,
+        "max_amount_usd": null,
+        "processing_days": null
+      },
+      "status": "dry-run"
+    },
+    {
+      "slug": "irinka-milovskaia",
+      "kind": "transfer",
+      "pro_id": "8e8f0198-2b98-403a-ac6b-f9957036b147",
+      "title": "Обмен рублей на доллары (Zelle)",
+      "category": "transfer-us-ru",
+      "listing_body": {
+        "owner_id": "56d4ff6a-6b1f-4509-b34b-6c45b3babd61",
+        "listing_type": "transfer",
+        "status": "active",
+        "visibility": "public",
+        "author_visibility": "public",
+        "title": "Обмен рублей на доллары (Zelle)",
+        "description": "Здравствуйте. Мне написала @irinka_milovskaia, с предложением поменять рубли на доллары, - мы пообщались, созвонились, я убедился, что это живой человек. Хотели встретиться вживую, но потом решили по Zelle. Нормальная, п\n\nуслуга / специалист\n\nКонтакты:\nTelegram: https://t.me/egorfedotoff\nInstagram: https://www.instagram.com/irinka_milovskaia",
+        "price_amount": null,
+        "price_currency": "USD",
+        "is_negotiable": true,
+        "city": null,
+        "state": "CA",
+        "state_code": "US-CA",
+        "publisher_type": "profile",
+        "source_kind": "telegram",
+        "source_url": "https://t.me/c/1333533747/69874",
+        "published_at": "2026-07-27T03:09:53.142551+00:00"
+      },
+      "detail_table": "transfer_listing_details",
+      "detail_body": {
+        "category_id": "8041dae1-6796-4fa1-b4fc-7677c7de0425",
+        "from_country": "US",
+        "to_country": "RU",
+        "transfer_method": "cash",
+        "fee_percent": null,
+        "fee_fixed_usd": null,
+        "min_amount_usd": null,
+        "max_amount_usd": null,
+        "processing_days": null
+      },
+      "status": "dry-run"
+    }
+  ],
+  "moved": 0,
+  "dry_run": 4
+}

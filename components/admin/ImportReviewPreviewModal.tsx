@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Check, Eye, Loader2, Pause, X, XCircle } from "lucide-react";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
+import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
 import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
 import { Button } from "@/components/ui/Button";
 import {
@@ -18,7 +19,13 @@ import {
   importReviewItemToPreviewFields,
   importReviewToBusinessPreview,
   importReviewToOfferPreviews,
+  importReviewToProfessionalPreview,
 } from "@/lib/import-review/to-business-preview";
+import {
+  businessPreviewCompleteness,
+  listingPreviewCompleteness,
+  professionalPreviewCompleteness,
+} from "@/lib/import-review/preview-completeness";
 import {
   IMPORT_PREVIEW_KIND_HINTS,
   IMPORT_PREVIEW_KIND_LABELS,
@@ -50,7 +57,27 @@ export function ImportReviewPreviewModal({
     () => importReviewToBusinessPreview(fields),
     [fields],
   );
+  const professional = useMemo(
+    () => importReviewToProfessionalPreview(fields),
+    [fields],
+  );
   const offers = useMemo(() => importReviewToOfferPreviews(fields), [fields]);
+  const completeness = useMemo(() => {
+    if (kind === "professional") {
+      return professionalPreviewCompleteness(professional);
+    }
+    if (kind === "business") {
+      return businessPreviewCompleteness(business);
+    }
+    return listingPreviewCompleteness({
+      title: fields.title || fields.business_name || fields.person_name,
+      description: fields.description,
+      city: fields.city,
+      phone: fields.phone?.[0] ?? null,
+      imageUrl: fields.preview_image_url,
+      priceAmount: fields.price ?? null,
+    });
+  }, [kind, professional, business, fields]);
   const locked =
     item.review_status === "approved" ||
     item.review_status === "rejected" ||
@@ -132,37 +159,114 @@ export function ImportReviewPreviewModal({
         </div>
 
         <div className="overflow-y-auto px-3 py-4 sm:px-5">
-          <div className="pointer-events-none select-none rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 sm:p-4">
-            {kind === "business" ? (
-              <BusinessProfileView
-                autoClaim={false}
-                business={business}
-                businessSlug={business.slug}
-                currentUserId={null}
-                isAdmin={false}
-                isOwner={false}
-                jobs={[]}
-                myReview={null}
-                mySession={null}
-                offers={offers}
-                reviews={[]}
-                similar={[]}
-              />
-            ) : (
-              <div className="mx-auto max-w-md">
-                <ImportReviewTypedCard item={item} />
-                {fields.description ? (
-                  <div className="mt-4 rounded-xl border border-slate-100 bg-white p-4">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      Описание объявления
-                    </p>
-                    <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">
-                      {fields.description}
-                    </p>
-                  </div>
-                ) : null}
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
+            <div className="pointer-events-none select-none rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 sm:p-4">
+              {kind === "business" ? (
+                <BusinessProfileView
+                  autoClaim={false}
+                  business={business}
+                  businessSlug={business.slug}
+                  currentUserId={null}
+                  isAdmin={false}
+                  isOwner={false}
+                  jobs={[]}
+                  myReview={null}
+                  mySession={null}
+                  offers={offers}
+                  reviews={[]}
+                  similar={[]}
+                />
+              ) : kind === "professional" ? (
+                <ProfessionalProfileView
+                  currentUserId={null}
+                  isOwner={false}
+                  professional={professional}
+                  services={offers.map((o, index) => ({
+                    id: o.id,
+                    title: o.title,
+                    description: o.description,
+                    priceMode:
+                      o.priceMode === "fixed" ||
+                      o.priceMode === "from" ||
+                      o.priceMode === "range" ||
+                      o.priceMode === "free"
+                        ? o.priceMode
+                        : "contact",
+                    priceAmount: o.priceAmount,
+                    priceMin: o.priceMin,
+                    priceMax: o.priceMax,
+                    currency: o.currency,
+                    priceUnit:
+                      typeof o.priceUnit === "string" ? o.priceUnit : null,
+                    sortOrder: index * 10,
+                  }))}
+                />
+              ) : (
+                <div className="mx-auto max-w-md">
+                  <ImportReviewTypedCard item={item} />
+                  {fields.description ? (
+                    <div className="mt-4 rounded-xl border border-slate-100 bg-white p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Описание объявления
+                      </p>
+                      <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">
+                        {fields.description}
+                      </p>
+                    </div>
+                  ) : null}
+                </div>
+              )}
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-white p-4">
+              <div className="flex items-baseline justify-between gap-2">
+                <h3 className="text-sm font-semibold text-slate-900">
+                  Чем наполнять
+                </h3>
+                <span className="text-xs text-slate-500">
+                  {completeness.readyCount}/{completeness.total}
+                </span>
               </div>
-            )}
+              <ul className="mt-3 space-y-1.5">
+                {completeness.fields.map((field) => (
+                  <li
+                    key={field.key}
+                    className="flex items-start justify-between gap-3 text-sm"
+                  >
+                    <span className="text-slate-700">
+                      {field.label}
+                      {!field.ok && field.hint ? (
+                        <span className="mt-0.5 block text-xs text-slate-400">
+                          {field.hint}
+                        </span>
+                      ) : null}
+                    </span>
+                    <span
+                      className={
+                        field.ok
+                          ? "shrink-0 font-medium text-emerald-700"
+                          : "shrink-0 font-medium text-amber-700"
+                      }
+                    >
+                      {field.ok ? "есть" : "нужно"}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              {completeness.missing.length > 0 ? (
+                <p className="mt-3 text-xs leading-relaxed text-slate-500">
+                  Доберите:{" "}
+                  {completeness.missing
+                    .map((f) => f.label.toLowerCase())
+                    .join(", ")}
+                  .
+                </p>
+              ) : (
+                <p className="mt-3 text-xs leading-relaxed text-emerald-800">
+                  Базовые поля на месте.
+                </p>
+              )}
+            </div>
           </div>
         </div>
 

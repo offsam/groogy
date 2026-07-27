@@ -1,0 +1,38 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "consolidated-kalinka-service",
+      "display_name": "Kalinka Service — Rita Shvalikovskaya",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13053350887",
+          "website": "https://www.showingnew.com/byvaleriia/home/california/los-angeles/plan-1881/5868-linden-ave-3/s2938790",
+          "instagram_url": "https://www.instagram.com/kalinka.service"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.showingnew.com/byvaleriia/home/california/los-angeles/plan-1881/5868-linden-ave-3/s2938790",
+          "_fetch_url": "https://www.showingnew.com/byvaleriia/home/california/los-angeles/plan-1881/5868-linden-ave-3/s2938790",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1955320601/276505",
+          "phone": "+13053350887",
+          "email": "pasportvisaservice@gmail.com",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "phone": "+13053350887",
+        "website": "https://www.showingnew.com/byvaleriia/home/california/los-angeles/plan-1881/5868-linden-ave-3/s2938790",
+        "instagram_url": "https://www.instagram.com/kalinka.service",
+        "email": "pasportvisaservice@gmail.com"
+      },
+      "patch": {}
+    }
+  ]
+}

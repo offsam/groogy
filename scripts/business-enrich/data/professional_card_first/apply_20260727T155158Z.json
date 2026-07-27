@@ -1,0 +1,51 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "pro-2992ffad27",
+      "display_name": "Светлана Зайченко",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "sacramento",
+          "website": "https://www.usabytemamila.com/sacramento-feb-28-2026-usabytemamila-event-creative-real-estate/"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.usabytemamila.com/sacramento-feb-28-2026-usabytemamila-event-creative-real-estate/",
+          "_fetch_url": "https://www.usabytemamila.com/sacramento-feb-28-2026-usabytemamila-event-creative-real-estate/",
+          "address_line": "4612 Roseville Rd #107, North Highlands, CA 95660",
+          "city": "Sacramento",
+          "postal_code": "95660",
+          "phone": "+19165142278",
+          "image_url": "https://www.usabytemamila.com/wp-content/uploads/2024/11/Untitled.jpg",
+          "website": "https://www.usabytemamila.com/sacramento-feb-28-2026-usabytemamila-event-creative-real-estate/",
+          "instagram_url": "https://www.instagram.com/artemrakaev/"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.facebook.com/groups/Russian.Sacramento/permalink/25993245323673189/",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "website": "https://www.usabytemamila.com/sacramento-feb-28-2026-usabytemamila-event-creative-real-estate/",
+        "address_line": "4612 Roseville Rd #107, North Highlands, CA 95660",
+        "postal_code": "95660",
+        "phone": "+19165142278",
+        "image_url": "https://www.usabytemamila.com/wp-content/uploads/2024/11/Untitled.jpg",
+        "instagram_url": "https://www.instagram.com/artemrakaev/"
+      },
+      "patch": {
+        "private_address_line": "4612 Roseville Rd #107, North Highlands, CA 95660",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "95660",
+        "phone": "+19165142278",
+        "instagram_url": "https://www.instagram.com/artemrakaev/"
+      }
+    }
+  ]
+}

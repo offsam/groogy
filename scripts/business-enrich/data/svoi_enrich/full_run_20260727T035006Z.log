@@ -1,0 +1,8 @@
+Starting detailed svoi full run batch=50 sleep=0 log=/Users/sammov/Russian business AI/scripts/business-enrich/data/svoi_enrich/full_run_20260727T035006Z.log
+
+===== ROUND 1 2026-07-27T03:50:06Z =====
+source=svoi targets=0 dry_run=False publish=True places=True publish_enriched=False
+
+Done. enriched=0 with_address=0 published=0 report=/Users/sammov/Russian business AI/scripts/business-enrich/data/svoi_enrich/batch_20260727T035007Z.json
+Last targets=? exit=0
+Queue empty. Done.

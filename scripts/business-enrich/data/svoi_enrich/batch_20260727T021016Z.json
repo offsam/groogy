@@ -1,0 +1,500 @@
+[
+  {
+    "id": "1a97e3f6-79ab-474d-8565-7cba70205a91",
+    "name": "DGEA LEE SCHOOL",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1228 N.River Rd",
+      "location_precision": "street",
+      "city": "Mount Prospect",
+      "state_code": "US-IL",
+      "postal_code": "60056",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.River%20Rd%201228%2C%20Mount%20Prospect%2C%20IL%2060056",
+      "phone": "+18479093432"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "447d7313-73c9-46a6-b859-b11743a87f63",
+      "slug": "svoi-dgea-lee-school"
+    }
+  },
+  {
+    "id": "29691501-5bb4-4f18-b7a7-1c1152078623",
+    "name": "Millennium Advanced Care Physical Therapy",
+    "changes": {},
+    "fill": {
+      "address_line": "9416 Skokie Boulevard",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Skokie%20Boulevard%209416%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18476734800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d2212652-2429-4a7e-9b79-42a0c426d57d",
+      "slug": "svoi-millennium-advanced-care-physical-therapy"
+    }
+  },
+  {
+    "id": "1f0d03cd-32fe-4502-9a3a-2e9853295cb2",
+    "name": "Клиника Акупунктуры и Восточной Медицины",
+    "changes": {},
+    "fill": {
+      "address_line": "8019 Lincoln Ave",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lincoln%20Ave%20%208019%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18475680849"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c769abf8-0633-4c22-a370-69f591c3372f",
+      "slug": "svoi-biz-14"
+    }
+  },
+  {
+    "id": "d41fa12f-b83f-4850-a860-6a968b0fde2d",
+    "name": "Windy City Chiropractic",
+    "changes": {},
+    "fill": {
+      "address_line": "2551 North Clark Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Clark%20Street%202551%2C%20Chicago%2C%20IL",
+      "phone": "+17732486476"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "eb143652-757e-44b7-9db1-bba67eb89687",
+      "slug": "svoi-windy-city-chiropractic"
+    }
+  },
+  {
+    "id": "35d0097c-c48d-4968-867b-11ee12bd16d9",
+    "name": "Weight Loss Management Seminar",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17028833698"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "9ce9b29e-57a6-4373-b46e-69f9e703a9e5",
+    "name": "KEDVON 3",
+    "changes": {},
+    "fill": {
+      "address_line": "70 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%2070%2C%20Buffalo%20grove%2C%20IL%20%2060089",
+      "phone": "+18476302706"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5864081a-c8cc-4535-bfa4-ab50dbdd7975",
+      "slug": "svoi-kedvon-3"
+    }
+  },
+  {
+    "id": "e7479c4b-6cf2-431c-8d92-38f170275a6e",
+    "name": "BACK TO NATURE 2-IL",
+    "changes": {},
+    "fill": {
+      "address_line": "259 East Dundee Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dundee%20Road%20259%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18475208358"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f46174a1-912b-4126-a5da-779591328baf",
+      "slug": "svoi-back-to-nature-2-il"
+    }
+  },
+  {
+    "id": "446b185c-b6d6-4c95-9370-cbac58b05cd9",
+    "name": "Kedvon Pharmacy - Wheeling",
+    "changes": {},
+    "fill": {
+      "address_line": "56 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%2056%2C%20Wheeling%2C%20IL",
+      "phone": "+18474590001"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7072a5d2-5307-4997-9a5a-e85f4ed62f3d",
+      "slug": "svoi-kedvon-pharmacy-wheeling"
+    }
+  },
+  {
+    "id": "e4d295b1-f0d9-422d-ae7c-7600158b1e1a",
+    "name": "Austin Pharmacy-IL",
+    "changes": {},
+    "fill": {
+      "address_line": "307 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%20307%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472298448"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "eed907bd-8826-4b4d-af9b-32061e1f5303",
+      "slug": "svoi-austin-pharmacy-il"
+    }
+  },
+  {
+    "id": "21928281-e6c6-455e-ab8b-edd7ba184a18",
+    "name": "Golf Mill Pharmacy and Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "8941 West Golf Road",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Golf%20Road%208941%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18478033340"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1472bb9b-8601-44ac-ad91-42e497a451e0",
+      "slug": "svoi-golf-mill-pharmacy-and-medical-supply"
+    }
+  },
+  {
+    "id": "eef69623-fa92-4626-aed2-5f1b2f2406da",
+    "name": "North Suburban Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "4913 Oakton Street",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oakton%20Street%204913%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18476740707"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2904f67b-ac6c-4f96-ae75-3faf76f4db0e",
+      "slug": "svoi-north-suburban-pharmacy"
+    }
+  },
+  {
+    "id": "8d335d5e-7145-4d50-aac4-52c1b387c1c7",
+    "name": "Michael's Green Store",
+    "changes": {},
+    "fill": {
+      "address_line": "2957 West Devon Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Devon%20Avenue%202957%2C%20Chicago%2C%20IL",
+      "phone": "+17734302690"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4a453d12-409b-466f-bf81-8bc17916e049",
+      "slug": "svoi-michael-s-green-store"
+    }
+  },
+  {
+    "id": "d70a742c-3f9a-4547-aa41-471909a88221",
+    "name": "Kedvon Pharmacy - Chicago",
+    "changes": {},
+    "fill": {
+      "address_line": "2763 West Devon Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Devon%20Avenue%202763%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+17733387171"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2d183237-ec5b-4570-bcbf-c145175aff9d",
+      "slug": "svoi-kedvon-pharmacy-chicago"
+    }
+  },
+  {
+    "id": "7248eb82-c518-43a8-b291-609c9d9bb085",
+    "name": "Broadway Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "4564 North Broadway Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60640",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Broadway%20Street%204564%2C%20Chicago%2C%20IL%2060640",
+      "phone": "+17732719727"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d8f35c14-3a2b-47a3-8bd0-17476cf3d074",
+      "slug": "svoi-broadway-pharmacy"
+    }
+  },
+  {
+    "id": "834f1df6-42c5-471d-aa5f-f44370b47105",
+    "name": "GREEN STORE-IL",
+    "changes": {},
+    "fill": {
+      "address_line": "2317 West Chicago Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chicago%20Avenue%202317%2C%20Chicago%2C%20IL%2060622",
+      "phone": "+17732278133"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7fd02b8f-4688-42c2-b85d-6d21ba97e36b",
+      "slug": "svoi-green-store-il"
+    }
+  },
+  {
+    "id": "cdec1e6d-721d-4d63-8299-f2f415c9e6bf",
+    "name": "Bienestar Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "966 West 21st Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%2021st%20Street%20966%2C%20Chicago%2C%20IL",
+      "phone": "+13122262266"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d4a0734-db77-4244-b99d-1c3909cce720",
+      "slug": "svoi-bienestar-pharmacy"
+    }
+  },
+  {
+    "id": "c69b181e-2e17-46d2-a321-9dbf0a1f5dcd",
+    "name": "Greens Landscaping INC.",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vernon%20Hills%2C%20IL",
+      "phone": "+12243589766"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1a1b5fd1-f3ae-4df9-988a-7673d5fcb8de",
+    "name": "N Dobos Architecture",
+    "changes": {},
+    "fill": {
+      "address_line": "1431 Green Bay Road",
+      "location_precision": "street",
+      "city": "Highland Park",
+      "state_code": "US-IL",
+      "postal_code": "60035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Green%20Bay%20Road%201431%2C%20Highland%20Park%2C%20IL%2060035",
+      "phone": "+13123755802"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "da4ed9fd-b405-4e77-be07-82af8ab7e66d",
+      "slug": "svoi-n-dobos-architecture"
+    }
+  },
+  {
+    "id": "c2f23823-d319-43e0-9db7-1c790539072a",
+    "name": "Designer Painting & Wallpapering, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "4150 Cove Lane",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cove%20Lane%204150%2C%20Glenview%2C%20IL%2060025",
+      "website": "http://www.thybonyinteriors.com",
+      "phone": "+18472976622"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6772a89a-fae5-48c6-bb4b-bc6ddc5d58e5",
+      "slug": "svoi-designer-painting-wallpapering-inc"
+    }
+  },
+  {
+    "id": "fc5938ff-c2e2-4112-98ac-40d881eacc43",
+    "name": "Old World Restoration",
+    "changes": {},
+    "fill": {
+      "address_line": "2529 West Division Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Division%20Street%202529%2C%20Chicago%2C%20IL%2060622",
+      "phone": "+17738625435"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d6f8cc3-b6c1-4f77-b662-8a4e2eb3fa9e",
+      "slug": "svoi-old-world-restoration"
+    }
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "lyubov-nikonova-190932",
+      "display_name": "Lyubov Nikonova",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Anaheim",
+          "phone": "+18052641118",
+          "website": "https://www.mercedesbenzofanaheim.com/"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.mercedesbenzofanaheim.com/",
+          "_fetch_url": "https://www.mercedesbenzofanaheim.com/",
+          "address_line": "5395 E La Palma Ave",
+          "city": "Anaheim",
+          "postal_code": "92807",
+          "phone": "+17147771900",
+          "website": "https://www.mercedesbenzofanaheim.com/",
+          "email": "mbanaheimhillsleads@host.udcnet.com",
+          "image_url": "https://www.mercedesbenzofanaheim.com/static/v9/media/images/oem-mercedes/mb-logo.svg?r=1785139385000"
+        },
+        "source": {
+          "_from": "source",
+          "_url": ""
+        }
+      },
+      "found": {
+        "city": "Anaheim",
+        "phone": "+18052641118",
+        "website": "https://www.mercedesbenzofanaheim.com/",
+        "address_line": "5395 E La Palma Ave",
+        "postal_code": "92807",
+        "email": "mbanaheimhillsleads@host.udcnet.com",
+        "image_url": "https://www.mercedesbenzofanaheim.com/static/v9/media/images/oem-mercedes/mb-logo.svg?r=1785139385000"
+      },
+      "patch": {
+        "private_address_line": "5395 E La Palma Ave",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "92807",
+        "email": "mbanaheimhillsleads@host.udcnet.com"
+      }
+    }
+  ]
+}

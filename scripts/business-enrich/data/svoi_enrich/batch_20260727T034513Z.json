@@ -1,0 +1,1286 @@
+[
+  {
+    "id": "01589c3b-7d34-464f-a55f-b779dd8a575b",
+    "name": "Auto Glass Expert Co.",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "91st Avenue North 17719",
+      "location_precision": "street",
+      "city": "Maple Grove",
+      "state_code": "US-MN",
+      "postal_code": "55311",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=91st%20Avenue%20North%2017719%2C%20Maple%20Grove%2C%20MN%2055311",
+      "phone": "+16122104063"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ddb2971c-23c2-4dcb-bcb3-867ce0015af0",
+      "slug": "svoi-auto-glass-expert-co"
+    }
+  },
+  {
+    "id": "54f1788f-4f45-4e64-9cce-7085aa04652e",
+    "name": "DPR AUTOMOTIVE",
+    "changes": {},
+    "fill": {
+      "address_line": "3201 E Hwy 13 # 105",
+      "location_precision": "street",
+      "city": "Burnsville",
+      "state_code": "US-MN",
+      "postal_code": "55337",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E%20Hwy%2013%20%23%20105%203201%2C%20Burnsville%2C%20MN%2055337",
+      "phone": "+17637038422"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3764ccc8-194f-43f8-9910-07ebd78229d9",
+      "slug": "svoi-dpr-automotive"
+    }
+  },
+  {
+    "id": "71725ed4-ddab-439c-9dcf-a507d9fec6ea",
+    "name": "A&A Auto Services",
+    "changes": {},
+    "fill": {
+      "address_line": "12000 County Road 11",
+      "location_precision": "street",
+      "city": "Burnsville",
+      "state_code": "US-MN",
+      "postal_code": "55337",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=County%20Road%2011%2012000%2C%20Burnsville%2C%20MN%2055337",
+      "phone": "+19528820455"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "de16ef8b-14f7-4510-9818-4b41a6e93c94",
+      "slug": "svoi-a-a-auto-services"
+    }
+  },
+  {
+    "id": "fe016ed2-ffa3-4c46-a9de-a21662531eb9",
+    "name": "Mik Transportation Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "3445 Washington Drive",
+      "location_precision": "street",
+      "city": "Egan",
+      "state_code": "US-MN",
+      "postal_code": "55122",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Drive%203445%2C%20Egan%2C%20MN%2055122",
+      "phone": "+16127992899"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "74831eb8-7c72-4de4-9f63-538bdfd6bfbb",
+      "slug": "svoi-mik-transportation-inc"
+    }
+  },
+  {
+    "id": "3c962545-3373-402d-b953-0e3375e81b60",
+    "name": "ORPR Camp",
+    "changes": {},
+    "fill": {
+      "address_line": "4991 Perkinsville Road",
+      "location_precision": "street",
+      "city": "Индепенденс",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perkinsville%20Road%204991%2C%20%D0%98%D0%BD%D0%B4%D0%B5%D0%BF%D0%B5%D0%BD%D0%B4%D0%B5%D0%BD%D1%81%2C%20MN",
+      "phone": "+18154492765"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2076fd4f-5a21-4229-9aaf-1ba2fbb57fc7",
+      "slug": "svoi-orpr-camp"
+    }
+  },
+  {
+    "id": "d306c212-2441-4a46-9fad-2b3b3c679ff0",
+    "name": "Day Care “Winny - Pukh”",
+    "changes": {},
+    "fill": {
+      "address_line": "Magnolia Avenue South",
+      "location_precision": "street",
+      "city": "Saint Paul Park",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Magnolia%20Avenue%20South%2C%20Saint%20Paul%20Park%2C%20MN",
+      "phone": "+16517726542"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "71902905-5674-4995-a8f4-e99de009ad03",
+      "slug": "svoi-day-care-winny-pukh"
+    }
+  },
+  {
+    "id": "809c6512-e413-4ec8-96a0-0b587bb38fb8",
+    "name": "Sunflower Daycare",
+    "changes": {},
+    "fill": {
+      "address_line": "1800 County Road 42 East",
+      "location_precision": "street",
+      "city": "Burnsville",
+      "state_code": "US-MN",
+      "postal_code": "55337",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=County%20Road%2042%20East%201800%2C%20Burnsville%2C%20MN%2055337",
+      "website": "http://www.sunflowerdaycare.us",
+      "phone": "+16123104967",
+      "instagram_url": "https://www.instagram.com/sunflower_bilingual_daycare_mn"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "595d1062-5080-4a25-8e6b-e156e42f5821",
+      "slug": "svoi-sunflower-daycare"
+    }
+  },
+  {
+    "id": "7970700d-c444-4ed5-8ba2-0b9493f6c5c4",
+    "name": "Nasha Shkola",
+    "changes": {},
+    "fill": {
+      "address_line": "3500 Williston Road",
+      "location_precision": "street",
+      "city": "Minnetonka",
+      "state_code": "US-MN",
+      "postal_code": "55245",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Williston%20Road%203500%2C%20Minnetonka%2C%20MN%2055245",
+      "phone": "+19527461880"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "31df1b6b-3e03-4bb4-96e1-0269228b6ac5",
+      "slug": "svoi-nasha-shkola"
+    }
+  },
+  {
+    "id": "7da5aad9-23aa-4b6d-ab4a-4eb1075297c8",
+    "name": "Bookvar Russian Language School",
+    "changes": {},
+    "fill": {
+      "address_line": "6480 Wayzata Boulevard",
+      "location_precision": "street",
+      "city": "Golden valley",
+      "state_code": "US-MN",
+      "postal_code": "55426",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wayzata%20Boulevard%206480%2C%20Golden%20valley%2C%20MN%2055426",
+      "phone": "+17635452800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0ad0c332-daf1-48d0-8282-81c2d2436bc8",
+      "slug": "svoi-bookvar-russian-language-school"
+    }
+  },
+  {
+    "id": "b03c79b0-35d5-4313-8faf-45d6a903e8e1",
+    "name": "Еврейская Школа Истоки",
+    "changes": {},
+    "fill": {
+      "address_line": "2800 Joppa Avenue South",
+      "location_precision": "street",
+      "city": "St. Louis Park",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Joppa%20Avenue%20South%202800%2C%20St.%20Louis%20Park%2C%20MN",
+      "phone": "+16127356427"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "53eac427-907d-4df9-ad96-707b9fc6b4cd",
+      "slug": "svoi-biz-82"
+    }
+  },
+  {
+    "id": "0fb26d01-a183-4335-ac97-f9cbaed39d8a",
+    "name": "Edgeline Realty (Татьяна Мачуканс)",
+    "changes": {},
+    "fill": {
+      "address_line": "9179 Woodhill Dr",
+      "location_precision": "street",
+      "city": "Savige",
+      "state_code": "US-MN",
+      "postal_code": "55378",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodhill%20Dr%209179%2C%20Savige%2C%20MN%2055378",
+      "phone": "+19522614372"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "82c50183-f9f3-4124-8991-8de16c787890",
+      "slug": "svoi-edgeline-realty"
+    }
+  },
+  {
+    "id": "38128660-0540-414b-9d04-e473619aa4ed",
+    "name": "Lyakh Nina Real Estate Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "9179 Woodhill Dr",
+      "location_precision": "street",
+      "city": "Savige",
+      "state_code": "US-MN",
+      "postal_code": "55378",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodhill%20Dr%209179%2C%20Savige%2C%20MN%2055378",
+      "phone": "+19529943185"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "38069f64-6e54-4cef-86a9-de212dc45e47",
+      "slug": "svoi-lyakh-nina-real-estate-agent"
+    }
+  },
+  {
+    "id": "4b67133e-ab0b-4eae-92c4-206498d32024",
+    "name": "Ravil Ahmetshin at Edgeline Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "9179 Woodhill Drive",
+      "location_precision": "street",
+      "city": "Savige",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woodhill%20Drive%209179%2C%20Savige%2C%20MN",
+      "phone": "+19522501742"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a48bdcdb-911a-42f5-bdb7-400b6e9616f5",
+      "slug": "svoi-ravil-ahmetshin-at-edgeline-realty"
+    }
+  },
+  {
+    "id": "633937db-63f1-4724-ac56-3bc0ac0d164f",
+    "name": "MS Universal Services, Michael Sher",
+    "changes": {},
+    "fill": {
+      "address_line": "4785 Underwood Ln. N",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "postal_code": "55442",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Underwood%20Ln.%20N%204785%2C%20Plymouth%2C%20MN%2055442",
+      "phone": "+17632283110"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f0027f33-a47a-426e-b347-07e2d045aabc",
+      "slug": "svoi-ms-universal-services-michael-sher"
+    }
+  },
+  {
+    "id": "b6102459-1975-4860-b634-30a2deb4e9a5",
+    "name": "Olesia Evgrafova Salon Concept",
+    "changes": {},
+    "fill": {
+      "address_line": "12330 Wayzata Boulevard",
+      "location_precision": "street",
+      "city": "Minnetonka",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wayzata%20Boulevard%2012330%2C%20Minnetonka%2C%20MN",
+      "phone": "+19522618303"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ac212862-80d2-4ea8-b434-2d8383128368",
+      "slug": "svoi-olesia-evgrafova-salon-concept"
+    }
+  },
+  {
+    "id": "34905886-2587-42dc-bde3-1171d2506381",
+    "name": "Shoppe 5101 Salon & Spa",
+    "changes": {},
+    "fill": {
+      "address_line": "5101 Vernon Avenue South",
+      "location_precision": "street",
+      "city": "Idaina",
+      "state_code": "US-MN",
+      "postal_code": "55436",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vernon%20Avenue%20South%205101%2C%20Idaina%2C%20MN%2055436",
+      "phone": "+19529290093"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d634ef36-21c4-43ff-a3aa-14f8bdaa155c",
+      "slug": "svoi-shoppe-5101-salon-spa"
+    }
+  },
+  {
+    "id": "a5c0f056-785c-4d9b-add4-155e435d71cc",
+    "name": "Pixy Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "4801 Welcome Avenue North",
+      "location_precision": "street",
+      "city": "Crystal",
+      "state_code": "US-MN",
+      "postal_code": "55429",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Welcome%20Avenue%20North%204801%2C%20Crystal%2C%20MN%2055429",
+      "phone": "+17635336276"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "74865899-a574-44cd-9423-f9586a02e882",
+      "slug": "svoi-pixy-salon"
+    }
+  },
+  {
+    "id": "bc1e6c50-cf07-42f4-8ef0-04f829295f4f",
+    "name": "Массажный Центр Нева",
+    "changes": {},
+    "fill": {
+      "address_line": "821 W Cedar Lake Rd",
+      "location_precision": "street",
+      "city": "Minneapolis",
+      "state_code": "US-MN",
+      "postal_code": "55416",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Cedar%20Lake%20Rd%20821%2C%20Minneapolis%2C%20MN%2055416",
+      "website": "http://nevamassagecenter.com",
+      "phone": "+19529359506",
+      "yelp_url": "https://yelp.com/biz/neva-massage-center-saint-louis-park",
+      "email": "leomet1966@yahoo.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6f62338d-bd8c-4f92-b050-6d91d6114071",
+      "slug": "svoi-biz-83"
+    }
+  },
+  {
+    "id": "c3ebcb5d-919f-4abc-ae67-76818bbc8342",
+    "name": "Liberty Mutual2",
+    "changes": {},
+    "fill": {
+      "address_line": "2127 Cliff Road",
+      "location_precision": "street",
+      "city": "Egan",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cliff%20Road%202127%2C%20Egan%2C%20MN",
+      "website": "http://welcome.libertymutual.com",
+      "phone": "+16514544955",
+      "postal_code": "02116",
+      "instagram_url": "https://www.instagram.com/libertymutual"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d496386f-7b6b-4915-b00a-7dba09bf5b19",
+      "slug": "svoi-liberty-mutual2"
+    }
+  },
+  {
+    "id": "b75c6736-3479-4b85-b2c4-75372dacda65",
+    "name": "S& R INSURANCE & FINANCIAL SERVICES (Стелла Кравец)",
+    "changes": {},
+    "fill": {
+      "address_line": "8485 Underwood Lane North",
+      "location_precision": "street",
+      "city": "Maple Grove",
+      "state_code": "US-MN",
+      "postal_code": "55369",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Underwood%20Lane%20North%208485%2C%20Maple%20Grove%2C%20MN%2055369",
+      "phone": "+17635458951"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b8fcd16e-94a1-4a00-86fb-3241a31428e5",
+      "slug": "svoi-s-r-insurance-financial-services"
+    }
+  },
+  {
+    "id": "39675aff-b154-45fc-b558-86ab2cbe7755",
+    "name": "CITY INSURANCE (Сергей Кенигсберг)",
+    "changes": {},
+    "fill": {
+      "address_line": "3030 Harbor Lane North",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harbor%20Lane%20North%203030%2C%20Plymouth%2C%20MN",
+      "website": "http://www.cityinsurancemn.com",
+      "phone": "+16123107739",
+      "postal_code": "55305-5203",
+      "email": "contactus@cityinsurancemn.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5460031e-2129-40f0-9ad1-1ce9c6848917",
+      "slug": "svoi-city-insurance"
+    }
+  },
+  {
+    "id": "6a83a69a-96f7-4a3c-a546-f31b69f8edaf",
+    "name": "Small Travel Agency",
+    "changes": {},
+    "fill": {
+      "city": "MN 55347",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Eden%20Prairie%2C%20MN%2055347",
+      "phone": "+16122328414"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "fe5a205c-c268-4e32-bd73-1db5dbd56521",
+    "name": "Travel with Liza",
+    "changes": {},
+    "fill": {
+      "address_line": "3735 Archer Lane North",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "postal_code": "55446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Archer%20Lane%20North%203735%2C%20Plymouth%2C%20MN%2055446",
+      "website": "http://travelwithliza.com",
+      "phone": "+16126954428",
+      "instagram_url": "https://www.instagram.com/soylatinaymas"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "26519a87-52cb-445a-b431-90479a33bb57",
+      "slug": "svoi-travel-with-liza"
+    }
+  },
+  {
+    "id": "8d99865c-5d15-4afc-8852-65bd9b0a8eaf",
+    "name": "AKSANA TRAVEL & VACATIONS LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "4455 Reservoir Boulevard",
+      "location_precision": "street",
+      "city": "Columbia Heights",
+      "state_code": "US-MN",
+      "postal_code": "55421",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reservoir%20Boulevard%204455%2C%20Columbia%20Heights%2C%20MN%2055421",
+      "phone": "+18004947568"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "73bde95c-f6de-46ef-8a89-b21b1f3554ff",
+      "slug": "svoi-aksana-travel-vacations-llc"
+    }
+  },
+  {
+    "id": "0e3f395a-ae09-4bdb-9546-041ea175f75c",
+    "name": "Itasca Interpretation Services",
+    "changes": {},
+    "fill": {
+      "address_line": "1549 Livingston Avenue",
+      "location_precision": "street",
+      "city": "West St. Paul",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Livingston%20Avenue%201549%2C%20West%20St.%20Paul%2C%20MN",
+      "website": "http://itascacorp.biz",
+      "phone": "+16514577400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "59f054f6-ff67-4766-a4cb-77d6ed74364c",
+      "slug": "svoi-itasca-interpretation-services"
+    }
+  },
+  {
+    "id": "b06d15dd-ef7f-41ca-b296-3d149728cdb8",
+    "name": "N and N Interpreter Company",
+    "changes": {},
+    "fill": {
+      "address_line": "10750 Rockford Road",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "postal_code": "55442",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rockford%20Road%2010750%2C%20Plymouth%2C%20MN%2055442",
+      "phone": "+17635576702"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "40dc12d7-dbaa-42dd-a9b6-2eeb3c45be5f",
+      "slug": "svoi-n-and-n-interpreter-company"
+    }
+  },
+  {
+    "id": "9bb6d2d0-6ab8-40fa-af79-357d7df3bc28",
+    "name": "ALEKSANDR KABAKOV",
+    "changes": {},
+    "fill": {
+      "address_line": "7356 York Ave N",
+      "location_precision": "street",
+      "city": "Brooklyn Park",
+      "state_code": "US-MN",
+      "postal_code": "55443",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=York%20Ave%20N%20%207356%2C%20Brooklyn%20Park%2C%20MN%2055443",
+      "phone": "+16128679247"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9cdf017f-3a61-4fb3-bc48-f4e23b3574d0",
+      "slug": "svoi-aleksandr-kabakov"
+    }
+  },
+  {
+    "id": "9510539a-7a64-41e4-a520-7e92434a3b94",
+    "name": "Sir Speedy Printing and Marketing Services",
+    "changes": {},
+    "fill": {
+      "address_line": "2525 Nevada Avenue North",
+      "location_precision": "street",
+      "city": "Golden valley",
+      "state_code": "US-MN",
+      "postal_code": "55427",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Nevada%20Avenue%20North%202525%2C%20Golden%20valley%2C%20MN%2055427",
+      "phone": "+17635428812"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f55d2787-60b3-4571-82a5-2f8710c05b10",
+      "slug": "svoi-sir-speedy-printing-and-marketing-services"
+    }
+  },
+  {
+    "id": "628ee823-973b-46c9-ae35-bd9fdcd7a8ef",
+    "name": "Marinas Sewing",
+    "changes": {},
+    "fill": {
+      "address_line": "503 Jackson Avenue Northwest",
+      "location_precision": "street",
+      "city": "Elk river",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jackson%20Avenue%20Northwest%20503%2C%20Elk%20river%2C%20MN",
+      "phone": "+17632741107"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b3f4f12f-c9a8-41d3-98a5-37616ddaf904",
+      "slug": "svoi-marinas-sewing"
+    }
+  },
+  {
+    "id": "ad9879ac-04f0-419a-ac78-9898f77fca5d",
+    "name": "Lenas Tailoring",
+    "changes": {},
+    "fill": {
+      "address_line": "Pennsylvania Avenue North",
+      "location_precision": "street",
+      "city": "Champlin",
+      "state_code": "US-MN",
+      "postal_code": "55316",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pennsylvania%20Avenue%20North%2C%20Champlin%2C%20MN%2055316",
+      "website": "http://www.lenastailoring.com",
+      "phone": "+17634277828"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5522a071-cd3a-4328-b101-94fb85f1f88b",
+      "slug": "svoi-lenas-tailoring"
+    }
+  },
+  {
+    "id": "44d727cf-34d6-4944-b461-a4195a2f843f",
+    "name": "Grand Cleaners",
+    "changes": {},
+    "fill": {
+      "address_line": "1645 White Bear Avenue",
+      "location_precision": "street",
+      "city": "St. Paul",
+      "state_code": "US-MN",
+      "postal_code": "55106",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=White%20Bear%20Avenue%201645%2C%20St.%20Paul%2C%20MN%2055106",
+      "phone": "+16517763485"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b4144937-11b0-46cb-80dd-eeaf9e6bc898",
+      "slug": "svoi-grand-cleaners"
+    }
+  },
+  {
+    "id": "18cba05c-c0a1-43ec-af26-d4a7b45c0846",
+    "name": "White House Custom Colour in South St Paul",
+    "changes": {},
+    "fill": {
+      "address_line": "156 Hardman Avenue South",
+      "location_precision": "street",
+      "city": "South St. Paul",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hardman%20Avenue%20South%20156%2C%20South%20St.%20Paul%2C%20MN",
+      "phone": "+16516468263"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c30fa95f-3795-4c29-89e0-5759dfef344a",
+      "slug": "svoi-white-house-custom-colour-in-south-st-paul"
+    }
+  },
+  {
+    "id": "b95672e9-288e-4411-9cf3-47ee7545d123",
+    "name": "Accent Photography",
+    "changes": {},
+    "fill": {
+      "address_line": "3990 Zanzibar Lane North",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "postal_code": "55446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Zanzibar%20Lane%20North%203990%2C%20Plymouth%2C%20MN%20%2055446",
+      "phone": "+17633830589"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e00b0f9-0be6-4577-9f78-3906c3858821",
+      "slug": "svoi-accent-photography"
+    }
+  },
+  {
+    "id": "72c698a9-4135-4247-a499-9ceae7002f5d",
+    "name": "Zafar Photography",
+    "changes": {},
+    "fill": {
+      "city": "MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Minneapolis%2C%20MN",
+      "phone": "+16127037730"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "f47f4226-52c1-44ed-9c07-79162408e423",
+    "name": "Dykhne CPA, Tax and Accounting Services",
+    "changes": {},
+    "fill": {
+      "address_line": "9001 East Bloomington Freeway",
+      "location_precision": "street",
+      "city": "Bloomington",
+      "state_code": "US-MN",
+      "postal_code": "55420",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Bloomington%20Freeway%209001%2C%20Bloomington%2C%20MN%2055420",
+      "phone": "+16122701812"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1bd164be-d21f-4de0-9f89-fbca562efae8",
+      "slug": "svoi-dykhne-cpa-tax-and-accounting-services"
+    }
+  },
+  {
+    "id": "a79d8ee1-fef4-411e-8fe4-48a1a886b6a4",
+    "name": "Ширль Рафаил",
+    "changes": {},
+    "fill": {
+      "address_line": "32nd Avenue North 13340",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "postal_code": "55441",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=32nd%20Avenue%20North%2013340%2C%20Plymouth%2C%20MN%2055441",
+      "phone": "+17635226002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3ec4e0be-004d-43b7-8bc8-c63c4cff9a3e",
+      "slug": "svoi-biz-84"
+    }
+  },
+  {
+    "id": "6e7af2be-e995-4246-abee-d0c30ea5d40f",
+    "name": "Vilana Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "51st Avenue North 15600",
+      "location_precision": "street",
+      "city": "Plymouth",
+      "state_code": "US-MN",
+      "postal_code": "55446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=51st%20Avenue%20North%2015600%2C%20Plymouth%2C%20MN%2055446",
+      "phone": "+16129632900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e0333700-a192-45f9-8a48-5986321acb21",
+      "slug": "svoi-vilana-inc"
+    }
+  },
+  {
+    "id": "43e151cb-2055-45ea-b188-005dfb4a3b61",
+    "name": "Добкин Сергей",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 E 78th Street",
+      "location_precision": "street",
+      "city": "Bloomington",
+      "state_code": "US-MN",
+      "postal_code": "55420",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E%2078th%20Street%201101%2C%20Bloomington%2C%20MN%20%2055420",
+      "phone": "+16123848485"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ef0bc935-1920-46e1-b64a-9c4abb88e1bc",
+      "slug": "svoi-biz-85"
+    }
+  },
+  {
+    "id": "fb6dcab4-ad5e-4e27-aac6-bbe7120fae70",
+    "name": "Paradise Market - European Foods",
+    "changes": {},
+    "fill": {
+      "address_line": "1309 East Highway 13",
+      "location_precision": "street",
+      "city": "Burnsville",
+      "state_code": "US-MN",
+      "postal_code": "55337",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Highway%2013%201309%2C%20Burnsville%2C%20MN%2055337",
+      "phone": "+19528826574"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7a91f0ce-1780-46b6-8b6f-1277c52f437c",
+      "slug": "svoi-paradise-market-european-foods"
+    }
+  },
+  {
+    "id": "85aa953b-217c-4604-b5a2-4f296c4d40ac",
+    "name": "Ukrainian Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "99th Avenue Northwest 455",
+      "location_precision": "street",
+      "city": "Kun rapids",
+      "state_code": "US-MN",
+      "postal_code": "55433",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=99th%20Avenue%20Northwest%20455%2C%20Kun%20rapids%2C%20MN%2055433",
+      "phone": "+16122213920"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "74410875-f763-4e2a-aada-a50b6e1849db",
+      "slug": "svoi-ukrainian-deli"
+    }
+  },
+  {
+    "id": "0708a6a1-0498-4de2-8282-9a033d76f939",
+    "name": "Ukrainian Deli LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "99th Avenue Northwest 455",
+      "location_precision": "street",
+      "city": "Kun rapids",
+      "state_code": "US-MN",
+      "postal_code": "55433",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=99th%20Avenue%20Northwest%20455%2C%20Kun%20rapids%2C%20MN%20%2055433",
+      "phone": "+17637850028"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "440c7489-72b7-46f3-a140-008fd73bdf9f",
+      "slug": "svoi-ukrainian-deli-llc"
+    }
+  },
+  {
+    "id": "5f50632a-b346-4c6e-bcab-17622fbb965f",
+    "name": "Margarita Flowers LLC",
+    "changes": {},
+    "fill": {
+      "city": "MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Plymouth%2C%20MN",
+      "phone": "+16122502055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "db5727af-8f0b-43de-9b1d-f0fae4d0a4e4",
+    "name": "Liquor Dug Out Two",
+    "changes": {},
+    "fill": {
+      "address_line": "12 Nathan Lane North",
+      "location_precision": "street",
+      "city": "St. Louis Park",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Nathan%20Lane%20North%2012%2C%20St.%20Louis%20Park%2C%20MN",
+      "phone": "+17635258830"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e3b3fcfa-16b2-4b96-9216-a8af70f44fbd",
+      "slug": "svoi-liquor-dug-out-two"
+    }
+  },
+  {
+    "id": "09a1df13-4a33-4d9a-9db4-d2cd72806ea3",
+    "name": "The Ukrainian Gift Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "1008 North 5th Street",
+      "location_precision": "street",
+      "city": "Minneapolis",
+      "state_code": "US-MN",
+      "postal_code": "55411",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%205th%20Street%201008%2C%20Minneapolis%2C%20MN%2055411",
+      "phone": "+18667972652"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "759af288-56a2-48d2-ad31-9b05d1f66edb",
+      "slug": "svoi-the-ukrainian-gift-shop"
+    }
+  },
+  {
+    "id": "53f7fc04-fff4-4a17-abea-267d3d2e66f1",
+    "name": "Russian Tea House - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "St. Paul",
+      "location_precision": "street",
+      "city": "MN ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=St.%20Paul%2C%20MN%20ted%20States",
+      "phone": "+16516464144"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a6022df7-c739-4049-b516-c9a5c054cd19",
+      "slug": "svoi-russian-tea-house-restaurants"
+    }
+  },
+  {
+    "id": "b2dd552c-6502-40ba-a47c-fe98d62a7d42",
+    "name": "Moscow On The Hill - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "371 Selby Avenue",
+      "location_precision": "street",
+      "city": "St. Paul",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Selby%20Avenue%20371%2C%20St.%20Paul%2C%20MN",
+      "website": "http://www.moscowonthehill.com",
+      "phone": "+16512911236",
+      "instagram_url": "https://www.instagram.com/moscowonthehill",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bc8a7be9-bbc2-4761-8de6-3bcdeb71fb46",
+      "slug": "svoi-moscow-on-the-hill-restaurants"
+    }
+  },
+  {
+    "id": "fc4927fd-e342-4009-bcf7-6b48c26eabff",
+    "name": "St Petersburg - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "3610 France Avenue North",
+      "location_precision": "street",
+      "city": "Robbinsdale",
+      "state_code": "US-MN",
+      "postal_code": "55422",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=France%20Avenue%20North%203610%2C%20Robbinsdale%2C%20MN%2055422",
+      "phone": "+17635871787"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "552d72db-fee1-4670-bd12-8ab60a0cb244",
+      "slug": "svoi-st-petersburg-restaurants"
+    }
+  },
+  {
+    "id": "40e59a78-419d-489c-afcf-8dd281c457f4",
+    "name": "Mr Elite Motors - South Florida Car Rental",
+    "changes": {},
+    "fill": {
+      "address_line": "701 Southwest 27th Avenue",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33312",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%2027th%20Avenue%20701%2C%20Fort%20lauderdale%2C%20FL%2033312",
+      "website": "http://rentacarfl.com",
+      "phone": "+19546095300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fa994437-fbb0-4319-b447-cf1024592476",
+      "slug": "svoi-mr-elite-motors-south-florida-car-rental"
+    }
+  },
+  {
+    "id": "24ca332b-8e36-4e36-9124-40d1f603c078",
+    "name": "Mercedes-Benz of Fort Lauderdale",
+    "changes": {},
+    "fill": {
+      "address_line": "2411 South Federal Highway",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "postal_code": "33316",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Federal%20Highway%202411%2C%20Fort%20lauderdale%2C%20FL%2033316",
+      "phone": "+19549490623"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "68fdbf94-0e56-457e-b327-3211b5f597b5",
+      "slug": "svoi-mercedes-benz-of-fort-lauderdale"
+    }
+  },
+  {
+    "id": "0f378bc2-6871-4f39-bbea-0cf091158932",
+    "name": "105 NORTH FEDERAL",
+    "changes": {},
+    "fill": {
+      "address_line": "105 North Federal Highway",
+      "location_precision": "street",
+      "city": "Fort lauderdale",
+      "state_code": "US-FL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Federal%20Highway%20105%2C%20Fort%20lauderdale%2C%20FL",
+      "phone": "+13059443995"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ba9e8c58-f7cc-4ab9-961b-2d0592f459a3",
+      "slug": "svoi-105-north-federal"
+    }
+  }
+]

@@ -1,0 +1,2402 @@
+{
+  "updated": 0,
+  "total": 112,
+  "report": [
+    {
+      "slug": "yelena-lobko-205006-7852",
+      "display_name": "Yelena Lobko",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/201388609209577/permalink/1052114617470301",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {},
+      "patch": {}
+    },
+    {
+      "slug": "svoi-olga-johnson-music-teacher",
+      "display_name": "Olga Johnson- Music Teacher",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17149067120",
+          "email": "olga@olgajohnsonmusic.com"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/education-activities/olga-johnson-music-teacher/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "phone": "+17149067120",
+        "email": "olga@olgajohnsonmusic.com"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-anatoly-sigalov",
+      "display_name": "Anatoly Sigalov",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17148375712",
+          "email": "anatoly.sigalov@hotmail.com"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/anatoly-sigalov-new/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "phone": "+17148375712",
+        "email": "anatoly.sigalov@hotmail.com"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-elena-rozen",
+      "display_name": "Elena Rozen",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19492324514",
+          "email": "erozenpac@yahoo.com"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/elena-rozen/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "phone": "+19492324514",
+        "email": "erozenpac@yahoo.com"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-julia-lobova-realtor",
+      "display_name": "Julia Lobova- Realtor",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/julia-lobova-realtor/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {},
+      "patch": {}
+    },
+    {
+      "slug": "svoi-sarina-browndorf-realtor",
+      "display_name": "Sarina Browndorf – Realtor",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14245661100",
+          "email": "sarina.broundorf@compass.com"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/sarina-browndorf-realtor-new-ad/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "phone": "+14245661100",
+        "email": "sarina.broundorf@compass.com"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-svetlana-boukhny-lawyer",
+      "display_name": "Svetlana Boukhny – Lawyer",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/lawyers/law-offices-of-svetlana-boukhny-2/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {},
+      "patch": {}
+    },
+    {
+      "slug": "svoi-elza-gousseva-nezlin",
+      "display_name": "Elza Gousseva-Nezlin",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Anaheim",
+          "phone": "+13103870500",
+          "website": "http://elzagus.wix.com/elzanotary"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://elzagus.wix.com/elzanotary",
+          "_fetch_url": "https://elzagus.wixsite.com/elzanotary",
+          "address_line": "397 W Summerfield Cir",
+          "city": "Anaheim",
+          "postal_code": "92802",
+          "phone": "+13103870500",
+          "email": "elzagus@hotmail.com",
+          "website": "https://elzagus.wixsite.com/elzanotary",
+          "image_url": "https://www.wix.com/favicon.ico"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/notary-translation/elza-gousseva-nezlin/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "city": "Anaheim",
+        "phone": "+13103870500",
+        "website": "https://elzagus.wixsite.com/elzanotary",
+        "address_line": "397 W Summerfield Cir",
+        "postal_code": "92802",
+        "email": "elzagus@hotmail.com"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-svetlana-cameron-senior-mortgage-loan-officer",
+      "display_name": "Svetlana Cameron – Senior Mortgage Loan Officer",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://lo.primelending.com/svetlana.cameron"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://lo.primelending.com/svetlana.cameron",
+          "_fetch_url": "https://lo.primelending.com/svetlana.cameron",
+          "phone": "+14253444562",
+          "website": "https://lo.primelending.com/svetlana.cameron",
+          "email": "svetlana.cameron@primelending.com",
+          "image_url": "https://lo.primelending.com/us-en/images/color-logo-single-line.png"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/real-estate-mortgage/loan-officer-svetlana-brikina-new-ad/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "website": "https://lo.primelending.com/svetlana.cameron",
+        "phone": "+14253444562",
+        "email": "svetlana.cameron@primelending.com",
+        "image_url": "https://lo.primelending.com/us-en/images/color-logo-single-line.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-holistic-weight-loss-with-lavender-lane-women-s-",
+      "display_name": "Holistic Weight Loss with Lavender Lane Women’s Health & Wellness",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19499984747",
+          "email": "info@lavlane.com",
+          "website": "https://lavlane.com/"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://lavlane.com/",
+          "_fetch_url": "https://lavlane.com/",
+          "website": "https://lavlane.com/",
+          "email": "info@lavlane.com",
+          "image_url": "https://lavlane.com/_assets/images/3fab57233abb364518c51be32ed622f7.png"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/medical-doctors/holistic-weight-loss-with-lavender-lane-womens-health-wellness-new-ad/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "phone": "+19499984747",
+        "email": "info@lavlane.com",
+        "website": "https://lavlane.com/",
+        "image_url": "https://lavlane.com/_assets/images/3fab57233abb364518c51be32ed622f7.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "alyona-koolhaas-150611",
+      "display_name": "Alyona Koolhaas",
+      "layers": {
+        "card": {
+          "_from": "text"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/education-activities/esl-and-russian-teacher-alyona-koolhaas-new/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {},
+      "patch": {}
+    },
+    {
+      "slug": "svoi-alexander-nevidomy-realtor",
+      "display_name": "Alexander Nevidomy REALTOR",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13059319063"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/alexander-nevidomy-realtor-9698",
+          "image_url": "https://svoi.us/files/images/9734fae2b80e5a2aaf2c6eaf283b1c29.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13059319063",
+        "image_url": "https://svoi.us/files/images/9734fae2b80e5a2aaf2c6eaf283b1c29.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-dina-bobrova-dds",
+      "display_name": "Dr. Dina Bobrova DDS",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13059447706"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-dina-bobrova-dds-1757",
+          "image_url": "https://svoi.us/files/images/f0f1dee5daef8552a09bbf8fe4b600ac.png"
+        }
+      },
+      "found": {
+        "phone": "+13059447706",
+        "image_url": "https://svoi.us/files/images/f0f1dee5daef8552a09bbf8fe4b600ac.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-20",
+      "display_name": "Галушко Марина",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15618277711"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/galushko-marina-11719",
+          "image_url": "https://svoi.us/files/images/447df749bb91b0f156ed18c54fe78047.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15618277711",
+        "image_url": "https://svoi.us/files/images/447df749bb91b0f156ed18c54fe78047.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-s-r-insurance-financial-services",
+      "display_name": "S& R INSURANCE & FINANCIAL SERVICES (Стелла Кравец)",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17635458951"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/s-r-insurance-financial-services-stella-kravets-10925",
+          "image_url": "https://svoi.us/files/images/ad614c361329947e3fe93e00264020e1.png"
+        }
+      },
+      "found": {
+        "phone": "+17635458951",
+        "image_url": "https://svoi.us/files/images/ad614c361329947e3fe93e00264020e1.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-md-7",
+      "display_name": "Д-р Александр Зубков MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19529207200"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/d-r-aleksandr-zubkov-md-10671",
+          "phone": "+19529207200",
+          "image_url": "https://svoi.us/files/images/786922428b5d388f98247a14dac7ac48.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19529207200",
+        "image_url": "https://svoi.us/files/images/786922428b5d388f98247a14dac7ac48.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-oleg-froymovich-md",
+      "display_name": "Dr. Oleg Froymovich MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16123392124"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-oleg-froymovich-md-10669",
+          "image_url": "https://svoi.us/files/images/a5c1fcca51ed119c699f93d3cb492251.png"
+        }
+      },
+      "found": {
+        "phone": "+16123392124",
+        "image_url": "https://svoi.us/files/images/a5c1fcca51ed119c699f93d3cb492251.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-paparella-ear-institute",
+      "display_name": "​Paparella Ear Institute. Д-р Олег Фраймович",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16123392836"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/paparella-ear-institute-d-r-oleg-fraymovich-10902",
+          "image_url": "https://svoi.us/files/images/2f614fb5dc914fc32147aaca2f87db21.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+16123392836",
+        "image_url": "https://svoi.us/files/images/2f614fb5dc914fc32147aaca2f87db21.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dimple-malik-dds",
+      "display_name": "Dimple Malik DDS",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17635361100"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dimple-malik-dds-10659",
+          "image_url": "https://svoi.us/files/images/a2e6a34565db9fa02cab519310685dd9.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17635361100",
+        "image_url": "https://svoi.us/files/images/a2e6a34565db9fa02cab519310685dd9.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-spa-habitat-west-village",
+      "display_name": "Spa Habitat West Village",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19178047588"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/spa-habitat-west-village-9242",
+          "image_url": "https://svoi.us/files/images/0e5800fb6727fc7d4b530befbf5aa6ba.png"
+        }
+      },
+      "found": {
+        "phone": "+19178047588",
+        "image_url": "https://svoi.us/files/images/0e5800fb6727fc7d4b530befbf5aa6ba.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-isaac-z-pugach-md-complete-med-care",
+      "display_name": "Dr. Isaac Z. Pugach, MD - Complete Med Care",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19727927777"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-isaac-z-pugach-md-complete-med-care-2698",
+          "image_url": "https://svoi.us/files/images/d21ba617049aa500664dfba7a8152091.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19727927777",
+        "image_url": "https://svoi.us/files/images/d21ba617049aa500664dfba7a8152091.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-family-and-cosmetic-dentistry",
+      "display_name": "Family and Cosmetic Dentistry",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19723980020"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/family-and-cosmetic-dentistry-533",
+          "image_url": "https://svoi.us/files/images/8d1f26fef09117ab8eaefdcdbad2e38c.png"
+        }
+      },
+      "found": {
+        "phone": "+19723980020",
+        "image_url": "https://svoi.us/files/images/8d1f26fef09117ab8eaefdcdbad2e38c.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-naum-becker-md",
+      "display_name": "Dr. Naum Becker, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19727635551"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-naum-becker-md-2718",
+          "image_url": "https://svoi.us/files/images/a5c84bacb75b43b8dcfc6289880c89e6.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19727635551",
+        "image_url": "https://svoi.us/files/images/a5c84bacb75b43b8dcfc6289880c89e6.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-19",
+      "display_name": "Карина Абраамян",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185476375"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/karina-abraamyan-14620",
+          "image_url": "https://svoi.us/files/images/9aa1544d8be56d4202ac700cc3b76236.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185476375",
+        "image_url": "https://svoi.us/files/images/9aa1544d8be56d4202ac700cc3b76236.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-taras-mahlay-md",
+      "display_name": "Dr. Taras Mahlay, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14405829600"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-taras-mahlay-md-14583",
+          "image_url": "https://svoi.us/files/images/b2d3157f59aad366291224b40aebc89e.png"
+        }
+      },
+      "found": {
+        "phone": "+14405829600",
+        "image_url": "https://svoi.us/files/images/b2d3157f59aad366291224b40aebc89e.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-18",
+      "display_name": "Беликов Владимир",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14409959999"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/belikov-vladimir-10070",
+          "image_url": "https://svoi.us/files/images/2169c7f8f000c908da78feba13c0320e.png"
+        }
+      },
+      "found": {
+        "phone": "+14409959999",
+        "image_url": "https://svoi.us/files/images/2169c7f8f000c908da78feba13c0320e.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-mikhail-i-shtivelband-md",
+      "display_name": "Dr. Mikhail I Shtivelband MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14808212838"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-mikhail-i-shtivelband-md-2383",
+          "image_url": "https://svoi.us/files/images/97ae8f637304d559bbec50e4a871b34f.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14808212838",
+        "image_url": "https://svoi.us/files/images/97ae8f637304d559bbec50e4a871b34f.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-ludmila-t-pyter-kabat-md",
+      "display_name": "Dr. Ludmila T Pyter-Kabat MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16234346444"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-ludmila-t-pyter-kabat-md-2380",
+          "image_url": "https://svoi.us/files/images/54a1aa814552467001bbcb57c69e2b52.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+16234346444",
+        "image_url": "https://svoi.us/files/images/54a1aa814552467001bbcb57c69e2b52.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-natalia-kocherinskaya-fresh-massage-therapy",
+      "display_name": "Natalia Kocherinskaya - Fresh Massage Therapy",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17706557506"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/natalia-kocherinskaya-fresh-massage-therapy-14318",
+          "phone": "+17706557506",
+          "image_url": "https://svoi.us/files/images/1172878b9f8a65dad7741285d51a7c59.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17706557506",
+        "image_url": "https://svoi.us/files/images/1172878b9f8a65dad7741285d51a7c59.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-yelena-grinchuk-realtor",
+      "display_name": "Yelena Grinchuk, Realtor",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14046427772"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/yelena-grinchuk-realtor-10589",
+          "image_url": "https://svoi.us/files/images/1d1f4cdc404fc00b8f706a01820a7700.png"
+        }
+      },
+      "found": {
+        "phone": "+14046427772",
+        "image_url": "https://svoi.us/files/images/1d1f4cdc404fc00b8f706a01820a7700.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-la-vista-family-medicine-gorokhov-mikhail-e-md",
+      "display_name": "La Vista Family Medicine: Gorokhov Mikhail E MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14043206050"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/la-vista-family-medicine-gorokhov-mikhail-e-md-8563",
+          "image_url": "https://svoi.us/files/images/3aacccd75f112688e3b328b9dc5a011d.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14043206050",
+        "image_url": "https://svoi.us/files/images/3aacccd75f112688e3b328b9dc5a011d.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-leonid-yelizarov-dmd",
+      "display_name": "Dr. Leonid Yelizarov DMD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17707720606"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-leonid-yelizarov-dmd-8538",
+          "image_url": "https://svoi.us/files/images/5b2d0c90d17e6f17753cdc44f0fbafe9.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17707720606",
+        "image_url": "https://svoi.us/files/images/5b2d0c90d17e6f17753cdc44f0fbafe9.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-shell-enterprises",
+      "display_name": "Переводчик и нотариус Shell Enterprises",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14108828721"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/perevodchik-i-notarius-shell-enterprises-5849",
+          "image_url": "https://svoi.us/files/images/066acfda103dc0a1180aae44de7290a5.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14108828721",
+        "image_url": "https://svoi.us/files/images/066acfda103dc0a1180aae44de7290a5.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-enigma-day-spa-welness",
+      "display_name": "Enigma Day Spa & Welness",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14109615353",
+          "website": "http://www.enigmadayspa.com"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "http://www.enigmadayspa.com",
+          "_fetch_url": "https://www.enigmadayspa.com",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/enigma-day-spa-welness-5886",
+          "image_url": "https://svoi.us/files/images/119f038606326cd1aa6a389465b61f41.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14109615353",
+        "website": "http://www.enigmadayspa.com",
+        "image_url": "https://svoi.us/files/images/119f038606326cd1aa6a389465b61f41.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-alexander-pokov",
+      "display_name": "Dr. Alexander Pokov",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14103589159"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-alexander-pokov-101",
+          "image_url": "https://svoi.us/files/images/dbcd2accbaf325f959471c5529922652.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14103589159",
+        "image_url": "https://svoi.us/files/images/dbcd2accbaf325f959471c5529922652.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-16",
+      "display_name": "Виталий Брейзер доктор",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14104860051"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/vitaliy-breyzer-doktor-5618",
+          "image_url": "https://svoi.us/files/images/66522bf3f9522883e1498fe4faf00a0b.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14104860051",
+        "image_url": "https://svoi.us/files/images/66522bf3f9522883e1498fe4faf00a0b.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-my-boston-realtor-karina",
+      "display_name": "My Boston Realtor, Karina",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16172494539"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/my-boston-realtor-karina-6049",
+          "image_url": "https://svoi.us/files/images/86f9fd609bdaa56246e81c3164659477.png"
+        }
+      },
+      "found": {
+        "phone": "+16172494539",
+        "image_url": "https://svoi.us/files/images/86f9fd609bdaa56246e81c3164659477.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-orthosports-and-aquatic-physical-therapy",
+      "display_name": "Orthosports and Aquatic Physical Therapy",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16177346135"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/orthosports-and-aquatic-physical-therapy-13565",
+          "image_url": "https://svoi.us/files/images/96786a592809b904c2b613d3aa924b01.png"
+        }
+      },
+      "found": {
+        "phone": "+16177346135",
+        "image_url": "https://svoi.us/files/images/96786a592809b904c2b613d3aa924b01.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-boris-zaks-md",
+      "display_name": "Boris Zaks MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13105501199"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/boris-zaks-md-7460",
+          "image_url": "https://svoi.us/files/images/3bc41d2acf35d3052caba60594e6d471.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13105501199",
+        "image_url": "https://svoi.us/files/images/3bc41d2acf35d3052caba60594e6d471.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-churukian-michael-m-md-physicians-plastic-and-re",
+      "display_name": "Churukian Michael M MD Physicians-Plastic and Reconstructive Surgery",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13105501545"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/churukian-michael-m-md-physicians-plastic-and-reconstructive-surgery-3507",
+          "image_url": "https://svoi.us/files/images/978f0d3c21abed36c121f27641c6556e.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13105501545",
+        "image_url": "https://svoi.us/files/images/978f0d3c21abed36c121f27641c6556e.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-eleanor-lavretsky",
+      "display_name": "Dr. Eleanor Lavretsky",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13102469249"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-eleanor-lavretsky-13893",
+          "image_url": "https://svoi.us/files/images/662972c1f085dc7ee60d8e064da322c6.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13102469249",
+        "image_url": "https://svoi.us/files/images/662972c1f085dc7ee60d8e064da322c6.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-lilia-agadganian-dds",
+      "display_name": "Dr. Lilia Agadganian DDS",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13106528877"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-lilia-agadganian-dds-1688",
+          "image_url": "https://svoi.us/files/images/8f077aa6997ec2fe283af1cba5581c1f.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13106528877",
+        "image_url": "https://svoi.us/files/images/8f077aa6997ec2fe283af1cba5581c1f.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-joseph-stan-dds",
+      "display_name": "Dr. Joseph Stan DDS",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13102758100"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-joseph-stan-dds-1550",
+          "image_url": "https://svoi.us/files/images/d6e9dc0f22fda7ce65d5e2497bb8d3f0.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13102758100",
+        "image_url": "https://svoi.us/files/images/d6e9dc0f22fda7ce65d5e2497bb8d3f0.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-a-j-boyajian-d-m-d-cosmetic-dentists",
+      "display_name": "A.J. Boyajian, D.M.D. Cosmetic Dentists",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13102737397"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/a-j-boyajian-d-m-d-cosmetic-dentists-4554",
+          "image_url": "https://svoi.us/files/images/520a4e5c89d493cded05f77e545151ef.png"
+        }
+      },
+      "found": {
+        "phone": "+13102737397",
+        "image_url": "https://svoi.us/files/images/520a4e5c89d493cded05f77e545151ef.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-zakari-victor-md-physicians-obstetrics-gynecolog",
+      "display_name": "Zakari Victor MD Physicians-Obstetrics &Gynecology",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18188432826"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/zakari-victor-md-physicians-obstetrics-gynecology-3380",
+          "image_url": "https://svoi.us/files/images/f66a6eeed53769279aff5f80d1693d9a.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18188432826",
+        "image_url": "https://svoi.us/files/images/f66a6eeed53769279aff5f80d1693d9a.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-abdulian-misak-h-md-physicians-thoracic-cardiova",
+      "display_name": "Abdulian Misak H MD Physicians-Thoracic & Cardiovascular Surgery",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18188450611"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/abdulian-misak-h-md-physicians-thoracic-cardiovascular-surgery-2404",
+          "image_url": "https://svoi.us/files/images/0d9aa54cc6a37a52c9d185e863e872e8.png"
+        }
+      },
+      "found": {
+        "phone": "+18188450611",
+        "image_url": "https://svoi.us/files/images/0d9aa54cc6a37a52c9d185e863e872e8.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-demerjian-gary-dds-dentist",
+      "display_name": "Demerjian Gary DDS Dentist",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18182389865"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/demerjian-gary-dds-dentist-13142",
+          "image_url": "https://svoi.us/files/images/f6748ed6e548afdf12c27d3382e13bfe.png"
+        }
+      },
+      "found": {
+        "phone": "+18182389865",
+        "image_url": "https://svoi.us/files/images/f6748ed6e548afdf12c27d3382e13bfe.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-13",
+      "display_name": "Нотариус русскоязычный",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15129633228"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/notarius-russkoyazychnyy-4760",
+          "image_url": "https://svoi.us/files/images/da301b4b8b347101f62db524672a5e33.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15129633228",
+        "image_url": "https://svoi.us/files/images/da301b4b8b347101f62db524672a5e33.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-12",
+      "display_name": "Массаж & Аппаратная косметология",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13059515028"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/massazh-apparatnaya-kosmetologiya-14275",
+          "image_url": "https://svoi.us/files/images/dfad90b560772451f1e62291ef7c2237.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13059515028",
+        "image_url": "https://svoi.us/files/images/dfad90b560772451f1e62291ef7c2237.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-11",
+      "display_name": "Тайский массаж - Лилия",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17868307371"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/tayskiy-massazh-liliya-14234",
+          "image_url": "https://svoi.us/files/images/7359d8a71e8c0da1a594e99b9b786625.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17868307371",
+        "image_url": "https://svoi.us/files/images/7359d8a71e8c0da1a594e99b9b786625.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-10",
+      "display_name": "Андрей Соколов",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17869759138"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/andrey-sokolov-8362",
+          "image_url": "https://svoi.us/files/images/cc8b1037443137dfc26c8003b4efd929.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17869759138",
+        "image_url": "https://svoi.us/files/images/cc8b1037443137dfc26c8003b4efd929.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-larisa-b-elberg-md",
+      "display_name": "Dr. Larisa B Elberg MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13056535155"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-larisa-b-elberg-md-984",
+          "image_url": "https://svoi.us/files/images/d1202a91ee4feff510c6495026ae0d46.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13056535155",
+        "image_url": "https://svoi.us/files/images/d1202a91ee4feff510c6495026ae0d46.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-minsu-healing-oasis",
+      "display_name": "Minsu Healing Oasis",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13054556190"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/minsu-healing-oasis-11109",
+          "image_url": "https://svoi.us/files/images/4bf22a7e55b000703e3e119c467a79c3.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13054556190",
+        "image_url": "https://svoi.us/files/images/4bf22a7e55b000703e3e119c467a79c3.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-yelena-vidgop-md",
+      "display_name": "Dr. Yelena Vidgop, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17866232000"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-yelena-vidgop-md-9565",
+          "phone": "+17866232000",
+          "image_url": "https://svoi.us/files/images/7e26b7cd9bee234b6dcf8f6caab43f1d.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17866232000",
+        "image_url": "https://svoi.us/files/images/7e26b7cd9bee234b6dcf8f6caab43f1d.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-marianna-blyumin-karasik-md",
+      "display_name": "Marianna Blyumin-Karasik, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19549980345"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/marianna-blyumin-karasik-md-9842",
+          "image_url": "https://svoi.us/files/images/dab447530cedcb60d31407026269d69c.png"
+        }
+      },
+      "found": {
+        "phone": "+19549980345",
+        "image_url": "https://svoi.us/files/images/dab447530cedcb60d31407026269d69c.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-alexander-m-chaplik-md",
+      "display_name": "Dr. Alexander M Chaplik MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15614998200"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-alexander-m-chaplik-md-2102",
+          "image_url": "https://svoi.us/files/images/b8f607f66282d98dba8c0f415e60cce7.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15614998200",
+        "image_url": "https://svoi.us/files/images/b8f607f66282d98dba8c0f415e60cce7.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-svetlana-maslyak-md",
+      "display_name": "Dr. Svetlana Maslyak, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19545054458"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-svetlana-maslyak-md-2100",
+          "image_url": "https://svoi.us/files/images/f2fdb9dec3b10deff5723ab9f581c4ac.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19545054458",
+        "image_url": "https://svoi.us/files/images/f2fdb9dec3b10deff5723ab9f581c4ac.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-uromedix-md",
+      "display_name": "UroMedix /Борис Клопух, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13055882820"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/uromedix-boris-klopukh-md-11150",
+          "image_url": "https://svoi.us/files/images/d9fdbe64344f28fb467efc967079196e.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13055882820",
+        "image_url": "https://svoi.us/files/images/d9fdbe64344f28fb467efc967079196e.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-elena-vaynerov",
+      "display_name": "Dr. Elena Vaynerov",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13238782523"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-elena-vaynerov-2116",
+          "image_url": "https://svoi.us/files/images/4222663f3911745180c968fa75460184.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13238782523",
+        "image_url": "https://svoi.us/files/images/4222663f3911745180c968fa75460184.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-galina-makovoz",
+      "display_name": "Dr. Galina Makovoz",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13236505494"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-galina-makovoz-2024",
+          "image_url": "https://svoi.us/files/images/2d9549c7d61bee46c310a1ad184a19cd.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13236505494",
+        "image_url": "https://svoi.us/files/images/2d9549c7d61bee46c310a1ad184a19cd.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-boris-shemer-md",
+      "display_name": "Dr. Boris Shemer MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13236567094"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-boris-shemer-md-2027",
+          "image_url": "https://svoi.us/files/images/fd92271d880e138cd01e0064e3578753.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13236567094",
+        "image_url": "https://svoi.us/files/images/fd92271d880e138cd01e0064e3578753.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-unity-medical-group-faina-zlatogorov-m-d",
+      "display_name": "Unity Medical Group- Faina Zlatogorov, M.D.",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13238763700"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/unity-medical-group-faina-zlatogorov-m-d-6334",
+          "image_url": "https://svoi.us/files/images/4fa3365990cf866871cf51209851528c.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13238763700",
+        "image_url": "https://svoi.us/files/images/4fa3365990cf866871cf51209851528c.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-victoria-olshansky-dds",
+      "display_name": "Dr. Victoria Olshansky DDS",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13236506936"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-victoria-olshansky-dds-1580",
+          "image_url": "https://svoi.us/files/images/6d75352588e5a24f30e3f8b16cbe246b.png"
+        }
+      },
+      "found": {
+        "phone": "+13236506936",
+        "image_url": "https://svoi.us/files/images/6d75352588e5a24f30e3f8b16cbe246b.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dc",
+      "display_name": "Д-е Александр Генсон DC",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17136675198"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/d-ye-aleksandr-genson-dc-1494",
+          "image_url": "https://svoi.us/files/images/d26805f2fd0b086abedd3202968a0e57.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17136675198",
+        "image_url": "https://svoi.us/files/images/d26805f2fd0b086abedd3202968a0e57.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-luda-kamenetsky-md-at-medical-associates",
+      "display_name": "Dr. Luda Kamenetsky, MD at Medical Associates",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17136593781"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-luda-kamenetsky-md-at-medical-associates-2700",
+          "image_url": "https://svoi.us/files/images/595b9e35f32bc9c9a6c35e61491aaa9c.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17136593781",
+        "image_url": "https://svoi.us/files/images/595b9e35f32bc9c9a6c35e61491aaa9c.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-leila-g-vizirov-md",
+      "display_name": "Dr. Leila G Vizirov, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17138694404"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-leila-g-vizirov-md-2721",
+          "image_url": "https://svoi.us/files/images/fd140c61e17c6df8c6afb815de1cf5c0.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17138694404",
+        "image_url": "https://svoi.us/files/images/fd140c61e17c6df8c6afb815de1cf5c0.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-irina-s-zaydman-md",
+      "display_name": "Dr. Irina S. Zaydman, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12812652272"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-irina-s-zaydman-md-709",
+          "image_url": "https://svoi.us/files/images/8415184b64e56407f496734e00e59767.png"
+        }
+      },
+      "found": {
+        "phone": "+12812652272",
+        "image_url": "https://svoi.us/files/images/8415184b64e56407f496734e00e59767.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-aleksandra-sokolova-notary-services",
+      "display_name": "Aleksandra Sokolova Notary Services",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19168043340"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/aleksandra-sokolova-notary-services-12788",
+          "image_url": "https://svoi.us/files/images/2d2c00f02a0aeca4ad3e59494d046e8e.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19168043340",
+        "image_url": "https://svoi.us/files/images/2d2c00f02a0aeca4ad3e59494d046e8e.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-enigma-spa",
+      "display_name": "Enigma Spa",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19167296929"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/enigma-spa-686",
+          "image_url": "https://svoi.us/files/images/d5a11bb1685a879620cf56927785b267.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19167296929",
+        "image_url": "https://svoi.us/files/images/d5a11bb1685a879620cf56927785b267.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-gilah-ellyason-realtor",
+      "display_name": "Gilah Ellyason Realtor",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19165499332"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/gilah-ellyason-realtor-5015",
+          "image_url": "https://svoi.us/files/images/dd66a68893158ca38cb6b9ac9c946c09.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19165499332",
+        "image_url": "https://svoi.us/files/images/dd66a68893158ca38cb6b9ac9c946c09.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-8",
+      "display_name": "Терапевт Галина Бондар",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19166165563"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/terapevt-galina-bondar-1091",
+          "image_url": "https://svoi.us/files/images/fa24a4edc0265bcb95763591999b878c.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19166165563",
+        "image_url": "https://svoi.us/files/images/fa24a4edc0265bcb95763591999b878c.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-svetlana-t-vardanian-md",
+      "display_name": "Dr. Svetlana T. Vardanian, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19167837109"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-svetlana-t-vardanian-md-2768",
+          "image_url": "https://svoi.us/files/images/999e30ea41679d63f07b5e8f9622512b.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19167837109",
+        "image_url": "https://svoi.us/files/images/999e30ea41679d63f07b5e8f9622512b.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-massage-for-health",
+      "display_name": "Massage for Health",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+13606353098"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/massage-for-health-6357",
+          "image_url": "https://svoi.us/files/images/13ba34577cfbae247699f9e5ba484377.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+13606353098",
+        "image_url": "https://svoi.us/files/images/13ba34577cfbae247699f9e5ba484377.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-karayan-sooren-md-physicians-orthopaedic-surgery",
+      "display_name": "Karayan Sooren MD Physicians-orthopaedic Surgery",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185070686"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/karayan-sooren-md-physicians-orthopaedic-surgery-3470",
+          "image_url": "https://svoi.us/files/images/5606d34e2ebf99234ec588ac619b23d8.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185070686",
+        "image_url": "https://svoi.us/files/images/5606d34e2ebf99234ec588ac619b23d8.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-agop-aintablian",
+      "display_name": "Dr. Agop Aintablian",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Glendale",
+          "phone": "+18185071305"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-agop-aintablian-2082",
+          "city": "Glendale",
+          "image_url": "https://svoi.us/files/images/ef3c7acb6b76b38b893e1b933db7067f.jpeg"
+        }
+      },
+      "found": {
+        "city": "Glendale",
+        "phone": "+18185071305",
+        "image_url": "https://svoi.us/files/images/ef3c7acb6b76b38b893e1b933db7067f.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-abraham-maissian-md",
+      "display_name": "Dr. Abraham Maissian, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18182431186"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-abraham-maissian-md-2002",
+          "image_url": "https://svoi.us/files/images/837e09feca0ac3c57dc464c20b6f0562.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18182431186",
+        "image_url": "https://svoi.us/files/images/837e09feca0ac3c57dc464c20b6f0562.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-zarie-shahgaldian-md",
+      "display_name": "Dr Zarie Shahgaldian MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185009909"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-zarie-shahgaldian-md-7367",
+          "image_url": "https://svoi.us/files/images/7a3a5149f6e32daeab6672664776c6ce.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185009909",
+        "image_url": "https://svoi.us/files/images/7a3a5149f6e32daeab6672664776c6ce.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-boghosian-shahen-md-physicians-urology",
+      "display_name": "Boghosian Shahen MD Physicians-Urology",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185074340"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/boghosian-shahen-md-physicians-urology-3526",
+          "city": "Glendale",
+          "image_url": "https://svoi.us/files/images/424e317f798b1dea18f510d7b22ebef8.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185074340",
+        "city": "Glendale",
+        "image_url": "https://svoi.us/files/images/424e317f798b1dea18f510d7b22ebef8.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-antranik-laleian-dds-dentist",
+      "display_name": "Antranik Laleian DDS Dentist",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185003991"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/antranik-laleian-dds-dentist-13154",
+          "image_url": "https://svoi.us/files/images/f5ec659d0630ac6263bf8bcd47a157a6.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185003991",
+        "image_url": "https://svoi.us/files/images/f5ec659d0630ac6263bf8bcd47a157a6.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-amayak-gagik-dds-dentist",
+      "display_name": "Amayak Gagik DDS Dentist",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18182400051"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/amayak-gagik-dds-dentist-13156",
+          "image_url": "https://svoi.us/files/images/959c974903c7a4fe86e16ebb306b6c5c.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18182400051",
+        "image_url": "https://svoi.us/files/images/959c974903c7a4fe86e16ebb306b6c5c.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-albarian-alex-dds-dentist",
+      "display_name": "Albarian Alex DDS Dentist",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18182470085"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/albarian-alex-dds-dentist-13158",
+          "image_url": "https://svoi.us/files/images/469182b087e58bc17b16f4ba699afd23.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18182470085",
+        "image_url": "https://svoi.us/files/images/469182b087e58bc17b16f4ba699afd23.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-melidonian-hovig-h-md-physicians-pedatrics",
+      "display_name": "Melidonian Hovig H MD Physicians-Pedatrics",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185482618"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/melidonian-hovig-h-md-physicians-pedatrics-3431",
+          "image_url": "https://svoi.us/files/images/e563a71f672b2128287aad975b274e27.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185482618",
+        "image_url": "https://svoi.us/files/images/e563a71f672b2128287aad975b274e27.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-nune-simonian-md",
+      "display_name": "Dr. Nune Simonian MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18182423916"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-nune-simonian-md-2061",
+          "city": "Glendale",
+          "image_url": "https://svoi.us/files/images/6423af419def7fe7a4f75183fa3f06ea.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18182423916",
+        "city": "Glendale",
+        "image_url": "https://svoi.us/files/images/6423af419def7fe7a4f75183fa3f06ea.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-aintablian-ighia-md",
+      "display_name": "Aintablian Ighia MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18185008822"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/aintablian-ighia-md-2076",
+          "image_url": "https://svoi.us/files/images/6929a3820bb12a8a03b046febecd9b0c.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18185008822",
+        "image_url": "https://svoi.us/files/images/6929a3820bb12a8a03b046febecd9b0c.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-alexander-shikhman-md-at-scripps-green-hospital",
+      "display_name": "Alexander Shikhman MD at Scripps Green Hospital",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18587949192"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/alexander-shikhman-md-at-scripps-green-hospital-10371",
+          "image_url": "https://svoi.us/files/images/1fe42aca5761a712a6d56b10f09e599f.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18587949192",
+        "image_url": "https://svoi.us/files/images/1fe42aca5761a712a6d56b10f09e599f.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-granovsky-alla",
+      "display_name": "Granovsky Alla",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12154949176"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/granovsky-alla-5934",
+          "image_url": "https://svoi.us/files/images/bc53e070413e98489bc9ee0a2b38a5dd.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+12154949176",
+        "image_url": "https://svoi.us/files/images/bc53e070413e98489bc9ee0a2b38a5dd.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-adamov-victor",
+      "display_name": "Dr. Adamov Victor",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12155520077"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-adamov-victor-5918",
+          "image_url": "https://svoi.us/files/images/c4978cc85d1959a4a82c2c7a8b349f4c.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+12155520077",
+        "image_url": "https://svoi.us/files/images/c4978cc85d1959a4a82c2c7a8b349f4c.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-bob-rush-chiropractic-relief-wellness",
+      "display_name": "Dr. Bob Rush Chiropractic Relief & Wellness",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12156772225"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-bob-rush-chiropractic-relief-wellness-2795",
+          "image_url": "https://svoi.us/files/images/8f2a5e4ff0c1dbdbf5c2d10a9f4e55d9.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+12156772225",
+        "image_url": "https://svoi.us/files/images/8f2a5e4ff0c1dbdbf5c2d10a9f4e55d9.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-levin-moisey",
+      "display_name": "Dr. Levin Moisey",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12157223211"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-levin-moisey-1561",
+          "image_url": "https://svoi.us/assets/app/front/images/no-logo.png"
+        }
+      },
+      "found": {
+        "phone": "+12157223211",
+        "image_url": "https://svoi.us/assets/app/front/images/no-logo.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-pantelyat-susanna-md",
+      "display_name": "Dr. Pantelyat Susanna MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12156731498"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-pantelyat-susanna-md-1566",
+          "image_url": "https://svoi.us/files/images/9516af50c7280f08be8115bf1114de4f.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+12156731498",
+        "image_url": "https://svoi.us/files/images/9516af50c7280f08be8115bf1114de4f.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-alexander-d-tarnopolsky-do",
+      "display_name": "Dr. Alexander D. Tarnopolsky, DO",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12156710900"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-alexander-d-tarnopolsky-do-9302",
+          "image_url": "https://svoi.us/files/images/ce1ac3231937915fd6b70b77f604985c.png"
+        }
+      },
+      "found": {
+        "phone": "+12156710900",
+        "image_url": "https://svoi.us/files/images/ce1ac3231937915fd6b70b77f604985c.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-irine-feigin",
+      "display_name": "Dr. Irine Feigin",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+12159692420"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-irine-feigin-1576",
+          "image_url": "https://svoi.us/files/images/517e2e6aa87476933e17051c3e3e72f2.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+12159692420",
+        "image_url": "https://svoi.us/files/images/517e2e6aa87476933e17051c3e3e72f2.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-7",
+      "display_name": "Детский Массаж",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17742306287"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/det-skiy-massazh-6957",
+          "phone": "+17742306287",
+          "image_url": "https://svoi.us/files/images/dce2f7754d73446e5a76dec852feaf58.png"
+        }
+      },
+      "found": {
+        "phone": "+17742306287",
+        "image_url": "https://svoi.us/files/images/dce2f7754d73446e5a76dec852feaf58.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-e-yagudin",
+      "display_name": "Dr. E. Yagudin",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15082708844"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-e-yagudin-7170",
+          "image_url": "https://svoi.us/files/images/3c04a4053f8fc67e0795e718bc153a25.png"
+        }
+      },
+      "found": {
+        "phone": "+15082708844",
+        "image_url": "https://svoi.us/files/images/3c04a4053f8fc67e0795e718bc153a25.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-arthur-shekhtman-wellesley-cosmetic-surgery",
+      "display_name": "Arthur Shekhtman/ Wellesley Cosmetic Surgery",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17812390680"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/arthur-shekhtman-wellesley-cosmetic-surgery-7363",
+          "image_url": "https://svoi.us/files/images/59d0e796bf2ae0d84db5446885aad61a.png"
+        }
+      },
+      "found": {
+        "phone": "+17812390680",
+        "image_url": "https://svoi.us/files/images/59d0e796bf2ae0d84db5446885aad61a.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-md-6",
+      "display_name": "Леонид Дабужский, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16177796182"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/leonid-dabuzhskiy-md-4267",
+          "image_url": "https://svoi.us/files/images/958da607c3da287f471f8cb3709b18cb.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+16177796182",
+        "image_url": "https://svoi.us/files/images/958da607c3da287f471f8cb3709b18cb.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-boris-o-bergus-md",
+      "display_name": "Dr. Boris O. Bergus MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15084818346"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-boris-o-bergus-md-6940",
+          "image_url": "https://svoi.us/files/images/00f22294bc7b84851c2f705959091251.png"
+        }
+      },
+      "found": {
+        "phone": "+15084818346",
+        "image_url": "https://svoi.us/files/images/00f22294bc7b84851c2f705959091251.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-marina-j-estrin-md-at-metrowest-internal-medi",
+      "display_name": "Dr. Marina J Estrin MD at Metrowest Internal Medicine",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15088790077"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-marina-j-estrin-md-at-metrowest-internal-medicine-7163",
+          "image_url": "https://svoi.us/files/images/6c21dfef9716296c1a6110fbf8e2739b.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15088790077",
+        "image_url": "https://svoi.us/files/images/6c21dfef9716296c1a6110fbf8e2739b.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-katya-divari-md",
+      "display_name": "Dr. Katya Divari, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15088722002"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-katya-divari-md-7165",
+          "image_url": "https://svoi.us/files/images/00724780c5b1f7edcf1c2e1f6700bacd.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15088722002",
+        "image_url": "https://svoi.us/files/images/00724780c5b1f7edcf1c2e1f6700bacd.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-southboro-medical-framingham-bolkhovsky-alla-md",
+      "display_name": "Southboro Medical-Framingham: Bolkhovsky Alla MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15088723254"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/southboro-medical-framingham-bolkhovsky-alla-md-7167",
+          "image_url": "https://svoi.us/files/images/af851a8b2c4de170b05313f58bea3c3d.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15088723254",
+        "image_url": "https://svoi.us/files/images/af851a8b2c4de170b05313f58bea3c3d.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-sofia-melenevskaya-md",
+      "display_name": "Sofia Melenevskaya, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15086535989"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/sofia-melenevskaya-md-6955",
+          "image_url": "https://svoi.us/files/images/7d0ccf88745bfa484ce5b061cdcc4ef0.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15086535989",
+        "image_url": "https://svoi.us/files/images/7d0ccf88745bfa484ce5b061cdcc4ef0.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-yana-barbalat-md",
+      "display_name": "Yana Barbalat, MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19789270714"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/yana-barbalat-md-6965",
+          "image_url": "https://svoi.us/files/images/97e9ed3d93aea1d4e6ada7247ff8f663.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19789270714",
+        "image_url": "https://svoi.us/files/images/97e9ed3d93aea1d4e6ada7247ff8f663.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-valery-abramovich",
+      "display_name": "Dr. Valery Abramovich",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+16178790055"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-valery-abramovich-7156",
+          "image_url": "https://svoi.us/files/images/3c6e4aea6ea2c806a21031e84b891bf3.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+16178790055",
+        "image_url": "https://svoi.us/files/images/3c6e4aea6ea2c806a21031e84b891bf3.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-brockton-hospital-verbitsky-elena-a-md",
+      "display_name": "Brockton Hospital: Verbitsky Elena A MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15089417228"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/brockton-hospital-verbitsky-elena-a-md-7154",
+          "image_url": "https://svoi.us/files/images/5d582ced7719093ac16b170ea55f649e.png"
+        }
+      },
+      "found": {
+        "phone": "+15089417228",
+        "image_url": "https://svoi.us/files/images/5d582ced7719093ac16b170ea55f649e.png"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dmd",
+      "display_name": "Др. Андрей Мазо DMD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15088701911"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-andrey-mazo-dmd-6936",
+          "image_url": "https://svoi.us/files/images/f159ebad1cd909a954b1bdb3109e5460.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15088701911",
+        "image_url": "https://svoi.us/files/images/f159ebad1cd909a954b1bdb3109e5460.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-vladimir-gleyzer-md",
+      "display_name": "Dr. Vladimir Gleyzer MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19786644698"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-vladimir-gleyzer-md-3430",
+          "image_url": "https://svoi.us/files/images/657a08fe7bf3e11f03751325158684a2.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19786644698",
+        "image_url": "https://svoi.us/files/images/657a08fe7bf3e11f03751325158684a2.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-raisa-gaines-md-at-metrowest-pediatrics",
+      "display_name": "Dr. Raisa Gaines MD at Metrowest Pediatrics",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+15086206615"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-raisa-gaines-md-at-metrowest-pediatrics-7127",
+          "image_url": "https://svoi.us/files/images/dbfecdac85070055696470f6345e9175.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+15086206615",
+        "image_url": "https://svoi.us/files/images/dbfecdac85070055696470f6345e9175.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-dr-iliya-khramov-md",
+      "display_name": "Dr. Iliya Khramov MD",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17862177666"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/dr-iliya-khramov-md-2106",
+          "image_url": "https://svoi.us/files/images/eb7ece5ac7434fe409cbc0c82a98696d.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+17862177666",
+        "image_url": "https://svoi.us/files/images/eb7ece5ac7434fe409cbc0c82a98696d.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-6",
+      "display_name": "Гершкович Вадим",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18189327900"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/gershkovich-vadim-10692",
+          "image_url": "https://svoi.us/files/images/3c9c9ec2c27bca5bee9a258a08e88f55.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18189327900",
+        "image_url": "https://svoi.us/files/images/3c9c9ec2c27bca5bee9a258a08e88f55.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-biz-5",
+      "display_name": "Нотариус Виктор Цатурян",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+18182092509"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/victor-tsaturian-8173",
+          "image_url": "https://svoi.us/files/images/0a4e85f670e9cbb1089591309ea439d3.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+18182092509",
+        "image_url": "https://svoi.us/files/images/0a4e85f670e9cbb1089591309ea439d3.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-professional-massage-complex-by-alexey",
+      "display_name": "Professional Massage Complex by Alexey",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+19172511520"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/professional-massage-complex-by-alexey-8310",
+          "image_url": "https://svoi.us/files/images/deaa2315e5435ca3586cd8200f416325.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+19172511520",
+        "image_url": "https://svoi.us/files/images/deaa2315e5435ca3586cd8200f416325.jpeg"
+      },
+      "patch": {}
+    },
+    {
+      "slug": "svoi-massage-therapy-natasha",
+      "display_name": "Massage Therapy, Natasha",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+14803138192"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://svoi.us/company/massage-therapy-natasha-1773",
+          "image_url": "https://svoi.us/files/images/c4d5cdd2dda5b75b50a7227da123579d.jpeg"
+        }
+      },
+      "found": {
+        "phone": "+14803138192",
+        "image_url": "https://svoi.us/files/images/c4d5cdd2dda5b75b50a7227da123579d.jpeg"
+      },
+      "patch": {}
+    }
+  ]
+}

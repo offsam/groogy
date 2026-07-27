@@ -1,0 +1,533 @@
+{
+  "generated_at": "2026-07-27T14:34:34.091760+00:00",
+  "mode": "apply",
+  "category": "pro_other",
+  "scanned": 108,
+  "updated": 100,
+  "errors": 0,
+  "field_hits": {
+    "private_address_line": 100,
+    "location_precision": 100,
+    "public_exact_address": 100,
+    "postal_code": 70,
+    "website": 1
+  },
+  "samples": [
+    {
+      "slug": "svoi-biz-7",
+      "name": "Детский Массаж",
+      "source_url": "https://svoi.us/company/det-skiy-massazh-6957",
+      "svoi": {
+        "address_line": "32 Apple Tree Hill Rd",
+        "city": "Hopkinton",
+        "postal_code": "01748",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "32 Apple Tree Hill Rd",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01748"
+      }
+    },
+    {
+      "slug": "svoi-dr-konstantin-salkinder-md",
+      "name": "Dr. Konstantin Salkinder, MD",
+      "source_url": "https://svoi.us/company/dr-konstantin-salkinder-md-412",
+      "svoi": {
+        "address_line": "6221 Wilshire Boulevard",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": [
+          "http://www.miraclemile-ent.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "6221 Wilshire Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-russian-turkish-baths",
+      "name": "Russian Turkish Baths",
+      "source_url": "https://svoi.us/company/russian-turkish-baths-1099",
+      "svoi": {
+        "address_line": "268 East 10th Street",
+        "city": "New York",
+        "postal_code": "10009",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "268 East 10th Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "10009"
+      }
+    },
+    {
+      "slug": "svoi-dr-irina-s-zaydman-md",
+      "name": "Dr. Irina S. Zaydman, MD",
+      "source_url": "https://svoi.us/company/dr-irina-s-zaydman-md-709",
+      "svoi": {
+        "address_line": "16659 Southwest Freeway",
+        "city": "Sugar Land",
+        "postal_code": "77479",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "16659 Southwest Freeway",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "77479"
+      }
+    },
+    {
+      "slug": "svoi-dr-ludmila-t-pyter-kabat-md",
+      "name": "Dr. Ludmila T Pyter-Kabat MD",
+      "source_url": "https://svoi.us/company/dr-ludmila-t-pyter-kabat-md-2380",
+      "svoi": {
+        "address_line": "3648 West Anthem Way",
+        "city": "New river",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "3648 West Anthem Way",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-biz",
+      "name": "Айсен Лиза",
+      "source_url": "https://svoi.us/company/aysen-liza-10028",
+      "svoi": {
+        "address_line": "1204 North Holder Lane",
+        "city": "Northfield",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "1204 North Holder Lane",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-dr-henry-hasserjian-md-santa-monica",
+      "name": "Dr Henry Hasserjian MD Santa Monica",
+      "source_url": "https://svoi.us/company/dr-henry-hasserjian-md-santa-monica-8940",
+      "svoi": {
+        "address_line": "20th Street 1301",
+        "city": "Santa monica",
+        "postal_code": "90404",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "20th Street 1301",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "90404"
+      }
+    },
+    {
+      "slug": "svoi-dr-taras-mahlay-md",
+      "name": "Dr. Taras Mahlay, MD",
+      "source_url": "https://svoi.us/company/dr-taras-mahlay-md-14583",
+      "svoi": {
+        "address_line": "7255 Old Oak Blvd",
+        "city": "Middleberg Heights",
+        "postal_code": "44130",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "7255 Old Oak Blvd",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "44130"
+      }
+    },
+    {
+      "slug": "svoi-yelena-grinchuk-realtor",
+      "name": "Yelena Grinchuk, Realtor",
+      "source_url": "https://svoi.us/company/yelena-grinchuk-realtor-10589",
+      "svoi": {
+        "address_line": "13720 Freemanville Road",
+        "city": "Milton",
+        "postal_code": "30004",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "13720 Freemanville Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "30004"
+      }
+    },
+    {
+      "slug": "svoi-ast-frederick",
+      "name": "Ast, Frederick",
+      "source_url": "https://svoi.us/company/ast-frederick-7018",
+      "svoi": {
+        "address_line": "20 Park Avenue",
+        "city": "New York",
+        "postal_code": "10016",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "20 Park Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "10016"
+      }
+    },
+    {
+      "slug": "svoi-dr-abraham-maissian-md",
+      "name": "Dr. Abraham Maissian, MD",
+      "source_url": "https://svoi.us/company/dr-abraham-maissian-md-2002",
+      "svoi": {
+        "address_line": "1737 West Glenoaks Boulevard",
+        "city": "Glendale",
+        "postal_code": "91201",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "1737 West Glenoaks Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "91201"
+      }
+    },
+    {
+      "slug": "svoi-biz-6",
+      "name": "Гершкович Вадим",
+      "source_url": "https://svoi.us/company/gershkovich-vadim-10692",
+      "svoi": {
+        "address_line": "5850 Canoga Avenue",
+        "city": "Los Angeles",
+        "postal_code": "91367",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "5850 Canoga Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "91367"
+      }
+    },
+    {
+      "slug": "svoi-iii-md",
+      "name": "Доктор Реймонд Равен III, MD",
+      "source_url": "https://svoi.us/company/dr-raven-2242",
+      "svoi": {
+        "address_line": "2625 W Alameda Ave",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": [
+          "http://www.rayravenmd.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "2625 W Alameda Ave",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-hair-systems",
+      "name": "Hair Systems",
+      "source_url": "https://svoi.us/company/hair-systems-273",
+      "svoi": {
+        "address_line": "5214 Randolph Road",
+        "city": "North Bethesda",
+        "postal_code": null,
+        "websites": [
+          "https://www.yelp.com/biz/hair-systems-rockville"
+        ]
+      },
+      "patch": {
+        "private_address_line": "5214 Randolph Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "website": "https://www.yelp.com/biz/hair-systems-rockville"
+      }
+    },
+    {
+      "slug": "svoi-biz-20",
+      "name": "Галушко Марина",
+      "source_url": "https://svoi.us/company/galushko-marina-11719",
+      "svoi": {
+        "address_line": "909 East Las Olas Boulevard",
+        "city": "Fort lauderdale",
+        "postal_code": "33301",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "909 East Las Olas Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "33301"
+      }
+    },
+    {
+      "slug": "svoi-dr-raisa-gaines-md-at-metrowest-pediatrics",
+      "name": "Dr. Raisa Gaines MD at Metrowest Pediatrics",
+      "source_url": "https://svoi.us/company/dr-raisa-gaines-md-at-metrowest-pediatrics-7127",
+      "svoi": {
+        "address_line": "33 Edgell Road",
+        "city": "Framingham",
+        "postal_code": "01701",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "33 Edgell Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01701"
+      }
+    },
+    {
+      "slug": "svoi-weichert-realtors-aguayo-alma",
+      "name": "Weichert Realtors – Aguayo, Alma",
+      "source_url": "https://svoi.us/company/weichert-realtors-aguayo-alma-1831",
+      "svoi": {
+        "address_line": "22 Henry Street",
+        "city": "Bernards",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "22 Henry Street",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-churukian-michael-m-md-physicians-plastic-and-re",
+      "name": "Churukian Michael M MD Physicians-Plastic and Reconstructive Surgery",
+      "source_url": "https://svoi.us/company/churukian-michael-m-md-physicians-plastic-and-reconstructive-surgery-3507",
+      "svoi": {
+        "address_line": "414 North Camden Drive",
+        "city": "Beverly Hills",
+        "postal_code": "90210",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "414 North Camden Drive",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "90210"
+      }
+    },
+    {
+      "slug": "svoi-md-7",
+      "name": "Д-р Александр Зубков MD",
+      "source_url": "https://svoi.us/company/d-r-aleksandr-zubkov-md-10671",
+      "svoi": {
+        "address_line": "3400 West 66th Street",
+        "city": "Idaina",
+        "postal_code": "55435",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "3400 West 66th Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "55435"
+      }
+    },
+    {
+      "slug": "svoi-my-boston-realtor-karina",
+      "name": "My Boston Realtor, Karina",
+      "source_url": "https://svoi.us/company/my-boston-realtor-karina-6049",
+      "svoi": {
+        "address_line": "420 Harvard Street",
+        "city": "Brooklyn",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "420 Harvard Street",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-dr-dina-kaner-md",
+      "name": "Dr. Dina Kaner, MD",
+      "source_url": "https://svoi.us/company/dr-dina-kaner-md-5049",
+      "svoi": {
+        "address_line": "3385 North Arlington Heights Road",
+        "city": "Arlington heights",
+        "postal_code": "60004",
+        "websites": [
+          "http://dinakaner.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "3385 North Arlington Heights Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "60004"
+      }
+    },
+    {
+      "slug": "svoi-dr-marina-z-burstein-md",
+      "name": "Dr. Marina Z. Burstein, MD",
+      "source_url": "https://svoi.us/company/marina-burshteyn-md-14895",
+      "svoi": {
+        "address_line": "24013 Ventura Blvd",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": [
+          "http://lavalleypediatrics.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "24013 Ventura Blvd",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-leslie-richards-law-offices",
+      "name": "Leslie Richards Law Offices",
+      "source_url": "https://svoi.us/company/leslie-richards-law-offices-14853",
+      "svoi": {
+        "address_line": "17337 Ventura Blvd",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": [
+          "http://www.leslierichards.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "17337 Ventura Blvd",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-southampton-spa",
+      "name": "Southampton Spa",
+      "source_url": "https://svoi.us/company/southampton-spa-2758",
+      "svoi": {
+        "address_line": "2nd Street Pike 141",
+        "city": "Southampton",
+        "postal_code": "18966",
+        "websites": [
+          "http://southamptonspa.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "2nd Street Pike 141",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "18966"
+      }
+    },
+    {
+      "slug": "svoi-lawyer-alexander-edward-gilburg",
+      "name": "Lawyer Alexander Edward Gilburg",
+      "source_url": "https://svoi.us/company/lawyer-alexander-edward-gilburg-10557",
+      "svoi": {
+        "address_line": "16209 Victory Blvd",
+        "city": "Los Angeles",
+        "postal_code": "91406",
+        "websites": [
+          "http://www.gilburglaw.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "16209 Victory Blvd",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "91406"
+      }
+    },
+    {
+      "slug": "svoi-dr-svetlana-maslyak-md",
+      "name": "Dr. Svetlana Maslyak, MD",
+      "source_url": "https://svoi.us/company/dr-svetlana-maslyak-md-2100",
+      "svoi": {
+        "address_line": "3990 Sheridan Street",
+        "city": "Hollywood",
+        "postal_code": "33021",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "3990 Sheridan Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "33021"
+      }
+    },
+    {
+      "slug": "svoi-dc",
+      "name": "Д-е Александр Генсон DC",
+      "source_url": "https://svoi.us/company/d-ye-aleksandr-genson-dc-1494",
+      "svoi": {
+        "address_line": "6006 Bellaire Boulevard",
+        "city": "Houston",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "6006 Bellaire Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-shell-enterprises",
+      "name": "Переводчик и нотариус Shell Enterprises",
+      "source_url": "https://svoi.us/company/perevodchik-i-notarius-shell-enterprises-5849",
+      "svoi": {
+        "address_line": "939 Cromwell Bridge Road",
+        "city": "Tauson",
+        "postal_code": "21286",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "939 Cromwell Bridge Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "21286"
+      }
+    },
+    {
+      "slug": "svoi-uromedix-md",
+      "name": "UroMedix /Борис Клопух, MD",
+      "source_url": "https://svoi.us/company/uromedix-boris-klopukh-md-11150",
+      "svoi": {
+        "address_line": "400 West 41st Street",
+        "city": "Miami Beach",
+        "postal_code": "33140",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "400 West 41st Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "33140"
+      }
+    },
+    {
+      "slug": "svoi-biz-5",
+      "name": "Нотариус Виктор Цатурян",
+      "source_url": "https://svoi.us/company/victor-tsaturian-8173",
+      "svoi": {
+        "address_line": "13307 Ratner Street",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "13307 Ratner Street",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    }
+  ]
+}

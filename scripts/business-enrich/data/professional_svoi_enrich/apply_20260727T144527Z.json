@@ -1,0 +1,536 @@
+{
+  "generated_at": "2026-07-27T14:45:27.575493+00:00",
+  "mode": "apply",
+  "category": null,
+  "scanned": 211,
+  "updated": 101,
+  "errors": 0,
+  "field_hits": {
+    "private_address_line": 101,
+    "location_precision": 101,
+    "public_exact_address": 101,
+    "postal_code": 75,
+    "website": 5
+  },
+  "samples": [
+    {
+      "slug": "svoi-arthur-gulesserian-dds-dentist",
+      "name": "Arthur Gulesserian DDS Dentist",
+      "source_url": "https://svoi.us/company/arthur-gulesserian-dds-dentist-3051",
+      "svoi": {
+        "address_line": "539 North Glenoaks Boulevard",
+        "city": "Burbank",
+        "postal_code": "91502",
+        "websites": [
+          "http://www.burbankdentist.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "539 North Glenoaks Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "91502"
+      }
+    },
+    {
+      "slug": "svoi-la-vista-family-medicine-gorokhov-mikhail-e-md",
+      "name": "La Vista Family Medicine: Gorokhov Mikhail E MD",
+      "source_url": "https://svoi.us/company/la-vista-family-medicine-gorokhov-mikhail-e-md-8563",
+      "svoi": {
+        "address_line": "2012 Harobi Drive",
+        "city": "Tucker",
+        "postal_code": "30084",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "2012 Harobi Drive",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "30084"
+      }
+    },
+    {
+      "slug": "svoi-dr-tanaya-bhowmick",
+      "name": "Dr. Tanaya Bhowmick",
+      "source_url": "https://svoi.us/company/dr-tanaya-bhowmick-3607",
+      "svoi": {
+        "address_line": "1 Robert Wood Johnson Pl",
+        "city": "New brunswick",
+        "postal_code": "08901",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "1 Robert Wood Johnson Pl",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "08901"
+      }
+    },
+    {
+      "slug": "svoi-albarian-alex-dds-dentist",
+      "name": "Albarian Alex DDS Dentist",
+      "source_url": "https://svoi.us/company/albarian-alex-dds-dentist-13158",
+      "svoi": {
+        "address_line": "411 N. Central Ave",
+        "city": "Glendale",
+        "postal_code": "91203",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "411 N. Central Ave",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "91203"
+      }
+    },
+    {
+      "slug": "svoi-demerjian-gary-dds-dentist",
+      "name": "Demerjian Gary DDS Dentist",
+      "source_url": "https://svoi.us/company/demerjian-gary-dds-dentist-13142",
+      "svoi": {
+        "address_line": "2701 W. Alameda Ave",
+        "city": "Burbank",
+        "postal_code": "91505",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "2701 W. Alameda Ave",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "91505"
+      }
+    },
+    {
+      "slug": "svoi-dr-elena-vaynerov",
+      "name": "Dr. Elena Vaynerov",
+      "source_url": "https://svoi.us/company/dr-elena-vaynerov-2116",
+      "svoi": {
+        "address_line": "7559 Santa Monica Boulevard",
+        "city": "West Hollywood",
+        "postal_code": "90046",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "7559 Santa Monica Boulevard",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "90046"
+      }
+    },
+    {
+      "slug": "svoi-dr-vladimir-gleyzer-md",
+      "name": "Dr. Vladimir Gleyzer MD",
+      "source_url": "https://svoi.us/company/dr-vladimir-gleyzer-md-3430",
+      "svoi": {
+        "address_line": "21 Main Street",
+        "city": "North Reading",
+        "postal_code": "01864",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "21 Main Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01864"
+      }
+    },
+    {
+      "slug": "svoi-biz-17",
+      "name": "Педиатр Алла Шерман",
+      "source_url": "https://svoi.us/company/pediatr-alla-sherman-14626",
+      "svoi": {
+        "address_line": "3619 Park East Dr",
+        "city": "Beechwood",
+        "postal_code": "44122",
+        "websites": [
+          "http://health.usnews.com/doctors/alla-sherman-440090"
+        ]
+      },
+      "patch": {
+        "private_address_line": "3619 Park East Dr",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "44122"
+      }
+    },
+    {
+      "slug": "svoi-dmd-2",
+      "name": "Др. Анна Кальманович DMD",
+      "source_url": "https://svoi.us/company/dr-anna-kalmanovich-dmd-6935",
+      "svoi": {
+        "address_line": "629 Massachusetts Avenue",
+        "city": "Boxboro",
+        "postal_code": "01719",
+        "websites": [
+          "http://www.boxboroughteeth.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "629 Massachusetts Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01719"
+      }
+    },
+    {
+      "slug": "svoi-adroit-family-dental",
+      "name": "Adroit Family Dental - Доктор Кирилл Смирнов",
+      "source_url": "https://svoi.us/company/adroit-family-dental-8846",
+      "svoi": {
+        "address_line": "5493 Amy Street",
+        "city": "West Lynn",
+        "postal_code": "97068",
+        "websites": [
+          "http://www.adroitdental.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "5493 Amy Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "97068"
+      }
+    },
+    {
+      "slug": "svoi-melidonian-hovig-h-md-physicians-pedatrics",
+      "name": "Melidonian Hovig H MD Physicians-Pedatrics",
+      "source_url": "https://svoi.us/company/melidonian-hovig-h-md-physicians-pedatrics-3431",
+      "svoi": {
+        "address_line": "318 West Colorado Street",
+        "city": "Glendale",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "318 West Colorado Street",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-dr-luda-kamenetsky-md-at-medical-associates",
+      "name": "Dr. Luda Kamenetsky, MD at Medical Associates",
+      "source_url": "https://svoi.us/company/dr-luda-kamenetsky-md-at-medical-associates-2700",
+      "svoi": {
+        "address_line": "1315 Saint Joseph Parkway",
+        "city": "Houston",
+        "postal_code": "77002",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "1315 Saint Joseph Parkway",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "77002"
+      }
+    },
+    {
+      "slug": "svoi-dr-yan-katsnelson-md",
+      "name": "Dr. Yan Katsnelson, MD",
+      "source_url": "https://svoi.us/company/dr-yan-katsnelson-md-10466",
+      "svoi": {
+        "address_line": "4141 East Dundee Road",
+        "city": "Northbrook",
+        "postal_code": "60062",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "4141 East Dundee Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "60062"
+      }
+    },
+    {
+      "slug": "svoi-southboro-medical-framingham-bolkhovsky-alla-md",
+      "name": "Southboro Medical-Framingham: Bolkhovsky Alla MD",
+      "source_url": "https://svoi.us/company/southboro-medical-framingham-bolkhovsky-alla-md-7167",
+      "svoi": {
+        "address_line": "761 Worcester Road",
+        "city": "Framingham",
+        "postal_code": "01701",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "761 Worcester Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01701"
+      }
+    },
+    {
+      "slug": "svoi-minsu-healing-oasis",
+      "name": "Minsu Healing Oasis",
+      "source_url": "https://svoi.us/company/minsu-healing-oasis-11109",
+      "svoi": {
+        "address_line": "260 Palermo Avenue",
+        "city": "Coral gables",
+        "postal_code": "33134",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "260 Palermo Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "33134"
+      }
+    },
+    {
+      "slug": "svoi-dr-leonid-yelizarov-dmd",
+      "name": "Dr. Leonid Yelizarov DMD",
+      "source_url": "https://svoi.us/company/dr-leonid-yelizarov-dmd-8538",
+      "svoi": {
+        "address_line": "11925 Jones Bridge Road",
+        "city": "Jones creek",
+        "postal_code": "30005",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "11925 Jones Bridge Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "30005"
+      }
+    },
+    {
+      "slug": "svoi-paparella-ear-institute",
+      "name": "​Paparella Ear Institute. Д-р Олег Фраймович",
+      "source_url": "https://svoi.us/company/paparella-ear-institute-d-r-oleg-fraymovich-10902",
+      "svoi": {
+        "address_line": "9825 Hospital Drive",
+        "city": "Maple Grove",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "9825 Hospital Drive",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-dr-larisa-b-elberg-md",
+      "name": "Dr. Larisa B Elberg MD",
+      "source_url": "https://svoi.us/company/dr-larisa-b-elberg-md-984",
+      "svoi": {
+        "address_line": "2801 Northwest 87th Avenue",
+        "city": "Doral",
+        "postal_code": null,
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "2801 Northwest 87th Avenue",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-brockton-hospital-verbitsky-elena-a-md",
+      "name": "Brockton Hospital: Verbitsky Elena A MD",
+      "source_url": "https://svoi.us/company/brockton-hospital-verbitsky-elena-a-md-7154",
+      "svoi": {
+        "address_line": "680 Centre Street",
+        "city": "Brockton",
+        "postal_code": "02302",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "680 Centre Street",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "02302"
+      }
+    },
+    {
+      "slug": "svoi-a-j-boyajian-d-m-d-cosmetic-dentists",
+      "name": "A.J. Boyajian, D.M.D. Cosmetic Dentists",
+      "source_url": "https://svoi.us/company/a-j-boyajian-d-m-d-cosmetic-dentists-4554",
+      "svoi": {
+        "address_line": "9400 Brighton Way",
+        "city": "Beverly Hills",
+        "postal_code": "90210",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "9400 Brighton Way",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "90210"
+      }
+    },
+    {
+      "slug": "svoi-boris-orkin-md",
+      "name": "Boris Orkin, MD",
+      "source_url": "https://svoi.us/company/boris-orkin-md-6953",
+      "svoi": {
+        "address_line": "1180 Beacon Street",
+        "city": "Brooklyn",
+        "postal_code": null,
+        "websites": [
+          "http://www.abortion-clinic-boston.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "1180 Beacon Street",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-dr-joseph-stan-dds",
+      "name": "Dr. Joseph Stan DDS",
+      "source_url": "https://svoi.us/company/dr-joseph-stan-dds-1550",
+      "svoi": {
+        "address_line": "448 North Bedford Drive",
+        "city": "Beverly Hills",
+        "postal_code": "90210",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "448 North Bedford Drive",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "90210"
+      }
+    },
+    {
+      "slug": "svoi-dr-katya-divari-md",
+      "name": "Dr. Katya Divari, MD",
+      "source_url": "https://svoi.us/company/dr-katya-divari-md-7165",
+      "svoi": {
+        "address_line": "336 Union Avenue",
+        "city": "Framingham",
+        "postal_code": "01702",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "336 Union Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "01702"
+      }
+    },
+    {
+      "slug": "svoi-dr-julia-litvin-md-at-skokie-hospital",
+      "name": "Dr. Julia Litvin MD at Skokie Hospital",
+      "source_url": "https://svoi.us/company/dr-julia-litvin-md-at-skokie-hospital-8601",
+      "svoi": {
+        "address_line": "9669 Kenton Avenue",
+        "city": "Skoki",
+        "postal_code": "60076",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "9669 Kenton Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "60076"
+      }
+    },
+    {
+      "slug": "svoi-healing-arts-of-oriental-medicine",
+      "name": "Healing Arts of Oriental Medicine",
+      "source_url": "https://svoi.us/company/healing-arts-of-oriental-medicine-9772",
+      "svoi": {
+        "address_line": "405 Lake Cook Road",
+        "city": "Deerfield",
+        "postal_code": null,
+        "websites": [
+          "http://deerfieldcommunityacupuncture.com"
+        ]
+      },
+      "patch": {
+        "private_address_line": "405 Lake Cook Road",
+        "location_precision": "street",
+        "public_exact_address": false
+      }
+    },
+    {
+      "slug": "svoi-raffi-margossian-dds-msd",
+      "name": "Raffi Margossian DDS MSD",
+      "source_url": "https://svoi.us/company/raffi-margossian-dds-msd-14824",
+      "svoi": {
+        "address_line": "239 W Olive Ave Burbank",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "websites": [
+          "https://www.yelp.com/biz/raffi-margossian-dds-msd-burbank"
+        ]
+      },
+      "patch": {
+        "private_address_line": "239 W Olive Ave Burbank",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "website": "https://www.yelp.com/biz/raffi-margossian-dds-msd-burbank"
+      }
+    },
+    {
+      "slug": "svoi-dr-bob-rush-chiropractic-relief-wellness",
+      "name": "Dr. Bob Rush Chiropractic Relief & Wellness",
+      "source_url": "https://svoi.us/company/dr-bob-rush-chiropractic-relief-wellness-2795",
+      "svoi": {
+        "address_line": "13044 Bustleton Avenue",
+        "city": "Philadelphia",
+        "postal_code": "19116",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "13044 Bustleton Avenue",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "19116"
+      }
+    },
+    {
+      "slug": "svoi-dr-isaac-z-pugach-md-complete-med-care",
+      "name": "Dr. Isaac Z. Pugach, MD - Complete Med Care",
+      "source_url": "https://svoi.us/company/dr-isaac-z-pugach-md-complete-med-care-2698",
+      "svoi": {
+        "address_line": "8989 Forest Lane",
+        "city": "Dallas",
+        "postal_code": "75243",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "8989 Forest Lane",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "75243"
+      }
+    },
+    {
+      "slug": "svoi-santa-ana-health-group-sirakoff-dimitri-do",
+      "name": "Santa Ana Health Group: Sirakoff Dimitri DO",
+      "source_url": "https://svoi.us/company/santa-ana-health-group-sirakoff-dimitri-do-2054",
+      "svoi": {
+        "address_line": "17th Street 1206",
+        "city": "Santa ana",
+        "postal_code": "92701",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "17th Street 1206",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "92701"
+      }
+    },
+    {
+      "slug": "svoi-dr-alexander-pokov",
+      "name": "Dr. Alexander Pokov",
+      "source_url": "https://svoi.us/company/dr-alexander-pokov-101",
+      "svoi": {
+        "address_line": "6821 Reisterstown Road",
+        "city": "Baltimore",
+        "postal_code": "21215",
+        "websites": []
+      },
+      "patch": {
+        "private_address_line": "6821 Reisterstown Road",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "21215"
+      }
+    }
+  ]
+}

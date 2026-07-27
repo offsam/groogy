@@ -1,0 +1,517 @@
+[
+  {
+    "id": "7b2e361a-5065-4a61-b87b-2c4f00f6bdcb",
+    "name": "Angel's International Catering Van Nuys",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "6754 White Oak Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=White%20Oak%20Avenue%206754%2C%20Los%20Angeles%2C%20CA%2006",
+      "website": "https://goangelscatering.com",
+      "phone": "+18187050707"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9da45c21-fc5b-47b2-9d69-782826a3c1b3",
+      "slug": "svoi-angel-s-international-catering-van-nuys"
+    }
+  },
+  {
+    "id": "a8d73a42-d7d7-41ab-a070-47a4b51371c3",
+    "name": "Farabela's Touch",
+    "changes": {},
+    "fill": {
+      "address_line": "7908 Foothill Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Foothill%20Boulevard%207908%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://farabelastouch.com",
+      "phone": "+18183527212",
+      "postal_code": "91205",
+      "instagram_url": "https://www.instagram.com/farabelastouch",
+      "email": "farabela@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6849e8c-2f8c-4939-84ff-641cd2b7f1ec",
+      "slug": "svoi-farabela-s-touch"
+    }
+  },
+  {
+    "id": "fd0c20df-9412-424c-b464-e323052a7300",
+    "name": "Mariam's Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "13320 Vanowen Street",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91405",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vanowen%20Street%2013320%2C%20Los%20Angeles%2C%20CA%2091405",
+      "website": "http://www.mariamsflowers.com",
+      "phone": "+18185033000",
+      "instagram_url": "https://www.instagram.com/mariams_flowers"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6dc08250-61e8-4292-8d57-1199399138b7",
+      "slug": "svoi-mariam-s-flowers"
+    }
+  },
+  {
+    "id": "ad53ee4f-dd7c-4915-b03f-00dd5fe9fd67",
+    "name": "Artistic Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "14005 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91423",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2014005%2C%20Los%20Angeles%2C%20CA%2091423",
+      "phone": "+18189887080"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8d67221c-3549-4392-81e9-932ca11f0625",
+      "slug": "svoi-artistic-flowers"
+    }
+  },
+  {
+    "id": "3dd64471-13a7-43b7-959f-a29f2d547d16",
+    "name": "Anatoly Sigalov",
+    "changes": {},
+    "fill": {
+      "address_line": "14th Street 320",
+      "location_precision": "street",
+      "city": "Huntington Beach",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=14th%20Street%20320%2C%20Huntington%20Beach%2C%20CA",
+      "phone": "+17148375712"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7c4c8de4-e7b0-4ae2-8035-b78e3be989fe",
+      "slug": "svoi-anatoly-sigalov"
+    }
+  },
+  {
+    "id": "9c4f1745-da0b-471f-89f8-566535535e80",
+    "name": "Svetlana Stolarov Cpa",
+    "changes": {},
+    "fill": {
+      "address_line": "17247 Boswell Place",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91344",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boswell%20Place%2017247%2C%20Los%20Angeles%2C%20CA%2091344",
+      "phone": "+18183608384"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "65f4c93d-5362-4b38-bf84-d23fd98e7787",
+      "slug": "svoi-svetlana-stolarov-cpa"
+    }
+  },
+  {
+    "id": "6a8b6503-addf-419e-acca-f9e98085154e",
+    "name": "Гершкович Вадим",
+    "changes": {},
+    "fill": {
+      "address_line": "5850 Canoga Avenue",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91367",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Canoga%20Avenue%205850%2C%20Los%20Angeles%2C%20CA%2091367",
+      "phone": "+18189327900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "1c0e6228-ed3e-4e10-88db-256147f26cc0",
+      "slug": "svoi-biz-6"
+    }
+  },
+  {
+    "id": "39bee708-634b-4b06-bf2d-a82ab0e22a46",
+    "name": "Alex Dadourian - Pride Funding & Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "9249 Reseda Blvd Unit 101",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reseda%20Blvd%20Unit%20101%209249%2C%20Los%20Angeles%2C%20CA%2091324",
+      "website": "http://www.pridefunding.com",
+      "phone": "+18188869594"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b0894fff-8679-4a7c-84f6-66665dc09eb4",
+      "slug": "svoi-alex-dadourian-pride-funding-realty"
+    }
+  },
+  {
+    "id": "dab2c2d3-2c6c-46ee-8e7d-f51c24939272",
+    "name": "A & O Properties Management Office",
+    "changes": {},
+    "fill": {
+      "address_line": "8363 Reseda Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reseda%20Boulevard%208363%2C%20Los%20Angeles%2C%20CA",
+      "phone": "+18188864471"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b26f017c-17df-4ad1-8410-b8ea633bc149",
+      "slug": "svoi-a-o-properties-management-office"
+    }
+  },
+  {
+    "id": "73a91f0f-86dc-4a66-ab31-cae5c6487b35",
+    "name": "Power Broker International",
+    "changes": {},
+    "fill": {
+      "address_line": "2330 W. Valencia",
+      "location_precision": "street",
+      "city": "Fullerton",
+      "state_code": "US-CA",
+      "postal_code": "92833",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.%20Valencia%202330%20%2C%20Fullerton%2C%20CA%2092833",
+      "phone": "+18186407022"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cdf3c003-d7e4-475a-baa1-d1e83fbc5deb",
+      "slug": "svoi-power-broker-international"
+    }
+  },
+  {
+    "id": "0d18a325-7def-48e9-8e4a-bb4104d896f6",
+    "name": "American Russian Media, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "14044 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91423",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2014044%2C%20Los%20Angeles%2C%20CA%2091423",
+      "website": "http://www.ticketsr.com",
+      "phone": "+18183772100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "690aeb69-6b22-4362-8af7-d898fb34ad34",
+      "slug": "svoi-american-russian-media-inc"
+    }
+  },
+  {
+    "id": "5c568c6f-b9bf-404e-bc51-a3781007feb0",
+    "name": "American Russian Media, Inc",
+    "changes": {},
+    "fill": {
+      "city": "CA 91423",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%2091423",
+      "website": "http://www.armediacorp.com",
+      "phone": "+18183772100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "45be98f4-31b7-48cc-b7bd-5b9cb31662f1",
+    "name": "Creator Print",
+    "changes": {},
+    "fill": {
+      "address_line": "11634 Ventura Boulevard",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91604",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ventura%20Boulevard%2011634%2C%20Los%20Angeles%2C%20CA%2091604",
+      "website": "http://creatorprint.com",
+      "phone": "+18189852679",
+      "instagram_url": "https://www.instagram.com/creatorprint",
+      "yelp_url": "http://www.yelp.com/biz/creator-print-los-angeles-4"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "22a1cefd-79b0-454b-9e13-fd34a4cab0d0",
+      "slug": "svoi-creator-print"
+    }
+  },
+  {
+    "id": "d7a9d686-7ad1-4d17-a20f-75f8e3d10b96",
+    "name": "Super King Market Claremont Store",
+    "changes": {},
+    "fill": {
+      "address_line": "436 Auto Center Drive",
+      "location_precision": "street",
+      "city": "Claremont",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Auto%20Center%20Drive%20436%2C%20Claremont%2C%20CA",
+      "phone": "+19092677252"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bdb45bc8-aeef-451f-bf57-a67df1227aee",
+      "slug": "svoi-super-king-market-claremont-store"
+    }
+  },
+  {
+    "id": "3157c761-3b48-4792-8c1b-765b5dec4c2a",
+    "name": "Jons International Marketplace Westminster",
+    "changes": {},
+    "fill": {
+      "address_line": "15300 Goldenwest Street",
+      "location_precision": "street",
+      "city": "Westminster",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Goldenwest%20Street%2015300%2C%20Westminster%2C%20CA",
+      "phone": "+17148984371"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5e75bb7c-cb01-4f7a-99eb-e56faa40a7c4",
+      "slug": "svoi-jons-international-marketplace-westminster"
+    }
+  },
+  {
+    "id": "c16b50f2-f536-4248-8fed-3f45df53c326",
+    "name": "Sunflower Grocery",
+    "changes": {},
+    "fill": {
+      "address_line": "6903 Topanga Canyon Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91303",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6903%20Topanga%20Canyon%20Blvd%2C%20Los%20Angeles%2C%20CA%2091303",
+      "phone": "+18188880663"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1786df5-f372-4601-b7d5-585863ae3002",
+      "slug": "svoi-sunflower-grocery"
+    }
+  },
+  {
+    "id": "c3fc5f5d-18df-4bde-9288-b9035443f95c",
+    "name": "Special Cakes By Ruben - City",
+    "changes": {},
+    "fill": {
+      "address_line": "12915 Sherman Way",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sherman%20Way%2012915%2C%20Los%20Angeles%2C%20CA",
+      "website": "http://www.customcakesinlosangelesca.com",
+      "phone": "+18185231195"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7d79abad-1c22-478b-80c7-356d9c8fc700",
+      "slug": "svoi-special-cakes-by-ruben-city"
+    }
+  },
+  {
+    "id": "f834ecc0-4f8b-4728-99cf-4a6ec090ee6a",
+    "name": "Baklava Factory",
+    "changes": {},
+    "fill": {
+      "address_line": "12909 Sherman Way",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91605",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=12909%20Sherman%20Way%2C%20Los%20Angeles%2C%20CA%2091605",
+      "website": "http://www.thebaklavafactory.com",
+      "phone": "+18187641011"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5f396aba-ae38-4d5c-8cc4-eea590988b3f",
+      "slug": "svoi-baklava-factory"
+    }
+  },
+  {
+    "id": "78dafad6-a293-4ae4-acb4-e3ce3df69b33",
+    "name": "Custom Designer Cakes",
+    "changes": {},
+    "fill": {
+      "city": "CA 91605",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Los%20Angeles%2C%20CA%2091605",
+      "phone": "+18184411457"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "77a5fccc-c450-43a0-a589-c93332b60333",
+    "name": "Hi-Ho Market",
+    "changes": {},
+    "fill": {
+      "address_line": "824 East Lincoln Avenue",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "postal_code": "92865",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Lincoln%20Avenue%20824%2C%20Orange%2C%20CA%2092865",
+      "phone": "+17146379525"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6dfa895b-a23f-4f5d-afbf-fc4719f1a75f",
+      "slug": "svoi-hi-ho-market"
+    }
+  }
+]

@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-07-27T01:26:02.924337+00:00",
+  "mode": "apply",
+  "scanned": 747,
+  "updated": 34,
+  "samples": [
+    {
+      "slug": "michael-sorokin-205104-3904",
+      "name": "Michael  Sorokin",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "diana-california-150634",
+      "name": "diana_california",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-4084605611-204936-5f25",
+      "name": "Виктория Волоскова",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-180923",
+      "name": "Жена",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-3239613646-205043-717b",
+      "name": "Роксана Килюшина",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "pro-e6bba37fa0",
+      "name": "Камилла Сангова",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "kate-205352-fef8",
+      "name": "Kate",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-205347-bdbc",
+      "name": "Виктория",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "viktoriia-205344-eec8",
+      "name": "Viktoriia 🇺🇦🇺🇸",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "fbpack-ira-azovtseva",
+      "name": "Ira Azovtseva",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-205128-4506",
+      "name": "Кристина",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "batch2-sbshealth-los-angeles-step-by-step-la",
+      "name": "SBSHealth Los Angeles / Step by Step LA",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-205315-b87f",
+      "name": "Анна Пиченко",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-205135-1daf",
+      "name": "Лена Саа",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "fbpack-ok-daisy-corona-del-mar",
+      "name": "OK Daisy",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "consolidated-inna-meleshko-nails",
+      "name": "Inna Meleshko",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "mila",
+      "name": "Mila",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "kat-koz-205219-5a38",
+      "name": "Kat Koz",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "fbpack-marine-licensed-cosmetologist",
+      "name": "Марине — Licensed Cosmetologist",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "evgeniya-slimface-031834",
+      "name": "Evgeniya Slimface",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-205338-a988",
+      "name": "Юлия",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "agent-of-the-west-205502-23d3",
+      "name": "agent of the west",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "olehkapitanchuk-massage-150636",
+      "name": "olehkapitanchuk_massage",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "anna-belous-205421-28f8",
+      "name": "Anna Belous",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "anastasiya-zai-180857",
+      "name": "Anastasiya Zai",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "business-biz-205659-48e0",
+      "name": "Оксана",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "pro-7ba57728da",
+      "name": "Юля",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "lutsenko-yuliia-180853",
+      "name": "Lutsenko Yuliia",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "pro-fed553eb97-1",
+      "name": "Евгения Бобровская",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "natalya-tyukavkina-205122-69f8",
+      "name": "Natalya Tyukavkina",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    }
+  ]
+}

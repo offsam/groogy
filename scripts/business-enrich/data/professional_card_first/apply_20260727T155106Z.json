@@ -1,0 +1,36 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "olena-king-205237-3b54",
+      "display_name": "Olena King",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "website": "https://avelorea.jewelry",
+          "telegram_url": "olena_k58"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://avelorea.jewelry",
+          "_fetch_url": "https://avelorea.jewelry",
+          "_error": "fetch_failed"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/26898574739806905",
+          "_via": "import_review",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "website": "https://avelorea.jewelry",
+        "telegram_url": "olena_k58"
+      },
+      "patch": {}
+    }
+  ]
+}

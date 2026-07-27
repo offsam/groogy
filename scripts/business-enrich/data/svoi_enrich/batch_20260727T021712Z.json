@@ -1,0 +1,538 @@
+[
+  {
+    "id": "6effd56f-ab58-43fb-bcdd-0a0a18088513",
+    "name": "USA Natural Health Clinic",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "5929 North Cicero Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60646",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Cicero%20Avenue%205929%2C%20Chicago%2C%20IL%2060646",
+      "phone": "+17734904357"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e4891f45-4590-4223-a19d-a08653d92985",
+      "slug": "svoi-usa-natural-health-clinic"
+    }
+  },
+  {
+    "id": "7d8ef9a1-5e96-498a-94f8-541942bc94c7",
+    "name": "Garden Fresh Market Naperville",
+    "changes": {},
+    "fill": {
+      "address_line": "75th Street 955",
+      "location_precision": "street",
+      "city": "Naperville",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=75th%20Street%20955%2C%20Naperville%2C%20IL",
+      "website": "http://www.gardenfreshnaperville.com",
+      "phone": "+16309619204",
+      "postal_code": "60565",
+      "instagram_url": "https://www.instagram.com/napervillefreshmarket",
+      "yelp_url": "https://www.yelp.com/biz/naperville-fresh-market-naperville-3",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a919f9e4-871a-4285-9358-89a74f682bd4",
+      "slug": "svoi-garden-fresh-market-naperville"
+    }
+  },
+  {
+    "id": "60fd1215-bd93-40e3-a56b-439ee0746963",
+    "name": "Inter Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "Grove Road S. Buffalo Grove Rd.",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Grove%20Road%20S.%20Buffalo%20Grove%20Rd.%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474599497"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1a0db99b-bba8-4d9b-b2c8-a213b51218d3",
+      "slug": "svoi-inter-deli"
+    }
+  },
+  {
+    "id": "fb824100-f6cd-4254-b832-0a3605ce394b",
+    "name": "Одесский Привоз",
+    "changes": {},
+    "fill": {
+      "address_line": "1241 West Dundee Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%201241%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18472535777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "23a74d49-d0d7-4bac-b9c0-3a057978cd3f",
+      "slug": "svoi-biz-20"
+    }
+  },
+  {
+    "id": "584f3113-e61e-42ec-807f-cb41c1b836b3",
+    "name": "Krystynas Deli Schaumburg",
+    "changes": {},
+    "fill": {
+      "address_line": "1102 South Roselle Road",
+      "location_precision": "street",
+      "city": "Schaumburg",
+      "state_code": "US-IL",
+      "postal_code": "60193",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Roselle%20Road%201102%2C%20Schaumburg%2C%20IL%2060193",
+      "website": "http://mykdmarket.com",
+      "phone": "+18475345939",
+      "instagram_url": "https://www.instagram.com/kd_market"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "92da9ba6-5b50-40e0-ac28-ac63ae47c4ae",
+      "slug": "svoi-krystynas-deli-schaumburg"
+    }
+  },
+  {
+    "id": "e3dc88fe-1a38-4049-8973-68001f5ec3d7",
+    "name": "Allegro Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "771 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20771%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "website": "http://allegrodeli.com",
+      "phone": "+18472793900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d305f8c-0eea-4368-984b-9b4e5da652f4",
+      "slug": "svoi-allegro-deli"
+    }
+  },
+  {
+    "id": "94963a9c-4842-4886-a3ed-8106c73251a2",
+    "name": "Dinos Food and Liquors",
+    "changes": {},
+    "fill": {
+      "address_line": "443 Ashland Avenue",
+      "location_precision": "street",
+      "city": "Chicago heights",
+      "state_code": "US-IL",
+      "postal_code": "60411",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ashland%20Avenue%20443%2C%20Chicago%20heights%2C%20IL%2060411",
+      "phone": "+17087540320"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "57a4e521-1dcf-4bac-8328-fee686e24734",
+      "slug": "svoi-dinos-food-and-liquors"
+    }
+  },
+  {
+    "id": "ddc07bda-18ef-49c1-8eb8-99c7fd293b8e",
+    "name": "Harvest Fresh International",
+    "changes": {},
+    "fill": {
+      "address_line": "100 East Rand Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Rand%20Road%20100%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18473680138"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c5aff02f-2ea2-46a9-972a-12c134d60ecd",
+      "slug": "svoi-harvest-fresh-international"
+    }
+  },
+  {
+    "id": "582d8a14-8feb-4e34-abc8-1f29588db692",
+    "name": "European Sausage and Food",
+    "changes": {},
+    "fill": {
+      "address_line": "818 State Street",
+      "location_precision": "street",
+      "city": "Lemont",
+      "state_code": "US-IL",
+      "postal_code": "60439",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Street%20818%2C%20Lemont%2C%20IL%2060439",
+      "website": "http://www.petrseuropeansausageandfood.com",
+      "phone": "+16302571157"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2f1f57f1-b3cf-4825-802a-b711db86a1ad",
+      "slug": "svoi-european-sausage-and-food"
+    }
+  },
+  {
+    "id": "3ae9c517-af16-4616-902d-fc7bb14e27b1",
+    "name": "Village Market Place",
+    "changes": {},
+    "fill": {
+      "address_line": "891 East Geneva Road",
+      "location_precision": "street",
+      "city": "Karol Stream",
+      "state_code": "US-IL",
+      "postal_code": "60188",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Geneva%20Road%20891%2C%20Karol%20Stream%2C%20IL%2060188",
+      "phone": "+16302211355"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "36ea7d39-6d32-4ac1-bfaa-9a2cd8550381",
+      "slug": "svoi-village-market-place"
+    }
+  },
+  {
+    "id": "42cffa71-5eba-41cf-a58d-9ed3ca6623a2",
+    "name": "Fresh Farms",
+    "changes": {},
+    "fill": {
+      "address_line": "291 East Dundee Road",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Dundee%20Road%20291%2C%20Wheeling%2C%20IL%2060090",
+      "website": "http://myfreshfarms.com",
+      "phone": "+18472152663",
+      "instagram_url": "https://www.instagram.com/freshfarmsinternational"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4cc20a60-62bc-4788-8c9d-f1a695d62342",
+      "slug": "svoi-fresh-farms"
+    }
+  },
+  {
+    "id": "699c3e15-ffd1-42b3-8c26-3634b8339ed2",
+    "name": "Eurus Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "22 Butterfield Road",
+      "location_precision": "street",
+      "city": "Glen Ellyn",
+      "state_code": "US-IL",
+      "postal_code": "60137",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Butterfield%20Road%2022%2C%20Glen%20Ellyn%2C%20IL%2060137",
+      "phone": "+16304694290"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2d4d7fc4-308a-40fc-902d-d7c0f6dd2ca5",
+      "slug": "svoi-eurus-deli"
+    }
+  },
+  {
+    "id": "aa32c66c-2a78-4d98-8d9e-0e2105c40f23",
+    "name": "Elegance in Meats",
+    "changes": {},
+    "fill": {
+      "address_line": "3135 Dundee Road",
+      "location_precision": "street",
+      "city": "Northbrook",
+      "state_code": "US-IL",
+      "postal_code": "60062",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Road%203135%2C%20Northbrook%2C%20IL%2060062",
+      "phone": "+18474806328"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5fc178bf-dec7-494f-a2d3-069810b506fb",
+      "slug": "svoi-elegance-in-meats"
+    }
+  },
+  {
+    "id": "18452c67-8dcb-4445-a5a3-8dbc59481b47",
+    "name": "Wallys Markets",
+    "changes": {},
+    "fill": {
+      "address_line": "1731 West Golf Road",
+      "location_precision": "street",
+      "city": "Mount Prospect",
+      "state_code": "US-IL",
+      "postal_code": "60056",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Golf%20Road%201731%2C%20Mount%20Prospect%2C%20IL%20%2060056",
+      "phone": "+18473642929"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6a210f71-09e0-4aeb-b210-c78da919d9a0",
+      "slug": "svoi-wallys-markets"
+    }
+  },
+  {
+    "id": "31c236bb-bd88-4fa1-8733-60f33aa3b371",
+    "name": "Sweet Happiness",
+    "changes": {},
+    "fill": {
+      "address_line": "Dearlove rd",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dearlove%20rd%2C%20Glenview%2C%20IL",
+      "phone": "+18476500791"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "24648073-cc1d-48d7-a490-857cd37eb459",
+      "slug": "svoi-sweet-happiness"
+    }
+  },
+  {
+    "id": "1a9e54b9-1646-4f44-86fd-6a7d058b2eb7",
+    "name": "Niles Polish Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "8705 N Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Milwaukee%20Ave%208705%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18474708780"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3d3fa7a9-fac6-417f-b7bc-7a8a7c7016b3",
+      "slug": "svoi-niles-polish-deli"
+    }
+  },
+  {
+    "id": "0dc63353-fb95-42f0-95da-2380a836f023",
+    "name": "Eurostyle Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "4861 Oakton St",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60077",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oakton%20St%204861%2C%20Skoki%2C%20IL%2060077",
+      "phone": "+18473291430"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aa50b6ed-a16e-4e16-a2f6-661e1669b3cf",
+      "slug": "svoi-eurostyle-deli"
+    }
+  },
+  {
+    "id": "1af1eb27-6182-49f4-bb53-a176136f0648",
+    "name": "Montrose Food Mart and Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "6601 West Irving Park Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60634",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Irving%20Park%20Road%206601%2C%20Chicago%2C%20IL%2060634",
+      "phone": "+17736287515"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d6c0e729-e844-418e-974a-00d814d03177",
+      "slug": "svoi-montrose-food-mart-and-deli"
+    }
+  },
+  {
+    "id": "c3887694-5a92-4406-ac20-12e1ca677c83",
+    "name": "Montrose Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "5411 West Montrose Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60641",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Montrose%20Avenue%205411%2C%20Chicago%2C%20IL%2060641",
+      "phone": "+17737256123"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8bd8ab37-e537-4927-9889-180c07ef6d38",
+      "slug": "svoi-montrose-deli"
+    }
+  },
+  {
+    "id": "066a0e8f-8f7f-4f77-bf23-290615c85931",
+    "name": "Kurowskis Sausage Shop",
+    "changes": {},
+    "fill": {
+      "address_line": "2976 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%202976%2C%20Chicago%2C%20IL%2060618",
+      "phone": "+17736451692"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "621b5164-5b6b-4697-affd-7f0edc7c81a9",
+      "slug": "svoi-kurowskis-sausage-shop"
+    }
+  }
+]

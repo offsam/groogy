@@ -1,6 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database, UserRole } from "@/types/database";
 import { DIRECTORY_SOURCE_LIST } from "@/lib/import-review/directory-sources";
+import { TELEGRAM_SOURCE_LIST } from "@/lib/import-review/telegram-sources";
 
 type Client = SupabaseClient<Database>;
 
@@ -56,6 +57,9 @@ export type AdminDashboardCounts = {
   yellowPagesPending: number;
   /** Pending yellow_pages cards keyed by directory_source. */
   directoryPendingBySource: Record<string, number>;
+  /** Pending telegram cards keyed by directory_source (tg_*). */
+  telegramPendingBySource: Record<string, number>;
+  telegramPending: number;
 };
 
 export async function getAdminUsers(client: Client): Promise<AdminUserRow[]> {
@@ -133,6 +137,8 @@ export async function getAdminDashboardCounts(
     recommendationsPending,
     yellowPagesPending,
     directoryRows,
+    telegramRows,
+    telegramPending,
   ] = await Promise.all([
     getAdminAnalytics(client).catch(() => null),
     Promise.resolve(
@@ -204,11 +210,42 @@ export async function getAdminDashboardCounts(
         ).catch(() => [source.id, 0] as const),
       ),
     ),
+    Promise.all(
+      TELEGRAM_SOURCE_LIST.map((source) =>
+        Promise.resolve(
+          anyClient
+            .from("import_comment_recommendations")
+            .select("id", { count: "exact", head: true })
+            .eq("source_channel", "telegram")
+            .eq("directory_source", source.id)
+            .eq("status", "pending")
+            .then((r: { count: number | null; error: unknown }) => {
+              if (r.error) return [source.id, 0] as const;
+              return [source.id, r.count ?? 0] as const;
+            }),
+        ).catch(() => [source.id, 0] as const),
+      ),
+    ),
+    Promise.resolve(
+      anyClient
+        .from("import_comment_recommendations")
+        .select("id", { count: "exact", head: true })
+        .eq("source_channel", "telegram")
+        .eq("status", "pending")
+        .then((r: { count: number | null; error: unknown }) => {
+          if (r.error) return 0;
+          return r.count ?? 0;
+        }),
+    ).catch(() => 0),
   ]);
 
   const directoryPendingBySource: Record<string, number> = {};
   for (const [source, count] of directoryRows) {
     directoryPendingBySource[source] = count;
+  }
+  const telegramPendingBySource: Record<string, number> = {};
+  for (const [source, count] of telegramRows) {
+    telegramPendingBySource[source] = count;
   }
 
   return {
@@ -223,5 +260,7 @@ export async function getAdminDashboardCounts(
     recommendationsPending,
     yellowPagesPending,
     directoryPendingBySource,
+    telegramPendingBySource,
+    telegramPending,
   };
 }

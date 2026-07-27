@@ -1,0 +1,526 @@
+[
+  {
+    "id": "09e1f5d7-47ac-41ea-b8a9-5ff2313d3881",
+    "name": "Rozman Institute of Medicine and Rehabilitation",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "333 Waukegan Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60025",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Waukegan%20Road%20333%2C%20Glenview%2C%20IL%2060025",
+      "phone": "+18474869643"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "caed3d60-f633-41d0-b9a1-f413497b36a0",
+      "slug": "svoi-rozman-institute-of-medicine-and-rehabilitation"
+    }
+  },
+  {
+    "id": "05c88861-7017-409d-969c-bb9af5a40f6b",
+    "name": "Excel Care Health Services, Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "2250 East Devon Avenue",
+      "location_precision": "street",
+      "city": "Des plains",
+      "state_code": "US-IL",
+      "postal_code": "60018",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Devon%20Avenue%202250%2C%20Des%20plains%2C%20IL%2060018",
+      "phone": "+18476758090"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f732f501-11c2-442e-be34-2eac9f2b7a00",
+      "slug": "svoi-excel-care-health-services-inc"
+    }
+  },
+  {
+    "id": "52e7e313-58c7-43bb-8374-dea5c92c5c0c",
+    "name": "Advance Chiropractors",
+    "changes": {},
+    "fill": {
+      "address_line": "7936 West Oakton Court",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Oakton%20Court%207936%2C%20Niles%2C%20IL",
+      "website": "http://advancechiroclinic.com",
+      "phone": "+18478254325"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a7dcd8d9-4770-4748-b967-e04f987f9cd6",
+      "slug": "svoi-advance-chiropractors"
+    }
+  },
+  {
+    "id": "b732aa8a-20cf-4f3b-a6ea-03240fe079c6",
+    "name": "Dr. Galina Simkin MD",
+    "changes": {},
+    "fill": {
+      "address_line": "9701 Knox Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Knox%20Avenue%209701%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18479336040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "8a763637-1019-4339-a48f-2328e895f8ae",
+      "slug": "svoi-dr-galina-simkin-md"
+    }
+  },
+  {
+    "id": "100816ca-40a6-4e22-96ee-54a50188e523",
+    "name": "Dr. Julia Litvin MD at Skokie Hospital",
+    "changes": {},
+    "fill": {
+      "address_line": "9669 Kenton Avenue",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "postal_code": "60076",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kenton%20Avenue%209669%2C%20Skoki%2C%20IL%2060076",
+      "phone": "+18476761333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "32586a0a-49f2-433c-a640-c40c3296223a",
+      "slug": "svoi-dr-julia-litvin-md-at-skokie-hospital"
+    }
+  },
+  {
+    "id": "882311f8-a5e3-4873-aece-e781a4697d76",
+    "name": "Miracle Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "175 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Vernon Hills",
+      "state_code": "US-IL",
+      "postal_code": "60061",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%20175%2C%20Vernon%20Hills%2C%20IL%2060061",
+      "phone": "+18472762838"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0c477c95-f6b9-4c0a-ac25-f5924e9cc9f6",
+      "slug": "svoi-miracle-medical-supply"
+    }
+  },
+  {
+    "id": "48f6fb11-ff96-460b-a08c-fb5415e674dc",
+    "name": "Laima Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "S Buffalo Grove Rd",
+      "location_precision": "street",
+      "city": "738",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S%20Buffalo%20Grove%20Rd%2C%20738%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18475204901"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a70edf46-2444-437f-918d-21bd03de1267",
+      "slug": "svoi-laima-medical-supply"
+    }
+  },
+  {
+    "id": "1ed6f8c2-1771-4e8d-8f70-1f7f05a91c5a",
+    "name": "Apti Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "307 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%20307%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18472432234"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "515d5ba6-f4f3-4d08-85cc-7d4ed3f0e817",
+      "slug": "svoi-apti-inc"
+    }
+  },
+  {
+    "id": "92b63dd5-b22b-4e0b-855e-66dcfa508e37",
+    "name": "Ace Medical Supply LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "7515 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%207515%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18476478590"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "38281799-3b8f-421a-8337-e4b710f9a327",
+      "slug": "svoi-ace-medical-supply-llc"
+    }
+  },
+  {
+    "id": "9612c24f-5cb0-422b-975b-2214975016b5",
+    "name": "American Best Medical Surgical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "6336 North California Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20California%20Avenue%206336%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+17737644339"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b26eafcf-e199-4f47-b6bf-fb72afa62f4d",
+      "slug": "svoi-american-best-medical-surgical-supply"
+    }
+  },
+  {
+    "id": "29854d1d-939e-4211-8df3-fb5354ff345a",
+    "name": "AB4U MED SUPPLY-IL",
+    "changes": {},
+    "fill": {
+      "address_line": "5325 North Sheridan Road",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60640",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Sheridan%20Road%205325%2C%20Chicago%2C%20IL%2060640",
+      "phone": "+17732715325"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9c84751b-a8b6-4e9c-8363-cdc49482a0a3",
+      "slug": "svoi-ab4u-med-supply-il"
+    }
+  },
+  {
+    "id": "fcdb4aca-ed0b-488a-9a88-bd9885e9efd8",
+    "name": "Advanced Medical Supply Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "3322 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60641",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%203322%2C%20Chicago%2C%20IL%2060641",
+      "phone": "+17732056993"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e2b68cdf-eaa6-4d15-8182-27daf2e7ddca",
+      "slug": "svoi-advanced-medical-supply-inc"
+    }
+  },
+  {
+    "id": "597c5d2d-79b1-415a-98f5-bd6458d342ed",
+    "name": "Pearle Vision",
+    "changes": {},
+    "fill": {
+      "address_line": "464 West Half Day Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Half%20Day%20Road%20464%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "website": "http://www.pearlevision.com",
+      "phone": "+18009373937",
+      "instagram_url": "https://www.instagram.com/pearlevision"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "11df1cac-0c72-493f-8ae2-e54643581eed",
+      "slug": "svoi-pearle-vision"
+    }
+  },
+  {
+    "id": "db502e7e-6112-4425-bb98-ab1b3f1274fe",
+    "name": "Marina Roytman OD",
+    "changes": {},
+    "fill": {
+      "address_line": "1120 West Lake Cook Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Lake%20Cook%20Road%201120%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474596060"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6297a398-451e-4ed2-ae42-36e44fe38718",
+      "slug": "svoi-marina-roytman-od"
+    }
+  },
+  {
+    "id": "da48c083-6779-4323-b4a0-9ab863a9c87b",
+    "name": "Eye Q Optique",
+    "changes": {},
+    "fill": {
+      "address_line": "722 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20722%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18479478875"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3ff170cc-c5e6-49a6-a0ed-4cceb500bef4",
+      "slug": "svoi-eye-q-optique"
+    }
+  },
+  {
+    "id": "77a3ccee-6bc6-46d2-b016-feb1e78b4c74",
+    "name": "Affordable Optical",
+    "changes": {},
+    "fill": {
+      "address_line": "92 South Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Wheeling",
+      "state_code": "US-IL",
+      "postal_code": "60090",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Milwaukee%20Avenue%2092%2C%20Wheeling%2C%20IL%2060090",
+      "phone": "+18474199009"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fa747198-88ed-4bf4-9863-fe04bb42f8d0",
+      "slug": "svoi-affordable-optical"
+    }
+  },
+  {
+    "id": "5aa1200f-7662-4967-9672-2d6f6fc8d6bf",
+    "name": "Superior Optical",
+    "changes": {},
+    "fill": {
+      "address_line": "2723 Pfingsten Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "postal_code": "60026",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pfingsten%20Road%202723%2C%20Glenview%2C%20IL%2060026",
+      "website": "http://superioropticaleyewear.com",
+      "phone": "+18475643838",
+      "email": "superioroptical2723@gmail.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e272bea3-48c1-44a5-811a-ee9a9517e378",
+      "slug": "svoi-superior-optical"
+    }
+  },
+  {
+    "id": "db15c5cc-bb64-40ed-8d68-0abb9379d020",
+    "name": "Dr. Svetlana Tsipurskys, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "2640 Golf Road",
+      "location_precision": "street",
+      "city": "Glenview",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Golf%20Road%202640%2C%20Glenview%2C%20IL",
+      "phone": "+18477240101"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c5c70aa9-7bf1-49bd-ab3d-1c326c5f9120",
+      "slug": "svoi-dr-svetlana-tsipurskys-md"
+    }
+  },
+  {
+    "id": "81a506ed-6046-4635-adc3-40499a3f4ed5",
+    "name": "Leo Ayzenberg, M.D. Ophtalmology Practice",
+    "changes": {},
+    "fill": {
+      "address_line": "4145 W. Peterson Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60646",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W.%20Peterson%20Ave%204145%2C%20Chicago%2C%20IL%2060646",
+      "phone": "+17732837700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9426a9cb-6680-47c7-a364-26b329161737",
+      "slug": "svoi-leo-ayzenberg-m-d-ophtalmology-practice"
+    }
+  },
+  {
+    "id": "facbef6c-4651-497b-9b67-b310337f8feb",
+    "name": "Dr. Tatjana Pavlovic",
+    "changes": {},
+    "fill": {
+      "address_line": "2719 West Peterson Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60659",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Peterson%20Avenue%202719%2C%20Chicago%2C%20IL%2060659",
+      "phone": "+17732712719"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "bd985bc1-461e-47a2-b38d-c9aa0f24e5d2",
+      "slug": "svoi-dr-tatjana-pavlovic"
+    }
+  }
+]

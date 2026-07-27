@@ -1,0 +1,1315 @@
+[
+  {
+    "id": "c508cc13-bd7a-45a8-a522-6e96ce3379c9",
+    "name": "Dr. Valery N. Lipenko, MD at Neurology Specialists",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1604 Hospital Parkway",
+      "location_precision": "street",
+      "city": "Bedford",
+      "state_code": "US-TX",
+      "postal_code": "76022",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hospital%20Parkway%201604%2C%20Bedford%2C%20TX%2076022",
+      "website": "http://www.neurologyspecialistsnt.com",
+      "phone": "+18176854485"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "99966636-5ef6-4382-8bb8-1a7886147038",
+      "slug": "svoi-dr-valery-n-lipenko-md-at-neurology-specialists"
+    }
+  },
+  {
+    "id": "b29fcf1f-97ff-4b13-bbab-1538c3f3c06a",
+    "name": "Methodist Family Health Center",
+    "changes": {},
+    "fill": {
+      "address_line": "820 North Carrier Parkway",
+      "location_precision": "street",
+      "city": "Grand Prairie",
+      "state_code": "US-TX",
+      "postal_code": "75050",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Carrier%20Parkway%20820%2C%20Grand%20Prairie%2C%20TX%2075050",
+      "phone": "+19722621425"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "674934a8-743a-4c84-b030-695b1935d08d",
+      "slug": "svoi-methodist-family-health-center"
+    }
+  },
+  {
+    "id": "8d66c52d-4ddd-4f88-9490-20cd73bb10fc",
+    "name": "NYS Home Health LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "100 North Central Expressway",
+      "location_precision": "street",
+      "city": "Richardson",
+      "state_code": "US-TX",
+      "postal_code": "75080",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Central%20Expressway%20100%2C%20Richardson%2C%20TX%2075080",
+      "phone": "+19729347060"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "014e5fd7-126f-48c0-b582-bb0b0bc6a434",
+      "slug": "svoi-nys-home-health-llc"
+    }
+  },
+  {
+    "id": "e457cab8-ea65-4717-896c-66c45893b06a",
+    "name": "Family Discount Pharmacy TX",
+    "changes": {},
+    "fill": {
+      "address_line": "970 North Coit Road",
+      "location_precision": "street",
+      "city": "Richardson",
+      "state_code": "US-TX",
+      "postal_code": "75080",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Coit%20Road%20970%2C%20Richardson%2C%20TX%2075080",
+      "phone": "+19722350444"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "59c38c21-9270-4f32-89ae-59b15f9f1a5b",
+      "slug": "svoi-family-discount-pharmacy-tx"
+    }
+  },
+  {
+    "id": "334c5c86-4b69-4c34-9856-efe5a5fe9c3c",
+    "name": "Park Place Lexus in Plano",
+    "changes": {},
+    "fill": {
+      "address_line": "6785 Dallas Parkway",
+      "location_precision": "street",
+      "city": "Plano",
+      "state_code": "US-TX",
+      "postal_code": "75024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dallas%20Parkway%20%206785%2C%20Plano%2C%20TX%2075024",
+      "phone": "+18883529554"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8de76310-cff3-4dcd-98af-62ca1684c01b",
+      "slug": "svoi-park-place-lexus-in-plano"
+    }
+  },
+  {
+    "id": "b77050bb-832f-4b7c-9eff-05d7918273f2",
+    "name": "Park Place Lexus Plano",
+    "changes": {},
+    "fill": {
+      "address_line": "1025 Preston Road",
+      "location_precision": "street",
+      "city": "Plano",
+      "state_code": "US-TX",
+      "postal_code": "75093",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Preston%20Road%201025%2C%20Plano%2C%20TX%2075093",
+      "website": "http://www.parkplace.com",
+      "phone": "+19727388067"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f7f7f09b-b3fb-4634-82cc-a2c2f7ff6b74",
+      "slug": "svoi-park-place-lexus-plano"
+    }
+  },
+  {
+    "id": "4748cdbd-e6ed-4846-bc4d-26b5b1e3539a",
+    "name": "All Star Auto",
+    "changes": {},
+    "fill": {
+      "address_line": "1100 Summit Avenue",
+      "location_precision": "street",
+      "city": "Plano",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Summit%20Avenue%201100%2C%20Plano%2C%20TX",
+      "website": "http://www.allstarauto.net",
+      "phone": "+19726332886"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "51719716-bf3c-423c-a288-ef5a00e0f94b",
+      "slug": "svoi-all-star-auto"
+    }
+  },
+  {
+    "id": "5f3ede2e-bf6a-493c-ba5e-0478fa5e8a2d",
+    "name": "Allen Montessori Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "612 Pebblebrook Drive",
+      "location_precision": "street",
+      "city": "Allen",
+      "state_code": "US-TX",
+      "postal_code": "75002",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pebblebrook%20Drive%20612%2C%20Allen%2C%20TX%2075002",
+      "phone": "+19727278833"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a3c0d81f-bebd-4090-9260-b09c859ec4ca",
+      "slug": "svoi-allen-montessori-academy"
+    }
+  },
+  {
+    "id": "146bb4ca-3726-4aa9-8916-1b6ccbae3723",
+    "name": "Fairy Tale Child Care - Детский Сад Сказка",
+    "changes": {},
+    "fill": {
+      "address_line": "6805 Wedgestone Drive",
+      "location_precision": "street",
+      "city": "Plano",
+      "state_code": "US-TX",
+      "postal_code": "75023",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wedgestone%20Drive%206805%2C%20Plano%2C%20TX%2075023",
+      "phone": "+19723983234"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cb8053ac-925e-4be0-ad0a-fa7d739ef59a",
+      "slug": "svoi-fairy-tale-child-care"
+    }
+  },
+  {
+    "id": "3eca4729-9f16-4359-b8be-cd605f0e5a1c",
+    "name": "Sunshine International Learning Center",
+    "changes": {},
+    "fill": {
+      "address_line": "5940 Alma Drive",
+      "location_precision": "street",
+      "city": "Plano",
+      "state_code": "US-TX",
+      "postal_code": "75023",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alma%20Drive%205940%2C%20Plano%2C%20TX%2075023",
+      "phone": "+14694679922"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3c74cb2d-1baa-44e1-b15e-894959568001",
+      "slug": "svoi-sunshine-international-learning-center"
+    }
+  },
+  {
+    "id": "16975865-d006-4418-aeb4-02012fee68b9",
+    "name": "Star Mountain Art",
+    "changes": {},
+    "fill": {
+      "address_line": "8004 Dallas Pkwy",
+      "location_precision": "street",
+      "city": "Frisco",
+      "state_code": "US-TX",
+      "postal_code": "75034",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dallas%20Pkwy%208004%2C%20Frisco%2C%20TX%2075034",
+      "website": "http://www.starmountainart.org",
+      "phone": "+14152359644"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e0f451a9-d785-4dae-8659-47aabe2e67d9",
+      "slug": "svoi-star-mountain-art"
+    }
+  },
+  {
+    "id": "212ad30a-f67c-41b3-813f-7b17460b61e9",
+    "name": "Russian 4 Children",
+    "changes": {},
+    "fill": {
+      "address_line": "611 East Bethany Drive",
+      "location_precision": "street",
+      "city": "Allen",
+      "state_code": "US-TX",
+      "postal_code": "75002",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Bethany%20Drive%20611%2C%20Allen%2C%20TX%2075002",
+      "phone": "+18179910137"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a8051f42-5b1b-4743-bb87-dc448b5d8429",
+      "slug": "svoi-russian-4-children"
+    }
+  },
+  {
+    "id": "34bba562-67ca-4555-b9ac-9041f77ddf35",
+    "name": "Russian School of Dallas",
+    "changes": {},
+    "fill": {
+      "address_line": "6039 Churchill Way",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Churchill%20Way%206039%2C%20Dallas%2C%20TX",
+      "website": "http://russianschoolofdallas.net",
+      "phone": "+12143547674",
+      "email": "admissions@russianschoolofdallas.org"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "51cf4810-29fd-4447-bfa2-9a99ed51ccb5",
+      "slug": "svoi-russian-school-of-dallas"
+    }
+  },
+  {
+    "id": "2401cd0e-624d-4678-a3d4-8520111126cd",
+    "name": "William Davis Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "8856 Coleman Boulevard",
+      "location_precision": "street",
+      "city": "Frisco",
+      "state_code": "US-TX",
+      "postal_code": "75034",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coleman%20Boulevard%208856%2C%20Frisco%2C%20TX%20%2075034",
+      "phone": "+19728044963"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3c37b19a-e215-4d31-9aff-22a976ebe1cc",
+      "slug": "svoi-william-davis-realty"
+    }
+  },
+  {
+    "id": "8e63b859-7963-4de4-9d06-ec685e53de5c",
+    "name": "William Davis Realty - Iryna Mitchell",
+    "changes": {},
+    "fill": {
+      "address_line": "8856 Coleman Boulevard",
+      "location_precision": "street",
+      "city": "Frisco",
+      "state_code": "US-TX",
+      "postal_code": "75034",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coleman%20Boulevard%208856%2C%20Frisco%2C%20TX%2075034",
+      "phone": "+19729793931"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7d0f776a-1d7d-4ea7-8536-6f33a4492322",
+      "slug": "svoi-william-davis-realty-iryna-mitchell"
+    }
+  },
+  {
+    "id": "e975d50c-e816-48dc-a716-6f8dbc7976d3",
+    "name": "William Davis Realty - Lyubov Grassi",
+    "changes": {},
+    "fill": {
+      "address_line": "8856 Coleman Blvd",
+      "location_precision": "street",
+      "city": "Frisco",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coleman%20Blvd%208856%2C%20Frisco%2C%20TX",
+      "phone": "+14697747513"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b9450329-3b4b-4a0e-8a63-9390502cf316",
+      "slug": "svoi-william-davis-realty-lyubov-grassi"
+    }
+  },
+  {
+    "id": "eb2d32a3-03dc-42c4-9e1c-4b650a0d58b2",
+    "name": "Capelli Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "19177 Preston Road",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75252",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Preston%20Road%2019177%2C%20Dallas%2C%20TX%2075252",
+      "phone": "+19722504565"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ba082507-df36-4918-af40-55d0f33c56e0",
+      "slug": "svoi-capelli-salon"
+    }
+  },
+  {
+    "id": "211e6fa1-faf0-4f37-80c1-7e6a6b6e0a89",
+    "name": "Veda Light Wellness Center",
+    "changes": {},
+    "fill": {
+      "address_line": "5039 Addison Circle",
+      "location_precision": "street",
+      "city": "Addison",
+      "state_code": "US-TX",
+      "postal_code": "75001",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Addison%20Circle%205039%2C%20Addison%2C%20TX%2075001",
+      "phone": "+14697919100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3cb5393b-9d2b-44f3-80fe-96b2cff44fc1",
+      "slug": "svoi-veda-light-wellness-center"
+    }
+  },
+  {
+    "id": "d809eaad-7674-4190-b7bd-b12403240108",
+    "name": "Spa Habitat West Village",
+    "changes": {},
+    "fill": {
+      "address_line": "McKinney Ave #304 (West Village) 3699",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=McKinney%20Ave%20%23304%20%28West%20Village%29%203699%2C%20Dallas%2C%20TX%20%2075204",
+      "phone": "+19178047588"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "7c91b550-9b32-46c9-8fb3-81fe8da64d64",
+      "slug": "svoi-spa-habitat-west-village"
+    }
+  },
+  {
+    "id": "aafbf260-a6de-4523-8a4d-475e51e55910",
+    "name": "Mix&Match Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "6401 Eldorado Parkway",
+      "location_precision": "street",
+      "city": "McKinney",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Eldorado%20Parkway%206401%2C%20McKinney%2C%20TX",
+      "phone": "+14692960116"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "924b4bc1-d48a-442b-8bc0-7306a8ab9bb2",
+      "slug": "svoi-mix-match-insurance"
+    }
+  },
+  {
+    "id": "9097dbc6-f24a-44a2-96f3-0b7560dfc4bf",
+    "name": "Victor Corby Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "16800 Dallas Parkway",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75248",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dallas%20Parkway%2016800%2C%20Dallas%2C%20TX%2075248",
+      "phone": "+19728183155"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "10dfad1d-9b4a-40df-8b59-8b35259fc4ca",
+      "slug": "svoi-victor-corby-insurance-agency"
+    }
+  },
+  {
+    "id": "b4e58acc-1366-4627-8978-54409d706065",
+    "name": "ACE Data Recovery",
+    "changes": {},
+    "fill": {
+      "address_line": "17778 Preston Rd.",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17778%20Preston%20Rd.%2C%20Dallas%2C%20TX",
+      "website": "https://www.datarecovery.net/us/tx/dallas-tx-data-recovery.aspx",
+      "phone": "+18773047189",
+      "instagram_url": "https://www.instagram.com/ace.datarecovery",
+      "email": "service.c@datarecovery.net"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cda4ca10-faf2-417d-aba7-ac2e5ff29161",
+      "slug": "svoi-ace-data-recovery"
+    }
+  },
+  {
+    "id": "3d7d2891-36ce-4b1a-ac5d-314cb8e4ba57",
+    "name": "Russian and Ukrainian Translations by Inna Oslon",
+    "changes": {},
+    "fill": {
+      "address_line": "1431 Stagecoach Drive",
+      "location_precision": "street",
+      "city": "Richardson",
+      "state_code": "US-TX",
+      "postal_code": "75080",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Stagecoach%20Drive%201431%2C%20Richardson%2C%20TX%2075080",
+      "phone": "+19726801179"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "611101d0-fc10-4f40-9943-9593a4c4c5f9",
+      "slug": "svoi-russian-and-ukrainian-translations-by-inna-oslon"
+    }
+  },
+  {
+    "id": "ad04b330-ee7c-4ef5-b442-cd302b481f75",
+    "name": "Marina Rybalka Photography",
+    "changes": {},
+    "fill": {
+      "city": "TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dallas%2C%20TX",
+      "website": "http://marinarybalka.com",
+      "phone": "+18183353934"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "694bb448-e720-463f-ae9c-4d0fe99824bc",
+    "name": "DB Tax Service",
+    "changes": {},
+    "fill": {
+      "address_line": "4222 Trinity Mills Rd",
+      "location_precision": "street",
+      "city": "Техас Сити",
+      "state_code": "US-TX",
+      "postal_code": "90028",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4222%20Trinity%20Mills%20Rd%2C%20%D0%A2%D0%B5%D1%85%D0%B0%D1%81%20%D0%A1%D0%B8%D1%82%D0%B8%2C%20TX%20%2090028",
+      "phone": "+19728185200"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06fcd40b-62e0-4148-bd4c-a84b3a675363",
+      "slug": "svoi-db-tax-service"
+    }
+  },
+  {
+    "id": "62c39765-7794-4507-8464-cc6dacc5ae3f",
+    "name": "Aspire Lending",
+    "changes": {},
+    "fill": {
+      "address_line": "4100 Alpha Road",
+      "location_precision": "street",
+      "city": "Farmers Branch",
+      "state_code": "US-TX",
+      "postal_code": "75244",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alpha%20Road%204100%2C%20Farmers%20Branch%2C%20TX%2075244",
+      "website": "http://www.aspirelending.com",
+      "phone": "+18552002774"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2fdad7e7-65bc-456e-ad40-329ce9ff6248",
+      "slug": "svoi-aspire-lending"
+    }
+  },
+  {
+    "id": "1e30b8de-2f4d-4c60-993b-127d2cebb03a",
+    "name": "Lena Pearlman at First United Bank",
+    "changes": {},
+    "fill": {
+      "address_line": "8750 North Central Expway",
+      "location_precision": "street",
+      "city": "Dallas",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Central%20Expway%208750%2C%20Dallas%2C%20TX%20930",
+      "website": "https://lpearlman.firstunitedteam.com",
+      "phone": "+19726290893",
+      "email": "lpearlman@firstunitedbank.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e0d5a9dc-b1f2-49aa-a0c7-d4d4e47ab297",
+      "slug": "svoi-lena-pearlman-at-first-united-bank"
+    }
+  },
+  {
+    "id": "02638ba9-536b-4789-8470-9aa62d8145b2",
+    "name": "Euro Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "670 N Coit Rd",
+      "location_precision": "street",
+      "city": "Richardson",
+      "state_code": "US-TX",
+      "postal_code": "75080",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Coit%20Rd%20%20670%20%2C%20Richardson%2C%20TX%2075080",
+      "phone": "+19722348052"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1ff82bdb-8063-4045-af82-d834a9235e18",
+      "slug": "svoi-euro-deli"
+    }
+  },
+  {
+    "id": "f55ba484-7667-4b3a-b39f-831241cd3558",
+    "name": "Deli News",
+    "changes": {},
+    "fill": {
+      "address_line": "17062 Preston Road",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75248",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Preston%20Road%2017062%2C%20Dallas%2C%20TX%2075248",
+      "website": "http://delinewsdallas.com",
+      "phone": "+19727333354",
+      "yelp_url": "https://www.yelp.com/biz/deli-news-dallas"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a924abec-26fb-4f15-b1e2-edfd4d9ab4f3",
+      "slug": "svoi-deli-news"
+    }
+  },
+  {
+    "id": "48377a02-fc4e-4f39-bfa8-af524b2b2e94",
+    "name": "Russian Banya of Dallas - Family Spa and Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "2215 East Rosemeade Parkway",
+      "location_precision": "street",
+      "city": "Carrollton",
+      "state_code": "US-TX",
+      "postal_code": "75007",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Rosemeade%20Parkway%202215%2C%20Carrollton%2C%20TX%2075007",
+      "phone": "+12144835050"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3e560357-4d55-4aef-bc03-a83b37f7a832",
+      "slug": "svoi-russian-banya-of-dallas-family-spa-and-restauran"
+    }
+  },
+  {
+    "id": "e911e0dd-e14e-43e3-be25-4de5af2731c5",
+    "name": "Sedation &Implant Dentistry",
+    "changes": {},
+    "fill": {
+      "address_line": "1815 Suburban Avenue",
+      "location_precision": "street",
+      "city": "St. Paul",
+      "state_code": "US-MN",
+      "postal_code": "55119",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Suburban%20Avenue%201815%2C%20St.%20Paul%2C%20MN%2055119",
+      "phone": "+16517354661"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "638e26f8-3b88-4b6b-a45e-75392ec5bfe0",
+      "slug": "svoi-sedation-implant-dentistry"
+    }
+  },
+  {
+    "id": "4e1a1362-b313-43da-b494-eb6448b60914",
+    "name": "Gendler Dental Center",
+    "changes": {},
+    "fill": {
+      "address_line": "1222 Mainstreet",
+      "location_precision": "street",
+      "city": "Hopkins",
+      "state_code": "US-MN",
+      "postal_code": "55343",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mainstreet%201222%2C%20Hopkins%2C%20MN%2055343",
+      "phone": "+19528361113"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e62aef47-4282-40fd-a85a-f831ef4d726d",
+      "slug": "svoi-gendler-dental-center"
+    }
+  },
+  {
+    "id": "95b7de4a-4a7f-4c74-8e90-af40b9216b78",
+    "name": "Dimple Malik DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "4227 Winnetka Avenue North",
+      "location_precision": "street",
+      "city": "New hop",
+      "state_code": "US-MN",
+      "postal_code": "55428",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Winnetka%20Avenue%20North%204227%2C%20New%20hop%2C%20MN%2055428",
+      "phone": "+17635361100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4e046537-b0fa-4072-9089-c79fe8615ca1",
+      "slug": "svoi-dimple-malik-dds"
+    }
+  },
+  {
+    "id": "2473d454-4d11-4aaa-b07a-9e3d1320200a",
+    "name": "Natalie Levin and associates, llc",
+    "changes": {},
+    "fill": {
+      "address_line": "2915",
+      "location_precision": "street",
+      "city": "Minneapolis",
+      "state_code": "US-MN",
+      "postal_code": "55405",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2915%2C%20Minneapolis%2C%20MN%2055405",
+      "phone": "+19527463221"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "95f56066-5572-4761-a1a4-3d236841d9b4",
+      "slug": "svoi-natalie-levin-and-associates-llc"
+    }
+  },
+  {
+    "id": "bc6e52d9-fbb0-4ef7-8f51-0afd2856118e",
+    "name": "Midwest Institute of Urology",
+    "changes": {},
+    "fill": {
+      "address_line": "6600 France Avenue South",
+      "location_precision": "street",
+      "city": "Idaina",
+      "state_code": "US-MN",
+      "postal_code": "55435",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=France%20Avenue%20South%206600%2C%20Idaina%2C%20MN%2055435",
+      "phone": "+19529222000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "57e6df52-d0ae-4bd1-97fe-02d47bf55ce4",
+      "slug": "svoi-midwest-institute-of-urology"
+    }
+  },
+  {
+    "id": "f4a40caf-872e-4ff4-bb98-e3d10f6d7497",
+    "name": "Dr. Bella S. Shklyarova, MD/Park Nicollet Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "3800 Park Nicollet Boulevard",
+      "location_precision": "street",
+      "city": "St. Louis Park",
+      "state_code": "US-MN",
+      "postal_code": "55416",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20Nicollet%20Boulevard%203800%2C%20St.%20Louis%20Park%2C%20MN%2055416",
+      "phone": "+19529933123"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cbc368fd-10cb-41de-b2f2-3179035250ad",
+      "slug": "svoi-dr-bella-s-shklyarova-md-park-nicollet-clinic"
+    }
+  },
+  {
+    "id": "f11a2f1e-e1e1-4131-9ad4-586441fa788c",
+    "name": "Dr. Alexander Axelrod MD",
+    "changes": {},
+    "fill": {
+      "address_line": "4201 Excelsior Boulevard",
+      "location_precision": "street",
+      "city": "St. Louis Park",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Excelsior%20Boulevard%204201%2C%20St.%20Louis%20Park%2C%20MN",
+      "phone": "+19529338900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "c93ab5cc-4fc4-47d2-b464-4ad4e7351389",
+      "slug": "svoi-dr-alexander-axelrod-md"
+    }
+  },
+  {
+    "id": "73b92b50-931e-4c87-896d-7116305ea24b",
+    "name": "Life Medical Clinic: Axelrod Alexander MD",
+    "changes": {},
+    "fill": {
+      "address_line": "4201 Excelsior Boulevard",
+      "location_precision": "street",
+      "city": "St. Louis Park",
+      "state_code": "US-MN",
+      "postal_code": "55416",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Excelsior%20Boulevard%204201%2C%20St.%20Louis%20Park%2C%20MN%2055416",
+      "phone": "+19525643880"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "11120676-bfb3-48db-9860-d26cc3a6442e",
+      "slug": "svoi-life-medical-clinic-axelrod-alexander-md"
+    }
+  },
+  {
+    "id": "74334324-6d12-4f70-bae0-363b6e48b975",
+    "name": "Eyecare MPLS. Stella Hennen",
+    "changes": {},
+    "fill": {
+      "address_line": "3033 Excelsior Boulevard",
+      "location_precision": "street",
+      "city": "Minneapolis",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Excelsior%20Boulevard%203033%2C%20Minneapolis%2C%20MN",
+      "website": "http://eyecarempls.com/russian",
+      "phone": "+16124709871"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d04f673-210c-43b3-ad2a-593de5ab3c4d",
+      "slug": "svoi-eyecare-mpls-stella-hennen"
+    }
+  },
+  {
+    "id": "8e627caa-9054-4c4c-82a3-50b1da94bd10",
+    "name": "​Paparella Ear Institute. Д-р Олег Фраймович",
+    "changes": {},
+    "fill": {
+      "address_line": "9825 Hospital Drive",
+      "location_precision": "street",
+      "city": "Maple Grove",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hospital%20Drive%209825%2C%20Maple%20Grove%2C%20MN",
+      "phone": "+16123392836"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2a649d5a-d9e7-4738-8f4d-1d4d980a7087",
+      "slug": "svoi-paparella-ear-institute"
+    }
+  },
+  {
+    "id": "c1674ee1-dcd8-4241-b7c3-d7cd39975a37",
+    "name": "Dr. Oleg Froymovich MD",
+    "changes": {},
+    "fill": {
+      "address_line": "25th Ave S #200 701",
+      "location_precision": "street",
+      "city": "Minneapolis",
+      "state_code": "US-MN",
+      "postal_code": "55454",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=25th%20Ave%20S%20%23200%20701%2C%20Minneapolis%2C%20MN%2055454",
+      "phone": "+16123392124"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "ae520168-d617-4e0b-ad9d-3ec06b602945",
+      "slug": "svoi-dr-oleg-froymovich-md"
+    }
+  },
+  {
+    "id": "a48abf09-ae02-4d0d-a702-ded44f5b552d",
+    "name": "Д-р Александр Зубков MD",
+    "changes": {},
+    "fill": {
+      "address_line": "3400 West 66th Street",
+      "location_precision": "street",
+      "city": "Idaina",
+      "state_code": "US-MN",
+      "postal_code": "55435",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%2066th%20Street%203400%2C%20Idaina%2C%20MN%2055435",
+      "phone": "+19529207200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2c779337-ae60-4c68-8997-ba8ec9214c26",
+      "slug": "svoi-md-7"
+    }
+  },
+  {
+    "id": "df7913a3-abcc-47c9-9551-dca87cea3d16",
+    "name": "National Dizzy and Balance Center",
+    "changes": {},
+    "fill": {
+      "address_line": "162 Cobblestone Lane",
+      "location_precision": "street",
+      "city": "Burnsville",
+      "state_code": "US-MN",
+      "postal_code": "55337",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cobblestone%20Lane%20162%2C%20Burnsville%2C%20MN%2055337",
+      "phone": "+19528089000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d7377c6-b83d-4846-bd5d-619df563993f",
+      "slug": "svoi-national-dizzy-and-balance-center"
+    }
+  },
+  {
+    "id": "9b79c752-e671-4aae-b5cf-7d7a7962f0f7",
+    "name": "Fairview Ridges Hospital",
+    "changes": {},
+    "fill": {
+      "address_line": "201 East Nicollet Boulevard",
+      "location_precision": "street",
+      "city": "Burnsville",
+      "state_code": "US-MN",
+      "postal_code": "55337",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Nicollet%20Boulevard%20201%2C%20Burnsville%2C%20MN%2055337",
+      "phone": "+19528922000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0a040d7b-7cd9-4b34-8f0c-6b1435ddb949",
+      "slug": "svoi-fairview-ridges-hospital"
+    }
+  },
+  {
+    "id": "f27ee5e1-37ec-425a-a3e6-54cd3a9ffc2d",
+    "name": "Westwood Foot Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "669 Winnetka Avenue North",
+      "location_precision": "street",
+      "city": "Golden valley",
+      "state_code": "US-MN",
+      "postal_code": "55427",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Winnetka%20Avenue%20North%20669%2C%20Golden%20valley%2C%20MN%2055427",
+      "website": "http://www.wwfoot.com",
+      "phone": "+17632312341",
+      "email": "reception@familyfootmn.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "05a76a4f-f9a4-4e39-9e04-be4bbf611652",
+      "slug": "svoi-westwood-foot-clinic"
+    }
+  },
+  {
+    "id": "73acd02c-d059-4847-98fe-ea3270c16211",
+    "name": "United Community Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "2500 New Brighton Boulevard",
+      "location_precision": "street",
+      "city": "St. Anthony Village",
+      "state_code": "US-MN",
+      "postal_code": "55418",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=New%20Brighton%20Boulevard%202500%2C%20St.%20Anthony%20Village%2C%20MN%2055418",
+      "website": "http://www.hhcare.net",
+      "phone": "+16122598275"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "310cddd0-389c-4a63-b9b5-cbc093c317e2",
+      "slug": "svoi-united-community-pharmacy"
+    }
+  },
+  {
+    "id": "50f3aebe-546b-4244-8eb7-6688e7b85cc2",
+    "name": "Tonka Medical Supplies Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "8110 Minnetonka Boulevard",
+      "location_precision": "street",
+      "city": "St. Louis Park",
+      "state_code": "US-MN",
+      "postal_code": "55426",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Minnetonka%20Boulevard%208110%2C%20St.%20Louis%20Park%2C%20MN%2055426",
+      "phone": "+19529391171"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f761decc-912b-4766-97e2-90c21aec9466",
+      "slug": "svoi-tonka-medical-supplies-inc"
+    }
+  },
+  {
+    "id": "786d23bd-0a55-493c-9c13-18ed2d1f086e",
+    "name": "​Feldmann Mercedes Benz",
+    "changes": {},
+    "fill": {
+      "address_line": "4901 American Boulevard West",
+      "location_precision": "street",
+      "city": "Bloomington",
+      "state_code": "US-MN",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=American%20Boulevard%20West%204901%2C%20Bloomington%2C%20MN",
+      "website": "http://www.feldmannimports.com",
+      "phone": "+18665790055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "88b8d63a-afac-4448-9a47-d409f7c931c0",
+      "slug": "svoi-feldmann-mercedes-benz"
+    }
+  },
+  {
+    "id": "0b6bfe8a-1c73-4504-9174-7d84cd62473c",
+    "name": "RUDY LUTHER TOYOTA",
+    "changes": {},
+    "fill": {
+      "address_line": "8805 Wayzata Boulevard",
+      "location_precision": "street",
+      "city": "Golden valley",
+      "state_code": "US-MN",
+      "postal_code": "55426",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wayzata%20Boulevard%208805%2C%20Golden%20valley%2C%20MN%20%2055426",
+      "phone": "+17634582627"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c61444f9-3f22-4c31-84cd-47bac732174c",
+      "slug": "svoi-rudy-luther-toyota"
+    }
+  },
+  {
+    "id": "ac5e08bb-49a4-481a-89fb-43c232c3057d",
+    "name": "Rudy Luther Toyota Scion",
+    "changes": {},
+    "fill": {
+      "address_line": "8805 Wayzata Boulevard",
+      "location_precision": "street",
+      "city": "Golden valley",
+      "state_code": "US-MN",
+      "postal_code": "55426",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wayzata%20Boulevard%208805%2C%20Golden%20valley%2C%20MN%2055426",
+      "phone": "+18448467184"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "935e8706-52c1-4fea-86eb-6232f54a26ba",
+      "slug": "svoi-rudy-luther-toyota-scion"
+    }
+  }
+]

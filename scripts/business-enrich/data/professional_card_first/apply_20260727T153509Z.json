@@ -1,0 +1,52 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "elena-entsova",
+      "display_name": "Elena Entsova",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://lookadme.com"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://lookadme.com",
+          "_fetch_url": "https://lookadme.com",
+          "address_line": "216 Technology Dr., Suite F",
+          "city": "Irvine",
+          "email": "hello@lookadme.com",
+          "website": "https://lookadme.com",
+          "phone": "+13105031503",
+          "image_url": "https://lookadme.com/wp-content/uploads/2024/04/LOGO-LOOK-AD-ME-WEB-BOLD.png",
+          "instagram_url": "https://www.instagram.com/lookadmeusa/"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/71470",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "website": "https://lookadme.com",
+        "address_line": "216 Technology Dr., Suite F",
+        "city": "Irvine",
+        "email": "hello@lookadme.com",
+        "phone": "+13105031503",
+        "image_url": "https://lookadme.com/wp-content/uploads/2024/04/LOGO-LOOK-AD-ME-WEB-BOLD.png",
+        "instagram_url": "https://www.instagram.com/lookadmeusa/"
+      },
+      "patch": {
+        "private_address_line": "216 Technology Dr., Suite F",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "city": "Irvine",
+        "phone": "+13105031503",
+        "email": "hello@lookadme.com",
+        "instagram_url": "https://www.instagram.com/lookadmeusa/",
+        "image_url": "https://lookadme.com/wp-content/uploads/2024/04/LOGO-LOOK-AD-ME-WEB-BOLD.png"
+      }
+    }
+  ]
+}

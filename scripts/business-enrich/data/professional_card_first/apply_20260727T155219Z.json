@@ -1,0 +1,30 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "fbpack-julia-kolesnikova",
+      "display_name": "Юлия",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Los Angeles",
+          "instagram_url": "https://www.instagram.com/pastry_kolesnikova"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/70625",
+          "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/18123eeb-6c41-47c7-8164-f43fb93fd1a5/95aa2c6abe8b9434.webp",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "city": "Los Angeles",
+        "instagram_url": "https://www.instagram.com/pastry_kolesnikova",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/18123eeb-6c41-47c7-8164-f43fb93fd1a5/95aa2c6abe8b9434.webp"
+      },
+      "patch": {}
+    }
+  ]
+}

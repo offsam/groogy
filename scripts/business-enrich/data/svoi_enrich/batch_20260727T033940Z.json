@@ -1,0 +1,1305 @@
+[
+  {
+    "id": "9ff5453d-e572-4f6a-a83b-4e36a684f480",
+    "name": "Беликов Владимир",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "6151 Wilson Mills Road",
+      "location_precision": "street",
+      "city": "Highland Heights",
+      "state_code": "US-OH",
+      "postal_code": "44143",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilson%20Mills%20Road%206151%2C%20Highland%20Heights%2C%20OH%2044143",
+      "phone": "+14409959999"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "73df9e2b-6ea4-4100-9101-5a498d0a2229",
+      "slug": "svoi-biz-18"
+    }
+  },
+  {
+    "id": "5694294c-d005-46b5-bf5a-f886932fe2ee",
+    "name": "Health First Primary Care",
+    "changes": {},
+    "fill": {
+      "address_line": "6801 Mayfield Road",
+      "location_precision": "street",
+      "city": "Mayfield Heights",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%206801%2C%20Mayfield%20Heights%2C%20OH%2044124",
+      "phone": "+14403122676"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5bd8877f-0e50-454f-ace7-f1aa93aa31f6",
+      "slug": "svoi-health-first-primary-care"
+    }
+  },
+  {
+    "id": "77dfa12f-6d43-4970-a2ed-64cb458d5f5a",
+    "name": "Dr. Yakov L. Elgudin, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "11100 Euclid Ave",
+      "location_precision": "street",
+      "city": "Cleveland",
+      "state_code": "US-OH",
+      "postal_code": "44106",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Euclid%20Ave%2011100%2C%20Cleveland%2C%20OH%2044106",
+      "website": "http://doctor.webmd.com/doctor/yakov-elgudin-md-5925dce5-3c0f-42f0-9853-237996748961-overview",
+      "phone": "+12168445003"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "639875c4-ddc7-47d9-a83d-c6b56123023f",
+      "slug": "svoi-dr-yakov-l-elgudin-md"
+    }
+  },
+  {
+    "id": "031cd8ff-d2ec-44bf-a325-0a6fe4d8e7f8",
+    "name": "Yuri Novitsky, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "11100 Euclid Ave",
+      "location_precision": "street",
+      "city": "Cleveland",
+      "state_code": "US-OH",
+      "postal_code": "44106",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Euclid%20Ave%2011100%2C%20Cleveland%2C%20OH%2044106",
+      "website": "http://www.uhhospitals.org/find-a-doctor/novitsky-yuri-19419",
+      "phone": "+12162866801"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6aaba343-20fe-48b6-b245-9515a35b4793",
+      "slug": "svoi-yuri-novitsky-md"
+    }
+  },
+  {
+    "id": "0b87d2fe-c409-467a-a1e8-d9016c223a88",
+    "name": "Boris V. Vinogradsky, MD, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "36100 Euclid Avenue",
+      "location_precision": "street",
+      "city": "Willoughby",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Euclid%20Avenue%2036100%2C%20Willoughby%2C%20OH%20loughby",
+      "phone": "+14402632951"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b3b30a3d-e0fa-4dc3-b409-08d15f9fbe18",
+      "slug": "svoi-boris-v-vinogradsky-md-inc"
+    }
+  },
+  {
+    "id": "83994b33-2d3e-44f9-a646-f6ee3c243742",
+    "name": "Allegria Studio",
+    "changes": {},
+    "fill": {
+      "address_line": "1188 Bell St.",
+      "location_precision": "street",
+      "city": "South Russell",
+      "state_code": "US-OH",
+      "postal_code": "44022",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bell%20St.%201188%2C%20South%20Russell%2C%20OH%2044022",
+      "website": "http://allegriastudios.com",
+      "phone": "+14402140374",
+      "instagram_url": "https://www.instagram.com/allegria_studio"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9cc624b8-6a28-4dd8-8450-924148029dca",
+      "slug": "svoi-allegria-studio"
+    }
+  },
+  {
+    "id": "df2611f0-3a33-4d65-9c9c-18b50b508898",
+    "name": "Russian American Medical Association",
+    "changes": {},
+    "fill": {
+      "address_line": "36100 Euclid Avenue",
+      "location_precision": "street",
+      "city": "Willoughby",
+      "state_code": "US-OH",
+      "postal_code": "44094",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Euclid%20Avenue%2036100%2C%20Willoughby%2C%20OH%2044094",
+      "phone": "+14409538055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2904fd83-0f6a-42e5-a4c5-3c44d55898ce",
+      "slug": "svoi-russian-american-medical-association"
+    }
+  },
+  {
+    "id": "8b8b4562-90ee-405d-a37a-7b72a91bdf5b",
+    "name": "Lake Health",
+    "changes": {},
+    "fill": {
+      "address_line": "36001 Euclid Avenue",
+      "location_precision": "street",
+      "city": "Willoughby",
+      "state_code": "US-OH",
+      "postal_code": "44094",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Euclid%20Avenue%2036001%2C%20Willoughby%2C%20OH%2044094",
+      "website": "https://lakehealth.org",
+      "phone": "+12165097847",
+      "instagram_url": "https://www.instagram.com/uhhospitals_cle"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "402e5af3-91bc-458c-96a4-7fa08c3a69ad",
+      "slug": "svoi-lake-health"
+    }
+  },
+  {
+    "id": "9db63a94-ff1c-43dd-ae4d-fbda8e23241f",
+    "name": "Dr. Taras Mahlay, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "7255 Old Oak Blvd",
+      "location_precision": "street",
+      "city": "Middleberg Heights",
+      "state_code": "US-OH",
+      "postal_code": "44130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Oak%20Blvd%207255%2C%20Middleberg%20Heights%2C%20OH%2044130",
+      "phone": "+14405829600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "15fa6739-489a-48ba-9319-6d752c6d2e0e",
+      "slug": "svoi-dr-taras-mahlay-md"
+    }
+  },
+  {
+    "id": "a0f6dbac-a358-42b1-9f12-5182c611cfae",
+    "name": "Buckhead Pharmacy-OH (PharmaLife )",
+    "changes": {},
+    "fill": {
+      "address_line": "Som Center Road",
+      "location_precision": "street",
+      "city": "Gates mills",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Som%20Center%20Road%2C%20Gates%20mills%2C%20OH",
+      "phone": "+14406050303"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7934d95e-ba29-4ff3-a443-517be088eb93",
+      "slug": "svoi-buckhead-pharmacy-oh-pharmalife"
+    }
+  },
+  {
+    "id": "212cd22e-2ed9-4724-8187-59c653b48741",
+    "name": "Alina Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "5842 Mayfield Road",
+      "location_precision": "street",
+      "city": "Mayfield Heights",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%205842%2C%20Mayfield%20Heights%2C%20OH%2044124",
+      "phone": "+14404612648"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ea74acd3-a1f6-4a2b-b6b4-d620e1b3a801",
+      "slug": "svoi-alina-medical-supply"
+    }
+  },
+  {
+    "id": "3b8055c9-7d29-4666-8d02-39abdc1651bd",
+    "name": "PHARMA MEDICAL SUPPLY",
+    "changes": {},
+    "fill": {
+      "address_line": "5345 State Road",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Road%205345%2C%20Parma%2C%20OH",
+      "phone": "+12167418379"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d37d3be-b101-4cc2-871d-3fa7dba03dac",
+      "slug": "svoi-pharma-medical-supply"
+    }
+  },
+  {
+    "id": "fa4f8bc9-ba19-4915-9b8d-202e18ba7c14",
+    "name": "Diligence Transportation",
+    "changes": {},
+    "fill": {
+      "address_line": "11291 Spruce Drive",
+      "location_precision": "street",
+      "city": "Chester Township",
+      "state_code": "US-OH",
+      "postal_code": "44026",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Spruce%20Drive%2011291%2C%20Chester%20Township%2C%20OH%2044026",
+      "phone": "+14405671517"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d07d2ac7-b55e-4aea-85ac-dc850192d5f1",
+      "slug": "svoi-diligence-transportation"
+    }
+  },
+  {
+    "id": "6761203a-5e7b-4043-b8a9-4a334b6e9a05",
+    "name": "Expert Auto Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "32501 Vine Street",
+      "location_precision": "street",
+      "city": "Willowick",
+      "state_code": "US-OH",
+      "postal_code": "44095",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vine%20Street%2032501%2C%20Willowick%2C%20OH%2044095",
+      "website": "http://expertautousa.com",
+      "phone": "+14409440422"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cf12fff5-670c-4d4b-9dca-a88492e8f258",
+      "slug": "svoi-expert-auto-repair"
+    }
+  },
+  {
+    "id": "bbfc6248-2d61-49e2-984c-3b848a48c9d7",
+    "name": "Sharp Care Auto",
+    "changes": {},
+    "fill": {
+      "address_line": "2925 Mayfield Road",
+      "location_precision": "street",
+      "city": "Cleveland Heights",
+      "state_code": "US-OH",
+      "postal_code": "44118",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%202925%2C%20Cleveland%20Heights%2C%20OH%2044118",
+      "phone": "+12163211500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7c5722aa-742b-414e-ba9d-ae60a202b846",
+      "slug": "svoi-sharp-care-auto"
+    }
+  },
+  {
+    "id": "1f85ef59-0a34-4620-b79f-914ccca0f5c3",
+    "name": "Best Auto Service",
+    "changes": {},
+    "fill": {
+      "address_line": "5400 Brookpark Road",
+      "location_precision": "street",
+      "city": "Cleveland",
+      "state_code": "US-OH",
+      "postal_code": "44129",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brookpark%20Road%205400%2C%20Cleveland%2C%20OH%2044129",
+      "phone": "+12163247552"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bcc31689-3dc5-4779-860f-165c934a90ec",
+      "slug": "svoi-best-auto-service"
+    }
+  },
+  {
+    "id": "eb9d9679-55d7-4cdf-a416-e2f6e9752c43",
+    "name": "Inna Muravin",
+    "changes": {},
+    "fill": {
+      "address_line": "7400 Center Street",
+      "location_precision": "street",
+      "city": "Mentor",
+      "state_code": "US-OH",
+      "postal_code": "44060",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Center%20Street%207400%2C%20Mentor%2C%20OH%2044060",
+      "website": "http://www.imrealtygroup.com",
+      "phone": "+14402995409"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "9862d977-3297-4f14-bb74-f471e89db9e9",
+      "slug": "svoi-inna-muravin"
+    }
+  },
+  {
+    "id": "94be05b9-0fa1-4734-8229-48cfd453fc6e",
+    "name": "SIMONA POTOCAR",
+    "changes": {},
+    "fill": {
+      "address_line": "7400 Center St",
+      "location_precision": "street",
+      "city": "Mentor",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Center%20St%207400%2C%20Mentor%2C%20OH",
+      "website": "http://simonapotocar.kw.com",
+      "phone": "+14403640760"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "22aac970-28e3-4630-b73e-0de825890995",
+      "slug": "svoi-simona-potocar"
+    }
+  },
+  {
+    "id": "3d868e99-0354-46e8-9ead-0e684513e8dc",
+    "name": "Карина Абраамян",
+    "changes": {},
+    "fill": {
+      "city": "OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Twinsburg%2C%20OH",
+      "phone": "+18185476375"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4d6cef9b-4031-4f9a-b21e-d95cc8e8cefe",
+      "slug": "svoi-biz-19"
+    }
+  },
+  {
+    "id": "68e179a1-af0e-4ef0-947e-b61c1f0c2b02",
+    "name": "Rudyak electrical services llc / Andriy Rudyak",
+    "changes": {},
+    "fill": {
+      "address_line": "8494 Newcomb Dr",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Newcomb%20Dr%208494%2C%20Parma%2C%20OH",
+      "phone": "+14405390265"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7d730b60-13ef-455a-aae0-f4a118c32f6a",
+      "slug": "svoi-rudyak-electrical-services-llc-andriy-rudyak"
+    }
+  },
+  {
+    "id": "00c33631-29ab-4a62-b272-6a8d62272790",
+    "name": "Nelli Khatmoullina",
+    "changes": {},
+    "fill": {
+      "city": "OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cleveland%2C%20OH",
+      "website": "http://nellik.net",
+      "phone": "+12162356806",
+      "instagram_url": "https://www.instagram.com/nellikdotnet",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ]
+  },
+  {
+    "id": "77b74360-dbe9-45fb-aa5e-29910ad2d531",
+    "name": "JaViv Uptown Hair4ce",
+    "changes": {},
+    "fill": {
+      "address_line": "27970 Chagrin Blvd",
+      "location_precision": "street",
+      "city": "Woodmere",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chagrin%20Blvd%2027970%2C%20Woodmere%2C%20OH",
+      "phone": "+12162456745"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c17ac7be-4cb6-495b-b551-59d62bc0b36f",
+      "slug": "svoi-javiv-uptown-hair4ce"
+    }
+  },
+  {
+    "id": "803c05a5-75e8-4cd3-bcf6-15772e774f35",
+    "name": "STEVE ROMANIUK",
+    "changes": {},
+    "fill": {
+      "address_line": "7550 Pearl Rd Ste E",
+      "location_precision": "street",
+      "city": "Chardon Township",
+      "state_code": "US-OH",
+      "postal_code": "44130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pearl%20Rd%20Ste%20E%20%207550%2C%20Chardon%20Township%2C%20OH%2044130",
+      "website": "https://agents.farmers.com/oh/cleveland/steve-romaniuk",
+      "phone": "+14408260392",
+      "instagram_url": "https://www.instagram.com/wearefarmers"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "06da2fd3-3578-4b31-80fa-7b877ee4066a",
+      "slug": "svoi-steve-romaniuk"
+    }
+  },
+  {
+    "id": "e3773ded-1328-4fd4-9ec5-bb994040524d",
+    "name": "Insurance Cleveland Agency LLC (ICA)",
+    "changes": {},
+    "fill": {
+      "address_line": "7530 Lucerne Dr",
+      "location_precision": "street",
+      "city": "Middleberg Heights",
+      "state_code": "US-OH",
+      "postal_code": "44130",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lucerne%20Dr%207530%2C%20Middleberg%20Heights%2C%20OH%2044130",
+      "website": "http://www.insurancecleveland.com",
+      "phone": "+14408660155"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3b69892a-b816-4d51-bc9b-d4a8455794f4",
+      "slug": "svoi-insurance-cleveland-agency-llc-ica"
+    }
+  },
+  {
+    "id": "4cfecd36-78ff-47ea-9455-5eada354e86b",
+    "name": "Glick Group Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "3681 Green Rd # 212",
+      "location_precision": "street",
+      "city": "Beechwood",
+      "state_code": "US-OH",
+      "postal_code": "44122",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Green%20Rd%20%23%20212%203681%2C%20Beechwood%2C%20OH%2044122",
+      "website": "http://www.glickgroupinc.com",
+      "phone": "+12165149595"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8736a87e-914e-490b-8e01-f3117ed90053",
+      "slug": "svoi-glick-group-insurance"
+    }
+  },
+  {
+    "id": "f641411c-70af-4d03-8bb3-82c44b15419a",
+    "name": "ZPR Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "27900 Chagrin Boulevard",
+      "location_precision": "street",
+      "city": "Woodmere",
+      "state_code": "US-OH",
+      "postal_code": "44122",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chagrin%20Boulevard%2027900%2C%20Woodmere%2C%20OH%2044122",
+      "phone": "+12162254488"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "261ccc61-1882-46b0-9e90-eb95f560eb77",
+      "slug": "svoi-zpr-travel"
+    }
+  },
+  {
+    "id": "732e7231-a0f4-454d-b4f3-eb2a70033df0",
+    "name": "ABC Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "5847 Broadview Road",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "postal_code": "44134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Broadview%20Road%205847%2C%20Parma%2C%20OH%2044134",
+      "phone": "+12166615705"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ff809584-694b-4ac4-9340-109bcd200afc",
+      "slug": "svoi-abc-travel"
+    }
+  },
+  {
+    "id": "b9b5043c-c10b-4b9e-814b-cbf1ea2d9f94",
+    "name": "Anichkin Russian-American Communication Services (ARACS)",
+    "changes": {},
+    "fill": {
+      "address_line": "1655 W Market St",
+      "location_precision": "street",
+      "city": "Akron",
+      "state_code": "US-OH",
+      "postal_code": "44313",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Market%20St%201655%2C%20Akron%2C%20OH%2044313",
+      "website": "http://businessfinder.cleveland.com/14295252/anichkin-russianamerican-communication-services-akron-oh",
+      "phone": "+13308616563",
+      "instagram_url": "https://www.instagram.com/clevelanddotcom"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "96cf05dd-2906-4ebd-8b9f-a2fa9c98c6c5",
+      "slug": "svoi-anichkin-russian-american-communication-services"
+    }
+  },
+  {
+    "id": "c53414ab-1844-47e2-9c8a-a03a78934a1c",
+    "name": "Languages Creative",
+    "changes": {},
+    "fill": {
+      "address_line": "5001 Mayfield Road",
+      "location_precision": "street",
+      "city": "Lyndhurst",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%20%20%205001%2C%20Lyndhurst%2C%20OH%2044124",
+      "phone": "+12162584322"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d8e38f65-b861-4fa8-8f47-77387e2b9362",
+      "slug": "svoi-languages-creative"
+    }
+  },
+  {
+    "id": "47878dd2-0586-42a8-a728-249707f72883",
+    "name": "Ukraine Express",
+    "changes": {},
+    "fill": {
+      "address_line": "5909 State Road",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "postal_code": "44134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Road%205909%2C%20Parma%2C%20OH%2044134",
+      "phone": "+12167414253"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9b9abc5f-6e1b-457b-b0e7-501befbcc40f",
+      "slug": "svoi-ukraine-express"
+    }
+  },
+  {
+    "id": "903f3de1-22cf-4585-a681-65b646248c45",
+    "name": "Visnyk Ukrainian Parcel Service",
+    "changes": {},
+    "fill": {
+      "address_line": "5909 State Rd",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "postal_code": "44134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Rd%205909%2C%20Parma%2C%20OH%2044134",
+      "phone": "+14408867124"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a97c35d6-2827-4eec-9f25-10e951680653",
+      "slug": "svoi-visnyk-ukrainian-parcel-service"
+    }
+  },
+  {
+    "id": "08e5c15d-1ac4-44dd-954d-9fb3bb9cb49f",
+    "name": "Ukraine Express Ohio",
+    "changes": {},
+    "fill": {
+      "address_line": "5438 State Road",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "postal_code": "44134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Road%205438%2C%20Parma%2C%20OH%2044134",
+      "phone": "+14404813885"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4576f8d0-4c5f-46d7-9fc1-52a9e743d03a",
+      "slug": "svoi-ukraine-express-ohio"
+    }
+  },
+  {
+    "id": "ddf03b3f-106d-4163-8f04-28177af8fdef",
+    "name": "Karpaty Export -",
+    "changes": {},
+    "fill": {
+      "address_line": "5344 State Road",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "postal_code": "44134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Road%205344%2C%20Parma%2C%20OH%2044134",
+      "phone": "+12167418771"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ba9a6717-c46d-49b8-971b-fd30a655637a",
+      "slug": "svoi-karpaty-export"
+    }
+  },
+  {
+    "id": "fc16a4a4-ccb6-4ccc-a748-e55fb0f680ad",
+    "name": "Ellena Aminev",
+    "changes": {},
+    "fill": {
+      "address_line": "30700 Carter St.",
+      "location_precision": "street",
+      "city": "Solon",
+      "state_code": "US-OH",
+      "postal_code": "44139",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Carter%20St.%2030700%2C%20Solon%2C%20OH%2044139",
+      "phone": "+14407492848"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4078c47-0dd6-4647-a8a8-cded6cc48475",
+      "slug": "svoi-ellena-aminev"
+    }
+  },
+  {
+    "id": "7adefe8f-a650-4087-bf60-e7daf63687f2",
+    "name": "Tatiana Lebo Photography",
+    "changes": {},
+    "fill": {
+      "city": "OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cleveland%2C%20OH",
+      "phone": "+12165093870"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5c222680-5ce2-495b-be42-f6903b7902b2",
+    "name": "Tatiana Lebo Photography",
+    "changes": {},
+    "fill": {
+      "city": "OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cleveland%2C%20OH",
+      "phone": "+12165093870"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "54487dbe-37a2-4011-be30-691791dbf832",
+    "name": "Mayfield Fine Foods",
+    "changes": {},
+    "fill": {
+      "address_line": "1413-D Golden Gate Blvd",
+      "location_precision": "street",
+      "city": "Mayfield Heights",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Golden%20Gate%20Blvd%201413-D%20%2C%20Mayfield%20Heights%2C%20OH%2044124",
+      "phone": "+14404496010"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a2aa5218-80e3-41b4-86d4-91ae76693557",
+      "slug": "svoi-mayfield-fine-foods"
+    }
+  },
+  {
+    "id": "acfd77b7-0664-4d26-9118-446e879836b4",
+    "name": "Yeleseyevsky Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "5870 Mayfield Rd",
+      "location_precision": "street",
+      "city": "Mayfield Heights",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Rd%205870%2C%20Mayfield%20Heights%2C%20OH",
+      "phone": "+14406050907"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8d89c688-f181-4154-9593-d8239faaa763",
+      "slug": "svoi-yeleseyevsky-deli"
+    }
+  },
+  {
+    "id": "3e545dae-d041-45db-8e99-3ab794a30b46",
+    "name": "Yeleseyevsky Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "5870 Mayfield Road",
+      "location_precision": "street",
+      "city": "Mayfield Heights",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%205870%2C%20Mayfield%20Heights%2C%20OH%2044124",
+      "phone": "+14406050907"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "8d89c688-f181-4154-9593-d8239faaa763"
+    }
+  },
+  {
+    "id": "6eb7247f-e3e4-49c0-949c-ebd3931109bc",
+    "name": "Arts Jewelers",
+    "changes": {},
+    "fill": {
+      "address_line": "Mayfield Road",
+      "location_precision": "street",
+      "city": "Lyndhurst",
+      "state_code": "US-OH",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%2C%20Lyndhurst%2C%20OH",
+      "phone": "+14404618990"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e81bbcfb-08af-4c58-b968-a8bbee05ff9f",
+      "slug": "svoi-arts-jewelers"
+    }
+  },
+  {
+    "id": "2df6b4d0-f9fa-45ed-91ec-6b43d1975bbe",
+    "name": "Bazar Import Gift Corp",
+    "changes": {},
+    "fill": {
+      "address_line": "5689 State Rd",
+      "location_precision": "street",
+      "city": "Parma",
+      "state_code": "US-OH",
+      "postal_code": "44134",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=State%20Rd%205689%2C%20Parma%2C%20OH%2044134",
+      "phone": "+14408456078"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "984ecf83-a0d7-4170-a7e5-1ab4d753e9cb",
+      "slug": "svoi-bazar-import-gift-corp"
+    }
+  },
+  {
+    "id": "226db770-c2cb-4dd8-822e-71ba24ccccf8",
+    "name": "Ресторан Europa",
+    "changes": {},
+    "fill": {
+      "address_line": "30519 Pinetree Road",
+      "location_precision": "street",
+      "city": "Pepper Pike",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pinetree%20Road%2030519%2C%20Pepper%20Pike%2C%20OH%2044124",
+      "website": "http://www.restauranteuropacleveland.com",
+      "phone": "+12165911273",
+      "instagram_url": "https://www.instagram.com/restaurant.europa",
+      "yelp_url": "https://www.yelp.com/biz/restaurant-europa-pepper-pike",
+      "email": "service@restauranteuropacleveland.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d9c46abe-a7e7-4903-b4fa-ca1fa6e51cf3",
+      "slug": "svoi-europa"
+    }
+  },
+  {
+    "id": "a14978c6-6d7d-4150-abac-54f0f1c5a20a",
+    "name": "Red Square Banquet & Party Center",
+    "changes": {},
+    "fill": {
+      "address_line": "5131 Mayfield Rd",
+      "location_precision": "street",
+      "city": "Lyndhurst",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Rd%205131%2C%20Lyndhurst%2C%20OH%2044124",
+      "phone": "+12163154994"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a6232cf5-82bc-4f7f-a325-de5e162da73e",
+      "slug": "svoi-red-square-banquet-party-center"
+    }
+  },
+  {
+    "id": "39c3a1b7-f446-4fce-a48c-96165a1511a9",
+    "name": "Pin-Up Lounge Karaoke and Martini Bar",
+    "changes": {},
+    "fill": {
+      "address_line": "5131 Mayfield Road",
+      "location_precision": "street",
+      "city": "Lyndhurst",
+      "state_code": "US-OH",
+      "postal_code": "44124",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mayfield%20Road%205131%2C%20Lyndhurst%2C%20OH%2044124",
+      "phone": "+12163154994"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "a6232cf5-82bc-4f7f-a325-de5e162da73e"
+    }
+  },
+  {
+    "id": "3c7b1ea7-56d6-4378-bc9a-2feae27b0f39",
+    "name": "Dr. Naum Becker, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "12801 Midway Road",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75244",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Midway%20Road%2012801%2C%20Dallas%2C%20TX%2075244",
+      "phone": "+19727635551"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "435723b6-a06c-4be0-8ead-c37ecdc61f30",
+      "slug": "svoi-dr-naum-becker-md"
+    }
+  },
+  {
+    "id": "bc3b7a61-cbc1-4258-afd6-9a01491b99d7",
+    "name": "Family and Cosmetic Dentistry",
+    "changes": {},
+    "fill": {
+      "address_line": "5509 Pleasant Valley Drive",
+      "location_precision": "street",
+      "city": "Plano",
+      "state_code": "US-TX",
+      "postal_code": "75023",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pleasant%20Valley%20Drive%205509%2C%20Plano%2C%20TX%2075023",
+      "phone": "+19723980020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "5564a97e-aa0b-465c-a90c-c29a9d3a7a0b",
+      "slug": "svoi-family-and-cosmetic-dentistry"
+    }
+  },
+  {
+    "id": "4b4c5886-6baf-4d94-9ffb-b1c9f7f8b92c",
+    "name": "Valley View Dental",
+    "changes": {},
+    "fill": {
+      "address_line": "2800 Valley View Lane",
+      "location_precision": "street",
+      "city": "Farmers Branch",
+      "state_code": "US-TX",
+      "postal_code": "75234",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Valley%20View%20Lane%202800%2C%20Farmers%20Branch%2C%20TX%2075234",
+      "website": "http://valleyview-dental.com",
+      "phone": "+19722414684",
+      "instagram_url": "https://www.instagram.com/valleyviewdental.dallas",
+      "email": "info@valleyviewdental.info"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a2518c7a-fd9d-441f-9a5f-d9d71170228c",
+      "slug": "svoi-valley-view-dental"
+    }
+  },
+  {
+    "id": "f8542173-d288-450f-9007-5b0747c9e9cf",
+    "name": "A-Care Chiropractic & Acupuncture: Alexander Leybovich, DC",
+    "changes": {},
+    "fill": {
+      "address_line": "870 North Coit Road",
+      "location_precision": "street",
+      "city": "Richardson",
+      "state_code": "US-TX",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Coit%20Road%20870%20%20%2C%20Richardson%2C%20TX",
+      "website": "http://www.alexcare.com",
+      "phone": "+14694474266",
+      "instagram_url": "https://www.instagram.com/alexcarechiropractic",
+      "yelp_url": "https://www.yelp.com/biz/alexcare-chiropractic-and-acupuncture-alexander-leybovich-dc-richardson",
+      "email": "frontdesk@alexcare.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b7e8d2ae-5680-4ccc-9300-2daf619e8250",
+      "slug": "svoi-a-care-chiropractic-acupuncture-alexander-leybov"
+    }
+  },
+  {
+    "id": "683b3cf6-93db-475c-81d6-1f16bed0e8a4",
+    "name": "Dr. Isaac Z. Pugach, MD - Complete Med Care",
+    "changes": {},
+    "fill": {
+      "address_line": "8989 Forest Lane",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75243",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Forest%20Lane%208989%2C%20Dallas%2C%20TX%20%2075243",
+      "phone": "+19727927777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "38ec99b6-bdc9-44c7-a14c-8d814a90d257",
+      "slug": "svoi-dr-isaac-z-pugach-md-complete-med-care"
+    }
+  },
+  {
+    "id": "dc739ac0-8503-4a2c-a968-8d3a87983ad0",
+    "name": "Dr. Allen B. Safir",
+    "changes": {},
+    "fill": {
+      "address_line": "4414 Lemmon Avenue",
+      "location_precision": "street",
+      "city": "Dallas",
+      "state_code": "US-TX",
+      "postal_code": "75219",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lemmon%20Avenue%204414%2C%20Dallas%2C%20TX%2075219",
+      "website": "http://www.doctoreyecare.com/index.asp",
+      "phone": "+12145223937"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6f534dc4-b9be-4325-b4a4-409c134ac193",
+      "slug": "svoi-dr-allen-b-safir"
+    }
+  }
+]

@@ -1,0 +1,1285 @@
+[
+  {
+    "id": "24a71b2d-7c79-4ae4-b336-a5d099a89753",
+    "name": "Orthosports and Aquatic Physical Therapy",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "637 Washington Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%20637%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16177346135"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e1ae31f6-f62a-4338-877c-7e24ad79f1fb",
+      "slug": "svoi-orthosports-and-aquatic-physical-therapy"
+    }
+  },
+  {
+    "id": "bb6a31bc-ae69-4862-9266-11ed48be8c74",
+    "name": "Medi-Health Care",
+    "changes": {},
+    "fill": {
+      "address_line": "694 Washington Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%20694%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172782900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "71c48013-0b4f-4e6e-8603-37c6ba8ae6be",
+      "slug": "svoi-medi-health-care"
+    }
+  },
+  {
+    "id": "47401414-ffde-41a3-8edc-fa81af199de8",
+    "name": "Brookiline Driving School",
+    "changes": {},
+    "fill": {
+      "address_line": "374 Boylston",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boylston%20%20374%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16172329400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "44129cd8-785a-4c44-9b28-728b7e43d7e1",
+      "slug": "svoi-brookiline-driving-school"
+    }
+  },
+  {
+    "id": "9f9a0aea-c6b2-4055-85ee-cea91b044936",
+    "name": "Our Cool School",
+    "changes": {},
+    "fill": {
+      "address_line": "115 Marion Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Marion%20Street%20115%2C%20Brooklyn%2C%20MA%20%202446",
+      "phone": "+16174135009"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0d144204-2958-4793-9061-8e3421760405",
+      "slug": "svoi-our-cool-school"
+    }
+  },
+  {
+    "id": "23638d5c-c634-4736-9340-0eca8b2c3060",
+    "name": "Maimonides School",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Clark Road",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Clark%20Road%20%202%2C%20Brooklyn%2C%20MA%2002445",
+      "website": "http://www.maimonides.org",
+      "phone": "+16172324452",
+      "instagram_url": "https://www.instagram.com/maimobrookline"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "591cd179-abfd-4522-82ef-f90dfed45b0a",
+      "slug": "svoi-maimonides-school"
+    }
+  },
+  {
+    "id": "e69c5f82-59b7-45c2-b408-3dcea1d3d83a",
+    "name": "Julie Agarkov, Hammond Residential",
+    "changes": {},
+    "fill": {
+      "address_line": "826 Boylston Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02467",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boylston%20Street%20826%2C%20Brooklyn%2C%20MA%2002467",
+      "phone": "+16178404320"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7c12ff43-34f0-4cc9-bba0-c0223e0122ec",
+      "slug": "svoi-julie-agarkov-hammond-residential"
+    }
+  },
+  {
+    "id": "2e63c4bb-ada5-403c-8857-7b0c2f0200c3",
+    "name": "Michael Fiman, ANS Associates",
+    "changes": {},
+    "fill": {
+      "address_line": "355 Boylston",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boylston%20355%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16176996279"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f60a0f9e-f408-4b3e-9235-04f2d66e0657",
+      "slug": "svoi-michael-fiman-ans-associates"
+    }
+  },
+  {
+    "id": "f5dc6e0e-fdcf-411c-8560-6fb3eb6c2577",
+    "name": "My Boston Realtor, Karina",
+    "changes": {},
+    "fill": {
+      "address_line": "420 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20420%2C%20Brooklyn%2C%20MA",
+      "phone": "+16172494539"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "3244f158-9442-4d66-baab-ddb336d79de5",
+      "slug": "svoi-my-boston-realtor-karina"
+    }
+  },
+  {
+    "id": "baa36437-e1d2-41b8-aec5-f079a5310e15",
+    "name": "Alexandra Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "318 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20318%2C%20Brooklyn%2C%20MA%2002446",
+      "website": "http://www.salonalexandra.com",
+      "phone": "+16172775224"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6c736685-dcda-4d8a-889f-4aed03c63eee",
+      "slug": "svoi-alexandra-salon"
+    }
+  },
+  {
+    "id": "943a00b4-5b96-43be-a533-af563a69b8e5",
+    "name": "Domain Hair Design",
+    "changes": {},
+    "fill": {
+      "address_line": "475 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20475%2C%20Brooklyn%2C%20MA%20%2002446",
+      "phone": "+16175669280"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "57e4244f-ead3-40ea-856f-4a50d72d4542",
+      "slug": "svoi-domain-hair-design"
+    }
+  },
+  {
+    "id": "4672057c-3c1b-4b06-9e8f-8ab0ff129343",
+    "name": "G.A, Electrolysis and Skin Care Center",
+    "changes": {},
+    "fill": {
+      "address_line": "364 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20364%2C%20Brooklyn%2C%20MA%20%2002446",
+      "website": "http://www.gaelectrolysis.com/index.html",
+      "phone": "+16177313515"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "599dd952-f08a-4601-8b3a-9d492411f7d5",
+      "slug": "svoi-g-a-electrolysis-and-skin-care-center"
+    }
+  },
+  {
+    "id": "f231cc1b-a100-4c1e-a2c8-cc5e6c47369a",
+    "name": "Citywide Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "1842 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201842%2C%20Brooklyn%2C%20MA%20%2002445",
+      "phone": "+16172329290"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04b2939d-7c4c-4498-8e5c-d8a681ab06a0",
+      "slug": "svoi-citywide-insurance-agency"
+    }
+  },
+  {
+    "id": "a094e4af-878e-4dc6-8c78-677433f50381",
+    "name": "Sheldon Marram Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "2 Summit Avenue",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Summit%20Avenue%202%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172326820"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "749a9302-4450-4d3d-a15a-23d7d7d515f9",
+      "slug": "svoi-sheldon-marram-insurance-agency"
+    }
+  },
+  {
+    "id": "ac080863-4a1a-4962-846f-520c59d557f8",
+    "name": "Academic Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "68 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%2068%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16175665272"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "31c4dfe3-abf2-4c1c-80af-12a7940f0678",
+      "slug": "svoi-academic-travel"
+    }
+  },
+  {
+    "id": "bc378d33-f555-4556-b5ee-33d9575001ca",
+    "name": "BLER Travel Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "420 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20420%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16177588503"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bf6a809d-7b4c-4ea5-9dd3-8ec52b8b57ee",
+      "slug": "svoi-bler-travel-agency"
+    }
+  },
+  {
+    "id": "36419f2c-c8ca-4123-81c6-36f0a148157b",
+    "name": "Citywide Travel Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "1842 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201842%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16177308158"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "138873d0-ed04-4926-8f9e-710b1de5c668",
+      "slug": "svoi-citywide-travel-inc"
+    }
+  },
+  {
+    "id": "b42d25d1-9acf-4cf1-a98c-88965a6aa072",
+    "name": "Daleko Express",
+    "changes": {},
+    "fill": {
+      "address_line": "358 Boylston Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boylston%20Street%20358%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16173835122"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ca7428af-9c4d-4df1-aba6-31aae2059af7",
+      "slug": "svoi-daleko-express"
+    }
+  },
+  {
+    "id": "c6be7b07-8613-4c2b-99d2-6fab60ab48c6",
+    "name": "Boris Gutman",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brooklyn%2C%20MA",
+      "phone": "+16177385991"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "4a2fb7ea-42f0-44aa-9fe1-baf12f4cc006",
+    "name": "Shaknovich Svetlana",
+    "changes": {},
+    "fill": {
+      "address_line": "157 Winthrop Road",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Winthrop%20Road%20157%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+17818564043"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "217f9dcc-b7a5-4cac-baad-6a17b80cd8f0",
+      "slug": "svoi-shaknovich-svetlana"
+    }
+  },
+  {
+    "id": "a6cf6374-97da-4078-bb43-f9d7a13e8d4a",
+    "name": "Bazaar International Gourmet",
+    "changes": {},
+    "fill": {
+      "address_line": "1432 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201432%2C%20Brooklyn%2C%20MA%20%2002446",
+      "phone": "+16177398450"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f433302b-75e3-4fde-9b3d-beac3547247e",
+      "slug": "svoi-bazaar-international-gourmet"
+    }
+  },
+  {
+    "id": "460593b6-ef4d-4287-927c-0c14842e340f",
+    "name": "Jewelry Express Work",
+    "changes": {},
+    "fill": {
+      "address_line": "211 Washington St",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20St%20211%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16177346415"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "656fa554-b923-49b6-8c44-cfb1afdb5d77",
+      "slug": "svoi-jewelry-express-work"
+    }
+  },
+  {
+    "id": "24a7d885-5a89-4990-bb4f-15cfb1a44080",
+    "name": "Jewelry Express Works",
+    "changes": {},
+    "fill": {
+      "address_line": "211 Washington Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%20211%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16173196085"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0a6bdab4-10af-4805-bbf6-e16b5c24852c",
+      "slug": "svoi-jewelry-express-works"
+    }
+  },
+  {
+    "id": "c370d931-c353-47da-90b5-bbf971f81077",
+    "name": "Walters Jewelry Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "236 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20236%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172779495"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a641b5d7-92a6-4187-886e-cb5f67ff8392",
+      "slug": "svoi-walters-jewelry-inc"
+    }
+  },
+  {
+    "id": "2bc6a0b4-e25d-46d8-8701-ca1cd72a98d7",
+    "name": "Victor`s catering",
+    "changes": {},
+    "fill": {
+      "address_line": "1379 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201379%2C%20Brooklyn%2C%20MA",
+      "phone": "+16176946731"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "71073c66-1a70-4e1a-af88-34551df3f471",
+      "slug": "svoi-victor-s-catering"
+    }
+  },
+  {
+    "id": "29bfdcf6-d646-4d5f-b9c7-6c2942029571",
+    "name": "CONTACT",
+    "changes": {},
+    "fill": {
+      "city": "MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brooklyn%2C%20MA",
+      "phone": "+16172771254"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "22a1e2a0-7080-4413-8bd0-5b3da441b48b",
+    "name": "Нина Каштелян",
+    "changes": {},
+    "fill": {
+      "address_line": "4000 Old Court Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Court%20Road%204000%2C%20Pikesville%2C%20MD%2008",
+      "phone": "+14104849950"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8f3ac096-4539-4719-9f2c-5f8b11df0a75",
+      "slug": "svoi-biz-70"
+    }
+  },
+  {
+    "id": "3912a600-c870-4418-9f5e-7d0075b97f8b",
+    "name": "Dr. Elena Balakirsky",
+    "changes": {},
+    "fill": {
+      "address_line": "1401 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%201401%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14105801220"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ec664121-a4f2-4f70-8d72-af0c1623bddb",
+      "slug": "svoi-dr-elena-balakirsky"
+    }
+  },
+  {
+    "id": "2ee1dbe1-1b76-4429-8de8-2c2f0c390b76",
+    "name": "Dr. Kelly Robert",
+    "changes": {},
+    "fill": {
+      "address_line": "10339 Kensington Parkway",
+      "location_precision": "street",
+      "city": "Kensington",
+      "state_code": "US-MD",
+      "postal_code": "20895",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kensington%20Parkway%2010339%2C%20Kensington%2C%20MD%2020895",
+      "website": "https://www.kellydds.com",
+      "phone": "+13019492280"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6f3e9f7e-886e-4e0c-91c9-b89025f00456",
+      "slug": "svoi-dr-kelly-robert"
+    }
+  },
+  {
+    "id": "bc5d7867-1b91-4781-b420-c7a26d07cf5b",
+    "name": "Доктор Лилия Ризберг, Whiteeth Esthetic Dentistry.",
+    "changes": {},
+    "fill": {
+      "address_line": "7861 Belle Point Drive",
+      "location_precision": "street",
+      "city": "Greenbelt",
+      "state_code": "US-MD",
+      "postal_code": "20770",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Belle%20Point%20Drive%207861%2C%20Greenbelt%2C%20MD%2020770",
+      "website": "https://websitewhiteeth.com",
+      "phone": "+13012201790"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "83c2a5d6-c5d7-4f20-a4e9-7a879f27aae3",
+      "slug": "svoi-whiteeth-esthetic-dentistry"
+    }
+  },
+  {
+    "id": "cfff3e7a-3884-4326-a9be-afb275e17fa6",
+    "name": "Dr. Gary Reznik",
+    "changes": {},
+    "fill": {
+      "address_line": "2015 Old Emmorton Road",
+      "location_precision": "street",
+      "city": "Bel Air South",
+      "state_code": "US-MD",
+      "postal_code": "21015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Emmorton%20Road%202015%2C%20Bel%20Air%20South%2C%20MD%2021015",
+      "website": "http://www.reznikdental.com",
+      "phone": "+14108799111"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1e20ec54-850e-478d-b2b9-9bd1f92f4101",
+      "slug": "svoi-dr-gary-reznik"
+    }
+  },
+  {
+    "id": "09bc56a3-1988-459a-870d-cd4e269174ef",
+    "name": "Dr. Malikova, Galina",
+    "changes": {},
+    "fill": {
+      "address_line": "600 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%20600%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14104841808"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ac27c548-24b2-40ba-969d-aa590a29f42b",
+      "slug": "svoi-dr-malikova-galina"
+    }
+  },
+  {
+    "id": "0c576b0a-1804-440c-9466-9d61323a150d",
+    "name": "Dr. Elena Lubman, OB/GYN",
+    "changes": {},
+    "fill": {
+      "address_line": "23 Crossroads Drive",
+      "location_precision": "street",
+      "city": "Harrison",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Crossroads%20Drive%2023%2C%20Harrison%2C%20MD%2021117",
+      "phone": "+14439012040"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b89c22c9-c755-46e3-b0bf-ee33e014b296",
+      "slug": "svoi-dr-elena-lubman-ob-gyn"
+    }
+  },
+  {
+    "id": "ab5da2af-3f4e-4e7c-b0c8-dbe37310e9c8",
+    "name": "Eleonora Gokoyeva, MD / MedStar Health",
+    "changes": {},
+    "fill": {
+      "address_line": "200 E 33rd Street",
+      "location_precision": "street",
+      "city": "Suite 487",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=200%20E%2033rd%20Street%2C%20Suite%20487%2C%20Baltimore%2C%20MD%2021218%2C%20Baltimore%2C%20MD",
+      "website": "http://www.medstarhealth.org",
+      "phone": "+14105542780",
+      "instagram_url": "https://www.instagram.com/accounts",
+      "email": "debra.schindler@medstar.net"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "e3abe23f-85c0-4baf-8101-29ec68a917e7",
+      "slug": "svoi-eleonora-gokoyeva-md-medstar-health"
+    }
+  },
+  {
+    "id": "4ea98e82-9a2a-47ad-a4dd-42e1cb1c57d2",
+    "name": "Доктор Олег Шпак",
+    "changes": {},
+    "fill": {
+      "address_line": "9470 Annapolis Road",
+      "location_precision": "street",
+      "city": "Lanham",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Annapolis%20Road%209470%2C%20Lanham%2C%20MD%2006",
+      "phone": "+13015775511"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "41219e99-5eb1-4dfa-af2d-90b9096a82a4",
+      "slug": "svoi-biz-15"
+    }
+  },
+  {
+    "id": "15a3f606-7f16-41d3-9102-e9ab551ffacd",
+    "name": "Виталий Брейзер доктор",
+    "changes": {},
+    "fill": {
+      "address_line": "3655 Old Court Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Court%20Road%203655%2C%20Pikesville%2C%20MD%2008",
+      "phone": "+14104860051"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "cb24984c-6dc8-49ce-ade8-d8dac1b5564f",
+      "slug": "svoi-biz-16"
+    }
+  },
+  {
+    "id": "9baec79c-ffb2-4780-8da9-70424aba153a",
+    "name": "Dr. Alexander Pokov",
+    "changes": {},
+    "fill": {
+      "address_line": "6821 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Baltimore",
+      "state_code": "US-MD",
+      "postal_code": "21215",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%20%206821%2C%20Baltimore%2C%20MD%2021215",
+      "phone": "+14103589159"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "3c74ff05-c14b-47bc-8784-dd05aa1bc4b1",
+      "slug": "svoi-dr-alexander-pokov"
+    }
+  },
+  {
+    "id": "a8fa086d-881a-424d-81d7-e3c76c8bbd3e",
+    "name": "Dr. Gruen, Richard",
+    "changes": {},
+    "fill": {
+      "address_line": "10 Crossroads Drive",
+      "location_precision": "street",
+      "city": "Harrison",
+      "state_code": "US-MD",
+      "postal_code": "21117",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Crossroads%20Drive%20%2010%2C%20Harrison%2C%20MD%2021117",
+      "phone": "+14106545700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8a5fabc7-89be-47bb-9ecd-70042ef872cd",
+      "slug": "svoi-dr-gruen-richard"
+    }
+  },
+  {
+    "id": "d9117ec2-125a-4bfe-88f7-05d1f285bb83",
+    "name": "Eye to Eye in Timonium",
+    "changes": {},
+    "fill": {
+      "address_line": "1819 York Road",
+      "location_precision": "street",
+      "city": "Lutherville-Timonium",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=York%20Road%201819%2C%20Lutherville-Timonium%2C%20MD",
+      "phone": "+14102525850"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1f4bc6ae-3c7e-469e-b40c-0bab0ecb160e",
+      "slug": "svoi-eye-to-eye-in-timonium"
+    }
+  },
+  {
+    "id": "1eb9c99f-a1c1-45ef-891c-751c7436f3d3",
+    "name": "Charm City Optical Ctr",
+    "changes": {},
+    "fill": {
+      "address_line": "6412 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Baltimore",
+      "state_code": "US-MD",
+      "postal_code": "21215-2308",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%206412%2C%20Baltimore%2C%20MD%2021215-2308",
+      "phone": "+14107649360"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "adbda078-f9c7-4a39-93f0-05421ff9b8b4",
+      "slug": "svoi-charm-city-optical-ctr"
+    }
+  },
+  {
+    "id": "1707dde7-7372-40f9-9ec1-3b5d0c4d1977",
+    "name": "Advanced Physical Therapy, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "4000 Old Court Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Old%20Court%20Road%204000%2C%20Pikesville%2C%20MD%20%2021208",
+      "phone": "+14104150005"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b4ae04a1-494a-4fc7-a31c-70a7ed5552aa",
+      "slug": "svoi-advanced-physical-therapy-llc"
+    }
+  },
+  {
+    "id": "24ec8b8c-52b5-4240-87a9-e3b9f27fdf7d",
+    "name": "Ruxton Health & Rehabilitation Center",
+    "changes": {},
+    "fill": {
+      "address_line": "7 Sudbrook Lane",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sudbrook%20Lane%207%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14104868771"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a88bd3dd-a474-4bdf-b587-8d110689297a",
+      "slug": "svoi-ruxton-health-rehabilitation-center"
+    }
+  },
+  {
+    "id": "9dc0ade2-cac7-4395-8123-d6e3ce8715cb",
+    "name": "Татьяна Абрамова, Борис Абрамов",
+    "changes": {},
+    "fill": {
+      "address_line": "114 Slade Avenue",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Slade%20Avenue%20114%2C%20Pikesville%2C%20MD%20timore",
+      "phone": "+14438727052"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1b152011-e3da-463f-b37e-aebaea841aa9",
+      "slug": "svoi-biz-71"
+    }
+  },
+  {
+    "id": "c5cffd22-1980-4d24-8669-3cc90e13ddbc",
+    "name": "HEALTH WAY PHARMACY",
+    "changes": {},
+    "fill": {
+      "address_line": "1503 Bedford Avenue",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bedford%20Avenue%201503%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14106536061"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2a25fc9d-a3ec-403d-b3e6-3a3fd6e5669b",
+      "slug": "svoi-health-way-pharmacy"
+    }
+  },
+  {
+    "id": "b4e678e3-f05f-49f8-be18-a6e86124fd36",
+    "name": "Pikesville Pharmacy-MD",
+    "changes": {},
+    "fill": {
+      "address_line": "201 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Pikesville",
+      "state_code": "US-MD",
+      "postal_code": "21208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%20201%2C%20Pikesville%2C%20MD%2021208",
+      "phone": "+14106538888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "69576686-5500-4d1a-9ee7-ffeea373adeb",
+      "slug": "svoi-pikesville-pharmacy-md"
+    }
+  },
+  {
+    "id": "0ea1d11f-85ee-4516-b37d-eace69ed94ea",
+    "name": "B.W. Medical Supply, Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "10556 Metropolitan Avenue",
+      "location_precision": "street",
+      "city": "Kensington",
+      "state_code": "US-MD",
+      "postal_code": "20895",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Metropolitan%20Avenue%2010556%2C%20Kensington%2C%20MD%2020895",
+      "website": "http://www.bwmedi.com",
+      "phone": "+18009760105",
+      "email": "bwsurgical@yahoo.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e4b21ce-6737-4823-bfa2-91ca83873ad6",
+      "slug": "svoi-b-w-medical-supply-inc"
+    }
+  },
+  {
+    "id": "e129dafd-a006-4803-9dcb-ba4235b39c42",
+    "name": "American Home Care Equipment",
+    "changes": {},
+    "fill": {
+      "address_line": "11460 Cherry Hill Road",
+      "location_precision": "street",
+      "city": "Calverton",
+      "state_code": "US-MD",
+      "postal_code": "20904",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cherry%20Hill%20Road%2011460%2C%20Calverton%2C%20MD%2020904",
+      "phone": "+13019316800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d8d99f4c-4e72-4307-b446-52c98c578a63",
+      "slug": "svoi-american-home-care-equipment"
+    }
+  },
+  {
+    "id": "6a8106dd-a412-4cb3-846e-a5596b1d8715",
+    "name": "Modern Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "11610 Reisterstown Road",
+      "location_precision": "street",
+      "city": "Reisterstown",
+      "state_code": "US-MD",
+      "postal_code": "21136",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Reisterstown%20Road%2011610%2C%20Reisterstown%2C%20MD%2021136",
+      "phone": "+14103632890"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "04a0dc4b-024d-4948-baff-75978cff2fe2",
+      "slug": "svoi-modern-medical-supply"
+    }
+  },
+  {
+    "id": "15073d91-a4b7-4530-9146-4290cbf0085a",
+    "name": "Euro-Tech",
+    "changes": {},
+    "fill": {
+      "address_line": "5937 Belair Road",
+      "location_precision": "street",
+      "city": "Baltimore",
+      "state_code": "US-MD",
+      "postal_code": "21206",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Belair%20Road%205937%2C%20Baltimore%2C%20MD%2021206",
+      "phone": "+14103256600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8e3fcf95-42cf-401f-b4c8-d5b6a079c44f",
+      "slug": "svoi-euro-tech"
+    }
+  },
+  {
+    "id": "9e7c7f96-9208-40c7-8ecf-7041694bd678",
+    "name": "Meineke Car Care",
+    "changes": {},
+    "fill": {
+      "address_line": "8027 Snouffer School Road",
+      "location_precision": "street",
+      "city": "one",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Snouffer%20School%20Road%208027%2C%20one%2C%20MD",
+      "website": "http://www.autotherapy.net",
+      "phone": "+13019483074"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2b3ba75f-0624-4085-a91b-915710b82401",
+      "slug": "svoi-meineke-car-care"
+    }
+  },
+  {
+    "id": "6761b51f-15dc-4967-a483-a8face5f732d",
+    "name": "Darcars Mazda",
+    "changes": {},
+    "fill": {
+      "address_line": "12214 Cherry Hill Road",
+      "location_precision": "street",
+      "city": "Calverton",
+      "state_code": "US-MD",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cherry%20Hill%20Road%2012214%2C%20Calverton%2C%20MD",
+      "phone": "+13016220020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47841533-c238-4c3f-a5ae-17860039c701",
+      "slug": "svoi-darcars-mazda"
+    }
+  }
+]

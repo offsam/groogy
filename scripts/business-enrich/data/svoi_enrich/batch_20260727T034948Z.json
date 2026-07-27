@@ -1,0 +1,757 @@
+[
+  {
+    "id": "d745ebc9-b4f6-4bb3-8e9b-c98df94435d6",
+    "name": "Construction and Professional Handyman Services",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "55005 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+13233796962",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f2d4b4e5-1900-4e31-89d3-f80d92f28c5e",
+      "slug": "rop-construction-and-professional-handyman-services"
+    }
+  },
+  {
+    "id": "2d082806-7197-478a-806c-786bb8bd9114",
+    "name": "Julia Lobova- Realtor",
+    "changes": {},
+    "fill": {
+      "address_line": "52231 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+11769814617",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "45a8e9af-30b9-4b9a-8fe6-1051a5011aaf",
+      "slug": "svoi-julia-lobova-realtor"
+    }
+  },
+  {
+    "id": "cadbc0c1-43ac-46e4-909b-b5b51716f75a",
+    "name": "A. G. Assanti & Associate, PC- Lawyers",
+    "changes": {},
+    "fill": {
+      "address_line": "38280 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://assantilaw.com",
+      "phone": "+11769814617",
+      "postal_code": "92618"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1ac6fce-e8eb-468c-bae0-a7e825caa2f9",
+      "slug": "rop-a-g-assanti-associate-pc-lawyers"
+    }
+  },
+  {
+    "id": "6e232c95-3d28-457a-9970-c8553acec341",
+    "name": "Life Spring Homeopathy",
+    "changes": {},
+    "fill": {
+      "address_line": "53187 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://lifespringhomeopathy.com",
+      "phone": "+11769814617"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "d1ac6fce-e8eb-468c-bae0-a7e825caa2f9"
+    }
+  },
+  {
+    "id": "98e83950-f28f-4d0a-86dc-368f7ab98c28",
+    "name": "Russian School of Orange County (RusOC)",
+    "changes": {},
+    "fill": {
+      "address_line": "39158 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "http://www.rusoc.com",
+      "phone": "+11769814617",
+      "email": "russianschool@rusoc.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "d1ac6fce-e8eb-468c-bae0-a7e825caa2f9"
+    }
+  },
+  {
+    "id": "ede746ca-568a-405b-8eb1-adfee73a7230",
+    "name": "The Logrue Law Firm, Professional Corporation",
+    "changes": {},
+    "fill": {
+      "address_line": "63951 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://logruelaw.com",
+      "phone": "+19497584469",
+      "postal_code": "92660",
+      "email": "info@logruelaw.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8dd66f47-3184-4c99-aa93-f8bdd48f244b",
+      "slug": "rop-the-logrue-law-firm-professional-corporation"
+    }
+  },
+  {
+    "id": "e39d6798-3d3a-437e-a0ea-f1aadeb85429",
+    "name": "Sarina Browndorf – Realtor",
+    "changes": {},
+    "fill": {
+      "address_line": "59933 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+14245661100",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "156417ca-9f05-4ecc-af30-c56a690cf418",
+      "slug": "svoi-sarina-browndorf-realtor"
+    }
+  },
+  {
+    "id": "9f1fb969-aac6-47c8-a39d-a5bb7fcc40ab",
+    "name": "Good Food",
+    "changes": {},
+    "fill": {
+      "address_line": "62331 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.goodfoodmarket.store",
+      "phone": "+19497759773",
+      "instagram_url": "https://www.instagram.com/goodfoodmarket1",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "b49be8d8-b858-4b98-865f-bf41dd0d80db"
+    }
+  },
+  {
+    "id": "e8d826bc-9d83-4bca-9d1b-6e3bc54694e5",
+    "name": "Forward Church",
+    "changes": {},
+    "fill": {
+      "address_line": "92618 Forward Church Service Time: Every Su",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.forwardchurchirvine.com",
+      "phone": "+19494316808",
+      "email": "bogdan@forward.fm"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "45b94e4e-e7ea-482d-9858-32a6617a69f0",
+      "slug": "rop-forward-church"
+    }
+  },
+  {
+    "id": "8baeb44a-6b0b-4b93-a110-dee53719bca4",
+    "name": "ESL and Russian Tutor/Interpreter- Alyona Koolhaas",
+    "changes": {},
+    "fill": {
+      "address_line": "39034 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+16083936578",
+      "email": "alyona.koolhaas@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "merge",
+      "id": "d8c8fdc0-413b-45bc-ac8b-4d786563f4f7"
+    }
+  },
+  {
+    "id": "a593bc98-6b42-48e0-9a1b-1c909031b058",
+    "name": "Document Heroes, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "39107 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.documentheroes.com",
+      "phone": "+11769814617"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "d1ac6fce-e8eb-468c-bae0-a7e825caa2f9"
+    }
+  },
+  {
+    "id": "d19f8258-51c0-4893-bc2c-3a67efd4634e",
+    "name": "Ballroom Studio “Dance Code”",
+    "changes": {},
+    "fill": {
+      "address_line": "62758 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.dancecodeballroom.com",
+      "phone": "+19498786463",
+      "instagram_url": "https://www.instagram.com/dancecode_ballroomstudio",
+      "yelp_url": "https://www.yelp.com/biz/dance-code-ballroom-studio-laguna-woods-4",
+      "email": "dancecodeballroom@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a13de237-0d6b-4459-a390-c1c29271de7c",
+      "slug": "rop-ballroom-studio-dance-code"
+    }
+  },
+  {
+    "id": "0b248ff2-8029-4063-84a8-7d0ccf61da11",
+    "name": "BCT Accountancy Corp",
+    "changes": {},
+    "fill": {
+      "address_line": "6888 Lincoln Ave Ste D",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+15627168698",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "12defe51-afa2-4d54-bded-0b6491993528",
+      "slug": "rop-bct-accountancy-corp"
+    }
+  },
+  {
+    "id": "e70746cb-e7ed-474b-8f6c-a1bc46b60c70",
+    "name": "Saint Barbara Russian Orthodox Church",
+    "changes": {},
+    "fill": {
+      "address_line": "39178 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.St-barbara-church.org",
+      "phone": "+19169493719"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d09f6175-109a-4eb8-acbe-33eb3e346c98",
+      "slug": "rop-saint-barbara-russian-orthodox-church"
+    }
+  },
+  {
+    "id": "61f9daf6-e774-4566-ab5f-bcd164fd0574",
+    "name": "Holistic Weight Loss with Lavender Lane Women’s Health & Wellness",
+    "changes": {},
+    "fill": {
+      "address_line": "64285 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://lavlane.com/#contact",
+      "phone": "+19499984747"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "a0b6151a-b50c-4266-8fe4-eb9a07eda413",
+      "slug": "svoi-holistic-weight-loss-with-lavender-lane-women-s-"
+    }
+  },
+  {
+    "id": "3b898995-0b55-44ca-ad2d-4bcc7292d971",
+    "name": "Moscow Deli",
+    "changes": {},
+    "fill": {
+      "address_line": "39172 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+17145463354",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "967e38d5-9dc9-4b91-9ac2-7cf21d5cd50c",
+      "slug": "rop-moscow-deli"
+    }
+  },
+  {
+    "id": "8be2c996-320e-429d-aab0-1ffb303c0969",
+    "name": "New Creation Center – International Christian Church",
+    "changes": {},
+    "fill": {
+      "address_line": "58568 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.newcreationoc.org",
+      "phone": "+19494147711"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "31df7268-33a5-4a2d-a7e7-b9821cebd416",
+      "slug": "rop-new-creation-center-international-christian-chur"
+    }
+  },
+  {
+    "id": "7f7909ac-ea23-4383-b545-71b7ed4b1da0",
+    "name": "Svetlana Cameron – Senior Mortgage Loan Officer",
+    "changes": {},
+    "fill": {
+      "address_line": "56263 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://lo.primelending.com/svetlana.cameron",
+      "phone": "+14253444562",
+      "postal_code": "92618",
+      "email": "svetlana.cameron@primelending.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "90bc6fa1-5d05-4ad7-8a36-d32266c03d77",
+      "slug": "svoi-svetlana-cameron-senior-mortgage-loan-officer"
+    }
+  },
+  {
+    "id": "beb646ab-c1ff-4769-afbb-b4d5b6e116aa",
+    "name": "Affordable Dental Office – Dr. Polina Rhoudenko, DMD",
+    "changes": {},
+    "fill": {
+      "address_line": "58428 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+17147161783",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b1dd4276-5ce0-4086-aae6-4cb0697f907d",
+      "slug": "rop-affordable-dental-office-dr-polina-rhoudenko-dmd"
+    }
+  },
+  {
+    "id": "ed3cd35c-514e-45a6-abf3-19db0d786afc",
+    "name": "European Delights Gourmet",
+    "changes": {},
+    "fill": {
+      "address_line": "60268 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://eurodeli.us",
+      "phone": "+19495311494",
+      "postal_code": "92708",
+      "instagram_url": "https://www.instagram.com/eurodelioc",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "02e64277-4f14-40b9-a2a3-0390e75acea6"
+    }
+  },
+  {
+    "id": "9c004cd7-3374-4b62-9c52-a8afe376f1b2",
+    "name": "Anatoly Sigalov",
+    "changes": {},
+    "fill": {
+      "address_line": "40202 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+17148375712",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "98ce1ad0-e98d-4c4f-a088-c7a51ab99c6c",
+      "slug": "svoi-anatoly-sigalov"
+    }
+  },
+  {
+    "id": "8209e624-e506-49ad-b44a-c3bca5328f43",
+    "name": "Olga Johnson- Music Teacher",
+    "changes": {},
+    "fill": {
+      "address_line": "38282 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+17149067120",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "b01de293-ed44-4094-95d4-412d8fd0106c",
+      "slug": "svoi-olga-johnson-music-teacher"
+    }
+  },
+  {
+    "id": "a9f4a33c-3d25-4f8f-9995-3d336d1ee2c8",
+    "name": "Elena Rozen",
+    "changes": {},
+    "fill": {
+      "address_line": "38996 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+19492324514",
+      "email": "erozenpac@yahoo.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "703329f1-bee4-4402-9a27-8c15ae8bfb64",
+      "slug": "svoi-elena-rozen"
+    }
+  },
+  {
+    "id": "8766cd88-2bee-42c7-b63c-e19df76e2543",
+    "name": "Elza Gousseva-Nezlin",
+    "changes": {},
+    "fill": {
+      "address_line": "39018 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "http://elzagus.wix.com/elzanotary",
+      "phone": "+13103870500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "957e8c4b-5231-4732-83dc-69f79ec49535",
+      "slug": "svoi-elza-gousseva-nezlin"
+    }
+  },
+  {
+    "id": "81b97da3-e3de-420c-8de7-33955952f88d",
+    "name": "Svetlana Boukhny – Lawyer",
+    "changes": {},
+    "fill": {
+      "address_line": "39124 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+19492780834",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "9ffa5fce-b8aa-4ebb-81bb-a0eaf5b9039c",
+      "slug": "svoi-svetlana-boukhny-lawyer"
+    }
+  },
+  {
+    "id": "0529a11d-330d-4c3b-872c-1c9a90b1092e",
+    "name": "Massage: Viktoria Dolidze",
+    "changes": {},
+    "fill": {
+      "address_line": "39001 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.HealthAndHealingOasis.com",
+      "phone": "+19099520593"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "1b5578bb-139f-49bf-819b-a7a4fa756d2b",
+      "slug": "svoi-massage-viktoria-dolidze"
+    }
+  },
+  {
+    "id": "79df38d6-3021-4ad3-be78-95a71d29fb38",
+    "name": "Restoration services",
+    "changes": {},
+    "fill": {
+      "address_line": "40276 single-format-standard wp-theme-wp-albatros wp-child",
+      "location_precision": "street",
+      "city": "Orange",
+      "state_code": "US-CA",
+      "website": "https://www.fchconstruction.org",
+      "phone": "+19498726472",
+      "email": "fch.construction.ca@gmail.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "bfc42f91-7563-4852-a15d-1aadd3dcb055",
+      "slug": "rop-restoration-services"
+    }
+  }
+]

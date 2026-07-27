@@ -1,0 +1,492 @@
+[
+  {
+    "id": "e45b0ca2-d6ae-471e-a4cc-3e5d38408536",
+    "name": "Amish Healthy Foods",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "1025 North Western Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Western%20Avenue%201025%2C%20Chicago%2C%20IL",
+      "website": "http://amishhealthyfoods.com",
+      "phone": "+17732781717",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "942fa28a-7ef4-42a0-98eb-695be9f1132b",
+      "slug": "svoi-amish-healthy-foods"
+    }
+  },
+  {
+    "id": "b99e854f-b336-48af-8e54-16a15673ad70",
+    "name": "4EVER Design Studio (Chicago Web Design, Printing, Design)",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arlington%20heights%2C%20IL%20ted%20States",
+      "phone": "+18472221525"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5b318780-1d2a-4da9-a433-494bad565fa2",
+    "name": "Dexprint",
+    "changes": {},
+    "fill": {
+      "address_line": "1041 Vandustrial Drive",
+      "location_precision": "street",
+      "city": "Westmont",
+      "state_code": "US-IL",
+      "postal_code": "60559",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vandustrial%20Drive%201041%2C%20Westmont%2C%20IL%20%2060559",
+      "phone": "+16309631673"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ebde01f4-6856-4f2d-b3fb-a1669d50b4dc",
+      "slug": "svoi-dexprint"
+    }
+  },
+  {
+    "id": "2492018d-5087-4d9f-80a1-6489cc443e8d",
+    "name": "MegaTron Print",
+    "changes": {},
+    "fill": {
+      "address_line": "4946 W Irving Park rd",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Irving%20Park%20rd%204946%2C%20Chicago%2C%20IL",
+      "website": "http://megatronprint.com",
+      "phone": "+18478455800",
+      "email": "marmikmy@yahoo.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ddb9e10b-1a22-4f1e-9906-eb125f5eb6ee",
+      "slug": "svoi-megatron-print"
+    }
+  },
+  {
+    "id": "29fb6bd0-5784-4a4a-9b36-873bae8608b5",
+    "name": "GREY-MEDIA",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "phone": "+17086285773"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "fb1ff706-db39-45fb-bb24-78046119d129",
+    "name": "Women's Doc (DJAMILIA KRYUKOV, M.D.)",
+    "changes": {},
+    "fill": {
+      "address_line": "20 Executive Court",
+      "location_precision": "street",
+      "city": "South Barrington",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Executive%20Court%2020%2C%20South%20Barrington%2C%20IL%20th%20Barrington",
+      "website": "http://www.womensdoc.com",
+      "phone": "+18478398800"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "6b6ad756-d6cd-47c1-9a3d-c3cbf4daf605",
+      "slug": "svoi-women-s-doc-djamilia-kryukov-m-d"
+    }
+  },
+  {
+    "id": "50c29f66-dd8a-4640-9a4e-bbf42e04fb4f",
+    "name": "Irina Harag, M.D.,",
+    "changes": {},
+    "fill": {
+      "address_line": "150 Half Day Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Half%20Day%20Road%20150%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18478211070"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "aa130ec4-836c-4dfd-8403-0c6581340d49",
+      "slug": "svoi-irina-harag-m-d"
+    }
+  },
+  {
+    "id": "8d3f51bb-be45-4ac6-9b1f-d4652c9669e5",
+    "name": "Buffalo Grove Medical Center Buffalo Grove Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "135 N. Arlington Heights Road Suite 195",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Arlington%20Heights%20Road%20Suite%20195%20135%20%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18474659311"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "99c51a9b-1707-4598-ac68-050d2f76f9c4",
+      "slug": "svoi-buffalo-grove-medical-center-buffalo-grove-clini"
+    }
+  },
+  {
+    "id": "32147c08-b8be-406f-bd0d-77215ffdac44",
+    "name": "Wheaton Medical Center",
+    "changes": {},
+    "fill": {
+      "address_line": "301 S. County Farm Rd",
+      "location_precision": "street",
+      "city": "Wheaton",
+      "state_code": "US-IL",
+      "postal_code": "60187",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%20County%20Farm%20Rd%20301%2C%20Wheaton%2C%20IL%2060187",
+      "phone": "+16305880055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "93d2ddec-715e-4908-8bb2-3b9ebc22ae41",
+      "slug": "svoi-wheaton-medical-center"
+    }
+  },
+  {
+    "id": "9daebd6b-f1a7-4e64-96b5-2df89bf624cd",
+    "name": "Medical Centers for Childrens",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buffalo%20grove%2C%20IL%20ted%20States",
+      "phone": "+18472155222"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "801bf99a-9556-43a6-b410-fdf7aeba1f8c",
+    "name": "Your Medicos, S.C.",
+    "changes": {},
+    "fill": {
+      "address_line": "1300 Busch Parkway",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Busch%20Parkway%201300%2C%20Buffalo%20grove%2C%20IL",
+      "website": "https://yourmedicos.com",
+      "phone": "+18478505882"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1b06d595-db0f-4ed5-aaa6-6044657db0da",
+      "slug": "svoi-your-medicos-s-c"
+    }
+  },
+  {
+    "id": "e3fa4b64-5c04-4c81-a9f1-06941a441539",
+    "name": "Dr. Michael Arshavsky D.C.",
+    "changes": {},
+    "fill": {
+      "address_line": "3233 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%203233%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18477975037"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "4a5efc31-4d10-4d46-9ba9-43f9e20b7413",
+      "slug": "svoi-dr-michael-arshavsky-d-c"
+    }
+  },
+  {
+    "id": "d4b22e9d-1dc2-4bf2-a070-201fad7ce449",
+    "name": "Гуревич Тамара",
+    "changes": {},
+    "fill": {
+      "address_line": "455 South Roselle Road",
+      "location_precision": "street",
+      "city": "Schaumburg",
+      "state_code": "US-IL",
+      "postal_code": "60193",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Roselle%20Road%20455%2C%20Schaumburg%2C%20IL%2060193",
+      "phone": "+18473525511"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "541b5a12-5435-41a7-be84-ab3066360934",
+      "slug": "svoi-biz-21"
+    }
+  },
+  {
+    "id": "5c64fab3-04ae-4c27-b001-e8025eb63fd5",
+    "name": "Dr. Igor Lukashevsky D.C.",
+    "changes": {},
+    "fill": {
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dundee%20Parkway%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18475374320"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "b5c7c15d-988f-4c03-b9f1-ee05f4caa676",
+    "name": "Многопрофильный медицинский центр",
+    "changes": {},
+    "fill": {
+      "address_line": "333 West Dundee Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Dundee%20Road%20333%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18472430355"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a637d646-5307-4533-883a-074b4ff0d4eb",
+      "slug": "svoi-biz-22"
+    }
+  },
+  {
+    "id": "fa5c85d7-d5c2-4b7c-9064-bf66a1912979",
+    "name": "Family Medical Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "20570 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Vernon Township",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%2020570%2C%20Vernon%20Township%2C%20IL",
+      "phone": "+18472159200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "785e2af7-94c9-46f7-b54c-1798967b7b66",
+      "slug": "svoi-family-medical-clinic"
+    }
+  },
+  {
+    "id": "5e6d249b-47e8-4ce4-8a07-0208f453e938",
+    "name": "Ivanchenko Pain and Rehab",
+    "changes": {},
+    "fill": {
+      "address_line": "985 South Buffalo Grove Road",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Buffalo%20Grove%20Road%20985%2C%20Buffalo%20grove%2C%20IL",
+      "website": "http://www.orthopainrehab.com",
+      "phone": "+18476811161",
+      "postal_code": "60089",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a5de9f4f-f254-4862-90e9-4e6374b6f86c",
+      "slug": "svoi-ivanchenko-pain-and-rehab"
+    }
+  },
+  {
+    "id": "19a710f7-5597-4d97-8645-0440bf9fbf8c",
+    "name": "Advanced Medical Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "200 Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60089",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20Avenue%20200%2C%20Buffalo%20grove%2C%20IL%2060089",
+      "phone": "+18478505377"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "07346757-e63e-4ce5-bef9-e314d955c796",
+      "slug": "svoi-advanced-medical-clinic"
+    }
+  },
+  {
+    "id": "2f4c94ab-ffbb-409b-a2e0-0efdd0874a6a",
+    "name": "Absolute Health Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "1655 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%201655%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18473053610"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9d7c6915-8edb-4bcb-a3cd-6b5e142c6e72",
+      "slug": "svoi-absolute-health-clinic"
+    }
+  },
+  {
+    "id": "d3333f4e-3273-4622-b68b-b7205dd3d2e6",
+    "name": "North Suburban Chiropractic Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "1430 North Arlington Heights Road",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "state_code": "US-IL",
+      "postal_code": "60004",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Arlington%20Heights%20Road%201430%2C%20Arlington%20heights%2C%20IL%2060004",
+      "phone": "+18477831223"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1943636a-5d6e-4af0-970f-bf2f13c0f81c",
+      "slug": "svoi-north-suburban-chiropractic-clinic"
+    }
+  }
+]

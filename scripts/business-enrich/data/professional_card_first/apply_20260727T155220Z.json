@@ -1,0 +1,32 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-anatoly-sigalov",
+      "display_name": "Anatoly Sigalov",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "phone": "+17148375712",
+          "email": "anatoly.sigalov@hotmail.com"
+        },
+        "website": {},
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/accounting-and-tax-services/anatoly-sigalov-new/",
+          "phone": "+17148375712",
+          "email": "anatoly.sigalov@hotmail.com",
+          "image_url": "https://www.russianorangepages.com/community/wp-content/uploads/2016/01/Anatoly.jpg",
+          "_via": "rop_dump"
+        }
+      },
+      "found": {
+        "phone": "+17148375712",
+        "email": "anatoly.sigalov@hotmail.com",
+        "image_url": "https://www.russianorangepages.com/community/wp-content/uploads/2016/01/Anatoly.jpg"
+      },
+      "patch": {}
+    }
+  ]
+}

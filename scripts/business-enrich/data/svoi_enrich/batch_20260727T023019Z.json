@@ -1,0 +1,431 @@
+[
+  {
+    "id": "60b1ad68-6498-453b-b028-fdbb16379428",
+    "name": "INSURHAUS",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ok%20brook%2C%20IL%20ted%20States",
+      "phone": "+16307869971"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "c9d25bb9-7b73-4c6c-b273-e5e7dc0803d8",
+    "name": "Handzel & Associates Ltd.",
+    "changes": {},
+    "fill": {
+      "address_line": "8620 Golf Rd",
+      "location_precision": "street",
+      "city": "Niles",
+      "state_code": "US-IL",
+      "postal_code": "60714",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Golf%20Rd%208620%20%2C%20Niles%2C%20IL%2060714",
+      "phone": "+18478038200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f21ae8c1-9ba6-4e0b-88ea-655d60f8044e",
+      "slug": "svoi-handzel-associates-ltd"
+    }
+  },
+  {
+    "id": "6e9dda0c-aff2-49a3-b1d5-8a3e76a65c3b",
+    "name": "Яна Слесарева Farmers Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "4830 North Cumberland Avenue",
+      "location_precision": "street",
+      "city": "Норридж",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Cumberland%20Avenue%204830%2C%20%D0%9D%D0%BE%D1%80%D1%80%D0%B8%D0%B4%D0%B6%2C%20IL",
+      "phone": "+17084569799"
+    },
+    "rec_patch_keys": [
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "65cefb72-7fc2-4728-b785-b30bef586ce4",
+      "slug": "svoi-farmers-insurance-2"
+    }
+  },
+  {
+    "id": "81518204-e338-415a-8921-25f3a33d528a",
+    "name": "Kelly Insurance Services",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Evergreen%20Park%2C%20IL%20ted%20States",
+      "phone": "+13315518787"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5ea22f7f-6d2b-4a71-9843-f00d18aaf6c6",
+    "name": "Insurance Services and More",
+    "changes": {},
+    "fill": {
+      "address_line": "8645 Grand Avenue",
+      "location_precision": "street",
+      "city": "River grove",
+      "state_code": "US-IL",
+      "postal_code": "60171",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Grand%20Avenue%208645%2C%20River%20grove%2C%20IL%2060171",
+      "phone": "+17084520930"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "34712a40-2675-4054-9ee1-91eb3a22edfb",
+      "slug": "svoi-insurance-services-and-more"
+    }
+  },
+  {
+    "id": "614e3ecd-9310-4166-af10-fae47d505e81",
+    "name": "Michael P Callahan Insurance Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "5372 N Milwaukee Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60630",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Milwaukee%20Ave%205372%2C%20Chicago%2C%20IL%2060630",
+      "phone": "+17737751886"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9b7213aa-3ecd-4052-8823-674e39101598",
+      "slug": "svoi-michael-p-callahan-insurance-agency"
+    }
+  },
+  {
+    "id": "eb9707b9-9db1-4393-875c-b88ee595c2f1",
+    "name": "StateFarm",
+    "changes": {},
+    "fill": {
+      "address_line": "5372 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60630",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%205372%2C%20Chicago%2C%20IL%2060630",
+      "phone": "+17737751880"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6718186e-0b2a-4852-ac60-b0904439a784",
+      "slug": "svoi-statefarm"
+    }
+  },
+  {
+    "id": "cc7d45ef-a8f7-4e6e-b54c-eaf9609a871c",
+    "name": "Allstate Insurance Company Chicago",
+    "changes": {},
+    "fill": {
+      "address_line": "6733 W belmont ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60634",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20belmont%20ave%206733%2C%20Chicago%2C%20IL%2060634",
+      "phone": "+17732527100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f4b1ecb5-8d6f-4f46-af92-890955666317",
+      "slug": "svoi-allstate-insurance-company-chicago"
+    }
+  },
+  {
+    "id": "9e719f3d-bffa-476e-99b4-3441e66bf638",
+    "name": "North Central Insurance Brokers Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "3316 N Central Ave",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60634",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Central%20Ave%203316%2C%20Chicago%2C%20IL%2060634",
+      "website": "http://www.ncibinsurance.net",
+      "phone": "+17734819100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0a6d9569-3d9b-4855-8e73-c1f4a7877c87",
+      "slug": "svoi-north-central-insurance-brokers-inc"
+    }
+  },
+  {
+    "id": "4a44091b-479f-4344-b429-2215496120b1",
+    "name": "On Track Associates LTD",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+18475205764"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "5867958e-a35a-47b3-9a1d-6d53b726c2f6",
+    "name": "Union Insurance Group Boris Persky",
+    "changes": {},
+    "fill": {
+      "address_line": "2125 West Roscoe Street",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Roscoe%20Street%202125%2C%20Chicago%2C%20IL%2060618",
+      "phone": "+18473384830"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fd81ff26-a2bd-4d43-9f0c-799da02566a9",
+      "slug": "svoi-union-insurance-group-boris-persky"
+    }
+  },
+  {
+    "id": "d11527d0-5316-4c29-8a69-b658b71f5eb0",
+    "name": "Julia Skuibida - American Family Insurance Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "1702 West Chicago Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60622",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chicago%20Avenue%201702%2C%20Chicago%2C%20IL%2060622",
+      "website": "http://insurance-agency.amfam.com",
+      "phone": "+17732359900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b6b634fc-36c8-4c0e-9dc7-a968065873fd",
+      "slug": "svoi-julia-skuibida-american-family-insurance-agent"
+    }
+  },
+  {
+    "id": "f405d74c-f086-47a9-998c-0aaf8fc97344",
+    "name": "Allstate Insurance Co. Don J. Olds",
+    "changes": {},
+    "fill": {
+      "address_line": "1445 West Grand Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60604",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Grand%20Avenue%201445%2C%20Chicago%2C%20IL%2060604",
+      "phone": "+13129221113"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "61988f4c-57d2-4342-b000-60a5aae043a3",
+      "slug": "svoi-allstate-insurance-co-don-j-olds"
+    }
+  },
+  {
+    "id": "c32c14b1-b042-4276-b596-0d057c008767",
+    "name": "AGENCY FARMERS INS.",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+17735060555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "1cb02413-c7a3-40b4-b4c9-739bcfc7e677",
+    "name": "PANTIRU AGENCY",
+    "changes": {},
+    "fill": {
+      "address_line": "4206 W Montrose",
+      "location_precision": "street",
+      "city": "Chicago",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Montrose%204206%2C%20Chicago%2C%20IL%20ted%20States",
+      "phone": "+17733172305"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "311d6bae-5cf7-4a9f-a564-078b9a6cff3e",
+      "slug": "svoi-pantiru-agency"
+    }
+  },
+  {
+    "id": "f2fa3e32-6c37-4349-adb1-5c3c9a6b00f9",
+    "name": "Metropolitan Builders,Inc",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northbrook%2C%20IL",
+      "phone": "+18474008686"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "721310bd-7afe-4373-868c-31f61e4dc9f7",
+    "name": "BUILD Andrey Markchuk",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "phone": "+17739343620"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "dd033bb9-d242-4634-a786-a6482ba83f76",
+    "name": "Contractor's Lien Advisors",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL%20ted%20States",
+      "phone": "+17736350099"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "a552c761-5129-4b2a-a25d-8b35b3199e79",
+    "name": "РЕМОНТ КВАРТИР И ДОМОВ ПОД КЛЮЧ",
+    "changes": {},
+    "fill": {
+      "city": "IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chicago%2C%20IL",
+      "phone": "+13129954041"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "8319b710-4bd7-4089-b96d-a984898d965c",
+    "name": "UNIQUE TOURS",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Buffalo%20grove%2C%20IL%20ted%20States",
+      "phone": "+13124853887"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  }
+]

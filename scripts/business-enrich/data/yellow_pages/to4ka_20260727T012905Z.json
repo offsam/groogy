@@ -1,0 +1,37 @@
+{
+  "source": "https://to4ka.us/catalog/all-usa",
+  "directory_source": "to4ka",
+  "generated_at": "2026-07-27T01:29:05.857546+00:00",
+  "count": 1,
+  "errors": [],
+  "cards": [
+    {
+      "cluster_key": "t4k-cf5f716adcba9c3a",
+      "display_name": "Deer Guards for Volvo truck - Траковый бизнес в США",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "to4ka",
+      "category_slug": "business",
+      "category_guess": "бизнес / услуги",
+      "city": "West Chicago",
+      "address": "West Chicago, IL, USA",
+      "phones": [
+        "+16305892592"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Тяжелые защитные решетки от оленей для Volvo 2005-2018 Цена- $700 включены брекеты! Установка $175. Заводское качество, нержавеющая сталь. Находится в West Chicago, IL Звоните по тел. 630-589-2592...",
+      "description": "Тяжелые защитные решетки от оленей для Volvo 2005-2018 Цена- $700 включены брекеты! Установка $175. Заводское качество, нержавеющая сталь. Находится в West Chicago, IL Звоните по тел. 630-589-2592...",
+      "source_url": "https://to4ka.us/catalog/all-usa/trucking-business/all/deer-guards-for-volvo-truck-trakovyi-biznes-v-ssa_96204014-8809-4bdd-8354-9946a6c49678",
+      "source_channel": "other",
+      "source_groups": [
+        "to4ka.us"
+      ],
+      "region": "IL",
+      "scraped_at": "2026-07-27T01:28:57.231371+00:00"
+    }
+  ]
+}

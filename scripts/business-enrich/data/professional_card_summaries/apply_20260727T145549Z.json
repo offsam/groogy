@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-07-27T14:55:49.811044+00:00",
+  "mode": "apply",
+  "scanned": 964,
+  "updated": 240,
+  "samples": [
+    {
+      "slug": "svoi-arthur-gulesserian-dds-dentist",
+      "name": "Arthur Gulesserian DDS Dentist",
+      "summary": "Стоматологические услуги, включая косметические процедуры, протезирование и удаление зубов, от $50",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-la-vista-family-medicine-gorokhov-mikhail-e-md",
+      "name": "La Vista Family Medicine: Gorokhov Mikhail E MD",
+      "summary": "Кардиологи и услуги по диагностике внутренних заболеваний в Tucker, цены от $50.",
+      "source": "llm"
+    },
+    {
+      "slug": "michael-sorokin-205104-3904",
+      "name": "Michael  Sorokin",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "diana-california-150634",
+      "name": "diana_california",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-dr-tanaya-bhowmick",
+      "name": "Dr. Tanaya Bhowmick",
+      "summary": "Аллергологи и иммунологи от Dr. Tanaya Bhowmick в Нью-Брансуик, цены доступны.",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-biz-7",
+      "name": "Детский Массаж",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-dr-konstantin-salkinder-md",
+      "name": "Dr. Konstantin Salkinder, MD",
+      "summary": "ЛОР-услуги по приемлемым ценам в Лос-Анджелес от Dr. Konstantin Salkinder, MD",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-russian-turkish-baths",
+      "name": "Russian Turkish Baths",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-albarian-alex-dds-dentist",
+      "name": "Albarian Alex DDS Dentist",
+      "summary": "Стоматологические услуги по доступным ценам в Глендейл от Albarian Alex DDS Dentist",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-demerjian-gary-dds-dentist",
+      "name": "Demerjian Gary DDS Dentist",
+      "summary": "Стоматологические услуги по доступным ценам в Бербанк от Demerjian Gary DDS Dentist",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-dr-elena-vaynerov",
+      "name": "Dr. Elena Vaynerov",
+      "summary": "Медицинские услуги семейного терапевта в клинике Dr. Elena Vaynerov в Уэст Голливуд",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-dr-vladimir-gleyzer-md",
+      "name": "Dr. Vladimir Gleyzer MD",
+      "summary": "Педиатры с опытом 30 лет в Норт Ридинг, приемлемые цены, профессиональный уход за детьми",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-professional-massage-complex-by-alexey",
+      "name": "Professional Massage Complex by Alexey",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-dr-irina-s-zaydman-md",
+      "name": "Dr. Irina S. Zaydman, MD",
+      "summary": "Педиатры от Dr. Irina S. Zaydman, MD по доступным ценам в Шугар-Ленд",
+      "source": "llm"
+    },
+    {
+      "slug": "business-4084605611-204936-5f25",
+      "name": "Виктория Волоскова",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-dr-ludmila-t-pyter-kabat-md",
+      "name": "Dr. Ludmila T Pyter-Kabat MD",
+      "summary": "Кардиологи от Dr. Ludmila T Pyter-Kabat MD, приемлемые цены в Нью Ривер.",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-biz-17",
+      "name": "Педиатр Алла Шерман",
+      "summary": "Педиатр Алла Шерман — качественные услуги для детей в Бичвуде, цены от $50.",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-biz",
+      "name": "Айсен Лиза",
+      "summary": "Риелторские услуги по покупке, продаже и аренде недвижимости в Нортфилд.",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-dmd-2",
+      "name": "Др. Анна Кальманович DMD",
+      "summary": "Стоматологические услуги по приемлемым ценам в Боксборо, запись по телефону 9782638950",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-dr-henry-hasserjian-md-santa-monica",
+      "name": "Dr Henry Hasserjian MD Santa Monica",
+      "summary": "Гинекологические услуги по доступным ценам в Санта-Моника, опытный врач с современным оборудованием.",
+      "source": "llm"
+    },
+    {
+      "slug": "business-biz-180923",
+      "name": "Жена",
+      "summary": "Маникюр",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-sarina-browndorf-realtor",
+      "name": "Sarina Browndorf – Realtor",
+      "summary": "Строительные услуги и ремонт домов в Orange County, цены от $N",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-dr-taras-mahlay-md",
+      "name": "Dr. Taras Mahlay, MD",
+      "summary": "Медицинские услуги терапевта по доступным ценам в Мидлберг Хайтс",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-adroit-family-dental",
+      "name": "Adroit Family Dental - Доктор Кирилл Смирнов",
+      "summary": "Стоматологические услуги по доступным ценам в Уэст Линн от доктора Кирилла Смирнова",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-yelena-grinchuk-realtor",
+      "name": "Yelena Grinchuk, Realtor",
+      "summary": "Услуги по продаже и покупке недвижимости в Джорджии от русскоязычного риелтора, цены по запросу",
+      "source": "llm"
+    },
+    {
+      "slug": "business-3239613646-205043-717b",
+      "name": "Роксана Килюшина",
+      "summary": "Массаж",
+      "source": "heuristic"
+    },
+    {
+      "slug": "svoi-ast-frederick",
+      "name": "Ast, Frederick",
+      "summary": "Аллергологические услуги и диагностика иммунных заболеваний в Нью-Йорке от Ast, Frederick.",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-dr-abraham-maissian-md",
+      "name": "Dr. Abraham Maissian, MD",
+      "summary": "Кардиологи с современным оборудованием и индивидуальным подходом в Глендейл.",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-melidonian-hovig-h-md-physicians-pedatrics",
+      "name": "Melidonian Hovig H MD Physicians-Pedatrics",
+      "summary": "Педиатрические услуги по доступным ценам в Глендейл от Melidonian Hovig H MD Physicians-Pedatrics",
+      "source": "llm"
+    },
+    {
+      "slug": "svoi-massage-viktoria-dolidze",
+      "name": "Massage: Viktoria Dolidze",
+      "summary": "Массаж",
+      "source": "heuristic"
+    }
+  ]
+}

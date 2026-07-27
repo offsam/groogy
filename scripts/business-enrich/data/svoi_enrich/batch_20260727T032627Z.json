@@ -1,0 +1,1318 @@
+[
+  {
+    "id": "f3f7e874-5843-4272-a9d1-1f79fde2a527",
+    "name": "Arbat Golden Palace Restaurant",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "711 South San Fernando Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91502",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20San%20Fernando%20Boulevard%20711%2C%20Burbank%2C%20CA%2091502",
+      "website": "http://arbathall.com",
+      "phone": "+18185581358",
+      "instagram_url": "https://www.instagram.com/arbathall",
+      "yelp_url": "https://www.yelp.com/biz/arbat-banquet-hall-burbank"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c6aff7fc-bb8d-4f5d-a1dd-9f40cc8e7065",
+      "slug": "svoi-arbat-golden-palace-restaurant"
+    }
+  },
+  {
+    "id": "ed26b36e-054a-4f14-a2cd-25a1b14598bf",
+    "name": "Big Mama's & Papa's Pizza Burbank",
+    "changes": {},
+    "fill": {
+      "address_line": "312 North Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glenoaks%20Boulevard%20312%2C%20Burbank%2C%20CA",
+      "phone": "+18188418844"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0eeb84a9-0afa-4082-a674-0a3ce69dc6d4",
+      "slug": "svoi-big-mama-s-papa-s-pizza-burbank"
+    }
+  },
+  {
+    "id": "f531695f-da6d-4342-ac9f-d3ded42dbba8",
+    "name": "Castaway",
+    "changes": {},
+    "fill": {
+      "address_line": "1250 East Harvard Road",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "postal_code": "91501",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Harvard%20Road%201250%2C%20Burbank%2C%20CA%2091501",
+      "phone": "+18188486691"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "20c63606-d59a-4a7f-a1af-73d9cb08984c",
+      "slug": "svoi-castaway"
+    }
+  },
+  {
+    "id": "85a89e1c-6714-4621-999f-1a7a9babe23e",
+    "name": "Studio ALPHA Услуги Студии Звукозаписи",
+    "changes": {},
+    "fill": {
+      "address_line": "826 S Victory Blvd",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=826%20S%20Victory%20Blvd%2C%20Burbank%2C%20CA",
+      "website": "https://www.alphastudios.com",
+      "phone": "+13109457211",
+      "instagram_url": "https://www.instagram.com/alphastudios"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ffc46e7-8e77-403b-805c-91e6a37ca0cf",
+      "slug": "svoi-studio-alpha"
+    }
+  },
+  {
+    "id": "67f4636c-bd62-487b-bf64-31bf1131136c",
+    "name": "AristaVisa",
+    "changes": {},
+    "fill": {
+      "address_line": "2217 W Olive Ave",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2217%20W%20Olive%20Ave%2C%20Burbank%2C%20CA",
+      "website": "http://thepassportpros.com",
+      "phone": "+18186652051",
+      "email": "oc@thepassportpros.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1bfe522-ff65-40ac-8b91-5a97747407f6",
+      "slug": "svoi-aristavisa"
+    }
+  },
+  {
+    "id": "b76a64da-6485-4f9b-940d-6fed5fec3b3c",
+    "name": "A.J. Boyajian, D.M.D. Cosmetic Dentists",
+    "changes": {},
+    "fill": {
+      "address_line": "9400 Brighton Way",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Way%209400%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13102737397"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2cfecbc5-c548-487f-b661-143b31e3c19f",
+      "slug": "svoi-a-j-boyajian-d-m-d-cosmetic-dentists"
+    }
+  },
+  {
+    "id": "96b1a6c1-13d8-494c-b93b-684491f0725f",
+    "name": "Dr. Joseph Stan DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "448 North Bedford Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Bedford%20Drive%20448%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13102758100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2dfce6f4-6f7d-4193-b1a2-b9361c3ce9f8",
+      "slug": "svoi-dr-joseph-stan-dds"
+    }
+  },
+  {
+    "id": "9ba61a7d-ee09-4209-b9ba-671bf6e31465",
+    "name": "Dr. Lilia Agadganian DDS",
+    "changes": {},
+    "fill": {
+      "address_line": "8500 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%208500%2C%20Beverly%20Hills%2C%20CA%20%2090211",
+      "phone": "+13106528877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "627c864d-5eda-4a7c-a1c4-507fab8f5f3c",
+      "slug": "svoi-dr-lilia-agadganian-dds"
+    }
+  },
+  {
+    "id": "673e73fa-132f-4168-ad39-38b0191315ee",
+    "name": "Alexander Gantman",
+    "changes": {},
+    "fill": {
+      "address_line": "315 South Beverly Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90212",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Beverly%20Drive%20315%2C%20Beverly%20Hills%2C%20CA%20%2090212",
+      "phone": "+13106832623"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aae76e44-0a02-4805-b7ff-6a00d0ec5184",
+      "slug": "svoi-alexander-gantman"
+    }
+  },
+  {
+    "id": "f117ac85-5b77-4806-9e36-0decf39d17fd",
+    "name": "Dr. Eleanor Lavretsky",
+    "changes": {},
+    "fill": {
+      "address_line": "462 N Linden Dr",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90212",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Linden%20Dr%20462%2C%20Beverly%20Hills%2C%20CA%20%2090212",
+      "phone": "+13102469249"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "593d2471-4e70-49a3-b68d-6999c8829027",
+      "slug": "svoi-dr-eleanor-lavretsky"
+    }
+  },
+  {
+    "id": "3ecb43a3-a80f-4d35-adce-d4ed67b3b848",
+    "name": "EMMANUEL BRANDICE",
+    "changes": {},
+    "fill": {
+      "address_line": "292 LaCienega Blvd",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=LaCienega%20Blvd%20%20292%2C%20Beverly%20Hills%2C%20CA%2090211",
+      "phone": "+13108557504"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47119760-6f9c-4645-a68b-cb3a0f26066d",
+      "slug": "svoi-emmanuel-brandice"
+    }
+  },
+  {
+    "id": "f21953fc-47dd-4add-805a-db86e4c2dad8",
+    "name": "Mariya Kriv",
+    "changes": {},
+    "fill": {
+      "address_line": "315 South Beverly Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90212",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Beverly%20Drive%20315%2C%20Beverly%20Hills%2C%20CA%2090212",
+      "website": "http://www.mariyakriv.com",
+      "phone": "+18189626433"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3e65091f-d668-4106-b438-ad21b4b270dc",
+      "slug": "svoi-mariya-kriv"
+    }
+  },
+  {
+    "id": "bf1a7260-2644-47b9-9043-2be9ce9bee0c",
+    "name": "Yuri S. Oleynikov MD PhD",
+    "changes": {},
+    "fill": {
+      "address_line": "50 North La Cienega Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20La%20Cienega%20Boulevard%2050%2C%20Beverly%20Hills%2C%20CA%2090211",
+      "website": "http://www.oleynikov.com",
+      "phone": "+13103627373"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "dd9f363a-0b56-47cf-aaf4-eb82b1eee19d",
+      "slug": "svoi-yuri-s-oleynikov-md-phd"
+    }
+  },
+  {
+    "id": "c5981b2b-b0db-403c-a488-db75f4e80c6f",
+    "name": "Yuri S. Oleynikov, MD, PhD",
+    "changes": {},
+    "fill": {
+      "address_line": "415 North Crescent Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Crescent%20Drive%20415%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "website": "http://www.oleynikov.com",
+      "phone": "+13236553772"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "707bc11e-b0e1-4a5d-97e1-ff7bbc8ee3c4",
+      "slug": "svoi-yuri-s-oleynikov-md-phd-2"
+    }
+  },
+  {
+    "id": "68bb9499-3e44-42aa-8a92-a5a08d35bf0c",
+    "name": "Aluna Vein Center",
+    "changes": {},
+    "fill": {
+      "address_line": "8500 Wilshire Boulevard  #518",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%20%20%23518%208500%2C%20Beverly%20Hills%2C%20CA%2090211",
+      "phone": "+13108557171"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8fc2643e-8803-47fa-8659-249f64cd1ee0",
+      "slug": "svoi-aluna-vein-center"
+    }
+  },
+  {
+    "id": "5c8ea375-7ac7-45fb-8f16-74353f0d19ce",
+    "name": "Boris Zaks, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "435 North Roxbury Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Roxbury%20Drive%20435%2C%20Beverly%20Hills%2C%20CA%20%2090210",
+      "website": "http://dermatologyexpertwitness.com/home/tabid/40/default.aspx",
+      "phone": "+13105523376"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a9dd6ec2-158f-44b9-b7a0-c9543230f97f",
+      "slug": "svoi-boris-zaks-m-d"
+    }
+  },
+  {
+    "id": "07e6fa40-3950-4a96-bc7d-3c2caa68fe8e",
+    "name": "Churukian Michael M MD Physicians-Plastic and Reconstructive Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "414 North Camden Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Camden%20Drive%20414%2C%20Beverly%20Hills%2C%20CA%20%2090210",
+      "phone": "+13105501545"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2ae32be0-4f68-40b4-a99a-a41b57c6b772",
+      "slug": "svoi-churukian-michael-m-md-physicians-plastic-and-re"
+    }
+  },
+  {
+    "id": "4de189a6-f8d3-4c8e-9d6d-1dba32dd835a",
+    "name": "Behrooz A. Torkian, MD - Facial Plastic Surgery- Lasky Clinic Beverly Hills",
+    "changes": {},
+    "fill": {
+      "address_line": "Lasky Dr  201 S",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90212",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lasky%20Dr%20%20201%20S%2C%20Beverly%20Hills%2C%20CA%2090212",
+      "phone": "+13109540673"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b91765d5-81f3-4d78-b7a3-07d39500a4f6",
+      "slug": "svoi-behrooz-a-torkian-md-facial-plastic-surgery-lask"
+    }
+  },
+  {
+    "id": "fe2fed8a-a43a-4f9a-a93c-62e414f05349",
+    "name": "Beverly Tower Women's Center",
+    "changes": {},
+    "fill": {
+      "address_line": "465 North Roxbury Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Roxbury%20Drive%20465%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13103857747"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "67833e5a-11d1-4842-88c3-5fc5c8c8502e",
+      "slug": "svoi-beverly-tower-women-s-center"
+    }
+  },
+  {
+    "id": "1dee79ef-b311-4175-9d6d-cdf0d235fdaf",
+    "name": "Boris Zaks MD",
+    "changes": {},
+    "fill": {
+      "address_line": "435 North Roxbury Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Roxbury%20Drive%20435%2C%20Beverly%20Hills%2C%20CA%2090210%20United%20Sta",
+      "phone": "+13105501199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "7f025249-44e8-48cf-8263-3ee3ec41a20c",
+      "slug": "svoi-boris-zaks-md"
+    }
+  },
+  {
+    "id": "c90e98fa-9770-4fd9-8a0b-617bcd8cef1d",
+    "name": "Compounding Pharmacy-Beverly",
+    "changes": {},
+    "fill": {
+      "address_line": "9629 West Olympic Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Olympic%20Boulevard%209629%2C%20Beverly%20Hills%2C%20CA",
+      "phone": "+13102848675"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e411ffee-af65-48f9-9420-624521976dc4",
+      "slug": "svoi-compounding-pharmacy-beverly"
+    }
+  },
+  {
+    "id": "9d95247b-cee4-4cf1-9020-ec65014368c4",
+    "name": "Family Discount Pharmacy of Beverly Hills",
+    "changes": {},
+    "fill": {
+      "address_line": "8314 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%208314%2C%20Beverly%20Hills%2C%20CA%20%2090211",
+      "website": "http://www.familypharmacybh.com",
+      "phone": "+13236534070",
+      "email": "familypharmacy@yahoo.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0e9bb615-d9c5-4d13-97db-cb6c5c48fadc",
+      "slug": "svoi-family-discount-pharmacy-of-beverly-hills"
+    }
+  },
+  {
+    "id": "493f8691-cb26-4a6f-984a-abcd0234dc9f",
+    "name": "Robertson Center Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "250 North Robertson Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Robertson%20Boulevard%20250%2C%20Beverly%20Hills%2C%20CA",
+      "phone": "+13102782948"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6a8c37fe-09dd-4f5c-83a0-219b9320c57c",
+      "slug": "svoi-robertson-center-pharmacy"
+    }
+  },
+  {
+    "id": "5382ee27-3784-4226-914a-33a45682a1f2",
+    "name": "MLS Limousine Service",
+    "changes": {},
+    "fill": {
+      "address_line": "9663 South Santa Monica Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Santa%20Monica%20Boulevard%209663%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+18003101980"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "07e30b2a-6c6f-4b40-8728-ebcf180900e6",
+      "slug": "svoi-mls-limousine-service"
+    }
+  },
+  {
+    "id": "84d52afb-dcf8-4194-b6bc-bd5095bda444",
+    "name": "Aaron Kelman Real Estate Agent",
+    "changes": {},
+    "fill": {
+      "address_line": "417 Shirley Place",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=417%20Shirley%20Place%2C%20Beverly%20Hills%2C%20CA",
+      "phone": "+13107131664"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f7a1f929-90f3-40c8-a1e9-70d2d80f5c70",
+      "slug": "svoi-aaron-kelman-real-estate-agent"
+    }
+  },
+  {
+    "id": "f108dd1d-c1ee-4f21-a5a7-1b3e88a412e1",
+    "name": "Alexandra Pugachoff",
+    "changes": {},
+    "fill": {
+      "address_line": "9454 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%209454%2C%20Beverly%20Hills%2C%20CA",
+      "phone": "+13106632799"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0e6a3ab7-272e-487a-bd6a-16eaf8d82c42",
+      "slug": "svoi-alexandra-pugachoff"
+    }
+  },
+  {
+    "id": "0769b6b0-19e9-4854-b17a-d9680235615c",
+    "name": "Alla Vinnik - Rodeo Realty",
+    "changes": {},
+    "fill": {
+      "address_line": "202 N.Canon Drive Beverly Hills",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=202%20N.Canon%20Drive%20Beverly%20Hills%2C%20Beverly%20Hills%2C%20CA",
+      "website": "http://allavinnikre.com",
+      "phone": "+13233517087"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3379b5c6-dbe3-4fec-9f46-281e582ac820",
+      "slug": "svoi-alla-vinnik-rodeo-realty"
+    }
+  },
+  {
+    "id": "98c7c68b-693d-411e-93ea-a3b14c2ef8df",
+    "name": "Anastasia Beverly Hills Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "438 North Bedford Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Bedford%20Drive%20438%2C%20Beverly%20Hills%2C%20CA",
+      "phone": "+13102733155"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "63a79081-683e-470e-81d8-b7ac277dfbeb",
+      "slug": "svoi-anastasia-beverly-hills-salon"
+    }
+  },
+  {
+    "id": "2460423b-5d64-4ee7-b8bf-46443603c6e1",
+    "name": "Magic Touch Waxing Salon",
+    "changes": {},
+    "fill": {
+      "address_line": "321 South Beverly Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90212",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Beverly%20Drive%20321%2C%20Beverly%20Hills%2C%20CA%2090212",
+      "phone": "+13105569748"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1f375b3d-73f2-4a15-ae39-70eaf3d88306",
+      "slug": "svoi-magic-touch-waxing-salon"
+    }
+  },
+  {
+    "id": "3c63d15d-78e0-4690-99aa-537c8a5ebf65",
+    "name": "Mauro Hair Studio ON ROREO DR",
+    "changes": {},
+    "fill": {
+      "address_line": "421 North Rodeo Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Rodeo%20Drive%20421%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13102730600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9588c372-7a40-4495-8553-faafccef85b3",
+      "slug": "svoi-mauro-hair-studio-on-roreo-dr"
+    }
+  },
+  {
+    "id": "d72d6266-e117-4941-8b86-016a4f15944d",
+    "name": "Boris Prilutsky",
+    "changes": {},
+    "fill": {
+      "address_line": "9033 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%209033%2C%20Beverly%20Hills%2C%20CA%2090211",
+      "website": "http://medicalmassage-edu.com",
+      "phone": "+13103390460",
+      "email": "support@medicalmassage-edu.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "918fa820-e04e-42ae-910b-3de4c98b6a45",
+      "slug": "svoi-boris-prilutsky"
+    }
+  },
+  {
+    "id": "33a6ba1a-8104-4eeb-94f0-805b88b7a171",
+    "name": "ALEXANDER MARMUREN",
+    "changes": {},
+    "fill": {
+      "address_line": "1075 CAROLYN WAY",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=CAROLYN%20WAY%201075%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13107296854"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "99e2e7d3-9839-40ab-9aaf-6798f06fc872",
+      "slug": "svoi-alexander-marmuren"
+    }
+  },
+  {
+    "id": "61d3b2a4-25ee-49bd-8ce8-0a5559c37897",
+    "name": "Станислав и Алиса Пау",
+    "changes": {},
+    "fill": {
+      "address_line": "9190 W Olympic Blvd",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Olympic%20Blvd%209190%2C%20Beverly%20Hills%2C%20CA%2090212%20%20%20%20%20%20Los%20A",
+      "phone": "+13104079996"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a82631d7-d68c-4350-8acd-c71b7ebacf9b",
+      "slug": "svoi-biz-69"
+    }
+  },
+  {
+    "id": "6ee3e00a-7ea1-45d0-906a-15d22f4d434b",
+    "name": "Larissa Alterations",
+    "changes": {},
+    "fill": {
+      "address_line": "427 North Camden Drive",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Camden%20Drive%20427%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13102750299"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8d0e3c36-f2a8-4893-a652-22c1ed3241c1",
+      "slug": "svoi-larissa-alterations"
+    }
+  },
+  {
+    "id": "da3053b6-24d7-4332-9210-1bda867b128b",
+    "name": "JD Financial Services",
+    "changes": {},
+    "fill": {
+      "address_line": "8501 Wilshire Blvd",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90027",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Blvd%208501%2C%20Beverly%20Hills%2C%20CA%2090027",
+      "phone": "+13236610755"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5eb65f22-75c0-47af-868e-bcd955cf9c15",
+      "slug": "svoi-jd-financial-services"
+    }
+  },
+  {
+    "id": "65a674e0-6f3b-4927-a17d-8f2735ab6f48",
+    "name": "Jeff Ratner and Associates Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "8501 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90211",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%208501%2C%20Beverly%20Hills%2C%20CA%2090211",
+      "phone": "+13106577711"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f96c4e01-582d-4e6c-884e-ced597262fc1",
+      "slug": "svoi-jeff-ratner-and-associates-inc"
+    }
+  },
+  {
+    "id": "4c05ec29-3153-469b-be43-b1e12bf572cf",
+    "name": "Gardenia Flower Art Florists",
+    "changes": {},
+    "fill": {
+      "address_line": "8685 Wilshire Boulevard",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wilshire%20Boulevard%208685%2C%20Beverly%20Hills%2C%20CA",
+      "phone": "+13108540020"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6ed141df-3b8e-47dc-888e-68b45557e0a4",
+      "slug": "svoi-gardenia-flower-art-florists"
+    }
+  },
+  {
+    "id": "1866615e-0cb5-4324-a79c-85a733288500",
+    "name": "M Cafe De Chaya",
+    "changes": {},
+    "fill": {
+      "address_line": "9433 Brighton Way",
+      "location_precision": "street",
+      "city": "Beverly Hills",
+      "state_code": "US-CA",
+      "postal_code": "90210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Way%209433%2C%20Beverly%20Hills%2C%20CA%2090210",
+      "phone": "+13108588459"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d30d4373-6036-4dea-b2c7-bc90b93ff67c",
+      "slug": "svoi-m-cafe-de-chaya"
+    }
+  },
+  {
+    "id": "39dc033a-1b4e-445f-a6ff-6d8b8d5d63d8",
+    "name": "A PLUS Dentistry",
+    "changes": {},
+    "fill": {
+      "address_line": "1616 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201616%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172649200"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ee3e1dcb-50a4-4a0c-8a9b-7dd660e0e983",
+      "slug": "svoi-a-plus-dentistry"
+    }
+  },
+  {
+    "id": "4b9e8d0a-7e98-439a-bde4-8827fac93796",
+    "name": "Alice Dental Center",
+    "changes": {},
+    "fill": {
+      "address_line": "1415 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201415%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172649922"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e0c9913-4f89-415f-a25f-2e0bba316277",
+      "slug": "svoi-alice-dental-center"
+    }
+  },
+  {
+    "id": "425dd2df-d02d-4348-a1dd-b80d29dcb620",
+    "name": "Alpha Plus Dental Center",
+    "changes": {},
+    "fill": {
+      "address_line": "185 Harvard Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Harvard%20Street%20185%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172776360"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6c27a3e2-46c7-47b6-84d7-6bc11e7a2c45",
+      "slug": "svoi-alpha-plus-dental-center"
+    }
+  },
+  {
+    "id": "ecc0a4b2-b8cd-4471-8fe0-9b7ee2416ba3",
+    "name": "The Mad Russian - Yefim Shubentsov",
+    "changes": {},
+    "fill": {
+      "address_line": "1680 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201680%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16172323930"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4744f700-2c47-4986-a0a1-a4a0cb357f59",
+      "slug": "svoi-the-mad-russian-yefim-shubentsov"
+    }
+  },
+  {
+    "id": "42246fed-56bd-46f0-b34b-abb4b655743e",
+    "name": "Boris Orkin, MD",
+    "changes": {},
+    "fill": {
+      "address_line": "1180 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201180%2C%20Brooklyn%2C%20MA",
+      "website": "http://www.abortion-clinic-boston.com",
+      "phone": "+18884103678"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2d207862-4faa-4452-ab68-9a870c632fae",
+      "slug": "svoi-boris-orkin-md"
+    }
+  },
+  {
+    "id": "88d565ea-8e4b-494d-aca5-ed02f46430c9",
+    "name": "Boston Eye Group",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201101%2C%20Brooklyn%2C%20MA",
+      "phone": "+16175660062"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "811f8b91-f6a9-44f9-8733-11b2bf31df15",
+      "slug": "svoi-boston-eye-group"
+    }
+  },
+  {
+    "id": "efb25381-72e4-4d23-aba7-9fd4bacb0146",
+    "name": "BostonEye Physicians and Surgeons",
+    "changes": {},
+    "fill": {
+      "address_line": "44 Washington Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%2044%2C%20Brooklyn%2C%20MA%2002445",
+      "website": "http://bepseye.com",
+      "phone": "+16177390123",
+      "instagram_url": "https://www.instagram.com/bostoneyephysiciansandsurgeons",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "96a9ec5d-3530-478a-b9ce-502dab7d0453",
+      "slug": "svoi-bostoneye-physicians-and-surgeons"
+    }
+  },
+  {
+    "id": "d0ea9918-ae9c-483d-9c74-f926e674b70c",
+    "name": "Lubov Palmina",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201101%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16172320333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a165a7e2-deb7-4701-aa58-41e59d2c170f",
+      "slug": "svoi-lubov-palmina"
+    }
+  },
+  {
+    "id": "0d8aeb8f-7e98-43fe-be5e-66bb123a258b",
+    "name": "Svetlana Kaufman, M.D., Ph.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "1180 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201180%2C%20Brooklyn%2C%20MA%2002446",
+      "phone": "+16177314500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9e3e60a3-c06a-4142-9230-14c787877303",
+      "slug": "svoi-svetlana-kaufman-m-d-ph-d"
+    }
+  },
+  {
+    "id": "6f45c202-74f7-4304-bcda-20783017cfa3",
+    "name": "Astra Natural Healing",
+    "changes": {},
+    "fill": {
+      "address_line": "1368 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02446",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201368%2C%20Brooklyn%2C%20MA%20%2002446",
+      "phone": "+16177383955"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "62499174-ffe2-4007-ac28-74f2b91bccbd",
+      "slug": "svoi-astra-natural-healing"
+    }
+  },
+  {
+    "id": "96803c78-f140-4a50-b4af-aaa4c9e68f2c",
+    "name": "Institute of Russian Healing Arts",
+    "changes": {},
+    "fill": {
+      "address_line": "1693 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "postal_code": "02445",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201693%2C%20Brooklyn%2C%20MA%2002445",
+      "phone": "+16178167751"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "22287d22-362f-4803-83bd-d4cdd5252b03",
+      "slug": "svoi-institute-of-russian-healing-arts"
+    }
+  },
+  {
+    "id": "b8dfb191-4adb-495e-ac1b-51d9b5055816",
+    "name": "Борис Бальсон, M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "1180 Beacon Street",
+      "location_precision": "street",
+      "city": "Brooklyn",
+      "state_code": "US-MA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Beacon%20Street%201180%2C%20Brooklyn%2C%20MA",
+      "phone": "+16177311203"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5955322c-9c85-4508-953f-49177761d2bf",
+      "slug": "svoi-m-d"
+    }
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "olena-ol-205254-a65c",
+      "display_name": "Olena Ol",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "website": "https://www.parasolka.org/event-details/giveaway-hawaii-trip"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.parasolka.org/event-details/giveaway-hawaii-trip",
+          "_fetch_url": "https://www.parasolka.org/event-details/giveaway-hawaii-trip",
+          "address_line": "2121 University Ave, Rocklin, CA 95765",
+          "city": "Sacramento",
+          "postal_code": "95765",
+          "phone": "+19165595902",
+          "email": "605a7baede844d278b89dc95ae0a9123@sentry-next.wixpress.com",
+          "website": "https://www.parasolka.org/event-details/giveaway-hawaii-trip",
+          "image_url": "https://static.wixstatic.com/media/f5bf4b_ebdeeb7c428d48cf85a5b9a53c3d91f2~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90/f5bf4b_ebdeeb7c428d48cf85a5b9a53c3d91f2~mv2.jpg"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27402255492772158",
+          "_skip": "private_or_group"
+        }
+      },
+      "found": {
+        "city": "Sacramento",
+        "website": "https://www.parasolka.org/event-details/giveaway-hawaii-trip",
+        "address_line": "2121 University Ave, Rocklin, CA 95765",
+        "postal_code": "95765",
+        "phone": "+19165595902",
+        "email": "605a7baede844d278b89dc95ae0a9123@sentry-next.wixpress.com",
+        "image_url": "https://static.wixstatic.com/media/f5bf4b_ebdeeb7c428d48cf85a5b9a53c3d91f2~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90/f5bf4b_ebdeeb7c428d48cf85a5b9a53c3d91f2~mv2.jpg"
+      },
+      "patch": {
+        "private_address_line": "2121 University Ave, Rocklin, CA 95765",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "postal_code": "95765",
+        "phone": "+19165595902",
+        "email": "605a7baede844d278b89dc95ae0a9123@sentry-next.wixpress.com"
+      }
+    }
+  ]
+}

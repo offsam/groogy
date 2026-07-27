@@ -1,0 +1,510 @@
+[
+  {
+    "id": "4f2e3279-97dd-4abf-b88c-74616260b93f",
+    "name": "Zhivago Restaurant",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "9925 Gross Point Road",
+      "location_precision": "street",
+      "city": "Skoki",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gross%20Point%20Road%209925%2C%20Skoki%2C%20IL",
+      "phone": "+18479821400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cff5b0cf-317a-4821-b4ee-4b065858afcd",
+      "slug": "svoi-zhivago-restaurant"
+    }
+  },
+  {
+    "id": "9048341d-711f-4f48-bdba-c5261bfb6256",
+    "name": "Pescatore Palace",
+    "changes": {},
+    "fill": {
+      "address_line": "3400 North River Road",
+      "location_precision": "street",
+      "city": "Franklin Park",
+      "state_code": "US-IL",
+      "postal_code": "60131",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20River%20Road%203400%2C%20Franklin%20Park%2C%20IL%2060131",
+      "phone": "+18476780895"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5b2a9c97-7192-466b-8dcb-e72fa32d2a8d",
+      "slug": "svoi-pescatore-palace"
+    }
+  },
+  {
+    "id": "4f6e48d7-2bbb-4921-a4d7-62e1730995b7",
+    "name": "Globe Cafe & Bar",
+    "changes": {},
+    "fill": {
+      "address_line": "1710 Orrington Avenue",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "postal_code": "60201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Orrington%20Avenue%201710%2C%20Evanston%2C%20IL%2060201",
+      "phone": "+18478668700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b0f5460c-3237-4adf-93e3-ebf22c1ae5be",
+      "slug": "svoi-globe-cafe-bar"
+    }
+  },
+  {
+    "id": "5ea30886-9f79-46ee-be49-569855aeb833",
+    "name": "Va Pensiero",
+    "changes": {},
+    "fill": {
+      "address_line": "1566 Oak Avenue",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "postal_code": "60201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oak%20Avenue%201566%2C%20Evanston%2C%20IL%2060201",
+      "phone": "+18474757779"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d82c8f1-a546-44f4-8162-cb9705fb0b7f",
+      "slug": "svoi-va-pensiero"
+    }
+  },
+  {
+    "id": "6b27fcc0-5c63-4e82-9d98-aa6579569860",
+    "name": "Красное яблочко",
+    "changes": {},
+    "fill": {
+      "address_line": "6474 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%206474%2C%20Chicago%2C%20IL",
+      "phone": "+17737633407"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f402e857-f703-454c-90bc-c345b2ece35b",
+      "slug": "svoi-biz-26"
+    }
+  },
+  {
+    "id": "50efdf73-e932-4d9e-9548-471030b8619e",
+    "name": "Oceanique",
+    "changes": {},
+    "fill": {
+      "address_line": "505 Main Street",
+      "location_precision": "street",
+      "city": "Evanston",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Main%20Street%20505%2C%20Evanston%2C%20IL",
+      "phone": "+18478643435"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "46ca4a85-815f-4283-b017-1e91ddfffb74",
+      "slug": "svoi-oceanique"
+    }
+  },
+  {
+    "id": "ba7db0a9-11b2-46fc-a7f3-c13079a78572",
+    "name": "Martinique Banquet Complex",
+    "changes": {},
+    "fill": {
+      "address_line": "8200 South Cicero Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-IL",
+      "postal_code": "60459",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Cicero%20Avenue%208200%2C%20Burbank%2C%20IL%2060459",
+      "phone": "+17084241776"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5ca0814a-cbf3-4556-bcbc-4abaf91fc860",
+      "slug": "svoi-martinique-banquet-complex"
+    }
+  },
+  {
+    "id": "81a60577-53aa-4197-9b14-be2379ac1446",
+    "name": "Mabenka Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "7844 South Cicero Avenue",
+      "location_precision": "street",
+      "city": "Burbank",
+      "state_code": "US-IL",
+      "postal_code": "60459",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Cicero%20Avenue%207844%2C%20Burbank%2C%20IL%2060459",
+      "website": "http://mabenka.com",
+      "phone": "+17084237679"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "881e355d-5e87-41bd-8dca-200926267b7a",
+      "slug": "svoi-mabenka-restaurant"
+    }
+  },
+  {
+    "id": "0ad956d5-d25b-487f-a9ef-8febc63edb18",
+    "name": "Royal Gardens Banquets Affordable Banquets",
+    "changes": {},
+    "fill": {
+      "address_line": "2515 North Harlem Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Harlem%20Avenue%202515%2C%20Chicago%2C%20IL",
+      "phone": "+17084531998"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "33de8ec9-8c11-4296-ab87-0a027a5ea413",
+      "slug": "svoi-royal-gardens-banquets-affordable-banquets"
+    }
+  },
+  {
+    "id": "7a8f6996-f571-4699-9aaa-d7c5e8fd56f1",
+    "name": "Magic Jug",
+    "changes": {},
+    "fill": {
+      "address_line": "6354 W Irving Park Rd",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60634",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Irving%20Park%20Rd%206354%20%2C%20Chicago%2C%20IL%2060634",
+      "phone": "+17732868855"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "47cb8ecd-fddc-4b1b-8883-2af14e737c64",
+      "slug": "svoi-magic-jug"
+    }
+  },
+  {
+    "id": "907aa03d-8d6a-4985-bf6e-c202f244321e",
+    "name": "Chicago By Night",
+    "changes": {},
+    "fill": {
+      "address_line": "5600 West Belmont Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60634",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Belmont%20Avenue%205600%2C%20Chicago%2C%20IL%2060634",
+      "phone": "+17737940300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0d09b76b-af74-4704-86d2-0a6f8e49c478",
+      "slug": "svoi-chicago-by-night"
+    }
+  },
+  {
+    "id": "2e5eaa2b-99e7-4daf-9d20-a9f0530b8a7c",
+    "name": "Jibek Jolu - Restaurants",
+    "changes": {},
+    "fill": {
+      "address_line": "5047 North Lincoln Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60625",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Lincoln%20Avenue%205047%2C%20Chicago%2C%20IL%2060625",
+      "website": "http://jibekjolu.us",
+      "phone": "+17738788494",
+      "instagram_url": "https://www.instagram.com/jibekjolu_restaurant"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "90c4871c-ec3a-408b-a97a-ae3c3dc46943",
+      "slug": "svoi-jibek-jolu-restaurants"
+    }
+  },
+  {
+    "id": "812fa05e-8392-4297-b963-c65c3d35ae4f",
+    "name": "Ресторан Элизабет Restaurant",
+    "changes": {},
+    "fill": {
+      "address_line": "4835 North Western Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Western%20Avenue%204835%2C%20Chicago%2C%20IL",
+      "website": "http://www.elizabeth-restaurant.com",
+      "phone": "+17736810651"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cb259695-1228-46f2-b610-0159ed92690d",
+      "slug": "svoi-restaurant"
+    }
+  },
+  {
+    "id": "0c625b42-bf97-4b16-9ae3-bee11f22fc26",
+    "name": "Little Bucharest Bistro",
+    "changes": {},
+    "fill": {
+      "address_line": "3661 North Elston Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Elston%20Avenue%203661%2C%20Chicago%2C%20IL%2060618",
+      "phone": "+17736048500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "08352156-72ea-4285-b49e-bdea39abe00d",
+      "slug": "svoi-little-bucharest-bistro"
+    }
+  },
+  {
+    "id": "d084c2b0-e521-4675-bade-999da49b81a5",
+    "name": "Czerwone Jabluszko",
+    "changes": {},
+    "fill": {
+      "address_line": "3121 North Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Chicago",
+      "state_code": "US-IL",
+      "postal_code": "60618",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Milwaukee%20Avenue%203121%2C%20Chicago%2C%20IL%20%2060618",
+      "phone": "+17735885781"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "877c0f66-8b58-451f-91ea-6e734e877fb7",
+      "slug": "svoi-czerwone-jabluszko"
+    }
+  },
+  {
+    "id": "0161f2cd-98f7-4675-8b6d-eb8f551ce900",
+    "name": "Modern Style Hair",
+    "changes": {},
+    "fill": {
+      "address_line": "473 W Northwest Hwy",
+      "location_precision": "street",
+      "city": "Palatine",
+      "state_code": "US-IL",
+      "postal_code": "60067",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Northwest%20Hwy%20473%2C%20Palatine%2C%20IL%2060067",
+      "phone": "+18472212212"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "326ccae9-23a7-44e3-ba03-48df1db11c6c",
+      "slug": "svoi-modern-style-hair"
+    }
+  },
+  {
+    "id": "d17c965c-2199-4308-94cb-b365801aa01a",
+    "name": "The Beauty Spot",
+    "changes": {},
+    "fill": {
+      "address_line": "810 South Waukegan Road",
+      "location_precision": "street",
+      "city": "Lake forest",
+      "state_code": "US-IL",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Waukegan%20Road%20810%2C%20Lake%20forest%2C%20IL",
+      "phone": "+18477358920"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6159d6b8-1189-4c23-9613-22840de09c02",
+      "slug": "svoi-the-beauty-spot"
+    }
+  },
+  {
+    "id": "ebbcf15a-7d1e-43c0-9af3-9866b1573947",
+    "name": "Waxing",
+    "changes": {},
+    "fill": {
+      "city": "IL ted States",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Schaumburg%2C%20IL%20ted%20States",
+      "phone": "+12246560888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "05102c59-ee82-4c59-83fc-96117e0c56e2",
+    "name": "Marina & I Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "1147 Milwaukee Avenue",
+      "location_precision": "street",
+      "city": "Buffalo grove",
+      "state_code": "US-IL",
+      "postal_code": "60015",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Milwaukee%20Avenue%201147%2C%20Buffalo%20grove%2C%20IL%2060015",
+      "phone": "+18472159440"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "27d672fe-a8d4-450e-b85d-430a4d2be830",
+      "slug": "svoi-marina-i-inc"
+    }
+  },
+  {
+    "id": "4babd0f3-841d-4114-a243-0c99697f2946",
+    "name": "Hair Clue",
+    "changes": {},
+    "fill": {
+      "address_line": "Ridge Court",
+      "location_precision": "street",
+      "city": "Arlington heights",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ridge%20Court%2C%20Arlington%20heights%2C%20IL%20ington%20Heights",
+      "phone": "+18473988888"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f51fa218-1aed-4465-8370-4cbe80c0a5b6",
+      "slug": "svoi-hair-clue"
+    }
+  }
+]

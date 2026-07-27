@@ -1,0 +1,1383 @@
+[
+  {
+    "id": "df1e8774-7889-44c1-a7db-925490011d25",
+    "name": "Big Mama's & Papa's Pizza",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "921 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%20921%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18182426262"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "dbbeb22f-242d-428f-92ba-9eb358abaaaf",
+      "slug": "svoi-big-mama-s-papa-s-pizza"
+    }
+  },
+  {
+    "id": "b050f055-c1cb-407a-8129-51a17bebd445",
+    "name": "AMGA, Armenian Media Group of America Armenian Television Stations",
+    "changes": {},
+    "fill": {
+      "address_line": "1520 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201520%2C%20Glendale%2C%20CA%20ifornia%2091201",
+      "website": "http://www.amga.tv",
+      "phone": "+18185479696",
+      "email": "info@amga.tv"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3bb76fb4-92dd-41ef-9a63-498f02cca5c4",
+      "slug": "svoi-amga-armenian-media-group-of-america-armenian-te"
+    }
+  },
+  {
+    "id": "3032af33-c678-4721-9aca-a7f154a4f5b8",
+    "name": "Armenia Newspaper",
+    "changes": {},
+    "fill": {
+      "address_line": "E Harvard St",
+      "location_precision": "street",
+      "city": "415",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E%20Harvard%20St%2C%20%09415%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185511234"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2828c4ce-01ff-470c-8b94-728aff7f86e4",
+      "slug": "svoi-armenia-newspaper"
+    }
+  },
+  {
+    "id": "d26c85f5-9c77-447e-afff-cb80b3c4f6b2",
+    "name": "Xpress TV",
+    "changes": {},
+    "fill": {
+      "address_line": "423 West Stocker Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Stocker%20Street%20423%2C%20Glendale%2C%20CA%2091202",
+      "website": "http://www.xpresstv.com",
+      "phone": "+18182400425"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "334685f2-c493-485f-a9eb-7674d71764a1",
+      "slug": "svoi-xpress-tv"
+    }
+  },
+  {
+    "id": "c284d338-3f3d-463c-bec4-e729cf64284c",
+    "name": "USArmenia",
+    "changes": {},
+    "fill": {
+      "address_line": "229 N Central ave",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91356",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=229%20N%20Central%20ave%2C%20Glendale%2C%20CA%2091356",
+      "website": "http://www.usarmeniatv.com",
+      "phone": "+18189559933",
+      "instagram_url": "https://www.instagram.com/usarmenia_tv"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e90b9e09-c1a0-48ba-8e3d-b21c014cfede",
+      "slug": "svoi-usarmenia"
+    }
+  },
+  {
+    "id": "2f77667f-84c8-462d-8923-cc0d0a8c493f",
+    "name": "AAdvanced Dental",
+    "changes": {},
+    "fill": {
+      "address_line": "1508 Washington Street",
+      "location_precision": "street",
+      "city": "Oregon",
+      "state_code": "US-OR",
+      "postal_code": "97045",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Washington%20Street%201508%2C%20Oregon%2C%20OR%2097045",
+      "website": "https://www.aadvanceddental.com",
+      "phone": "+15036593003",
+      "instagram_url": "https://www.instagram.com/aadvanceddentalcenter",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e2252756-3f20-4a80-b11d-49d741150110",
+      "slug": "svoi-aadvanced-dental"
+    }
+  },
+  {
+    "id": "740b1373-3716-4e97-9004-5a519d523a7a",
+    "name": "Value Dental Vancouver",
+    "changes": {},
+    "fill": {
+      "address_line": "6115 NE 114th Ave",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6115%20NE%20114th%20Ave%2C%20Vancouver%2C%20WA%2098662",
+      "website": "http://www.valuedental.us",
+      "phone": "+13602561333",
+      "email": "info@valuedental.us"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "deecaa6b-b727-4105-a2fa-bf7fbddfcf2f",
+      "slug": "svoi-value-dental-vancouver"
+    }
+  },
+  {
+    "id": "886fb6a8-dbd5-40fd-8950-01492d5f72e0",
+    "name": "Adroit Family Dental - Доктор Кирилл Смирнов",
+    "changes": {},
+    "fill": {
+      "address_line": "5493 Amy Street",
+      "location_precision": "street",
+      "city": "West Lynn",
+      "state_code": "US-OR",
+      "postal_code": "97068",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Amy%20Street%205493%2C%20West%20Lynn%2C%20OR%2097068",
+      "website": "http://www.adroitdental.com",
+      "phone": "+15037109839"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "16a9b914-d882-4f05-80d2-bf074ee2710b",
+      "slug": "svoi-adroit-family-dental"
+    }
+  },
+  {
+    "id": "69fa1c2e-0d11-4624-a8a4-1c887e46870e",
+    "name": "Bozena M. Celnik, ND",
+    "changes": {},
+    "fill": {
+      "address_line": "6205 Carman Dr",
+      "location_precision": "street",
+      "city": "Lake oswego",
+      "state_code": "US-OR",
+      "postal_code": "97035",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6205%20Carman%20Dr%2C%20Lake%20oswego%2C%20OR%2097035",
+      "website": "https://www.ultimatehealth4life.com",
+      "phone": "+15036990600"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b705e07b-2d0a-42d2-ba52-8f06f5340fc5",
+      "slug": "svoi-bozena-m-celnik-nd"
+    }
+  },
+  {
+    "id": "91a50a7b-708e-4f80-b6ac-d3bf27056c40",
+    "name": "Клиника натуральной медицины For Natural Healing",
+    "changes": {},
+    "fill": {
+      "address_line": "11630 SE 40 AVE",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97222",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11630%20SE%2040%20AVE%2C%20Portland%2C%20OR%2097222",
+      "website": "http://www.fornaturalhealing.com",
+      "phone": "+15032007197"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d3ffeccf-8dab-4e9e-a0db-408ec9797448",
+      "slug": "svoi-for-natural-healing"
+    }
+  },
+  {
+    "id": "b95e8af9-7656-4622-acce-a92285511f6c",
+    "name": "Sunrise Family Medical",
+    "changes": {},
+    "fill": {
+      "address_line": "9300 SE 91 street",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9300%20SE%2091%20street%2C%20Portland%2C%20OR",
+      "website": "https://www.sunrisefamilymedical.org",
+      "phone": "+15033877111",
+      "instagram_url": "https://www.instagram.com/sunrisefamilymedical",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "954b44b0-71e3-4f17-8303-8cfe9f01ca8f",
+      "slug": "svoi-sunrise-family-medical"
+    }
+  },
+  {
+    "id": "c253132b-728a-4415-9afd-1150b0cb84de",
+    "name": "Integrity Counseling - Olya Pavlishina, LMFT",
+    "changes": {},
+    "fill": {
+      "address_line": "201 SE 124th Ave",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=201%20SE%20124th%20Ave%2C%20Vancouver%2C%20WA",
+      "website": "https://integrity-counseling.com",
+      "phone": "+13603568756",
+      "postal_code": "98684",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "22765807-d02d-43ee-9099-fa709d8ce847",
+      "slug": "svoi-integrity-counseling-olya-pavlishina-lmft"
+    }
+  },
+  {
+    "id": "a2a5ecdc-ee3a-4180-bf61-5310741ebfcc",
+    "name": "Соня Шепсис",
+    "changes": {},
+    "fill": {
+      "address_line": "1130 SW Morrison Street",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1130%20SW%20Morrison%20Street%2C%20Portland%2C%20OR",
+      "website": "http://drshepsis.com",
+      "phone": "+15039124060"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b4c409d4-c1cb-4fce-9a48-dff4402721ca",
+      "slug": "svoi-biz-47"
+    }
+  },
+  {
+    "id": "58efd2a3-d514-4f86-bb4a-f1af9c5d32a8",
+    "name": "Gateway Womens Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "177 Northeast 102nd Avenue",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97220",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20102nd%20Avenue%20177%2C%20Portland%2C%20OR%2097220",
+      "website": "http://www.gatewaywomensclinic.com",
+      "phone": "+15032541399"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "05a81cc5-86a1-4e86-9fe7-0687106d8bea",
+      "slug": "svoi-gateway-womens-clinic"
+    }
+  },
+  {
+    "id": "6cfe16d9-6991-400f-ab85-102d748c26d1",
+    "name": "Max Grishkevich - VIP MediSpa, LLC",
+    "changes": {},
+    "fill": {
+      "address_line": "1500 SW 1st Ave.",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1500%20SW%201st%20Ave.%2C%20Portland%2C%20OR",
+      "website": "http://vipmedispa.com",
+      "phone": "+15035135533",
+      "instagram_url": "https://www.instagram.com/vip.medispa"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "24ed480e-b75b-4b67-9d09-348b10dc64b9",
+      "slug": "svoi-max-grishkevich-vip-medispa-llc"
+    }
+  },
+  {
+    "id": "be33deac-e43b-4ebf-82e3-8bb82961962b",
+    "name": "Eye Health Northwest (Troutdale)",
+    "changes": {},
+    "fill": {
+      "address_line": "24601 SE Stark St",
+      "location_precision": "street",
+      "city": "Troutdale",
+      "state_code": "US-OR",
+      "postal_code": "97060",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=24601%20SE%20Stark%20St%2C%20Troutdale%2C%20OR%2097060",
+      "website": "https://www.ehnpc.com",
+      "phone": "+15032552291",
+      "instagram_url": "https://www.instagram.com/eyehealth_northwest",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "43f52a66-b7d2-4ec4-b4b7-64d1f020fc76",
+      "slug": "svoi-eye-health-northwest-troutdale"
+    }
+  },
+  {
+    "id": "e1f2103a-fdf1-40f9-9ff4-aea7c851f6b9",
+    "name": "Виктория Смалко",
+    "changes": {},
+    "fill": {
+      "address_line": "502 NE 197th Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=502%20NE%20197th%20Ave%2C%20Portland%2C%20OR",
+      "phone": "+15039612976"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2fa06fc8-8fb5-4d36-a4fc-014629c92db1",
+      "slug": "svoi-biz-48"
+    }
+  },
+  {
+    "id": "08a89d95-96af-4614-a7aa-f63c503c9e92",
+    "name": "Amanecer/Sunrise Chiropractic Center",
+    "changes": {},
+    "fill": {
+      "address_line": "938 SE Oak St",
+      "location_precision": "street",
+      "city": "Hellsboro",
+      "state_code": "US-OR",
+      "postal_code": "97123",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=938%20SE%20Oak%20St%2C%20Hellsboro%2C%20OR%2097123",
+      "website": "http://sunrisechirocenter.com",
+      "phone": "+15039359790"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e0feebe2-a625-47dd-a1e3-fb9a0f27578b",
+      "slug": "svoi-amanecer-sunrise-chiropractic-center"
+    }
+  },
+  {
+    "id": "d180f558-1773-432a-a46f-b5f4c27b9f28",
+    "name": "Springwater Chiropractic Clinic",
+    "changes": {},
+    "fill": {
+      "address_line": "1659 Northeast Market Drive",
+      "location_precision": "street",
+      "city": "Fairview",
+      "state_code": "US-OR",
+      "postal_code": "97024",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20Market%20Drive%201659%2C%20Fairview%2C%20OR%2097024",
+      "website": "http://www.springwaterchiropractic.com",
+      "phone": "+15034659100",
+      "yelp_url": "https://www.yelp.com/biz/springwater-chiropractic-and-massage-fairview"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2935885d-a9b5-4a00-a0a4-49293a88ecfe",
+      "slug": "svoi-springwater-chiropractic-clinic"
+    }
+  },
+  {
+    "id": "f803eb13-1744-4abd-af5e-1ffbcb7e937e",
+    "name": "Pacific Chiropractic & Wellness Center",
+    "changes": {},
+    "fill": {
+      "address_line": "17221 Southeast Division Street",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97236",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%20Division%20Street%2017221%2C%20Portland%2C%20OR%2097236",
+      "website": "http://www.portlandchiropractor.com",
+      "phone": "+15037600778",
+      "instagram_url": "https://www.instagram.com/pacific_chiropractic_pdx",
+      "email": "info@pacific-chiropractic.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4ac2cac2-d151-4e74-a391-43c4034bc9b5",
+      "slug": "svoi-pacific-chiropractic-wellness-center"
+    }
+  },
+  {
+    "id": "165699a9-7346-4cb2-8ebc-eb8a1ab5f449",
+    "name": "NW Injury & Rehab Center, P.S.",
+    "changes": {},
+    "fill": {
+      "address_line": "7700 Northeast Greenwood Drive",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20Greenwood%20Drive%207700%2C%20Vancouver%2C%20WA%2098662",
+      "website": "http://nwinjuryrehab.com",
+      "phone": "+13605731933",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "610ff7b4-c278-4a7b-aca5-b5bfdbe630ec",
+      "slug": "svoi-nw-injury-rehab-center-p-s"
+    }
+  },
+  {
+    "id": "3cb1fe2d-6ad1-4d84-8eff-75baa75684cd",
+    "name": "Health Care Medical Supply",
+    "changes": {},
+    "fill": {
+      "address_line": "4000 SE 82nd Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97266",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4000%20SE%2082nd%20Ave%2C%20Portland%2C%20OR%2097266",
+      "website": "https://healthcaremedsupply.com",
+      "phone": "+15037725333"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "44cde4d0-9f17-4d5c-bd2b-f2ad992eee62",
+      "slug": "svoi-health-care-medical-supply"
+    }
+  },
+  {
+    "id": "3d193358-46fe-4f36-8b64-913019855ed0",
+    "name": "HearUSA / Hearing Aid Specialist - Renata Sibgatullina",
+    "changes": {},
+    "fill": {
+      "address_line": "15405 SW 116th Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=15405%20SW%20116th%20Ave%2C%20Portland%2C%20OR",
+      "website": "https://centers.hearusa.com/hearing-centers/King-City-OR",
+      "phone": "+15412067278"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b23206b2-eecb-48a4-8599-cbcd5797959a",
+      "slug": "svoi-hearusa-hearing-aid-specialist-renata-sibgatulli"
+    }
+  },
+  {
+    "id": "459353af-0cb7-4903-a244-2c848651b642",
+    "name": "Astra Limousine and Town Car Service",
+    "changes": {},
+    "fill": {
+      "address_line": "4506 SE Anderegg Loop",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4506%20SE%20Anderegg%20Loop%2C%20Portland%2C%20OR",
+      "website": "https://portlandastralimousinetowncarservice.info",
+      "phone": "+15035395531"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cb9f8324-a90a-4c5e-a842-cec53b7fc43b",
+      "slug": "svoi-astra-limousine-and-town-car-service"
+    }
+  },
+  {
+    "id": "210a8a44-0185-4050-aeb1-397889eba604",
+    "name": "Auto Truck Source",
+    "changes": {},
+    "fill": {
+      "address_line": "18500 Southeast Mcloughlin Blvd",
+      "location_precision": "street",
+      "city": "Jennigs Lodge",
+      "state_code": "US-OR",
+      "postal_code": "97267",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18500%20Southeast%20Mcloughlin%20Blvd%2C%20Jennigs%20Lodge%2C%20OR%2097267",
+      "website": "https://www.gladstonemitsubishi.com",
+      "phone": "+15037509474"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "875fd23a-454e-48c3-93c2-5a9af4ff21fb",
+      "slug": "svoi-auto-truck-source"
+    }
+  },
+  {
+    "id": "e8e3f52c-0e9c-4983-a0e0-4c5e3402d415",
+    "name": "Superior Auto Co.",
+    "changes": {},
+    "fill": {
+      "address_line": "6339 Northeast 112th Avenue",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97220",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Northeast%20112th%20Avenue%206339%2C%20Portland%2C%20OR%2097220",
+      "website": "https://www.superiorauto.us",
+      "phone": "+15036090203"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "570e0e24-691a-4d3e-8abb-5918196f7b6d",
+      "slug": "svoi-superior-auto-co"
+    }
+  },
+  {
+    "id": "c5851b2d-084a-4d21-96f0-39fda5a3731b",
+    "name": "Autobidmaster",
+    "changes": {},
+    "fill": {
+      "address_line": "6807 NE 79th Ct",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=6807%20NE%2079th%20Ct%2C%20Portland%2C%20OR",
+      "website": "http://www.autobidmaster.com",
+      "phone": "+15032984300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "990ff018-e206-44d9-952f-9d505dd9f7dd",
+      "slug": "svoi-autobidmaster"
+    }
+  },
+  {
+    "id": "f43a9eb7-43d5-4ea9-9f20-931af7ec9ca1",
+    "name": "Страхование / Независимый агент Гафур Камбаров",
+    "changes": {},
+    "fill": {
+      "address_line": "832 NE 223rd Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=832%20NE%20223rd%20Ave%2C%20Portland%2C%20OR",
+      "website": "https://representatives.countryfinancial.com/gafur.kambarov",
+      "phone": "+15038638365"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "682380d7-5955-4cea-a933-aa9a16a30b94",
+      "slug": "svoi-biz-49"
+    }
+  },
+  {
+    "id": "f871fe1f-2b3c-46d4-af2c-4b2d3419b1e0",
+    "name": "Country Insurance and Financial",
+    "changes": {},
+    "fill": {
+      "address_line": "885 SW Baseline St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=885%20SW%20Baseline%20St%2C%20Portland%2C%20OR",
+      "website": "http://countryfinancial.com",
+      "phone": "+15036406116"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ea4d0039-12d2-470f-ad50-e13ecbf2aab8",
+      "slug": "svoi-country-insurance-and-financial"
+    }
+  },
+  {
+    "id": "24eac277-01ba-45f4-bffd-a3a0918b9005",
+    "name": "Allstate Insurance - Алекс Михно",
+    "changes": {},
+    "fill": {
+      "address_line": "11302 NE Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11302%20NE%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA%2098662",
+      "website": "https://agents.allstate.com/alex-mikhno-vancouver-wa.html",
+      "phone": "+13602033805"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a2a94b80-65d2-4699-a089-1cc549d59ad1",
+      "slug": "svoi-allstate-insurance"
+    }
+  },
+  {
+    "id": "1274cb4e-833c-4fba-9f5e-cf0b7c24d662",
+    "name": "Mikes Auto Glass",
+    "changes": {},
+    "fill": {
+      "address_line": "13021 NE 87th St",
+      "location_precision": "street",
+      "city": "Orchards",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=13021%20NE%2087th%20St%2C%20Orchards%2C%20WA%207401",
+      "phone": "+13609317555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cdf8668f-4b47-4009-813f-aac3ea42aecb",
+      "slug": "svoi-mikes-auto-glass"
+    }
+  },
+  {
+    "id": "ec869f4f-e723-4304-b094-cc68b03680d1",
+    "name": "Affordable Truck Repair",
+    "changes": {},
+    "fill": {
+      "address_line": "17090 NE San Rafael St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97060",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17090%20NE%20San%20Rafael%20St%2C%20Portland%2C%20OR%2097060",
+      "website": "https://atrpdxcom.atrpdx.us",
+      "phone": "+19712057525"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c4b3bbec-808e-4c18-b523-f60678059f09",
+      "slug": "svoi-affordable-truck-repair"
+    }
+  },
+  {
+    "id": "aac9e34c-28ee-4089-9262-40e1ca5b77ef",
+    "name": "Tire Market",
+    "changes": {},
+    "fill": {
+      "address_line": "8602 NE HWY 99",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98665",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=8602%20NE%20HWY%2099%2C%20Vancouver%2C%20WA%2098665",
+      "website": "http://thetiremarket.com",
+      "phone": "+13605745485"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b3342367-d614-448f-a3e8-1df29d569fbd",
+      "slug": "svoi-tire-market"
+    }
+  },
+  {
+    "id": "10ad7f12-4f62-460a-8afa-4ee7f9df2367",
+    "name": "Northwest Town Car",
+    "changes": {},
+    "fill": {
+      "address_line": "17590 SW Loma Vista St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=17590%20SW%20Loma%20Vista%20St%2C%20Portland%2C%20OR",
+      "website": "https://www.northwesttowncar.com",
+      "phone": "+15037025999",
+      "yelp_url": "https://www.yelp.com/biz/northwest-towncar-beaverton",
+      "email": "reservation@northwesttowncar.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "48644549-f8da-4677-acbc-e7cab7c04ab6",
+      "slug": "svoi-northwest-town-car"
+    }
+  },
+  {
+    "id": "e2697419-b41f-47bb-9c49-0db0383533eb",
+    "name": "Broadway Cab",
+    "changes": {},
+    "fill": {
+      "address_line": "8725 NE Emerson St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=8725%20NE%20Emerson%20St%2C%20Portland%2C%20OR",
+      "website": "http://broadwaycab.com",
+      "phone": "+15033333333",
+      "email": "comment@broadwaycab.com",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ca215b0b-274f-4acb-a62f-e91e53ecd199",
+      "slug": "svoi-broadway-cab"
+    }
+  },
+  {
+    "id": "2682113f-aa1f-46ab-8767-708e3328a58f",
+    "name": "Smart Baby Preschool",
+    "changes": {},
+    "fill": {
+      "address_line": "18530 SW Pike St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18530%20SW%20Pike%20St%2C%20Portland%2C%20OR",
+      "website": "http://smartbabybeaverton.wixsite.com",
+      "phone": "+19712276124"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ffc21ff4-aa83-4516-a153-1cb6654e0678",
+      "slug": "svoi-smart-baby-preschool"
+    }
+  },
+  {
+    "id": "b32f658a-9927-4aa4-8e23-64ff9c8163ff",
+    "name": "Children's Valley",
+    "changes": {},
+    "fill": {
+      "address_line": "11100 NE Skidmore St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97220",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=11100%20NE%20Skidmore%20St%2C%20Portland%2C%20OR%2097220",
+      "phone": "+13606351174"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fbcb7429-5ec1-4ad4-98c3-0223cb4b5c41",
+      "slug": "svoi-children-s-valley"
+    }
+  },
+  {
+    "id": "f192f029-37ff-4d8f-93fd-158248fc1dcc",
+    "name": "Cornerstone Christian Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "10818 NE 117th Ave",
+      "location_precision": "street",
+      "city": "Walnut Grove",
+      "state_code": "US-WA",
+      "postal_code": "98662",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=10818%20NE%20117th%20Ave%2C%20Walnut%20Grove%2C%20WA%2098662",
+      "website": "https://www.ccak12.net",
+      "phone": "+13602569715",
+      "email": "info@ccak12.net"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "00109801-1997-45b1-87ac-9751d45be906",
+      "slug": "svoi-cornerstone-christian-academy"
+    }
+  },
+  {
+    "id": "f1b107e9-b43d-4f97-9e5f-43710a19eadc",
+    "name": "Славянская Христианская Академия",
+    "changes": {},
+    "fill": {
+      "address_line": "7300 Macarthur Boulevard",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98664",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Macarthur%20Boulevard%207300%2C%20Vancouver%2C%20WA%2098664",
+      "website": "http://slavicacademy.org",
+      "phone": "+13608962602"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "faca3879-3e5d-469c-9a7a-839e8ad3559c",
+      "slug": "svoi-biz-50"
+    }
+  },
+  {
+    "id": "62865200-d131-468a-a321-a623be7992b2",
+    "name": "Med+Outreach CPR",
+    "changes": {},
+    "fill": {
+      "address_line": "1000 NE 122nd Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1000%20NE%20122nd%20Ave%2C%20Portland%2C%20OR",
+      "website": "https://medoutreachcpr.com",
+      "phone": "+15036791604",
+      "instagram_url": "https://www.instagram.com/medoutreachcpr"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "28f29469-1943-4e1b-8fdc-897e826db212",
+      "slug": "svoi-med-outreach-cpr"
+    }
+  },
+  {
+    "id": "a350b34c-9f51-4b32-866c-61ffde370ead",
+    "name": "Анастасия Брэдбери",
+    "changes": {},
+    "fill": {
+      "address_line": "2074 NW Aloclek Dr",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=2074%20NW%20Aloclek%20Dr%2C%20Portland%2C%20OR",
+      "website": "http://kushneroffdance.com",
+      "phone": "+15039848331"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cf5e8e3d-3798-4890-800d-52c861944533",
+      "slug": "svoi-biz-51"
+    }
+  },
+  {
+    "id": "92fd711b-fa19-4b59-9348-278764b89ccd",
+    "name": "Sultanov Russian Ballet Academy",
+    "changes": {},
+    "fill": {
+      "address_line": "1800 NW 167th Pl",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1800%20NW%20167th%20Pl%2C%20Portland%2C%20OR",
+      "website": "http://www.russianballetacademy.com",
+      "phone": "+15035755659"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "75b2fb9a-09ff-4ddd-ba52-3b1313f96257",
+      "slug": "svoi-sultanov-russian-ballet-academy"
+    }
+  },
+  {
+    "id": "06c0d567-7e7d-4392-8009-93c3865dfbcb",
+    "name": "Театр \"Алые паруса\"",
+    "changes": {},
+    "fill": {
+      "address_line": "5755 SW Erickson Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5755%20SW%20Erickson%20Ave%2C%20Portland%2C%20OR",
+      "phone": "+13608391729"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aaf15382-9d57-4cd2-9b74-8545cf0fadb3",
+      "slug": "svoi-biz-52"
+    }
+  },
+  {
+    "id": "a33ceae8-123e-4ce6-9eed-8f48c40654c0",
+    "name": "The Batrakova Law Office",
+    "changes": {},
+    "fill": {
+      "address_line": "4949 Meadows Rd",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=4949%20Meadows%20Rd%2C%20Portland%2C%20OR",
+      "website": "http://batrakovalaw.com",
+      "phone": "+15032102249",
+      "postal_code": "97205",
+      "instagram_url": "https://www.instagram.com/tblo_immigration",
+      "yelp_url": "https://www.yelp.com/biz/the-batrakova-law-office-portland",
+      "email": "ibatrakova@batrakovalaw.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2905d082-0544-4018-8bd7-2091e5ccd2cf",
+      "slug": "svoi-the-batrakova-law-office"
+    }
+  },
+  {
+    "id": "45ffcf0c-0620-4e8c-82f0-5c69af2ea4f5",
+    "name": "Иван Закхэим",
+    "changes": {},
+    "fill": {
+      "address_line": "5550 Southwest Macadam Avenue",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97239",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southwest%20Macadam%20Avenue%205550%2C%20Portland%2C%20OR%2097239",
+      "phone": "+15032221162"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4e3e0a9a-f810-456a-808c-accc1f04ae6e",
+      "slug": "svoi-biz-53"
+    }
+  },
+  {
+    "id": "96e674d0-cd88-4455-a07a-c1b3cdd7ec52",
+    "name": "Адвокат Лариса Рассказова",
+    "changes": {},
+    "fill": {
+      "address_line": "1020 Sw Taylor St",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1020%20Sw%20Taylor%20St%2C%20Portland%2C%20OR%2097205",
+      "phone": "+15032289318"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8a9eff6f-f15d-4207-a7f4-e85e33c98ec2",
+      "slug": "svoi-biz-54"
+    }
+  },
+  {
+    "id": "12b9df8b-d24a-46ff-ad36-3cf59af96476",
+    "name": "Адвокатское бюро Erin Bradley McAleer",
+    "changes": {},
+    "fill": {
+      "address_line": "3709 E Fourth Plain Blvd",
+      "location_precision": "street",
+      "city": "Vancouver",
+      "state_code": "US-WA",
+      "postal_code": "98661",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=3709%20E%20Fourth%20Plain%20Blvd%2C%20Vancouver%2C%20WA%2098661",
+      "website": "https://www.mcaleerlaw.net",
+      "phone": "+13603346277"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "32143135-62cc-4639-a372-8892d72c3d05",
+      "slug": "svoi-erin-bradley-mcaleer"
+    }
+  },
+  {
+    "id": "46812d0a-62e2-4dec-82cb-665175e63621",
+    "name": "Law Office of Thomas Nawalany",
+    "changes": {},
+    "fill": {
+      "address_line": "3506 Southeast 66th Avenue",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97206",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%2066th%20Avenue%203506%2C%20Portland%2C%20OR%2097206",
+      "phone": "+15032870555"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6d82e364-68cb-472b-9eef-3b13c897b5c8",
+      "slug": "svoi-law-office-of-thomas-nawalany"
+    }
+  },
+  {
+    "id": "55e942ff-f817-455f-a949-f9eb824e878c",
+    "name": "Адвокатское бюро «Александр Гамалян»",
+    "changes": {},
+    "fill": {
+      "address_line": "4228 Southeast Powell Boulevard",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "postal_code": "97206",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Southeast%20Powell%20Boulevard%204228%2C%20Portland%2C%20OR%2097206",
+      "website": "http://rosecitylaw.com",
+      "phone": "+15032223641"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5622b348-5c1c-48fc-8df6-7acd273e78ab",
+      "slug": "svoi-biz-55"
+    }
+  },
+  {
+    "id": "df459431-a415-4887-b74f-62b29eadf1b4",
+    "name": "Portland Business Attorneys at Law",
+    "changes": {},
+    "fill": {
+      "address_line": "514 NW 11th Ave",
+      "location_precision": "street",
+      "city": "Portland",
+      "state_code": "US-OR",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=514%20NW%2011th%20Ave%2C%20Portland%2C%20OR",
+      "website": "https://www.jjh-law.com",
+      "phone": "+15036078460",
+      "instagram_url": "https://www.instagram.com/jjhlaw.pdx",
+      "email": "siany@jjh-law.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "924a7793-068e-47c5-84ad-1bad47c20d78",
+      "slug": "svoi-portland-business-attorneys-at-law"
+    }
+  }
+]

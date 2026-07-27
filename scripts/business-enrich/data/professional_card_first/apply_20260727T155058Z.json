@@ -1,0 +1,53 @@
+{
+  "updated": 1,
+  "total": 1,
+  "report": [
+    {
+      "slug": "aleksey-popov-204823-683e",
+      "display_name": "Aleksey Popov",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Sacramento",
+          "phone": "+14079880888",
+          "website": "https://www.artbackyard.com/art-for-adults",
+          "telegram_url": "auto_planet_autoauctionusa"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.artbackyard.com/art-for-adults",
+          "_fetch_url": "https://www.artbackyard.com/art-for-adults",
+          "address_line": "13031 Newport Avenue Tustin, CA, 92780 United States",
+          "city": "Tustin",
+          "email": "kate@artbackyard.com",
+          "image_url": "http://static1.squarespace.com/static/627837e97f0fc230e9caffb1/t/6801aac7d688894882845a4e/1739987708250/Facebook+Ad+%283%29.jpg?format=1500w",
+          "website": "https://www.artbackyard.com/art-for-adults",
+          "phone": "+19498801030",
+          "instagram_url": "https://instagram.com/art_backyard"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27496707286660311",
+          "phone": "+14079880888",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "city": "Tustin",
+        "phone": "+14079880888",
+        "website": "https://www.artbackyard.com/art-for-adults",
+        "telegram_url": "auto_planet_autoauctionusa",
+        "address_line": "13031 Newport Avenue Tustin, CA, 92780 United States",
+        "email": "kate@artbackyard.com",
+        "image_url": "http://static1.squarespace.com/static/627837e97f0fc230e9caffb1/t/6801aac7d688894882845a4e/1739987708250/Facebook+Ad+%283%29.jpg?format=1500w",
+        "instagram_url": "https://instagram.com/art_backyard"
+      },
+      "patch": {
+        "private_address_line": "13031 Newport Avenue Tustin, CA, 92780 United States",
+        "location_precision": "street",
+        "public_exact_address": false,
+        "email": "kate@artbackyard.com"
+      }
+    }
+  ]
+}

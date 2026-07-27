@@ -1,0 +1,1287 @@
+[
+  {
+    "id": "7aaaaba0-f963-4212-a0aa-d17cbd018cf7",
+    "name": "Baroyan Family Child Care",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "229 South Columbus Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Columbus%20Avenue%20229%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185686848"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "751fc269-8d44-4637-b623-1b276bd4f415",
+      "slug": "svoi-baroyan-family-child-care"
+    }
+  },
+  {
+    "id": "cde77802-dd20-472d-8e8b-c4f92dffa46e",
+    "name": "Blue Bird Child Care",
+    "changes": {},
+    "fill": {
+      "address_line": "1912 West Kenneth Road",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Kenneth%20Road%201912%2C%20Glendale%2C%20CA%2091201",
+      "phone": "+18187205823"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3b05069b-9c0b-40b6-9b25-dce255b380ae",
+      "slug": "svoi-blue-bird-child-care"
+    }
+  },
+  {
+    "id": "1f918918-4595-44ab-a207-5704862fb941",
+    "name": "Best Tutor Program",
+    "changes": {},
+    "fill": {
+      "address_line": "1608 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201608%2C%20Glendale%2C%20CA",
+      "phone": "+18182692181"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ee2f2eb4-66c6-4faf-b170-60cb0578b9c3",
+      "slug": "svoi-best-tutor-program"
+    }
+  },
+  {
+    "id": "2e049135-68d0-401c-81c9-21b0dbb6f805",
+    "name": "Bravo Learning Center Computer Training",
+    "changes": {},
+    "fill": {
+      "address_line": "1201 North Pacific Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Pacific%20Avenue%201201%2C%20Glendale%2C%20CA%2091202%20United%20Sta",
+      "website": "http://www.bravolearningcenter.com",
+      "phone": "+18185538085"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f0faaee7-c097-4b38-b9d6-6760ac78196a",
+      "slug": "svoi-bravo-learning-center-computer-training"
+    }
+  },
+  {
+    "id": "9eadbeb4-f93e-40c8-aff2-9308b9954df6",
+    "name": "MATHICO school of mathematics",
+    "changes": {},
+    "fill": {
+      "address_line": "620 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%20620%2C%20Glendale%2C%20CA%20ndale",
+      "website": "http://mathi.co",
+      "phone": "+18188636674",
+      "email": "scarsdale@mathi.co",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "01838acc-876f-4782-bdfc-6b72cfef2412",
+      "slug": "svoi-mathico-school-of-mathematics"
+    }
+  },
+  {
+    "id": "f10ad1b0-c72a-4e89-a8ac-55000bfb6a48",
+    "name": "Anush Fera Real Estate JohnHart Real Estate",
+    "changes": {},
+    "fill": {
+      "address_line": "3409 Ocean View blvd.",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=3409%20Ocean%20View%20blvd.%2C%20Glendale%2C%20CA",
+      "website": "http://www.anushfera.com",
+      "phone": "+18184685356"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "41c8068d-cf68-40a2-9df1-c4515129ea65",
+      "slug": "svoi-anush-fera-real-estate-johnhart-real-estate"
+    }
+  },
+  {
+    "id": "574b45ea-f356-4a34-9715-1a3b18129a00",
+    "name": "Armen Aroyan - Select Real Estate Services, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "400 N. Brand Blvd. Suite 750",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=400%20N.%20Brand%20Blvd.%20Suite%20750%2C%20Glendale%2C%20CA",
+      "website": "http://selectreservices.net/default.aspx",
+      "phone": "+18182931480"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "11989465-70f0-4b2e-a756-055118beb843",
+      "slug": "svoi-armen-aroyan-select-real-estate-services-inc"
+    }
+  },
+  {
+    "id": "f2f2a3b0-9bd7-4833-8410-ab7b5dba37f4",
+    "name": "Classic Realty Exchange Group",
+    "changes": {},
+    "fill": {
+      "address_line": "1220 W Glenoakes Blvd",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Glenoakes%20Blvd%20%201220%2C%20Glendale%2C%20CA%2091202",
+      "phone": "+18184091717"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d1c7d3b1-7936-4f73-a511-d6c8add2a867",
+      "slug": "svoi-classic-realty-exchange-group"
+    }
+  },
+  {
+    "id": "2e8d1e64-6ce6-4020-b625-06781fdf7f73",
+    "name": "1-ARTOLIGHT - Electrical Services!",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glendale%2C%20CA",
+      "phone": "+18183785674"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "7616ccff-fe25-42bc-be4d-4264c17debda",
+    "name": "AGT Electricians",
+    "changes": {},
+    "fill": {
+      "address_line": "2211 North Verdugo Road",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Verdugo%20Road%202211%2C%20Glendale%2C%20CA%2091208",
+      "phone": "+18183219915"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b02b22e7-0bfa-418d-9613-35a4f1dfdcdc",
+      "slug": "svoi-agt-electricians"
+    }
+  },
+  {
+    "id": "8e0f2b2c-7e69-4bbf-8744-254727c6138d",
+    "name": "All Electri'x Company Electricians",
+    "changes": {},
+    "fill": {
+      "address_line": "1701 Wabasso Way",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91208",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wabasso%20Way%201701%2C%20Glendale%2C%20CA%20%2091208",
+      "phone": "+18185076360"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "4beb409b-ad22-4f43-9c20-63de5f5cee1b",
+      "slug": "svoi-all-electri-x-company-electricians"
+    }
+  },
+  {
+    "id": "7c46e39b-8079-4d2c-bb98-f11bded164a2",
+    "name": "A New You Beauty Salons",
+    "changes": {},
+    "fill": {
+      "address_line": "1124 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%201124%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18182409811"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "aeaa4fe8-3881-4481-97b3-1f20e2554ef0",
+      "slug": "svoi-a-new-you-beauty-salons"
+    }
+  },
+  {
+    "id": "a728d111-f111-451b-bc12-d38cce489586",
+    "name": "Alice In Beauty Land Hair Salons",
+    "changes": {},
+    "fill": {
+      "address_line": "511 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%20511%2C%20Glendale%2C%20CA%2091202",
+      "phone": "+18182439002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "cabefbc4-4901-4604-9863-7e234457984a",
+      "slug": "svoi-alice-in-beauty-land-hair-salons"
+    }
+  },
+  {
+    "id": "73a7b1c4-ec8d-45d2-b926-15247e24d31a",
+    "name": "Anto's Haircut Hair Salons",
+    "changes": {},
+    "fill": {
+      "address_line": "915 North Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91206",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glendale%20Avenue%20915%2C%20Glendale%2C%20CA%2091206",
+      "phone": "+18182470531"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b627d473-afe3-416d-b290-465b5ad7d290",
+      "slug": "svoi-anto-s-haircut-hair-salons"
+    }
+  },
+  {
+    "id": "5aba36b5-74b6-41ca-92d0-f8946bec7e55",
+    "name": "AIS Agopian Insurance Services",
+    "changes": {},
+    "fill": {
+      "address_line": "919 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%20919%2C%20Glendale%2C%20CA",
+      "phone": "+18185457517"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2b21bd4c-0650-46f2-acc3-e9cffc685f22",
+      "slug": "svoi-ais-agopian-insurance-services"
+    }
+  },
+  {
+    "id": "307027de-919d-4598-9958-64c52f7f1fe8",
+    "name": "Century 1st. Insurance",
+    "changes": {},
+    "fill": {
+      "address_line": "234 North Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91206",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glendale%20Avenue%20234%2C%20Glendale%2C%20CA%2091206",
+      "phone": "+18182653000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "acf37410-05cf-49bc-a69e-deddcc561436",
+      "slug": "svoi-century-1st-insurance"
+    }
+  },
+  {
+    "id": "8c477611-6851-4583-8016-51d50de22b2f",
+    "name": "Colonial Life .-A",
+    "changes": {},
+    "fill": {
+      "city": "CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glendale%2C%20CA",
+      "phone": "+18184452820"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "cc222301-105a-4043-b5ce-e665f6d12783",
+    "name": "AppleSpecials",
+    "changes": {},
+    "fill": {
+      "address_line": "1731 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201731%2C%20Glendale%2C%20CA%2091201",
+      "phone": "+18776593990"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "16825776-9338-45de-8864-1c195afaf022",
+      "slug": "svoi-applespecials"
+    }
+  },
+  {
+    "id": "3846fabf-3494-4d7f-91cb-ef655870776e",
+    "name": "Econo Travel Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "459 W Broadway # 5",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Broadway%20%23%205%20459%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18184090099"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "898b21d1-4895-4571-a44b-fe6075e0e2c9",
+      "slug": "svoi-econo-travel-agency"
+    }
+  },
+  {
+    "id": "09b43361-983c-4c64-bb42-d02832005475",
+    "name": "Levon Travel",
+    "changes": {},
+    "fill": {
+      "address_line": "408 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%20408%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185527700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "52c9baf5-c80b-445b-a89a-c49628913115",
+      "slug": "svoi-levon-travel"
+    }
+  },
+  {
+    "id": "433febce-f539-4006-95bd-8f59495ab69f",
+    "name": "New World Services",
+    "changes": {},
+    "fill": {
+      "address_line": "1201 North Pacific Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Pacific%20Avenue%201201%2C%20Glendale%2C%20CA%2091202",
+      "website": "http://www.newworldservices.net",
+      "phone": "+18182409909",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3f2d0a51-de5c-434e-ba49-63a21e57f6d9",
+      "slug": "svoi-new-world-services"
+    }
+  },
+  {
+    "id": "1f828ca0-8976-442f-97c3-6bdb8a7c0fe8",
+    "name": "The Document People/We The People, Legal Document Services",
+    "changes": {},
+    "fill": {
+      "address_line": "1415 East Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Colorado%20Street%201415%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185461787"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3ab0e8fb-6822-4176-a83d-2ef557ebc2b9",
+      "slug": "svoi-the-document-people-we-the-people-legal-document"
+    }
+  },
+  {
+    "id": "b37adb0c-c11d-4713-b170-a5994f70e958",
+    "name": "AAR Trucking .-A",
+    "changes": {},
+    "fill": {
+      "address_line": "725 South Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Glendale%20Avenue%20725%2C%20Glendale%2C%20CA",
+      "phone": "+13232405422"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d59b5b7-367c-46d6-a245-2f0b64fd6615",
+      "slug": "svoi-aar-trucking-a"
+    }
+  },
+  {
+    "id": "6df01036-0784-490c-bc79-1be1a23c0129",
+    "name": "TLC Moving Services",
+    "changes": {},
+    "fill": {
+      "address_line": "501 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%20501%2C%20Glendale%2C%20CA%2091202",
+      "phone": "+13236606505"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "7cff0d80-da30-4d45-a526-37cf4005d09b",
+      "slug": "svoi-tlc-moving-services"
+    }
+  },
+  {
+    "id": "9ed78c93-77ff-4a95-83ee-2b58e2862102",
+    "name": "Color Depot",
+    "changes": {},
+    "fill": {
+      "address_line": "524 Riverdale Drive",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Riverdale%20Drive%20524%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185009033"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e84d0ae7-b688-4683-b531-e23e0902014d",
+      "slug": "svoi-color-depot"
+    }
+  },
+  {
+    "id": "9c62c74d-fca9-4f78-8af7-866c2387e236",
+    "name": "Printex Design Printing",
+    "changes": {},
+    "fill": {
+      "address_line": "1731 W Glenoaks Blvd",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%20Glenoaks%20Blvd%201731%2C%20Glendale%2C%20CA%20%2091201",
+      "phone": "+18189561400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d3142ada-1aad-42f8-9186-427cfa8b0015",
+      "slug": "svoi-printex-design-printing"
+    }
+  },
+  {
+    "id": "66456c50-c09b-4a81-94af-41a146593c40",
+    "name": "Yerevan Printing",
+    "changes": {},
+    "fill": {
+      "address_line": "626 West Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Colorado%20Street%20%20626%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18182462070"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "790d4b30-a977-4ab9-8308-dd0713d93a80",
+      "slug": "svoi-yerevan-printing"
+    }
+  },
+  {
+    "id": "244abd59-1107-4aaa-a085-ade8d9861386",
+    "name": "Quick Dry Carpet Cleaning",
+    "changes": {},
+    "fill": {
+      "address_line": "323 South Jackson Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Jackson%20Street%20323%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18188451577"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c447c8ba-a22c-4e8c-aca8-61443a845ae0",
+      "slug": "svoi-quick-dry-carpet-cleaning"
+    }
+  },
+  {
+    "id": "e0ec7c90-f3bb-4a1c-bc46-767726e08f91",
+    "name": "Meest California",
+    "changes": {},
+    "fill": {
+      "address_line": "500 East Harvard Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Harvard%20Street%20500%2C%20Glendale%2C%20CA%2091205",
+      "website": "http://meest.net/rus/index.html",
+      "phone": "+18185474910",
+      "instagram_url": "https://www.instagram.com/meestcanada"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "36e5a966-500e-4e04-bae7-a4dc3f7ba306",
+      "slug": "svoi-meest-california"
+    }
+  },
+  {
+    "id": "5c97ac7c-87ac-41b3-9ecd-f4efc6c72248",
+    "name": "United Shipping Group",
+    "changes": {},
+    "fill": {
+      "address_line": "1307 East Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Colorado%20Street%201307%2C%20Glendale%2C%20CA%2091205",
+      "website": "http://usg9.com",
+      "phone": "+18182919303"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "db15f0c9-b5fd-420d-835a-edf748a9cfe0",
+      "slug": "svoi-united-shipping-group"
+    }
+  },
+  {
+    "id": "8e50de2a-83ad-474a-ba99-c08589e0d399",
+    "name": "Tentek Employment Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "101 North Brand Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Brand%20Boulevard%20101%2C%20Glendale%2C%20CA%2091203",
+      "phone": "+18185517100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8b9d22d4-6eb2-47e3-ba48-625970e4801b",
+      "slug": "svoi-tentek-employment-agency"
+    }
+  },
+  {
+    "id": "18609502-ccee-4804-9542-152cee98c259",
+    "name": "Artush Photography",
+    "changes": {},
+    "fill": {
+      "city": "CA 91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Glendale%2C%20CA%2091201",
+      "phone": "+18183174591"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ]
+  },
+  {
+    "id": "3b407146-f075-4f96-b895-3e11c53c88ea",
+    "name": "Eagle Eye Video",
+    "changes": {},
+    "fill": {
+      "address_line": "216 North Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glendale%20Avenue%20216%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185008002"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8a97ec18-5cdf-4160-ac57-cbd4ff87e02d",
+      "slug": "svoi-eagle-eye-video"
+    }
+  },
+  {
+    "id": "2fb53092-2e0d-40cf-92d4-52c9e00e1a18",
+    "name": "Eric Film Photo & Video",
+    "changes": {},
+    "fill": {
+      "address_line": "117 South Louise Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=South%20Louise%20Street%20117%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18182987046"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "5d2d080e-8aac-4c7e-9a92-e2a4f2873d46",
+      "slug": "svoi-eric-film-photo-video"
+    }
+  },
+  {
+    "id": "1717cc23-5b6c-4880-b28c-c431dcdfa5bb",
+    "name": "Ara Kassabian CPA Accountants",
+    "changes": {},
+    "fill": {
+      "address_line": "136 North Glendale Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Glendale%20Avenue%20136%2C%20Glendale%2C%20CA",
+      "website": "http://www.kassabiancpa.com",
+      "phone": "+18185437200",
+      "postal_code": "91214",
+      "yelp_url": "https://www.yelp.com/biz/ara-d-kassabian-cpa-glendale",
+      "opening_hours": true
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2340e91d-8f61-42f6-983a-0c952c57f1ef",
+      "slug": "svoi-ara-kassabian-cpa-accountants"
+    }
+  },
+  {
+    "id": "f2380062-4616-4389-932a-8e774063e407",
+    "name": "Aram Stepanian CPA Accountants",
+    "changes": {},
+    "fill": {
+      "address_line": "1243 Virginia Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Virginia%20Avenue%201243%2C%20Glendale%2C%20CA",
+      "website": "http://www.cpaforyou.com",
+      "phone": "+18184000780"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "50599d6d-8794-4673-8072-ddde9cdb428b",
+      "slug": "svoi-aram-stepanian-cpa-accountants"
+    }
+  },
+  {
+    "id": "2841e70c-66ca-4abf-a431-d73dc6f6ccc3",
+    "name": "Badalian Ed MBA EA Accounting Services",
+    "changes": {},
+    "fill": {
+      "address_line": "557 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%20557%2C%20Glendale%2C%20CA%20%2091202",
+      "phone": "+18182468199"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d10dc925-f570-45a2-9ee1-d73e5b1b7d1b",
+      "slug": "svoi-badalian-ed-mba-ea-accounting-services"
+    }
+  },
+  {
+    "id": "aff73068-0b76-43d7-b489-e97f6340f072",
+    "name": "Charles Schwab Glendale",
+    "changes": {},
+    "fill": {
+      "address_line": "500 North Brand Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Brand%20Boulevard%20500%2C%20Glendale%2C%20CA%2091203",
+      "phone": "+18004354000"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d37803ee-a5a8-4053-8d7d-b545cb7451fd",
+      "slug": "svoi-charles-schwab-glendale"
+    }
+  },
+  {
+    "id": "e76221cb-dcf7-404b-b263-977751a08c36",
+    "name": "Fidelity Financial Group Real Estate Loans",
+    "changes": {},
+    "fill": {
+      "address_line": "530 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%20530%2C%20Glendale%2C%20CA",
+      "phone": "+18182403400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "ca5c5389-9552-480f-9135-6c1438cc217c",
+      "slug": "svoi-fidelity-financial-group-real-estate-loans"
+    }
+  },
+  {
+    "id": "c8444c8b-2d7e-4a02-80d1-3d4f444bccd7",
+    "name": "LA Capitol Mortgage Real Estate Loans",
+    "changes": {},
+    "fill": {
+      "address_line": "501 North Central Avenue",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "14568",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Central%20Avenue%20501%2C%20Glendale%2C%20CA%2014568",
+      "phone": "+18185004009"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8c4a6d44-b4e1-4acb-933a-a4f81d13c319",
+      "slug": "svoi-la-capitol-mortgage-real-estate-loans"
+    }
+  },
+  {
+    "id": "a47b91cc-52b5-4e80-ac03-d6358c4823fa",
+    "name": "Arpi Design Web Site Design",
+    "changes": {},
+    "fill": {
+      "address_line": "313 East Broadway",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Broadway%20313%2C%20Glendale%2C%20CA%2091203",
+      "website": "https://arpidesign.com",
+      "phone": "+18186605501"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b4324bb5-5bed-4a0a-951b-eed86f5595d5",
+      "slug": "svoi-arpi-design-web-site-design"
+    }
+  },
+  {
+    "id": "6316ae37-4c44-4d6c-965f-06cba0b106cd",
+    "name": "Studio AM",
+    "changes": {},
+    "fill": {
+      "address_line": "100 North Brand Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91203",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=North%20Brand%20Boulevard%20100%2C%20Glendale%2C%20CA%2091203",
+      "website": "https://www.studio.am",
+      "phone": "+18184760085",
+      "instagram_url": "https://www.instagram.com/bystudioam"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "902550e5-ca78-4df1-bed5-0eee22be0bd0",
+      "slug": "svoi-studio-am"
+    }
+  },
+  {
+    "id": "d23ebb34-a78b-47ed-959c-8cd64230a432",
+    "name": "Armen Market",
+    "changes": {},
+    "fill": {
+      "address_line": "1101 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201101%2C%20Glendale%2C%20CA%2091202",
+      "phone": "+18185009005"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c0b11aa6-9591-47ab-95af-64f38c66df37",
+      "slug": "svoi-armen-market"
+    }
+  },
+  {
+    "id": "b68edfd9-3000-4ed2-988b-487d8232c15f",
+    "name": "Central Grand Market",
+    "changes": {},
+    "fill": {
+      "address_line": "1215 N. Central Ave",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91202",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N.%20Central%20Ave%201215%2C%20Glendale%2C%20CA%2091202",
+      "phone": "+18182441100"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "504086d4-99e6-450b-a50a-a6dba1f81868",
+      "slug": "svoi-central-grand-market"
+    }
+  },
+  {
+    "id": "92df25dd-a530-4117-afd4-b9fbef6313af",
+    "name": "Dvin Meat Market",
+    "changes": {},
+    "fill": {
+      "address_line": "107 S. Adams St",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%20Adams%20St%20107%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185474454"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8b914f56-4356-494c-b5ca-e469b281c927",
+      "slug": "svoi-dvin-meat-market"
+    }
+  },
+  {
+    "id": "3d5b7ecb-8c72-4eb9-be20-0c44ffb25290",
+    "name": "A & G Deli & Grocery",
+    "changes": {},
+    "fill": {
+      "address_line": "721 S. Central Ave",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=S.%20Central%20Ave%20721%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18182659300"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "52530561-7038-4b32-9b1d-cbd6386f17bf",
+      "slug": "svoi-a-g-deli-grocery"
+    }
+  },
+  {
+    "id": "8a606641-4763-4cfb-b823-77efa890562a",
+    "name": "Ani's Unique Garden Flowers",
+    "changes": {},
+    "fill": {
+      "address_line": "631 East Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91205",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Colorado%20Street%20631%2C%20Glendale%2C%20CA%2091205",
+      "phone": "+18185450770"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "9bd495b0-0034-411c-b724-b9c83911fe9b",
+      "slug": "svoi-ani-s-unique-garden-flowers"
+    }
+  },
+  {
+    "id": "dd1dd48c-2c7b-49a8-b3f1-27a19473cec1",
+    "name": "Anoush And Lisas Flower And Gifts",
+    "changes": {},
+    "fill": {
+      "address_line": "407 West Chevy Chase Drive",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91204",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Chevy%20Chase%20Drive%20407%2C%20Glendale%2C%20CA%2091204",
+      "phone": "+18185489212"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "25a54796-9af4-4a0a-b13c-31d90029f3a2",
+      "slug": "svoi-anoush-and-lisas-flower-and-gifts"
+    }
+  },
+  {
+    "id": "5922e436-eda9-4469-aacf-d963e158bdbb",
+    "name": "Ani Banquet Hall Glendale",
+    "changes": {},
+    "fill": {
+      "address_line": "915 East Colorado Street",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%20Colorado%20Street%20915%2C%20Glendale%2C%20CA",
+      "phone": "+18182410666"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "c7e38efb-542c-4cdb-9bbf-ac641bd04fb3",
+      "slug": "svoi-ani-banquet-hall-glendale"
+    }
+  },
+  {
+    "id": "c25d6851-b1e6-47db-ac1f-3dfda4d9c2c3",
+    "name": "Anoush",
+    "changes": {},
+    "fill": {
+      "address_line": "1320 West Glenoaks Boulevard",
+      "location_precision": "street",
+      "city": "Glendale",
+      "state_code": "US-CA",
+      "postal_code": "91201",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=West%20Glenoaks%20Boulevard%201320%2C%20Glendale%2C%20CA%20%2091201",
+      "phone": "+18182411512"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b575e396-63b2-4dab-a4d3-aa95bbfd9310",
+      "slug": "svoi-anoush"
+    }
+  }
+]

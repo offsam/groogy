@@ -54,6 +54,14 @@ export default async function AdminDirectorySourcePage({
   const q = await searchParams;
   const status = q.status || "pending";
   const page = Math.max(1, Number(q.page || "1") || 1);
+  const entityRaw = q.entity || "all";
+  const entity =
+    entityRaw === "professional" ||
+    entityRaw === "business" ||
+    entityRaw === "service"
+      ? entityRaw
+      : "all";
+  const category = q.category || "all";
 
   let items: Awaited<ReturnType<typeof listCommentRecommendations>>["items"] =
     [];
@@ -133,6 +141,8 @@ export default async function AdminDirectorySourcePage({
         </div>
       ) : (
         <DirectorySourcePanel
+          category={category}
+          entity={entity}
           source={source}
           items={items}
           total={total}

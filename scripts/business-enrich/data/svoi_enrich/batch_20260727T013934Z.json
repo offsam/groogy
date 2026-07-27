@@ -1,0 +1,173 @@
+[
+  {
+    "id": "9f15a0d4-88b0-4388-9cfa-b8fac5a569e1",
+    "name": "Hachigian Mark P MD Inc. Colon & Rectal Surgery",
+    "changes": {},
+    "fill": {
+      "address_line": "Cherry Street 10931",
+      "location_precision": "street",
+      "city": "Los alamitos",
+      "state_code": "US-CA",
+      "postal_code": "90720",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cherry%20Street%2010931%2C%20Los%20alamitos%2C%20CA%2090720",
+      "phone": "+15625967700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (73441151-eb1f-4ace-bff1-6012d6e7a88c, svoi-hachigian-mark-p-md-inc-colon-rectal-surgery, a1000001-0000-4000-8000-000000000005, Hachigian Mark P MD Inc. Colon & Rectal Su"
+  },
+  {
+    "id": "494a18ad-e849-41c7-b16c-4c5c11878ebd",
+    "name": "Dr. Lydia Matkovich M.D.",
+    "changes": {},
+    "fill": {
+      "address_line": "Telo Avenue 23600",
+      "location_precision": "street",
+      "city": "Torrance",
+      "state_code": "US-CA",
+      "postal_code": "90505",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Telo%20Avenue%2023600%2C%20Torrance%2C%20CA%2090505",
+      "phone": "+13106268055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (6d8a48a8-223e-4f5f-bcd1-70c4222fb414, svoi-dr-lydia-matkovich-m-d, a1000001-0000-4000-8000-000000000008, Dr. Lydia Matkovich M.D., Окулисты, офтальмологи от компании...,"
+  },
+  {
+    "id": "1f75285d-2f87-4536-b089-e439c1be3974",
+    "name": "Rehabilitation Institute of Southern California",
+    "changes": {},
+    "fill": {
+      "address_line": "1800 E La Veta Ave Orange",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1800%20E%20La%20Veta%20Ave%20Orange%2C%2C%20Los%20Angeles%2C%20CA",
+      "website": "https://riorehab.org",
+      "phone": "+17146337400"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (c8726f6c-d026-47f3-8487-efb6a962f5ad, svoi-rehabilitation-institute-of-southern-california, a1000001-0000-4000-8000-000000000008, Rehabilitation Institute of Southern Ca"
+  },
+  {
+    "id": "0619d028-28fc-4350-a544-36db49609b68",
+    "name": "Market Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "9250 Reseda 2C",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=9250%20Reseda%202C%2C%20Los%20Angeles%2C%20CA%2091324",
+      "website": "https://www.marketcompoundingpharmacy.com",
+      "phone": "+18187017777"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (54915342-c0d5-4451-859d-9c1f3137b62a, svoi-market-pharmacy, a1000001-0000-4000-8000-000000000005, Market Pharmacy, Аптеки от компании Market Pharmacy по прие..., Аптеки "
+  },
+  {
+    "id": "7f97ebbf-a944-44ac-b10e-5cf10d6d9db6",
+    "name": "Northridge Plaza Pharmacy",
+    "changes": {},
+    "fill": {
+      "address_line": "18546 Roscoe Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91324",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=18546%20Roscoe%20Blvd%2C%20Los%20Angeles%2C%20CA%2091324",
+      "phone": "+18189988700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (05d3f243-3ba4-48b0-bf5b-7cf790ab46d6, svoi-northridge-plaza-pharmacy, a1000001-0000-4000-8000-000000000005, Northridge Plaza Pharmacy, Аптеки от компании Northridge Plaz"
+  },
+  {
+    "id": "a7dc42e3-d3c4-434a-9808-75aec666b33d",
+    "name": "Absolute Care Pharmacy Pharmacies",
+    "changes": {},
+    "fill": {
+      "address_line": "N Maclay Ave # 104 541",
+      "location_precision": "street",
+      "city": "San fernando",
+      "state_code": "US-CA",
+      "postal_code": "91340",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=N%20Maclay%20Ave%20%23%20104%20541%2C%20San%20fernando%2C%20CA%2091340",
+      "phone": "+18007957773"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (fe0bc395-68dc-4fee-82b3-2e3e7fdeb39f, svoi-absolute-care-pharmacy-pharmacies, a1000001-0000-4000-8000-000000000005, Absolute Care Pharmacy Pharmacies, Аптеки от компании"
+  },
+  {
+    "id": "47c6d8c5-0169-48e2-bd00-6f0dcca73bd0",
+    "name": "Sherman Oaks Medical Supplies",
+    "changes": {},
+    "fill": {
+      "address_line": "Van Nuys Boulevard 4840",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91403",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Van%20Nuys%20Boulevard%204840%2C%20Los%20Angeles%2C%20CA%2091403",
+      "website": "http://www.shermanoaksmedicalsupplies.com",
+      "phone": "+18189819906"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (a34a4d71-19c0-4183-b9a7-6bc388c70de6, svoi-sherman-oaks-medical-supplies, a1000001-0000-4000-8000-000000000005, Sherman Oaks Medical Supplies, Медицинское оборудование и"
+  },
+  {
+    "id": "82ae42a7-3159-4cc0-a311-57c9a0e93633",
+    "name": "Signature Auto Leasing And Sales Inc, Auto Brokers",
+    "changes": {},
+    "fill": {
+      "address_line": "5630 Van Nuys Blvd",
+      "location_precision": "street",
+      "city": "Los Angeles",
+      "state_code": "US-CA",
+      "postal_code": "91401",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=5630%20Van%20Nuys%20Blvd%2C%20Los%20Angeles%2C%20CA%2091401",
+      "website": "http://signatureauto.co",
+      "phone": "+18187882877"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish_error": "HTTP 400 /businesses: {\"code\":\"23514\",\"details\":\"Failing row contains (6373b968-12bf-4c6d-ae1a-01f19891b7df, svoi-signature-auto-leasing-and-sales-inc-auto-broker, a1000001-0000-4000-8000-000000000004, Signature Auto Leasing And Sales Inc, "
+  }
+]

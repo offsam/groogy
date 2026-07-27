@@ -1,0 +1,40 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "santa-ana",
+      "display_name": "Santa Ana Тел",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "city": "Santa Ana",
+          "phone": "+17147039906",
+          "website": "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7",
+          "_fetch_url": "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7",
+          "website": "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7",
+          "image_url": "https://maps.google.com/maps/api/staticmap?center=33.7403886%2C-117.78466715&zoom=14&size=900x900&language=en&sensor=false&key=AIzaSyBoYjeRtfVI0Jd8Q_9mnflo9i4sOYpShB0&signature=hAnZ8nF85Wa5StoAws9kGltMa_Y"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://t.me/c/1333533747/73541",
+          "city": "Santa Ana",
+          "phone": "+17147039906",
+          "website": "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7",
+          "_via": "import_review"
+        }
+      },
+      "found": {
+        "city": "Santa Ana",
+        "phone": "+17147039906",
+        "website": "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7",
+        "image_url": "https://maps.google.com/maps/api/staticmap?center=33.7403886%2C-117.78466715&zoom=14&size=900x900&language=en&sensor=false&key=AIzaSyBoYjeRtfVI0Jd8Q_9mnflo9i4sOYpShB0&signature=hAnZ8nF85Wa5StoAws9kGltMa_Y"
+      },
+      "patch": {}
+    }
+  ]
+}

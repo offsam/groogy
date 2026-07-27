@@ -1,0 +1,31 @@
+{
+  "updated": 0,
+  "total": 1,
+  "report": [
+    {
+      "slug": "svoi-massage-viktoria-dolidze",
+      "display_name": "Massage: Viktoria Dolidze",
+      "layers": {
+        "card": {
+          "_from": "text",
+          "website": "https://www.HealthAndHealingOasis.com"
+        },
+        "website": {
+          "_from": "website",
+          "_url": "https://www.HealthAndHealingOasis.com",
+          "image_url": "https://s0.wp.com/i/blank.jpg"
+        },
+        "source": {
+          "_from": "source",
+          "_url": "https://www.russianorangepages.com/community/russian-services/medical-doctors/viktoria-dolidze-new/",
+          "_error": "fetch_failed"
+        }
+      },
+      "found": {
+        "website": "https://www.HealthAndHealingOasis.com",
+        "image_url": "https://s0.wp.com/i/blank.jpg"
+      },
+      "patch": {}
+    }
+  ]
+}

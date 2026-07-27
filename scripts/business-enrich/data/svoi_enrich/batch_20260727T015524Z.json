@@ -1,0 +1,526 @@
+[
+  {
+    "id": "9205d955-b0cd-4645-bf7c-9e7912345020",
+    "name": "Агентство “Мост к Успеху”.",
+    "changes": {},
+    "places_decision": "error",
+    "fill": {
+      "address_line": "421 Brighton Beach ave.",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20ave.%20421%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+13472575717"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "merge",
+      "id": "ec1f3f3d-69f4-4b96-b562-89f52dcb9704"
+    }
+  },
+  {
+    "id": "479120ad-4bf2-4dc6-a75d-8ef55045dde9",
+    "name": "Vesta Employment Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "1035 Brighton Beach Ave",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%20Beach%20Ave%201035%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17187699585"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a610fc21-491f-444a-a644-c82c5798c05d",
+      "slug": "svoi-vesta-employment-agency"
+    }
+  },
+  {
+    "id": "4b62d50c-64a3-4949-b312-3e03d3c6535a",
+    "name": "U.S. Consulting",
+    "changes": {},
+    "fill": {
+      "address_line": "424 Brighton 5th",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brighton%205th%20424%2C%20New%20York%2C%20NY",
+      "phone": "+16465476055"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "b6917b75-fcfc-4e29-90f9-fca2fb47e127",
+      "slug": "svoi-u-s-consulting"
+    }
+  },
+  {
+    "id": "7957ffb9-5280-4994-b176-543dfa9a9269",
+    "name": "Olga Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "2785 W 5th St Ste 19C",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11224",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=W%205th%20St%20Ste%2019C%202785%2C%20New%20York%2C%20NY%2011224",
+      "phone": "+17182652197"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "2d66fa76-b154-4585-9bd0-4249f77ba382",
+      "slug": "svoi-olga-agency"
+    }
+  },
+  {
+    "id": "c115f1b3-7b8b-4d56-b62e-e830adaa58b6",
+    "name": "ПЕТЕРБУРГ EMPLOYMENT AGENCY",
+    "changes": {},
+    "fill": {
+      "address_line": "1661 SHEEPSHEAD BAY ROAD",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=SHEEPSHEAD%20BAY%20ROAD%201661%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17183361264"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "0f7fb96b-943a-4d02-93b5-c21b59cfbc66",
+      "slug": "svoi-employment-agency"
+    }
+  },
+  {
+    "id": "bbf60653-c433-43ed-be84-396baef7930a",
+    "name": "Агентство Успех - работа есть для всех",
+    "changes": {},
+    "fill": {
+      "address_line": "1618 Sheepshead Bay Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sheepshead%20Bay%20Road%201618%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17187724818"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "3fcdd8a8-f094-4670-b67f-40f19f9f6b1e",
+      "slug": "svoi-biz-2"
+    }
+  },
+  {
+    "id": "dc718bad-9e19-4e1a-b92c-3e43268c2804",
+    "name": "Ultimate Services For You",
+    "changes": {},
+    "fill": {
+      "address_line": "1506 Sheepshead Bay Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11235",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sheepshead%20Bay%20Road%201506%2C%20New%20York%2C%20NY%2011235",
+      "phone": "+17188910080"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e43e10f6-fd39-4cab-9050-a72b013e7ae6",
+      "slug": "svoi-ultimate-services-for-you"
+    }
+  },
+  {
+    "id": "8037d6eb-b45c-4f6b-a032-64bf3609f767",
+    "name": "Attentive Home Care",
+    "changes": {},
+    "fill": {
+      "address_line": "Queens Boulevard 113-25",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Queens%20Boulevard%20113-25%2C%20New%20York%2C%20NY",
+      "phone": "+17189430900"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1a15d6ee-8815-4b2f-bd6d-f813c6725fac",
+      "slug": "svoi-attentive-home-care"
+    }
+  },
+  {
+    "id": "7b9745a5-2898-40c9-8be4-2358f34d1293",
+    "name": "Caring Professionals",
+    "changes": {},
+    "fill": {
+      "address_line": "Austin Street 70-20",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11375",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Austin%20Street%2070-20%2C%20New%20York%2C%20NY%2011375",
+      "website": "http://caringprofessionals.com",
+      "phone": "+17188972273",
+      "instagram_url": "https://www.instagram.com/caringprofessionalshomecare",
+      "email": "info@caringprof.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "instagram",
+      "notes",
+      "phones",
+      "updated_at",
+      "websites"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "11e45781-e379-4c32-8fd6-11915527c090",
+      "slug": "svoi-caring-professionals"
+    }
+  },
+  {
+    "id": "f0bfebd9-9d8e-4825-a440-7424370013db",
+    "name": "Interservice Brokerage Inc",
+    "changes": {},
+    "fill": {
+      "address_line": "2119 East 15th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2015th%20Street%202119%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+17183681029"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "45da997d-bfc6-466b-84a2-64290c119b0b",
+      "slug": "svoi-interservice-brokerage-inc"
+    }
+  },
+  {
+    "id": "d8324e12-b895-4020-9a43-51120465ba90",
+    "name": "Brooklyn Employment",
+    "changes": {},
+    "fill": {
+      "address_line": "1718 Dahill Rd",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dahill%20Rd%201718%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+17182103310"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "1fe01e46-c4c0-474d-96ea-8466e19ebde9",
+      "slug": "svoi-brooklyn-employment"
+    }
+  },
+  {
+    "id": "237d1ad8-fefc-4992-86e2-f81263e38e9c",
+    "name": "Brooklyn Employment and Consulting Agency",
+    "changes": {},
+    "fill": {
+      "address_line": "1718 Dahill Road",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dahill%20Road%201718%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+13479093818"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "a42ae810-8c2e-4691-8288-7ba283fa0554",
+      "slug": "svoi-brooklyn-employment-and-consulting-agency"
+    }
+  },
+  {
+    "id": "848f8d06-5888-45fe-9241-94a5b21fda41",
+    "name": "Choose Friendly Care",
+    "changes": {},
+    "fill": {
+      "address_line": "2002 Coney Island Ave",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11223",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coney%20Island%20Ave%202002%2C%20New%20York%2C%20NY%2011223",
+      "phone": "+17189984700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "d4b84f93-584f-48e6-ac75-1c2eb0780a44",
+      "slug": "svoi-choose-friendly-care"
+    }
+  },
+  {
+    "id": "e81111a8-13e8-4331-a677-9aed41e5fd74",
+    "name": "Агентство “Успех”",
+    "changes": {},
+    "fill": {
+      "address_line": "1305 East 17th Street",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11229",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=East%2017th%20Street%201305%2C%20New%20York%2C%20NY%2011229",
+      "phone": "+14078026627"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "8a63365c-8550-43c5-8640-bd0023c18ea1",
+      "slug": "svoi-biz-3"
+    }
+  },
+  {
+    "id": "b3171460-5923-4ca7-af90-60c3bd58c8ef",
+    "name": "Bestcare, Inc.",
+    "changes": {},
+    "fill": {
+      "address_line": "1781 Flatbush Avenue",
+      "location_precision": "street",
+      "city": "New York",
+      "state_code": "US-NY",
+      "postal_code": "11210",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Flatbush%20Avenue%201781%2C%20New%20York%2C%20NY%20%2011210",
+      "website": "http://www.bestcare.com",
+      "phone": "+17183777077",
+      "email": "info@bestcare.com"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "phones",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e6a5f0c6-d996-46a1-8411-1d3c9aee2c80",
+      "slug": "svoi-bestcare-inc"
+    }
+  },
+  {
+    "id": "23d6306d-0187-42a6-8532-1c717effc7e1",
+    "name": "Century 21 – Friedman, Roman",
+    "changes": {},
+    "fill": {
+      "address_line": "135 U.S. 9",
+      "location_precision": "street",
+      "city": "Marlboro Township",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=U.S.%209%20135%2C%20Marlboro%20Township%2C%20NJ",
+      "phone": "+17325362228"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "f2a6405f-48c0-47c5-be38-ca5bbd7aa59f",
+      "slug": "svoi-century-21-friedman-roman"
+    }
+  },
+  {
+    "id": "b5604f85-93bb-494a-b268-3b057d570bff",
+    "name": "Davis Realtors",
+    "changes": {},
+    "fill": {
+      "address_line": "288 Summerhill Road",
+      "location_precision": "street",
+      "city": "East Brunswick",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Summerhill%20Road%20288%2C%20East%20Brunswick%2C%20NJ",
+      "phone": "+17322546700"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "6635eef4-1da3-454b-8a6a-503e19eb6a05",
+      "slug": "svoi-davis-realtors"
+    }
+  },
+  {
+    "id": "04361b6d-a076-4130-b557-fd48a14cfd91",
+    "name": "Weichert Realtors – Aguayo, Alma",
+    "changes": {},
+    "fill": {
+      "address_line": "22 Henry Street",
+      "location_precision": "street",
+      "city": "Bernards",
+      "state_code": "US-NJ",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Henry%20Street%2022%2C%20Bernards%2C%20NJ",
+      "phone": "+19087667500"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "professional",
+      "action": "create",
+      "id": "2900ebeb-dd90-4ccf-a501-a64d9191b1e0",
+      "slug": "svoi-weichert-realtors-aguayo-alma"
+    }
+  },
+  {
+    "id": "6d798854-96a9-464f-aadf-bfe8729432be",
+    "name": "Coldwell Banker Residential Brokerage",
+    "changes": {},
+    "fill": {
+      "address_line": "269 Route 18 South",
+      "location_precision": "street",
+      "city": "East Brunswick",
+      "state_code": "US-NJ",
+      "postal_code": "08816",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Route%2018%20South%20269%2C%20East%20Brunswick%2C%20NJ%2008816",
+      "phone": "+17322543750"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "e4be07e8-4a5c-48cb-9bed-0b5c022abf07",
+      "slug": "svoi-coldwell-banker-residential-brokerage"
+    }
+  },
+  {
+    "id": "e742ff33-2bd5-448a-b930-95e8db732d3d",
+    "name": "Anna Safonova NJ Real Estate",
+    "changes": {},
+    "fill": {
+      "address_line": "3877 Highway 516",
+      "location_precision": "street",
+      "city": "Old Bridge Township",
+      "state_code": "US-NJ",
+      "postal_code": "08857",
+      "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Highway%20516%203877%2C%20Old%20Bridge%20Township%2C%20NJ%2008857",
+      "phone": "+17183137751"
+    },
+    "rec_patch_keys": [
+      "city",
+      "comment_texts",
+      "notes",
+      "updated_at"
+    ],
+    "publish": {
+      "entity": "business",
+      "action": "create",
+      "id": "fb92c816-6928-4539-9b91-3c37402f604d",
+      "slug": "svoi-anna-safonova-nj-real-estate"
+    }
+  }
+]

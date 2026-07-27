@@ -48,3 +48,5 @@ scripts/facebook-collector/data/poc/
 
 # Local enrich / collector session scratch
 scripts/**/data/*session*.json
+.vercel
+.env*

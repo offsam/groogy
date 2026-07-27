@@ -22,6 +22,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
 from common import SupabaseRest, load_env  # noqa: E402
+from group_location import merge_city_with_group  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "data" / "professional_locations"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -138,8 +139,16 @@ def extract_city(text: str) -> str | None:
             return cand.title() if cand.islower() or cand.isupper() else cand
 
     low = text.lower()
+    # Don't treat metro/county labels as a city
+    if re.search(r"\borange\s+county\b|\bsouthern\s+california\b|\bbay\s+area\b", low):
+        # still allow real city names elsewhere in the text
+        pass
     # Don't treat «Orange County» as city Orange
-    low_for_city = re.sub(r"\borange\s+county\b", " ", low)
+    low_for_city = re.sub(
+        r"\borange\s+county\b|\bsouthern\s+california\b|\borange\s+county\s*/\s*la\b",
+        " ",
+        low,
+    )
     # Longer names first
     for key in sorted(KNOWN_CITIES.keys(), key=len, reverse=True):
         if key == "orange" and re.search(r"\borange\s+county\b", low):
@@ -203,32 +212,72 @@ def patch_from_text(pro: dict[str, Any]) -> dict[str, Any]:
 
 def patch_from_item(pro: dict[str, Any], item: dict[str, Any]) -> dict[str, Any]:
     patch: dict[str, Any] = {}
-    if empty(pro.get("city")) and item.get("city"):
-        city = str(item["city"]).strip()
-        if 2 <= len(city) <= 80:
-            patch["city"] = city
     text = "\n".join(
         str(x)
         for x in (item.get("source_text"), item.get("description"), item.get("title"))
         if x
     )
+    item_city = (str(item.get("city") or "").strip() or None)
+    city_low = (item_city or "").lower()
+    county_labels = {
+        "orange county",
+        "orange county / la",
+        "southern california",
+        "bay area",
+        "los angeles county",
+        "sacramento county",
+        "san diego county",
+        "san francisco county",
+        "oc",
+    }
+    if item_city and city_low in county_labels:
+        item_city = None
+        if empty(pro.get("region")):
+            patch["region"] = (
+                "Southern California"
+                if "southern" in city_low or "/" in city_low
+                else "San Francisco Bay Area"
+                if city_low == "bay area"
+                else "Orange County"
+                if city_low in {"oc", "orange county", "orange county / la"}
+                else item.get("city")
+            )
+
+    # Post city first, else group metro (never invent street)
+    if empty(pro.get("city")):
+        text_city = extract_city(text) if text else None
+        merged = merge_city_with_group(
+            city=item_city or text_city,
+            state=item.get("state"),
+            source_group=item.get("source_group"),
+            source=item.get("source"),
+            chat_title=item.get("source_group"),
+            address_line=pro.get("private_address_line"),
+        )
+        if merged.get("city"):
+            patch["city"] = merged["city"]
+        if empty(pro.get("region")) and merged.get("region"):
+            patch["region"] = merged["region"]
+        elif empty(pro.get("region")) and patch.get("region") is None and merged.get("region"):
+            patch["region"] = merged["region"]
+
     if empty(pro.get("postal_code")):
         z = extract_zip(text)
         if z:
             patch["postal_code"] = z
-    if empty(pro.get("city")) and "city" not in patch:
-        city = extract_city(text)
-        if city:
-            patch["city"] = city
     if empty(pro.get("private_address_line")):
         street = extract_street(text)
         if street:
             patch["private_address_line"] = street
     if patch.get("postal_code") and empty(pro.get("state_code")):
         patch["state_code"] = "US-CA"
-    if patch.get("city") and empty(pro.get("location_precision")):
+    if (patch.get("city") or patch.get("region")) and empty(pro.get("location_precision")):
         patch["location_precision"] = (
-            "street" if patch.get("private_address_line") else "city"
+            "street"
+            if patch.get("private_address_line") or not empty(pro.get("private_address_line"))
+            else "city"
+            if patch.get("city")
+            else "county"
         )
     return patch
 
@@ -280,7 +329,7 @@ def main() -> int:
     last = None
     while True:
         params = {
-            "select": "id,source_url,city,source_text,description,title",
+            "select": "id,source_url,source,source_group,city,state,source_text,description,title",
             "order": "id.asc",
             "limit": "500",
         }

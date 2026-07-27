@@ -50,3 +50,4 @@ scripts/facebook-collector/data/poc/
 scripts/**/data/*session*.json
 .vercel
 .env*
+!.env.example

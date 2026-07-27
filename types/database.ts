@@ -740,7 +740,7 @@ export type Database = {
       listings: {
         Row: {
           id: string;
-          owner_id: string;
+          owner_id: string | null;
           listing_type: ListingType;
           status: ListingStatus;
           visibility: ListingVisibility;
@@ -774,7 +774,7 @@ export type Database = {
         };
         Insert: {
           id?: string;
-          owner_id?: string;
+          owner_id?: string | null;
           listing_type?: ListingType;
           status?: ListingStatus;
           visibility?: ListingVisibility;

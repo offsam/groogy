@@ -579,7 +579,9 @@ export async function approveImportReviewItemAction(input: {
     const { data: inserted, error: insertError } = await untyped(supabase)
       .from("jobs")
       .insert({
-        owner_profile_id: user.id,
+        // D1: imported jobs are unowned-until-claimed; the admin is recorded
+        // as creator/importer only (P-1, ARCHITECTURE_ALIGNMENT_ROADMAP).
+        owner_profile_id: null,
         created_by_profile_id: user.id,
         title: String(title).trim().slice(0, 200),
         slug: jobSlug,
@@ -617,7 +619,8 @@ export async function approveImportReviewItemAction(input: {
     const { data: inserted, error: insertError } = await supabase
       .from("listings")
       .insert({
-        owner_id: user.id,
+        // D1: imported listings are unowned-until-claimed (RLS allows null owner).
+        owner_id: null,
         listing_type: listingType,
         status: "draft",
         visibility: "unlisted",

@@ -259,7 +259,7 @@ export function mapListing(
 
   return {
     id: row.id,
-    ownerId: ownerIdForViewer ?? row.owner_id,
+    ownerId: ownerIdForViewer ?? row.owner_id ?? "",
     listingType: row.listing_type,
     status: row.status,
     visibility: row.visibility,

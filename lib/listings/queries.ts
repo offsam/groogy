@@ -317,7 +317,7 @@ async function attachPublishers(
       const { data } = await client.rpc("resolve_listing_publisher", {
         p_publisher_type: row.publisher_type ?? "profile",
         p_publisher_business_id: row.publisher_business_id ?? null,
-        p_owner_id: row.owner_id,
+        p_owner_id: row.owner_id ?? "",
         p_author_visibility: row.author_visibility ?? null,
       });
       return mapListingPublisher((data as Record<string, unknown> | null) ?? null);
@@ -401,7 +401,7 @@ async function hydrateRows(
             ),
         null,
         false,
-        keep ? row.owner_id : "",
+        keep ? (row.owner_id ?? "") : "",
       ),
     );
   }

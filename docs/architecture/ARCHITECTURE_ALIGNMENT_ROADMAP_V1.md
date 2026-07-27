@@ -252,6 +252,16 @@ Format: goal / result / depends on / complexity / risk / prerequisites.
 
 ### Stage D — Identity Cleanup
 
+> **STATUS: D1+D2 DONE 2026-07-27.** Convention chosen: imported cards are
+> **unowned-until-claimed** (owner NULL — the insert RLS policy allowed it since
+> day one; the NOT NULL constraint made that branch dead and is now dropped).
+> `listings_enforce_row` INSERT branch lets admins create unowned listings
+> (non-admins still forced to self-ownership; owner stays immutable on UPDATE —
+> transfer will be a dedicated RPC, D4). Route fixed in the approve action for
+> listings AND jobs; backfill released 700 imported listings (2 genuinely
+> user-owned kept); 0 legacy jobs needed it. TS null-owner handling: sentinel ""
+> in permission checks — vacant cards are admin-managed only. D3–D5 remain.
+
 | T | Task | Result | Deps | Cx | Risk | Ready-before |
 |---|---|---|---|---|---|---|
 | D1 | Stop admin-as-owner at the route (P-1a) | new imported listings/jobs published unowned/service-owned; admin only in audit | — | M | med (RLS interplay) | decision on vacant-owner convention per existing RLS |

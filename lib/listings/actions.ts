@@ -380,7 +380,7 @@ export async function updateListingAction(
   if (!existing) return fail("Объявление не найдено.");
   if (
     !canEditListing(
-      { ownerId: existing.owner_id, status: existing.status },
+      { ownerId: existing.owner_id ?? "", status: existing.status },
       user.id,
     )
   ) {
@@ -507,7 +507,7 @@ export async function publishListingAction(
   if (
     !canChangeStatus(
       {
-        ownerId: existing.owner_id,
+        ownerId: existing.owner_id ?? "",
         status: existing.status,
         listingType: existing.listing_type,
       },
@@ -616,7 +616,7 @@ export async function updateServiceAction(
   }
   if (
     !canEditListing(
-      { ownerId: existing.owner_id, status: existing.status },
+      { ownerId: existing.owner_id ?? "", status: existing.status },
       user.id,
     )
   ) {
@@ -744,7 +744,7 @@ export async function publishServiceAction(
   if (
     !canChangeStatus(
       {
-        ownerId: existing.owner_id,
+        ownerId: existing.owner_id ?? "",
         status: existing.status,
         listingType: "service",
       },
@@ -954,7 +954,7 @@ export async function updateTransferAction(
   }
   if (
     !canEditListing(
-      { ownerId: existing.owner_id, status: existing.status },
+      { ownerId: existing.owner_id ?? "", status: existing.status },
       user.id,
     )
   ) {
@@ -1183,7 +1183,7 @@ export async function updateLechuAction(
   }
   if (
     !canEditListing(
-      { ownerId: existing.owner_id, status: existing.status },
+      { ownerId: existing.owner_id ?? "", status: existing.status },
       user.id,
     )
   ) {
@@ -1348,7 +1348,7 @@ export async function setListingStatusAction(
   if (
     !canChangeStatus(
       {
-        ownerId: existing.owner_id,
+        ownerId: existing.owner_id ?? "",
         status: existing.status,
         listingType: existing.listing_type,
       },

@@ -8,6 +8,7 @@ import {
 import { getPopularHomeResources } from "@/lib/platform/popular-resources";
 import {
   DEFAULT_REGION_HUB,
+  getSelectableRegionHubs,
   resolveRegionHub,
 } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
@@ -35,7 +36,11 @@ export default async function HomePage() {
     const catalog = createServiceRoleClient();
     const [userResult, pins] = await Promise.all([
       client.auth.getUser(),
-      getHomeMapPins(catalog, 800).catch(() => [] as typeof mapPins),
+      // Per-hub bounding boxes — national newest-800 left LA empty while counts showed ~300.
+      getHomeMapPins(catalog, {
+        hubs: getSelectableRegionHubs(),
+        limitPerHub: 500,
+      }).catch(() => [] as typeof mapPins),
     ]);
 
     mapPins = pins;

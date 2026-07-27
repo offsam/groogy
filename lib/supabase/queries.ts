@@ -13,6 +13,8 @@ import {
   getRegionHubsByIds,
   locationFieldsMatchHub,
   parseHubIds,
+  type RegionHub,
+  type RegionMapBounds,
 } from "@/lib/regions/hubs";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
 import { distanceKm } from "@/lib/geo/distance";
@@ -214,161 +216,258 @@ export type HomeMapPin = {
   presenceFlags: BusinessPresenceFlags;
 };
 
-/**
- * All approved catalog rows that have both an address field and coordinates.
- * Includes street + city-level pins (no county-only exclusion).
- */
-export async function getHomeMapPins(
+const HOME_MAP_BUSINESS_SELECT =
+  "id, slug, name, city, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, google_maps_url, categories(name)" as const;
+
+const HOME_MAP_PROFESSIONAL_SELECT =
+  "id, slug, display_name, city, latitude, longitude, private_address_line, created_at, image_url, headline, short_description, rating_avg, reviews_count, phone, email, website, instagram_url, categories(name)" as const;
+
+type HomeMapBusinessRow = {
+  id: string;
+  slug: string;
+  name: string;
+  city: string | null;
+  postal_code: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  address_line: string | null;
+  created_at: string | null;
+  image_url: string | null;
+  short_description: string | null;
+  description: string | null;
+  rating_avg: number | null;
+  reviews_count: number | null;
+  google_rating: number | null;
+  google_reviews_count: number | null;
+  yelp_rating: number | null;
+  yelp_reviews_count: number | null;
+  instagram_followers_count: number | null;
+  phone: string | null;
+  email: string | null;
+  website: string | null;
+  instagram_url: string | null;
+  telegram_url: string | null;
+  source_url: string | null;
+  source_kind: string | null;
+  yelp_url: string | null;
+  google_maps_url: string | null;
+  categories: { name: string } | { name: string }[] | null;
+};
+
+type HomeMapProfessionalRow = {
+  id: string;
+  slug: string;
+  display_name: string;
+  city: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  private_address_line: string | null;
+  created_at: string | null;
+  image_url: string | null;
+  headline: string | null;
+  short_description: string | null;
+  rating_avg: number | null;
+  reviews_count: number | null;
+  phone: string | null;
+  email: string | null;
+  website: string | null;
+  instagram_url: string | null;
+  categories: { name: string } | { name: string }[] | null;
+};
+
+function mapBusinessHomePin(row: HomeMapBusinessRow): HomeMapPin | null {
+  const lat = row.latitude;
+  const lng = row.longitude;
+  if (typeof lat !== "number" || typeof lng !== "number") return null;
+  if (!(row.address_line ?? "").trim()) return null;
+  const cats = row.categories;
+  const categoryName = Array.isArray(cats)
+    ? (cats[0]?.name ?? null)
+    : (cats?.name ?? null);
+  const { city, postalCode } = resolvePublicCityPostal({
+    addressLine: row.address_line,
+    city: row.city,
+    region: null,
+    postalCode: row.postal_code,
+    shortDescription: row.short_description,
+    description: row.description,
+    businessName: row.name,
+  });
+  return {
+    id: row.id,
+    kind: "business",
+    name: row.name,
+    slug: row.slug,
+    href: `/business/${row.slug}`,
+    city,
+    postalCode,
+    latitude: lat,
+    longitude: lng,
+    createdAt: row.created_at ?? null,
+    imageUrl: row.image_url ?? null,
+    categoryName,
+    shortDescription: row.short_description ?? null,
+    description: row.description ?? null,
+    ratingAvg: Number(row.rating_avg ?? 0),
+    reviewsCount: Number(row.reviews_count ?? 0),
+    googleRating: row.google_rating == null ? null : Number(row.google_rating),
+    googleReviewsCount: Number(row.google_reviews_count ?? 0),
+    yelpRating: row.yelp_rating == null ? null : Number(row.yelp_rating),
+    yelpReviewsCount: Number(row.yelp_reviews_count ?? 0),
+    instagramFollowersCount:
+      row.instagram_followers_count == null
+        ? null
+        : Number(row.instagram_followers_count),
+    presenceFlags: computePresenceFlags(row),
+  };
+}
+
+function mapProfessionalHomePin(row: HomeMapProfessionalRow): HomeMapPin | null {
+  const lat = row.latitude;
+  const lng = row.longitude;
+  if (typeof lat !== "number" || typeof lng !== "number") return null;
+  if (!(row.private_address_line ?? "").trim()) return null;
+  const cats = row.categories;
+  const categoryName = Array.isArray(cats)
+    ? (cats[0]?.name ?? null)
+    : (cats?.name ?? null);
+  const { city, postalCode } = resolvePublicCityPostal({
+    addressLine: row.private_address_line,
+    city: row.city,
+    shortDescription: row.short_description || row.headline,
+    businessName: row.display_name,
+  });
+  return {
+    id: row.id,
+    kind: "professional",
+    name: row.display_name,
+    slug: row.slug,
+    href: `/professional/${row.slug}`,
+    city,
+    postalCode,
+    latitude: lat,
+    longitude: lng,
+    createdAt: row.created_at ?? null,
+    imageUrl: row.image_url ?? null,
+    categoryName,
+    shortDescription: row.short_description || row.headline || null,
+    description: null,
+    ratingAvg: Number(row.rating_avg ?? 0),
+    reviewsCount: Number(row.reviews_count ?? 0),
+    googleRating: null,
+    googleReviewsCount: 0,
+    yelpRating: null,
+    yelpReviewsCount: 0,
+    instagramFollowersCount: null,
+    presenceFlags: computePresenceFlags({
+      phone: row.phone,
+      email: row.email,
+      website: row.website,
+      instagram_url: row.instagram_url,
+      latitude: lat,
+      longitude: lng,
+    }),
+  };
+}
+
+async function fetchHomeMapPinsSlice(
   client: Client,
-  limit = 800,
+  limit: number,
+  bounds?: RegionMapBounds,
 ): Promise<HomeMapPin[]> {
   const untyped = client as unknown as SupabaseClient;
+  let bizRequest = client
+    .from("businesses")
+    .select(HOME_MAP_BUSINESS_SELECT)
+    .eq("status", "approved")
+    .not("address_line", "is", null)
+    .not("latitude", "is", null)
+    .not("longitude", "is", null);
+  let proRequest = untyped
+    .from("professionals")
+    .select(HOME_MAP_PROFESSIONAL_SELECT)
+    .eq("status", "approved")
+    .not("private_address_line", "is", null)
+    .not("latitude", "is", null)
+    .not("longitude", "is", null);
+
+  if (bounds) {
+    bizRequest = bizRequest
+      .gte("latitude", bounds.south)
+      .lte("latitude", bounds.north)
+      .gte("longitude", bounds.west)
+      .lte("longitude", bounds.east);
+    proRequest = proRequest
+      .gte("latitude", bounds.south)
+      .lte("latitude", bounds.north)
+      .gte("longitude", bounds.west)
+      .lte("longitude", bounds.east);
+  }
+
   const [bizRes, proRes] = await Promise.all([
-    client
-      .from("businesses")
-      .select(
-        "id, slug, name, city, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, google_maps_url, categories(name)",
-      )
-      .eq("status", "approved")
-      .not("address_line", "is", null)
-      .not("latitude", "is", null)
-      .not("longitude", "is", null)
-      .order("created_at", { ascending: false })
-      .limit(limit),
-    untyped
-      .from("professionals")
-      .select(
-        "id, slug, display_name, city, latitude, longitude, private_address_line, created_at, image_url, headline, short_description, rating_avg, reviews_count, phone, email, website, instagram_url, categories(name)",
-      )
-      .eq("status", "approved")
-      .not("private_address_line", "is", null)
-      .not("latitude", "is", null)
-      .not("longitude", "is", null)
-      .order("created_at", { ascending: false })
-      .limit(limit),
+    bizRequest.order("created_at", { ascending: false }).limit(limit),
+    proRequest.order("created_at", { ascending: false }).limit(limit),
   ]);
 
   if (bizRes.error) throw bizRes.error;
   if (proRes.error) throw proRes.error;
 
   const pins: HomeMapPin[] = [];
-
-  for (const row of bizRes.data ?? []) {
-    const lat = row.latitude;
-    const lng = row.longitude;
-    if (typeof lat !== "number" || typeof lng !== "number") continue;
-    if (!(row.address_line ?? "").trim()) continue;
-    const cats = row.categories as { name: string } | { name: string }[] | null;
-    const categoryName = Array.isArray(cats)
-      ? (cats[0]?.name ?? null)
-      : (cats?.name ?? null);
-    const { city, postalCode } = resolvePublicCityPostal({
-      addressLine: row.address_line,
-      city: row.city,
-      region: null,
-      postalCode: row.postal_code,
-      shortDescription: row.short_description,
-      description: row.description,
-      businessName: row.name,
-    });
-    pins.push({
-      id: row.id,
-      kind: "business",
-      name: row.name,
-      slug: row.slug,
-      href: `/business/${row.slug}`,
-      city,
-      postalCode,
-      latitude: lat,
-      longitude: lng,
-      createdAt: row.created_at ?? null,
-      imageUrl: row.image_url ?? null,
-      categoryName,
-      shortDescription: row.short_description ?? null,
-      description: row.description ?? null,
-      ratingAvg: Number(row.rating_avg ?? 0),
-      reviewsCount: Number(row.reviews_count ?? 0),
-      googleRating:
-        row.google_rating == null ? null : Number(row.google_rating),
-      googleReviewsCount: Number(row.google_reviews_count ?? 0),
-      yelpRating: row.yelp_rating == null ? null : Number(row.yelp_rating),
-      yelpReviewsCount: Number(row.yelp_reviews_count ?? 0),
-      instagramFollowersCount:
-        row.instagram_followers_count == null
-          ? null
-          : Number(row.instagram_followers_count),
-      presenceFlags: computePresenceFlags(row),
-    });
+  for (const row of (bizRes.data ?? []) as HomeMapBusinessRow[]) {
+    const pin = mapBusinessHomePin(row);
+    if (pin) pins.push(pin);
   }
-
-  for (const row of (proRes.data ?? []) as Array<{
-    id: string;
-    slug: string;
-    display_name: string;
-    city: string | null;
-    latitude: number | null;
-    longitude: number | null;
-    private_address_line: string | null;
-    created_at: string | null;
-    image_url: string | null;
-    headline: string | null;
-    short_description: string | null;
-    rating_avg: number | null;
-    reviews_count: number | null;
-    phone: string | null;
-    email: string | null;
-    website: string | null;
-    instagram_url: string | null;
-    categories: { name: string } | { name: string }[] | null;
-  }>) {
-    const lat = row.latitude;
-    const lng = row.longitude;
-    if (typeof lat !== "number" || typeof lng !== "number") continue;
-    if (!(row.private_address_line ?? "").trim()) continue;
-    const cats = row.categories;
-    const categoryName = Array.isArray(cats)
-      ? (cats[0]?.name ?? null)
-      : (cats?.name ?? null);
-    const { city, postalCode } = resolvePublicCityPostal({
-      addressLine: row.private_address_line,
-      city: row.city,
-      shortDescription: row.short_description || row.headline,
-      businessName: row.display_name,
-    });
-    pins.push({
-      id: row.id,
-      kind: "professional",
-      name: row.display_name,
-      slug: row.slug,
-      href: `/professional/${row.slug}`,
-      city,
-      postalCode,
-      latitude: lat,
-      longitude: lng,
-      createdAt: row.created_at ?? null,
-      imageUrl: row.image_url ?? null,
-      categoryName,
-      shortDescription: row.short_description || row.headline || null,
-      description: null,
-      ratingAvg: Number(row.rating_avg ?? 0),
-      reviewsCount: Number(row.reviews_count ?? 0),
-      googleRating: null,
-      googleReviewsCount: 0,
-      yelpRating: null,
-      yelpReviewsCount: 0,
-      instagramFollowersCount: null,
-      presenceFlags: computePresenceFlags({
-        phone: row.phone,
-        email: row.email,
-        website: row.website,
-        instagram_url: row.instagram_url,
-        latitude: lat,
-        longitude: lng,
-      }),
-    });
+  for (const row of (proRes.data ?? []) as HomeMapProfessionalRow[]) {
+    const pin = mapProfessionalHomePin(row);
+    if (pin) pins.push(pin);
   }
-
   return pins;
+}
+
+export type GetHomeMapPinsOptions = {
+  /** Max pins per entity type when hubs are not set (national slice). */
+  limit?: number;
+  /**
+   * When set, load pins inside each hub’s mapBounds (parallel) so switching
+   * regions on the home map is not capped by a national newest-N slice.
+   */
+  hubs?: readonly RegionHub[];
+  /** Max pins per entity type per hub when `hubs` is set. */
+  limitPerHub?: number;
+};
+
+/**
+ * Approved catalog rows with address + coordinates for the home activity map.
+ * Prefer passing launch hubs so LA/OC/etc. each get their own bounding-box slice
+ * instead of fighting for spots in one national newest-800 list.
+ */
+export async function getHomeMapPins(
+  client: Client,
+  limitOrOptions: number | GetHomeMapPinsOptions = 800,
+): Promise<HomeMapPin[]> {
+  const options: GetHomeMapPinsOptions =
+    typeof limitOrOptions === "number"
+      ? { limit: limitOrOptions }
+      : limitOrOptions;
+  const hubs = options.hubs;
+
+  if (hubs && hubs.length > 0) {
+    const limitPerHub = options.limitPerHub ?? 500;
+    const batches = await Promise.all(
+      hubs.map((hub) =>
+        fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+      ),
+    );
+    const byKey = new Map<string, HomeMapPin>();
+    for (const batch of batches) {
+      for (const pin of batch) {
+        byKey.set(`${pin.kind}:${pin.id}`, pin);
+      }
+    }
+    return [...byKey.values()];
+  }
+
+  return fetchHomeMapPinsSlice(client, options.limit ?? 800);
 }
 
 /** @deprecated prefer getHomeMapPins */

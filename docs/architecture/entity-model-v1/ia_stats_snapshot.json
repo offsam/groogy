@@ -1,0 +1,669 @@
+{
+  "methodology": {
+    "sources": [
+      "Fun for Mom reviewer_v1",
+      "LA_OrangeCounty reviewer_v1"
+    ],
+    "unit": "logical Telegram posts (merged multi-message ads)",
+    "top_level": "analyzer classification field",
+    "section_categories": "extracted_entity.category from LLM pipeline (controlled vocabulary)",
+    "marketplace_leaves": "regex on text (pipeline category mostly other)",
+    "note": "subcategory field empty for all posts in dataset"
+  },
+  "total_posts": 8866,
+  "by_chat": {
+    "Fun for Mom": 4127,
+    "LA_OrangeCounty": 4739
+  },
+  "hubs": [
+    {
+      "hub": "professional",
+      "count": 2290,
+      "pct": 25.8
+    },
+    {
+      "hub": "business",
+      "count": 1137,
+      "pct": 12.8
+    },
+    {
+      "hub": "community_seeking",
+      "count": 1126,
+      "pct": 12.7
+    },
+    {
+      "hub": "marketplace",
+      "count": 835,
+      "pct": 9.4
+    },
+    {
+      "hub": "noise_irrelevant",
+      "count": 784,
+      "pct": 8.8
+    },
+    {
+      "hub": "jobs",
+      "count": 783,
+      "pct": 8.8
+    },
+    {
+      "hub": "real_estate",
+      "count": 766,
+      "pct": 8.6
+    },
+    {
+      "hub": "events",
+      "count": 325,
+      "pct": 3.7
+    },
+    {
+      "hub": "community_discussion",
+      "count": 270,
+      "pct": 3.0
+    },
+    {
+      "hub": "community_recommendations",
+      "count": 251,
+      "pct": 2.8
+    },
+    {
+      "hub": "unclear",
+      "count": 215,
+      "pct": 2.4
+    },
+    {
+      "hub": "noise_incomplete",
+      "count": 84,
+      "pct": 0.9
+    }
+  ],
+  "business_categories": [
+    {
+      "slug": "auto_services",
+      "count": 228,
+      "pct_of_section": 20.1
+    },
+    {
+      "slug": "car_rental",
+      "count": 185,
+      "pct_of_section": 16.3
+    },
+    {
+      "slug": "moving",
+      "count": 174,
+      "pct_of_section": 15.3
+    },
+    {
+      "slug": "food",
+      "count": 154,
+      "pct_of_section": 13.5
+    },
+    {
+      "slug": "real_estate_services",
+      "count": 105,
+      "pct_of_section": 9.2
+    },
+    {
+      "slug": "other",
+      "count": 85,
+      "pct_of_section": 7.5
+    },
+    {
+      "slug": "accounting",
+      "count": 41,
+      "pct_of_section": 3.6
+    },
+    {
+      "slug": "beauty",
+      "count": 39,
+      "pct_of_section": 3.4
+    },
+    {
+      "slug": "legal",
+      "count": 29,
+      "pct_of_section": 2.6
+    },
+    {
+      "slug": "childcare",
+      "count": 22,
+      "pct_of_section": 1.9
+    },
+    {
+      "slug": "health",
+      "count": 19,
+      "pct_of_section": 1.7
+    },
+    {
+      "slug": "education",
+      "count": 16,
+      "pct_of_section": 1.4
+    },
+    {
+      "slug": "insurance",
+      "count": 15,
+      "pct_of_section": 1.3
+    },
+    {
+      "slug": "events",
+      "count": 7,
+      "pct_of_section": 0.6
+    },
+    {
+      "slug": "travel",
+      "count": 6,
+      "pct_of_section": 0.5
+    },
+    {
+      "slug": "professional_services",
+      "count": 4,
+      "pct_of_section": 0.4
+    },
+    {
+      "slug": "cleaning",
+      "count": 4,
+      "pct_of_section": 0.4
+    },
+    {
+      "slug": "locksmith",
+      "count": 2,
+      "pct_of_section": 0.2
+    },
+    {
+      "slug": "home_services",
+      "count": 2,
+      "pct_of_section": 0.2
+    }
+  ],
+  "professional_categories": [
+    {
+      "slug": "beauty",
+      "count": 509,
+      "pct_of_section": 22.2
+    },
+    {
+      "slug": "education",
+      "count": 388,
+      "pct_of_section": 16.9
+    },
+    {
+      "slug": "other",
+      "count": 387,
+      "pct_of_section": 16.9
+    },
+    {
+      "slug": "legal",
+      "count": 165,
+      "pct_of_section": 7.2
+    },
+    {
+      "slug": "professional_services",
+      "count": 165,
+      "pct_of_section": 7.2
+    },
+    {
+      "slug": "health",
+      "count": 116,
+      "pct_of_section": 5.1
+    },
+    {
+      "slug": "photography_video",
+      "count": 108,
+      "pct_of_section": 4.7
+    },
+    {
+      "slug": "auto_services",
+      "count": 92,
+      "pct_of_section": 4.0
+    },
+    {
+      "slug": "travel",
+      "count": 84,
+      "pct_of_section": 3.7
+    },
+    {
+      "slug": "food",
+      "count": 63,
+      "pct_of_section": 2.8
+    },
+    {
+      "slug": "accounting",
+      "count": 61,
+      "pct_of_section": 2.7
+    },
+    {
+      "slug": "fitness",
+      "count": 59,
+      "pct_of_section": 2.6
+    },
+    {
+      "slug": "childcare",
+      "count": 40,
+      "pct_of_section": 1.7
+    },
+    {
+      "slug": "insurance",
+      "count": 14,
+      "pct_of_section": 0.6
+    },
+    {
+      "slug": "events",
+      "count": 12,
+      "pct_of_section": 0.5
+    },
+    {
+      "slug": "cleaning",
+      "count": 8,
+      "pct_of_section": 0.3
+    },
+    {
+      "slug": "pet_services",
+      "count": 7,
+      "pct_of_section": 0.3
+    },
+    {
+      "slug": "home_services",
+      "count": 6,
+      "pct_of_section": 0.3
+    },
+    {
+      "slug": "car_rental",
+      "count": 3,
+      "pct_of_section": 0.1
+    },
+    {
+      "slug": "real_estate_services",
+      "count": 2,
+      "pct_of_section": 0.1
+    },
+    {
+      "slug": "moving",
+      "count": 1,
+      "pct_of_section": 0.0
+    }
+  ],
+  "marketplace_text_leaves": [
+    {
+      "slug": "other_goods",
+      "count": 443,
+      "pct_of_section": 53.1
+    },
+    {
+      "slug": "furniture",
+      "count": 116,
+      "pct_of_section": 13.9
+    },
+    {
+      "slug": "free_giveaway",
+      "count": 105,
+      "pct_of_section": 12.6
+    },
+    {
+      "slug": "wanted_seeking",
+      "count": 48,
+      "pct_of_section": 5.7
+    },
+    {
+      "slug": "auto_parts",
+      "count": 30,
+      "pct_of_section": 3.6
+    },
+    {
+      "slug": "kids_baby",
+      "count": 19,
+      "pct_of_section": 2.3
+    },
+    {
+      "slug": "books_media",
+      "count": 17,
+      "pct_of_section": 2.0
+    },
+    {
+      "slug": "appliances_home",
+      "count": 14,
+      "pct_of_section": 1.7
+    },
+    {
+      "slug": "vehicles",
+      "count": 13,
+      "pct_of_section": 1.6
+    },
+    {
+      "slug": "electronics",
+      "count": 12,
+      "pct_of_section": 1.4
+    },
+    {
+      "slug": "clothing",
+      "count": 8,
+      "pct_of_section": 1.0
+    },
+    {
+      "slug": "sports_outdoors",
+      "count": 7,
+      "pct_of_section": 0.8
+    },
+    {
+      "slug": "tools",
+      "count": 2,
+      "pct_of_section": 0.2
+    },
+    {
+      "slug": "pets_goods",
+      "count": 1,
+      "pct_of_section": 0.1
+    }
+  ],
+  "jobs_leaves": [
+    {
+      "slug": "driver",
+      "count": 152,
+      "pct_of_section": 19.4
+    },
+    {
+      "slug": "other_jobs",
+      "count": 101,
+      "pct_of_section": 12.9
+    },
+    {
+      "slug": "cleaning_housekeeping",
+      "count": 89,
+      "pct_of_section": 11.4
+    },
+    {
+      "slug": "sector_beauty",
+      "count": 73,
+      "pct_of_section": 9.3
+    },
+    {
+      "slug": "photo_video_crew",
+      "count": 64,
+      "pct_of_section": 8.2
+    },
+    {
+      "slug": "sales_office",
+      "count": 52,
+      "pct_of_section": 6.6
+    },
+    {
+      "slug": "beauty_salon_staff",
+      "count": 41,
+      "pct_of_section": 5.2
+    },
+    {
+      "slug": "restaurant_kitchen",
+      "count": 30,
+      "pct_of_section": 3.8
+    },
+    {
+      "slug": "sector_childcare",
+      "count": 29,
+      "pct_of_section": 3.7
+    },
+    {
+      "slug": "sector_food",
+      "count": 28,
+      "pct_of_section": 3.6
+    },
+    {
+      "slug": "sector_cleaning",
+      "count": 22,
+      "pct_of_section": 2.8
+    },
+    {
+      "slug": "sector_auto_services",
+      "count": 19,
+      "pct_of_section": 2.4
+    },
+    {
+      "slug": "sector_home_services",
+      "count": 17,
+      "pct_of_section": 2.2
+    },
+    {
+      "slug": "nanny_childcare",
+      "count": 13,
+      "pct_of_section": 1.7
+    },
+    {
+      "slug": "sector_moving",
+      "count": 13,
+      "pct_of_section": 1.7
+    },
+    {
+      "slug": "sector_health",
+      "count": 10,
+      "pct_of_section": 1.3
+    },
+    {
+      "slug": "moving_delivery",
+      "count": 9,
+      "pct_of_section": 1.1
+    },
+    {
+      "slug": "sector_photography_video",
+      "count": 5,
+      "pct_of_section": 0.6
+    },
+    {
+      "slug": "construction_labor",
+      "count": 5,
+      "pct_of_section": 0.6
+    },
+    {
+      "slug": "sector_education",
+      "count": 3,
+      "pct_of_section": 0.4
+    },
+    {
+      "slug": "sector_pet_services",
+      "count": 3,
+      "pct_of_section": 0.4
+    },
+    {
+      "slug": "sector_insurance",
+      "count": 2,
+      "pct_of_section": 0.3
+    },
+    {
+      "slug": "sector_events",
+      "count": 1,
+      "pct_of_section": 0.1
+    },
+    {
+      "slug": "sector_accounting",
+      "count": 1,
+      "pct_of_section": 0.1
+    },
+    {
+      "slug": "sector_car_rental",
+      "count": 1,
+      "pct_of_section": 0.1
+    }
+  ],
+  "real_estate_leaves": [
+    {
+      "slug": "apartment_rent",
+      "count": 366,
+      "pct_of_section": 47.8
+    },
+    {
+      "slug": "room_rent",
+      "count": 250,
+      "pct_of_section": 32.6
+    },
+    {
+      "slug": "other_real_estate",
+      "count": 128,
+      "pct_of_section": 16.7
+    },
+    {
+      "slug": "commercial",
+      "count": 22,
+      "pct_of_section": 2.9
+    }
+  ],
+  "events_categories": [
+    {
+      "slug": "events",
+      "count": 142,
+      "pct_of_section": 43.7
+    },
+    {
+      "slug": "other",
+      "count": 44,
+      "pct_of_section": 13.5
+    },
+    {
+      "slug": "travel",
+      "count": 30,
+      "pct_of_section": 9.2
+    },
+    {
+      "slug": "education",
+      "count": 28,
+      "pct_of_section": 8.6
+    },
+    {
+      "slug": "food",
+      "count": 21,
+      "pct_of_section": 6.5
+    },
+    {
+      "slug": "fitness",
+      "count": 21,
+      "pct_of_section": 6.5
+    },
+    {
+      "slug": "health",
+      "count": 15,
+      "pct_of_section": 4.6
+    },
+    {
+      "slug": "childcare",
+      "count": 15,
+      "pct_of_section": 4.6
+    },
+    {
+      "slug": "beauty",
+      "count": 5,
+      "pct_of_section": 1.5
+    },
+    {
+      "slug": "real_estate_services",
+      "count": 3,
+      "pct_of_section": 0.9
+    },
+    {
+      "slug": "pet_services",
+      "count": 1,
+      "pct_of_section": 0.3
+    }
+  ],
+  "community_seeking_categories": [
+    {
+      "slug": "other",
+      "count": 396,
+      "pct_of_section": 35.2
+    },
+    {
+      "slug": "health",
+      "count": 108,
+      "pct_of_section": 9.6
+    },
+    {
+      "slug": "real_estate_services",
+      "count": 90,
+      "pct_of_section": 8.0
+    },
+    {
+      "slug": "legal",
+      "count": 69,
+      "pct_of_section": 6.1
+    },
+    {
+      "slug": "childcare",
+      "count": 69,
+      "pct_of_section": 6.1
+    },
+    {
+      "slug": "beauty",
+      "count": 63,
+      "pct_of_section": 5.6
+    },
+    {
+      "slug": "education",
+      "count": 53,
+      "pct_of_section": 4.7
+    },
+    {
+      "slug": "food",
+      "count": 39,
+      "pct_of_section": 3.5
+    },
+    {
+      "slug": "car_rental",
+      "count": 38,
+      "pct_of_section": 3.4
+    },
+    {
+      "slug": "auto_services",
+      "count": 35,
+      "pct_of_section": 3.1
+    },
+    {
+      "slug": "pet_services",
+      "count": 33,
+      "pct_of_section": 2.9
+    },
+    {
+      "slug": "travel",
+      "count": 25,
+      "pct_of_section": 2.2
+    },
+    {
+      "slug": "cleaning",
+      "count": 24,
+      "pct_of_section": 2.1
+    },
+    {
+      "slug": "fitness",
+      "count": 20,
+      "pct_of_section": 1.8
+    },
+    {
+      "slug": "events",
+      "count": 20,
+      "pct_of_section": 1.8
+    },
+    {
+      "slug": "moving",
+      "count": 13,
+      "pct_of_section": 1.2
+    },
+    {
+      "slug": "insurance",
+      "count": 11,
+      "pct_of_section": 1.0
+    },
+    {
+      "slug": "home_services",
+      "count": 11,
+      "pct_of_section": 1.0
+    },
+    {
+      "slug": "photography_video",
+      "count": 4,
+      "pct_of_section": 0.4
+    },
+    {
+      "slug": "accounting",
+      "count": 3,
+      "pct_of_section": 0.3
+    },
+    {
+      "slug": "professional_services",
+      "count": 2,
+      "pct_of_section": 0.2
+    }
+  ]
+}

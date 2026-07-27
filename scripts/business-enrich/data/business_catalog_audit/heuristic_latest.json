@@ -1,0 +1,921 @@
+{
+  "totals": {
+    "approved_businesses": 714,
+    "with_any_address_line": 95,
+    "with_place_address": 89,
+    "with_coords": 81,
+    "category_id_null": 95
+  },
+  "buckets": {
+    "likely_professional": 457,
+    "ambiguous_no_place": 124,
+    "place_business": 94,
+    "keep_business": 32,
+    "likely_business": 7
+  },
+  "reasonCounts": {
+    "person_name_no_place": 268,
+    "no_place_personal_signals": 60,
+    "specialist_keywords_no_place": 129,
+    "person_name": 98,
+    "mobile_service": 34,
+    "personal_offer_copy": 89
+  },
+  "specialistNoPlace": 135,
+  "personNoPlace": 400,
+  "samples": {
+    "likely_professional": [
+      {
+        "name": "Милена",
+        "slug": "business-biz-205649-52ce",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$ Ванночка для ног с солью обработка стопы",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Master Valery",
+        "slug": "master-valery-205050-6c62",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "Ремонт и замена прокладки головки блока цилиндров на Тойота Приус, Кемри, и не только... Качество, гарантия, скидки. 916 504 1875",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Braidifornia",
+        "slug": "braidifornia-205140-b261",
+        "addr": null,
+        "city": "Orange",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_personal_signals"
+        ],
+        "short": "Мамы, если вы сейчас выбираете детский сад в Ирвайне очень рекомендую Learning Lab Preschool! Сайт: learninglabpreschool.com Туда ходила м",
+        "ig": true,
+        "phone": false,
+        "web": true,
+        "source": "telegram"
+      },
+      {
+        "name": "Кристина",
+        "slug": "business-biz-205128-4506",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "high",
+        "reasons": [
+          "specialist_keywords_no_place",
+          "person_name"
+        ],
+        "short": "всем привет! 🌸 Меня зовут Кристина и я приглашаю вас ко мне на красивый и уютный маникюр 💅🏻 Так как я только в начале своего пути и от",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Оксана",
+        "slug": "business-biz-205659-48e0",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "high",
+        "reasons": [
+          "specialist_keywords_no_place",
+          "person_name"
+        ],
+        "short": "Меня зовут Оксана, я профессиональный косметолог с опытом 10+ лет. Процедуры: Чистка лица Массаж Пилинг Аппаратные процедуры И уход для з",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Ruzanna Melikyan",
+        "slug": "consolidated-ruzanna-melikyan-cleaning",
+        "addr": null,
+        "city": "Los Angeles",
+        "lat": null,
+        "conf": "high",
+        "reasons": [
+          "specialist_keywords_no_place",
+          "person_name"
+        ],
+        "short": "Клининг домов, квартир и офисов · своё оборудование · 818-209-8816",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Yulia",
+        "slug": "yulia-205824-7636",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "Мы были в aqua tots месяца два , перешли в waterworks , там год уже занимается дочка, нам больше нравится . Но в aqua tots она быстро поплыл",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Тетяна",
+        "slug": "business-biz-205702-39b7",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "Я пеку паски домашние вкусные- цукаты, шоколадные капли, изюм. Можно начинить кремом - шоколадным или ванильным.",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Azamat",
+        "slug": "azamat-205815-c0ea",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "‼️Всем Привет‼️ сейчас период для получения выплат по мед страховкам, Кто работает 🔴Doordash 🟠 Amazon 🟣Lyft 🔵Spark ✅Можете получи",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Ponomarev Dmitry",
+        "slug": "ponomarev-dmitry-205622-2300",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "Спасибо за кулич и пасху! Все были в восторге от красоты и вкусноты. ❤️🤌",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Ilya",
+        "slug": "fbpack-ilya-house-repair-job",
+        "addr": null,
+        "city": null,
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Natalia",
+        "slug": "natalia-205124-c51f",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "person_name_no_place"
+        ],
+        "short": "Стрижки- женские, мужские, детские Окрашивание любой сложности Свадебные, вечерние укладки Уход за волосами Окрашивание волос любой сложно",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      }
+    ],
+    "ambiguous_no_place": [
+      {
+        "name": "Car Towing (Artur Arutiunov)",
+        "slug": "batch2-car-towing",
+        "addr": null,
+        "city": "Los Angeles",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Эвакуатор / towing · Artur Arutiunov · (417) 510-1010",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "partyfornia",
+        "slug": "partyfornia-205155-0641",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "https://www.instagram.com/partyfornia?igsh=NTc4MTIwNjQ2YQ== Наталья и ее команда прекрасные аниматоры ))",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Liudmyla Muzyra House Repair",
+        "slug": "fbpack-liudmyla-muzyra-house-repair",
+        "addr": null,
+        "city": null,
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "House repair",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Narek Mega Motors Los Angeles",
+        "slug": "consolidated-narek-mega-motors-la",
+        "addr": null,
+        "city": "Los Angeles",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Auto broker · leasing all makes · July Lease Special · LA · (818) 301-0030 · @narek.megamotorsla",
+        "ig": true,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Victor Home Repair Specialist",
+        "slug": "fbpack-victor-home-repair-specialist",
+        "addr": null,
+        "city": null,
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Tile installation, Painting, Drywall",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "TN · food",
+        "slug": "tn-food-205814-0c20",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "На фармерс маркет и Bristol farms. Whole Foods в хантингтоне были помидоры",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Iryna ❤️‍🇺🇦",
+        "slug": "iryna-205632-d2e9",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "було якось морально важко в еміграції знайшла віддушину у поезії (Костенко, Симоненко…) а згодом почала робити з їх віршів музику кому ц",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Eugenia Delaveri - Real Estate Agent",
+        "slug": "fb-post-13-eugenia-delaveri-real-estate-agent",
+        "addr": null,
+        "city": null,
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Real estate agent specializing in property sales and listings.",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Mikhail Kulesh - Vehicle Rental",
+        "slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+        "addr": null,
+        "city": null,
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Vehicle rental services providing cars for temporary use.",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Treasure Rack San Diego",
+        "slug": "fbpack-treasure-rack-san-diego",
+        "addr": null,
+        "city": "San Diego",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Marketplace б/у и новых вещей · SD · бесплатные объявления · Elena Nayerman / Inara Shelton",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Teresa M Dolan - Hair Color Model Coordinator",
+        "slug": "fb-post-35-teresa-m-dolan-hair-color-model-coordinator",
+        "addr": null,
+        "city": null,
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "---FACEBOOK_SOURCE---",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Приглашаем на отдых в наш уютный **Bronze Bull Chalet в Arno",
+        "slug": "bronze-bull-chalet-arno-205334-6488",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "low",
+        "reasons": [
+          "no_place_no_company"
+        ],
+        "short": "Приглашаем на отдых в наш уютный **Bronze Bull Chalet в Arnold, CA** — идеальное место для семьи или компании друзей. Зимой — катание в Be",
+        "ig": false,
+        "phone": false,
+        "web": true,
+        "source": "facebook"
+      }
+    ],
+    "place_business": [
+      {
+        "name": "Nadia Teterin",
+        "slug": "nadia-teterin-204759-1e1e",
+        "addr": "4213 Leafmont way",
+        "city": "Orange County",
+        "lat": null,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "HOUSE FOR RENT 4213 Leafmont way Sacramento CA 95826 4 bed 3.5 bath 2,400sf. 2 car garage with electric car charger. $3,000/mo. $3,000 de",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Dirty Bird Ranch",
+        "slug": "dirtybirdfarm-150701",
+        "addr": "5768 Olive Hill Rd",
+        "city": "Bonsall",
+        "lat": 33.2905047,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Farm ranch · Bonsall · Google 5.0★ (7) · ⚠️ Google: permanently closed",
+        "ig": true,
+        "phone": true,
+        "web": true,
+        "source": "telegram"
+      },
+      {
+        "name": "Lunelle Nail Salon",
+        "slug": "lunelle-nail-salon",
+        "addr": "25523 Marguerite Pkwy Ste B",
+        "city": "Mission Viejo",
+        "lat": 33.5923446,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Lunelle Nail Salon — современный nail salon в Mission Viejo с европейским подходом. Чистый просторный зал, спокойная атмосфера и акцент на ",
+        "ig": true,
+        "phone": true,
+        "web": true,
+        "source": "platform"
+      },
+      {
+        "name": "Olga Savitskaya",
+        "slug": "olga-savitskaya-150607",
+        "addr": "24331 El Toro Rd, Suite 340 Laguna Woods, CA 92637",
+        "city": "Orange County",
+        "lat": null,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Русскоязычный стоматолог в Orange County Dr. Aleksey Stugarev, DDS Implant & Cosmetic Dentistry Современная стоматология с акцентом на точ",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Tenina Law, Inc.",
+        "slug": "consolidated-tenina-law-inc",
+        "addr": "15250 Ventura Blvd Suite 1200, Sherman Oaks, CA 91403",
+        "city": "Sherman Oaks",
+        "lat": 34.1532592,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Tax law · Sherman Oaks · Google 5.0★ (50) · (213) 596-0265",
+        "ig": true,
+        "phone": true,
+        "web": true,
+        "source": "platform"
+      },
+      {
+        "name": "StairEdu Sergey",
+        "slug": "stairedu-sergey-150606",
+        "addr": "Mission Viejo",
+        "city": "Orange County",
+        "lat": 33.5965685,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "StairEdu Sergey +1 (949) 331-3008",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Ivan Stypnik",
+        "slug": "enriched-ivan-stypnik",
+        "addr": "1175 Baker St Ste E19",
+        "city": "Costa Mesa",
+        "lat": 33.6784183,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Профессиональные мужские и женские стрижки.",
+        "ig": false,
+        "phone": false,
+        "web": true,
+        "source": "platform"
+      },
+      {
+        "name": "Touch of Europe Inc",
+        "slug": "touch-of-europe-inc-205127-f05a",
+        "addr": "1880 Colfax St , Concord, CA",
+        "city": "Orange County",
+        "lat": null,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Дорогие одногруппники! Если вы еще не решили, что подарить себе или своим любимым на 8 марта (или просто в честь наступающий весны) приходи",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Andreeva Olga",
+        "slug": "andreeva-olga-205121-9a94",
+        "addr": "6720 Madison Ave",
+        "city": "Orange County",
+        "lat": 33.8364111,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Всем привет! Меня зовут Ольга — я тренер по йоге в Сакраменто. Веду занятия в студии по адресу 6720 Madison Ave и онлайн. Многие совмещают ",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Vasilki Café Bakery",
+        "slug": "fbpack-vasiliki-cafe-bakery-laguna-niguel",
+        "addr": "31161 Niguel Rd A",
+        "city": "Laguna Niguel",
+        "lat": 33.5090595,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Кафе-пекарня Васильки · Laguna Niguel · Google 5.0★",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Tigran — Car Audio",
+        "slug": "batch2-tigran-hovhannisyan",
+        "addr": "1218 E 1st St",
+        "city": "Los Angeles",
+        "lat": 34.04763,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Car audio / шумоизоляция · LA · (337) 999-0909",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Orange County Acting Academy",
+        "slug": "ma-150705",
+        "addr": "28674 Airoso St",
+        "city": "Mission Viejo",
+        "lat": 33.5501702,
+        "conf": "high",
+        "reasons": [
+          "has_place_address"
+        ],
+        "short": "Acting for kids/TV/film · Mission Viejo · Google 4.6★ (22)",
+        "ig": true,
+        "phone": true,
+        "web": true,
+        "source": "telegram"
+      }
+    ],
+    "keep_business": [
+      {
+        "name": "middle school",
+        "slug": "middle-school-205148-9418",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "@Capytaytay может помочь, занимается с elementary и middle school students",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Black Label Auto Studio",
+        "slug": "black-label-auto-studio-180932",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Здравствуйте! Мы — Black Label Auto Studio. Профессионально выполняем оклейку автомобилей винилом любого цвета и премиальную тонировку. Гара",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Ahmadzhnova Feruza - Beauty Salon Hiring",
+        "slug": "fb-post-27-ahmadzhnova-feruza-beauty-salon-hiring",
+        "addr": null,
+        "city": "Studio City",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Ira Body Sculpting Studio",
+        "slug": "fbpack-ira-body-sculpting-studio",
+        "addr": null,
+        "city": "Laguna Niguel",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Massage, Body sculpting, Wraps",
+        "ig": true,
+        "phone": false,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "Новый beauty salon",
+        "slug": "beauty-salon-181011",
+        "addr": null,
+        "city": "Glendale",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резид",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "telegram"
+      },
+      {
+        "name": "Roman Rybin",
+        "slug": "consolidated-roman-rybin-karaoke",
+        "addr": null,
+        "city": "Redwood City",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Karaoke Summer Night · Chez Nous, Redwood City · 17 июля · $35/$40 · 916-280-3360",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "MAGAS INSTALLATION LLC",
+        "slug": "magas-installation-llc-204828-72c6",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "MAGAS INSTALLATION LLC Предлагает услуги по установке окон и дверей а также сопутствующих работ. - Опыт работы - Свой бокс трак и пикап -",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Kaivy Alteration Studio",
+        "slug": "fbpack-kaivy-alteration-studio",
+        "addr": null,
+        "city": "Lake Forest",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Kaivy Alteration Studio · Tailoring / Clothing Alterations Contact: Jekaterina \"Kate\" Mironova Location: Lake Forest, CA Phone: +1 (949) 736",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "24-7 Logistics INC — набор CDL A водителей",
+        "slug": "24-7-logistics-inc-cdl-a-204926-2ed8",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "🚛 24-7 Logistics INC — набор CDL A водителей Открыты позиции: 🚚 Reefer 💵 Выплата водителю от $3,000+ / неделя 📈 Средний Gross — $12,0",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Corp Tax Inc",
+        "slug": "corp-tax-inc-180958",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Tax Filing 2026 🇺🇸 Поможем вернуть ваши деньги! Налоговый сезон открыт. Работаем со всеми типами кейсов: 📍 Single / Married 📍 Uber /",
+        "ig": false,
+        "phone": false,
+        "web": false,
+        "source": "platform"
+      },
+      {
+        "name": "RND Safe Cargo",
+        "slug": "rnd-safe-cargo-204927-21d4",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "**🚛 RND Safe Cargo Inc приглашает к сотрудничеству OWNER-OPERATORS НА** **CAR HAULING** Pickup / Semi trucks с трейлерами на 2–9 машин Мы",
+        "ig": true,
+        "phone": true,
+        "web": false,
+        "source": "facebook"
+      },
+      {
+        "name": "Sunrise Montessori Center",
+        "slug": "sunrise-montessori-center-204954-933c",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "default_keep"
+        ],
+        "short": "Родители детей 6–12 лет! Открыта запись на дополнительные занятия в Sunrise Montessori (Citrus Heights). Робототехника, LEGO, шахматы, комп",
+        "ig": false,
+        "phone": true,
+        "web": false,
+        "source": "facebook"
+      }
+    ],
+    "likely_business": [
+      {
+        "name": "Coding school PASV",
+        "slug": "coding-school-pasv-205322-3729",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "🤔 «А получится ли у меня?» 🤔 «Стоит ли вообще идти в IT?» 🤔 «Смогу ли я найти работу?» Такие вопросы задаёт себе почти каждый перед стар",
+        "ig": false,
+        "phone": false,
+        "web": true,
+        "source": "facebook"
+      },
+      {
+        "name": "TutOwl Online School",
+        "slug": "fb-post-26-tutowl-com-online-school",
+        "addr": null,
+        "city": "Southern California",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "Онлайн-школа для билингвов · русский / языки / STEM · (909) 991-8830",
+        "ig": true,
+        "phone": true,
+        "web": true,
+        "source": "platform"
+      },
+      {
+        "name": "Movement Brewing Company",
+        "slug": "movement-brewing-company-205317-684f",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "Join us for an afternoon of incredible classic cars, great food from West Coast Taco Bar, craft beer from Movement Brewing Company, and a ch",
+        "ig": false,
+        "phone": false,
+        "web": true,
+        "source": "facebook"
+      },
+      {
+        "name": "Lynn J English",
+        "slug": "lynn-j-english-205002-47f7",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "Набираем студентов новые классы и летнюю разговорную программу. Звоните 916-879-2892, или через http://www.lynnjenglish.com/ или Lynn's Sch",
+        "ig": false,
+        "phone": true,
+        "web": true,
+        "source": "facebook"
+      },
+      {
+        "name": "Ship Your Car with RCG LLC",
+        "slug": "ship-your-car-with-rcg-llc-205032-0494",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "🚛🚗 Ship Your Car with RCG LLC — Fast, Safe & Reliable 💼 Broker Fee — Only $150 Shipping your vehicle with RCG LLC is simple, secure, and",
+        "ig": false,
+        "phone": true,
+        "web": true,
+        "source": "facebook"
+      },
+      {
+        "name": "Metro Tech Academy",
+        "slug": "vika-borel-150706",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "Онлайн школа программирования 9–17 · Python · Vika Borel",
+        "ig": false,
+        "phone": true,
+        "web": true,
+        "source": "telegram"
+      },
+      {
+        "name": "Title Company",
+        "slug": "title-company-205234-4c04",
+        "addr": null,
+        "city": "Orange County",
+        "lat": null,
+        "conf": "med",
+        "reasons": [
+          "company_signals"
+        ],
+        "short": "Как заработать на земле в США: Land Flipping от поиска участка до продажи 🔥 Обычно эти стратегии дают только на закрытых воркшопах, но мы в",
+        "ig": false,
+        "phone": false,
+        "web": true,
+        "source": "facebook"
+      }
+    ]
+  }
+}

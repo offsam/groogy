@@ -1,0 +1,807 @@
+{
+  "generated_at": "2026-07-26T23:38:02.867067+00:00",
+  "mode": "dry_audit",
+  "pagination": "keyset by id asc",
+  "rules_source": "scripts/business-enrich/backfill_professional_categories.py (mirrors lib/professional/categories.ts)",
+  "total_approved": 486,
+  "services_active": 145,
+  "agree": 485,
+  "mismatch_count": 1,
+  "mismatch_rate": 0.0021,
+  "public_view_desync_count": 0,
+  "public_view_desync": [],
+  "current_by_category": {
+    "pro_other": 172,
+    "beauty": 85,
+    "childcare": 31,
+    "home_services": 24,
+    "photo_video": 23,
+    "education": 21,
+    "massage_wellness": 18,
+    "legal": 18,
+    "auto": 17,
+    "home_food": 15,
+    "health": 13,
+    "fitness": 10,
+    "finance": 9,
+    "creative": 8,
+    "real_estate": 7,
+    "events": 7,
+    "insurance": 4,
+    "pets": 4
+  },
+  "inferred_by_category": {
+    "pro_other": 171,
+    "beauty": 85,
+    "childcare": 31,
+    "home_services": 24,
+    "photo_video": 23,
+    "education": 21,
+    "massage_wellness": 18,
+    "legal": 18,
+    "auto": 17,
+    "home_food": 15,
+    "health": 13,
+    "fitness": 11,
+    "finance": 9,
+    "creative": 8,
+    "real_estate": 7,
+    "events": 7,
+    "insurance": 4,
+    "pets": 4
+  },
+  "top_mismatch_pairs": [
+    {
+      "current": "pro_other",
+      "suggested": "fitness",
+      "n": 1
+    }
+  ],
+  "systematic_wrong_categories": [
+    {
+      "current": "pro_other",
+      "total": 172,
+      "mismatch_outflow": 1,
+      "mismatch_rate": 0.006,
+      "top_targets": [
+        {
+          "to": "fitness",
+          "n": 1
+        }
+      ],
+      "note": "dump bucket: 172/486 (35%); 31 have clear better buckets RULES miss"
+    }
+  ],
+  "pro_other": {
+    "current_count": 172,
+    "share_of_approved": 0.3539,
+    "overused": true,
+    "inferred_count": 171,
+    "with_clear_better_bucket": 31,
+    "better_bucket_breakdown": {
+      "insurance": 10,
+      "auto": 8,
+      "home_food": 3,
+      "legal": 2,
+      "creative": 2,
+      "education": 2,
+      "beauty": 2,
+      "photo_video": 1,
+      "home_services": 1
+    },
+    "it_tech_no_dedicated_slug": 1,
+    "opaque_remaining": 139,
+    "opaque_sample": [
+      {
+        "id": "020a0a43-8710-4d2f-acc6-2e7d56454e26",
+        "display_name": "Позвоните Татьяне",
+        "headline": "Позвоните Татьяне 949-662-8430",
+        "snippet": "Позвоните Татьяне Позвоните Татьяне 949-662-8430 Позвоните Татьяне 949-662-8430 Позвоните Татьяне"
+      },
+      {
+        "id": "036f3f44-983d-455d-adf8-430d9bbf3669",
+        "display_name": "Всеволод Климчук",
+        "headline": "💬 Ты давно откладывал английский? Сейчас лучший момент. 7 лет опыта, понятная методика. Преподаю: 🇺🇸",
+        "snippet": "Всеволод Климчук 💬 Ты давно откладывал английский? Сейчас лучший момент. 7 лет опыта, понятная методика. Преподаю: 🇺🇸🇩🇪🇫🇷🇪🇸. Занятия в удобн"
+      },
+      {
+        "id": "08f953bd-0256-436f-933d-69055d1cbd00",
+        "display_name": "Александр Кл",
+        "headline": "Выездная Диагностика авто от $50. выявление неисправностей $70, ремонт проблемы от $100. замена масл",
+        "snippet": "Александр Кл Выездная Диагностика авто от $50. выявление неисправностей $70, ремонт проблемы от $100. замена масла ДВС $80, запуск авто если"
+      },
+      {
+        "id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+        "display_name": "Larisa Grib",
+        "headline": "Скажите честно 🤍\nу вас сейчас больше состояние «хочу выспаться и чтобы меня никто не трогал»\nили «мн",
+        "snippet": "Larisa Grib Скажите честно 🤍 у вас сейчас больше состояние «хочу выспаться и чтобы меня никто не трогал» или «мне нужна энергия и ресурс»?  "
+      },
+      {
+        "id": "0babfc0d-d722-4a5f-93c9-f3a12a41953c",
+        "display_name": "Amega Studios",
+        "headline": "Casting · YouTube family comedy · Westlake Village · 18–25 · $100/day · castyoutube@gmail.com",
+        "snippet": "Amega Studios Casting · YouTube family comedy · Westlake Village · 18–25 · $100/day · castyoutube@gmail.com Casting · YouTube family comedy "
+      },
+      {
+        "id": "0c7f0bd6-ff9a-44c2-a4f2-24715c679477",
+        "display_name": "Nat Ben - Personal Image Consultant",
+        "headline": "Strategic wardrobe and personal image consulting for life transitions including new relationships, c",
+        "snippet": "Nat Ben - Personal Image Consultant Strategic wardrobe and personal image consulting for life transitions including new relationships, caree"
+      },
+      {
+        "id": "0d1a18a3-4b72-4aae-a063-ec87d5a2cb74",
+        "display_name": "Гора Ведьма",
+        "headline": "Меня зовут Гóра. Я работаю с физическим и внутренним состоянием человека.\n\nЕсли есть проблемы в душе",
+        "snippet": "Гора Ведьма Меня зовут Гóра. Я работаю с физическим и внутренним состоянием человека.  Если есть проблемы в душе или теле — можно обратиться"
+      },
+      {
+        "id": "10bad016-a69f-4614-82c2-b41d7879ed82",
+        "display_name": "Ivan Zhizhnevskii",
+        "headline": "Продается Toyota Prius 2007г. 350k пробег .\nХорошая комплектация , камера заднего вида . Катализатор",
+        "snippet": "Ivan Zhizhnevskii Продается Toyota Prius 2007г. 350k пробег . Хорошая комплектация , камера заднего вида . Катализатор не оригинал .   Машин"
+      },
+      {
+        "id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+        "display_name": "Anna",
+        "headline": "Потрясающий мастер. Никакого раздражения на глазах сразу после выполнения работы (у меня очень чувст",
+        "snippet": "Anna Потрясающий мастер. Никакого раздражения на глазах сразу после выполнения работы (у меня очень чувствительные глаза и кожа вокруг глаз)"
+      },
+      {
+        "id": "1ab10197-233f-4d01-a3b5-5e7c968c5261",
+        "display_name": "Elena Nikiforova",
+        "headline": "Инжир $5- 1 Lb, есть 4 Lb. Район Antelope, Watt Ave & Elverta Rd. 9163352706 Елена.",
+        "snippet": "Elena Nikiforova Инжир $5- 1 Lb, есть 4 Lb. Район Antelope, Watt Ave & Elverta Rd. 9163352706 Елена. Инжир $5- 1 Lb, есть 4 Lb. Район Antelo"
+      },
+      {
+        "id": "1c0e1286-952f-4ec5-93b3-2ffd4bf9f764",
+        "display_name": "Cell",
+        "headline": "Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167",
+        "snippet": "Cell Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167 Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167 Привет ✌️ Шахноза Хатамова, Cell:"
+      },
+      {
+        "id": "1d8f5df2-5bb7-4990-bd95-a31dcc4e915d",
+        "display_name": "Anastasiya Breslavska",
+        "headline": "Разговорный испанский в мини-группе с носителями\n\nЕсли ты понимаешь испанский, но говорить всё ещё с",
+        "snippet": "Anastasiya Breslavska Разговорный испанский в мини-группе с носителями  Если ты понимаешь испанский, но говорить всё ещё сложно — это для те"
+      },
+      {
+        "id": "212df32e-7b2c-442e-bcca-28f1bf022073",
+        "display_name": "Adgar",
+        "headline": "🏠 Помощь с документами для аренды жилья и других нужд!\n📄Bank Statements(стейтменты)\n📄Paystubs(пейста",
+        "snippet": "Adgar 🏠 Помощь с документами для аренды жилья и других нужд! 📄Bank Statements(стейтменты) 📄Paystubs(пейстабс). 📄CPN’s  $150 📄Employment and "
+      },
+      {
+        "id": "2288d150-10cb-49eb-a47f-ea42304dd5a6",
+        "display_name": "Алёна Карташова",
+        "headline": "Привет! Провожу профессиональную глубокую чистку:\n✨Диванов\n\n✨Матрасов\n\n✨Ковров и ковровых покрытий\n\n",
+        "snippet": "Алёна Карташова Привет! Провожу профессиональную глубокую чистку: ✨Диванов  ✨Матрасов  ✨Ковров и ковровых покрытий  Удаление пятен,запахов с"
+      },
+      {
+        "id": "22d09ba7-c449-44f5-b840-3e2205520568",
+        "display_name": "Mila",
+        "headline": "Я здесь делала, хорошие врачи, на ресепшн по русски говорят\n\nhttps://maps.apple/p/nNfybZeJmMmiBq",
+        "snippet": "Mila Я здесь делала, хорошие врачи, на ресепшн по русски говорят  https://maps.apple/p/nNfybZeJmMmiBq Я здесь делала, хорошие врачи, на ресе"
+      },
+      {
+        "id": "276df65d-f0e3-423c-af29-e53a122e2b74",
+        "display_name": "regyminate",
+        "headline": "https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ==",
+        "snippet": "regyminate https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== https://www"
+      },
+      {
+        "id": "2e88368c-d3bc-4ab5-9664-7edaaf210372",
+        "display_name": "Andrei Tarzan",
+        "headline": "Привет, друзья!\nЕсли вы собираетесь на Гавайи, на остров Оаху — буду рад помочь сделать ваш отдых лё",
+        "snippet": "Andrei Tarzan Привет, друзья! Если вы собираетесь на Гавайи, на остров Оаху — буду рад помочь сделать ваш отдых лёгким, ярким и без лишних з"
+      },
+      {
+        "id": "36ffd9d9-83f2-4a8a-a2c3-945931ab1be8",
+        "display_name": "La Paving - Construction Services",
+        "headline": "Construction and paving services.",
+        "snippet": "La Paving - Construction Services Construction and paving services. Construction and paving services. Construction and paving services.  Ori"
+      },
+      {
+        "id": "3a822bd3-8b8f-4137-a346-f387fe50b60c",
+        "display_name": "Tanya",
+        "headline": "Здравствуйте, обращайтесь если есть вопросы. Стоимость $1195 за две недели в горах Big Bear.\nПрограм",
+        "snippet": "Tanya Здравствуйте, обращайтесь если есть вопросы. Стоимость $1195 за две недели в горах Big Bear. Программа сильно субсидируется для  русск"
+      },
+      {
+        "id": "3d170272-5756-4de4-9dd6-06f6ef986fac",
+        "display_name": "Ольга",
+        "headline": "Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864",
+        "snippet": "Ольга Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864 Лекарства из России, есть в наличии, можно привезти под зака"
+      }
+    ],
+    "it_sample": [
+      {
+        "id": "6559490a-3a86-4430-afc7-bd912a2854ec",
+        "display_name": "Alina Shakirova - Web & SEO Services",
+        "headline": "Website design, SEO optimization, and GEO targeting services for AI applications including ChatGPT and other AI platform",
+        "snippet": "Alina Shakirova - Web & SEO Services Website design, SEO optimization, and GEO targeting services for AI applications including ChatGPT and "
+      }
+    ]
+  },
+  "bad_examples": [
+    {
+      "display_name": "Konstantin Nutrition",
+      "slug": "konstantin-nutrition-205531-70ad",
+      "current": "pro_other",
+      "suggested": "fitness",
+      "why": "RULES «онлайн тренер»→fitness; DB=pro_other",
+      "evidence_snippet": "Konstantin Nutrition ствую 🙂  Я онлайн тренер и диетолог, помогу вам вашими целями 🍏 Мой индивидуаль",
+      "headline": "ствую 🙂\n\nЯ онлайн тренер и диетолог, помогу вам вашими целями 🍏\nМой индивидуальный подход поможет вам:\n\n💪 Сбросить лишний вес и улучшить здо",
+      "service_titles": null
+    },
+    {
+      "display_name": "US Drive Services",
+      "slug": "us-drive-services-181542-a6e1",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «Drive Service»→auto",
+      "evidence_snippet": "US Drive Services Помогаем с продлением Non-Domiciled CDL и DOT Medical",
+      "headline": "Помогаем с продлением Non-Domiciled CDL и DOT Medical Card\n\nЛегально, конфиденциально & оперативно \nОбращайтесь в Лс",
+      "service_titles": null
+    },
+    {
+      "display_name": "Roman",
+      "slug": "roman-205711-d761",
+      "current": "pro_other",
+      "suggested": "legal",
+      "why": "RULES vocabulary gap; «Грин карт»→legal",
+      "evidence_snippet": "ДЛ 🪪  - СДЛ 🚛  - Ворк ауторизейшены  - Грин карты - Тайтлы 🚗 🛥️  🏍️  - дипломы и прочие справки 🎓 - Пас",
+      "headline": "Предоставляем услуги по документам\n\n- водительские права ДЛ 🪪 \n- СДЛ 🚛 \n- Ворк ауторизейшены \n- Грин карты\n- Тайтлы 🚗 🛥️  🏍️ \n- дипломы и пр",
+      "service_titles": null
+    },
+    {
+      "display_name": "Кристина Орлова",
+      "slug": "business-2247331591-172207",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «Insurance»→insurance",
+      "evidence_snippet": "ые покрытия:  ✅ Physical Damage ✅ Cargo Insurance ✅ Non-Trucking Liability ✅ Commercial Auto ✅ COI д 🚛 Н",
+      "headline": "🚛 Нужно срочно застраховать commercial truck?\n\nПоможем быстро подобрать coverage для работы на дороге, груза и требований брокеров.\n\nДоступн",
+      "service_titles": null
+    },
+    {
+      "display_name": "Sandrina Rudenko",
+      "slug": "sandrina-rudenko-205521-2a6d",
+      "current": "pro_other",
+      "suggested": "creative",
+      "why": "RULES vocabulary gap; «таргетолог»→creative",
+      "evidence_snippet": "слуги по таргетированной рекламе.   Я — таргетолог, который превращает рекламу в системный поток клиентов",
+      "headline": ")\nПредлагаю свои услуги по таргетированной рекламе. \n\nЯ — таргетолог, который превращает рекламу в системный поток клиентов.\n\nЯ живу в Амери",
+      "service_titles": null
+    },
+    {
+      "display_name": "Настя Рыжик Ginger Foto",
+      "slug": "ginger-foto-180928",
+      "current": "pro_other",
+      "suggested": "photo_video",
+      "why": "RULES vocabulary gap; «хедшот»→photo_video",
+      "evidence_snippet": "Foto Девочки, привет! 👋 Снимаю детские хедшоты для кастингов и агентств 📸  Помогаю с позированием, п",
+      "headline": "Девочки, привет! 👋\nСнимаю детские хедшоты для кастингов и агентств 📸\n\nПомогаю с позированием, подсказываю по образу, делаю лёгкую ретушь.\nЕс",
+      "service_titles": null
+    },
+    {
+      "display_name": "American English",
+      "slug": "american-english-180939",
+      "current": "pro_other",
+      "suggested": "education",
+      "why": "RULES vocabulary gap; «уроки инглиш»→education",
+      "evidence_snippet": "American English привет всем ,уроки инглиша кому нужно помогу освоить язык  без всяких зубрежек,",
+      "headline": "привет всем ,уроки инглиша кому нужно помогу освоить язык\n без всяких зубрежек, отзывы   в профиле можете посмотреть ,есть виза сша 20$",
+      "service_titles": null
+    },
+    {
+      "display_name": "Алёна Симагина",
+      "slug": "business-9162016271-205017-a355",
+      "current": "pro_other",
+      "suggested": "home_food",
+      "why": "RULES vocabulary gap; «ИКРА»→home_food",
+      "evidence_snippet": "Алёна Симагина ИКРА И ФОРЕЛЬ В SACRAMENTO  Свежая, качественная, проверенн",
+      "headline": "ИКРА И ФОРЕЛЬ В SACRAMENTO\n\nСвежая, качественная, проверенная 👌\nИдеально на стол, в подарок или для себя 😋\n\n🔴 Красная икра (Silver Bay):\n▪️К",
+      "service_titles": null
+    },
+    {
+      "display_name": "Alex Auto Brokering",
+      "slug": "batch2-alex-auto-brokering",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «Auto Broker»→auto",
+      "evidence_snippet": "Alex Auto Brokering Auto broker · Lexus/Toyota lease specials · Souther",
+      "headline": "Auto broker · Lexus/Toyota lease specials · Southern CA · (951) 334-1760",
+      "service_titles": null
+    },
+    {
+      "display_name": "Artur Moiseev",
+      "slug": "artur-moiseev-205026-f41e",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «Эвакуатор»→auto",
+      "evidence_snippet": "Artur Moiseev 🚨 Эвакуатор по Сакраменто и за городом!  Нужна помощь на дороге? М",
+      "headline": "🚨 Эвакуатор по Сакраменто и за городом!\n\nНужна помощь на дороге? Мы приедем быстро и аккуратно заберём ваш автомобиль туда, куда нужно.\n\nУсл",
+      "service_titles": null
+    },
+    {
+      "display_name": "Тетяна",
+      "slug": "business-biz-205753-f515",
+      "current": "pro_other",
+      "suggested": "home_food",
+      "why": "RULES vocabulary gap; «блинчик»→home_food",
+      "evidence_snippet": "Тетяна Здравствуйте, предлагаю блинчики-начинка индюшка запечённая. 0.500 гр. /15$ Ирвайн. Зд",
+      "headline": "Здравствуйте, предлагаю блинчики-начинка индюшка запечённая. 0.500 гр. /15$\nИрвайн.",
+      "service_titles": null
+    },
+    {
+      "display_name": "Roman",
+      "slug": "roman-205714-a161",
+      "current": "pro_other",
+      "suggested": "legal",
+      "why": "RULES vocabulary gap; «Грин карт»→legal",
+      "evidence_snippet": "ДЛ 🪪  - СДЛ 🚛  - Ворк ауторизейшены  - Грин карты - Тайтлы 🚗 🛥️  🏍️  - дипломы и прочие справки 🎓 - Пас",
+      "headline": "Услуги по документам и др.\n\n- водительские права ДЛ 🪪 \n- СДЛ 🚛 \n- Ворк ауторизейшены \n- Грин карты\n- Тайтлы 🚗 🛥️  🏍️ \n- дипломы и прочие спр",
+      "service_titles": null
+    },
+    {
+      "display_name": "Mike Novak",
+      "slug": "mike-novak-205033-4e17",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страхован»→insurance",
+      "evidence_snippet": "ban с большим багажником  ✅ Полностью застрахован и лицензирован  ⏱️ Всегда вовремя | Чистый и профессио",
+      "headline": "🚐 Премиальный частный трансфер | Bay Area и Сакраменто\n\nНадёжные и комфортные поездки по всей Bay Area, включая Сан-Франциско, Сакраменто, Р",
+      "service_titles": null
+    },
+    {
+      "display_name": "Ivanka",
+      "slug": "ivanka-180933",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страховка»→insurance",
+      "evidence_snippet": "a Prius C 2014 в аренду. Обслуживание и страховка включена в стоимость Машинка в отличном состоянии, оче",
+      "headline": "Toyota Prius C 2014 в аренду. Обслуживание и страховка включена в стоимость\nМашинка в отличном состоянии, очень хороший MPG\n\nЖелательно сдат",
+      "service_titles": null
+    },
+    {
+      "display_name": "Daniel Mataev",
+      "slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+      "current": "pro_other",
+      "suggested": "home_food",
+      "why": "RULES vocabulary gap; «икра»→home_food",
+      "evidence_snippet": "поставщика — бренд Silver Bay. Кошерная икра малосол с насыщенным вкусом; также кошерная копчёная р",
+      "headline": "Доставка икры Silver Bay и копчёной рыбы · OC / LA / Valleys · кошер · к двери",
+      "service_titles": null
+    },
+    {
+      "display_name": "Галина Бёрфильд",
+      "slug": "business-biz-205645-00cc",
+      "current": "pro_other",
+      "suggested": "beauty",
+      "why": "RULES vocabulary gap; «ногтями»→beauty",
+      "evidence_snippet": "гаю бережный и профессиональный уход за ногтями любой сложности.За подробностями пишите в личку. Локац",
+      "headline": "Всем доброго времени суток.\nПредлагаю бережный и профессиональный уход за ногтями любой сложности.За подробностями пишите в личку. Локация И",
+      "service_titles": null
+    },
+    {
+      "display_name": "Andrea",
+      "slug": "andrea-205452-eebd",
+      "current": "pro_other",
+      "suggested": "education",
+      "why": "RULES vocabulary gap; «уроки инглиш»→education",
+      "evidence_snippet": "Andrea рад вас видеть , предлагаю уроки инглиша 20 $ ,только разговорный язык , отзывы в профиле може",
+      "headline": "рад вас видеть , предлагаю уроки инглиша 20 $ ,только разговорный язык ,\nотзывы в профиле можете посмотреть ,мне нравиться преподавать ,любл",
+      "service_titles": null
+    },
+    {
+      "display_name": "Роман",
+      "slug": "business-biz-181520-51a0",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «детейлинг»→auto",
+      "evidence_snippet": "Роман Всем привет👋 Занимаюсь детейлингом салона и кузова. Полировка, керамика, выезд на место",
+      "headline": "Всем привет👋 Занимаюсь детейлингом салона и кузова.\nПолировка, керамика, выезд на место. Сделаю, чтобы машина выглядела как новая. Работаю а",
+      "service_titles": null
+    },
+    {
+      "display_name": "Sarkis Karagashian",
+      "slug": "sarkis-karagashian-204915-c658",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «детейлинг»→auto",
+      "evidence_snippet": "вут Саркис 👋 Занимаюсь профессиональным детейлингом автомобилей с выездом.  ✨ Что делаю:  ✔️ Убираю цара",
+      "headline": "Всем привет! Меня зовут Саркис 👋\nЗанимаюсь профессиональным детейлингом автомобилей с выездом.\n\n✨ Что делаю:\n\n✔️ Убираю царапины и “паутинку",
+      "service_titles": null
+    },
+    {
+      "display_name": "Vyacheslav Papkov - Auto Insurance Services",
+      "slug": "fb-post-2-vyacheslav-papkov-auto-insurance-services",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «Insurance»→insurance",
+      "evidence_snippet": "Vyacheslav Papkov - Auto Insurance Services Auto insurance services and discounts for Rus",
+      "headline": "Auto insurance services and discounts for Russian-speaking community. Advice on obtaining discounts and comparing insurance options.",
+      "service_titles": null
+    },
+    {
+      "display_name": "Oli",
+      "slug": "oli-205509-fbfa",
+      "current": "pro_other",
+      "suggested": "home_services",
+      "why": "RULES vocabulary gap; «покраску дом»→home_services",
+      "evidence_snippet": "щью AI Неважно, что именно ты продаешь: покраску домов, установку виниров, новостройки или дорог 🚨 Пока ты",
+      "headline": "🚨 Пока ты думаешь, конкуренты уже забирают твоих клиентов с помощью AI\nНеважно, что именно ты продаешь: покраску домов, установку виниров, н",
+      "service_titles": null
+    },
+    {
+      "display_name": "Роман",
+      "slug": "business-biz-205655-4e36",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «детейлинг»→auto",
+      "evidence_snippet": "Роман Всем привет👋 Занимаюсь детейлингом салона и кузова. Полировка, керамика, выезд на место",
+      "headline": "Всем привет👋 Занимаюсь детейлингом салона и кузова.\nПолировка, керамика, выезд на место. Сделаю, чтобы машина выглядела как новая. Работаю а",
+      "service_titles": null
+    },
+    {
+      "display_name": "Katerina",
+      "slug": "katerina-180947",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страховка»→insurance",
+      "evidence_snippet": "Katerina Сдаются авто 2023 года 900$ (страховка включена)  Пишите, пожалуйста,  в ЛС Сдаются авто 2023",
+      "headline": "Сдаются авто 2023 года 900$ (страховка включена) \nПишите, пожалуйста,  в ЛС",
+      "service_titles": null
+    },
+    {
+      "display_name": "Aleksandr",
+      "slug": "aleksandr-172200",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страховка»→insurance",
+      "evidence_snippet": "🆕 Новая, без пробега  💲 $900 / месяц + страховка от арендатора  4x4 полный привод • Apple CarPlay / And",
+      "headline": "🚙 АРЕНДА — Jeep Gladiator / Wrangler 2025 \n🆕 Новая, без пробега\n\n💲 $900 / месяц + страховка от арендатора\n\n4x4 полный привод • Apple CarPlay",
+      "service_titles": null
+    },
+    {
+      "display_name": "Irina Electrolysis",
+      "slug": "irina-electrolysis-205451-0a8b",
+      "current": "pro_other",
+      "suggested": "beauty",
+      "why": "RULES vocabulary gap; «Electrolysis»→beauty",
+      "evidence_snippet": "Irina Electrolysis Девочки, всем привет! Обращаюсь к мастерам бьюти, кто",
+      "headline": "Девочки, всем привет!\nОбращаюсь к мастерам бьюти, кто уже снимает кабинет: если у вас сейчас не полностью заполнен график и есть свободные д",
+      "service_titles": null
+    },
+    {
+      "display_name": "Nikita",
+      "slug": "nikita-180903",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «детейлинг»→auto",
+      "evidence_snippet": "м!  Мы рады сообщить, что открыли новый детейлинг-центр в Orange County.  У нас вы можете сделать: • Уст",
+      "headline": "Устали от жары? Хотите сделать поездки по солнечной Калифорнии комфортнее или освежить внешний вид своего автомобиля?\n\nТогда вам точно к нам",
+      "service_titles": null
+    },
+    {
+      "display_name": "Karinа",
+      "slug": "karin-205637-d761",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страховка»→insurance",
+      "evidence_snippet": "ечение рака у мейкуна.  А вот из costco страховка отказала покрывать расх Напишите мне в лс , если я заб",
+      "headline": "Напишите мне в лс , если я забуду вечером посмотрю какая у подруги. Она у неё покрыла лечение рака у мейкуна.  А вот из costco страховка отк",
+      "service_titles": null
+    },
+    {
+      "display_name": "Boris Sat",
+      "slug": "boris-sat-205028-50b1",
+      "current": "pro_other",
+      "suggested": "auto",
+      "why": "RULES vocabulary gap; «эвакуатор»→auto",
+      "evidence_snippet": "16) 500-5555 ✅Товинг Сакраменто ✅Услуги эвакуатора ✅Доставка авто с аукциона ✅Перевозка мелкой техники",
+      "headline": "Towing 24/7\nТел +1(916)7507343 Булат\n+1 (916) 500-5555\n✅Товинг Сакраменто\n✅Услуги эвакуатора\n✅Доставка авто с аукциона\n✅Перевозка мелкой тех",
+      "service_titles": null
+    },
+    {
+      "display_name": "Tim Samarin",
+      "slug": "tim-samarin-204949-aaf8",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страховка»→insurance",
+      "evidence_snippet": "itle, чистые внутри и снаружи .  🪪 Ваша страховка, мы поможем с оформлением.   💰от Аренда Toyota Prius 🛠",
+      "headline": "Аренда Toyota Prius\n🛠️полностью обслуженные и технически исправные автомобили\n\n🔧Наше техобслуживание и ремонт.\n\n❗️Без ограничений по про про",
+      "service_titles": null
+    },
+    {
+      "display_name": "Николай",
+      "slug": "business-biz-205513-a1f0",
+      "current": "pro_other",
+      "suggested": "creative",
+      "why": "RULES vocabulary gap; «таргетолог»→creative",
+      "evidence_snippet": "eta и Google работать на ваш кошелек. Я таргетолог-практик. Беру ваш рекламный бюджет и конвертирую ег Хв",
+      "headline": "Хватит просто так спонсировать Цукерберга и Google! 🛑\n\nВаша реклама крутится, бюджет списывается, а продаж нет? Пора заставить алгоритмы Met",
+      "service_titles": null
+    },
+    {
+      "display_name": "Celine Miles",
+      "slug": "celine-miles-204758-6060",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «Страховка»→insurance",
+      "evidence_snippet": "Аренда трейлера 2027 года — $175/нед. 🛡 Страховка Dry Van — $300 ⛽️ Скидки на топливо в Pilot, Loves и T",
+      "headline": "🚨 **CDL-A Owner Operators — открыт набор!**\n\nМы не обещаем невозможного — предлагаем понятные условия и стабильную работу.\n\n📈 Gross: **$13,0",
+      "service_titles": null
+    },
+    {
+      "display_name": "Rita Torikashvili",
+      "slug": "rita-torikashvili-205809-48fa",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "why": "RULES vocabulary gap; «страхована»→insurance",
+      "evidence_snippet": "шина на которой он сдает, должна быть застрахована, но сам водитель не обязан быть вписан в страховку. У",
+      "headline": "Машина на которой он сдает, должна быть застрахована, но сам водитель не обязан быть вписан в страховку. У меня дочь в прошлом году права по",
+      "service_titles": null
+    }
+  ],
+  "mismatches": [
+    {
+      "id": "4ff40a99-303b-41b5-a384-8db2b5064aa1",
+      "slug": "konstantin-nutrition-205531-70ad",
+      "display_name": "Konstantin Nutrition",
+      "current": "pro_other",
+      "suggested": "fitness",
+      "evidence_snippet": "Konstantin Nutrition ствую 🙂  Я онлайн тренер и диетолог, помогу вам вашими целями 🍏 Мой индивидуаль"
+    }
+  ],
+  "pro_other_vocabulary_gaps": [
+    {
+      "id": "12c01256-6391-4b1d-9c28-cf6f8fb90221",
+      "slug": "us-drive-services-181542-a6e1",
+      "display_name": "US Drive Services",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "US Drive Services Помогаем с продлением Non-Domiciled CDL и DOT Medical"
+    },
+    {
+      "id": "2d3a1db0-44aa-492c-b003-843b503a3ba8",
+      "slug": "roman-205711-d761",
+      "display_name": "Roman",
+      "current": "pro_other",
+      "suggested": "legal",
+      "evidence_snippet": "ДЛ 🪪  - СДЛ 🚛  - Ворк ауторизейшены  - Грин карты - Тайтлы 🚗 🛥️  🏍️  - дипломы и прочие справки 🎓 - Пас"
+    },
+    {
+      "id": "31c1ae56-801f-4e65-8d6d-7e71f381dbe8",
+      "slug": "business-2247331591-172207",
+      "display_name": "Кристина Орлова",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "ые покрытия:  ✅ Physical Damage ✅ Cargo Insurance ✅ Non-Trucking Liability ✅ Commercial Auto ✅ COI д 🚛 Н"
+    },
+    {
+      "id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "slug": "sandrina-rudenko-205521-2a6d",
+      "display_name": "Sandrina Rudenko",
+      "current": "pro_other",
+      "suggested": "creative",
+      "evidence_snippet": "слуги по таргетированной рекламе.   Я — таргетолог, который превращает рекламу в системный поток клиентов"
+    },
+    {
+      "id": "35185c35-07af-4799-ae9a-58d47b159dd7",
+      "slug": "ginger-foto-180928",
+      "display_name": "Настя Рыжик Ginger Foto",
+      "current": "pro_other",
+      "suggested": "photo_video",
+      "evidence_snippet": "Foto Девочки, привет! 👋 Снимаю детские хедшоты для кастингов и агентств 📸  Помогаю с позированием, п"
+    },
+    {
+      "id": "390bc68d-3ad4-4aad-b01c-b983174d0c20",
+      "slug": "american-english-180939",
+      "display_name": "American English",
+      "current": "pro_other",
+      "suggested": "education",
+      "evidence_snippet": "American English привет всем ,уроки инглиша кому нужно помогу освоить язык  без всяких зубрежек,"
+    },
+    {
+      "id": "39813339-8402-451a-8934-89718259d7da",
+      "slug": "business-9162016271-205017-a355",
+      "display_name": "Алёна Симагина",
+      "current": "pro_other",
+      "suggested": "home_food",
+      "evidence_snippet": "Алёна Симагина ИКРА И ФОРЕЛЬ В SACRAMENTO  Свежая, качественная, проверенн"
+    },
+    {
+      "id": "3cfc5882-ff7e-4ebb-bd62-de4c56286cf2",
+      "slug": "batch2-alex-auto-brokering",
+      "display_name": "Alex Auto Brokering",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "Alex Auto Brokering Auto broker · Lexus/Toyota lease specials · Souther"
+    },
+    {
+      "id": "3e485152-9de5-497c-8b79-54da0695a705",
+      "slug": "artur-moiseev-205026-f41e",
+      "display_name": "Artur Moiseev",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "Artur Moiseev 🚨 Эвакуатор по Сакраменто и за городом!  Нужна помощь на дороге? М"
+    },
+    {
+      "id": "40c2c723-b304-45d4-96d5-33dbb10c0238",
+      "slug": "business-biz-205753-f515",
+      "display_name": "Тетяна",
+      "current": "pro_other",
+      "suggested": "home_food",
+      "evidence_snippet": "Тетяна Здравствуйте, предлагаю блинчики-начинка индюшка запечённая. 0.500 гр. /15$ Ирвайн. Зд"
+    },
+    {
+      "id": "502afb70-82fe-4c89-bff5-3d27ca671cf8",
+      "slug": "roman-205714-a161",
+      "display_name": "Roman",
+      "current": "pro_other",
+      "suggested": "legal",
+      "evidence_snippet": "ДЛ 🪪  - СДЛ 🚛  - Ворк ауторизейшены  - Грин карты - Тайтлы 🚗 🛥️  🏍️  - дипломы и прочие справки 🎓 - Пас"
+    },
+    {
+      "id": "5d25d3c9-b0fa-41ab-8c4b-44e8e1392d66",
+      "slug": "mike-novak-205033-4e17",
+      "display_name": "Mike Novak",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "ban с большим багажником  ✅ Полностью застрахован и лицензирован  ⏱️ Всегда вовремя | Чистый и профессио"
+    },
+    {
+      "id": "716bb340-042e-4cc8-8d54-8e3350f41eca",
+      "slug": "ivanka-180933",
+      "display_name": "Ivanka",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "a Prius C 2014 в аренду. Обслуживание и страховка включена в стоимость Машинка в отличном состоянии, оче"
+    },
+    {
+      "id": "7802379c-5080-4297-8ffa-479425710c94",
+      "slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+      "display_name": "Daniel Mataev",
+      "current": "pro_other",
+      "suggested": "home_food",
+      "evidence_snippet": "поставщика — бренд Silver Bay. Кошерная икра малосол с насыщенным вкусом; также кошерная копчёная р"
+    },
+    {
+      "id": "7bee140c-f53c-4f00-a224-2d4901aad714",
+      "slug": "business-biz-205645-00cc",
+      "display_name": "Галина Бёрфильд",
+      "current": "pro_other",
+      "suggested": "beauty",
+      "evidence_snippet": "гаю бережный и профессиональный уход за ногтями любой сложности.За подробностями пишите в личку. Локац"
+    },
+    {
+      "id": "7ce6c8ab-4fa5-40a2-a829-6758840fa401",
+      "slug": "andrea-205452-eebd",
+      "display_name": "Andrea",
+      "current": "pro_other",
+      "suggested": "education",
+      "evidence_snippet": "Andrea рад вас видеть , предлагаю уроки инглиша 20 $ ,только разговорный язык , отзывы в профиле може"
+    },
+    {
+      "id": "93831ffe-6034-4a5a-b0ea-041853637cc2",
+      "slug": "business-biz-181520-51a0",
+      "display_name": "Роман",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "Роман Всем привет👋 Занимаюсь детейлингом салона и кузова. Полировка, керамика, выезд на место"
+    },
+    {
+      "id": "9a22ce3c-580b-4d94-ab26-fc4ebe2ab263",
+      "slug": "sarkis-karagashian-204915-c658",
+      "display_name": "Sarkis Karagashian",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "вут Саркис 👋 Занимаюсь профессиональным детейлингом автомобилей с выездом.  ✨ Что делаю:  ✔️ Убираю цара"
+    },
+    {
+      "id": "a0bc8b23-20ea-4397-b159-f91cd93abe69",
+      "slug": "fb-post-2-vyacheslav-papkov-auto-insurance-services",
+      "display_name": "Vyacheslav Papkov - Auto Insurance Services",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "Vyacheslav Papkov - Auto Insurance Services Auto insurance services and discounts for Rus"
+    },
+    {
+      "id": "a5580939-447e-45c1-86bc-d8a0a7187dfe",
+      "slug": "oli-205509-fbfa",
+      "display_name": "Oli",
+      "current": "pro_other",
+      "suggested": "home_services",
+      "evidence_snippet": "щью AI Неважно, что именно ты продаешь: покраску домов, установку виниров, новостройки или дорог 🚨 Пока ты"
+    },
+    {
+      "id": "a69443e4-9b66-446e-bd25-4e5c180a2986",
+      "slug": "business-biz-205655-4e36",
+      "display_name": "Роман",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "Роман Всем привет👋 Занимаюсь детейлингом салона и кузова. Полировка, керамика, выезд на место"
+    },
+    {
+      "id": "bddfe40e-d441-4c84-be02-30e3ede8d957",
+      "slug": "katerina-180947",
+      "display_name": "Katerina",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "Katerina Сдаются авто 2023 года 900$ (страховка включена)  Пишите, пожалуйста,  в ЛС Сдаются авто 2023"
+    },
+    {
+      "id": "bf6c0633-633d-4d24-830c-221a059cda65",
+      "slug": "aleksandr-172200",
+      "display_name": "Aleksandr",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "🆕 Новая, без пробега  💲 $900 / месяц + страховка от арендатора  4x4 полный привод • Apple CarPlay / And"
+    },
+    {
+      "id": "c1c5ed92-0190-4596-9183-94a573bee26b",
+      "slug": "irina-electrolysis-205451-0a8b",
+      "display_name": "Irina Electrolysis",
+      "current": "pro_other",
+      "suggested": "beauty",
+      "evidence_snippet": "Irina Electrolysis Девочки, всем привет! Обращаюсь к мастерам бьюти, кто"
+    },
+    {
+      "id": "d2345e9d-e1ab-40f0-8846-0a9eddf07c4e",
+      "slug": "nikita-180903",
+      "display_name": "Nikita",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "м!  Мы рады сообщить, что открыли новый детейлинг-центр в Orange County.  У нас вы можете сделать: • Уст"
+    },
+    {
+      "id": "d28042dc-8241-434e-aa6d-6a5c4ae008c4",
+      "slug": "karin-205637-d761",
+      "display_name": "Karinа",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "ечение рака у мейкуна.  А вот из costco страховка отказала покрывать расх Напишите мне в лс , если я заб"
+    },
+    {
+      "id": "d57932d8-33bd-4f87-a5fa-8c51f9eced8a",
+      "slug": "boris-sat-205028-50b1",
+      "display_name": "Boris Sat",
+      "current": "pro_other",
+      "suggested": "auto",
+      "evidence_snippet": "16) 500-5555 ✅Товинг Сакраменто ✅Услуги эвакуатора ✅Доставка авто с аукциона ✅Перевозка мелкой техники"
+    },
+    {
+      "id": "dbae9f5f-a287-4b33-93cf-ee150504c687",
+      "slug": "tim-samarin-204949-aaf8",
+      "display_name": "Tim Samarin",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "itle, чистые внутри и снаружи .  🪪 Ваша страховка, мы поможем с оформлением.   💰от Аренда Toyota Prius 🛠"
+    },
+    {
+      "id": "e18ec7c2-df13-4862-a164-6c34f25a3678",
+      "slug": "business-biz-205513-a1f0",
+      "display_name": "Николай",
+      "current": "pro_other",
+      "suggested": "creative",
+      "evidence_snippet": "eta и Google работать на ваш кошелек. Я таргетолог-практик. Беру ваш рекламный бюджет и конвертирую ег Хв"
+    },
+    {
+      "id": "fb8cea1b-05c5-4eb5-adbc-d1c34fb52745",
+      "slug": "celine-miles-204758-6060",
+      "display_name": "Celine Miles",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "Аренда трейлера 2027 года — $175/нед. 🛡 Страховка Dry Van — $300 ⛽️ Скидки на топливо в Pilot, Loves и T"
+    },
+    {
+      "id": "fd5f6f4f-204b-42c0-9887-e2d7ac3445e6",
+      "slug": "rita-torikashvili-205809-48fa",
+      "display_name": "Rita Torikashvili",
+      "current": "pro_other",
+      "suggested": "insurance",
+      "evidence_snippet": "шина на которой он сдает, должна быть застрахована, но сам водитель не обязан быть вписан в страховку. У"
+    }
+  ]
+}

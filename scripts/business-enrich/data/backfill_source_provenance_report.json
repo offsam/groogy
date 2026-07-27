@@ -1,0 +1,14 @@
+{
+  "ran_at": "2026-07-26",
+  "businesses_total": 494,
+  "biz_tg_source": 236,
+  "biz_fb_source": 1,
+  "biz_platform": 257,
+  "biz_website_still_tme": 0,
+  "biz_tg_url_still_post": 0,
+  "listings_total": 196,
+  "list_tg_source": 192,
+  "list_fb_source": 3,
+  "list_platform": 1,
+  "notes": "Live businesses linked to import_review via published_entity_id: 202. Remaining businesses without import source marked platform."
+}

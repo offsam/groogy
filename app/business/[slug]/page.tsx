@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
+import { SyncHubCookie } from "@/components/layout/SyncHubCookie";
 import { getPublicOffersForBusiness } from "@/lib/business-offers/queries";
+import { listPublishedCommunityMentionsForBusiness } from "@/lib/community-mentions/queries";
+import { listPublishedBusinessLocations } from "@/lib/business/locations";
+import { listJobsForBusiness } from "@/lib/jobs/queries";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
+import { resolveRequestHubs } from "@/lib/regions/request-hub";
+import { serializeHubIds } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
+import { formatAddress, stripBusinessContacts } from "@/lib/supabase/mappers";
+import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import {
+  getActiveCategories,
   getApprovedBusinesses,
   getBusinessBySlug,
   searchBusinesses,
@@ -16,12 +26,17 @@ import {
   userIsAdmin,
   userOwnsBusiness,
 } from "@/lib/reviews/queries";
-import type { Business } from "@/types/business";
+import type { Business, Category } from "@/types/business";
 import type { Review, ReviewVerificationSession } from "@/types/review";
 
 type BusinessPageProps = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ claim?: string; tab?: string; edit?: string }>;
+  searchParams: Promise<{
+    claim?: string;
+    edit?: string;
+    tab?: string;
+    hub?: string;
+  }>;
 };
 
 const SITE_URL =
@@ -31,14 +46,16 @@ export async function generateMetadata({
   params,
 }: BusinessPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const client = await createServerClient();
-  const business = await getBusinessBySlug(client, slug);
+  const catalog = createServiceRoleClient();
+  const business = await getBusinessBySlug(catalog, slug);
   if (!business) return { title: "Бизнес не найден" };
 
   const description =
-    business.shortDescription ??
-    business.description?.slice(0, 160) ??
-    `${business.name} — профиль компании на платформе.`;
+    redactContactsFromPublicText(
+      business.shortDescription ??
+        business.description?.slice(0, 160) ??
+        null,
+    ) ?? `${business.name} — профиль компании на платформе.`;
 
   return {
     title: `${business.name} — КРУГИ`,
@@ -58,29 +75,46 @@ export async function generateMetadata({
 
 export default async function BusinessPage({ params, searchParams }: BusinessPageProps) {
   const { slug } = await params;
-  const { claim, tab, edit } = await searchParams;
+  const { claim, tab, edit, hub } = await searchParams;
+  const activeHubs = await resolveRequestHubs(hub);
+  const hubIds = serializeHubIds(activeHubs.map((h) => h.id));
   const client = await createServerClient();
-  const business = await getBusinessBySlug(client, slug);
-  if (!business) notFound();
+  const catalog = createServiceRoleClient();
+  const fullBusiness = await getBusinessBySlug(catalog, slug);
+  if (!fullBusiness) notFound();
 
   const {
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, isAdmin, similarPool] = await Promise.all([
-    getPublicOffersForBusiness(client, business.id),
-    getPublishedReviewsForBusiness(client, business.id).catch(() => []),
-    user ? userOwnsBusiness(client, business.id) : Promise.resolve(false),
+  const [offers, published, owns, isAdmin, similarPool, communityMentions, locations, categories] =
+    await Promise.all([
+    getPublicOffersForBusiness(client, fullBusiness.id, {
+      businessSlug: fullBusiness.slug,
+      businessName: fullBusiness.name,
+    }),
+    getPublishedReviewsForBusiness(client, fullBusiness.id).catch(() => []),
+    user ? userOwnsBusiness(client, fullBusiness.id) : Promise.resolve(false),
     user ? userIsAdmin(client).catch(() => false) : Promise.resolve(false),
-    business.categoryId
-      ? searchBusinesses(client, { categoryId: business.categoryId })
-      : getApprovedBusinesses(client, 12),
+    fullBusiness.categoryId
+      ? searchBusinesses(catalog, { categoryId: fullBusiness.categoryId })
+      : getApprovedBusinesses(catalog, 12),
+    listPublishedCommunityMentionsForBusiness(catalog, fullBusiness.id).catch(
+      () => [],
+    ),
+    listPublishedBusinessLocations(catalog, fullBusiness.id).catch(() => []),
+    getActiveCategories(catalog).catch(() => [] as Category[]),
   ]);
+
+  const canManageEarly = owns || isAdmin;
+  const jobs = await listJobsForBusiness(catalog, fullBusiness.id, {
+    includeDrafts: canManageEarly,
+  }).catch(() => []);
 
   let myReview = null;
   let mySession: ReviewVerificationSession | null = null;
   if (user) {
-    myReview = await getMyReviewForBusiness(client, business.id, user.id);
+    myReview = await getMyReviewForBusiness(client, fullBusiness.id, user.id);
     if (myReview) {
       mySession = await getVerificationSessionForReview(client, myReview.id);
     }
@@ -88,18 +122,22 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
 
   const reviews = published as Review[];
   const similar = (similarPool as Business[])
-    .filter((b) => b.id !== business.id)
+    .filter((b) => b.id !== fullBusiness.id)
     .slice(0, 4);
 
   const canManage = owns || isAdmin;
   const autoClaim = claim === "1" && Boolean(user) && !canManage;
   const editMode = edit === "1" && canManage;
-  const cityOnly = business.city?.trim() || "";
+  // Outside edit mode everyone gets stripped contacts — reveal loads via API.
+  const business = editMode ? fullBusiness : stripBusinessContacts(fullBusiness);
+  const publicAddress = formatAddress(fullBusiness);
 
   return (
     <>
+      <SyncHubCookie hubId={hubIds} />
       <BusinessProfileView
         activeTab={tab}
+        activeHubs={activeHubs}
         autoClaim={autoClaim}
         business={business}
         businessSlug={slug}
@@ -107,10 +145,14 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         editMode={editMode}
         isAdmin={isAdmin}
         isOwner={canManage}
+        categories={isAdmin ? categories : []}
         myReview={myReview}
         mySession={mySession}
         offers={offers}
+        jobs={jobs}
         reviews={reviews}
+        communityMentions={communityMentions}
+        locations={locations}
         similar={similar}
       />
 
@@ -122,11 +164,12 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
             name: business.name,
             description: business.shortDescription ?? business.description,
             url: `${SITE_URL}/business/${slug}`,
-            address: cityOnly
+            address: publicAddress
               ? {
                   "@type": "PostalAddress",
-                  addressLocality: business.city,
-                  addressRegion: business.region,
+                  streetAddress: fullBusiness.addressLine ?? undefined,
+                  addressLocality: fullBusiness.city ?? undefined,
+                  addressRegion: fullBusiness.region ?? undefined,
                 }
               : undefined,
           }),

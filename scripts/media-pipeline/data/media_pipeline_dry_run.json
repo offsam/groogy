@@ -1,0 +1,5856 @@
+{
+  "stats": {
+    "total": 185,
+    "businesses": 178,
+    "listings": 7,
+    "already_has_image": 0,
+    "skipped": 0,
+    "by_source": {
+      "telegram_post": 81,
+      "category_default": 98,
+      "website_logo": 1,
+      "website_og": 5
+    },
+    "unavailable_signals": 74,
+    "duplicates": 0,
+    "estimated_upload_mb": 16.35,
+    "without_real_photo": 98,
+    "apply_status": {}
+  },
+  "candidates": [
+    {
+      "review_item_id": "bee2bd68-7961-4c90-bb6a-8ca987c96056",
+      "title": "happy.tails.grooming.oc",
+      "entity_type": "business",
+      "entity_id": "451363a6-cac6-44f8-b819-5a5d8963befd",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "pet_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72017,
+        72018,
+        72019,
+        72020
+      ],
+      "photos_count": 4,
+      "instagram": [
+        "happy.tails.grooming.oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "438fa9dd-e3c6-460d-8a26-97e7b82f0718",
+      "title": "mama_bear_oc",
+      "entity_type": "business",
+      "entity_id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70022
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "mama_bear_oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c05ab128-d501-4bd3-99b6-fed2fefed2ee",
+      "title": "bearchildrensacademy.org",
+      "entity_type": "business",
+      "entity_id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72362
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.bearchildrensacademy.org/summer",
+        "https://www.bearchildrensacademy.org"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [
+        "favicon_reject:bad_mime"
+      ],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c9c774e0-7185-438e-b0e7-de5690b749d0",
+      "title": "swimmingcoach_losangeles_oc",
+      "entity_type": "business",
+      "entity_id": "d71e0111-bc0c-4742-9221-ed71e9b2de06",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71872
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "swimmingcoach_orange_county",
+        "swimmingcoach_losangeles_oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "38344be1-4062-4def-982f-e627d8f82321",
+      "title": "Irin Pilates",
+      "entity_type": "business",
+      "entity_id": "84199fd9-4e20-4d26-ac47-90dc1a90e078",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70715
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.vagaro.com/upgradepilates/deals/NewClientsIntro-3Classes-22169905?isdeal=yes"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "74420d5e-b7b5-4465-b96f-bb6afbdfa46b",
+      "title": "Денис Шульга",
+      "entity_type": "business",
+      "entity_id": "fff003d8-27aa-491e-b437-7cdb0c191cc4",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70206
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "vistatax.us"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "eda0374b-b2db-4664-9732-684726e7946f",
+      "title": "Evgeniya Slimface",
+      "entity_type": "business",
+      "entity_id": "cc6b0a7d-8083-4c6d-bc7c-6575d90f6dc1",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70087
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "slimface_massage"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4dc7bbea-2ebc-4e45-be73-46aec67b9c27",
+      "title": "Натали",
+      "entity_type": "business",
+      "entity_id": "8e8f4a5d-aada-4521-93ef-638ddb7990db",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69910
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "styliststates"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "d1743ed7-3d13-432b-aa7a-2b777dc7815f",
+      "title": "Мигель Фигероа",
+      "entity_type": "business",
+      "entity_id": "337ff738-d464-4749-863a-815d31671e90",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "insurance",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69611
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "mihel_insurance"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8c35920d-5476-42d2-85e8-460ba9f16172",
+      "title": "Dance PROgression",
+      "entity_type": "business",
+      "entity_id": "0dd3b888-0538-4032-a235-93debc6a6ccc",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69566,
+        69567,
+        69568,
+        69569,
+        69570
+      ],
+      "photos_count": 5,
+      "instagram": [
+        "dance_progressions"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a06df454-f259-4dc4-8304-e3a4774c568d",
+      "title": "Tатьяна",
+      "entity_type": "business",
+      "entity_id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "auto_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69353
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "mi_care_beauty"
+      ],
+      "websites": [
+        "https://maps.app.goo.gl/wHCGnYMucuGNNkk67?g_st=atm",
+        "https://maps.app.goo.gl/49fsmGgzTzy4uhan9?g_st=ic",
+        "https://maps.app.goo.gl/PuJVqEUcBkCpNV8w6?g_st=ic",
+        "https://maps.app.goo.gl/4zu7NA5HX4Xbfk6J7?g_st=ic",
+        "https://maps.app.goo.gl/g7ywpBc5VebK2ZyE6?g_st=ic",
+        "https://maps.app.goo.gl/wbgsBanQnucSgGT16?g_st=ic",
+        "https://maps.app.goo.gl/LLaHJYjg3j6gAXEQ7?g_st=ic",
+        "https://maps.app.goo.gl/QeuXGMbhrFhfv2xD9?g_st=ic",
+        "https://maps.app.goo.gl/4yZAf3QWu4EybHus6",
+        "https://maps.app.goo.gl/EB8wR9iddyK9a8pH8",
+        "https://maps.app.goo.gl/5Dvi8U5fe5hoxsMH6?g_st=it",
+        "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7?g_st=ic",
+        "https://ocpl.org/cards",
+        "https://maps.app.goo.gl/pNeSN7R7HDKLm4FN8?g_st=ac",
+        "https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8?g_st=ic",
+        "https://micarebeauty.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+        "https://maps.app.goo.gl/2ohf2LGZHjWKc9Rc7?g_st=ic",
+        "https://maps.app.goo.gl/hK2aZ68GyAF4VNA27?g_st=ic",
+        "https://maps.app.goo.gl/1S7izRQ2m7yHwZDk9?g_st=ic",
+        "https://maps.app.goo.gl/wZz7NHd89Xtz5VzS9?g_st=ic",
+        "https://maps.app.goo.gl/G2jiwp8kKmD4zhYs8?g_st=ic",
+        "https://maps.app.goo.gl/cbgRCpi3hbsnP2xa6?g_st=ic",
+        "https://maps.app.goo.gl/67hGMFict4MwMzuR8?g_st=ic",
+        "https://maps.app.goo.gl/yGBS98YeuFpbZJ1c8?g_st=ic",
+        "https://maps.app.goo.gl/52Wh4qZFgu5EtWv96?g_st=ic",
+        "https://maps.app.goo.gl/zHoLWkmfgJUjHTMG9?g_st=ic",
+        "https://maps.app.goo.gl/CYWCQqgDR22Eq85D8",
+        "https://maps.app.goo.gl/eLjF2NuPW7LPiaLW7?g_st=ic",
+        "https://maps.app.goo.gl/nbhVdte1AGC1STjY6",
+        "https://chat.whatsapp.com/JqAxqNDZ9q0IFiB44Fj4Fy",
+        "https://maps.app.goo.gl/aPGYp2K2qYRXURo39?g_st=ic",
+        "https://maps.app.goo.gl/1DR1W7SLz1PWP6k96?g_st=iw",
+        "https://maps.app.goo.gl/xsc8sWCgLgsWcvdJ6?g_st=ic",
+        "https://maps.app.goo.gl/czTWDKaEGitUHGPy7?g_st=com.google.maps.preview.copy",
+        "https://maps.app.goo.gl/eh3jtj3oCQ3fNHDF7?g_st=ic",
+        "https://maps.app.goo.gl/6GrKPixbSZkaTWfj9?g_st=ic"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403",
+        "website:maps.app.goo.gl:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "00c55b52-69d6-4b5c-ae90-7ec355cf3706",
+      "title": "Анастасия",
+      "entity_type": "business",
+      "entity_id": "d8ad2941-c5d2-4f88-8225-8a4fef53ac1e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "cleaning",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75020
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [
+        "http://sofacleanus.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_logo",
+      "chosen_url": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/qO4KEFjwIP3EeoFRsxT1/media/68ed5ffce1a55e40f3a61c21.png",
+      "estimated_bytes": 33672,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": "fa2c52cb124da97f8920fb5f89299f66a9145dd4792052e504bc8cb0b08838df"
+    },
+    {
+      "review_item_id": "fa2b89ad-df95-4133-93ee-acb31306510c",
+      "title": "Телефон",
+      "entity_type": "business",
+      "entity_id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70464
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "avelorea.workshop",
+        "avelorea.jewelry"
+      ],
+      "websites": [
+        "https://avelorea.jewelry"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403",
+        "instagram:http_403",
+        "website:avelorea.jewelry:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4e0c19ec-43b8-4bbb-96de-c95f6dcada19",
+      "title": "aigerim_bimoldina",
+      "entity_type": "business",
+      "entity_id": "ee1d5f2a-8102-4026-9b53-7903cedc3d50",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70220
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "ailinjourney",
+        "aigerim_bimoldina"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403",
+        "instagram:no_og_image"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "0b610515-9e49-4bb9-8f09-69bdce35045a",
+      "title": "Наргиза",
+      "entity_type": "business",
+      "entity_id": "b7a5e958-fa07-4aee-96f2-34f8fde1b05d",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69936
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "my_brows7"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a6b4300b-3429-4b60-931f-1eb034c04264",
+      "title": "Айзада",
+      "entity_type": "business",
+      "entity_id": "535ad738-419f-4298-bbf4-d844baf7f69e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69341
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "aizada_nailsirvine"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "db162c7b-b707-4a56-b41b-087b285bf6c8",
+      "title": "Nata",
+      "entity_type": "business",
+      "entity_id": "27801381-892f-4212-a951-5e5b77c0d96b",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "auto_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71977
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "08baaf92-2081-4442-a81f-f421a1f6056d",
+      "title": "Vivika",
+      "entity_type": "business",
+      "entity_id": "6e904691-f991-4496-9b06-1bcaee649c14",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "cleaning",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74212
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "b1cb7443-88a7-4d65-8767-8f34744b8077",
+      "title": "Victoria Yakovenko",
+      "entity_type": "business",
+      "entity_id": "d7571de1-afa2-4fb6-9af0-5a16edeb2f13",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "car_rental",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75808,
+        75809,
+        75810,
+        75811,
+        75812
+      ],
+      "photos_count": 5,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "bca8d69d-79f4-41df-b1ae-5bcd1cb794cc",
+      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "entity_type": "business",
+      "entity_id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75602
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7e8b2119-16ca-4d3c-a97a-7d6ae11431e7",
+      "title": "Сергей",
+      "entity_type": "business",
+      "entity_id": "c7b6ad11-1eeb-474b-bdde-35ecab80e0e1",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75394
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "2bceb6a1-ac04-45f8-997f-bdd49fe99b20",
+      "title": "Daniel Mataev",
+      "entity_type": "business",
+      "entity_id": "61eafff5-cffe-4e4c-8ea0-477afea2a078",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75157,
+        75158,
+        75159,
+        75160
+      ],
+      "photos_count": 4,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a2d601be-9e80-4611-a1ff-0a097c3386f4",
+      "title": "Antonina",
+      "entity_type": "business",
+      "entity_id": "cfaa89e2-9340-4134-b77d-0647883f0daa",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "childcare",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74653
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "9d404374-ff49-4d85-aa5f-40afd367c53c",
+      "title": "Elmira73",
+      "entity_type": "business",
+      "entity_id": "ce3cf29e-408b-4985-8fc6-daf3ef218e8e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74603,
+        74604,
+        74605,
+        74606
+      ],
+      "photos_count": 3,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "83e2af8f-1ad5-4c36-b0c2-303cecd7e68a",
+      "title": "StairEdu Sergey",
+      "entity_type": "business",
+      "entity_id": "d8e02133-7958-44b8-842c-50ccfd9b9e96",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72713
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c9167b75-6443-4f8a-924f-35e2be582b0c",
+      "title": "Olga Savitskaya",
+      "entity_type": "business",
+      "entity_id": "c01f5d37-2b2e-43f3-b667-5757521f6802",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72520
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "456fa517-d397-40a0-baae-2e53a07fa787",
+      "title": "Tanya",
+      "entity_type": "business",
+      "entity_id": "d8179aa7-96f9-4a1e-ae56-7de1a018a2d9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71673
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "67ed53f3-5e1e-48dc-82f6-fffba42e73de",
+      "title": "Милана Приглашаю вас",
+      "entity_type": "business",
+      "entity_id": "a61cab79-d21c-42cb-84bf-9b2498853308",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70868,
+        70869,
+        70870,
+        70871,
+        70872
+      ],
+      "photos_count": 5,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7720def9-69b0-4baa-b496-cd02ac59323f",
+      "title": "Марина",
+      "entity_type": "business",
+      "entity_id": "f481de80-be57-4c27-9cbc-525bfad56d5a",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70608
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "1462808a-20bc-49bd-92eb-f569e680759e",
+      "title": "Acrossers Dance Studio",
+      "entity_type": "business",
+      "entity_id": "e48d178e-b7f5-452d-84d5-0c930706455a",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69968
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ef843b0b-d418-4724-9fbc-48226498c84f",
+      "title": "Denis CA Dealer",
+      "entity_type": "business",
+      "entity_id": "5fffeda1-4087-4fc7-a47a-cd1b611b90f2",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "auto_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69488
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c7bfc133-54a2-4b4a-b667-c08ab2fc27d1",
+      "title": "Alyona Koolhaas",
+      "entity_type": "business",
+      "entity_id": "2ba1a651-ff1e-4bb8-aab5-bb60d226c16e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75490
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a124b9fd-f6f6-4c13-8369-8fbc052e7178",
+      "title": "Татьяна Морщук",
+      "entity_type": "business",
+      "entity_id": "f16414c0-a4fb-4522-967b-9d2eeba57553",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75235
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/restaurants.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "de27cf2c-80a5-4cef-b78b-7dda4ea997d9",
+      "title": "Алла",
+      "entity_type": "business",
+      "entity_id": "b2914537-8bf9-4332-af54-2fcb5ebc954b",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "cleaning",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75077
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "bb2520f1-362d-42d8-ad4b-bc1981ccd9db",
+      "title": "Anastasiya",
+      "entity_type": "business",
+      "entity_id": "4d881d1d-773d-4733-8178-6965f8d9e13a",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74562
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/medical.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c40e0dc9-a699-4a50-955f-337f206cf06a",
+      "title": "Марина",
+      "entity_type": "business",
+      "entity_id": "5dac7073-a4fb-4974-8958-85131a5d94b8",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "photography_video",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73646
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "16477454-a83a-43f4-8508-0849479edcc0",
+      "title": "Таисия Шаповалова",
+      "entity_type": "business",
+      "entity_id": "221ca7bf-6c18-4790-8275-c3055b8c2ba6",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73441,
+        73442,
+        73443
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "d5035e30-e80a-4ec8-8d15-c0ea89c7197d",
+      "title": "The Village Spectrum",
+      "entity_type": "business",
+      "entity_id": "ec094d1e-3118-4419-90f5-7ff9baaf766f",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73366
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "80337c7d-334e-4069-b473-438838d451e4",
+      "title": "Anna Ahmatova",
+      "entity_type": "business",
+      "entity_id": "31df18bb-2aee-41f6-bb4a-890acadf71d9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "childcare",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72774
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "cec526ab-e872-4a78-8067-869041581585",
+      "title": "Ирина Кундухова",
+      "entity_type": "business",
+      "entity_id": "9bd10b93-d3b5-4e0f-8a9e-d1940da45399",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72616
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "b295b6d4-c7d8-4953-b15f-8d45a862a79b",
+      "title": "Юля",
+      "entity_type": "business",
+      "entity_id": "13b6964a-5d8b-472c-8436-34f5e4369237",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70881
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4fadbf46-5328-4b23-b0d1-5eceda26eba3",
+      "title": "Natalia Belova",
+      "entity_type": "business",
+      "entity_id": "578051a1-b946-4f72-bb06-efe0f8eeb105",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69987
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "2f39be0c-35ce-421f-a9fa-b4fb3eea7b02",
+      "title": "Яковлев Дмитрий",
+      "entity_type": "business",
+      "entity_id": "559dfa39-c33f-4c79-948c-7e2aca2cfd4d",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69801
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a50422d0-419d-4fcc-b15c-1e235d1d6843",
+      "title": "Мила",
+      "entity_type": "business",
+      "entity_id": "c6574256-203b-4cad-adff-951002d13de3",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "legal",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69445,
+        69446
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/legal.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e215f3ea-f119-4d4e-9456-7a22032ab9f8",
+      "title": "Valentyna Vasiura",
+      "entity_type": "business",
+      "entity_id": "51da7d03-7167-4a8d-a428-0e997ae0dcba",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69420
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "d1006c09-9446-4de3-b8d5-edf2f0a9c9d8",
+      "title": "Masha Angel",
+      "entity_type": "business",
+      "entity_id": "7495de75-d05d-4279-89cf-2b93eeb0341e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69400
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/medical.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "98c5a2cc-66d8-4716-a9d7-b78913c0df01",
+      "title": "Cell",
+      "entity_type": "business",
+      "entity_id": "f3c5d4c2-e26c-4690-916c-11f4025e5764",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73645
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "9cfa2cf3-1aac-4d9d-91e7-bc11819ef3c1",
+      "title": "Позвоните Татьяне",
+      "entity_type": "business",
+      "entity_id": "19e9218c-bcf4-4fcc-8bc6-437cfe57dd00",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70211
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "de2da466-56bb-4f19-8fa1-054fa427b005",
+      "title": "Галина",
+      "entity_type": "business",
+      "entity_id": "44e6cb87-dd35-47ae-93a6-1447dda5799d",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69930
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ad50ecbb-bc3d-4568-911d-c72f10550b6c",
+      "title": "janeoart.kids",
+      "entity_type": "business",
+      "entity_id": "67ebf07d-9bce-4737-ae81-2073624fbba8",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "photography_video",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75128
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "janeoart.kids"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "61a638ea-633a-4974-8cfe-47513426e013",
+      "title": "Александра",
+      "entity_type": "business",
+      "entity_id": "5658b957-f07a-4a67-b0b0-eaa54818af09",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72630,
+        72631,
+        72632,
+        72633,
+        72634
+      ],
+      "photos_count": 5,
+      "instagram": [
+        "floralex_flowers"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a967f0b5-1f32-423c-8eb6-d5cac35f4c29",
+      "title": "София",
+      "entity_type": "business",
+      "entity_id": "c27fb51b-8ed9-49ba-b81d-a8997aca8cea",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70311,
+        70312,
+        70313,
+        70314,
+        70315
+      ],
+      "photos_count": 5,
+      "instagram": [
+        "beautytouch_by_sofi"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "af84e811-c6fa-4479-9b68-ccb62efd2c63",
+      "title": "Кристина",
+      "entity_type": "business",
+      "entity_id": "02ff8fe9-48b2-41f5-9a56-fcff35f27cad",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69782,
+        69783,
+        69784,
+        69785
+      ],
+      "photos_count": 4,
+      "instagram": [
+        "kristi_haircolourist_",
+        "nailskrisart"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "080e8b34-4dd3-43f9-aec3-1d5d87efe3a0",
+      "title": "alina_oc_hair",
+      "entity_type": "business",
+      "entity_id": "8e393da3-969f-48a1-9056-14bb2786eb37",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73171
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "alina_oc_hair"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "239f9fd0-57ae-4967-8ec1-5d39cf1af177",
+      "title": "lindas_bouquet",
+      "entity_type": "business",
+      "entity_id": "47e540fd-aa7f-4ef9-a1c4-99fe444ba055",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72460
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "lindas_bouquet"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4cfa505a-e8d0-45f6-a438-922b6b9cb097",
+      "title": "grace_and_bloom_",
+      "entity_type": "business",
+      "entity_id": "3474b107-c440-499a-b0e7-0ac29015208c",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72403
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "grace_and_bloom_"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7e5608bd-a061-496c-96f5-95c080cfbe6a",
+      "title": "aleks_bake_",
+      "entity_type": "business",
+      "entity_id": "88f119a3-60d7-4ab1-95c6-dafd4867920b",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71463
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "aleks_bake_"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "22a5e56d-19d7-44ee-9fe5-d5cdcf579573",
+      "title": "hammond_cpa",
+      "entity_type": "business",
+      "entity_id": "739b057b-3430-44a7-89a7-c9161b002e80",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69554
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "hammond_cpa"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "42717df3-1bdf-46db-afb7-2340cdb7b3e5",
+      "title": "Женя",
+      "entity_type": "business",
+      "entity_id": "857c63d7-43c2-4275-b333-24d5a5467c16",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        76036
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "lashes_shtefan"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "0b275211-0593-4627-b27a-8695a28312af",
+      "title": "delicious_by_va",
+      "entity_type": "business",
+      "entity_id": "a2c4b3aa-1be4-4f1c-bec8-ceb6b7298bbd",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        76007
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "delicious_by_va"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "6e399f69-563b-4545-bcbb-73e23a048119",
+      "title": "glekel.photo",
+      "entity_type": "business",
+      "entity_id": "0a8a697d-842a-42cd-a734-9cb3cf5ac9ea",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "photography_video",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75786
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "glekel.photo"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a3d97639-e380-42fd-a003-663949acb3b4",
+      "title": "hair_extension_usa",
+      "entity_type": "business",
+      "entity_id": "08f1c63c-4bc3-4f0d-bfe5-2c9e8eff1fa0",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75303
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "hair_extension_usa"
+      ],
+      "websites": [
+        "https://book.squareup.com/appointments/rs9n1t8d3ug3cu/location/L6QVRQQX024AS/services?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaATCgFRwZG9mAmV4dG4DYWVtATEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGn6euoeasPBecDUzDIUcbQqO9hLAZnI9-8Hl4l9o2pk7348zlD9BEz3dYoaq8_aem_MP5JN_LpPkPbhiO7DBlLzQ"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "3b6f0ed0-5c5d-498c-b203-7f5a2b930baa",
+      "title": "alexandra_dessert_studio",
+      "entity_type": "business",
+      "entity_id": "f6d58c4b-6198-468e-9225-62e5f69b5dd8",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75272,
+        75273,
+        75274,
+        75275,
+        75276
+      ],
+      "photos_count": 5,
+      "instagram": [
+        "alexandra_dessert_studio"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "aadfc619-c98f-401c-ac7f-299e142a289e",
+      "title": "23peony",
+      "entity_type": "business",
+      "entity_id": "f535c259-63ae-4cfe-a0d9-a8f84e3e1cde",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75221
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "23peony"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7abdeec2-d6e5-4769-b7aa-61ae847ba1c3",
+      "title": "onemoreminute.play",
+      "entity_type": "business",
+      "entity_id": "7fda78f2-123c-4759-910f-c01d303861b9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73938,
+        73939
+      ],
+      "photos_count": 2,
+      "instagram": [
+        "onemoreminute.play"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ab393edc-2a01-42b3-8f26-09e80f23b310",
+      "title": "hairdreams__by_galinakirbaba",
+      "entity_type": "business",
+      "entity_id": "a37350f7-5ca7-44ed-bcbc-ad32a58a4507",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73909
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "hairdreams__by_galinakirbaba"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "72f12e85-127a-4b44-ba5d-f3494555941e",
+      "title": "diana_california",
+      "entity_type": "business",
+      "entity_id": "e2703b07-234f-434c-964a-7b10ff350e75",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73725
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "diana_california"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/medical.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "aaeb7ee5-6ab3-4a5c-aa68-834e9a267afe",
+      "title": "kalinka.service",
+      "entity_type": "business",
+      "entity_id": "fcd6029d-c550-4a9a-8415-4d08bbe6a292",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73702
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "kalinka.service"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "5bc5c160-31dc-4648-af8c-d7f8687332b5",
+      "title": "olehkapitanchuk_massage",
+      "entity_type": "business",
+      "entity_id": "edefd73c-dbcd-45be-b294-3d9a5211050e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73324,
+        73325
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "olehkapitanchuk_massage"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "24ca4916-bb9a-4eb6-84d6-6f5312e987e5",
+      "title": "dr__modarres",
+      "entity_type": "business",
+      "entity_id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72771
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "dr__modarres"
+      ],
+      "websites": [
+        "https://www.skinovationcleaning.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "928b413d-8db1-4cae-b04c-0049814d1e92",
+      "title": "karelin.photography",
+      "entity_type": "business",
+      "entity_id": "603932d3-eea2-4bed-902d-45add50a9198",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "photography_video",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72399
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "karelin.photography"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "17c33a39-6a3b-427d-bf7d-970a1f19da07",
+      "title": "merengue.desert",
+      "entity_type": "business",
+      "entity_id": "dcc3c0b9-06ba-40c5-b52d-8347aa5523e6",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71934,
+        71935,
+        71936,
+        71937,
+        71938,
+        71939
+      ],
+      "photos_count": 6,
+      "instagram": [
+        "merengue.desert"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "213c148b-e764-4635-83e7-b67f31e8638e",
+      "title": "Ирина",
+      "entity_type": "business",
+      "entity_id": "33cea557-516c-4c5a-9b59-77bcb4c7a5b7",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70913
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "irinatrainer"
+      ],
+      "websites": [
+        "https://youtube.com/shorts/zPOjp7SewVI?is=P4XHfXHvcCzrdZSK",
+        "https://youtube.com/shorts/tBi7mXWNNd4?si=LMnbD3aEz00swK0D",
+        "https://youtube.com/shorts/VAkgh3Ohz4A?si=K3aLZ_yZQV0pTVsu",
+        "https://youtu.be/jVfXDWqyANw?si=mcVzPXJbHlOm7Jvb",
+        "https://youtu.be/qgb8IbXyv_w?si=nb446-767ghWWeox",
+        "https://www.youtube.com/@irinatrainer"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://www.youtube.com/img/desktop/yt_1200.png",
+      "estimated_bytes": 6833,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": "56d5e95f4da139ad8475ed4e4d7f4334151b0102c7863f3f07c1dea22990ce2f"
+    },
+    {
+      "review_item_id": "d8be43c7-04a4-43b3-a08a-8f5bf55d080d",
+      "title": "surprise_me.balloons",
+      "entity_type": "business",
+      "entity_id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "events",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70686
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "surprise_me.balloons"
+      ],
+      "websites": [
+        "https://surprisemeballoonbar.com/"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "020456c4-e85e-487a-8c3f-d8202bbbbdc8",
+      "title": "Леся",
+      "entity_type": "business",
+      "entity_id": "6d158f5d-c0aa-4196-9338-db499be797ce",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "childcare",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70543,
+        70544,
+        70545,
+        70546,
+        70547
+      ],
+      "photos_count": 5,
+      "instagram": [
+        "olena_stet"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "6d279b86-8121-4838-883e-b5adca71ab63",
+      "title": "_teastorm_",
+      "entity_type": "business",
+      "entity_id": "a1d0e3ea-beb2-429f-9737-96cb8ec0ef0e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70542
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "_teastorm_"
+      ],
+      "websites": [
+        "https://teastormus.etsy.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/restaurants.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403",
+        "website:teastormus.etsy.com:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "6936309f-9178-4612-908f-9a248d4ba31e",
+      "title": "yummy_homemade_sweets",
+      "entity_type": "business",
+      "entity_id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70273,
+        70274,
+        70275
+      ],
+      "photos_count": 3,
+      "instagram": [
+        "yummy_homemade_sweets"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "68384c0d-9fe6-46a8-9196-7add684711f5",
+      "title": "Евгения",
+      "entity_type": "business",
+      "entity_id": "a15ed7ac-94e5-4e48-8fbc-f0de7ad781d7",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69514,
+        69515,
+        69516,
+        69517,
+        69518,
+        69519,
+        69520
+      ],
+      "photos_count": 7,
+      "instagram": [
+        "cakewithlove.ca"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "137e9c23-c2ab-4f77-8cb5-f1f661dff1ec",
+      "title": "Виктория",
+      "entity_type": "business",
+      "entity_id": "194d7e89-dcc8-4aca-9082-0fbaa314fc23",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69413,
+        69414
+      ],
+      "photos_count": 2,
+      "instagram": [
+        "viktoria.bouquetory"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "83738420-94c4-4d96-bd3a-cd836e90ad7c",
+      "title": "photograph_la_alina",
+      "entity_type": "business",
+      "entity_id": "0fe50371-d9c5-4238-98b4-c9fe679189de",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "photography_video",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69386
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "photograph_la_alina"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "f3ce8add-b2a6-43ac-b1a8-3cbf546021ad",
+      "title": "sugaring_nastena",
+      "entity_type": "business",
+      "entity_id": "c7fd741b-e538-4209-8177-c6ae121fbb9c",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69343
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "sugaring_nastena"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "3c063eee-669f-46db-8d12-e606d0cf1a93",
+      "title": "tatkaurbaniq",
+      "entity_type": "business",
+      "entity_id": "ab3d72bf-0746-4290-9897-e4d976404e25",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75088
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "tatkaurbaniq"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "003d31f8-88e9-47cc-99ea-83df6cc3b130",
+      "title": "leisan_hairstylist_oc",
+      "entity_type": "business",
+      "entity_id": "3aa29bbc-9768-4e22-b771-a17c6721fa44",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75082
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "leisan_hairstylist_oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "6f0d346f-488d-4699-be5f-5577cd5e4aa0",
+      "title": "kids_party_oc",
+      "entity_type": "business",
+      "entity_id": "1d60ecbd-909e-4c0b-8c4e-a72d26f410f5",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "events",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74252
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "kids_party_oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "1a421201-ee94-4ae9-b70d-804d50f30d6e",
+      "title": "daria_stretch_dance",
+      "entity_type": "business",
+      "entity_id": "b3163aa9-2bf5-49c0-843c-98f389e6e065",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74220
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "daria_stretch_dance"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "29b82ecc-0de8-4e61-a4b7-869769f7b7e1",
+      "title": "scgb2025irvine",
+      "entity_type": "business",
+      "entity_id": "4fd059e1-5401-482d-a46f-15b497374062",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74203
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "scgb2025irvine"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "1769f085-9458-40ee-bec0-ad4c6a73c4db",
+      "title": "flamellecandles",
+      "entity_type": "business",
+      "entity_id": "f9df3dfc-5155-4698-9574-428ce668c650",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73713
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "flamellecandles"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7919c6f1-203a-4e47-a5d8-367fd72e48c6",
+      "title": "creatoriakids",
+      "entity_type": "business",
+      "entity_id": "95ae11bf-c388-40f4-8ddb-69f423648f5f",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "childcare",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72963
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "creatoriakids"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8e389256-61c2-4b07-8e95-d8a206b087c9",
+      "title": "facial_massage_oc",
+      "entity_type": "business",
+      "entity_id": "ae4a3a90-d623-4f91-abd2-350f6c3742e9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72383
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "facial_massage_oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4b88faa1-c3c2-4f78-938c-160a897d7bf3",
+      "title": "victoria__kei",
+      "entity_type": "business",
+      "entity_id": "71082eab-40bf-479c-9290-b62e8ef4dbac",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72353
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "victoria__kei"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4fa0e65b-8a40-4956-b552-de0ac5160788",
+      "title": "regyminate",
+      "entity_type": "business",
+      "entity_id": "bf78e857-09c5-419a-9949-65323681b83a",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72346
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "regyminate"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "42556b4e-ae07-4c47-acf2-87047f31d98e",
+      "title": "tati.cake.oc",
+      "entity_type": "business",
+      "entity_id": "02c46786-b130-4112-b230-37b45a017054",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72298
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "tati.cake.oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "9cdb1bd4-78b8-4b8e-8874-1f9eb417a6ab",
+      "title": "tetiana.malenkova",
+      "entity_type": "business",
+      "entity_id": "a8c1b4fb-8dc2-45b2-a4c7-7740e2a892b8",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71785
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "tetiana.malenkova"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:no_og_image"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "bd6086a3-cdda-4ab9-8349-54b3e263cf91",
+      "title": "julia_life_usa",
+      "entity_type": "business",
+      "entity_id": "13331824-1d68-4b07-934e-94f45c0993ea",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71327
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "julia_life_usa"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "6f18a447-9c26-40da-9ec9-e84ec8f848fe",
+      "title": "pilyulya.me",
+      "entity_type": "business",
+      "entity_id": "096f2053-300d-4523-a2a0-7719bd09800a",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71268
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "pilyulya.me"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e9c792f1-bca9-4890-b0eb-0f35e3ce062d",
+      "title": "sashalashangel",
+      "entity_type": "business",
+      "entity_id": "4ad6b1ec-e6ab-401d-a885-96d6e315a0d2",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71265
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "sashalashangel"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "df9d17f8-a6a8-4b12-bb50-89c4f5232cad",
+      "title": "anton_sushev",
+      "entity_type": "business",
+      "entity_id": "c36cff2f-a70e-4da4-8459-3091edaf5758",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71193
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "anton_sushev"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "887115b4-f72b-4cb2-ac2d-d1495b1b03a5",
+      "title": "evgeny_rezko",
+      "entity_type": "business",
+      "entity_id": "22b48f77-11fd-43e8-954e-11721072cea5",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71081
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "evgeny_rezko"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e77b97b4-b462-4afb-a031-dda30b397bc4",
+      "title": "Амина",
+      "entity_type": "business",
+      "entity_id": "14754245-a747-4ab7-8e21-375e9bf46e50",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71042
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "aminotk"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:no_og_image"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "0e08dc47-4656-4f9a-824a-350181aa54bc",
+      "title": "открыла свою уютную студию ENDO Studio",
+      "entity_type": "business",
+      "entity_id": "86ce88f3-a2bd-42d8-8432-aa1d97ac6306",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70916
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "endo.studio_oc"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "2b7f9cdb-ae0a-4fa5-8b57-a67902f93d9d",
+      "title": "reel",
+      "entity_type": "business",
+      "entity_id": "aa26f448-3536-4e7f-a089-21530f1d031c",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "health",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70785
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "reel"
+      ],
+      "websites": [
+        "https://studio.dreem-world.ai/r/Q8890E"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/medical.svg",
+      "estimated_bytes": 8000,
+      "notes": [
+        "favicon_reject:below_min_edge"
+      ],
+      "unavailable": [
+        "instagram:bad_username"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "2b3237ef-6edc-481c-8102-2bd1a85b590b",
+      "title": "nataliawolfstudio",
+      "entity_type": "business",
+      "entity_id": "4c3f6ee0-a27d-4c8e-8a52-fb2b70472858",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70536
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "nataliawolfstudio"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c04d36d8-46d4-4763-b9ed-4d2ce408d800",
+      "title": "maxgirr",
+      "entity_type": "business",
+      "entity_id": "472bc7e4-a4a5-4c87-89f3-d8b93ec70380",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70488
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "maxgirr"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "56507e8b-1e36-4cfb-8320-f8281a4bcc5f",
+      "title": "kate_yuka_aesthetics",
+      "entity_type": "business",
+      "entity_id": "9555564d-0ffd-435a-ba36-8fcc50b51079",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69828
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "kate_yuka_aesthetics"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "bb5ea3b7-59d4-445c-a312-ee6aa96bf503",
+      "title": "1touch_massage",
+      "entity_type": "business",
+      "entity_id": "651e3efc-b361-4256-8cfd-3908c06209a0",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69673
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "1touch_massage"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a8b4ef9e-3dfc-4e35-bc14-85393404fd1f",
+      "title": "beauty_skin_by_sandra",
+      "entity_type": "business",
+      "entity_id": "4cb534c4-4b9b-45d6-bd4f-fcdb0870faf8",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69657
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "beauty_skin_by_sandra"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "65f94358-f781-4491-8992-0ee8ca61361f",
+      "title": "dirtybirdfarm",
+      "entity_type": "business",
+      "entity_id": "9a074d09-04e8-40dc-8504-146f5df71102",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "travel",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69763,
+        69764,
+        69766,
+        69767
+      ],
+      "photos_count": 4,
+      "instagram": [
+        "dirtybirdfarm"
+      ],
+      "websites": [
+        "http://www.dirtybirdranch.com/",
+        "https://www.airbnb.com/rooms/1539266974610649623?viralityEntryPoint=1&s=76",
+        "https://www.airbnb.com/rooms/3826406?viralityEntryPoint=1&s=76"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "f5255f3c-c00b-43d3-8022-50c3d09ee652",
+      "title": "zpoqmy",
+      "entity_type": "business",
+      "entity_id": "88d591ad-6590-48d9-8f99-1ba34e94597b",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        76207
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "zpoqmy"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:no_og_image"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "0d0f263a-77fc-4eea-b51b-6e0b2d82f3ff",
+      "title": "aleks_andra020289",
+      "entity_type": "business",
+      "entity_id": "8ac745b3-a551-49b1-974c-319761489c1c",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75612
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "aleks_andra020289"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/restaurants.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "fc63c7d8-5e2a-42c6-a401-f4cbb22728e5",
+      "title": "ekaterinakhomich",
+      "entity_type": "business",
+      "entity_id": "bb557a69-0da5-4da1-8bfe-170729c5761e",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72390
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "ekaterinakhomich"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7cc87249-14ad-476c-bb87-34670531dec3",
+      "title": "khan_archery_club",
+      "entity_type": "business",
+      "entity_id": "e6da58ad-3405-4ac1-9a31-72f2fa9b194d",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70862
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "khan_archery_club"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:http_403"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "6ad40ef0-fb6a-402d-8a75-d5d4a8dc74c7",
+      "title": "Anastasiia",
+      "entity_type": "business",
+      "entity_id": "5ed2d239-a366-48f0-a2fb-fc1015dfb917",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "car_rental",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75548
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://turo.com/host/34022386"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "website:turo.com:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "932f47ec-d9ab-44c0-baaf-88afb25511df",
+      "title": "MA",
+      "entity_type": "business",
+      "entity_id": "852c6eb5-88fc-49f0-b9e0-41deb29ee338",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74631
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://ocacting.com/acting-classes/acting-classes-for-kids/"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://ocacting.com/wp-content/uploads/2023/08/20230903083844logo.webp",
+      "estimated_bytes": 15582,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": "9704956f941c1797de28109e58a5cf16e5eb513b3a7aa47e5b00c638c6bc0db4"
+    },
+    {
+      "review_item_id": "e44cf544-a29e-4acc-87c1-7844456522f4",
+      "title": "Vika Borel",
+      "entity_type": "business",
+      "entity_id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73871
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.metrotech.academy"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://metrotech.academy/preview.jpg",
+      "estimated_bytes": 92311,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": "245b37195acdbfe1979cdb658b1cd5279a0317e7a2cdb7766ae3a76e1acc691a"
+    },
+    {
+      "review_item_id": "79b270aa-7aca-4a53-9dd0-81ddb25ae66c",
+      "title": "Ekaterina Samsonova",
+      "entity_type": "business",
+      "entity_id": "ce9ca0ea-89ad-48aa-a55b-c5f60d844686",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "other",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72556,
+        72557,
+        72558,
+        72559
+      ],
+      "photos_count": 4,
+      "instagram": [],
+      "websites": [
+        "https://threadssequins.etsy.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e430f6d7-d2e4-4a77-b08b-e4374669d025",
+      "title": "Ida Seidova",
+      "entity_type": "business",
+      "entity_id": "1d23a81e-5c8b-4f2c-83c7-a1e63a58060d",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72438
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.skinovationclinic.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8a6fe86f-bea9-4564-85ba-6afcff72f1d4",
+      "title": "Elvira S @mama_print",
+      "entity_type": "business",
+      "entity_id": "43d88222-8b27-4b4e-ab4c-920a9cc2112a",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        71718
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://mama-print.ru/blog/links"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "899e2500-f977-48ff-a672-7045a942ace3",
+      "title": "Oksana",
+      "entity_type": "business",
+      "entity_id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70527
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.stairedu.com/book-online",
+        "https://www.stairedu.com/service-page/robotics-ai-3d-printing-camp-spring-2026?utm_campaign=556c28eb-3c63-4d00-aa12-bf6856b1f308&utm_source=so&utm_medium=mail"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "f8e30ff9-41b9-44cf-9bff-a55303b77792",
+      "title": "Dmitry",
+      "entity_type": "business",
+      "entity_id": "abdb2377-5a4a-4e57-920d-414d37ce0299",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70102
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://ti.alter.tax/"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [
+        "website_logo_reject:below_min_edge"
+      ],
+      "unavailable": [
+        "telegram:no_photos",
+        "favicon:http_404"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "757de353-c711-4096-bfbb-a429f074f641",
+      "title": "Mila",
+      "entity_type": "business",
+      "entity_id": "49a02e0e-cdbe-4812-8f28-2bd52da7d022",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69579
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://milatax.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://milatax.com/og-image.jpg",
+      "estimated_bytes": 684538,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": "59b704dee7325661d96b78fa1c9d4b3ef2449b22daed7b27c83250b7070b4db0"
+    },
+    {
+      "review_item_id": "a9c45c27-2fcb-48fe-9d92-fe19b9498e60",
+      "title": "Пиклбол в Ирвайне",
+      "entity_type": "business",
+      "entity_id": "a5c82a8b-1db8-481a-befb-3142b88e6474",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70722,
+        70851
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt/"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "website:openai.com:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "83476b35-61c0-4c49-9827-e5ca8f45fb20",
+      "title": "Anastasiya Posashenko",
+      "entity_type": "business",
+      "entity_id": "c9188109-6310-4467-9608-74cebe29d8c9",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "food",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69559
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://digitalcookie.girlscouts.org/scout/vasilisa910929"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://digitalcookie.girlscouts.org/_ui/desktop/common/img/gs-cookie-program-checkout.png",
+      "estimated_bytes": 222102,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": "6abd1a746db81b0baf986303e42980665193b0952083cd8db7b2b31fca6552cd"
+    },
+    {
+      "review_item_id": "c2e9078a-de4d-4e2a-a3ec-b3a4dd746fdf",
+      "title": "Natalia Rezvova",
+      "entity_type": "business",
+      "entity_id": "0736f212-cd7f-415a-8386-6926b68217ef",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69377
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://lettersfox.wixsite.com/letterfox"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos",
+        "website:lettersfox.wixsite.com:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "b39ac6dd-1a7d-41a7-880e-a46d5ca52877",
+      "title": "Elena Garmazh FYSM Yoga Coach",
+      "entity_type": "business",
+      "entity_id": "1e1ef207-8951-4eb7-a018-8756b874a1f5",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "fitness",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73934
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "db18d200-8e04-47b3-adeb-baef738770bc",
+      "title": "Евгения Бобровская",
+      "entity_type": "business",
+      "entity_id": "6868398f-229e-41e2-8e6c-d2d0058c58ff",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73153
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "b304fa54-f974-4dc6-b78d-ea1205f1dea3",
+      "title": "Оксана Амірова",
+      "entity_type": "listing",
+      "entity_id": "3e2699ad-e234-4076-88c9-9e58743f5966",
+      "published_entity_type": "listing",
+      "source": "telegram",
+      "category": "moving",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        75053,
+        75054,
+        75055,
+        75056,
+        75057
+      ],
+      "photos_count": 5,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 540000,
+      "notes": [
+        "telegram_available_count=3"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4b001317-e2a1-4a33-a996-070fe4842bd8",
+      "title": "Oksana Shaternik",
+      "entity_type": "listing",
+      "entity_id": "e9dbc75e-2ff2-40da-9ae4-2613847627c9",
+      "published_entity_type": "listing",
+      "source": "telegram",
+      "category": "real_estate_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74270
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "867aaf85-aeaf-436c-b6ac-0b3fc98a2d4d",
+      "title": "Звоните",
+      "entity_type": "business",
+      "entity_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        249767
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://ocautoaid.com/",
+        "https://maps.app.goo.gl/XFSFRsbF4wcXr3pE8)!"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a459cdf2-8758-4ca0-af25-9cbbc5ba9623",
+      "title": "suverdiboost",
+      "entity_type": "business",
+      "entity_id": "09e98398-ee1d-41e9-a2ee-5fe44df47a90",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "other",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        269856
+      ],
+      "photos_count": 0,
+      "instagram": [
+        "suverdiboost"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [
+        "instagram:no_og_image"
+      ],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "13362b9c-0bd3-4a48-9b20-ad45b3a451cd",
+      "title": "KatrinL",
+      "entity_type": "listing",
+      "entity_id": "3a7c6859-8c5d-4ea9-9404-398890146830",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "real_estate_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        274103
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "82be2397-0ec8-49ae-8f5b-3562ec9fbca1",
+      "title": "your appointment at EVELINA BEAUTY SALON",
+      "entity_type": "business",
+      "entity_id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        260032,
+        260033,
+        260034,
+        260035,
+        260036,
+        260037,
+        260038,
+        260039,
+        260040,
+        260041
+      ],
+      "photos_count": 10,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "485191b6-8953-4943-a26c-5e89ce777206",
+      "title": "Mike California",
+      "entity_type": "business",
+      "entity_id": "2129cd46-4093-49d0-8704-32190e9d676e",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "childcare",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        258967
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "5d404555-23cb-44fa-a64f-f384567b7fd5",
+      "title": "Vlad",
+      "entity_type": "business",
+      "entity_id": "4c4c2c79-561a-4bfc-b6bd-280b812615e7",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "cleaning",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        277375
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "5d1f1579-8751-4164-953b-0277256774a2",
+      "title": "renna^афк",
+      "entity_type": "business",
+      "entity_id": "b60bbb80-3d6e-4ac3-beac-9a2d109e7522",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        277452
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "5b9d6a7f-d884-4ae9-b721-17eaa89b5192",
+      "title": "репетитор англ",
+      "entity_type": "business",
+      "entity_id": "d071cbcb-296a-40a0-a5ff-4800af5be3a1",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "events",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        277065
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "f0aca1b7-7c3d-4a24-bda1-83e19d817129",
+      "title": "🏠 С 1 июля сдается отдельная комната в Marina Del Rey в квартире 2br/2bth. Отдел",
+      "entity_type": "listing",
+      "entity_id": "4688e570-10cf-420d-bf86-6928acfd83fa",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "real_estate_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        275810
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "3b6d57a4-8796-4243-817b-682b8f7dcda9",
+      "title": "San Diego",
+      "entity_type": "business",
+      "entity_id": "bee0ea9e-ba74-4778-848f-51c10745a27b",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "car_rental",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        272717,
+        272718
+      ],
+      "photos_count": 2,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "df3f6515-fdbd-402b-9572-9794e931fd8e",
+      "title": "Repair Pro",
+      "entity_type": "business",
+      "entity_id": "614ebb96-e744-4cd2-8662-8dd5799c3d30",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        271619,
+        271621
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4f46341f-9fc4-444b-960b-8b07b6bd8a2f",
+      "title": "Связь",
+      "entity_type": "business",
+      "entity_id": "bb97f33a-0c61-4ac5-abf2-bd2aa79280e5",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "fitness",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        267091
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "b5cfe83d-7071-4625-89e4-10705395911b",
+      "title": "Aibek",
+      "entity_type": "business",
+      "entity_id": "f7907794-0a7a-4534-b88f-f5dd989834b0",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "food",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        264626,
+        264627
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ab8a446b-fb5b-499d-83b0-7421a17b7e78",
+      "title": "Яночка✨",
+      "entity_type": "business",
+      "entity_id": "2448e0b6-f344-4c0d-b3b5-b89b8c4d1cfa",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        262937,
+        262938,
+        262939
+      ],
+      "photos_count": 3,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8390caea-6a81-46e1-bd75-d6fb48c4bbc5",
+      "title": "Elizaveta Pavlunenko",
+      "entity_type": "business",
+      "entity_id": "4c84ac7d-f24a-452a-9b6a-38faef2f7218",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "car_rental",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        262782
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "921fe2ae-ea49-4fce-8f7f-767d19e1404c",
+      "title": "Bek’s Flowers",
+      "entity_type": "business",
+      "entity_id": "559daaad-6cc7-4745-a5e0-7830de7feb59",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "events",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        262676
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "2631f3f5-e38b-490b-9a52-dbfd7c744d02",
+      "title": "ILONA nails",
+      "entity_type": "business",
+      "entity_id": "5a560ec6-cc44-4913-99d8-157e70f9fa19",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        258015,
+        258016,
+        258017,
+        258018,
+        258019,
+        258020
+      ],
+      "photos_count": 6,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7ea0458b-0a73-4e32-a912-c0194b5bb794",
+      "title": "Глендейл",
+      "entity_type": "business",
+      "entity_id": "4d91e591-2452-47a0-a4ae-819db2da14cb",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        253594
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "be436841-9161-44f6-ad97-012e8a3632e5",
+      "title": "Maria (Masha) Tumanyan",
+      "entity_type": "business",
+      "entity_id": "fed84b8a-5433-49a8-ab10-81b0af543edd",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "legal",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        252771
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "1e225238-8f86-4adc-94f2-ac5231c7fb74",
+      "title": "Toujours Flower Boutique",
+      "entity_type": "business",
+      "entity_id": "493714fd-620c-4e19-8c5c-eacf0264e4db",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "other",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        252412,
+        252414
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "aca75b60-0915-4a19-9b51-5823ef3216ab",
+      "title": "Телефон",
+      "entity_type": "business",
+      "entity_id": "9c2c1ba8-c377-4da6-9000-ec5a60d21830",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        252288
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a126654b-af4c-4a76-843f-9966a66b67f8",
+      "title": "Людмила | преподаватель 🇺🇸 🇺🇸 онлайн1",
+      "entity_type": "business",
+      "entity_id": "495386f5-3042-4fe2-92ea-ce03656bdc87",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "education",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        251816
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "63683aa1-11d9-4395-b8fc-4d3b3370d698",
+      "title": "Оксана Куриленко",
+      "entity_type": "business",
+      "entity_id": "2a7dad3e-0f66-49df-bc7b-8c7a704e4311",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        251674
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "439f5964-b920-4752-bf38-4c9aa209f5cd",
+      "title": "Diamond Tint Studio",
+      "entity_type": "business",
+      "entity_id": "3bd86e66-95d3-4bd2-9d24-c5a0cb221f32",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        251495
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "892755a3-caa9-4ad2-af40-bf1f15ca7c91",
+      "title": "Флорида",
+      "entity_type": "business",
+      "entity_id": "f12b6557-9f62-4656-b8e0-8c0c79879d21",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "legal",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250909
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c2c9f09a-e446-4a6d-aa98-0ede6364f722",
+      "title": "Aleksandr",
+      "entity_type": "business",
+      "entity_id": "57eebb1e-ae52-478c-92d4-3bd809f1a770",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "car_rental",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250155,
+        250156,
+        250157
+      ],
+      "photos_count": 3,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "106c68ea-5d93-421c-b17e-46c0b374b14c",
+      "title": "Открытие LLC",
+      "entity_type": "business",
+      "entity_id": "62902e52-9474-4357-a1c6-86657c570ef3",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "legal",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250153
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ff35fd63-e859-4a75-8276-ed7f53649400",
+      "title": "Old school",
+      "entity_type": "business",
+      "entity_id": "8ba2dd09-1513-486a-ad70-181a0341dcd7",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "events",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250102,
+        250103
+      ],
+      "photos_count": 2,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7c19668a-4ed7-4fac-9cfb-d5fa9167660f",
+      "title": "Alena Petrova",
+      "entity_type": "business",
+      "entity_id": "0d560364-8b6d-4e78-a40d-7881c1b96645",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250014
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "b684ae36-a6e6-460d-8f9a-05dba1ba7943",
+      "title": "Регистрация LLC",
+      "entity_type": "business",
+      "entity_id": "d21f9248-7bce-4549-a5d5-2027a035165d",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "accounting",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        249958
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a2e93a45-7ff1-4c9b-a00f-917addff32d3",
+      "title": "LA_OrangeCounty_bot",
+      "entity_type": "business",
+      "entity_id": "d6691530-d019-4a7b-936a-e612675411b6",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "moving",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        249841
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c9fc624e-d450-49cf-8e23-38900c33c30a",
+      "title": "Lana.Investor RealtorInvestor",
+      "entity_type": "business",
+      "entity_id": "c49167ff-6e5a-4092-9df3-2db5dd4fb24c",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "real_estate_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        277684
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "5e688b47-0d09-4953-901c-9c6994da1297",
+      "title": "Bender Rodriquez",
+      "entity_type": "listing",
+      "entity_id": "4617f1f3-3443-4a62-a303-fa593d11f172",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "real_estate_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        277333
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "f943307b-36a4-4b8a-a333-b4b301412079",
+      "title": "Сдаётся пространство гостиной в чистой и ухоженной 1-bedroom квартире в комплекс",
+      "entity_type": "listing",
+      "entity_id": "71802b93-edff-486b-a3ee-79c2530475ca",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "real_estate_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        272611
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "d786a295-2515-4b4b-be68-d0cce3226e5d",
+      "title": "Кристина Орлова",
+      "entity_type": "business",
+      "entity_id": "bb193802-076f-4255-9c6c-d9da05d208b5",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "insurance",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        269837
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8df7510d-b40a-4ee9-97de-81c661999523",
+      "title": "St",
+      "entity_type": "business",
+      "entity_id": "af5ae4e9-91ad-4fd2-bd59-8f1476aa147c",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        267231
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8e4645fe-2540-4381-b048-e66eff1bb498",
+      "title": "Kim",
+      "entity_type": "business",
+      "entity_id": "202951b9-09d1-46f6-93d5-e0dc296f3cce",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        266333
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/beauty.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ee1f3c32-05a7-4047-8955-3d7618fa3158",
+      "title": "Лёша Волков",
+      "entity_type": "business",
+      "entity_id": "558a5c8b-7c30-494b-be77-ae6e6fae306b",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "car_rental",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        263565
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "4b51b490-bfe0-41bf-9457-74a9fa293ba8",
+      "title": "Артём",
+      "entity_type": "business",
+      "entity_id": "ef210492-2672-4785-ac75-8617d8738147",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        262534
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e4e298f4-4d6d-49d8-b7dc-d3c07d9ac672",
+      "title": "Svetlana S",
+      "entity_type": "business",
+      "entity_id": "e046ace7-1e47-41f2-a3ad-5dd6a19530ce",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "other",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        260473
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "defdb7d2-3c15-415a-bc0a-b5f5a5d71a00",
+      "title": "Людмила Коста",
+      "entity_type": "business",
+      "entity_id": "1fb3e210-c315-4a43-b739-b9e799ccb710",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "insurance",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        258828
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "14921e0a-d9e4-430c-9a64-96ab2fadcc07",
+      "title": "Рэй",
+      "entity_type": "business",
+      "entity_id": "dea1bee5-057d-421c-8444-8ac0a67dfb8e",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "insurance",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        258287
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "ecb79bd4-74e4-4158-a409-71f48d706acb",
+      "title": "SvetickLA",
+      "entity_type": "business",
+      "entity_id": "52ebf460-ce7d-48de-a0cd-f41b35e33bd7",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "health",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        256732
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/medical.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "bfe9a44d-85e1-404c-b91b-e92e99c03366",
+      "title": "Arvian Law Firm LLC",
+      "entity_type": "business",
+      "entity_id": "cdae1b77-c27d-4de2-9e88-67bedc594c71",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "legal",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        252171
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/legal.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "3d261690-bb9d-477f-a8b0-02eea0781c8f",
+      "title": "Santa",
+      "entity_type": "business",
+      "entity_id": "bb4aa994-c104-472a-9461-395463024a97",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        252161
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "473b642e-e397-4ca4-a236-8bf4c394bb4c",
+      "title": "Yagmyrov Atajan Credit Repair",
+      "entity_type": "business",
+      "entity_id": "a23bc2ac-b453-4212-9910-5de293b5e9c9",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "professional_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        251496
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "48f83d60-f54e-4879-9f0f-bb6ecbd60773",
+      "title": "Igor Pchelintsev",
+      "entity_type": "business",
+      "entity_id": "434d5ccf-c59f-418a-a43a-2922d66680d8",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "legal",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        251457
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/legal.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "483085fd-1e86-4b79-8315-585ab8db18bd",
+      "title": "Tigran Arutiunian",
+      "entity_type": "business",
+      "entity_id": "8adc547e-696b-44bc-82e4-c10a2164fa02",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "car_rental",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250280
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "76ad6597-d45f-4108-8ae1-1fab10cad25c",
+      "title": "регистрации LLC",
+      "entity_type": "business",
+      "entity_id": "49f68565-e95c-42c9-aef6-e2000057f304",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "professional_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250271
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7b2db797-9224-42b9-b482-e36b595bb738",
+      "title": "Inna",
+      "entity_type": "business",
+      "entity_id": "ab4e00ca-ef8b-442b-8a5e-33fef62e105f",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "other",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250258
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "344b3971-4c3c-48fa-b89f-9c2c28d7c072",
+      "title": "Yana Adabir",
+      "entity_type": "business",
+      "entity_id": "2b98c3f3-b85c-46a9-b78e-03a9e0b6cd6e",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        250072
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "8733cf2f-f7d8-4bd9-a556-3e2aa95190cc",
+      "title": "Сергей Петров",
+      "entity_type": "business",
+      "entity_id": "240836e2-9f54-4cf6-89f9-e143fa7f4f11",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "health",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        249960
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/medical.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "7ea9f3fa-0249-4b8d-89ed-60ff81330bb7",
+      "title": "LIDIIA",
+      "entity_type": "business",
+      "entity_id": "885dce4d-92e8-4bec-898a-52fbf1f2b49d",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "home_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        249929
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "d38abb1d-6e51-47ea-afdf-8350536bb301",
+      "title": "Hyundai Tucson",
+      "entity_type": "listing",
+      "entity_id": "7f16314e-448c-4bfb-8053-4f6e2363bbf4",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        276349,
+        276350,
+        276351,
+        276352,
+        276353,
+        276354,
+        276355,
+        276356,
+        276357
+      ],
+      "photos_count": 8,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 540000,
+      "notes": [
+        "telegram_available_count=3"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "322a91be-8e91-4786-bc97-55b9ad060fe2",
+      "title": "Ольга",
+      "entity_type": "business",
+      "entity_id": "b04e381d-ff72-4e4b-b572-eef6b537e4c2",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "health",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        249996
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "c8903662-6afd-40e9-a309-30ce5c02f624",
+      "title": "Леонид",
+      "entity_type": "business",
+      "entity_id": "f34651f4-5efb-4f80-8ae7-542d2be5de9d",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "insurance",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        262525
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e2a81ec2-76d5-4b16-a9e0-2219c65e2ac1",
+      "title": "Сергей",
+      "entity_type": "business",
+      "entity_id": "723479d5-3b9a-4f28-8d78-0f5ccbf4d3e2",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "other",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        260791
+      ],
+      "photos_count": 0,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/services.svg",
+      "estimated_bytes": 8000,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "385d0053-9476-4498-9a37-bbae333f90be",
+      "title": "Уютный private studio",
+      "entity_type": "business",
+      "entity_id": "90f884ec-0429-4a8f-87c0-123893891f8d",
+      "published_entity_type": "business",
+      "source": "telegram:la_orange_county",
+      "category": "beauty",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        273692
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "stasia_manicure"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 180000,
+      "notes": [
+        "telegram_available_count=1"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": null,
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    }
+  ]
+}

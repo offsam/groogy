@@ -45,7 +45,7 @@ export default function BusinessMiniMapCanvas({
       <MapContainer
         attributionControl={false}
         center={[lat, lng]}
-        className="h-40 w-full [&_.leaflet-control-attribution]:hidden"
+        className="h-[7rem] w-full sm:h-[8.5rem] [&_.leaflet-control-attribution]:hidden"
         doubleClickZoom={false}
         dragging={false}
         scrollWheelZoom={false}

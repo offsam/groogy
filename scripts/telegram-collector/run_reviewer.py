@@ -122,8 +122,13 @@ def normalize_accepted(posts: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "event",
             "job",
             "real_estate",
+            "lechu_listing",
+            "transfer_listing",
         }:
             entity["entity_type"] = infer_entity_type(p, entity)
+        inferred = infer_entity_type(p, entity)
+        if inferred in {"lechu_listing", "transfer_listing"}:
+            entity["entity_type"] = inferred
         entity["target_collection"] = infer_target_collection(
             entity.get("entity_type"), entity.get("category"), p.get("classification")
         )
@@ -439,9 +444,18 @@ def main() -> int:
             "event",
             "job",
             "real_estate",
+            "lechu_listing",
+            "transfer_listing",
         }:
             ent["entity_type"] = infer_entity_type(p, ent)
-        if not ent.get("target_collection"):
+        # Always prefer travel/transfer heuristics over a generic specialist label.
+        inferred = infer_entity_type(p, ent)
+        if inferred in {"lechu_listing", "transfer_listing"}:
+            ent["entity_type"] = inferred
+        if not ent.get("target_collection") or inferred in {
+            "lechu_listing",
+            "transfer_listing",
+        }:
             ent["target_collection"] = infer_target_collection(
                 ent.get("entity_type"), ent.get("category"), p.get("classification")
             )

@@ -1,0 +1,483 @@
+{
+  "version": 1,
+  "name": "PLATFORM_TAXONOMY_V1",
+  "sources": [
+    "telegram",
+    "facebook_seed",
+    "published_business",
+    "import_review_items",
+    "PLATFORM_INFORMATION_ARCHITECTURE_V2",
+    "platform_taxonomy_v2.json"
+  ],
+  "rules": {
+    "max_depth": 3,
+    "one_primary_category_per_card": true,
+    "secondary_categories_max": 3,
+    "do_not_sum_telegram_and_import": true
+  },
+  "entity": "business",
+  "max_depth": 2,
+  "primary_rule": "Organization / brand with company identity (LLC, salon, shop, agency). Primary category = one leaf or top category.",
+  "legacy_slug_map": {
+    "restaurants": "food",
+    "groceries": "grocery",
+    "auto": "auto",
+    "services": "home_services",
+    "real_estate": "real_estate_agencies",
+    "pets": "pets"
+  },
+  "categories": [
+    {
+      "slug": "food",
+      "name_ru": "Еда и рестораны",
+      "name_en": "Food & Restaurants",
+      "description": "Кафе, рестораны, кейтеринг, доставка еды как бизнес.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 154,
+        "facebook_seed": 1,
+        "published": 19,
+        "import_queue_mixed": 295,
+        "signal": 174
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "grocery",
+      "name_ru": "Продукты",
+      "name_en": "Grocery",
+      "description": "Магазины продуктов, рынки, specialty food retail.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 0,
+        "facebook_seed": 1,
+        "published": 7,
+        "import_queue_mixed": 0,
+        "signal": 8
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": "Published taxonomy; weak in Telegram Biz class.",
+      "children": []
+    },
+    {
+      "slug": "beauty",
+      "name_ru": "Красота",
+      "name_en": "Beauty",
+      "description": "Салоны красоты, студии как компания (не частный мастер).",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 39,
+        "facebook_seed": 1,
+        "published": 60,
+        "import_queue_mixed": 569,
+        "signal": 100
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "medical",
+      "name_ru": "Медицина",
+      "name_en": "Medical",
+      "description": "Клиники, кабинеты, медцентры.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 19,
+        "facebook_seed": 1,
+        "published": 17,
+        "import_queue_mixed": 185,
+        "signal": 37
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "legal",
+      "name_ru": "Юристы / юрфирмы",
+      "name_en": "Legal",
+      "description": "Юридические компании и офисы.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 29,
+        "facebook_seed": 2,
+        "published": 15,
+        "import_queue_mixed": 211,
+        "signal": 46
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "finance",
+      "name_ru": "Финансы и бухгалтерия",
+      "name_en": "Finance & Accounting",
+      "description": "Бухгалтерские фирмы, налоговые офисы.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 41,
+        "facebook_seed": 1,
+        "published": 7,
+        "import_queue_mixed": 103,
+        "signal": 49
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "insurance",
+      "name_ru": "Страхование",
+      "name_en": "Insurance",
+      "description": "Страховые агентства / офисы.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 15,
+        "facebook_seed": 1,
+        "published": 6,
+        "import_queue_mixed": 39,
+        "signal": 22
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "auto",
+      "name_ru": "Автосервис",
+      "name_en": "Auto Services",
+      "description": "СТО, детейлинг, ремонт авто как бизнес.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 228,
+        "facebook_seed": 2,
+        "published": 31,
+        "import_queue_mixed": 409,
+        "signal": 261
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "car_rental",
+      "name_ru": "Аренда авто",
+      "name_en": "Car Rental",
+      "description": "Прокат автомобилей (компании).",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 185,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 202,
+        "signal": 185
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": "Large in Telegram; keep separate from auto.",
+      "children": []
+    },
+    {
+      "slug": "moving",
+      "name_ru": "Переезды",
+      "name_en": "Moving",
+      "description": "Переездные компании, грузоперевозки.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 174,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 187,
+        "signal": 175
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "home_services",
+      "name_ru": "Дом и сервисы",
+      "name_en": "Home Services",
+      "description": "Клининг-компании, ремонт, handyman-бизнесы, catch-all services.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 6,
+        "facebook_seed": 2,
+        "published": 56,
+        "import_queue_mixed": 0,
+        "signal": 64
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": "Absorb published services + cleaning/home_services tiny tags.",
+      "children": [
+        {
+          "slug": "cleaning",
+          "name_ru": "Клининг",
+          "name_en": "Cleaning",
+          "description": "Клининговые компании.",
+          "parent": "home_services",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 4,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 4
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "slug": "education",
+      "name_ru": "Образование",
+      "name_en": "Education",
+      "description": "Школы, учебные центры как организация.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 16,
+        "facebook_seed": 2,
+        "published": 34,
+        "import_queue_mixed": 442,
+        "signal": 52
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "fitness",
+      "name_ru": "Фитнес",
+      "name_en": "Fitness",
+      "description": "Залы, студии йоги как бизнес.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 0,
+        "facebook_seed": 0,
+        "published": 14,
+        "import_queue_mixed": 91,
+        "signal": 14
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "pets",
+      "name_ru": "Питомцы",
+      "name_en": "Pet Services",
+      "description": "Груминг-салоны, ветклиники как бизнес.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 0,
+        "facebook_seed": 0,
+        "published": 2,
+        "import_queue_mixed": 33,
+        "signal": 2
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "travel",
+      "name_ru": "Путешествия",
+      "name_en": "Travel",
+      "description": "Турагентства, визовые компании.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 6,
+        "facebook_seed": 0,
+        "published": 1,
+        "import_queue_mixed": 128,
+        "signal": 7
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "real_estate_agencies",
+      "name_ru": "Агентства недвижимости",
+      "name_en": "Real Estate Agencies",
+      "description": "Агентства и брокерские офисы — не объявления квартир.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 105,
+        "facebook_seed": 2,
+        "published": 1,
+        "import_queue_mixed": 821,
+        "signal": 108
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": "Primary for Business; inventory listings → Real Estate entity.",
+      "children": []
+    },
+    {
+      "slug": "events",
+      "name_ru": "Площадки и ивент-бизнес",
+      "name_en": "Event Businesses",
+      "description": "Площадки, event companies — не календарные события.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 7,
+        "facebook_seed": 1,
+        "published": 6,
+        "import_queue_mixed": 167,
+        "signal": 14
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "childcare",
+      "name_ru": "Детские центры",
+      "name_en": "Childcare Centers",
+      "description": "Детские сады / центры как организация.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 22,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 153,
+        "signal": 22
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "other",
+      "name_ru": "Прочее",
+      "name_en": "Other",
+      "description": "Временный бакет до классификации.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 85,
+        "facebook_seed": 0,
+        "published": 31,
+        "import_queue_mixed": 1237,
+        "signal": 116
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": "Must shrink; 31 published null-category → map here until assigned.",
+      "children": []
+    }
+  ],
+  "filters_not_categories": [
+    "languages_ru",
+    "open_now",
+    "verified",
+    "has_delivery",
+    "price_level",
+    "hub_region"
+  ],
+  "intersections": [
+    {
+      "topic": "beauty",
+      "primary_entity": "business",
+      "also_on": [
+        "professional"
+      ],
+      "rule": "Salon/studio brand → Business; individual master → Professional"
+    },
+    {
+      "topic": "legal",
+      "primary_entity": "business",
+      "also_on": [
+        "professional"
+      ],
+      "rule": "Law firm → Business; solo attorney → Professional"
+    },
+    {
+      "topic": "real_estate",
+      "primary_entity": "business",
+      "also_on": [
+        "professional",
+        "real_estate"
+      ],
+      "rule": "Agency → Business.real_estate_agencies; agent person → Professional; listing → Real Estate entity"
+    },
+    {
+      "topic": "photography",
+      "primary_entity": "professional",
+      "also_on": [
+        "business"
+      ],
+      "rule": "Studio company rare → Business; most photographers → Professional"
+    },
+    {
+      "topic": "auto",
+      "primary_entity": "business",
+      "also_on": [
+        "professional"
+      ],
+      "rule": "Shop → Business; mobile solo mechanic → Professional"
+    }
+  ]
+}

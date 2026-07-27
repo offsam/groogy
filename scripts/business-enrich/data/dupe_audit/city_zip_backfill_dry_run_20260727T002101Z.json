@@ -1,0 +1,185 @@
+{
+  "mode": "dry_run",
+  "updates": [
+    {
+      "slug": "touch-of-europe-inc-205127-f05a",
+      "before": {
+        "city": "Concord",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "94520"
+      }
+    },
+    {
+      "slug": "asiya-ahmadi-204845-c364",
+      "before": {
+        "city": null,
+        "postal_code": "95841"
+      },
+      "patch": {
+        "city": "Citrus Heights"
+      }
+    },
+    {
+      "slug": "mama-bear-oc-031830",
+      "before": {
+        "city": "Orange County",
+        "postal_code": null
+      },
+      "patch": {
+        "city": "Laguna Hills"
+      }
+    },
+    {
+      "slug": "sergiy-kuzin-loan-officer-204834-c234",
+      "before": {
+        "city": null,
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "95330"
+      }
+    },
+    {
+      "slug": "enriched-ivan-stypnik",
+      "before": {
+        "city": "Costa Mesa",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "92626"
+      }
+    },
+    {
+      "slug": "ma-150705",
+      "before": {
+        "city": "Mission Viejo",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "28674"
+      }
+    },
+    {
+      "slug": "business-biz-181517-806a",
+      "before": {
+        "city": "Orange",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "13662"
+      }
+    },
+    {
+      "slug": "inna-172218",
+      "before": {
+        "city": "Encino",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "17547"
+      }
+    },
+    {
+      "slug": "private-studio-181516-6fe2",
+      "before": {
+        "city": "Tustin",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "13662"
+      }
+    },
+    {
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "before": {
+        "city": "Hallandale Beach",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "33009"
+      }
+    },
+    {
+      "slug": "consolidated-maria-inevatova-beauty-space",
+      "before": {
+        "city": "Tustin",
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "18062"
+      }
+    },
+    {
+      "slug": "alexmassage-sacramentomassage-204821-8d53",
+      "before": {
+        "city": null,
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "98331"
+      }
+    },
+    {
+      "slug": "alex-kozhak-204922-8283",
+      "before": {
+        "city": null,
+        "postal_code": "95670"
+      },
+      "patch": {
+        "city": "Rancho Cordova"
+      }
+    },
+    {
+      "slug": "eleganthamster9292-205054-04ff",
+      "before": {
+        "city": null,
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "95678"
+      }
+    },
+    {
+      "slug": "business-7472143135-204854-df5a",
+      "before": {
+        "city": null,
+        "postal_code": null
+      },
+      "patch": {
+        "postal_code": "91607"
+      }
+    },
+    {
+      "slug": "llc-172203",
+      "before": {
+        "city": "Orange County / LA",
+        "postal_code": null
+      },
+      "patch": {
+        "city": "Irvine"
+      }
+    },
+    {
+      "slug": "nicol-kidman-204858-6bf8",
+      "before": {
+        "city": null,
+        "postal_code": "94121"
+      },
+      "patch": {
+        "city": "San Francisco"
+      }
+    },
+    {
+      "slug": "nadia-papeka-205112-6407",
+      "before": {
+        "city": null,
+        "postal_code": "95678"
+      },
+      "patch": {
+        "city": "Roseville"
+      }
+    }
+  ]
+}

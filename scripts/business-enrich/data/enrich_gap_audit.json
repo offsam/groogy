@@ -1,0 +1,1104 @@
+{
+  "stats": {
+    "no_phone": 254,
+    "no_email": 431,
+    "no_website": 337,
+    "no_instagram": 339,
+    "no_address": 405,
+    "no_city": 30,
+    "no_coords": 393,
+    "no_hours": 432,
+    "no_maps": 405,
+    "no_google_rating": 427,
+    "no_image": 270,
+    "no_description": 2,
+    "thin": 401,
+    "has_web_gaps": 98
+  },
+  "web_gaps": [
+    {
+      "slug": "teastorm-150640",
+      "name": "_teastorm_",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-5-star-appliance-repair",
+      "name": "5 Star Appliance Repair",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "alena-181533-6d9d",
+      "name": "Alena",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "consolidated-anastasia-kinder-nails",
+      "name": "Anastasia Kinder — Russian Manicure / Pedicure",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-anastasia-pedicure-oc",
+      "name": "Anastasia Pedicure OC",
+      "phone": false,
+      "addr": false,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "anastasiia-150705",
+      "name": "Anastasiia",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "anastasiya-posashenko-150711",
+      "name": "Anastasiya Posashenko",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "ange-181535-b93a",
+      "name": "Ange",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "angelina-181531-2d6e",
+      "name": "Angelina",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "anna-ahmatova-181529-484c",
+      "name": "Anna Ahmatova",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "consolidated-art4kidsandteens",
+      "name": "Art 4 Kids & Teens",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "name": "Art Backyard",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "bearchildrensacademyorg-031831",
+      "name": "B.E.A.R. Children's Academy",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "bekbolat-181530-3fa0",
+      "name": "Bekbolat",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "dirtybirdfarm-150701",
+      "name": "Dirty Bird Ranch",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "dmitry-150709",
+      "name": "Dmitry",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "dr-modarres-150637",
+      "name": "dr__modarres",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "ekaterina-samsonova-150707",
+      "name": "Ekaterina Samsonova",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "elvira-s-mama-print-150708",
+      "name": "Elvira S @mama_print",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-evgeniia-shtefan",
+      "name": "Evgeniia Shtefan",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-evokify",
+      "name": "EVOKIFY",
+      "phone": true,
+      "addr": false,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "golden-star-181527-d6c5",
+      "name": "Golden star ️",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "hair-extension-usa-150631",
+      "name": "hair_extension_usa",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-ira-azovtseva",
+      "name": "Ira Azovtseva",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "enriched-llc-tsisar",
+      "name": "Ivan Handyman",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-julia-kolesnikova",
+      "name": "Julia Kolesnikova",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "kai-t-234038",
+      "name": "Kai - T",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "kai-t-234037",
+      "name": "Kai - T",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "consolidated-kalinka-service",
+      "name": "Kalinka Service — Rita Shvalikovskaya",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "karimi-181541-2885",
+      "name": "Karimi",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-keipikp-georgian-food",
+      "name": "Keipikp",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "lana-cher-181512-6cf0",
+      "name": "Lana Cher",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-lena-indiukova",
+      "name": "Lena Indiukova",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "natalia-rezvova-150712",
+      "name": "Letter Fox",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "leyla-kamila-181525-4bd9",
+      "name": "Leyla Kamila",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-lidiia-gordienko",
+      "name": "Lidiia Gordienko",
+      "phone": false,
+      "addr": false,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "liubov-smetanina-181524-a3ca",
+      "name": "Liubov Smetanina",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "lyubov-nikonova-190932",
+      "name": "Lyubov Nikonova",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-yana-hodyniuk-marshmallow-magic",
+      "name": "Marshmallow Magic",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "maryshlykova-180840",
+      "name": "mary.shlykova",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-maryna-nails",
+      "name": "Maryna Nails",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "micarebeauty-190930",
+      "name": "Mi Care Beauty",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "mila-150710",
+      "name": "MilaTax",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-danila-medvedev-vysotsky-zhivoy",
+      "name": "Mimoda Studio — «Высоцкий. Живой»",
+      "phone": false,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "mybrows7-181514-0000",
+      "name": "My_brows7",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "nazgul-nurlan-181522-8750",
+      "name": "Nazgul Nurlan",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "name": "Neo Aesthetics & Medical International Academy",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "fbpack-neptune-seafood",
+      "name": "Neptune Seafood",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-elizabeth-azamatov-oc-dance-fit",
+      "name": "OC Dance Fit — Elizabeth Azamatov",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-ok-daisy-corona-del-mar",
+      "name": "OK Daisy",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "oksana-moskvitina-234034",
+      "name": "Oksana Moskvitina",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "oksana-moskvitina-234039",
+      "name": "Oksana Moskvitina",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "oksana-moskvitina-234036",
+      "name": "Oksana Moskvitina",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-oksana-spasiuk-photography",
+      "name": "Oksana Spasiuk",
+      "phone": false,
+      "addr": false,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "oktel-181534-5dfb",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-olena-farah",
+      "name": "Olena Farah",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "name": "Olga Loginova, Lifespringhomeopathy.com",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "consolidated-olga-osipova-fitness",
+      "name": "Olga Osipova Fitness",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "ma-150705",
+      "name": "Orange County Acting Academy",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "r-r-181532-5aaf",
+      "name": "R R",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "r-r-181513-8b61",
+      "name": "R R",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "realtor-valeriia-180843",
+      "name": "Realtor Valeriia",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "reel-150657",
+      "name": "reel",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-rita-sarafutdinova",
+      "name": "Rita Sarafutdinova",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "roman-181510-ec0e",
+      "name": "Roman",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "sabinakravchenko-190804",
+      "name": "sabina.kravchenko",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fedor-tsvang-234035",
+      "name": "Smile Kids Party (Tsvang Co)",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": true,
+      "rating": false
+    },
+    {
+      "slug": "oksana-150709",
+      "name": "STAIR Academy",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": true
+    },
+    {
+      "slug": "fbpack-anastasiia-razgulova-sugaring-nastena",
+      "name": "Sugaring Nastena",
+      "phone": true,
+      "addr": false,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-sunrise-education-center",
+      "name": "Sunrise Education Center",
+      "phone": true,
+      "addr": true,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "surprise-meballoons-150639",
+      "name": "Surprise Me Balloon Bar",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": true,
+      "rating": false
+    },
+    {
+      "slug": "taya-181519-b6e4",
+      "name": "Taya",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "taya-181520-438f",
+      "name": "Taya",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-translatorpro",
+      "name": "TranslatorPro — Михаил Богомольный",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fb-post-26-tutowl-com-online-school",
+      "name": "TutOwl Online School",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "us-drive-services-181542-a6e1",
+      "name": "US Drive Services",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "consolidated-valeriia-andriushchenko",
+      "name": "Valeriia Andriushchenko",
+      "phone": true,
+      "addr": false,
+      "coords": true,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "batch2-viktoriya-adamovskaya-delicious-by-va",
+      "name": "Viktoriya Adamovskaya",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "volodymyr-181511-3927",
+      "name": "Volodymyr",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-180842",
+      "name": "Алия Сидорова",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181539-36b0",
+      "name": "Алла",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-6158475912-234039",
+      "name": "Анна Еремеев",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181526-ebad",
+      "name": "Валентина",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181515-e787",
+      "name": "Вячеслав",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "ирина-150639",
+      "name": "Ирина",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181514-9c1f",
+      "name": "Ирина Кундухова",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181526-47bc",
+      "name": "Камила",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "fbpack-niargomsk-igra-v-glinu",
+      "name": "Наталья Яргомская (Niargomsk)",
+      "phone": true,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181509-88e4",
+      "name": "Оксана",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "пиклбол-в-ирвайне-150711",
+      "name": "Пиклбол в Ирвайне",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181520-51a0",
+      "name": "Роман",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181531-70e3",
+      "name": "Татьяна",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181517-806a",
+      "name": "Татьяна",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "business-biz-181523-7fd4",
+      "name": "Тетяна",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    },
+    {
+      "slug": "private-studio-181516-6fe2",
+      "name": "Уютная private studio",
+      "phone": false,
+      "addr": false,
+      "coords": false,
+      "hours": false,
+      "rating": false
+    }
+  ],
+  "multi_hint": [
+    {
+      "slug": "batch2-5-star-appliance-repair",
+      "name": "5 Star Appliance Repair",
+      "website": "https://5starappliancerepair.pro"
+    },
+    {
+      "slug": "consolidated-amega-studios",
+      "name": "Amega Studios",
+      "website": null
+    },
+    {
+      "slug": "consolidated-anastasia-kinder-nails",
+      "name": "Anastasia Kinder — Russian Manicure / Pedicure",
+      "website": "https://instagram.com/hair_extension_usa"
+    },
+    {
+      "slug": "consolidated-art4kidsandteens",
+      "name": "Art 4 Kids & Teens",
+      "website": "https://www.art4kidsandteens.com"
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "name": "Art Backyard",
+      "website": "https://www.artbackyard.com"
+    },
+    {
+      "slug": "fbpack-coastal-carts-rmv",
+      "name": "Coastal Carts RMV",
+      "website": null
+    },
+    {
+      "slug": "batch2-evgeniia-shtefan",
+      "name": "Evgeniia Shtefan",
+      "website": "https://instagram.com/lashes_shtefan"
+    },
+    {
+      "slug": "fbpack-evgeniya-grigoreva",
+      "name": "Evgeniya Grigoreva",
+      "website": null
+    },
+    {
+      "slug": "batch2-flora-barshak",
+      "name": "Flora Barshak",
+      "website": null
+    },
+    {
+      "slug": "grand-auto-group",
+      "name": "Grand Auto Group",
+      "website": "https://grandautogroupoc.com"
+    },
+    {
+      "slug": "fbpack-ira-azovtseva",
+      "name": "Ira Azovtseva",
+      "website": "https://instagram.com/bodysculpting_by_ira"
+    },
+    {
+      "slug": "fbpack-ira-body-sculpting-studio",
+      "name": "Ira Body Sculpting Studio",
+      "website": null
+    },
+    {
+      "slug": "business-7717177777-172212",
+      "name": "Izlatop Insurance Agency",
+      "website": null
+    },
+    {
+      "slug": "fbpack-julia-kolesnikova",
+      "name": "Julia Kolesnikova",
+      "website": "https://instagram.com/pastry_kolesnikova"
+    },
+    {
+      "slug": "fbpack-kaivy-alteration-studio",
+      "name": "Kaivy Alteration Studio",
+      "website": null
+    },
+    {
+      "slug": "fbpack-lena-indiukova",
+      "name": "Lena Indiukova",
+      "website": "https://instagram.com/yummy_homemade_sweets"
+    },
+    {
+      "slug": "consolidated-ltd-services-llc",
+      "name": "LTD Tax & Accounting",
+      "website": "https://www.ltdtaxaccounting.com"
+    },
+    {
+      "slug": "fbpack-svetlana-melnik-merry-hive",
+      "name": "Merry Hive Daycare",
+      "website": null
+    },
+    {
+      "slug": "mike-california-180856",
+      "name": "Mike California",
+      "website": null
+    },
+    {
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "name": "Neo Aesthetics & Medical International Academy",
+      "website": "https://neobeautyschool.com"
+    },
+    {
+      "slug": "fbpack-neptune-seafood",
+      "name": "Neptune Seafood",
+      "website": "https://t.me/neptune_seafood"
+    },
+    {
+      "slug": "fbpack-oksana-spasiuk-photography",
+      "name": "Oksana Spasiuk",
+      "website": "https://instagram.com/oksana.spasiuk.ca_"
+    },
+    {
+      "slug": "fbpack-olena-farah",
+      "name": "Olena Farah",
+      "website": "https://instagram.com/helena_nails_studio"
+    },
+    {
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "name": "Olga Loginova, Lifespringhomeopathy.com",
+      "website": "https://t.me/c/1333533747/72676"
+    },
+    {
+      "slug": "ma-150705",
+      "name": "Orange County Acting Academy",
+      "website": "https://ocacting.com"
+    },
+    {
+      "slug": "batch2-pavel-krylov",
+      "name": "Pavel Krylov",
+      "website": null
+    },
+    {
+      "slug": "repair-pro-172149",
+      "name": "Repair Pro",
+      "website": null
+    },
+    {
+      "slug": "fb-post-9-ruslan-kalumov-moving-services",
+      "name": "Ruslan Kalumov - Moving Services",
+      "website": null
+    },
+    {
+      "slug": "consolidated-ruzanna-melikyan-cleaning",
+      "name": "Ruzanna Melikyan",
+      "website": null
+    },
+    {
+      "slug": "satenik-adzhemian-234042",
+      "name": "Satenik Adzhemian",
+      "website": null
+    },
+    {
+      "slug": "batch2-sbshealth-los-angeles-step-by-step-la",
+      "name": "SBSHealth Los Angeles / Step by Step LA",
+      "website": null
+    },
+    {
+      "slug": "consolidated-stephen-law-pc",
+      "name": "Stephen Law PC",
+      "website": "https://StephenLawPC.com"
+    },
+    {
+      "slug": "fbpack-treasure-rack-san-diego",
+      "name": "Treasure Rack San Diego",
+      "website": null
+    },
+    {
+      "slug": "consolidated-victoria-kuzyakina-yoga",
+      "name": "Victoria Kuzyakina",
+      "website": null
+    },
+    {
+      "slug": "batch2-viktoriya-adamovskaya-delicious-by-va",
+      "name": "Viktoriya Adamovskaya",
+      "website": "https://instagram.com/delicious_by_va"
+    },
+    {
+      "slug": "fbpack-vladimir-way-psychiatry",
+      "name": "Vladimir Way",
+      "website": null
+    },
+    {
+      "slug": "consolidated-aleksey-carp-fishing-trip",
+      "name": "Баня от Алексея",
+      "website": null
+    },
+    {
+      "slug": "inna-172218",
+      "name": "Бесплатная офисная комната (Encino)",
+      "website": null
+    },
+    {
+      "slug": "business-7543646222-171945",
+      "name": "репетитор англ",
+      "website": null
+    },
+    {
+      "slug": "fbpack-slava-marshak-pet-relocation",
+      "name": "Слава Маршак",
+      "website": null
+    }
+  ]
+}

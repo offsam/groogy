@@ -20,6 +20,25 @@ export type PlatformResourceStats = {
   membersToday: number;
 };
 
+export function emptyPlatformResourceStats(): PlatformResourceStats {
+  return {
+    total: 0,
+    businesses: 0,
+    listings: 0,
+    offers: 0,
+    services: 0,
+    transfers: 0,
+    lechu: 0,
+    reviews: 0,
+    categories: 0,
+    members: 0,
+    addedYesterday: 0,
+    addedToday: 0,
+    updatedToday: 0,
+    membersToday: 0,
+  };
+}
+
 function num(payload: Record<string, unknown> | null, key: string): number {
   return Number(payload?.[key] ?? 0);
 }
@@ -83,7 +102,7 @@ export function pluralResources(n: number): string {
 }
 
 export function pluralBusinessCards(n: number): string {
-  return pluralRu(n, "карточка бизнеса", "карточки бизнеса", "карточек бизнеса");
+  return pluralRu(n, "бизнес", "бизнеса", "бизнесов");
 }
 
 export function pluralOffers(n: number): string {

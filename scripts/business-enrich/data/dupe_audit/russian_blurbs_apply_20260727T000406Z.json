@@ -1,0 +1,255 @@
+{
+  "mode": "apply",
+  "rewritten_short": [
+    {
+      "slug": "private-studio",
+      "from": null,
+      "to": "Салон красоты",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "mama-bear-oc-031830",
+      "from": null,
+      "to": "Услуги: Spring Camp, Therapeutic Physical Culture, Russian Language",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "ida-seidova-150707",
+      "from": "Medical spa · Dr. Mo · Newport Beach · Google 5.0★ (64)",
+      "to": "Услуги: EZ Gel - PRF under eyes, Lip",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "batch2-5-star-appliance-repair",
+      "from": "Same-day appliance repair you can trust. 20+ years fixing fridges, ovens, washers & dryers, all brands. Certified techs.",
+      "to": "Офисы: Brea, CA · San Jose, CA",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "consolidated-ltd-services-llc",
+      "from": "Tax / bookkeeping · Wake Forest NC · Google 5.0★ (2)",
+      "to": "Налоги и бухгалтерия",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "kate-brown-204947-c35d",
+      "from": "Hi! My daughter has been going to a group style Russian class in Walnut Creek every Sunday since summer and I cannot say",
+      "to": "Уважаемые родители!",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "consolidated-stephen-law-pc",
+      "from": "Immigration law · AILA · Sacramento · Google 5.0★ (60)",
+      "to": "ИММИГРАЦИОННЫЙ АДВОКАТ.",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "ma-150705",
+      "from": "Acting for kids/TV/film · Mission Viejo · Google 4.6★ (22)",
+      "to": "Orange County Acting Academy — школа актёрского мастерства",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "from": "Art & STEAM for kids · Tustin · Google 5.0★ (28)",
+      "to": "Program: Летний кемп по дизайну интерьера",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "consolidated-tenina-law-inc",
+      "from": "Tax law · Sherman Oaks · Google 5.0★ (50)",
+      "to": "Налоговые проверки, анализ операций, квалификация с точки зрения",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "zsaesthetics-190931",
+      "from": "Physician-led medical spa · Santa Ana · Google 4.9★ (19)",
+      "to": "ZMD Aesthetics — physician-led medical spa в Santa",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "телефон-032106",
+      "from": "Custom fine jewelry · Huntington Beach · Google 4.7★ (23)",
+      "to": "Русскоязычный бизнес",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "from": "Medical Assistant academy · Hallandale Beach, FL · Google 5.0★ (299)",
+      "to": "Duration: 4.5 месяца",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "tатьяна-032105",
+      "from": "Barber / hair studio · Costa Mesa · Google 5.0★ (161)",
+      "to": "Ultima Studio — barber / hair studio в",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "irin-pilates-031833",
+      "from": "Reformer Pilates · Laguna Hills · Google 5.0★ (118)",
+      "to": "Психология",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "batch2-ksenia-andreychenko-taxes-vip",
+      "from": "Enrolled Agent · IRS/FTB · Woodland Hills · Google 5.0★ (13)",
+      "to": "Experience: 10+ лет в США",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "oksana-150709",
+      "from": "Robotics · AI · Python · ages 5–17 · Mission Viejo · Google 5.0★",
+      "to": "Образование",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "bearchildrensacademyorg-031831",
+      "from": "Academics + hands-on learning · Laguna Hills · Google 5.0★ (5)",
+      "to": "Образование",
+      "reason": "from category/EN hints"
+    }
+  ],
+  "deferred_no_russian": [
+    {
+      "id": "03322e2a-2bba-48ff-9a64-faa3fc675be0",
+      "slug": "ship-your-car-with-rcg-llc-205032-0494",
+      "name": "Ship Your Car with RCG LLC",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "dfa94381-02bb-434f-9264-a54c20edee85",
+      "slug": "home-for-rent-in-sacramento-205010-f742",
+      "name": "Home for Rent in Sacramento",
+      "category": "Недвижимость",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "7400aa21-f702-4d66-9a0f-ca6a7fa00e9e",
+      "slug": "fbpack-ira-body-sculpting-studio",
+      "name": "Ira Body Sculpting Studio",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "29ef1547-4135-4f51-9834-38e801867ab9",
+      "slug": "old-school",
+      "name": "Old school",
+      "category": "Животные",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "49735749-7f29-4839-9f4e-e31aed15dde4",
+      "slug": "collision-experts-llc",
+      "name": "Collision Experts LLC",
+      "category": "Страхование",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "74290be8-7b7f-475e-8a34-c07fd475e22b",
+      "slug": "finish-line-collision-center-albert-ter-pogosyan",
+      "name": "Finish line collision center Albert Ter-Pogosyan",
+      "category": "Мастера / быт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "90656603-bc51-45f1-bc3d-e6ec1e249dd7",
+      "slug": "evelina-klchyan",
+      "name": "Evelina Klchyan",
+      "category": "Мастера / быт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "4669cc85-a49c-4818-b9bf-ca325cbdb98b",
+      "slug": "wonderland-beauty-salon",
+      "name": "Wonderland beauty salon",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "028ee1ac-12bb-4ca1-aff3-db22bc1bc232",
+      "slug": "dianapsyhologist",
+      "name": "Dianapsyhologist",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "2f435681-055d-474a-a213-75e3ee9aca4e",
+      "slug": "spots-available-the-salon",
+      "name": "spots available. The salon",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "610deab9-606e-40f3-bced-421386ceb385",
+      "slug": "yummy-homemade-sweets",
+      "name": "yummy_homemade_sweets",
+      "category": "Мероприятия",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "cf121a15-9240-4685-bc9f-c619142d8278",
+      "slug": "lushov-construction-inc-205020-3ce6",
+      "name": "Lushov Construction Inc",
+      "category": "Дом и ремонт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "9e41b331-d2bc-4c94-9eb9-c147c77ed438",
+      "slug": "fbpack-coastal-carts-rmv",
+      "name": "Coastal Carts RMV",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "b1b7833f-d195-4a9b-8bae-e9f1a2bd19a3",
+      "slug": "nadia-teterin-204759-1e1e",
+      "name": "Nadia Teterin",
+      "category": "Недвижимость",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "989bd6c6-1050-44b6-9b55-cd229e7d1b89",
+      "slug": "consolidated-narek-mega-motors-la",
+      "name": "Narek Mega Motors Los Angeles",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+      "slug": "beauty-studio-by-veronika",
+      "name": "Beauty Studio by Veronika",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "106b4614-29f9-48c0-8ffd-e7954238645f",
+      "slug": "fbpack-svetlana-melnik-merry-hive",
+      "name": "Merry Hive Daycare",
+      "category": "Образование",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "08fc945b-963b-4ca1-b87c-068069af7e4c",
+      "slug": "enriched-llc-tsisar",
+      "name": "Ivan Handyman",
+      "category": "Мастера / быт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "7b951600-84b3-46b2-942b-d68deda666b0",
+      "slug": "enriched-toyota-corolla-hybrid-2026-rental",
+      "name": "Toyota Corolla Hybrid 2026 Rental",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "6153f29b-b39f-4fe9-860e-e00db00791b5",
+      "slug": "movement-brewing-company-205317-684f",
+      "name": "Movement Brewing Company",
+      "category": "Мероприятия",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    }
+  ]
+}

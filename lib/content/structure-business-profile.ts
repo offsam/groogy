@@ -18,6 +18,10 @@ export type BusinessProfileSections = {
   extractedEmails: string[];
   /** Facebook page URLs found in free text. */
   extractedFacebookUrls: string[];
+  /** Instagram profile URLs found in free text. */
+  extractedInstagramUrls: string[];
+  /** Non-social website URLs found in free text. */
+  extractedWebsiteUrls: string[];
 };
 
 const SOURCE_FOOTER_RE =
@@ -37,6 +41,28 @@ const FACEBOOK_RE =
 
 const FACEBOOK_GLOBAL_RE = new RegExp(FACEBOOK_RE.source, "gi");
 
+const INSTAGRAM_RE =
+  /(?:https?:\/\/)?(?:www\.)?instagram\.com\/[A-Za-z0-9._\-]+\/?/i;
+
+const INSTAGRAM_GLOBAL_RE = new RegExp(INSTAGRAM_RE.source, "gi");
+
+/** WhatsApp deep links. */
+const WHATSAPP_URL_RE =
+  /https?:\/\/(?:wa\.me|api\.whatsapp\.com)\/[^\s<>"'）)\]]+/gi;
+
+/** Telegram deep links. */
+const TELEGRAM_URL_RE =
+  /https?:\/\/(?:t\.me|telegram\.me|telegram\.org)\/[^\s<>"'）)\]]+/gi;
+
+/** Full http(s) URLs — used to extract website/social links from copy. */
+const HTTP_URL_RE = /https?:\/\/[^\s<>"'）)\]]+/gi;
+
+const WWW_URL_RE = /\bwww\.[^\s<>"'）)\]]+/gi;
+
+const BARE_HANDLE_RE = /(?:^|[\s(,])@[A-Za-z0-9._]{3,30}\b/g;
+
+const BARE_URL_LINE_RE = /^https?:\/\/\S+$/i;
+
 const URL_LINE_RE =
   /^(?:сайт|website|web|url|facebook)\s*[:：]?\s*\S+$/i;
 
@@ -44,7 +70,7 @@ const CONTACT_LINE_RE =
   /^(?:тел(?:ефон)?|phone|call|звон(?:и|ить)?|whatsapp|telegram|тг|email|e-mail|почта|instagram|инстаграм|facebook|fb|контакт)\s*[:：]/i;
 
 const JOB_RE =
-  /(?:ваканси|ищем\s+(?:мастер|сотрудник|работник|специалист|парикмахер|маникюр)|требуется\s+(?:мастер|сотрудник)|hiring|job\s*listing|position\s*:|приглашаем\s+мастер|на\s+работу|compensation\s+package|требования\s*:|requirements\s*:|доход\s+от\s*\$)/i;
+  /(?:ваканси|recruitment|hiring|now\s+hiring|we(?:'re|\s+are)?\s+hiring|job\s*listing|open\s+position|looking\s+for|seeking\s+(?:a\s+)?(?:tech|specialist|master|employee)|в\s+поисках|поиск\s+специалист|ищ(?:у|ем|ут)\s+(?:опытн\w*\s+)?(?:мастер|сотрудник|работник|специалист|парикмахер|маникюр|техник|декоратор|педагог|помощник|helper)|требуется\s+(?:мастер|сотрудник|специалист)|нуж(?:ен|ны)\s+(?:мастер|специалист|сотрудник)|приглашаем\s+(?:мастер|специалист|эксперт|педагог|сотрудник)|на\s+работу|compensation\s+package|требования\s*:|requirements\s*:|доход\s+от\s*\$|position\s*:)/i;
 
 const PROMO_RE =
   /(?:скидк|акци[яи]|promo|discount|%\s*off|\$\s*\d+\s*off|для\s+новых\s+клиент|first[- ]time\s+client)/i;
@@ -52,12 +78,21 @@ const PROMO_RE =
 const CTA_CONTACT_ONLY_RE =
   /^(?:📩|📞|📱|✉️)?\s*(?:пишите|напишите|звоните|call\s+me|dm\s+me|в\s+личные|личные\s+сообщения).{0,80}$/i;
 
+/** Labeled social handles — must NOT match inside https://www.instagram.com/... */
+const LABELED_SOCIAL_RE =
+  /(?:^|[\s(,])(?:instagram|инстаграм|whatsapp|telegram|тг)\s*[:：]?\s*@?[A-Za-z0-9._]+/gi;
+
 function normalizePhone(raw: string): string {
   const digits = raw.replace(/\D/g, "");
   if (digits.length === 10) return `+1${digits}`;
   if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
   if (digits.length >= 10) return `+${digits}`;
   return raw.trim();
+}
+
+function normalizeHttpUrl(raw: string): string {
+  const trimmed = raw.trim().replace(/[.,;:!?)]+$/, "");
+  return trimmed.startsWith("http") ? trimmed : `https://${trimmed}`;
 }
 
 function unique(values: string[]): string[] {
@@ -72,25 +107,101 @@ function unique(values: string[]): string[] {
   return out;
 }
 
+function isInstagramUrl(url: string): boolean {
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname
+      .toLowerCase()
+      .replace(/^www\./, "");
+    return host === "instagram.com" || host.endsWith(".instagram.com");
+  } catch {
+    return /instagram\.com/i.test(url);
+  }
+}
+
+function isFacebookUrl(url: string): boolean {
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname
+      .toLowerCase()
+      .replace(/^www\./, "");
+    return (
+      host === "facebook.com" ||
+      host.endsWith(".facebook.com") ||
+      host === "fb.com" ||
+      host.endsWith(".fb.com")
+    );
+  } catch {
+    return /facebook\.com|fb\.com/i.test(url);
+  }
+}
+
+function isYelpUrl(url: string): boolean {
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname
+      .toLowerCase()
+      .replace(/^www\./, "");
+    return host === "yelp.com" || host.endsWith(".yelp.com");
+  } catch {
+    return /yelp\.com/i.test(url);
+  }
+}
+
 function stripInlineContacts(text: string): string {
   return text
     .replace(EMAIL_GLOBAL_RE, " ")
     .replace(PHONE_GLOBAL_RE, " ")
+    .replace(WHATSAPP_URL_RE, " ")
+    .replace(TELEGRAM_URL_RE, " ")
     .replace(FACEBOOK_GLOBAL_RE, " ")
-    .replace(
-      /(?:instagram|инстаграм|whatsapp|telegram|тг)\s*[:：]?\s*@?[\w./-]+/gi,
-      " ",
-    )
+    .replace(INSTAGRAM_GLOBAL_RE, " ")
+    .replace(LABELED_SOCIAL_RE, " ")
+    .replace(HTTP_URL_RE, " ")
+    .replace(WWW_URL_RE, " ")
+    .replace(BARE_HANDLE_RE, " ")
+    .replace(/(?:^|[\s])по\s+ссылке\s*:?\s*$/gi, " ")
     .replace(/\s{2,}/g, " ")
     .replace(/\s+([,.;:!?)])/g, "$1")
     .trim();
 }
 
+/**
+ * Public surfaces (cards, guest profile, search): narrative only.
+ * Phones, emails, socials, websites belong exclusively in the gated contacts block.
+ */
+export function redactContactsFromPublicText(
+  text: string | null | undefined,
+): string | null {
+  if (text == null) return null;
+  const lines = text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .filter((line) => !isContactOnlyLine(line))
+    .map((line) => stripInlineContacts(line))
+    .filter((line) => line.length >= 3);
+  const out = lines.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return out.length > 0 ? out : null;
+}
+
 function isContactOnlyLine(line: string): boolean {
   const t = line.trim();
   if (!t) return true;
-  if (CONTACT_LINE_RE.test(t) || URL_LINE_RE.test(t)) return true;
+  if (CONTACT_LINE_RE.test(t) || URL_LINE_RE.test(t) || BARE_URL_LINE_RE.test(t)) {
+    return true;
+  }
   if (CTA_CONTACT_ONLY_RE.test(t)) return true;
+  if (INSTAGRAM_RE.test(t) && stripInlineContacts(t).length < 8) return true;
+  if (
+    /https?:\/\/(?:wa\.me|api\.whatsapp\.com)\//i.test(t) &&
+    stripInlineContacts(t).length < 8
+  ) {
+    return true;
+  }
+  if (
+    /https?:\/\/(?:t\.me|telegram\.me|telegram\.org)\//i.test(t) &&
+    stripInlineContacts(t).length < 8
+  ) {
+    return true;
+  }
 
   const withoutContacts = stripInlineContacts(t)
     .replace(/[@#]/g, " ")
@@ -102,7 +213,7 @@ function isContactOnlyLine(line: string): boolean {
   // Line was mostly a phone/email/handle
   if (
     withoutContacts.length < 8 &&
-    (PHONE_RE.test(t) || EMAIL_RE.test(t) || FACEBOOK_RE.test(t))
+    (PHONE_RE.test(t) || EMAIL_RE.test(t) || FACEBOOK_RE.test(t) || INSTAGRAM_RE.test(t))
   ) {
     return true;
   }
@@ -113,6 +224,10 @@ function isContactOnlyLine(line: string): boolean {
   }
 
   if (FACEBOOK_RE.test(t) && withoutContacts.split(/\s+/).length <= 3) {
+    return true;
+  }
+
+  if (INSTAGRAM_RE.test(t) && withoutContacts.split(/\s+/).length <= 3) {
     return true;
   }
 
@@ -157,6 +272,8 @@ export function structureBusinessProfileCopy(
       extractedPhones: [],
       extractedEmails: [],
       extractedFacebookUrls: [],
+      extractedInstagramUrls: [],
+      extractedWebsiteUrls: [],
     };
   }
 
@@ -179,7 +296,13 @@ export function structureBusinessProfileCopy(
       return "\n\n";
     },
   );
-  const withoutFooter = working.replace(/\n{3,}/g, "\n\n").trim();
+  let withoutFooter = working.replace(/\n{3,}/g, "\n\n").trim();
+  // Remove ---FB_ENTITY_...--- JSON only; keep any human text after the dump.
+  withoutFooter = withoutFooter.replace(
+    /\n?---FB_ENTITY_[\w-]+---\s*\{[\s\S]*?\n\}/gi,
+    "",
+  );
+  withoutFooter = withoutFooter.replace(/\n{3,}/g, "\n\n").trim();
 
   const phones = unique(
     [...withoutFooter.matchAll(PHONE_GLOBAL_RE)].map((m) => normalizePhone(m[0])),
@@ -189,9 +312,20 @@ export function structureBusinessProfileCopy(
   );
   const facebookUrls = unique(
     [...withoutFooter.matchAll(FACEBOOK_GLOBAL_RE)].map((m) => {
-      const rawUrl = m[0];
-      return rawUrl.startsWith("http") ? rawUrl : `https://${rawUrl}`;
+      return normalizeHttpUrl(m[0]);
     }),
+  );
+  const allHttpUrls = unique(
+    [...withoutFooter.matchAll(HTTP_URL_RE)].map((m) => normalizeHttpUrl(m[0])),
+  );
+  const instagramUrls = unique([
+    ...[...withoutFooter.matchAll(INSTAGRAM_GLOBAL_RE)].map((m) =>
+      normalizeHttpUrl(m[0]),
+    ),
+    ...allHttpUrls.filter(isInstagramUrl),
+  ]);
+  const websiteUrls = allHttpUrls.filter(
+    (url) => !isInstagramUrl(url) && !isFacebookUrl(url) && !isYelpUrl(url),
   );
 
   const blocks = withoutFooter
@@ -209,23 +343,31 @@ export function structureBusinessProfileCopy(
       .map((l) => l.trim())
       .filter(Boolean);
 
-    const keptLines: string[] = [];
+    const aboutLines: string[] = [];
+    const jobLines: string[] = [];
+
     for (const line of lines) {
       if (isContactOnlyLine(line)) continue;
       const cleaned = stripInlineContacts(line);
       if (!cleaned || cleaned.length < 3) continue;
-      // Drop lines that became empty noise after contact strip
       if (/^[-–—•*]+\s*$/.test(cleaned)) continue;
-      keptLines.push(cleaned);
+      if (JOB_RE.test(cleaned) || /^recruitment\b/i.test(cleaned)) {
+        jobLines.push(cleaned);
+      } else {
+        aboutLines.push(cleaned);
+      }
     }
 
-    if (keptLines.length === 0) continue;
-
-    const cleanedBlock = keptLines.join("\n");
-    const kind = classifyBlock(cleanedBlock);
-    if (kind === "about") aboutParts.push(cleanedBlock);
-    else if (kind === "jobs") jobParts.push(cleanedBlock);
-    else if (kind === "promotions") promoParts.push(cleanedBlock);
+    if (jobLines.length > 0) {
+      jobParts.push(jobLines.join("\n"));
+    }
+    if (aboutLines.length > 0) {
+      const cleanedBlock = aboutLines.join("\n");
+      const kind = classifyBlock(cleanedBlock);
+      if (kind === "about") aboutParts.push(cleanedBlock);
+      else if (kind === "jobs") jobParts.push(cleanedBlock);
+      else if (kind === "promotions") promoParts.push(cleanedBlock);
+    }
   }
 
   // If entire description was a job ad, keep it in jobs even if classifier mixed
@@ -255,6 +397,8 @@ export function structureBusinessProfileCopy(
     extractedPhones: phones,
     extractedEmails: emails,
     extractedFacebookUrls: facebookUrls,
+    extractedInstagramUrls: instagramUrls,
+    extractedWebsiteUrls: websiteUrls,
   };
 }
 
@@ -272,4 +416,46 @@ export function composeBusinessDescription(input: {
   if (jobs) parts.push(`<<<JOBS>>>\n${jobs}\n<<<END>>>`);
   if (promotions) parts.push(`<<<PROMOS>>>\n${promotions}\n<<<END>>>`);
   return parts.join("\n\n");
+}
+
+/**
+ * Split legacy free-text so job blocks become Job rows and leave the business
+ * description without hiring copy.
+ */
+export function extractJobsAndCleanDescription(
+  description: string | null | undefined,
+  shortDescription?: string | null,
+): {
+  jobsText: string | null;
+  cleanedDescription: string | null;
+  cleanedShortDescription: string | null;
+} {
+  const sections = structureBusinessProfileCopy(description, shortDescription);
+  const jobsText = sections.jobs?.trim() || null;
+  if (!jobsText) {
+    return {
+      jobsText: null,
+      cleanedDescription: description?.trim() || null,
+      cleanedShortDescription: shortDescription?.trim() || null,
+    };
+  }
+
+  const cleanedDescription =
+    composeBusinessDescription({
+      about: sections.about ?? "",
+      jobs: "",
+      promotions: sections.promotions ?? "",
+    }).trim() || null;
+
+  // Short description often duplicated hiring blurbs — prefer about preview.
+  const cleanedShortDescription =
+    sections.aboutPreview?.trim() ||
+    sections.about?.trim().slice(0, 280) ||
+    null;
+
+  return {
+    jobsText,
+    cleanedDescription,
+    cleanedShortDescription,
+  };
 }

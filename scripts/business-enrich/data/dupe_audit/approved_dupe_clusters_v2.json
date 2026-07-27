@@ -1,0 +1,363 @@
+[
+  {
+    "size": 3,
+    "reasons": [
+      "ig:mi_care_beauty",
+      "street:1175 baker st"
+    ],
+    "members": [
+      {
+        "id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+        "slug": "micarebeauty-190930",
+        "name": "Mi Care Beauty",
+        "phone": "+19497451105",
+        "instagram_url": "https://instagram.com/mi_care_beauty",
+        "website": "https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8",
+        "address_line": "17621 Irvine Blvd",
+        "city": "Tustin",
+        "postal_code": "92780",
+        "google_rating": null,
+        "short": "Маникюр / педикюр · Tustin plaza",
+        "desc_len": 1055,
+        "img": true
+      },
+      {
+        "id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+        "slug": "tатьяна-032105",
+        "name": "Ultima Studio",
+        "phone": "+19498758877",
+        "instagram_url": "https://instagram.com/mi_care_beauty",
+        "website": "https://ultimastudio.co",
+        "address_line": "1175 Baker St Ste E19",
+        "city": "Costa Mesa",
+        "postal_code": "92626",
+        "google_rating": 5.0,
+        "short": "Barber / hair studio · Costa Mesa · Google 5.0★ (161)",
+        "desc_len": 161,
+        "img": true
+      },
+      {
+        "id": "f1030f62-c39f-4019-be0e-cba489acdb8e",
+        "slug": "enriched-ivan-stypnik",
+        "name": "Ivan Stypnik",
+        "phone": null,
+        "instagram_url": null,
+        "website": "https://getsqr.co/ivan-s-21",
+        "address_line": "1175 Baker St Ste E19",
+        "city": "Costa Mesa",
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Профессиональные мужские и женские стрижки.",
+        "desc_len": 802,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "street:5352 auburn blvd sacramento"
+    ],
+    "members": [
+      {
+        "id": "192e6754-9c91-4456-abec-9ff06a867181",
+        "slug": "business-biz-205109-6cf5",
+        "name": "Диана Губарева",
+        "phone": null,
+        "instagram_url": "https://instagram.com/dianagubareva",
+        "website": null,
+        "address_line": "5352 Auburn Blvd, Sacramento",
+        "city": "Sacramento",
+        "postal_code": "95841",
+        "google_rating": null,
+        "short": "High Heels Beginners 👠\nStarts August 4️⃣\nЭта группа создана для тех, кто давно хотел попробовать High Heels, но не знал,",
+        "desc_len": 645,
+        "img": false
+      },
+      {
+        "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+        "slug": "nataliya-mishenina-204841-326b",
+        "name": "Nataliya  Mishenina",
+        "phone": "+19163071847",
+        "instagram_url": null,
+        "website": null,
+        "address_line": "5352 Auburn Blvd, Sacramento",
+        "city": "Sacramento",
+        "postal_code": "95841",
+        "google_rating": null,
+        "short": "Думаете, чем занять ребенка этим летом?\nЛето, полное творчества, игр и развития для вашего ребенка ✨\n\nПриглашаем детей 5",
+        "desc_len": 1013,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name:wonderland",
+      "name_eq"
+    ],
+    "members": [
+      {
+        "id": "2926ebb8-f020-4c2e-ac1b-73b46bf8c238",
+        "slug": "wonderland-salon-205355-7c07",
+        "name": "Wonderland Salon",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": "Los Angeles",
+        "postal_code": null,
+        "google_rating": null,
+        "short": "🎯 Интервью, которое может изменить всё — подготовьтесь к нему с уверенностью!\nYurMar Consulting помогает пройти интервью",
+        "desc_len": 717,
+        "img": true
+      },
+      {
+        "id": "4669cc85-a49c-4818-b9bf-ca325cbdb98b",
+        "slug": "wonderland-beauty-salon",
+        "name": "Wonderland beauty salon",
+        "phone": "+14244544343",
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": "Лос-Анджелес",
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Wonderland beauty salon 4244544343",
+        "desc_len": 34,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name:reel",
+      "name_eq"
+    ],
+    "members": [
+      {
+        "id": "77c748f7-8c2f-4385-9d91-52b28b6bd1de",
+        "slug": "reel-205444-7283",
+        "name": "reel",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Рассказываю про работу турагента. Кому интересно - пишите за подробностями)",
+        "desc_len": 75,
+        "img": false
+      },
+      {
+        "id": "dd044ebe-3a15-4994-80f3-ab268f511af9",
+        "slug": "reel-205255-a92c",
+        "name": "reel",
+        "phone": null,
+        "instagram_url": "https://www.instagram.com/reel",
+        "website": "https://studio.dreem-world.ai/r/Q8890E",
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Кто хочет поиграть с созданием Ai video и сделать свой первый сериал - классная платформа, где это можно сделать\nПример ",
+        "desc_len": 279,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name:oktel",
+      "name_eq"
+    ],
+    "members": [
+      {
+        "id": "c036ad34-a75f-404c-a0ea-55138479fa56",
+        "slug": "oktel-205740-27a3",
+        "name": "𝙤𝙠𝙩𝙚𝙡",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин",
+        "desc_len": 66,
+        "img": false
+      },
+      {
+        "id": "fbe0d02e-fd22-4045-834e-2fa8c89208a7",
+        "slug": "oktel-181534-5dfb",
+        "name": "𝙤𝙠𝙩𝙚𝙡",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин",
+        "desc_len": 66,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name_sub"
+    ],
+    "members": [
+      {
+        "id": "0d560364-8b6d-4e78-a40d-7881c1b96645",
+        "slug": "alena-petrova-172203",
+        "name": "Alena Petrova Hair",
+        "phone": "+12134422022",
+        "instagram_url": null,
+        "website": null,
+        "address_line": "7551 Santa Monica Blvd",
+        "city": "West Hollywood",
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Парикмахер · West Hollywood",
+        "desc_len": 696,
+        "img": true
+      },
+      {
+        "id": "fbcb7468-87e9-450c-8b27-7c381e489f1e",
+        "slug": "alena",
+        "name": "Alena",
+        "phone": "+19165383882",
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": "Orange County",
+        "postal_code": null,
+        "google_rating": null,
+        "short": "Здравствуйте. 9165383882 Иван Напишите ему, он занимается полами",
+        "desc_len": 64,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name_sub"
+    ],
+    "members": [
+      {
+        "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+        "slug": "office-205354-a216",
+        "name": "Office",
+        "phone": null,
+        "instagram_url": "https://www.instagram.com/navatfoodtruck",
+        "website": null,
+        "address_line": "7300 Sunset Blvd, Los Angeles",
+        "city": "Los Angeles",
+        "postal_code": "90046",
+        "google_rating": null,
+        "short": "🔥 NAVAT — HALAL СРЕДНЕАЗИАТСКАЯ КУХНЯ В LOS ANGELES 🔥\n\n3 из 4 наших локаций работают до 4 утра! 🌅\n\n✅ Шаурма (курица, гов",
+        "desc_len": 639,
+        "img": true
+      },
+      {
+        "id": "cada7298-7a11-4c17-a45c-c4add9685de1",
+        "slug": "sergiy-kuzin-loan-officer-204834-c234",
+        "name": "Sergiy Kuzin, Loan Officer",
+        "phone": "+19166942209",
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "short": "А какие ставки вам сегодня предлагают?\n📊 **Обновление рынка — ставки на сегодня** 30 июня 2026 г.\nТекущие ставки по прог",
+        "desc_len": 1622,
+        "img": false
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name_sub"
+    ],
+    "members": [
+      {
+        "id": "d8e02133-7958-44b8-842c-50ccfd9b9e96",
+        "slug": "stairedu-sergey-150606",
+        "name": "StairEdu Sergey",
+        "phone": "+19493313008",
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": "Mission Viejo",
+        "postal_code": null,
+        "google_rating": null,
+        "short": "",
+        "desc_len": 367,
+        "img": true
+      },
+      {
+        "id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+        "slug": "oksana-150709",
+        "name": "STAIR Academy",
+        "phone": "+19498291289",
+        "instagram_url": null,
+        "website": "https://www.stairedu.com",
+        "address_line": "27762 Vista Del Lago #8",
+        "city": "Mission Viejo",
+        "postal_code": "92692",
+        "google_rating": 5.0,
+        "short": "Robotics · AI · Python · ages 5–17 · Mission Viejo · Google 5.0★",
+        "desc_len": 390,
+        "img": true
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "stem:beauty\\s*studio\\s*by\\s*veronika"
+    ],
+    "members": [
+      {
+        "id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+        "slug": "beauty-studio-by-veronika",
+        "name": "Beauty Studio by Veronika",
+        "phone": "949-287-6232",
+        "instagram_url": "https://instagram.com/beautystudio_by_veronika",
+        "website": "https://studiobyveronika.com/",
+        "address_line": "230 E 17th St #150",
+        "city": "Costa Mesa",
+        "postal_code": "92627",
+        "google_rating": 4.9,
+        "short": "Beauty Studio by Veronika — luxury beauty salon in Orange County. We are setting a new standard in Orange County.\n\nWelco",
+        "desc_len": 1007,
+        "img": true
+      },
+      {
+        "id": "f33b0d87-5883-47ee-91bc-e2c478cbb41e",
+        "slug": "united-states-beauty-studio-180905",
+        "name": "United States Beauty studio",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": "230 E 17th St Ste 150",
+        "city": "Costa Mesa",
+        "postal_code": "92627",
+        "google_rating": null,
+        "short": "230 E 17th St\nSte 150\nCosta Mesa, CA  92627\nUnited States\n\nBeauty studio by Veronika. Очень профессиональный подход к ма",
+        "desc_len": 147,
+        "img": false
+      }
+    ]
+  }
+]

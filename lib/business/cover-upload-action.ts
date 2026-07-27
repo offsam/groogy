@@ -45,11 +45,27 @@ export async function uploadBusinessCoverAction(input: {
   const { supabase, error } = await requireBusinessEditor(input.businessId);
   if (error) return error;
 
-  const file = input.formData.get("file");
-  if (!(file instanceof File) || file.size === 0) {
+  const raw = input.formData.get("file");
+  let file: File | null = null;
+  if (raw instanceof File) {
+    file = raw;
+  } else if (typeof raw !== "string" && raw && typeof Blob !== "undefined") {
+    const maybeBlob = raw as Blob;
+    if (typeof maybeBlob.arrayBuffer === "function" && maybeBlob.size > 0) {
+      file = new File([maybeBlob], "cover.webp", {
+        type: maybeBlob.type || "image/webp",
+      });
+    }
+  }
+  if (!file || file.size === 0) {
     return fail("Выберите файл.");
   }
-  if (!file.type.startsWith("image/")) {
+  // Some browsers leave type empty; allow by extension / size and let sharp sniff.
+  const looksLikeImage =
+    file.type.startsWith("image/") ||
+    file.type === "" ||
+    /\.(jpe?g|png|webp|gif)$/i.test(file.name);
+  if (!looksLikeImage) {
     return fail("Допустимы только изображения.");
   }
   if (file.size > BUSINESS_COVER_MAX_UPLOAD_BYTES) {

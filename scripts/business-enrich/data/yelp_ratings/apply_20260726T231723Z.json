@@ -1,0 +1,65 @@
+{
+  "mode": "apply",
+  "candidates": 7,
+  "found": 0,
+  "applied": 0,
+  "failed": 7,
+  "reports": [
+    {
+      "id": "bc9bded9-ff37-4e07-a8ca-61905470048c",
+      "slug": "consolidated-art4kidsandteens",
+      "name": "Art 4 Kids & Teens",
+      "yelp_url": "https://www.yelp.com/biz/art-4-kids-and-teens-mission-viejo",
+      "ok": false,
+      "error": "fetch_failed"
+    },
+    {
+      "id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "slug": "fbpack-art-backyard-design-camp",
+      "name": "Art Backyard",
+      "yelp_url": "https://www.yelp.com/biz/art-backyard-tustin",
+      "ok": false,
+      "error": "fetch_failed"
+    },
+    {
+      "id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+      "slug": "beauty-studio-by-veronika",
+      "name": "Beauty Studio by Veronika",
+      "yelp_url": "https://www.yelp.com/biz/beauty-studio-by-veronika-costa-mesa-6",
+      "ok": false,
+      "error": "fetch_failed"
+    },
+    {
+      "id": "2c49e794-878c-4860-a9fd-1b92f3de5891",
+      "slug": "grand-auto-group",
+      "name": "Grand Auto Group",
+      "yelp_url": "https://www.yelp.com/biz/grand-auto-group-santa-ana",
+      "ok": false,
+      "error": "fetch_failed"
+    },
+    {
+      "id": "cf10bd96-135f-44c8-aae5-4428b3d53054",
+      "slug": "lunelle-nail-salon",
+      "name": "Lunelle Nail Salon",
+      "yelp_url": "https://www.yelp.com/biz/lunelle-nail-salon-mission-viejo",
+      "ok": false,
+      "error": "fetch_failed"
+    },
+    {
+      "id": "852c6eb5-88fc-49f0-b9e0-41deb29ee338",
+      "slug": "ma-150705",
+      "name": "Orange County Acting Academy",
+      "yelp_url": "https://www.yelp.com/biz/orange-county-acting-academy-mission-viejo-3",
+      "ok": false,
+      "error": "fetch_failed"
+    },
+    {
+      "id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "slug": "consolidated-tenina-law-inc",
+      "name": "Tenina Law, Inc.",
+      "yelp_url": "https://www.yelp.com/biz/tenina-law-sherman-oaks-2",
+      "ok": false,
+      "error": "fetch_failed"
+    }
+  ]
+}

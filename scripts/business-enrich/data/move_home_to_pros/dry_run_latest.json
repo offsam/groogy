@@ -1,0 +1,1159 @@
+{
+  "batch": "move_home_mobile_person_to_pros_v1",
+  "mode": "dry_run",
+  "approved_scanned": 314,
+  "selected": 114,
+  "converted": 0,
+  "errors": 0,
+  "reasons": {
+    "mobile_service_no_storefront": 9,
+    "home_food_no_storefront": 16,
+    "specialist_keywords_no_address": 13,
+    "person_specialist_no_address": 40,
+    "online_specialist": 9,
+    "person_name_no_place": 25,
+    "person_home_food": 2
+  },
+  "results": [
+    {
+      "business_id": "1f912b4c-7092-4ad9-a979-382c2432cbfd",
+      "business_slug": "crystalcar-204848-2871",
+      "name": "🚘 CrystalCar — чистота и уход за вашим автомобилем без лишне",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "crystalcar-204848-2871",
+      "status": "dry_run",
+      "preview": "🚘 CrystalCar — чистота и уход за вашим автомобилем без лишнего пафоса.\nЕсли салон уже потерял свежий вид, а кузов не рад"
+    },
+    {
+      "business_id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "business_slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "business-biz-181521-6c6a",
+      "status": "dry_run",
+      "preview": "Делаю трайфалы и медовики на заказ писать в личку или в"
+    },
+    {
+      "business_id": "995cb510-7518-4f2a-98c3-745cd8d9f47c",
+      "business_slug": "agent-of-the-west-205502-23d3",
+      "name": "agent of the west",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "agent-of-the-west-205502-23d3",
+      "status": "dry_run",
+      "preview": "Добрый вечер! Ищем модель на маникюр gel X в салон красоты no choice на 11:00 \nБесплатно \nХантингтон Бич\n\nПодробности в "
+    },
+    {
+      "business_id": "8c070874-3a01-47eb-b26a-9dd0ed58a26d",
+      "business_slug": "aida-khazieva-pr-205628-e4f9",
+      "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "aida-khazieva-pr-205628-e4f9",
+      "status": "dry_run",
+      "preview": "это правда супер✨\nЯ в США всего 1,5 года и эти встречи с МАК картами стали для меня большой поддержкой.\nАльбина очень тё"
+    },
+    {
+      "business_id": "49ecd566-24ca-4ac2-ae97-8bfc18499d9d",
+      "business_slug": "aiza-m-205715-2ce1",
+      "name": "Aiza M",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "aiza-m-205715-2ce1",
+      "status": "dry_run",
+      "preview": "Здравствуйте!\n\nПровожу занятия по английскому языку 🇺🇸🇬🇧\nОбъясняю на казахском, русском или полностью на английском — ка"
+    },
+    {
+      "business_id": "a0e13959-8064-45bd-b809-f5842fefb340",
+      "business_slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "aiza-m-181528-e5d8",
+      "status": "dry_run",
+      "preview": "Привет 👋\nПровожу онлайн-уроки английского языка.\n\nРаботаю индивидуально — под каждого ученика своя программа и темп. Объ"
+    },
+    {
+      "business_id": "fc7a7865-6aa3-45b2-9c7f-53ad1f5c6430",
+      "business_slug": "aiza-m-205644-4aee",
+      "name": "Aiza M",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "aiza-m-205644-4aee",
+      "status": "dry_run",
+      "preview": "Здравствуйте!\nПреподаю английский язык онлайн с индивидуальным подходом к каждому ученику.\nХотите говорить свободно и ув"
+    },
+    {
+      "business_id": "dabde986-d340-4270-8fc6-fe7e358f21e7",
+      "business_slug": "akim-fam-205042-f633",
+      "name": "Akim Fam",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "akim-fam-205042-f633",
+      "status": "dry_run",
+      "preview": "🐾 Pet Boarding – Dogs, Cats & Other Small Pets 🐾\n\nGoing on vacation, a business trip, or just need someone to care for y"
+    },
+    {
+      "business_id": "f8300515-85e6-4e15-98df-1d0405c00b35",
+      "business_slug": "alena-190941",
+      "name": "Alena",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "alena-190941",
+      "status": "dry_run",
+      "preview": ""
+    },
+    {
+      "business_id": "00b94a99-8964-4f4b-8494-7d4920655c98",
+      "business_slug": "alessandra-205417-7926",
+      "name": "Alessandra",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "alessandra-205417-7926",
+      "status": "dry_run",
+      "preview": "Куличи - Паннетоне с зефирным декором. Много ароматных сухофруктов, много нежного клубничного  зефира сверху. Основа- ку"
+    },
+    {
+      "business_id": "b46a8bc6-da9a-4d13-9be9-9b055edc6fb7",
+      "business_slug": "alla-205619-082b",
+      "name": "Alla",
+      "reason": "person_specialist_no_address",
+      "pro_category": "health",
+      "professional_slug": "alla-205619-082b",
+      "status": "dry_run",
+      "preview": "В Мексике нет, но есть очень хороший доктор в Riverside, гинеколог от Бога, но не русский"
+    },
+    {
+      "business_id": "b11627c1-9443-4c23-be15-2d7c489a8cd0",
+      "business_slug": "ana-gonzalez-204820-d61c",
+      "name": "Ana Gonzalez",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "ana-gonzalez-204820-d61c",
+      "status": "dry_run",
+      "preview": "Кто обожает путешествия и хочет завести новых друзей? **Собираем очередной девичник(** без ограничения по возрасту) на П"
+    },
+    {
+      "business_id": "1d0bb0a6-f9e4-4d57-94cd-5a5a43c5fb50",
+      "business_slug": "andrew-181007",
+      "name": "Andrew",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "andrew-181007",
+      "status": "dry_run",
+      "preview": "Что касается рыбалки на нельму:Итак по поездке на нельму\nМогу принять вас в апреле,900$ с человека в день,что входит в с"
+    },
+    {
+      "business_id": "f2591a2f-5d06-4cb2-9f2d-581613ab7873",
+      "business_slug": "andrey-gromov-181005",
+      "name": "Andrey Gromov",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "andrey-gromov-181005",
+      "status": "dry_run",
+      "preview": "🚗 только в LA\nот 750 💰/ месяц \nВсе включено!!! \nПодробности в лс 😉"
+    },
+    {
+      "business_id": "ea58ecb8-8f77-43b1-bf4a-4440ce94e654",
+      "business_slug": "anna-ann-205316-c799",
+      "name": "Anna Ann",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "anna-ann-205316-c799",
+      "status": "dry_run",
+      "preview": "Англійська, німецька та італійська мови онлайн для діток, підлітків та дорослих! Індивідуальні або групові заняття. Авто"
+    },
+    {
+      "business_id": "56d0b8fc-5ce0-4ad0-b562-6475bb727512",
+      "business_slug": "anna-sergeeva-205553-7269",
+      "name": "Anna Sergeeva",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "anna-sergeeva-205553-7269",
+      "status": "dry_run",
+      "preview": "Помогаю получать заявки через Teлegram-чаты.\n📌 Подходит для бuзнеса и проектов\nуsлуги\nтоваpы\nsайты\nbоты\nНапиши «+» в лич"
+    },
+    {
+      "business_id": "2eab151e-f3eb-4413-be34-b063357176ad",
+      "business_slug": "anonymous-participant-205245-6c21",
+      "name": "Anonymous participant",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "anonymous-participant-205245-6c21",
+      "status": "dry_run",
+      "preview": "🏡 Переуступка аренды — 2 комнаты + отдельная ванная в доме\n\nСдаются 2 отдельные комнаты и 1 отдельная ванная комната в п"
+    },
+    {
+      "business_id": "5ce45563-9f9d-492a-852f-d37987233c4f",
+      "business_slug": "artur-sh-205449-7381",
+      "name": "Artur Sh",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "artur-sh-205449-7381",
+      "status": "dry_run",
+      "preview": "Саксофон, кларнет 🌺\n\nЧастные уроки 🌸\n\nЛюбой возраст 🌺\n\nЛюбой уровень 🎷"
+    },
+    {
+      "business_id": "3988c537-d084-4bc2-bac4-bd3c96f1dca4",
+      "business_slug": "asl-detailing-204826-93f7",
+      "name": "ASL Detailing",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "asl-detailing-204826-93f7",
+      "status": "dry_run",
+      "preview": "🚗 Всем привет!\n\nПредлагаю профессиональный мобильный детейлинг салона автомобиля в Сакраменто и ближайших районах.\n\nПрие"
+    },
+    {
+      "business_id": "1dd4341d-a82a-4476-b57a-f1609608ee5e",
+      "business_slug": "blackcaviar-redcaviar-sevrugacaviar-belugacaviar-s-205041-4f3b",
+      "name": "BlackCaviar #RedCaviar #SevrugaCaviar #BelugaCaviar #Sturgeo",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "blackcaviar-redcaviar-sevrugacaviar-belugacaviar-s-205041-4f3b",
+      "status": "dry_run",
+      "preview": "⚫🔴 Чёрная и красная икра от BestCaviarUSA.com\n✨ Отборная икра для тех, кто ценит происхождение, текстуру и чистый вкус б"
+    },
+    {
+      "business_id": "979571ae-759c-45bd-af03-ff5fd06579e7",
+      "business_slug": "born-alex-205015-8df7",
+      "name": "Born Alex",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "born-alex-205015-8df7",
+      "status": "dry_run",
+      "preview": "Автомобили с аукционов США. На внутренний рынок и на экспорт. СНГ+. Ссылка в комментариях. Доступ к аукциону Манхейм для"
+    },
+    {
+      "business_id": "60eb8001-580e-4288-b10a-c6a7cfc9fe30",
+      "business_slug": "fbpack-calibuilders",
+      "name": "CaliBuilders",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "fbpack-calibuilders",
+      "status": "dry_run",
+      "preview": "Construction, Home repair"
+    },
+    {
+      "business_id": "6811eada-7c97-4d26-875f-1b1eaed670e4",
+      "business_slug": "californian-pilot-205429-37d6",
+      "name": "Californian Pilot",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "californian-pilot-205429-37d6",
+      "status": "dry_run",
+      "preview": "Экскурсии по Лос Анджелесу на самолете. \nМожно увидеть \nDowntown LA \nHollywood Sign \nSanta Monica pier\nCatalina island \n"
+    },
+    {
+      "business_id": "ddf5ce9b-78ea-4874-8736-5da8fd33f63e",
+      "business_slug": "christie-v-205345-fc04",
+      "name": "Christie V",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "christie-v-205345-fc04",
+      "status": "dry_run",
+      "preview": "Переводчик на интервью в USCIS (Orange County, LA, San Diego, New York & New Jersey)\nконсультирую по вопросам социальных"
+    },
+    {
+      "business_id": "c1839c33-38c7-459b-96eb-cc68b7c951fb",
+      "business_slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "daria-sergutina-205330-888c",
+      "status": "dry_run",
+      "preview": "Привет! Меня зовут Даша, и я преподаю английский уже более 20 лет.\nПоследние 4 года я помогаю эмигрантам в США уверенно "
+    },
+    {
+      "business_id": "a2c4b3aa-1be4-4f1c-bec8-ceb6b7298bbd",
+      "business_slug": "delicious-by-va-150630",
+      "name": "delicious_by_va",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "delicious-by-va-150630",
+      "status": "dry_run",
+      "preview": "Вкус детства, который невозможно забыть… ❤️\n\nЕсть десерты, которые мгновенно возвращают в самые теплые воспоминания. Шок"
+    },
+    {
+      "business_id": "c71f8339-ac50-4b55-b728-f8294fb51f3f",
+      "business_slug": "demik-bbq-205325-1ea3",
+      "name": "Demik BBQ",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "demik-bbq-205325-1ea3",
+      "status": "dry_run",
+      "preview": "🔥Премиальное выездное BBQ и личный шеф-повар в Сакраменто!🔥\nПланируете вечеринку, день рождения или семейный ужин на бэк"
+    },
+    {
+      "business_id": "b2ef6358-4bb4-45f2-9f01-acff7dc03838",
+      "business_slug": "fbpack-home-swimming-classes-elena",
+      "name": "Elena",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "fbpack-home-swimming-classes-elena",
+      "status": "dry_run",
+      "preview": "Индивидуальные / домашние уроки плавания · Elena"
+    },
+    {
+      "business_id": "8bca57e4-76a5-407b-b097-dfa86ec69d4e",
+      "business_slug": "elizaveta-petrova-180911",
+      "name": "Elizaveta Petrova",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "elizaveta-petrova-180911",
+      "status": "dry_run",
+      "preview": "📚 Устал учить английский по приложениям без результата? Живой преподаватель с 7-летним опытом — совсем другое. Языки: 🇺🇸"
+    },
+    {
+      "business_id": "7024cac1-0cfa-455b-a589-646bc0e1583c",
+      "business_slug": "evgeniya-205353-d9f7",
+      "name": "Evgeniya",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "evgeniya-205353-d9f7",
+      "status": "dry_run",
+      "preview": "Десерты к 8 Марта 🌸\n\nВесна начинается с нежности.\nС цветов.\nС тёплых слов.\nИ, конечно, со сладких подарков.\n\n8 Марта — э"
+    },
+    {
+      "business_id": "79418e20-13e9-4518-b150-0127521e7748",
+      "business_slug": "fbpack-evgeniya-grigoreva",
+      "name": "Evgeniya Grigoreva",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "fbpack-evgeniya-grigoreva",
+      "status": "dry_run",
+      "preview": "Обмен рублей по курсу ЦБ · Orange County · встреча при необходимости · Direct/Messenger"
+    },
+    {
+      "business_id": "0b481780-f169-4901-b18c-3eb2394127f9",
+      "business_slug": "grigory-205456-de1c",
+      "name": "Grigory",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "grigory-205456-de1c",
+      "status": "dry_run",
+      "preview": "Поможем получить & продлить документы официально, оперативно и надежно нерезидентам\nNon-Domiciled/Limited-Term CDL\nDOT M"
+    },
+    {
+      "business_id": "89b1e741-59eb-4d22-a66f-a08e88673216",
+      "business_slug": "i-m-205807-c490",
+      "name": "I M",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "pro_other",
+      "professional_slug": "i-m-205807-c490",
+      "status": "dry_run",
+      "preview": "Нотариально заверенное согласие родителей на выезд ребёнка с бабушкой и дедушкой. Лучше оформить на русском и английском"
+    },
+    {
+      "business_id": "f6478075-2318-4346-94a7-409e292ec74c",
+      "business_slug": "inessa-ys-205049-f16b",
+      "name": "Inessa Ys",
+      "reason": "person_specialist_no_address",
+      "pro_category": "childcare",
+      "professional_slug": "inessa-ys-205049-f16b",
+      "status": "dry_run",
+      "preview": "ОТКРЫТ НАБОР В ДОМАШНИЙ ДЕТСКИЙ САД!\n👶 Принимаем детей от 1 года.\n\n✅ 30 лет опыта\n✅ Район American River College (ZIP 95"
+    },
+    {
+      "business_id": "c6ffaa0c-4ddc-43ff-b839-447da7169ef2",
+      "business_slug": "ivan-gant-205422-e414",
+      "name": "Ivan Gant",
+      "reason": "person_name_no_place",
+      "pro_category": "creative",
+      "professional_slug": "ivan-gant-205422-e414",
+      "status": "dry_run",
+      "preview": "друзья! 😎✌🏼#Dj #LA #California #USA\n \nДобро пожаловать на борт Иван Гант! Dj Ivan Gant 😎🎧🎵\n (House music, hip-hop, pop, "
+    },
+    {
+      "business_id": "9d9b3d10-81b5-4c67-bbfe-479ff0d7a850",
+      "business_slug": "jane-oc-205304-7225",
+      "name": "Jane OC",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "jane-oc-205304-7225",
+      "status": "dry_run",
+      "preview": "Самый удобный вариант для этого возраста онлайн - очень бюджетно AI система обучения Synthesis Tutor. На английском, мой"
+    },
+    {
+      "business_id": "a7fcdc31-5406-493a-860c-8519cc538e97",
+      "business_slug": "jenny-181008",
+      "name": "Jenny",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "jenny-181008",
+      "status": "dry_run",
+      "preview": "Друзья, заглядывайте за английским! Разбираем произношение, пополняем словарный запас, приструняем грамматику и просто в"
+    },
+    {
+      "business_id": "3f5d1730-2a19-49a5-add4-8632e2d4b5fc",
+      "business_slug": "joanne-nellie-180950",
+      "name": "Joanne Nellie",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "joanne-nellie-180950",
+      "status": "dry_run",
+      "preview": "🇺🇸 Green Card через брак с гражданином/гражданкой США\nОформим ваш кейс под ключ\n• Adjustment of Status\n• Полное сопровож"
+    },
+    {
+      "business_id": "1ffbcf12-80af-4c9e-a66a-af2f0a33d496",
+      "business_slug": "julia-colorist-laoc-205343-1694",
+      "name": "Julia Colorist LA/OC 🇺🇸",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "julia-colorist-laoc-205343-1694",
+      "status": "dry_run",
+      "preview": "•🪽КОЛОРИСТ\n•🪽Мастер по НАРАЩИВАНИЮ волос\nпродажа волос\n🪄Повторяю окрашивания с картинки 🪄\nБренд красителя: Paul Mitchell"
+    },
+    {
+      "business_id": "79a6dba4-0191-4e2b-8d59-9664a9810246",
+      "business_slug": "justin-cox-205709-efd1",
+      "name": "Justin Cox",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "justin-cox-205709-efd1",
+      "status": "dry_run",
+      "preview": "Изготовление CDL / DL 🪪\nДоступны почти все штаты 🇺🇸\nЧитающийся barcode 🚛\nПомощь при отказе в замене или продлении\nПрохож"
+    },
+    {
+      "business_id": "601b813d-1d51-4959-a891-c5a289c113a2",
+      "business_slug": "fbpack-lena-indiukova",
+      "name": "Lena Indiukova",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "fbpack-lena-indiukova",
+      "status": "dry_run",
+      "preview": "Торты и десерты на заказ · Irvine Spectrum"
+    },
+    {
+      "business_id": "172f3382-6ab6-4df4-a815-946e1fd37991",
+      "business_slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "lev-kushner-205253-0fa9",
+      "status": "dry_run",
+      "preview": "ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ\nвылет из любого города США"
+    },
+    {
+      "business_id": "2145becc-e1e5-4ea8-969c-c7bb03943566",
+      "business_slug": "licensed-home-bakery-180903",
+      "name": "Licensed Home Bakery",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "licensed-home-bakery-180903",
+      "status": "dry_run",
+      "preview": "🥧 ОСЕТИНСКИЕ ПИРОГИ В ЛОС-АНДЖЕЛЕСЕ\nГотовим настоящие осетинские пироги по традиционным рецептам.\n✅ Health Permit Approv"
+    },
+    {
+      "business_id": "bae14643-a203-46fd-9179-bee4e7fd8898",
+      "business_slug": "batch2-lidiia-gordienko",
+      "name": "Lidiia Gordienko",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "batch2-lidiia-gordienko",
+      "status": "dry_run",
+      "preview": "Tesla Model Y · аэропорт / OC / школьный трансфер"
+    },
+    {
+      "business_id": "669c450d-ab31-472f-9923-36ffc5ad3332",
+      "business_slug": "lisa-nekrasova-205120-a330",
+      "name": "Lisa Nekrasova",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "lisa-nekrasova-205120-a330",
+      "status": "dry_run",
+      "preview": "Здравствуйте!\nЭтим летом для новых учеников действует специальное летнее предложение на индивидуальные онлайн-занятия\n💜 "
+    },
+    {
+      "business_id": "8234639c-91b2-47c9-b57b-2d8807ae8b25",
+      "business_slug": "lynn-j-english-205002-47f7",
+      "name": "Lynn J English",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "lynn-j-english-205002-47f7",
+      "status": "dry_run",
+      "preview": "Набираем студентов новые классы и летнюю разговорную программу."
+    },
+    {
+      "business_id": "a9384cd4-8a45-4ec9-97fa-23ebe295eed3",
+      "business_slug": "batch2-yana-hodyniuk-marshmallow-magic",
+      "name": "Marshmallow Magic",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "batch2-yana-hodyniuk-marshmallow-magic",
+      "status": "dry_run",
+      "preview": "Marshmallow Magic · съедобные букеты из зефира · подарочные наборы · доставка по всей США"
+    },
+    {
+      "business_id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "business_slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "vika-borel-150706",
+      "status": "dry_run",
+      "preview": "Онлайн школа программирования 9–17 · Python · Vika Borel"
+    },
+    {
+      "business_id": "dd686537-6658-481f-a63b-05e9dd4e6a8e",
+      "business_slug": "nadezhda-kurinnaya-205057-a56b",
+      "name": "Nadezhda Kurinnaya",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "nadezhda-kurinnaya-205057-a56b",
+      "status": "dry_run",
+      "preview": "Даю частные уроки гитары\nОпыт работы в США 17 лет.\nАлександр"
+    },
+    {
+      "business_id": "0605d94b-a254-4af5-a8b3-834ef166835a",
+      "business_slug": "nastya-180850",
+      "name": "Nastya",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "nastya-180850",
+      "status": "dry_run",
+      "preview": "🌸 ДЕНЬ МАТЕРІ | LIMITED DROP 🌸\n\nВідкриваю невелику кількість десертів до цієї неділі 💛\nПриймаю строго обмежену кількість"
+    },
+    {
+      "business_id": "773d8dbb-a677-43f8-be25-34cecab7864a",
+      "business_slug": "nata-cali-205614-60c9",
+      "name": "Nata Cali",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "nata-cali-205614-60c9",
+      "status": "dry_run",
+      "preview": "Снимала и снимаю у этой компании, потому что они в ирвайне монополисты. Залог никогда не отдавали полностью, всегда нахо"
+    },
+    {
+      "business_id": "c1d79753-221e-4d33-bbda-0f7285f6ce09",
+      "business_slug": "natalie-revers-204925-114b",
+      "name": "Natalie Revers",
+      "reason": "person_home_food",
+      "pro_category": "home_food",
+      "professional_slug": "natalie-revers-204925-114b",
+      "status": "dry_run",
+      "preview": "🍯 Свежий натуральный мед.\nКачественный, ароматный, без сахара, сиропов и каких-либо добавок — только натуральный пчелины"
+    },
+    {
+      "business_id": "9a28b437-3814-4e3d-afba-54fff50356bf",
+      "business_slug": "fbpack-neptune-seafood",
+      "name": "Neptune Seafood",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "fbpack-neptune-seafood",
+      "status": "dry_run",
+      "preview": "Рыба и икра · доставка LA 24.07 / SD 25.07 / OC 26.07 · заказ заранее · Karina"
+    },
+    {
+      "business_id": "7aa29e04-f5bc-4aa6-86ad-dca323fc9737",
+      "business_slug": "nicks-premium-mobile-auto-detailing-204829-e6dd",
+      "name": "Nick's Premium Mobile Auto Detailing",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "nicks-premium-mobile-auto-detailing-204829-e6dd",
+      "status": "dry_run",
+      "preview": "Меня зовут Николай. Я профессиональный авто детейлер с многолетним опытом.\n\nСпециализируюсь на аккуратном восстановлении"
+    },
+    {
+      "business_id": "4cc7a2b3-fa35-4c62-b625-1783bb3e7d48",
+      "business_slug": "nikita-golosov-205610-92f3",
+      "name": "Nikita Golosov",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "nikita-golosov-205610-92f3",
+      "status": "dry_run",
+      "preview": "У кого плохая вытяжка на кухне? Я продаю портативные вытяжки и мне нужны отзывы на Амазон, бесплатно отправлю товар, а в"
+    },
+    {
+      "business_id": "bbeda8a0-36c1-4acc-9319-cdd7c6420265",
+      "business_slug": "olya-music-teacher-205418-dae7",
+      "name": "Olya Music teacher",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "olya-music-teacher-205418-dae7",
+      "status": "dry_run",
+      "preview": "Приглашаю на занятия самых маленьких исполнителей- деток 3-6 лет! Если вы хотите, чтобы ваш ребенок мягко и с радостью в"
+    },
+    {
+      "business_id": "8c390c82-0098-4093-a3f0-8ca095679334",
+      "business_slug": "pavel-egorov-204852-f566",
+      "name": "Pavel Egorov",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "pavel-egorov-204852-f566",
+      "status": "dry_run",
+      "preview": "Всем привет!\nВеду набор учеников на занятия по барабанам\nПриглашаю на индивидуальные занятия по игре на барабанах. Обуча"
+    },
+    {
+      "business_id": "c965246d-9f91-46fa-b8e7-36c0316137ce",
+      "business_slug": "pavlo-rok-205105-181c",
+      "name": "Pavlo Rok",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "pavlo-rok-205105-181c",
+      "status": "dry_run",
+      "preview": "Перед вызовом мастера - бесплатная консультация по AC."
+    },
+    {
+      "business_id": "7e2b42ec-b593-4390-9e93-dbea21c2cccd",
+      "business_slug": "business-biz-205424-2829",
+      "name": "Ƥєđѫџʜѧ",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "massage_wellness",
+      "professional_slug": "business-biz-205424-2829",
+      "status": "dry_run",
+      "preview": "💜 Скидка $15 для новых клиентов!\nПервые три педикюра — всего $55 / $40 ✨\nДевочки, приглашаю вас на педикюр в уютной атмо"
+    },
+    {
+      "business_id": "b3f184ef-c052-4976-9a99-6c0d3f77fc4d",
+      "business_slug": "sasha-sorokina-180912",
+      "name": "Sasha Sorokina",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "sasha-sorokina-180912",
+      "status": "dry_run",
+      "preview": "🎯 Английский с нуля или хочешь выйти на новый уровень? 7 лет преподавания. Любой уровень, онлайн, удобное время. Также: "
+    },
+    {
+      "business_id": "e7db7f45-2240-487a-8483-74cd5f4e70fc",
+      "business_slug": "serghei-stanislavovici-204940-350e",
+      "name": "Serghei Stanislavovici",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "serghei-stanislavovici-204940-350e",
+      "status": "dry_run",
+      "preview": "🚛 Reliable ELD Solution for Truck Drivers & Fleets in the USA\nHOS violations and inaccurate logbooks can lead to CSA poi"
+    },
+    {
+      "business_id": "97d2caaa-56cd-4757-885e-e95fea9c2ea4",
+      "business_slug": "sunlit-pie-la-205342-7e44",
+      "name": "Sunlit Pie | Осетинские пироги LA",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "sunlit-pie-la-205342-7e44",
+      "status": "dry_run",
+      "preview": "🔥 ОСЕТИНСКИЕ ПИРОГИ В ЛОС АНДЖЕЛЕСЕ 🔥\nНастоящие домашние осетинские пироги с большим количеством начинки и тонким нежным"
+    },
+    {
+      "business_id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "business_slug": "surprise-meballoons-150639",
+      "name": "Surprise Me Balloon Bar",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "creative",
+      "professional_slug": "surprise-meballoons-150639",
+      "status": "dry_run",
+      "preview": "Шары и декорации · Orange County"
+    },
+    {
+      "business_id": "2d3bc28f-3222-4131-b58a-0d0d1a0a5219",
+      "business_slug": "sveetla-205403-d7e2",
+      "name": "Sveetla",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "sveetla-205403-d7e2",
+      "status": "dry_run",
+      "preview": "🇫🇷ФРАНЦУЗЬКА МОВА ОНЛАЙН\n\nБез перевантаження зайвою теорією.\nБез шаблонного підходу.\nЗ фокусом на реальне володіння мово"
+    },
+    {
+      "business_id": "ccf738ea-2e4d-4f85-a50a-b763acfb9173",
+      "business_slug": "svetlana-fedorova-205250-24e0",
+      "name": "Svetlana Fedorova",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "svetlana-fedorova-205250-24e0",
+      "status": "dry_run",
+      "preview": "😨 Как стать мастером тревожности: вредные советы, которые точно сработают! 😨\n\n1️⃣ Проверяй телефон каждые 30 секунд. Вдр"
+    },
+    {
+      "business_id": "cb9f639c-5bc6-4fd3-8fa4-05f5696762bc",
+      "business_slug": "svetlana-k-180918",
+      "name": "Svetlana K",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "svetlana-k-180918",
+      "status": "dry_run",
+      "preview": "Дорогие девушки🌷\nКому нужны ПИЯВОЧКИ, будем рады, обращайтесь 😇\nЕсть в наличии в ЛА, также возможна доставка в ОС или по"
+    },
+    {
+      "business_id": "d6fc222d-1ab1-4dfc-aa14-83b56f434ff9",
+      "business_slug": "tatiana-fgm-205303-323e",
+      "name": "Tatiana Fgm",
+      "reason": "person_specialist_no_address",
+      "pro_category": "health",
+      "professional_slug": "tatiana-fgm-205303-323e",
+      "status": "dry_run",
+      "preview": "Я здесь делала несколько лет назад. Все прошло хорошо. Но по идее надо каждый год продлевать (мы не продлевали ничего)\nН"
+    },
+    {
+      "business_id": "e62e723f-3b08-42d3-ba22-b370d00c0dd9",
+      "business_slug": "tetiana-akhmednova-205103-7a41",
+      "name": "Tetiana Akhmednova",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "tetiana-akhmednova-205103-7a41",
+      "status": "dry_run",
+      "preview": "Преподаватель высшей категории с огромным опытом работы в музыкальной школе с удовольствием возьмется обучать вас игре н"
+    },
+    {
+      "business_id": "72d9f6c7-0b93-4f0e-bb88-cac6bc84c228",
+      "business_slug": "tetiana-markova-205433-5527",
+      "name": "Tetiana Markova",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "tetiana-markova-205433-5527",
+      "status": "dry_run",
+      "preview": "Привет! 😊\n\nНе пугайтесь, если не найдете меня в IG или Fb ближайший месяц-два.\n\nЯ взяла небольшую творческую паузу, чтоб"
+    },
+    {
+      "business_id": "8f620840-f34e-44cc-9d77-7e178e1dcf0f",
+      "business_slug": "fb-post-26-tutowl-com-online-school",
+      "name": "TutOwl Online School",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "fb-post-26-tutowl-com-online-school",
+      "status": "dry_run",
+      "preview": "Онлайн-школа для билингвов · русский / языки / STEM"
+    },
+    {
+      "business_id": "b669ffb4-febf-4548-b0bf-2bf610d0ff3e",
+      "business_slug": "ulyana-hur-205410-97db",
+      "name": "Ulyana Hur",
+      "reason": "person_specialist_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "ulyana-hur-205410-97db",
+      "status": "dry_run",
+      "preview": "Шугаринг, ваксинг в Рендондо Бич, South Bay 📍\n\nПриглашаем в уютную студию депиляции.\n5 ⭐️ on Google, Yelp\n\nОпыт работы б"
+    },
+    {
+      "business_id": "edbc1bd2-cd7a-4e28-97df-cb23b3773e9f",
+      "business_slug": "valentina-205558-0419",
+      "name": "Valentina",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "valentina-205558-0419",
+      "status": "dry_run",
+      "preview": "🚀 Бизнес в логистике — запуск сегодня!\n\nМы продаем MC и DOT под ключ — быстро, официально, без головной боли.\n\n👉 Ждем на"
+    },
+    {
+      "business_id": "376c030e-10e6-4c0d-ad90-67e2da740821",
+      "business_slug": "valeriia-205615-64b8",
+      "name": "Valeriia",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "valeriia-205615-64b8",
+      "status": "dry_run",
+      "preview": "Нам подняли через год на 110$, хотели на 150$, немного сторговались. Про то, что не возвращаются депозит не слышала. Но "
+    },
+    {
+      "business_id": "d01dcadf-c73f-4664-a054-f320b6c16e36",
+      "business_slug": "victoria-rogalska-180925",
+      "name": "Victoria Rogalska",
+      "reason": "person_name_no_place",
+      "pro_category": "health",
+      "professional_slug": "victoria-rogalska-180925",
+      "status": "dry_run",
+      "preview": "❗️ДІВЧАТА ДОСИТЬ ДУМАТИ, «ПРИЙМАТИ ДОВГО РІШЕННЯ»\n4O% на всі препарати тільки СЬОГОДНІ ❗️\nХочете скинути 5,10,15,30 кг? "
+    },
+    {
+      "business_id": "3c7aefef-aaf4-4c24-bc9a-06b8f986501a",
+      "business_slug": "vika-sweetbakery-180854",
+      "name": "Vika sweet_bakery",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "vika-sweetbakery-180854",
+      "status": "dry_run",
+      "preview": "Всем добрый день! На Пасху будут доступны куличики с разными начинками и декором ручной работы. Нежные, сливочные пасхи "
+    },
+    {
+      "business_id": "89cdfb55-f18c-41cb-bdbf-bee7fea5735f",
+      "business_slug": "viktoriia-205344-eec8",
+      "name": "Viktoriia 🇺🇦🇺🇸",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "viktoriia-205344-eec8",
+      "status": "dry_run",
+      "preview": "💅 МАНИКЮР • ПЕДИКЮР • ЛАМИНИРОВАНИЕ РЕСНИЦ • ИНДИВИДУАЛЬНОЕ ОБУЧЕНИЕ\nОткрыта запись на процедуры и индивидуальное обучен"
+    },
+    {
+      "business_id": "681c2e81-a2fc-4a46-897a-9447491d10c8",
+      "business_slug": "virtualcopy-205510-b736",
+      "name": "Virtualcopy",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "virtualcopy-205510-b736",
+      "status": "dry_run",
+      "preview": "Печать ДЛ/СДЛ/Ворк/Грин карт и др. документов \n\nДоставка/встреча\nКачество как оригинал \nОбращайтесь в ЛС"
+    },
+    {
+      "business_id": "77b1a046-92ab-4d0a-abc5-8afbb10cbfa3",
+      "business_slug": "vladimir-shkarbanov-205035-769e",
+      "name": "Vladimir Shkarbanov",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "vladimir-shkarbanov-205035-769e",
+      "status": "dry_run",
+      "preview": "Наружные работы и благоустройство\nБетонные работы\nИрригация(поливочные системы)\nДренаж\nПодпорные стены\nУкладка камня,бру"
+    },
+    {
+      "business_id": "39b96ae1-51fc-4f94-ad81-be0680d006c1",
+      "business_slug": "yakushok-yaroslav-205014-aa9d",
+      "name": "Yakushok Yaroslav",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "yakushok-yaroslav-205014-aa9d",
+      "status": "dry_run",
+      "preview": "Всім привіт!\nНа ярді є Kenworth 2027 та трейлери Reitnouer 2027.\n✅ Вже на ярді\n✅ Без очікування виробництва\n✅ Фінансуван"
+    },
+    {
+      "business_id": "2de9e85c-bc9f-47cc-83b1-9119427936d9",
+      "business_slug": "yana-galinka-205107-766f",
+      "name": "Yana Galinka",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "yana-galinka-205107-766f",
+      "status": "dry_run",
+      "preview": "Почему на самом деле мы так плохо понимаем носителей английского языка? 🤔\nДа потому, что они не произносят слова четко и"
+    },
+    {
+      "business_id": "e6b121b5-3d01-462b-adf4-09cb0f70af01",
+      "business_slug": "yelena-lobko-205006-7852",
+      "name": "Yelena Lobko",
+      "reason": "person_home_food",
+      "pro_category": "home_food",
+      "professional_slug": "yelena-lobko-205006-7852",
+      "status": "dry_run",
+      "preview": "Продается\nДомашнее козье молоко\nКуриные яйца\nСвежие огурцы"
+    },
+    {
+      "business_id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "business_slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "name": "your appointment at EVELINA BEAUTY SALON",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "status": "dry_run",
+      "preview": "Book your appointment at EVELINA BEAUTY SALON✨\n📍Glendale\n💄Makeup done by Mila.\nPrice: $150"
+    },
+    {
+      "business_id": "7e2588c7-ec59-4e24-80c0-d9033e8070e3",
+      "business_slug": "yulia-205819-c741",
+      "name": "Yulia",
+      "reason": "person_specialist_no_address",
+      "pro_category": "health",
+      "professional_slug": "yulia-205819-c741",
+      "status": "dry_run",
+      "preview": "Когда я срочно искала гастроэнтеролога для сына, оказалось что вот так в срочном порядке только в ER. Очень забито все у"
+    },
+    {
+      "business_id": "a6a8fd9f-0ece-4654-b283-89283611c1cf",
+      "business_slug": "yulia-205729-80d7",
+      "name": "Yulia",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "yulia-205729-80d7",
+      "status": "dry_run",
+      "preview": "Репортаж, headshot?"
+    },
+    {
+      "business_id": "a3ea487f-0201-4bb3-b595-d91ee8e75676",
+      "business_slug": "yulia-205816-d191",
+      "name": "Yulia",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "yulia-205816-d191",
+      "status": "dry_run",
+      "preview": "Мы ходили на эриалс, не понравилось, ушли спустя пару месяцев. Заинтересованности в том что делают дети нет никакой, пре"
+    },
+    {
+      "business_id": "ec56b6a0-a3ea-4bab-974c-383429f3203d",
+      "business_slug": "yulia-205821-1987",
+      "name": "Yulia",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "yulia-205821-1987",
+      "status": "dry_run",
+      "preview": "Таня Крутая! Мы у нее несколько раз заказывали торты, всегда чудесные!"
+    },
+    {
+      "business_id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "business_slug": "yummy-homemade-sweets-150641",
+      "name": "yummy_homemade_sweets",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "yummy-homemade-sweets-150641",
+      "status": "dry_run",
+      "preview": "Принимаю заказы на торты и десерты – все готовлю только из качественных и натуральных продуктов.\n📸 Больше моих работ в\n📍"
+    },
+    {
+      "business_id": "416a0baf-6991-45cf-925a-6813fd58e573",
+      "business_slug": "yurii-avramenko-205358-c281",
+      "name": "Yurii Avramenko",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "yurii-avramenko-205358-c281",
+      "status": "dry_run",
+      "preview": "АНГЛІЙСЬКА МОВА 🇬🇧 ОНЛАЙН\nМріяли вивчити англійську або покращити свій рівень?\nШкола BeBest запрошує прокачати знання ле"
+    },
+    {
+      "business_id": "cd0d431c-3621-4c7b-986b-1a3e7e09e789",
+      "business_slug": "business-biz-180847",
+      "name": "Александр",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-180847",
+      "status": "dry_run",
+      "preview": "Привет!\nМеня зовут Александр, я преподаватель по игре на гитаре\nПриглашаю на пробный урок по игре на Гитаре в ZOOM\nДля п"
+    },
+    {
+      "business_id": "94d8ff42-fe48-48db-8d3a-5afec63367e0",
+      "business_slug": "business-biz-205447-fe7c",
+      "name": "Анна Габедава",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205447-fe7c",
+      "status": "dry_run",
+      "preview": "🇺🇸 Живете в США, но всё ещё не чувствуете себя уверенно на английском?\nВы не одни ❤️\nОчень многие иммигранты знают базов"
+    },
+    {
+      "business_id": "f7d04941-1276-456f-80c3-a86f2044e679",
+      "business_slug": "business-biz-205431-6370",
+      "name": "Анна Готочкина",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205431-6370",
+      "status": "dry_run",
+      "preview": "🇺🇸 Понимаете английский, но боитесь говорить?\n\nОткрыт набор на индивид. занятия\nОнлайн · 3 раза в неделю\n\nОставьте “+” -"
+    },
+    {
+      "business_id": "2c12e6fd-b233-463b-8572-f41b92974e87",
+      "business_slug": "business-biz-181006",
+      "name": "Влад Нестеренко",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-181006",
+      "status": "dry_run",
+      "preview": "Создание САЙТОВ+ИИ Agent+Видеконвеер под блогеров! Автоматизируем ваши рутинные действия, поможем бизнесу!!! @ DefyConfo"
+    },
+    {
+      "business_id": "7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb",
+      "business_slug": "business-biz-181515-e787",
+      "name": "Вячеслав",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-181515-e787",
+      "status": "dry_run",
+      "preview": "Приветствую, меня зовут Вячеслав\n\nЯ помогаю задержанным ICE и их семьям добиваться освобождения подачей Habeas Corpus в "
+    },
+    {
+      "business_id": "4b1e773a-9f4a-4c43-a835-b54938f30074",
+      "business_slug": "business-2792203774-204920-2a96",
+      "name": "Детский сад",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "childcare",
+      "professional_slug": "business-2792203774-204920-2a96",
+      "status": "dry_run",
+      "preview": "🌊 23 июля в нашем домашнем детском саду прошёл экологический праздник, посвящённый Международному дню китов и дельфинов."
+    },
+    {
+      "business_id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "business_slug": "диана-калифорнийская-психолог-сложности-в-отношени-032111",
+      "name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "health",
+      "professional_slug": "pro-63212025ec",
+      "status": "dry_run",
+      "preview": "Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог"
+    },
+    {
+      "business_id": "89138a4b-74d1-422e-8820-70ffed14b8e7",
+      "business_slug": "business-9168415612-204824-9437",
+      "name": "Елена Бондаренко",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-9168415612-204824-9437",
+      "status": "dry_run",
+      "preview": "Дорогие Мамочки!Приглашаю деток 4-6 лет на уроки фортепиано по инновационной мультимедийной программе»Растём с Музыкой»."
+    },
+    {
+      "business_id": "3a43f884-b67c-4f66-b529-294346682097",
+      "business_slug": "business-biz-205247-ec8b",
+      "name": "Ильдар Якупов",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-205247-ec8b",
+      "status": "dry_run",
+      "preview": "Всем привет! 🤝\nМеня зовут Ильдар. Помогаю предпринимателям и экспертам автоматизировать продажи и запускать цифровые про"
+    },
+    {
+      "business_id": "bd490d98-d8c2-4e62-b509-6aac47a3d349",
+      "business_slug": "business-biz-181001",
+      "name": "Ирина",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-181001",
+      "status": "dry_run",
+      "preview": "Сдаю свои авто в аренду — недорого, без ограничений по пробегу!"
+    },
+    {
+      "business_id": "a5ecca2b-0bf8-4675-af22-81566c98825c",
+      "business_slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "name": "Компания USA Carpet & Couch Cleaning в поисках техника для в",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "status": "dry_run",
+      "preview": "Компания USA Carpet & Couch Cleaning в поисках техника для выездной химчистки ковров и диванов. \n\n780 + отзывов на Yelp\n"
+    },
+    {
+      "business_id": "bafe0d5b-c9ac-4538-a2db-ae2ab35c65f7",
+      "business_slug": "business-biz-180849",
+      "name": "Лидия",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-180849",
+      "status": "dry_run",
+      "preview": "🚕 Премиум-такси недорого и комфортно\nМеня зовут Лидия (Irvine / Mission Viejo, Orange County).\nПремиум-такси на Tesla Mo"
+    },
+    {
+      "business_id": "2ea86edf-a8b5-47ae-a2c1-e86b9571c1f5",
+      "business_slug": "business-biz-205545-f164",
+      "name": "Любов",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205545-f164",
+      "status": "dry_run",
+      "preview": "Вітаю, Всіх! 😊\n\nЯкщо ви шукаєте унікальний та оригінальний подарунок для своїх близьких — зверніть увагу на наші персона"
+    },
+    {
+      "business_id": "5afef8a0-9f47-43b2-98f3-cac62de60c4a",
+      "business_slug": "business-biz-205650-46d3",
+      "name": "Милена",
+      "reason": "person_specialist_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "business-biz-205650-46d3",
+      "status": "dry_run",
+      "preview": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$\n\nВанночка для ног с с"
+    },
+    {
+      "business_id": "c0e9147e-4ca5-4d72-b3a6-73a5069290b5",
+      "business_slug": "business-biz-205649-52ce",
+      "name": "Милена",
+      "reason": "person_specialist_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "business-biz-205649-52ce",
+      "status": "dry_run",
+      "preview": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$\n\nВанночка для ног с с"
+    },
+    {
+      "business_id": "6548bc52-97d9-4764-99fa-cbb8fdacdb12",
+      "business_slug": "movingcompany-moversx-dispatc-205320-b0e9",
+      "name": "Мувинг #MovingCompany #MoversX #Логистика #Переезды #Dispatc",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "movingcompany-moversx-dispatc-205320-b0e9",
+      "status": "dry_run",
+      "preview": "🚚 **До сих пор управляете мувинговой компанией через звонки, сообщения и десятки разных чатов?**\n\nПора работать по-друго"
+    },
+    {
+      "business_id": "5921c806-397d-46c7-93f4-69d2a6459c61",
+      "business_slug": "beauty-salon-181011",
+      "name": "Новый beauty salon",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "beauty-salon-181011",
+      "status": "dry_run",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложе"
+    },
+    {
+      "business_id": "a4d29805-4195-4de4-8d69-3597926e389f",
+      "business_slug": "business-biz-205222-a632",
+      "name": "репетитор #репетиторпоматематике",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205222-a632",
+      "status": "dry_run",
+      "preview": "РЕПЕТИТОР ПО МАТЕМАТИКЕ 🇺🇸\nПриветствую! Я - опытный репетитор по математике с многолетним стажем, готовый помочь вашему "
+    },
+    {
+      "business_id": "1a3d5bc4-e91f-48da-a0de-5619b7f182b5",
+      "business_slug": "business-biz-205526-b5d4",
+      "name": "Сергей",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-205526-b5d4",
+      "status": "dry_run",
+      "preview": "Реклама для бизнеса в соцсетях.\nОпыт работы 3+ года 😉\nСпециализируюсь на рынках USA, Canada, UAE.\nНачинаю работу без пре"
+    },
+    {
+      "business_id": "c0d00191-1576-470b-9dba-20c1fb0dadd6",
+      "business_slug": "fbpack-slava-marshak-pet-relocation",
+      "name": "Слава Маршак",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "fbpack-slava-marshak-pet-relocation",
+      "status": "dry_run",
+      "preview": "Международная перевозка животных · RU/EU ↔ USA · документы · легальный ввоз · Слава Маршак"
+    },
+    {
+      "business_id": "edf3713b-eaf9-4bbe-bb9c-987d6973a8a1",
+      "business_slug": "business-biz-205706-3889",
+      "name": "Тетяна",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "business-biz-205706-3889",
+      "status": "dry_run",
+      "preview": "Здравствуйте, есть в наличии медовик-медовые коржи,заварной крем. Вес 1/кг.\nИрвайн."
+    },
+    {
+      "business_id": "44e482f0-3ec6-427f-b41d-5d827361fb1a",
+      "business_slug": "business-biz-205702-39b7",
+      "name": "Тетяна",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "business-biz-205702-39b7",
+      "status": "dry_run",
+      "preview": "Я пеку паски домашние вкусные- цукаты, шоколадные капли, изюм. Можно начинить кремом - шоколадным или ванильным."
+    },
+    {
+      "business_id": "2fbcea30-f79e-4c09-b7d5-4f2687bc60d5",
+      "business_slug": "business-9168449053-205100-902d",
+      "name": "Тимофей Кононов",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "business-9168449053-205100-902d",
+      "status": "dry_run",
+      "preview": "💧Pressure Washing/ Мойка под давлением💧\nСделаем ваш дом чистым и свежим!\n✅ Заборы\n✅ Стены домов\n✅ Крыши\n✅ Драйвеи и доро"
+    },
+    {
+      "business_id": "194c530b-52e4-475a-9b8c-f99664c9e38b",
+      "business_slug": "business-biz-205400-59ff",
+      "name": "Тимофій Лоза",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205400-59ff",
+      "status": "dry_run",
+      "preview": "🇬🇧 Англійська, яка стане частиною вашого життя!\nЗапрошуємо дітей, підлітків і дорослих на онлайн-курси англійської мови."
+    },
+    {
+      "business_id": "90f884ec-0429-4a8f-87c0-123893891f8d",
+      "business_slug": "private-studio-172224",
+      "name": "Уютный private studio",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "private-studio-172224",
+      "status": "dry_run",
+      "preview": "💅🏻 Дорогие девушки, приглашаю вас на manicure & pedicure в Beverly Hills ✨\n✅ Маникюр + укрепление гелем — 70$\n✅ Педикюр "
+    },
+    {
+      "business_id": "a11cb281-4c82-41c1-924a-4399fef8ce6c",
+      "business_slug": "business-biz-205505-7df2",
+      "name": "Юлія",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205505-7df2",
+      "status": "dry_run",
+      "preview": "УВАГА: відкрито набір на онлайн-курси іноземних мов 🌍\nДоступні напрямки: англійська 🇬🇧, німецька 🇩🇪, французька 🇫🇷, іспа"
+    }
+  ]
+}

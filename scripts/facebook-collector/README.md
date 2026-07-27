@@ -2,6 +2,9 @@
 
 Pull 20–50 posts from **one** Facebook group via Apify, normalize, analyze with the existing Telegram pipeline analyzers, and stage rows in `import_review_items` for **manual** review.
 
+> **Private machine runbook** (gitignored, not in PRs): `.local/collectors/FACEBOOK_RUNBOOK.md`  
+> Wrappers: `.local/collectors/bin/fb-dry-run.sh` / `fb-apply.sh`
+
 ```text
 Facebook → Apify dataset → adapter → normalize → analyze → dedupe → import_review_items
 ```
@@ -122,7 +125,53 @@ Re-running the same dataset skips existing `source_fingerprint` (unique constrai
 | `validate.py` | PoC stats + media CDN notes |
 | `run_facebook_collector.py` | CLI |
 
-## Safety
+## Website / Instagram enrichment
+
+After classification, empty entity fields can be filled from:
+
+- homepage HTML (title, description, phone, email, address, hours, logo, social links)
+- site **origin** is also fetched when the URL is a deep path (so homepage email/contacts are not missed)
+- public Instagram profile (bio, name, website, category, avatar)
+
+Sources are tagged `website` / `instagram` in `field_sources`. Post data is never overwritten.
+
+```bash
+# default on for live runs
+python3 scripts/facebook-collector/run_facebook_collector.py --dataset-id "$ID" --limit 20
+
+# disable
+python3 scripts/facebook-collector/run_facebook_collector.py --dataset-id "$ID" --no-enrich-web
+```
+
+Report keys: `stats.web_enrichment.website_enriched`, `instagram_enriched`, `fields_filled`.
+
+## Prices / city (post text)
+
+After classification, empty `prices[]` and `city` are filled from the post text only:
+
+- prices: raw matches (`$20`, `20$`, `от $90`, `$20/hour`, `$20/час`, `$20 per hour`, …) — no reinterpretation
+- city: SoCal dictionary (LA / OC / SD / Inland Empire) — no free NLP, no address, no service_area
+
+Report key: `stats.geo_price_enrichment`.
+
+## Profile enrichment
+
+After analysis, the collector can supplement empty entity fields from a Facebook
+profile/page (`source=facebook_profile`):
+
+- Local (default on live runs): author name / profile pic / numeric profile URL from Actor `user`
+- Optional remote: `--fetch-profile-pages` + `FACEBOOK_PROFILE_ACTOR_ID` (e.g. `apify~facebook-pages-scraper`)
+
+Post-derived contacts are never overwritten. Unavailable profiles do not fail the run.
+
+```bash
+# Local enrichment only
+python3 scripts/facebook-collector/run_facebook_collector.py --dataset-id "$FACEBOOK_DATASET_ID" --limit 20
+
+# Also scrape public Page About via Apify (extra cost)
+python3 scripts/facebook-collector/run_facebook_collector.py \
+  --dataset-id "$FACEBOOK_DATASET_ID" --limit 20 --fetch-profile-pages
+```
 
 - No cookies/tokens in git
 - Service role only in server scripts (`.env.local`)

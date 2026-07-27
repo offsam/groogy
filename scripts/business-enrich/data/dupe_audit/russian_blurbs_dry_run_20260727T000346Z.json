@@ -1,0 +1,969 @@
+{
+  "mode": "dry_run",
+  "rewritten_short": [
+    {
+      "slug": "bronze-bull-chalet-arno-205334-6488",
+      "from": "Приглашаем на отдых в наш уютный **Bronze Bull Chalet в Arnold, CA** — идеальное место для семьи или компании друзей.\n\n ",
+      "to": "Приглашаем на отдых в наш уютный Bronze Bull",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "daria-hovorun-205241-8dc1",
+      "from": "5’nizza в Сан Франциско — 12 февраля 2026.\n\n От первых харьковских квартирников до больших залов — четверть века пути, г",
+      "to": "5’nizza в Сан Франциско — 12 февраля 2026.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-6505204379-204803-4bf1",
+      "from": "Всем привет!\nЯ мастер ногтевого сервиса.\nМеня зовут Анастасия.\nПредоставляю услуги маникюра и педикюра в салоне по адрес",
+      "to": "Всем привет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "bh-legal-181110-201e",
+      "from": "Мы помогаем Вам с открытием бизнеса в США🇺🇸, а именно\n✅Открываем разные виды компаний (LLC, Corporation)\n✅Получаем номер",
+      "to": "Мы помогаем Вам с открытием бизнеса в США🇺🇸",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "corp-tax-inc-180958",
+      "from": "Tax Filing 2026 🇺🇸 Поможем вернуть ваши деньги!\nНалоговый сезон открыт.\nРаботаем со всеми типами кейсов\n📍 Single / Marri",
+      "to": "Tax Filing 2026 🇺🇸 Поможем вернуть ваши деньги!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "fbpack-treasure-rack-san-diego",
+      "from": "Marketplace б/у и новых вещей · SD · бесплатные объявления · Elena Nayerman / Inara Shelton",
+      "to": "Marketplace б/у и новых вещей · SD",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "kai-t-234038",
+      "from": "Мы вот сюда ходили с года до 3х. Детская стоматология. Там доктор англоговорящая азиатка. Мы там были только на чистке, ",
+      "to": "Мы вот сюда ходили с года до 3х.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "touch-of-europe-inc-205127-f05a",
+      "from": "Дорогие одногруппники!\n\nЕсли вы еще не решили, что подарить себе или своим любимым на 8 марта (или просто в честь наступ",
+      "to": "Дорогие одногруппники!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "lena-205257-4ea0",
+      "from": "​✨ Приглашаю на творческий вечер в Сакраменто! ✨\n📅 25 июля | Двери: 19:00 | Начало: 19:30\n\n​Что будет?\n\n🎸 Живая музыка, ",
+      "to": "​ Приглашаю на творческий вечер в Сакраменто!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "the-loft-dental-studio-205618-9c86",
+      "from": "Я кажется и тут советовала Юлю Филипенка. Она терапевт и брекетами занимается. The Loft Dental Studio в Costa Mess",
+      "to": "Я кажется и тут советовала Юлю Филипенка.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "s-v-181003",
+      "from": "Если кому нужен второй ключ 🔑 для машины 🚘, или попали в ситуацию с полной потерей ключей - пишите, сделаем по минимальн",
+      "to": "Если кому нужен второй ключ для машины",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "tianaabaza-205205-53f5",
+      "from": "Я делала у Тани губы и брови выводила старый перманент. Очень рекомендую! Она делает супер качественно",
+      "to": "Я делала у Тани губы и брови выводила",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "teastorm-150640",
+      "from": "🍃 Девочки, хочу поделиться с вами важным 🤍\n\nМы открыли наш семейный чайный проект — TeaStorm.\nЭто то, что мы действитель",
+      "to": "Девочки, хочу поделиться с вами важным",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-9169367301-204903-fefa",
+      "from": "🔥 Хит этого сезона - baby хинкали 🔥\nНи в одном другом месте Сакраменто не продают такой уникальный снэк!\nBaby хинкали - ",
+      "to": "Хит этого сезона - baby хинкали",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "asiya-ahmadi-204845-c364",
+      "from": "🎉 ОТКРЫТИЕ NEROFIX RECOVERY CLINIC 🎉\n\nДрузья, рады сообщить, что в Citrus Heights открылась новая клиника массажа и восс",
+      "to": "ОТКРЫТИЕ NEROFIX RECOVERY CLINIC",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "nataliya-mishenina-204841-326b",
+      "from": "Думаете, чем занять ребенка этим летом?\nЛето, полное творчества, игр и развития для вашего ребенка ✨\n\nПриглашаем детей 5",
+      "to": "Думаете, чем занять ребенка этим летом?",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "elvira-s-mama-print-150708",
+      "from": "Добрый день, дорогие родители!\nСегодня у меня в библиотеке Мама ПРИНТ готовы яркие и увлекательные задания на весеннюю т",
+      "to": "Добрый день, дорогие родители!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "vanilla-street-bakery",
+      "from": "Доброе утро! Рекомендую себя 🙏🏻 преподаю русский, французский языки 🇷🇺🇫🇷 https://yougenius.coach/p/lingua Высшее педагог",
+      "to": "Доброе утро!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "private-studio",
+      "from": null,
+      "to": "Салон красоты",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "3100-20000-204847-17ab",
+      "from": "$3.100 или $20.000?\n\nРазница между первоначальной оценкой страховой компании и реальной стоимостью ремонта после ДТП мож",
+      "to": "$3.100 или $20.000?",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "surprise-me-balloons",
+      "from": "Продаётся действующий бизнес в сфере оформления мероприятий (balloon decor) 🎈 Бизнес успешно работает более 2 лет, имеет",
+      "to": "Продаётся действующий бизнес в сфере оформления мероприятий (balloon",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "fbpack-kaivy-alteration-studio",
+      "from": "Kaivy Alteration Studio · Tailoring / Clothing Alterations\nLocation: Lake Forest, CA\nCategory: Fashion & Services\nJob op",
+      "to": "Job opening: Швея / портная",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "mama-bear-oc-031830",
+      "from": null,
+      "to": "Услуги: Spring Camp, Therapeutic Physical Culture, Russian Language",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "ida-seidova-150707",
+      "from": "Medical spa · Dr. Mo · Newport Beach · Google 5.0★ (64)",
+      "to": "Услуги: EZ Gel - PRF under eyes, Lip",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "business-biz-205109-6cf5",
+      "from": "High Heels Beginners 👠\nStarts August 4️⃣\nЭта группа создана для тех, кто давно хотел попробовать High Heels, но не знал,",
+      "to": "Эта группа создана для тех, кто давно хотел",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-205113-f7ac",
+      "from": "🤍 УТРЕННИЙ СТРЕЙЧИНГ\nПозволь себе начать выходные без спешки.\n\nПриглашаю тебя на атмосферную практику стретчинга на свеж",
+      "to": "УТРЕННИЙ СТРЕЙЧИНГ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "the-aj-apartments-205227-4761",
+      "from": "Передача аренды – The A.J. Apartments, Сакраменто\nИщем человека, который сможет взять на себя аренду квартиры в The A.J.",
+      "to": "Передача аренды – The A.J.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "irma-beauty-studio-204853-6b0a",
+      "from": "Идеальный цвет — это не просто окрашивание.\nЭто работа мастера, который чувствует волосы и понимает, что подойдёт именно",
+      "to": "Идеальный цвет — это не просто окрашивание.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "andreeva-olga-205121-9a94",
+      "from": "Всем привет! Меня зовут Ольга — я тренер по йоге в Сакраменто.\nВеду занятия в студии по адресу 6720 Madison Ave и онлайн",
+      "to": "Всем привет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "sacramentorealtor-sacramentorealestate-marketupdat-204911-d39a",
+      "from": "🏡 ЕЖЕНЕДЕЛЬНЫЙ ОБЗОР РЫНКА НЕДВИЖИМОСТИ\n\nНу здравствуй, моё Sacramento! 🌴✨\n\nКоротко о главном 👇\n\n🏦 ФРС снова сохранила п",
+      "to": "ЕЖЕНЕДЕЛЬНЫЙ ОБЗОР РЫНКА НЕДВИЖИМОСТИ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "rk-carrental-181111-6371",
+      "from": "Сдам в аренду свой Lexus 2026 TX 350 AWD Premium 1100$ / месяц. Впишу в страховку за доп. Плату.",
+      "to": "Сдам в аренду свой Lexus 2026 TX 350",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "rent-loans-usa-181000",
+      "from": "📄 Помощь с документами и открытием компании в США!\n✅ Для аренды жилья\n✅ Для получения кредитов (личных, авто, ипотека)\n✅",
+      "to": "Помощь с документами и открытием компании в США!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180902",
+      "from": "🔴🟢🟠УКРАЇНОМОВНИЙ ЦЕНТР ВІДКРИВАЄ НАБІР НА КУРСИ З АНГЛІЙСЬКОЇ 🇬🇧 МОВИ: Для дорослих та дітей: ВІД О ДО В2. НА\n✅Міні-груп",
+      "to": "УКРАЇНОМОВНИЙ ЦЕНТР ВІДКРИВАЄ НАБІР НА КУРСИ З АНГЛІЙСЬКОЇ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "sergiy-kuzin-loan-officer-204834-c234",
+      "from": "А какие ставки вам сегодня предлагают?\n📊 **Обновление рынка — ставки на сегодня** 30 июня 2026 г.\nТекущие ставки по прог",
+      "to": "А какие ставки вам сегодня предлагают?",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "sunrise-montessori-center-204954-933c",
+      "from": "Родители детей 6–12 лет! Открыта запись на дополнительные занятия в Sunrise Montessori (Citrus Heights).\n\nРобототехника,",
+      "to": "Родители детей 6–12 лет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "kelov-studio-181007",
+      "from": "HANDMADE теперь на Amazon.\n\nОткрытки из переливающейся ткани, авторские чашки и наборы для снятия стресса 🤗\nВесь товар и",
+      "to": "HANDMADE теперь на Amazon.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-9169496332-205034-cef4",
+      "from": "Есть мебелированная новая студия. Отдельный вход с кодовым замком в доме, свой маленький дворик ( через дорогу парк). Оч",
+      "to": "Есть мебелированная новая студия.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "andytopmassage-205149-2d36",
+      "from": "Хочу поделиться опытом массажа — возможно, кому-то будет полезно.\nРаботаю в офисе, много сижу, из-за этого появились заж",
+      "to": "Хочу поделиться опытом массажа — возможно, кому-то будет",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "ann-kutner-205333-ab15",
+      "from": "🌞 Наш дошкольный центр погружения в русский язык принимает зачисления. 👉Узнайте о нашей учебной программе, расписании за",
+      "to": "Наш дошкольный центр погружения в русский язык принимает",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "batch2-5-star-appliance-repair",
+      "from": "Same-day appliance repair you can trust. 20+ years fixing fridges, ovens, washers & dryers, all brands. Certified techs.",
+      "to": "Офисы: Brea, CA · San Jose, CA",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "consolidated-ltd-services-llc",
+      "from": "Tax / bookkeeping · Wake Forest NC · Google 5.0★ (2)",
+      "to": "Налоги и бухгалтерия",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "r-l-n-181009",
+      "from": "Выезжаю в Coachella 🎆 из LA🏙️\nКомфортная машина 2025г 🚗\nЕсть 4 места 🧑‍🧑‍🧒‍🧒\nПри необходимости могу подождать там до око",
+      "to": "Выезжаю в Coachella из LA",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "magas-installation-llc-204828-72c6",
+      "from": "MAGAS INSTALLATION LLC\nПредлагает услуги по установке окон и дверей а также сопутствующих работ.\nОпыт работы\nСвой бокс т",
+      "to": "Предлагает услуги по установке окон и дверей а",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "kate-brown-204947-c35d",
+      "from": "Hi! My daughter has been going to a group style Russian class in Walnut Creek every Sunday since summer and I cannot say",
+      "to": "Уважаемые родители!",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "o-m-205406-12c1",
+      "from": "Я занимаюсь Face Painting 🎨\nРисую яркие и красивые рисунки для\n🎉 Дней рождений\n🎈 Детских праздников\n🎪 Ивентов и фестивал",
+      "to": "Я занимаюсь Face Painting",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "regina-tax-preparer-accountant-205523-5bc8",
+      "from": "Привет.\nКому нужна подача персональной (или бизнес) декларации, обращайтесь, я бухгалтер, EA, могу подать декларацию в л",
+      "to": "Привет.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "elena-garmazh-fysm-yoga-coach-150712",
+      "from": "Девочки и мальчики! \nКаждую субботу в 10:00 утра я провожу бесплатную йогу в стиле FYSM в парке Sherman Oaks Recreation ",
+      "to": "Девочки и мальчики!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "dustov-dustmuhammad-205024-5014",
+      "from": "Здравствуйте!\n\nПриветствуем вас в ресторане MoonHalal! 🌙\n\n📍 Адрес: 5800 Madison Ave S\n\nПриглашаем вас попробовать наши в",
+      "to": "Здравствуйте!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "coding-school-pasv-205322-3729",
+      "from": "🤔 «А получится ли у меня?»\n🤔 «Стоит ли вообще идти в IT?»\n🤔 «Смогу ли я найти работу?»\nТакие вопросы задаёт себе почти к",
+      "to": "«А получится ли у меня?»",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-8886684068-204925-138a",
+      "from": "Каждый день люди пользуются чистым воздухом в доме и даже не задумываются, кто за этим стоит.\nСейчас мы ищем людей, кото",
+      "to": "Каждый день люди пользуются чистым воздухом в доме",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "black-label-auto-studio-180932",
+      "from": "Здравствуйте! Мы — Black Label Auto Studio.\nПрофессионально выполняем оклейку автомобилей винилом любого цвета и премиал",
+      "to": "Здравствуйте!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "reel-205255-a92c",
+      "from": "Кто хочет поиграть с созданием Ai video и сделать свой первый сериал - классная платформа, где это можно сделать\nПример ",
+      "to": "Кто хочет поиграть с созданием Ai video и",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180922",
+      "from": "Дівчата, досить гаяти час «відкладати», «я подумаю», починайте ЗМІНЮВАТИ своє ТІЛО прямо зараз\n💉 Я лікар, а не маркетоло",
+      "to": "Дівчата, досить гаяти час «відкладати», «я подумаю», починайте",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "golden-star-181527-d6c5",
+      "from": "Предлагаю услуги водителя для школьников, проживающих в районе Promenade / Los Olivos и обучающихся в Alderwood Elementa",
+      "to": "Предлагаю услуги водителя для школьников, проживающих в районе",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "saida-saida-205654-def0",
+      "from": "Здравствуйте, друзья! 👋\nOWAY Cargo теперь ещё ближе к вам в Лос-Анджелесе!\n📍 Пункты приёма\nNorth Hollywood — My Barber L",
+      "to": "Здравствуйте, друзья!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "consolidated-stephen-law-pc",
+      "from": "Immigration law · AILA · Sacramento · Google 5.0★ (60)",
+      "to": "ИММИГРАЦИОННЫЙ АДВОКАТ.",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "ma-150705",
+      "from": "Acting for kids/TV/film · Mission Viejo · Google 4.6★ (22)",
+      "to": "Orange County Acting Academy — школа актёрского мастерства",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "lana-cher-181512-6cf0",
+      "from": "Детская академия Home Kids Academy в Irvine: языки, спорт, музыка, Mini Medical. 22 мес.–6 лет.",
+      "to": "Детская академия Home Kids Academy в Irvine: языки",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-181517-806a",
+      "from": "✨ Добро пожаловать в пространство красоты и заботы ✨\n\nМеня зовут Татьяна — я лицензированный мастер маникюра и педикюра ",
+      "to": "Добро пожаловать в пространство красоты и заботы",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "from": "Art & STEAM for kids · Tustin · Google 5.0★ (28)",
+      "to": "Program: Летний кемп по дизайну интерьера",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "consolidated-tenina-law-inc",
+      "from": "Tax law · Sherman Oaks · Google 5.0★ (50)",
+      "to": "Налоговые проверки, анализ операций, квалификация с точки зрения",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "private-studio-181516-6fe2",
+      "from": "✨ Russian маникюр в Tustin ✨  \n\nЛицензированный мастер маникюра и педикюра в Orange County 💅🏻  \nУютная private studio  \n",
+      "to": "Russian маникюр в Tustin",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "no-choice-beauty-studio-180954",
+      "from": "Девочки, привет! Ищем модель на маникюр гель завтра на 10:00 модель на маникюр в no choice beauty studio \n\nБесплатно \n\nХ",
+      "to": "Девочки, привет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "zsaesthetics-190931",
+      "from": "Physician-led medical spa · Santa Ana · Google 4.9★ (19)",
+      "to": "ZMD Aesthetics — physician-led medical spa в Santa",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "телефон-032106",
+      "from": "Custom fine jewelry · Huntington Beach · Google 4.7★ (23)",
+      "to": "Русскоязычный бизнес",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "from": "Medical Assistant academy · Hallandale Beach, FL · Google 5.0★ (299)",
+      "to": "Duration: 4.5 месяца",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "r-r-181513-8b61",
+      "from": "Частный водитель в LA / Orange County\n\nКомфортные и спокойные поездки без лишнего стресса.\nПунктуально, аккуратно, с вни",
+      "to": "Частный водитель в LA / Orange County",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "tатьяна-032105",
+      "from": "Barber / hair studio · Costa Mesa · Google 5.0★ (161)",
+      "to": "Ultima Studio — barber / hair studio в",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "irin-pilates-031833",
+      "from": "Reformer Pilates · Laguna Hills · Google 5.0★ (118)",
+      "to": "Психология",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "al-autoservices-181112-85de",
+      "from": "Рады сообщить об открытии Wizards Registration Services в Costa Mesa!\n\n1617 Superior Ave, Costa Mesa, CA 92627\n\nMon-Frid",
+      "to": "Рады сообщить об открытии Wizards Registration Services в",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "lunelle-nail-salon",
+      "from": "Lunelle Nail Salon — современный nail salon в Mission Viejo с европейским подходом.\nЧистый просторный зал, спокойная атм",
+      "to": "Lunelle Nail Salon — современный nail salon в",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "batch2-ksenia-andreychenko-taxes-vip",
+      "from": "Enrolled Agent · IRS/FTB · Woodland Hills · Google 5.0★ (13)",
+      "to": "Experience: 10+ лет в США",
+      "reason": "from RU description"
+    },
+    {
+      "slug": "v-v-205427-f903",
+      "from": "Личный водитель | Orange County | 24/7\nЕсли нужно спокойно и без нервов добраться по делам — могу помочь.\nЧастный/личный",
+      "to": "Личный водитель Orange County 24/7",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "oksana-150709",
+      "from": "Robotics · AI · Python · ages 5–17 · Mission Viejo · Google 5.0★",
+      "to": "Образование",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "bearchildrensacademyorg-031831",
+      "from": "Academics + hands-on learning · Laguna Hills · Google 5.0★ (5)",
+      "to": "Образование",
+      "reason": "from category/EN hints"
+    },
+    {
+      "slug": "bad-man-205543-2dcc",
+      "from": "Завтра еду из Сан-Диего в Orange County в 03:30 pm Toyota Siena такси super дешёвый тариф\nЗавтра в01:30 pm еду от union ",
+      "to": "Завтра еду из Сан-Диего в Orange County в",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-205401-691e",
+      "from": "Приглашаю моделей на ламинирование ресниц, а также на коррекцию и ламинирование бровей!\nВ связи с пополнением портфолио ",
+      "to": "Приглашаю моделей на ламинирование ресниц, а также на",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "navat",
+      "from": "🔥 NAVAT — HALAL СРЕДНЕАЗИАТСКАЯ КУХНЯ В LOS ANGELES 🔥\n\n3 из 4 наших локаций работают до 4 утра! 🌅\n\n✅ Шаурма (курица, гов",
+      "to": "NAVAT — HALAL СРЕДНЕАЗИАТСКАЯ КУХНЯ В LOS ANGELES",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "alexmassage-sacramentomassage-204821-8d53",
+      "from": "Беспокоит боль в шее, спине или пояснице? Чувствуете постоянное напряжение и скованность?\nМеня зовут Александр Петров, я",
+      "to": "Беспокоит боль в шее, спине или пояснице?",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "aleriya-204955-8abd",
+      "from": "Услуги страхования. Всем привет. Буду рада помочь с страхованием вашей машины. Сейчас вы можете получить полис в State F",
+      "to": "Услуги страхования.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "efficientgoose6262-204931-8bc9",
+      "from": "Нужен хелпер с опытом на завтра сделать доставку в Айдахо.\nОтель оплачиваем\nБудет еще один человек.\nМувинг\nЕсли хорошо о",
+      "to": "Нужен хелпер с опытом на завтра сделать доставку",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "24-7-logistics-inc-cdl-a-204926-2ed8",
+      "from": "🚛 24-7 Logistics INC — набор CDL A водителей\nОткрыты позиции\n🚚 Reefer\n💵 Выплата водителю от $3,000+ / неделя\n📈 Средний G",
+      "to": "24-7 Logistics INC — набор CDL A водителей",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "exal-205603-c2d8",
+      "from": "Trader Joe’s урегулировал иск на $7,4 млн: как получить выплату - People.\n\nСеть Trader Joe’s согласилась выплатить 7,4 м",
+      "to": "Trader Joe’s урегулировал иск на $7,4 млн: как",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "rnd-safe-cargo-204927-21d4",
+      "from": "**🚛 RND Safe Cargo Inc приглашает к сотрудничеству OWNER-OPERATORS НА** **CAR HAULING**\nPickup / Semi trucks с трейлерам",
+      "to": "RND Safe Cargo Inc приглашает к сотрудничеству OWNER-OPERATORS",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "instagramcom-180917",
+      "from": "Всем привет!\nОткрываю запись на фотосессии в апреле и мае ✨\nВ честь сезона выпусков действуют специальные цены для студе",
+      "to": "Всем привет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "alex-kozhak-204922-8283",
+      "from": "❌ САКРАМЕНТО‼️ ВОСКРЕСЕНЬЕ, 26 ИЮЛЯ ❌\n🚛 Свежая чёрная смородина уже в Сакраменто! 🫐\n😋 Ароматная, вкусная и очень полезна",
+      "to": "САКРАМЕНТО‼ ВОСКРЕСЕНЬЕ, 26 ИЮЛЯ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "di-carrental-205641-f5a7",
+      "from": "Сдам аккаунт дордаш женский. Первый месяц бесплатно. Сдам Теслу model 3\n\nСдаем женский аккаунт дурдаш. Новый. Первый мес",
+      "to": "Сдам аккаунт дордаш женский.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-205331-3590",
+      "from": "🎼🎼🎼Уроки ФОРТЕПИАНО онлайн 🎹🎹🎹\n👉🏻 Для детей от 7 лет и взрослых с любым уровнем подготовки\n\nО себе: имею высшее професси",
+      "to": "Уроки ФОРТЕПИАНО онлайн",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "ford-c-max-energi-hybrid-2013-205012-37eb",
+      "from": "Ford C-Max Energi Hybrid 2013\n✔ Пробег: 140 560 миль\n\n✔ Новые шины\n\n✔ Недавно заменена помпа системы охлаждения\n\n✔ Гибри",
+      "to": "Пробег: 140 560 миль",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180934",
+      "from": "❗️ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ ❗️\nХочете скинути 5,10,15 кг? Або й більше, але боялись почати?\nЯ Вам в цьому допомож",
+      "to": "ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "a3-dynamix-llc-204901-6a77",
+      "from": "Я помогу вам найти и приобрести автомобиль с аукционов Copart, IAAI и Manheim — быстро, безопасно и с максимальной выгод",
+      "to": "Я помогу вам найти и приобрести автомобиль с",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "aged-llc-180936",
+      "from": "Финансовые решения для вас и вашего бизнеса\n\nПомогаем не только с Credit Repair, но и с дальнейшим движением по кредиту,",
+      "to": "Финансовые решения для вас и вашего бизнеса",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "mhussein-180945",
+      "from": "Поможем получить & продлить документы официально, оперативно и надежно нерезидентам\nNon-Domiciled/Limited-Term CDL\nDOT M",
+      "to": "Поможем получить & продлить документы официально, оперативно и",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "eleganthamster9292-205054-04ff",
+      "from": "Привет всем. Сдаю 2bd апарты в Розвилле 95678. Возле Костко, без депозита. Подробности по тел",
+      "to": "Привет всем.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "norcal-wash-inc-204836-7cd5",
+      "from": "**Привет, соседи из Сакраменто! **\n\n**👋 Ваша крыша готова к следующему сезону дождей?**\n\nЛето — абсолютно лучшее время д",
+      "to": "Привет, соседи из Сакраменто!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "violetta-lawrence-art-director-181004",
+      "from": "Здравствуйте! Я - Виолетта. Веб - дизайнер и разработчик сайтов на WordPress с опытом работы +4 года и предлагаю хостинг",
+      "to": "Здравствуйте!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "title-company-205234-4c04",
+      "from": "Как заработать на земле в США: Land Flipping от поиска участка до продажи 🔥\nОбычно эти стратегии дают только на закрытых",
+      "to": "Как заработать на земле в США: Land Flipping",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-205139-be06",
+      "from": "🔹 ИЩЕМ ОПЫТНЫХ КЛИНЕРОВ 🔹\n\nКлининговая компания в Sacramento, CA приглашает сотрудников с опытом уборки жилых домов.\n\n💰 ",
+      "to": "ИЩЕМ ОПЫТНЫХ КЛИНЕРОВ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-7472143135-204854-df5a",
+      "from": "Сдается красивая, уютная,полностью меблированная студия в отдельном гостивом домике с садом.\nВ очень спокойном и безопас",
+      "to": "Сдается красивая, уютная,полностью меблированная студия в отдельном",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "llc-172203",
+      "from": "Подготовка налоговых деклараций и регистрация компаний\n(CTEC License A353025 | NY License 13189644)\n• Индивидуальные и б",
+      "to": "Подготовка налоговых деклараций и регистрация компаний",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "ma-childcare-205612-768f",
+      "from": "Если кто-то находится в поиске детского сада, могу порекомендовать Westcliff Early Learning Academy в Ирвайне. Монтессор",
+      "to": "Если кто-то находится в поиске детского сада, могу",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "olga-savitskaya-150607",
+      "from": "Русскоязычный стоматолог в Orange County\n\nDr. Aleksey Stugarev, DDS\nImplant & Cosmetic Dentistry\n\nСовременная стоматолог",
+      "to": "Русскоязычный стоматолог в Orange County",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "zbear-205613-7547",
+      "from": "спасибо за ответ, как раз в geico и застраховался - переход оказался дешевле, чем добавлять сына в моей страховой.",
+      "to": "спасибо за ответ, как раз в geico и",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "cryptogolem-205532-e4ec",
+      "from": "Групповые и индивидуальные тренировки для взрослых и детей, для любого уровня.\nУтренние и вечерние группы, занятия для ж",
+      "to": "Групповые и индивидуальные тренировки для взрослых и детей",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "skilledparsnip6805-204811-2bc8",
+      "from": "STARWAY TRUCK & TRAILER REPAIR — РЕМОНТ ГРУЗОВИКОВ И ПРИЦЕПОВ В САКРАМЕНТО!\n\nНужен ремонт вашего truck или trailer? Мы г",
+      "to": "STARWAY TRUCK & TRAILER REPAIR — РЕМОНТ ГРУЗОВИКОВ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "kk-auto-llc-204826-d946",
+      "from": "Автомобиль мечты с 0$ первым взносом — это реальность с KK Auto LLC! 🚗💨\nХотите новый автомобиль, но не хотите выводить к",
+      "to": "Автомобиль мечты с 0$ первым взносом — это",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "mk-motors-204808-4a00",
+      "from": "**MK Motors**\n\n**Всем привет!**\n\nМы предоставляем услуги по оценке и урегулированию страховых случаев в Rancho Cordova.\n",
+      "to": "Всем привет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "senor-doc-180946",
+      "from": "Оформление документов официально\nCDL\nNon-Domiciled/Limited-Term CDL\nDriver License any category\nDOT Medical\nCar Title\nDu",
+      "to": "Оформление документов официально",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180920",
+      "from": "Дівчата, ВИКЛЮЧНО СЬОГОДНІ і для учасників цієї групи!\nЯ доставляю Mounjаro, Оzempic, Twincret та інші за адресою)\nТакож",
+      "to": "Дівчата, ВИКЛЮЧНО СЬОГОДНІ і для учасників цієї групи!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180931",
+      "from": "Мечтаете, чтобы ваш бьюти-бизнес стал магнитом для клиентов?\n❗️Я знаю, как превратить ваши соцсети (инстаграм, фейсбук, ",
+      "to": "Мечтаете, чтобы ваш бьюти-бизнес стал магнитом для клиентов?",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "teremokhomefood-180921",
+      "from": "Принимаю заказы на домашнюю еду с доставкой👩🏼‍🍳\nЗаморозка\nКотлеты (свино-говядина; курица)\nПельмени ручной лепки\nВареник",
+      "to": "Принимаю заказы на домашнюю еду с доставкой",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "hairremovallaser-205133-a5dc",
+      "from": "✨ Гладкая кожа начинается здесь.\nПопрощайтесь с бритвой и наслаждайтесь гладкой кожей надолго. Безопасная и эффективная ",
+      "to": "Гладкая кожа начинается здесь.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180949",
+      "from": "🚨 Остались последние дни до дедлайна 15 апреля! Последняя неделя со скидками.\n\n👩‍💼 Я Enrolled Agent (EA #00169732), проф",
+      "to": "Остались последние дни до дедлайна 15 апреля!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180929",
+      "from": "Добрый день 👋\nЯ копирайтер, ищу заказчиков ✍️\n\nЕсли мысль есть, а текст не складывается — то вам ко мне ✅\nПишу тексты дл",
+      "to": "Добрый день",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "usa-205738-5183",
+      "from": "🇺🇸Drivеr Licensе USA / Права DL, CDL без сдачи экзамена\n\n🟢Официальный документ, без подделок\n🟢 Любые проверки\n🟢 Отзывы о",
+      "to": "🇺🇸Drivеr Licensе USA / Права DL, CDL без",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-7874762355-205018-10fe",
+      "from": "# Болят пальцы, а чистого звука так и нет? Я научу играть легко и без зубрежки. Подберу программу под ваш вкус. Начнем? ",
+      "to": "Болят пальцы, а чистого звука так и нет?",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "nicol-kidman-204858-6bf8",
+      "from": "Здравствуйте! Меня зовут Ирина, я профессиональный парикмахер-колорист.\nСоздаю красивые, ухоженные и здоровые волосы ✨\n\n",
+      "to": "Здравствуйте!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180944",
+      "from": "Всем привет!\nЯ маркетолог, который приносит бизнесу реальные деньги 🔥\nКак понять, что я тебе нужен?\n* Нет клиентов — раз",
+      "to": "Всем привет!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "usa-legal-205643-eb9d",
+      "from": "🇺🇦🤝 Політичний притулок у США для громадян України \n\n🔥 Без передоплати!\n😎 Досвідчені адвокати!\n\n👉 Пишіть в ЛС для консул",
+      "to": "🇺🇦 Політичний притулок у США для громадян України",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "hidjama-205414-1f7f",
+      "from": "Ас-саляму алейкум ва рахматуллахи ва баракатуху, дорогие братья и сёстры 🤍\nНапоминаем, что до 30 числа у нас действует а",
+      "to": "Ас-саляму алейкум ва рахматуллахи ва баракатуху, дорогие братья",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "licence-centre-usa-205512-a01b",
+      "from": "Помогу сделать стейтмент (изменить цифры/сделать с 0, удалить/добавить что-либо) 📄\nТак же могу изменить что-либо на прав",
+      "to": "Помогу сделать стейтмент (изменить цифры/сделать с 0, удалить/добавить",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-9163140203-204813-be8c",
+      "from": "Вчера звонил мужчина и рассказал о своей боли\n«Я всегда прошу официанта принести что-нибудь мягкое…»\nКогда-то это было в",
+      "to": "Вчера звонил мужчина и рассказал о своей боли",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "llc-204805-0168",
+      "from": "Всем добрый день!\nИщу постоянную работу или подработку. Рассмотрю любые предложения: стройка, helper, moving, водитель, ",
+      "to": "Всем добрый день!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "energeticcorgi3380-205048-76cf",
+      "from": "Уроки музыки в Линкольне! 🎹🎸🥁 Всем привет! Если вы ищете преподавателя музыки, то местная музыкальная студия в Линкольне",
+      "to": "Уроки музыки в Линкольне!",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "2-1999-204951-c2a7",
+      "from": "# 2 сочные шаурмы всего за $19.99\nИдеальный повод собраться с другом, разделить обед с коллегой или просто устроить наст",
+      "to": "2 сочные шаурмы всего за $19.99",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "58523-yanaya-205530-1a13",
+      "from": "Набираю небольшую приватную группу коучинга для женщин, которые хотят выйти замуж за американца осознанно и выгодно, а н",
+      "to": "Набираю небольшую приватную группу коучинга для женщин, которые",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "aike-205508-990c",
+      "from": "Графический дизайнер. Создаю дизайны, логотипы, баннеры, и тд. Делаю фотошоп документов. Пишите в личку для подробностей",
+      "to": "Графический дизайнер.",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "nadia-papeka-205112-6407",
+      "from": "✨ Сдаётся отдельный кабинет в уютном салоне красоты ✨ 104 Lincoln Street, Suite 100, Roseville, CA 95678\n\nИдеальное прос",
+      "to": "Сдаётся отдельный кабинет в уютном салоне красоты 104",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "info-205758-0fab",
+      "from": "Всем доброго времени👋\nРабота с данными, веб-разработка от лёгких ботов до сложных веб-приложений, написание скриптов и д",
+      "to": "Всем доброго времени",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "inna-starominska-205426-50ec",
+      "from": "❗️ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ ❗️\nХочете скинути 5,10,15 кг? Або й більше, але боялись почати?\nЯ Вам в цьому допомож",
+      "to": "ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "dl-express-205556-c74a",
+      "from": "Консультации для тех, кто планирует уезжать из США, или если не тянете кредитную нагрузку!\nЕсли собираешься выезжать из ",
+      "to": "Консультации для тех, кто планирует уезжать из США",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-180935",
+      "from": "🇬🇧 Англійська для життя, роботи, подорожей, навчання та нових можливостей 🌏✨\n\nЗапрошуємо дітей, підлітків і дорослих на ",
+      "to": "🇬🇧 Англійська для життя, роботи, подорожей, навчання та",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-205442-7364",
+      "from": "Я SMM-специалист\nЧастичное ведение, разовая упаковка профиля с бесконечной поддержкой, полное ведение\nСММ специалист вкл",
+      "to": "Я SMM-специалист",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "semboko-205200-b4e0",
+      "from": "Хотела порекомендовать специалиста, возможно кто-то тут в поисках толкового исполнителя. ✨ Обсудить ваш текущий проект, ",
+      "to": "Хотела порекомендовать специалиста, возможно кто-то тут в поисках",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "electrolysisinla-180841",
+      "from": "⚡️ЭЛЕКТРОЭПИЛЯЦИЯ\nПожизненное удаление волос\nЧастная практика.\n🪪 Лицензия штата Калифорния\n•Единственный метод, который ",
+      "to": "ЭЛЕКТРОЭПИЛЯЦИЯ",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-205518-8988",
+      "from": "Онлайн програмування для дітей (6+) — безкоштовний пробний урок.\nЗа 1 заняття дитина зробить свій перший міні-проєкт і з",
+      "to": "Онлайн програмування для дітей (6+) — безкоштовний пробний",
+      "reason": "trim long RU short"
+    },
+    {
+      "slug": "business-biz-181509-88e4",
+      "from": "Меня зовут Оксана, я профессиональный косметолог с опытом 10+ лет.\nПроцедуры\nЧистка лица\nМассаж\nПилинг\nАппаратные процед",
+      "to": "Меня зовут Оксана, я профессиональный косметолог с опытом",
+      "reason": "trim long RU short"
+    }
+  ],
+  "deferred_no_russian": [
+    {
+      "id": "03322e2a-2bba-48ff-9a64-faa3fc675be0",
+      "slug": "ship-your-car-with-rcg-llc-205032-0494",
+      "name": "Ship Your Car with RCG LLC",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "dfa94381-02bb-434f-9264-a54c20edee85",
+      "slug": "home-for-rent-in-sacramento-205010-f742",
+      "name": "Home for Rent in Sacramento",
+      "category": "Недвижимость",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "7400aa21-f702-4d66-9a0f-ca6a7fa00e9e",
+      "slug": "fbpack-ira-body-sculpting-studio",
+      "name": "Ira Body Sculpting Studio",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "29ef1547-4135-4f51-9834-38e801867ab9",
+      "slug": "old-school",
+      "name": "Old school",
+      "category": "Животные",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "49735749-7f29-4839-9f4e-e31aed15dde4",
+      "slug": "collision-experts-llc",
+      "name": "Collision Experts LLC",
+      "category": "Страхование",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "74290be8-7b7f-475e-8a34-c07fd475e22b",
+      "slug": "finish-line-collision-center-albert-ter-pogosyan",
+      "name": "Finish line collision center Albert Ter-Pogosyan",
+      "category": "Мастера / быт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "90656603-bc51-45f1-bc3d-e6ec1e249dd7",
+      "slug": "evelina-klchyan",
+      "name": "Evelina Klchyan",
+      "category": "Мастера / быт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "4669cc85-a49c-4818-b9bf-ca325cbdb98b",
+      "slug": "wonderland-beauty-salon",
+      "name": "Wonderland beauty salon",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "028ee1ac-12bb-4ca1-aff3-db22bc1bc232",
+      "slug": "dianapsyhologist",
+      "name": "Dianapsyhologist",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "2f435681-055d-474a-a213-75e3ee9aca4e",
+      "slug": "spots-available-the-salon",
+      "name": "spots available. The salon",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "610deab9-606e-40f3-bced-421386ceb385",
+      "slug": "yummy-homemade-sweets",
+      "name": "yummy_homemade_sweets",
+      "category": "Мероприятия",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "cf121a15-9240-4685-bc9f-c619142d8278",
+      "slug": "lushov-construction-inc-205020-3ce6",
+      "name": "Lushov Construction Inc",
+      "category": "Дом и ремонт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "9e41b331-d2bc-4c94-9eb9-c147c77ed438",
+      "slug": "fbpack-coastal-carts-rmv",
+      "name": "Coastal Carts RMV",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "b1b7833f-d195-4a9b-8bae-e9f1a2bd19a3",
+      "slug": "nadia-teterin-204759-1e1e",
+      "name": "Nadia Teterin",
+      "category": "Недвижимость",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "989bd6c6-1050-44b6-9b55-cd229e7d1b89",
+      "slug": "consolidated-narek-mega-motors-la",
+      "name": "Narek Mega Motors Los Angeles",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+      "slug": "beauty-studio-by-veronika",
+      "name": "Beauty Studio by Veronika",
+      "category": "Красота",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "106b4614-29f9-48c0-8ffd-e7954238645f",
+      "slug": "fbpack-svetlana-melnik-merry-hive",
+      "name": "Merry Hive Daycare",
+      "category": "Образование",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "08fc945b-963b-4ca1-b87c-068069af7e4c",
+      "slug": "enriched-llc-tsisar",
+      "name": "Ivan Handyman",
+      "category": "Мастера / быт",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "7b951600-84b3-46b2-942b-d68deda666b0",
+      "slug": "enriched-toyota-corolla-hybrid-2026-rental",
+      "name": "Toyota Corolla Hybrid 2026 Rental",
+      "category": "Автосервис",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    },
+    {
+      "id": "6153f29b-b39f-4fe9-860e-e00db00791b5",
+      "slug": "movement-brewing-company-205317-684f",
+      "name": "Movement Brewing Company",
+      "category": "Мероприятия",
+      "note": "нет кириллицы в name/short/description — перепроверить русскоязычность"
+    }
+  ]
+}

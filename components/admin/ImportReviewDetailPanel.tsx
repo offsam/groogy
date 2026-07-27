@@ -24,6 +24,14 @@ import {
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
 import { getDisplayContacts } from "@/lib/import-review/contacts";
+import { ImportReviewContactIcons } from "@/components/admin/ImportReviewContactIcons";
+import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
+import {
+  IMPORT_PREVIEW_KIND_HINTS,
+  resolveImportPreviewKind,
+} from "@/lib/import-review/preview-section";
+import { structureBusinessProfileCopy } from "@/lib/content/structure-business-profile";
+import { importReviewToBusinessPreview } from "@/lib/import-review/to-business-preview";
 
 function daysSince(iso: string | null): number | null {
   if (!iso) return null;
@@ -110,6 +118,50 @@ export function ImportReviewDetailPanel({
   const locked =
     status === "approved" || status === "rejected" || status === "duplicate";
 
+  const previewFields = useMemo(
+    () => ({
+      id: item.id,
+      title: form.title,
+      business_name: form.business_name,
+      person_name: form.person_name,
+      description: form.description || item.source_text,
+      category: form.category,
+      city: form.city,
+      state: form.state,
+      phone: parseList(form.phone),
+      email: parseList(form.email),
+      website: parseList(form.website),
+      instagram: parseList(form.instagram),
+      services: parseList(form.services),
+      price: form.price ? Number(form.price) : item.price,
+      currency: form.currency || item.currency,
+      preview_image_url: item.preview_image_url,
+      whatsapp: parseList(form.whatsapp),
+      telegram_username: form.telegram_username || null,
+      telegram_user_id: form.telegram_user_id || null,
+      entity_type: form.entity_type,
+      target_collection: form.target_collection,
+      source_text: item.source_text,
+    }),
+    [form, item.id, item.source_text, item.preview_image_url, item.price, item.currency],
+  );
+  const previewKind = useMemo(
+    () => resolveImportPreviewKind(previewFields),
+    [previewFields],
+  );
+  const previewBusiness = useMemo(
+    () => importReviewToBusinessPreview(previewFields),
+    [previewFields],
+  );
+  const previewCopy = useMemo(
+    () =>
+      structureBusinessProfileCopy(
+        previewBusiness.description,
+        previewBusiness.shortDescription,
+      ),
+    [previewBusiness.description, previewBusiness.shortDescription],
+  );
+
   const categoryOptions = useMemo(() => {
     const domainHint =
       form.target_collection === "marketplace" ||
@@ -158,6 +210,11 @@ export function ImportReviewDetailPanel({
       if (!result.ok) {
         setError(result.message ?? "Ошибка");
         setDuplicates(result.duplicates ?? []);
+        // Approve/reject buttons sit at the bottom of a long form —
+        // scroll up so the error (and duplicate force button) are visible.
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
         return;
       }
       if (opts?.nextStatus) setStatus(opts.nextStatus);
@@ -171,6 +228,9 @@ export function ImportReviewDetailPanel({
       setError(
         err instanceof Error ? err.message : "Не удалось выполнить действие",
       );
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     } finally {
       setBusy(false);
     }
@@ -220,6 +280,39 @@ export function ImportReviewDetailPanel({
 
       {error && <AuthAlert tone="error">{error}</AuthAlert>}
       {message && <AuthAlert tone="success">{message}</AuthAlert>}
+
+      <section className="rounded-xl border border-brand-blue/20 bg-white p-4 shadow-sm">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-400">
+              Как будет на платформе
+            </p>
+            <p className="mt-0.5 text-sm text-slate-500">
+              {IMPORT_PREVIEW_KIND_HINTS[previewKind]} — обновляется при правках
+              формы ниже
+            </p>
+          </div>
+        </div>
+        <ImportReviewTypedCard item={previewFields} />
+        {previewKind === "business" &&
+        (previewCopy.aboutPreview || previewCopy.about) ? (
+          <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50 p-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              О компании
+            </p>
+            <p className="mt-1 line-clamp-5 whitespace-pre-wrap text-sm text-slate-700">
+              {previewCopy.aboutPreview || previewCopy.about}
+            </p>
+          </div>
+        ) : null}
+        {previewKind === "business" && previewCopy.jobs ? (
+          <div className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-950">
+            <span className="font-semibold">Вакансии: </span>
+            <span className="line-clamp-2">{previewCopy.jobs}</span>
+          </div>
+        ) : null}
+      </section>
+
       {duplicates.length > 0 && (
         <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           <p className="font-medium">Возможные дубликаты</p>
@@ -308,33 +401,20 @@ export function ImportReviewDetailPanel({
               <dt className="text-slate-500">Медиа</dt>
               <dd>
                 {item.photos_count > 0
-                  ? `${item.photos_count} файл(ов), download_status=pending`
+                  ? item.preview_image_url
+                    ? `${item.photos_count} фото · превью загружено`
+                    : `${item.photos_count} фото · превью ещё не загружено`
                   : "нет"}
               </dd>
             </div>
             <div>
               <dt className="text-slate-500">Публичные контакты</dt>
-              <dd className="space-y-1 text-sm">
-                {getDisplayContacts(item).length === 0 ? (
-                  <span>нет контактов</span>
-                ) : (
-                  getDisplayContacts(item).map((c) =>
-                    c.href ? (
-                      <div key={`${c.kind}-${c.label}`}>
-                        <a
-                          className="text-brand-blue-deep underline"
-                          href={c.href}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {c.label}
-                        </a>
-                      </div>
-                    ) : (
-                      <div key={`${c.kind}-${c.label}`}>{c.label}</div>
-                    ),
-                  )
-                )}
+              <dd className="space-y-2 text-sm">
+                <ImportReviewContactIcons
+                  contacts={getDisplayContacts(item)}
+                  showLabels
+                  max={10}
+                />
                 {item.source_url ? (
                   <div>
                     <a
@@ -502,6 +582,41 @@ export function ImportReviewDetailPanel({
                   value={form.currency}
                   disabled={locked || busy}
                   onChange={(v) => setField("currency", v)}
+                />
+              </div>
+            </div>
+          )}
+
+          {(form.target_collection === "lechu" ||
+            form.target_collection === "transfers") && (
+            <div className="rounded-lg border border-dashed border-slate-200 p-3 text-sm">
+              <p className="mb-2 font-medium text-slate-700">
+                {form.target_collection === "lechu" ? "Лечу" : "Переводы"}
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                <Field
+                  label="Заголовок маршрута / предложения"
+                  value={form.title}
+                  disabled={locked || busy}
+                  onChange={(v) => setField("title", v)}
+                />
+                <Field
+                  label="Автор"
+                  value={form.person_name}
+                  disabled={locked || busy}
+                  onChange={(v) => setField("person_name", v)}
+                />
+                <Field
+                  label="Город / хаб"
+                  value={form.city}
+                  disabled={locked || busy}
+                  onChange={(v) => setField("city", v)}
+                />
+                <Field
+                  label="Штат"
+                  value={form.state}
+                  disabled={locked || busy}
+                  onChange={(v) => setField("state", v)}
                 />
               </div>
             </div>

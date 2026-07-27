@@ -90,7 +90,11 @@ function fitSize(
 export async function compressBusinessImage(
   file: File,
 ): Promise<CompressedImage> {
-  if (!file.type.startsWith("image/")) {
+  const looksLikeImage =
+    file.type.startsWith("image/") ||
+    /\.(jpe?g|png|webp|gif|heic|heif|bmp|tiff?)$/i.test(file.name);
+
+  if (!looksLikeImage) {
     throw new Error("Выберите файл изображения.");
   }
   if (file.size > MAX_INPUT_BYTES) {

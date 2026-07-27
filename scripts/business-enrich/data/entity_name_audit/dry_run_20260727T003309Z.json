@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-07-27T00:33:09.370003+00:00",
+  "mode": "dry-run",
+  "min_confidence": "high",
+  "scanned": {
+    "businesses": 183,
+    "professionals": 747
+  },
+  "issues": 16,
+  "actionable": 9,
+  "applied": 0,
+  "by_reason": {
+    "person_name_website_brand": 6,
+    "person_name_brand_in_description": 9,
+    "weak_name_no_suggestion": 1
+  },
+  "by_confidence": {
+    "medium": 6,
+    "high": 9,
+    "low": 1
+  },
+  "actionable_sample": [
+    {
+      "entity_type": "business",
+      "id": "0d560364-8b6d-4e78-a40d-7881c1b96645",
+      "slug": "alena-petrova-172203",
+      "from": "Alena Petrova Hair",
+      "to": "Hollywood House of Beauty",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Hollywood House of Beauty offers a wide range of beauty services to help you find your perfect look. A licensed master hairdresser, Alyona Petrova, provides expert hair care including various cuts, co"
+    },
+    {
+      "entity_type": "business",
+      "id": "63b695f7-f771-49f8-9f6d-974805a61661",
+      "slug": "asiya-ahmadi-204845-c364",
+      "from": "Asiya Ahmadi",
+      "to": "NeroFix Recovery Clinic",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "🎉 ОТКРЫТИЕ NEROFIX RECOVERY CLINIC 🎉\nДрузья, рады сообщить, что в Citrus Heights открылась новая клиника массажа и восстановления — NeroFix Recovery Clinic!\nЕсли вас беспокоят боли в спине, шее, мышеч"
+    },
+    {
+      "entity_type": "business",
+      "id": "c01f5d37-2b2e-43f3-b667-5757521f6802",
+      "slug": "olga-savitskaya-150607",
+      "from": "Olga Savitskaya",
+      "to": "Dr. Aleksey Stugarev",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Dr. Aleksey Stugarev offers modern implant and cosmetic dentistry, focusing on precision, aesthetics, and long-term results. They specialize in full smile rehabilitation, including All-on-X implants, "
+    },
+    {
+      "entity_type": "business",
+      "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+      "slug": "nataliya-mishenina-204841-326b",
+      "from": "Nataliya  Mishenina",
+      "to": "Artistry Summer Camp",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Думаете, чем занять ребенка этим летом?\nЛето, полное творчества, игр и развития для вашего ребенка ✨\nПриглашаем детей 5–13 лет в творческий дневной лагерь в Сакраменто 🤩\nArtistry Summer Camp — это про"
+    },
+    {
+      "entity_type": "business",
+      "id": "e9c7aef3-0dc7-4cf4-b864-cdeae3f36fce",
+      "slug": "dustov-dustmuhammad-205024-5014",
+      "from": "Dustov Dustmuhammad",
+      "to": "MoonHalal",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Здравствуйте!\nПриветствуем вас в ресторане MoonHalal! 🌙\n📍 Адрес: 5800 Madison Ave S\nПриглашаем вас попробовать наши вкусные бургеры, сочную шаурму и новые блюда из меню. Мы готовим с душой и будем рад"
+    },
+    {
+      "entity_type": "professional",
+      "id": "4626ade6-6a4b-4271-9191-f2cf58cfa79e",
+      "slug": "business-7717177777-172212",
+      "from": "Людмила Коста",
+      "to": "Liberty Center",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "🚗 Ищете дешёвую и надёжную автостраховку?\nIzlatop Insurance Agency поможет подобрать для вас лучшую автостраховку по выгодной цене всего за несколько минут.\nМы сотрудничаем с более чем 40 ведущими стр"
+    },
+    {
+      "entity_type": "professional",
+      "id": "6760aac5-a2ae-4704-947b-4845e903bc54",
+      "slug": "consolidated-roman-rybin-karaoke",
+      "from": "Roman Rybin",
+      "to": "Chez Nous Cafe",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Karaoke Summer Night · Chez Nous Cafe, Redwood City, CA\nFriday, July 17 · Doors 7:00 PM · Show 8:00–11:30 PM\n\nHost: Roman Rybin, лидер группы «БангладешЪ-Оркестр»\nFormat: караоке-вечеринка — соло, дуэ"
+    },
+    {
+      "entity_type": "professional",
+      "id": "8dfced7f-37da-4965-96d0-b370a48361f9",
+      "slug": "batch2-lidiia-gordienko",
+      "from": "Lidiia Gordienko",
+      "to": "Orange County Shopping trips School",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Premium Taxi / Private Driver · Lidiia Gordienko\nVehicle: Tesla Model Y\nService area: Irvine, Mission Viejo, Orange County\nServices\nТрансфер в аэропорт\nПоездки по Orange County\nShopping trips\nSchool t"
+    },
+    {
+      "entity_type": "professional",
+      "id": "aa91af4f-fe0e-4f23-a3ee-f879a82f6f2a",
+      "slug": "alex-wins-204844-70d8",
+      "from": "Alex Wins",
+      "to": "Aqua Nova Swimming School",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "У вас есть свой бассейн дома, но ребенок все еще не умеет уверенно плавать? Мы приедем к вам и научим ребенка плавать прямо в вашем бассейне!\n\nAqua Nova Swimming School открывает сезон мобильных уроко"
+    }
+  ],
+  "no_suggestion": [
+    {
+      "entity_type": "professional",
+      "id": "bb0cda9b-8d4b-4bd7-8a67-d8c40366e40f",
+      "slug": "beauty-salon-181011",
+      "from": "Новый beauty salon",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резидентов — скидка $100 на первый месяц аренды. Парикмахерское к"
+    }
+  ]
+}

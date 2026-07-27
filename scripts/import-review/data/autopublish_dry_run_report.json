@@ -1,191 +1,67 @@
 {
   "stats": {
-    "accepted_total": 504,
-    "with_direct_contact": 171,
+    "accepted_total": 469,
+    "with_direct_contact": 96,
     "eligible": 0,
-    "blocked": 504,
-    "blocked_duplicates": 49,
-    "blocked_stale": 229,
-    "blocked_unsupported": 27,
-    "blocked_no_contact": 114,
-    "blocked_no_title": 3,
-    "blocked_no_description": 1,
+    "blocked": 469,
+    "blocked_duplicates": 61,
+    "blocked_stale": 182,
+    "blocked_unsupported": 7,
+    "blocked_no_contact": 206,
+    "blocked_no_title": 4,
+    "blocked_no_description": 0,
     "blocked_no_category": 0,
     "blocked_no_city": 0,
     "blocked_low_confidence": 3,
     "blocked_manual": 0,
     "entity_type": {
-      "marketplace_listing": 200,
-      "private_specialist": 165,
-      "business": 47,
-      "event": 27,
-      "real_estate": 65
+      "business": 88,
+      "marketplace_listing": 137,
+      "private_specialist": 145,
+      "real_estate": 92,
+      "event": 7
     },
     "target_collection": {
-      "marketplace": 201,
-      "private_specialists": 164,
-      "services": 19,
-      "businesses": 25,
-      "organizations": 1,
-      "events": 27,
-      "real_estate": 67
+      "businesses": 33,
+      "marketplace": 140,
+      "private_specialists": 141,
+      "services": 48,
+      "real_estate": 100,
+      "events": 7
     },
     "contacts_all_accepted": {
-      "none": 333,
-      "instagram": 73,
-      "phone": 52,
-      "website": 19,
-      "phone+extras": 24,
-      "telegram_username": 3
+      "phone": 88,
+      "none": 373,
+      "instagram": 3,
+      "phone+extras": 5
     },
     "contacts_eligible": {},
     "exclusion_primary": {
-      "нет контакта": 114,
-      "уже опубликовано": 78,
-      "дубликаты": 49,
-      "неподдерживаемые типы": 27,
+      "дубликаты": 61,
+      "нет контакта": 206,
+      "нет title": 4,
+      "уже опубликовано": 6,
+      "неподдерживаемые типы": 7,
       "низкая confidence": 3,
-      "нет title": 3,
-      "устаревшие": 229,
-      "нет description": 1
+      "устаревшие": 182
     },
     "exclusion_reason_tags": {
-      "нет title": 15,
-      "нет контакта": 333,
-      "уже опубликовано": 127,
-      "нет города": 132,
-      "похоже на запрос/обсуждение, не предложение": 1,
-      "возможный дубликат: телефон уже в businesses": 49,
-      "неподдерживаемый тип": 27,
-      "низкая confidence": 16,
-      "нет description": 8,
-      "контакт только в исходном тексте, не нормализован": 2,
-      "устаревшая запись": 255
+      "возможный дубликат: телефон уже в businesses": 61,
+      "уже опубликовано": 58,
+      "низкая confidence": 25,
+      "нет контакта": 373,
+      "нет города": 236,
+      "нет title": 24,
+      "нет description": 24,
+      "неподдерживаемый тип": 7,
+      "устаревшая запись": 187,
+      "контакт только в исходном тексте, не нормализован": 3
     }
   },
   "candidates": [],
   "blocked_sample": [
     {
-      "title": "⛔️",
-      "reasons": [
-        "нет title",
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "zpoqmy",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Екатерина",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Jenny",
-      "reasons": [
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Maria K",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Также возможна встреча",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "agnejess",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Volodymyr",
-      "reasons": [
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "services"
-    },
-    {
-      "title": "Женя",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Алёна",
-      "reasons": [
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "delicious_by_va",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "businesses"
-    },
-    {
-      "title": "Anastasiia Dannelley",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Оксана Лобанова",
-      "reasons": [
-        "нет контакта",
-        "нет города",
-        "похоже на запрос/обсуждение, не предложение"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Yelyzaveta Stepanenko",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Olyunka Nam",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
-      "reasons": [
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Victoria Yakovenko",
+      "title": "Lana.Investor RealtorInvestor",
       "reasons": [
         "возможный дубликат: телефон уже в businesses",
         "уже опубликовано"
@@ -193,47 +69,265 @@
       "target_collection": "businesses"
     },
     {
-      "title": "glekel.photo",
+      "title": "Сдаю дурдаш аккаунт, за подробностями в лс",
       "reasons": [
+        "низкая confidence (0.70 < 0.85)",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Savenko Anastasia",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Anastasiia Azarova",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Stacy",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Rey",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Andrey Gromov",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "AndyKR",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Сдаётся",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "renna^афк",
+      "reasons": [
+        "возможный дубликат: телефон уже в businesses",
         "уже опубликовано"
       ],
       "target_collection": "private_specialists"
     },
     {
-      "title": "Lana Cher",
+      "title": "Im",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Реналь",
       "reasons": [
         "нет контакта",
         "нет города"
       ],
-      "target_collection": "organizations"
+      "target_collection": "private_specialists"
     },
     {
-      "title": "Eleonora (Эля)",
-      "reasons": [
-        "неподдерживаемый тип: events"
-      ],
-      "target_collection": "events"
-    },
-    {
-      "title": "Aleksandra",
+      "title": "Oganes Google",
       "reasons": [
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "Anna Lukina",
+      "title": "☝️☝️☝️",
       "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "mary.shlykova",
-      "reasons": [
-        "низкая confidence (0.50 < 0.85)"
+        "нет title"
       ],
       "target_collection": "private_specialists"
+    },
+    {
+      "title": "Vlad",
+      "reasons": [
+        "возможный дубликат: телефон уже в businesses",
+        "уже опубликовано"
+      ],
+      "target_collection": "businesses"
+    },
+    {
+      "title": "Lisa Harvey",
+      "reasons": [
+        "возможный дубликат: телефон уже в businesses"
+      ],
+      "target_collection": "businesses"
+    },
+    {
+      "title": "Даниэль",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Buck",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Bender Rodriquez",
+      "reasons": [
+        "уже опубликовано"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Maryna",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Snus Dash LA",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Maryna Maklai",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Mark Terskiy",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "репетитор англ",
+      "reasons": [
+        "возможный дубликат: телефон уже в businesses",
+        "уже опубликовано"
+      ],
+      "target_collection": "businesses"
+    },
+    {
+      "title": "Сдаю непрокаченный аккаунт  дурдаш по хорошей цене, если интересно пишите в в лс",
+      "reasons": [
+        "низкая confidence (0.70 < 0.85)",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Serge",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Александр Радчук",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Ілля",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "древняя шаманка",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Черная Пантера",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Orange Bullet",
+      "reasons": [
+        "нет description",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Mike",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "София",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Alex P",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "продаем диван $50",
+      "reasons": [
+        "нет description",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
     },
     {
       "title": "Кровать queen size $140, в хорошем состоянии, с матрасом",
@@ -243,98 +337,14 @@
       "target_collection": "marketplace"
     },
     {
-      "title": "Продаем диван $50",
-      "reasons": [
-        "нет description",
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Милена",
+      "title": "Лечу в Москву ориентировочно 8-10 авг ✈️ возьму посылки 📦",
       "reasons": [
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "G -",
-      "reasons": [
-        "нет title",
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "aleks_andra020289",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Всем привет !",
-      "reasons": [
-        "низкая confidence (0.70 < 0.85)",
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Anna Nesterova",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Anastasiia",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "businesses"
-    },
-    {
-      "title": "Kseniia",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Alyona Koolhaas",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Olga O",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Ирина Кундухова",
-      "reasons": [
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "services"
-    },
-    {
-      "title": "Sandra",
+      "title": "Nozima",
       "reasons": [
         "нет контакта",
         "нет города"
@@ -342,38 +352,80 @@
       "target_collection": "real_estate"
     },
     {
-      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "title": "Roman",
       "reasons": [
         "нет контакта",
         "нет города"
       ],
-      "target_collection": "private_specialists"
+      "target_collection": "services"
     },
     {
-      "title": "My_brows7",
+      "title": "uli",
       "reasons": [
-        "нет контакта",
-        "нет города"
+        "неподдерживаемый тип: events",
+        "нет контакта"
       ],
-      "target_collection": "private_specialists"
+      "target_collection": "events"
     },
     {
-      "title": "Сергей",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Ирина К",
+      "title": "Игорь",
       "reasons": [
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "Aya",
+      "title": "electrolysis_in_la",
+      "reasons": [
+        "низкая confidence (0.50 < 0.85)"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "УКРАЇНОМОВНИЙ ЦЕНТР",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "uli",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Лиза",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Hyundai Tucson",
+      "reasons": [
+        "уже опубликовано"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Винкс",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Здравствуйте. Есть рубли 60.000 поменяю на $, курс 78",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Сдается койко место для девушки в Park Newport",
       "reasons": [
         "нет контакта",
         "нет города"
@@ -381,21 +433,7 @@
       "target_collection": "real_estate"
     },
     {
-      "title": "Olga Falevich",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "hair_extension_usa",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Tanya Forinnaya",
+      "title": "Aged LLC",
       "reasons": [
         "нет контакта",
         "нет города"
@@ -403,54 +441,123 @@
       "target_collection": "private_specialists"
     },
     {
-      "title": "alexandra_dessert_studio",
+      "title": "Dmitrii E",
       "reasons": [
-        "уже опубликовано"
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Hof Method Washington",
+      "reasons": [
+        "неподдерживаемый тип: events",
+        "нет контакта"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Репетитор английского 15 $",
+      "reasons": [
+        "нет контакта",
+        "нет города"
       ],
       "target_collection": "private_specialists"
     },
     {
-      "title": "G -",
+      "title": "RK",
       "reasons": [
-        "нет title",
         "нет контакта",
         "нет города"
       ],
       "target_collection": "services"
     },
     {
-      "title": "Татьяна Морщук",
+      "title": "🏠 С 1 июля сдается отдельная комната в Marina Del Rey в квартире 2br/2bth. Отдел",
       "reasons": [
-        "возможный дубликат: телефон уже в businesses",
         "уже опубликовано"
       ],
-      "target_collection": "businesses"
+      "target_collection": "real_estate"
     },
     {
-      "title": "АннА Родная",
+      "title": "Mark Terskiy",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Platon",
       "reasons": [
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "23peony",
+      "title": "Влад Нестеренко",
       "reasons": [
-        "уже опубликовано"
+        "нет контакта",
+        "нет города"
       ],
       "target_collection": "private_specialists"
     },
     {
-      "title": "~~~~ $$$$$",
+      "title": "Anna S",
       "reasons": [
-        "нет title",
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Bella",
+      "reasons": [
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "Tayka",
+      "title": "Лиза",
       "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Лидия",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Mike Largus",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Anna Slitskaya",
+      "reasons": [
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Камила",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Mike Tyk",
+      "reasons": [
+        "низкая confidence (0.80 < 0.85)",
         "нет контакта"
       ],
       "target_collection": "marketplace"
@@ -458,69 +565,56 @@
     {
       "title": "Daniel Mataev",
       "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
+        "возможный дубликат: телефон уже в businesses"
       ],
       "target_collection": "businesses"
     },
     {
-      "title": "janeoart.kids",
+      "title": "Dinai",
       "reasons": [
-        "уже опубликовано"
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Karimi",
+      "reasons": [
+        "низкая confidence (0.50 < 0.85)",
+        "нет контакта",
+        "нет города"
       ],
       "target_collection": "private_specialists"
     },
     {
-      "title": "Bair",
+      "title": "KatrinL",
       "reasons": [
-        "низкая confidence (0.70 < 0.85)",
+        "уже опубликовано"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "GI",
+      "reasons": [
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "tatkaurbaniq",
+      "title": "Mike Largus",
       "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "leisan_hairstylist_oc",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Алла",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Оксана Амірова",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Анастасия",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
+        "нет контакта",
+        "нет города"
       ],
       "target_collection": "services"
     },
     {
-      "title": "Angelina Mel",
+      "title": "Licensed Home Bakery",
       "reasons": [
-        "нет контакта"
+        "нет контакта",
+        "нет города"
       ],
-      "target_collection": "marketplace"
+      "target_collection": "businesses"
     },
     {
       "title": "Daria__Iz Hair Stylist",
@@ -530,58 +624,71 @@
       "target_collection": "marketplace"
     },
     {
-      "title": "Поменяю 600$ на рубли,  курс 73. Рубли на карту переводом",
+      "title": "Черная Пантера",
       "reasons": [
+        "нет description",
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "Olga Chikirina",
+      "title": "Уютный private studio",
       "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Георгий",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Aliia",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Dasha Sidorina",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Olga Falevich",
-      "reasons": [
-        "нет контакта"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
-      "reasons": [
-        "нет контакта",
-        "нет города",
-        "контакт только в исходном тексте, не нормализован"
+        "уже опубликовано"
       ],
       "target_collection": "private_specialists"
     },
     {
-      "title": "торговый центр",
+      "title": "losangeles_quiz",
+      "reasons": [
+        "неподдерживаемый тип: events",
+        "устаревшая запись (39 дн.)"
+      ],
+      "target_collection": "events"
+    },
+    {
+      "title": "Nikita",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "Akto Moving",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "services"
+    },
+    {
+      "title": "А",
+      "reasons": [
+        "нет title",
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Тимофій Лоза",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "DoorDash & Instacart",
+      "reasons": [
+        "нет description",
+        "нет контакта"
+      ],
+      "target_collection": "marketplace"
+    },
+    {
+      "title": "Iryna Shpak",
       "reasons": [
         "нет контакта",
         "нет города"
@@ -589,51 +696,48 @@
       "target_collection": "real_estate"
     },
     {
-      "title": "S❄️",
+      "title": "Abraham Lincoln",
       "reasons": [
-        "нет title"
+        "низкая confidence (0.50 < 0.85)",
+        "нет контакта",
+        "нет города"
       ],
-      "target_collection": "services"
+      "target_collection": "real_estate"
     },
     {
-      "title": "Kristina",
+      "title": "Abraham Lincoln",
       "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "𝐊𝐊𝐊𝐆𝐆𝐆",
+      "reasons": [
+        "нет description",
         "нет контакта"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "Алия Сидорова",
+      "title": "репетитор англ",
       "reasons": [
-        "низкая confidence (0.80 < 0.85)"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Antonina",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "businesses"
-    },
-    {
-      "title": "MA",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Lidia L",
-      "reasons": [
+        "нет description",
         "нет контакта",
         "нет города"
       ],
       "target_collection": "private_specialists"
     },
     {
-      "title": "Alex",
+      "title": "Antonina",
+      "reasons": [
+        "возможный дубликат: телефон уже в businesses"
+      ],
+      "target_collection": "businesses"
+    },
+    {
+      "title": "Leona",
       "reasons": [
         "нет контакта",
         "устаревшая запись (48 дн.)"
@@ -641,47 +745,7 @@
       "target_collection": "marketplace"
     },
     {
-      "title": "Mariia Bezrukova",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (49 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Elmira73",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "Yelyzaveta Stepanenko",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (50 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "SB",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (50 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Anastasiya",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "С 12 июля, сдается мастер бедрум со своим сан узлом. Park Place Irvine",
+      "title": "Polina N",
       "reasons": [
         "нет контакта",
         "нет города"
@@ -689,55 +753,7 @@
       "target_collection": "real_estate"
     },
     {
-      "title": "Maxim",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (51 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Здравствуйте.  Есть рубли,  поменяю на $, курс 74",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (51 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Anhelina",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (52 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Svetlana Eiz",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (54 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "FCGB",
-      "reasons": [
-        "нет контакта",
-        "устаревшая запись (54 дн.)"
-      ],
-      "target_collection": "marketplace"
-    },
-    {
-      "title": "Алла",
-      "reasons": [
-        "нет контакта",
-        "нет города"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "АннА Родная",
+      "title": "Maria",
       "reasons": [
         "нет контакта",
         "нет города"
@@ -745,80 +761,74 @@
       "target_collection": "real_estate"
     },
     {
-      "title": "Eleni Gorchaniuk",
+      "title": "Владислав",
       "reasons": [
         "нет контакта",
-        "устаревшая запись (56 дн.)"
+        "устаревшая запись (50 дн.)"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "Николай Григорьевич",
+      "title": "Сдается место в комнате,для молодого человека-West Hollywood",
       "reasons": [
         "нет контакта",
         "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Kc84 Brecer",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "San Diego",
+      "reasons": [
+        "возможный дубликат: телефон уже в businesses",
+        "уже опубликовано"
       ],
       "target_collection": "services"
     },
     {
-      "title": "Oksana Shaternik",
+      "title": "American English",
+      "reasons": [
+        "нет контакта",
+        "нет города"
+      ],
+      "target_collection": "private_specialists"
+    },
+    {
+      "title": "Сдаётся пространство гостиной в чистой и ухоженной 1-bedroom квартире в комплекс",
       "reasons": [
         "уже опубликовано"
       ],
       "target_collection": "real_estate"
     },
     {
-      "title": "Tatiana Tatiana",
+      "title": "Мaria F",
       "reasons": [
         "нет контакта",
-        "устаревшая запись (58 дн.)"
+        "нет города"
+      ],
+      "target_collection": "real_estate"
+    },
+    {
+      "title": "Denys Andrukh",
+      "reasons": [
+        "устаревшая запись (53 дн.)"
       ],
       "target_collection": "marketplace"
     },
     {
-      "title": "kids_party_oc",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "daria_stretch_dance",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
-    },
-    {
-      "title": "anna_womens_life",
-      "reasons": [
-        "неподдерживаемый тип: events",
-        "устаревшая запись (60 дн.)"
-      ],
-      "target_collection": "events"
-    },
-    {
-      "title": "Vivika",
-      "reasons": [
-        "возможный дубликат: телефон уже в businesses",
-        "уже опубликовано"
-      ],
-      "target_collection": "businesses"
-    },
-    {
-      "title": "Ами Ами",
+      "title": "Oxana",
       "reasons": [
         "нет контакта",
-        "устаревшая запись (60 дн.)"
+        "устаревшая запись (53 дн.)"
       ],
       "target_collection": "marketplace"
-    },
-    {
-      "title": "scgb2025irvine",
-      "reasons": [
-        "уже опубликовано"
-      ],
-      "target_collection": "private_specialists"
     }
   ]
 }

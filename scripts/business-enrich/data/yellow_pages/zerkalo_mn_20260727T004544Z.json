@@ -1,0 +1,518 @@
+{
+  "source": "https://www.zerkalomn.com/yellow-pages1.html",
+  "directory_source": "zerkalo_mn",
+  "generated_at": "2026-07-27T00:45:44.018144+00:00",
+  "count": 18,
+  "errors": [
+    {
+      "url": "http://www.zerkalomn.com/travel-agencies.html",
+      "error": "fetch failed http://www.zerkalomn.com/travel-agencies.html: HTTP Error 404: Not Found"
+    }
+  ],
+  "cards": [
+    {
+      "cluster_key": "zmn-2d76f79d8b5b58ac",
+      "display_name": "AUTHENTIC PLASTIC SURGERY (Павел Стахович, M.D.)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128637501"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Пластическая, реконструктивная и косметическая хирургия. Стилист-парикмахер Олеся Евграфова. 952-261-8303 / Все услуги стилиста-парикмахера.",
+      "description": "Пластическая, реконструктивная и косметическая хирургия. Стилист-парикмахер Олеся Евграфова. 952-261-8303 / Все услуги стилиста-парикмахера.",
+      "source_url": "http://www.zerkalomn.com/beauty-salon-spa-cosmetic-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:09.157985+00:00"
+    },
+    {
+      "cluster_key": "zmn-78ce00e3ac611749",
+      "display_name": "AUTO BODY CARE (Юрий Фролов)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127813055"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "AUTO BODY CARE (Юрий Фролов)",
+      "source_url": "http://www.zerkalomn.com/car-repair-and-services-in-mn.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:10.494575+00:00"
+    },
+    {
+      "cluster_key": "zmn-2f076f1e1ba6d7d9",
+      "display_name": "Windshield replacement. WALSER NISSAN WAYZATA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124266995"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "Windshield replacement. WALSER NISSAN WAYZATA",
+      "source_url": "http://www.zerkalomn.com/car-repair-and-services-in-mn.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:10.494608+00:00"
+    },
+    {
+      "cluster_key": "zmn-8481bd78c7eb0916",
+      "display_name": "AUTO GLASS TECH (Алекс Леонович)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124234761"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Замена автомобильных стекол с выездом на место нахождения автомобиля. / Windshield replacement at your location. ​ ​",
+      "description": "Замена автомобильных стекол с выездом на место нахождения автомобиля. / Windshield replacement at your location. ​ ​",
+      "source_url": "http://www.zerkalomn.com/car-repair-and-services-in-mn.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:10.494627+00:00"
+    },
+    {
+      "cluster_key": "zmn-88544d351a24e936",
+      "display_name": "DVR CONSTRUCTION, INC. - 612 – 369-2292 AVALON Construction Inc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122396505"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "строительство / ремонт",
+      "description": "DVR CONSTRUCTION, INC. - 612 – 369-2292 AVALON Construction Inc",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:12.824837+00:00"
+    },
+    {
+      "cluster_key": "zmn-70fd2bae000c820f",
+      "display_name": "Новые кухни, современный и классический дизайн, отличные цены. GENERAL HEATING and COOLING (Сергей Гришчук)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19524844031"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "строительство / ремонт",
+      "description": "Новые кухни, современный и классический дизайн, отличные цены. GENERAL HEATING and COOLING (Сергей Гришчук)",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:12.824892+00:00"
+    },
+    {
+      "cluster_key": "zmn-4f6a6823d2b3bcc3",
+      "display_name": "Ремонт, замена и устанавка систем охлаждения и нагрева воздуха, воды, помещения. I.K. LINE STRAIGHT (Игорь Куловеров)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19524578908"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонтно-отделочные работы работы. R & J Floors (Джафар). 612-578-9172 SHARPENING CENTER 952-938-6007 / Заточка инструментов. HOME STEAD ROAD 612-644-2757, 612-325-0542 / Строительная компания, занимающая ремонтом жилых домов Home SteadRoad Home SteadRoad ​",
+      "description": "Ремонтно-отделочные работы работы. R & J Floors (Джафар). 612-578-9172 SHARPENING CENTER 952-938-6007 / Заточка инструментов. HOME STEAD ROAD 612-644-2757, 612-325-0542 / Строительная компания, занимающая ремонтом жилых домов Home SteadRoad Home SteadRoad ​",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:12.824932+00:00"
+    },
+    {
+      "cluster_key": "zmn-11be476cfe87cc0e",
+      "display_name": "A-Z FRIENDLY LANGUAGES",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635664312"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Устные переводы и сертифицированный перевод документов. THE LANGUAGE BANK 612-588-9410 / Устные переводы и сертифицированный перевод документов. ALEKSANDR KABAKOV . 612-867-9247 / Услуги нотариуса, заверение профессиональных переводов. РАФАИЛ ШИРЛЬ. 763-522-6002 / Перевод легальн",
+      "description": "Устные переводы и сертифицированный перевод документов. THE LANGUAGE BANK 612-588-9410 / Устные переводы и сертифицированный перевод документов. ALEKSANDR KABAKOV . 612-867-9247 / Услуги нотариуса, заверение профессиональных переводов. РАФАИЛ ШИРЛЬ. 763-522-6002 / Перевод легальных документов. НИНА ЛЯХ - 952-994-3185 / Перевод легальных документов. SLAVIC TRANSLATION SERVICES (Владимир Чиникайло)",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:14.690994+00:00"
+    },
+    {
+      "cluster_key": "zmn-4fb4654e71a3cea8",
+      "display_name": "FAIRY TALE ACADEMY” - Сказочная Академия (Татьяна Невельская)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635571300"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Plymouth, MN. Детский сад \"СОЛНЕЧНЫЕ ЛУЧИКИ\" 952-250-4553 “ВИННИ ПУХ” (Елена Клоснер). 651-772 6542 / Saint Paul, MN. “СОЛНЫШКО” (Светлана Уният). 612-706-2675 / NE Minneapolis, MN. “ТЕРЕМОК” (Анна Диксон) 612-251-8098 / Minnetonka, MN. “У БАБУШКИ” (Ольга Гальперина) 763-208-4943",
+      "description": "Plymouth, MN. Детский сад \"СОЛНЕЧНЫЕ ЛУЧИКИ\" 952-250-4553 “ВИННИ ПУХ” (Елена Клоснер). 651-772 6542 / Saint Paul, MN. “СОЛНЫШКО” (Светлана Уният). 612-706-2675 / NE Minneapolis, MN. “ТЕРЕМОК” (Анна Диксон) 612-251-8098 / Minnetonka, MN. “У БАБУШКИ” (Ольга Гальперина) 763-208-4943 / Plymouth, MN. “ДЕТСКИЙ МИР” 952-297-6690, 952-297-6689 / Eagan, MN. “ЗОЛОТАЯ РЫБКА” 305-834-9581 / Eden Prairie, MN.",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:15.843041+00:00"
+    },
+    {
+      "cluster_key": "zmn-79c4ab9477add1e9",
+      "display_name": "АДВОКАТ АНДРЕЙ ЛЕБЕДЕВ",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16517720879"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Банкротства, защита по всем криминальным делам (DWI, вождение автомобиля в нетрезвом состоянии, нарушение правил дорожного движения), иммиграция (воссоединение семей, виза для невест и др.), разводы, custody. АДВОКАТ АЛЕКСЕЙ БРУСИЛОВСКИЙ. 612-209-6064 / Семейное право, уголовные ",
+      "description": "Банкротства, защита по всем криминальным делам (DWI, вождение автомобиля в нетрезвом состоянии, нарушение правил дорожного движения), иммиграция (воссоединение семей, виза для невест и др.), разводы, custody. АДВОКАТ АЛЕКСЕЙ БРУСИЛОВСКИЙ. 612-209-6064 / Семейное право, уголовные дела, иммиграция, наследство, завещания, опека при недееспособности. АДВОКАТ ГЕННАДИЙ БРОНШТЕЙН. 612-756-9080 / Уголовны",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:16.510467+00:00"
+    },
+    {
+      "cluster_key": "zmn-3aa8a90048c256c1",
+      "display_name": "GRIFFEL, DORSHOW & CHARTERED (Bryce Johnson)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125293333"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "А втомобильные аварии, производственные травмы, любые виды серьезных телесных повреждений, дискриминация на службе, медицинские ошибки, несчастные случаи со смертельным исходом, травмы, полученных из-за дефекта изделий. GUZIOR, ARMBRECHT, MAHER (Yurek Guzior, Matt Armbrecht, Tim ",
+      "description": "А втомобильные аварии, производственные травмы, любые виды серьезных телесных повреждений, дискриминация на службе, медицинские ошибки, несчастные случаи со смертельным исходом, травмы, полученных из-за дефекта изделий. GUZIOR, ARMBRECHT, MAHER (Yurek Guzior, Matt Armbrecht, Tim Maher). 612-373-0007 / Все виды иммиграционных дел, воссоединение семьи, визы невест, аппликации на грин карты и граждан",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:16.510509+00:00"
+    },
+    {
+      "cluster_key": "zmn-44dce6344bab0781",
+      "display_name": "Завещания, наследство, имущественные вопросы. Разводы, медиация. PARKER & WENNER (Boris Parker, Nick Wenner)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123552200"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Бизнес и коммерция, real estate, судебные процессы, иммиграция. RLG ROIFE LAW GROUP (Надежда Ройфе) 952-544-4544 / Иммиграционные вопросы, Social Security, депортация, гражданство, отвод от экзаменов, бенефиты по социальному страхованию. SALITERMAN & SIEFFERMAN (Richard Saliterma",
+      "description": "Бизнес и коммерция, real estate, судебные процессы, иммиграция. RLG ROIFE LAW GROUP (Надежда Ройфе) 952-544-4544 / Иммиграционные вопросы, Social Security, депортация, гражданство, отвод от экзаменов, бенефиты по социальному страхованию. SALITERMAN & SIEFFERMAN (Richard Saliterman). 612-339-1400 / Бизнес-иски, арбитражные суды, недвижимость (корпоративная и личная), завещания (составление и обжало",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:16.510559+00:00"
+    },
+    {
+      "cluster_key": "zmn-e4fa10398a039ef0",
+      "display_name": "SHERAYZEN LAW OFFICE (Евгений Шерайзен)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19525008159"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Международное налоговое право, международные контракты, международный бизнес: открытие счета в иностранных банках, продажа недвижимого имущества за рубежом, права собственности на бизнес на рубежом, право наследования за рубежом, дарение из-за рубежа.",
+      "description": "Международное налоговое право, международные контракты, международный бизнес: открытие счета в иностранных банках, продажа недвижимого имущества за рубежом, права собственности на бизнес на рубежом, право наследования за рубежом, дарение из-за рубежа.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:16.510582+00:00"
+    },
+    {
+      "cluster_key": "zmn-bc31823b10c63f96",
+      "display_name": "UNTANGLING NUTRITION (Arinn, NTP) . www.untanglingnutrition.com HELPFUL HANDS TRANSPORTATION",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127413757"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "медицина",
+      "description": "UNTANGLING NUTRITION (Arinn, NTP) . www.untanglingnutrition.com HELPFUL HANDS TRANSPORTATION",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:17.206458+00:00"
+    },
+    {
+      "cluster_key": "zmn-76b0b1bded0406de",
+      "display_name": "LIFE MEDICAL - поликлиника (Леон Фрид, D.C.)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529338900"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Комплекс медицинских услуг. MЕДОСМОТРЫ ДЕТЕЙ И ПОДРОСТКОВ. CHILD AND TEEN CHECKUPS. 763-324-4280 MEDICARE - Услуги Страховки для имеющих - 800-918-7454 ​ NORTHSIDE CHIROPRACTIC (Dr. Greg Olson) . 612-522-0440 / Лазерная, мануальная терапия, терапия ультразвуком, иглотерапия, реаб",
+      "description": "Комплекс медицинских услуг. MЕДОСМОТРЫ ДЕТЕЙ И ПОДРОСТКОВ. CHILD AND TEEN CHECKUPS. 763-324-4280 MEDICARE - Услуги Страховки для имеющих - 800-918-7454 ​ NORTHSIDE CHIROPRACTIC (Dr. Greg Olson) . 612-522-0440 / Лазерная, мануальная терапия, терапия ультразвуком, иглотерапия, реабилитация, лечение травм. ДОМАШНИЙ ЛОГОПЕД - (612)-505-1 336 SLAVIC TRANSLATION SERVICES. 612-618-6642 / Перевод в медици",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:17.206510+00:00"
+    },
+    {
+      "cluster_key": "zmn-4cf497a30a5f061f",
+      "display_name": "SIRIUS TRANSPORTATION",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128504343"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Транспортные услуги для медицинских визитов. Стоматология/Dentists GENDLER DENTAL CENTER (Доктор Иосиф Гендлер, дантист) 952-836-1113 DENTIST DR LYANSKAYA (Доктор Рита Лянская, дантист) 952-285-1677 ​",
+      "description": "Транспортные услуги для медицинских визитов. Стоматология/Dentists GENDLER DENTAL CENTER (Доктор Иосиф Гендлер, дантист) 952-836-1113 DENTIST DR LYANSKAYA (Доктор Рита Лянская, дантист) 952-285-1677 ​",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:17.206530+00:00"
+    },
+    {
+      "cluster_key": "zmn-e84f64241cc506f7",
+      "display_name": "AKSANA TRAVEL & VACATIONS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "travel agencies russian speaking services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512519383"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "travel agencies russian speaking services",
+      "description": "AKSANA TRAVEL & VACATIONS",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:42.715019+00:00"
+    },
+    {
+      "cluster_key": "zmn-0f6d173c2eafa30b",
+      "display_name": "Все виды отдых, международные авиабилеты , туры . MIRACLE TRAVEL (Marianna Miracle)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "travel agencies russian speaking services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512519382"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Отдых в Доминиканской Республике , в Мексике , на Карибах и Гавайиях , круизы . Авиабилеты по всему миру, во все города России и СНГ. MISSION VALLEY TRAVEL (Денис Агафонов). 1-888-887-3060 / Авиабилеты в любую точку планеты. PARADISE CHARTER CRUISES. 952-474-8058 / Круизы по реке",
+      "description": "Отдых в Доминиканской Республике , в Мексике , на Карибах и Гавайиях , круизы . Авиабилеты по всему миру, во все города России и СНГ. MISSION VALLEY TRAVEL (Денис Агафонов). 1-888-887-3060 / Авиабилеты в любую точку планеты. PARADISE CHARTER CRUISES. 952-474-8058 / Круизы по реке Миссисипи и озеру Миннетонка. Меню на русском языке. SMALL TRAVEL AGENCY (Алекс Мостов). 612-232-8414 / All inclusive :",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:45:42.715088+00:00"
+    }
+  ]
+}

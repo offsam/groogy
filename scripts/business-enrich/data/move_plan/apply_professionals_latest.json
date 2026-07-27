@@ -1,0 +1,3514 @@
+{
+  "batch": "move_person_no_address_to_pros_v1",
+  "selected": 291,
+  "skipped": 141,
+  "converted": 291,
+  "errors": 0,
+  "results": [
+    {
+      "business_id": "e50ae4fe-a765-4b70-bae2-3afcd9821cbe",
+      "business_slug": "fbpack-liudmyla-muzyra-house-repair",
+      "professional_slug": "fbpack-liudmyla-muzyra-house-repair",
+      "display_name": "Liudmyla Muzyra House Repair",
+      "reason": "person_name_no_address",
+      "professional_id": "7cc350bd-decb-4381-9165-88acc50db0f1",
+      "status": "converted"
+    },
+    {
+      "business_id": "ffbd7473-92ae-4576-a0c8-646f1b05d074",
+      "business_slug": "master-valery-205050-6c62",
+      "professional_slug": "master-valery-205050-6c62",
+      "display_name": "Master Valery",
+      "reason": "person_name_no_address",
+      "professional_id": "d357aa27-60d2-4d51-8b69-b49bc4122174",
+      "status": "converted"
+    },
+    {
+      "business_id": "f2b5b88d-f479-4347-a647-4b9646dcc132",
+      "business_slug": "braidifornia-205140-b261",
+      "professional_slug": "braidifornia-205140-b261",
+      "display_name": "Braidifornia",
+      "reason": "person_name_no_address",
+      "professional_id": "2f3d50a5-d67e-431f-91ec-b4ac7f9f80fe",
+      "status": "converted"
+    },
+    {
+      "business_id": "2d4a5c0b-a0c8-4414-9b1a-2fdc3a1e0236",
+      "business_slug": "fbpack-victor-home-repair-specialist",
+      "professional_slug": "fbpack-victor-home-repair-specialist",
+      "display_name": "Victor Home Repair Specialist",
+      "reason": "person_name_no_address",
+      "professional_id": "c136a4d4-34c8-4db6-9afa-65411752c321",
+      "status": "converted"
+    },
+    {
+      "business_id": "d3e1829d-8599-4353-8a05-699ae52b4135",
+      "business_slug": "business-biz-205128-4506",
+      "professional_slug": "business-biz-205128-4506",
+      "display_name": "Кристина",
+      "reason": "person_name_no_address",
+      "professional_id": "4247c057-e72e-448a-be0c-da8ea24d887c",
+      "status": "converted"
+    },
+    {
+      "business_id": "45b150ce-78fb-4376-901f-96ab9c564bb8",
+      "business_slug": "business-biz-205659-48e0",
+      "professional_slug": "business-biz-205659-48e0",
+      "display_name": "Оксана",
+      "reason": "person_name_no_address",
+      "professional_id": "c4bf1db0-5abe-4c49-9371-229405c80de0",
+      "status": "converted"
+    },
+    {
+      "business_id": "a804f32f-ac0f-49a0-9550-d380470997e5",
+      "business_slug": "consolidated-ruzanna-melikyan-cleaning",
+      "professional_slug": "consolidated-ruzanna-melikyan-cleaning",
+      "display_name": "Ruzanna Melikyan",
+      "reason": "person_name_no_address",
+      "professional_id": "da4435d6-8ce8-412f-9338-6d1618756d4c",
+      "status": "converted"
+    },
+    {
+      "business_id": "3ca2eda0-18ca-4cb5-9d58-4556355dd24f",
+      "business_slug": "azamat-205815-c0ea",
+      "professional_slug": "azamat-205815-c0ea",
+      "display_name": "Azamat",
+      "reason": "person_name_no_address",
+      "professional_id": "d5ff11f2-47e8-482e-919b-534313e1154d",
+      "status": "converted"
+    },
+    {
+      "business_id": "ea52a304-6612-48f6-9a85-f6d7aa1572df",
+      "business_slug": "natalia-205124-c51f",
+      "professional_slug": "natalia-205124-c51f",
+      "display_name": "Natalia",
+      "reason": "person_name_no_address",
+      "professional_id": "a7187921-df77-4ff2-816b-30fe4d0345a1",
+      "status": "converted"
+    },
+    {
+      "business_id": "3f8a6336-4e7c-4685-aad6-e56feb8cf45a",
+      "business_slug": "fb-post-13-eugenia-delaveri-real-estate-agent",
+      "professional_slug": "fb-post-13-eugenia-delaveri-real-estate-agent",
+      "display_name": "Eugenia Delaveri - Real Estate Agent",
+      "reason": "person_name_no_address",
+      "professional_id": "4908d013-f53f-47e9-8272-7dba3f2757a1",
+      "status": "converted"
+    },
+    {
+      "business_id": "0e412c2e-9ec4-4c8d-af1d-e1fa1a4531de",
+      "business_slug": "slava-swim-204814-060f",
+      "professional_slug": "slava-swim-204814-060f",
+      "display_name": "Slava Swim",
+      "reason": "person_name_no_address",
+      "professional_id": "87a4d724-e97d-4e8d-9bf5-2defd50a273c",
+      "status": "converted"
+    },
+    {
+      "business_id": "b5f81060-9a2a-49ae-bea3-7ce9313af345",
+      "business_slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+      "professional_slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+      "display_name": "Mikhail Kulesh - Vehicle Rental",
+      "reason": "person_name_no_address",
+      "professional_id": "eddeef1f-9300-4c6f-ade4-e30b3370c695",
+      "status": "converted"
+    },
+    {
+      "business_id": "5761466b-eacf-4854-ad78-a484ce5fe31d",
+      "business_slug": "fb-post-23-igor-green-business-licensing-protection",
+      "professional_slug": "fb-post-23-igor-green-business-licensing-protection",
+      "display_name": "Igor Green - Business Licensing Protection",
+      "reason": "person_name_no_address",
+      "professional_id": "d70450da-2c7f-46a2-b6c5-dddab23cfe37",
+      "status": "converted"
+    },
+    {
+      "business_id": "c11c9bd4-e0ca-4beb-b045-3cd7f2584af5",
+      "business_slug": "pavel-beloglazov-205037-92fd",
+      "professional_slug": "pavel-beloglazov-205037-92fd",
+      "display_name": "Pavel  Beloglazov",
+      "reason": "person_name_no_address",
+      "professional_id": "d2d3efd9-0494-4706-936d-933dbfa728ec",
+      "status": "converted"
+    },
+    {
+      "business_id": "a205196c-8a27-4030-89c8-c8818db93027",
+      "business_slug": "business-9166660427-205031-3265",
+      "professional_slug": "business-9166660427-205031-3265",
+      "display_name": "Илия Мо",
+      "reason": "person_name_no_address",
+      "professional_id": "72d8c3ac-f78e-4fd6-9b85-01ca14f09856",
+      "status": "converted"
+    },
+    {
+      "business_id": "a97769a2-747a-4a40-8263-c32869433c35",
+      "business_slug": "consolidated-roman-rybin-karaoke",
+      "professional_slug": "consolidated-roman-rybin-karaoke",
+      "display_name": "Roman Rybin",
+      "reason": "person_name_no_address",
+      "professional_id": "6760aac5-a2ae-4704-947b-4845e903bc54",
+      "status": "converted"
+    },
+    {
+      "business_id": "c56c7342-1eae-467a-9525-823c5b607761",
+      "business_slug": "arman-movsesian-205308-b5d0",
+      "professional_slug": "arman-movsesian-205308-b5d0",
+      "display_name": "Arman Movsesian",
+      "reason": "person_name_no_address",
+      "professional_id": "6a850bd9-4544-409d-9335-160b753c36bc",
+      "status": "converted"
+    },
+    {
+      "business_id": "521ce748-5a8a-4fa9-b3cc-1876864964e5",
+      "business_slug": "karina-bgantseva-205314-9fa7",
+      "professional_slug": "karina-bgantseva-205314-9fa7",
+      "display_name": "Karina Bgantseva",
+      "reason": "person_name_no_address",
+      "professional_id": "eb527fd5-5cbd-4ca8-90aa-c9f9f269de04",
+      "status": "converted"
+    },
+    {
+      "business_id": "6457cce9-10ed-4f32-8e3b-dcf9e3edf053",
+      "business_slug": "business-biz-180858",
+      "professional_slug": "business-biz-180858",
+      "display_name": "Реналь",
+      "reason": "person_name_no_address",
+      "professional_id": "10c84d9b-04fb-41b7-a361-cadae690eb7a",
+      "status": "converted"
+    },
+    {
+      "business_id": "7a9aa817-1296-4251-83f4-97b9a1a9f7d6",
+      "business_slug": "yelena-dean-204832-39fa",
+      "professional_slug": "yelena-dean-204832-39fa",
+      "display_name": "Yelena Dean",
+      "reason": "person_name_no_address",
+      "professional_id": "dffe8631-dea2-4f94-997f-6c96c8ae27d1",
+      "status": "converted"
+    },
+    {
+      "business_id": "50bd8d8b-8305-4176-bfc5-85436897199b",
+      "business_slug": "business-9162016271-205017-a355",
+      "professional_slug": "business-9162016271-205017-a355",
+      "display_name": "Алёна Симагина",
+      "reason": "person_name_no_address",
+      "professional_id": "39813339-8402-451a-8934-89718259d7da",
+      "status": "converted"
+    },
+    {
+      "business_id": "2eca0f9a-2d06-48ca-b035-3adbc26c4d5f",
+      "business_slug": "business-biz-181520-51a0",
+      "professional_slug": "business-biz-181520-51a0",
+      "display_name": "Роман",
+      "reason": "person_name_no_address",
+      "professional_id": "93831ffe-6034-4a5a-b0ea-041853637cc2",
+      "status": "converted"
+    },
+    {
+      "business_id": "cbbf42d2-ee95-4361-b97d-2a4f98875b6b",
+      "business_slug": "david-dee-204956-2053",
+      "professional_slug": "david-dee-204956-2053",
+      "display_name": "David Dee",
+      "reason": "person_name_no_address",
+      "professional_id": "58a3ea0f-0c66-4e5b-b68f-c620032bb1e2",
+      "status": "converted"
+    },
+    {
+      "business_id": "3e73fc2b-bfde-4794-abd1-4ecfe24e5fed",
+      "business_slug": "business-biz-181526-ebad",
+      "professional_slug": "business-biz-181526-ebad",
+      "display_name": "Валентина",
+      "reason": "person_name_no_address",
+      "professional_id": "ed0562d7-5515-4612-83d7-beb3c2ad4595",
+      "status": "converted"
+    },
+    {
+      "business_id": "e1cd8251-7619-47e0-b752-f7bed04d516f",
+      "business_slug": "business-biz-181523-7fd4",
+      "professional_slug": "business-biz-181523-7fd4",
+      "display_name": "Тетяна",
+      "reason": "person_name_no_place_address",
+      "professional_id": "ff3fd2da-f16e-4a04-9c78-53371f8fa435",
+      "status": "converted"
+    },
+    {
+      "business_id": "ae41986a-4544-4f73-b23c-97e7d611a4cb",
+      "business_slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "professional_slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "display_name": "Kristina Immerman - Moscow-to-USA Courier",
+      "reason": "person_name_no_address",
+      "professional_id": "a1c477ce-af23-4d32-98ce-d6f26cd1d1bc",
+      "status": "converted"
+    },
+    {
+      "business_id": "3f02982a-d0cc-4d12-973b-f0c3bedaaca7",
+      "business_slug": "revived-prince-204952-ae50",
+      "professional_slug": "revived-prince-204952-ae50",
+      "display_name": "Revived Prince",
+      "reason": "person_name_no_address",
+      "professional_id": "a93c6d64-d550-4a40-9622-5a6b29842d2f",
+      "status": "converted"
+    },
+    {
+      "business_id": "c23730c4-d649-4707-9cdc-009c5cc7059c",
+      "business_slug": "consolidated-amega-studios",
+      "professional_slug": "consolidated-amega-studios",
+      "display_name": "Amega Studios",
+      "reason": "person_name_no_address",
+      "professional_id": "0babfc0d-d722-4a5f-93c9-f3a12a41953c",
+      "status": "converted"
+    },
+    {
+      "business_id": "1cabef19-b6aa-40cc-8269-a65193468df1",
+      "business_slug": "nikita-180903",
+      "professional_slug": "nikita-180903",
+      "display_name": "Nikita",
+      "reason": "person_name_no_address",
+      "professional_id": "d2345e9d-e1ab-40f0-8846-0a9eddf07c4e",
+      "status": "converted"
+    },
+    {
+      "business_id": "12659684-5b7f-498e-90e4-3506b3a8807f",
+      "business_slug": "azamat-205826-6e5c",
+      "professional_slug": "azamat-205826-6e5c",
+      "display_name": "Azamat",
+      "reason": "person_name_no_address",
+      "professional_id": "51ac67c4-e1fc-4fbf-af16-f498a686b5ee",
+      "status": "converted"
+    },
+    {
+      "business_id": "34747d8c-11f7-44c4-9c3e-7a7327a67b9b",
+      "business_slug": "olga-kliukina-180930",
+      "professional_slug": "olga-kliukina-180930",
+      "display_name": "Olga Kliukina",
+      "reason": "person_name_no_address",
+      "professional_id": "ad583acb-938a-405d-b64f-2b1d1056c9c1",
+      "status": "converted"
+    },
+    {
+      "business_id": "d1af07a6-040f-4885-963c-1cdfafcaa7e3",
+      "business_slug": "roman-181510-ec0e",
+      "professional_slug": "roman-181510-ec0e",
+      "display_name": "Roman",
+      "reason": "person_name_no_address",
+      "professional_id": "434ec733-33e4-465b-b95f-5508cd4b361d",
+      "status": "converted"
+    },
+    {
+      "business_id": "f90c471b-6703-4220-85ed-0966c1d01788",
+      "business_slug": "ann-kivva-204923-f92d",
+      "professional_slug": "ann-kivva-204923-f92d",
+      "display_name": "Ann Kivva",
+      "reason": "person_name_no_address",
+      "professional_id": "712b1c19-f47a-483b-a4d6-ae58d3c77929",
+      "status": "converted"
+    },
+    {
+      "business_id": "19fffb13-3126-498d-9391-add2703e88e0",
+      "business_slug": "alina-kalinina-204855-cb1b",
+      "professional_slug": "alina-kalinina-204855-cb1b",
+      "display_name": "Alina Kalinina",
+      "reason": "person_name_no_address",
+      "professional_id": "d94bf411-0c94-418d-989a-46341a52a9ea",
+      "status": "converted"
+    },
+    {
+      "business_id": "d5dea788-2f5f-4d9e-93b3-3b4961769514",
+      "business_slug": "olga-gorevaia-204912-41ae",
+      "professional_slug": "olga-gorevaia-204912-41ae",
+      "display_name": "Olga Gorevaia",
+      "reason": "person_name_no_address",
+      "professional_id": "132142c1-ebc3-47d7-9981-8e9e178fa3b0",
+      "status": "converted"
+    },
+    {
+      "business_id": "9b448ef9-af2c-4924-82e1-71eae80041d3",
+      "business_slug": "mila-190940",
+      "professional_slug": "mila-190940",
+      "display_name": "Mila",
+      "reason": "person_name_no_address",
+      "professional_id": "6154a101-b10d-4d77-9e93-49c6a4ad3ca5",
+      "status": "converted"
+    },
+    {
+      "business_id": "c2b4d0ca-6136-434c-bce0-79b8574a818d",
+      "business_slug": "ekaterina-mishurenkova-204859-fc4c",
+      "professional_slug": "ekaterina-mishurenkova-204859-fc4c",
+      "display_name": "Ekaterina Mishurenkova",
+      "reason": "person_name_no_address",
+      "professional_id": "b278ec15-bd0c-47f3-aaa7-01279f073d70",
+      "status": "converted"
+    },
+    {
+      "business_id": "457b57f0-626e-4cd4-b6fb-b2cf6db5df4a",
+      "business_slug": "business-biz-180906",
+      "professional_slug": "business-biz-180906",
+      "display_name": "Макс",
+      "reason": "person_name_no_address",
+      "professional_id": "409e099e-8b2b-4ffc-9bbb-1c860b40d517",
+      "status": "converted"
+    },
+    {
+      "business_id": "194fc6f2-00ff-4cec-aa18-bf232771aa14",
+      "business_slug": "yagmyrov-atajan-credit-repair-180956",
+      "professional_slug": "yagmyrov-atajan-credit-repair-180956",
+      "display_name": "Yagmyrov Atajan Credit Repair",
+      "reason": "person_name_no_address",
+      "professional_id": "f177854a-61ed-4c66-b72c-cf86897a2ac5",
+      "status": "converted"
+    },
+    {
+      "business_id": "514e209e-0f2f-4116-bcbd-007c4a0c26f8",
+      "business_slug": "baisal-kbn-204918-58b8",
+      "professional_slug": "baisal-kbn-204918-58b8",
+      "display_name": "Baisal Kbn",
+      "reason": "person_name_no_address",
+      "professional_id": "84d66a53-9195-4d48-9249-32df5c8cc4b9",
+      "status": "converted"
+    },
+    {
+      "business_id": "abc1282c-ae02-4d73-9f74-f914f6cfcdec",
+      "business_slug": "oleksandr-205701-5753",
+      "professional_slug": "oleksandr-205701-5753",
+      "display_name": "Oleksandr",
+      "reason": "person_name_no_address",
+      "professional_id": "da30e5d5-cfe6-49e0-a021-4f06f51225b0",
+      "status": "converted"
+    },
+    {
+      "business_id": "96641966-0e00-413b-9916-5347638d8065",
+      "business_slug": "business-9165592087-204917-92d5",
+      "professional_slug": "business-9165592087-204917-92d5",
+      "display_name": "Александр Кл",
+      "reason": "person_name_no_address",
+      "professional_id": "08f953bd-0256-436f-933d-69055d1cbd00",
+      "status": "converted"
+    },
+    {
+      "business_id": "0dca227a-a9ee-40c4-8884-7474e586e61c",
+      "business_slug": "american-english-180939",
+      "professional_slug": "american-english-180939",
+      "display_name": "American English",
+      "reason": "person_name_no_address",
+      "professional_id": "390bc68d-3ad4-4aad-b01c-b983174d0c20",
+      "status": "converted"
+    },
+    {
+      "business_id": "5e256279-8c3a-41f4-a7eb-a828adf5b6f8",
+      "business_slug": "fb-post-10-julia-leo-skincare-products",
+      "professional_slug": "fb-post-10-julia-leo-skincare-products",
+      "display_name": "Julia Leo - Skincare Products",
+      "reason": "person_name_no_address",
+      "professional_id": "f4008d93-76ce-420b-b90d-3e99c15b7eed",
+      "status": "converted"
+    },
+    {
+      "business_id": "d940df14-2da3-4c0d-a570-315d5747e175",
+      "business_slug": "avenir-slivinskiy-204906-0f9e",
+      "professional_slug": "avenir-slivinskiy-204906-0f9e",
+      "display_name": "Avenir Slivinskiy",
+      "reason": "person_name_no_address",
+      "professional_id": "53e02364-4446-43fb-959a-b69dc8bfda17",
+      "status": "converted"
+    },
+    {
+      "business_id": "53395bf4-f3b3-4f7e-9fc7-02e608a411ef",
+      "business_slug": "gulnur-zakirova-204909-3c71",
+      "professional_slug": "gulnur-zakirova-204909-3c71",
+      "display_name": "Gulnur Zakirova",
+      "reason": "person_name_no_address",
+      "professional_id": "7bf50b11-9df2-4ffb-859b-7470f02806e4",
+      "status": "converted"
+    },
+    {
+      "business_id": "97963300-7224-4e53-8f41-1e547a081ef9",
+      "business_slug": "business-6366758737-204907-bf2a",
+      "professional_slug": "business-6366758737-204907-bf2a",
+      "display_name": "Алёна Карташова",
+      "reason": "person_name_no_address",
+      "professional_id": "2288d150-10cb-49eb-a47f-ea42304dd5a6",
+      "status": "converted"
+    },
+    {
+      "business_id": "ec936b4f-14b1-46e6-bec0-19be5a9a1633",
+      "business_slug": "sarkis-karagashian-204915-c658",
+      "professional_slug": "sarkis-karagashian-204915-c658",
+      "display_name": "Sarkis Karagashian",
+      "reason": "person_name_no_address",
+      "professional_id": "9a22ce3c-580b-4d94-ab26-fc4ebe2ab263",
+      "status": "converted"
+    },
+    {
+      "business_id": "ed63aa32-5a15-40be-b42b-e26b664c5090",
+      "business_slug": "vitalii-brizhatyi-204914-c4fa",
+      "professional_slug": "vitalii-brizhatyi-204914-c4fa",
+      "display_name": "Vitalii Brizhatyi",
+      "reason": "person_name_no_address",
+      "professional_id": "b5067d91-fda3-4f36-99c6-444db12603fc",
+      "status": "converted"
+    },
+    {
+      "business_id": "58136906-265c-475a-9b34-12c9e9c69067",
+      "business_slug": "anna-204932-e969",
+      "professional_slug": "anna-204932-e969",
+      "display_name": "Anna",
+      "reason": "person_name_no_address",
+      "professional_id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+      "status": "converted"
+    },
+    {
+      "business_id": "6de5340b-c711-4efd-8f74-9ec972285124",
+      "business_slug": "business-biz-205704-b135",
+      "professional_slug": "business-biz-205704-b135",
+      "display_name": "Тетяна",
+      "reason": "person_name_no_address",
+      "professional_id": "6d453f21-3466-4b65-b8b6-039f184d41d4",
+      "status": "converted"
+    },
+    {
+      "business_id": "9a571d29-2b35-46e2-a410-00caac2f7a6b",
+      "business_slug": "azamat-205828-cce8",
+      "professional_slug": "azamat-205828-cce8",
+      "display_name": "Azamat",
+      "reason": "person_name_no_address",
+      "professional_id": "e3fe889d-3b33-46cb-89f6-2c7ea734a5bb",
+      "status": "converted"
+    },
+    {
+      "business_id": "b922d882-86ef-45b3-8d10-9e3f336e880a",
+      "business_slug": "business-4084605611-204936-5f25",
+      "professional_slug": "business-4084605611-204936-5f25",
+      "display_name": "Виктория Волоскова",
+      "reason": "person_name_no_address",
+      "professional_id": "0b852aad-2006-4dd5-9fb6-a355ae898066",
+      "status": "converted"
+    },
+    {
+      "business_id": "d5a97741-09c8-4b5b-a286-3864710aa37e",
+      "business_slug": "elena-nikiforova-204959-c7ed",
+      "professional_slug": "elena-nikiforova-204959-c7ed",
+      "display_name": "Elena Nikiforova",
+      "reason": "person_name_no_address",
+      "professional_id": "1ab10197-233f-4d01-a3b5-5e7c968c5261",
+      "status": "converted"
+    },
+    {
+      "business_id": "d8e03ed2-7a76-42b3-a1ff-fc041fd6a1bc",
+      "business_slug": "serg-ko-205327-4ac8",
+      "professional_slug": "serg-ko-205327-4ac8",
+      "display_name": "Serg Ko",
+      "reason": "person_name_no_address",
+      "professional_id": "4d5eca00-d0d4-4800-9890-0d6eac4689ec",
+      "status": "converted"
+    },
+    {
+      "business_id": "397030a5-33fc-4ea7-8b16-b6c0736a4531",
+      "business_slug": "danil-goncharenko-205004-f0df",
+      "professional_slug": "danil-goncharenko-205004-f0df",
+      "display_name": "Danil Goncharenko",
+      "reason": "person_name_no_address",
+      "professional_id": "8fe62d37-030e-4ccf-8d45-85e6629ea8d2",
+      "status": "converted"
+    },
+    {
+      "business_id": "ab718f6f-f5c2-4717-8a24-04155488a366",
+      "business_slug": "worldwide-employment-agency-204942-0650",
+      "professional_slug": "worldwide-employment-agency-204942-0650",
+      "display_name": "Worldwide Employment Agency",
+      "reason": "person_name_no_address",
+      "professional_id": "9172a376-b7e0-421b-8081-33073a21460a",
+      "status": "converted"
+    },
+    {
+      "business_id": "116eed3e-cdbb-49c9-98d4-584ca7656f0b",
+      "business_slug": "business-9164724923-205003-70f8",
+      "professional_slug": "business-9164724923-205003-70f8",
+      "display_name": "Сергей Малышак",
+      "reason": "person_name_no_address",
+      "professional_id": "c8adc3c9-4ae6-48e7-9262-5b94b0077f9b",
+      "status": "converted"
+    },
+    {
+      "business_id": "3e703d01-e04a-4c4e-8880-e689b5d2a191",
+      "business_slug": "bekbolat-205736-dc5c",
+      "professional_slug": "bekbolat-205736-dc5c",
+      "display_name": "Bekbolat",
+      "reason": "person_name_no_address",
+      "professional_id": "8e51d2f3-c1da-4b65-98e9-3bcd5ed5df73",
+      "status": "converted"
+    },
+    {
+      "business_id": "104c9d2d-f9c8-48ba-a3c7-c051fea579cc",
+      "business_slug": "tim-samarin-204949-aaf8",
+      "professional_slug": "tim-samarin-204949-aaf8",
+      "display_name": "Tim Samarin",
+      "reason": "person_name_no_address",
+      "professional_id": "dbae9f5f-a287-4b33-93cf-ee150504c687",
+      "status": "converted"
+    },
+    {
+      "business_id": "27836d22-e916-4b83-8497-1fb2e37fc978",
+      "business_slug": "iryna-ar-204957-b824",
+      "professional_slug": "iryna-ar-204957-b824",
+      "display_name": "Iryna Ar",
+      "reason": "person_name_no_address",
+      "professional_id": "27e5b399-b5c0-45da-aadc-b467e1179b99",
+      "status": "converted"
+    },
+    {
+      "business_id": "59f395b0-c964-43fa-a9f6-b4051ea00be6",
+      "business_slug": "ivanka-180933",
+      "professional_slug": "ivanka-180933",
+      "display_name": "Ivanka",
+      "reason": "person_name_no_address",
+      "professional_id": "716bb340-042e-4cc8-8d54-8e3350f41eca",
+      "status": "converted"
+    },
+    {
+      "business_id": "8b6c0332-2cc4-42be-bd59-bb7f05dccb60",
+      "business_slug": "alla-belyayeva-205009-efaa",
+      "professional_slug": "alla-belyayeva-205009-efaa",
+      "display_name": "Alla Belyayeva",
+      "reason": "person_name_no_address",
+      "professional_id": "fefd9a49-6852-4a3a-a6c0-7abd7717dab4",
+      "status": "converted"
+    },
+    {
+      "business_id": "44d14520-a81b-416a-aefb-99f687daf666",
+      "business_slug": "ivan-zhizhnevskii-205000-77d0",
+      "professional_slug": "ivan-zhizhnevskii-205000-77d0",
+      "display_name": "Ivan Zhizhnevskii",
+      "reason": "person_name_no_address",
+      "professional_id": "10bad016-a69f-4614-82c2-b41d7879ed82",
+      "status": "converted"
+    },
+    {
+      "business_id": "38401935-6d6d-451d-84b8-7fdd2caf16b1",
+      "business_slug": "aleksey-sergeev-234044",
+      "professional_slug": "aleksey-sergeev-234044",
+      "display_name": "Aleksey Sergeev",
+      "reason": "person_name_no_address",
+      "professional_id": "31a43163-d2cd-40b2-a82e-2a25a6769b0c",
+      "status": "converted"
+    },
+    {
+      "business_id": "22cc5500-88b9-4cc5-9c8e-3fdbacf8e8e9",
+      "business_slug": "business-biz-205347-bdbc",
+      "professional_slug": "business-biz-205347-bdbc",
+      "display_name": "Виктория",
+      "reason": "person_name_no_address",
+      "professional_id": "317724c2-c2ac-4c39-ba58-d39b4a58dc99",
+      "status": "converted"
+    },
+    {
+      "business_id": "30700857-198b-4c6b-9b36-f00dc69e199b",
+      "business_slug": "john-capone-205011-ac61",
+      "professional_slug": "john-capone-205011-ac61",
+      "display_name": "John Capone",
+      "reason": "person_name_no_address",
+      "professional_id": "fec9c391-b0ec-4b24-9578-6845d7f75873",
+      "status": "converted"
+    },
+    {
+      "business_id": "d9968608-2068-404a-a492-998f5e35d959",
+      "business_slug": "business-3232979643-204902-bfec",
+      "professional_slug": "business-3232979643-204902-bfec",
+      "display_name": "Ардак Сатбаева",
+      "reason": "person_name_no_address",
+      "professional_id": "580881b5-ac20-485d-a94f-38d5769e0c03",
+      "status": "converted"
+    },
+    {
+      "business_id": "63a81757-2156-463a-8edf-ef5c4ca7eb2b",
+      "business_slug": "lyubov-nikonova-190932",
+      "professional_slug": "lyubov-nikonova-190932",
+      "display_name": "Lyubov Nikonova",
+      "reason": "person_name_no_address",
+      "professional_id": "b947d0d9-aeaf-46ee-bf71-80ea680e187d",
+      "status": "converted"
+    },
+    {
+      "business_id": "e9f6f3a7-18e5-45b1-80d9-aa866e10e1aa",
+      "business_slug": "rudzik-mykhailo-205013-8177",
+      "professional_slug": "rudzik-mykhailo-205013-8177",
+      "display_name": "Rudzik Mykhailo",
+      "reason": "person_name_no_address",
+      "professional_id": "6d25fe02-1c27-400a-afe6-64e1a9ec32b8",
+      "status": "converted"
+    },
+    {
+      "business_id": "26915f83-e9ce-43ad-9eb2-13186fa4d2d9",
+      "business_slug": "veronika-ratova-190943",
+      "professional_slug": "veronika-ratova-190943",
+      "display_name": "Veronika Ratova",
+      "reason": "person_name_no_address",
+      "professional_id": "4626663d-193d-4fbb-b075-e01e98023922",
+      "status": "converted"
+    },
+    {
+      "business_id": "b0499c67-f733-4c39-8f42-05fe05037072",
+      "business_slug": "polina-ste-205019-bdb4",
+      "professional_slug": "polina-ste-205019-bdb4",
+      "display_name": "Polina Ste",
+      "reason": "person_name_no_address",
+      "professional_id": "1162257f-6070-4d35-b2f1-28057910ae04",
+      "status": "converted"
+    },
+    {
+      "business_id": "a6ed8696-dc4a-45b5-a413-1b23048bdda9",
+      "business_slug": "oleg-chebanu-205022-0a1e",
+      "professional_slug": "oleg-chebanu-205022-0a1e",
+      "display_name": "Oleg Chebanu",
+      "reason": "person_name_no_address",
+      "professional_id": "a35b8120-2a8b-4fe8-a0df-aa580629c924",
+      "status": "converted"
+    },
+    {
+      "business_id": "4c9b1128-5c1e-4370-9e8e-ea4ca4168207",
+      "business_slug": "ivan-anatolevich-205025-4893",
+      "professional_slug": "ivan-anatolevich-205025-4893",
+      "display_name": "Ivan Anatol'evich",
+      "reason": "person_name_no_address",
+      "professional_id": "7eb1442e-00f5-4e3c-a4b9-4ad4ee8a8d57",
+      "status": "converted"
+    },
+    {
+      "business_id": "2cc6d168-c2da-4be9-9560-76e2dbb5a7a9",
+      "business_slug": "zachary-emelian-180913",
+      "professional_slug": "zachary-emelian-180913",
+      "display_name": "Zachary Emelian",
+      "reason": "person_name_no_address",
+      "professional_id": "0ef79ac8-c023-4600-abe7-293435575d2d",
+      "status": "converted"
+    },
+    {
+      "business_id": "09fe1101-f569-4525-9653-8f7784f73257",
+      "business_slug": "tanzik-205412-080c",
+      "professional_slug": "tanzik-205412-080c",
+      "display_name": "Tanzik",
+      "reason": "person_name_no_address",
+      "professional_id": "ca9530f9-8bfa-4924-a985-d29cfbc9fda6",
+      "status": "converted"
+    },
+    {
+      "business_id": "b5f6b250-cc32-49ad-b001-3d9bc0f6ae6c",
+      "business_slug": "boris-sat-205028-50b1",
+      "professional_slug": "boris-sat-205028-50b1",
+      "display_name": "Boris Sat",
+      "reason": "person_name_no_address",
+      "professional_id": "d57932d8-33bd-4f87-a5fa-8c51f9eced8a",
+      "status": "converted"
+    },
+    {
+      "business_id": "a4e9d503-e0ed-444d-9531-3e16bc92a4dd",
+      "business_slug": "artur-moiseev-205026-f41e",
+      "professional_slug": "artur-moiseev-205026-f41e",
+      "display_name": "Artur Moiseev",
+      "reason": "person_name_no_address",
+      "professional_id": "3e485152-9de5-497c-8b79-54da0695a705",
+      "status": "converted"
+    },
+    {
+      "business_id": "03026ecc-6036-49aa-85e4-b9298d8de8b8",
+      "business_slug": "irina-krasnodemsky-205029-f2f2",
+      "professional_slug": "irina-krasnodemsky-205029-f2f2",
+      "display_name": "Irina Krasnodemsky",
+      "reason": "person_name_no_address",
+      "professional_id": "c1a12fb1-b978-4d99-aed6-e2bb886fdcf6",
+      "status": "converted"
+    },
+    {
+      "business_id": "02f2733d-f16c-4e8f-9feb-7f190e5ab37b",
+      "business_slug": "valeriia-205506-ad68",
+      "professional_slug": "valeriia-205506-ad68",
+      "display_name": "Valeriia",
+      "reason": "person_name_no_address",
+      "professional_id": "32186ac8-f9e6-488b-ab6e-20c028b34cd5",
+      "status": "converted"
+    },
+    {
+      "business_id": "d6e3b639-8fb4-40b7-b404-72209144cb11",
+      "business_slug": "business-9165041635-205038-bc58",
+      "professional_slug": "business-9165041635-205038-bc58",
+      "display_name": "Неля Достатняя Захарова",
+      "reason": "person_name_no_address",
+      "professional_id": "e4a08754-07f8-4984-93ee-2dc4063d534f",
+      "status": "converted"
+    },
+    {
+      "business_id": "6f47583e-ca7f-425c-b979-056a2afce3a5",
+      "business_slug": "nova-maryana-205039-79de",
+      "professional_slug": "nova-maryana-205039-79de",
+      "display_name": "Nova Maryana",
+      "reason": "person_name_no_address",
+      "professional_id": "ccb1c975-6fa2-4158-91fc-fdec65adcce0",
+      "status": "converted"
+    },
+    {
+      "business_id": "b044738c-2c6f-47f8-bc6e-13db2fc797f0",
+      "business_slug": "oli-205509-fbfa",
+      "professional_slug": "oli-205509-fbfa",
+      "display_name": "Oli",
+      "reason": "person_name_no_address",
+      "professional_id": "a5580939-447e-45c1-86bc-d8a0a7187dfe",
+      "status": "converted"
+    },
+    {
+      "business_id": "25e1fc2f-37a5-458b-9a3f-d105b4e005bc",
+      "business_slug": "elena-r-205600-d428",
+      "professional_slug": "elena-r-205600-d428",
+      "display_name": "Elena R",
+      "reason": "person_name_no_address",
+      "professional_id": "c0ed5e18-b09e-4da4-a86e-3409e4c02f4a",
+      "status": "converted"
+    },
+    {
+      "business_id": "fcdb283d-357b-44e4-8d21-698a46e5e874",
+      "business_slug": "mike-novak-205033-4e17",
+      "professional_slug": "mike-novak-205033-4e17",
+      "display_name": "Mike Novak",
+      "reason": "person_name_no_address",
+      "professional_id": "5d25d3c9-b0fa-41ab-8c4b-44e8e1392d66",
+      "status": "converted"
+    },
+    {
+      "business_id": "4ff0c0b9-7248-44a1-8085-cd37bccfea68",
+      "business_slug": "katerina-180947",
+      "professional_slug": "katerina-180947",
+      "display_name": "Katerina",
+      "reason": "person_name_no_address",
+      "professional_id": "bddfe40e-d441-4c84-be02-30e3ede8d957",
+      "status": "converted"
+    },
+    {
+      "business_id": "5f07fb80-c539-4d14-8e07-ae5286498f64",
+      "business_slug": "liubov-cherkasova-205045-bb04",
+      "professional_slug": "liubov-cherkasova-205045-bb04",
+      "display_name": "Liubov Cherkasova",
+      "reason": "person_name_no_address",
+      "professional_id": "7eef8e16-9990-4fa6-ba07-b1262abf92b2",
+      "status": "converted"
+    },
+    {
+      "business_id": "0fcc81fd-c238-405c-bed9-934df3ac7281",
+      "business_slug": "business-3239613646-205043-717b",
+      "professional_slug": "business-3239613646-205043-717b",
+      "display_name": "Роксана Килюшина",
+      "reason": "person_name_no_address",
+      "professional_id": "17293f9c-e438-4d94-b3be-a52e2c8321f5",
+      "status": "converted"
+    },
+    {
+      "business_id": "0f2493cb-443e-4a6f-a26d-039568e6176c",
+      "business_slug": "alina-205522-ff07",
+      "professional_slug": "alina-205522-ff07",
+      "display_name": "Alina ‍",
+      "reason": "person_name_no_address",
+      "professional_id": "3b4be5f6-dcdd-470c-b42e-07f7098543de",
+      "status": "converted"
+    },
+    {
+      "business_id": "06bcdc96-cb28-45ba-9f39-785697fc5917",
+      "business_slug": "svetlana-lavor-205052-b3d5",
+      "professional_slug": "svetlana-lavor-205052-b3d5",
+      "display_name": "Svetlana Lavor",
+      "reason": "person_name_no_address",
+      "professional_id": "a1fa917c-a78d-4bc4-b832-d3da8f803f66",
+      "status": "converted"
+    },
+    {
+      "business_id": "9b7525d8-e34c-4d2b-a67e-40a6408f54a8",
+      "business_slug": "michael-sorokin-205104-3904",
+      "professional_slug": "michael-sorokin-205104-3904",
+      "display_name": "Michael  Sorokin",
+      "reason": "person_name_no_address",
+      "professional_id": "01892dd2-4dd1-4362-88bd-bcb78b49057a",
+      "status": "converted"
+    },
+    {
+      "business_id": "d75f8709-05dd-40d5-b555-9a77d43bef72",
+      "business_slug": "business-9165592284-205059-4319",
+      "professional_slug": "business-9165592284-205059-4319",
+      "display_name": "Игорь Манилов",
+      "reason": "person_name_no_address",
+      "professional_id": "889a0eb8-14a4-43fd-b3f0-adf922ab65b4",
+      "status": "converted"
+    },
+    {
+      "business_id": "fc9e0baa-b2d2-4529-a093-2794471567d7",
+      "business_slug": "aburik-181010",
+      "professional_slug": "aburik-181010",
+      "display_name": "Aburik",
+      "reason": "person_name_no_address",
+      "professional_id": "fbcc3994-6159-4abd-9258-91619a438e1a",
+      "status": "converted"
+    },
+    {
+      "business_id": "2bc49df4-2de0-4883-b18a-9280b403fbe6",
+      "business_slug": "karin-205637-d761",
+      "professional_slug": "karin-205637-d761",
+      "display_name": "Karinа",
+      "reason": "person_name_no_address",
+      "professional_id": "d28042dc-8241-434e-aa6d-6a5c4ae008c4",
+      "status": "converted"
+    },
+    {
+      "business_id": "6e61e4e8-03be-4af5-ba59-bb34df0d2eb3",
+      "business_slug": "volodymyr-181511-3927",
+      "professional_slug": "volodymyr-181511-3927",
+      "display_name": "Volodymyr",
+      "reason": "person_name_no_address",
+      "professional_id": "ba2c17e7-fddc-4192-96fa-2d15334b89a5",
+      "status": "converted"
+    },
+    {
+      "business_id": "3586f863-8921-46c9-aee8-799630290c3b",
+      "business_slug": "oksana-wood-205101-a3eb",
+      "professional_slug": "oksana-wood-205101-a3eb",
+      "display_name": "Oksana Wood",
+      "reason": "person_name_no_address",
+      "professional_id": "f5a5e167-ed71-4a08-acd7-81ef4298d833",
+      "status": "converted"
+    },
+    {
+      "business_id": "3324956d-6f03-4472-905c-a4d5cc84c990",
+      "business_slug": "business-biz-181526-47bc",
+      "professional_slug": "business-biz-181526-47bc",
+      "display_name": "Камила",
+      "reason": "person_name_no_address",
+      "professional_id": "3e487161-67d1-4038-9da1-1de9247abfe9",
+      "status": "converted"
+    },
+    {
+      "business_id": "9dd67572-c0c1-4dff-b781-65285205c241",
+      "business_slug": "business-biz-205115-bfa9",
+      "professional_slug": "business-biz-205115-bfa9",
+      "display_name": "Анастасия",
+      "reason": "person_name_no_address",
+      "professional_id": "7ca419db-c22b-4284-ba85-150e90f37da1",
+      "status": "converted"
+    },
+    {
+      "business_id": "ccfacc71-9af1-42da-9d56-ece0c8c175a6",
+      "business_slug": "nazgul-nurlan-181522-8750",
+      "professional_slug": "nazgul-nurlan-181522-8750",
+      "display_name": "Nazgul Nurlan",
+      "reason": "person_name_no_address",
+      "professional_id": "d507ecd0-55b3-4fab-83fe-c8a332e0fc05",
+      "status": "converted"
+    },
+    {
+      "business_id": "80cbe60c-48c4-4c28-a2ad-5b7c04aca961",
+      "business_slug": "leyla-kamila-181525-4bd9",
+      "professional_slug": "leyla-kamila-181525-4bd9",
+      "display_name": "Leyla Kamila",
+      "reason": "person_name_no_address",
+      "professional_id": "574bab0e-b00a-4907-beb6-0d5059039845",
+      "status": "converted"
+    },
+    {
+      "business_id": "4124f7d1-71b2-4dde-8c9e-7263ac2a277d",
+      "business_slug": "business-biz-205108-1695",
+      "professional_slug": "business-biz-205108-1695",
+      "display_name": "Андрей",
+      "reason": "person_name_no_address",
+      "professional_id": "f00711bc-3d17-4d03-9d65-3c89df12abd9",
+      "status": "converted"
+    },
+    {
+      "business_id": "bdf0abea-8edf-454e-a738-f757f00b01cd",
+      "business_slug": "bekbolat-181530-3fa0",
+      "professional_slug": "bekbolat-181530-3fa0",
+      "display_name": "Bekbolat",
+      "reason": "person_name_no_address",
+      "professional_id": "0b48174e-d476-4ba2-b7c6-adf9e28bc4d7",
+      "status": "converted"
+    },
+    {
+      "business_id": "2881b29e-246b-4cc7-b93a-fa4ecae38574",
+      "business_slug": "evgeniya-kogay-205111-f415",
+      "professional_slug": "evgeniya-kogay-205111-f415",
+      "display_name": "Evgeniya Kogay",
+      "reason": "person_name_no_address",
+      "professional_id": "8c851cfa-f3d6-491b-8233-8c557f355f5c",
+      "status": "converted"
+    },
+    {
+      "business_id": "535a830b-7251-496c-9ba7-3e64979b536c",
+      "business_slug": "polina-205609-ef5a",
+      "professional_slug": "polina-205609-ef5a",
+      "display_name": "Polina",
+      "reason": "person_name_no_address",
+      "professional_id": "b2ec80b7-f2b7-4526-beec-1843882567ea",
+      "status": "converted"
+    },
+    {
+      "business_id": "09549e43-0938-468d-b554-263058f4f5b2",
+      "business_slug": "alevtina-kis-205116-a644",
+      "professional_slug": "alevtina-kis-205116-a644",
+      "display_name": "Alevtina Kis",
+      "reason": "person_name_no_address",
+      "professional_id": "f1fe6f7c-4013-43fd-8af2-ae2f2b088d0a",
+      "status": "converted"
+    },
+    {
+      "business_id": "5f88b0e0-1520-44ff-8b2f-c2ca9181777a",
+      "business_slug": "ange-181535-b93a",
+      "professional_slug": "ange-181535-b93a",
+      "display_name": "Ange",
+      "reason": "person_name_no_address",
+      "professional_id": "b5cdf37e-009b-42c2-94fd-689ff7fd1121",
+      "status": "converted"
+    },
+    {
+      "business_id": "2cd02e6f-51d6-48f8-99ac-4fb6825f2ce6",
+      "business_slug": "business-biz-205117-1735",
+      "professional_slug": "business-biz-205117-1735",
+      "display_name": "Виктория Обиход",
+      "reason": "person_name_no_address",
+      "professional_id": "f0580278-348f-4250-afba-835a6be6b9a6",
+      "status": "converted"
+    },
+    {
+      "business_id": "4f4f2489-2dfa-40a1-af4b-f9ec2a3118a5",
+      "business_slug": "tatsiana-losikova-205608-2e44",
+      "professional_slug": "tatsiana-losikova-205608-2e44",
+      "display_name": "Tatsiana Losikova",
+      "reason": "person_name_no_address",
+      "professional_id": "bcb6ccd2-cb42-4666-b490-1d9b4a39fb98",
+      "status": "converted"
+    },
+    {
+      "business_id": "c820c376-83b6-4696-a3f0-93883084b7e9",
+      "business_slug": "alexandra-zhura-205118-5caf",
+      "professional_slug": "alexandra-zhura-205118-5caf",
+      "display_name": "Alexandra Zhura",
+      "reason": "person_name_no_address",
+      "professional_id": "2d3fd617-3f22-45e6-b746-5de9bc00acff",
+      "status": "converted"
+    },
+    {
+      "business_id": "de828bee-49c7-48e7-8132-5830db3e07d8",
+      "business_slug": "rrr-205635-8c45",
+      "professional_slug": "rrr-205635-8c45",
+      "display_name": "Rrr",
+      "reason": "person_name_no_address",
+      "professional_id": "92a57e49-a3e4-4bb2-a53c-bf4bf45e1b39",
+      "status": "converted"
+    },
+    {
+      "business_id": "e8895693-56af-414b-90e4-421fac457e40",
+      "business_slug": "natalya-tyukavkina-205122-69f8",
+      "professional_slug": "natalya-tyukavkina-205122-69f8",
+      "display_name": "Natalya Tyukavkina",
+      "reason": "person_name_no_address",
+      "professional_id": "eeaf5ecd-347b-48ce-83f8-c8871f739e4f",
+      "status": "converted"
+    },
+    {
+      "business_id": "66eb8656-0dad-438f-ae5e-a21b455bf22b",
+      "business_slug": "daria-pavlii-205130-c2f8",
+      "professional_slug": "daria-pavlii-205130-c2f8",
+      "display_name": "Daria Pavlii",
+      "reason": "person_name_no_address",
+      "professional_id": "70af5f72-407b-47d7-97fd-f39a10cf40bf",
+      "status": "converted"
+    },
+    {
+      "business_id": "dc4b3f52-4aa2-4f5e-aa22-b0962bb3270a",
+      "business_slug": "business-biz-205135-1daf",
+      "professional_slug": "business-biz-205135-1daf",
+      "display_name": "Лена Саа",
+      "reason": "person_name_no_address",
+      "professional_id": "71c6db16-c0d7-4285-9221-67d19fd38704",
+      "status": "converted"
+    },
+    {
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "professional_slug": "consolidated-valeriia-andriushchenko",
+      "display_name": "Valeriia Andriushchenko",
+      "reason": "person_name_no_address",
+      "professional_id": "0438b70d-5848-44fe-b64b-ce7a3596aff7",
+      "status": "converted"
+    },
+    {
+      "business_id": "99c80fcf-87cb-4364-b4d8-875b70c0ab8d",
+      "business_slug": "business-biz-205652-76db",
+      "professional_slug": "business-biz-205652-76db",
+      "display_name": "Алла",
+      "reason": "person_name_no_address",
+      "professional_id": "0f6456d2-eaaa-40ba-8381-808b58427e16",
+      "status": "converted"
+    },
+    {
+      "business_id": "fedc5473-381b-4949-90f8-2c5cc79f0931",
+      "business_slug": "oleksandr-205658-3da0",
+      "professional_slug": "oleksandr-205658-3da0",
+      "display_name": "Oleksandr",
+      "reason": "person_name_no_address",
+      "professional_id": "811edf0c-6636-42de-8978-ec4eb834dd12",
+      "status": "converted"
+    },
+    {
+      "business_id": "834d3994-72c1-417d-870e-c3aecba03f0e",
+      "business_slug": "business-biz-205337-54af",
+      "professional_slug": "business-biz-205337-54af",
+      "display_name": "Аня Таран",
+      "reason": "person_name_no_address",
+      "professional_id": "36e1ca84-e3dd-4226-8873-625c2be9d4db",
+      "status": "converted"
+    },
+    {
+      "business_id": "bce6b28c-a611-4a73-ab7a-eb34028597fe",
+      "business_slug": "business-biz-181539-36b0",
+      "professional_slug": "business-biz-181539-36b0",
+      "display_name": "Алла",
+      "reason": "person_name_no_address",
+      "professional_id": "49e03896-9087-4573-a938-33932d859847",
+      "status": "converted"
+    },
+    {
+      "business_id": "1218d5fa-e07b-4e77-872e-e00d169a3780",
+      "business_slug": "business-biz-205404-f206",
+      "professional_slug": "business-biz-205404-f206",
+      "display_name": "Снюс Лос Анджелес",
+      "reason": "person_name_no_address",
+      "professional_id": "707e46f1-ac2d-4ad0-aa0d-a8e28f235475",
+      "status": "converted"
+    },
+    {
+      "business_id": "53e84ef4-3c4d-40a3-914d-2adeda7015e0",
+      "business_slug": "business-biz-205338-a988",
+      "professional_slug": "business-biz-205338-a988",
+      "display_name": "Юлия",
+      "reason": "person_name_no_address",
+      "professional_id": "a618aee2-1c69-4cc7-8f4a-a1d738b19d42",
+      "status": "converted"
+    },
+    {
+      "business_id": "21ab2b20-1743-482b-9235-0136415567bf",
+      "business_slug": "masha-angel-205138-3e8b",
+      "professional_slug": "masha-angel-205138-3e8b",
+      "display_name": "Masha Angel",
+      "reason": "person_name_no_address",
+      "professional_id": "ac39810c-3bd0-4343-9eb7-e68497250984",
+      "status": "converted"
+    },
+    {
+      "business_id": "923fdf19-d9f6-45cb-8cd0-2d070eb1a652",
+      "business_slug": "anna-borodina-204857-b155",
+      "professional_slug": "anna-borodina-204857-b155",
+      "display_name": "Anna  Borodina",
+      "reason": "person_name_no_address",
+      "professional_id": "5aa0588d-7c62-48f9-8e55-ed37e13aa0ce",
+      "status": "converted"
+    },
+    {
+      "business_id": "e74292d8-416d-45a1-bcee-ca0db982d290",
+      "business_slug": "alex-wins-204844-70d8",
+      "professional_slug": "alex-wins-204844-70d8",
+      "display_name": "Alex Wins",
+      "reason": "person_name_no_address",
+      "professional_id": "aa91af4f-fe0e-4f23-a3ee-f879a82f6f2a",
+      "status": "converted"
+    },
+    {
+      "business_id": "b812ffa9-6651-4a69-b488-14c0787aa205",
+      "business_slug": "mary-ariel-chery-karpenko-204835-c04e",
+      "professional_slug": "mary-ariel-chery-karpenko-204835-c04e",
+      "display_name": "Mary Ariel Chery - Karpenko",
+      "reason": "person_name_no_address",
+      "professional_id": "945b54eb-18f6-4fc3-9e4f-238a820b1f3a",
+      "status": "converted"
+    },
+    {
+      "business_id": "13b50b34-e99c-4eca-b633-73a874484c90",
+      "business_slug": "batch2-anna-esthetician",
+      "professional_slug": "batch2-anna-esthetician",
+      "display_name": "Anna Esthetician",
+      "reason": "person_name_no_address",
+      "professional_id": "17318e7d-337e-4c6f-9545-c7c6f1bc6934",
+      "status": "converted"
+    },
+    {
+      "business_id": "f93b1d9d-a5c1-45d8-abc9-b7ad8732ea41",
+      "business_slug": "elena-205143-1f35",
+      "professional_slug": "elena-205143-1f35",
+      "display_name": "Elena",
+      "reason": "person_name_no_address",
+      "professional_id": "4860050b-b35c-415d-a48b-94499092ee89",
+      "status": "converted"
+    },
+    {
+      "business_id": "4031f88d-6bd3-46db-aa58-e3f600073a64",
+      "business_slug": "maria-komissarova-204850-2eaf",
+      "professional_slug": "maria-komissarova-204850-2eaf",
+      "display_name": "Maria Komissarova",
+      "reason": "person_name_no_address",
+      "professional_id": "0e68617a-0620-4b6d-b679-88c2da4c9431",
+      "status": "converted"
+    },
+    {
+      "business_id": "f8a94255-6b7b-4048-be0f-b7f31be54925",
+      "business_slug": "taya-181519-b6e4",
+      "professional_slug": "taya-181519-b6e4",
+      "display_name": "Taya",
+      "reason": "person_name_no_address",
+      "professional_id": "a425f118-7c74-446c-a5a5-8b3ff567eb12",
+      "status": "converted"
+    },
+    {
+      "business_id": "2cc854c6-088a-4153-a6f6-b8e10a0c7d7b",
+      "business_slug": "alla-vorobiova-204849-c42d",
+      "professional_slug": "alla-vorobiova-204849-c42d",
+      "display_name": "Alla Vorobiova",
+      "reason": "person_name_no_address",
+      "professional_id": "b951ee0c-fa27-438a-a6c7-4238dbfc3a40",
+      "status": "converted"
+    },
+    {
+      "business_id": "749a5fcf-8a57-4ccb-ae7d-213612d8f7b2",
+      "business_slug": "galina-pinsky-204838-f523",
+      "professional_slug": "galina-pinsky-204838-f523",
+      "display_name": "Galina Pinsky",
+      "reason": "person_name_no_address",
+      "professional_id": "f5d45b94-ca4e-44d0-8916-221ea7f9f494",
+      "status": "converted"
+    },
+    {
+      "business_id": "07313b4d-4eec-429c-bf4b-10815c103063",
+      "business_slug": "anastasia-shevchenko-205209-045d",
+      "professional_slug": "anastasia-shevchenko-205209-045d",
+      "display_name": "Anastasia Shevchenko",
+      "reason": "person_name_no_address",
+      "professional_id": "c1193cf4-93cd-48dc-b68b-389e8a985091",
+      "status": "converted"
+    },
+    {
+      "business_id": "58900d3e-3826-45fe-90a4-2336d4e378b1",
+      "business_slug": "business-biz-205341-3b35",
+      "professional_slug": "business-biz-205341-3b35",
+      "display_name": "Александр",
+      "reason": "person_name_no_address",
+      "professional_id": "ea8e5f41-78c2-4c43-adc8-4892ac3a92ce",
+      "status": "converted"
+    },
+    {
+      "business_id": "c902f374-5ad1-4879-857d-2e4df9279d7c",
+      "business_slug": "andrey-ka-204830-8347",
+      "professional_slug": "andrey-ka-204830-8347",
+      "display_name": "Andrey Ka",
+      "reason": "person_name_no_address",
+      "professional_id": "045fce71-1b9e-40d4-8b3c-da96cc9d34eb",
+      "status": "converted"
+    },
+    {
+      "business_id": "37d275c1-97a6-45ca-b2a0-b55cd9f76ebe",
+      "business_slug": "business-9165594158-204842-1999",
+      "professional_slug": "business-9165594158-204842-1999",
+      "display_name": "Татьяна Антух",
+      "reason": "person_name_no_address",
+      "professional_id": "7d75056f-3775-48de-9057-ed3ab00593f0",
+      "status": "converted"
+    },
+    {
+      "business_id": "981af536-0721-4567-8743-0443ebcb8b2c",
+      "business_slug": "vera-zhezherun-204839-82b3",
+      "professional_slug": "vera-zhezherun-204839-82b3",
+      "display_name": "Vera Zhezherun",
+      "reason": "person_name_no_address",
+      "professional_id": "01175285-2ed0-4780-bce4-dd58107422f2",
+      "status": "converted"
+    },
+    {
+      "business_id": "443433b0-3da7-4c40-a376-60bde9bbfea6",
+      "business_slug": "farruh-kochkarov-204833-dda2",
+      "professional_slug": "farruh-kochkarov-204833-dda2",
+      "display_name": "Farruh Kochkarov",
+      "reason": "person_name_no_address",
+      "professional_id": "6cd8bda2-c0ac-4abf-8285-c72821b53914",
+      "status": "converted"
+    },
+    {
+      "business_id": "5ed2d239-a366-48f0-a2fb-fc1015dfb917",
+      "business_slug": "anastasiia-150705",
+      "professional_slug": "anastasiia-150705",
+      "display_name": "Anastasiia",
+      "reason": "person_name_no_address",
+      "professional_id": "48d3d1c0-123c-45b4-92a6-03d9c1a7ed0c",
+      "status": "converted"
+    },
+    {
+      "business_id": "53a6b8bd-6585-4e0f-afe5-f0012d95193e",
+      "business_slug": "russ-russell-205215-bbbb",
+      "professional_slug": "russ-russell-205215-bbbb",
+      "display_name": "Russ Russell",
+      "reason": "person_name_no_address",
+      "professional_id": "06176c3c-9cc8-48f3-8d5f-dbe649d40eaf",
+      "status": "converted"
+    },
+    {
+      "business_id": "6ad9d500-2dfb-4b6e-8621-47334547cf47",
+      "business_slug": "aleksey-popov-204823-683e",
+      "professional_slug": "aleksey-popov-204823-683e",
+      "display_name": "Aleksey Popov",
+      "reason": "person_name_no_address",
+      "professional_id": "67ea951f-44e1-4e30-9781-d58238f14016",
+      "status": "converted"
+    },
+    {
+      "business_id": "c2237375-a720-4520-a3e6-6ace969f0287",
+      "business_slug": "eugenia-grigoreva-205220-f266",
+      "professional_slug": "eugenia-grigoreva-205220-f266",
+      "display_name": "Eugenia Grigoreva",
+      "reason": "person_name_no_address",
+      "professional_id": "8f7ced21-f1af-4671-8b21-9143c25bf17f",
+      "status": "converted"
+    },
+    {
+      "business_id": "d58edae4-d9c3-4d4e-bde4-77b8fc07be2e",
+      "business_slug": "grigory-baranovsky-204802-cd6a",
+      "professional_slug": "grigory-baranovsky-204802-cd6a",
+      "display_name": "Grigory Baranovsky",
+      "reason": "person_name_no_address",
+      "professional_id": "b0f5117e-b7bb-4fcb-bf22-6734071c3150",
+      "status": "converted"
+    },
+    {
+      "business_id": "048fb2c3-d4c7-4b85-8b35-6507082df710",
+      "business_slug": "anton-osipov-204816-49d1",
+      "professional_slug": "anton-osipov-204816-49d1",
+      "display_name": "Anton Osipov",
+      "reason": "person_name_no_address",
+      "professional_id": "f9b9637e-d4a5-4ca4-bf8f-3d8ed36760d2",
+      "status": "converted"
+    },
+    {
+      "business_id": "de6937b8-cd67-4b1b-9822-323ae11b05f2",
+      "business_slug": "olga-avdonina-205233-2439",
+      "professional_slug": "olga-avdonina-205233-2439",
+      "display_name": "Olga Avdonina",
+      "reason": "person_name_no_address",
+      "professional_id": "a5e73897-9519-4e04-a045-c300157c1faa",
+      "status": "converted"
+    },
+    {
+      "business_id": "5888327a-820c-4148-990d-52be664bb7a6",
+      "business_slug": "anna-dav-205223-b6e5",
+      "professional_slug": "anna-dav-205223-b6e5",
+      "display_name": "Anna Dav",
+      "reason": "person_name_no_address",
+      "professional_id": "adb9fa38-828d-46d8-ab6d-3b83e5c6b02f",
+      "status": "converted"
+    },
+    {
+      "business_id": "ded6a1aa-a917-464a-988a-1543b6f5fe05",
+      "business_slug": "lena-205621-71f9",
+      "professional_slug": "lena-205621-71f9",
+      "display_name": "Lena",
+      "reason": "person_name_no_address",
+      "professional_id": "44ac3baa-c837-4aa8-9e21-7d0745fb5179",
+      "status": "converted"
+    },
+    {
+      "business_id": "1bb6e9ee-7920-412a-a1df-e3a4993493f3",
+      "business_slug": "consolidated-kalinka-service",
+      "professional_slug": "consolidated-kalinka-service",
+      "display_name": "Kalinka Service — Rita Shvalikovskaya",
+      "reason": "person_name_no_address",
+      "professional_id": "579b18c5-f3f7-4a83-9ace-3d8d92f4040d",
+      "status": "converted"
+    },
+    {
+      "business_id": "cf99b1f2-0159-4524-8ad8-59aa34254164",
+      "business_slug": "anna-cherkasov-205229-1ae8",
+      "professional_slug": "anna-cherkasov-205229-1ae8",
+      "display_name": "Anna Cherkasov",
+      "reason": "person_name_no_address",
+      "professional_id": "75711a3f-d2ca-4bc1-9461-736514ad0623",
+      "status": "converted"
+    },
+    {
+      "business_id": "f3824aee-c80b-4de9-8efd-6ab3f3ebb886",
+      "business_slug": "dmitry-belyaev-204806-7a4e",
+      "professional_slug": "dmitry-belyaev-204806-7a4e",
+      "display_name": "Dmitry Belyaev",
+      "reason": "person_name_no_address",
+      "professional_id": "08f3bc3d-fe80-41ce-a3bc-4904913c68dc",
+      "status": "converted"
+    },
+    {
+      "business_id": "4b67b4e9-189b-4469-ab39-e736e357574b",
+      "business_slug": "olga-osipova-205232-c5b4",
+      "professional_slug": "olga-osipova-205232-c5b4",
+      "display_name": "Olga Osipova",
+      "reason": "person_name_no_address",
+      "professional_id": "2284acc4-8d82-447e-b97a-78f439f20b3e",
+      "status": "converted"
+    },
+    {
+      "business_id": "9e9d952c-1f58-4210-80ca-ed85cf3a1cbd",
+      "business_slug": "tanya-pozniansky-205243-58d6",
+      "professional_slug": "tanya-pozniansky-205243-58d6",
+      "display_name": "Tanya Pozniansky",
+      "reason": "person_name_no_address",
+      "professional_id": "47ad4615-d45c-499a-9a29-9356210a2616",
+      "status": "converted"
+    },
+    {
+      "business_id": "a7f22eee-fed7-4055-abf3-cef6ff7b7a85",
+      "business_slug": "marianna-musinova-205236-0c72",
+      "professional_slug": "marianna-musinova-205236-0c72",
+      "display_name": "Marianna Musinova",
+      "reason": "person_name_no_address",
+      "professional_id": "8338a135-73cf-4de8-80ff-e44c3ea4b74c",
+      "status": "converted"
+    },
+    {
+      "business_id": "79cd4497-a777-4644-9993-34e9758c1e07",
+      "business_slug": "help-immigrants-204800-b942",
+      "professional_slug": "help-immigrants-204800-b942",
+      "display_name": "Помощь Иммигрантам • Help Immigrants",
+      "reason": "person_name_no_address",
+      "professional_id": "2760ad0e-9b0c-48fc-92ce-949ad75adba9",
+      "status": "converted"
+    },
+    {
+      "business_id": "9f237e30-e3dc-42d1-9911-7d00308ab9ab",
+      "business_slug": "celine-miles-204758-6060",
+      "professional_slug": "celine-miles-204758-6060",
+      "display_name": "Celine Miles",
+      "reason": "person_name_no_address",
+      "professional_id": "fb8cea1b-05c5-4eb5-adbc-d1c34fb52745",
+      "status": "converted"
+    },
+    {
+      "business_id": "9f6373b6-546c-4f12-a3a6-cd9a8ef98d83",
+      "business_slug": "olena-king-205237-3b54",
+      "professional_slug": "olena-king-205237-3b54",
+      "display_name": "Olena King",
+      "reason": "person_name_no_address",
+      "professional_id": "23fc512c-5c6a-411d-ab4d-19f47be1e10a",
+      "status": "converted"
+    },
+    {
+      "business_id": "80f991a9-ae15-4e57-9988-285c49001574",
+      "business_slug": "maryna-180859",
+      "professional_slug": "maryna-180859",
+      "display_name": "Maryna",
+      "reason": "person_name_no_address",
+      "professional_id": "ce17230f-0890-4938-a3a6-4d63ef3028e3",
+      "status": "converted"
+    },
+    {
+      "business_id": "1aefbe65-2171-4837-9ead-610a5b4b74bb",
+      "business_slug": "lala-cavadova-205244-6d41",
+      "professional_slug": "lala-cavadova-205244-6d41",
+      "display_name": "Lala Cavadova",
+      "reason": "person_name_no_address",
+      "professional_id": "a52b2cb2-3fe1-4a3d-9242-333fd9dea8cf",
+      "status": "converted"
+    },
+    {
+      "business_id": "519b933e-49fd-4c37-b97a-eea8941cf319",
+      "business_slug": "taya-181520-438f",
+      "professional_slug": "taya-181520-438f",
+      "display_name": "Taya",
+      "reason": "person_name_no_address",
+      "professional_id": "5d34c0dd-6ad1-431f-ad0d-eff7616b5760",
+      "status": "converted"
+    },
+    {
+      "business_id": "50bb9088-f79b-4b8f-a542-2e4bcc8d8a2e",
+      "business_slug": "business-biz-181531-70e3",
+      "professional_slug": "business-biz-181531-70e3",
+      "display_name": "Татьяна",
+      "reason": "person_name_no_address",
+      "professional_id": "4a68b72d-e04c-4977-b796-4ead70248a0d",
+      "status": "converted"
+    },
+    {
+      "business_id": "3b9ee24c-9b68-4ca6-8f69-497bca9bce83",
+      "business_slug": "angelina-181531-2d6e",
+      "professional_slug": "angelina-181531-2d6e",
+      "display_name": "Angelina",
+      "reason": "person_name_no_address",
+      "professional_id": "27c054bf-0862-4bc3-bbb1-720bed88f73a",
+      "status": "converted"
+    },
+    {
+      "business_id": "daa15c39-5174-4cf3-a882-496e85d37042",
+      "business_slug": "fb-post-9-ruslan-kalumov-moving-services",
+      "professional_slug": "fb-post-9-ruslan-kalumov-moving-services",
+      "display_name": "Ruslan Kalumov - Moving Services",
+      "reason": "person_name_no_address",
+      "professional_id": "93b09b77-5b1d-4518-8f90-33f5753dd708",
+      "status": "converted"
+    },
+    {
+      "business_id": "c32f4252-6d39-40b9-9541-12890b1cd39f",
+      "business_slug": "business-biz-180914",
+      "professional_slug": "business-biz-180914",
+      "display_name": "Ксения",
+      "reason": "person_name_no_address",
+      "professional_id": "6c8b4bdb-9c90-40cc-95e3-aec2b9b90fa6",
+      "status": "converted"
+    },
+    {
+      "business_id": "9cc78203-6f2b-4e7f-a7da-14bc6912975e",
+      "business_slug": "batch2-flora-barshak",
+      "professional_slug": "batch2-flora-barshak",
+      "display_name": "Flora Barshak",
+      "reason": "person_name_no_address",
+      "professional_id": "fb822a56-865b-4114-a54a-51260d94545e",
+      "status": "converted"
+    },
+    {
+      "business_id": "ac2093b0-ecb0-402a-9f18-8afca55f2253",
+      "business_slug": "fb-post-34-alina-shakirova-web-seo-services",
+      "professional_slug": "fb-post-34-alina-shakirova-web-seo-services",
+      "display_name": "Alina Shakirova - Web & SEO Services",
+      "reason": "person_name_no_address",
+      "professional_id": "6559490a-3a86-4430-afc7-bd912a2854ec",
+      "status": "converted"
+    },
+    {
+      "business_id": "5c6a836f-92a5-476c-8cee-766bf4baae64",
+      "business_slug": "fb-post-34-nat-ben-personal-image-consultant",
+      "professional_slug": "fb-post-34-nat-ben-personal-image-consultant",
+      "display_name": "Nat Ben - Personal Image Consultant",
+      "reason": "person_name_no_address",
+      "professional_id": "0c7f0bd6-ff9a-44c2-a4f2-24715c679477",
+      "status": "converted"
+    },
+    {
+      "business_id": "4ffbd3ad-0b2e-4143-bef8-8666f0829cc8",
+      "business_slug": "fb-post-2-vyacheslav-papkov-auto-insurance-services",
+      "professional_slug": "fb-post-2-vyacheslav-papkov-auto-insurance-services",
+      "display_name": "Vyacheslav Papkov - Auto Insurance Services",
+      "reason": "person_name_no_address",
+      "professional_id": "a0bc8b23-20ea-4397-b159-f91cd93abe69",
+      "status": "converted"
+    },
+    {
+      "business_id": "acc354c2-f183-4fea-a3c3-d99f0b775e12",
+      "business_slug": "evgeniya-slimface-205348-2d47",
+      "professional_slug": "evgeniya-slimface-205348-2d47",
+      "display_name": "Evgeniya Slimface",
+      "reason": "person_name_no_address",
+      "professional_id": "cf40531a-cca3-4aa3-ad40-7405047c6e0b",
+      "status": "converted"
+    },
+    {
+      "business_id": "9a34bde4-655f-43a7-abfd-aca2cf3b6f59",
+      "business_slug": "adgar-180959",
+      "professional_slug": "adgar-180959",
+      "display_name": "Adgar",
+      "reason": "person_name_no_address",
+      "professional_id": "212df32e-7b2c-442e-bcca-28f1bf022073",
+      "status": "converted"
+    },
+    {
+      "business_id": "ba32359d-5a15-4f9a-9fd8-161c05b942a1",
+      "business_slug": "batch2-alex-auto-brokering",
+      "professional_slug": "batch2-alex-auto-brokering",
+      "display_name": "Alex Auto Brokering",
+      "reason": "person_name_no_address",
+      "professional_id": "3cfc5882-ff7e-4ebb-bd62-de4c56286cf2",
+      "status": "converted"
+    },
+    {
+      "business_id": "236c94aa-5717-4285-8521-27aa97b2307b",
+      "business_slug": "batch2-sergei-anischenko",
+      "professional_slug": "batch2-sergei-anischenko",
+      "display_name": "Сергей Анищенко",
+      "reason": "person_name_no_address",
+      "professional_id": "b12ffd4b-5e59-4ddd-a444-6388cf573968",
+      "status": "converted"
+    },
+    {
+      "business_id": "b21423da-c261-4816-8652-edced38f3a37",
+      "business_slug": "fb-post-30-anastasia-kinder",
+      "professional_slug": "fb-post-30-anastasia-kinder",
+      "display_name": "Anastasia Kinder",
+      "reason": "person_name_no_address",
+      "professional_id": "d3c04a93-8076-4b33-9b58-81ba2e3359b8",
+      "status": "converted"
+    },
+    {
+      "business_id": "3776216b-6326-4b32-bf11-c188eb0a0f99",
+      "business_slug": "fb-post-3-george-khazanovskiy-real-estate-agent",
+      "professional_slug": "fb-post-3-george-khazanovskiy-real-estate-agent",
+      "display_name": "George Khazanovskiy - Real Estate Agent",
+      "reason": "person_name_no_address",
+      "professional_id": "cba84a52-ab79-4a9b-9bde-c03519a05539",
+      "status": "converted"
+    },
+    {
+      "business_id": "25a0f65f-5810-40a5-9bed-0da1b47dbdcf",
+      "business_slug": "anton-205307-42dd",
+      "professional_slug": "anton-205307-42dd",
+      "display_name": "Anton",
+      "reason": "person_name_no_address",
+      "professional_id": "9b1fe2ee-6e38-45dc-866e-9d21518358de",
+      "status": "converted"
+    },
+    {
+      "business_id": "5e280145-0637-4680-9cee-7ba33ee47f22",
+      "business_slug": "fbpack-michael-finkelstein-gluten-free-bread",
+      "professional_slug": "fbpack-michael-finkelstein-gluten-free-bread",
+      "display_name": "Michael Finkelstein — Gluten Free Bread",
+      "reason": "person_name_no_address",
+      "professional_id": "e09b32e2-f9dd-4d5d-9409-4b832e3c37f6",
+      "status": "converted"
+    },
+    {
+      "business_id": "2a99d03a-07c9-482a-87bd-cb0b15245dfe",
+      "business_slug": "consolidated-victoria-kuzyakina-yoga",
+      "professional_slug": "consolidated-victoria-kuzyakina-yoga",
+      "display_name": "Victoria Kuzyakina",
+      "reason": "person_name_no_address",
+      "professional_id": "df8097df-9954-4859-bcc5-7dab8494a7ed",
+      "status": "converted"
+    },
+    {
+      "business_id": "4dbf2b56-38bf-4b16-8210-78401e52c86e",
+      "business_slug": "fb-post-32-bogdan-chugunov-siberian-elixir-health-products",
+      "professional_slug": "fb-post-32-bogdan-chugunov-siberian-elixir-health-products",
+      "display_name": "Bogdan Chugunov - Siberian Elixir Health Products",
+      "reason": "person_name_no_address",
+      "professional_id": "e913790f-9472-4e7e-873c-0ab8b555c40a",
+      "status": "converted"
+    },
+    {
+      "business_id": "a135e4d2-dae5-48be-b4e7-a09f4c7572a2",
+      "business_slug": "batch2-pavel-krylov",
+      "professional_slug": "batch2-pavel-krylov",
+      "display_name": "Pavel Krylov",
+      "reason": "person_name_no_address",
+      "professional_id": "60c39f33-bd29-4291-899e-3f7757323f1a",
+      "status": "converted"
+    },
+    {
+      "business_id": "b39c2639-9d38-4f2e-a14e-2f7f1bd8f653",
+      "business_slug": "business-biz-180952",
+      "professional_slug": "business-biz-180952",
+      "display_name": "Настя",
+      "reason": "person_name_no_address",
+      "professional_id": "ad4a25da-add8-4223-887a-406e643a1751",
+      "status": "converted"
+    },
+    {
+      "business_id": "9e7728ad-99b8-4e9a-9250-8c56cf0fedb4",
+      "business_slug": "batch2-svetlana-k-pantelic",
+      "professional_slug": "batch2-svetlana-k-pantelic",
+      "display_name": "Svetlana K. Pantelic",
+      "reason": "person_name_no_address",
+      "professional_id": "cfae4819-3fa5-47cc-acf9-c0f3788adb45",
+      "status": "converted"
+    },
+    {
+      "business_id": "98871261-e02a-4f96-8a88-ae3a638a355d",
+      "business_slug": "guncha-atajanova-205252-7ab3",
+      "professional_slug": "guncha-atajanova-205252-7ab3",
+      "display_name": "Guncha Atajanova",
+      "reason": "person_name_no_address",
+      "professional_id": "e22c5bb9-b305-4af4-9fdb-7d879fedf503",
+      "status": "converted"
+    },
+    {
+      "business_id": "bdd03ecc-9fb6-4af2-bd5e-f2f652549e1d",
+      "business_slug": "fbpack-vladimir-gorbushin-more-vkusa",
+      "professional_slug": "fbpack-vladimir-gorbushin-more-vkusa",
+      "display_name": "Море Вкуса",
+      "reason": "person_name_no_address",
+      "professional_id": "1d59e049-087e-43be-b889-72fa95566d28",
+      "status": "converted"
+    },
+    {
+      "business_id": "09592130-4fb7-453e-a664-6ba5ef133fe6",
+      "business_slug": "julia-palmer-205318-9150",
+      "professional_slug": "julia-palmer-205318-9150",
+      "display_name": "Julia Palmer",
+      "reason": "person_name_no_address",
+      "professional_id": "f0e9bc47-10a9-44b5-9833-f446e2c6ac4f",
+      "status": "converted"
+    },
+    {
+      "business_id": "9958409a-d108-4d08-9ae2-e5c8909e5d5e",
+      "business_slug": "fb-post-11-ivan-handyman-repairs",
+      "professional_slug": "fb-post-11-ivan-handyman-repairs",
+      "display_name": "Ivan - Handyman Repairs",
+      "reason": "person_name_no_address",
+      "professional_id": "630b3c28-70e3-4a5e-aba3-aeb6789fc121",
+      "status": "converted"
+    },
+    {
+      "business_id": "6f6b3290-ab17-4981-9ea5-0da67f7e92c3",
+      "business_slug": "fbpack-karina-lazareva-house-cleaning",
+      "professional_slug": "fbpack-karina-lazareva-house-cleaning",
+      "display_name": "Karina Lazareva — House Cleaning",
+      "reason": "person_name_no_address",
+      "professional_id": "0fad5766-97f0-4844-b32c-921904557b37",
+      "status": "converted"
+    },
+    {
+      "business_id": "978e1227-e65b-43cd-8c02-ca5a17677fed",
+      "business_slug": "savenko-anastasia-180857",
+      "professional_slug": "savenko-anastasia-180857",
+      "display_name": "Savenko Anastasia",
+      "reason": "person_name_no_address",
+      "professional_id": "992dd740-56d6-449e-a413-f98803fc1dbc",
+      "status": "converted"
+    },
+    {
+      "business_id": "e6494230-74a3-4542-92de-5f75a37275b0",
+      "business_slug": "fb-post-8-la-paving-construction-services",
+      "professional_slug": "fb-post-8-la-paving-construction-services",
+      "display_name": "La Paving - Construction Services",
+      "reason": "person_name_no_address",
+      "professional_id": "36ffd9d9-83f2-4a8a-a2c3-945931ab1be8",
+      "status": "converted"
+    },
+    {
+      "business_id": "7028f729-307f-4c2d-96be-d9a174e66d55",
+      "business_slug": "business-biz-180955",
+      "professional_slug": "business-biz-180955",
+      "display_name": "Ира",
+      "reason": "person_name_no_address",
+      "professional_id": "c07674d2-1ed1-426a-8310-b5e3d16454fb",
+      "status": "converted"
+    },
+    {
+      "business_id": "d4418450-ed6e-4a84-a111-9d0e4c0c70bb",
+      "business_slug": "business-biz-180852",
+      "professional_slug": "business-biz-180852",
+      "display_name": "Александра",
+      "reason": "person_name_no_address",
+      "professional_id": "4ec68b10-d737-4cb3-9e72-a4bd7f573b21",
+      "status": "converted"
+    },
+    {
+      "business_id": "5b5bb3e3-8f65-4223-a42e-6724ff7b780a",
+      "business_slug": "fbpack-peter-dudarenko",
+      "professional_slug": "fbpack-peter-dudarenko",
+      "display_name": "Peter Katya Dudarenko",
+      "reason": "person_name_no_address",
+      "professional_id": "708eed84-4632-4f73-911e-e668d51f1a84",
+      "status": "converted"
+    },
+    {
+      "business_id": "b3310624-b365-42d4-bfb0-77f9c4a2968f",
+      "business_slug": "fbpack-oleh-spasiuk",
+      "professional_slug": "fbpack-oleh-spasiuk",
+      "display_name": "Oleh Spasiuk",
+      "reason": "person_name_no_address",
+      "professional_id": "5260502f-2cc5-4860-91fe-21e180d93136",
+      "status": "converted"
+    },
+    {
+      "business_id": "af80c659-c4da-4347-8a63-d9c7a041a60a",
+      "business_slug": "olena-ol-205254-a65c",
+      "professional_slug": "olena-ol-205254-a65c",
+      "display_name": "Olena Ol",
+      "reason": "person_name_no_address",
+      "professional_id": "91fc2606-bf78-4d54-a16f-9811c930f09b",
+      "status": "converted"
+    },
+    {
+      "business_id": "b48a16b1-5e4d-4c7d-86d8-6758fcbcfa88",
+      "business_slug": "elizaveta-shevchenko-205355-50a8",
+      "professional_slug": "elizaveta-shevchenko-205355-50a8",
+      "display_name": "Elizaveta Shevchenko",
+      "reason": "person_name_no_address",
+      "professional_id": "fc16cce2-b2c0-4862-83d1-95ac4e23aa61",
+      "status": "converted"
+    },
+    {
+      "business_id": "57f2a732-fe3f-451b-bdee-6be7c3ce6989",
+      "business_slug": "mike-california-180856",
+      "professional_slug": "mike-california-180856",
+      "display_name": "Mike California",
+      "reason": "person_name_no_address",
+      "professional_id": "0b5cbbed-6946-46a4-9846-9998f4038f98",
+      "status": "converted"
+    },
+    {
+      "business_id": "5a0e794e-e583-4da4-9909-75ba7de36e0f",
+      "business_slug": "business-biz-205409-f8f7",
+      "professional_slug": "business-biz-205409-f8f7",
+      "display_name": "Виталина",
+      "reason": "person_name_no_address",
+      "professional_id": "a176f790-9f1c-4bc5-8ced-fae5bf7e2d56",
+      "status": "converted"
+    },
+    {
+      "business_id": "38457e9c-ff50-4d64-83e4-c0d483c8e211",
+      "business_slug": "ginger-foto-180928",
+      "professional_slug": "ginger-foto-180928",
+      "display_name": "Настя Рыжик Ginger Foto",
+      "reason": "person_name_no_address",
+      "professional_id": "35185c35-07af-4799-ae9a-58d47b159dd7",
+      "status": "converted"
+    },
+    {
+      "business_id": "0fdfc86c-8f73-4970-8154-1a93c8330d27",
+      "business_slug": "batch2-viktoriya-adamovskaya-delicious-by-va",
+      "professional_slug": "batch2-viktoriya-adamovskaya-delicious-by-va",
+      "display_name": "Viktoriya Adamovskaya",
+      "reason": "person_name_no_address",
+      "professional_id": "78736617-c4a7-43c6-b312-b295999b6aba",
+      "status": "converted"
+    },
+    {
+      "business_id": "d8db9537-e147-414b-ac0b-f4ba6abc79a9",
+      "business_slug": "cali-205405-30f5",
+      "professional_slug": "cali-205405-30f5",
+      "display_name": "Cali",
+      "reason": "person_name_no_address",
+      "professional_id": "ca3d087a-d982-44d9-8f3d-f71d618b8784",
+      "status": "converted"
+    },
+    {
+      "business_id": "d9cd823a-8986-4d1e-85ab-46f43f7677d5",
+      "business_slug": "business-biz-180900",
+      "professional_slug": "business-biz-180900",
+      "display_name": "Алёна",
+      "reason": "person_name_no_address",
+      "professional_id": "6ef916a6-8855-444d-87d9-65598611359e",
+      "status": "converted"
+    },
+    {
+      "business_id": "dbc97861-6dc8-4d51-9983-eae201bcbfc8",
+      "business_slug": "anna-belous-205421-28f8",
+      "professional_slug": "anna-belous-205421-28f8",
+      "display_name": "Anna Belous",
+      "reason": "person_name_no_address",
+      "professional_id": "bb43d41e-fa57-4472-ac18-7637ad8a449c",
+      "status": "converted"
+    },
+    {
+      "business_id": "272a2e86-f2af-4727-a994-e972d57afb51",
+      "business_slug": "business-biz-180948",
+      "professional_slug": "business-biz-180948",
+      "display_name": "Елена",
+      "reason": "person_name_no_address",
+      "professional_id": "ff0b06b0-6745-40e1-ab0b-8897e935b6dd",
+      "status": "converted"
+    },
+    {
+      "business_id": "8875ec23-1e92-4e80-9cbb-9e97d28664ab",
+      "business_slug": "business-biz-180926",
+      "professional_slug": "business-biz-180926",
+      "display_name": "Инзира",
+      "reason": "person_name_no_address",
+      "professional_id": "76952644-b33a-4591-8474-cce40f5bd9de",
+      "status": "converted"
+    },
+    {
+      "business_id": "00970f48-dda3-472e-8284-aef70e574d35",
+      "business_slug": "business-biz-205657-3fbf",
+      "professional_slug": "business-biz-205657-3fbf",
+      "display_name": "Тетяна",
+      "reason": "person_name_no_address",
+      "professional_id": "e2533d7a-8b26-4ab7-b8b6-7b1793fee26e",
+      "status": "converted"
+    },
+    {
+      "business_id": "a58cf5d6-78c4-4d69-baae-41b56e07c28c",
+      "business_slug": "irina-electrolysis-205451-0a8b",
+      "professional_slug": "irina-electrolysis-205451-0a8b",
+      "display_name": "Irina Electrolysis",
+      "reason": "person_name_no_address",
+      "professional_id": "c1c5ed92-0190-4596-9183-94a573bee26b",
+      "status": "converted"
+    },
+    {
+      "business_id": "6c5fe8e1-6169-47a5-852d-3ef48096d478",
+      "business_slug": "anna-181002",
+      "professional_slug": "anna-181002",
+      "display_name": "Anna",
+      "reason": "person_name_no_address",
+      "professional_id": "48e0ee76-b951-4a7b-a977-6482fcb070be",
+      "status": "converted"
+    },
+    {
+      "business_id": "22173c44-e467-4f34-8df7-18bbcd4b5f0f",
+      "business_slug": "daria-zubova-205425-e380",
+      "professional_slug": "daria-zubova-205425-e380",
+      "display_name": "Daria Zubova",
+      "reason": "person_name_no_address",
+      "professional_id": "bde5d3ed-7757-4763-8e07-3edc7da62a3c",
+      "status": "converted"
+    },
+    {
+      "business_id": "c4f7995b-4e4d-4b4e-9664-c344bc0ed808",
+      "business_slug": "business-biz-205420-32a9",
+      "professional_slug": "business-biz-205420-32a9",
+      "display_name": "Кристина",
+      "reason": "person_name_no_address",
+      "professional_id": "1114fe23-6cfd-4d85-a31c-1eafa68929e1",
+      "status": "converted"
+    },
+    {
+      "business_id": "2e7056b1-a77d-4842-b567-65113f7fcaec",
+      "business_slug": "business-biz-180942",
+      "professional_slug": "business-biz-180942",
+      "display_name": "Всеволод Климчук",
+      "reason": "person_name_no_address",
+      "professional_id": "036f3f44-983d-455d-adf8-430d9bbf3669",
+      "status": "converted"
+    },
+    {
+      "business_id": "b32f6171-aae0-4a9e-8bc0-d820c3f090da",
+      "business_slug": "andrea-205452-eebd",
+      "professional_slug": "andrea-205452-eebd",
+      "display_name": "Andrea",
+      "reason": "person_name_no_address",
+      "professional_id": "7ce6c8ab-4fa5-40a2-a829-6758840fa401",
+      "status": "converted"
+    },
+    {
+      "business_id": "cbe38e64-2f8a-4c01-b299-8c95d4fbe5f6",
+      "business_slug": "anastasiya-breslavska-205430-8625",
+      "professional_slug": "anastasiya-breslavska-205430-8625",
+      "display_name": "Anastasiya Breslavska",
+      "reason": "person_name_no_address",
+      "professional_id": "1d8f5df2-5bb7-4990-bd95-a31dcc4e915d",
+      "status": "converted"
+    },
+    {
+      "business_id": "3fba5c17-0362-4236-aa00-ff22e30dd36e",
+      "business_slug": "spitsyna-nata-205516-bbd9",
+      "professional_slug": "spitsyna-nata-205516-bbd9",
+      "display_name": "Spitsyna Nata",
+      "reason": "person_name_no_address",
+      "professional_id": "854b4f88-2e80-4755-abdc-3707ff5cfa21",
+      "status": "converted"
+    },
+    {
+      "business_id": "67001116-2379-4b93-8cdb-e8b6ba5c2bf8",
+      "business_slug": "anna-s-180848",
+      "professional_slug": "anna-s-180848",
+      "display_name": "Anna S",
+      "reason": "person_name_no_address",
+      "professional_id": "ebdb0a0f-cf1e-4988-ab65-87b02a7b6778",
+      "status": "converted"
+    },
+    {
+      "business_id": "d8d06fc2-79b9-4248-9657-7852ac624183",
+      "business_slug": "viola-lawrence-design-205504-a6a6",
+      "professional_slug": "viola-lawrence-design-205504-a6a6",
+      "display_name": "Viola Lawrence | Design",
+      "reason": "person_name_no_address",
+      "professional_id": "bbcd4dff-5ee5-458a-9fdf-2352e124a970",
+      "status": "converted"
+    },
+    {
+      "business_id": "c9f7e8c5-1daf-4cab-b11a-2568d0a1bdc3",
+      "business_slug": "business-biz-205440-b16e",
+      "professional_slug": "business-biz-205440-b16e",
+      "display_name": "Губанов Дмитрий",
+      "reason": "person_name_no_address",
+      "professional_id": "c19e7003-b220-418a-9b84-8d4ae5c73695",
+      "status": "converted"
+    },
+    {
+      "business_id": "595efc9b-8a44-4c6a-8b22-34b11ac50dfc",
+      "business_slug": "business-biz-205645-00cc",
+      "professional_slug": "business-biz-205645-00cc",
+      "display_name": "Галина Бёрфильд",
+      "reason": "person_name_no_address",
+      "professional_id": "7bee140c-f53c-4f00-a224-2d4901aad714",
+      "status": "converted"
+    },
+    {
+      "business_id": "86ae854b-5c68-4356-a18d-28d6c4f0aef5",
+      "business_slug": "olga-inozemtseva-205457-8b62",
+      "professional_slug": "olga-inozemtseva-205457-8b62",
+      "display_name": "Olga Inozemtseva",
+      "reason": "person_name_no_address",
+      "professional_id": "c4265877-51d4-432e-8f27-edb1a9310441",
+      "status": "converted"
+    },
+    {
+      "business_id": "9c7f0c99-2775-4786-9c4b-b2ef7b43d92c",
+      "business_slug": "business-biz-205455-e5dc",
+      "professional_slug": "business-biz-205455-e5dc",
+      "display_name": "Яночка✨",
+      "reason": "person_name_no_address",
+      "professional_id": "56c7312f-626c-4b28-b73f-e9be0eb423c8",
+      "status": "converted"
+    },
+    {
+      "business_id": "07f0db59-5a5e-47e4-908c-aa708ff6be03",
+      "business_slug": "business-biz-205501-a0c9",
+      "professional_slug": "business-biz-205501-a0c9",
+      "display_name": "Регина",
+      "reason": "person_name_no_address",
+      "professional_id": "d3ab4225-0089-4734-a8bd-a47232828321",
+      "status": "converted"
+    },
+    {
+      "business_id": "73d2ffba-5674-4593-80a8-cf582505290c",
+      "business_slug": "business-biz-205459-5cd8",
+      "professional_slug": "business-biz-205459-5cd8",
+      "display_name": "Габи",
+      "reason": "person_name_no_address",
+      "professional_id": "7b6613fd-4c8e-4b61-8d62-a44362bf09bf",
+      "status": "converted"
+    },
+    {
+      "business_id": "a2cd4642-0b8b-42a3-8a6b-1841442cc0df",
+      "business_slug": "business-biz-205513-a1f0",
+      "professional_slug": "business-biz-205513-a1f0",
+      "display_name": "Николай",
+      "reason": "person_name_no_address",
+      "professional_id": "e18ec7c2-df13-4862-a164-6c34f25a3678",
+      "status": "converted"
+    },
+    {
+      "business_id": "bf53a5a8-e94b-43d8-aaa7-62597858f6e4",
+      "business_slug": "sandrina-rudenko-205521-2a6d",
+      "professional_slug": "sandrina-rudenko-205521-2a6d",
+      "display_name": "Sandrina Rudenko",
+      "reason": "person_name_no_address",
+      "professional_id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "status": "converted"
+    },
+    {
+      "business_id": "2d9b75c0-2a47-4604-a484-c17c787cca5b",
+      "business_slug": "business-biz-205547-5bac",
+      "professional_slug": "business-biz-205547-5bac",
+      "display_name": "Альбина",
+      "reason": "person_name_no_address",
+      "professional_id": "820514d3-f49a-441a-955d-4f421456ffbc",
+      "status": "converted"
+    },
+    {
+      "business_id": "66bebd91-d2a3-45bf-9253-58eab308130c",
+      "business_slug": "business-biz-205529-5d5e",
+      "professional_slug": "business-biz-205529-5d5e",
+      "display_name": "Иван",
+      "reason": "person_name_no_address",
+      "professional_id": "5de7c362-d7ed-446d-822e-3d2fdfe2e086",
+      "status": "converted"
+    },
+    {
+      "business_id": "36b656f0-dced-4357-9066-fc600f5b6538",
+      "business_slug": "liudmila-irvine-205551-3ed5",
+      "professional_slug": "liudmila-irvine-205551-3ed5",
+      "display_name": "Liudmila Irvine",
+      "reason": "person_name_no_address",
+      "professional_id": "45e40d30-f185-4bc0-b5a8-b1abc38dd281",
+      "status": "converted"
+    },
+    {
+      "business_id": "738c40f4-83f3-4eb5-a6f1-3e0cbcb351d3",
+      "business_slug": "vaso-205605-0ebc",
+      "professional_slug": "vaso-205605-0ebc",
+      "display_name": "Vaso",
+      "reason": "person_name_no_address",
+      "professional_id": "abde6af5-1638-43dd-8437-bd81802c2d64",
+      "status": "converted"
+    },
+    {
+      "business_id": "29819190-24b0-43f6-adc2-47ee88024ddd",
+      "business_slug": "business-biz-205703-dfca",
+      "professional_slug": "business-biz-205703-dfca",
+      "display_name": "Тетяна",
+      "reason": "person_name_no_address",
+      "professional_id": "903320df-4a63-4372-9602-15a308f00126",
+      "status": "converted"
+    },
+    {
+      "business_id": "ae557fcd-6570-4099-af50-17e73f46682a",
+      "business_slug": "serena-205617-1553",
+      "professional_slug": "serena-205617-1553",
+      "display_name": "Serena",
+      "reason": "person_name_no_address",
+      "professional_id": "0d016684-5f9d-4d00-81ce-4639f2e5ef60",
+      "status": "converted"
+    },
+    {
+      "business_id": "f1467f2e-ab75-41e7-b013-aa7687fe51f1",
+      "business_slug": "business-biz-205655-4e36",
+      "professional_slug": "business-biz-205655-4e36",
+      "display_name": "Роман",
+      "reason": "person_name_no_address",
+      "professional_id": "a69443e4-9b66-446e-bd25-4e5c180a2986",
+      "status": "converted"
+    },
+    {
+      "business_id": "8472c41c-8923-4305-8230-331743530389",
+      "business_slug": "business-biz-205712-83bc",
+      "professional_slug": "business-biz-205712-83bc",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "192e2345-aca7-4972-a5c2-d8a78fd7f11f",
+      "status": "converted"
+    },
+    {
+      "business_id": "1762faa0-a4b5-4855-b2ab-e163f9095b3a",
+      "business_slug": "business-biz-205753-f515",
+      "professional_slug": "business-biz-205753-f515",
+      "display_name": "Тетяна",
+      "reason": "person_name_no_address",
+      "professional_id": "40c2c723-b304-45d4-96d5-33dbb10c0238",
+      "status": "converted"
+    },
+    {
+      "business_id": "bf9b98a5-9dbe-4776-9c6b-2e72180f8019",
+      "business_slug": "anastesia-art-205802-03d1",
+      "professional_slug": "anastesia-art-205802-03d1",
+      "display_name": "Anastesia Art",
+      "reason": "person_name_no_address",
+      "professional_id": "5b758024-7207-427e-93ec-4232781bceb1",
+      "status": "converted"
+    },
+    {
+      "business_id": "4f113230-3417-4b9e-9d9f-a2e43f2a529f",
+      "business_slug": "business-biz-205806-844a",
+      "professional_slug": "business-biz-205806-844a",
+      "display_name": "Женечка",
+      "reason": "person_name_no_address",
+      "professional_id": "4e254cb0-d92f-4018-bd60-911c0a823601",
+      "status": "converted"
+    },
+    {
+      "business_id": "fb4ab0f8-e6fc-4015-b7a7-73be1448313c",
+      "business_slug": "margarita-shvalikovskaya-205653-ef12",
+      "professional_slug": "margarita-shvalikovskaya-205653-ef12",
+      "display_name": "Margarita Shvalikovskaya",
+      "reason": "person_name_no_address",
+      "professional_id": "5eb5e260-fd2f-4988-b00b-5f13c1e6ff44",
+      "status": "converted"
+    },
+    {
+      "business_id": "31adf4c6-c54a-45c3-9f29-6a5fcb78e8fd",
+      "business_slug": "roman-205711-d761",
+      "professional_slug": "roman-205711-d761",
+      "display_name": "Roman",
+      "reason": "person_name_no_address",
+      "professional_id": "2d3a1db0-44aa-492c-b003-843b503a3ba8",
+      "status": "converted"
+    },
+    {
+      "business_id": "e02b3765-929b-4a16-84e9-92a18ff1d676",
+      "business_slug": "business-biz-205717-4969",
+      "professional_slug": "business-biz-205717-4969",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "c303dfe6-da1b-41c1-aa9a-acbd9d821e8a",
+      "status": "converted"
+    },
+    {
+      "business_id": "7c1b36e6-6576-406e-844d-da9cc3dac2be",
+      "business_slug": "business-biz-205710-ae35",
+      "professional_slug": "business-biz-205710-ae35",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "3d5630b0-b72c-4425-8a6b-cc39a44c952f",
+      "status": "converted"
+    },
+    {
+      "business_id": "7a964df2-468f-4a64-ae2c-8202dee4f416",
+      "business_slug": "angelina-205718-7e04",
+      "professional_slug": "angelina-205718-7e04",
+      "display_name": "Angelina",
+      "reason": "person_name_no_address",
+      "professional_id": "9e14a749-ec2d-4e15-a012-fdfacdf8adec",
+      "status": "converted"
+    },
+    {
+      "business_id": "23fe5bfb-e68d-4dd2-bc61-45885a7a3a61",
+      "business_slug": "ange-205707-630e",
+      "professional_slug": "ange-205707-630e",
+      "display_name": "Ange",
+      "reason": "person_name_no_address",
+      "professional_id": "042f8ee7-6673-45f5-8fce-52945fca7910",
+      "status": "converted"
+    },
+    {
+      "business_id": "dc3b3e0b-1194-4daa-a9c2-0e64f5db6409",
+      "business_slug": "business-biz-205726-5ca1",
+      "professional_slug": "business-biz-205726-5ca1",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "af7c5e1d-d9bf-4851-8688-a5f2e7972312",
+      "status": "converted"
+    },
+    {
+      "business_id": "8e87a943-b907-49df-a6a4-527aeb97a294",
+      "business_slug": "ange-205730-3040",
+      "professional_slug": "ange-205730-3040",
+      "display_name": "Ange",
+      "reason": "person_name_no_address",
+      "professional_id": "523df6c4-975c-4ca3-9ca2-3f1c9c9cbb6c",
+      "status": "converted"
+    },
+    {
+      "business_id": "a986303b-9c4d-4109-a78a-4d2454264997",
+      "business_slug": "angelina-205735-447e",
+      "professional_slug": "angelina-205735-447e",
+      "display_name": "Angelina",
+      "reason": "person_name_no_address",
+      "professional_id": "501cec85-72b4-438e-ad1b-3f2b768dec5c",
+      "status": "converted"
+    },
+    {
+      "business_id": "adc353db-05a0-44a5-9610-4eeebd95603f",
+      "business_slug": "roman-205714-a161",
+      "professional_slug": "roman-205714-a161",
+      "display_name": "Roman",
+      "reason": "person_name_no_address",
+      "professional_id": "502afb70-82fe-4c89-bff5-3d27ca671cf8",
+      "status": "converted"
+    },
+    {
+      "business_id": "47d4ada6-665a-4382-8882-65ca63ef54c5",
+      "business_slug": "business-biz-205719-742f",
+      "professional_slug": "business-biz-205719-742f",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "fbf0e2be-dbd1-4d1f-8ca6-aadce647fb18",
+      "status": "converted"
+    },
+    {
+      "business_id": "1dd727bc-4aa3-46bc-8d0d-2a4c842f14b1",
+      "business_slug": "angelina-205732-db26",
+      "professional_slug": "angelina-205732-db26",
+      "display_name": "Angelina",
+      "reason": "person_name_no_address",
+      "professional_id": "33c5fa05-818a-451f-adc9-fe63f3b2fe3e",
+      "status": "converted"
+    },
+    {
+      "business_id": "73941dd4-2c50-4d3a-8040-a826b14c184a",
+      "business_slug": "ange-205721-b8c5",
+      "professional_slug": "ange-205721-b8c5",
+      "display_name": "Ange",
+      "reason": "person_name_no_address",
+      "professional_id": "c1d16647-6cbd-4968-bd74-e88f10fd00b7",
+      "status": "converted"
+    },
+    {
+      "business_id": "0d5c8dca-eb8a-4cdf-b0f6-d5c1a496c574",
+      "business_slug": "business-biz-205723-a9fe",
+      "professional_slug": "business-biz-205723-a9fe",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "fc2971da-dcc1-4ba7-ad35-36d392466213",
+      "status": "converted"
+    },
+    {
+      "business_id": "c23ce0b0-c24f-4d46-9fb6-14bbda953cc4",
+      "business_slug": "business-biz-205800-7b0c",
+      "professional_slug": "business-biz-205800-7b0c",
+      "display_name": "Ирина",
+      "reason": "person_name_no_address",
+      "professional_id": "46c172b1-8549-46aa-9a8d-86d470dc0b3a",
+      "status": "converted"
+    },
+    {
+      "business_id": "6546a03a-d36e-4797-843a-e6b2bd027a7c",
+      "business_slug": "goar-goar-205823-7fc6",
+      "professional_slug": "goar-goar-205823-7fc6",
+      "display_name": "Goar Goar",
+      "reason": "person_name_no_address",
+      "professional_id": "653bcb06-330c-41c7-b516-ca910ac6d2e1",
+      "status": "converted"
+    },
+    {
+      "business_id": "bb01a6f4-0923-4a65-ae5b-a6172b039deb",
+      "business_slug": "angelina-205722-1ce9",
+      "professional_slug": "angelina-205722-1ce9",
+      "display_name": "Angelina",
+      "reason": "person_name_no_address",
+      "professional_id": "eb2ad244-753d-482c-a371-2edaab3cde44",
+      "status": "converted"
+    },
+    {
+      "business_id": "f68edd55-4729-41f7-8c83-3e6978213b9b",
+      "business_slug": "ksenia-205811-7635",
+      "professional_slug": "ksenia-205811-7635",
+      "display_name": "Ksenia",
+      "reason": "person_name_no_address",
+      "professional_id": "c38d3951-c481-44df-ac04-a354020b7cb8",
+      "status": "converted"
+    },
+    {
+      "business_id": "92fc75cc-4cc8-45d0-b296-df776839222c",
+      "business_slug": "angelina-205725-8c41",
+      "professional_slug": "angelina-205725-8c41",
+      "display_name": "Angelina",
+      "reason": "person_name_no_address",
+      "professional_id": "f9765d00-d241-47a2-957f-3e4216e59a80",
+      "status": "converted"
+    },
+    {
+      "business_id": "37fd5ac4-92b3-4439-ad6b-c73dff599a4b",
+      "business_slug": "nataly-simonova-205733-d6c0",
+      "professional_slug": "nataly-simonova-205733-d6c0",
+      "display_name": "Nataly Simonova",
+      "reason": "person_name_no_address",
+      "professional_id": "f06e502f-a5c6-45c5-aab5-bf1637f0c93c",
+      "status": "converted"
+    },
+    {
+      "business_id": "3744f7e0-d32c-4a8d-9c12-e5136e27f977",
+      "business_slug": "business-biz-205739-5654",
+      "professional_slug": "business-biz-205739-5654",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "51d2f8d1-a4e4-4690-886c-ed007d91fb0f",
+      "status": "converted"
+    },
+    {
+      "business_id": "4698348f-228a-493d-9d3f-392df32e4b89",
+      "business_slug": "business-biz-205743-d6eb",
+      "professional_slug": "business-biz-205743-d6eb",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "34885484-8818-479d-a9e2-2bc3c2aa2073",
+      "status": "converted"
+    },
+    {
+      "business_id": "922c87e3-fd91-41ba-ba01-0ab0e0235c05",
+      "business_slug": "business-biz-205745-a7db",
+      "professional_slug": "business-biz-205745-a7db",
+      "display_name": "Милена",
+      "reason": "person_name_no_address",
+      "professional_id": "affa9a4e-e965-4b7f-931e-b92748653722",
+      "status": "converted"
+    },
+    {
+      "business_id": "5202f2da-3569-4dea-9236-deffd8afd8ce",
+      "business_slug": "anait-avetisian-205744-615c",
+      "professional_slug": "anait-avetisian-205744-615c",
+      "display_name": "Anait Avetisian",
+      "reason": "person_name_no_address",
+      "professional_id": "c005c2b2-c242-40f9-a98c-a66f1716107d",
+      "status": "converted"
+    },
+    {
+      "business_id": "7b8098f7-fe40-477d-83ae-1bf452fd6ad7",
+      "business_slug": "lana-cher-205803-42a9",
+      "professional_slug": "lana-cher-205803-42a9",
+      "display_name": "Lana Cher",
+      "reason": "person_name_no_address",
+      "professional_id": "52ceef34-ebeb-4641-a289-a62c2303394d",
+      "status": "converted"
+    },
+    {
+      "business_id": "c91db88c-2f13-4787-92a7-516139190680",
+      "business_slug": "business-biz-205751-24ed",
+      "professional_slug": "business-biz-205751-24ed",
+      "display_name": "Алла",
+      "reason": "person_name_no_address",
+      "professional_id": "170e5a4a-634e-4ec4-9811-1c04a55fc09e",
+      "status": "converted"
+    },
+    {
+      "business_id": "561f941b-b924-4fed-b3aa-4818ff1cb896",
+      "business_slug": "rita-torikashvili-205809-48fa",
+      "professional_slug": "rita-torikashvili-205809-48fa",
+      "display_name": "Rita Torikashvili",
+      "reason": "person_name_no_address",
+      "professional_id": "fd5f6f4f-204b-42c0-9887-e2d7ac3445e6",
+      "status": "converted"
+    },
+    {
+      "business_id": "ab16e4cd-335c-451e-abec-3b3b7cc6fa32",
+      "business_slug": "lana-205640-2183",
+      "professional_slug": "lana-205640-2183",
+      "display_name": "Lana",
+      "reason": "person_name_no_address",
+      "professional_id": "d0bc23ab-e7cf-44ce-ac4e-0e5c9281eb4e",
+      "status": "converted"
+    },
+    {
+      "business_id": "f919b1a0-4923-43a5-b66b-b03c9eece062",
+      "business_slug": "elvira-aksenova-205536-bd87",
+      "professional_slug": "elvira-aksenova-205536-bd87",
+      "display_name": "Elvira Aksenova",
+      "reason": "person_name_no_address",
+      "professional_id": "6ce441b1-128e-4e72-aad3-41f9a7ff6a2a",
+      "status": "converted"
+    },
+    {
+      "business_id": "439a128d-06e9-4eb4-8083-cf1a456829ea",
+      "business_slug": "elena-kaharlytska-205443-9eb3",
+      "professional_slug": "elena-kaharlytska-205443-9eb3",
+      "display_name": "Elena Kaharlytska",
+      "reason": "person_name_no_address",
+      "professional_id": "8ec63f5f-48aa-446c-a4f2-f12241cc7a73",
+      "status": "converted"
+    },
+    {
+      "business_id": "6f2677de-35f1-43c2-b16c-2db45471e092",
+      "business_slug": "viorika-205408-5246",
+      "professional_slug": "viorika-205408-5246",
+      "display_name": "Viorika",
+      "reason": "person_name_no_address",
+      "professional_id": "31046edd-0210-4bd1-b9e3-0c63010f438d",
+      "status": "converted"
+    },
+    {
+      "business_id": "680886d8-084a-426f-a9e8-f48b5e50ce31",
+      "business_slug": "mariia-205350-08be",
+      "professional_slug": "mariia-205350-08be",
+      "display_name": "Mariia ✨",
+      "reason": "person_name_no_address",
+      "professional_id": "80074551-1795-4181-b527-091d4c206d7c",
+      "status": "converted"
+    },
+    {
+      "business_id": "fc7a1ee9-988a-42da-89e7-7fddeca6e2fa",
+      "business_slug": "business-biz-205630-774b",
+      "professional_slug": "business-biz-205630-774b",
+      "display_name": "Марина",
+      "reason": "person_name_no_address",
+      "professional_id": "47a9aff1-0bde-44d6-9807-57e4a129f881",
+      "status": "converted"
+    },
+    {
+      "business_id": "bf47d6d3-2f74-4cf7-9010-facb53e635e6",
+      "business_slug": "sabina-yarantseva-205604-4676",
+      "professional_slug": "sabina-yarantseva-205604-4676",
+      "display_name": "Sabina Yarantseva",
+      "reason": "person_name_no_address",
+      "professional_id": "8acc9994-309a-467c-8897-852db437d1e5",
+      "status": "converted"
+    },
+    {
+      "business_id": "f4a85a43-b469-428a-83ff-b1afc9f20ed7",
+      "business_slug": "business-biz-205439-7de7",
+      "professional_slug": "business-biz-205439-7de7",
+      "display_name": "Таисия Шаповалова",
+      "reason": "person_name_no_address",
+      "professional_id": "235c20b5-9b61-4001-bba4-87eca9ce857a",
+      "status": "converted"
+    },
+    {
+      "business_id": "618f2b0f-d56b-4d5d-aeb9-2d3ce882c789",
+      "business_slug": "kate-205352-fef8",
+      "professional_slug": "kate-205352-fef8",
+      "display_name": "Kate",
+      "reason": "person_name_no_address",
+      "professional_id": "2a6f80bc-b4df-4a43-95e4-d44b04c26925",
+      "status": "converted"
+    },
+    {
+      "business_id": "e0d3c992-f40f-4a1b-b19b-7d68a83d1aed",
+      "business_slug": "business-biz-205438-a4f5",
+      "professional_slug": "business-biz-205438-a4f5",
+      "display_name": "Альбина",
+      "reason": "person_name_no_address",
+      "professional_id": "2fe01c67-888a-4719-88ef-22bac7ebd0b3",
+      "status": "converted"
+    },
+    {
+      "business_id": "bea1544f-747e-42a0-a1a5-c1fd40b1ed4b",
+      "business_slug": "elena-205357-e633",
+      "professional_slug": "elena-205357-e633",
+      "display_name": "Elena ☀️",
+      "reason": "person_name_no_address",
+      "professional_id": "abab7af0-9d65-4fc6-b58f-49e0c91f189d",
+      "status": "converted"
+    },
+    {
+      "business_id": "2b2cec61-024a-462e-a7c9-0592bfca6ecd",
+      "business_slug": "stanislav-kuznetsov-205626-7008",
+      "professional_slug": "stanislav-kuznetsov-205626-7008",
+      "display_name": "Stanislav Kuznetsov",
+      "reason": "person_name_no_address",
+      "professional_id": "3b94799c-49a4-4c0a-9985-e50b78bd33c1",
+      "status": "converted"
+    },
+    {
+      "business_id": "d7dafa5a-0d7d-40ea-abbe-42649eb2f945",
+      "business_slug": "dmitry-205525-2a15",
+      "professional_slug": "dmitry-205525-2a15",
+      "display_name": "Dmitry",
+      "reason": "person_name_no_address",
+      "professional_id": "ba35ccf6-880b-4e0c-819e-1f1b9e8ee2a7",
+      "status": "converted"
+    },
+    {
+      "business_id": "932cb9e2-e421-4d29-ad31-01a052a074d9",
+      "business_slug": "alina-205601-d7e9",
+      "professional_slug": "alina-205601-d7e9",
+      "display_name": "Alina",
+      "reason": "person_name_no_address",
+      "professional_id": "05d932bf-e42d-4adb-a992-bbcd86d487f9",
+      "status": "converted"
+    },
+    {
+      "business_id": "f8e07bbe-6e17-4b76-971c-f6899c38fafc",
+      "business_slug": "business-biz-205546-4e96",
+      "professional_slug": "business-biz-205546-4e96",
+      "display_name": "Юля",
+      "reason": "person_name_no_address",
+      "professional_id": "9aef4565-80d5-4e45-b8e1-07fd6d04dc1f",
+      "status": "converted"
+    },
+    {
+      "business_id": "f1b28a03-96e6-4700-9a13-d5ce7935e3a5",
+      "business_slug": "konstantin-nutrition-205531-70ad",
+      "professional_slug": "konstantin-nutrition-205531-70ad",
+      "display_name": "Konstantin Nutrition",
+      "reason": "person_name_no_address",
+      "professional_id": "4ff40a99-303b-41b5-a384-8db2b5064aa1",
+      "status": "converted"
+    },
+    {
+      "business_id": "169e918b-c3bf-47e9-9ad6-010cb8a678d5",
+      "business_slug": "yar-205436-e1c7",
+      "professional_slug": "yar-205436-e1c7",
+      "display_name": "Yar",
+      "reason": "person_name_no_address",
+      "professional_id": "c975ba3b-1f2a-4b05-821c-3d3cc2b5e8d0",
+      "status": "converted"
+    },
+    {
+      "business_id": "75d74502-51ed-42d3-9689-761a99b89908",
+      "business_slug": "rafik-barseghyan-205218-d3d6",
+      "professional_slug": "rafik-barseghyan-205218-d3d6",
+      "display_name": "Rafik Barseghyan",
+      "reason": "person_name_no_address",
+      "professional_id": "0ef252b6-c64d-4d1a-ae70-3d2c9547fdd0",
+      "status": "converted"
+    },
+    {
+      "business_id": "3e15a00c-e11e-4272-b4de-3251f717a96e",
+      "business_slug": "larisa-grib-205459-d906",
+      "professional_slug": "larisa-grib-205459-d906",
+      "display_name": "Larisa Grib",
+      "reason": "person_name_no_address",
+      "professional_id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+      "status": "converted"
+    },
+    {
+      "business_id": "4fc0b135-e850-4483-99df-d09b787d23d1",
+      "business_slug": "business-biz-205413-094d",
+      "professional_slug": "business-biz-205413-094d",
+      "display_name": "Гора Ведьма",
+      "reason": "person_name_no_address",
+      "professional_id": "0d1a18a3-4b72-4aae-a063-ec87d5a2cb74",
+      "status": "converted"
+    },
+    {
+      "business_id": "32d1e72a-37a5-49e7-ae12-1dbc09c4860f",
+      "business_slug": "business-biz-205300-9bde",
+      "professional_slug": "business-biz-205300-9bde",
+      "display_name": "Володимир Ярошенко",
+      "reason": "person_name_no_address",
+      "professional_id": "fc522a37-5de9-43c1-ad74-a5be671b542d",
+      "status": "converted"
+    },
+    {
+      "business_id": "0e7a6a96-6bd5-458c-a170-ea84b4354229",
+      "business_slug": "stacy-205434-8dd1",
+      "professional_slug": "stacy-205434-8dd1",
+      "display_name": "Stacy",
+      "reason": "person_name_no_address",
+      "professional_id": "af9c50ac-6c30-40ec-85ed-86a5104d6c89",
+      "status": "converted"
+    },
+    {
+      "business_id": "1f2a0a1a-f443-4693-a6c0-feea2c0047a2",
+      "business_slug": "kat-koz-205219-5a38",
+      "professional_slug": "kat-koz-205219-5a38",
+      "display_name": "Kat Koz",
+      "reason": "person_name_no_address",
+      "professional_id": "8e73cae5-cbc1-4e65-91a4-d7fe4861fb9d",
+      "status": "converted"
+    },
+    {
+      "business_id": "992802db-a1d0-41d9-9203-59ed3261d7f4",
+      "business_slug": "business-biz-205336-c34b",
+      "professional_slug": "business-biz-205336-c34b",
+      "display_name": "Айзада",
+      "reason": "person_name_no_address",
+      "professional_id": "e25f727c-2c58-4447-8fd1-6cf0a0faf5e6",
+      "status": "converted"
+    },
+    {
+      "business_id": "fd538506-af08-4374-9c89-35191ae181fe",
+      "business_slug": "eugenia-grigoreva-205225-cb62",
+      "professional_slug": "eugenia-grigoreva-205225-cb62",
+      "display_name": "Eugenia Grigoreva",
+      "reason": "person_name_no_address",
+      "professional_id": "b7209f62-d3b8-4dbb-a3da-6d01485c95be",
+      "status": "converted"
+    },
+    {
+      "business_id": "5d45445b-511d-4bda-9b0a-e807cb682ad8",
+      "business_slug": "alexandra-rich-205210-371d",
+      "professional_slug": "alexandra-rich-205210-371d",
+      "display_name": "Alexandra Rich",
+      "reason": "person_name_no_address",
+      "professional_id": "647f1ea3-fbcd-4657-b167-9fa326cfff4a",
+      "status": "converted"
+    },
+    {
+      "business_id": "f246e042-7725-4346-8b01-89708a7a33b3",
+      "business_slug": "darya-205349-83d8",
+      "professional_slug": "darya-205349-83d8",
+      "display_name": "Darya",
+      "reason": "person_name_no_address",
+      "professional_id": "31618667-b46d-4e6a-be79-a8e6a998c953",
+      "status": "converted"
+    },
+    {
+      "business_id": "cafcd6a3-9a06-491e-ba10-0a6bf933bbdd",
+      "business_slug": "business-biz-205226-834c",
+      "professional_slug": "business-biz-205226-834c",
+      "display_name": "Евгения",
+      "reason": "person_name_no_address",
+      "professional_id": "72ef70a8-a353-4332-b086-ba4087942c57",
+      "status": "converted"
+    },
+    {
+      "business_id": "b054519a-1d10-457c-88cb-60b2b3931bbc",
+      "business_slug": "business-biz-205235-fe83",
+      "professional_slug": "business-biz-205235-fe83",
+      "display_name": "Йосси Кински",
+      "reason": "person_name_no_address",
+      "professional_id": "a795df8f-fa37-4933-9c83-409b0e1a3f00",
+      "status": "converted"
+    },
+    {
+      "business_id": "01d53c2f-89bc-4d36-a312-c86105445b0b",
+      "business_slug": "viktoriia-205340-f142",
+      "professional_slug": "viktoriia-205340-f142",
+      "display_name": "Viktoriia",
+      "reason": "person_name_no_address",
+      "professional_id": "e5b5bb83-2fc8-48a1-a760-0637b2517a94",
+      "status": "converted"
+    },
+    {
+      "business_id": "80135466-0abb-4e32-9e24-48975e7c6e58",
+      "business_slug": "business-biz-205315-b87f",
+      "professional_slug": "business-biz-205315-b87f",
+      "display_name": "Анна Пиченко",
+      "reason": "person_name_no_address",
+      "professional_id": "634564d0-69ae-4fbc-b869-f1b5f6f50525",
+      "status": "converted"
+    },
+    {
+      "business_id": "e7107875-2698-4950-aecd-2f775fb6a8df",
+      "business_slug": "valter-eslon-205228-0ffb",
+      "professional_slug": "valter-eslon-205228-0ffb",
+      "display_name": "Valter Eslon",
+      "reason": "person_name_no_address",
+      "professional_id": "021524c5-7253-4b6e-b656-45ef2e38b1ad",
+      "status": "converted"
+    },
+    {
+      "business_id": "191f0651-ad5b-400c-8d64-02d7c9297089",
+      "business_slug": "business-biz-205334-ec41",
+      "professional_slug": "business-biz-205334-ec41",
+      "display_name": "Марк Макаров",
+      "reason": "person_name_no_address",
+      "professional_id": "1faac057-0698-42ee-ab26-bac6e751e0ba",
+      "status": "converted"
+    },
+    {
+      "business_id": "1bc1fd16-de78-4b98-8090-6d72d3d43458",
+      "business_slug": "anastasiia-shirkina-205213-624c",
+      "professional_slug": "anastasiia-shirkina-205213-624c",
+      "display_name": "Anastasiia Shirkina",
+      "reason": "person_name_no_address",
+      "professional_id": "65245a31-6060-401f-95dc-6aa1906dd11c",
+      "status": "converted"
+    }
+  ],
+  "skipped_sample": [
+    {
+      "id": "c0e9147e-4ca5-4d72-b3a6-73a5069290b5",
+      "name": "Милена",
+      "slug": "business-biz-205649-52ce",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$ Ванночка для ног с солью обработка стопы ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "831c4075-1f0e-417d-876b-d6e5ef219352",
+      "name": "Yulia",
+      "slug": "yulia-205824-7636",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Мы были в aqua tots месяца два , перешли в waterworks , там год уже занимается дочка, нам больше нравится . Но в aqua tots она быстро поплыл",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "8954db04-4ef8-4391-9ecc-0e7ecc26bf5d",
+      "name": "Iryna ❤️‍🇺🇦",
+      "slug": "iryna-205632-d2e9",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "було якось морально важко в еміграції знайшла віддушину у поезії (Костенко, Симоненко…) а згодом почала робити з їх віршів музику кому цікав",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "44e482f0-3ec6-427f-b41d-5d827361fb1a",
+      "name": "Тетяна",
+      "slug": "business-biz-205702-39b7",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Я пеку паски домашние вкусные- цукаты, шоколадные капли, изюм. Можно начинить кремом - шоколадным или ванильным.",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "a0beb3f4-2d4a-443d-8ac8-908c7088fa2d",
+      "name": "Ponomarev Dmitry",
+      "slug": "ponomarev-dmitry-205622-2300",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Спасибо за кулич и пасху! Все были в восторге от красоты и вкусноты. ❤️🤌",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "b0248b8b-996c-4d5e-b178-2bf201a3ede0",
+      "name": "Ilya",
+      "slug": "fbpack-ilya-house-repair-job",
+      "address": null,
+      "city": null,
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "451162e1-a39f-41e5-a09e-2a130572677d",
+      "name": "Виктория",
+      "slug": "business-biz-205825-befc",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Всем здравствуйте, у друзей пополнение. Вдруг кто-то мечтает о друге, могут привезти в начале апреля в наши края, ЛА и Сан Диего",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "42a28076-8ead-4b30-af44-202efcd9c5f4",
+      "name": "Bulletproof",
+      "slug": "bulletproof-205559-66e8",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Zeusdc Мошенник , берет предоплату и кидает. Не делайте через него аккаунты",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "669c450d-ab31-472f-9923-36ffc5ad3332",
+      "name": "Lisa Nekrasova",
+      "slug": "lisa-nekrasova-205120-a330",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Здравствуйте! Этим летом для новых учеников действует специальное летнее предложение на индивидуальные онлайн-занятия: 💜 30 минут — 10 € вм",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "b2ef6358-4bb4-45f2-9f01-acff7dc03838",
+      "name": "Elena",
+      "slug": "fbpack-home-swimming-classes-elena",
+      "address": null,
+      "city": null,
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Индивидуальные / домашние уроки плавания · Elena · (323) 252-6097",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "b7ca77ec-2576-4b80-9bd1-5ad9dedd2584",
+      "name": "Treasure Rack San Diego",
+      "slug": "fbpack-treasure-rack-san-diego",
+      "address": null,
+      "city": "San Diego",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Marketplace б/у и новых вещей · SD · бесплатные объявления · Elena Nayerman / Inara Shelton",
+      "skip": "not_a_service_offer"
+    },
+    {
+      "id": "f6478075-2318-4346-94a7-409e292ec74c",
+      "name": "Inessa Ys",
+      "slug": "inessa-ys-205049-f16b",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "ОТКРЫТ НАБОР В ДОМАШНИЙ ДЕТСКИЙ САД! 👶 Принимаем детей от 1 года. ✅ 30 лет опыта ✅ Район American River College (ZIP 95608) ✅ Забираем дете",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "89138a4b-74d1-422e-8820-70ffed14b8e7",
+      "name": "Елена Бондаренко",
+      "slug": "business-9168415612-204824-9437",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Дорогие Мамочки !Приглашаю деток 4-6 лет на уроки фортепиано по инновационной мультимедийной программе»Растём с Музыкой».Ваш ребёночек пройд",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "601b813d-1d51-4959-a891-c5a289c113a2",
+      "name": "Lena Indiukova",
+      "slug": "fbpack-lena-indiukova",
+      "address": null,
+      "city": "Irvine Spectrum",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Торты и десерты на заказ · Irvine Spectrum · @yummy_homemade_sweets",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "bae14643-a203-46fd-9179-bee4e7fd8898",
+      "name": "Lidiia Gordienko",
+      "slug": "batch2-lidiia-gordienko",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Tesla Model Y · аэропорт / OC / школьный трансфер · @Lida_Gordienko",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "d538c15f-f8bd-425f-80c4-aa81bd6dd627",
+      "name": "Евгений Чебатков — Stand Up Show",
+      "slug": "batch2-evgeniy-chebatkov-stand-up-show",
+      "address": null,
+      "city": "Los Angeles",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Stand-up · Tour 2026 · LA July 26 · BPM · Евгений Чебафов",
+      "skip": "not_a_service_offer"
+    },
+    {
+      "id": "8593bb13-aa33-4ff1-9aa2-983437b9e241",
+      "name": "Inna ☘️ Starominska",
+      "slug": "inna-starominska-205426-50ec",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "❗️ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ ❗️ -30% ❗️ Хочете скинути 5,10,15 кг? Або й більше, але боялись почати? Я Вам в цьому допоможу! Схуднення",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "3f5d1730-2a19-49a5-add4-8632e2d4b5fc",
+      "name": "Joanne Nellie",
+      "slug": "joanne-nellie-180950",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🇺🇸 Green Card через брак с гражданином/гражданкой США Оформим ваш кейс под ключ: • Adjustment of Status • Полное сопровождение до получени",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "5b35e679-9c65-4244-86ef-9aae89132526",
+      "name": "Stelar Tex - Helper Position",
+      "slug": "fb-post-24-stelar-tex-helper-position",
+      "address": null,
+      "city": "Laguna Beach",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Нужен хэлпер Лагуна бич 323 819 79 60 Экстра ---FACEBOOK_SOURCE---",
+      "skip": "not_a_service_offer"
+    },
+    {
+      "id": "6811eada-7c97-4d26-875f-1b1eaed670e4",
+      "name": "Californian Pilot",
+      "slug": "californian-pilot-205429-37d6",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Экскурсии по Лос Анджелесу на самолете. Можно увидеть Downtown LA Hollywood Sign Santa Monica pier Catalina island Laguna beach",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "e7db7f45-2240-487a-8483-74cd5f4e70fc",
+      "name": "Serghei Stanislavovici",
+      "slug": "serghei-stanislavovici-204940-350e",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🚛 Reliable ELD Solution for Truck Drivers & Fleets in the USA HOS violations and inaccurate logbooks can lead to CSA points, costly audits,",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "fb2981b6-4b6a-4ba1-8988-eff7f4c3049a",
+      "name": "Artem Andrienko",
+      "slug": "artem-andrienko-204930-f75c",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Мы с моей девушкой ищем на подселение человека в свободную комнату в доме с 1 августа двухэтажный 3br дом, общая кухня/санузел/washer+dryer ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "8c390c82-0098-4093-a3f0-8ca095679334",
+      "name": "Pavel Egorov",
+      "slug": "pavel-egorov-204852-f566",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Всем привет! Веду набор учеников на занятия по барабанам Приглашаю на индивидуальные занятия по игре на барабанах. Обучаю с нуля и продолжаю",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "a75041e0-247e-481d-a18a-f1b0b2064883",
+      "name": "Наиля",
+      "slug": "business-3106001451-190939",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Приезжайте забирайте.Вроде в настройках все хорошо, на всякий случай мой номер 3106001451 Звоните",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "f8300515-85e6-4e15-98df-1d0405c00b35",
+      "name": "Alena",
+      "slug": "alena-190941",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Здравствуйте. 9165383882 Иван Напишите ему, он занимается полами",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "8f034bd5-7ced-4d63-b158-f5af4582e149",
+      "name": "Tanzilka Deniz",
+      "slug": "tanzilka-deniz-204943-024c",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "За всеми подробностями в личные сообщения или +1 (949) 344-4112 ✨",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "1a9c7456-54af-4760-ba9c-43b51de81dec",
+      "name": "Oksana Moskvitina",
+      "slug": "oksana-moskvitina-234039",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "https://maps.apple/p/b~xNfp.okBnm1p Мой сын здесь наблюдается уже 2 года. Но ни разу не лечили, только чистка и осмотр.",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "337b2c2b-a477-48dd-916e-8bccee911e81",
+      "name": "Анна Еремеев",
+      "slug": "business-6158475912-234039",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "https://www.facebook.com/profile.php?id=61584759127972&mibextid=wwXIfr&mibextid=wwXIfr Не знаю, где они локально находятся, но постоянно поп",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "762ab6f3-3690-4abd-9354-a2516c4f7bed",
+      "name": "Oleksandra Dymytrashko",
+      "slug": "oleksandra-dymytrashko-204904-850c",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "СРОЧНО! Ищем жильё для семьи из 3 человек Добрый день, уважаемые соседи! Срочно ищем жильё для семьи: 2 взрослых + ребёнок 1 год. Ищем полдо",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "7b31be9c-df0b-4e12-b1ef-542a694e8737",
+      "name": "Oksana Moskvitina",
+      "slug": "oksana-moskvitina-234036",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "https://maps.apple/p/.0mkkk_~djsQ78 Моему сыну здесь дважды брали, очень быстро и самое важное-с первого раза",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "f7bfba85-b114-47ce-94e3-106a3e046ff2",
+      "name": "Tatiana Chueva",
+      "slug": "tatiana-chueva-204938-70d3",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Отдам котят бесплатно в добрые и заботливые руки ❤️ Малыши родились 13 июня. Уже сами кушают, ходят в лоток, активно играют и познают мир. О",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "a972cd36-7035-4f60-80ce-195dfdbfef52",
+      "name": "Kai - T",
+      "slug": "kai-t-234038",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Мы вот сюда ходили с года до 3х. Детская стоматология. Там доктор англоговорящая азиатка. Мы там были только на чистке, один раз рентген дел",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "c1d79753-221e-4d33-bbda-0f7285f6ce09",
+      "name": "Natalie Revers",
+      "slug": "natalie-revers-204925-114b",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🍯 Свежий натуральный мед. Качественный, ароматный, без сахара, сиропов и каких-либо добавок — только натуральный пчелиный мёд. Если ищете н",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "33600237-d410-421e-a94e-114d25f954b2",
+      "name": "Mark Terskiy",
+      "slug": "mark-terskiy-204928-bcc9",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Продам НОВЫЕ iPhone 17 PRO MAX 512gb Полностью разблокированные В наличии 5 синих и 1 оранжевый Забирать в Ирвайне Цену предлагайте в лс",
+      "skip": "not_a_service_offer"
+    },
+    {
+      "id": "a6a8fd9f-0ece-4654-b283-89283611c1cf",
+      "name": "Yulia",
+      "slug": "yulia-205729-80d7",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Напишите мне в личку, какого рода съемка вам нужна? Репортаж, headshot?",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "9d71af8c-caec-4b25-9d88-26115ea98671",
+      "name": "Sky Sky",
+      "slug": "sky-sky-204941-a224",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Девочки, рекомендую отличного гитариста! Это Антон, у него высшее образование и он сразу нашел подход к ребенку. Уроки проходят на одном дых",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "ba1d52f3-39b3-401b-810b-d25456245011",
+      "name": "Veronica Adams",
+      "slug": "veronica-adams-204946-d0bb",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Если кому надо котенки четыре вакцинированные и стерилизованные . Ищут добрых и любящих людей .Дворовые .Мать серая короткошестная и её годи",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "f2591a2f-5d06-4cb2-9f2d-581613ab7873",
+      "name": "Andrey Gromov",
+      "slug": "andrey-gromov-181005",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🚗 только в LA от 750 💰/ месяц Все включено!!! Подробности в лс 😉",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "8bca57e4-76a5-407b-b097-dfa86ec69d4e",
+      "name": "Elizaveta Petrova",
+      "slug": "elizaveta-petrova-180911",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "📚 Устал учить английский по приложениям без результата? Живой преподаватель с 7-летним опытом — совсем другое. Языки: 🇺🇸🇩🇪🇫🇷🇪🇸. Раз",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "e6b121b5-3d01-462b-adf4-09cb0f70af01",
+      "name": "Yelena Lobko",
+      "slug": "yelena-lobko-205006-7852",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Продается Домашнее козье молоко Куриные яйца Свежие огурцы 9163178233",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "a7fcdc31-5406-493a-860c-8519cc538e97",
+      "name": "Jenny",
+      "slug": "jenny-181008",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Друзья, заглядывайте за английским! Разбираем произношение, пополняем словарный запас, приструняем грамматику и просто весело проводим время",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "39b96ae1-51fc-4f94-ad81-be0680d006c1",
+      "name": "Yakushok Yaroslav",
+      "slug": "yakushok-yaroslav-205014-aa9d",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Всім привіт! На ярді є Kenworth 2027 та трейлери Reitnouer 2027. ✅ Вже на ярді ✅ Без очікування виробництва ✅ Фінансування доступне ✅ Спеціа",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "979571ae-759c-45bd-af03-ff5fd06579e7",
+      "name": "Born Alex",
+      "slug": "born-alex-205015-8df7",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Автомобили с аукционов США. На внутренний рынок и на экспорт. СНГ+. Ссылка в комментариях. Доступ к аукциону Манхейм для самостоятельного по",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "22401562-6280-4cfd-a4d0-c15e22e5bff6",
+      "name": "Jane Smith",
+      "slug": "jane-smith-190945",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Алёна, моя жена. Мне кажется, никто в мире не наводит чистоту так тщательно и педантично, как она 😊 Её телефон 9258007001.",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "d25ea40d-2027-43af-ac94-d173b0bdc224",
+      "name": "Ann Kutner",
+      "slug": "ann-kutner-205333-ab15",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🌞 Наш дошкольный центр погружения в русский язык принимает зачисления. 👉Узнайте о нашей учебной программе, расписании занятий и подходе к ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "d01dcadf-c73f-4664-a054-f320b6c16e36",
+      "name": "Victoria Rogalska",
+      "slug": "victoria-rogalska-180925",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "❗️ДІВЧАТА ДОСИТЬ ДУМАТИ , «ПРИЙМАТИ ДОВГО РІШЕННЯ» -4O% на всі препарати тільки СЬОГОДНІ ❗️ Хочете скинути 5,10,15,30 кг? Або й більше, але ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "90a90da0-0c24-430e-afe9-a7ae2dd7af55",
+      "name": "Max S",
+      "slug": "max-s-205638-3b7b",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Жаль мы уже сняли жилье 😅 а так отличное предложение 👍🏼 и апарт комплекс классный и плюс ситуация понятная и выгодно по идее 👌🏼 это и е",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "b669ffb4-febf-4548-b0bf-2bf610d0ff3e",
+      "name": "Ulyana Hur",
+      "slug": "ulyana-hur-205410-97db",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Шугаринг, ваксинг в Рендондо Бич, South Bay 📍 Приглашаем в уютную студию депиляции. 5 ⭐️ on Google, Yelp Опыт работы более 10 лет Работаем ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "name": "Surprise Me Balloon Bar",
+      "slug": "surprise-meballoons-150639",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Шары и декорации · Orange County · (949) 624-5822",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "3a444543-901d-48e9-87b7-c468d1e919b7",
+      "name": "Alexa",
+      "slug": "alexa-205606-5d12",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Очень советую Елизавету❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥 Случайно такой акции на вечер нет?",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "77b1a046-92ab-4d0a-abc5-8afbb10cbfa3",
+      "name": "Vladimir Shkarbanov",
+      "slug": "vladimir-shkarbanov-205035-769e",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Наружные работы и благоустройство -Бетонные работы -Ирригация(поливочные системы) -Дренаж -Подпорные стены -Укладка камня,брусчатка -Заборы ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "dabde986-d340-4270-8fc6-fe7e358f21e7",
+      "name": "Akim Fam",
+      "slug": "akim-fam-205042-f633",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🐾 Pet Boarding – Dogs, Cats & Other Small Pets 🐾 Going on vacation, a business trip, or just need someone to care for your pet? I provide ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "4a9586f6-2a95-4cff-95a5-47e5e639e93b",
+      "name": "Kostantin Strilets",
+      "slug": "kostantin-strilets-205053-8c38",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Муж и жена ищут небольшой дом с гаражом в рент в районе Biscayne and 41, North Port FL. 916-871-6680.",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "dd686537-6658-481f-a63b-05e9dd4e6a8e",
+      "name": "Nadezhda Kurinnaya",
+      "slug": "nadezhda-kurinnaya-205057-a56b",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Даю частные уроки гитары Опыт работы в США 17 лет. Тел: 916 387 8227. Александр",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "2c12e6fd-b233-463b-8572-f41b92974e87",
+      "name": "Влад Нестеренко",
+      "slug": "business-biz-181006",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Создание САЙТОВ+ИИ Agent+Видеконвеер под блогеров! Автоматизируем ваши рутинные действия, поможем бизнесу!!! @ DefyConformity6 пишите!",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "7a0bb3bb-fb37-4283-8687-4b857eb14e0d",
+      "name": "Инна Бершацкая",
+      "slug": "business-2797580738-205056-19e5",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Отдам две коробки вещей на девочку 0-18. Больше маленьких вещей. Есть немного игрушек, пеленок и развивающий коврик. Состояние разное. Есть ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "1d0bb0a6-f9e4-4d57-94cd-5a5a43c5fb50",
+      "name": "Andrew",
+      "slug": "andrew-181007",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Что касается рыбалки на нельму:Итак по поездке на нельму: Могу принять вас в апреле,900$ с человека в день,что входит в стоимость тура: 1.Вс",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "c965246d-9f91-46fa-b8e7-36c0316137ce",
+      "name": "Pavlo Rok",
+      "slug": "pavlo-rok-205105-181c",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Перед вызовом мастера - бесплатная консультация по AC. (972) 767-9307‬",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "2fbcea30-f79e-4c09-b7d5-4f2687bc60d5",
+      "name": "Тимофей Кононов",
+      "slug": "business-9168449053-205100-902d",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "💧Pressure Washing/ Мойка под давлением💧 Сделаем ваш дом чистым и свежим! ✅ Заборы ✅ Стены домов ✅ Крыши ✅ Драйвеи и дорожки Удаляем: ✔ Гря",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "e62e723f-3b08-42d3-ba22-b370d00c0dd9",
+      "name": "Tetiana Akhmednova",
+      "slug": "tetiana-akhmednova-205103-7a41",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Преподаватель высшей категории с огромным опытом работы в музыкальной школе с удовольствием возьмется обучать вас игре на фортепиано у себя ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "2de9e85c-bc9f-47cc-83b1-9119427936d9",
+      "name": "Yana Galinka",
+      "slug": "yana-galinka-205107-766f",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Почему на самом деле мы так плохо понимаем носителей английского языка ? 🤔 Да потому, что они не произносят слова четко и ясно.Потому что о",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "cd0d431c-3621-4c7b-986b-1a3e7e09e789",
+      "name": "Александр",
+      "slug": "business-biz-180847",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Привет! Меня зовут Александр, я преподаватель по игре на гитаре Приглашаю на пробный урок по игре на Гитаре в ZOOM Для предзаписи напишите п",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "3cb92558-a5f8-4f0d-ae3d-b610158a0cc9",
+      "name": "Дар'я",
+      "slug": "business-biz-205142-fea6",
+      "address": null,
+      "city": "Tustin",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "https://www.aqua-tots.com/tustin/sign-up/?utm_source=google&utm_medium=cpc&utm_campaign=DAC_PMax_234_Tustin_CA&gad_source=1&gad_campaignid=2",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "8ac90b21-22fa-46ca-b4d3-a482debfe0aa",
+      "name": "Dream Car",
+      "slug": "dream-car-205136-4732",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🇺🇸 🎉 РОЗЫГРЫШ КО ДНЮ НЕЗАВИСИМОСТИ США! 🎉🇺🇸 Празднуйте вместе с нами и нашими проверенными бизнес-партнёрами и получите шанс выиграть ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb",
+      "name": "Вячеслав",
+      "slug": "business-biz-181515-e787",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Приветствую, меня зовут Вячеслав Я помогаю задержанным ICE и их семьям добиваться освобождения подачей Habeas Corpus в Федеральный суд Беру ",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "3487dbf8-cc1a-4a36-b98a-35482723f5e8",
+      "name": "Evgeniia Nagrebetskii",
+      "slug": "evgeniia-nagrebetskii-205211-844e",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Вкуснейшая Павлова ✨ Хочу представить вашему вниманию десерт Павлова В наличии и на заказ По всем вопросам пожалуйста пишите в личные сообще",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "b11627c1-9443-4c23-be15-2d7c489a8cd0",
+      "name": "Ana Gonzalez",
+      "slug": "ana-gonzalez-204820-d61c",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Кто обожает путешествия и хочет завести новых друзей? **Собираем очередной девичник(** без ограничения по возрасту) на ПРОГРАММУ МЕЧТЫ с 5 п",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "b46a8bc6-da9a-4d13-9be9-9b055edc6fb7",
+      "name": "Alla",
+      "slug": "alla-205619-082b",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "В Мексике нет, но есть очень хороший доктор в Riverside, гинеколог от Бога , но не русский",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "023f7524-c2ef-4612-8460-a657b5944db4",
+      "name": "Liudmyla Myla",
+      "slug": "liudmyla-myla-204818-d4ef",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "В нашому садочку є вільні місця! Тому запрошуємо ваших малюків у теплу, затишну та дружню атмосферу нашого сімейного дитячого садочка. Вік д",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "48262441-df1d-40a5-9083-a87293888890",
+      "name": "Roman Soltinschi",
+      "slug": "roman-soltinschi-205230-578c",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Напоминаю - уже в эту пятницу 26-го июня - Не пропустите самый горячий вечер лета! Караоке и танцы с DJ RomanN Резервации по телефонам: (916",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "172f3382-6ab6-4df4-a815-946e1fd37991",
+      "name": "Lev Kushner",
+      "slug": "lev-kushner-205253-0fa9",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ [WWW.PILGRIM-GROUP.ORG](http://WWW.PILGRIM-GROUP.ORG) вылет из любого города США",
+      "skip": "not_a_service_offer"
+    },
+    {
+      "id": "94a1ccba-0c3c-450b-a44e-2f2f0d113ecd",
+      "name": "Crystalline Winged",
+      "slug": "crystalline-winged-205239-7fd2",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Women’s Retreat — Sophia Rising ✨ 📍 Mount Shasta 🗓 April 10–13 A sacred gathering for women to soften, reconnect with their feminine power",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "9a28b437-3814-4e3d-afba-54fff50356bf",
+      "name": "Neptune Seafood",
+      "slug": "fbpack-neptune-seafood",
+      "address": null,
+      "city": "San Diego",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Рыба и икра · доставка LA 24.07 / SD 25.07 / OC 26.07 · заказ заранее · Karina · (916) 956-5019",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "7b7f4c9b-077b-4b6f-9f85-a1271d92c9e5",
+      "name": "Anna Dav",
+      "slug": "anna-dav-205240-0b5e",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "❄️Последние семейные выходные февраля в Лейк-Тахо (Lake Tahoe) ❄️Приглашаю провести уютные зимние выходные в нашем домике в North Lake Tahoe",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "1246a05c-f4bb-46c3-ac80-6042bebe99ec",
+      "name": "Karimi",
+      "slug": "karimi-181541-2885",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Ассаламу алейкум Мы открываем и разблокируем аккаунты Amazon Relay / Amazon Flex, Uber и Lyft. Пишите в личные сообщения.",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "ae565eb5-e028-47e3-8857-24797388b6ee",
+      "name": "Daria Hovorun",
+      "slug": "daria-hovorun-205241-8dc1",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "5’nizza в Сан Франциско — 12 февраля 2026. От первых харьковских квартирников до больших залов — четверть века пути, где голос, гитара и бит",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "cb9f639c-5bc6-4fd3-8fa4-05f5696762bc",
+      "name": "Svetlana K",
+      "slug": "svetlana-k-180918",
+      "address": null,
+      "city": "Orange",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Дорогие девушки🌷 Кому нужны ПИЯВОЧКИ, будем рады, обращайтесь 😇 Есть в наличии в ЛА, также возможна доставка в ОС или почтой в любой штат.",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "c0d00191-1576-470b-9dba-20c1fb0dadd6",
+      "name": "Слава Маршак",
+      "slug": "fbpack-slava-marshak-pet-relocation",
+      "address": null,
+      "city": null,
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Международная перевозка животных · RU/EU ↔ USA · документы · легальный ввоз · Слава Маршак",
+      "skip": "no_service_signal"
+    },
+    {
+      "id": "c7490843-cc63-413a-b7c2-0f9a2eec06be",
+      "name": "Kai - T",
+      "slug": "kai-t-234037",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "Мы ходили на RSM. Сначала в группу родитель и ребенок и потом дочка сама занималась в следующей группе. У них есть отчетные концерты, нам нр",
+      "skip": "not_a_service_offer"
+    },
+    {
+      "id": "bd490d98-d8c2-4e62-b509-6aac47a3d349",
+      "name": "Ирина",
+      "slug": "business-biz-181001",
+      "address": null,
+      "city": "Orange County",
+      "reason": "person_name_no_address",
+      "confidence": "high",
+      "preview": "🚗🚘🚘 Сдаю свои авто в аренду — недорого, без ограничений по пробегу!",
+      "skip": "no_service_signal"
+    }
+  ],
+  "skip_reasons": {
+    "no_service_signal": 134,
+    "not_a_service_offer": 7
+  }
+}

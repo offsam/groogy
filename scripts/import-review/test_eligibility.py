@@ -46,14 +46,17 @@ class NormalizeTests(unittest.TestCase):
 
 
 class ContactAndEligibilityTests(unittest.TestCase):
-    def test_source_url_and_user_id_not_direct(self) -> None:
+    def test_source_url_and_user_id_count_as_contact(self) -> None:
         row = {
             "ai_decision": "accepted",
             "ai_confidence": 0.95,
             "entity_type": "marketplace_listing",
             "target_collection": "marketplace",
             "title": "Диван",
-            "description": "Продаю диван в хорошем состоянии, забирать сегодня",
+            "description": (
+                "Продаю диван в хорошем состоянии, забирать сегодня. "
+                "Самовывоз Irvine, торг уместен, фото по запросу в личку."
+            ),
             "category": "furniture",
             "source_url": "https://t.me/c/1333533747/123",
             "telegram_user_id": "123456789",
@@ -67,10 +70,41 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "source_posted_at": "2026-07-01T00:00:00+00:00",
         }
         contacts = extract_direct_contacts(row)
-        self.assertFalse(has_direct_contact(contacts))
-        result = evaluate_eligibility(row)
-        self.assertFalse(result["eligible"])
-        self.assertIn("нет контакта", result["reasons"])
+        self.assertTrue(has_direct_contact(contacts))
+        self.assertEqual(contacts["telegram_user_id"], "123456789")
+        self.assertEqual(contacts["source_url"], "https://t.me/c/1333533747/123")
+        result = evaluate_eligibility(row, mode="complete_card")
+        self.assertTrue(result["eligible"], result["reasons"])
+
+    def test_facebook_profile_counts_as_contact(self) -> None:
+        row = {
+            "ai_decision": "needs_review",
+            "ai_confidence": 0.7,
+            "entity_type": "business",
+            "target_collection": "businesses",
+            "title": "Baker Studio",
+            "description": (
+                "Домашняя выпечка на заказ: торты, капкейки и печенье для праздников. "
+                "Доставка по Bay Area, заказ за 3–5 дней."
+            ),
+            "category": "food",
+            "source": "facebook:russiansf",
+            "source_url": "https://www.facebook.com/groups/russiansf/posts/123",
+            "source_author_username": "baker.studio.la",
+            "phone": [],
+            "instagram": [],
+            "website": [],
+            "email": [],
+            "whatsapp": [],
+            "telegram_username": None,
+            "duplicate_status": "unique",
+            "source_posted_at": "2026-07-01T00:00:00+00:00",
+        }
+        contacts = extract_direct_contacts(row)
+        self.assertTrue(has_direct_contact(contacts))
+        self.assertTrue(contacts["facebook"])
+        result = evaluate_eligibility(row, mode="complete_card")
+        self.assertTrue(result["eligible"], result["reasons"])
 
     def test_strong_phone_marketplace_eligible(self) -> None:
         row = {
@@ -164,6 +198,92 @@ class ContactAndEligibilityTests(unittest.TestCase):
         result = evaluate_eligibility(row)
         self.assertFalse(result["eligible"])
         self.assertTrue(any("устаревш" in r for r in result["reasons"]))
+
+    def test_complete_card_allows_needs_review_with_phone(self) -> None:
+        row = {
+            "ai_decision": "needs_review",
+            "ai_confidence": 0.8,
+            "entity_type": "private_specialist",
+            "target_collection": "private_specialists",
+            "title": "Алена Сантехник",
+            "description": (
+                "Сантехник / handyman. Устранение засоров, установка смесителей, "
+                "мелкий ремонт по дому. Выезд по Orange County."
+            ),
+            "category": "home_services",
+            "phone": ["+19495551212"],
+            "city": None,
+            "duplicate_status": "unique",
+            "source_posted_at": "2026-07-01T00:00:00+00:00",
+        }
+        strict = evaluate_eligibility(row, mode="accepted")
+        self.assertFalse(strict["eligible"])
+        complete = evaluate_eligibility(row, mode="complete_card")
+        self.assertTrue(complete["eligible"], complete["reasons"])
+
+    def test_complete_card_accepts_instagram_without_phone(self) -> None:
+        row = {
+            "ai_decision": "needs_review",
+            "ai_confidence": 0.9,
+            "entity_type": "private_specialist",
+            "target_collection": "private_specialists",
+            "title": "Мария Психолог",
+            "description": (
+                "Психолог для мам, онлайн и офлайн консультации в OC area. "
+                "Запись через Instagram или личные сообщения."
+            ),
+            "category": "psychology",
+            "instagram": ["maria_psy"],
+            "phone": [],
+            "duplicate_status": "unique",
+            "source_posted_at": "2026-07-01T00:00:00+00:00",
+        }
+        result = evaluate_eligibility(row, mode="complete_card")
+        self.assertTrue(result["eligible"], result["reasons"])
+
+    def test_complete_card_rejects_no_contact_at_all(self) -> None:
+        row = {
+            "ai_decision": "needs_review",
+            "ai_confidence": 0.9,
+            "entity_type": "private_specialist",
+            "target_collection": "private_specialists",
+            "title": "Мария Психолог",
+            "description": (
+                "Психолог для мам, онлайн и офлайн консультации в OC area. "
+                "Пишите если нужна поддержка и разбор ситуации."
+            ),
+            "category": "psychology",
+            "phone": [],
+            "instagram": [],
+            "website": [],
+            "email": [],
+            "whatsapp": [],
+            "telegram_username": None,
+            "telegram_user_id": None,
+            "source_url": None,
+            "duplicate_status": "unique",
+            "source_posted_at": "2026-07-01T00:00:00+00:00",
+        }
+        result = evaluate_eligibility(row, mode="complete_card")
+        self.assertFalse(result["eligible"])
+        self.assertTrue(any("контакт" in r for r in result["reasons"]))
+
+    def test_complete_card_rejects_junk_title(self) -> None:
+        row = {
+            "ai_decision": "needs_review",
+            "ai_confidence": 0.95,
+            "entity_type": "business",
+            "target_collection": "businesses",
+            "title": "Телефон",
+            "description": "Звоните по любым вопросам бизнеса и услуг в районе LA",
+            "category": "other",
+            "phone": ["+16572040434"],
+            "duplicate_status": "unique",
+            "source_posted_at": "2026-07-01T00:00:00+00:00",
+        }
+        result = evaluate_eligibility(row, mode="complete_card")
+        self.assertFalse(result["eligible"])
+        self.assertTrue(any("мусорный title" in r for r in result["reasons"]))
 
 
 if __name__ == "__main__":

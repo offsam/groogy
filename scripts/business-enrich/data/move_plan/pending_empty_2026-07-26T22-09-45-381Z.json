@@ -1,0 +1,944 @@
+{
+  "batchId": "pending_empty_2026-07-26T22-09-45-381Z",
+  "appliedAt": "2026-07-26T22:09:45.864Z",
+  "ids": [
+    "9a074d09-04e8-40dc-8504-146f5df71102",
+    "29f635b3-40ae-4c4d-b691-eb0fa062b969",
+    "831c4075-1f0e-417d-876b-d6e5ef219352",
+    "8954db04-4ef8-4391-9ecc-0e7ecc26bf5d",
+    "b0248b8b-996c-4d5e-b178-2bf201a3ede0",
+    "a0beb3f4-2d4a-443d-8ac8-908c7088fa2d",
+    "451162e1-a39f-41e5-a09e-2a130572677d",
+    "42a28076-8ead-4b30-af44-202efcd9c5f4",
+    "68784d02-44e3-45a1-a3bb-d97cd243fe18",
+    "0cd83146-4145-4600-9233-46e60ad97215",
+    "ef29f86a-885c-4e0e-9382-80a6c8b0e1b1",
+    "5b35e679-9c65-4244-86ef-9aae89132526",
+    "fb2981b6-4b6a-4ba1-8988-eff7f4c3049a",
+    "a75041e0-247e-481d-a18a-f1b0b2064883",
+    "8f034bd5-7ced-4d63-b158-f5af4582e149",
+    "1a9c7456-54af-4760-ba9c-43b51de81dec",
+    "337b2c2b-a477-48dd-916e-8bccee911e81",
+    "762ab6f3-3690-4abd-9354-a2516c4f7bed",
+    "7b31be9c-df0b-4e12-b1ef-542a694e8737",
+    "f7bfba85-b114-47ce-94e3-106a3e046ff2",
+    "c1d79753-221e-4d33-bbda-0f7285f6ce09",
+    "33600237-d410-421e-a94e-114d25f954b2",
+    "fcb7fb87-7c02-4628-a977-5876ccc9ecd5",
+    "26c1c9fc-2585-434e-baf4-d5a7599351a2",
+    "5c8208b4-bdf2-4acf-810e-421f40c32f59",
+    "9d71af8c-caec-4b25-9d88-26115ea98671",
+    "ba1d52f3-39b3-401b-810b-d25456245011",
+    "22401562-6280-4cfd-a4d0-c15e22e5bff6",
+    "90a90da0-0c24-430e-afe9-a7ae2dd7af55",
+    "3a444543-901d-48e9-87b7-c468d1e919b7",
+    "4a9586f6-2a95-4cff-95a5-47e5e639e93b",
+    "e8a646a4-eb64-431d-852e-52bf15c2bfe1",
+    "7a0bb3bb-fb37-4283-8687-4b857eb14e0d",
+    "5e5289b5-b3fb-4996-a7a5-8ecb4e780aba",
+    "5db3c8c3-9cb7-4a58-829c-64101bb5b196",
+    "6ee44efb-498a-4289-8e82-46eb11265e91",
+    "3cb92558-a5f8-4f0d-ae3d-b610158a0cc9",
+    "62bb9ee8-2402-495b-88ba-1887529da758",
+    "e0985e57-a687-48f9-9026-6abceac6c4e3",
+    "4cb97cc5-73f9-482f-b8f3-9d85727ad2e6",
+    "8ac90b21-22fa-46ca-b4d3-a482debfe0aa",
+    "bc4e74e3-12c5-42af-b614-a9eab48c3d34",
+    "a0b964d8-90a3-4cdf-8715-789ee33813b5",
+    "4c356c30-6f95-40f2-b957-02d2e4b13207",
+    "c7bb8ca8-f930-41d3-b74d-b88c1dce1d40",
+    "e08a1694-462f-45d0-b09e-ba622ecf0b7a",
+    "8f777a16-f9a1-4675-a7db-220fd6c79b32",
+    "5fd5783b-cbe5-4b64-aa60-ea741aaa8737",
+    "0368f161-4a78-4bd9-b225-fa0d564380fb",
+    "840c0632-2f12-43eb-b2d4-fe97a9ad1738",
+    "a0b6503c-6a71-4b2f-af29-5eb78b222bb5",
+    "13a8fea1-6cc6-4ced-bc64-496cbdb93848",
+    "3487dbf8-cc1a-4a36-b98a-35482723f5e8",
+    "846d1a94-0a02-4a32-bd64-8cb37106cdd0",
+    "023f7524-c2ef-4612-8460-a657b5944db4",
+    "8f848e16-9bbd-46ab-887b-17e0c5245d39",
+    "48262441-df1d-40a5-9083-a87293888890",
+    "b788f26f-635e-4891-a352-da72a9249212",
+    "1cc55ebb-4152-44b5-81d4-fefce5c05a80",
+    "94a1ccba-0c3c-450b-a44e-2f2f0d113ecd",
+    "7b7f4c9b-077b-4b6f-9f85-a1271d92c9e5",
+    "1246a05c-f4bb-46c3-ac80-6042bebe99ec",
+    "c7490843-cc63-413a-b7c2-0f9a2eec06be",
+    "9a5f5763-aef9-4df2-91e6-b34233899128",
+    "8496ce2b-ea88-485e-89d7-8f25d6021ec6",
+    "3a43f884-b67c-4f66-b529-294346682097",
+    "94e1a09f-beb9-45bd-849f-7b70eae037d1",
+    "70a18104-4a59-453d-b011-7c5d3ed8bf34",
+    "0ecb9050-e0ae-420b-9da1-d6544c9de272",
+    "02e64277-4f14-40b9-a2a3-0390e75acea6",
+    "e8f9c251-5f01-495b-8f75-3ab55ba730e1",
+    "2bc5f56d-2bd5-45f1-be97-8a52116fa274",
+    "d75e9d66-6f8b-41b5-a0fd-cf022e2f36be",
+    "79418e20-13e9-4518-b150-0127521e7748",
+    "97f75801-1cde-443e-889f-69b1ad94109e",
+    "7c4b4da5-2b6f-4bb1-9393-3ad5c1102e82",
+    "9c014164-d438-4af9-8e48-d57961de1550",
+    "13355425-bdcb-40bb-b20b-a24e371fecea",
+    "5dec99eb-5e39-4b08-9403-57dc90c0302b",
+    "3e64f510-b419-4bd7-9c38-7d35cf39d3b3",
+    "77c748f7-8c2f-4385-9d91-52b28b6bd1de",
+    "8098487f-050f-4aee-a2b9-f8e3f92d26ef",
+    "56d0b8fc-5ce0-4ad0-b562-6475bb727512",
+    "6b3a7d9b-83c4-455a-a897-13a340dbb899",
+    "9c68330a-b20b-4af2-9665-e008bb9ea394",
+    "0a76b0b2-4400-423e-8ecd-b82fb4fe500f",
+    "dbbec246-8857-4ce2-9d34-189cfb42cc2e",
+    "19fd35e4-6c44-4a47-80cb-abaecbe5f1fd",
+    "ebfc06e9-eeb9-4c74-9c91-c9f7b9d7956e",
+    "12f33449-052f-401c-bb40-30db10459483",
+    "7eea6d36-8872-4c5b-a65c-6b9d8095d55d",
+    "6f0a8dec-81a0-45fd-9ecd-93869ae3af15",
+    "7e1f3e1a-c1da-4e9d-9d00-7a401f3eaf77",
+    "85a826f2-968c-46b5-8ac8-3aeabb745324",
+    "edf3713b-eaf9-4bbe-bb9c-987d6973a8a1",
+    "ed7187f4-dbe0-455d-ae6b-79d9d185821d",
+    "ca0edcfb-ae66-460a-a7b7-9f02d2d49ead",
+    "5c1160fb-54dd-4efe-8e30-8f0fc829edb7",
+    "1b15c93b-40b4-49d3-bb7a-0dcde7062f96",
+    "23402511-47c2-4f70-85f9-abba98f0324c",
+    "11d7cf8f-32f4-4de2-ba51-4498e10d172e",
+    "21138172-f48f-477d-a709-a7ee01e1f5a3",
+    "5e68b197-4551-4147-97bb-62bb39f6ce0c",
+    "71b027ee-5496-4bf9-a80d-00692cc031b0",
+    "bb805da7-3d89-4a20-abde-e4516e8e8380",
+    "1f311fca-108a-451b-af02-037722643dc8",
+    "09483bd5-db01-49ec-8397-dafa0ef34a80",
+    "53e149df-05c7-4bb7-9730-ed5667657603",
+    "a8a392fc-9f98-4add-80f1-df394f87ad3d",
+    "4cc7a2b3-fa35-4c62-b625-1783bb3e7d48",
+    "9064a9b9-227c-4f05-841e-74f579e7c654",
+    "dd044ebe-3a15-4994-80f3-ab268f511af9",
+    "f0e7502d-ac5d-4459-8a61-da399afa4005",
+    "a461096e-6b86-4d60-a770-71f53513655a",
+    "1e9bb970-7bd2-4c71-9ece-e21e6504285b",
+    "e37f76d4-cf4d-4304-877f-aa5e2274821a",
+    "f8f17058-9de3-49e0-b287-36b92d62aece"
+  ],
+  "move": [
+    {
+      "id": "9a074d09-04e8-40dc-8504-146f5df71102",
+      "name": "Dirty Bird Ranch",
+      "slug": "dirtybirdfarm-150701",
+      "reason": "not_a_service_offer",
+      "preview": "Farm ranch · Bonsall · Google 5.0★ (7) · ⚠️ Google: permanently closed Dirty Bird Ranch — working ranch / rescue farm на 5.5 acres в Bonsall"
+    },
+    {
+      "id": "29f635b3-40ae-4c4d-b691-eb0fa062b969",
+      "name": "TN · food",
+      "slug": "tn-food-205814-0c20",
+      "reason": "no_service_signal",
+      "preview": "На фармерс маркет и Bristol farms. Whole Foods в хантингтоне были помидоры На фармерс маркет и Bristol farms. Whole Foods в хантингтоне были"
+    },
+    {
+      "id": "831c4075-1f0e-417d-876b-d6e5ef219352",
+      "name": "Yulia",
+      "slug": "yulia-205824-7636",
+      "reason": "not_a_service_offer",
+      "preview": "Мы были в aqua tots месяца два , перешли в waterworks , там год уже занимается дочка, нам больше нравится . Но в aqua tots она быстро поплыл"
+    },
+    {
+      "id": "8954db04-4ef8-4391-9ecc-0e7ecc26bf5d",
+      "name": "Iryna ❤️‍🇺🇦",
+      "slug": "iryna-205632-d2e9",
+      "reason": "no_service_signal",
+      "preview": "було якось морально важко в еміграції знайшла віддушину у поезії (Костенко, Симоненко…) а згодом почала робити з їх віршів музику кому цікав"
+    },
+    {
+      "id": "b0248b8b-996c-4d5e-b178-2bf201a3ede0",
+      "name": "Ilya",
+      "slug": "fbpack-ilya-house-repair-job",
+      "reason": "empty_or_tiny_copy",
+      "preview": "(empty)"
+    },
+    {
+      "id": "a0beb3f4-2d4a-443d-8ac8-908c7088fa2d",
+      "name": "Ponomarev Dmitry",
+      "slug": "ponomarev-dmitry-205622-2300",
+      "reason": "not_a_service_offer",
+      "preview": "Спасибо за кулич и пасху! Все были в восторге от красоты и вкусноты. ❤️🤌 Спасибо за кулич и пасху! Все были в восторге от красоты и вкуснот"
+    },
+    {
+      "id": "451162e1-a39f-41e5-a09e-2a130572677d",
+      "name": "Виктория",
+      "slug": "business-biz-205825-befc",
+      "reason": "no_service_signal",
+      "preview": "Всем здравствуйте, у друзей пополнение. Вдруг кто-то мечтает о друге, могут привезти в начале апреля в наши края, ЛА и Сан Диего Всем здравс"
+    },
+    {
+      "id": "42a28076-8ead-4b30-af44-202efcd9c5f4",
+      "name": "Bulletproof",
+      "slug": "bulletproof-205559-66e8",
+      "reason": "not_a_service_offer",
+      "preview": "Zeusdc Мошенник , берет предоплату и кидает. Не делайте через него аккаунты Zeusdc Мошенник , берет предоплату и кидает. Не делайте через не"
+    },
+    {
+      "id": "68784d02-44e3-45a1-a3bb-d97cd243fe18",
+      "name": "Ahmadzhnova Feruza - Beauty Salon Hiring",
+      "slug": "fb-post-27-ahmadzhnova-feruza-beauty-salon-hiring",
+      "reason": "not_a_service_offer",
+      "preview": "(empty)"
+    },
+    {
+      "id": "0cd83146-4145-4600-9233-46e60ad97215",
+      "name": "Art Backyard",
+      "slug": "fbpack-katia-bulgakova-art-backyard",
+      "reason": "not_a_service_offer",
+      "preview": "ARCHIVED duplicate of Art Backyard · same phone+website+address Education · Interior Design Camp Services: - Kids interior design camp ---FB"
+    },
+    {
+      "id": "ef29f86a-885c-4e0e-9382-80a6c8b0e1b1",
+      "name": "Teresa M Dolan - Hair Color Model Coordinator",
+      "slug": "fb-post-35-teresa-m-dolan-hair-color-model-coordinator",
+      "reason": "empty_or_tiny_copy",
+      "preview": "(empty)"
+    },
+    {
+      "id": "5b35e679-9c65-4244-86ef-9aae89132526",
+      "name": "Stelar Tex - Helper Position",
+      "slug": "fb-post-24-stelar-tex-helper-position",
+      "reason": "not_a_service_offer",
+      "preview": "Нужен хэлпер Лагуна бич 323 819 79 60 Экстра"
+    },
+    {
+      "id": "fb2981b6-4b6a-4ba1-8988-eff7f4c3049a",
+      "name": "Artem Andrienko",
+      "slug": "artem-andrienko-204930-f75c",
+      "reason": "not_a_service_offer",
+      "preview": "Мы с моей девушкой ищем на подселение человека в свободную комнату в доме с 1 августа двухэтажный 3br дом, общая кухня/санузел/washer+dryer "
+    },
+    {
+      "id": "a75041e0-247e-481d-a18a-f1b0b2064883",
+      "name": "Наиля",
+      "slug": "business-3106001451-190939",
+      "reason": "no_service_signal",
+      "preview": "Приезжайте забирайте.Вроде в настройках все хорошо, на всякий случай мой номер Звоните Приезжайте забирайте.Вроде в настройках все хорошо, н"
+    },
+    {
+      "id": "8f034bd5-7ced-4d63-b158-f5af4582e149",
+      "name": "Tanzilka Deniz",
+      "slug": "tanzilka-deniz-204943-024c",
+      "reason": "no_service_signal",
+      "preview": "За всеми подробностями в личные сообщения или + ✨ За всеми подробностями в личные сообщения или + ✨"
+    },
+    {
+      "id": "1a9c7456-54af-4760-ba9c-43b51de81dec",
+      "name": "Oksana Moskvitina",
+      "slug": "oksana-moskvitina-234039",
+      "reason": "not_a_service_offer",
+      "preview": "Мой сын здесь наблюдается уже 2 года. Но ни разу не лечили, только чистка и осмотр. Мой сын здесь наблюдается уже 2 года. Но ни разу не лечи"
+    },
+    {
+      "id": "337b2c2b-a477-48dd-916e-8bccee911e81",
+      "name": "Анна Еремеев",
+      "slug": "business-6158475912-234039",
+      "reason": "not_a_service_offer",
+      "preview": "Не знаю, где они локально находятся, но постоянно попадаются на глаза мне) Не знаю, где они локально находятся, но постоянно попадаются на г"
+    },
+    {
+      "id": "762ab6f3-3690-4abd-9354-a2516c4f7bed",
+      "name": "Oleksandra Dymytrashko",
+      "slug": "oleksandra-dymytrashko-204904-850c",
+      "reason": "not_a_service_offer",
+      "preview": "СРОЧНО! Ищем жильё для семьи из 3 человек Добрый день, уважаемые соседи! Срочно ищем жильё для семьи: 2 взрослых + ребёнок 1 год. Ищем полдо"
+    },
+    {
+      "id": "7b31be9c-df0b-4e12-b1ef-542a694e8737",
+      "name": "Oksana Moskvitina",
+      "slug": "oksana-moskvitina-234036",
+      "reason": "not_a_service_offer",
+      "preview": "Моему сыну здесь дважды брали, очень быстро и самое важное-с первого раза Моему сыну здесь дважды брали, очень быстро и самое важное-с перво"
+    },
+    {
+      "id": "f7bfba85-b114-47ce-94e3-106a3e046ff2",
+      "name": "Tatiana Chueva",
+      "slug": "tatiana-chueva-204938-70d3",
+      "reason": "not_a_service_offer",
+      "preview": "Отдам котят бесплатно в добрые и заботливые руки ❤️ Малыши родились 13 июня. Уже сами кушают, ходят в лоток, активно играют и познают мир. О"
+    },
+    {
+      "id": "c1d79753-221e-4d33-bbda-0f7285f6ce09",
+      "name": "Natalie Revers",
+      "slug": "natalie-revers-204925-114b",
+      "reason": "no_service_signal",
+      "preview": "🍯 Свежий натуральный мед. Качественный, ароматный, без сахара, сиропов и каких-либо добавок — только натуральный пчелиный мёд. Если ищете н"
+    },
+    {
+      "id": "33600237-d410-421e-a94e-114d25f954b2",
+      "name": "Mark Terskiy",
+      "slug": "mark-terskiy-204928-bcc9",
+      "reason": "not_a_service_offer",
+      "preview": "Продам НОВЫЕ iPhone 17 PRO MAX 512gb Полностью разблокированные В наличии 5 синих и 1 оранжевый Забирать в Ирвайне Цену предлагайте в лс Про"
+    },
+    {
+      "id": "fcb7fb87-7c02-4628-a977-5876ccc9ecd5",
+      "name": "UnforgettableTurtle1584",
+      "slug": "unforgettableturtle1584-204934-13e7",
+      "reason": "not_a_service_offer",
+      "preview": "Ищем дом в рент с 15 сентября Район Natomas, до 3.5т Ищем дом в рент с 15 сентября Район Natomas, до 3.5т"
+    },
+    {
+      "id": "26c1c9fc-2585-434e-baf4-d5a7599351a2",
+      "name": "R R",
+      "slug": "r-r-205734-e11c",
+      "reason": "not_a_service_offer",
+      "preview": "Возьму в аренду Kia Carnival/ EV9/ SUV Для работы и личного пользования. На долгий срок. Возьму в аренду Kia Carnival/ EV9/ SUV Для работы и"
+    },
+    {
+      "id": "5c8208b4-bdf2-4acf-810e-421f40c32f59",
+      "name": "AdventurousGuava1629",
+      "slug": "adventurousguava1629-204945-e575",
+      "reason": "not_a_service_offer",
+      "preview": "Семья страх людей ищут гибридную машину так как форт или Линкольн или Toyota или Volkswagen или что-то в этом роде цена до двух с половиной "
+    },
+    {
+      "id": "9d71af8c-caec-4b25-9d88-26115ea98671",
+      "name": "Sky Sky",
+      "slug": "sky-sky-204941-a224",
+      "reason": "not_a_service_offer",
+      "preview": "Девочки, рекомендую отличного гитариста! Это Антон, у него высшее образование и он сразу нашел подход к ребенку. Уроки проходят на одном дых"
+    },
+    {
+      "id": "ba1d52f3-39b3-401b-810b-d25456245011",
+      "name": "Veronica Adams",
+      "slug": "veronica-adams-204946-d0bb",
+      "reason": "not_a_service_offer",
+      "preview": "Если кому надо котенки четыре вакцинированные и стерилизованные . Ищут добрых и любящих людей .Дворовые .Мать серая короткошестная и её годи"
+    },
+    {
+      "id": "22401562-6280-4cfd-a4d0-c15e22e5bff6",
+      "name": "Jane Smith",
+      "slug": "jane-smith-190945",
+      "reason": "no_service_signal",
+      "preview": "Алёна, моя жена. Мне кажется, никто в мире не наводит чистоту так тщательно и педантично, как она 😊 Её телефон . Алёна, моя жена. Мне кажет"
+    },
+    {
+      "id": "90a90da0-0c24-430e-afe9-a7ae2dd7af55",
+      "name": "Max S",
+      "slug": "max-s-205638-3b7b",
+      "reason": "no_service_signal",
+      "preview": "Жаль мы уже сняли жилье 😅 а так отличное предложение 👍🏼 и апарт комплекс классный и плюс ситуация понятная и выгодно по идее 👌🏼 это и е"
+    },
+    {
+      "id": "3a444543-901d-48e9-87b7-c468d1e919b7",
+      "name": "Alexa",
+      "slug": "alexa-205606-5d12",
+      "reason": "no_service_signal",
+      "preview": "Очень советую Елизавету❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥 Случайно такой акции на вечер нет? Очень советую Елизавету❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍"
+    },
+    {
+      "id": "4a9586f6-2a95-4cff-95a5-47e5e639e93b",
+      "name": "Kostantin Strilets",
+      "slug": "kostantin-strilets-205053-8c38",
+      "reason": "not_a_service_offer",
+      "preview": "Муж и жена ищут небольшой дом с гаражом в рент в районе Biscayne and 41, North Port FL. . Муж и жена ищут небольшой дом с гаражом в рент в р"
+    },
+    {
+      "id": "e8a646a4-eb64-431d-852e-52bf15c2bfe1",
+      "name": "VioletPhoenix5220",
+      "slug": "violetphoenix5220-205046-d1d8",
+      "reason": "not_a_service_offer",
+      "preview": "Две девушки ищут комнату в Розвилле. Если у вас есть варианты, пожалуйста, звоните или пишите по номеру: + Две девушки ищут комнату в Розвил"
+    },
+    {
+      "id": "7a0bb3bb-fb37-4283-8687-4b857eb14e0d",
+      "name": "Инна Бершацкая",
+      "slug": "business-2797580738-205056-19e5",
+      "reason": "no_service_signal",
+      "preview": "Отдам две коробки вещей на девочку 0-18. Больше маленьких вещей. Есть немного игрушек, пеленок и развивающий коврик. Состояние разное. Есть "
+    },
+    {
+      "id": "5e5289b5-b3fb-4996-a7a5-8ecb4e780aba",
+      "name": "lida_gordienko",
+      "slug": "lidagordienko-205153-e246",
+      "reason": "no_service_signal",
+      "preview": "Девушка только что довезла нас до LAX ( нас три человека и две мини таксы ) Приехала вовремя , машина чистая и главное доехали быстро ( маши"
+    },
+    {
+      "id": "5db3c8c3-9cb7-4a58-829c-64101bb5b196",
+      "name": "R R",
+      "slug": "r-r-181532-5aaf",
+      "reason": "not_a_service_offer",
+      "preview": "Возьму в аренду ваш авто: Kia Carnival hybrid Kia Sorento hybrid Lexus ES300h Toyota Highlander hybrid Honda CRV hybrid Возьму в аренду ваш "
+    },
+    {
+      "id": "6ee44efb-498a-4289-8e82-46eb11265e91",
+      "name": "cakewithlove.ca",
+      "slug": "cakewithloveca-205125-1ad0",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "3cb92558-a5f8-4f0d-ae3d-b610158a0cc9",
+      "name": "Дар'я",
+      "slug": "business-biz-205142-fea6",
+      "reason": "not_a_service_offer",
+      "preview": "Мы сюда ходим, сыну нравится"
+    },
+    {
+      "id": "62bb9ee8-2402-495b-88ba-1887529da758",
+      "name": "kristi_haircolourist_",
+      "slug": "kristihaircolourist-205132-ed0d",
+      "reason": "too_thin_no_service",
+      "preview": "Она делает) Она делает)"
+    },
+    {
+      "id": "e0985e57-a687-48f9-9026-6abceac6c4e3",
+      "name": "𝙒𝙤𝙭𝙮",
+      "slug": "oxy-205636-86a1",
+      "reason": "no_service_signal",
+      "preview": "Please please join my b _io Aapke liye surprise hai Girls jaldi jaldi aao admin de dungi Please please join my b _io Aapke liye surprise hai"
+    },
+    {
+      "id": "4cb97cc5-73f9-482f-b8f3-9d85727ad2e6",
+      "name": "taki_da_cafe",
+      "slug": "takidacafe-205150-6de3",
+      "reason": "no_service_signal",
+      "preview": "Здравствуйте Можно попробовать уточнить у Насти Эстерхази она точно делает Здравствуйте Можно попробовать уточнить у Насти Эстерхази она точ"
+    },
+    {
+      "id": "8ac90b21-22fa-46ca-b4d3-a482debfe0aa",
+      "name": "Dream Car",
+      "slug": "dream-car-205136-4732",
+      "reason": "no_service_signal",
+      "preview": "🇺🇸 🎉 РОЗЫГРЫШ КО ДНЮ НЕЗАВИСИМОСТИ США! 🎉🇺🇸 Празднуйте вместе с нами и нашими проверенными бизнес-партнёрами и получите шанс выиграть "
+    },
+    {
+      "id": "bc4e74e3-12c5-42af-b614-a9eab48c3d34",
+      "name": "ucla.edu",
+      "slug": "uclaedu-205157-0ffa",
+      "reason": "no_service_signal",
+      "preview": "sasharazor Напишите Александре, она у нас проводила тест онлайн , быть может сможет ответить на ваш вопрос. Но если сын учился в РФ он не мо"
+    },
+    {
+      "id": "a0b964d8-90a3-4cdf-8715-789ee33813b5",
+      "name": "fedor_tsvang",
+      "slug": "fedortsvang-205156-a658",
+      "reason": "no_service_signal",
+      "preview": "Мы всегда зовем Федора Цванг - дети всегда очень хорошо проводят время. Мы всегда зовем Федора Цванг - дети всегда очень хорошо проводят вре"
+    },
+    {
+      "id": "4c356c30-6f95-40f2-b957-02d2e4b13207",
+      "name": "vitaliia_zinchenko",
+      "slug": "vitaliiazinchenko-205204-dc27",
+      "reason": "too_thin_no_service",
+      "preview": "Виталина лучшая!!! Виталина лучшая!!!"
+    },
+    {
+      "id": "c7bb8ca8-f930-41d3-b74d-b88c1dce1d40",
+      "name": "chirk_paint",
+      "slug": "chirkpaint-205208-e6fe",
+      "reason": "only_links_or_handles",
+      "preview": "Ира🙏🏼 Ира🙏🏼"
+    },
+    {
+      "id": "e08a1694-462f-45d0-b09e-ba622ecf0b7a",
+      "name": "vepryk28",
+      "slug": "vepryk28-205146-5dfa",
+      "reason": "no_service_signal",
+      "preview": "Леша просто потрясающий: Вот его рабочий аккаунт: Леша просто потрясающий: Вот его рабочий аккаунт:"
+    },
+    {
+      "id": "8f777a16-f9a1-4675-a7db-220fd6c79b32",
+      "name": "iam.ok.sana",
+      "slug": "iamoksana-205202-9fe5",
+      "reason": "no_service_signal",
+      "preview": "И еще - знакомые обращались. Чтоб выбор был И еще - знакомые обращались. Чтоб выбор был"
+    },
+    {
+      "id": "5fd5783b-cbe5-4b64-aa60-ea741aaa8737",
+      "name": "olga_savitskaya21",
+      "slug": "olgasavitskaya21-205154-63c9",
+      "reason": "no_service_signal",
+      "preview": "Я к ортодонту для взрослых обращалась. Могу дать контакт его ассистентки. Я к ортодонту для взрослых обращалась. Могу дать контакт его ассис"
+    },
+    {
+      "id": "0368f161-4a78-4bd9-b225-fa0d564380fb",
+      "name": "tati_fgm",
+      "slug": "tatifgm-205145-25e9",
+      "reason": "no_service_signal",
+      "preview": "Только что нашла - замечательные сырки с уникальными вкусами и начинками, спасибо Спасибо Только что нашла - замечательные сырки с уникальны"
+    },
+    {
+      "id": "840c0632-2f12-43eb-b2d4-fe97a9ad1738",
+      "name": "videobyalexgatto",
+      "slug": "videobyalexgatto-205151-4f7a",
+      "reason": "no_service_signal",
+      "preview": "Рекомендую. Настоящий профессионал😄 Рекомендую. Настоящий профессионал😄"
+    },
+    {
+      "id": "a0b6503c-6a71-4b2f-af29-5eb78b222bb5",
+      "name": "Ангеліна Гудьковська",
+      "slug": "business-biz-180922",
+      "reason": "no_service_signal",
+      "preview": "Дівчата, досить гаяти час «відкладати», «я подумаю», починайте ЗМІНЮВАТИ своє ТІЛО прямо зараз 💉 Я лікар, а не маркетолог ! Допомогаю схудн"
+    },
+    {
+      "id": "13a8fea1-6cc6-4ced-bc64-496cbdb93848",
+      "name": "shtefan_lashes",
+      "slug": "shtefanlashes-205203-5f88",
+      "reason": "no_service_signal",
+      "preview": "Очень рекомендую Евгению, делает очень качественно, носятся реснички долго👍 Она лучшая в своем деле🤗 Очень рекомендую Евгению, делает очен"
+    },
+    {
+      "id": "3487dbf8-cc1a-4a36-b98a-35482723f5e8",
+      "name": "Evgeniia Nagrebetskii",
+      "slug": "evgeniia-nagrebetskii-205211-844e",
+      "reason": "no_service_signal",
+      "preview": "Вкуснейшая Павлова ✨ Хочу представить вашему вниманию десерт Павлова В наличии и на заказ По всем вопросам пожалуйста пишите в личные сообще"
+    },
+    {
+      "id": "846d1a94-0a02-4a32-bd64-8cb37106cdd0",
+      "name": "Ірина Пульків",
+      "slug": "business-biz-205214-1787",
+      "reason": "no_service_signal",
+      "preview": "Дівчатка, привіт🌷 Я, Іра, пропоную Вам свої ексклюзивні та стильні сумочки, які вʼяжу власними руками Ручна робота Маю готові в наявності, "
+    },
+    {
+      "id": "023f7524-c2ef-4612-8460-a657b5944db4",
+      "name": "Liudmyla Myla",
+      "slug": "liudmyla-myla-204818-d4ef",
+      "reason": "no_service_signal",
+      "preview": "В нашому садочку є вільні місця! Тому запрошуємо ваших малюків у теплу, затишну та дружню атмосферу нашого сімейного дитячого садочка. Вік д"
+    },
+    {
+      "id": "8f848e16-9bbd-46ab-887b-17e0c5245d39",
+      "name": "Vasilki Café Bakery (дубль Jane OC)",
+      "slug": "jane-oc-190806",
+      "reason": "not_a_service_offer",
+      "preview": "ARCHIVED duplicate of Vasilki Café Bakery · same phone+address 31161 Niguel Rd A Кафе Васильки уже открыто! Замечательный кофе, свежая выпеч"
+    },
+    {
+      "id": "48262441-df1d-40a5-9083-a87293888890",
+      "name": "Roman Soltinschi",
+      "slug": "roman-soltinschi-205230-578c",
+      "reason": "no_service_signal",
+      "preview": "Напоминаю - уже в эту пятницу 26-го июня - Не пропустите самый горячий вечер лета! Караоке и танцы с DJ RomanN Резервации по телефонам: ( На"
+    },
+    {
+      "id": "b788f26f-635e-4891-a352-da72a9249212",
+      "name": "sabina.kravchenko",
+      "slug": "sabinakravchenko-190804",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "1cc55ebb-4152-44b5-81d4-fefce5c05a80",
+      "name": "Бюро Переводов США",
+      "slug": "business-9169406945-204810-6e5d",
+      "reason": "no_service_signal",
+      "preview": "СЕРТИФИЦИРОВАННЫЙ ПЕРЕВОД документов для суда (и не только) Быстро Качественно Недорого Пишите в личку или звоните [ ]( СЕРТИФИЦИРОВАННЫЙ ПЕ"
+    },
+    {
+      "id": "94a1ccba-0c3c-450b-a44e-2f2f0d113ecd",
+      "name": "Crystalline Winged",
+      "slug": "crystalline-winged-205239-7fd2",
+      "reason": "no_service_signal",
+      "preview": "Women’s Retreat — Sophia Rising ✨ 📍 Mount Shasta 🗓 April 10–13 A sacred gathering for women to soften, reconnect with their feminine power"
+    },
+    {
+      "id": "7b7f4c9b-077b-4b6f-9f85-a1271d92c9e5",
+      "name": "Anna Dav",
+      "slug": "anna-dav-205240-0b5e",
+      "reason": "no_service_signal",
+      "preview": "❄️Последние семейные выходные февраля в Лейк-Тахо (Lake Tahoe) ❄️Приглашаю провести уютные зимние выходные в нашем домике в North Lake Tahoe"
+    },
+    {
+      "id": "1246a05c-f4bb-46c3-ac80-6042bebe99ec",
+      "name": "Karimi",
+      "slug": "karimi-181541-2885",
+      "reason": "no_service_signal",
+      "preview": "Ассаламу алейкум Мы открываем и разблокируем аккаунты Amazon Relay / Amazon Flex, Uber и Lyft. Пишите в личные сообщения. Ассаламу алейкум М"
+    },
+    {
+      "id": "c7490843-cc63-413a-b7c2-0f9a2eec06be",
+      "name": "Kai - T",
+      "slug": "kai-t-234037",
+      "reason": "no_service_signal",
+      "preview": "Мы ходили на RSM. Сначала в группу родитель и ребенок и потом дочка сама занималась в следующей группе. У них есть отчетные концерты, нам нр"
+    },
+    {
+      "id": "9a5f5763-aef9-4df2-91e6-b34233899128",
+      "name": "Анастасія",
+      "slug": "business-biz-180947",
+      "reason": "no_service_signal",
+      "preview": "🔴✅🇪🇸УВАГА: шукаю учнів, яким потрібна ІСПАНСЬКА для життя, а не для тесту. Розмова, підтримка, практика. Зі мною ви будете говорити. СТАВ"
+    },
+    {
+      "id": "8496ce2b-ea88-485e-89d7-8f25d6021ec6",
+      "name": "Антоніна",
+      "slug": "business-biz-181033-3d59",
+      "reason": "no_service_signal",
+      "preview": "Мої вітання Зараз є бажання набрати невеличку кількість українських учнів (7 -17 років) на майстер клас з програмування (це буде безкоштовно"
+    },
+    {
+      "id": "3a43f884-b67c-4f66-b529-294346682097",
+      "name": "Ильдар Якупов",
+      "slug": "business-biz-205247-ec8b",
+      "reason": "no_service_signal",
+      "preview": "Всем привет! 🤝 Меня зовут Ильдар. Помогаю предпринимателям и экспертам автоматизировать продажи и запускать цифровые продукты через Telegra"
+    },
+    {
+      "id": "94e1a09f-beb9-45bd-849f-7b70eae037d1",
+      "name": "EG · other",
+      "slug": "eg-other-181113-2cb0",
+      "reason": "no_service_signal",
+      "preview": "Женский аккаунт Дордаш в аренду напрямую от собственника гибкие условия. 📍Orange County Женский аккаунт Дордаш в аренду напрямую от собстве"
+    },
+    {
+      "id": "70a18104-4a59-453d-b011-7c5d3ed8bf34",
+      "name": "Konstantin Plaksin",
+      "slug": "konstantin-plaksin-205249-3935",
+      "reason": "no_service_signal",
+      "preview": "Ждать осталось немного! Уже через месяц начало тура долгожданного спектакля \"Опасные Игры\" с Глафирой Тархановой, Ильей Носковым, Еленой Аро"
+    },
+    {
+      "id": "0ecb9050-e0ae-420b-9da1-d6544c9de272",
+      "name": "древняя шаманка",
+      "slug": "business-biz-180901",
+      "reason": "no_service_signal",
+      "preview": "Хотите избавиться от хронических болей в спине, шее и коленях? …избавиться от зависимостей и изменить свою жизнь? …избавиться от депрессии и"
+    },
+    {
+      "id": "02e64277-4f14-40b9-a2a3-0390e75acea6",
+      "name": "European Delights Gourmet Foods",
+      "slug": "fbpack-european-delights-fountain-valley",
+      "reason": "no_service_signal",
+      "preview": "European gourmet / caviar · Fountain Valley · Google 4.7★ (100) European Delights Gourmet Foods — восточноевропейские продукты и икра в Foun"
+    },
+    {
+      "id": "e8f9c251-5f01-495b-8f75-3ab55ba730e1",
+      "name": "Keipikp",
+      "slug": "fbpack-keipikp-georgian-food",
+      "reason": "no_service_signal",
+      "preview": "Грузинская кухня на заказ · кейтеринг · Keipikp · Georgian Cuisine / Homemade Food Catering Instagram: Category: Food & Catering Services: -"
+    },
+    {
+      "id": "2bc5f56d-2bd5-45f1-be97-8a52116fa274",
+      "name": "Max",
+      "slug": "max-180951",
+      "reason": "no_service_signal",
+      "preview": "✅Быстрая и надежная регистрация аккаунтов Doordash,Uber,Lyft с гарантией качества. ✅Оформление за 7 дней, оплата после получения аккаунта ✅Г"
+    },
+    {
+      "id": "d75e9d66-6f8b-41b5-a0fd-cf022e2f36be",
+      "name": "Russ Flooring",
+      "slug": "fbpack-russ-flooring",
+      "reason": "no_service_signal",
+      "preview": "Flooring showroom · Mission Viejo · Google 5.0★ (7) Russ Flooring — flooring store in Mission Viejo, Orange County. Conveniently located in "
+    },
+    {
+      "id": "79418e20-13e9-4518-b150-0127521e7748",
+      "name": "Evgeniya Grigoreva",
+      "slug": "fbpack-evgeniya-grigoreva",
+      "reason": "no_service_signal",
+      "preview": "Обмен рублей по курсу ЦБ · Orange County · встреча при необходимости · Direct/Messenger Evgeniya Grigoreva · Currency Exchange / Money Excha"
+    },
+    {
+      "id": "97f75801-1cde-443e-889f-69b1ad94109e",
+      "name": "rushindocumentation.com",
+      "slug": "rushindocumentationcom-190933",
+      "reason": "no_service_signal",
+      "preview": "Rush In Documentation info Если вдруг телефон поменялся то у них есть страница на Facebook Они находятся в Лос-Анджелесе. Я три года назад д"
+    },
+    {
+      "id": "7c4b4da5-2b6f-4bb1-9393-3ad5c1102e82",
+      "name": "Kc84 Brecer",
+      "slug": "kc84-brecer-180938",
+      "reason": "no_service_signal",
+      "preview": "🔝 Прокачка вашего Telegram быстро и качественно 🔝 ✅ Приглашение участников в чаты ✅ Рассылка по различным чатам ✅ Рассылка в личные сообще"
+    },
+    {
+      "id": "9c014164-d438-4af9-8e48-d57961de1550",
+      "name": "My Retina Health",
+      "slug": "consolidated-my-retina-health",
+      "reason": "no_service_signal",
+      "preview": "Retina / eye specialist · Sherman Oaks · Google 4.8★ (102) My Retina Health (Diana Katsman MD PhD) — retina and eye care in Sherman Oaks. Ад"
+    },
+    {
+      "id": "13355425-bdcb-40bb-b20b-a24e371fecea",
+      "name": "Ainura",
+      "slug": "ainura-205624-8314",
+      "reason": "no_service_signal",
+      "preview": "Она умничка! Все очень быстро делает и не дорого! Ведет канал в телеграмм Она умничка! Все очень быстро делает и не дорого! Ведет канал в те"
+    },
+    {
+      "id": "5dec99eb-5e39-4b08-9403-57dc90c0302b",
+      "name": "reel",
+      "slug": "reel-205448-db5f",
+      "reason": "no_service_signal",
+      "preview": "Вот инстаграм моей малышки Айлин Вот инстаграм моей малышки Айлин"
+    },
+    {
+      "id": "3e64f510-b419-4bd7-9c38-7d35cf39d3b3",
+      "name": "Zulya Alieva",
+      "slug": "consolidated-zulya-alieva-homemade-food",
+      "reason": "no_service_signal",
+      "preview": "Домашняя еда и полуфабрикаты · Orange County · манты, пельмени, вареники · WhatsApp Домашняя готовая еда и полуфабрикаты на заказ. Category:"
+    },
+    {
+      "id": "77c748f7-8c2f-4385-9d91-52b28b6bd1de",
+      "name": "reel",
+      "slug": "reel-205444-7283",
+      "reason": "no_service_signal",
+      "preview": "Рассказываю про работу турагента. Кому интересно - пишите за подробностями) Рассказываю про работу турагента. Кому интересно - пишите за под"
+    },
+    {
+      "id": "8098487f-050f-4aee-a2b9-f8e3f92d26ef",
+      "name": "Marga Rita",
+      "slug": "marga-rita-180851",
+      "reason": "no_service_signal",
+      "preview": "✨ You’re warmly invited to Mehndi (Henna) ✨ We would love to welcome you for beautiful, elegant henna designs created with care and attentio"
+    },
+    {
+      "id": "56d0b8fc-5ce0-4ad0-b562-6475bb727512",
+      "name": "Anna Sergeeva",
+      "slug": "anna-sergeeva-205553-7269",
+      "reason": "no_service_signal",
+      "preview": "Помогаю получать заявки через Teлegram-чаты . 📌 Подходит для бuзнеса и проектов: — уsлуги — товаpы — sайты — bоты Напиши «+» в личку, если "
+    },
+    {
+      "id": "6b3a7d9b-83c4-455a-a897-13a340dbb899",
+      "name": "Роман Астененко",
+      "slug": "business-biz-205446-816c",
+      "reason": "no_service_signal",
+      "preview": "Перестаньте искать клиентов вручную. Это съедает время, которое вы могли бы вложить в сам бизнес. Поиск и привлечение лидов — отдайте нам. Н"
+    },
+    {
+      "id": "9c68330a-b20b-4af2-9665-e008bb9ea394",
+      "name": "reel",
+      "slug": "reel-205453-89ec",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "0a76b0b2-4400-423e-8ecd-b82fb4fe500f",
+      "name": "Nataly",
+      "slug": "nataly-205519-c8fe",
+      "reason": "no_service_signal",
+      "preview": "Звертаюся до батьків та дітей❤️ Мене звати Наталі Працюю в сфері it, як практикуючий спеціаліст- з командою програмістів організовуємо БЕЗКО"
+    },
+    {
+      "id": "dbbec246-8857-4ce2-9d34-189cfb42cc2e",
+      "name": "Eric",
+      "slug": "eric-205554-4b43",
+      "reason": "no_service_signal",
+      "preview": "Ребята привет! Завтра на своей машине выезжаю в Лас -Вегас в 10.00 есть свободные места. Пишите в личку или звоните Ребята привет! Завтра на"
+    },
+    {
+      "id": "19fd35e4-6c44-4a47-80cb-abaecbe5f1fd",
+      "name": "ЛарисаСударева",
+      "slug": "business-biz-205540-760a",
+      "reason": "no_service_signal",
+      "preview": "5 упражнений для четкой дикции Четверг, 8:30, а значит пришло время получить от меня первый простой и полезный материал Забирайте и пользуйт"
+    },
+    {
+      "id": "ebfc06e9-eeb9-4c74-9c91-c9f7b9d7956e",
+      "name": "Христя",
+      "slug": "business-biz-205517-8977",
+      "reason": "no_service_signal",
+      "preview": "Привіт! Я — Христина , таргетолог, і допомагаю бізнесам залучати нових клієнтів за допомогою таргетованої реклами в соцмережах. Якщо ви хоче"
+    },
+    {
+      "id": "12f33449-052f-401c-bb40-30db10459483",
+      "name": "Good Food International Market (дубль)",
+      "slug": "good-food-190808",
+      "reason": "not_a_service_offer",
+      "preview": "ARCHIVED duplicate of Good Food International Market · same phone+address+website ✨Добро пожаловать в магазин Good Food — здесь собраны все "
+    },
+    {
+      "id": "7eea6d36-8872-4c5b-a65c-6b9d8095d55d",
+      "name": "Pomosch w LA",
+      "slug": "pomosch-w-la-205555-5feb",
+      "reason": "no_service_signal",
+      "preview": "💥В наличии SIM-карта T-Mobile за 39 $🔥 с безлимитным интернетом и нормальной скоростью. Карта действует по всей территории США и не только"
+    },
+    {
+      "id": "6f0a8dec-81a0-45fd-9ecd-93869ae3af15",
+      "name": "Nata",
+      "slug": "nata-205648-791d",
+      "reason": "no_service_signal",
+      "preview": "Летняя процедура,освежит вашу кожу 🔥Приходите буду Рада вас принять 🥰 Летняя процедура,освежит вашу кожу 🔥Приходите буду Рада вас принять"
+    },
+    {
+      "id": "7e1f3e1a-c1da-4e9d-9d00-7a401f3eaf77",
+      "name": "Alexa LuxasBeautyLab",
+      "slug": "alexa-luxasbeautylab-205544-cd66",
+      "reason": "no_service_signal",
+      "preview": "TO THE WORLD YOU ARE A MOTHER, BUT TO YOUR FAMILY YOU ARE THE WORLD. HAPPY MOTHER’S DAY QUEENS !! 💖 TO THE WORLD YOU ARE A MOTHER, BUT TO Y"
+    },
+    {
+      "id": "85a826f2-968c-46b5-8ac8-3aeabb745324",
+      "name": "Daria",
+      "slug": "daria-205631-edfe",
+      "reason": "no_service_signal",
+      "preview": "Мы там жили. Комплекс старенький, апартаменты уставшие, в целом атмосфера спокойная, счета за электричество были космические летом, а кондиц"
+    },
+    {
+      "id": "edf3713b-eaf9-4bbe-bb9c-987d6973a8a1",
+      "name": "Тетяна",
+      "slug": "business-biz-205706-3889",
+      "reason": "no_service_signal",
+      "preview": "Здравствуйте, есть в наличии медовик-медовые коржи,заварной крем. Вес 1/кг. Ирвайн. Здравствуйте, есть в наличии медовик-медовые коржи,завар"
+    },
+    {
+      "id": "ed7187f4-dbe0-455d-ae6b-79d9d185821d",
+      "name": "R R",
+      "slug": "r-r-205741-3edd",
+      "reason": "not_a_service_offer",
+      "preview": "Возьму в аренду ваш авто: Kia Carnival hybrid Kia Sorento hybrid Lexus ES300h Toyota Highlander hybrid Возьму в аренду ваш авто: Kia Carniva"
+    },
+    {
+      "id": "ca0edcfb-ae66-460a-a7b7-9f02d2d49ead",
+      "name": "Anna D",
+      "slug": "anna-d-205804-dbc4",
+      "reason": "no_service_signal",
+      "preview": "Еще есть вариант ночных линз Ortho-K при миопии. На ночь одеваешь и целый день нормальное зрение. Еще есть вариант ночных линз Ortho-K при м"
+    },
+    {
+      "id": "5c1160fb-54dd-4efe-8e30-8f0fc829edb7",
+      "name": "Ilona",
+      "slug": "ilona-205755-e95d",
+      "reason": "no_service_signal",
+      "preview": "Всем привет! Сниму Спарк драйвер Волмарт. Женский аккаунт. Пишите в личку. Всем привет! Сниму Спарк драйвер Волмарт. Женский аккаунт. Пишите"
+    },
+    {
+      "id": "1b15c93b-40b4-49d3-bb7a-0dcde7062f96",
+      "name": "Алла",
+      "slug": "business-biz-205813-6759",
+      "reason": "no_service_signal",
+      "preview": "Спасибо да в Дана поинт я уже была , далековато ехать , там действительно много для взрослых и для детей Спасибо да в Дана поинт я уже была "
+    },
+    {
+      "id": "23402511-47c2-4f70-85f9-abba98f0324c",
+      "name": "reel",
+      "slug": "reel-205759-af81",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "11d7cf8f-32f4-4de2-ba51-4498e10d172e",
+      "name": "Natalia",
+      "slug": "natalia-205727-8e6d",
+      "reason": "no_service_signal",
+      "preview": "Подстригу вашего йорка за очень демократичную цену ✂️ Аккуратно и с любовью ❤️ Груминг йорков 🐶🐾 Нахожусь в Aliso Viejo Все вопросы — в ли"
+    },
+    {
+      "id": "21138172-f48f-477d-a709-a7ee01e1f5a3",
+      "name": "Margo23",
+      "slug": "margo23-205808-3197",
+      "reason": "no_service_signal",
+      "preview": "Какой ужас,Айгерим! Есть ли пост в инстаграмме я так же выложу 🙏 молимся за выздоровления и поможем чем сможем Какой ужас,Айгерим! Есть ли "
+    },
+    {
+      "id": "5e68b197-4551-4147-97bb-62bb39f6ce0c",
+      "name": "К С",
+      "slug": "business-biz-205830-d2d9",
+      "reason": "no_service_signal",
+      "preview": "Здравствуйте) моё объявление. Если кто-то заинтересуется, пишите) Благодарю! Здравствуйте) моё объявление. Если кто-то заинтересуется, пишит"
+    },
+    {
+      "id": "71b027ee-5496-4bf9-a80d-00692cc031b0",
+      "name": "A S",
+      "slug": "a-s-205818-08d6",
+      "reason": "no_service_signal",
+      "preview": "Я когда делала себе загранпаспорт в посольстве в хьюстоне в последний момент решила сделать доверенность но записи не было я договорилась с "
+    },
+    {
+      "id": "bb805da7-3d89-4a20-abde-e4516e8e8380",
+      "name": "Виктория",
+      "slug": "business-biz-205820-6f19",
+      "reason": "no_service_signal",
+      "preview": "Спросите у своего же учителя математики в школе, он может посоветовать кого-нибудь из учителей или даже сам может заниматься дополнительно. "
+    },
+    {
+      "id": "1f311fca-108a-451b-af02-037722643dc8",
+      "name": "Natalia",
+      "slug": "natalia-205829-ea1e",
+      "reason": "no_service_signal",
+      "preview": "Оля, спасибо тебе большое за доверие и такие слова 🤍🥹 Топик — просто чудо, я сама получила огромное удовольствие от работы с ним 🐶✨ Буду "
+    },
+    {
+      "id": "09483bd5-db01-49ec-8397-dafa0ef34a80",
+      "name": "N.S",
+      "slug": "ns-205633-c5d0",
+      "reason": "no_service_signal",
+      "preview": "Пишем отзыв на Google Maps Отзывы только пишут американцы из вашего штата/города бизнеса Скидки до 6 февраля! По поводу отзывов напишите мен"
+    },
+    {
+      "id": "53e149df-05c7-4bb7-9730-ed5667657603",
+      "name": "Kirill",
+      "slug": "kirill-205306-7b59",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "a8a392fc-9f98-4add-80f1-df394f87ad3d",
+      "name": "Olen’ka",
+      "slug": "olenka-205623-a14e",
+      "reason": "no_service_signal",
+      "preview": "Девочки, хочу от души порекомендовать грумера Наталью 🐶✂️ Посмотрите, какого красавчика она сделала из нашего Топика 😍 Мы в восторге, а он"
+    },
+    {
+      "id": "4cc7a2b3-fa35-4c62-b625-1783bb3e7d48",
+      "name": "Nikita Golosov",
+      "slug": "nikita-golosov-205610-92f3",
+      "reason": "no_service_signal",
+      "preview": "У кого плохая вытяжка на кухне? Я продаю портативные вытяжки и мне нужны отзывы на Амазон, бесплатно отправлю товар, а вы мне оставите отзыв"
+    },
+    {
+      "id": "9064a9b9-227c-4f05-841e-74f579e7c654",
+      "name": "Anastasiia Kushnir",
+      "slug": "anastasiia-kushnir-205514-9c05",
+      "reason": "no_service_signal",
+      "preview": "Усім привіт! Мене звати Настя😊 Спеціалізуюсь на налаштуванні таргетованої реклами в Meta Ads. 🔹 Маю досвід та реальні кейси: Приношу резул"
+    },
+    {
+      "id": "dd044ebe-3a15-4994-80f3-ab268f511af9",
+      "name": "reel",
+      "slug": "reel-205255-a92c",
+      "reason": "no_service_signal",
+      "preview": "Кто хочет поиграть с созданием Ai video и сделать свой первый сериал - классная платформа, где это можно сделать Пример здесь. Можно своего "
+    },
+    {
+      "id": "f0e7502d-ac5d-4459-8a61-da399afa4005",
+      "name": "Olga",
+      "slug": "olga-205416-6723",
+      "reason": "no_service_signal",
+      "preview": "😊 Собираю сборный заказ в Atomy Если кому-то что-то нужно — пишите в личные сообщения: • средства для личной гигиены • эко-средства для сти"
+    },
+    {
+      "id": "a461096e-6b86-4d60-a770-71f53513655a",
+      "name": "Monica",
+      "slug": "monica-205310-0d32",
+      "reason": "too_thin_no_service",
+      "preview": "Абсолютно Абсолютно"
+    },
+    {
+      "id": "1e9bb970-7bd2-4c71-9ece-e21e6504285b",
+      "name": "Olga Berger",
+      "slug": "olga-berger-205311-6ca3",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "e37f76d4-cf4d-4304-877f-aa5e2274821a",
+      "name": "Shahida Matkarimova",
+      "slug": "shahida-matkarimova-205217-0f28",
+      "reason": "no_service_signal",
+      "preview": "🌿 Девочки, если летом вы чувствуете отечность, тяжесть в ногах или просто хотите уделить время себе , своему телу — буду рада видеть каждую"
+    },
+    {
+      "id": "f8f17058-9de3-49e0-b287-36b92d62aece",
+      "name": "Ilmira Begzhanova",
+      "slug": "ilmira-begzhanova-205248-fc0a",
+      "reason": "no_service_signal",
+      "preview": "👋 Всем привет! Я нумеролог. Выполняю расчёты по 6 направлениям нумерологии. 📲 Переходите в мой Telegram-бот, вводите свои данные и автомат"
+    }
+  ]
+}

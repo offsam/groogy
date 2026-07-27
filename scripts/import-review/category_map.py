@@ -240,3 +240,97 @@ def resolve_category_id(
         "needs_manual": True,
         "reason": f"нет соответствия для AI-категории «{ai_category}»",
     }
+
+
+# AI / business category → listing_categories.slug (services domain).
+AI_TO_SERVICE_LISTING_SLUG: dict[str, str] = {
+    "beauty": "beauty",
+    "salon": "beauty",
+    "nails": "beauty",
+    "spa": "beauty",
+    "hair": "beauty",
+    "barber": "beauty",
+    "cleaning": "cleaning",
+    "home_services": "home-repair",
+    "home_repair": "home-repair",
+    "handyman": "home-repair",
+    "plumbing": "home-repair",
+    "electrician": "home-repair",
+    "moving": "moving",
+    "auto": "auto-service",
+    "auto_services": "auto-service",
+    "auto_repair": "auto-service",
+    "car_rental": "auto-service",
+    "education": "tutoring",
+    "tutoring": "tutoring",
+    "childcare": "tutoring",
+    "daycare": "tutoring",
+    "nanny": "tutoring",
+    "legal": "legal",
+    "lawyer": "legal",
+    "immigration": "legal",
+    "notary": "legal",
+    "medical": "health",
+    "health": "health",
+    "fitness": "health",
+    "massage": "health",
+    "it": "it-help",
+    "it_help": "it-help",
+    "insurance": "other-services",
+    "food": "other-services",
+    "other": "other-services",
+    "professional_services": "other-services",
+}
+
+
+def resolve_service_listing_category_id(
+    ai_category: str | None,
+    listing_categories: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Map AI category onto active service listing_categories row."""
+    by_slug = {
+        str(c.get("slug") or "").lower(): c
+        for c in listing_categories
+        if c.get("is_active") is not False
+        and str(c.get("listing_type") or "") == "service"
+    }
+    key = (ai_category or "").strip().lower().replace(" ", "_").replace("-", "_")
+    slug = AI_TO_SERVICE_LISTING_SLUG.get(key) or AI_TO_SERVICE_LISTING_SLUG.get(
+        key.replace("_", "-"), None
+    )
+    # also try dashed form of mapped keys
+    if not slug and key:
+        dashed = key.replace("_", "-")
+        if dashed in by_slug:
+            slug = dashed
+    if slug and slug in by_slug:
+        cat = by_slug[slug]
+        return {
+            "category_id": cat.get("id"),
+            "slug": cat.get("slug"),
+            "name": cat.get("name_ru") or cat.get("name_en"),
+            "matched_via": "ai_map",
+            "ai_category": ai_category,
+            "needs_manual": False,
+            "reason": None,
+        }
+    fallback = by_slug.get("other-services") or next(iter(by_slug.values()), None)
+    if fallback:
+        return {
+            "category_id": fallback.get("id"),
+            "slug": fallback.get("slug"),
+            "name": fallback.get("name_ru") or fallback.get("name_en"),
+            "matched_via": "fallback",
+            "ai_category": ai_category,
+            "needs_manual": True,
+            "reason": f"fallback other-services для «{ai_category}»",
+        }
+    return {
+        "category_id": None,
+        "slug": None,
+        "name": None,
+        "matched_via": None,
+        "ai_category": ai_category,
+        "needs_manual": True,
+        "reason": "нет service listing categories",
+    }

@@ -3,6 +3,11 @@
 import { revalidatePath } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
+import {
+  normalizeStructuredAddress,
+  validateStructuredAddress,
+} from "@/lib/address/normalize";
+import { inferLocationPrecision } from "@/lib/business/location-precision";
 import type { UserRole } from "@/types/database";
 
 export type AdminActionResult =
@@ -86,6 +91,7 @@ export async function adminDeleteBusinessAction(input: {
   revalidatePath("/admin");
   revalidatePath("/");
   revalidatePath("/map");
+  revalidatePath("/search");
   if (input.slug) {
     revalidatePath(`/business/${input.slug}`);
   }
@@ -102,7 +108,10 @@ export async function adminUpsertBusinessAction(input: {
   website?: string;
   city?: string;
   addressLine?: string;
-  status?: "pending" | "approved" | "rejected" | "archived" | "draft";
+  region?: string | null;
+  stateCode?: string | null;
+  postalCode?: string | null;
+  status?: "pending" | "approved" | "rejected" | "archived" | "draft" | "deferred";
   categoryId?: string | null;
   instagramUrl?: string;
   googleMapsUrl?: string;
@@ -112,6 +121,21 @@ export async function adminUpsertBusinessAction(input: {
   const { supabase, error } = await requireAdmin();
   if (error) return error;
 
+  const normalized = normalizeStructuredAddress({
+    addressLine: input.addressLine,
+    city: input.city,
+    region: input.region,
+    stateCode: input.stateCode,
+    postalCode: input.postalCode,
+    businessName: input.name,
+  });
+  const issues = validateStructuredAddress(normalized, {
+    businessName: input.name,
+  });
+  if (issues.length > 0) {
+    return fail(issues[0]!.message);
+  }
+
   const { data, error: rpcError } = await supabase.rpc("admin_upsert_business", {
     p_id: input.id ?? null,
     p_name: input.name,
@@ -120,8 +144,8 @@ export async function adminUpsertBusinessAction(input: {
     p_description: input.description ?? "",
     p_phone: input.phone ?? "",
     p_website: input.website ?? "",
-    p_city: input.city ?? "",
-    p_address_line: input.addressLine ?? "",
+    p_city: normalized.city ?? "",
+    p_address_line: normalized.addressLine ?? "",
     p_status: input.status ?? "pending",
     p_category_id: input.categoryId ?? null,
     p_instagram_url: input.instagramUrl ?? "",
@@ -130,6 +154,26 @@ export async function adminUpsertBusinessAction(input: {
     p_google_reviews_count: input.googleReviewsCount ?? 0,
   });
   if (rpcError) return fail(mapDbError(rpcError));
+
+  const businessId = typeof data === "string" ? data : input.id;
+  if (businessId) {
+    await supabase
+      .from("businesses")
+      .update({
+        region: normalized.region,
+        state_code: normalized.stateCode,
+        postal_code: normalized.postalCode,
+        location_precision: inferLocationPrecision({
+          addressLine: normalized.addressLine,
+          city: normalized.city,
+          region: normalized.region,
+        }),
+        ...(!input.id
+          ? { source_kind: "platform" as const, source_url: null }
+          : {}),
+      })
+      .eq("id", businessId);
+  }
 
   revalidatePath("/admin/businesses");
   revalidatePath("/admin");

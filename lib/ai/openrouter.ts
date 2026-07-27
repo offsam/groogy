@@ -1,6 +1,6 @@
 /**
- * Server-only search LLM client (OpenRouter free → cheapest paid → optional OpenAI).
- * Keys never leave this module; models are allowlisted; errors are redacted.
+ * Server-only search LLM client (paid OpenRouter → optional OpenAI/Anthropic).
+ * Free models are off by default (slow queues). Keys never leave this module.
  */
 import "server-only";
 
@@ -20,15 +20,16 @@ const DEFAULT_FREE_MODELS = [
 ] as const;
 
 /**
- * Cheapest OpenRouter paid models that still handle simple JSON search-intent parsing.
+ * Paid OpenRouter models for search-intent JSON.
+ * Prefer fast/reliable nano first; cheaper models are failover only.
  * Prices ~$0.01–$0.10 / 1M input (as of listing check).
  */
 const DEFAULT_CHEAP_PAID_MODELS = [
-  "inclusionai/ling-2.6-flash", // ~$0.01 / $0.03
+  "openai/gpt-4.1-nano", // ~$0.10 / $0.40 — fast, strong JSON
+  "google/gemini-2.5-flash-lite", // ~$0.10 / $0.40
   "amazon/nova-micro-v1", // ~$0.035 / $0.14
   "qwen/qwen-2.5-7b-instruct", // ~$0.04 / $0.10
-  "openai/gpt-4.1-nano", // ~$0.10 / $0.40 — strong JSON
-  "google/gemini-2.5-flash-lite", // ~$0.10 / $0.40
+  "inclusionai/ling-2.6-flash", // ~$0.01 / $0.03
 ] as const;
 
 /** Direct OpenAI fallback when OPENAI_API_KEY is set (no OpenRouter markup). */
@@ -44,7 +45,7 @@ const CHEAP_PAID_ALLOWLIST = new Set<string>([
   "openai/gpt-4o-mini",
 ]);
 
-const DEFAULT_TIMEOUT_MS = 20_000;
+const DEFAULT_TIMEOUT_MS = 12_000;
 
 const unavailableModels = new Set<string>();
 
@@ -106,6 +107,12 @@ function getAnthropicKey(): string | null {
 }
 
 export function getFreeModelChain(): string[] {
+  // Opt-in only — free queues are slow and were the main AI-search delay.
+  const enabled =
+    process.env.OPENROUTER_USE_FREE === "1" ||
+    process.env.OPENROUTER_USE_FREE === "true";
+  if (!enabled) return [];
+
   const fromEnv = parseCsvModels(process.env.OPENROUTER_FREE_MODELS).filter(
     isAllowedFreeModel,
   );
@@ -119,9 +126,9 @@ export function getCheapPaidModelChain(): string[] {
   return fromEnv.length > 0 ? fromEnv : [...DEFAULT_CHEAP_PAID_MODELS];
 }
 
-/** Full search failover: free first, then cheapest paid. */
+/** Paid OpenRouter first; free only if OPENROUTER_USE_FREE=1. */
 export function getSearchModelChain(): string[] {
-  return [...getFreeModelChain(), ...getCheapPaidModelChain()];
+  return [...getCheapPaidModelChain(), ...getFreeModelChain()];
 }
 
 function siteReferer(): string {
@@ -417,8 +424,8 @@ async function tryModel(
 }
 
 /**
- * Free OpenRouter → cheapest paid OpenRouter → direct OpenAI nano/mini → Anthropic Haiku.
- * Callers cannot inject arbitrary models.
+ * Paid OpenRouter (nano first) → direct OpenAI nano/mini → Anthropic Haiku.
+ * Free OpenRouter only if OPENROUTER_USE_FREE=1. Callers cannot inject models.
  */
 export async function completeJsonWithFailover(
   messages: OpenRouterMessage[],

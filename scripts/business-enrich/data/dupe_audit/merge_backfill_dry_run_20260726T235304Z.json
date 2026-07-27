@@ -1,0 +1,279 @@
+{
+  "mode": "dry_run",
+  "merges": [
+    {
+      "keep_id": "6bd41d68-1c9a-4bcf-ae14-a2bad144870f",
+      "keep_slug": "lana-cher-181512-6cf0",
+      "keep_name": "Home Kids Academy",
+      "drop_id": "b079f200-ba5f-4e1e-9a1e-2185095ec4b4",
+      "drop_slug": "lana-cher-205647-957a",
+      "drop_name": "Lana Cher",
+      "note": "same Home Kids Academy @ 56 Essex Ln Irvine",
+      "patch": {
+        "description": "Дорогие друзья!\nС радостью сообщаем, что в Irvine, в резиденции Northwood Point, ведёт набор детей детская академия Home Kids Academy!\n📍 Адрес: 56 Essex Ln, Irvine, CA 92620\nHome Kids Academy рассчитана на 14 мест и создана как уютное, безопасное и развивающее пространство для малышей.\nНаша академия предлагает: ✨ интересную образовательную программу ✨ удобные часы работы ✨ свежеприготовленное качественное питание ✨ занятия по испанскому и русскому языкам ✨ математику и другие развивающие программы\nВсё это отражает наш серьёзный и современный подход к дошкольному образованию.\nМы работаем с государственными программами и с радостью принимаем детей, которым необходима дополнительная поддержка и индивидуальный подход.\nВ работе мы используем методики I-Teach и T&G, помогая детям расти, учиться, общаться и раскрывать свой потенциал в тёплой и заботливой атмосфере.\nМы обещаем внимание, заботу и самый лучший опыт для вашей семьи.\nС нетерпением ждём наших маленьких друзей и их родителей ❤️",
+        "postal_code": "92620"
+      },
+      "keep_richness": 16,
+      "drop_richness": 12,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "0ad2b0cf-1d98-45f6-9ad7-5d819c38610f",
+      "keep_slug": "consolidated-stephen-law-pc",
+      "keep_name": "Stephen Law PC",
+      "drop_id": "2417fed3-85c9-476b-b842-8776df79bb55",
+      "drop_slug": "fb-post-31-eugene-stephen-immigration-attorney",
+      "drop_name": "Eugene Stephen - Immigration Attorney",
+      "note": "same Stephen Law PC phone+address+website",
+      "patch": {
+        "description": "Immigration attorney services including case evaluation, asylum (political and religious), deportation defense, family immigration, interview preparation and representation, court appearances.\nИММИГРАЦИОННЫЙ АДВОКАТ. Member of American Immigration Lawyers Association. Оценка и Доработка Кейсов. Политическое Убежище. Религиозное Убежище. Защита от Депортации. Семейная Иммиграция. Подготовка к Интервью. Представительство в Суде. Сопровождение на Интервью.",
+        "postal_code": "95825"
+      },
+      "keep_richness": 16,
+      "drop_richness": 13,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "keep_slug": "consolidated-tenina-law-inc",
+      "keep_name": "Tenina Law, Inc.",
+      "drop_id": "c91a002f-d588-4c5c-99f9-70d4cbb30d43",
+      "drop_slug": "fb-post-28-tenina-law-inc",
+      "drop_name": "Tenina Law, Inc.",
+      "note": "exact Tenina Law duplicate",
+      "patch": {
+        "postal_code": "91403"
+      },
+      "keep_richness": 21,
+      "drop_richness": 12,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "a972cd36-7035-4f60-80ce-195dfdbfef52",
+      "keep_slug": "kai-t-234038",
+      "keep_name": "Kai - T",
+      "drop_id": "7c58ea6b-a321-40b2-873a-439e83f97310",
+      "drop_slug": "kai-t-205627-dea6",
+      "drop_name": "Kai - T",
+      "note": "duplicate Kai - T cards",
+      "patch": {
+        "source_url": "https://t.me/c/1333533747/69499"
+      },
+      "keep_richness": 10,
+      "drop_richness": 8,
+      "status": "dry_run"
+    }
+  ],
+  "backfill": {
+    "scanned": 200,
+    "updated": 25,
+    "items": [
+      {
+        "id": "0007100c-7fa5-43dd-9fc0-b9365754a71f",
+        "slug": "al-autoservices-181112-85de",
+        "name": "Al · auto_services",
+        "patch": {
+          "postal_code": "92627"
+        }
+      },
+      {
+        "id": "050ffffb-427e-40d3-92b5-208db5c22314",
+        "slug": "business-6505204379-204803-4bf1",
+        "name": "Анастасия Войцехова",
+        "patch": {
+          "city": "Sunnyvale"
+        }
+      },
+      {
+        "id": "0ad2b0cf-1d98-45f6-9ad7-5d819c38610f",
+        "slug": "consolidated-stephen-law-pc",
+        "name": "Stephen Law PC",
+        "patch": {
+          "postal_code": "95825"
+        }
+      },
+      {
+        "id": "1465affd-f950-42fe-a826-d97e44abd33f",
+        "slug": "touch-of-europe-inc-205127-f05a",
+        "name": "Touch of Europe Inc",
+        "patch": {
+          "city": "Concord"
+        }
+      },
+      {
+        "id": "192e6754-9c91-4456-abec-9ff06a867181",
+        "slug": "business-biz-205109-6cf5",
+        "name": "Диана Губарева",
+        "patch": {
+          "city": "Sacramento",
+          "postal_code": "95841"
+        }
+      },
+      {
+        "id": "1edb8154-c1e5-4af7-936a-7c983c656444",
+        "slug": "nadia-papeka-205112-6407",
+        "name": "Nadia Papeka",
+        "patch": {
+          "postal_code": "95678"
+        }
+      },
+      {
+        "id": "5ec2d71c-7dc3-413e-a7bb-95dc3ea35aff",
+        "slug": "business-9169367301-204903-fefa",
+        "name": "грузинскаяедасакраменто #хинкалисакраменто #хачапурисакрамен",
+        "patch": {
+          "city": "Sacramento",
+          "postal_code": "95841"
+        }
+      },
+      {
+        "id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+        "slug": "mama-bear-oc-031830",
+        "name": "mama_bear_oc",
+        "patch": {
+          "city": "Laguna Hills"
+        }
+      },
+      {
+        "id": "63b695f7-f771-49f8-9f6d-974805a61661",
+        "slug": "asiya-ahmadi-204845-c364",
+        "name": "Asiya Ahmadi",
+        "patch": {
+          "postal_code": "95841"
+        }
+      },
+      {
+        "id": "6b5ae521-4130-4687-a5e1-857c64b0d96c",
+        "slug": "nicol-kidman-204858-6bf8",
+        "name": "Nicol Kidman",
+        "patch": {
+          "postal_code": "94121"
+        }
+      },
+      {
+        "id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+        "slug": "consolidated-tenina-law-inc",
+        "name": "Tenina Law, Inc.",
+        "patch": {
+          "postal_code": "91403"
+        }
+      },
+      {
+        "id": "8fbfa368-c9eb-4aae-b212-1f221f276204",
+        "slug": "alex-kozhak-204922-8283",
+        "name": "Alex Kozhak",
+        "patch": {
+          "postal_code": "95670"
+        }
+      },
+      {
+        "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+        "slug": "office-205354-a216",
+        "name": "Office",
+        "patch": {
+          "postal_code": "90046"
+        }
+      },
+      {
+        "id": "af44239a-ed62-4b28-ae77-78bc80820799",
+        "slug": "fbpack-danila-medvedev-vysotsky-zhivoy",
+        "name": "Mimoda Studio — «Высоцкий. Живой»",
+        "patch": {
+          "postal_code": "90019"
+        }
+      },
+      {
+        "id": "b079f200-ba5f-4e1e-9a1e-2185095ec4b4",
+        "slug": "lana-cher-205647-957a",
+        "name": "Lana Cher",
+        "patch": {
+          "postal_code": "92620"
+        }
+      },
+      {
+        "id": "b1b7833f-d195-4a9b-8bae-e9f1a2bd19a3",
+        "slug": "nadia-teterin-204759-1e1e",
+        "name": "Nadia Teterin",
+        "patch": {
+          "postal_code": "95826"
+        }
+      },
+      {
+        "id": "d072e0b0-da7f-4ca7-8d34-4798cb1afe19",
+        "slug": "saida-saida-205654-def0",
+        "name": "SAida SAida",
+        "patch": {
+          "postal_code": "91607"
+        }
+      },
+      {
+        "id": "d21f9248-7bce-4549-a5d5-2027a035165d",
+        "slug": "llc-172203",
+        "name": "Регистрация LLC",
+        "patch": {
+          "city": "Irvine"
+        }
+      },
+      {
+        "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+        "slug": "nataliya-mishenina-204841-326b",
+        "name": "Nataliya  Mishenina",
+        "patch": {
+          "city": "Sacramento",
+          "postal_code": "95841"
+        }
+      },
+      {
+        "id": "deed474e-5d19-4718-bbc6-7e0a4042c1d6",
+        "slug": "batch2-tigran-hovhannisyan",
+        "name": "Tigran — Car Audio",
+        "patch": {
+          "postal_code": "90033"
+        }
+      },
+      {
+        "id": "dfa94381-02bb-434f-9264-a54c20edee85",
+        "slug": "home-for-rent-in-sacramento-205010-f742",
+        "name": "Home for Rent in Sacramento",
+        "patch": {
+          "city": "Sacramento"
+        }
+      },
+      {
+        "id": "ecedd5a5-be54-4e45-83b1-57de17805d52",
+        "slug": "lena-205257-4ea0",
+        "name": "Lena",
+        "patch": {
+          "city": "Sacramento",
+          "postal_code": "95816"
+        }
+      },
+      {
+        "id": "f33b0d87-5883-47ee-91bc-e2c478cbb41e",
+        "slug": "united-states-beauty-studio-180905",
+        "name": "United States Beauty studio",
+        "patch": {
+          "postal_code": "92627"
+        }
+      },
+      {
+        "id": "f484d306-2c7e-46ab-8a81-8d0cce6d8587",
+        "slug": "business-biz-205113-f7ac",
+        "name": "Алина Филинова",
+        "patch": {
+          "city": "Antelope",
+          "postal_code": "95843"
+        }
+      },
+      {
+        "id": "fcccfd71-bb4b-4f9e-9c9f-011980f8fd57",
+        "slug": "the-aj-apartments-205227-4761",
+        "name": "Передача аренды – The A.J. Apartments, Сакраменто",
+        "patch": {
+          "city": "Sacramento",
+          "postal_code": "95811"
+        }
+      }
+    ]
+  }
+}

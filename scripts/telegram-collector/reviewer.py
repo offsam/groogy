@@ -42,6 +42,8 @@ TARGET_COLLECTIONS = {
     "events",
     "organizations",
     "real_estate",
+    "lechu",
+    "transfers",
 }
 
 ENTITY_TYPES = {
@@ -52,6 +54,8 @@ ENTITY_TYPES = {
     "event",
     "job",
     "real_estate",
+    "lechu_listing",
+    "transfer_listing",
 }
 
 CATEGORY_OVERRIDES = {
@@ -85,8 +89,8 @@ Return ONLY valid JSON:
 {
   "action": "promote_to_accepted" | "keep_review" | "reject",
   "reason": "short reason",
-  "entity_type": one of [business, private_specialist, marketplace_listing, organization, event, job, real_estate] or null,
-  "target_collection": one of [businesses, private_specialists, services, marketplace, jobs, events, organizations, real_estate] or null,
+  "entity_type": one of [business, private_specialist, marketplace_listing, organization, event, job, real_estate, lechu_listing, transfer_listing] or null,
+  "target_collection": one of [businesses, private_specialists, services, marketplace, jobs, events, organizations, real_estate, lechu, transfers] or null,
   "category": controlled category or null (only if clearly wrong and you can fix),
   "confidence": 0..1
 }
@@ -100,6 +104,9 @@ Keep review for third-party recommendations, ambiguous ownership, weak ads, dupl
 Reject only clear non-inventory noise: pure questions asking for recommendations, pure discussion, politics, empty spam.
 Do NOT reject marketplace sales of goods (car, furniture, electronics, clothes, kids items, pets, tools, realty as a listing).
 Those should be marketplace_listing / real_estate with action promote_to_accepted or keep_review, never reject if a sell intent + contact exists.
+
+Travel-carry ads ("Лечу", take packages/documents on a flight) → lechu_listing / lechu.
+Money transfer / remittance / currency exchange offers → transfer_listing / transfers.
 
 Never invent names, phones, cities, or services.
 """
@@ -183,12 +190,56 @@ def infer_target_collection(entity_type: str | None, category: str | None, class
         return "businesses"
     if entity_type == "private_specialist":
         return "private_specialists"
+    if entity_type == "lechu_listing" or classification == "lechu":
+        return "lechu"
+    if entity_type == "transfer_listing" or classification == "transfer":
+        return "transfers"
     if category in {"food", "beauty", "auto_services", "car_rental"} and entity_type == "business":
         return "businesses"
     return "services"
 
 
+LECHU_RE = re.compile(
+    r"(?:^|\n|#)\s*лечу\b|#лечу\b|летим\b|летит\b|"
+    r"возьму\s+(?:посыл|документ|чемодан|вещи)|"
+    r"заберу\s+и\s+привезу|"
+    r"передам\s+(?:посыл|документ)|"
+    r"flying\s+to|take\s+packages?\b",
+    re.I,
+)
+TRANSFER_RE = re.compile(
+    r"(?:денежн\w*\s+)?перевод(?:ы|ов)?\s+(?:в|из|на)\s+(?:росси|сша|украин|европ|карт)|"
+    r"money\s+transfer|wire\s+transfer|remittance|swift\b|"
+    r"крипто\s*(?:в|→|->|to)\s*фиат|фиат\s*(?:в|→|->|to)\s*крипто|"
+    r"обмен\s+валют|меняю\s+(?:руб|доллар|\$)|"
+    r"куплю\s+руб|продам\s+руб|куплю\s+доллар|продам\s+доллар|"
+    r"рубл\w*\s+на\s+(?:карт|доллар)|доллар\w*\s+на\s+руб|"
+    r"переведу\s+(?:деньги|доллар|руб)|"
+    r"оплачу\s+(?:вашу|ваш[уые]?).{0,40}рубл|"
+    r"комисси[яи]\s*\d+\s*%\s*(?:за\s+)?перевод",
+    re.I,
+)
+TRANSLATOR_NOISE_RE = re.compile(
+    r"переводчик|certified\s+translation|апостил|document\s+preparation|"
+    r"преподаватель|язык(?:а|ов)?\b",
+    re.I,
+)
+
+
+def detect_lechu_or_transfer(text: str) -> str | None:
+    blob = text or ""
+    if LECHU_RE.search(blob):
+        return "lechu_listing"
+    if TRANSFER_RE.search(blob) and not TRANSLATOR_NOISE_RE.search(blob):
+        return "transfer_listing"
+    return None
+
+
 def infer_entity_type(post: dict[str, Any], entity: dict[str, Any]) -> str:
+    text = post.get("merged_text") or entity.get("description") or ""
+    travel = detect_lechu_or_transfer(text)
+    if travel:
+        return travel
     classification = post.get("classification")
     if classification == "marketplace_item":
         return "marketplace_listing"

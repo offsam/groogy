@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "olga-daycare-imontessori-190759",
+    "status": "ok",
+    "from": "Olga DAYCARE I❤️Montessori",
+    "to": "I❤️Montessori (Olga)",
+    "has_geo": true
+  },
+  {
+    "slug": "irin-pilates-031833",
+    "status": "ok",
+    "from": "Irin Pilates",
+    "to": "Upgrade Pilates & Bodytherapy",
+    "has_geo": false
+  },
+  {
+    "slug": "zsaesthetics-190931",
+    "status": "ok",
+    "from": "zs.aesthetics",
+    "to": "ZMD Aesthetics",
+    "has_geo": false
+  },
+  {
+    "slug": "dirtybirdfarm-150701",
+    "status": "ok",
+    "from": "dirtybirdfarm",
+    "to": "Dirty Bird Ranch",
+    "has_geo": true
+  },
+  {
+    "slug": "consolidated-ltd-services-llc",
+    "status": "ok",
+    "from": "LTD Services LLC",
+    "to": "LTD Tax & Accounting",
+    "has_geo": true
+  },
+  {
+    "slug": "fbpack-translatorpro",
+    "status": "ok",
+    "from": "TranslatorPro",
+    "to": "TranslatorPro — Михаил Богомольный",
+    "has_geo": false
+  },
+  {
+    "slug": "vika-borel-150706",
+    "status": "ok",
+    "from": "Vika Borel",
+    "to": "Metro Tech Academy",
+    "has_geo": false
+  },
+  {
+    "slug": "consolidated-olga-osipova-fitness",
+    "status": "ok",
+    "from": "Olga Osipova",
+    "to": "Olga Osipova Fitness",
+    "has_geo": false
+  },
+  {
+    "slug": "natalia-rezvova-150712",
+    "status": "ok",
+    "from": "Natalia Rezvova",
+    "to": "Letter Fox",
+    "has_geo": false
+  },
+  {
+    "slug": "enriched-llc-tsisar",
+    "status": "geo_ok"
+  },
+  {
+    "offers_montessori": "ok:3"
+  },
+  {
+    "offers_upgrade": "ok:3"
+  },
+  {
+    "offers_zmd": "ok:5"
+  }
+]

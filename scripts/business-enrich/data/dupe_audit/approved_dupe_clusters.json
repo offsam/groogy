@@ -1,0 +1,347 @@
+[
+  {
+    "size": 3,
+    "reasons": [
+      "addr:1175 baker st ste e19|costa mesa",
+      "ig:mi_care_beauty"
+    ],
+    "members": [
+      {
+        "id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+        "slug": "micarebeauty-190930",
+        "name": "Mi Care Beauty",
+        "phone": "+19497451105",
+        "instagram_url": "https://instagram.com/mi_care_beauty",
+        "website": "https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8",
+        "address_line": "17621 Irvine Blvd",
+        "city": "Tustin",
+        "postal_code": "92780",
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/45bd86cf-1645-4230-adc0-6f4754776dd7/10d67d1eb31005a5.webp",
+        "short_description": "Маникюр / педикюр · Tustin plaza",
+        "desc_len": 1055
+      },
+      {
+        "id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+        "slug": "tатьяна-032105",
+        "name": "Ultima Studio",
+        "phone": "+19498758877",
+        "instagram_url": "https://instagram.com/mi_care_beauty",
+        "website": "https://ultimastudio.co",
+        "address_line": "1175 Baker St Ste E19",
+        "city": "Costa Mesa",
+        "postal_code": "92626",
+        "google_rating": 5.0,
+        "google_reviews_count": 161,
+        "image_url": "/images/categories/auto.svg",
+        "short_description": "Barber / hair studio · Costa Mesa · Google 5.0★ (161)",
+        "desc_len": 161
+      },
+      {
+        "id": "f1030f62-c39f-4019-be0e-cba489acdb8e",
+        "slug": "enriched-ivan-stypnik",
+        "name": "Ivan Stypnik",
+        "phone": null,
+        "instagram_url": null,
+        "website": "https://getsqr.co/ivan-s-21",
+        "address_line": "1175 Baker St Ste E19",
+        "city": "Costa Mesa",
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Профессиональные мужские и женские стрижки.",
+        "desc_len": 802
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "addr:2233 watt ave ste 295 sacramento|sacramento",
+      "phone:9167755734",
+      "web:stephenlawpc.com"
+    ],
+    "members": [
+      {
+        "id": "0ad2b0cf-1d98-45f6-9ad7-5d819c38610f",
+        "slug": "consolidated-stephen-law-pc",
+        "name": "Stephen Law PC",
+        "phone": "+1-916-775-5734",
+        "instagram_url": null,
+        "website": "https://StephenLawPC.com",
+        "address_line": "2233 Watt Ave Ste 295, Sacramento",
+        "city": "Sacramento",
+        "postal_code": null,
+        "google_rating": 5.0,
+        "google_reviews_count": 60,
+        "image_url": null,
+        "short_description": "Immigration law · AILA · Sacramento · Google 5.0★ (60)",
+        "desc_len": 377
+      },
+      {
+        "id": "2417fed3-85c9-476b-b842-8776df79bb55",
+        "slug": "fb-post-31-eugene-stephen-immigration-attorney",
+        "name": "Eugene Stephen - Immigration Attorney",
+        "phone": "+1-916-775-5734",
+        "instagram_url": null,
+        "website": "stephenlawpc.com",
+        "address_line": "2233 Watt Ave., Ste 295, Sacramento",
+        "city": "Sacramento",
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Immigration attorney services including case evaluation, asylum (political and religious), deportation defense, family immigration, interview preparation and re",
+        "desc_len": 457
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "addr:5352 auburn blvd sacramento|"
+    ],
+    "members": [
+      {
+        "id": "192e6754-9c91-4456-abec-9ff06a867181",
+        "slug": "business-biz-205109-6cf5",
+        "name": "Диана Губарева",
+        "phone": null,
+        "instagram_url": "https://instagram.com/dianagubareva",
+        "website": null,
+        "address_line": "5352 Auburn Blvd, Sacramento",
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "High Heels Beginners 👠\nStarts August 4️⃣\nЭта группа создана для тех, кто давно хотел попробовать High Heels, но не знал, с чего начать🙌\nНа занятиях мы будем\n• и",
+        "desc_len": 645
+      },
+      {
+        "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+        "slug": "nataliya-mishenina-204841-326b",
+        "name": "Nataliya  Mishenina",
+        "phone": "+19163071847",
+        "instagram_url": null,
+        "website": null,
+        "address_line": "5352 Auburn Blvd, Sacramento",
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Думаете, чем занять ребенка этим летом?\nЛето, полное творчества, игр и развития для вашего ребенка ✨\n\nПриглашаем детей 5–13 лет в творческий дневной лагерь в Са",
+        "desc_len": 1013
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "name:kai t"
+    ],
+    "members": [
+      {
+        "id": "7c58ea6b-a321-40b2-873a-439e83f97310",
+        "slug": "kai-t-205627-dea6",
+        "name": "Kai - T",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Мы делали генеральную доверенность у Милы, отправляли в Россию что бы квартирные дела за нас кто-то решал. Так же перевод и апостиль для посольства тоже у нее д",
+        "desc_len": 166
+      },
+      {
+        "id": "a972cd36-7035-4f60-80ce-195dfdbfef52",
+        "slug": "kai-t-234038",
+        "name": "Kai - T",
+        "phone": "+19498735710",
+        "instagram_url": null,
+        "website": "https://maps.apple/p/tQWfcjLA18LQND",
+        "address_line": "325 Old Newport Blvd",
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Мы вот сюда ходили с года до 3х. Детская стоматология. Там доктор англоговорящая азиатка. Мы там были только на чистке, один раз рентген делали. Но мы оттуда уш",
+        "desc_len": 300
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "addr:15250 ventura blvd suite 1200 sherman oaks|sherman oaks",
+      "ig:tenina_law",
+      "name:tenina law",
+      "phone:2135960265",
+      "subname",
+      "web:teninalaw.com"
+    ],
+    "members": [
+      {
+        "id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+        "slug": "consolidated-tenina-law-inc",
+        "name": "Tenina Law, Inc.",
+        "phone": "+1-213-596-0265",
+        "instagram_url": "https://www.instagram.com/tenina_law/",
+        "website": "https://teninalaw.com",
+        "address_line": "15250 Ventura Blvd Suite 1200, Sherman Oaks",
+        "city": "Sherman Oaks",
+        "postal_code": null,
+        "google_rating": 5.0,
+        "google_reviews_count": 50,
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/7dcde6ec-cf32-4bcd-947a-0614107a40ea/d4d83e370a897467194a607aa10ca3843e4a9619ea4c1bc4911e007f15aa73bf.webp",
+        "short_description": "Tax law · Sherman Oaks · Google 5.0★ (50)",
+        "desc_len": 444
+      },
+      {
+        "id": "c91a002f-d588-4c5c-99f9-70d4cbb30d43",
+        "slug": "fb-post-28-tenina-law-inc",
+        "name": "Tenina Law, Inc.",
+        "phone": "+1-213-596-0265",
+        "instagram_url": "https://www.instagram.com/tenina_law/",
+        "website": "teninalaw.com",
+        "address_line": "15250 Ventura Blvd Suite 1200, Sherman Oaks",
+        "city": "Sherman Oaks",
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Tax compliance services for cryptocurrency investments and transactions. Audits for crypto holdings and trading activity.",
+        "desc_len": 318
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "web:youtube.com"
+    ],
+    "members": [
+      {
+        "id": "7dd616be-9b5e-4166-b247-76c36e17503e",
+        "slug": "coding-school-pasv-205322-3729",
+        "name": "Coding school PASV",
+        "phone": null,
+        "instagram_url": null,
+        "website": "https://youtube.com/playlist?list=PLEhUqRdnYdylousEyfav-B7N-ISFaz0Nn&si=jf-E_QOlHPBCroOG",
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "🤔 «А получится ли у меня?»\n🤔 «Стоит ли вообще идти в IT?»\n🤔 «Смогу ли я найти работу?»\nТакие вопросы задаёт себе почти каждый перед стартом.\nИ знаете, что самое",
+        "desc_len": 842
+      },
+      {
+        "id": "be2e93ce-936a-4073-b4c5-7b6dd11bf8e0",
+        "slug": "title-company-205234-4c04",
+        "name": "Title Company",
+        "phone": null,
+        "instagram_url": null,
+        "website": "https://www.youtube.com/live/_khEMBKgFHk?si=OURRv8fi7iyJbqBb",
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "Как заработать на земле в США: Land Flipping от поиска участка до продажи 🔥\nОбычно эти стратегии дают только на закрытых воркшопах, но мы вскрываем их в открыто",
+        "desc_len": 644
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "subname"
+    ],
+    "members": [
+      {
+        "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+        "slug": "office-205354-a216",
+        "name": "Office",
+        "phone": null,
+        "instagram_url": "https://www.instagram.com/navatfoodtruck",
+        "website": null,
+        "address_line": "7300 Sunset Blvd, Los Angeles",
+        "city": "Los Angeles",
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/9e1d4e89-fea6-4372-88df-f160e40eecf8/cover-tg-257134.jpg",
+        "short_description": "🔥 NAVAT — HALAL СРЕДНЕАЗИАТСКАЯ КУХНЯ В LOS ANGELES 🔥\n\n3 из 4 наших локаций работают до 4 утра! 🌅\n\n✅ Шаурма (курица, говядина)\n✅ Бургеры и чизбургеры\n✅ Манты\n✅ ",
+        "desc_len": 639
+      },
+      {
+        "id": "cada7298-7a11-4c17-a45c-c4add9685de1",
+        "slug": "sergiy-kuzin-loan-officer-204834-c234",
+        "name": "Sergiy Kuzin, Loan Officer",
+        "phone": "+19166942209",
+        "instagram_url": null,
+        "website": null,
+        "address_line": null,
+        "city": null,
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": null,
+        "short_description": "А какие ставки вам сегодня предлагают?\n📊 **Обновление рынка — ставки на сегодня** 30 июня 2026 г.\nТекущие ставки по программе покупки жилья (30-летний фиксирова",
+        "desc_len": 1622
+      }
+    ]
+  },
+  {
+    "size": 2,
+    "reasons": [
+      "phrase:essex",
+      "phrase:home_kids"
+    ],
+    "members": [
+      {
+        "id": "6bd41d68-1c9a-4bcf-ae14-a2bad144870f",
+        "slug": "lana-cher-181512-6cf0",
+        "name": "Home Kids Academy",
+        "phone": "+13107179848",
+        "instagram_url": "https://www.instagram.com/homekidsacademy",
+        "website": null,
+        "address_line": "56 Essex Ln",
+        "city": "Irvine",
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/6bd41d68-1c9a-4bcf-ae14-a2bad144870f/cover-tg-75776.jpg",
+        "short_description": "Детская академия Home Kids Academy в Irvine: языки, спорт, музыка, Mini Medical. 22 мес.–6 лет.",
+        "desc_len": 360
+      },
+      {
+        "id": "b079f200-ba5f-4e1e-9a1e-2185095ec4b4",
+        "slug": "lana-cher-205647-957a",
+        "name": "Lana Cher",
+        "phone": null,
+        "instagram_url": null,
+        "website": null,
+        "address_line": "56 Essex Ln, Irvine",
+        "city": "Irvine",
+        "postal_code": null,
+        "google_rating": null,
+        "google_reviews_count": 0,
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/969ae9f0-4167-4df1-846e-a4f061d1e6df/9fbb99b5f5ab8db4.webp",
+        "short_description": "Дорогие друзья!\nС радостью сообщаем, что в Irvine, в резиденции Northwood Point, ведёт набор детей детская академия Home Kids Academy!\n📍 Адрес: 56 Essex Ln, Irv",
+        "desc_len": 995
+      }
+    ]
+  }
+]

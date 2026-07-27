@@ -1,24 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { Bookmark, MessageCircle, Share2 } from "lucide-react";
+import { Bookmark, CalendarCheck, MessageCircle, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type BusinessHeaderActionsProps = {
   businessName: string;
   email?: string | null;
+  /** Public online booking URL (Book Now). */
+  bookingUrl?: string | null;
   className?: string;
 };
 
 const iconBtn =
-  "inline-flex size-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900";
+  "inline-flex size-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 sm:size-8 sm:rounded-lg";
 
 export function BusinessHeaderActions({
   businessName,
   email = null,
+  bookingUrl = null,
   className,
 }: BusinessHeaderActionsProps) {
   const trimmed = email?.trim() || null;
+  const bookHref = bookingUrl?.trim() || null;
   const [copied, setCopied] = useState(false);
 
   function onAsk() {
@@ -47,9 +51,25 @@ export function BusinessHeaderActions({
   }
 
   return (
-    <div className={cn("flex shrink-0 flex-col items-end gap-1.5", className)}>
+    <div
+      className={cn(
+        "flex shrink-0 flex-row flex-wrap items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5",
+        className,
+      )}
+    >
+      {bookHref ? (
+        <a
+          className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl bg-brand-blue px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90 sm:min-h-0 sm:flex-none sm:py-1.5"
+          href={bookHref}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <CalendarCheck aria-hidden="true" className="size-3.5" />
+          Записаться
+        </a>
+      ) : null}
       <button
-        className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50"
+        className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50 sm:min-h-0 sm:flex-none sm:py-1.5"
         type="button"
         onClick={onAsk}
       >

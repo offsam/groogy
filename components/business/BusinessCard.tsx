@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
-import { BusinessPresenceBadges } from "@/components/business/BusinessPresenceBadges";
-import { ClaimBusinessButton } from "@/components/business/ClaimBusinessButton";
+import { BusinessCardContactIcons } from "@/components/business/BusinessCardContactIcons";
+import { businessCardBlurb } from "@/lib/business/card-blurb";
+import { normalizeUsZip } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 import { isPlaceholderBusinessImage } from "@/lib/business/media";
 import { trackResourceOpen } from "@/lib/platform/engagement";
@@ -14,9 +15,21 @@ type BusinessCardProps = {
   business: Business;
   selected?: boolean;
   onSelect?: (id: string) => void;
-  /** Admin moderation: no public links, claim CTA, or analytics. */
+  /** Admin moderation: no public links or analytics. */
   preview?: boolean;
 };
+
+/** Listing location line: «Irvine, 92612» (city + ZIP only, no street). */
+export function businessCardLocationLabel(business: Business): string | null {
+  const city = business.city?.trim() || "";
+  const zip = business.postalCode
+    ? normalizeUsZip(business.postalCode)
+    : null;
+  if (city && zip) return `${city}, ${zip}`;
+  if (city) return city;
+  if (zip) return zip;
+  return null;
+}
 
 export function BusinessCard({
   business,
@@ -24,33 +37,24 @@ export function BusinessCard({
   onSelect,
   preview = false,
 }: BusinessCardProps) {
-  const city = business.city?.trim() || "";
+  const locationLabel = businessCardLocationLabel(business);
+  const blurb = businessCardBlurb({
+    shortDescription: business.shortDescription,
+    description: business.description,
+    categoryName: business.categoryName,
+  });
   const isPlaceholder = isPlaceholderBusinessImage(business.imageUrl);
 
-  return (
-    <article
-      className={cn(
-        "flex gap-3 rounded-xl border bg-white p-3 transition-all sm:gap-4 sm:p-4",
-        onSelect && "cursor-pointer",
-        selected
-          ? "border-slate-900 shadow-md ring-1 ring-slate-900"
-          : "border-slate-200 hover:border-slate-300 hover:shadow-sm",
-      )}
-      onClick={
-        onSelect
-          ? () => {
-              if (!preview) {
-                trackResourceOpen({
-                  kind: "business",
-                  id: business.id,
-                  pathId: business.slug,
-                });
-              }
-              onSelect(business.id);
-            }
-          : undefined
-      }
-    >
+  const className = cn(
+    "flex gap-3 rounded-xl border bg-white p-3 transition-all sm:gap-4 sm:p-4",
+    !preview && "cursor-pointer",
+    selected
+      ? "border-slate-900 shadow-md ring-1 ring-slate-900"
+      : "border-slate-200 hover:border-slate-300 hover:shadow-sm",
+  );
+
+  const body = (
+    <>
       <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-slate-100 sm:size-28">
         {isPlaceholder ? (
           <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 px-2 text-center text-[10px] font-semibold uppercase leading-tight tracking-wide text-white">
@@ -79,62 +83,53 @@ export function BusinessCard({
           )}
         </div>
 
-        <BusinessPresenceBadges
-          presence={{
-            website: business.website,
-            instagramUrl: business.instagramUrl,
-            googleMapsUrl: business.googleMapsUrl,
-            googleRating: business.googleRating,
-            googleReviewsCount: business.googleReviewsCount,
-            latitude: business.latitude,
-            longitude: business.longitude,
-          }}
-        />
-
         <p className="mt-0.5 text-xs font-medium uppercase tracking-wide text-slate-400">
           {business.categoryName ?? "Без категории"}
           {business.reviewsCount > 0 && ` · ${business.reviewsCount} отзывов`}
         </p>
 
-        {business.shortDescription ? (
-          <p className="mt-1.5 line-clamp-2 text-sm text-slate-600">
-            {business.shortDescription}
+        {blurb ? (
+          <p className="mt-1.5 line-clamp-2 text-sm text-slate-600">{blurb}</p>
+        ) : null}
+
+        {locationLabel ? (
+          <p className="mt-2 flex min-w-0 items-center gap-1.5 text-sm text-slate-600">
+            <MapPin aria-hidden="true" className="size-3.5 shrink-0 text-slate-400" />
+            <span className="truncate">{locationLabel}</span>
           </p>
         ) : null}
 
-        {city ? (
-          <ul className="mt-2 space-y-1 text-sm text-slate-600">
-            <li className="flex items-center gap-1.5 truncate">
-              <MapPin aria-hidden="true" className="size-3.5 shrink-0 text-slate-400" />
-              {city}
-            </li>
-          </ul>
-        ) : null}
-
-        {!preview ? (
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <Link
-              className="inline-block rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
-              href={`/business/${business.slug}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                trackResourceOpen({
-                  kind: "business",
-                  id: business.id,
-                  pathId: business.slug,
-                });
-              }}
-            >
-              Подробнее
-            </Link>
-            <ClaimBusinessButton
-              businessId={business.id}
-              businessSlug={business.slug}
-              kind="business"
-            />
-          </div>
-        ) : null}
+        <BusinessCardContactIcons
+          flags={business.presenceFlags}
+          googleRating={business.googleRating}
+          googleReviewsCount={business.googleReviewsCount}
+          instagramFollowersCount={business.instagramFollowersCount}
+          slug={business.slug}
+          yelpRating={business.yelpRating}
+          yelpReviewsCount={business.yelpReviewsCount}
+        />
       </div>
-    </article>
+    </>
+  );
+
+  if (preview) {
+    return <article className={className}>{body}</article>;
+  }
+
+  return (
+    <Link
+      className={className}
+      href={`/business/${business.slug}`}
+      onClick={() => {
+        trackResourceOpen({
+          kind: "business",
+          id: business.id,
+          pathId: business.slug,
+        });
+        onSelect?.(business.id);
+      }}
+    >
+      {body}
+    </Link>
   );
 }

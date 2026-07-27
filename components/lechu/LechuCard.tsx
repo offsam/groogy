@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import type { Listing } from "@/types/listing";
@@ -16,6 +17,7 @@ type LechuCardProps = {
   listing: Listing;
   showFavorite?: boolean;
   showStatus?: boolean;
+  preview?: boolean;
 };
 
 function formatDate(value: string | null) {
@@ -25,10 +27,32 @@ function formatDate(value: string | null) {
   );
 }
 
+function MaybeLink({
+  preview,
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  preview: boolean;
+  href: string;
+  className?: string;
+  onClick?: () => void;
+  children: ReactNode;
+}) {
+  if (preview) return <div className={className}>{children}</div>;
+  return (
+    <Link className={className} href={href} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
+
 export function LechuCard({
   listing,
   showFavorite = false,
   showStatus = false,
+  preview = false,
 }: LechuCardProps) {
   const cover = listing.media?.[0]?.publicUrl;
   const lechu = listing.lechu;
@@ -43,15 +67,21 @@ export function LechuCard({
       : listing.author?.profilePath;
   const carryPreview = (lechu?.carryTypes ?? [])
     .slice(0, 2)
-    .map((t) => LECHU_CARRY_TYPE_LABELS[t as keyof typeof LECHU_CARRY_TYPE_LABELS] ?? t);
+    .map(
+      (t) =>
+        LECHU_CARRY_TYPE_LABELS[t as keyof typeof LECHU_CARRY_TYPE_LABELS] ?? t,
+    );
+  const href = `/lechu/${listing.id}`;
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
-      <Link
+      <MaybeLink
         className="block"
-        href={`/lechu/${listing.id}`}
+        href={href}
+        preview={preview}
         onClick={() => trackResourceOpen({ kind: "lechu", id: listing.id })}
-      >        <div className="relative aspect-[4/3] bg-slate-100">
+      >
+        <div className="relative aspect-[4/3] bg-slate-100">
           {cover ? (
             <Image
               alt={listing.title}
@@ -67,24 +97,25 @@ export function LechuCard({
             </div>
           )}
         </div>
-      </Link>
+      </MaybeLink>
 
       <div className="space-y-2 p-4">
         <div className="flex items-start justify-between gap-2">
-          <Link
+          <MaybeLink
             className="line-clamp-2 font-semibold text-slate-900 hover:underline"
-            href={`/lechu/${listing.id}`}
+            href={href}
+            preview={preview}
             onClick={() => trackResourceOpen({ kind: "lechu", id: listing.id })}
           >
             {listing.title}
-          </Link>
-          {showFavorite && (
+          </MaybeLink>
+          {!preview && showFavorite ? (
             <FavoriteButton
               favoritesCount={listing.favoritesCount}
               initialFavorited={listing.favoritedByMe ?? false}
               listingId={listing.id}
             />
-          )}
+          ) : null}
         </div>
 
         {lechu && (
@@ -124,7 +155,7 @@ export function LechuCard({
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs text-slate-400">
           {publisherLabel && (
             <span>
-              {publisherHref ? (
+              {!preview && publisherHref ? (
                 <Link
                   className="text-slate-600 hover:underline"
                   href={publisherHref}

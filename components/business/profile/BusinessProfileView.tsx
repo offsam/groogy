@@ -16,6 +16,8 @@ import {
   Store,
 } from "lucide-react";
 import { BusinessCard } from "@/components/business/BusinessCard";
+import { AdminChangeCategoryButton } from "@/components/business/AdminChangeCategoryButton";
+import { AdminDeleteBusinessButton } from "@/components/business/AdminDeleteBusinessButton";
 import { ClaimBusinessButton } from "@/components/business/ClaimBusinessButton";
 import { BusinessGallery } from "@/components/business/profile/BusinessGallery";
 import { BusinessHeaderActions } from "@/components/business/profile/BusinessHeaderActions";
@@ -32,13 +34,26 @@ import {
 } from "@/components/business/profile/edit/SectionEditors";
 import type { ProfileTab } from "@/lib/business/profile-tabs";
 import { BusinessOffersSection } from "@/components/business-offers/BusinessOffersSection";
+import { BusinessCommunityMentions } from "@/components/business/profile/BusinessCommunityMentions";
 import { BusinessReviewsSection } from "@/components/reviews/BusinessReviewsSection";
+import {
+  formatOfficesDescriptionLine,
+  pickBusinessLocationsForHubs,
+} from "@/lib/business/location-for-hub";
+import type { RegionHub } from "@/lib/regions/hubs";
 import { structureBusinessProfileCopy } from "@/lib/content/structure-business-profile";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { formatOfferPrice, offerCoverUrl } from "@/lib/business-offers/mappers";
 import { formatAddress } from "@/lib/supabase/mappers";
-import type { Business } from "@/types/business";
+import { BusinessJobsPanel } from "@/components/business/profile/BusinessJobsPanel";
+import type { Job } from "@/types/job";
+import type { Business, Category } from "@/types/business";
 import type { BusinessOffer } from "@/types/business-offer";
+import type { CommunityMention } from "@/types/community-mention";
+import {
+  formatBusinessLocationLine,
+  type BusinessLocation,
+} from "@/types/business-location";
 import type { Review, ReviewVerificationSession } from "@/types/review";
 
 type EditSection =
@@ -55,10 +70,17 @@ type BusinessProfileViewProps = {
   business: Business;
   businessSlug: string;
   offers: BusinessOffer[];
+  jobs: Job[];
   reviews: Review[];
+  communityMentions?: CommunityMention[];
+  locations?: BusinessLocation[];
+  /** Active region hubs from header filter / cookie. */
+  activeHubs?: RegionHub[];
   similar: Business[];
   isOwner: boolean;
   isAdmin?: boolean;
+  /** Active business categories — only needed for admin category picker. */
+  categories?: Category[];
   autoClaim: boolean;
   currentUserId: string | null;
   myReview: Review | null;
@@ -106,10 +128,15 @@ export function BusinessProfileView({
   business,
   businessSlug,
   offers,
+  jobs,
   reviews,
+  communityMentions = [],
+  locations = [],
+  activeHubs = [],
   similar,
   isOwner,
   isAdmin = false,
+  categories = [],
   autoClaim,
   currentUserId,
   myReview,
@@ -118,15 +145,55 @@ export function BusinessProfileView({
   editMode = false,
 }: BusinessProfileViewProps) {
   const [editSection, setEditSection] = useState<EditSection>(null);
-  const address = formatAddress(business);
-  const addressLine =
-    address && business.region ? `${address}, ${business.region}` : address;
-  const locationLine = [business.city, business.region].filter(Boolean).join(", ");
+  const canInlineEdit = isOwner && editMode;
+  const isNetwork = locations.length > 1;
+  const sidebarLocations = canInlineEdit
+    ? locations
+    : pickBusinessLocationsForHubs(locations, activeHubs);
+  const hubLocation = sidebarLocations[0] ?? null;
+  const address = hubLocation
+    ? hubLocation.addressLine?.trim()
+      ? formatBusinessLocationLine(hubLocation)
+      : formatAddress({
+          ...business,
+          city: hubLocation.city ?? business.city,
+          region: hubLocation.region ?? business.region,
+        }) || formatBusinessLocationLine(hubLocation)
+    : formatAddress(business);
+  const addressLine = address;
+  const locationLine = hubLocation
+    ? [
+        hubLocation.city,
+        hubLocation.postalCode?.trim() ||
+          hubLocation.stateCode?.replace(/^US-/, "") ||
+          null,
+      ]
+        .filter(Boolean)
+        .join(", ")
+    : [business.city, business.postalCode?.trim() || null]
+        .filter(Boolean)
+        .join(", ");
+  const hubLabel =
+    activeHubs.length > 0
+      ? activeHubs.map((h) => h.shortLabel).join(", ")
+      : null;
+  const mapsUrl = hubLocation
+    ? hubLocation.googleMapsUrl ||
+      (addressLine
+        ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addressLine)}`
+        : null)
+    : addressLine
+      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addressLine)}`
+      : typeof business.latitude === "number" &&
+          typeof business.longitude === "number"
+        ? `https://www.google.com/maps/dir/?api=1&destination=${business.latitude},${business.longitude}`
+        : null;
   const gallery = collectGallery(business, offers);
   const featuredOffers = [...offers]
     .sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured))
     .slice(0, 6);
   const previewReview = reviews[0] ?? null;
+  const previewMention = communityMentions[0] ?? null;
   const since = platformSinceLabel(business.createdAt);
   const showVerified =
     business.aiVerifiedReviewsCount > 0 ||
@@ -136,23 +203,33 @@ export function BusinessProfileView({
     business.description,
     business.shortDescription,
   );
-  const actionEmail = business.email || copy.extractedEmails[0] || null;
-  const canInlineEdit = isOwner && editMode;
+  const officesLine = formatOfficesDescriptionLine(locations);
+  const aboutText = [copy.about, officesLine].filter(Boolean).join("\n\n") || null;
+  const aboutPreviewText =
+    [copy.aboutPreview, officesLine].filter(Boolean).join("\n\n") || null;
+  // Contacts (incl. extracted from copy) only for owners in edit mode.
+  // Everyone else reveals via /api/business/[slug]/contacts after auth.
+  const revealContactsInline = canInlineEdit;
+  const actionEmail = revealContactsInline
+    ? business.email || copy.extractedEmails[0] || null
+    : null;
 
   const tabs: ProfileTab[] = [
     { id: "overview", label: "Обзор" },
     ...(offers.length > 0 || canInlineEdit
       ? [{ id: "services", label: "Услуги" }]
       : []),
-    ...(copy.jobs || canInlineEdit ? [{ id: "jobs", label: "Вакансии" }] : []),
+    ...(jobs.length > 0 || copy.jobs || isOwner
+      ? [{ id: "jobs", label: "Вакансии" }]
+      : []),
     ...(copy.promotions || canInlineEdit
-      ? [{ id: "promotions", label: "Акции" }]
+      ? [{ id: "promotions", label: "Предложения" }]
       : []),
     { id: "reviews", label: "Отзывы" },
     ...(gallery.length > 0 || canInlineEdit
       ? [{ id: "photos", label: "Фото" }]
       : []),
-    ...(copy.about || canInlineEdit
+    ...(aboutText || canInlineEdit
       ? [{ id: "about", label: "О компании" }]
       : []),
   ];
@@ -162,14 +239,6 @@ export function BusinessProfileView({
   const editHref = activeTabProp
     ? `/business/${businessSlug}?edit=1&tab=${encodeURIComponent(activeTabProp)}`
     : `/business/${businessSlug}?edit=1`;
-
-  const mapsUrl =
-    business.latitude != null && business.longitude != null
-      ? `https://www.google.com/maps/dir/?api=1&destination=${business.latitude},${business.longitude}`
-      : business.googleMapsUrl ||
-        (addressLine
-          ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addressLine)}`
-          : null);
 
   return (
     <article className="business-profile -mx-4 space-y-4 pb-10 sm:mx-0 sm:space-y-5">
@@ -245,132 +314,185 @@ export function BusinessProfileView({
               ) : null}
             </div>
 
-            <div className="mt-0.5 flex items-start justify-between gap-3">
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm leading-8 text-slate-500">
-                  {[business.categoryName, locationLine].filter(Boolean).join(" · ")}
-                </p>
+            <div className="mt-0.5">
+              <p className="truncate text-sm leading-8 text-slate-500">
+                {[business.categoryName, locationLine].filter(Boolean).join(" · ")}
+              </p>
 
-                <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                  {business.reviewsCount > 0 ? (
-                    <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
-                      <Star
-                        aria-hidden="true"
-                        className="size-3.5 fill-amber-500 text-amber-500"
-                      />
-                      {business.ratingAvg.toFixed(1)}
-                      <span className="font-normal text-slate-500">
-                        ({business.reviewsCount})
-                      </span>
+              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                {business.reviewsCount > 0 ? (
+                  <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
+                    <Star
+                      aria-hidden="true"
+                      className="size-3.5 fill-amber-500 text-amber-500"
+                    />
+                    {business.ratingAvg.toFixed(1)}
+                    <span className="font-normal text-slate-500">
+                      ({business.reviewsCount})
                     </span>
-                  ) : (
-                    <span className="text-slate-500">Пока нет отзывов</span>
-                  )}
-                  {business.aiVerifiedReviewsCount > 0 ? (
-                    <span className="inline-flex items-center gap-1 text-slate-600">
-                      <Sparkles aria-hidden="true" className="size-3.5 text-sky-500" />
-                      {business.aiVerifiedReviewsCount} AI
-                    </span>
-                  ) : null}
-                  {business.transactionVerifiedReviewsCount > 0 ? (
-                    <span className="inline-flex items-center gap-1 text-slate-600">
-                      <BadgeCheck aria-hidden="true" className="size-3.5 text-emerald-600" />
-                      {business.transactionVerifiedReviewsCount} подтвержд.
-                    </span>
-                  ) : null}
-                </div>
+                  </span>
+                ) : (
+                  <span className="text-slate-500">Пока нет отзывов</span>
+                )}
+                {business.aiVerifiedReviewsCount > 0 ? (
+                  <span className="inline-flex items-center gap-1 text-slate-600">
+                    <Sparkles aria-hidden="true" className="size-3.5 text-sky-500" />
+                    {business.aiVerifiedReviewsCount} AI
+                  </span>
+                ) : null}
+                {business.transactionVerifiedReviewsCount > 0 ? (
+                  <span className="inline-flex items-center gap-1 text-slate-600">
+                    <BadgeCheck aria-hidden="true" className="size-3.5 text-emerald-600" />
+                    {business.transactionVerifiedReviewsCount} подтвержд.
+                  </span>
+                ) : null}
+              </div>
 
-                <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-                  {since ? (
-                    <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-                      {since}
-                    </span>
-                  ) : null}
-                  {isOwner ? (
-                    <>
+              <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+                {since ? (
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                    {since}
+                  </span>
+                ) : null}
+                {isOwner ? (
+                  <>
+                    <Link
+                      className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                      href={`/business/${businessSlug}/manage`}
+                    >
+                      Управление
+                    </Link>
+                    {editMode ? (
                       <Link
                         className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
-                        href={`/business/${businessSlug}/manage`}
+                        href={`/business/${businessSlug}`}
+                        scroll={false}
                       >
-                        Управление
+                        Готово
                       </Link>
-                      {editMode ? (
-                        <Link
-                          className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
-                          href={`/business/${businessSlug}`}
-                          scroll={false}
-                        >
-                          Готово
-                        </Link>
-                      ) : (
-                        <Link
-                          className="rounded-full border border-brand-blue/30 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue-deep hover:bg-brand-blue/10"
-                          href={editHref}
-                          scroll={false}
-                        >
-                          Редактировать
-                        </Link>
-                      )}
-                      {isAdmin && !editMode ? (
+                    ) : (
+                      <Link
+                        className="rounded-full border border-brand-blue/30 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue-deep hover:bg-brand-blue/10"
+                        href={editHref}
+                        scroll={false}
+                      >
+                        Редактировать
+                      </Link>
+                    )}
+                    {isAdmin ? (
+                      <AdminChangeCategoryButton
+                        businessId={business.id}
+                        businessSlug={businessSlug}
+                        categories={categories}
+                        currentCategoryId={business.categoryId}
+                      />
+                    ) : null}
+                    {isAdmin && !editMode ? (
+                      <>
                         <Link
                           className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50"
                           href={`/admin/businesses/${business.id}/edit`}
                         >
                           Admin
                         </Link>
-                      ) : null}
-                    </>
-                  ) : (
-                    <ClaimBusinessButton
-                      autoSubmit={autoClaim}
-                      businessId={business.id}
-                      businessSlug={businessSlug}
-                      checkStatus
-                      kind="business"
-                    />
-                  )}
-                </div>
+                        <AdminDeleteBusinessButton
+                          businessId={business.id}
+                          businessName={business.name}
+                          slug={businessSlug}
+                        />
+                      </>
+                    ) : null}
+                  </>
+                ) : (
+                  <ClaimBusinessButton
+                    autoSubmit={autoClaim}
+                    businessId={business.id}
+                    businessSlug={businessSlug}
+                    checkStatus
+                    kind="business"
+                  />
+                )}
               </div>
 
               <BusinessHeaderActions
+                bookingUrl={business.bookingUrl}
                 businessName={business.name}
+                className="mt-3 w-full sm:hidden"
                 email={actionEmail}
               />
             </div>
           </div>
+          <BusinessHeaderActions
+            bookingUrl={business.bookingUrl}
+            businessName={business.name}
+            className="hidden sm:flex"
+            email={actionEmail}
+          />
         </header>
 
-        {/* Mobile-first: map/contacts first; desktop: right column */}
+        {/* Mobile: tabs/content first; desktop: sidebar on the right */}
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_17.5rem] lg:items-start">
-          <aside className="order-1 space-y-3 lg:order-2 lg:sticky lg:top-24">
+          <aside className="order-2 space-y-3 lg:order-2 lg:sticky lg:top-24">
             <BusinessProfileSidebar
               address={addressLine}
               business={business}
               businessSlug={businessSlug}
               editMode={canInlineEdit}
-              extraPhones={copy.extractedPhones}
-              fallbackEmail={copy.extractedEmails[0] ?? null}
+              extraPhones={revealContactsInline ? copy.extractedPhones : []}
+              fallbackEmail={
+                revealContactsInline ? (copy.extractedEmails[0] ?? null) : null
+              }
+              hubLabel={hubLabel}
               initiallyRevealed={canInlineEdit}
               isAuthenticated={Boolean(currentUserId)}
-              presence={{
-                website: business.website,
-                instagramUrl: business.instagramUrl,
-                facebookUrl: copy.extractedFacebookUrls[0] ?? null,
-                yelpUrl: business.yelpUrl,
-                googleMapsUrl: business.googleMapsUrl,
-                googleRating: business.googleRating,
-                googleReviewsCount: business.googleReviewsCount,
-                latitude: business.latitude,
-                longitude: business.longitude,
-              }}
-              routeUrl={mapsUrl}
+              isNetwork={isNetwork}
+              locations={sidebarLocations}
+              presence={
+                revealContactsInline
+                  ? {
+                      website:
+                        business.website || copy.extractedWebsiteUrls[0] || null,
+                      instagramUrl:
+                        business.instagramUrl ||
+                        copy.extractedInstagramUrls[0] ||
+                        null,
+                      telegramUrl: business.telegramUrl,
+                      sourceUrl: business.sourceUrl,
+                      sourceKind: business.sourceKind,
+                      facebookUrl: copy.extractedFacebookUrls[0] ?? null,
+                      yelpUrl: business.yelpUrl,
+                      bookingUrl: business.bookingUrl,
+                      googleMapsUrl:
+                        hubLocation?.googleMapsUrl || business.googleMapsUrl,
+                      googleRating: business.googleRating,
+                      googleReviewsCount: business.googleReviewsCount,
+                      latitude: hubLocation?.latitude ?? business.latitude,
+                      longitude: hubLocation?.longitude ?? business.longitude,
+                    }
+                  : {
+                      website: null,
+                      instagramUrl: null,
+                      telegramUrl: null,
+                      sourceUrl: null,
+                      sourceKind: null,
+                      facebookUrl: null,
+                      yelpUrl: null,
+                      bookingUrl: business.bookingUrl,
+                      googleMapsUrl: null,
+                      googleRating: business.googleRating,
+                      googleReviewsCount: business.googleReviewsCount,
+                      latitude: hubLocation?.latitude ?? business.latitude,
+                      longitude: hubLocation?.longitude ?? business.longitude,
+                    }
+              }
+              routeUrl={revealContactsInline ? mapsUrl : null}
               onEditAddress={() => setEditSection("address")}
               onEditContacts={() => setEditSection("contacts")}
               onEditHours={() => setEditSection("hours")}
             />
           </aside>
 
-          <div className="order-2 space-y-5 lg:order-1">
+          <div className="order-1 space-y-5 lg:order-1">
             <BusinessProfileTabs
               activeTab={activeTab}
               businessSlug={businessSlug}
@@ -380,7 +502,7 @@ export function BusinessProfileView({
 
             {activeTab === "overview" ? (
               <section className="space-y-3" aria-label="Обзор">
-                {copy.aboutPreview || canInlineEdit ? (
+                {aboutPreviewText || canInlineEdit ? (
                   <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-2">
                       <h2 className="text-base font-semibold text-slate-900">О нас</h2>
@@ -391,7 +513,7 @@ export function BusinessProfileView({
                             onClick={() => setEditSection("about")}
                           />
                         ) : null}
-                        {copy.about && copy.about !== copy.aboutPreview ? (
+                        {aboutText && aboutText !== aboutPreviewText ? (
                           <Link
                             className="text-sm font-medium text-brand-blue hover:underline"
                             href={`/business/${businessSlug}?tab=about`}
@@ -402,9 +524,9 @@ export function BusinessProfileView({
                         ) : null}
                       </div>
                     </div>
-                    {copy.aboutPreview ? (
+                    {aboutPreviewText ? (
                       <p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-slate-600">
-                        {copy.aboutPreview}
+                        {aboutPreviewText}
                       </p>
                     ) : (
                       <p className="mt-2 text-sm text-slate-500">
@@ -414,38 +536,37 @@ export function BusinessProfileView({
                   </div>
                 ) : null}
 
-                {copy.jobs || canInlineEdit ? (
+                {jobs.length > 0 || copy.jobs || isOwner ? (
                   <div className="rounded-2xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-2">
                       <h2 className="inline-flex items-center gap-1.5 text-base font-semibold text-slate-900">
                         <Briefcase aria-hidden="true" className="size-4 text-amber-700" />
                         Вакансии
                       </h2>
-                      <div className="flex items-center gap-2">
-                        {canInlineEdit ? (
-                          <EditPencil
-                            label="Редактировать вакансии"
-                            onClick={() => setEditSection("jobs")}
-                          />
-                        ) : null}
-                        {copy.jobs ? (
-                          <Link
-                            className="text-sm font-medium text-brand-blue hover:underline"
-                            href={`/business/${businessSlug}?tab=jobs`}
-                            scroll={false}
-                          >
-                            Все
-                          </Link>
-                        ) : null}
-                      </div>
+                      {jobs.length > 0 || canInlineEdit ? (
+                        <Link
+                          className="text-sm font-medium text-brand-blue hover:underline"
+                          href={`/business/${businessSlug}?tab=jobs`}
+                          scroll={false}
+                        >
+                          Все
+                        </Link>
+                      ) : null}
                     </div>
-                    {copy.jobs ? (
+                    <div className="mt-2">
+                      <BusinessJobsPanel
+                        businessId={business.id}
+                        businessSlug={businessSlug}
+                        canEdit={isOwner}
+                        city={business.city}
+                        jobs={jobs.slice(0, 3)}
+                      />
+                    </div>
+                    {jobs.length === 0 && copy.jobs ? (
                       <p className="mt-2 line-clamp-4 whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
                         {copy.jobs}
                       </p>
-                    ) : (
-                      <p className="mt-2 text-sm text-slate-500">Вакансий пока нет</p>
-                    )}
+                    ) : null}
                   </div>
                 ) : null}
 
@@ -454,12 +575,12 @@ export function BusinessProfileView({
                     <div className="flex items-center justify-between gap-2">
                       <h2 className="inline-flex items-center gap-1.5 text-base font-semibold text-slate-900">
                         <Percent aria-hidden="true" className="size-4 text-rose-600" />
-                        Акции
+                        Предложения
                       </h2>
                       <div className="flex items-center gap-2">
                         {canInlineEdit ? (
                           <EditPencil
-                            label="Редактировать акции"
+                            label="Редактировать предложения"
                             onClick={() => setEditSection("promotions")}
                           />
                         ) : null}
@@ -479,7 +600,7 @@ export function BusinessProfileView({
                         {copy.promotions}
                       </p>
                     ) : (
-                      <p className="mt-2 text-sm text-slate-500">Акций пока нет</p>
+                      <p className="mt-2 text-sm text-slate-500">Предложений пока нет</p>
                     )}
                   </div>
                 ) : null}
@@ -607,6 +728,13 @@ export function BusinessProfileView({
                   </div>
                 ) : null}
 
+                {previewMention ? (
+                  <BusinessCommunityMentions
+                    compact
+                    mentions={communityMentions}
+                  />
+                ) : null}
+
                 <section className="rounded-2xl border border-slate-200 bg-white p-4">
                   <h2 className="text-sm font-semibold text-slate-900">Всё о бизнесе</h2>
                   <div className="mt-3 grid grid-cols-3 gap-2">
@@ -631,10 +759,12 @@ export function BusinessProfileView({
                       </p>
                       <p className="text-[11px] text-slate-500">Фото</p>
                     </div>
-                    {copy.jobs ? (
+                    {jobs.length > 0 || copy.jobs ? (
                       <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
                         <Briefcase aria-hidden="true" className="mx-auto size-4 text-slate-400" />
-                        <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">1</p>
+                        <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">
+                          {jobs.length > 0 ? jobs.length : 1}
+                        </p>
                         <p className="text-[11px] text-slate-500">Вакансии</p>
                       </div>
                     ) : null}
@@ -642,7 +772,7 @@ export function BusinessProfileView({
                       <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
                         <Percent aria-hidden="true" className="mx-auto size-4 text-slate-400" />
                         <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">1</p>
-                        <p className="text-[11px] text-slate-500">Акции</p>
+                        <p className="text-[11px] text-slate-500">Предложения</p>
                       </div>
                     ) : null}
                     {copy.about ? (
@@ -695,9 +825,18 @@ export function BusinessProfileView({
                     businessSlug={businessSlug}
                     offers={offers}
                     presence={{
-                      website: business.website,
-                      instagramUrl: business.instagramUrl,
-                      googleMapsUrl: business.googleMapsUrl,
+                      website: revealContactsInline
+                        ? business.website || copy.extractedWebsiteUrls[0] || null
+                        : null,
+                      instagramUrl: revealContactsInline
+                        ? business.instagramUrl ||
+                          copy.extractedInstagramUrls[0] ||
+                          null
+                        : null,
+                      bookingUrl: business.bookingUrl,
+                      googleMapsUrl: revealContactsInline
+                        ? business.googleMapsUrl
+                        : null,
                       googleRating: business.googleRating,
                       googleReviewsCount: business.googleReviewsCount,
                       latitude: business.latitude,
@@ -712,42 +851,40 @@ export function BusinessProfileView({
               </section>
             ) : null}
 
-            {activeTab === "jobs" && (copy.jobs || canInlineEdit) ? (
+            {activeTab === "jobs" &&
+            (jobs.length > 0 || copy.jobs || isOwner) ? (
               <section className="space-y-3" aria-label="Вакансии">
-                <div className="flex items-center justify-between gap-2">
-                  <h2 className="inline-flex items-center gap-1.5 text-base font-semibold text-slate-900">
-                    <Briefcase aria-hidden="true" className="size-4 text-amber-700" />
-                    Вакансии
-                  </h2>
-                  {canInlineEdit ? (
-                    <EditPencil
-                      label="Редактировать вакансии"
-                      onClick={() => setEditSection("jobs")}
-                    />
-                  ) : null}
-                </div>
+                <h2 className="inline-flex items-center gap-1.5 text-base font-semibold text-slate-900">
+                  <Briefcase aria-hidden="true" className="size-4 text-amber-700" />
+                  Вакансии
+                </h2>
                 <div className="rounded-2xl border border-amber-200/80 bg-amber-50/40 p-4 sm:p-5">
-                  {copy.jobs ? (
-                    <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
+                  <BusinessJobsPanel
+                    businessId={business.id}
+                    businessSlug={businessSlug}
+                    canEdit={isOwner}
+                    city={business.city}
+                    jobs={jobs}
+                  />
+                  {jobs.length === 0 && copy.jobs ? (
+                    <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
                       {copy.jobs}
                     </p>
-                  ) : (
-                    <p className="text-sm text-slate-500">Вакансий пока нет</p>
-                  )}
+                  ) : null}
                 </div>
               </section>
             ) : null}
 
             {activeTab === "promotions" && (copy.promotions || canInlineEdit) ? (
-              <section className="space-y-3" aria-label="Акции">
+              <section className="space-y-3" aria-label="Предложения">
                 <div className="flex items-center justify-between gap-2">
                   <h2 className="inline-flex items-center gap-1.5 text-base font-semibold text-slate-900">
                     <Percent aria-hidden="true" className="size-4 text-rose-600" />
-                    Акции
+                    Предложения
                   </h2>
                   {canInlineEdit ? (
                     <EditPencil
-                      label="Редактировать акции"
+                      label="Редактировать предложения"
                       onClick={() => setEditSection("promotions")}
                     />
                   ) : null}
@@ -758,14 +895,17 @@ export function BusinessProfileView({
                       {copy.promotions}
                     </p>
                   ) : (
-                    <p className="text-sm text-slate-500">Акций пока нет</p>
+                    <p className="text-sm text-slate-500">Предложений пока нет</p>
                   )}
                 </div>
               </section>
             ) : null}
 
             {activeTab === "reviews" ? (
-              <section aria-label="Отзывы">
+              <section aria-label="Отзывы" className="space-y-4">
+                {communityMentions.length > 0 ? (
+                  <BusinessCommunityMentions mentions={communityMentions} />
+                ) : null}
                 <BusinessReviewsSection
                   aiVerifiedCount={business.aiVerifiedReviewsCount}
                   businessId={business.id}
@@ -819,7 +959,7 @@ export function BusinessProfileView({
               </section>
             ) : null}
 
-            {activeTab === "about" && (copy.about || canInlineEdit) ? (
+            {activeTab === "about" && (aboutText || canInlineEdit) ? (
               <section className="space-y-3" aria-label="О компании">
                 <div className="flex items-center justify-between gap-2">
                   <h2 className="text-base font-semibold text-slate-900">О компании</h2>
@@ -831,9 +971,9 @@ export function BusinessProfileView({
                   ) : null}
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
-                  {copy.about ? (
+                  {aboutText ? (
                     <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-600">
-                      {copy.about}
+                      {aboutText}
                     </p>
                   ) : (
                     <p className="text-sm text-slate-500">Описание ещё не добавлено</p>
@@ -865,13 +1005,16 @@ export function BusinessProfileView({
         onClose={() => setEditSection(null)}
       />
       <EditAddressDialog
-        key={`addr-${business.addressLine}-${business.city}-${business.region}`}
+        key={`addr-${business.addressLine}-${business.city}-${business.region}-${business.postalCode}-${business.stateCode}`}
         addressLine={business.addressLine}
         businessId={business.id}
+        businessName={business.name}
         businessSlug={businessSlug}
         city={business.city}
         open={editSection === "address"}
+        postalCode={business.postalCode ?? null}
         region={business.region}
+        stateCode={business.stateCode ?? null}
         onClose={() => setEditSection(null)}
       />
       <EditContactsDialog
@@ -881,10 +1024,12 @@ export function BusinessProfileView({
         email={business.email}
         facebookUrl={copy.extractedFacebookUrls[0] ?? null}
         googleMapsUrl={business.googleMapsUrl}
-        instagramUrl={business.instagramUrl}
+        instagramUrl={
+          business.instagramUrl || copy.extractedInstagramUrls[0] || null
+        }
         open={editSection === "contacts"}
         phone={business.phone}
-        website={business.website}
+        website={business.website || copy.extractedWebsiteUrls[0] || null}
         yelpUrl={business.yelpUrl}
         onClose={() => setEditSection(null)}
       />

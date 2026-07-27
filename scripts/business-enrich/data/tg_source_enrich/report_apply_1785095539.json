@@ -1,0 +1,928 @@
+{
+  "mode": "apply",
+  "limit": 40,
+  "offset": 25,
+  "candidates": 40,
+  "results": [
+    {
+      "id": "bee0ea9e-ba74-4778-848f-51c10745a27b",
+      "slug": "san-diego-171752",
+      "name": "San Diego",
+      "source_url": "https://t.me/c/1955320601/272994",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+16572597361",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "This business provides car rental services, featuring popular models such as the Lexus RX 350 and Toyota Prius. Monthly rental options are available, with insurance and maintenance costs already included in the price. Services are offered in the regions of Los Angeles, Orange County, and San Diego.\n\nУслуги: Car Rental, Lexus RX 350 rental, Toyota Prius rental, Insurance included, Maintenance included"
+      },
+      "caption_len": 177,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "bf78e857-09c5-419a-9949-65323681b83a",
+      "slug": "regyminate-150651",
+      "name": "regyminate",
+      "source_url": "https://t.me/c/1333533747/72346",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/regyminate",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 58,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "c01f5d37-2b2e-43f3-b667-5757521f6802",
+      "slug": "olga-savitskaya-150607",
+      "name": "Olga Savitskaya",
+      "source_url": "https://t.me/c/1333533747/72520",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19496077054",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Dr. Aleksey Stugarev, DDS",
+        "address": "24331 El Toro Rd, Suite 340 Laguna Woods, CA 92637"
+      },
+      "patch": {
+        "description": "Dr. Aleksey Stugarev offers modern implant and cosmetic dentistry, focusing on precision, aesthetics, and long-term results. They specialize in full smile rehabilitation, including All-on-X implants, providing permanent teeth that look and feel natural. Patients can enjoy their favorite foods again without the discomfort of removable dentures. Each treatment plan is tailored individually with understanding, attention, and full control at every stage.\n\nУслуги: Implantology, Full Smile Rehabilitation, All-on-6 Implants, Diagnosis and Prevention, Comprehensive Consultation, 3D / CT Diagnostics, Professional Hygiene, AirFlow Cleaning",
+        "address_line": "24331 El Toro Rd, Suite 340 Laguna Woods, CA 92637"
+      },
+      "caption_len": 916,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "c27fb51b-8ed9-49ba-b81d-a8997aca8cea",
+      "slug": "софия-150625",
+      "name": "София",
+      "source_url": "https://t.me/c/1333533747/74413",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/beautytouch_by_sofi",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "BeautyTouch by Sofi",
+        "address": "Newport"
+      },
+      "patch": {
+        "description": "Привет, меня зовут София, и я мастер маникюра. Я приглашаю вас на расслабление и прекрасные ноготочки. Я работаю на хороших материалах, поэтому за качество можно не переживать, мои гели не дают отслоек и сколов, обеспечивая хорошую носку. Весь расходный материал одноразовый.\n\nУслуги: Маникюр с покрытием (укрепление гелем и однотонное покрытие) - $70, Маникюр без покрытия (комби маникюр) - $50, Педикюр с покрытием (с обработкой стопы) - $80, Педикюр без покрытия (с обработкой стопы) - $60",
+        "address_line": "Newport"
+      },
+      "caption_len": 703,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "c472f9ae-785f-463c-a059-dc129305a521",
+      "slug": "olga-daycare-imontessori-190759",
+      "name": "I❤️Montessori (Olga Semenova)",
+      "source_url": "https://t.me/c/1333533747/75826",
+      "extracted": {
+        "phone": "+19493011970",
+        "email": null,
+        "instagram_url": "https://www.instagram.com/ilove_montessori",
+        "website": "https://www.playusa2023.com",
+        "telegram_username": null,
+        "hours_text": "🌿 Детский сад I Love Montessori открывает набор в  в Mission Viejo!",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 1090,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "c49167ff-6e5a-4092-9df3-2db5dd4fb24c",
+      "slug": "lanainvestor-realtorinvestor-172205",
+      "name": "Lana.Investor RealtorInvestor",
+      "source_url": "https://t.me/c/1955320601/277684",
+      "extracted": {
+        "phone": "+14247817772",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Аренда Комнат, домов от владельца, text"
+      },
+      "caption_len": 50,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "c6574256-203b-4cad-adff-951002d13de3",
+      "slug": "мила-150620",
+      "name": "Мила",
+      "source_url": "https://t.me/c/1333533747/71235",
+      "extracted": {
+        "phone": "+19492353309",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Ген доверенность можно сделать без консульства, с апостилем штата, сейчас найду телефон нотариуса - она мне сделала доверенность с апостилем и её без проблем приняли. Мила 949-235-3309",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Ген доверенность можно сделать без консульства, с апостилем штата, сейчас найду телефон нотариуса - она мне сделала доверенность с апостилем и её без проблем приняли. Мила"
+      },
+      "caption_len": 184,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "c9188109-6310-4467-9608-74cebe29d8c9",
+      "slug": "anastasiya-posashenko-150711",
+      "name": "Anastasiya Posashenko",
+      "source_url": "https://t.me/c/1333533747/69559",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://digitalcookie.girlscouts.org/scout/vasilisa910929",
+        "telegram_username": null,
+        "hours_text": "Моя дочка Василиса состоит в Girl Scout, и сейчас она продаёт знаменитое печенье Girl Scout!Если не пробовали, очень советую и особенно на подарок, эксклюзивно в США!  Это не только вкусное угощение, но и возможность для неё научиться важным навыкам, таким как постановка целей, работа в команде и лидерство.",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Всем привет!\nМоя дочка Василиса состоит в Girl Scout, и сейчас она продаёт знаменитое печенье Girl Scout!Если не пробовали, очень советую и особенно на подарок, эксклюзивно в США! Это не только вкусное угощение, но и возможность для неё научиться важным навыкам, таким как постановка целей, работа в команде и лидерство.\n\nУ нас не так много родственников и друзей поблизости, поэтому я стараюсь помочь ей выполнить её цель, как могу. Если вы хотите поддержать Василису, можно сделать заказ печенья онлайн, и печенье доставят прямо к вам домой!\n\nВот ссылка для заказа: \n\nПожалуйста, выбирайте доставку домой курьером, в целях безопасности лично Василиса доставляет только соседям \n\nБольшое спасибо за вашу поддержку!"
+      },
+      "caption_len": 774,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "cc6b0a7d-8083-4c6d-bc7c-6575d90f6dc1",
+      "slug": "evgeniya-slimface-031834",
+      "name": "Evgeniya Slimface",
+      "source_url": "https://t.me/c/1333533747/70693",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19496883816",
+        "email": null,
+        "instagram_url": "https://www.instagram.com/slimface_massage",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "У меня сейчас проходит Акция в честь этого праздника! 🎁 90 минут массажа лица по цене 60 минут.",
+        "business_name": "Slim Face",
+        "address": null
+      },
+      "patch": {
+        "description": "Celebrate Women's Day with a special offer: buy a gift certificate and enjoy 90 minutes of massage for the price of 60 minutes. This is the perfect gift of love and care for a special woman in your life, as many often deny themselves this pleasure. Treat yourself or your loved ones to an unforgettable experience of relaxation and skincare.\n\nУслуги: Face massage, Skincare"
+      },
+      "caption_len": 596,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "ce3cf29e-408b-4985-8fc6-daf3ef218e8e",
+      "slug": "elmira73-150606",
+      "name": "Elmira73",
+      "source_url": "https://t.me/c/1333533747/74603",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "Los Angeles, CA"
+      },
+      "patch": {
+        "description": "This professional certification course focuses on LPG Endermologie, offered in Los Angeles, CA. The comprehensive 2-day program costs $800 and includes hands-on practice with professional LPG machines. A certificate is issued upon successful completion, and no equipment purchase is necessary. The course is conducted in a small group format, ensuring personal attention for all participants.\n\nУслуги: LPG Endermologie Professional Certification, Hands-on training with professional LPG machines, Certification issuance, Small group training, Personalized instruction",
+        "address_line": "Los Angeles, CA"
+      },
+      "caption_len": 0,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "slug": "yummy-homemade-sweets-150641",
+      "name": "yummy_homemade_sweets",
+      "source_url": "https://t.me/c/1333533747/71578",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/yummy_homemade_sweets",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Pickup available on April 4, 5 (Catholic Easter) and April 10, 11, 12 (Orthodox Easter). Prices are valid only until the end of March.",
+        "business_name": "Yummy Homemade Sweets",
+        "address": "Los Olivos at Irvine Spectrum"
+      },
+      "patch": {
+        "description": "Indulge in delicious homemade Easter Kulich, available for pre-order. Choose from classic yeast kulich with raisins, or yeast-free cottage cheese kulich with either raisins or a rich custard filling. Each kulich is beautifully decorated with sugar glaze, wafer butterflies, and pearl accents, with an option for exquisite handmade wafer flowers. Convenient pickup is offered at Los Olivos at Irvine Spectrum on select dates in April.\n\nУслуги: Classic yeast kulich with raisins, Yeast-free cottage cheese kulich with raisins, Yeast-free cottage cheese kulich with custard, Custom kulich decoration (sugar glaze, wafer butterflies, pearl decor, optional handmade wafer flowers)",
+        "address_line": "Los Olivos at Irvine Spectrum"
+      },
+      "caption_len": 772,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "ce9ca0ea-89ad-48aa-a55b-c5f60d844686",
+      "slug": "ekaterina-samsonova-150707",
+      "name": "Ekaterina Samsonova",
+      "source_url": "https://t.me/c/1333533747/72556",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://threadssequins.etsy.com",
+        "telegram_username": null,
+        "hours_text": "Доступна легкая кастомизация под ваши пожелания: • длина • ширина бретелей • глубина выреза",
+        "business_name": "Threads Sequins",
+        "address": null
+      },
+      "patch": {
+        "description": "Hand-knitted sequin tops are available to order, offering a stylish and elegant addition to your outfit for parties, concerts, or any event. These versatile tops can be worn as a second layer over a tank top or light shirt, directly on the body, or over a swimsuit. Customization options include length, strap width, and neckline depth. Made from 100% cotton yarn with 3mm and 6mm sequins, they come in a wide range of colors and are priced at $45.\n\nУслуги: Custom hand-knitted sequin tops, Customization (length, strap width, neckline depth)"
+      },
+      "caption_len": 489,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "d21f9248-7bce-4549-a5d5-2027a035165d",
+      "slug": "llc-172203",
+      "name": "Регистрация LLC",
+      "source_url": "https://t.me/c/1955320601/249958",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13476098430",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "21100 Spectrum, Irvine, CA"
+      },
+      "patch": {
+        "description": "This service specializes in the preparation of tax returns and company registration. They handle both individual and business declarations, including the registration of LLCs, Partnerships, and Corporations. Offering comprehensive tax support and reporting, they operate reliably and quickly across all US states. Clients can expect full support throughout the process.\n\nУслуги: Tax return preparation, Company registration, Individual tax declarations, Business tax declarations, LLC registration, Partnership registration, Corporation registration, Tax support",
+        "address_line": "21100 Spectrum, Irvine, CA"
+      },
+      "caption_len": 347,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "slug": "диана-калифорнийская-психолог-сложности-в-отношени-032111",
+      "name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "source_url": "https://t.me/c/1955320601/264548",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13239744498",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Group classes held twice a week in the morning, Tuesdays and Fridays, starting around 9:30-9:40 AM. Schedule can be discussed.",
+        "business_name": "Life in Balance",
+        "address": "Irvine, Tustin Sports Park"
+      },
+      "patch": {
+        "description": "Диана, a psychologist, hypnologist, and body-oriented therapist with over 5 years of experience, offers individual and group sessions. Her program, 'Welcome to Life in Balance,' focuses on physical and psychological restoration. Group classes include strength training, stretching, yoga, breathing, meditation, and aromatherapy. These deep and resourceful workouts are designed for all fitness levels, helping to boost energy, strengthen the nervous system, and achieve inner balance.\n\nУслуги: Body Therapy, Psychology, Hypnology, Body-Oriented Therapy, Individual Sessions, Group Classes, Strength Training, Stretching",
+        "address_line": "Irvine, Tustin Sports Park"
+      },
+      "caption_len": 2102,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "d6691530-d019-4a7b-936a-e612675411b6",
+      "slug": "laorangecountybot-172204",
+      "name": "LA_OrangeCounty_bot",
+      "source_url": "https://t.me/c/1955320601/253449",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+17143078091",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "UMOC Universal Moving OC",
+        "address": null
+      },
+      "patch": {
+        "description": "UMOC Universal Moving OC is a moving company with 5 years of experience, specializing in local and long-distance relocations. They serve all areas of Orange County with 26ft trucks, suitable for 1-4 bedroom homes, and also assist with interstate moves. Their services include essential packing materials like plastic wrap and tape, along with furniture disassembly and assembly, all included in the total cost.\n\nУслуги: Local moving, Long-distance moving, Residential moving (1-4 bedrooms), Interstate moving, Packing supplies (plastic wrap, tape), Furniture disassembly, Furniture assembly"
+      },
+      "caption_len": 296,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "d8179aa7-96f9-4a1e-ae56-7de1a018a2d9",
+      "slug": "tanya-150608",
+      "name": "Tanya",
+      "source_url": "https://t.me/c/1333533747/71673",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19499424228",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "July 21 - August 2, 2026",
+        "business_name": "Camp Gesher",
+        "address": "Big Bear mountains"
+      },
+      "patch": {
+        "description": "Camp Gesher offers a summer program from July 21 to August 2, 2026, for campers aged 8-17 (entering 3rd-12th grades) in the Big Bear mountains. Tuition is $2,345, with a CIT option at $1,645. Financial assistance includes grants for first and second-time campers, sibling discounts, and early-bird discounts. The program is heavily subsidized for Russian-speaking Jewish children living in Orange County, California, and an interview is required for the Counselor-in-Training program.\n\nУслуги: Summer Camp, Camper Grants, Sibling Discount, Early-Bird Discount, Counselor-in-Training Program",
+        "address_line": "Big Bear mountains"
+      },
+      "caption_len": 199,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f34651f4-5efb-4f80-8ae7-542d2be5de9d",
+      "slug": "business-2247331592-172222",
+      "name": "Леонид",
+      "source_url": "https://t.me/c/1955320601/262525",
+      "extracted": {
+        "phone": "+12247331592",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "⚙️ Мaшинa в рᴇмᴏнтᴇ — ты бᴇз дᴏхᴏдa.\nМᴏжнᴏ былᴏ избᴇжaть… ᴇслu бы былa ѕтрaхᴏвкa.\n\n✔️ Phуѕicᴀl Dаmаgᴇ Inѕurᴀncᴇ — тᴇхнuку вᴏсстанᴏвuт\n✔️ Nᴏn-Trucкing Liаbilitу — зᴀщuтuт дажᴇ в ᴏff-duty\n\nРᴀбᴏтᴀᴇшь нᴀ дᴏрᴏгᴇ — ᴏбᴇспᴇчь защuту.\n📞"
+      },
+      "caption_len": 242,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "d8e02133-7958-44b8-842c-50ccfd9b9e96",
+      "slug": "stairedu-sergey-150606",
+      "name": "StairEdu Sergey",
+      "source_url": "https://t.me/c/1955320601/265408",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19493313008",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "StairEdu",
+        "address": "Mission Viejo"
+      },
+      "patch": {
+        "description": "This summer camp invites participants to build the future by exploring exciting fields. The program offers hands-on experience in robotics, artificial intelligence, and 3D printing. Designed for young innovators, it aims to foster creativity and technical skills. Join us for an engaging and educational experience in Mission Viejo.\n\nУслуги: Robotics, AI, 3D Printing",
+        "address_line": "Mission Viejo"
+      },
+      "caption_len": 33,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "dcb4ad95-ebd7-4a53-88f3-403802b75092",
+      "slug": "black-label-auto-studio-180932",
+      "name": "Black Label Auto Studio",
+      "source_url": "https://t.me/c/1955320601/250450",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Black Label Auto Studio",
+        "address": null
+      },
+      "patch": {
+        "description": "Black Label Auto Studio offers professional car vinyl wrapping in any color. They also provide premium car tinting services. The studio is committed to quality, meticulous work, and a personalized approach for each client.\n\nУслуги: Car vinyl wrapping, Premium car tinting",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/dcb4ad95-ebd7-4a53-88f3-403802b75092/cover-tg-250450.jpg"
+      },
+      "caption_len": 243,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "dcc3c0b9-06ba-40c5-b52d-8347aa5523e6",
+      "slug": "merenguedesert-150638",
+      "name": "merengue.desert",
+      "source_url": "https://t.me/c/1333533747/71934",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/merengue.desert",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Merengue Dessert",
+        "address": null
+      },
+      "patch": {
+        "description": "This business offers homemade kulich and desserts for the Easter holiday. They prepare tender and fluffy kulich with a delicate vanilla aroma and creamy taste, topped with a light meringue cap. Options include cottage cheese kulich with vanilla filling and classic kulich with candied fruits and raisins. Additionally, they offer 'Potato' cakes in various flavors like raspberry-honey cake, Dubai chocolate, Kinder Country, and banana.\n\nУслуги: Творожный кулич с ванильной начинкой, Классический кулич с цукатами и изюмом, Пирожное «Картошка»"
+      },
+      "caption_len": 569,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "source_url": "https://t.me/c/1333533747/73871",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://www.metrotech.academy",
+        "telegram_username": null,
+        "hours_text": "Я — fullstack-разработчик и преподаватель с 7-летним опытом (Skillbox, Otus, МШП). За годы преподавания и работы разработчиком я увидела, насколько часто обучение оторвано от потребностей реальной работы в IT. Поэтому решила создать свою школу с системным подходом, сильной практикой и развитием инженерного мышления.",
+        "business_name": "Metro Tech Academy",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 1097,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "dea1bee5-057d-421c-8444-8ac0a67dfb8e",
+      "slug": "business-8185315202-172213",
+      "name": "Рэй",
+      "source_url": "https://t.me/c/1955320601/258287",
+      "extracted": {
+        "phone": "+18185315202",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "За лучшими тарифами автострахования обращайтесь 😍 🏎️\n\n🙋🏻‍♂️ Рэй\n\nAvto Insurance amena harmar gnerov😍 🏎️\n\n🙋🏻‍♂️ Ray"
+      },
+      "caption_len": 150,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "e13f2384-7ef7-49b9-bb1c-78ed5ad02a75",
+      "slug": "business-9492432736-190801",
+      "name": "Анна Гурина",
+      "source_url": "https://t.me/c/1333533747/70781",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": "+19492432736",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Upgrade Pilates and Bodytherapy",
+        "address": null
+      },
+      "patch": {
+        "description": "Endospheres massage is the perfect gift for beauty and health, offering a professional SPA procedure on advanced equipment. This treatment provides visible results through body contouring, cellulite reduction, lymphatic drainage, detox, and improved skin quality. It's not just a massage, but a comprehensive experience designed for relaxation and pleasure. Gift certificates for $100 and $200 are available, making it an ideal present for any woman.\n\nУслуги: Body contouring, Cellulite reduction, Lymphatic drainage and detox, Skin quality improvement, Relaxation and wellness",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/e13f2384-7ef7-49b9-bb1c-78ed5ad02a75/cover-tg-70781.jpg"
+      },
+      "caption_len": 741,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "e2703b07-234f-434c-964a-7b10ff350e75",
+      "slug": "diana-california-150634",
+      "name": "diana_california",
+      "source_url": "https://t.me/c/1333533747/73725",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/diana_california",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "🎁Сейчас действует лояльная стоимость на процедуры.",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "🌿🧘 Новое пространство\nПространство для кайфа, отдыха и расслабления.\n\n🧘 Это место, где можно отпустить всё\nи погрузиться только в ощущения тела.\nМесто, где исцеляются душа и тело одновременно —\nчерез заботу о себе, любовь к себе, глубокое расслабление и контакт с собой.\n\n🙏 Приглашаю на расслабляющий SPA-массаж — мягкое восстановление тела и нервной системы.\n\nСнятие напряжения, усталости, зажимов, глубокое расслабление и ощущение «возвращения к себе».\n\n• спокойная атмосфера\n• внимательная работа с телом\n• расслабление мышц и нервной системы\n• ароматерапия и восстановление ресурса\n\n🎁Сейчас действует лояльная стоимость на процедуры.\nЕсли откликается — напишите в личные сообщения, расскажу подробнее.\n\n🤲🏻Отзывы и подробнее обо мне в инстаграм:"
+      },
+      "caption_len": 813,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "e48d178e-b7f5-452d-84d5-0c930706455a",
+      "slug": "acrossers-dance-studio-150610",
+      "name": "Acrossers Dance Studio",
+      "source_url": "https://t.me/c/1955320601/277403",
+      "ocr_model": null,
+      "extracted": {
+        "phone": "+12136000993",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Ищете место, где ребёнок сможет не просто научиться танцевать, но и стать увереннее, найти друзей и почувствовать себя частью настоящей команды? 💙",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Привет! 👋\n\nИщете место, где ребёнок сможет не просто научиться танцевать, но и стать увереннее, найти друзей и почувствовать себя частью настоящей команды? 💙\n\nAcrossers Dance Studio приглашает детей 6–12 лет присоединиться к новому набору!\n\nМожно начинать с нуля — мы всему научим. А если у ребёнка уже есть танцевальный опыт, поможем развить технику и перейти на следующий уровень.\n\nЧто ждёт ребёнка:\n• 🕺 Основы и техника street dance\n• 🎶 Хореография, музыкальность и импровизация\n• 👨‍🏫 Занятия с разными тренерами\n• 🎬 Видеопроекты и работа на камеру\n• 🎭 Концерты и выступления\n• 🏆 Соревнования и чемпионаты\n• ❤️ Друзья, команда и яркие эмоции\n\n📍 Laguna Hills • Santa Ana • Северный Голливуд\n📲 Первое пробное занятие бесплатно: SMS/Call ("
+      },
+      "caption_len": 752,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "e6da58ad-3405-4ac1-9a31-72f2fa9b194d",
+      "slug": "khan-archery-club-150704",
+      "name": "khan_archery_club",
+      "source_url": "https://t.me/c/1333533747/70862",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/khan_archery_club",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Весь материал закупаю в Home Depot. Выходит на $150 по материалу. Всем желающим могу бесплатно скинуть список необходимых пиломатериалов и инструментов для постройки🫣😉.\nТак же приглашаю детей от 12 лет на тренировки по олимпийской стрельбе из лука в Mile square park (Orange County)"
+      },
+      "caption_len": 327,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "ea5ec16f-6c3f-44d2-9ef4-40f71a8c7991",
+      "slug": "business-biz-180917",
+      "name": "Кристина",
+      "source_url": "https://t.me/c/1955320601/263560",
+      "ocr_model": null,
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "У нас реально вкусно 😋 \n450гр - 30$\n600 - 40$\n\nК Пасхе мы подготовили для вас подарочные сеты 🤍\n\nВ набор входит:\n• большой кулич (600 г)\n• 6 яиц, украшенных золотой бумагой\n• 100гр конфет Twix\nЦена набора - 60$\n\nИдеальный вариант для подарка или для уютного праздничного стола 🕊️\n\nКоличество сетов ограничено.\nЗаказы принимаем заранее в Telegram и Instagram.\n\nС любовью, Sunlit Pie ❤️",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/ea5ec16f-6c3f-44d2-9ef4-40f71a8c7991/cover-tg-263560.jpg"
+      },
+      "caption_len": 384,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "ec094d1e-3118-4419-90f5-7ff9baaf766f",
+      "slug": "the-village-spectrum-150616",
+      "name": "The Village Spectrum",
+      "source_url": "https://t.me/c/1333533747/73366",
+      "extracted": {
+        "phone": "+19495161466",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "1 раз в неделю, в 9:30 утра.",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Девочки всем привет!\n🎾Возможно кто-то хочет улучшить навыки игры в теннис. \nЕсть одно место. \n1 раз в неделю, в 9:30 утра.\nThe Village Spectrum\n Мария"
+      },
+      "caption_len": 160,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "edefd73c-dbcd-45be-b294-3d9a5211050e",
+      "slug": "olehkapitanchuk-massage-150636",
+      "name": "olehkapitanchuk_massage",
+      "source_url": "https://t.me/c/1333533747/73324",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 0,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "slug": "oksana-150709",
+      "name": "STAIR Academy",
+      "source_url": "https://t.me/c/1333533747/70527",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://www.stairedu.com/service-page/robotics-ai-3d-printing-camp-spring-2026?utm_campaign=556c28eb-3c63-4d00-aa12-bf6856b1f308&utm_source=so&utm_medium=mail",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Stair Academy",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 601,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "ef210492-2672-4785-ac75-8617d8738147",
+      "slug": "business-3478894784-172211",
+      "name": "Артём",
+      "source_url": "https://t.me/c/1955320601/263444",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13478894784",
+        "email": null,
+        "instagram_url": "https://www.instagram.com/socalautobroker_",
+        "website": null,
+        "telegram_username": "artemgladskyy",
+        "hours_text": "• выкуп авто (часто выше, чем CarMax) 💵",
+        "business_name": null,
+        "address": "California"
+      },
+      "patch": {
+        "telegram_url": "https://t.me/artemgladskyy",
+        "description": "Artem is an experienced auto broker in California, representing a company with over 30 years in the business. He specializes in securing optimal car deals, ensuring clients avoid overpaying. Services cover new and used vehicles, leasing, financing, and cash purchases, accommodating all credit histories. Additionally, he offers car buyback, trade-in, and personalized deal optimization. His services are provided at no cost to the client, as he earns from the dealer.\n\nУслуги: Auto brokering, Car deal optimization, Leasing, Financing, Cash purchases, New car acquisition, Used car acquisition, Assistance with any credit history",
+        "address_line": "California"
+      },
+      "caption_len": 904,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f12b6557-9f62-4656-b8e0-8c0c79879d21",
+      "slug": "business-7867507987-172159",
+      "name": "Флорида",
+      "source_url": "https://t.me/c/1955320601/250909",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+17867507987",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "I AMASH LAW FIRM",
+        "address": null
+      },
+      "patch": {
+        "description": "I Amash Law Firm provides comprehensive legal services for businesses. They specialize in complex contracts, commercial disputes, and business transactions, including acquisitions and sales. The firm also offers support for bankruptcy, pre-trial dispute resolution, and court defense. Additionally, they assist with preparing businesses for sale or investment, including legal due diligence and corporate governance.\n\nУслуги: Business asset protection, Contract drafting and review, Dispute resolution, Litigation and lawsuit response, Business acquisition and sale, Crisis management and urgent legal response, Bankruptcy proceedings, Pre-trial dispute settlement"
+      },
+      "caption_len": 559,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f481de80-be57-4c27-9cbc-525bfad56d5a",
+      "slug": "марина-150609",
+      "name": "Марина",
+      "source_url": "https://t.me/c/1955320601/257502",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+18184169975",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "Newport Beach, Orange County"
+      },
+      "patch": {
+        "description": "Марина - дипломированный мастер по наращиванию волос, работающая в Newport Beach, Orange County. Она специализируется на капсульном наращивании с использованием качественного кератина, а также предлагает зональное загущение и бережное снятие волос. Клиентам доступен широкий ассортимент высококачественных волос, включая славянские и детские, с возможностью добавления цветных прядей. Марина гарантирует идеальный подбор цвета и структуры, а также незаметную посадку капсул. Услуги предоставляются в комфортной домашней обстановке.\n\nУслуги: Капсульное наращивание волос, Зональное загущение волос, Бережное снятие и распутывание волос, Добавление цветных прядей, Подбор и продажа высококачественных волос",
+        "address_line": "Newport Beach, Orange County"
+      },
+      "caption_len": 940,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f6d58c4b-6198-468e-9225-62e5f69b5dd8",
+      "slug": "alexandra-dessert-studio-150632",
+      "name": "alexandra_dessert_studio",
+      "source_url": "https://t.me/c/1333533747/75272",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/alexandra_dessert_studio",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Alexandra Dessert Studio",
+        "address": null
+      },
+      "patch": {
+        "description": "For over 6 years, I have been creating custom cakes and desserts to order. Each of my works is entirely handmade, crafted with love and attention to every detail. If you like my cakes, I would be very grateful for your support. A subscription, like, or repost is a huge help for my small business.\n\nУслуги: Custom cakes, Desserts"
+      },
+      "caption_len": 594,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f7907794-0a7a-4534-b88f-f5dd989834b0",
+      "slug": "aibek-172151",
+      "name": "Маке плов (Aibek)",
+      "source_url": "https://t.me/c/1955320601/264626",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13239097447",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Make Pilaf",
+        "address": null
+      },
+      "patch": {
+        "description": "Make Pilaf offers delicious pilaf served with Achinuk salad and fresh bread. They also specialize in flavorful shashlik, prepared with smoke and fire for maximum taste. Enjoy a variety of grilled options including tender lamb, juicy chicken, savory mushrooms, and crispy wings.\n\nУслуги: Pilaf (with Achinuk salad and bread), Lamb Shashlik, Chicken Shashlik, Mushroom Shashlik, Wings Shashlik"
+      },
+      "caption_len": 0,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "name": "your appointment at EVELINA BEAUTY SALON",
+      "source_url": "https://t.me/c/1955320601/260032",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+14244084040",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "EVELINA BEAUTY SALON",
+        "address": "Glendale"
+      },
+      "patch": {
+        "description": "Evelina Beauty Salon offers professional beauty services. You can book an appointment for various treatments, including makeup artistry by Mila. Prices for services like makeup start at $150.\n\nУслуги: Makeup",
+        "address_line": "Glendale"
+      },
+      "caption_len": 112,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "f9df3dfc-5155-4698-9574-428ce668c650",
+      "slug": "flamellecandles-150648",
+      "name": "flamellecandles",
+      "source_url": "https://t.me/c/1333533747/73713",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/flamellecandles",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 63,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "cdae1b77-c27d-4de2-9e88-67bedc594c71",
+      "slug": "arvian-law-firm-llc-172214",
+      "name": "Arvian Law Firm LLC",
+      "source_url": "https://t.me/c/1955320601/252171",
+      "extracted": {
+        "phone": "+12136490001",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Добрый день.\n🔥Лицензированный иммиграционный адвокат Виталий Малюк, Arvian Law Firm LLC.\nМы с удовольствием поможем вам с различными типами виз:\n— EB-1, EB-2, EB-2 NIW, EB-3, O-1, L-1; \n— Оказываем помощь в воссоединении семьи, смене статуса, сопровождаем по политическому убежищу.\nМы готовы предоставить вам квалифицированную юридическую поддержку.\n✅Первая консультация бесплатная (если вы на территории США): ."
+      },
+      "caption_len": 428,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "7495de75-d05d-4279-89cf-2b93eeb0341e",
+      "slug": "masha-angel-150621",
+      "name": "Masha Angel",
+      "source_url": "https://t.me/c/1333533747/69400",
+      "extracted": {
+        "phone": "+13238795141",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Marat Osteo"
+      },
+      "caption_len": 29,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "c36cff2f-a70e-4da4-8459-3091edaf5758",
+      "slug": "anton-sushev-150655",
+      "name": "anton_sushev",
+      "source_url": "https://t.me/c/1333533747/71193",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/anton_sushev",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 60,
+      "has_media": false,
+      "status": "noop"
+    }
+  ],
+  "summary": {
+    "updated": 33,
+    "dry_run": 0,
+    "noop": 7,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

@@ -1,0 +1,2595 @@
+{
+  "version": 2,
+  "name": "PLATFORM_INFORMATION_ARCHITECTURE_V2",
+  "status": "ready_for_freeze",
+  "constraints": {
+    "no_sql": true,
+    "no_migrations": true,
+    "no_production_changes": true,
+    "no_code_changes": true,
+    "categories_from_data_only": true
+  },
+  "generated_from": {
+    "telegram_logical_posts": 8866,
+    "telegram_chats": {
+      "Fun for Mom": 4127,
+      "LA_OrangeCounty": 4739
+    },
+    "facebook_seed_curated_unique": 52,
+    "facebook_batches_raw_items": 115,
+    "facebook_batches_unique_names": 92,
+    "published_businesses_live_api": 315,
+    "published_businesses_category_snapshot": 307,
+    "published_professionals": 0,
+    "published_listings_live_api": 43,
+    "published_listings_hub_filtered": {
+      "marketplace": 14,
+      "services_transitional": 28,
+      "lechu": 0,
+      "transfers": 0
+    },
+    "import_review_items": 5585,
+    "taxonomy": [
+      "TAXONOMY_V1",
+      "TAXONOMY_RU_V1_FINAL",
+      "TAXONOMY_FREEZE_V1"
+    ],
+    "home_navigation": "lib/platform/sections.ts PLATFORM_SECTIONS"
+  },
+  "sources_stage1": {
+    "telegram": {
+      "total": 8866,
+      "hubs": {
+        "professional": 2290,
+        "business": 1137,
+        "community": 1647,
+        "marketplace": 835,
+        "jobs": 783,
+        "real_estate": 766,
+        "events": 325,
+        "other": 1083
+      },
+      "notes": "classification field on reviewer_v1; other = irrelevant+unclear+self_promotion_without_contact"
+    },
+    "facebook_seed_curated": {
+      "total_unique": 52,
+      "hubs": {
+        "professional": 25,
+        "business": 19,
+        "real_estate": 5,
+        "jobs": 2,
+        "other": 1
+      },
+      "notes": "facebook-entities + consolidated-18 deduped by name; marketplace sparse"
+    },
+    "published_catalog": {
+      "business_approved_live": 315,
+      "business_by_category_snapshot": {
+        "beauty": 60,
+        "services": 56,
+        "education": 34,
+        "auto": 31,
+        "(null)": 31,
+        "restaurants": 19,
+        "medical": 17,
+        "legal": 15,
+        "fitness": 14,
+        "groceries": 7,
+        "finance": 7,
+        "events": 6,
+        "insurance": 6,
+        "pets": 2,
+        "travel": 1,
+        "real_estate": 1
+      },
+      "professional": 0,
+      "listings_total_live": 43,
+      "marketplace_hub_filtered": 14,
+      "service_listings_hub_filtered": 28,
+      "jobs": 0,
+      "real_estate_inventory": 0,
+      "events_inventory": 0,
+      "lechu": 0,
+      "transfers": 0
+    },
+    "import_review_items": {
+      "total": 5585,
+      "by_source": {
+        "telegram:la_orange_county": 3273,
+        "telegram": 2307,
+        "facebook": 5
+      },
+      "by_entity_type": {
+        "private_specialist": 2298,
+        "business": 1081,
+        "real_estate": 820,
+        "marketplace_listing": 767,
+        "event": 299,
+        "lechu_listing": 279,
+        "transfer_listing": 33,
+        "organization": 6,
+        "null": 2
+      },
+      "by_category_mixed": {
+        "other": 1237,
+        "real_estate_services": 821,
+        "beauty": 569,
+        "education": 442,
+        "auto_services": 409,
+        "food": 295,
+        "legal": 211,
+        "car_rental": 202,
+        "moving": 187,
+        "health": 185,
+        "professional_services": 168,
+        "events": 167,
+        "childcare": 153,
+        "travel": 128,
+        "photography_video": 112,
+        "accounting": 103,
+        "fitness": 91,
+        "insurance": 39,
+        "pet_services": 33
+      },
+      "jobs": 0,
+      "notes": "Jobs present in Telegram (783) but absent from import_review — pipeline gap"
+    },
+    "seed_and_taxonomy": {
+      "consolidated_facebook_seed": 18,
+      "platform_categories_live_slugs": 15,
+      "taxonomy_v1_entities": [
+        "business",
+        "professional",
+        "marketplace",
+        "jobs",
+        "real_estate"
+      ]
+    },
+    "home_navigation_current": {
+      "sections": [
+        {
+          "key": "businesses",
+          "title": "Бизнесы",
+          "href": "/search"
+        },
+        {
+          "key": "marketplace",
+          "title": "Marketplace",
+          "href": "/marketplace"
+        },
+        {
+          "key": "services",
+          "title": "Услуги",
+          "href": "/services"
+        },
+        {
+          "key": "lechu",
+          "title": "Лечу",
+          "href": "/lechu"
+        },
+        {
+          "key": "transfers",
+          "title": "Переводы",
+          "href": "/transfers"
+        }
+      ],
+      "live_hub_counts_default_region": {
+        "businesses": 182,
+        "marketplace": 14,
+        "services": 28,
+        "lechu": 0,
+        "transfers": 0
+      }
+    }
+  },
+  "unified_projection": {
+    "method": "Do not sum Telegram+import_review (queue is telegram-fed). Do not sum Facebook seed onto published (seed upserts). Live = published rows. Pipeline mass = import_review entity_type. Jobs/Community from Telegram when absent in DB.",
+    "live_catalog_now": {
+      "business": 315,
+      "professional": 0,
+      "marketplace": 14,
+      "jobs": 0,
+      "real_estate": 0,
+      "events": 0,
+      "services_transitional_listings": 28,
+      "lechu": 0,
+      "transfers": 0
+    },
+    "pipeline_mass_import_review": {
+      "professional": 2298,
+      "business": 1081,
+      "real_estate": 820,
+      "marketplace": 767,
+      "events": 299,
+      "lechu": 279,
+      "transfers": 33
+    },
+    "telegram_intent_not_in_queue": {
+      "jobs": 783,
+      "community": 1647
+    },
+    "dedupe_notes": [
+      "import_review ≈ Telegram-fed subset (5585 vs 8866 posts; many rejected/noise/community not queued)",
+      "Facebook curated 52 overlaps published businesses",
+      "Jobs: 783 TG, 0 queue, 0 published — hub required by data, empty in product DB"
+    ]
+  },
+  "hubs": [
+    {
+      "slug": "business",
+      "name_ru": "Бизнесы",
+      "mvp": true
+    },
+    {
+      "slug": "professional",
+      "name_ru": "Специалисты",
+      "mvp": true
+    },
+    {
+      "slug": "marketplace",
+      "name_ru": "Купи-продай",
+      "mvp": true
+    },
+    {
+      "slug": "jobs",
+      "name_ru": "Работа",
+      "mvp": true
+    },
+    {
+      "slug": "real_estate",
+      "name_ru": "Недвижимость",
+      "mvp": true
+    },
+    {
+      "slug": "events",
+      "name_ru": "События",
+      "mvp": false
+    },
+    {
+      "slug": "lechu",
+      "name_ru": "Лечу",
+      "mvp": false
+    },
+    {
+      "slug": "transfers",
+      "name_ru": "Переводы",
+      "mvp": false
+    },
+    {
+      "slug": "community",
+      "name_ru": "Сообщество",
+      "mvp": false,
+      "notes": "intent/soft product, not card entity in v1"
+    }
+  ],
+  "categories": {
+    "business": [
+      {
+        "slug": "food",
+        "name_ru": "Рестораны и кафе",
+        "name_en": "Food & Restaurants",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 154,
+          "facebook_seed": 1,
+          "published": 19,
+          "import_queue_mixed": 295,
+          "signal": 174
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "grocery",
+        "name_ru": "Продукты",
+        "name_en": "Grocery",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 0,
+          "facebook_seed": 1,
+          "published": 7,
+          "import_queue_mixed": 0,
+          "signal": 8
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "beauty",
+        "name_ru": "Красота",
+        "name_en": "Beauty",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 39,
+          "facebook_seed": 1,
+          "published": 60,
+          "import_queue_mixed": 569,
+          "signal": 100
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "medical",
+        "name_ru": "Медицина",
+        "name_en": "Medical",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 19,
+          "facebook_seed": 1,
+          "published": 17,
+          "import_queue_mixed": 185,
+          "signal": 37
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "legal",
+        "name_ru": "Юристы",
+        "name_en": "Legal",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 29,
+          "facebook_seed": 2,
+          "published": 15,
+          "import_queue_mixed": 211,
+          "signal": 46
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "finance",
+        "name_ru": "Бухгалтерия и налоги",
+        "name_en": "Finance & Accounting",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 41,
+          "facebook_seed": 1,
+          "published": 7,
+          "import_queue_mixed": 103,
+          "signal": 49
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "insurance",
+        "name_ru": "Страхование",
+        "name_en": "Insurance",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 15,
+          "facebook_seed": 1,
+          "published": 6,
+          "import_queue_mixed": 39,
+          "signal": 22
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "auto",
+        "name_ru": "Автосервис",
+        "name_en": "Auto Services",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 228,
+          "facebook_seed": 2,
+          "published": 31,
+          "import_queue_mixed": 409,
+          "signal": 261
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "car_rental",
+        "name_ru": "Аренда авто",
+        "name_en": "Car Rental",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 185,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 202,
+          "signal": 185
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "moving",
+        "name_ru": "Переезды",
+        "name_en": "Moving",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 174,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 187,
+          "signal": 175
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "home_services",
+        "name_ru": "Услуги для дома",
+        "name_en": "Home Services",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 6,
+          "facebook_seed": 2,
+          "published": 56,
+          "import_queue_mixed": 0,
+          "signal": 64
+        },
+        "keep_even_if_small": false,
+        "children": [
+          {
+            "slug": "cleaning",
+            "name_ru": "Уборка",
+            "name_en": "Cleaning",
+            "level": "subcategory",
+            "parent": "home_services",
+            "counts": {
+              "telegram": 4,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 4
+            }
+          }
+        ]
+      },
+      {
+        "slug": "education",
+        "name_ru": "Образование",
+        "name_en": "Education",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 16,
+          "facebook_seed": 2,
+          "published": 34,
+          "import_queue_mixed": 442,
+          "signal": 52
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "fitness",
+        "name_ru": "Фитнес",
+        "name_en": "Fitness",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 0,
+          "facebook_seed": 0,
+          "published": 14,
+          "import_queue_mixed": 91,
+          "signal": 14
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "pets",
+        "name_ru": "Животные",
+        "name_en": "Pet Services",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 0,
+          "facebook_seed": 0,
+          "published": 2,
+          "import_queue_mixed": 33,
+          "signal": 2
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "travel",
+        "name_ru": "Визы и путешествия",
+        "name_en": "Travel",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 6,
+          "facebook_seed": 0,
+          "published": 1,
+          "import_queue_mixed": 128,
+          "signal": 7
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "real_estate_agencies",
+        "name_ru": "Агентства недвижимости",
+        "name_en": "Real Estate Agencies",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 105,
+          "facebook_seed": 2,
+          "published": 1,
+          "import_queue_mixed": 821,
+          "signal": 108
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "events",
+        "name_ru": "Праздники и площадки",
+        "name_en": "Event Businesses",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 7,
+          "facebook_seed": 1,
+          "published": 6,
+          "import_queue_mixed": 167,
+          "signal": 14
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "childcare",
+        "name_ru": "Детские центры",
+        "name_en": "Childcare Centers",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 22,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 153,
+          "signal": 22
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "other",
+        "name_ru": "Другое",
+        "name_en": "Other",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 85,
+          "facebook_seed": 0,
+          "published": 31,
+          "import_queue_mixed": 1237,
+          "signal": 116
+        },
+        "keep_even_if_small": false,
+        "children": []
+      }
+    ],
+    "professional": [
+      {
+        "slug": "beauty",
+        "name_ru": "Красота",
+        "name_en": "Beauty",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 509,
+          "facebook_seed": 4,
+          "published": 0,
+          "import_queue_mixed": 569,
+          "signal": 513
+        },
+        "keep_even_if_small": false,
+        "children": [
+          {
+            "slug": "nails",
+            "name_ru": "Маникюр и брови",
+            "name_en": "Nails / brows / lashes",
+            "level": "subcategory",
+            "parent": "beauty",
+            "counts": {
+              "telegram": 151,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 151
+            }
+          },
+          {
+            "slug": "hair_makeup",
+            "name_ru": "Волосы и макияж",
+            "name_en": "Hair / makeup",
+            "level": "subcategory",
+            "parent": "beauty",
+            "counts": {
+              "telegram": 205,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 205
+            }
+          },
+          {
+            "slug": "massage",
+            "name_ru": "Массаж",
+            "name_en": "Massage",
+            "level": "subcategory",
+            "parent": "beauty",
+            "counts": {
+              "telegram": 35,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 35
+            }
+          }
+        ]
+      },
+      {
+        "slug": "education",
+        "name_ru": "Репетиторы",
+        "name_en": "Tutors & Teaching",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 388,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 442,
+          "signal": 389
+        },
+        "keep_even_if_small": false,
+        "children": [
+          {
+            "slug": "languages",
+            "name_ru": "Языки",
+            "name_en": "Languages",
+            "level": "subcategory",
+            "parent": "education",
+            "counts": {
+              "telegram": 285,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 285
+            }
+          },
+          {
+            "slug": "stem_music",
+            "name_ru": "Школа и музыка",
+            "name_en": "STEM / music",
+            "level": "subcategory",
+            "parent": "education",
+            "counts": {
+              "telegram": 14,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 14
+            }
+          }
+        ]
+      },
+      {
+        "slug": "legal",
+        "name_ru": "Юристы",
+        "name_en": "Legal",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 165,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 211,
+          "signal": 166
+        },
+        "keep_even_if_small": false,
+        "children": [
+          {
+            "slug": "immigration",
+            "name_ru": "Иммиграция",
+            "name_en": "Immigration",
+            "level": "subcategory",
+            "parent": "legal",
+            "counts": {
+              "telegram": 70,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 70
+            }
+          },
+          {
+            "slug": "general",
+            "name_ru": "Другие юридические услуги",
+            "name_en": "General practice",
+            "level": "subcategory",
+            "parent": "legal",
+            "counts": {
+              "telegram": 97,
+              "facebook_seed": 0,
+              "published": 0,
+              "import_queue_mixed": 0,
+              "signal": 97
+            }
+          }
+        ]
+      },
+      {
+        "slug": "medical",
+        "name_ru": "Здоровье",
+        "name_en": "Health",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 116,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 185,
+          "signal": 116
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "photography_video",
+        "name_ru": "Фото и видео",
+        "name_en": "Photo & Video",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 108,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 112,
+          "signal": 108
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "fitness",
+        "name_ru": "Тренеры",
+        "name_en": "Fitness coaches",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 59,
+          "facebook_seed": 4,
+          "published": 0,
+          "import_queue_mixed": 91,
+          "signal": 63
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "finance",
+        "name_ru": "Бухгалтеры",
+        "name_en": "Accountants",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 61,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 103,
+          "signal": 61
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "auto",
+        "name_ru": "Мастера по авто",
+        "name_en": "Auto specialists",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 92,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 409,
+          "signal": 93
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "travel",
+        "name_ru": "Визы и путешествия",
+        "name_en": "Travel specialists",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 84,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 128,
+          "signal": 84
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "food",
+        "name_ru": "Домашняя еда",
+        "name_en": "Homemade food",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 63,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 295,
+          "signal": 64
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "childcare",
+        "name_ru": "Няни",
+        "name_en": "Childcare",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 40,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 153,
+          "signal": 40
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "professional_services",
+        "name_ru": "Дизайн, SMM и IT",
+        "name_en": "Design / SMM / IT",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 165,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 168,
+          "signal": 166
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "home_services",
+        "name_ru": "Мастера для дома",
+        "name_en": "Home trades",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 14,
+          "facebook_seed": 3,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 17
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "pets",
+        "name_ru": "Уход за животными",
+        "name_en": "Pet specialists",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 7,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 33,
+          "signal": 7
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "insurance",
+        "name_ru": "Страховые агенты",
+        "name_en": "Insurance agents",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 14,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 39,
+          "signal": 14
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "real_estate",
+        "name_ru": "Риелторы",
+        "name_en": "Realtors",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 2,
+          "facebook_seed": 2,
+          "published": 0,
+          "import_queue_mixed": 821,
+          "signal": 4
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "other",
+        "name_ru": "Другое",
+        "name_en": "Other",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 387,
+          "facebook_seed": 5,
+          "published": 0,
+          "import_queue_mixed": 1237,
+          "signal": 392
+        },
+        "keep_even_if_small": false,
+        "children": []
+      }
+    ],
+    "marketplace": [
+      {
+        "slug": "furniture",
+        "name_ru": "Мебель",
+        "name_en": "Furniture",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 95,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 95
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "kids",
+        "name_ru": "Детские вещи",
+        "name_en": "Kids & baby",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 62,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 62
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "free",
+        "name_ru": "Отдам даром",
+        "name_en": "Free",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 64,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 64
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "wanted",
+        "name_ru": "Ищу",
+        "name_en": "Wanted",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 38,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 38
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "clothing",
+        "name_ru": "Одежда",
+        "name_en": "Clothing",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 27,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 27
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "electronics",
+        "name_ru": "Электроника",
+        "name_en": "Electronics",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 21,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 21
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "home",
+        "name_ru": "Для дома",
+        "name_en": "Home & appliances",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 17,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 17
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "auto_parts",
+        "name_ru": "Запчасти",
+        "name_en": "Auto parts",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 29,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 29
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "vehicles",
+        "name_ru": "Машины",
+        "name_en": "Vehicles",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 25,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 25
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "sports",
+        "name_ru": "Спорт",
+        "name_en": "Sports",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 10,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 10
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "other",
+        "name_ru": "Другое",
+        "name_en": "Other",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 421,
+          "facebook_seed": 5,
+          "published": 13,
+          "import_queue_mixed": 767,
+          "signal": 439
+        },
+        "keep_even_if_small": false,
+        "children": []
+      }
+    ],
+    "jobs": [
+      {
+        "slug": "drivers",
+        "name_ru": "Водители",
+        "name_en": "Drivers",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 152,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 152
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "cleaning",
+        "name_ru": "Уборка",
+        "name_en": "Cleaning",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 87,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 87
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "beauty",
+        "name_ru": "Красота",
+        "name_en": "Beauty staff",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 114,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 114
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "childcare",
+        "name_ru": "Няни и уход",
+        "name_en": "Childcare",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 43,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 43
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "restaurant",
+        "name_ru": "Рестораны и кухня",
+        "name_en": "Restaurant / kitchen",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 58,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 58
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "office",
+        "name_ru": "Офис и продажи",
+        "name_en": "Office / sales",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 49,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 49
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "skilled_trades",
+        "name_ru": "Стройка и ремёсла",
+        "name_en": "Skilled trades",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 27,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 27
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "photo_video",
+        "name_ru": "Фото и видео",
+        "name_en": "Photo/video crew",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 69,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 69
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "other",
+        "name_ru": "Другое",
+        "name_en": "Other",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 100,
+          "facebook_seed": 2,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 102
+        },
+        "keep_even_if_small": false,
+        "children": []
+      }
+    ],
+    "real_estate": [
+      {
+        "slug": "apartments",
+        "name_ru": "Квартиры",
+        "name_en": "Apartments",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 366,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 820,
+          "signal": 366
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "rooms",
+        "name_ru": "Комнаты",
+        "name_en": "Rooms",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 250,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 250
+        },
+        "keep_even_if_small": false,
+        "children": []
+      },
+      {
+        "slug": "houses",
+        "name_ru": "Дома",
+        "name_en": "Houses",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 0,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 0
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "commercial",
+        "name_ru": "Коммерческая",
+        "name_en": "Commercial",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 22,
+          "facebook_seed": 1,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 23
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "short_term",
+        "name_ru": "Посуточно",
+        "name_en": "Short-term rental",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 0,
+          "facebook_seed": 0,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 0
+        },
+        "keep_even_if_small": true,
+        "children": []
+      },
+      {
+        "slug": "other",
+        "name_ru": "Другое",
+        "name_en": "Other",
+        "level": "category",
+        "parent": null,
+        "counts": {
+          "telegram": 128,
+          "facebook_seed": 2,
+          "published": 0,
+          "import_queue_mixed": 0,
+          "signal": 130
+        },
+        "keep_even_if_small": false,
+        "children": []
+      }
+    ]
+  },
+  "taxonomy_decisions": {
+    "keep": [
+      "beauty",
+      "auto",
+      "food",
+      "legal",
+      "education",
+      "medical",
+      "insurance",
+      "finance",
+      "moving",
+      "car_rental",
+      "apartments",
+      "rooms",
+      "furniture",
+      "free",
+      "wanted",
+      "drivers",
+      "cleaning"
+    ],
+    "merge": [
+      {
+        "from": "services",
+        "into": "home_services",
+        "why": "published catch-all; TG home_services tiny"
+      },
+      {
+        "from": "restaurants",
+        "into": "food",
+        "why": "legacy slug map"
+      },
+      {
+        "from": "groceries",
+        "into": "grocery",
+        "why": "legacy slug map"
+      },
+      {
+        "from": "locksmith/cleaning tiny biz",
+        "into": "home_services",
+        "why": "too small as top-level"
+      },
+      {
+        "from": "tools/pets_goods/books_media",
+        "into": "other/home",
+        "why": "MP micro-leaves"
+      }
+    ],
+    "remove_as_top_level": [
+      "Lost & Found",
+      "generic Services hub as IA section",
+      "Барахолка display name"
+    ],
+    "add": [
+      "car_rental",
+      "moving",
+      "professional full tree",
+      "jobs tree",
+      "real_estate inventory tree",
+      "marketplace free/wanted"
+    ],
+    "rename_display": [
+      {
+        "slug": "marketplace hub",
+        "to": "Купи-продай",
+        "from": "Барахолка / Marketplace EN"
+      },
+      {
+        "slug": "home_services",
+        "to": "Услуги для дома"
+      },
+      {
+        "slug": "travel",
+        "to": "Визы и путешествия"
+      },
+      {
+        "slug": "vehicles",
+        "to": "Машины"
+      },
+      {
+        "slug": "pets business",
+        "to": "Животные"
+      }
+    ]
+  },
+  "navigation": {
+    "current": [
+      "Бизнесы",
+      "Marketplace",
+      "Услуги",
+      "Лечу",
+      "Переводы"
+    ],
+    "recommended_mvp": [
+      "Бизнесы",
+      "Специалисты",
+      "Купи-продай",
+      "Работа",
+      "Недвижимость"
+    ],
+    "gaps": {
+      "missing": [
+        "Специалисты",
+        "Работа",
+        "Недвижимость"
+      ],
+      "misaligned": [
+        "Услуги (mix of service listings ≠ Professional entity)",
+        "Marketplace EN title",
+        "Лечу/Переводы empty live but in nav"
+      ],
+      "extra_for_mvp": [
+        "Лечу",
+        "Переводы"
+      ]
+    }
+  },
+  "mvp": {
+    "required": [
+      "business hub",
+      "professional hub",
+      "marketplace hub",
+      "jobs hub",
+      "real_estate hub",
+      "TAXONOMY_V1 categories",
+      "Купи-продай naming"
+    ],
+    "after_mvp": [
+      "events hub",
+      "community soft surface",
+      "lechu",
+      "transfers"
+    ],
+    "later": [
+      "vehicles entity split",
+      "calendar events depth",
+      "universal ACL"
+    ],
+    "not_required": [
+      "Lost & Found top category",
+      "4+ level trees",
+      "Healthcare jobs category (signal≈0–2)"
+    ]
+  },
+  "vs_v1": {
+    "v1_scope": "Telegram-only IA",
+    "v2_scope": "Telegram + Facebook + published + import_review + listings + taxonomy + home nav",
+    "changes": [
+      "Multi-source inventory and unified projection",
+      "Aligns categories with TAXONOMY_V1 / freeze RU labels",
+      "Hub display: Купи-продай (not Барахолка)",
+      "Home nav gap analysis vs data",
+      "MVP sequencing from live emptiness + queue mass"
+    ]
+  },
+  "validation_freeze_v1": {
+    "freeze_decision": "READY_FOR_FREEZE",
+    "freeze_scope": "TAXONOMY_V1 entity trees for Business, Professional, Marketplace, Jobs, Real Estate + RU display freeze. Events hub categories NOT frozen for MVP.",
+    "blocking_issues_for_review_center": [],
+    "non_blocking_issues": [
+      "Marketplace pipeline category ≈70% other — Review Center + goods leaf rules",
+      "Jobs absent from import_review (783 TG) — pipeline fix, not taxonomy change",
+      "RE pipeline category ≈92% real_estate_services — map to apartments/rooms leaves in import",
+      "Business↔RE / Business↔Pro entity_type mismatches ≈68 posts — Review Center rules",
+      "Professional other ≈17% — improve prompts after launch",
+      "Published legacy services → home_services remap"
+    ],
+    "classifier_audit": {
+      "stable_categories": [
+        "beauty",
+        "education",
+        "auto_services/auto",
+        "car_rental",
+        "moving",
+        "food",
+        "legal",
+        "cleaning(jobs)",
+        "drivers",
+        "apartments",
+        "rooms",
+        "furniture",
+        "free"
+      ],
+      "confused_pairs": [
+        {
+          "pair": "business vs real_estate",
+          "count": 52,
+          "cause": "booth/room rental ads classified as business but entity_type real_estate"
+        },
+        {
+          "pair": "business vs professional",
+          "count": 15,
+          "cause": "person brand vs org; homemade food / realtor"
+        },
+        {
+          "pair": "marketplace category vocabulary",
+          "count": 254,
+          "cause": "service taxonomy applied to goods (auto_services, childcare, food on MP)"
+        },
+        {
+          "pair": "real_estate leaf vs real_estate_services",
+          "count": 702,
+          "cause": "controlled vocab lacks apartments/rooms; everything → real_estate_services"
+        }
+      ],
+      "other_hotspots": {
+        "marketplace": {
+          "other": 581,
+          "pct": 69.6
+        },
+        "jobs": {
+          "other": 224,
+          "pct": 28.6
+        },
+        "professional": {
+          "other": 387,
+          "pct": 16.9
+        },
+        "business": {
+          "other": 85,
+          "pct": 7.5
+        },
+        "events": {
+          "other": 44,
+          "pct": 13.5
+        },
+        "real_estate": {
+          "other": 22,
+          "pct": 2.9
+        }
+      },
+      "prompt_rule_improvements": [
+        "Separate goods category vocabulary for marketplace (furniture/kids/free/wanted/…)",
+        "RE leaves: apartments/rooms/houses/commercial/short_term instead of real_estate_services for listings",
+        "Entity gate: room/booth rental → real_estate or commercial, not business beauty",
+        "Jobs: map sector tags to jobs leaves (drivers/cleaning/…) not service taxonomy only",
+        "Business vs Professional: LLC/salon/clinic → business; я мастер / private → professional"
+      ]
+    },
+    "misclassification_examples": {
+      "business→real_estate": {
+        "count": 52,
+        "examples": [
+          "Сдам помещение в студии для мастеров красоты…",
+          "Сдаю комнату с мебелью в Park Newport…"
+        ],
+        "cause": "Classifier marks as business ad; entity extractor correctly sees rental inventory"
+      },
+      "business→professional": {
+        "count": 15,
+        "examples": [
+          "зефирный букет… (homemade)",
+          "Realtor Valeriia condo listing promo"
+        ],
+        "cause": "Org vs person brand boundary"
+      },
+      "marketplace→service_categories": {
+        "count": 254,
+        "examples": [
+          "MP posts tagged auto_services/childcare/food instead of goods leaves"
+        ],
+        "cause": "Shared controlled vocabulary with services"
+      },
+      "jobs→other": {
+        "count": 224,
+        "examples": [
+          "generic hiring posts without sector keywords"
+        ],
+        "cause": "Weak jobs leaf taxonomy in LLM category field"
+      },
+      "real_estate→real_estate_services_bucket": {
+        "count": 702,
+        "examples": [
+          "apartment/room ads all category=real_estate_services"
+        ],
+        "cause": "Missing inventory leaves in analyzer vocab"
+      }
+    },
+    "entities": {
+      "business": {
+        "total_primary": 1456,
+        "categories": [
+          {
+            "slug": "food",
+            "name_ru": "Рестораны и кафе",
+            "telegram": 154,
+            "facebook_seed": 1,
+            "published": 19,
+            "import_queue_mixed": 295,
+            "primary_count": 174,
+            "pct_of_entity": 12.0,
+            "status": "Stable",
+            "status_reason": "TG+published+queue",
+            "children": []
+          },
+          {
+            "slug": "grocery",
+            "name_ru": "Продукты",
+            "telegram": 0,
+            "facebook_seed": 1,
+            "published": 7,
+            "import_queue_mixed": 0,
+            "primary_count": 8,
+            "pct_of_entity": 0.5,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "beauty",
+            "name_ru": "Красота",
+            "telegram": 39,
+            "facebook_seed": 1,
+            "published": 60,
+            "import_queue_mixed": 569,
+            "primary_count": 100,
+            "pct_of_entity": 6.9,
+            "status": "Stable",
+            "status_reason": "Published-heavy; queue large",
+            "children": []
+          },
+          {
+            "slug": "medical",
+            "name_ru": "Медицина",
+            "telegram": 19,
+            "facebook_seed": 1,
+            "published": 17,
+            "import_queue_mixed": 185,
+            "primary_count": 37,
+            "pct_of_entity": 2.5,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "legal",
+            "name_ru": "Юристы",
+            "telegram": 29,
+            "facebook_seed": 2,
+            "published": 15,
+            "import_queue_mixed": 211,
+            "primary_count": 46,
+            "pct_of_entity": 3.2,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "finance",
+            "name_ru": "Бухгалтерия и налоги",
+            "telegram": 41,
+            "facebook_seed": 1,
+            "published": 7,
+            "import_queue_mixed": 103,
+            "primary_count": 49,
+            "pct_of_entity": 3.4,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "insurance",
+            "name_ru": "Страхование",
+            "telegram": 15,
+            "facebook_seed": 1,
+            "published": 6,
+            "import_queue_mixed": 39,
+            "primary_count": 22,
+            "pct_of_entity": 1.5,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "auto",
+            "name_ru": "Автосервис",
+            "telegram": 228,
+            "facebook_seed": 2,
+            "published": 31,
+            "import_queue_mixed": 409,
+            "primary_count": 261,
+            "pct_of_entity": 17.9,
+            "status": "Stable",
+            "status_reason": "Largest biz TG; published strong",
+            "children": []
+          },
+          {
+            "slug": "car_rental",
+            "name_ru": "Аренда авто",
+            "telegram": 185,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 202,
+            "primary_count": 185,
+            "pct_of_entity": 12.7,
+            "status": "Stable",
+            "status_reason": "Large TG-only; distinct from auto",
+            "children": []
+          },
+          {
+            "slug": "moving",
+            "name_ru": "Переезды",
+            "telegram": 174,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 187,
+            "primary_count": 175,
+            "pct_of_entity": 12.0,
+            "status": "Stable",
+            "status_reason": "Large TG; FB present",
+            "children": []
+          },
+          {
+            "slug": "home_services",
+            "name_ru": "Услуги для дома",
+            "telegram": 6,
+            "facebook_seed": 2,
+            "published": 56,
+            "import_queue_mixed": 0,
+            "primary_count": 64,
+            "pct_of_entity": 4.4,
+            "status": "Needs Review",
+            "status_reason": "Legacy published services dump; TG thin",
+            "children": [
+              {
+                "slug": "cleaning",
+                "name_ru": "Уборка",
+                "telegram": 4
+              }
+            ]
+          },
+          {
+            "slug": "education",
+            "name_ru": "Образование",
+            "telegram": 16,
+            "facebook_seed": 2,
+            "published": 34,
+            "import_queue_mixed": 442,
+            "primary_count": 52,
+            "pct_of_entity": 3.6,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "fitness",
+            "name_ru": "Фитнес",
+            "telegram": 0,
+            "facebook_seed": 0,
+            "published": 14,
+            "import_queue_mixed": 91,
+            "primary_count": 14,
+            "pct_of_entity": 1.0,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "pets",
+            "name_ru": "Животные",
+            "telegram": 0,
+            "facebook_seed": 0,
+            "published": 2,
+            "import_queue_mixed": 33,
+            "primary_count": 2,
+            "pct_of_entity": 0.1,
+            "status": "Stable",
+            "status_reason": "Small but keep_even_if_small / published slot",
+            "children": []
+          },
+          {
+            "slug": "travel",
+            "name_ru": "Визы и путешествия",
+            "telegram": 6,
+            "facebook_seed": 0,
+            "published": 1,
+            "import_queue_mixed": 128,
+            "primary_count": 7,
+            "pct_of_entity": 0.5,
+            "status": "Stable",
+            "status_reason": "Small but keep_even_if_small / published slot",
+            "children": []
+          },
+          {
+            "slug": "real_estate_agencies",
+            "name_ru": "Агентства недвижимости",
+            "telegram": 105,
+            "facebook_seed": 2,
+            "published": 1,
+            "import_queue_mixed": 821,
+            "primary_count": 108,
+            "pct_of_entity": 7.4,
+            "status": "Needs Review",
+            "status_reason": "Queue inflated by listings; entity split required in Review Center",
+            "children": []
+          },
+          {
+            "slug": "events",
+            "name_ru": "Праздники и площадки",
+            "telegram": 7,
+            "facebook_seed": 1,
+            "published": 6,
+            "import_queue_mixed": 167,
+            "primary_count": 14,
+            "pct_of_entity": 1.0,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "childcare",
+            "name_ru": "Детские центры",
+            "telegram": 22,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 153,
+            "primary_count": 22,
+            "pct_of_entity": 1.5,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "other",
+            "name_ru": "Другое",
+            "telegram": 85,
+            "facebook_seed": 0,
+            "published": 31,
+            "import_queue_mixed": 1237,
+            "primary_count": 116,
+            "pct_of_entity": 8.0,
+            "status": "Needs Review",
+            "status_reason": "Includes ~31 null published",
+            "children": []
+          }
+        ]
+      },
+      "professional": {
+        "total_primary": 2274,
+        "categories": [
+          {
+            "slug": "beauty",
+            "name_ru": "Красота",
+            "telegram": 509,
+            "facebook_seed": 4,
+            "published": 0,
+            "import_queue_mixed": 569,
+            "primary_count": 509,
+            "pct_of_entity": 22.4,
+            "status": "Stable",
+            "status_reason": "Top Pro class",
+            "children": [
+              {
+                "slug": "nails",
+                "name_ru": "Маникюр и брови",
+                "telegram": 151
+              },
+              {
+                "slug": "hair_makeup",
+                "name_ru": "Волосы и макияж",
+                "telegram": 205
+              },
+              {
+                "slug": "massage",
+                "name_ru": "Массаж",
+                "telegram": 35
+              }
+            ]
+          },
+          {
+            "slug": "education",
+            "name_ru": "Репетиторы",
+            "telegram": 388,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 442,
+            "primary_count": 388,
+            "pct_of_entity": 17.1,
+            "status": "Stable",
+            "status_reason": "Top Pro class",
+            "children": [
+              {
+                "slug": "languages",
+                "name_ru": "Языки",
+                "telegram": 285
+              },
+              {
+                "slug": "stem_music",
+                "name_ru": "Школа и музыка",
+                "telegram": 14
+              }
+            ]
+          },
+          {
+            "slug": "legal",
+            "name_ru": "Юристы",
+            "telegram": 165,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 211,
+            "primary_count": 165,
+            "pct_of_entity": 7.3,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": [
+              {
+                "slug": "immigration",
+                "name_ru": "Иммиграция",
+                "telegram": 70
+              },
+              {
+                "slug": "general",
+                "name_ru": "Другие юридические услуги",
+                "telegram": 97
+              }
+            ]
+          },
+          {
+            "slug": "medical",
+            "name_ru": "Здоровье",
+            "telegram": 116,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 185,
+            "primary_count": 116,
+            "pct_of_entity": 5.1,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "photography_video",
+            "name_ru": "Фото и видео",
+            "telegram": 108,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 112,
+            "primary_count": 108,
+            "pct_of_entity": 4.7,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "fitness",
+            "name_ru": "Тренеры",
+            "telegram": 59,
+            "facebook_seed": 4,
+            "published": 0,
+            "import_queue_mixed": 91,
+            "primary_count": 59,
+            "pct_of_entity": 2.6,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "finance",
+            "name_ru": "Бухгалтеры",
+            "telegram": 61,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 103,
+            "primary_count": 61,
+            "pct_of_entity": 2.7,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "auto",
+            "name_ru": "Мастера по авто",
+            "telegram": 92,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 409,
+            "primary_count": 92,
+            "pct_of_entity": 4.0,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "travel",
+            "name_ru": "Визы и путешествия",
+            "telegram": 84,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 128,
+            "primary_count": 84,
+            "pct_of_entity": 3.7,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "food",
+            "name_ru": "Домашняя еда",
+            "telegram": 63,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 295,
+            "primary_count": 63,
+            "pct_of_entity": 2.8,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "childcare",
+            "name_ru": "Няни",
+            "telegram": 40,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 153,
+            "primary_count": 40,
+            "pct_of_entity": 1.8,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "professional_services",
+            "name_ru": "Дизайн, SMM и IT",
+            "telegram": 165,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 168,
+            "primary_count": 165,
+            "pct_of_entity": 7.3,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "home_services",
+            "name_ru": "Мастера для дома",
+            "telegram": 14,
+            "facebook_seed": 3,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 14,
+            "pct_of_entity": 0.6,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "pets",
+            "name_ru": "Уход за животными",
+            "telegram": 7,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 33,
+            "primary_count": 7,
+            "pct_of_entity": 0.3,
+            "status": "Stable",
+            "status_reason": "Small keep_even_if_small",
+            "children": []
+          },
+          {
+            "slug": "insurance",
+            "name_ru": "Страховые агенты",
+            "telegram": 14,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 39,
+            "primary_count": 14,
+            "pct_of_entity": 0.6,
+            "status": "Stable",
+            "status_reason": "Small keep_even_if_small",
+            "children": []
+          },
+          {
+            "slug": "real_estate",
+            "name_ru": "Риелторы",
+            "telegram": 2,
+            "facebook_seed": 2,
+            "published": 0,
+            "import_queue_mixed": 821,
+            "primary_count": 2,
+            "pct_of_entity": 0.1,
+            "status": "Needs Review",
+            "status_reason": "Queue inflated; agents vs listings",
+            "children": []
+          },
+          {
+            "slug": "other",
+            "name_ru": "Другое",
+            "telegram": 387,
+            "facebook_seed": 5,
+            "published": 0,
+            "import_queue_mixed": 1237,
+            "primary_count": 387,
+            "pct_of_entity": 17.0,
+            "status": "Needs Review",
+            "status_reason": "16.9% other — classifier gap",
+            "children": []
+          }
+        ]
+      },
+      "marketplace": {
+        "total_primary": 809,
+        "categories": [
+          {
+            "slug": "furniture",
+            "name_ru": "Мебель",
+            "telegram": 95,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 95,
+            "pct_of_entity": 11.7,
+            "status": "Stable",
+            "status_reason": "Strong text leaf",
+            "children": []
+          },
+          {
+            "slug": "kids",
+            "name_ru": "Детские вещи",
+            "telegram": 62,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 62,
+            "pct_of_entity": 7.7,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "free",
+            "name_ru": "Отдам даром",
+            "telegram": 64,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 64,
+            "pct_of_entity": 7.9,
+            "status": "Stable",
+            "status_reason": "Strong leaf + offer_kind",
+            "children": []
+          },
+          {
+            "slug": "wanted",
+            "name_ru": "Ищу",
+            "telegram": 38,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 38,
+            "pct_of_entity": 4.7,
+            "status": "Stable",
+            "status_reason": "Strong leaf + offer_kind",
+            "children": []
+          },
+          {
+            "slug": "clothing",
+            "name_ru": "Одежда",
+            "telegram": 27,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 27,
+            "pct_of_entity": 3.3,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "electronics",
+            "name_ru": "Электроника",
+            "telegram": 21,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 21,
+            "pct_of_entity": 2.6,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "home",
+            "name_ru": "Для дома",
+            "telegram": 17,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 17,
+            "pct_of_entity": 2.1,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "auto_parts",
+            "name_ru": "Запчасти",
+            "telegram": 29,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 29,
+            "pct_of_entity": 3.6,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "vehicles",
+            "name_ru": "Машины",
+            "telegram": 25,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 25,
+            "pct_of_entity": 3.1,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "sports",
+            "name_ru": "Спорт",
+            "telegram": 10,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 10,
+            "pct_of_entity": 1.2,
+            "status": "Merge Candidate",
+            "status_reason": "Very small; can fold into other if needed",
+            "children": []
+          },
+          {
+            "slug": "other",
+            "name_ru": "Другое",
+            "telegram": 421,
+            "facebook_seed": 5,
+            "published": 13,
+            "import_queue_mixed": 767,
+            "primary_count": 421,
+            "pct_of_entity": 52.0,
+            "status": "Needs Review",
+            "status_reason": "69.6% pipeline other; goods leaves via regex",
+            "children": []
+          }
+        ]
+      },
+      "jobs": {
+        "total_primary": 699,
+        "categories": [
+          {
+            "slug": "drivers",
+            "name_ru": "Водители",
+            "telegram": 152,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 152,
+            "pct_of_entity": 21.7,
+            "status": "Stable",
+            "status_reason": "Top jobs leaf",
+            "children": []
+          },
+          {
+            "slug": "cleaning",
+            "name_ru": "Уборка",
+            "telegram": 87,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 87,
+            "pct_of_entity": 12.4,
+            "status": "Stable",
+            "status_reason": "Strong",
+            "children": []
+          },
+          {
+            "slug": "beauty",
+            "name_ru": "Красота",
+            "telegram": 114,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 114,
+            "pct_of_entity": 16.3,
+            "status": "Stable",
+            "status_reason": "Strong",
+            "children": []
+          },
+          {
+            "slug": "childcare",
+            "name_ru": "Няни и уход",
+            "telegram": 43,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 43,
+            "pct_of_entity": 6.2,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "restaurant",
+            "name_ru": "Рестораны и кухня",
+            "telegram": 58,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 58,
+            "pct_of_entity": 8.3,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "office",
+            "name_ru": "Офис и продажи",
+            "telegram": 49,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 49,
+            "pct_of_entity": 7.0,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "skilled_trades",
+            "name_ru": "Стройка и ремёсла",
+            "telegram": 27,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 27,
+            "pct_of_entity": 3.9,
+            "status": "Stable",
+            "status_reason": "Multi-source or strong TG",
+            "children": []
+          },
+          {
+            "slug": "photo_video",
+            "name_ru": "Фото и видео",
+            "telegram": 69,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 69,
+            "pct_of_entity": 9.9,
+            "status": "Needs Review",
+            "status_reason": "Pipeline cat vs text leaf diverge",
+            "children": []
+          },
+          {
+            "slug": "other",
+            "name_ru": "Другое",
+            "telegram": 100,
+            "facebook_seed": 2,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 100,
+            "pct_of_entity": 14.3,
+            "status": "Needs Review",
+            "status_reason": "High other; jobs absent from import_review",
+            "children": []
+          }
+        ]
+      },
+      "real_estate": {
+        "total_primary": 766,
+        "categories": [
+          {
+            "slug": "apartments",
+            "name_ru": "Квартиры",
+            "telegram": 366,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 820,
+            "primary_count": 366,
+            "pct_of_entity": 47.8,
+            "status": "Stable",
+            "status_reason": "Dominant inventory",
+            "children": []
+          },
+          {
+            "slug": "rooms",
+            "name_ru": "Комнаты",
+            "telegram": 250,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 250,
+            "pct_of_entity": 32.6,
+            "status": "Stable",
+            "status_reason": "Dominant inventory",
+            "children": []
+          },
+          {
+            "slug": "houses",
+            "name_ru": "Дома",
+            "telegram": 0,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 0,
+            "pct_of_entity": 0.0,
+            "status": "Stable",
+            "status_reason": "Coverage slot",
+            "children": []
+          },
+          {
+            "slug": "commercial",
+            "name_ru": "Коммерческая",
+            "telegram": 22,
+            "facebook_seed": 1,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 22,
+            "pct_of_entity": 2.9,
+            "status": "Stable",
+            "status_reason": "Coverage slot",
+            "children": []
+          },
+          {
+            "slug": "short_term",
+            "name_ru": "Посуточно",
+            "telegram": 0,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 0,
+            "pct_of_entity": 0.0,
+            "status": "Stable",
+            "status_reason": "Coverage slot",
+            "children": []
+          },
+          {
+            "slug": "other",
+            "name_ru": "Другое",
+            "telegram": 128,
+            "facebook_seed": 2,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 128,
+            "pct_of_entity": 16.7,
+            "status": "Needs Review",
+            "status_reason": "Pipeline tags almost all as real_estate_services",
+            "children": []
+          }
+        ]
+      },
+      "events": {
+        "total_primary": 325,
+        "note": "Post-MVP hub; not TAXONOMY_V1 entity tree",
+        "categories": [
+          {
+            "slug": "events",
+            "name_ru": "События / ивенты",
+            "telegram": 142,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 299,
+            "primary_count": 142,
+            "pct_of_entity": 43.7,
+            "status": "Needs Review",
+            "status_reason": "Post-MVP; do not freeze as MVP taxonomy"
+          },
+          {
+            "slug": "topic_leak_travel",
+            "name_ru": "(leak) travel",
+            "telegram": 30,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 30,
+            "pct_of_entity": 9.2,
+            "status": "Remove Candidate",
+            "status_reason": "Topic tag not Events category"
+          },
+          {
+            "slug": "topic_leak_education",
+            "name_ru": "(leak) education",
+            "telegram": 28,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 28,
+            "pct_of_entity": 8.6,
+            "status": "Remove Candidate",
+            "status_reason": "Topic leak"
+          },
+          {
+            "slug": "other",
+            "name_ru": "Другое",
+            "telegram": 44,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "primary_count": 44,
+            "pct_of_entity": 13.5,
+            "status": "Needs Review",
+            "status_reason": "Remainder"
+          }
+        ]
+      }
+    }
+  },
+  "freeze_decision": "READY_FOR_FREEZE"
+}

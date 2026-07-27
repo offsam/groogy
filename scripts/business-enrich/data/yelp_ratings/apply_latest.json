@@ -1,0 +1,62 @@
+{
+  "mode": "apply_browser_jsonld",
+  "applied": 7,
+  "reports": [
+    {
+      "slug": "beauty-studio-by-veronika",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 4.6,
+        "yelp_reviews_count": 118
+      }
+    },
+    {
+      "slug": "consolidated-art4kidsandteens",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 4.8,
+        "yelp_reviews_count": 24
+      }
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 5.0,
+        "yelp_reviews_count": 14
+      }
+    },
+    {
+      "slug": "grand-auto-group",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 4.5,
+        "yelp_reviews_count": 8
+      }
+    },
+    {
+      "slug": "lunelle-nail-salon",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 5.0,
+        "yelp_reviews_count": 11
+      }
+    },
+    {
+      "slug": "ma-150705",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 4.1,
+        "yelp_reviews_count": 13
+      }
+    },
+    {
+      "slug": "consolidated-tenina-law-inc",
+      "applied": true,
+      "patch": {
+        "yelp_rating": 4.9,
+        "yelp_reviews_count": 55
+      }
+    }
+  ]
+}

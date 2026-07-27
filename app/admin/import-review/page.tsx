@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ImportReviewQueuePanel } from "@/components/admin/ImportReviewQueuePanel";
 import {
@@ -83,8 +84,11 @@ export default async function AdminImportReviewPage({ searchParams }: PageProps)
     items = listed.items;
     total = listed.total;
   } catch (err) {
-    loadError =
-      err instanceof Error ? err.message : "Не удалось загрузить очередь";
+    const message =
+      err && typeof err === "object" && "message" in err
+        ? String((err as { message: unknown }).message)
+        : null;
+    loadError = message?.trim() || "Не удалось загрузить очередь";
   }
 
   return (
@@ -95,8 +99,24 @@ export default async function AdminImportReviewPage({ searchParams }: PageProps)
           Требуют проверки
         </h1>
         <p className="mt-2 max-w-3xl text-slate-500">
-          Внутренняя очередь AI Reviewer. Карточки не публикуются, пока
-          администратор не нажмёт «Одобрить».
+          Нажмите карточку — увидите, как она будет на сайте. Одобрить =
+          сразу в каталог, отложить = в работу позже, отклонить = в
+          отклонённые. Дубликаты уже схлопнуты в основные карточки и из
+          очереди убраны.
+        </p>
+        <p className="mt-3 flex flex-wrap gap-4 text-sm">
+          <Link
+            href="/admin/recommendations"
+            className="font-medium text-brand-blue hover:underline"
+          >
+            Рекомендации (profi) →
+          </Link>
+          <Link
+            href="/admin/events"
+            className="font-medium text-brand-blue hover:underline"
+          >
+            События — верификация →
+          </Link>
         </p>
       </div>
 

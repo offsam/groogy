@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "name": "PLATFORM_TAXONOMY_V1",
+  "sources": [
+    "telegram",
+    "facebook_seed",
+    "published_business",
+    "import_review_items",
+    "PLATFORM_INFORMATION_ARCHITECTURE_V2",
+    "platform_taxonomy_v2.json"
+  ],
+  "rules": {
+    "max_depth": 3,
+    "one_primary_category_per_card": true,
+    "secondary_categories_max": 3,
+    "do_not_sum_telegram_and_import": true
+  },
+  "entity": "real_estate",
+  "max_depth": 2,
+  "primary_rule": "Housing / commercial inventory listings — not agencies (those are Business.real_estate_agencies).",
+  "categories": [
+    {
+      "slug": "apartments",
+      "name_ru": "Квартиры",
+      "name_en": "Apartments",
+      "description": "Rent/sale apartments.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 366,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 820,
+        "signal": 366
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "rooms",
+      "name_ru": "Комнаты",
+      "name_en": "Rooms",
+      "description": "Room / roommate.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 250,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 250
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "houses",
+      "name_ru": "Дома",
+      "name_en": "Houses",
+      "description": "House listings (rarer in TG sample).",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 0,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 0
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": "Keep for coverage; low TG signal under apartments regex.",
+      "children": []
+    },
+    {
+      "slug": "commercial",
+      "name_ru": "Коммерция",
+      "name_en": "Commercial",
+      "description": "Office / retail / warehouse.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 22,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 23
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "short_term",
+      "name_ru": "Посуточно",
+      "name_en": "Short-term rental",
+      "description": "Vacation / short stays if tagged.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 0,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 0
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": "Sparse explicit tags; keep slot for future.",
+      "children": []
+    },
+    {
+      "slug": "other",
+      "name_ru": "Прочее",
+      "name_en": "Other",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 128,
+        "facebook_seed": 2,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 130
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    }
+  ],
+  "filters_not_categories": [
+    "offer_kind_rent_sell",
+    "bedrooms",
+    "bathrooms",
+    "price_range",
+    "pets_allowed",
+    "furnished",
+    "city"
+  ]
+}

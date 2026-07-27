@@ -11,6 +11,8 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from group_location import merge_city_with_group
+
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REVIEWER_SOURCE = (
     ROOT
@@ -29,6 +31,8 @@ ENTITY_TYPES = {
     "event",
     "job",
     "real_estate",
+    "lechu_listing",
+    "transfer_listing",
 }
 TARGET_COLLECTIONS = {
     "businesses",
@@ -39,6 +43,8 @@ TARGET_COLLECTIONS = {
     "events",
     "organizations",
     "real_estate",
+    "lechu",
+    "transfers",
 }
 
 # Autopublish supports these public collections only.
@@ -65,9 +71,13 @@ AGE_SENSITIVE_COLLECTIONS = {
     "real_estate",  # rentals / property listings
     "jobs",
     "events",
+    "lechu",
 }
 
 HIGH_CONFIDENCE_MIN = 0.85
+# Complete-card queue autopublish: phone + real description, allow needs_review.
+COMPLETE_CARD_CONFIDENCE_MIN = 0.5
+COMPLETE_CARD_DESCRIPTION_MIN = 60
 MARKETPLACE_MAX_AGE_DAYS = 45
 RENTAL_MAX_AGE_DAYS = 60
 JOB_EVENT_MAX_AGE_DAYS = 30
@@ -82,11 +92,33 @@ BAD_TITLE_RE = re.compile(
     r"^(всем\s+привет|привет|добрый\s+день|передзамовлення|~~~~|⛔️|\?+|none)$",
     re.I,
 )
+JUNK_CONTACT_TITLE_RE = re.compile(
+    r"^(телефон|phone|whatsapp|instagram|tg|telegram|контакт|contacts?|"
+    r"call\s*me|write\s*me|it.?s\s*me)$",
+    re.I,
+)
 REQUEST_RE = re.compile(
     r"\b(ищу|ищем|подскажите|посоветуйте|кто\s+знает|нужен|нужна|looking\s+for|"
     r"need\s+a|recommend|поиск\s+работы|резюме)\b",
     re.I,
 )
+# Hiring / job-offer posts mis-tagged as business — leave for manual review.
+HIRING_AD_RE = re.compile(
+    r"("
+    r"\b(hiring|wanted|vacancy|ваканси\w*)|"
+    r"требуется\s+(водитель|сотрудник|работник)\w*|"
+    r"ищем\s+(водител|сотрудник|специалист|работник|команду)\w*|"
+    r"приглаша(ем|ет)\s+.{0,40}(на\s+работу|cdl|driver|водител\w*)|"
+    r"otr\s+drivers?|cdl\s+driver|"
+    r"нужен\s+(водитель|сотрудник|мастер)\w*"
+    r")",
+    re.I,
+)
+# Specialists / services publish as Profi.ru-style service listings.
+SPECIALIST_AUTOPUBLISH_TARGETS = {
+    "private_specialists",
+    "services",
+}
 
 
 def load_env() -> None:
@@ -150,7 +182,29 @@ def source_fingerprint(source: str, chat_id: Any, message_ids: list[Any]) -> str
     return f"{source}:{chat}:{','.join(str(i) for i in ids)}"
 
 
-def map_post(post: dict[str, Any], *, review_status: str = "pending") -> dict[str, Any]:
+def infer_source_key(post: dict[str, Any], *, explicit: str | None = None) -> str:
+    """Stable source namespace per Telegram group. Never mix groups under plain 'telegram'."""
+    if explicit:
+        return explicit.strip()
+    title = (post.get("chat_title") or post.get("source_group") or "").strip().lower()
+    if "la_orangecounty" in title.replace(" ", "") or title == "la_orangecounty":
+        return "telegram:la_orange_county"
+    if "fun for mom" in title:
+        return "telegram:fun_for_mom"
+    chat = str(post.get("source_chat_id") or post.get("chat_id") or "")
+    if chat == "-1001955320601":
+        return "telegram:la_orange_county"
+    if chat == "-1001333533747":
+        return "telegram:fun_for_mom"
+    return "telegram"
+
+
+def map_post(
+    post: dict[str, Any],
+    *,
+    review_status: str = "pending",
+    source_key: str | None = None,
+) -> dict[str, Any]:
     entity = post.get("extracted_entity") or {}
     marketplace = (
         entity.get("marketplace") if isinstance(entity.get("marketplace"), dict) else {}
@@ -207,12 +261,33 @@ def map_post(post: dict[str, Any], *, review_status: str = "pending") -> dict[st
         or entity.get("source_date")
     )
 
+    resolved_source = infer_source_key(post, explicit=source_key)
+    source_group = post.get("chat_title") or (
+        "LA_OrangeCounty"
+        if resolved_source.endswith("la_orange_county")
+        else "Fun for Mom"
+        if resolved_source.endswith("fun_for_mom")
+        else None
+    )
+
+    location = merge_city_with_group(
+        city=entity.get("city") or marketplace.get("city"),
+        state=entity.get("state"),
+        source_group=source_group,
+        source=resolved_source,
+        chat_title=post.get("chat_title"),
+        address_line=entity.get("address")
+        or entity.get("address_line")
+        or marketplace.get("address")
+        or marketplace.get("address_line"),
+    )
+
     return {
-        "source": "telegram",
-        "source_group": post.get("chat_title") or "Fun for Mom",
+        "source": resolved_source,
+        "source_group": source_group,
         "source_chat_id": str(chat_id) if chat_id is not None else None,
         "source_message_ids": message_ids,
-        "source_fingerprint": source_fingerprint("telegram", chat_id, message_ids),
+        "source_fingerprint": source_fingerprint(resolved_source, chat_id, message_ids),
         "source_author_id": str(sender_id) if sender_id is not None else None,
         "source_author_username": username,
         "source_author_display_name": entity.get("telegram_display_name")
@@ -240,8 +315,8 @@ def map_post(post: dict[str, Any], *, review_status: str = "pending") -> dict[st
         "services": as_list(entity.get("services")),
         "price": price,
         "currency": currency,
-        "city": entity.get("city") or marketplace.get("city"),
-        "state": entity.get("state"),
+        "city": location.get("city"),
+        "state": location.get("state"),
         "phone": as_list(entity.get("phone")),
         "whatsapp": as_list(entity.get("whatsapp")),
         "telegram_username": username,
@@ -347,6 +422,46 @@ class SupabaseRest:
             },
         )
         return rows or []
+
+    def fetch_listing_categories(
+        self, *, listing_type: str = "service"
+    ) -> list[dict[str, Any]]:
+        rows = self._request(
+            "GET",
+            "/listing_categories",
+            params={
+                "select": "id,slug,name_ru,name_en,listing_type,domain,is_active,sort_order",
+                "listing_type": f"eq.{listing_type}",
+                "is_active": "eq.true",
+                "order": "sort_order.asc",
+            },
+        )
+        return rows or []
+
+    def fetch_all_business_phones(self) -> set[str]:
+        found: set[str] = set()
+        offset = 0
+        while True:
+            rows = self._request(
+                "GET",
+                "/businesses",
+                params={
+                    "select": "phone",
+                    "phone": "not.is.null",
+                    "offset": str(offset),
+                    "limit": "1000",
+                },
+            ) or []
+            if not rows:
+                break
+            for row in rows:
+                phone = row.get("phone")
+                if phone:
+                    found.add(str(phone))
+            if len(rows) < 1000:
+                break
+            offset += len(rows)
+        return found
 
     def insert_many(self, table: str, rows: list[dict[str, Any]]) -> Any:
         return self._request(

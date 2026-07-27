@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-07-27T00:01:05.452032+00:00",
+  "mode": "dry-run",
+  "min_confidence": "medium",
+  "scanned": {
+    "businesses": 203,
+    "professionals": 747
+  },
+  "issues": 18,
+  "actionable": 10,
+  "applied": 0,
+  "by_reason": {
+    "weak_name_no_suggestion": 8,
+    "weak_name_brand_in_description": 2,
+    "weak_name_website_brand": 1,
+    "instagram_handle_as_name": 7
+  },
+  "by_confidence": {
+    "low": 8,
+    "high": 2,
+    "medium": 8
+  },
+  "actionable_sample": [
+    {
+      "entity_type": "business",
+      "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+      "slug": "office-205354-a216",
+      "from": "Office",
+      "to": "NAVAT",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "🔥 NAVAT — HALAL СРЕДНЕАЗИАТСКАЯ КУХНЯ В LOS ANGELES 🔥\n3 из 4 наших локаций работают до 4 утра! 🌅\n✅ Шаурма (курица, говядина)\n✅ Бургеры и чизбургеры\n✅ Манты\n✅ Жареный лагман\n✅ Плов\n✅ Шорпо\n✅ Боулы\n‼️ H"
+    },
+    {
+      "entity_type": "professional",
+      "id": "0789e79b-aa51-455f-9f40-dc8244c759ec",
+      "slug": "pro-b74df323e3",
+      "from": "MA",
+      "to": "OC Acting",
+      "reason": "weak_name_website_brand",
+      "confidence": "medium",
+      "preview": "https://ocacting.com/acting-classes/acting-classes-for-kids/"
+    },
+    {
+      "entity_type": "professional",
+      "id": "445cbbd2-9a90-49c0-abbf-38de96f18a8f",
+      "slug": "pro-697e3f4b40",
+      "from": "+17478506840",
+      "to": "Rush In Documentation",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Rush In Documentation (747) 850-6840 info@rushindocumentation.com Если вдруг телефон поменялся то у них есть страница на Facebook Они находятся в Лос-Анджелесе. Я три года назад делала через них свой "
+    },
+    {
+      "entity_type": "professional",
+      "id": "4a09de10-4f85-4b69-9589-f922a6daa329",
+      "slug": "ksu-usa-1",
+      "from": "@Ksu_usa",
+      "to": "Ksu Usa",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "@Ksu_usa напишите Ксюше"
+    },
+    {
+      "entity_type": "professional",
+      "id": "5d327e54-f383-4b76-91a2-8e26f2e4766c",
+      "slug": "olga-savitskaya21",
+      "from": "@olga_savitskaya21",
+      "to": "Olga Savitskaya21",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "Я к ортодонту для взрослых обращалась. Могу дать контакт его ассистентки. @olga_savitskaya21"
+    },
+    {
+      "entity_type": "professional",
+      "id": "73f54bd7-e431-4613-af66-9a1263637a6f",
+      "slug": "k-bunbich",
+      "from": "@k_bunbich",
+      "to": "K Bunbich",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "@k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете"
+    },
+    {
+      "entity_type": "professional",
+      "id": "c294abb8-8d37-47c3-90a8-3d5de76f4b7f",
+      "slug": "kristi-usa",
+      "from": "@Kristi_USA",
+      "to": "Kristi USA",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "@Kristi_USA возможно она"
+    },
+    {
+      "entity_type": "professional",
+      "id": "ddf99ead-c827-4a2f-a672-0fad5de402a8",
+      "slug": "svetlana-lass",
+      "from": "@Svetlana_Lass",
+      "to": "Svetlana Lass",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "@Svetlana_Lass"
+    },
+    {
+      "entity_type": "professional",
+      "id": "df5b137a-61bd-4cec-b310-b33acf5eaa5a",
+      "slug": "liliia-ser-1",
+      "from": "@Liliia_Ser",
+      "to": "Liliia Ser",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "Может @Liliia_Ser 💫"
+    },
+    {
+      "entity_type": "professional",
+      "id": "ea348b1c-b025-486f-9155-c2d9e8bf70a1",
+      "slug": "averina-notary-public",
+      "from": "@Averina_Notary_Public",
+      "to": "Averina Notary Public",
+      "reason": "instagram_handle_as_name",
+      "confidence": "medium",
+      "preview": "@Averina_Notary_Public"
+    }
+  ],
+  "no_suggestion": [
+    {
+      "entity_type": "business",
+      "id": "028ee1ac-12bb-4ca1-aff3-db22bc1bc232",
+      "slug": "biz-a7fdfd765b",
+      "from": "Контакты",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": ""
+    },
+    {
+      "entity_type": "professional",
+      "id": "0d313e47-6aee-41ad-9b8a-8e92d40124d7",
+      "slug": "mralexgatto",
+      "from": "@mralexgatto",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Советую, профессионал своего дела @mralexgatto\n\n@mralexgatto"
+    },
+    {
+      "entity_type": "professional",
+      "id": "813270d6-1512-4e06-8410-42762cae6649",
+      "slug": "lisi4ka48-1",
+      "from": "@lisi4ka48",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Это к нашей волшебнице❤️ @lisi4ka48"
+    },
+    {
+      "entity_type": "professional",
+      "id": "a12d50a8-52c9-43cb-9237-56075b29b660",
+      "slug": "annasurova1",
+      "from": "@annasurova1",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@annasurova1 рекомендую"
+    },
+    {
+      "entity_type": "professional",
+      "id": "a7866f7d-cf7c-47ec-ab06-63bb84c83aac",
+      "slug": "svetlia40kusa",
+      "from": "@Svetlia40kUSA",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@Svetlia40kUSA"
+    },
+    {
+      "entity_type": "professional",
+      "id": "bb0cda9b-8d4b-4bd7-8a67-d8c40366e40f",
+      "slug": "beauty-salon-181011",
+      "from": "Новый beauty salon",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резидентов — скидка $100 на первый месяц аренды. Парикмахерское к"
+    },
+    {
+      "entity_type": "professional",
+      "id": "c2319b9e-e8d5-42e9-8a68-64060e93069f",
+      "slug": "mathwithasya",
+      "from": "@mathwithasya",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@mathwithasya ❤️"
+    },
+    {
+      "entity_type": "professional",
+      "id": "f448e039-dbbd-4fb2-bbf8-ae7a2bdc6fb5",
+      "slug": "tane4kazu",
+      "from": "@Tane4kaZu",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@Tane4kaZu"
+    }
+  ]
+}

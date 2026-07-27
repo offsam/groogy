@@ -13,8 +13,9 @@ import {
   getSimilarOffers,
 } from "@/lib/business-offers/queries";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import { getBusinessBySlug } from "@/lib/supabase/queries";
-import { formatAddress } from "@/lib/supabase/mappers";
+import { formatAddress, stripBusinessContacts } from "@/lib/supabase/mappers";
 import { OFFER_TYPE_SINGULAR } from "@/types/business-offer";
 
 type OfferPageProps = {
@@ -55,14 +56,16 @@ export async function generateMetadata({
 export default async function OfferDetailPage({ params }: OfferPageProps) {
   const { slug, offerSlug } = await params;
   const client = await createServerClient();
+  const catalog = createServiceRoleClient();
 
-  const [business, offer] = await Promise.all([
-    getBusinessBySlug(client, slug),
+  const [fullBusiness, offer] = await Promise.all([
+    getBusinessBySlug(catalog, slug),
     getPublicOfferBySlug(client, slug, offerSlug),
   ]);
 
-  if (!business || !offer) notFound();
+  if (!fullBusiness || !offer) notFound();
 
+  const business = stripBusinessContacts(fullBusiness);
   const similar = await getSimilarOffers(client, offer);
   const price = formatOfferPrice(offer);
   const address = formatAddress(business);
@@ -142,9 +145,9 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
           businessSlug={slug}
           offerId={offer.id}
           offerSlug={offer.slug}
-          phone={business.phone}
+          phone={null}
           surface="offer"
-          website={business.website}
+          website={null}
         />
       </section>
 
@@ -160,9 +163,9 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
                 businessSlug={slug}
                 offer={item}
                 presence={{
-                  website: business.website,
-                  instagramUrl: business.instagramUrl,
-                  googleMapsUrl: business.googleMapsUrl,
+                  website: null,
+                  instagramUrl: null,
+                  googleMapsUrl: null,
                   googleRating: business.googleRating,
                   googleReviewsCount: business.googleReviewsCount,
                   latitude: business.latitude,

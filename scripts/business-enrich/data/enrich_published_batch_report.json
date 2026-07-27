@@ -1,0 +1,676 @@
+{
+  "ok": 31,
+  "skip": 0,
+  "fail": 0,
+  "filled": 12,
+  "count": 31,
+  "reports": [
+    {
+      "id": "852c6eb5-88fc-49f0-b9e0-41deb29ee338",
+      "name": "MA",
+      "slug": "ma-150705",
+      "website": "https://ocacting.com/acting-classes/acting-classes-for-kids/",
+      "patch": {
+        "description": "Fun, confidence-building acting classes for kids in Orange County! On-camera training, audition skills, and real TV/film techniques taught by working actors.",
+        "instagram_url": "https://www.instagram.com/ocacting/"
+      },
+      "offers": [],
+      "sources": {
+        "description": "website",
+        "instagram_url": "website"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='MA' site_name='Orange County Acting Academy' host=ocacting.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": []
+      }
+    },
+    {
+      "id": "19a5a2f3-dd5b-4f01-aae4-39cd2c0bb109",
+      "name": "Olga Osipova",
+      "slug": "consolidated-olga-osipova-fitness",
+      "website": "https://fitness.reflectingclouds.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "name": "Vika Borel",
+      "slug": "vika-borel-150706",
+      "website": "https://www.metrotech.academy",
+      "patch": {
+        "phone": "+14629114062"
+      },
+      "offers": [],
+      "sources": {
+        "phone": "website"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Vika Borel' site_name='Metro Tech Academy' host=metrotech.academy"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": []
+      }
+    },
+    {
+      "id": "1d23a81e-5c8b-4f2c-83c7-a1e63a58060d",
+      "name": "Ida Seidova",
+      "slug": "ida-seidova-150707",
+      "website": "https://www.skinovationclinic.com",
+      "patch": {
+        "phone": "+19493773000",
+        "city": "Newport Beach"
+      },
+      "offers": [],
+      "sources": {
+        "phone": "website",
+        "city": "website"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Ida Seidova' site_name='Dr. Mo' host=skinovationclinic.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": []
+      }
+    },
+    {
+      "id": "9a074d09-04e8-40dc-8504-146f5df71102",
+      "name": "dirtybirdfarm",
+      "slug": "dirtybirdfarm-150701",
+      "website": "http://www.dirtybirdranch.com/",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [
+        "website:fetch_failed"
+      ],
+      "skipped": null,
+      "website_profile_status": "unavailable"
+    },
+    {
+      "id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "name": "Oksana",
+      "slug": "oksana-150709",
+      "website": "https://www.stairedu.com/book-online",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [
+        "name_website_soft_mismatch name='Oksana' site_name='Stair Academy' host=stairedu.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "0736f212-cd7f-415a-8386-6926b68217ef",
+      "name": "Natalia Rezvova",
+      "slug": "natalia-rezvova-150712",
+      "website": "https://lettersfox.wixsite.com/letterfox",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [
+        "name_website_soft_mismatch name='Natalia Rezvova' site_name='Letterfox' host=lettersfox.wixsite.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "49a02e0e-cdbe-4812-8f28-2bd52da7d022",
+      "name": "Mila",
+      "slug": "mila-150710",
+      "website": "https://milatax.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "08fc945b-963b-4ca1-b87c-068069af7e4c",
+      "name": "Ivan Handyman",
+      "slug": "enriched-llc-tsisar",
+      "website": "https://llctsisarconstruction.com",
+      "patch": {
+        "instagram_url": "https://www.instagram.com/georgehandyman05",
+        "address_line": "8270 Woodland Center Boulevard",
+        "city": "Tampa",
+        "state_code": "US-FL",
+        "region": "FL"
+      },
+      "offers": [],
+      "sources": {
+        "instagram_url": "website",
+        "address_line": "website",
+        "city": "website",
+        "state_code": "website",
+        "region": "website"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Ivan Handyman' site_name='Llc Tsisar Construction' host=llctsisarconstruction.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": [],
+        "offers_skipped": "already_has_offers"
+      }
+    },
+    {
+      "id": "1e17d81f-22c2-45dc-b449-ff99ffabfeba",
+      "name": "Ksenia Andreychenko",
+      "slug": "batch2-ksenia-andreychenko-taxes-vip",
+      "website": "https://www.taxesvip.com",
+      "patch": {
+        "email": "ksenia@taxesvip.com",
+        "instagram_url": "https://www.instagram.com/viptaxesllc/",
+        "address_line": "21550 W Oxnard St 3rd Floor # 150",
+        "city": "Woodland Hills",
+        "state_code": "US-CA",
+        "region": "CA",
+        "opening_hours": {
+          "timezone": "America/Los_Angeles",
+          "weekly": [
+            {
+              "day": 0,
+              "open": "06:00",
+              "close": "21:00"
+            },
+            {
+              "day": 1,
+              "open": "06:00",
+              "close": "21:00"
+            },
+            {
+              "day": 2,
+              "open": "06:00",
+              "close": "21:00"
+            },
+            {
+              "day": 3,
+              "open": "06:00",
+              "close": "21:00"
+            },
+            {
+              "day": 4,
+              "open": "06:00",
+              "close": "21:00"
+            },
+            {
+              "day": 5,
+              "open": "06:00",
+              "close": "21:00"
+            },
+            {
+              "day": 6,
+              "open": "06:00",
+              "close": "21:00"
+            }
+          ]
+        }
+      },
+      "offers": [],
+      "sources": {
+        "email": "website",
+        "instagram_url": "website",
+        "address_line": "website",
+        "city": "website",
+        "state_code": "website",
+        "region": "website",
+        "opening_hours": "website"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Ksenia Andreychenko' site_name='VIP Taxes' host=taxesvip.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": [],
+        "offers_skipped": "already_has_offers"
+      }
+    },
+    {
+      "id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "name": "bearchildrensacademy.org",
+      "slug": "bearchildrensacademyorg-031831",
+      "website": "https://www.bearchildrensacademy.org/summer",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "name": "Телефон",
+      "slug": "телефон-032106",
+      "website": "https://avelorea.jewelry",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [
+        "website:fetch_failed"
+      ],
+      "skipped": null,
+      "website_profile_status": "unavailable"
+    },
+    {
+      "id": "d8ad2941-c5d2-4f88-8225-8a4fef53ac1e",
+      "name": "Анастасия",
+      "slug": "анастасия-032106",
+      "website": "http://sofacleanus.com",
+      "patch": {
+        "email": "flags@2x.png",
+        "instagram_url": "https://www.instagram.com/sofacleaningaz"
+      },
+      "offers": [
+        {
+          "title": "rom",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 134.0,
+          "short_description": "rom $134"
+        }
+      ],
+      "sources": {
+        "email": "website",
+        "instagram_url": "website",
+        "offers": "website:1"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Анастасия' site_name='Before / After Slider' host=sofacleanus.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 1,
+        "errors": []
+      }
+    },
+    {
+      "id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "name": "Звоните",
+      "slug": "business-9495016346-171941",
+      "website": "https://ocautoaid.com/",
+      "patch": {
+        "email": "service@ocautoaid.com",
+        "instagram_url": "https://www.instagram.com/ocautoaid"
+      },
+      "offers": [],
+      "sources": {
+        "email": "website",
+        "instagram_url": "website"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Звоните' site_name='OC Auto Aid' host=ocautoaid.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": []
+      }
+    },
+    {
+      "id": "c472f9ae-785f-463c-a059-dc129305a521",
+      "name": "Olga DAYCARE I❤️Montessori",
+      "slug": "olga-daycare-imontessori-190759",
+      "website": "https://www.playusa2023.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "da0f7705-8345-4121-8c3a-d79345f0364a",
+      "name": "zs.aesthetics",
+      "slug": "zsaesthetics-190931",
+      "website": "https://www.vagaro.com/zmdaesthetics",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [
+        "name_website_soft_mismatch name='zs.aesthetics' site_name='vagaro.com' host=vagaro.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "0dd07561-d635-43b2-8339-240e7316eb1e",
+      "name": "Fedor Tsvang",
+      "slug": "fedor-tsvang-234035",
+      "website": "https://smile-kidsparty.com/",
+      "patch": {},
+      "offers": [
+        {
+          "title": "s Party Entertainers",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 250.0,
+          "short_description": "Experienced Kid`s Party Entertainers from 250$"
+        }
+      ],
+      "sources": {
+        "offers": "website:1"
+      },
+      "notes": [
+        "name_website_soft_mismatch name='Fedor Tsvang' site_name='Smile KidsParty' host=smile-kidsparty.com"
+      ],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 1,
+        "errors": []
+      }
+    },
+    {
+      "id": "8f620840-f34e-44cc-9d77-7e178e1dcf0f",
+      "name": "Tutowl.com Online School",
+      "slug": "fb-post-26-tutowl-com-online-school",
+      "website": "tutowl.com",
+      "patch": {},
+      "offers": [
+        {
+          "title": "При предоплате за 3 месяца скидка",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 15.0,
+          "short_description": "При предоплате за 3 месяца скидка $15"
+        }
+      ],
+      "sources": {
+        "offers": "website:1"
+      },
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": [],
+        "offers_skipped": "already_has_offers"
+      }
+    },
+    {
+      "id": "0c5b8641-8463-47eb-a4b4-7a0d65014122",
+      "name": "LTD Services LLC",
+      "slug": "consolidated-ltd-services-llc",
+      "website": "https://www.ltdtaxaccounting.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "name": "surprise_me.balloons",
+      "slug": "surprise-meballoons-150639",
+      "website": "https://surprisemeballoonbar.com/",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "e93e6bf0-6ae6-41d0-b38a-a38e5316725a",
+      "name": "TranslatorPro",
+      "slug": "fbpack-translatorpro",
+      "website": "https://www.translatorpro.org",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "bc9bded9-ff37-4e07-a8ca-61905470048c",
+      "name": "Art 4 Kids & Teens",
+      "slug": "consolidated-art4kidsandteens",
+      "website": "https://www.art4kidsandteens.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "d04c16dc-5f43-47a7-a624-88d765418e2e",
+      "name": "Игра в глину (Niargomsk)",
+      "slug": "fbpack-niargomsk-igra-v-glinu",
+      "website": "https://www.niargomsk.com",
+      "patch": {},
+      "offers": [
+        {
+          "title": "Стоимость при единовременной оплате",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 199.0,
+          "short_description": "Стоимость при единовременной оплате $199"
+        },
+        {
+          "title": "Стоимость при оплате одной встречи",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 40.0,
+          "short_description": "Стоимость при оплате одной встречи $40 за встречу, оплата за месяц вперёд. Пропущенные встречи оплачиваются."
+        },
+        {
+          "title": "Стоимость",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 50.0,
+          "short_description": "Стоимость: $50 за живую встречу, $35 онлайн"
+        }
+      ],
+      "sources": {
+        "offers": "website:3"
+      },
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": [],
+        "offers_skipped": "already_has_offers"
+      }
+    },
+    {
+      "id": "54e0a828-7b5a-4a62-9c4e-0e3a09a64cec",
+      "name": "OC Dance Fit — Elizabeth Azamatov",
+      "slug": "fbpack-elizabeth-azamatov-oc-dance-fit",
+      "website": "https://www.ocdance.fit",
+      "patch": {},
+      "offers": [
+        {
+          "title": "Investment",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 25.0,
+          "short_description": "Investment: $25 per child"
+        }
+      ],
+      "sources": {
+        "offers": "website:1"
+      },
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": [],
+        "offers_skipped": "already_has_offers"
+      }
+    },
+    {
+      "id": "001c2e46-6298-412e-8361-6b874f9a407f",
+      "name": "5 Star Appliance Repair",
+      "slug": "batch2-5-star-appliance-repair",
+      "website": "https://5starappliancerepair.pro",
+      "patch": {},
+      "offers": [
+        {
+          "title": "We collect",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 75.0,
+          "short_description": "We collect $75 only per any service call when no repair can be made."
+        },
+        {
+          "title": "All new and referred customers receive",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 25.0,
+          "short_description": "All new and referred customers receive $25 off their order."
+        },
+        {
+          "title": "Refer your friend and get",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 25.0,
+          "short_description": "Refer your friend and get $25 back when they order our service."
+        },
+        {
+          "title": "Annual subscription fee of",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 199.0,
+          "short_description": "Annual subscription fee of $199 for members."
+        },
+        {
+          "title": "And Get",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 20.0,
+          "short_description": "And Get $20 Off for New Customers"
+        },
+        {
+          "title": "Get",
+          "offer_type": "service",
+          "price_mode": "fixed",
+          "price_amount": 20.0,
+          "short_description": "Get $20 Off"
+        }
+      ],
+      "sources": {
+        "offers": "website:6"
+      },
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok",
+      "apply_result": {
+        "business_ok": true,
+        "offers_ok": 0,
+        "errors": [],
+        "offers_skipped": "already_has_offers"
+      }
+    },
+    {
+      "id": "dddce89c-d625-4e25-b81a-4eaa1cb024b3",
+      "name": "Sunrise Education Center",
+      "slug": "fbpack-sunrise-education-center",
+      "website": "https://suncenter.aqulas.me",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "507ac692-aeef-43dc-bed2-36939f04998a",
+      "name": "Neo Aesthetics & Medical International Academy",
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "website": "https://neobeautyschool.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "name": "Tenina Law, Inc.",
+      "slug": "consolidated-tenina-law-inc",
+      "website": "https://teninalaw.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "cf10bd96-135f-44c8-aae5-4428b3d53054",
+      "name": "Lunelle Nail Salon",
+      "slug": "lunelle-nail-salon",
+      "website": "https://www.lunellenail.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "0ad2b0cf-1d98-45f6-9ad7-5d819c38610f",
+      "name": "Stephen Law PC",
+      "slug": "consolidated-stephen-law-pc",
+      "website": "https://StephenLawPC.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    },
+    {
+      "id": "2c49e794-878c-4860-a9fd-1b92f3de5891",
+      "name": "Grand Auto Group",
+      "slug": "grand-auto-group",
+      "website": "https://grandautogroupoc.com",
+      "patch": {},
+      "offers": [],
+      "sources": {},
+      "notes": [],
+      "skipped": null,
+      "website_profile_status": "ok"
+    }
+  ]
+}

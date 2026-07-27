@@ -9,7 +9,9 @@ import {
   dayLabelRu,
   openingHoursRows,
 } from "@/lib/business/opening-hours";
+import { AddressFieldsEditor } from "@/components/business/AddressFieldsEditor";
 import { SectionEditDialog } from "@/components/business/profile/edit/SectionEditDialog";
+import { normalizeStructuredAddress } from "@/lib/address/normalize";
 
 type BaseProps = {
   businessId: string;
@@ -143,17 +145,30 @@ export function EditAddressDialog({
   addressLine,
   city,
   region,
+  stateCode,
+  postalCode,
+  businessName,
 }: BaseProps & {
   addressLine: string | null;
   city: string | null;
   region: string | null;
+  stateCode?: string | null;
+  postalCode?: string | null;
+  businessName?: string | null;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
-  const [line, setLine] = useState(addressLine ?? "");
-  const [cityVal, setCityVal] = useState(city ?? "");
-  const [regionVal, setRegionVal] = useState(region ?? "");
+  const [address, setAddress] = useState(() =>
+    normalizeStructuredAddress({
+      addressLine,
+      city,
+      region,
+      stateCode,
+      postalCode,
+      businessName,
+    }),
+  );
 
   return (
     <SectionEditDialog
@@ -169,9 +184,11 @@ export function EditAddressDialog({
             businessId,
             businessSlug,
             patch: {
-              addressLine: line,
-              city: cityVal,
-              region: regionVal,
+              addressLine: address.addressLine,
+              city: address.city,
+              region: address.region,
+              stateCode: address.stateCode,
+              postalCode: address.postalCode,
             },
           });
           if (!result.ok) {
@@ -183,25 +200,11 @@ export function EditAddressDialog({
         });
       }}
     >
-      <div className="space-y-3">
-        <Field label="Улица">
-          <input className={inputClass} value={line} onChange={(e) => setLine(e.target.value)} />
-        </Field>
-        <Field label="Город">
-          <input
-            className={inputClass}
-            value={cityVal}
-            onChange={(e) => setCityVal(e.target.value)}
-          />
-        </Field>
-        <Field label="Регион / ZIP">
-          <input
-            className={inputClass}
-            value={regionVal}
-            onChange={(e) => setRegionVal(e.target.value)}
-          />
-        </Field>
-      </div>
+      <AddressFieldsEditor
+        businessName={businessName}
+        value={address}
+        onChange={setAddress}
+      />
     </SectionEditDialog>
   );
 }
@@ -317,7 +320,7 @@ export function EditCopyDialog({
   const [shortVal, setShortVal] = useState(shortDescription);
 
   const title =
-    mode === "about" ? "О компании" : mode === "jobs" ? "Вакансии" : "Акции";
+    mode === "about" ? "О компании" : mode === "jobs" ? "Вакансии" : "Предложения";
 
   return (
     <SectionEditDialog

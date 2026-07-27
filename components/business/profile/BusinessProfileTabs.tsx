@@ -22,7 +22,7 @@ export function BusinessProfileTabs({
   return (
     <nav
       aria-label="Разделы профиля"
-      className="sticky top-[3.25rem] z-30 -mx-4 border-b border-slate-200 bg-white/95 px-4 backdrop-blur sm:mx-0 sm:rounded-xl sm:border sm:px-2"
+      className="sticky top-[6.75rem] z-30 -mx-4 border-b border-slate-200 bg-white/95 px-4 backdrop-blur sm:top-[3.75rem] sm:mx-0 sm:rounded-xl sm:border sm:px-2"
     >
       <div className="flex gap-0.5 overflow-x-auto py-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {tabs.map((tab) => {

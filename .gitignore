@@ -42,3 +42,9 @@ scripts/telegram-collector/*.session*
 
 # Facebook collector PoC outputs
 scripts/facebook-collector/data/poc/
+
+# Machine-local collector ops (runbooks, group lists, wrapper scripts — not for git/PR)
+.local/
+
+# Local enrich / collector session scratch
+scripts/**/data/*session*.json

@@ -137,14 +137,16 @@ async function hydrateScored(
   hubId: string | null | undefined,
 ): Promise<PopularHomeItem[]> {
   const { getBusinessById } = await import("@/lib/supabase/queries");
+  const { stripBusinessContacts } = await import("@/lib/supabase/mappers");
   const { getListingById } = await import("@/lib/listings/queries");
 
   const resolved = await Promise.all(
     scores.map(async (row) => {
       const kind = row.entity_type as PopularResourceKind;
       if (kind === "business") {
-        const business = await getBusinessById(client, row.entity_id);
-        if (!business || !businessInHub(business, hubId)) return null;
+        const full = await getBusinessById(client, row.entity_id);
+        if (!full || !businessInHub(full, hubId)) return null;
+        const business = stripBusinessContacts(full);
         return {
           kind,
           score: row.score,

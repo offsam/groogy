@@ -1,0 +1,307 @@
+{
+  "generated_at": "2026-07-27T00:55:26.130853+00:00",
+  "mode": "apply",
+  "scanned": 747,
+  "updated": 364,
+  "fields": {
+    "city": 347,
+    "location_precision": 91,
+    "postal_code": 13,
+    "private_address_line": 16
+  },
+  "samples": [
+    {
+      "slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "vera-zhezherun-204839-82b3",
+      "name": "Vera Zhezherun",
+      "patch": {
+        "postal_code": "95660",
+        "city": "North Highlands"
+      }
+    },
+    {
+      "slug": "michael-sorokin-205104-3904",
+      "name": "Michael  Sorokin",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "valter-eslon-205228-0ffb",
+      "name": "Valter Eslon",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-biz-180942",
+      "name": "Всеволод Климчук",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "andrey-ka-204830-8347",
+      "name": "Andrey Ka",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "alina-205601-d7e9",
+      "name": "Alina",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "russ-russell-205215-bbbb",
+      "name": "Russ Russell",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "igor-pchelintsev-172216",
+      "name": "Igor Pchelintsev",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-biz-205526-b5d4",
+      "name": "Сергей",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "dmitry-belyaev-204806-7a4e",
+      "name": "Dmitry Belyaev",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "saida-saida",
+      "name": "SAida SAida",
+      "patch": {
+        "postal_code": "91607",
+        "private_address_line": "5957 Laurel Canyon Blvd"
+      }
+    },
+    {
+      "slug": "bekbolat-181530-3fa0",
+      "name": "Bekbolat",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-4084605611-204936-5f25",
+      "name": "Виктория Волоскова",
+      "patch": {
+        "city": "Walnut Creek"
+      }
+    },
+    {
+      "slug": "business-biz-181006",
+      "name": "Влад Нестеренко",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "serena-205617-1553",
+      "name": "Serena",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-biz-205413-094d",
+      "name": "Гора Ведьма",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "maria-komissarova-204850-2eaf",
+      "name": "Maria Komissarova",
+      "patch": {
+        "city": "Sacramento"
+      }
+    },
+    {
+      "slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "rafik-barseghyan-205218-d3d6",
+      "name": "Rafik Barseghyan",
+      "patch": {
+        "city": "Sacramento"
+      }
+    },
+    {
+      "slug": "zachary-emelian-180913",
+      "name": "Zachary Emelian",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-biz-205652-76db",
+      "name": "Алла",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "fbpack-karina-lazareva-house-cleaning",
+      "name": "Karina Lazareva — House Cleaning",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "ivan-zhizhnevskii-205000-77d0",
+      "name": "Ivan Zhizhnevskii",
+      "patch": {
+        "city": "Sacramento"
+      }
+    },
+    {
+      "slug": "business-biz-180858",
+      "name": "Реналь",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-biz-205400-59ff",
+      "name": "Тимофій Лоза",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "polina-ste-205019-bdb4",
+      "name": "Polina Ste",
+      "patch": {
+        "city": "Sacramento"
+      }
+    },
+    {
+      "slug": "business-biz-180923",
+      "name": "Жена",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "valentina-205558-0419",
+      "name": "Valentina",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "us-drive-services-181542-a6e1",
+      "name": "US Drive Services",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "olga-gorevaia-204912-41ae",
+      "name": "Olga Gorevaia",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "vladimir-shkarbanov-205035-769e",
+      "name": "Vladimir Shkarbanov",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "business-biz-205751-24ed",
+      "name": "Алла",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-3239613646-205043-717b",
+      "name": "Роксана Килюшина",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "batch2-anna-esthetician",
+      "name": "Anna Esthetician",
+      "patch": {
+        "private_address_line": "4721 Lash Artist"
+      }
+    },
+    {
+      "slug": "gallo",
+      "name": "Gallo",
+      "patch": {
+        "postal_code": "90028",
+        "private_address_line": "1830 Whitley Ave"
+      }
+    },
+    {
+      "slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "name": "Компания USA Carpet & Couch Cleaning в поисках техника для в",
+      "patch": {
+        "city": "San Francisco",
+        "location_precision": "city"
+      }
+    },
+    {
+      "slug": "business-biz-205712-83bc",
+      "name": "Милена",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "yulia-205821-1987",
+      "name": "Yulia",
+      "patch": {
+        "city": "Orange",
+        "location_precision": "city"
+      }
+    }
+  ]
+}

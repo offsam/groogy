@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "notes": [
+    "Business category slugs kept as-is under hub-businesses.",
+    "Listing services slugs get svc- prefix to avoid beauty/legal collisions.",
+    "wanted → offer_kind seek (application mapping, not category).",
+    "No AI reclassification."
+  ],
+  "hubs": [
+    { "slug": "hub-businesses", "name_ru": "Бизнесы", "entity_types": ["business", "professional"] },
+    { "slug": "hub-marketplace", "name_ru": "Marketplace", "entity_types": ["marketplace_item"] },
+    { "slug": "hub-services", "name_ru": "Услуги", "entity_types": ["professional", "business"] },
+    { "slug": "hub-transfers", "name_ru": "Переводы", "entity_types": ["transfer"] },
+    { "slug": "hub-lechu", "name_ru": "Лечу", "entity_types": ["lechu"] },
+    { "slug": "hub-jobs", "name_ru": "Работа", "entity_types": ["job"] },
+    { "slug": "hub-vehicles", "name_ru": "Автомобили", "entity_types": ["vehicle"] },
+    { "slug": "hub-real-estate", "name_ru": "Недвижимость", "entity_types": ["real_estate"] },
+    { "slug": "hub-events", "name_ru": "События", "entity_types": ["event"] }
+  ],
+  "business_categories": [
+    { "old_table": "categories", "old_slug": "restaurants", "new_slug": "restaurants", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "groceries", "new_slug": "groceries", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "beauty", "new_slug": "beauty", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "auto", "new_slug": "auto", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "medical", "new_slug": "medical", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "legal", "new_slug": "legal", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "education", "new_slug": "education", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "services", "new_slug": "services", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "real_estate", "new_slug": "real_estate", "parent": "hub-businesses", "notes": "Businesses that are agencies — not individual RealEstate inventory" },
+    { "old_table": "categories", "old_slug": "fitness", "new_slug": "fitness", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "pets", "new_slug": "pets", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "finance", "new_slug": "finance", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "insurance", "new_slug": "insurance", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "travel", "new_slug": "travel", "parent": "hub-businesses" },
+    { "old_table": "categories", "old_slug": "events", "new_slug": "events", "parent": "hub-businesses", "notes": "Event venues/organizers as Business — inventory Event is hub-events" }
+  ],
+  "listing_categories": [
+    { "old_slug": "electronics", "domain": "marketplace", "new_slug": "electronics", "parent": "hub-marketplace" },
+    { "old_slug": "furniture", "domain": "marketplace", "new_slug": "furniture", "parent": "hub-marketplace" },
+    { "old_slug": "home-garden", "domain": "marketplace", "new_slug": "home-garden", "parent": "hub-marketplace" },
+    { "old_slug": "clothing", "domain": "marketplace", "new_slug": "clothing", "parent": "hub-marketplace" },
+    { "old_slug": "kids", "domain": "marketplace", "new_slug": "kids", "parent": "hub-marketplace" },
+    { "old_slug": "sports", "domain": "marketplace", "new_slug": "sports", "parent": "hub-marketplace" },
+    { "old_slug": "tools", "domain": "marketplace", "new_slug": "tools", "parent": "hub-marketplace" },
+    { "old_slug": "appliances", "domain": "marketplace", "new_slug": "appliances", "parent": "hub-marketplace" },
+    { "old_slug": "free", "domain": "marketplace", "new_slug": "free", "parent": "hub-marketplace", "default_offer_kind": "giveaway" },
+    { "old_slug": "other", "domain": "marketplace", "new_slug": "other", "parent": "hub-marketplace" },
+
+    { "old_slug": "home-repair", "domain": "services", "new_slug": "svc-home-repair", "parent": "hub-services" },
+    { "old_slug": "cleaning", "domain": "services", "new_slug": "svc-cleaning", "parent": "hub-services" },
+    { "old_slug": "moving", "domain": "services", "new_slug": "svc-moving", "parent": "hub-services" },
+    { "old_slug": "auto-service", "domain": "services", "new_slug": "svc-auto-service", "parent": "hub-services" },
+    { "old_slug": "beauty", "domain": "services", "new_slug": "svc-beauty", "parent": "hub-services", "collision": "categories.beauty" },
+    { "old_slug": "tutoring", "domain": "services", "new_slug": "svc-tutoring", "parent": "hub-services" },
+    { "old_slug": "it-help", "domain": "services", "new_slug": "svc-it-help", "parent": "hub-services" },
+    { "old_slug": "legal", "domain": "services", "new_slug": "svc-legal", "parent": "hub-services", "collision": "categories.legal" },
+    { "old_slug": "health", "domain": "services", "new_slug": "svc-health", "parent": "hub-services" },
+    { "old_slug": "other-services", "domain": "services", "new_slug": "svc-other-services", "parent": "hub-services" },
+
+    { "old_slug": "transfer-us-ru", "domain": "transfers", "new_slug": "transfer-us-ru", "parent": "hub-transfers" },
+    { "old_slug": "transfer-ru-us", "domain": "transfers", "new_slug": "transfer-ru-us", "parent": "hub-transfers" },
+    { "old_slug": "transfer-us-ua", "domain": "transfers", "new_slug": "transfer-us-ua", "parent": "hub-transfers" },
+    { "old_slug": "transfer-us-kz", "domain": "transfers", "new_slug": "transfer-us-kz", "parent": "hub-transfers" },
+    { "old_slug": "transfer-other", "domain": "transfers", "new_slug": "transfer-other", "parent": "hub-transfers" },
+
+    { "old_slug": "lechu-us-ru", "domain": "lechu", "new_slug": "lechu-us-ru", "parent": "hub-lechu" },
+    { "old_slug": "lechu-ru-us", "domain": "lechu", "new_slug": "lechu-ru-us", "parent": "hub-lechu" },
+    { "old_slug": "lechu-us-ua", "domain": "lechu", "new_slug": "lechu-us-ua", "parent": "hub-lechu" },
+    { "old_slug": "lechu-us-eu", "domain": "lechu", "new_slug": "lechu-us-eu", "parent": "hub-lechu" },
+    { "old_slug": "lechu-other", "domain": "lechu", "new_slug": "lechu-other", "parent": "hub-lechu" }
+  ],
+  "offer_kind_map": {
+    "sell": "sell",
+    "free": "giveaway",
+    "exchange": "exchange",
+    "wanted": "seek"
+  },
+  "phase1_entity_backfill": ["business", "marketplace_item"],
+  "phase1_skip": [
+    "service listings → Professional (manual policy; no auto dual Business)",
+    "transfer/lechu registry optional after flag",
+    "Vehicle/RealEstate inventory extraction from business_offers.attributes"
+  ]
+}

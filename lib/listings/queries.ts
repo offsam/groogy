@@ -19,6 +19,7 @@ import {
   mapListingPublisher,
   mapMedia,
   mapPublicProfile,
+  stripListingSource,
 } from "@/lib/listings/mappers";
 import { LISTING_PAGE_SIZE } from "@/lib/listings/constants";
 import { redactOwnerId, signListingMediaUrls } from "@/lib/listings/media";
@@ -164,7 +165,9 @@ async function hydrateCatalogResult(
     .map((id) => byId.get(id))
     .filter((row): row is ListingRowInput => Boolean(row));
 
-  const listings = await hydrateRows(client, ordered, opts.userId);
+  const listings = (await hydrateRows(client, ordered, opts.userId)).map(
+    stripListingSource,
+  );
 
   return {
     listings,
@@ -209,6 +212,8 @@ const LISTING_SELECT = `
   contact_preference,
   publisher_type,
   publisher_business_id,
+  source_url,
+  source_kind,
   published_at,
   reserved_at,
   completed_at,

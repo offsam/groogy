@@ -1,0 +1,1159 @@
+{
+  "batch": "move_home_mobile_person_to_pros_v1",
+  "mode": "apply",
+  "approved_scanned": 314,
+  "selected": 114,
+  "converted": 114,
+  "errors": 0,
+  "reasons": {
+    "mobile_service_no_storefront": 9,
+    "home_food_no_storefront": 16,
+    "specialist_keywords_no_address": 13,
+    "person_specialist_no_address": 40,
+    "online_specialist": 9,
+    "person_name_no_place": 25,
+    "person_home_food": 2
+  },
+  "results": [
+    {
+      "business_id": "1f912b4c-7092-4ad9-a979-382c2432cbfd",
+      "business_slug": "crystalcar-204848-2871",
+      "name": "🚘 CrystalCar — чистота и уход за вашим автомобилем без лишне",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "crystalcar-204848-2871",
+      "professional_id": "b5d1b432-e60f-4951-b59d-86ab02d6cd35",
+      "status": "converted"
+    },
+    {
+      "business_id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "business_slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "business-biz-181521-6c6a",
+      "professional_id": "c3039c6d-bc62-4767-8260-9a729c0b6de1",
+      "status": "converted"
+    },
+    {
+      "business_id": "995cb510-7518-4f2a-98c3-745cd8d9f47c",
+      "business_slug": "agent-of-the-west-205502-23d3",
+      "name": "agent of the west",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "agent-of-the-west-205502-23d3",
+      "professional_id": "ad88d915-43cd-499a-9c15-06bd695480be",
+      "status": "converted"
+    },
+    {
+      "business_id": "8c070874-3a01-47eb-b26a-9dd0ed58a26d",
+      "business_slug": "aida-khazieva-pr-205628-e4f9",
+      "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "aida-khazieva-pr-205628-e4f9",
+      "professional_id": "88235c87-8476-49e8-8cdc-88912b818771",
+      "status": "converted"
+    },
+    {
+      "business_id": "49ecd566-24ca-4ac2-ae97-8bfc18499d9d",
+      "business_slug": "aiza-m-205715-2ce1",
+      "name": "Aiza M",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "aiza-m-205715-2ce1",
+      "professional_id": "1b7c0643-a981-45cc-808e-5a0f4dffa2cb",
+      "status": "converted"
+    },
+    {
+      "business_id": "a0e13959-8064-45bd-b809-f5842fefb340",
+      "business_slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "aiza-m-181528-e5d8",
+      "professional_id": "c9d5bc76-af33-4916-933d-305eb2e2a56d",
+      "status": "converted"
+    },
+    {
+      "business_id": "fc7a7865-6aa3-45b2-9c7f-53ad1f5c6430",
+      "business_slug": "aiza-m-205644-4aee",
+      "name": "Aiza M",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "aiza-m-205644-4aee",
+      "professional_id": "6ad2965a-e786-4545-89b0-bd27fb5bd66e",
+      "status": "converted"
+    },
+    {
+      "business_id": "dabde986-d340-4270-8fc6-fe7e358f21e7",
+      "business_slug": "akim-fam-205042-f633",
+      "name": "Akim Fam",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "akim-fam-205042-f633",
+      "professional_id": "7e567314-ead1-4fa3-9db1-3803b432afbe",
+      "status": "converted"
+    },
+    {
+      "business_id": "f8300515-85e6-4e15-98df-1d0405c00b35",
+      "business_slug": "alena-190941",
+      "name": "Alena",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "alena-190941",
+      "professional_id": "aaf8eb6c-b31d-4f28-aa67-b56cc684d4b5",
+      "status": "converted"
+    },
+    {
+      "business_id": "00b94a99-8964-4f4b-8494-7d4920655c98",
+      "business_slug": "alessandra-205417-7926",
+      "name": "Alessandra",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "alessandra-205417-7926",
+      "professional_id": "53b906b4-3866-405a-9029-56d659af3dda",
+      "status": "converted"
+    },
+    {
+      "business_id": "b46a8bc6-da9a-4d13-9be9-9b055edc6fb7",
+      "business_slug": "alla-205619-082b",
+      "name": "Alla",
+      "reason": "person_specialist_no_address",
+      "pro_category": "health",
+      "professional_slug": "alla-205619-082b",
+      "professional_id": "73761d9a-a7a6-4f9e-b322-be5600b74a41",
+      "status": "converted"
+    },
+    {
+      "business_id": "b11627c1-9443-4c23-be15-2d7c489a8cd0",
+      "business_slug": "ana-gonzalez-204820-d61c",
+      "name": "Ana Gonzalez",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "ana-gonzalez-204820-d61c",
+      "professional_id": "514f6459-f601-4849-a6ac-739e08e51b36",
+      "status": "converted"
+    },
+    {
+      "business_id": "1d0bb0a6-f9e4-4d57-94cd-5a5a43c5fb50",
+      "business_slug": "andrew-181007",
+      "name": "Andrew",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "andrew-181007",
+      "professional_id": "41555338-3441-48a6-a4e3-860f892f2d79",
+      "status": "converted"
+    },
+    {
+      "business_id": "f2591a2f-5d06-4cb2-9f2d-581613ab7873",
+      "business_slug": "andrey-gromov-181005",
+      "name": "Andrey Gromov",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "andrey-gromov-181005",
+      "professional_id": "ea54e9b5-5d23-4a54-9e42-40535977a006",
+      "status": "converted"
+    },
+    {
+      "business_id": "ea58ecb8-8f77-43b1-bf4a-4440ce94e654",
+      "business_slug": "anna-ann-205316-c799",
+      "name": "Anna Ann",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "anna-ann-205316-c799",
+      "professional_id": "89e1d079-2282-4d26-a8d9-4dfb67eb572d",
+      "status": "converted"
+    },
+    {
+      "business_id": "56d0b8fc-5ce0-4ad0-b562-6475bb727512",
+      "business_slug": "anna-sergeeva-205553-7269",
+      "name": "Anna Sergeeva",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "anna-sergeeva-205553-7269",
+      "professional_id": "824de13f-0ce5-4511-9bd2-71cf57fc49f7",
+      "status": "converted"
+    },
+    {
+      "business_id": "2eab151e-f3eb-4413-be34-b063357176ad",
+      "business_slug": "anonymous-participant-205245-6c21",
+      "name": "Anonymous participant",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "anonymous-participant-205245-6c21",
+      "professional_id": "3ec836b2-8ea0-4c41-9884-84f55bfe06b5",
+      "status": "converted"
+    },
+    {
+      "business_id": "5ce45563-9f9d-492a-852f-d37987233c4f",
+      "business_slug": "artur-sh-205449-7381",
+      "name": "Artur Sh",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "artur-sh-205449-7381",
+      "professional_id": "f2dd290c-543b-42a7-a4cd-5cc1cf35b7a9",
+      "status": "converted"
+    },
+    {
+      "business_id": "3988c537-d084-4bc2-bac4-bd3c96f1dca4",
+      "business_slug": "asl-detailing-204826-93f7",
+      "name": "ASL Detailing",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "asl-detailing-204826-93f7",
+      "professional_id": "fe133ad5-2cbc-484e-870c-aec114235a01",
+      "status": "converted"
+    },
+    {
+      "business_id": "1dd4341d-a82a-4476-b57a-f1609608ee5e",
+      "business_slug": "blackcaviar-redcaviar-sevrugacaviar-belugacaviar-s-205041-4f3b",
+      "name": "BlackCaviar #RedCaviar #SevrugaCaviar #BelugaCaviar #Sturgeo",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "blackcaviar-redcaviar-sevrugacaviar-belugacaviar-s-205041-4f3b",
+      "professional_id": "24a4f303-5c26-4ffa-800d-481b3d6d8310",
+      "status": "converted"
+    },
+    {
+      "business_id": "979571ae-759c-45bd-af03-ff5fd06579e7",
+      "business_slug": "born-alex-205015-8df7",
+      "name": "Born Alex",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "born-alex-205015-8df7",
+      "professional_id": "3de4b69f-b588-4913-b147-1f12ce97f2a7",
+      "status": "converted"
+    },
+    {
+      "business_id": "60eb8001-580e-4288-b10a-c6a7cfc9fe30",
+      "business_slug": "fbpack-calibuilders",
+      "name": "CaliBuilders",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "fbpack-calibuilders",
+      "professional_id": "bb3a81f3-73c7-440c-ac3d-fb225ec62d4f",
+      "status": "converted"
+    },
+    {
+      "business_id": "6811eada-7c97-4d26-875f-1b1eaed670e4",
+      "business_slug": "californian-pilot-205429-37d6",
+      "name": "Californian Pilot",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "californian-pilot-205429-37d6",
+      "professional_id": "cce2eeb3-b783-4835-8ac3-501fe0c05191",
+      "status": "converted"
+    },
+    {
+      "business_id": "ddf5ce9b-78ea-4874-8736-5da8fd33f63e",
+      "business_slug": "christie-v-205345-fc04",
+      "name": "Christie V",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "christie-v-205345-fc04",
+      "professional_id": "27c71a0a-b854-4e81-9819-97905072cec0",
+      "status": "converted"
+    },
+    {
+      "business_id": "c1839c33-38c7-459b-96eb-cc68b7c951fb",
+      "business_slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "daria-sergutina-205330-888c",
+      "professional_id": "01e4721f-b2c7-4400-b53f-fbfb565b6600",
+      "status": "converted"
+    },
+    {
+      "business_id": "a2c4b3aa-1be4-4f1c-bec8-ceb6b7298bbd",
+      "business_slug": "delicious-by-va-150630",
+      "name": "delicious_by_va",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "delicious-by-va-150630",
+      "professional_id": "10ebf4c0-8a98-4f7b-8de7-cd23fe13e603",
+      "status": "converted"
+    },
+    {
+      "business_id": "c71f8339-ac50-4b55-b728-f8294fb51f3f",
+      "business_slug": "demik-bbq-205325-1ea3",
+      "name": "Demik BBQ",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "demik-bbq-205325-1ea3",
+      "professional_id": "846a8f08-a251-4737-8ae3-68fa910d8466",
+      "status": "converted"
+    },
+    {
+      "business_id": "b2ef6358-4bb4-45f2-9f01-acff7dc03838",
+      "business_slug": "fbpack-home-swimming-classes-elena",
+      "name": "Elena",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "fbpack-home-swimming-classes-elena",
+      "professional_id": "21111337-a5e5-4d76-9a23-65c550e226c7",
+      "status": "converted"
+    },
+    {
+      "business_id": "8bca57e4-76a5-407b-b097-dfa86ec69d4e",
+      "business_slug": "elizaveta-petrova-180911",
+      "name": "Elizaveta Petrova",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "elizaveta-petrova-180911",
+      "professional_id": "3d4f8b34-bc33-494d-bdeb-0866d1d7868f",
+      "status": "converted"
+    },
+    {
+      "business_id": "7024cac1-0cfa-455b-a589-646bc0e1583c",
+      "business_slug": "evgeniya-205353-d9f7",
+      "name": "Evgeniya",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "evgeniya-205353-d9f7",
+      "professional_id": "8aacc461-7b75-4f91-a038-9fa155978dd5",
+      "status": "converted"
+    },
+    {
+      "business_id": "79418e20-13e9-4518-b150-0127521e7748",
+      "business_slug": "fbpack-evgeniya-grigoreva",
+      "name": "Evgeniya Grigoreva",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "fbpack-evgeniya-grigoreva",
+      "professional_id": "377bfdbb-9d1a-4fd2-898e-954ae514be6e",
+      "status": "converted"
+    },
+    {
+      "business_id": "0b481780-f169-4901-b18c-3eb2394127f9",
+      "business_slug": "grigory-205456-de1c",
+      "name": "Grigory",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "grigory-205456-de1c",
+      "professional_id": "cc0dd999-b73f-4182-8f03-69496dfe6a2b",
+      "status": "converted"
+    },
+    {
+      "business_id": "89b1e741-59eb-4d22-a66f-a08e88673216",
+      "business_slug": "i-m-205807-c490",
+      "name": "I M",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "pro_other",
+      "professional_slug": "i-m-205807-c490",
+      "professional_id": "5500878d-ab00-43dc-97f9-1c22df142b07",
+      "status": "converted"
+    },
+    {
+      "business_id": "f6478075-2318-4346-94a7-409e292ec74c",
+      "business_slug": "inessa-ys-205049-f16b",
+      "name": "Inessa Ys",
+      "reason": "person_specialist_no_address",
+      "pro_category": "childcare",
+      "professional_slug": "inessa-ys-205049-f16b",
+      "professional_id": "5c3c4109-d8d3-45f8-ae9e-10de0efd359b",
+      "status": "converted"
+    },
+    {
+      "business_id": "c6ffaa0c-4ddc-43ff-b839-447da7169ef2",
+      "business_slug": "ivan-gant-205422-e414",
+      "name": "Ivan Gant",
+      "reason": "person_name_no_place",
+      "pro_category": "creative",
+      "professional_slug": "ivan-gant-205422-e414",
+      "professional_id": "53c0381b-d4c0-40e0-b8d3-fd008ab705e3",
+      "status": "converted"
+    },
+    {
+      "business_id": "9d9b3d10-81b5-4c67-bbfe-479ff0d7a850",
+      "business_slug": "jane-oc-205304-7225",
+      "name": "Jane OC",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "jane-oc-205304-7225",
+      "professional_id": "65e9cc0a-9d13-475e-ba31-bf9e57c01148",
+      "status": "converted"
+    },
+    {
+      "business_id": "a7fcdc31-5406-493a-860c-8519cc538e97",
+      "business_slug": "jenny-181008",
+      "name": "Jenny",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "jenny-181008",
+      "professional_id": "84b93eaa-e65c-429e-aa52-4833072d8cca",
+      "status": "converted"
+    },
+    {
+      "business_id": "3f5d1730-2a19-49a5-add4-8632e2d4b5fc",
+      "business_slug": "joanne-nellie-180950",
+      "name": "Joanne Nellie",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "joanne-nellie-180950",
+      "professional_id": "3fb62943-7de0-4981-9fac-ba1217aae98e",
+      "status": "converted"
+    },
+    {
+      "business_id": "1ffbcf12-80af-4c9e-a66a-af2f0a33d496",
+      "business_slug": "julia-colorist-laoc-205343-1694",
+      "name": "Julia Colorist LA/OC 🇺🇸",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "julia-colorist-laoc-205343-1694",
+      "professional_id": "b088197e-7e71-4dd3-b48f-4ff992a8b86d",
+      "status": "converted"
+    },
+    {
+      "business_id": "79a6dba4-0191-4e2b-8d59-9664a9810246",
+      "business_slug": "justin-cox-205709-efd1",
+      "name": "Justin Cox",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "justin-cox-205709-efd1",
+      "professional_id": "f4cbe107-db06-4bed-8b31-caafbcda25e8",
+      "status": "converted"
+    },
+    {
+      "business_id": "601b813d-1d51-4959-a891-c5a289c113a2",
+      "business_slug": "fbpack-lena-indiukova",
+      "name": "Lena Indiukova",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "fbpack-lena-indiukova",
+      "professional_id": "68029efd-2735-4c7d-a3ae-2ed5ea28f3c7",
+      "status": "converted"
+    },
+    {
+      "business_id": "172f3382-6ab6-4df4-a815-946e1fd37991",
+      "business_slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "lev-kushner-205253-0fa9",
+      "professional_id": "0014e2f8-fecf-4bf6-9aa6-700d44c035aa",
+      "status": "converted"
+    },
+    {
+      "business_id": "2145becc-e1e5-4ea8-969c-c7bb03943566",
+      "business_slug": "licensed-home-bakery-180903",
+      "name": "Licensed Home Bakery",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "licensed-home-bakery-180903",
+      "professional_id": "2e36983e-c21b-43df-8127-614057f935b5",
+      "status": "converted"
+    },
+    {
+      "business_id": "bae14643-a203-46fd-9179-bee4e7fd8898",
+      "business_slug": "batch2-lidiia-gordienko",
+      "name": "Lidiia Gordienko",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "batch2-lidiia-gordienko",
+      "professional_id": "8dfced7f-37da-4965-96d0-b370a48361f9",
+      "status": "converted"
+    },
+    {
+      "business_id": "669c450d-ab31-472f-9923-36ffc5ad3332",
+      "business_slug": "lisa-nekrasova-205120-a330",
+      "name": "Lisa Nekrasova",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "lisa-nekrasova-205120-a330",
+      "professional_id": "d781a67f-7e96-46a9-ac2a-598e20cef5e1",
+      "status": "converted"
+    },
+    {
+      "business_id": "8234639c-91b2-47c9-b57b-2d8807ae8b25",
+      "business_slug": "lynn-j-english-205002-47f7",
+      "name": "Lynn J English",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "lynn-j-english-205002-47f7",
+      "professional_id": "5ec2fd21-2c70-4594-ae8f-e9f00f352c10",
+      "status": "converted"
+    },
+    {
+      "business_id": "a9384cd4-8a45-4ec9-97fa-23ebe295eed3",
+      "business_slug": "batch2-yana-hodyniuk-marshmallow-magic",
+      "name": "Marshmallow Magic",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "batch2-yana-hodyniuk-marshmallow-magic",
+      "professional_id": "dcc93af6-3285-40f4-aaef-243c89b03dee",
+      "status": "converted"
+    },
+    {
+      "business_id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "business_slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "vika-borel-150706",
+      "professional_id": "0ee78564-4a58-4bd6-afcf-e853b5b706a8",
+      "status": "converted"
+    },
+    {
+      "business_id": "dd686537-6658-481f-a63b-05e9dd4e6a8e",
+      "business_slug": "nadezhda-kurinnaya-205057-a56b",
+      "name": "Nadezhda Kurinnaya",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "nadezhda-kurinnaya-205057-a56b",
+      "professional_id": "800b8022-0750-4551-91f6-52f46b567eaa",
+      "status": "converted"
+    },
+    {
+      "business_id": "0605d94b-a254-4af5-a8b3-834ef166835a",
+      "business_slug": "nastya-180850",
+      "name": "Nastya",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "nastya-180850",
+      "professional_id": "902767b4-b9c7-45d3-8b5b-e73aea774bca",
+      "status": "converted"
+    },
+    {
+      "business_id": "773d8dbb-a677-43f8-be25-34cecab7864a",
+      "business_slug": "nata-cali-205614-60c9",
+      "name": "Nata Cali",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "nata-cali-205614-60c9",
+      "professional_id": "d70726a5-4e40-4df9-b5dc-fb0a84f33de5",
+      "status": "converted"
+    },
+    {
+      "business_id": "c1d79753-221e-4d33-bbda-0f7285f6ce09",
+      "business_slug": "natalie-revers-204925-114b",
+      "name": "Natalie Revers",
+      "reason": "person_home_food",
+      "pro_category": "home_food",
+      "professional_slug": "natalie-revers-204925-114b",
+      "professional_id": "a65cd391-8792-4cac-aa4a-ef0b42103fc3",
+      "status": "converted"
+    },
+    {
+      "business_id": "9a28b437-3814-4e3d-afba-54fff50356bf",
+      "business_slug": "fbpack-neptune-seafood",
+      "name": "Neptune Seafood",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "fbpack-neptune-seafood",
+      "professional_id": "87e2470d-8f8f-4afe-b2f9-77b699d55913",
+      "status": "converted"
+    },
+    {
+      "business_id": "7aa29e04-f5bc-4aa6-86ad-dca323fc9737",
+      "business_slug": "nicks-premium-mobile-auto-detailing-204829-e6dd",
+      "name": "Nick's Premium Mobile Auto Detailing",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "nicks-premium-mobile-auto-detailing-204829-e6dd",
+      "professional_id": "9a416ff0-abe0-4e5e-82fe-982dec4fa333",
+      "status": "converted"
+    },
+    {
+      "business_id": "4cc7a2b3-fa35-4c62-b625-1783bb3e7d48",
+      "business_slug": "nikita-golosov-205610-92f3",
+      "name": "Nikita Golosov",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "nikita-golosov-205610-92f3",
+      "professional_id": "226afab5-cc4e-4e68-ad45-eeeb07fa3059",
+      "status": "converted"
+    },
+    {
+      "business_id": "bbeda8a0-36c1-4acc-9319-cdd7c6420265",
+      "business_slug": "olya-music-teacher-205418-dae7",
+      "name": "Olya Music teacher",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "olya-music-teacher-205418-dae7",
+      "professional_id": "99e9a954-ac82-4410-82ab-1f0a7ee60bbd",
+      "status": "converted"
+    },
+    {
+      "business_id": "8c390c82-0098-4093-a3f0-8ca095679334",
+      "business_slug": "pavel-egorov-204852-f566",
+      "name": "Pavel Egorov",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "pavel-egorov-204852-f566",
+      "professional_id": "e07d7572-e078-4305-81ef-c4a131066d5f",
+      "status": "converted"
+    },
+    {
+      "business_id": "c965246d-9f91-46fa-b8e7-36c0316137ce",
+      "business_slug": "pavlo-rok-205105-181c",
+      "name": "Pavlo Rok",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "pavlo-rok-205105-181c",
+      "professional_id": "7b05c3b3-f51e-4ec4-a77f-66fe5ace547d",
+      "status": "converted"
+    },
+    {
+      "business_id": "7e2b42ec-b593-4390-9e93-dbea21c2cccd",
+      "business_slug": "business-biz-205424-2829",
+      "name": "Ƥєđѫџʜѧ",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "massage_wellness",
+      "professional_slug": "business-biz-205424-2829",
+      "professional_id": "67afcb15-ade8-4625-b02b-5badec1db417",
+      "status": "converted"
+    },
+    {
+      "business_id": "b3f184ef-c052-4976-9a99-6c0d3f77fc4d",
+      "business_slug": "sasha-sorokina-180912",
+      "name": "Sasha Sorokina",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "sasha-sorokina-180912",
+      "professional_id": "8fb95387-96a0-4236-b711-436987ab17b3",
+      "status": "converted"
+    },
+    {
+      "business_id": "e7db7f45-2240-487a-8483-74cd5f4e70fc",
+      "business_slug": "serghei-stanislavovici-204940-350e",
+      "name": "Serghei Stanislavovici",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "serghei-stanislavovici-204940-350e",
+      "professional_id": "9ff50508-a91e-4ac4-8c7f-6d98ad855a95",
+      "status": "converted"
+    },
+    {
+      "business_id": "97d2caaa-56cd-4757-885e-e95fea9c2ea4",
+      "business_slug": "sunlit-pie-la-205342-7e44",
+      "name": "Sunlit Pie | Осетинские пироги LA",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "sunlit-pie-la-205342-7e44",
+      "professional_id": "4ca580d7-6663-4bbb-a87b-c2d9884e317b",
+      "status": "converted"
+    },
+    {
+      "business_id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "business_slug": "surprise-meballoons-150639",
+      "name": "Surprise Me Balloon Bar",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "creative",
+      "professional_slug": "surprise-meballoons-150639",
+      "professional_id": "8cc0559d-b392-4be7-a7fe-6f0f1e138a66",
+      "status": "converted"
+    },
+    {
+      "business_id": "2d3bc28f-3222-4131-b58a-0d0d1a0a5219",
+      "business_slug": "sveetla-205403-d7e2",
+      "name": "Sveetla",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "sveetla-205403-d7e2",
+      "professional_id": "525b8e69-f613-4a8a-9b45-dc3770cecdd2",
+      "status": "converted"
+    },
+    {
+      "business_id": "ccf738ea-2e4d-4f85-a50a-b763acfb9173",
+      "business_slug": "svetlana-fedorova-205250-24e0",
+      "name": "Svetlana Fedorova",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "svetlana-fedorova-205250-24e0",
+      "professional_id": "ff17e46f-901e-4ff7-8125-f2f4db9c4a31",
+      "status": "converted"
+    },
+    {
+      "business_id": "cb9f639c-5bc6-4fd3-8fa4-05f5696762bc",
+      "business_slug": "svetlana-k-180918",
+      "name": "Svetlana K",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "svetlana-k-180918",
+      "professional_id": "336381e9-e232-46f3-a8d2-f09f86652fad",
+      "status": "converted"
+    },
+    {
+      "business_id": "d6fc222d-1ab1-4dfc-aa14-83b56f434ff9",
+      "business_slug": "tatiana-fgm-205303-323e",
+      "name": "Tatiana Fgm",
+      "reason": "person_specialist_no_address",
+      "pro_category": "health",
+      "professional_slug": "tatiana-fgm-205303-323e",
+      "professional_id": "ae82050b-0cc2-4fe4-abe5-bf82f830d7f3",
+      "status": "converted"
+    },
+    {
+      "business_id": "e62e723f-3b08-42d3-ba22-b370d00c0dd9",
+      "business_slug": "tetiana-akhmednova-205103-7a41",
+      "name": "Tetiana Akhmednova",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "tetiana-akhmednova-205103-7a41",
+      "professional_id": "7cba8dec-352f-425c-9bdc-f2998544cf78",
+      "status": "converted"
+    },
+    {
+      "business_id": "72d9f6c7-0b93-4f0e-bb88-cac6bc84c228",
+      "business_slug": "tetiana-markova-205433-5527",
+      "name": "Tetiana Markova",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "tetiana-markova-205433-5527",
+      "professional_id": "8c75f0c0-5875-44e0-84f2-2a26d8ebba94",
+      "status": "converted"
+    },
+    {
+      "business_id": "8f620840-f34e-44cc-9d77-7e178e1dcf0f",
+      "business_slug": "fb-post-26-tutowl-com-online-school",
+      "name": "TutOwl Online School",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "fb-post-26-tutowl-com-online-school",
+      "professional_id": "a452ad19-f646-4da1-b682-bdbdb9b18df9",
+      "status": "converted"
+    },
+    {
+      "business_id": "b669ffb4-febf-4548-b0bf-2bf610d0ff3e",
+      "business_slug": "ulyana-hur-205410-97db",
+      "name": "Ulyana Hur",
+      "reason": "person_specialist_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "ulyana-hur-205410-97db",
+      "professional_id": "d94be2e5-3e22-49fc-8473-6bc9444d1d7c",
+      "status": "converted"
+    },
+    {
+      "business_id": "edbc1bd2-cd7a-4e28-97df-cb23b3773e9f",
+      "business_slug": "valentina-205558-0419",
+      "name": "Valentina",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "valentina-205558-0419",
+      "professional_id": "128464a0-e395-42c3-80f0-89c71f2c79c8",
+      "status": "converted"
+    },
+    {
+      "business_id": "376c030e-10e6-4c0d-ad90-67e2da740821",
+      "business_slug": "valeriia-205615-64b8",
+      "name": "Valeriia",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "valeriia-205615-64b8",
+      "professional_id": "f1ed9023-82f2-418f-a5d8-f9612ff58c5a",
+      "status": "converted"
+    },
+    {
+      "business_id": "d01dcadf-c73f-4664-a054-f320b6c16e36",
+      "business_slug": "victoria-rogalska-180925",
+      "name": "Victoria Rogalska",
+      "reason": "person_name_no_place",
+      "pro_category": "health",
+      "professional_slug": "victoria-rogalska-180925",
+      "professional_id": "df8b70a8-81e5-40af-8246-b76ece0b01f9",
+      "status": "converted"
+    },
+    {
+      "business_id": "3c7aefef-aaf4-4c24-bc9a-06b8f986501a",
+      "business_slug": "vika-sweetbakery-180854",
+      "name": "Vika sweet_bakery",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "vika-sweetbakery-180854",
+      "professional_id": "26c7fb73-2a7b-4a91-bc4f-da9c0dc5c29e",
+      "status": "converted"
+    },
+    {
+      "business_id": "89cdfb55-f18c-41cb-bdbf-bee7fea5735f",
+      "business_slug": "viktoriia-205344-eec8",
+      "name": "Viktoriia 🇺🇦🇺🇸",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "viktoriia-205344-eec8",
+      "professional_id": "33a29cd9-8e03-471f-8e27-571c171ac3f1",
+      "status": "converted"
+    },
+    {
+      "business_id": "681c2e81-a2fc-4a46-897a-9447491d10c8",
+      "business_slug": "virtualcopy-205510-b736",
+      "name": "Virtualcopy",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "virtualcopy-205510-b736",
+      "professional_id": "ac3cbc08-8db2-4247-bba9-f9a3e6838b3c",
+      "status": "converted"
+    },
+    {
+      "business_id": "77b1a046-92ab-4d0a-abc5-8afbb10cbfa3",
+      "business_slug": "vladimir-shkarbanov-205035-769e",
+      "name": "Vladimir Shkarbanov",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "vladimir-shkarbanov-205035-769e",
+      "professional_id": "15162127-191b-4cc3-a54e-07d786708559",
+      "status": "converted"
+    },
+    {
+      "business_id": "39b96ae1-51fc-4f94-ad81-be0680d006c1",
+      "business_slug": "yakushok-yaroslav-205014-aa9d",
+      "name": "Yakushok Yaroslav",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "yakushok-yaroslav-205014-aa9d",
+      "professional_id": "6fbb7d96-44a1-40d2-ba69-dd75ef4e042f",
+      "status": "converted"
+    },
+    {
+      "business_id": "2de9e85c-bc9f-47cc-83b1-9119427936d9",
+      "business_slug": "yana-galinka-205107-766f",
+      "name": "Yana Galinka",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "yana-galinka-205107-766f",
+      "professional_id": "dfdf2307-2a39-4920-bb75-808941d600ee",
+      "status": "converted"
+    },
+    {
+      "business_id": "e6b121b5-3d01-462b-adf4-09cb0f70af01",
+      "business_slug": "yelena-lobko-205006-7852",
+      "name": "Yelena Lobko",
+      "reason": "person_home_food",
+      "pro_category": "home_food",
+      "professional_slug": "yelena-lobko-205006-7852",
+      "professional_id": "e08c58d6-10f0-499c-8e65-2026f56e49b2",
+      "status": "converted"
+    },
+    {
+      "business_id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "business_slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "name": "your appointment at EVELINA BEAUTY SALON",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "professional_id": "dfc66ce8-a4d6-411d-b9a7-95a6b0a8e11e",
+      "status": "converted"
+    },
+    {
+      "business_id": "7e2588c7-ec59-4e24-80c0-d9033e8070e3",
+      "business_slug": "yulia-205819-c741",
+      "name": "Yulia",
+      "reason": "person_specialist_no_address",
+      "pro_category": "health",
+      "professional_slug": "yulia-205819-c741",
+      "professional_id": "90b81752-d21a-417e-ab8d-93df519fcbe7",
+      "status": "converted"
+    },
+    {
+      "business_id": "a6a8fd9f-0ece-4654-b283-89283611c1cf",
+      "business_slug": "yulia-205729-80d7",
+      "name": "Yulia",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "yulia-205729-80d7",
+      "professional_id": "39ea7c04-6fc0-4eb7-9a77-92c27176d05a",
+      "status": "converted"
+    },
+    {
+      "business_id": "a3ea487f-0201-4bb3-b595-d91ee8e75676",
+      "business_slug": "yulia-205816-d191",
+      "name": "Yulia",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "yulia-205816-d191",
+      "professional_id": "6b048fed-fd6e-4d15-a178-4ecc0f21b0a8",
+      "status": "converted"
+    },
+    {
+      "business_id": "ec56b6a0-a3ea-4bab-974c-383429f3203d",
+      "business_slug": "yulia-205821-1987",
+      "name": "Yulia",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "yulia-205821-1987",
+      "professional_id": "19afbb77-c3f5-451c-93c6-bb23ed20605b",
+      "status": "converted"
+    },
+    {
+      "business_id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "business_slug": "yummy-homemade-sweets-150641",
+      "name": "yummy_homemade_sweets",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "yummy-homemade-sweets-150641-1",
+      "professional_id": "0c75930c-0773-4418-bb2b-b8f725e45b83",
+      "status": "converted"
+    },
+    {
+      "business_id": "416a0baf-6991-45cf-925a-6813fd58e573",
+      "business_slug": "yurii-avramenko-205358-c281",
+      "name": "Yurii Avramenko",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "yurii-avramenko-205358-c281",
+      "professional_id": "bb751e96-a82a-49e9-9774-960f8995d22d",
+      "status": "converted"
+    },
+    {
+      "business_id": "cd0d431c-3621-4c7b-986b-1a3e7e09e789",
+      "business_slug": "business-biz-180847",
+      "name": "Александр",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-180847",
+      "professional_id": "f69b1ae1-90ef-4a22-b0f5-dacfa3f80fe5",
+      "status": "converted"
+    },
+    {
+      "business_id": "94d8ff42-fe48-48db-8d3a-5afec63367e0",
+      "business_slug": "business-biz-205447-fe7c",
+      "name": "Анна Габедава",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205447-fe7c",
+      "professional_id": "3761f1f8-c34d-49dd-a36c-9fbed840c9c8",
+      "status": "converted"
+    },
+    {
+      "business_id": "f7d04941-1276-456f-80c3-a86f2044e679",
+      "business_slug": "business-biz-205431-6370",
+      "name": "Анна Готочкина",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205431-6370",
+      "professional_id": "33ee984d-600e-4c23-a52e-6c4963520120",
+      "status": "converted"
+    },
+    {
+      "business_id": "2c12e6fd-b233-463b-8572-f41b92974e87",
+      "business_slug": "business-biz-181006",
+      "name": "Влад Нестеренко",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-181006",
+      "professional_id": "0c7877bd-f265-4343-a8a1-192ad96228ec",
+      "status": "converted"
+    },
+    {
+      "business_id": "7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb",
+      "business_slug": "business-biz-181515-e787",
+      "name": "Вячеслав",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-181515-e787",
+      "professional_id": "522c7b4d-46ab-49c9-bcb1-b258dbf2bbba",
+      "status": "converted"
+    },
+    {
+      "business_id": "4b1e773a-9f4a-4c43-a835-b54938f30074",
+      "business_slug": "business-2792203774-204920-2a96",
+      "name": "Детский сад",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "childcare",
+      "professional_slug": "business-2792203774-204920-2a96",
+      "professional_id": "c1d723d2-63f1-411e-8561-96c6f286b5ae",
+      "status": "converted"
+    },
+    {
+      "business_id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "business_slug": "диана-калифорнийская-психолог-сложности-в-отношени-032111",
+      "name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "health",
+      "professional_slug": "pro-63212025ec",
+      "professional_id": "cc7b94e3-cfab-46c4-9272-1a3fe82e70ed",
+      "status": "converted"
+    },
+    {
+      "business_id": "89138a4b-74d1-422e-8820-70ffed14b8e7",
+      "business_slug": "business-9168415612-204824-9437",
+      "name": "Елена Бондаренко",
+      "reason": "person_specialist_no_address",
+      "pro_category": "pro_other",
+      "professional_slug": "business-9168415612-204824-9437",
+      "professional_id": "c1e4aecc-59e6-437d-8a73-e65906bed111",
+      "status": "converted"
+    },
+    {
+      "business_id": "3a43f884-b67c-4f66-b529-294346682097",
+      "business_slug": "business-biz-205247-ec8b",
+      "name": "Ильдар Якупов",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-205247-ec8b",
+      "professional_id": "ac3cae48-801d-49c0-808d-a03a0af7d938",
+      "status": "converted"
+    },
+    {
+      "business_id": "bd490d98-d8c2-4e62-b509-6aac47a3d349",
+      "business_slug": "business-biz-181001",
+      "name": "Ирина",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-181001",
+      "professional_id": "ae3df3ee-dbe3-4035-a81b-8fa3813ffe46",
+      "status": "converted"
+    },
+    {
+      "business_id": "a5ecca2b-0bf8-4675-af22-81566c98825c",
+      "business_slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "name": "Компания USA Carpet & Couch Cleaning в поисках техника для в",
+      "reason": "mobile_service_no_storefront",
+      "pro_category": "home_services",
+      "professional_slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "professional_id": "17677bd1-cb6e-402d-8ced-9ecf4f413d95",
+      "status": "converted"
+    },
+    {
+      "business_id": "bafe0d5b-c9ac-4538-a2db-ae2ab35c65f7",
+      "business_slug": "business-biz-180849",
+      "name": "Лидия",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-180849",
+      "professional_id": "83d93288-f81b-4c76-9185-e570d49ddd98",
+      "status": "converted"
+    },
+    {
+      "business_id": "2ea86edf-a8b5-47ae-a2c1-e86b9571c1f5",
+      "business_slug": "business-biz-205545-f164",
+      "name": "Любов",
+      "reason": "person_name_no_place",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205545-f164",
+      "professional_id": "4de5dc2c-f11a-44aa-be74-bee7c187c5f1",
+      "status": "converted"
+    },
+    {
+      "business_id": "5afef8a0-9f47-43b2-98f3-cac62de60c4a",
+      "business_slug": "business-biz-205650-46d3",
+      "name": "Милена",
+      "reason": "person_specialist_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "business-biz-205650-46d3",
+      "professional_id": "d103c108-2c39-499c-a4b0-6f453cf3ee29",
+      "status": "converted"
+    },
+    {
+      "business_id": "c0e9147e-4ca5-4d72-b3a6-73a5069290b5",
+      "business_slug": "business-biz-205649-52ce",
+      "name": "Милена",
+      "reason": "person_specialist_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "business-biz-205649-52ce",
+      "professional_id": "f43ec79e-b57a-4eb1-9b45-209940934cd2",
+      "status": "converted"
+    },
+    {
+      "business_id": "6548bc52-97d9-4764-99fa-cbb8fdacdb12",
+      "business_slug": "movingcompany-moversx-dispatc-205320-b0e9",
+      "name": "Мувинг #MovingCompany #MoversX #Логистика #Переезды #Dispatc",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "movingcompany-moversx-dispatc-205320-b0e9",
+      "professional_id": "517e52ce-ab51-4682-a1c2-9414e5efb001",
+      "status": "converted"
+    },
+    {
+      "business_id": "5921c806-397d-46c7-93f4-69d2a6459c61",
+      "business_slug": "beauty-salon-181011",
+      "name": "Новый beauty salon",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "beauty-salon-181011",
+      "professional_id": "bb0cda9b-8d4b-4bd7-8a67-d8c40366e40f",
+      "status": "converted"
+    },
+    {
+      "business_id": "a4d29805-4195-4de4-8d69-3597926e389f",
+      "business_slug": "business-biz-205222-a632",
+      "name": "репетитор #репетиторпоматематике",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205222-a632",
+      "professional_id": "6c679049-4cd7-4a81-a971-1c1bce46a4cf",
+      "status": "converted"
+    },
+    {
+      "business_id": "1a3d5bc4-e91f-48da-a0de-5619b7f182b5",
+      "business_slug": "business-biz-205526-b5d4",
+      "name": "Сергей",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "business-biz-205526-b5d4",
+      "professional_id": "077b9267-09a0-42bf-bf2b-95da8d7767ec",
+      "status": "converted"
+    },
+    {
+      "business_id": "c0d00191-1576-470b-9dba-20c1fb0dadd6",
+      "business_slug": "fbpack-slava-marshak-pet-relocation",
+      "name": "Слава Маршак",
+      "reason": "person_specialist_no_address",
+      "pro_category": "home_services",
+      "professional_slug": "fbpack-slava-marshak-pet-relocation",
+      "professional_id": "d721debe-3f78-42fb-ad02-2e7d7cc5836b",
+      "status": "converted"
+    },
+    {
+      "business_id": "edf3713b-eaf9-4bbe-bb9c-987d6973a8a1",
+      "business_slug": "business-biz-205706-3889",
+      "name": "Тетяна",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "business-biz-205706-3889",
+      "professional_id": "3d0d19dc-1e22-4164-a299-bf948a98445f",
+      "status": "converted"
+    },
+    {
+      "business_id": "44e482f0-3ec6-427f-b41d-5d827361fb1a",
+      "business_slug": "business-biz-205702-39b7",
+      "name": "Тетяна",
+      "reason": "home_food_no_storefront",
+      "pro_category": "home_food",
+      "professional_slug": "business-biz-205702-39b7",
+      "professional_id": "41b9861a-d8e3-4167-ab7d-555c00a07563",
+      "status": "converted"
+    },
+    {
+      "business_id": "2fbcea30-f79e-4c09-b7d5-4f2687bc60d5",
+      "business_slug": "business-9168449053-205100-902d",
+      "name": "Тимофей Кононов",
+      "reason": "person_name_no_place",
+      "pro_category": "home_services",
+      "professional_slug": "business-9168449053-205100-902d",
+      "professional_id": "20824e0a-45c8-4c31-9d9b-95fb5cbee2c0",
+      "status": "converted"
+    },
+    {
+      "business_id": "194c530b-52e4-475a-9b8c-f99664c9e38b",
+      "business_slug": "business-biz-205400-59ff",
+      "name": "Тимофій Лоза",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205400-59ff",
+      "professional_id": "11150ff3-d5bf-47e2-a7fd-7c857bf2fc91",
+      "status": "converted"
+    },
+    {
+      "business_id": "90f884ec-0429-4a8f-87c0-123893891f8d",
+      "business_slug": "private-studio-172224",
+      "name": "Уютный private studio",
+      "reason": "specialist_keywords_no_address",
+      "pro_category": "massage_wellness",
+      "professional_slug": "private-studio-172224",
+      "professional_id": "51e80c81-8c7b-46e6-8daa-7a78e729faec",
+      "status": "converted"
+    },
+    {
+      "business_id": "a11cb281-4c82-41c1-924a-4399fef8ce6c",
+      "business_slug": "business-biz-205505-7df2",
+      "name": "Юлія",
+      "reason": "online_specialist",
+      "pro_category": "pro_other",
+      "professional_slug": "business-biz-205505-7df2",
+      "professional_id": "6571ec3a-1e1e-4438-8edd-1c3cc8e269ce",
+      "status": "converted"
+    }
+  ]
+}

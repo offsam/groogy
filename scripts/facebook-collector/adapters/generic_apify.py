@@ -89,6 +89,7 @@ class GenericApifyGroupAdapter:
             )
         )
         post_id = first_str(
+            row.get("legacyId"),  # Actor 2chN8UQcH1CfxLRNE numeric post id
             row.get("postId"),
             row.get("post_id"),
             row.get("facebook_post_id"),
@@ -186,23 +187,16 @@ def _attachments_from_row(row: dict[str, Any]) -> list[MediaItem]:
         items = val if isinstance(val, list) else [val]
         for item in items:
             if isinstance(item, str) and item.startswith("http"):
-                out.append(MediaItem(type=kind if kind in {"image", "video", "link"} else "image", url=item))
-            elif isinstance(item, dict):
-                url = item.get("url") or item.get("image") or item.get("src")
-                if not url:
-                    continue
-                item_kind = str(item.get("type") or item.get("kind") or kind).lower()
-                if item_kind in {"photo", "img"}:
-                    item_kind = "image"
-                if item_kind not in {"image", "video", "link"}:
-                    item_kind = "image"
                 out.append(
                     MediaItem(
-                        type=item_kind,  # type: ignore[arg-type]
-                        url=str(url),
-                        thumbnail_url=item.get("thumbnail_url") or item.get("thumbnail"),
+                        type=kind if kind in {"image", "video", "link"} else "image",
+                        url=item,
                     )
                 )
+            elif isinstance(item, dict):
+                media = _media_from_attachment_dict(item, default_kind=kind)
+                if media:
+                    out.append(media)
     seen: set[str] = set()
     unique: list[MediaItem] = []
     for att in out:
@@ -211,3 +205,51 @@ def _attachments_from_row(row: dict[str, Any]) -> list[MediaItem]:
         seen.add(att.url)
         unique.append(att)
     return unique[:20]
+
+
+def _media_from_attachment_dict(
+    item: dict[str, Any], *, default_kind: str
+) -> MediaItem | None:
+    """Parse Apify Facebook attachment objects (Photo / mediaset / plain url)."""
+    typename = str(
+        item.get("__typename") or item.get("__isMedia") or item.get("type") or ""
+    ).lower()
+    photo_image = item.get("photo_image")
+    uri = None
+    if isinstance(photo_image, dict):
+        uri = photo_image.get("uri")
+    url = first_str(
+        uri,
+        item.get("thumbnail"),
+        item.get("image"),
+        item.get("src"),
+        # facebook.com/photo/?fbid=… is a page URL, not a stable image asset
+        item.get("url")
+        if isinstance(item.get("url"), str)
+        and ("fbcdn.net" in item["url"] or "scontent." in item["url"])
+        else None,
+    )
+    if not url:
+        # Last resort: keep facebook photo page only as link
+        page = item.get("url")
+        if isinstance(page, str) and page.startswith("http"):
+            return MediaItem(
+                type="link",
+                url=page,
+                thumbnail_url=item.get("thumbnail")
+                if isinstance(item.get("thumbnail"), str)
+                else None,
+            )
+        return None
+
+    if "video" in typename:
+        mtype = "video"
+    elif "photo" in typename or "image" in typename or default_kind == "image":
+        mtype = "image"
+    elif default_kind in {"image", "video", "link"}:
+        mtype = default_kind
+    else:
+        mtype = "image"
+
+    thumb = item.get("thumbnail") if isinstance(item.get("thumbnail"), str) else None
+    return MediaItem(type=mtype, url=str(url), thumbnail_url=thumb)  # type: ignore[arg-type]

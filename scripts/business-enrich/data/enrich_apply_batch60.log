@@ -1,0 +1,57 @@
+{"targets": 43, "mode": "apply"}
+… MilaTax (https://milatax.com)
+… Olga Osipova Fitness (https://fitness.reflectingclouds.com)
+… Letter Fox (https://lettersfox.wixsite.com/letterfox)
+… mary.shlykova (https://www.maryshlykova.com/portfolio/portraits)
+… Алия Сидорова (https://sbsite.pro//b09895f_1?utm_source=telegram&utm_medium=peachvsl&utm_content=offer1)
+… Realtor Valeriia (https://portal.onehome.com/en-US/share/2640569F80131)
+… 23peony (https://www.in)
+… hairdreams__by_galinakirbaba (https://www.i)
+… TutOwl Online School (https://tutowl.com)
+… Наталья Яргомская (Niargomsk) (https://www.niargomsk.com)
+… TranslatorPro — Михаил Богомольный (https://www.translatorpro.org)
+… Metro Tech Academy (https://www.metrotech.academy)
+… Surprise Me Balloon Bar (https://surprisemeballoonbar.com/)
+… Smile Kids Party (Tsvang Co) (https://smile-kidsparty.com/)
+… Neo Aesthetics & Medical International Academy (https://neobeautyschool.com)
+… OC Dance Fit — Elizabeth Azamatov (https://www.ocdance.fit)
+… STAIR Academy (https://www.stairedu.com)
+… B.E.A.R. Children's Academy (https://www.bearchildrensacademy.org)
+… Dirty Bird Ranch (https://www.dirtybirdranch.com/)
+… Sunrise Education Center (https://suncenter.aqulas.me)
+… Ivan Handyman (https://llctsisarconstruction.com)
+… 5 Star Appliance Repair (https://5starappliancerepair.pro)
+… OC Auto Aid (https://ocautoaid.com/)
+… Art 4 Kids & Teens (https://www.art4kidsandteens.com)
+… VIP Taxes (https://www.taxesvip.com)
+… Skinovation Clinic (https://www.skinovationclinic.com)
+… Orange County Acting Academy (https://ocacting.com)
+… Upgrade Pilates & Bodytherapy (https://upgradepilates.com)
+… ZMD Aesthetics (https://zmdaesthetics.com)
+… Ultima Studio (https://ultimastudio.co)
+… My Retina Health (https://myretinahealth.com)
+… Good Food International Market (https://goodfoodmarket.store)
+… AVELORÉA Fine Jewelry (https://avelorea.jewelry)
+… Art Backyard (https://www.artbackyard.com)
+… SofaClean AZ (https://sofacleanus.com)
+… I❤️Montessori (Olga Semenova) (https://www.playusa2023.com)
+… European Delights Gourmet Foods (https://eurodeli.us)
+… LTD Tax & Accounting (https://www.ltdtaxaccounting.com)
+… Stephen Law PC (https://StephenLawPC.com)
+… Russ Flooring (https://russflooring.net)
+… Tenina Law, Inc. (https://teninalaw.com)
+… Grand Auto Group (https://grandautogroupoc.com)
+… Lunelle Nail Salon (https://www.lunellenail.com)
+{
+  "mode": "apply",
+  "count": 43,
+  "skipped": 0,
+  "with_patch": 8,
+  "with_offers": 9
+}
+Wrote /Users/sammov/Russian business AI/scripts/business-enrich/data/enrich_published_report.json
+- MilaTax skip=None fields= offers=0
+- Olga Osipova Fitness skip=None fields= offers=0
+- Letter Fox skip=None fields= offers=0
+- mary.shlykova skip=None fields=phone offers=0
+- Алия Сидорова skip=None fields= offers=0

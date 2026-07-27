@@ -35,8 +35,7 @@ const OFFER_SELECT = `
   published_at,
   created_at,
   updated_at,
-  categories ( name ),
-  businesses ( slug, name )
+  categories ( name )
 ` as const;
 
 function escapeIlike(value: string): string {
@@ -86,6 +85,7 @@ async function attachMedia(
 export async function getPublicOffersForBusiness(
   client: Client,
   businessId: string,
+  opts?: { businessSlug?: string | null; businessName?: string | null },
 ): Promise<BusinessOffer[]> {
   const { data, error } = await client
     .from("business_offers")
@@ -95,7 +95,14 @@ export async function getPublicOffersForBusiness(
     .order("title", { ascending: true });
 
   if (error) throw error;
-  const offers = (data ?? []).map((row) => mapBusinessOffer(row));
+  const offers = (data ?? []).map((row) => {
+    const mapped = mapBusinessOffer(row);
+    return {
+      ...mapped,
+      businessSlug: opts?.businessSlug ?? mapped.businessSlug,
+      businessName: opts?.businessName ?? mapped.businessName,
+    };
+  });
   return attachMedia(client, offers);
 }
 

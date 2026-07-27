@@ -1,0 +1,182 @@
+{
+  "generated_at": "2026-07-27T00:53:31.608129+00:00",
+  "mode": "apply",
+  "scanned": 40,
+  "found": [
+    {
+      "id": "507ac692-aeef-43dc-bed2-36939f04998a",
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "name": "Neo Aesthetics & Medical International Academy",
+      "website": "https://neobeautyschool.com",
+      "booking_url": "https://neobeautyschool.com/schedule-an-appointment/",
+      "link_text": "Schedule an Appointment",
+      "score": 105,
+      "reason": "link_match",
+      "had_existing": "https://neobeautyschool.com/schedule-an-appointment/"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "batch2-5-star-appliance-repair",
+      "website": "https://5starappliancerepair.pro"
+    },
+    {
+      "slug": "business-6505204379-204803-4bf1",
+      "website": "https://lc-nail-salon.square.site"
+    },
+    {
+      "slug": "bronze-bull-chalet-arno-205334-6488",
+      "website": "https://www.airbnb.com/h/arnoldgetaway"
+    },
+    {
+      "slug": "consolidated-stephen-law-pc",
+      "website": "https://StephenLawPC.com"
+    },
+    {
+      "slug": "consolidated-ltd-services-llc",
+      "website": "https://www.ltdtaxaccounting.com"
+    },
+    {
+      "slug": "fedor-tsvang-234035",
+      "website": "https://smile-kidsparty.com/"
+    },
+    {
+      "slug": "klou-nail-studio",
+      "website": "https://klounailstudio.com/"
+    },
+    {
+      "slug": "ida-seidova-150707",
+      "website": "https://www.skinovationclinic.com"
+    },
+    {
+      "slug": "batch2-ksenia-andreychenko-taxes-vip",
+      "website": "https://www.taxesvip.com"
+    },
+    {
+      "slug": "grand-auto-group",
+      "website": "https://grandautogroupoc.com"
+    },
+    {
+      "slug": "elvira-s-mama-print-150708",
+      "website": "https://mama-print.ru/blog/links"
+    },
+    {
+      "slug": "fbpack-elizabeth-azamatov-oc-dance-fit",
+      "website": "https://www.ocdance.fit"
+    },
+    {
+      "slug": "chef-ramaz-kitchen",
+      "website": "https://moonhalal.square.site/"
+    },
+    {
+      "slug": "bearchildrensacademyorg-031831",
+      "website": "https://www.bearchildrensacademy.org"
+    },
+    {
+      "slug": "ma-150705",
+      "website": "https://ocacting.com"
+    },
+    {
+      "slug": "business-9495016346-171941",
+      "website": "https://ocautoaid.com/"
+    },
+    {
+      "slug": "kai-t-234038",
+      "website": "https://maps.apple/p/tQWfcjLA18LQND"
+    },
+    {
+      "slug": "daria-hovorun-205241-8dc1",
+      "website": "https://bomond.com/events/5nizza-25-year-anniversary-tour-north-america/5-nizza-san-francisco"
+    },
+    {
+      "slug": "fbpack-danila-medvedev-vysotsky-zhivoy",
+      "website": "https://www.eventbrite.com/"
+    },
+    {
+      "slug": "batch2-good-food",
+      "website": "https://goodfoodmarket.store"
+    },
+    {
+      "slug": "surprise-me-balloons",
+      "website": "https://surprisemeballoonbar.com/"
+    },
+    {
+      "slug": "consolidated-art4kidsandteens",
+      "website": "https://www.art4kidsandteens.com"
+    },
+    {
+      "slug": "olga-daycare-imontessori-190759",
+      "website": "https://www.playusa2023.com"
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "website": "https://www.artbackyard.com"
+    },
+    {
+      "slug": "lunelle-nail-salon",
+      "website": "https://www.lunellenail.com"
+    },
+    {
+      "slug": "ann-kutner-205333-ab15",
+      "website": "https://www.teremokpreschoolsf.com/"
+    },
+    {
+      "slug": "tатьяна-032105",
+      "website": "https://ultimastudio.co"
+    },
+    {
+      "slug": "анастасия-032106",
+      "website": "https://sofacleanus.com"
+    },
+    {
+      "slug": "zsaesthetics-190931",
+      "website": "https://zmdaesthetics.com"
+    },
+    {
+      "slug": "reel-205255-a92c",
+      "website": "https://studio.dreem-world.ai/r/Q8890E"
+    },
+    {
+      "slug": "fbpack-sunrise-education-center",
+      "website": "https://suncenter.aqulas.me"
+    },
+    {
+      "slug": "fbpack-translatorpro",
+      "website": "https://www.translatorpro.org"
+    },
+    {
+      "slug": "lena-205257-4ea0",
+      "website": "https://share.google/cSpcw3fVJmGSULDz6"
+    },
+    {
+      "slug": "oksana-150709",
+      "website": "https://www.stairedu.com"
+    },
+    {
+      "slug": "vanilla-street-bakery",
+      "website": "https://yougenius.coach/p/french-for-beginners/"
+    }
+  ],
+  "errors": [
+    {
+      "slug": "телефон-032106",
+      "website": "https://avelorea.jewelry",
+      "error": "fetch_failed"
+    },
+    {
+      "slug": "consolidated-tenina-law-inc",
+      "website": "https://teninalaw.com",
+      "error": "fetch_failed"
+    },
+    {
+      "slug": "irin-pilates-031833",
+      "website": "https://upgradepilates.com",
+      "error": "fetch_failed"
+    },
+    {
+      "slug": "teastorm",
+      "website": "https://teastormus.etsy.com",
+      "error": "fetch_failed"
+    }
+  ]
+}

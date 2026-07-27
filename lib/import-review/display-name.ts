@@ -1,0 +1,310 @@
+/** Display helpers for import-review queue cards (junk titles, category labels). */
+
+const JUNK_TITLES = new Set(
+  [
+    "messenger",
+    "whatsapp",
+    "telegram",
+    "gmail.com",
+    "yahoo.com",
+    "mail.com",
+    "outlook.com",
+    "hotmail.com",
+    "instagram",
+    "facebook",
+    "unknown",
+    "user",
+    "admin",
+    "null",
+    "none",
+    "n/a",
+    "без названия",
+  ].map((s) => s.toLowerCase()),
+);
+
+const EMAIL_DOMAIN_RE = /^[a-z0-9.-]+\.(com|net|org|ru|io|co|info)$/i;
+
+const BRAND_TOKEN_RE =
+  /\b(clinic|studio|salon|center|centre|school|camp|spa|dental|dentistry|recovery|group|company|llc|inc|house|beauty|preschool|restaurant|cafe|café|kitchen|market|shop|store|halal|gym|academy|institute|lab|labs|therapy|massage|services|service|registration|kids|club|truck|trailer|repair|motors|jewelry|клиник|студи|салон|центр|школ|лагер|спа|ресторан|кафе|садик|садок|магазин|агентств|мастерск|сервис)\b/i;
+
+const CATEGORY_DOT_NAME_RE =
+  /^[A-Za-zА-Яа-яЁё0-9]{1,20}\s*[·•]\s*[a-z][a-z0-9_]{1,40}$/;
+const REDDIT_USER_NAME_RE = /^[A-Z][a-z]+[A-Z][a-z]+\d{2,}$/;
+const SNAKE_OR_HANDLE_RE = /^_?[a-z0-9]+(?:_[a-z0-9]+)*_?$/;
+
+const PERSON_LIKE_RE =
+  /^[A-ZА-ЯЁ][a-zа-яё'’-]+(?:\s+[A-ZА-ЯЁ][a-zа-яё'’-]+){1,2}$/u;
+
+const NON_NAME_TOKENS = new Set([
+  "art",
+  "backyard",
+  "house",
+  "beauty",
+  "title",
+  "company",
+  "sky",
+  "neptune",
+  "seafood",
+  "fish",
+  "cafe",
+  "camp",
+  "design",
+  "market",
+  "shop",
+  "store",
+  "group",
+  "auto",
+  "dental",
+  "school",
+  "studio",
+  "salon",
+  "clinic",
+  "spa",
+  "gym",
+  "kids",
+  "food",
+  "home",
+  "care",
+  "office",
+  "service",
+  "services",
+]);
+
+/** Russian labels for AI category slugs shown in admin queue. */
+export const IMPORT_CATEGORY_LABELS: Record<string, string> = {
+  auto_services: "Автосервис",
+  beauty: "Красота",
+  childcare: "Дети / няни",
+  cleaning: "Клининг",
+  education: "Образование",
+  events: "Мероприятия",
+  fitness: "Фитнес",
+  food: "Еда",
+  health: "Здоровье",
+  home_services: "Дом и ремонт",
+  insurance: "Страхование",
+  legal: "Юридические услуги",
+  moving: "Переезды",
+  other: "Другое",
+  professional_services: "Проф. услуги",
+  real_estate_services: "Недвижимость",
+  accounting: "Бухгалтерия",
+  car_rental: "Аренда авто",
+};
+
+export function importCategoryLabel(slug: string | null | undefined): string {
+  const key = (slug || "").trim().toLowerCase();
+  if (!key) return "Без категории";
+  return IMPORT_CATEGORY_LABELS[key] || key;
+}
+
+export function isJunkImportTitle(raw: string | null | undefined): boolean {
+  const t = (raw || "").trim();
+  if (!t) return true;
+  const lower = t.toLowerCase();
+  if (JUNK_TITLES.has(lower)) return true;
+  if (EMAIL_DOMAIN_RE.test(lower)) return true;
+  if (lower.includes("@")) return true;
+  if (CATEGORY_DOT_NAME_RE.test(t)) return true;
+  if (REDDIT_USER_NAME_RE.test(t)) return true;
+  if (SNAKE_OR_HANDLE_RE.test(t) && t.length >= 4 && !BRAND_TOKEN_RE.test(t.replaceAll("_", " "))) {
+    return true;
+  }
+  if (t.startsWith("$") || (t.endsWith("?") && t.length < 40)) return true;
+  return false;
+}
+
+/** Facebook author style: «Asiya Ahmadi», not «NeroFix Recovery Clinic». */
+export function isPersonLikeImportName(raw: string | null | undefined): boolean {
+  const n = (raw || "").trim().replace(/\s+/g, " ");
+  if (!n || BRAND_TOKEN_RE.test(n)) return false;
+  const parts = n.split(" ");
+  if (
+    parts.length === 3 &&
+    PERSON_LIKE_RE.test(`${parts[0]} ${parts[1]}`) &&
+    ["hair", "nails", "beauty", "makeup", "photo"].includes(parts[2].toLowerCase())
+  ) {
+    return true;
+  }
+  if (!PERSON_LIKE_RE.test(n)) return false;
+  if (parts.some((p) => NON_NAME_TOKENS.has(p.toLowerCase()))) return false;
+  return true;
+}
+
+function cleanBrand(raw: string): string {
+  return raw
+    .replace(/\s+/g, " ")
+    .replace(/^[\s.«»"'“”]+|[\s.«»"'“”.,;!:—–-]+$/g, "")
+    .trim()
+    .slice(0, 80);
+}
+
+function preferMixedCase(brand: string, text: string): string {
+  if (!/^[A-Z0-9][A-Z0-9 &'’-]+$/.test(brand) || brand.length < 4) return brand;
+  const re = new RegExp(brand.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+  let mixed: string | null = null;
+  for (const m of text.matchAll(re)) {
+    const hit = m[0];
+    if (hit !== brand && hit !== hit.toUpperCase()) {
+      mixed = hit;
+      break;
+    }
+  }
+  if (mixed) return cleanBrand(mixed);
+  return brand
+    .split(" ")
+    .map((w) => (w.length <= 3 ? w : w[0] + w.slice(1).toLowerCase()))
+    .join(" ");
+}
+
+function acceptBrand(cand: string | null | undefined, current?: string): string | null {
+  if (!cand) return null;
+  const c = cleanBrand(cand);
+  if (c.length < 3) return null;
+  if (isJunkImportTitle(c)) return null;
+  if (!/^[A-ZА-ЯЁ0-9]/u.test(c)) return null;
+  if (
+    /^(открытие|opening|наш|наша|our|this|the|по\s|в\s)/i.test(c) ||
+    /\b(по адресу|совмещают|принимает|для вашего)\b/i.test(c)
+  ) {
+    return null;
+  }
+  if (
+    /^(hair|nail|beauty|auto|home|call|old|private|this)\s+(salon|studio|center|school|business|company|spa|shop)$/i.test(
+      c,
+    )
+  ) {
+    return null;
+  }
+  if (current && c.toLowerCase() === current.trim().toLowerCase()) return null;
+  if (isPersonLikeImportName(c) && !BRAND_TOKEN_RE.test(c) && !/^(dr\.?|доктор)\b/i.test(c)) {
+    return null;
+  }
+  return c;
+}
+
+/**
+ * Infer a brand/person name from ad text when title is junk
+ * (e.g. Telegram sender = "Messenger", email domain = "gmail.com"),
+ * or when the title is the Facebook author while the post names the business.
+ */
+export function inferNameFromDescription(description: string | null | undefined): string | null {
+  const text = (description || "").trim();
+  if (!text) return null;
+  const head = text.slice(0, 900);
+  const flat = text.replace(/\s+/g, " ").trim();
+
+  const patterns: RegExp[] = [
+    /(?:открытие|открытии|открытия|opening)\s+([A-ZА-ЯЁ0-9][A-ZА-ЯЁA-Za-zА-Яа-яЁё0-9&'’. \-]{2,55})/iu,
+    /^[\s\W]*([A-Z][A-Z0-9 &']{3,50}(?:REPAIR|SERVICES|STUDIO|CLINIC|SALON|CENTER|CAMP|SCHOOL|CAFE|GROUP|MOTORS|ACADEMY))\s*[—–\-|!]/m,
+    /^[\s\W]*([A-Z][A-Za-z0-9&'’\-]{2,40})\s+is\s+a\s+(?:small\s+)?(?:family\s+)?(?:business|studio|salon|clinic|company|shop)\b/m,
+    /(?:в|у)\s+(?:ресторане|кафе|студии|салоне|клинике|центре|школе|лагере|магазине|агентстве)\s+[«"“]?([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})/iu,
+    /([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})\s*[—–-]\s*(?:это|студия|салон|клиника|лагерь|центр)\b/iu,
+    /^[\s\W]*([A-Z][A-Za-z0-9&'’. \-]{2,55}?)\s+offers\b/im,
+    /\b((?:Dr\.?|Doctor)\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+offers\b/,
+    /(?:порекомендовать|рекомендую|recommend(?:ing)?)\s+([A-Z][A-Za-z0-9&'’\-]*(?:\s+[A-Z][A-Za-z0-9&'’\-]*){1,5})/,
+    /\b([A-Z][A-Za-z0-9&'’-]+(?:\s+[A-Z][A-Za-z0-9&'’-]+){0,4}\s+(?:Clinic|Studio|Salon|Center|Centre|School|Camp|Spa|Dental|Dentistry|Recovery(?:\s+Clinic)?|Group|Company|Preschool|Restaurant|Cafe|Kitchen|Services|Kids\s+Club|House\s+of\s+Beauty))\b/,
+    /(?:название|компани[яи]|бизнес)\s*[:：]\s*[«"]?([A-ZА-ЯЁ][^"\n«»]{2,50})/iu,
+    /(?:добро\s+пожаловать\s+в\s+|welcome\s+to\s+)[«"“]?([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})/iu,
+    /([A-ZА-ЯЁ][\wА-Яа-яЁё.&'’-]{1,40}(?:\s+[A-ZА-ЯЁa-zа-яё][\wА-Яа-яЁё.&'’-]{0,40}){0,4})\s+(?:предоставляет|поможет|предлагает|offers|provides|специализир)/iu,
+    /(?:компания|студия|салон|сервис|service)\s+[«"]?([A-ZА-ЯЁ][\wА-Яа-яЁё.&'’\s-]{2,50})[»"]?/iu,
+  ];
+
+  for (const re of patterns) {
+    const m = head.match(re) || flat.match(re);
+    let candidate = m?.[1]?.trim() ?? null;
+    if (m?.[0] && /^(открытие|открытии|открытия|opening)\b/i.test(m[0])) {
+      candidate = m[0]
+        .replace(/^(открытие|открытии|открытия|opening)\s+/i, "")
+        .trim();
+      // Keep Title-case run only («Wizards Registration Services в Costa…»)
+      const parts = candidate.split(/\s+/);
+      const kept: string[] = [];
+      for (const p of parts) {
+        if (/^[A-ZА-ЯЁ0-9]/.test(p) || ["&", "and", "of", "the", "for"].includes(p.toLowerCase())) {
+          kept.push(p);
+        } else break;
+      }
+      candidate = kept.join(" ");
+    }
+    const accepted = acceptBrand(candidate);
+    if (accepted) {
+      const solid =
+        BRAND_TOKEN_RE.test(accepted) ||
+        /^(dr\.?|доктор)\b/i.test(accepted) ||
+        (/[A-Z][a-z]+[A-Z]|Halal|Cafe|Café/.test(accepted) &&
+          accepted.split(" ").length <= 3);
+      if (solid) return preferMixedCase(accepted, text);
+    }
+  }
+
+  return null;
+}
+
+/** Prefer real Instagram handles; drop email domains mistaken as IG. */
+export function sanitizeInstagramHandles(values: string[] | null | undefined): string[] {
+  const out: string[] = [];
+  for (const raw of values ?? []) {
+    const v = raw.trim().replace(/^@/, "");
+    if (!v) continue;
+    if (v.includes("@")) continue;
+    const lower = v.toLowerCase();
+    if (JUNK_TITLES.has(lower) || EMAIL_DOMAIN_RE.test(lower)) continue;
+    if (lower.endsWith(".com") || lower.endsWith(".net") || lower.endsWith(".org")) {
+      continue;
+    }
+    if (!/^[A-Za-z0-9._]{2,30}$/.test(v)) continue;
+    if (!out.includes(v)) out.push(v);
+  }
+  return out;
+}
+
+/** Best display name for queue / preview cards. */
+export function resolveImportDisplayName(input: {
+  title?: string | null;
+  business_name?: string | null;
+  person_name?: string | null;
+  description?: string | null;
+  source_text?: string | null;
+  instagram?: string[] | null;
+}): { name: string; inferred: boolean; junkSource: boolean } {
+  const desc = input.description || input.source_text;
+  const fromDesc = inferNameFromDescription(desc);
+
+  // business_name wins when it is a real brand (not a person-author label)
+  const business = input.business_name?.trim();
+  if (business && !isJunkImportTitle(business) && !isPersonLikeImportName(business)) {
+    return { name: business, inferred: false, junkSource: false };
+  }
+
+  // Person/author in title fields → prefer brand spelled out in the post
+  const personish = [input.title, input.person_name, input.business_name]
+    .map((c) => c?.trim())
+    .filter(Boolean) as string[];
+  const looksLikeAuthor = personish.some(
+    (c) => isPersonLikeImportName(c) || isJunkImportTitle(c),
+  );
+  if (fromDesc && looksLikeAuthor) {
+    return { name: fromDesc, inferred: true, junkSource: true };
+  }
+
+  const candidates = [input.business_name, input.title, input.person_name];
+  for (const c of candidates) {
+    if (c && !isJunkImportTitle(c)) {
+      return { name: c.trim(), inferred: false, junkSource: false };
+    }
+  }
+
+  if (fromDesc) {
+    return { name: fromDesc, inferred: true, junkSource: true };
+  }
+
+  const ig = sanitizeInstagramHandles(input.instagram)[0];
+  if (ig) {
+    return { name: ig, inferred: true, junkSource: true };
+  }
+
+  const fallback =
+    candidates.map((c) => c?.trim()).find(Boolean) || "Без названия";
+  return { name: fallback, inferred: false, junkSource: isJunkImportTitle(fallback) };
+}

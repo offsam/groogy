@@ -1,0 +1,130 @@
+[
+  {
+    "key": "айзада",
+    "slug": "айзада-032108",
+    "name": "Айзада",
+    "status": "ok",
+    "geo": true,
+    "addr": "202 Fashion Lane"
+  },
+  {
+    "key": "aibek",
+    "slug": "aibek-172151",
+    "name": "Aibek",
+    "status": "ok",
+    "geo": true,
+    "addr": "5581 Walnut Ave"
+  },
+  {
+    "key": "diamond",
+    "slug": "diamond-tint-studio-172158",
+    "name": "Diamond Tint Studio",
+    "status": "ok",
+    "geo": true,
+    "addr": "6636 Foothill Blvd"
+  },
+  {
+    "key": "st-anaheim",
+    "slug": "st-172208",
+    "name": "St",
+    "status": "ok",
+    "geo": true,
+    "addr": "1015 E Anaheim St"
+  },
+  {
+    "key": "inna",
+    "slug": "consolidated-inna-meleshko-nails",
+    "name": "Inna Meleshko",
+    "status": "ok",
+    "geo": true,
+    "addr": "17547 Ventura Blvd"
+  },
+  {
+    "key": "alena",
+    "slug": "alena-petrova-172203",
+    "name": "Alena Petrova",
+    "status": "ok",
+    "geo": true,
+    "addr": "7551 Santa Monica Blvd"
+  },
+  {
+    "key": "dnevnoi",
+    "slug": "business-5622520607-190801",
+    "name": "дневной центр",
+    "status": "ok",
+    "geo": true,
+    "addr": "3833 Atlantic Ave"
+  },
+  {
+    "key": "jane",
+    "slug": "jane-oc-190806",
+    "name": "Jane OC",
+    "status": "ok",
+    "geo": true,
+    "addr": "31161 Niguel Rd A"
+  },
+  {
+    "key": "goodfood",
+    "slug": "good-food-190808",
+    "name": "Good Food",
+    "status": "ok",
+    "geo": true,
+    "addr": "25565 Jeronimo Rd"
+  },
+  {
+    "key": "animal",
+    "slug": "animalclinicusa-190803",
+    "name": "animal.clinic.usa",
+    "status": "ok",
+    "geo": true,
+    "addr": "14006 Ventura Blvd"
+  },
+  {
+    "key": "akimbo",
+    "slug": "akimbo-190946",
+    "name": "Akimbo",
+    "status": "ok",
+    "geo": true,
+    "addr": "730 S Central Ave"
+  },
+  {
+    "key": "antonina",
+    "slug": "antonina-150605",
+    "name": "Antonina",
+    "status": "ok",
+    "geo": true,
+    "addr": "23 Spectrum Pointe Dr"
+  },
+  {
+    "key": "ludmila",
+    "slug": "business-7717177777-172212",
+    "name": "Людмила Коста",
+    "status": "ok",
+    "geo": false,
+    "addr": "7100 Foundry Row"
+  },
+  {
+    "key": "carp",
+    "slug": "consolidated-aleksey-carp-fishing-trip",
+    "name": "Баня от Алексея",
+    "status": "ok",
+    "geo": true,
+    "addr": "Lakeshore Dr"
+  },
+  {
+    "key": "valley",
+    "slug": "business-6197312653-172156",
+    "name": "Телефон",
+    "status": "ok",
+    "geo": true,
+    "addr": "5106 Valley Blvd"
+  },
+  {
+    "key": "washington",
+    "slug": "santa-172215",
+    "name": "Santa",
+    "status": "ok",
+    "geo": true,
+    "addr": "5140 W Washington Blvd"
+  }
+]

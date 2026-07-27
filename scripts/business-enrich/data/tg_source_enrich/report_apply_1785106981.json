@@ -1,0 +1,1071 @@
+{
+  "mode": "apply",
+  "limit": 50,
+  "offset": 40,
+  "candidates": 50,
+  "results": [
+    {
+      "id": "7a1f7307-af1d-402a-96b1-bd6a0faec838",
+      "slug": "aike-205508-990c",
+      "name": "aike",
+      "source_url": "https://t.me/c/1955320601/262968",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 120,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "7c58ea6b-a321-40b2-873a-439e83f97310",
+      "slug": "kai-t-205627-dea6",
+      "name": "Kai - T",
+      "source_url": "https://t.me/c/1333533747/69499",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 167,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "7e2588c7-ec59-4e24-80c0-d9033e8070e3",
+      "slug": "yulia-205819-c741",
+      "name": "Yulia",
+      "source_url": "https://t.me/c/1333533747/71110",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 233,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "7e2b42ec-b593-4390-9e93-dbea21c2cccd",
+      "slug": "business-biz-205424-2829",
+      "name": "Ƥєđѫџʜѧ",
+      "source_url": "https://t.me/c/1955320601/258368",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "Irvine"
+      },
+      "patch": {
+        "address_line": "Irvine",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/7e2b42ec-b593-4390-9e93-dbea21c2cccd/cover-tg-258368.jpg"
+      },
+      "caption_len": 474,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb",
+      "slug": "business-biz-181515-e787",
+      "name": "Вячеслав",
+      "source_url": "https://t.me/c/1955320601/269852",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb/cover-tg-269852.jpg"
+      },
+      "caption_len": 631,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "82ddddd5-853a-48c3-89d6-cad7c4dc6305",
+      "slug": "managerg-shock-205527-5a48",
+      "name": "manager_G-shock",
+      "source_url": "https://t.me/c/1955320601/252632",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+      },
+      "caption_len": 66,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "8593bb13-aa33-4ff1-9aa2-983437b9e241",
+      "slug": "inna-starominska-205426-50ec",
+      "name": "Inna ☘️ Starominska",
+      "source_url": "https://t.me/c/1955320601/257514",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/8593bb13-aa33-4ff1-9aa2-983437b9e241/cover-tg-257514.jpg"
+      },
+      "caption_len": 355,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "89b1e741-59eb-4d22-a66f-a08e88673216",
+      "slug": "i-m-205807-c490",
+      "name": "I M",
+      "source_url": "https://t.me/c/1333533747/74875",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 560,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "89cdfb55-f18c-41cb-bdbf-bee7fea5735f",
+      "slug": "viktoriia-205344-eec8",
+      "name": "Viktoriia 🇺🇦🇺🇸",
+      "source_url": "https://t.me/c/1955320601/267748",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 722,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "8a7c7fd3-1f1c-4edc-9eab-804ed36d239a",
+      "slug": "licence-centre-usa-205512-a01b",
+      "name": "Licence Centre USA",
+      "source_url": "https://t.me/c/1955320601/262449",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 213,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "8c070874-3a01-47eb-b26a-9dd0ed58a26d",
+      "slug": "aida-khazieva-pr-205628-e4f9",
+      "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+      "source_url": "https://t.me/c/1333533747/69469",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 231,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "8c200bb4-c4b0-4d9b-93b0-23de5e139a0e",
+      "slug": "business-biz-181509-88e4",
+      "name": "Оксана",
+      "source_url": "https://t.me/c/1333533747/72573",
+      "ocr_model": null,
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/8c200bb4-c4b0-4d9b-93b0-23de5e139a0e/cover-tg-72573.jpg"
+      },
+      "caption_len": 249,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "94d8ff42-fe48-48db-8d3a-5afec63367e0",
+      "slug": "business-biz-205447-fe7c",
+      "name": "Анна Габедава",
+      "source_url": "https://t.me/c/1955320601/273560",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 622,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "97d2caaa-56cd-4757-885e-e95fea9c2ea4",
+      "slug": "sunlit-pie-la-205342-7e44",
+      "name": "Sunlit Pie | Осетинские пироги LA",
+      "source_url": "https://t.me/c/1955320601/273329",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 526,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "995cb510-7518-4f2a-98c3-745cd8d9f47c",
+      "slug": "agent-of-the-west-205502-23d3",
+      "name": "agent of the west",
+      "source_url": "https://t.me/c/1955320601/264404",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 122,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "9d9b3d10-81b5-4c67-bbfe-479ff0d7a850",
+      "slug": "jane-oc-205304-7225",
+      "name": "Jane OC",
+      "source_url": "https://t.me/c/1333533747/70468",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 185,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+      "slug": "office-205354-a216",
+      "name": "Office",
+      "source_url": "https://t.me/c/1955320601/257134",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/navatfoodtruck",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Restaurant: 10am - 4am daily; Downtown LA Food Truck: 11am - 4am daily; Valley Village Food Truck: 11am - 2am daily; Encino Food Truck: 11am - 12am daily",
+        "business_name": "Navat Halal",
+        "address": "Restaurant: 7300 Sunset Blvd, Los Angeles, CA 90046; Food truck: 1111 West Olympic Blvd, Los Angeles, CA 90015; Food truck: 12122 Magnolia Blvd, Valley Village, CA 91607; Food truck: 16206 Ventura Blvd, Encino, CA 91436"
+      },
+      "patch": {
+        "instagram_url": "https://www.instagram.com/navatfoodtruck",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/9e1d4e89-fea6-4372-88df-f160e40eecf8/cover-tg-257134.jpg"
+      },
+      "caption_len": 632,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "a11cb281-4c82-41c1-924a-4399fef8ce6c",
+      "slug": "business-biz-205505-7df2",
+      "name": "Юлія",
+      "source_url": "https://t.me/c/1955320601/263261",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 377,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "a3ea487f-0201-4bb3-b595-d91ee8e75676",
+      "slug": "yulia-205816-d191",
+      "name": "Yulia",
+      "source_url": "https://t.me/c/1333533747/71343",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 456,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "aedd2210-4208-44e3-89da-10207a349808",
+      "slug": "dl-express-205556-c74a",
+      "name": "DL Express",
+      "source_url": "https://t.me/c/1955320601/251328",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 213,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "b46a8bc6-da9a-4d13-9be9-9b055edc6fb7",
+      "slug": "alla-205619-082b",
+      "name": "Alla",
+      "source_url": "https://t.me/c/1333533747/73110",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 90,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "bbeda8a0-36c1-4acc-9319-cdd7c6420265",
+      "slug": "olya-music-teacher-205418-dae7",
+      "name": "Olya Music teacher",
+      "source_url": "https://t.me/c/1333533747/71188",
+      "ocr_model": null,
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/bbeda8a0-36c1-4acc-9319-cdd7c6420265/cover-tg-71188.jpg"
+      },
+      "caption_len": 495,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "bd082099-3b37-43e8-ab25-7796f387c87d",
+      "slug": "zbear-205613-7547",
+      "name": "ZBear",
+      "source_url": "https://t.me/c/1333533747/74628",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 114,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "c036ad34-a75f-404c-a0ea-55138479fa56",
+      "slug": "oktel-205740-27a3",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "source_url": "https://t.me/c/1955320601/250250",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+      },
+      "caption_len": 66,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "c57f647a-2a01-4695-b8d4-0faeebdb39c0",
+      "slug": "business-biz-205518-8988",
+      "name": "Андрій",
+      "source_url": "https://t.me/c/1955320601/256306",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 534,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "c6ffaa0c-4ddc-43ff-b839-447da7169ef2",
+      "slug": "ivan-gant-205422-e414",
+      "name": "Ivan Gant",
+      "source_url": "https://t.me/c/1955320601/261792",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "DJ Ivan Gant",
+        "address": null
+      },
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/c6ffaa0c-4ddc-43ff-b839-447da7169ef2/cover-tg-261792.jpg"
+      },
+      "caption_len": 547,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "slug": "yummy-homemade-sweets-150641",
+      "name": "yummy_homemade_sweets",
+      "source_url": "https://t.me/c/1333533747/71578",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/yummy_homemade_sweets",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Pickup available on April 4, 5 (Catholic Easter) and April 10, 11, 12 (Orthodox Easter). Prices are valid only until the end of March.",
+        "business_name": "Yummy Homemade Sweets",
+        "address": "Los Olivos at Irvine Spectrum"
+      },
+      "patch": {},
+      "caption_len": 772,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "source_url": "https://t.me/c/1333533747/71491",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": "https://t.me/+5-vzmn-w8BJjNTVh",
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "telegram_url": "https://t.me/https://t.me/+5-vzmn-w8BJjNTVh"
+      },
+      "caption_len": 99,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "d072e0b0-da7f-4ca7-8d34-4798cb1afe19",
+      "slug": "saida-saida-205654-def0",
+      "name": "SAida SAida",
+      "source_url": "https://t.me/c/1955320601/267891",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 689,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "d6fc222d-1ab1-4dfc-aa14-83b56f434ff9",
+      "slug": "tatiana-fgm-205303-323e",
+      "name": "Tatiana Fgm",
+      "source_url": "https://t.me/c/1333533747/72126",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://join.medvidi.com/signin",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 31,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "dd044ebe-3a15-4994-80f3-ab268f511af9",
+      "slug": "reel-205255-a92c",
+      "name": "reel",
+      "source_url": "https://t.me/c/1333533747/75389",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/reel",
+        "website": "https://studio.dreem-world.ai/r/Q8890E",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "instagram_url": "https://www.instagram.com/reel"
+      },
+      "caption_len": 387,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "ddf5ce9b-78ea-4874-8736-5da8fd33f63e",
+      "slug": "christie-v-205345-fc04",
+      "name": "Christie V",
+      "source_url": "https://t.me/c/1955320601/266801",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 604,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "e2e4bc92-f3c4-4072-b141-4dcda83f1dc7",
+      "slug": "business-biz-181517-806a",
+      "name": "Татьяна",
+      "source_url": "https://t.me/c/1955320601/266657",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 994,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "e5ea11e6-4558-4c5c-a228-7fc285c7fd45",
+      "slug": "di-carrental-205641-f5a7",
+      "name": "Di · car_rental",
+      "source_url": "https://t.me/c/1333533747/71653",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 73,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "ecedd5a5-be54-4e45-83b1-57de17805d52",
+      "slug": "lena-205257-4ea0",
+      "name": "Lena",
+      "source_url": "https://t.me/c/1333533747/73342",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 92,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "ed77a258-378a-491d-bf08-b29e4bbfc997",
+      "slug": "semboko-205200-b4e0",
+      "name": "semboko",
+      "source_url": "https://t.me/c/1333533747/72789",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/semboko",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 427,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "edbc1bd2-cd7a-4e28-97df-cb23b3773e9f",
+      "slug": "valentina-205558-0419",
+      "name": "Valentina",
+      "source_url": "https://t.me/c/1955320601/249890",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 133,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "ee3b40d9-5fbd-4bb1-92e7-fe8ea398e91a",
+      "slug": "cryptogolem-205532-e4ec",
+      "name": "CryptoGolem",
+      "source_url": "https://t.me/c/1955320601/249812",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 179,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "f7d04941-1276-456f-80c3-a86f2044e679",
+      "slug": "business-biz-205431-6370",
+      "name": "Анна Готочкина",
+      "source_url": "https://t.me/c/1955320601/277694",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 168,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "fbe0d02e-fd22-4045-834e-2fa8c89208a7",
+      "slug": "oktel-181534-5dfb",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "source_url": "https://t.me/c/1955320601/249932",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+      },
+      "caption_len": 66,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "fc7a7865-6aa3-45b2-9c7f-53ad1f5c6430",
+      "slug": "aiza-m-205644-4aee",
+      "name": "Aiza M",
+      "source_url": "https://t.me/c/1955320601/256157",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 203,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "ffe6613e-9eed-4aac-b492-a675d3698bcb",
+      "slug": "the-loft-dental-studio-205618-9c86",
+      "name": "брекетами занимается. The Loft Dental Studio",
+      "source_url": "https://t.me/c/1333533747/73389",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 114,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "00b94a99-8964-4f4b-8494-7d4920655c98",
+      "slug": "alessandra-205417-7926",
+      "name": "Alessandra",
+      "source_url": "https://t.me/c/1333533747/71456",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 368,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "0853d219-95d7-41a8-bc8d-e24f07b21666",
+      "slug": "o-m-205406-12c1",
+      "name": "O M",
+      "source_url": "https://t.me/c/1333533747/73748",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 307,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "1ffbcf12-80af-4c9e-a66a-af2f0a33d496",
+      "slug": "julia-colorist-laoc-205343-1694",
+      "name": "Julia Colorist LA/OC 🇺🇸",
+      "source_url": "https://t.me/c/1333533747/73834",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/Julia_colorist_socal",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Julia Colorist",
+        "address": "Glendale, LA / Irvine, OC"
+      },
+      "patch": {},
+      "caption_len": 449,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "2926ebb8-f020-4c2e-ac1b-73b46bf8c238",
+      "slug": "wonderland-salon-205355-7c07",
+      "name": "Wonderland Salon",
+      "source_url": "https://t.me/c/1955320601/255271",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 539,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "c0e9147e-4ca5-4d72-b3a6-73a5069290b5",
+      "slug": "business-biz-205649-52ce",
+      "name": "Милена",
+      "source_url": "https://t.me/c/1333533747/75255",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "Парк Ньюпорт"
+      },
+      "patch": {
+        "address_line": "Парк Ньюпорт"
+      },
+      "caption_len": 185,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "c7027541-9459-421d-a6da-a5f1c7cd44c2",
+      "slug": "partyfornia-205155-0641",
+      "name": "partyfornia",
+      "source_url": "https://t.me/c/1333533747/74251",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/partyfornia",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Наталья и ее команда прекрасные аниматоры ))"
+      },
+      "caption_len": 105,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "5c2bdc3c-3e64-4247-8bf3-adf7d0c33044",
+      "slug": "middle-school-205148-9418",
+      "name": "middle school",
+      "source_url": "https://t.me/c/1333533747/76067",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/capytaytay",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "может помочь, занимается с elementary и middle school students"
+      },
+      "caption_len": 74,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "44e482f0-3ec6-427f-b41d-5d827361fb1a",
+      "slug": "business-biz-205702-39b7",
+      "name": "Тетяна",
+      "source_url": "https://t.me/c/1333533747/71782",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 112,
+      "has_media": false,
+      "status": "noop"
+    }
+  ],
+  "summary": {
+    "updated": 15,
+    "dry_run": 0,
+    "noop": 35,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

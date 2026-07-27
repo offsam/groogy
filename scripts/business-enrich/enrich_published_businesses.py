@@ -1,0 +1,960 @@
+#!/usr/bin/env python3
+"""Enrich already-published approved businesses (Veronica-style).
+
+Sources (fill-empty only):
+  1. Business website (JSON-LD + meta + services/pricing pages)
+  2. Instagram (og tags) if URL known / found on site
+  3. Nominatim geocode from street address → lat/lng + Google Maps URL
+  4. Yelp search (name + city) → yelp_url when unique match
+  5. Price lines from site → business_offers (service)
+
+Never overwrites non-empty business fields. Skips junk websites
+(Etsy, Turo, Apple Maps deep links, Instagram-as-website, etc.).
+
+Usage:
+  python3 scripts/business-enrich/enrich_published_businesses.py --dry-run --limit 5
+  python3 scripts/business-enrich/enrich_published_businesses.py --apply --limit 5
+  python3 scripts/business-enrich/enrich_published_businesses.py --apply --slug russ-flooring
+"""
+
+from __future__ import annotations
+
+import argparse
+import html as html_lib
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
+sys.path.insert(0, str(ROOT / "scripts" / "facebook-collector"))
+
+from common import SupabaseRest, load_env  # noqa: E402
+from web_enrichment import (  # noqa: E402
+    extract_instagram_profile,
+    extract_website_profile,
+)
+
+UA = "Mozilla/5.0 (compatible; KrugiBizEnrich/1.0; +https://krugi.app)"
+TIMEOUT = 12
+MAX_HTML = 900_000
+
+JUNK_HOST_PARTS = (
+    "etsy.com",
+    "turo.com",
+    "girlscouts.org",
+    "digitalcookie.",
+    "maps.apple",
+    "maps.app.goo.gl",
+    "goo.gl/",
+    "instagram.com",
+    "facebook.com",
+    "fb.com",
+    "t.me/",
+    "wa.me/",
+    "linktr.ee",
+    "eventbrite.com",
+    "vagaro.com/upgradepilates/deals",
+    "mercedesbenz",
+    "showingnew.com",
+    "threadssequins",
+    "youtube.com",
+    "youtu.be",
+    "tiktok.com",
+    "mama-print.ru",
+    "alter.tax",
+    "dreem-world.ai",
+    "openai.com",
+    "book.squareup.com",
+    "legalshieldassociate.com",
+    "skinovationcleaning.com",  # typo/parked; real clinic is separate
+)
+
+PRICE_LINE_RE = re.compile(
+    r"(?P<title>[A-Za-zА-Яа-яЁё0-9][A-Za-zА-Яа-яЁё0-9 &/\-]{2,60}?)\s*"
+    r"(?:[-–—:·]|from)?\s*\$?\s*(?P<p1>\d{2,4})(?:\s*[-–—to]+\s*\$?(?P<p2>\d{2,4}))?",
+    re.I | re.UNICODE,
+)
+SERVICE_PATHS = (
+    "",
+    "/services",
+    "/service",
+    "/pricing",
+    "/prices",
+    "/price-list",
+    "/menu",
+    "/treatments",
+    "/our-services",
+    "/book-online",
+)
+
+
+def http_get(url: str) -> str | None:
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": UA, "Accept": "text/html,application/xhtml+xml,*/*"},
+            method="GET",
+        )
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+            raw = resp.read(MAX_HTML + 1)
+            if len(raw) > MAX_HTML:
+                raw = raw[:MAX_HTML]
+            return raw.decode("utf-8", errors="ignore")
+    except Exception:
+        return None
+
+
+def host_of(url: str | None) -> str:
+    if not url:
+        return ""
+    raw = url.strip()
+    if "://" not in raw:
+        raw = "https://" + raw
+    try:
+        return (urllib.parse.urlparse(raw).hostname or "").lower().removeprefix("www.")
+    except Exception:
+        return ""
+
+
+def is_junk_website(url: str | None) -> bool:
+    if not url:
+        return True
+    low = url.lower()
+    return any(p in low for p in JUNK_HOST_PARTS)
+
+
+def normalize_website(url: str | None) -> str | None:
+    if not url or is_junk_website(url):
+        return None
+    u = url.strip()
+    if "://" not in u:
+        u = "https://" + u
+    try:
+        p = urllib.parse.urlparse(u)
+    except ValueError:
+        return None
+    if not p.netloc or "." not in p.netloc:
+        return None
+    return u
+
+
+def looks_like_street(address: str | None) -> bool:
+    if not address:
+        return False
+    # reject city-only "Irvine, CA, 92618"
+    if not re.search(r"(^|\b)\d{1,6}\s+[A-Za-zА-Яа-я]", address):
+        return False
+    if re.fullmatch(r"[A-Za-z .'-]+,\s*[A-Z]{2}(,\s*\d{5})?", address.strip()):
+        return False
+    return True
+
+
+def clean_street_typos(address: str) -> str:
+    a = address
+    a = re.sub(r"\bPrkw\b", "Parkway", a, flags=re.I)
+    a = re.sub(r"\bPkwy\b", "Parkway", a, flags=re.I)
+    a = re.sub(r"\bAve\b", "Avenue", a, flags=re.I)
+    return a
+
+
+def is_junk_email(email: str) -> bool:
+    e = (email or "").lower().strip()
+    if not e or "@" not in e:
+        return True
+    bad = (
+        "godaddy.com",
+        "example.com",
+        "email.com",
+        "sentry.io",
+        "wixpress.com",
+        "squarespace.com",
+        "eyebytes.com",
+        "ndiscovered.com",
+    )
+    domain = e.split("@", 1)[-1]
+    return any(domain == b or domain.endswith("." + b) for b in bad)
+
+
+def parse_hours_spec_blob(hours_raw: str | None) -> dict[str, Any] | None:
+    """Parse stringified OpeningHoursSpecification chunks from web_enrichment."""
+    if not hours_raw or "OpeningHoursSpecification" not in hours_raw:
+        return None
+    day_map = {
+        "sunday": 0,
+        "monday": 1,
+        "tuesday": 2,
+        "wednesday": 3,
+        "thursday": 4,
+        "friday": 5,
+        "saturday": 6,
+    }
+    weekly: dict[int, dict[str, Any]] = {d: {"day": d, "closed": True} for d in range(7)}
+    found = False
+    # crude: dayOfWeek': ['Monday'...] opens': '09:00' closes': '17:00'
+    for chunk in hours_raw.split("};"):
+        days = re.findall(
+            r"'(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)'",
+            chunk,
+            re.I,
+        )
+        op = re.search(r"'opens':\s*'(\d{2}:\d{2})'", chunk)
+        cl = re.search(r"'closes':\s*'(\d{2}:\d{2})'", chunk)
+        if not days or not op or not cl:
+            continue
+        opens, closes = op.group(1), cl.group(1)
+        if opens == "00:00" and closes == "00:00":
+            for dname in days:
+                weekly[day_map[dname.lower()]] = {"day": day_map[dname.lower()], "closed": True}
+                found = True
+            continue
+        for dname in days:
+            weekly[day_map[dname.lower()]] = {
+                "day": day_map[dname.lower()],
+                "open": opens,
+                "close": closes,
+            }
+            found = True
+    if not found:
+        return None
+    return {"timezone": "America/Los_Angeles", "weekly": [weekly[d] for d in range(7)]}
+
+
+def parse_address_parts(address: str) -> dict[str, str | None]:
+    """Best-effort split '230 E 17th St #150, Costa Mesa, CA 92627'."""
+    parts = [p.strip() for p in address.split(",") if p.strip()]
+    out: dict[str, str | None] = {
+        "address_line": None,
+        "city": None,
+        "region": None,
+        "state_code": None,
+    }
+    if not parts:
+        return out
+    out["address_line"] = parts[0][:160]
+    if len(parts) >= 2:
+        out["city"] = parts[1][:80]
+    if len(parts) >= 3:
+        m = re.search(r"\b([A-Z]{2})\b(?:\s+(\d{5}(?:-\d{4})?))?", parts[2])
+        if m:
+            out["state_code"] = f"US-{m.group(1)}"
+            if m.group(2):
+                out["region"] = f"{m.group(1)} {m.group(2)}"
+            else:
+                out["region"] = m.group(1)
+        else:
+            out["region"] = parts[2][:80]
+    return out
+
+
+def parse_hours_to_weekly(hours_raw: str | None) -> dict[str, Any] | None:
+    """Parse simple phrases like 'Monday to Friday, 10:00 AM – 6:00 PM'."""
+    if not hours_raw:
+        return None
+    text = hours_raw.strip()
+    # Mon–Fri 10:00 AM–7:00 PM, Sat 09:00 AM–6:00 PM
+    day_map = {
+        "sun": 0,
+        "sunday": 0,
+        "mon": 1,
+        "monday": 1,
+        "tue": 2,
+        "tuesday": 2,
+        "wed": 3,
+        "wednesday": 3,
+        "thu": 4,
+        "thursday": 4,
+        "fri": 5,
+        "friday": 5,
+        "sat": 6,
+        "saturday": 6,
+    }
+
+    def to_24(h: str, ampm: str | None) -> str | None:
+        try:
+            hh, mm = h.split(":")
+            hour = int(hh)
+            minute = int(mm)
+        except Exception:
+            return None
+        ap = (ampm or "").lower()
+        if ap == "pm" and hour < 12:
+            hour += 12
+        if ap == "am" and hour == 12:
+            hour = 0
+        if not ampm and hour <= 7:
+            # bare "10:00-19:00" already 24h
+            pass
+        return f"{hour:02d}:{minute:02d}"
+
+    time_re = re.compile(
+        r"(\d{1,2}:\d{2})\s*(AM|PM|am|pm)?\s*[-–—]\s*(\d{1,2}:\d{2})\s*(AM|PM|am|pm)?",
+        re.I,
+    )
+    weekly: dict[int, dict[str, Any]] = {d: {"day": d, "closed": True} for d in range(7)}
+
+    # Range: Monday to Friday, 10:00 AM – 6:00 PM
+    m = re.search(
+        r"(mon|monday|tue|tuesday|wed|wednesday|thu|thursday|fri|friday|sat|saturday|sun|sunday)"
+        r".{0,12}?(?:to|–|-|through)\s*"
+        r"(mon|monday|tue|tuesday|wed|wednesday|thu|thursday|fri|friday|sat|saturday|sun|sunday)"
+        r".{0,40}?" + time_re.pattern,
+        text,
+        re.I,
+    )
+    if m:
+        d1 = day_map[m.group(1).lower()[:3] if len(m.group(1)) > 3 else m.group(1).lower()]
+        # map full names
+        d1 = day_map.get(m.group(1).lower(), day_map.get(m.group(1).lower()[:3]))
+        d2 = day_map.get(m.group(2).lower(), day_map.get(m.group(2).lower()[:3]))
+        tm = time_re.search(m.group(0))
+        if d1 is not None and d2 is not None and tm:
+            op = to_24(tm.group(1), tm.group(2))
+            cl = to_24(tm.group(3), tm.group(4))
+            if op and cl:
+                a, b = sorted([d1, d2])
+                for d in range(a, b + 1):
+                    weekly[d] = {"day": d, "open": op, "close": cl}
+                return {"timezone": "America/Los_Angeles", "weekly": [weekly[d] for d in range(7)]}
+
+    # Per-day snippets
+    found = False
+    for chunk in re.split(r"[;\n]|,\s*(?=[A-Za-z])", text):
+        dm = re.search(
+            r"(mon|monday|tue|tuesday|wed|wednesday|thu|thursday|fri|friday|sat|saturday|sun|sunday)",
+            chunk,
+            re.I,
+        )
+        tm = time_re.search(chunk)
+        if not dm or not tm:
+            continue
+        key = dm.group(1).lower()
+        day = day_map.get(key) or day_map.get(key[:3])
+        op = to_24(tm.group(1), tm.group(2))
+        cl = to_24(tm.group(3), tm.group(4))
+        if day is None or not op or not cl:
+            continue
+        weekly[day] = {"day": day, "open": op, "close": cl}
+        found = True
+    if found:
+        return {"timezone": "America/Los_Angeles", "weekly": [weekly[d] for d in range(7)]}
+    return None
+
+
+def geocode(query: str) -> tuple[float, float] | None:
+    q = urllib.parse.urlencode(
+        {
+            "q": query,
+            "format": "json",
+            "limit": 3,
+            "countrycodes": "us",
+            "addressdetails": 1,
+        }
+    )
+    req = urllib.request.Request(
+        f"https://nominatim.openstreetmap.org/search?{q}",
+        headers={"User-Agent": "KrugiBizEnrich/1.0 (catalog enrich; contact@krugi.app)"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode())
+    except Exception:
+        return None
+    if not data:
+        return None
+    for item in data:
+        cls = (item.get("class") or "", item.get("type") or "")
+        if cls[0] in {"place", "boundary"} and cls[1] in {
+            "city",
+            "town",
+            "village",
+            "county",
+            "state",
+            "country",
+        }:
+            continue
+        return float(item["lat"]), float(item["lon"])
+    return float(data[0]["lat"]), float(data[0]["lon"])
+
+
+def search_yelp(name: str, city: str | None) -> str | None:
+    loc = (city or "Orange County, CA").strip()
+    if loc.lower() in {"orange county", "oc"}:
+        loc = "Orange County, CA"
+    q = urllib.parse.urlencode({"find_desc": name, "find_loc": loc})
+    url = f"https://www.yelp.com/search?{q}"
+    html = http_get(url)
+    if not html:
+        return None
+    # biz links
+    links = re.findall(r'href="(/biz/[^"?#]+)', html)
+    if not links:
+        links = re.findall(r"https://www\.yelp\.com(/biz/[^\"?#]+)", html)
+    # dedupe
+    seen: list[str] = []
+    for path in links:
+        path = path.split("?")[0]
+        if path not in seen:
+            seen.append(path)
+    if not seen:
+        return None
+    # Prefer slug that shares tokens with business name
+    tokens = [t for t in re.split(r"[^a-z0-9]+", name.lower()) if len(t) >= 4]
+    scored: list[tuple[int, str]] = []
+    for path in seen[:8]:
+        slug = path.rsplit("/", 1)[-1]
+        score = sum(1 for t in tokens if t in slug)
+        scored.append((score, path))
+    scored.sort(key=lambda x: -x[0])
+    if scored[0][0] == 0 and len(tokens) >= 2:
+        return None  # no token overlap — refuse weak match
+    return "https://www.yelp.com" + scored[0][1]
+
+
+def extract_services_from_html(html: str) -> list[dict[str, Any]]:
+    """Heuristic price/service lines from visible text."""
+    text = html_lib.unescape(re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.I))
+    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", "\n", text)
+    text = re.sub(r"[ \t]+", " ", text)
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    offers: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for ln in lines:
+        if "$" not in ln and not re.search(r"\d{2,4}\s*(?:USD|usd)", ln):
+            continue
+        if len(ln) > 120 or len(ln) < 6:
+            continue
+        m = PRICE_LINE_RE.search(ln)
+        if not m:
+            continue
+        title = m.group("title").strip(" -–—:·|")
+        if len(title) < 3:
+            continue
+        junk = {"price", "from", "only", "now", "sale", "total", "tax", "usd"}
+        if title.lower() in junk:
+            continue
+        p1 = float(m.group("p1"))
+        p2 = float(m.group("p2")) if m.group("p2") else None
+        if p1 < 15 or p1 > 5000:
+            continue
+        key = title.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        if p2 and p2 > p1:
+            offers.append(
+                {
+                    "title": title[:160],
+                    "offer_type": "service",
+                    "price_mode": "range",
+                    "price_min": p1,
+                    "price_max": p2,
+                    "short_description": ln[:300],
+                }
+            )
+        else:
+            offers.append(
+                {
+                    "title": title[:160],
+                    "offer_type": "service",
+                    "price_mode": "fixed",
+                    "price_amount": p1,
+                    "short_description": ln[:300],
+                }
+            )
+        if len(offers) >= 25:
+            break
+    return offers
+
+
+def discover_service_pages(base_url: str) -> list[str]:
+    base = normalize_website(base_url)
+    if not base:
+        return []
+    parsed = urllib.parse.urlparse(base)
+    root = f"{parsed.scheme}://{parsed.netloc}"
+    urls = []
+    for path in SERVICE_PATHS:
+        urls.append(urllib.parse.urljoin(root + "/", path.lstrip("/")) if path else root + "/")
+    # also keep original path
+    if base.rstrip("/") not in {u.rstrip("/") for u in urls}:
+        urls.insert(0, base)
+    # unique preserve order
+    out: list[str] = []
+    for u in urls:
+        if u not in out:
+            out.append(u)
+    return out[:8]
+
+
+def slugify(title: str) -> str:
+    table = str.maketrans(
+        "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+        "abvgdeejzijklmnoprstufhccss y euaABVGDEEJZIJKLMNOPRSTUFHCCSS Y EUA",
+    )
+    s = title.translate(table).lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return (s or "offer")[:50]
+
+
+def fold_name(s: str) -> str:
+    table = str.maketrans(
+        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+        "abvgdeezziyklmnoprstufhccss y eua",
+    )
+    t = (s or "").lower().replace("ё", "е").translate(table)
+    t = re.sub(r"[^a-z0-9]+", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def name_website_compatible(name: str, website: str, site_name: str | None) -> bool:
+    """Avoid attaching Skinovation Clinic data onto a random person's card."""
+    n = fold_name(name)
+    sn = fold_name(site_name or "")
+    host = host_of(website).replace("-", " ").replace(".", " ")
+    host_compact = host_of(website).replace("-", "").replace(".", "")
+    n_tok = {t for t in n.split() if len(t) >= 3}
+    s_tok = {t for t in sn.split() if len(t) >= 3}
+    h_tok = {
+        t
+        for t in host.split()
+        if len(t) >= 3 and t not in {"https", "http", "www", "com", "net", "org", "edu", "gov"}
+    }
+
+    if n and sn:
+        if n == sn or n in sn or sn in n:
+            return True
+        # token overlap after transliteration
+        if n_tok & s_tok:
+            return True
+        # similarity of full strings
+        from description_merge import similarity
+
+        if similarity(n, sn) >= 0.55:
+            return True
+
+    if n_tok & h_tok:
+        return True
+    for t in n_tok:
+        if len(t) >= 4 and t in host_compact:
+            return True
+    for t in h_tok:
+        if len(t) >= 4 and t in n.replace(" ", ""):
+            return True
+    return False
+
+
+def fill_empty(dst: dict[str, Any], field: str, value: Any, sources: dict[str, str]) -> None:
+    cur = dst.get(field) if field in dst else None
+    # for patch dict we only set new keys; caller passes existing separately
+    if value is None or value == "" or value == [] or value == {}:
+        return
+    if field in sources:
+        return
+    sources[field] = "set"
+
+
+def enrich_one(biz: dict[str, Any]) -> dict[str, Any]:
+    report: dict[str, Any] = {
+        "id": biz["id"],
+        "name": biz.get("name"),
+        "slug": biz.get("slug"),
+        "website": biz.get("website"),
+        "patch": {},
+        "offers": [],
+        "sources": {},
+        "notes": [],
+        "skipped": None,
+    }
+    website = normalize_website(biz.get("website"))
+    if not website:
+        report["skipped"] = "no_or_junk_website"
+        return report
+
+    profile = extract_website_profile(website)
+    report["website_profile_status"] = profile.get("status")
+    if profile.get("status") != "ok":
+        report["notes"].append(f"website:{profile.get('error') or profile.get('status')}")
+        # still try yelp/geo with existing fields
+    else:
+        site_name = profile.get("name")
+        compatible = name_website_compatible(str(biz.get("name") or ""), website, site_name)
+        if not compatible:
+            # Website already stored on published card — still enrich, but flag mismatch.
+            report["notes"].append(
+                f"name_website_soft_mismatch name={biz.get('name')!r} site_name={site_name!r} host={host_of(website)}"
+            )
+
+        # Description
+        if not (biz.get("description") or "").strip() or len(biz.get("description") or "") < 120:
+            desc = (profile.get("description") or "").strip()
+            if len(desc) >= 80:
+                report["patch"]["description"] = desc[:4000]
+                report["sources"]["description"] = "website"
+
+        if not (biz.get("short_description") or "").strip():
+            desc = (profile.get("description") or biz.get("description") or "").strip()
+            if desc:
+                report["patch"]["short_description"] = desc[:180]
+                report["sources"]["short_description"] = "website"
+
+        # Phone / email / ig
+        if not biz.get("phone"):
+            phones = profile.get("phone") or []
+            if phones:
+                report["patch"]["phone"] = phones[0][:40]
+                report["sources"]["phone"] = "website"
+        if not biz.get("email"):
+            emails = [e for e in (profile.get("email") or []) if not is_junk_email(e)]
+            if emails:
+                report["patch"]["email"] = emails[0][:120]
+                report["sources"]["email"] = "website"
+        if not biz.get("instagram_url"):
+            for link in profile.get("social_links") or []:
+                if "instagram.com" in link.lower():
+                    report["patch"]["instagram_url"] = link.split("?")[0][:300]
+                    report["sources"]["instagram_url"] = "website"
+                    break
+
+        # Address + city
+        addr = profile.get("address")
+        if addr:
+            parts = parse_address_parts(addr)
+            if looks_like_street(addr):
+                if not biz.get("address_line") and parts.get("address_line"):
+                    report["patch"]["address_line"] = clean_street_typos(parts["address_line"])
+                    report["sources"]["address_line"] = "website"
+            # city from full or city-only address blocks
+            if (not biz.get("city") or str(biz.get("city")).lower() in {
+                "orange county",
+                "oc",
+                "los angeles",
+            }) and parts.get("city"):
+                report["patch"]["city"] = parts["city"]
+                report["sources"]["city"] = "website"
+            elif (not biz.get("city") or str(biz.get("city")).lower() in {
+                "orange county",
+                "oc",
+            }) and not looks_like_street(addr):
+                # "Irvine, CA, 92618"
+                m = re.match(r"^\s*([A-Za-z .'-]+),\s*([A-Z]{2})", addr)
+                if m:
+                    report["patch"]["city"] = m.group(1).strip()[:80]
+                    report["sources"]["city"] = "website"
+                    if not biz.get("state_code"):
+                        report["patch"]["state_code"] = f"US-{m.group(2)}"
+                        report["sources"]["state_code"] = "website"
+            if looks_like_street(addr):
+                if not biz.get("state_code") and parts.get("state_code"):
+                    report["patch"]["state_code"] = parts["state_code"]
+                    report["sources"]["state_code"] = "website"
+                if not biz.get("region") and parts.get("region"):
+                    report["patch"]["region"] = parts["region"]
+                    report["sources"]["region"] = "website"
+
+        # Hours
+        if not biz.get("opening_hours"):
+            weekly = parse_hours_spec_blob(profile.get("hours")) or parse_hours_to_weekly(
+                profile.get("hours")
+            )
+            if weekly:
+                report["patch"]["opening_hours"] = weekly
+                report["sources"]["opening_hours"] = "website"
+
+        # Aggregate rating from JSON-LD sometimes in description path — skip if not available
+
+        # Services / prices
+        collected: list[dict[str, Any]] = []
+        for page in discover_service_pages(website):
+            html = http_get(page)
+            if not html:
+                continue
+            found = extract_services_from_html(html)
+            for o in found:
+                key = o["title"].lower()
+                if any(x["title"].lower() == key for x in collected):
+                    continue
+                collected.append(o)
+            if len(collected) >= 20:
+                break
+            time.sleep(0.15)
+        report["offers"] = collected
+        if collected:
+            report["sources"]["offers"] = f"website:{len(collected)}"
+
+    # Instagram enrich description/avatar if still empty
+    ig = report["patch"].get("instagram_url") or biz.get("instagram_url")
+    if ig and (
+        not (biz.get("description") or "").strip()
+        or len(biz.get("description") or "") < 120
+    ) and "description" not in report["patch"]:
+        igp = extract_instagram_profile(ig)
+        if igp.get("status") == "ok" and igp.get("description"):
+            report["patch"]["description"] = str(igp["description"])[:4000]
+            report["sources"]["description"] = "instagram"
+
+    # Geocode
+    street = report["patch"].get("address_line") or biz.get("address_line")
+    city = report["patch"].get("city") or biz.get("city")
+    if street and looks_like_street(street) and (
+        biz.get("latitude") is None or not biz.get("google_maps_url")
+    ):
+        street_q = clean_street_typos(str(street))
+        query = ", ".join(
+            p
+            for p in [street_q, city, "CA", "USA"]
+            if p and str(p).lower() not in {"orange county", "oc"}
+        )
+        hit = geocode(query)
+        time.sleep(1.1)  # Nominatim courtesy
+        if not hit and "Parkway" in street_q:
+            hit = geocode(query.replace("Parkway", "Pkwy"))
+            time.sleep(1.0)
+        if hit:
+            lat, lng = hit
+            if biz.get("latitude") is None:
+                report["patch"]["latitude"] = lat
+                report["patch"]["longitude"] = lng
+                report["patch"]["location_precision"] = "street"
+                report["sources"]["geo"] = "nominatim"
+            if not biz.get("google_maps_url"):
+                report["patch"]["google_maps_url"] = (
+                    "https://www.google.com/maps/search/?api=1&query="
+                    + urllib.parse.quote(f"{street_q}, {city or ''}, CA")
+                )
+                report["sources"]["google_maps_url"] = "address_query"
+            # fix typo in stored address if we normalized
+            if report["patch"].get("address_line") and street_q != street:
+                report["patch"]["address_line"] = street_q.split(",")[0].strip()[:160]
+
+    # Yelp
+    if not biz.get("yelp_url"):
+        yelp = search_yelp(str(biz.get("name") or ""), city if isinstance(city, str) else None)
+        time.sleep(0.4)
+        if yelp:
+            report["patch"]["yelp_url"] = yelp
+            report["sources"]["yelp_url"] = "yelp_search"
+
+    return report
+
+
+def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None) -> list[dict[str, Any]]:
+    if slug:
+        rows = (
+            client._request(
+                "GET",
+                "/businesses",
+                params={
+                    "select": (
+                        "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
+                        "address_line,description,short_description,google_maps_url,google_rating,"
+                        "google_reviews_count,yelp_url,latitude,longitude,opening_hours,image_url,status"
+                    ),
+                    "slug": f"eq.{slug}",
+                    "limit": "1",
+                },
+            )
+            or []
+        )
+        return rows
+
+    rows: list[dict[str, Any]] = []
+    offset = 0
+    while True:
+        batch = (
+            client._request(
+                "GET",
+                "/businesses",
+                params={
+                    "select": (
+                        "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
+                        "address_line,description,short_description,google_maps_url,google_rating,"
+                        "google_reviews_count,yelp_url,latitude,longitude,opening_hours,image_url,status"
+                    ),
+                    "status": "eq.approved",
+                    "website": "not.is.null",
+                    "order": "updated_at.asc",
+                    "offset": str(offset),
+                    "limit": "100",
+                },
+            )
+            or []
+        )
+        if not batch:
+            break
+        rows.extend(batch)
+        offset += len(batch)
+        if len(batch) < 100:
+            break
+
+    # Prefer thin + non-junk
+    def gap_count(b: dict[str, Any]) -> int:
+        g = 0
+        if len((b.get("description") or "").strip()) < 180:
+            g += 1
+        if not b.get("yelp_url"):
+            g += 1
+        if b.get("latitude") is None and not b.get("google_maps_url"):
+            g += 1
+        if not b.get("opening_hours"):
+            g += 1
+        if not b.get("address_line"):
+            g += 1
+        if not b.get("phone"):
+            g += 1
+        return g
+
+    rows = [b for b in rows if not is_junk_website(b.get("website")) and b.get("slug") != "beauty-studio-by-veronika"]
+    rows.sort(key=lambda b: -gap_count(b))
+    if limit is not None:
+        rows = rows[:limit]
+    return rows
+
+
+def apply_report(client: SupabaseRest, report: dict[str, Any]) -> dict[str, Any]:
+    out: dict[str, Any] = {"business_ok": False, "offers_ok": 0, "errors": []}
+    patch = report.get("patch") or {}
+    if patch:
+        try:
+            client._request(
+                "PATCH",
+                "/businesses",
+                params={"id": f"eq.{report['id']}"},
+                body=patch,
+                prefer="return=minimal",
+            )
+            out["business_ok"] = True
+        except Exception as exc:
+            out["errors"].append(str(exc)[:300])
+    else:
+        out["business_ok"] = True
+
+    # existing offers count — only add if zero active offers
+    existing = (
+        client._request(
+            "GET",
+            "/business_offers",
+            params={
+                "select": "id",
+                "business_id": f"eq.{report['id']}",
+                "status": "eq.active",
+                "limit": "1",
+            },
+        )
+        or []
+    )
+    if existing:
+        out["offers_skipped"] = "already_has_offers"
+        return out
+
+    for off in report.get("offers") or []:
+        slug = slugify(off["title"])
+        # unique slug
+        for n in range(0, 8):
+            candidate = slug if n == 0 else f"{slug}-{n}"
+            clash = (
+                client._request(
+                    "GET",
+                    "/business_offers",
+                    params={
+                        "select": "id",
+                        "business_id": f"eq.{report['id']}",
+                        "slug": f"eq.{candidate}",
+                        "limit": "1",
+                    },
+                )
+                or []
+            )
+            if not clash:
+                slug = candidate
+                break
+        body = {
+            "business_id": report["id"],
+            "offer_type": off.get("offer_type") or "service",
+            "title": off["title"],
+            "slug": slug,
+            "short_description": off.get("short_description"),
+            "status": "active",
+            "visibility": "public",
+            "price_mode": off.get("price_mode") or "contact",
+            "price_amount": off.get("price_amount"),
+            "price_min": off.get("price_min"),
+            "price_max": off.get("price_max"),
+            "currency": "USD",
+            "attributes": {},
+            "is_available": True,
+            "published_at": "now()",
+        }
+        # published_at now() via omit — trigger sets on active
+        body.pop("published_at", None)
+        try:
+            client._request("POST", "/business_offers", body=body, prefer="return=minimal")
+            out["offers_ok"] += 1
+        except Exception as exc:
+            out["errors"].append(f"offer {off['title'][:40]}: {str(exc)[:200]}")
+    return out
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Enrich published businesses Veronica-style")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--limit", type=int, default=5)
+    parser.add_argument("--slug", type=str, default=None)
+    args = parser.parse_args()
+    if not args.dry_run and not args.apply:
+        print("Specify --dry-run or --apply", file=sys.stderr)
+        return 2
+
+    load_env()
+    client = SupabaseRest(
+        os.environ["NEXT_PUBLIC_SUPABASE_URL"],
+        os.environ["SUPABASE_SERVICE_ROLE_KEY"],
+    )
+    targets = fetch_targets(client, limit=None if args.slug else args.limit, slug=args.slug)
+    print(json.dumps({"targets": len(targets), "mode": "dry_run" if args.dry_run else "apply"}, ensure_ascii=False))
+
+    reports: list[dict[str, Any]] = []
+    for biz in targets:
+        print(f"… {biz.get('name')} ({biz.get('website')})", flush=True)
+        rep = enrich_one(biz)
+        if args.apply and not rep.get("skipped"):
+            rep["apply_result"] = apply_report(client, rep)
+        reports.append(rep)
+        time.sleep(0.2)
+
+    out_path = ROOT / "scripts" / "business-enrich" / "data" / "enrich_published_report.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    summary = {
+        "mode": "dry_run" if args.dry_run else "apply",
+        "count": len(reports),
+        "skipped": sum(1 for r in reports if r.get("skipped")),
+        "with_patch": sum(1 for r in reports if r.get("patch")),
+        "with_offers": sum(1 for r in reports if r.get("offers")),
+        "reports": reports,
+    }
+    out_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(json.dumps({k: summary[k] for k in ("mode", "count", "skipped", "with_patch", "with_offers")}, ensure_ascii=False, indent=2))
+    print(f"Wrote {out_path}")
+    # sample
+    for r in reports[:5]:
+        print(
+            "-",
+            r.get("name"),
+            "skip="+str(r.get("skipped")),
+            "fields="+",".join((r.get("sources") or {}).keys()),
+            "offers="+str(len(r.get("offers") or [])),
+        )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

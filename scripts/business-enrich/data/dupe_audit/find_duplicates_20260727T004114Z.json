@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-07-27T00:41:14.091186+00:00",
+  "scanned": 307,
+  "phone_groups": [],
+  "street_groups": [
+    {
+      "key": "23221 s pointe dr|laguna hills",
+      "members": [
+        {
+          "id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+          "slug": "mama-bear-kids-club",
+          "name": "Mama Bear Kids Club",
+          "status": "approved",
+          "phone": "+17028869393",
+          "address_line": "23221 S Pointe dr, suite 103, Laguna Hills",
+          "city": "Laguna Hills",
+          "website": null,
+          "instagram_url": "https://instagram.com/mama_bear_oc"
+        },
+        {
+          "id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+          "slug": "bearchildrensacademyorg-031831",
+          "name": "B.E.A.R. Children's Academy",
+          "status": "approved",
+          "phone": "+19495729467",
+          "address_line": "23221 S Pointe Dr #103",
+          "city": "Laguna Hills",
+          "website": "https://www.bearchildrensacademy.org",
+          "instagram_url": null
+        }
+      ]
+    },
+    {
+      "key": "5352 auburn blvd sacramento|sacramento",
+      "members": [
+        {
+          "id": "192e6754-9c91-4456-abec-9ff06a867181",
+          "slug": "business-biz-205109-6cf5",
+          "name": "Диана Губарева",
+          "status": "approved",
+          "phone": null,
+          "address_line": "5352 Auburn Blvd, Sacramento",
+          "city": "Sacramento",
+          "website": null,
+          "instagram_url": "https://instagram.com/dianagubareva"
+        },
+        {
+          "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+          "slug": "artistry-summer-camp",
+          "name": "Artistry Summer Camp",
+          "status": "approved",
+          "phone": "+19163071847",
+          "address_line": "5352 Auburn Blvd, Sacramento",
+          "city": "Sacramento",
+          "website": null,
+          "instagram_url": null
+        }
+      ]
+    }
+  ],
+  "website_groups": [],
+  "instagram_groups": [],
+  "high_confidence": []
+}

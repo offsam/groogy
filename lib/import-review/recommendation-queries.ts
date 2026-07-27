@@ -1,0 +1,175 @@
+import "server-only";
+
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/types/database";
+
+type Client = SupabaseClient<Database>;
+
+export type RecommendationTargetBucket =
+  | "professional"
+  | "business"
+  | "service"
+  | "other"
+  | "unclassified"
+  | "yellow_pages";
+
+export type CommentRecommendation = {
+  id: string;
+  cluster_key: string;
+  kind: "profi" | "event" | string;
+  display_name: string | null;
+  phones: string[];
+  instagram: string[];
+  websites: string[];
+  mention_count: number;
+  third_party_mention_count: number;
+  self_ad_mention_count: number;
+  comment_texts: string[];
+  request_snippets: string[];
+  source_post_urls: string[];
+  source_groups: string[];
+  category_guess: string | null;
+  recommender_names: string[];
+  last_posted_at: string | null;
+  event_at: string | null;
+  city: string | null;
+  cover_image_url: string | null;
+  target_bucket: RecommendationTargetBucket | string;
+  directory_source: string | null;
+  source_channel: string;
+  status: string;
+  notes: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+/** Table not yet in generated Database types — use untyped from() for admin. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function recommendationsTable(client: Client): any {
+  return (client as SupabaseClient<any>).from("import_comment_recommendations");
+}
+
+export async function listCommentRecommendations(
+  client: Client,
+  opts: {
+    status?: string;
+    page?: number;
+    pageSize?: number;
+    kind?: "profi" | "event" | "all";
+    bucket?: RecommendationTargetBucket | "all";
+    excludeBuckets?: RecommendationTargetBucket[];
+    directorySource?: string;
+  } = {},
+): Promise<{ items: CommentRecommendation[]; total: number }> {
+  const page = Math.max(1, opts.page ?? 1);
+  const pageSize = Math.min(500, Math.max(1, opts.pageSize ?? 50));
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  let query = recommendationsTable(client)
+    .select("*", { count: "exact" })
+    .order("mention_count", { ascending: false })
+    .order("updated_at", { ascending: false })
+    .range(from, to);
+
+  if (opts.status && opts.status !== "all") {
+    query = query.eq("status", opts.status);
+  }
+  if (opts.kind && opts.kind !== "all") {
+    query = query.eq("kind", opts.kind);
+  }
+  if (opts.bucket && opts.bucket !== "all") {
+    query = query.eq("target_bucket", opts.bucket);
+  } else if (opts.excludeBuckets?.length) {
+    for (const b of opts.excludeBuckets) {
+      query = query.neq("target_bucket", b);
+    }
+  }
+  if (opts.directorySource) {
+    query = query.eq("directory_source", opts.directorySource);
+  }
+
+  const { data, error, count } = await query;
+  if (error) throw error;
+  return {
+    items: ((data ?? []) as CommentRecommendation[]).map((row) => ({
+      ...row,
+      target_bucket: row.target_bucket || "unclassified",
+      directory_source: row.directory_source ?? null,
+      third_party_mention_count: Number(row.third_party_mention_count ?? 0),
+      self_ad_mention_count: Number(row.self_ad_mention_count ?? 0),
+      mention_count: Number(row.mention_count ?? 1),
+    })),
+    total: count ?? 0,
+  };
+}
+
+export async function countYellowPagesByDirectorySource(
+  client: Client,
+  opts: { status?: string } = {},
+): Promise<Record<string, number>> {
+  let query = recommendationsTable(client)
+    .select("directory_source")
+    .eq("target_bucket", "yellow_pages");
+  if (opts.status && opts.status !== "all") {
+    query = query.eq("status", opts.status);
+  }
+  const { data, error } = await query;
+  if (error) throw error;
+  const counts: Record<string, number> = {};
+  for (const row of (data ?? []) as { directory_source?: string | null }[]) {
+    const key = row.directory_source?.trim() || "unknown";
+    counts[key] = (counts[key] ?? 0) + 1;
+  }
+  return counts;
+}
+
+export async function countCommentRecommendationsByBucket(
+  client: Client,
+  opts: {
+    status?: string;
+    kind?: "profi" | "event" | "all";
+    excludeBuckets?: RecommendationTargetBucket[];
+  } = {},
+): Promise<Record<string, number>> {
+  let query = recommendationsTable(client).select("target_bucket");
+  if (opts.status && opts.status !== "all") {
+    query = query.eq("status", opts.status);
+  }
+  if (opts.kind && opts.kind !== "all") {
+    query = query.eq("kind", opts.kind);
+  }
+  if (opts.excludeBuckets?.length) {
+    for (const b of opts.excludeBuckets) {
+      query = query.neq("target_bucket", b);
+    }
+  }
+  const { data, error } = await query;
+  if (error) throw error;
+  const counts: Record<string, number> = {
+    all: 0,
+    professional: 0,
+    business: 0,
+    service: 0,
+    other: 0,
+    unclassified: 0,
+  };
+  const excluded = new Set(opts.excludeBuckets ?? []);
+  for (const row of (data ?? []) as { target_bucket?: string }[]) {
+    const b = row.target_bucket || "unclassified";
+    if (excluded.has(b as RecommendationTargetBucket)) continue;
+    counts.all += 1;
+    counts[b] = (counts[b] ?? 0) + 1;
+  }
+  return counts;
+}
+
+export async function countCommentRecommendations(
+  client: Client,
+): Promise<number> {
+  const { count, error } = await recommendationsTable(client)
+    .select("id", { count: "exact", head: true })
+    .eq("status", "pending");
+  if (error) throw error;
+  return count ?? 0;
+}

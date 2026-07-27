@@ -15,6 +15,7 @@ if str(IMPORT_REVIEW) not in sys.path:
     sys.path.insert(0, str(IMPORT_REVIEW))
 
 from common import as_list, first_price  # noqa: E402
+from facebook_decision_policy import choose_facebook_title  # noqa: E402
 
 ENTITY_TYPES = {
     "business",
@@ -53,12 +54,7 @@ def map_facebook_post(
         target = None
 
     price, currency = first_price(entity, marketplace)
-    title = (
-        marketplace.get("title")
-        or entity.get("business_name")
-        or entity.get("person_name")
-        or post.get("sender_name")
-    )
+    title = choose_facebook_title(post)
     description = entity.get("description") or post.get("merged_text") or post.get("text")
     photos_count = int(post.get("media_count") or marketplace.get("photos_count") or 0)
     posted_at = (
@@ -96,6 +92,11 @@ def map_facebook_post(
         "extracted_entity": entity,
         "adapter_name": post.get("adapter_name"),
         "duplicate_status": post.get("duplicate_status"),
+        "facebook_policy_applied": bool(post.get("facebook_policy_applied")),
+        "facebook_policy_lifted": bool(post.get("facebook_policy_lifted")),
+        "analyzer_fallback": bool(post.get("analyzer_fallback")),
+        "analyzer": post.get("analyzer"),
+        "enrichments": post.get("enrichments") or [],
         # Media CDN URLs are ephemeral — never treat as permanent card photos.
         "media_note": "facebook_cdn_urls_ephemeral_do_not_publish",
     }

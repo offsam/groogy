@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-07-27T00:02:18.808515+00:00",
+  "mode": "dry-run",
+  "min_confidence": "low",
+  "scanned": {
+    "businesses": 203,
+    "professionals": 747
+  },
+  "issues": 2,
+  "actionable": 0,
+  "applied": 0,
+  "by_reason": {
+    "weak_name_no_suggestion": 2
+  },
+  "by_confidence": {
+    "low": 2
+  },
+  "actionable_sample": [],
+  "no_suggestion": [
+    {
+      "entity_type": "business",
+      "id": "028ee1ac-12bb-4ca1-aff3-db22bc1bc232",
+      "slug": "biz-a7fdfd765b",
+      "from": "Контакты",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": ""
+    },
+    {
+      "entity_type": "professional",
+      "id": "bb0cda9b-8d4b-4bd7-8a67-d8c40366e40f",
+      "slug": "beauty-salon-181011",
+      "from": "Новый beauty salon",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резидентов — скидка $100 на первый месяц аренды. Парикмахерское к"
+    }
+  ]
+}

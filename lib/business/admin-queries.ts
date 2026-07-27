@@ -1,13 +1,13 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Business } from "@/types/business";
 import type { BusinessWithCategory } from "@/types/database";
-import { mapBusiness } from "@/lib/supabase/mappers";
+import { mapBusinessDetail } from "@/lib/supabase/mappers";
 
 export type AdminBusinessRow = {
   id: string;
   slug: string;
   name: string;
-  status: "draft" | "pending" | "approved" | "rejected" | "archived";
+  status: "draft" | "pending" | "approved" | "rejected" | "archived" | "deferred";
   phone: string | null;
   website: string | null;
   city: string | null;
@@ -20,6 +20,9 @@ export type AdminBusinessRow = {
   email: string | null;
   instagram_url: string | null;
   yelp_url: string | null;
+  yelp_rating: number | null;
+  yelp_reviews_count: number | null;
+  instagram_followers_count: number | null;
   google_maps_url: string | null;
   google_rating: number | null;
   google_reviews_count: number | null;
@@ -68,6 +71,9 @@ const ADMIN_BUSINESS_SELECT = `
   website,
   instagram_url,
   yelp_url,
+  yelp_rating,
+  yelp_reviews_count,
+  instagram_followers_count,
   google_maps_url,
   google_rating,
   google_reviews_count,
@@ -90,7 +96,7 @@ const ADMIN_BUSINESS_SELECT = `
 
 /** Map admin list row → public Business shape for card preview. */
 export function adminBusinessToPreview(row: AdminBusinessRow): Business {
-  return mapBusiness({
+  return mapBusinessDetail({
     id: row.id,
     slug: row.slug,
     category_id: row.category_id,
@@ -108,6 +114,9 @@ export function adminBusinessToPreview(row: AdminBusinessRow): Business {
     website: row.website,
     instagram_url: row.instagram_url,
     yelp_url: row.yelp_url,
+    yelp_rating: row.yelp_rating ?? null,
+    yelp_reviews_count: row.yelp_reviews_count ?? 0,
+    instagram_followers_count: row.instagram_followers_count ?? null,
     google_maps_url: row.google_maps_url,
     google_rating: row.google_rating,
     google_reviews_count: row.google_reviews_count ?? 0,

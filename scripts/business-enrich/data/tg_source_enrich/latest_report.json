@@ -1,0 +1,1074 @@
+{
+  "mode": "apply",
+  "limit": 60,
+  "offset": 90,
+  "candidates": 48,
+  "results": [
+    {
+      "id": "62d8d561-5a41-481b-a5ec-41cb4d145a46",
+      "slug": "58523-yanaya-205530-1a13",
+      "name": "58523 Yanaya",
+      "source_url": "https://t.me/c/1333533747/69850",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 547,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "2ea86edf-a8b5-47ae-a2c1-e86b9571c1f5",
+      "slug": "business-biz-205545-f164",
+      "name": "Любов",
+      "source_url": "https://t.me/c/1955320601/263857",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 460,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "7a1f7307-af1d-402a-96b1-bd6a0faec838",
+      "slug": "aike-205508-990c",
+      "name": "aike",
+      "source_url": "https://t.me/c/1955320601/262968",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 120,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "fc7a7865-6aa3-45b2-9c7f-53ad1f5c6430",
+      "slug": "aiza-m-205644-4aee",
+      "name": "Aiza M",
+      "source_url": "https://t.me/c/1955320601/256157",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 203,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "7e2588c7-ec59-4e24-80c0-d9033e8070e3",
+      "slug": "yulia-205819-c741",
+      "name": "Yulia",
+      "source_url": "https://t.me/c/1333533747/71110",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 233,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "6c175841-55eb-4b10-912e-1c59749540ef",
+      "slug": "info-205758-0fab",
+      "name": "Базы, Услуги И Решения Для Вашего Проекта! Info По Ссылке",
+      "source_url": "https://t.me/c/1955320601/266534",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 225,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "8593bb13-aa33-4ff1-9aa2-983437b9e241",
+      "slug": "inna-starominska-205426-50ec",
+      "name": "Inna ☘️ Starominska",
+      "source_url": "https://t.me/c/1955320601/257514",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 355,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "f7d04941-1276-456f-80c3-a86f2044e679",
+      "slug": "business-biz-205431-6370",
+      "name": "Анна Готочкина",
+      "source_url": "https://t.me/c/1955320601/277694",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 168,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+      "slug": "office-205354-a216",
+      "name": "Office",
+      "source_url": "https://t.me/c/1955320601/257134",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/navatfoodtruck",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Restaurant: 10am-4am daily. Food trucks operate from 11am, with closing times varying between 12am, 2am, and 4am daily.",
+        "business_name": "Navat Halal",
+        "address": "7300 Sunset Blvd, Los Angeles, CA 90046 (and multiple food truck locations across Los Angeles)"
+      },
+      "patch": {},
+      "caption_len": 632,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "bbeda8a0-36c1-4acc-9319-cdd7c6420265",
+      "slug": "olya-music-teacher-205418-dae7",
+      "name": "Olya Music teacher",
+      "source_url": "https://t.me/c/1333533747/71188",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 495,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "c036ad34-a75f-404c-a0ea-55138479fa56",
+      "slug": "oktel-205740-27a3",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "source_url": "https://t.me/c/1955320601/250250",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+      },
+      "caption_len": 66,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "c6ffaa0c-4ddc-43ff-b839-447da7169ef2",
+      "slug": "ivan-gant-205422-e414",
+      "name": "Ivan Gant",
+      "source_url": "https://t.me/c/1955320601/261792",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "DJ Ivan Gant",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 547,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "source_url": "https://t.me/c/1333533747/71491",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": "https://t.me/+5-vzmn-w8BJjNTVh",
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 99,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "dd044ebe-3a15-4994-80f3-ab268f511af9",
+      "slug": "reel-205255-a92c",
+      "name": "reel",
+      "source_url": "https://t.me/c/1333533747/75389",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/reel",
+        "website": "https://studio.dreem-world.ai/r/Q8890E",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 387,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "fbe0d02e-fd22-4045-834e-2fa8c89208a7",
+      "slug": "oktel-181534-5dfb",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "source_url": "https://t.me/c/1955320601/249932",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+      },
+      "caption_len": 66,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "c0e9147e-4ca5-4d72-b3a6-73a5069290b5",
+      "slug": "business-biz-205649-52ce",
+      "name": "Милена",
+      "source_url": "https://t.me/c/1333533747/75255",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "Newport Park"
+      },
+      "patch": {},
+      "caption_len": 185,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "c7027541-9459-421d-a6da-a5f1c7cd44c2",
+      "slug": "partyfornia-205155-0641",
+      "name": "partyfornia",
+      "source_url": "https://t.me/c/1333533747/74251",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/partyfornia",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Наталья и ее команда прекрасные аниматоры ))"
+      },
+      "caption_len": 105,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "5c2bdc3c-3e64-4247-8bf3-adf7d0c33044",
+      "slug": "middle-school-205148-9418",
+      "name": "middle school",
+      "source_url": "https://t.me/c/1333533747/76067",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/capytaytay",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "может помочь, занимается с elementary и middle school students"
+      },
+      "caption_len": 74,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "1a884ba2-c2fb-4607-b94b-d4fa1d5e6cdb",
+      "slug": "animalclinicusa-190803",
+      "name": "Animal Clinic USA",
+      "source_url": "https://t.me/c/1333533747/71658",
+      "extracted": {
+        "phone": "+17472174006",
+        "email": null,
+        "instagram_url": "https://www.instagram.com/animal.clinic.usa",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 915,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "slug": "bearchildrensacademyorg-031831",
+      "name": "B.E.A.R. Children's Academy",
+      "source_url": "https://t.me/c/1333533747/72362",
+      "ocr_model": null,
+      "extracted": {
+        "phone": "+19495729467",
+        "email": "info@bearchildrensacademy.org",
+        "instagram_url": null,
+        "website": "https://www.bearchildrensacademy.org",
+        "telegram_username": null,
+        "hours_text": "Fall enrollment is now open",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 496,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "dddce89c-d625-4e25-b81a-4eaa1cb024b3",
+      "slug": "fbpack-sunrise-education-center",
+      "name": "Sunrise Education Center",
+      "source_url": "https://t.me/c/1333533747/71460",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13109167095",
+        "email": null,
+        "instagram_url": null,
+        "website": "http://suncenter.aqulas.me",
+        "telegram_username": null,
+        "hours_text": "March 30 - April 3 and April 6 - April 10, 9:00 AM - 3:00 PM",
+        "business_name": "Sunrise Center",
+        "address": "['26941 Cabot rd, #104, Laguna Hills, CA, 92653', '2101 Business Center dr, #290, Irvine, CA, 92612']"
+      },
+      "patch": {},
+      "caption_len": 1017,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "535ad738-419f-4298-bbf4-d844baf7f69e",
+      "slug": "айзада-032108",
+      "name": "Айзада — шугаринг",
+      "source_url": "https://t.me/c/1333533747/72364",
+      "extracted": {
+        "phone": "+12242235541",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 626,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "slug": "business-5622520607-190801",
+      "name": "Unity Adult Day Health Care",
+      "source_url": "https://t.me/c/1333533747/73413",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+15622520607",
+        "email": "unityadhc@gmail.com",
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Понедельник – Пятница: 9:00 – 14:00; Суббота: 10:00 – 17:00",
+        "business_name": "Unity Day Health Care",
+        "address": "3833 Atlantic Ave, Long Beach, CA 90807"
+      },
+      "patch": {},
+      "caption_len": 956,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "3bd86e66-95d3-4bd2-9d24-c5a0cb221f32",
+      "slug": "diamond-tint-studio-172158",
+      "name": "Diamond Tint Studio",
+      "source_url": "https://t.me/c/1955320601/254249",
+      "extracted": {
+        "phone": "+17473070176",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 607,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "cfaa89e2-9340-4134-b77d-0647883f0daa",
+      "slug": "antonina-150605",
+      "name": "Daria Center (летний лагерь)",
+      "source_url": "https://t.me/c/1955320601/273114",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19803391613",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "9:00 AM to 3:00 PM",
+        "business_name": "Daria Center",
+        "address": "23 Spectrum Pointe Dr, Room 203, Lake Forest, CA"
+      },
+      "patch": {},
+      "caption_len": 464,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "852c6eb5-88fc-49f0-b9e0-41deb29ee338",
+      "slug": "ma-150705",
+      "name": "Orange County Acting Academy",
+      "source_url": "https://t.me/c/1333533747/74631",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19492787070",
+        "email": "info@ocacting.com",
+        "instagram_url": "https://www.instagram.com/ocacting",
+        "website": "https://ocacting.com/acting-classes/acting-classes-for-kids/",
+        "telegram_username": null,
+        "hours_text": "Mon-Fri 9am-5pm",
+        "business_name": "OC Acting Academy",
+        "address": "24360 Swartz Dr, Lake Forest, CA 92630"
+      },
+      "patch": {},
+      "caption_len": 60,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "6bd41d68-1c9a-4bcf-ae14-a2bad144870f",
+      "slug": "lana-cher-181512-6cf0",
+      "name": "Home Kids Academy",
+      "source_url": "https://t.me/c/1333533747/75776",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13107179848",
+        "email": null,
+        "instagram_url": "https://www.instagram.com/homekidsacademy",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "8:00-5:45",
+        "business_name": "Home Kids Academy",
+        "address": "56 Essex Ln, Irvine, CA 92620"
+      },
+      "patch": {},
+      "caption_len": 431,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "slug": "fbpack-art-backyard-design-camp",
+      "name": "Art Backyard",
+      "source_url": "https://t.me/c/1333533747/72751",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/Oly_cake",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "17 May at 5 PM",
+        "business_name": "Art Backyard",
+        "address": "13031 Newport Ave #202, Tustin, CA 92780, United States"
+      },
+      "patch": {},
+      "caption_len": 0,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "0d560364-8b6d-4e78-a40d-7881c1b96645",
+      "slug": "alena-petrova-172203",
+      "name": "Alena Petrova Hair",
+      "source_url": "https://t.me/c/1955320601/250688",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+12134422022",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Hollywood House of Beauty",
+        "address": "7551 Santa Monica Blvd West Hollywood"
+      },
+      "patch": {},
+      "caption_len": 817,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "ab4e00ca-ef8b-442b-8a5e-33fef62e105f",
+      "slug": "inna-172218",
+      "name": "Бесплатная офисная комната (Encino)",
+      "source_url": "https://t.me/c/1955320601/250258",
+      "extracted": {
+        "phone": "+18186353501",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Условие в обмен : быть в офисе пн–пт, с 9:00 до 17:00 и заниматься своими делами.",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "opening_hours": {
+          "timezone": "America/Los_Angeles",
+          "weekly": [
+            {
+              "day": 0,
+              "closed": true,
+              "open": null,
+              "close": null
+            },
+            {
+              "day": 1,
+              "closed": false,
+              "open": "09:00",
+              "close": "17:00"
+            },
+            {
+              "day": 2,
+              "closed": false,
+              "open": "09:00",
+              "close": "17:00"
+            },
+            {
+              "day": 3,
+              "closed": false,
+              "open": "09:00",
+              "close": "17:00"
+            },
+            {
+              "day": 4,
+              "closed": false,
+              "open": "09:00",
+              "close": "17:00"
+            },
+            {
+              "day": 5,
+              "closed": false,
+              "open": "09:00",
+              "close": "17:00"
+            },
+            {
+              "day": 6,
+              "closed": true,
+              "open": null,
+              "close": null
+            }
+          ]
+        }
+      },
+      "caption_len": 462,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "9c2c1ba8-c377-4da6-9000-ec5a60d21830",
+      "slug": "business-6197312653-172156",
+      "name": "Ремонт моторов (Valley Blvd)",
+      "source_url": "https://t.me/c/1955320601/252288",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+16197312653",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "РЕМОНТ МОТОРОВ",
+        "address": "5106 Valley Blvd, Los Angeles, CA"
+      },
+      "patch": {},
+      "caption_len": 208,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "af5ae4e9-91ad-4fd2-bd59-8f1476aa147c",
+      "slug": "st-172208",
+      "name": "Auto Body & Repair (Long Beach)",
+      "source_url": "https://t.me/c/1955320601/267231",
+      "extracted": {
+        "phone": "+14243555775",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 124,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "f7907794-0a7a-4534-b88f-f5dd989834b0",
+      "slug": "aibek-172151",
+      "name": "Маке плов (Aibek)",
+      "source_url": "https://t.me/c/1955320601/264626",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13239097447",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Make Pilaf",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 0,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "da0f7705-8345-4121-8c3a-d79345f0364a",
+      "slug": "zsaesthetics-190931",
+      "name": "ZMD Aesthetics",
+      "source_url": "https://t.me/c/1333533747/75284",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://zmdaesthetics.com/",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "ZMD AESTHETICS",
+        "address": null
+      },
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/da0f7705-8345-4121-8c3a-d79345f0364a/cover-tg-75284.jpg"
+      },
+      "caption_len": 26,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "slug": "телефон-032106",
+      "name": "AVELORÉA Fine Jewelry",
+      "source_url": "https://t.me/c/1333533747/70464",
+      "extracted": {
+        "phone": "+17149170440",
+        "email": "olena@accesscal.org",
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "email": "olena@accesscal.org"
+      },
+      "caption_len": 283,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "slug": "tатьяна-032105",
+      "name": "Ultima Studio",
+      "source_url": "https://t.me/c/1333533747/69353",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+17147039906",
+        "email": null,
+        "instagram_url": null,
+        "website": "https://maps.app.goo.gl/6GrKPixbSZkaTWfj9?g_st=ic",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Grand Auto Group",
+        "address": "1409 N Batavia St, Orange, CA 92867"
+      },
+      "patch": {},
+      "caption_len": 82,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "84199fd9-4e20-4d26-ac47-90dc1a90e078",
+      "slug": "irin-pilates-031833",
+      "name": "Upgrade Pilates & Bodytherapy",
+      "source_url": "https://t.me/c/1333533747/75606",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19494247730",
+        "email": null,
+        "instagram_url": null,
+        "website": "https://maps.app.goo.gl/wW6i8jZdXtUTVgUNA?g_st=ic",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Upgrade Pilates and Bodytherapy",
+        "address": "Laguna Hills, CA"
+      },
+      "patch": {},
+      "caption_len": 640,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "bb4aa994-c104-472a-9461-395463024a97",
+      "slug": "santa-172215",
+      "name": "Collision Repair LA (Santa)",
+      "source_url": "https://t.me/c/1955320601/252161",
+      "extracted": {
+        "phone": "+14243939408",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 268,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "slug": "micarebeauty-190930",
+      "name": "Mi Care Beauty",
+      "source_url": "https://t.me/c/1333533747/75634",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://maps.app.goo.gl/g7ywpBc5VebK2ZyE6?g_st=ic",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 726,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "slug": "oksana-150709",
+      "name": "STAIR Academy",
+      "source_url": "https://t.me/c/1333533747/70527",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://www.stairedu.com/service-page/robotics-ai-3d-printing-camp-spring-2026?utm_campaign=556c28eb-3c63-4d00-aa12-bf6856b1f308&utm_source=so&utm_medium=mail",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Stair Academy",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 601,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "slug": "диана-калифорнийская-психолог-сложности-в-отношени-032111",
+      "name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "source_url": "https://t.me/c/1955320601/264548",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13239744498",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Group classes held twice a week in the morning, Tuesdays and Fridays, starting around 9:30-9:40 AM. Schedule can be discussed.",
+        "business_name": "Life in Balance",
+        "address": "Irvine, Tustin Sports Park"
+      },
+      "patch": {
+        "address_line": "Irvine, Tustin Sports Park"
+      },
+      "caption_len": 2102,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "source_url": "https://t.me/c/1333533747/73871",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://www.metrotech.academy",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Metro Tech Academy",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 1097,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "name": "your appointment at EVELINA BEAUTY SALON",
+      "source_url": "https://t.me/c/1955320601/260032",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+14244084040",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "EVELINA BEAUTY SALON",
+        "address": "Glendale"
+      },
+      "patch": {
+        "address_line": "Glendale"
+      },
+      "caption_len": 112,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "slug": "mama-bear-oc-031830",
+      "name": "mama_bear_oc",
+      "source_url": "https://t.me/c/1333533747/71378",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+70288693937028869393",
+        "email": null,
+        "instagram_url": "https://www.instagram.com/mama_bear_oc",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Spring camp runs from March 16 to April 10. Daily options: 9 AM - 5 PM ($90) or 9 AM - 2 PM ($70).",
+        "business_name": "Mama Bear kids club",
+        "address": "23221 S Pointe dr, suite 103, Laguna Hills"
+      },
+      "patch": {},
+      "caption_len": 343,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "slug": "surprise-meballoons-150639",
+      "name": "Surprise Me Balloon Bar",
+      "source_url": "https://t.me/c/1333533747/70686",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/surprise_me.balloons",
+        "website": "https://surprisemeballoonbar.com/",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Surprise Me Balloon Bar",
+        "address": "Orange County, CA"
+      },
+      "patch": {
+        "address_line": "Orange County, CA"
+      },
+      "caption_len": 839,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "d21f9248-7bce-4549-a5d5-2027a035165d",
+      "slug": "llc-172203",
+      "name": "Регистрация LLC",
+      "source_url": "https://t.me/c/1955320601/249958",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+13476098430",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "21100 Spectrum, Irvine, CA"
+      },
+      "patch": {},
+      "caption_len": 347,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "c01f5d37-2b2e-43f3-b667-5757521f6802",
+      "slug": "olga-savitskaya-150607",
+      "name": "Olga Savitskaya",
+      "source_url": "https://t.me/c/1333533747/72520",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19496077054",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Dr. Aleksey Stugarev, DDS",
+        "address": "24331 El Toro Rd, Suite 340 Laguna Woods, CA 92637"
+      },
+      "patch": {},
+      "caption_len": 916,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "d8e02133-7958-44b8-842c-50ccfd9b9e96",
+      "slug": "stairedu-sergey-150606",
+      "name": "StairEdu Sergey",
+      "source_url": "https://t.me/c/1955320601/265408",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": "+19493313008",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "StairEdu",
+        "address": "Mission Viejo"
+      },
+      "patch": {
+        "address_line": "Mission Viejo"
+      },
+      "caption_len": 33,
+      "has_media": true,
+      "status": "updated"
+    }
+  ],
+  "summary": {
+    "updated": 11,
+    "dry_run": 0,
+    "noop": 37,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

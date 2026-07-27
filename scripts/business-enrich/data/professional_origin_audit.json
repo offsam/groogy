@@ -1,0 +1,6343 @@
+{
+  "generated_at": "2026-07-26T23:13:28.792344+00:00",
+  "totals": {
+    "professionals": 486,
+    "updated": 405,
+    "from_cluster": 158,
+    "floored_self_ad": 261,
+    "cleared": 0,
+    "skipped_no_contact": 44,
+    "skipped_no_match": 37,
+    "with_third_party": 51,
+    "with_self_ad": 402,
+    "with_both": 48
+  },
+  "updated": [
+    {
+      "id": "0058dff5-c8ba-4f63-aa41-ea0032859d97",
+      "name": "Амина",
+      "slug": "pro-71a793a03e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Амина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "01175285-2ed0-4780-bce4-dd58107422f2",
+      "name": "Vera Zhezherun",
+      "slug": "vera-zhezherun-204839-82b3",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "01892dd2-4dd1-4362-88bd-bcb78b49057a",
+      "name": "Michael  Sorokin",
+      "slug": "michael-sorokin-205104-3904",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "020a0a43-8710-4d2f-acc6-2e7d56454e26",
+      "name": "Позвоните Татьяне",
+      "slug": "pro-c4e1bc2d00",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Позвоните Татьяне"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "021524c5-7253-4b6e-b656-45ef2e38b1ad",
+      "name": "Valter Eslon",
+      "slug": "valter-eslon-205228-0ffb",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "02f7400b-fed8-450e-8029-9eb564bcbfab",
+      "name": "alexandra_dessert_studio",
+      "slug": "alexandra-dessert-studio-150632",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "alexandra_dessert_studio"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0399dcc8-6f49-4091-9b3d-481c6982d48b",
+      "name": "diana_california",
+      "slug": "diana-california-150634",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "diana_california"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "042f8ee7-6673-45f5-8fce-52945fca7910",
+      "name": "Ange",
+      "slug": "ange-205707-630e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "045fce71-1b9e-40d4-8b3c-da96cc9d34eb",
+      "name": "Andrey Ka",
+      "slug": "andrey-ka-204830-8347",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "04dfe0cf-64bb-487e-a5f3-98edc7528ca6",
+      "name": "Toujours Flower Boutique",
+      "slug": "toujours-flower-boutique-172155",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Toujours Flower Boutique"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "05d932bf-e42d-4adb-a992-bbcd86d487f9",
+      "name": "Alina",
+      "slug": "alina-205601-d7e9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "060b61e3-ff87-440c-b053-1a00d0b273d1",
+      "name": "evgeny_rezko",
+      "slug": "evgeny-rezko-150656",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "evgeny_rezko"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "06176c3c-9cc8-48f3-8d5f-dbe649d40eaf",
+      "name": "Russ Russell",
+      "slug": "russ-russell-205215-bbbb",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "066489b9-c8e5-45e3-a340-ed3594cfb289",
+      "name": "Igor Pchelintsev",
+      "slug": "igor-pchelintsev-172216",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 69,
+      "matched_clusters": [
+        "Igor Pchelintsev"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 69
+    },
+    {
+      "id": "08f3bc3d-fe80-41ce-a3bc-4904913c68dc",
+      "name": "Dmitry Belyaev",
+      "slug": "dmitry-belyaev-204806-7a4e",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "08f953bd-0256-436f-933d-69055d1cbd00",
+      "name": "Александр Кл",
+      "slug": "business-9165592087-204917-92d5",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Александр Кл"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "09e79eee-6bdd-4864-b7c5-6eac5083826d",
+      "name": "Maria (Masha) Tumanyan",
+      "slug": "maria-masha-tumanyan-172155",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 13,
+      "matched_clusters": [
+        "Maria (Masha) Tumanyan"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 13
+    },
+    {
+      "id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+      "name": "Larisa Grib",
+      "slug": "larisa-grib-205459-d906",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Есть комната в районе Palo Alto Larisa"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "0ae2e921-99be-42da-8691-87cb580b36df",
+      "name": "The Village Spectrum",
+      "slug": "the-village-spectrum-150616",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0b48174e-d476-4ba2-b7c6-adf9e28bc4d7",
+      "name": "Bekbolat",
+      "slug": "bekbolat-181530-3fa0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0b852aad-2006-4dd5-9fb6-a355ae898066",
+      "name": "Виктория Волоскова",
+      "slug": "business-4084605611-204936-5f25",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0d016684-5f9d-4d00-81ce-4639f2e5ef60",
+      "name": "Serena",
+      "slug": "serena-205617-1553",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0d1a18a3-4b72-4aae-a063-ec87d5a2cb74",
+      "name": "Гора Ведьма",
+      "slug": "business-biz-205413-094d",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0e68617a-0620-4b6d-b679-88c2da4c9431",
+      "name": "Maria Komissarova",
+      "slug": "maria-komissarova-204850-2eaf",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0ef252b6-c64d-4d1a-ae70-3d2c9547fdd0",
+      "name": "Rafik Barseghyan",
+      "slug": "rafik-barseghyan-205218-d3d6",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0f6456d2-eaaa-40ba-8381-808b58427e16",
+      "name": "Алла",
+      "slug": "business-biz-205652-76db",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "0fad5766-97f0-4844-b32c-921904557b37",
+      "name": "Karina Lazareva — House Cleaning",
+      "slug": "fbpack-karina-lazareva-house-cleaning",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "ИВАН КУПАЛА В HOUSE OF THE SUN 📍 House of the Sun, Лос-Анджелес 📅 5 июля ⏰ 17:00–22:00 Приглашаем ва"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "10bad016-a69f-4614-82c2-b41d7879ed82",
+      "name": "Ivan Zhizhnevskii",
+      "slug": "ivan-zhizhnevskii-205000-77d0",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Iana Ivanova"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "1114fe23-6cfd-4d85-a31c-1eafa68929e1",
+      "name": "Кристина",
+      "slug": "business-biz-205420-32a9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "1162257f-6070-4d35-b2f1-28057910ae04",
+      "name": "Polina Ste",
+      "slug": "polina-ste-205019-bdb4",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "12c01256-6391-4b1d-9c28-cf6f8fb90221",
+      "name": "US Drive Services",
+      "slug": "us-drive-services-181542-a6e1",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "132142c1-ebc3-47d7-9981-8e9e178fa3b0",
+      "name": "Olga Gorevaia",
+      "slug": "olga-gorevaia-204912-41ae",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+      "name": "Anna",
+      "slug": "anna-204932-e969",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Anna"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "170e5a4a-634e-4ec4-9811-1c04a55fc09e",
+      "name": "Алла",
+      "slug": "business-biz-205751-24ed",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "17293f9c-e438-4d94-b3be-a52e2c8321f5",
+      "name": "Роксана Килюшина",
+      "slug": "business-3239613646-205043-717b",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "17318e7d-337e-4c6f-9545-c7c6f1bc6934",
+      "name": "Anna Esthetician",
+      "slug": "batch2-anna-esthetician",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Anna S"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "192e2345-aca7-4972-a5c2-d8a78fd7f11f",
+      "name": "Милена",
+      "slug": "business-biz-205712-83bc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "1ab10197-233f-4d01-a3b5-5e7c968c5261",
+      "name": "Elena Nikiforova",
+      "slug": "elena-nikiforova-204959-c7ed",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "1c0e1286-952f-4ec5-93b3-2ffd4bf9f764",
+      "name": "Cell",
+      "slug": "cell-150621",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Cell"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "1d8f5df2-5bb7-4990-bd95-a31dcc4e915d",
+      "name": "Anastasiya Breslavska",
+      "slug": "anastasiya-breslavska-205430-8625",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "1faac057-0698-42ee-ab26-bac6e751e0ba",
+      "name": "Марк Макаров",
+      "slug": "business-biz-205334-ec41",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2284acc4-8d82-447e-b97a-78f439f20b3e",
+      "name": "Olga Osipova",
+      "slug": "olga-osipova-205232-c5b4",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2288d150-10cb-49eb-a47f-ea42304dd5a6",
+      "name": "Алёна Карташова",
+      "slug": "business-6366758737-204907-bf2a",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "22d09ba7-c449-44f5-b840-3e2205520568",
+      "name": "Mila",
+      "slug": "oksana-moskvitina-234034",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "235c20b5-9b61-4001-bba4-87eca9ce857a",
+      "name": "Таисия Шаповалова",
+      "slug": "business-biz-205439-7de7",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Таисия Шаповалова"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "23af5ba5-8572-4b56-a70e-fda2ef58d604",
+      "name": "onemoreminute.play",
+      "slug": "onemoreminuteplay-150633",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "onemoreminute.play"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "23fc512c-5c6a-411d-ab4d-19f47be1e10a",
+      "name": "Olena King",
+      "slug": "olena-king-205237-3b54",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 14,
+      "matched_clusters": [
+        "of Human Trafficking",
+        "Aram"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 14
+    },
+    {
+      "id": "2760ad0e-9b0c-48fc-92ce-949ad75adba9",
+      "name": "Помощь Иммигрантам • Help Immigrants",
+      "slug": "help-immigrants-204800-b942",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "276df65d-f0e3-423c-af29-e53a122e2b74",
+      "name": "regyminate",
+      "slug": "regyminate-150651",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "regyminate"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "27c054bf-0862-4bc3-bbb1-720bed88f73a",
+      "name": "Angelina",
+      "slug": "angelina-181531-2d6e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "27e5b399-b5c0-45da-aadc-b467e1179b99",
+      "name": "Iryna Ar",
+      "slug": "iryna-ar-204957-b824",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2a6f80bc-b4df-4a43-95e4-d44b04c26925",
+      "name": "Kate",
+      "slug": "kate-205352-fef8",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb",
+      "name": "Valeriia Soldatchenkova",
+      "slug": "llc-172217",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2d3a1db0-44aa-492c-b003-843b503a3ba8",
+      "name": "Roman",
+      "slug": "roman-205711-d761",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2d3fd617-3f22-45e6-b746-5de9bc00acff",
+      "name": "Alexandra Zhura",
+      "slug": "alexandra-zhura-205118-5caf",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2dc3de33-926b-4e17-a381-2a1ff8507d24",
+      "name": "Мигель Фигероа",
+      "slug": "pro-14d781a660",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Мигель Фигероа"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "2e88368c-d3bc-4ab5-9664-7edaaf210372",
+      "name": "Andrei Tarzan",
+      "slug": "andrei-tarzan-234040",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2ed8aa52-fa43-46c6-88ee-dde60294705b",
+      "name": "Anastasiya",
+      "slug": "anastasiya-150613",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Anastasiya 🦊"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2f3d50a5-d67e-431f-91ec-b4ac7f9f80fe",
+      "name": "Braidifornia",
+      "slug": "braidifornia-205140-b261",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2f94a0b5-ca75-4551-a43a-b6733b363e6c",
+      "name": "Женя",
+      "slug": "batch2-evgeniia-shtefan",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Женя"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "2fe01c67-888a-4719-88ef-22bac7ebd0b3",
+      "name": "Альбина",
+      "slug": "business-biz-205438-a4f5",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "31046edd-0210-4bd1-b9e3-0c63010f438d",
+      "name": "Viorika",
+      "slug": "viorika-205408-5246",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "31618667-b46d-4e6a-be79-a8e6a998c953",
+      "name": "Darya",
+      "slug": "darya-205349-83d8",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "317724c2-c2ac-4c39-ba58-d39b4a58dc99",
+      "name": "Виктория",
+      "slug": "business-biz-205347-bdbc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "31c1ae56-801f-4e65-8d6d-7e71f381dbe8",
+      "name": "Кристина Орлова",
+      "slug": "business-2247331591-172207",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "Кристина Орлова"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "32186ac8-f9e6-488b-ab6e-20c028b34cd5",
+      "name": "Valeriia",
+      "slug": "valeriia-205506-ad68",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "33c5fa05-818a-451f-adc9-fe63f3b2fe3e",
+      "name": "Angelina",
+      "slug": "angelina-205732-db26",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "name": "Sandrina Rudenko",
+      "slug": "sandrina-rudenko-205521-2a6d",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "34885484-8818-479d-a9e2-2bc3c2aa2073",
+      "name": "Милена",
+      "slug": "business-biz-205743-d6eb",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "36e1ca84-e3dd-4226-8873-625c2be9d4db",
+      "name": "Аня Таран",
+      "slug": "business-biz-205337-54af",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "36f06e33-5641-439c-ad67-f9c77fa6f3d0",
+      "name": "Liubov Smetanina",
+      "slug": "liubov-smetanina-181524-a3ca",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "36ffd9d9-83f2-4a8a-a2c3-945931ab1be8",
+      "name": "La Paving - Construction Services",
+      "slug": "fb-post-8-la-paving-construction-services",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 0,
+      "matched_clusters": [
+        "OTG construction Oleg"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 0
+    },
+    {
+      "id": "39813339-8402-451a-8934-89718259d7da",
+      "name": "Алёна Симагина",
+      "slug": "business-9162016271-205017-a355",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3a822bd3-8b8f-4137-a346-f387fe50b60c",
+      "name": "Tanya",
+      "slug": "tanya-150608",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Tanya"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3b4be5f6-dcdd-470c-b42e-07f7098543de",
+      "name": "Alina ‍",
+      "slug": "alina-205522-ff07",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3b94799c-49a4-4c0a-9985-e50b78bd33c1",
+      "name": "Stanislav Kuznetsov",
+      "slug": "stanislav-kuznetsov-205626-7008",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3ba6d992-92af-4626-81ce-0f7475391fd8",
+      "name": "Angelina",
+      "slug": "angelina-190934",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 28,
+      "matched_clusters": [
+        "Angelina"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 28
+    },
+    {
+      "id": "3d170272-5756-4de4-9dd6-06f6ef986fac",
+      "name": "Ольга",
+      "slug": "business-3109210864-172221",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Ольга"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3d5630b0-b72c-4425-8a6b-cc39a44c952f",
+      "name": "Милена",
+      "slug": "business-biz-205710-ae35",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3e485152-9de5-497c-8b79-54da0695a705",
+      "name": "Artur Moiseev",
+      "slug": "artur-moiseev-205026-f41e",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3e487161-67d1-4038-9da1-1de9247abfe9",
+      "name": "Камила",
+      "slug": "business-biz-181526-47bc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "3f144c65-f775-44ed-a8f3-20481002b72b",
+      "name": "photograph_la_alina",
+      "slug": "photograph-la-alina-150643",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 19,
+      "matched_clusters": [
+        "photograph_la_alina"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 19
+    },
+    {
+      "id": "3f3a1da1-2d06-4cc9-9d27-b42e015feca5",
+      "name": "Ekaterina Samsonova",
+      "slug": "ekaterina-samsonova-150707",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "40a95673-0d77-4970-bdbf-b69475875b58",
+      "name": "San Diego",
+      "slug": "san-diego-171752",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 3,
+      "matched_clusters": [
+        "San Diego"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 3
+    },
+    {
+      "id": "40c2c723-b304-45d4-96d5-33dbb10c0238",
+      "name": "Тетяна",
+      "slug": "business-biz-205753-f515",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4247c057-e72e-448a-be0c-da8ea24d887c",
+      "name": "Кристина",
+      "slug": "business-biz-205128-4506",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "kristi_haircolourist_",
+        "Кристина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 4
+    },
+    {
+      "id": "434ec733-33e4-465b-b95f-5508cd4b361d",
+      "name": "Roman",
+      "slug": "roman-181510-ec0e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "444169e0-49b5-4c13-80fc-1f99ab077eeb",
+      "name": "Людмила | преподаватель 🇺🇸 🇺🇸 онлайн1",
+      "slug": "1-172157",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "44ac3baa-c837-4aa8-9e21-7d0745fb5179",
+      "name": "Lena",
+      "slug": "lena-205621-71f9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "44d1d688-605a-4d37-bfc3-3a032e89a46b",
+      "name": "Phone",
+      "slug": "yagmyrov-atajan-credit-repair-172215",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "45688ff9-209e-431b-84af-ea4b53959291",
+      "name": "hammond_cpa",
+      "slug": "hammond-cpa-150628",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "hammond_cpa"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "45ac36ae-4ee2-48a0-826d-753920c1b412",
+      "name": "facial_massage_oc",
+      "slug": "facial-massage-oc-150649",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "facial_massage_oc"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "45e40d30-f185-4bc0-b5a8-b1abc38dd281",
+      "name": "Liudmila Irvine",
+      "slug": "liudmila-irvine-205551-3ed5",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4626663d-193d-4fbb-b075-e01e98023922",
+      "name": "Veronika Ratova",
+      "slug": "veronika-ratova-190943",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 0,
+      "matched_clusters": [
+        "Veronika Ratova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 0
+    },
+    {
+      "id": "4626ade6-6a4b-4271-9191-f2cf58cfa79e",
+      "name": "Людмила Коста",
+      "slug": "business-7717177777-172212",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "46c172b1-8549-46aa-9a8d-86d470dc0b3a",
+      "name": "Ирина",
+      "slug": "business-biz-205800-7b0c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "47a9aff1-0bde-44d6-9807-57e4a129f881",
+      "name": "Марина",
+      "slug": "business-biz-205630-774b",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "47ad4615-d45c-499a-9a29-9356210a2616",
+      "name": "Tanya Pozniansky",
+      "slug": "tanya-pozniansky-205243-58d6",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4860050b-b35c-415d-a48b-94499092ee89",
+      "name": "Elena",
+      "slug": "elena-205143-1f35",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "488d08e5-0120-421c-ac35-9271aadb0db8",
+      "name": "Anna A A",
+      "slug": "anna-a-a-190937",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Anna A A"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "48d3d1c0-123c-45b4-92a6-03d9c1a7ed0c",
+      "name": "Anastasiia",
+      "slug": "anastasiia-150705",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "49895df0-fa03-4e79-90b0-9ba0416e43dd",
+      "name": "mary.shlykova",
+      "slug": "maryshlykova-180840",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "mary.shlykova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "49a00f1e-7149-4dad-a0c2-34ab060f61cd",
+      "name": "Tigran Arutiunian",
+      "slug": "tigran-arutiunian-172216",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Tigran Arutiunian"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "49e03896-9087-4573-a938-33932d859847",
+      "name": "Алла",
+      "slug": "business-biz-181539-36b0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4a68b72d-e04c-4977-b796-4ead70248a0d",
+      "name": "Татьяна",
+      "slug": "business-biz-181531-70e3",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4a764875-f89d-4ef9-9bc4-74472acd3fa6",
+      "name": "Мила",
+      "slug": "pro-a73375c0bc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 7,
+      "self_ad_mention_count": 3,
+      "matched_clusters": [
+        "Мила"
+      ],
+      "match_via": "cluster",
+      "prev_third": 7,
+      "prev_self": 3
+    },
+    {
+      "id": "4ae21a11-29f0-4330-b532-d1a2b9939731",
+      "name": "kalinka.service",
+      "slug": "kalinkaservice-150635",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 8,
+      "matched_clusters": [
+        "Messenger",
+        "kalinka.service"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 8
+    },
+    {
+      "id": "4b3bc61c-e106-4fec-b16c-bc185b578e93",
+      "name": "Vlad",
+      "slug": "vlad-171749",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Vlad"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4be46f26-9beb-4fff-ae77-8c633d1b966a",
+      "name": "Good Food",
+      "slug": "good-food-180931",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 5,
+      "matched_clusters": [
+        "Good Food"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 5
+    },
+    {
+      "id": "4d5eca00-d0d4-4800-9890-0d6eac4689ec",
+      "name": "Serg Ko",
+      "slug": "serg-ko-205327-4ac8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4e254cb0-d92f-4018-bd60-911c0a823601",
+      "name": "Женечка",
+      "slug": "business-biz-205806-844a",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "4ff40a99-303b-41b5-a384-8db2b5064aa1",
+      "name": "Konstantin Nutrition",
+      "slug": "konstantin-nutrition-205531-70ad",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "501cec85-72b4-438e-ad1b-3f2b768dec5c",
+      "name": "Angelina",
+      "slug": "angelina-205735-447e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "502afb70-82fe-4c89-bff5-3d27ca671cf8",
+      "name": "Roman",
+      "slug": "roman-205714-a161",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "518e12d8-e712-4d3b-af10-5cb475d5db70",
+      "name": "hairdreams__by_galinakirbaba",
+      "slug": "hairdreams-by-galinakirbaba-150633",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "hairdreams__by_galinakirbaba"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "51ac67c4-e1fc-4fbf-af16-f498a686b5ee",
+      "name": "Azamat",
+      "slug": "azamat-205826-6e5c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "51acd65b-5e34-4f96-b8a3-1a8d16cbaa44",
+      "name": "Пиклбол в Ирвайне",
+      "slug": "pro-ca48a2fb58",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "51b3083f-de09-4bca-83fe-5d4460595db2",
+      "name": "Оля",
+      "slug": "business-biz-180953",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "51d2f8d1-a4e4-4690-886c-ed007d91fb0f",
+      "name": "Милена",
+      "slug": "business-biz-205739-5654",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "523df6c4-975c-4ca3-9ca2-3f1c9c9cbb6c",
+      "name": "Ange",
+      "slug": "ange-205730-3040",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "52ceef34-ebeb-4641-a289-a62c2303394d",
+      "name": "Lana Cher",
+      "slug": "lana-cher-205803-42a9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Lana Cher"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 2,
+      "prev_self": 1
+    },
+    {
+      "id": "52d91693-1ff1-4d27-bf98-bcea6a18a964",
+      "name": "Натали",
+      "slug": "pro-53ae6dee73",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "Натали",
+        "styliststates"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "53a0e64e-a5b2-4f1f-8eac-62144e4385e8",
+      "name": "Repair Pro",
+      "slug": "repair-pro-172149",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Repair Pro"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "53e02364-4446-43fb-959a-b69dc8bfda17",
+      "name": "Avenir Slivinskiy",
+      "slug": "avenir-slivinskiy-204906-0f9e",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "546155c4-87cd-47b7-bdaf-9f8cf19548d0",
+      "name": "Марина",
+      "slug": "pro-fc7d8d59ae",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Марина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "547bc7c9-f7c7-451c-b9c6-d4be91be5120",
+      "name": "Флорида",
+      "slug": "business-7867507987-172159",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "554f485b-5f09-4e57-acf3-c00d8a60b0a2",
+      "name": "creatoriakids",
+      "slug": "creatoriakids-150649",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "creatoriakids"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "56c7312f-626c-4b28-b73f-e9be0eb423c8",
+      "name": "Яночка✨",
+      "slug": "business-biz-205455-e5dc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "56f51abc-23db-44e1-9630-58004972516f",
+      "name": "Кристина",
+      "slug": "pro-05b5e161b9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "kristi_haircolourist_",
+        "Кристина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 4
+    },
+    {
+      "id": "574bab0e-b00a-4907-beb6-0d5059039845",
+      "name": "Leyla Kamila",
+      "slug": "leyla-kamila-181525-4bd9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "579b18c5-f3f7-4a83-9ace-3d8d92f4040d",
+      "name": "Kalinka Service — Rita Shvalikovskaya",
+      "slug": "consolidated-kalinka-service",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 8,
+      "matched_clusters": [
+        "Messenger",
+        "kalinka.service"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 8
+    },
+    {
+      "id": "580881b5-ac20-485d-a94f-38d5769e0c03",
+      "name": "Ардак Сатбаева",
+      "slug": "business-3232979643-204902-bfec",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "58914e42-f1e5-453f-a7a5-88cbc88b9082",
+      "name": "Галина",
+      "slug": "pro-865156f94c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Галина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "58a3ea0f-0c66-4e5b-b68f-c620032bb1e2",
+      "name": "David Dee",
+      "slug": "david-dee-204956-2053",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5a3e8b43-4013-4944-a933-054d9c1d7910",
+      "name": "открыла свою уютную студию ENDO Studio",
+      "slug": "endo-studio",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 3,
+      "matched_clusters": [
+        "endo.studio_oc"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 3
+    },
+    {
+      "id": "5a402be7-ee55-4588-8b28-5d8f66d512e9",
+      "name": "LIDIIA",
+      "slug": "lidiia-172220",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "LIDIIA"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5aa0588d-7c62-48f9-8e55-ed37e13aa0ce",
+      "name": "Anna  Borodina",
+      "slug": "anna-borodina-204857-b155",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5b758024-7207-427e-93ec-4232781bceb1",
+      "name": "Anastesia Art",
+      "slug": "anastesia-art-205802-03d1",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5bb8f2c9-307f-477a-b733-a4403e2588c5",
+      "name": "MMGG FORMS",
+      "slug": "mmgg-forms-190938",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "MMGG FORMS"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5d25d3c9-b0fa-41ab-8c4b-44e8e1392d66",
+      "name": "Mike Novak",
+      "slug": "mike-novak-205033-4e17",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5d2de3d9-58b4-4f2f-9a58-a65da70ee736",
+      "name": "hair_extension_usa",
+      "slug": "hair-extension-usa-150631",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 10,
+      "matched_clusters": [
+        "hair_extension_usa"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 10
+    },
+    {
+      "id": "5d34c0dd-6ad1-431f-ad0d-eff7616b5760",
+      "name": "Taya",
+      "slug": "taya-181520-438f",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5de7c362-d7ed-446d-822e-3d2fdfe2e086",
+      "name": "Иван",
+      "slug": "business-biz-205529-5d5e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5e92da59-45b5-4c56-9d10-179674b21e3b",
+      "name": "Elmira73",
+      "slug": "elmira73-150606",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Elmira73"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "5eb5e260-fd2f-4988-b00b-5f13c1e6ff44",
+      "name": "Margarita Shvalikovskaya",
+      "slug": "margarita-shvalikovskaya-205653-ef12",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6154a101-b10d-4d77-9e93-49c6a4ad3ca5",
+      "name": "Mila",
+      "slug": "mila-190940",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Mila"
+      ],
+      "match_via": "cluster",
+      "prev_third": 2,
+      "prev_self": 1
+    },
+    {
+      "id": "62eecf99-8f84-403e-a79a-a606a980ce99",
+      "name": "Alina",
+      "slug": "high-school-180942",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "634564d0-69ae-4fbc-b869-f1b5f6f50525",
+      "name": "Анна Пиченко",
+      "slug": "business-biz-205315-b87f",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "641a0849-b052-4cec-a406-d534e4dd6059",
+      "name": "LA_OrangeCounty_bot",
+      "slug": "laorangecountybot-172204",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "647f1ea3-fbcd-4657-b167-9fa326cfff4a",
+      "name": "Alexandra Rich",
+      "slug": "alexandra-rich-205210-371d",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "65245a31-6060-401f-95dc-6aa1906dd11c",
+      "name": "Anastasiia Shirkina",
+      "slug": "anastasiia-shirkina-205213-624c",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "653bcb06-330c-41c7-b516-ca910ac6d2e1",
+      "name": "Goar Goar",
+      "slug": "goar-goar-205823-7fc6",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6559490a-3a86-4430-afc7-bd912a2854ec",
+      "name": "Alina Shakirova - Web & SEO Services",
+      "slug": "fb-post-34-alina-shakirova-web-seo-services",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 16,
+      "matched_clusters": [
+        "Diana Shakirova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 16
+    },
+    {
+      "id": "67334b1c-ca57-461e-ae43-f80616bf5b46",
+      "name": "Леся",
+      "slug": "pro-dbaeca33cc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Леся"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "67ea951f-44e1-4e30-9781-d58238f14016",
+      "name": "Aleksey Popov",
+      "slug": "aleksey-popov-204823-683e",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 10,
+      "matched_clusters": [
+        "23peony",
+        "art_backyard",
+        "oly_cake",
+        "Olga Popova @Oly_cake"
+      ],
+      "match_via": "cluster",
+      "prev_third": 2,
+      "prev_self": 10
+    },
+    {
+      "id": "68c563bc-fc5c-4a20-aaa2-8800d8f40adf",
+      "name": "janeoart.kids",
+      "slug": "janeoartkids-150623",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "janeoart.kids"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6974950a-9ac5-4dfd-9ca9-07faf3906581",
+      "name": "tatkaurbaniq",
+      "slug": "tatkaurbaniq-150645",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "tatkaurbaniq"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "698d19b2-f57f-4497-8e91-c499037434c3",
+      "name": "Таисия Шаповалова",
+      "slug": "pro-69d72b6fb9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Таисия Шаповалова"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6a850bd9-4544-409d-9335-160b753c36bc",
+      "name": "Arman Movsesian",
+      "slug": "arman-movsesian-205308-b5d0",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6bc7e704-c9b3-427c-b9c4-63c1996c95a3",
+      "name": "Kim",
+      "slug": "kim-172209",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Kim"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "6cd8bda2-c0ac-4abf-8285-c72821b53914",
+      "name": "Farruh Kochkarov",
+      "slug": "farruh-kochkarov-204833-dda2",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6ce441b1-128e-4e72-aad3-41f9a7ff6a2a",
+      "name": "Elvira Aksenova",
+      "slug": "elvira-aksenova-205536-bd87",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6d25fe02-1c27-400a-afe6-64e1a9ec32b8",
+      "name": "Rudzik Mykhailo",
+      "slug": "rudzik-mykhailo-205013-8177",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6d453f21-3466-4b65-b8b6-039f184d41d4",
+      "name": "Тетяна",
+      "slug": "business-biz-205704-b135",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "6fc90ad6-d770-4009-8bce-33382d8f4a49",
+      "name": "Alena",
+      "slug": "alena-181533-6d9d",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "707e46f1-ac2d-4ad0-aa0d-a8e28f235475",
+      "name": "Снюс Лос Анджелес",
+      "slug": "business-biz-205404-f206",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "70af5f72-407b-47d7-97fd-f39a10cf40bf",
+      "name": "Daria Pavlii",
+      "slug": "daria-pavlii-205130-c2f8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "712b1c19-f47a-483b-a4d6-ae58d3c77929",
+      "name": "Ann Kivva",
+      "slug": "ann-kivva-204923-f92d",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "71859a69-33b7-4aa5-9d74-0dd477807c06",
+      "name": "Anna Lukina",
+      "slug": "anna-lukina-180846",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "718ff65f-f360-4d92-a8e2-5f86b8ddb1b1",
+      "name": "Satenik Adzhemian",
+      "slug": "satenik-adzhemian-234042",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "71c6db16-c0d7-4285-9221-67d19fd38704",
+      "name": "Лена Саа",
+      "slug": "business-biz-205135-1daf",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "72d8c3ac-f78e-4fd6-9b85-01ca14f09856",
+      "name": "Илия Мо",
+      "slug": "business-9166660427-205031-3265",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "72ef70a8-a353-4332-b086-ba4087942c57",
+      "name": "Евгения",
+      "slug": "business-biz-205226-834c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7355336f-3b6e-4c60-a3d8-e9906ff05449",
+      "name": "Bek’s Flowers",
+      "slug": "beks-flowers-172153",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Bek’s Flowers"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "73a632e4-5c96-48c7-9dbd-18de2ba441f3",
+      "name": "репетитор англ",
+      "slug": "business-7543646222-171945",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "репетитор англ"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "747367fc-68a6-4bc9-81d5-4639d93d0a5e",
+      "name": "Лёша Волков",
+      "slug": "business-4243094233-172210",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 6,
+      "matched_clusters": [
+        "Лёша Волков"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 6
+    },
+    {
+      "id": "75711a3f-d2ca-4bc1-9461-736514ad0623",
+      "name": "Anna Cherkasov",
+      "slug": "anna-cherkasov-205229-1ae8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "779be6a6-864a-4063-9cdc-6c03b69e15d8",
+      "name": "suverdiboost",
+      "slug": "suverdiboost-171746",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "suverdiboost"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7802379c-5080-4297-8ffa-479425710c94",
+      "name": "Daniel Mataev",
+      "slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Daniel Mataev"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "78736617-c4a7-43c6-b312-b295999b6aba",
+      "name": "Viktoriya Adamovskaya",
+      "slug": "batch2-viktoriya-adamovskaya-delicious-by-va",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "delicious_by_va"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "797cca76-2731-4340-a13e-68aad2387784",
+      "name": "Dovbenko Agency",
+      "slug": "dovbenko-truck-insurance-234041",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "79c3c7f9-84d9-4ef2-ab30-4b8c0f29fb81",
+      "name": "Александра",
+      "slug": "pro-42d4022d11",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Александра"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7ac2e8bb-d229-409a-af55-6373be9be122",
+      "name": "Lana.Investor RealtorInvestor",
+      "slug": "lanainvestor-realtorinvestor-172205",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Lana.Investor RealtorInvestor"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7b6613fd-4c8e-4b61-8d62-a44362bf09bf",
+      "name": "Габи",
+      "slug": "business-biz-205459-5cd8",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7bee140c-f53c-4f00-a224-2d4901aad714",
+      "name": "Галина Бёрфильд",
+      "slug": "business-biz-205645-00cc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7bf50b11-9df2-4ffb-859b-7470f02806e4",
+      "name": "Gulnur Zakirova",
+      "slug": "gulnur-zakirova-204909-3c71",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7ca419db-c22b-4284-ba85-150e90f37da1",
+      "name": "Анастасия",
+      "slug": "business-biz-205115-bfa9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Анастасия"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "7ce6c8ab-4fa5-40a2-a829-6758840fa401",
+      "name": "Andrea",
+      "slug": "andrea-205452-eebd",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7d75056f-3775-48de-9057-ed3ab00593f0",
+      "name": "Татьяна Антух",
+      "slug": "business-9165594158-204842-1999",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7eb1442e-00f5-4e3c-a4b9-4ad4ee8a8d57",
+      "name": "Ivan Anatol'evich",
+      "slug": "ivan-anatolevich-205025-4893",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Iana Ivanova"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "7eef8e16-9990-4fa6-ba07-b1262abf92b2",
+      "name": "Liubov Cherkasova",
+      "slug": "liubov-cherkasova-205045-bb04",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "7f25c845-bf69-4589-ac1b-dbad108a0c2e",
+      "name": "julia_life_usa",
+      "slug": "julia-life-usa-150652",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "julia_life_usa"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "80074551-1795-4181-b527-091d4c206d7c",
+      "name": "Mariia ✨",
+      "slug": "mariia-205350-08be",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "80cc9a69-6ac9-4db9-b17f-ac73e88a6e4d",
+      "name": "aleks_andra020289",
+      "slug": "aleks-andra020289-150702",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "aleks_andra020289"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "811edf0c-6636-42de-8978-ec4eb834dd12",
+      "name": "Oleksandr",
+      "slug": "oleksandr-205658-3da0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "81c37aef-9f84-4e68-9d6c-bfda25acf72e",
+      "name": "Глендейл",
+      "slug": "business-8183349501-172154",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Глендейл"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "820514d3-f49a-441a-955d-4f421456ffbc",
+      "name": "Альбина",
+      "slug": "business-biz-205547-5bac",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8255a72d-2bba-4a0a-974e-1f7dc5c4df79",
+      "name": "Юлия",
+      "slug": "fbpack-julia-kolesnikova",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 16,
+      "matched_clusters": [
+        "pastry_kolesnikova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 16
+    },
+    {
+      "id": "8338a135-73cf-4de8-80ff-e44c3ea4b74c",
+      "name": "Marianna Musinova",
+      "slug": "marianna-musinova-205236-0c72",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8474a0de-757a-4751-970b-77bfd5449e43",
+      "name": "Masha Angel",
+      "slug": "masha-angel-150621",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Masha Angel"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "84d66a53-9195-4d48-9249-32df5c8cc4b9",
+      "name": "Baisal Kbn",
+      "slug": "baisal-kbn-204918-58b8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "854b4f88-2e80-4755-abdc-3707ff5cfa21",
+      "name": "Spitsyna Nata",
+      "slug": "spitsyna-nata-205516-bbd9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "877599bc-1e1d-47aa-ab7a-7b74c5434c8b",
+      "name": "scgb2025irvine",
+      "slug": "scgb2025irvine-150647",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "scgb2025irvine"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8798de11-c53e-4c63-80a9-4a997ccfe7c3",
+      "name": "glekel.photo",
+      "slug": "glekelphoto-150630",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "glekel.photo"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "87a4d724-e97d-4e8d-9bf5-2defd50a273c",
+      "name": "Slava Swim",
+      "slug": "slava-swim-204814-060f",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "889a0eb8-14a4-43fd-b3f0-adf922ab65b4",
+      "name": "Игорь Манилов",
+      "slug": "business-9165592284-205059-4319",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "88a5c3f9-2f06-46a9-be45-d9b0f48bcae8",
+      "name": "1touch_massage",
+      "slug": "1touch-massage-150700",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 5,
+      "matched_clusters": [
+        "Снежана"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 5
+    },
+    {
+      "id": "89773b02-6d67-4632-928a-86260b0f014a",
+      "name": "Anastasiya Posashenko",
+      "slug": "anastasiya-posashenko-150711",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8acc9994-309a-467c-8897-852db437d1e5",
+      "name": "Sabina Yarantseva",
+      "slug": "sabina-yarantseva-205604-4676",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "sabina.kravchenko"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "8b4f216f-5b9a-40e8-8258-072d8b49b1da",
+      "name": "Dance PROgression",
+      "slug": "dance-progression-031836",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Sasha"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "8c851cfa-f3d6-491b-8233-8c557f355f5c",
+      "name": "Evgeniya Kogay",
+      "slug": "evgeniya-kogay-205111-f415",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8d83ad6c-1afb-43d9-a9be-cd0bacd0accf",
+      "name": "renna^афк",
+      "slug": "renna-171944",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "renna^афк"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "8daaa3bc-e9cc-4402-9076-fac740fd0480",
+      "name": "aleks_bake_",
+      "slug": "aleks-bake-150628",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "aleks_bake_"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "8e51d2f3-c1da-4b65-98e9-3bcd5ed5df73",
+      "name": "Bekbolat",
+      "slug": "bekbolat-205736-dc5c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8e73cae5-cbc1-4e65-91a4-d7fe4861fb9d",
+      "name": "Kat Koz",
+      "slug": "kat-koz-205219-5a38",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8ec63f5f-48aa-446c-a4f2-f12241cc7a73",
+      "name": "Elena Kaharlytska",
+      "slug": "elena-kaharlytska-205443-9eb3",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8f7ced21-f1af-4671-8b21-9143c25bf17f",
+      "name": "Eugenia Grigoreva",
+      "slug": "eugenia-grigoreva-205220-f266",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8fd91830-566d-46c5-b048-b8c5bb108462",
+      "name": "Связь",
+      "slug": "business-6503893846-172150",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Связь"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "8fdb755b-b8bb-4305-8246-0a089d35bcf8",
+      "name": "Мастер Fahim",
+      "slug": "fahim-190942",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 0,
+      "matched_clusters": [
+        "Мастер Fahim"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 0
+    },
+    {
+      "id": "8fe62d37-030e-4ccf-8d45-85e6629ea8d2",
+      "name": "Danil Goncharenko",
+      "slug": "danil-goncharenko-205004-f0df",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "903320df-4a63-4372-9602-15a308f00126",
+      "name": "Тетяна",
+      "slug": "business-biz-205703-dfca",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9172a376-b7e0-421b-8081-33073a21460a",
+      "name": "Worldwide Employment Agency",
+      "slug": "worldwide-employment-agency-204942-0650",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "91fc2606-bf78-4d54-a16f-9811c930f09b",
+      "name": "Olena Ol",
+      "slug": "olena-ol-205254-a65c",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "926d878c-6305-4d72-8cff-81c2f0883aa3",
+      "name": "Anna Ahmatova",
+      "slug": "anna-ahmatova-181529-484c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Anna Ahmatova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "92a57e49-a3e4-4bb2-a53c-bf4bf45e1b39",
+      "name": "Rrr",
+      "slug": "rrr-205635-8c45",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "93831ffe-6034-4a5a-b0ea-041853637cc2",
+      "name": "Роман",
+      "slug": "business-biz-181520-51a0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "945b54eb-18f6-4fc3-9e4f-238a820b1f3a",
+      "name": "Mary Ariel Chery - Karpenko",
+      "slug": "mary-ariel-chery-karpenko-204835-c04e",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "945c24a7-20d8-4aff-bc43-5d86c653a5d0",
+      "name": "Ирина Кундухова",
+      "slug": "pro-1a6c881981",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "Ирина Кундухова"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "95fc9cd2-4388-4f0f-8c72-dbecddb2053b",
+      "name": "Сергей",
+      "slug": "pro-edf7a35986",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Сергей"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "96944352-e3ea-433f-b8c1-a51e3a1cda07",
+      "name": "Яночка✨",
+      "slug": "business-7477881260-172151",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 5,
+      "matched_clusters": [
+        "Яна"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 5
+    },
+    {
+      "id": "972dfca4-f431-46e0-a6d7-8b3033730fa3",
+      "name": "Olga Loginova, Lifespringhomeopathy.com",
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9a22ce3c-580b-4d94-ab26-fc4ebe2ab263",
+      "name": "Sarkis Karagashian",
+      "slug": "sarkis-karagashian-204915-c658",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Sara Sarkisyan"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "9a42f4f9-06d2-402d-89b0-e5ba3d50708d",
+      "name": "Кристина",
+      "slug": "business-biz-180917",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9aef4565-80d5-4e45-b8e1-07fd6d04dc1f",
+      "name": "Юля",
+      "slug": "business-biz-205546-4e96",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9b1fe2ee-6e38-45dc-866e-9d21518358de",
+      "name": "Anton",
+      "slug": "anton-205307-42dd",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9b84a892-937d-439d-9ecc-732cf7992c62",
+      "name": "Realtor Valeriia",
+      "slug": "realtor-valeriia-180843",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9d68c0d0-35cc-4bf6-b82f-0dc8bb2ddc23",
+      "name": "My_brows7",
+      "slug": "mybrows7-181514-0000",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9d90b6d4-8297-447a-8340-fea513f0cbf8",
+      "name": "Victoria Yakovenko",
+      "slug": "victoria-yakovenko-032110",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Victoria Yakovenko"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9e14a749-ec2d-4e15-a012-fdfacdf8adec",
+      "name": "Angelina",
+      "slug": "angelina-205718-7e04",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "9eedb44d-e88b-4ed8-9c07-9f530f2cda81",
+      "name": "ekaterinakhomich",
+      "slug": "ekaterinakhomich-150703",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "ekaterinakhomich"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "a0537080-bd6a-47bc-bccc-14f942f8063d",
+      "name": "Rita Sarafutdinova",
+      "slug": "batch2-rita-sarafutdinova",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Sara Sarkisyan"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "a0b829f1-add5-4d15-a53b-f877d2dcc44b",
+      "name": "khan_archery_club",
+      "slug": "khan-archery-club-150704",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "khan_archery_club"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a176f790-9f1c-4bc5-8ced-fae5bf7e2d56",
+      "name": "Виталина",
+      "slug": "business-biz-205409-f8f7",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a1fa917c-a78d-4bc4-b832-d3da8f803f66",
+      "name": "Svetlana Lavor",
+      "slug": "svetlana-lavor-205052-b3d5",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a35b8120-2a8b-4fe8-a0df-aa580629c924",
+      "name": "Oleg Chebanu",
+      "slug": "oleg-chebanu-205022-0a1e",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a425f118-7c74-446c-a5a5-8b3ff567eb12",
+      "name": "Taya",
+      "slug": "taya-181519-b6e4",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a4f6fe5f-2053-4f88-b06d-f492fb5ccece",
+      "name": "Evgeniya Slimface",
+      "slug": "evgeniya-slimface-031834",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "slimface_massage"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "a5006f0e-bfed-465c-89a5-24ee932eee23",
+      "name": "Valentyna Vasiura",
+      "slug": "valentyna-vasiura-150620",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "Valentyna Vasiura"
+      ],
+      "match_via": "cluster",
+      "prev_third": 2,
+      "prev_self": 4
+    },
+    {
+      "id": "a52b2cb2-3fe1-4a3d-9242-333fd9dea8cf",
+      "name": "Lala Cavadova",
+      "slug": "lala-cavadova-205244-6d41",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a5580939-447e-45c1-86bc-d8a0a7187dfe",
+      "name": "Oli",
+      "slug": "oli-205509-fbfa",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a5e73897-9519-4e04-a045-c300157c1faa",
+      "name": "Olga Avdonina",
+      "slug": "olga-avdonina-205233-2439",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a618aee2-1c69-4cc7-8f4a-a1d738b19d42",
+      "name": "Юлия",
+      "slug": "business-biz-205338-a988",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a68f4d35-ff2b-4f43-a30c-edcc1c31b85f",
+      "name": "Виктория",
+      "slug": "pro-9034b86494",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Виктория"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "a69443e4-9b66-446e-bd25-4e5c180a2986",
+      "name": "Роман",
+      "slug": "business-biz-205655-4e36",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a7187921-df77-4ff2-816b-30fe4d0345a1",
+      "name": "Natalia",
+      "slug": "natalia-205124-c51f",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "styliststates",
+        "Натали"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "a73595f2-db01-4a2d-9491-5a3fd66cc048",
+      "name": "Милена Говель",
+      "slug": "business-biz-180842",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a795df8f-fa37-4933-9c83-409b0e1a3f00",
+      "name": "Йосси Кински",
+      "slug": "business-biz-205235-fe83",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a93c6d64-d550-4a40-9622-5a6b29842d2f",
+      "name": "Revived Prince",
+      "slug": "revived-prince-204952-ae50",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "a9e179a5-5b1e-460d-9e42-5798ce339c71",
+      "name": "maxgirr",
+      "slug": "maxgirr-150659",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "maxgirr"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "aa025fb7-5631-4cb6-8512-af836f591e53",
+      "name": "tetiana.malenkova",
+      "slug": "tetianamalenkova-150652",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "tetiana.malenkova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 2
+    },
+    {
+      "id": "aa91af4f-fe0e-4f23-a3ee-f879a82f6f2a",
+      "name": "Alex Wins",
+      "slug": "alex-wins-204844-70d8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ab4b3fd7-a1a5-43ba-9075-bd09e1ee4315",
+      "name": "Сергей Петров",
+      "slug": "business-2134424111-172219",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "Сергей Петров"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "abab7af0-9d65-4fc6-b58f-49e0c91f189d",
+      "name": "Elena ☀️",
+      "slug": "elena-205357-e633",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "abde6af5-1638-43dd-8437-bd81802c2d64",
+      "name": "Vaso",
+      "slug": "vaso-205605-0ebc",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ac39810c-3bd0-4343-9eb7-e68497250984",
+      "name": "Masha Angel",
+      "slug": "masha-angel-205138-3e8b",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Masha Angel"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "ad7a3ab0-e485-4a92-acec-201b9cf84da9",
+      "name": "flamellecandles",
+      "slug": "flamellecandles-150648",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "flamellecandles"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "adb9fa38-828d-46d8-ab6d-3b83e5c6b02f",
+      "name": "Anna Dav",
+      "slug": "anna-dav-205223-b6e5",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "af7c5e1d-d9bf-4851-8688-a5f2e7972312",
+      "name": "Милена",
+      "slug": "business-biz-205726-5ca1",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "af9c50ac-6c30-40ec-85ed-86a5104d6c89",
+      "name": "Stacy",
+      "slug": "stacy-205434-8dd1",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "affa9a4e-e965-4b7f-931e-b92748653722",
+      "name": "Милена",
+      "slug": "business-biz-205745-a7db",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b0f5117e-b7bb-4fcb-bf22-6734071c3150",
+      "name": "Grigory Baranovsky",
+      "slug": "grigory-baranovsky-204802-cd6a",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b10a3a5a-3e57-4b93-87d8-ad1f20e46391",
+      "name": "lindas_bouquet",
+      "slug": "lindas-bouquet-150626",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "lindas_bouquet"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "b278ec15-bd0c-47f3-aaa7-01279f073d70",
+      "name": "Ekaterina Mishurenkova",
+      "slug": "ekaterina-mishurenkova-204859-fc4c",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b2ec80b7-f2b7-4526-beec-1843882567ea",
+      "name": "Polina",
+      "slug": "polina-205609-ef5a",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b470411a-7648-4e39-909d-6160f51a6340",
+      "name": "Kseni",
+      "slug": "kseni-180915",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b5067d91-fda3-4f36-99c6-444db12603fc",
+      "name": "Vitalii Brizhatyi",
+      "slug": "vitalii-brizhatyi-204914-c4fa",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b5cdf37e-009b-42c2-94fd-689ff7fd1121",
+      "name": "Ange",
+      "slug": "ange-181535-b93a",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b62b5b9c-e5f6-4307-9475-769774a0220a",
+      "name": "Екатерина",
+      "slug": "business-6576999740-190936",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 10,
+      "matched_clusters": [
+        "Екатерина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 10
+    },
+    {
+      "id": "b67a179d-1c91-415f-bcd9-35e74946151e",
+      "name": "olehkapitanchuk_massage",
+      "slug": "olehkapitanchuk-massage-150636",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "olehkapitanchuk_massage"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b7209f62-d3b8-4dbb-a3da-6d01485c95be",
+      "name": "Eugenia Grigoreva",
+      "slug": "eugenia-grigoreva-205225-cb62",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "b91f9437-8f77-4ba3-9cba-b8d98cb81da4",
+      "name": "Денис Шульга",
+      "slug": "pro-044a6e346d",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 15,
+      "matched_clusters": [
+        "Dеnis"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 15
+    },
+    {
+      "id": "b94165ab-ffa5-452e-8938-13c020763a8e",
+      "name": "aigerim_bimoldina",
+      "slug": "aigerim-bimoldina-032107",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 5,
+      "matched_clusters": [
+        "Запись"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 5
+    },
+    {
+      "id": "b947d0d9-aeaf-46ee-bf71-80ea680e187d",
+      "name": "Lyubov Nikonova",
+      "slug": "lyubov-nikonova-190932",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Lyubov Nikonova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "b951ee0c-fa27-438a-a6c7-4238dbfc3a40",
+      "name": "Alla Vorobiova",
+      "slug": "alla-vorobiova-204849-c42d",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ba2c17e7-fddc-4192-96fa-2d15334b89a5",
+      "name": "Volodymyr",
+      "slug": "volodymyr-181511-3927",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ba35ccf6-880b-4e0c-819e-1f1b9e8ee2a7",
+      "name": "Dmitry",
+      "slug": "dmitry-205525-2a15",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "baf4b2ef-97b5-4c0e-9d3b-1f81c7b39f54",
+      "name": "merengue.desert",
+      "slug": "merenguedesert-150638",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "merengue.desert"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "bb43d41e-fa57-4472-ac18-7637ad8a449c",
+      "name": "Anna Belous",
+      "slug": "anna-belous-205421-28f8",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "bb91fa1a-9538-46ad-8eaa-bf3c4420b0e3",
+      "name": "Артём",
+      "slug": "business-3478894784-172211",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "Артём"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "bbcd4dff-5ee5-458a-9fdf-2352e124a970",
+      "name": "Viola Lawrence | Design",
+      "slug": "viola-lawrence-design-205504-a6a6",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "bcb302f9-1d3e-4403-aa7e-63d9d18e07ee",
+      "name": "Vivika",
+      "slug": "vivika-032110",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Vivika"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "bcb6ccd2-cb42-4666-b490-1d9b4a39fb98",
+      "name": "Tatsiana Losikova",
+      "slug": "tatsiana-losikova-205608-2e44",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Iana Ivanova"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "bd121fd5-49dd-446a-b5ec-6762ecade471",
+      "name": "Евгения Бобровская",
+      "slug": "pro-fed553eb97",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "bd174fee-f4bb-4046-a051-c4cd76bdba4f",
+      "name": "Arvian Law Firm LLC",
+      "slug": "arvian-law-firm-llc-172214",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 18,
+      "matched_clusters": [
+        "Kristina @ Arvian"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 18
+    },
+    {
+      "id": "bde5d3ed-7757-4763-8e07-3edc7da62a3c",
+      "name": "Daria Zubova",
+      "slug": "daria-zubova-205425-e380",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "be228b6d-57a4-47ed-8a02-20a9af0af380",
+      "name": "sashalashangel",
+      "slug": "sashalashangel-150654",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "sashalashangel"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "bf07619e-e47d-4754-8666-de28d681f50a",
+      "name": "anton_sushev",
+      "slug": "anton-sushev-150655",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "anton_sushev"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "bf6c0633-633d-4d24-830c-221a059cda65",
+      "name": "Aleksandr",
+      "slug": "aleksandr-172200",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 6,
+      "matched_clusters": [
+        "Aleksandr"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 6
+    },
+    {
+      "id": "c005c2b2-c242-40f9-a98c-a66f1716107d",
+      "name": "Anait Avetisian",
+      "slug": "anait-avetisian-205744-615c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c0079dd2-7605-4a89-a9fd-2091e8639ce6",
+      "name": "Anastasiya Zai",
+      "slug": "anastasiya-zai-180857",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c06a9a1d-45db-44d2-a510-3eeb7bc49b05",
+      "name": "karelin.photography",
+      "slug": "karelinphotography-150637",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "karelin.photography"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c07b038e-2bf6-43bc-a303-af89fc293fa9",
+      "name": "Natalia Belova",
+      "slug": "natalia-belova-150618",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Natalia Belova"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "c0a2618e-9aca-4370-9d5b-80cd50565bdc",
+      "name": "Svetlana S",
+      "slug": "svetlana-s-172211",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Svetlana S"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c0ed5e18-b09e-4da4-a86e-3409e4c02f4a",
+      "name": "Elena R",
+      "slug": "elena-r-205600-d428",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c1193cf4-93cd-48dc-b68b-389e8a985091",
+      "name": "Anastasia Shevchenko",
+      "slug": "anastasia-shevchenko-205209-045d",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c11b26db-7ac2-4158-8438-9be33e6dd7b8",
+      "name": "kate_yuka_aesthetics",
+      "slug": "kate-yuka-aesthetics-150659",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "kate_yuka_aesthetics"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c19e7003-b220-418a-9b84-8d4ae5c73695",
+      "name": "Губанов Дмитрий",
+      "slug": "business-biz-205440-b16e",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c1a12fb1-b978-4d99-aed6-e2bb886fdcf6",
+      "name": "Irina Krasnodemsky",
+      "slug": "irina-krasnodemsky-205029-f2f2",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c1c5ed92-0190-4596-9183-94a573bee26b",
+      "name": "Irina Electrolysis",
+      "slug": "irina-electrolysis-205451-0a8b",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c1d16647-6cbd-4968-bd74-e88f10fd00b7",
+      "name": "Ange",
+      "slug": "ange-205721-b8c5",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c303dfe6-da1b-41c1-aa9a-acbd9d821e8a",
+      "name": "Милена",
+      "slug": "business-biz-205717-4969",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c38d3951-c481-44df-ac04-a354020b7cb8",
+      "name": "Ksenia",
+      "slug": "ksenia-205811-7635",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c4265877-51d4-432e-8f27-edb1a9310441",
+      "name": "Olga Inozemtseva",
+      "slug": "olga-inozemtseva-205457-8b62",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c4bf1db0-5abe-4c49-9371-229405c80de0",
+      "name": "Оксана",
+      "slug": "business-biz-205659-48e0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c515cc53-f5e2-41a3-b2e4-e3b6a6cc298e",
+      "name": "swimmingcoach_losangeles_oc",
+      "slug": "swimmingcoach-losangeles-oc-031832",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 8,
+      "matched_clusters": [
+        "swimmingcoach_orange_county"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 8
+    },
+    {
+      "id": "c6ba112a-1202-479a-a5de-ecebed623437",
+      "name": "zpoqmy",
+      "slug": "zpoqmy-150702",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "zpoqmy"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c7d0dda2-e9c7-422d-893a-6b5953e8672d",
+      "name": "grace_and_bloom_",
+      "slug": "grace-and-bloom-150627",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "grace_and_bloom_"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "c8adc3c9-4ae6-48e7-9262-5b94b0077f9b",
+      "name": "Сергей Малышак",
+      "slug": "business-9164724923-205003-70f8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "c975ba3b-1f2a-4b05-821c-3d3cc2b5e8d0",
+      "name": "Yar",
+      "slug": "yar-205436-e1c7",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ca3d087a-d982-44d9-8f3d-f71d618b8784",
+      "name": "Cali",
+      "slug": "cali-205405-30f5",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ca7f0283-de8d-48c1-9847-d13894ed2308",
+      "name": "Ирина",
+      "slug": "pro-3f65329a9d",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Ирина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ca9530f9-8bfa-4924-a985-d29cfbc9fda6",
+      "name": "Tanzik",
+      "slug": "tanzik-205412-080c",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "cb0c187f-63d8-48a9-a0a4-c78a6f83b210",
+      "name": "happy.tails.grooming.oc",
+      "slug": "happytailsgroomingoc-031830",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 5,
+      "matched_clusters": [
+        "happy.tails.grooming.oc"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 5
+    },
+    {
+      "id": "cbdf082f-be29-43f4-861d-988e55f3db34",
+      "name": "София",
+      "slug": "pro-68e754e358",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 4,
+      "matched_clusters": [
+        "София"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 4
+    },
+    {
+      "id": "ccb1c975-6fa2-4158-91fc-fdec65adcce0",
+      "name": "Nova Maryana",
+      "slug": "nova-maryana-205039-79de",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "cd390cc2-4c1d-4707-af9b-6888ee70ee0f",
+      "name": "Dmitry",
+      "slug": "dmitry-150709",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "cd9b01da-00fe-424f-8487-9a9690593984",
+      "name": "kids_party_oc",
+      "slug": "kids-party-oc-150646",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "kids_party_oc"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "cf40531a-cca3-4aa3-ad40-7405047c6e0b",
+      "name": "Evgeniya Slimface",
+      "slug": "evgeniya-slimface-205348-2d47",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "cf558ccd-0b77-4c19-86b9-49036c02ed5e",
+      "name": "Natasha",
+      "slug": "nata-032109",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Natasha"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "d0bc23ab-e7cf-44ce-ac4e-0e5c9281eb4e",
+      "name": "Lana",
+      "slug": "lana-205640-2183",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d174d46d-e3d3-4548-96b2-4457ba1f7cd2",
+      "name": "Юля",
+      "slug": "pro-7ba57728da",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Юля"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d1c5279d-e609-48bf-91d5-bc6bc297a40e",
+      "name": "Анна Гурина",
+      "slug": "business-9492432736-190801",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Анна Гурина"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d28042dc-8241-434e-aa6d-6a5c4ae008c4",
+      "name": "Karinа",
+      "slug": "karin-205637-d761",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d2d3efd9-0494-4706-936d-933dbfa728ec",
+      "name": "Pavel  Beloglazov",
+      "slug": "pavel-beloglazov-205037-92fd",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d357aa27-60d2-4d51-8b69-b49bc4122174",
+      "name": "Master Valery",
+      "slug": "master-valery-205050-6c62",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d3ab4225-0089-4734-a8bd-a47232828321",
+      "name": "Регина",
+      "slug": "business-biz-205501-a0c9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d507ecd0-55b3-4fab-83fe-c8a332e0fc05",
+      "name": "Nazgul Nurlan",
+      "slug": "nazgul-nurlan-181522-8750",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d57932d8-33bd-4f87-a5fa-8c51f9eced8a",
+      "name": "Boris Sat",
+      "slug": "boris-sat-205028-50b1",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d5ff11f2-47e8-482e-919b-534313e1154d",
+      "name": "Azamat",
+      "slug": "azamat-205815-c0ea",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d7ccb16b-513b-4c90-8e3e-a68f55d9bf3d",
+      "name": "Yana Adabir",
+      "slug": "yana-adabir-172218",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "d8c8fdc0-413b-45bc-ac8b-4d786563f4f7",
+      "name": "Alyona Koolhaas",
+      "slug": "alyona-koolhaas-150611",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Alyona Koolhaas"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "d94bf411-0c94-418d-989a-46341a52a9ea",
+      "name": "Alina Kalinina",
+      "slug": "alina-kalinina-204855-cb1b",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "da28c35f-fea9-4e11-b695-730d335b7ce0",
+      "name": "Vorontsovaart",
+      "slug": "vorontsovaart-190935",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Vorontsovaart"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "da30e5d5-cfe6-49e0-a021-4f06f51225b0",
+      "name": "Oleksandr",
+      "slug": "oleksandr-205701-5753",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "dbae9f5f-a287-4b33-93cf-ee150504c687",
+      "name": "Tim Samarin",
+      "slug": "tim-samarin-204949-aaf8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "dcb9d6c5-e4a3-4119-8cf8-44b3051d8362",
+      "name": "alina_oc_hair",
+      "slug": "alina-oc-hair-150626",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "alina_oc_hair"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "dd633466-1f64-4360-8bde-992277e71214",
+      "name": "Mike California",
+      "slug": "mike-california-171748",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "deeb94d7-f220-481a-aecc-c47997c57112",
+      "name": "Сергей",
+      "slug": "business-9493860850-172223",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Сергей"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 2
+    },
+    {
+      "id": "df8097df-9954-4859-bcc5-7dab8494a7ed",
+      "name": "Victoria Kuzyakina",
+      "slug": "consolidated-victoria-kuzyakina-yoga",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Victoria Yakovenko"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "dffe8631-dea2-4f94-997f-6c96c8ae27d1",
+      "name": "Yelena Dean",
+      "slug": "yelena-dean-204832-39fa",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e1407934-772c-45cf-b075-6d9f486a5079",
+      "name": "Acrossers Dance Studio",
+      "slug": "acrossers-dance-studio-150610",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 11,
+      "matched_clusters": [
+        "Acrossers Dance Studio"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 11
+    },
+    {
+      "id": "e18ec7c2-df13-4862-a164-6c34f25a3678",
+      "name": "Николай",
+      "slug": "business-biz-205513-a1f0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e22c5bb9-b305-4af4-9fdb-7d879fedf503",
+      "name": "Guncha Atajanova",
+      "slug": "guncha-atajanova-205252-7ab3",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e234ffa7-f8b8-4491-bac5-31282ecc3ee3",
+      "name": "Евгения",
+      "slug": "pro-832404531d",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "cakewithlove.ca"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "e23e3430-7afd-4081-8715-2fe7d2046b72",
+      "name": "Sugaring Nastena",
+      "slug": "fbpack-anastasiia-razgulova-sugaring-nastena",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Анастасия"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "e2533d7a-8b26-4ab7-b8b6-7b1793fee26e",
+      "name": "Тетяна",
+      "slug": "business-biz-205657-3fbf",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e25f727c-2c58-4447-8fd1-6cf0a0faf5e6",
+      "name": "Айзада",
+      "slug": "business-biz-205336-c34b",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e30ca8dd-fbe3-43f0-97c1-d5589f922946",
+      "name": "Милана Приглашаю вас",
+      "slug": "pro-2698a0a2b2",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 13,
+      "matched_clusters": [
+        "Милана Приглашаю вас"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 13
+    },
+    {
+      "id": "e3fe889d-3b33-46cb-89f6-2c7ea734a5bb",
+      "name": "Azamat",
+      "slug": "azamat-205828-cce8",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e4a08754-07f8-4984-93ee-2dc4063d534f",
+      "name": "Неля Достатняя Захарова",
+      "slug": "business-9165041635-205038-bc58",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e5b4a468-03de-4d26-8b36-dbdcaef7f5db",
+      "name": "beauty_skin_by_sandra",
+      "slug": "beauty-skin-by-sandra-150701",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "beauty_skin_by_sandra"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "e5b5bb83-2fc8-48a1-a760-0637b2517a94",
+      "name": "Viktoriia",
+      "slug": "viktoriia-205340-f142",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e668c7fd-f986-4f83-b519-76c04b5ef958",
+      "name": "leisan_hairstylist_oc",
+      "slug": "leisan-hairstylist-oc-150646",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "leisan_hairstylist_oc"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "e76db0a1-08da-4d19-abdd-f53bcea485c3",
+      "name": "Elizaveta Pavlunenko",
+      "slug": "elizaveta-pavlunenko-172152",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Elizaveta Pavlunenko"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "e8ae79cf-92f3-47cc-aa2c-b5685f8f2e37",
+      "name": "Леонид",
+      "slug": "business-2247331592-172222",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Леонид"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "e9998b2f-cab3-458e-885e-23f53f26b131",
+      "name": "nataliawolfstudio",
+      "slug": "nataliawolfstudio-150658",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "nataliawolfstudio"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "e99a7cdc-0584-4fb4-8eef-3ebd174f3b73",
+      "name": "SvetickLA",
+      "slug": "svetickla-172213",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "SvetickLA"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ea621fb2-db11-4940-972c-57d56b78d538",
+      "name": "Алла",
+      "slug": "pro-67a5cf9537",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Алла"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ea8e5f41-78c2-4c43-adc8-4892ac3a92ce",
+      "name": "Александр",
+      "slug": "business-biz-205341-3b35",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ea8e737d-93f2-4b11-9366-6fe7affa902e",
+      "name": "reel",
+      "slug": "reel-150657",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "eb2ad244-753d-482c-a371-2edaab3cde44",
+      "name": "Angelina",
+      "slug": "angelina-205722-1ce9",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "eb527fd5-5cbd-4ca8-90aa-c9f9f269de04",
+      "name": "Karina Bgantseva",
+      "slug": "karina-bgantseva-205314-9fa7",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ed0562d7-5515-4612-83d7-beb3c2ad4595",
+      "name": "Валентина",
+      "slug": "business-biz-181526-ebad",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ee3dbcf9-c1f0-4bef-ba03-a53ebf2886e7",
+      "name": "Наргиза",
+      "slug": "pro-a472853b45",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 7,
+      "matched_clusters": [
+        "Наргиза"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 7
+    },
+    {
+      "id": "ee948a06-84f7-45d0-85f4-a08fc732669f",
+      "name": "Рэй",
+      "slug": "business-8185315202-172213",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Рэй"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "eeaf5ecd-347b-48ce-83f8-c8871f739e4f",
+      "name": "Natalya Tyukavkina",
+      "slug": "natalya-tyukavkina-205122-69f8",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f00711bc-3d17-4d03-9d65-3c89df12abd9",
+      "name": "Андрей",
+      "slug": "business-biz-205108-1695",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "andy_topmassage"
+      ],
+      "match_via": "cluster",
+      "prev_third": 2,
+      "prev_self": 1
+    },
+    {
+      "id": "f0580278-348f-4250-afba-835a6be6b9a6",
+      "name": "Виктория Обиход",
+      "slug": "business-biz-205117-1735",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f06e502f-a5c6-45c5-aab5-bf1637f0c93c",
+      "name": "Nataly Simonova",
+      "slug": "nataly-simonova-205733-d6c0",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f0e9bc47-10a9-44b5-9833-f446e2c6ac4f",
+      "name": "Julia Palmer",
+      "slug": "julia-palmer-205318-9150",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f1fe6f7c-4013-43fd-8af2-ae2f2b088d0a",
+      "name": "Alevtina Kis",
+      "slug": "alevtina-kis-205116-a644",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f2088754-d1c7-42bf-9128-00b1146c3e17",
+      "name": "EVOKIFY",
+      "slug": "fbpack-evokify",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f2d93ccd-6ec1-4a9f-a357-f759f2b24e14",
+      "name": "victoria__kei",
+      "slug": "victoria-kei-150650",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "victoria__kei"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 2,
+      "prev_self": 1
+    },
+    {
+      "id": "f30e6bf8-ea0e-434d-9c40-d2fa3280e0a5",
+      "name": "Mila",
+      "slug": "mila-150710",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f4afbf0b-73e2-40a8-a574-5561a0b43060",
+      "name": "Lana Janew",
+      "slug": "lana-janew-190946",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 2,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "Lana Janew"
+      ],
+      "match_via": "cluster+source_floor",
+      "prev_third": 2,
+      "prev_self": 1
+    },
+    {
+      "id": "f5a5e167-ed71-4a08-acd7-81ef4298d833",
+      "name": "Oksana Wood",
+      "slug": "oksana-wood-205101-a3eb",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f5d45b94-ca4e-44d0-8916-221ea7f9f494",
+      "name": "Galina Pinsky",
+      "slug": "galina-pinsky-204838-f523",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f8b4813e-046b-42b3-bdaa-71a210e03765",
+      "name": "ILONA nails",
+      "slug": "ilona-nails-172153",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 6,
+      "matched_clusters": [
+        "ILONA nails"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 6
+    },
+    {
+      "id": "f8bf4a91-2b93-4d9c-851c-eac6fc1dfe8a",
+      "name": "daria_stretch_dance",
+      "slug": "daria-stretch-dance-150647",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "daria_stretch_dance"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f9765d00-d241-47a2-957f-3e4216e59a80",
+      "name": "Angelina",
+      "slug": "angelina-205725-8c41",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "f9b9637e-d4a5-4ca4-bf8f-3d8ed36760d2",
+      "name": "Anton Osipov",
+      "slug": "anton-osipov-204816-49d1",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fa338e50-69fe-4345-a048-65135e8a188f",
+      "name": "tati.cake.oc",
+      "slug": "taticakeoc-150651",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "tati.cake.oc"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fa5c2558-b4a5-476f-ba58-ccc14a4ae001",
+      "name": "Оксана Куриленко",
+      "slug": "business-4156194812-172158",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fb8cea1b-05c5-4eb5-adbc-d1c34fb52745",
+      "name": "Celine Miles",
+      "slug": "celine-miles-204758-6060",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fbf0e2be-dbd1-4d1f-8ca6-aadce647fb18",
+      "name": "Милена",
+      "slug": "business-biz-205719-742f",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fc16cce2-b2c0-4862-83d1-95ac4e23aa61",
+      "name": "Elizaveta Shevchenko",
+      "slug": "elizaveta-shevchenko-205355-50a8",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 2,
+      "matched_clusters": [
+        "Elizaveta Pavlunenko"
+      ],
+      "match_via": "cluster",
+      "prev_third": 0,
+      "prev_self": 2
+    },
+    {
+      "id": "fc2971da-dcc1-4ba7-ad35-36d392466213",
+      "name": "Милена",
+      "slug": "business-biz-205723-a9fe",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fc522a37-5de9-43c1-ad74-a5be671b542d",
+      "name": "Володимир Ярошенко",
+      "slug": "business-biz-205300-9bde",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fc641137-cb8c-482d-9047-38a584798fb7",
+      "name": "pilyulya.me",
+      "slug": "pilyulyame-150653",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 1,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "pilyulya.me"
+      ],
+      "match_via": "cluster",
+      "prev_third": 1,
+      "prev_self": 1
+    },
+    {
+      "id": "fd5f6f4f-204b-42c0-9887-e2d7ac3445e6",
+      "name": "Rita Torikashvili",
+      "slug": "rita-torikashvili-205809-48fa",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fd796b65-3dec-4fd8-9372-a95ec83c4b71",
+      "name": "Law Law",
+      "slug": "llc-172201",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fec9c391-b0ec-4b24-9578-6845d7f75873",
+      "name": "John Capone",
+      "slug": "john-capone-205011-ac61",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "fefd9a49-6852-4a3a-a6c0-7abd7717dab4",
+      "name": "Alla Belyayeva",
+      "slug": "alla-belyayeva-205009-efaa",
+      "source_type": "FACEBOOK",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ff2e4861-beef-442e-992a-5e0a69a5b6f9",
+      "name": "Alina",
+      "slug": "helping-us-middle-and-high-school-180940",
+      "source_type": "IMPORT",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    },
+    {
+      "id": "ff3fd2da-f16e-4a04-9c78-53371f8fa435",
+      "name": "Тетяна",
+      "slug": "business-biz-181523-7fd4",
+      "source_type": "TELEGRAM",
+      "third_party_mention_count": 0,
+      "self_ad_mention_count": 1,
+      "matched_clusters": [
+        "source_type_self_ad_floor"
+      ],
+      "match_via": "source_floor",
+      "prev_third": 0,
+      "prev_self": 1
+    }
+  ],
+  "cleared": [],
+  "skipped_no_contact": [
+    {
+      "id": "036f3f44-983d-455d-adf8-430d9bbf3669",
+      "name": "Всеволод Климчук",
+      "slug": "business-biz-180942",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "0b5cbbed-6946-46a4-9846-9998f4038f98",
+      "name": "Mike California",
+      "slug": "mike-california-180856",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "0babfc0d-d722-4a5f-93c9-f3a12a41953c",
+      "name": "Amega Studios",
+      "slug": "consolidated-amega-studios",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "0c7f0bd6-ff9a-44c2-a4f2-24715c679477",
+      "name": "Nat Ben - Personal Image Consultant",
+      "slug": "fb-post-34-nat-ben-personal-image-consultant",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "0ef79ac8-c023-4600-abe7-293435575d2d",
+      "name": "Zachary Emelian",
+      "slug": "zachary-emelian-180913",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "10c84d9b-04fb-41b7-a361-cadae690eb7a",
+      "name": "Реналь",
+      "slug": "business-biz-180858",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "11c6a1f5-3d54-4d1b-8a81-140a0a1fd162",
+      "name": "Жена",
+      "slug": "business-biz-180923",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "1d59e049-087e-43be-b889-72fa95566d28",
+      "name": "Море Вкуса",
+      "slug": "fbpack-vladimir-gorbushin-more-vkusa",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "24f745e2-fad2-41c2-8ab5-3260b946c8e8",
+      "name": "Марьяна",
+      "slug": "business-biz-180943",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "35185c35-07af-4799-ae9a-58d47b159dd7",
+      "name": "Настя Рыжик Ginger Foto",
+      "slug": "ginger-foto-180928",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "390bc68d-3ad4-4aad-b01c-b983174d0c20",
+      "name": "American English",
+      "slug": "american-english-180939",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "409e099e-8b2b-4ffc-9bbb-1c860b40d517",
+      "name": "Макс",
+      "slug": "business-biz-180906",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "4908d013-f53f-47e9-8272-7dba3f2757a1",
+      "name": "Eugenia Delaveri - Real Estate Agent",
+      "slug": "fb-post-13-eugenia-delaveri-real-estate-agent",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "4e7b4138-03ef-415a-b23e-14991d8b98bb",
+      "name": "Диана Калифорнийская",
+      "slug": "business-biz-180904",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "4ec68b10-d737-4cb3-9e72-a4bd7f573b21",
+      "name": "Александра",
+      "slug": "business-biz-180852",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "630b3c28-70e3-4a5e-aba3-aeb6789fc121",
+      "name": "Ivan - Handyman Repairs",
+      "slug": "fb-post-11-ivan-handyman-repairs",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "6ab9fbd9-14fa-43a4-a46a-144ec7b89a23",
+      "name": "Екатерина",
+      "slug": "business-biz-180924",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "6c8b4bdb-9c90-40cc-95e3-aec2b9b90fa6",
+      "name": "Ксения",
+      "slug": "business-biz-180914",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "6ebdce64-b248-4541-981b-1a9a5c8e3e25",
+      "name": "Anastasiia Vasileva",
+      "slug": "anastasiia-vasileva-180915",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "6ef916a6-8855-444d-87d9-65598611359e",
+      "name": "Алёна",
+      "slug": "business-biz-180900",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "76952644-b33a-4591-8474-cce40f5bd9de",
+      "name": "Инзира",
+      "slug": "business-biz-180926",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "83238b7b-b9ae-43d4-8ca7-56a1baba4d1a",
+      "name": "Inna Meleshko",
+      "slug": "consolidated-inna-meleshko-nails",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "8e27fb04-5a88-42ea-8c37-2b4fee6a2131",
+      "name": "София",
+      "slug": "business-biz-180844",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "93b09b77-5b1d-4518-8f90-33f5753dd708",
+      "name": "Ruslan Kalumov - Moving Services",
+      "slug": "fb-post-9-ruslan-kalumov-moving-services",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "992dd740-56d6-449e-a413-f98803fc1dbc",
+      "name": "Savenko Anastasia",
+      "slug": "savenko-anastasia-180857",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "a0bc8b23-20ea-4397-b159-f91cd93abe69",
+      "name": "Vyacheslav Papkov - Auto Insurance Services",
+      "slug": "fb-post-2-vyacheslav-papkov-auto-insurance-services",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "a1c477ce-af23-4d32-98ce-d6f26cd1d1bc",
+      "name": "Kristina Immerman - Moscow-to-USA Courier",
+      "slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "a585e35a-6db1-4f83-89dd-df2ef521cce0",
+      "name": "Elmira Sibagatova — Beauty Room Rental",
+      "slug": "fbpack-elmira-sibagatova-beauty-room-rental",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "ad4a25da-add8-4223-887a-406e643a1751",
+      "name": "Настя",
+      "slug": "business-biz-180952",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "ad583acb-938a-405d-b64f-2b1d1056c9c1",
+      "name": "Olga Kliukina",
+      "slug": "olga-kliukina-180930",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "b31d9422-2614-419f-a07f-e3e5290a11e4",
+      "name": "Olga Osipova Fitness",
+      "slug": "consolidated-olga-osipova-fitness",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "b385a9ab-68c3-4b6b-b923-0c7312a7647b",
+      "name": "Юлия",
+      "slug": "business-biz-180957",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "c07674d2-1ed1-426a-8310-b5e3d16454fb",
+      "name": "Ира",
+      "slug": "business-biz-180955",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "cfae4819-3fa5-47cc-acf9-c0f3788adb45",
+      "name": "Svetlana K. Pantelic",
+      "slug": "batch2-svetlana-k-pantelic",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "d3c04a93-8076-4b33-9b58-81ba2e3359b8",
+      "name": "Anastasia Kinder",
+      "slug": "fb-post-30-anastasia-kinder",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "d460d10d-ce86-4126-87fd-1ba6c6173830",
+      "name": "Yana Shvedova",
+      "slug": "yana-shvedova-180927",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "d4fec947-4f53-4aa6-a9f2-14e3c8a76754",
+      "name": "Lutsenko Yuliia",
+      "slug": "lutsenko-yuliia-180853",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "e913790f-9472-4e7e-873c-0ab8b555c40a",
+      "name": "Bogdan Chugunov - Siberian Elixir Health Products",
+      "slug": "fb-post-32-bogdan-chugunov-siberian-elixir-health-products",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "ebdb0a0f-cf1e-4988-ab65-87b02a7b6778",
+      "name": "Anna S",
+      "slug": "anna-s-180848",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "eddeef1f-9300-4c6f-ade4-e30b3370c695",
+      "name": "Mikhail Kulesh - Vehicle Rental",
+      "slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "f177854a-61ed-4c66-b72c-cf86897a2ac5",
+      "name": "Yagmyrov Atajan Credit Repair",
+      "slug": "yagmyrov-atajan-credit-repair-180956",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "f81c085d-f3af-4159-b56e-9e9a1a4257d8",
+      "name": "Katrin Svt - Nail Services",
+      "slug": "fb-post-4-katrin-svt-nail-services",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "fc57911f-ebe5-4df5-bf71-cc360e42c4be",
+      "name": "Маргарита",
+      "slug": "business-biz-180907",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    },
+    {
+      "id": "ff0b06b0-6745-40e1-ab0b-8897e935b6dd",
+      "name": "Елена",
+      "slug": "business-biz-180948",
+      "source_type": "IMPORT",
+      "reason": "no_phone_or_instagram"
+    }
+  ],
+  "skipped_no_match": [
+    {
+      "id": "0438b70d-5848-44fe-b64b-ce7a3596aff7",
+      "name": "Valeriia Andriushchenko",
+      "slug": "consolidated-valeriia-andriushchenko",
+      "phone": "+19495315828",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "212df32e-7b2c-442e-bcca-28f1bf022073",
+      "name": "Adgar",
+      "slug": "adgar-180959",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "31a43163-d2cd-40b2-a82e-2a25a6769b0c",
+      "name": "Aleksey Sergeev",
+      "slug": "aleksey-sergeev-234044",
+      "phone": "+17473049816",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "382363c2-d510-40e8-bf8e-343adde03e62",
+      "name": "Anastasia Pedicure OC",
+      "slug": "fbpack-anastasia-pedicure-oc",
+      "phone": null,
+      "instagram": "anastasia_pedicure_oc",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "3cfc5882-ff7e-4ebb-bd62-de4c56286cf2",
+      "name": "Alex Auto Brokering",
+      "slug": "batch2-alex-auto-brokering",
+      "phone": "+19513341760",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "3ed683c3-3b09-4870-ab01-f7c80a3aeb21",
+      "name": "Arazu Alieva - English Teacher",
+      "slug": "fb-post-6-arazu-alieva-english-teacher",
+      "phone": "+13234917757",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "402617c4-e5ec-4e5c-a93c-140280b61b4c",
+      "name": "Ira Azovtseva",
+      "slug": "fbpack-ira-azovtseva",
+      "phone": null,
+      "instagram": "bodysculpting_by_ira",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "4495a4ff-fc8b-441e-a724-033bc9afdb8b",
+      "name": "SBSHealth Los Angeles / Step by Step LA",
+      "slug": "batch2-sbshealth-los-angeles-step-by-step-la",
+      "phone": "+13108958340",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "48e0ee76-b951-4a7b-a977-6482fcb070be",
+      "name": "Anna",
+      "slug": "anna-181002",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "5260502f-2cc5-4860-91fe-21e180d93136",
+      "name": "Oleh Spasiuk",
+      "slug": "fbpack-oleh-spasiuk",
+      "phone": "+14458880342",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "5a9ed86e-e74f-4c12-91d6-7ac7efcd48ef",
+      "name": "Olena Farah",
+      "slug": "fbpack-olena-farah",
+      "phone": null,
+      "instagram": "helena_nails_studio",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "60c39f33-bd29-4291-899e-3f7757323f1a",
+      "name": "Pavel Krylov",
+      "slug": "batch2-pavel-krylov",
+      "phone": "+16197505667",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "65d45a1e-49f3-48e4-aa19-fdcd5432bea5",
+      "name": "Oksana Spasiuk",
+      "slug": "fbpack-oksana-spasiuk-photography",
+      "phone": null,
+      "instagram": "oksana.spasiuk.ca_",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "6760aac5-a2ae-4704-947b-4845e903bc54",
+      "name": "Roman Rybin",
+      "slug": "consolidated-roman-rybin-karaoke",
+      "phone": "+19162803360",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "6a14cdb5-02e9-4256-b8e1-bfcb004d4320",
+      "name": "Наталья Яргомская (Niargomsk)",
+      "slug": "fbpack-niargomsk-igra-v-glinu",
+      "phone": "+19493541359",
+      "instagram": "lifecoach_niargomsk",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "708eed84-4632-4f73-911e-e668d51f1a84",
+      "name": "Peter Katya Dudarenko",
+      "slug": "fbpack-peter-dudarenko",
+      "phone": "+19492261258",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "716bb340-042e-4cc8-8d54-8e3350f41eca",
+      "name": "Ivanka",
+      "slug": "ivanka-180933",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "798a0991-a867-4fa9-a84d-9774a46548b3",
+      "name": "Enna Eskin",
+      "slug": "batch2-enna-eskin",
+      "phone": "+19497759053",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "7cc350bd-decb-4381-9165-88acc50db0f1",
+      "name": "Liudmyla Muzyra House Repair",
+      "slug": "fbpack-liudmyla-muzyra-house-repair",
+      "phone": "+19495105266",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "823c8101-472d-4e9f-882a-4703ae6b2fcf",
+      "name": "OK Daisy",
+      "slug": "fbpack-ok-daisy-corona-del-mar",
+      "phone": "+19495687281",
+      "instagram": "p",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "8a62b8b0-d21a-48e9-8ea4-177f470afebc",
+      "name": "Maryna Nails",
+      "slug": "fbpack-maryna-nails",
+      "phone": null,
+      "instagram": "marynanails",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "9732d206-2c43-426d-9136-c9d68f64c9f1",
+      "name": "Марине — Licensed Cosmetologist",
+      "slug": "fbpack-marine-licensed-cosmetologist",
+      "phone": "+14088294006",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "ad3b1467-adc2-40ff-8ca8-95a0854f6b4f",
+      "name": "Chingis",
+      "slug": "chingis-180855",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "b12ffd4b-5e59-4ddd-a444-6388cf573968",
+      "name": "Сергей Анищенко",
+      "slug": "batch2-sergei-anischenko",
+      "phone": "+18184476507",
+      "instagram": "povar_anischenko",
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "bddfe40e-d441-4c84-be02-30e3ede8d957",
+      "name": "Katerina",
+      "slug": "katerina-180947",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "c136a4d4-34c8-4db6-9afa-65411752c321",
+      "name": "Victor Home Repair Specialist",
+      "slug": "fbpack-victor-home-repair-specialist",
+      "phone": "+14242306774",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "cb1ad9e0-d5b8-4f52-a2e6-0d5c5d33d7ec",
+      "name": "Vladimir Way",
+      "slug": "fbpack-vladimir-way-psychiatry",
+      "phone": "+12135264881",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "cba84a52-ab79-4a9b-9bde-c03519a05539",
+      "name": "George Khazanovskiy - Real Estate Agent",
+      "slug": "fb-post-3-george-khazanovskiy-real-estate-agent",
+      "phone": "+16192772766",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "ce17230f-0890-4938-a3a6-4d63ef3028e3",
+      "name": "Maryna",
+      "slug": "maryna-180859",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "d2345e9d-e1ab-40f0-8846-0a9eddf07c4e",
+      "name": "Nikita",
+      "slug": "nikita-180903",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "d70450da-2c7f-46a2-b6c5-dddab23cfe37",
+      "name": "Igor Green - Business Licensing Protection",
+      "slug": "fb-post-23-igor-green-business-licensing-protection",
+      "phone": "+19492261519",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "da4435d6-8ce8-412f-9338-6d1618756d4c",
+      "name": "Ruzanna Melikyan",
+      "slug": "consolidated-ruzanna-melikyan-cleaning",
+      "phone": "+18182098816",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "e09b32e2-f9dd-4d5d-9409-4b832e3c37f6",
+      "name": "Michael Finkelstein — Gluten Free Bread",
+      "slug": "fbpack-michael-finkelstein-gluten-free-bread",
+      "phone": "+18189199629",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "f4008d93-76ce-420b-b90d-3e99c15b7eed",
+      "name": "Julia Leo - Skincare Products",
+      "slug": "fb-post-10-julia-leo-skincare-products",
+      "phone": "+16577701496",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "f78dc3cd-9fce-4884-bca4-a796d9f5cb44",
+      "name": "Kingfargo",
+      "slug": "kingfargo-180941",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "fb822a56-865b-4114-a54a-51260d94545e",
+      "name": "Flora Barshak",
+      "slug": "batch2-flora-barshak",
+      "phone": "+16198893001",
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    },
+    {
+      "id": "fbcc3994-6159-4abd-9258-91619a438e1a",
+      "name": "Aburik",
+      "slug": "aburik-181010",
+      "phone": null,
+      "instagram": null,
+      "source_type": "IMPORT",
+      "reason": "no_compatible_cluster_match"
+    }
+  ]
+}

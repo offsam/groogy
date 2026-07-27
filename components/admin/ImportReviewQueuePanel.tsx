@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useTransition } from "react";
+import { useMemo, useState, useTransition } from "react";
 import type {
   ImportReviewItem,
   ImportReviewStatus,
   ImportReviewTargetCollection,
 } from "@/types/import-review";
 import {
-  IMPORT_ENTITY_TYPE_LABELS,
   IMPORT_REVIEW_STATUS_LABELS,
   IMPORT_TARGET_COLLECTION_LABELS,
 } from "@/types/import-review";
@@ -23,6 +22,10 @@ import {
   getContactLevel,
   getDisplayContacts,
 } from "@/lib/import-review/contacts";
+import { ImportReviewContactIcons } from "@/components/admin/ImportReviewContactIcons";
+import { ImportReviewPreviewModal } from "@/components/admin/ImportReviewPreviewModal";
+import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
+import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
 
 function daysSince(iso: string | null): number | null {
   if (!iso) return null;
@@ -43,33 +46,6 @@ function formatDate(iso: string | null): string {
   }
 }
 
-function ContactLine({ item }: { item: ImportReviewItem }) {
-  const contacts = getDisplayContacts(item);
-  if (contacts.length === 0) {
-    return <span>нет контактов</span>;
-  }
-  return (
-    <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
-      {contacts.slice(0, 3).map((c) =>
-        c.href ? (
-          <a
-            key={`${c.kind}-${c.label}`}
-            href={c.href}
-            target="_blank"
-            rel="noreferrer"
-            className="text-brand-blue-deep underline-offset-2 hover:underline"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {c.label}
-          </a>
-        ) : (
-          <span key={`${c.kind}-${c.label}`}>{c.label}</span>
-        ),
-      )}
-    </span>
-  );
-}
-
 const STATUS_KEYS: Array<ImportReviewStatus | "all"> = [
   "all",
   "pending",
@@ -87,6 +63,8 @@ const COLLECTION_KEYS: Array<ImportReviewTargetCollection | "all"> = [
   "private_specialists",
   "services",
   "marketplace",
+  "lechu",
+  "transfers",
   "jobs",
   "events",
   "organizations",
@@ -111,11 +89,13 @@ export function ImportReviewQueuePanel({
   const router = useRouter();
   const searchParams = useSearchParams();
   const [pending, startTransition] = useTransition();
+  const [previewId, setPreviewId] = useState<string | null>(null);
 
   const status = searchParams.get("status") ?? "pending";
   const collection = searchParams.get("collection") ?? "all";
   const sort = searchParams.get("sort") ?? "priority";
   const q = searchParams.get("q") ?? "";
+  const previewItem = items.find((i) => i.id === previewId) ?? null;
 
   function setParams(patch: Record<string, string | null>) {
     const next = new URLSearchParams(searchParams.toString());
@@ -133,8 +113,14 @@ export function ImportReviewQueuePanel({
 
   const statusCounts = useMemo(() => {
     const by = counts.by_status ?? {};
+    // «Все» = рабочая очередь, без duplicate / approved / rejected
+    const open =
+      (by.pending ?? 0) +
+      (by.ready_to_publish ?? 0) +
+      (by.in_review ?? 0) +
+      (by.needs_more_info ?? 0);
     return {
-      all: counts.total,
+      all: open,
       pending: by.pending ?? 0,
       ready_to_publish: by.ready_to_publish ?? 0,
       in_review: by.in_review ?? 0,
@@ -147,10 +133,18 @@ export function ImportReviewQueuePanel({
 
   return (
     <div className={`space-y-6 ${pending ? "opacity-70" : ""}`}>
+      {previewItem ? (
+        <ImportReviewPreviewModal
+          filterQuery={searchParams.toString()}
+          item={previewItem}
+          onClose={() => setPreviewId(null)}
+        />
+      ) : null}
+
       <div className="flex flex-wrap gap-2">
         {STATUS_KEYS.map((key) => {
           const label =
-            key === "all" ? "Все" : IMPORT_REVIEW_STATUS_LABELS[key];
+            key === "all" ? "В очереди" : IMPORT_REVIEW_STATUS_LABELS[key];
           const count = statusCounts[key as keyof typeof statusCounts] ?? 0;
           const active = status === key || (key === "all" && status === "all");
           return (
@@ -176,7 +170,7 @@ export function ImportReviewQueuePanel({
             key === "all" ? "Все коллекции" : IMPORT_TARGET_COLLECTION_LABELS[key];
           const count =
             key === "all"
-              ? counts.total
+              ? statusCounts.all
               : (counts.by_collection?.[key] ?? 0);
           const active = collection === key;
           return (
@@ -234,23 +228,43 @@ export function ImportReviewQueuePanel({
           <option value="updated">Последние изменённые</option>
         </select>
         <label className="inline-flex items-center gap-1 text-xs text-slate-600">
-          <input name="has_phone" type="checkbox" defaultChecked={searchParams.get("has_phone") === "1"} />
+          <input
+            name="has_phone"
+            type="checkbox"
+            defaultChecked={searchParams.get("has_phone") === "1"}
+          />
           phone
         </label>
         <label className="inline-flex items-center gap-1 text-xs text-slate-600">
-          <input name="has_telegram" type="checkbox" defaultChecked={searchParams.get("has_telegram") === "1"} />
+          <input
+            name="has_telegram"
+            type="checkbox"
+            defaultChecked={searchParams.get("has_telegram") === "1"}
+          />
           telegram
         </label>
         <label className="inline-flex items-center gap-1 text-xs text-slate-600">
-          <input name="has_instagram" type="checkbox" defaultChecked={searchParams.get("has_instagram") === "1"} />
+          <input
+            name="has_instagram"
+            type="checkbox"
+            defaultChecked={searchParams.get("has_instagram") === "1"}
+          />
           instagram
         </label>
         <label className="inline-flex items-center gap-1 text-xs text-slate-600">
-          <input name="has_website" type="checkbox" defaultChecked={searchParams.get("has_website") === "1"} />
+          <input
+            name="has_website"
+            type="checkbox"
+            defaultChecked={searchParams.get("has_website") === "1"}
+          />
           website
         </label>
         <label className="inline-flex items-center gap-1 text-xs text-slate-600">
-          <input name="has_media" type="checkbox" defaultChecked={searchParams.get("has_media") === "1"} />
+          <input
+            name="has_media"
+            type="checkbox"
+            defaultChecked={searchParams.get("has_media") === "1"}
+          />
           media
         </label>
         <button
@@ -262,126 +276,100 @@ export function ImportReviewQueuePanel({
       </form>
 
       <p className="text-sm text-slate-500">
-        Показано {items.length} из {total} · страница {page}/{totalPages}
+        Показано {items.length} из {total} · страница {page}/{totalPages}.
+        Сразу видна карточка как в выдаче. Кнопка «Показать полную карточку» —
+        страница профиля целиком. Повторы одного бизнеса по телефону/Instagram
+        автоматически схлопнуты в статус «Дубликаты».
       </p>
 
-      <ul className="divide-y divide-slate-100 overflow-hidden rounded-xl border border-slate-200 bg-white">
-        {items.length === 0 ? (
-          <li className="px-4 py-10 text-center text-sm text-slate-500">
-            Нет записей по текущим фильтрам.
-          </li>
-        ) : (
-          items.map((item) => {
+      {items.length === 0 ? (
+        <p className="rounded-xl border border-dashed border-slate-200 bg-slate-50 px-4 py-10 text-center text-sm text-slate-500">
+          Нет записей по текущим фильтрам.
+        </p>
+      ) : (
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {items.map((item) => {
             const days = daysSince(item.source_posted_at);
-            const name =
-              item.title ||
-              item.business_name ||
-              item.person_name ||
-              "Без названия";
             const level = item.contact_level || getContactLevel(item);
-            const sourceOpen = item.source_url?.trim();
+            const junkTitle =
+              !item.business_name &&
+              (!item.title ||
+                /^(messenger|gmail\.com|whatsapp|telegram)$/i.test(item.title.trim()));
             return (
-              <li key={item.id}>
-                <div className="px-4 py-4 hover:bg-slate-50">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1 space-y-1">
-                      <Link
-                        href={`/admin/import-review/${item.id}?${searchParams.toString()}`}
-                        className="block space-y-1"
-                      >
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span
-                            className={`rounded border px-2 py-0.5 text-xs font-medium ${CONTACT_LEVEL_STYLES[level]}`}
-                          >
-                            {CONTACT_LEVEL_LABELS[level]}
-                          </span>
-                          <span className="rounded bg-slate-900 px-2 py-0.5 text-xs font-medium text-white">
-                            {IMPORT_REVIEW_STATUS_LABELS[item.review_status]}
-                          </span>
-                          <span className="rounded bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">
-                            {item.entity_type
-                              ? IMPORT_ENTITY_TYPE_LABELS[item.entity_type]
-                              : "—"}
-                          </span>
-                          <span className="rounded bg-brand-blue/10 px-2 py-0.5 text-xs text-brand-blue-deep">
-                            {item.target_collection
-                              ? IMPORT_TARGET_COLLECTION_LABELS[
-                                  item.target_collection
-                                ]
-                              : "—"}
-                          </span>
-                          {item.category && (
-                            <span className="text-xs text-slate-500">
-                              {item.category}
-                            </span>
-                          )}
-                          {item.duplicate_status &&
-                            item.duplicate_status !== "unique" && (
-                              <span className="rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-800">
-                                {item.duplicate_status}
-                                {item.occurrence_count
-                                  ? ` ×${item.occurrence_count}`
-                                  : ""}
-                              </span>
-                            )}
-                          {item.photos_count > 0 && (
-                            <span className="text-xs text-slate-500">
-                              медиа: {item.photos_count} (не скачаны)
-                            </span>
-                          )}
-                        </div>
-                        <h3 className="truncate text-base font-semibold text-slate-900">
-                          {name}
-                        </h3>
-                        <p className="line-clamp-2 text-sm text-slate-600">
-                          {item.description || item.source_text || "—"}
-                        </p>
-                      </Link>
-                      <p className="text-xs text-slate-500">
-                        {item.city || "город не указан"}
-                        {item.price != null
-                          ? ` · ${item.price} ${item.currency || "USD"}`
-                          : ""}
-                        {" · "}
-                        <ContactLine item={item} />
-                      </p>
-                      {sourceOpen ? (
-                        <a
-                          href={sourceOpen}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex text-xs font-medium text-brand-blue-deep hover:underline"
-                        >
-                          Открыть оригинал
-                        </a>
-                      ) : null}
-                    </div>
-                    <div className="shrink-0 text-right text-xs text-slate-500">
-                      <div>TG: {formatDate(item.source_posted_at)}</div>
-                      <div>{days != null ? `Прошло: ${days} дн.` : "—"}</div>
-                      <div className="mt-1">
-                        conf{" "}
-                        {item.ai_confidence != null
-                          ? Number(item.ai_confidence).toFixed(2)
-                          : "—"}
-                      </div>
-                      <div className="mt-1 max-w-[220px] text-amber-700">
-                        {item.ai_reason || "needs_review"}
-                      </div>
-                      <div className="mt-1 text-slate-600">
-                        {item.source_author_username
-                          ? `@${item.source_author_username}`
-                          : item.source_author_display_name ||
-                            "автор без username"}
-                      </div>
-                    </div>
-                  </div>
+              <li key={item.id} className="space-y-2 rounded-2xl border border-slate-200 bg-white p-3">
+                <ImportReviewTypedCard item={item} />
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {junkTitle ? (
+                    <span className="rounded border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800">
+                      Название из текста (сырое было мусорным)
+                    </span>
+                  ) : null}
+                  {(item.photos_count ?? 0) > 0 ? (
+                    <span className="rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-600">
+                      {item.preview_image_url
+                        ? `TG фото: ${item.photos_count}`
+                        : `TG фото: ${item.photos_count} (ещё не в превью)`}
+                    </span>
+                  ) : (
+                    <span className="rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-500">
+                      Без TG фото
+                    </span>
+                  )}
+                  <span
+                    className={`rounded border px-2 py-0.5 text-[11px] font-medium ${CONTACT_LEVEL_STYLES[level]}`}
+                  >
+                    {CONTACT_LEVEL_LABELS[level]}
+                  </span>
+                  <span className="text-[11px] text-slate-500">
+                    {formatDate(item.source_posted_at)}
+                    {days != null ? ` · ${days} дн.` : ""}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <ImportReviewContactIcons
+                    contacts={getDisplayContacts(item)}
+                    showLabels
+                    max={6}
+                  />
+                </div>
+                {item.source_url?.trim() ? (
+                  <EntitySourceCard
+                    anchorId={`queue-source-${item.id}`}
+                    className="!rounded-xl !p-3"
+                    hasSource
+                    initiallyRevealed
+                    isAuthenticated
+                    sourceKind={
+                      /facebook\.com|fb\.com/i.test(item.source_url)
+                        ? "facebook"
+                        : /t\.me\/|telegram\.me/i.test(item.source_url) ||
+                            (item.source || "").startsWith("telegram")
+                          ? "telegram"
+                          : null
+                    }
+                    sourceUrl={item.source_url}
+                  />
+                ) : null}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <button
+                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white hover:bg-slate-800"
+                    type="button"
+                    onClick={() => setPreviewId(item.id)}
+                  >
+                    Показать полную карточку
+                  </button>
+                  <Link
+                    className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50"
+                    href={`/admin/import-review/${item.id}?${searchParams.toString()}`}
+                  >
+                    Правки
+                  </Link>
                 </div>
               </li>
             );
-          })
-        )}
-      </ul>
+          })}
+        </ul>
+      )}
 
       <div className="flex items-center justify-between gap-3">
         <button

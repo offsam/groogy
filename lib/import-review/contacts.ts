@@ -1,4 +1,9 @@
 import type { ImportReviewItem } from "@/types/import-review";
+import { sanitizeInstagramHandles } from "@/lib/import-review/display-name";
+import {
+  isFacebookUrl,
+  isInstagramUrl,
+} from "@/lib/business/presence";
 
 export type ContactLevel = "full" | "has_contact" | "telegram_only" | "none";
 
@@ -26,6 +31,10 @@ function cleanUsername(value: string | null | undefined): string | null {
   return cleaned || null;
 }
 
+function mentionsWhatsapp(text: string | null | undefined): boolean {
+  return /whats\s*app|ватсап|вацап|wa\.me/i.test(text || "");
+}
+
 export type ContactFlags = {
   phones: string[];
   whatsapp: string[];
@@ -33,6 +42,7 @@ export type ContactFlags = {
   emails: string[];
   websites: string[];
   instagram: string[];
+  facebook: string[];
   sourceUrl: string | null;
   telegramUserId: string | null;
 };
@@ -49,17 +59,37 @@ export function getContactFlags(
     | "source_url"
     | "telegram_user_id"
     | "source_author_username"
+    | "description"
+    | "source_text"
   >,
 ): ContactFlags {
+  const phones = nonEmpty(item.phone);
+  let whatsapp = nonEmpty(item.whatsapp);
+  // If author wrote WhatsApp but only phone was extracted — still show WA icon.
+  if (
+    whatsapp.length === 0 &&
+    phones.length > 0 &&
+    mentionsWhatsapp(item.description || item.source_text)
+  ) {
+    whatsapp = [phones[0]!];
+  }
+
+  const websites = nonEmpty(item.website);
+  const facebook = websites.filter((w) => isFacebookUrl(w));
+  const plainWebsites = websites.filter(
+    (w) => !isFacebookUrl(w) && !isInstagramUrl(w),
+  );
+
   return {
-    phones: nonEmpty(item.phone),
-    whatsapp: nonEmpty(item.whatsapp),
+    phones,
+    whatsapp,
     telegramUsername:
       cleanUsername(item.telegram_username) ||
       cleanUsername(item.source_author_username),
     emails: nonEmpty(item.email),
-    websites: nonEmpty(item.website),
-    instagram: nonEmpty(item.instagram).map((v) => v.replace(/^@+/, "")),
+    websites: plainWebsites,
+    instagram: sanitizeInstagramHandles(item.instagram),
+    facebook,
     sourceUrl: item.source_url?.trim() || null,
     telegramUserId: item.telegram_user_id?.trim() || null,
   };
@@ -71,7 +101,7 @@ export function computeContactPriorityScore(flags: ContactFlags): number {
   const hasTgUsername = Boolean(flags.telegramUsername);
   const hasEmail = flags.emails.length > 0;
   const hasWebsite = flags.websites.length > 0;
-  const hasSocial = flags.instagram.length > 0;
+  const hasSocial = flags.instagram.length > 0 || flags.facebook.length > 0;
   const hasSourceUrl = Boolean(flags.sourceUrl);
   const hasTgUid = Boolean(flags.telegramUserId);
 
@@ -117,18 +147,32 @@ export function contactLevelFromFlags(flags: ContactFlags): ContactLevel {
     Boolean(flags.telegramUsername) ||
     flags.emails.length > 0 ||
     flags.websites.length > 0 ||
-    flags.instagram.length > 0;
+    flags.instagram.length > 0 ||
+    flags.facebook.length > 0 ||
+    Boolean(flags.sourceUrl) ||
+    Boolean(flags.telegramUserId);
 
   if (hasPrimary) {
     const score = computeContactPriorityScore(flags);
+    // Source post / Telegram ID alone → telegram_only; richer contacts → has_contact/full
+    if (
+      !flags.phones.length &&
+      !flags.whatsapp.length &&
+      !flags.telegramUsername &&
+      !flags.emails.length &&
+      !flags.websites.length &&
+      !flags.instagram.length &&
+      !flags.facebook.length &&
+      (flags.sourceUrl || flags.telegramUserId)
+    ) {
+      return "telegram_only";
+    }
     return score >= 180 ? "full" : "has_contact";
   }
-  if (flags.sourceUrl || flags.telegramUserId) return "telegram_only";
   return "none";
 }
 
 export function contactLevelFromScore(score: number): ContactLevel {
-  // Fallback only — prefer contactLevelFromFlags when flags are available.
   if (score >= 180) return "full";
   if (score <= 0) return "none";
   if (score <= 11) return "telegram_only";
@@ -147,6 +191,7 @@ export type DisplayContact = {
     | "email"
     | "website"
     | "instagram"
+    | "facebook"
     | "source"
     | "telegram_no_username";
   label: string;
@@ -169,7 +214,7 @@ export function getDisplayContacts(item: ImportReviewItem): DisplayContact[] {
     const digits = wa.replace(/[^\d]/g, "");
     out.push({
       kind: "whatsapp",
-      label: `WhatsApp ${wa}`,
+      label: wa,
       href: digits ? `https://wa.me/${digits}` : null,
     });
   }
@@ -178,6 +223,12 @@ export function getDisplayContacts(item: ImportReviewItem): DisplayContact[] {
       kind: "telegram",
       label: `@${flags.telegramUsername}`,
       href: `https://t.me/${flags.telegramUsername}`,
+    });
+  } else if (flags.telegramUserId) {
+    out.push({
+      kind: "telegram_no_username",
+      label: `id:${flags.telegramUserId}`,
+      href: null,
     });
   }
   for (const email of flags.emails.slice(0, 1)) {
@@ -194,30 +245,16 @@ export function getDisplayContacts(item: ImportReviewItem): DisplayContact[] {
   for (const ig of flags.instagram.slice(0, 1)) {
     out.push({
       kind: "instagram",
-      label: `ig:${ig}`,
+      label: `@${ig}`,
       href: `https://instagram.com/${ig}`,
     });
   }
-
-  if (out.length === 0 && flags.sourceUrl) {
-    out.push({
-      kind: "source",
-      label: "Оригинал в Telegram",
-      href: flags.sourceUrl,
-    });
+  for (const fb of flags.facebook.slice(0, 1)) {
+    const href = /^https?:\/\//i.test(fb) ? fb : `https://${fb}`;
+    out.push({ kind: "facebook", label: "Facebook", href });
   }
 
-  if (
-    out.length === 0 &&
-    !flags.telegramUsername &&
-    flags.telegramUserId
-  ) {
-    out.push({
-      kind: "telegram_no_username",
-      label: "Telegram без username",
-      href: null,
-    });
-  }
+  // Source is a separate «Источник» block — never mixed into contacts.
 
   return out;
 }

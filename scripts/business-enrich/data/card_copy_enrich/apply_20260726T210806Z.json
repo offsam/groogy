@@ -1,0 +1,343 @@
+{
+  "generated_at": "2026-07-26T21:08:06.542710+00:00",
+  "mode": "apply",
+  "scanned": 698,
+  "updated": 442,
+  "skipped": 256,
+  "field_hits": {
+    "telegram_url": 263,
+    "website": 185,
+    "address_line": 21,
+    "phone": 8,
+    "email": 5,
+    "latitude": 4,
+    "longitude": 4,
+    "location_precision": 4,
+    "instagram_url": 1
+  },
+  "sample": [
+    {
+      "id": "d072e0b0-da7f-4ca7-8d34-4798cb1afe19",
+      "slug": "saida-saida-205654-def0",
+      "name": "SAida SAida",
+      "patch": {
+        "address_line": "5957 Laurel Canyon Blvd, Valley Village, CA 91607"
+      }
+    },
+    {
+      "id": "b079f200-ba5f-4e1e-9a1e-2185095ec4b4",
+      "slug": "lana-cher-205647-957a",
+      "name": "Lana Cher",
+      "patch": {
+        "address_line": "56 Essex Ln, Irvine, CA 92620",
+        "latitude": 33.7289625,
+        "longitude": -117.7555623,
+        "location_precision": "street"
+      }
+    },
+    {
+      "id": "e5ea11e6-4558-4c5c-a228-7fc285c7fd45",
+      "slug": "di-carrental-205641-f5a7",
+      "name": "Di · car_rental",
+      "patch": {
+        "telegram_url": "https://t.me/d29069"
+      }
+    },
+    {
+      "id": "ab16e4cd-335c-451e-abec-3b3b7cc6fa32",
+      "slug": "lana-205640-2183",
+      "name": "Lana",
+      "patch": {
+        "telegram_url": "https://t.me/lanahalmg"
+      }
+    },
+    {
+      "id": "90a90da0-0c24-430e-afe9-a7ae2dd7af55",
+      "slug": "max-s-205638-3b7b",
+      "name": "Max S",
+      "patch": {
+        "telegram_url": "https://t.me/max_s_us"
+      }
+    },
+    {
+      "id": "2bc49df4-2de0-4883-b18a-9280b403fbe6",
+      "slug": "karin-205637-d761",
+      "name": "Karinа",
+      "patch": {
+        "telegram_url": "https://t.me/gretli"
+      }
+    },
+    {
+      "id": "e0985e57-a687-48f9-9026-6abceac6c4e3",
+      "slug": "oxy-205636-86a1",
+      "name": "𝙒𝙤𝙭𝙮",
+      "patch": {
+        "telegram_url": "https://t.me/worried018"
+      }
+    },
+    {
+      "id": "de828bee-49c7-48e7-8132-5830db3e07d8",
+      "slug": "rrr-205635-8c45",
+      "name": "Rrr",
+      "patch": {
+        "telegram_url": "https://t.me/mgsbubd"
+      }
+    },
+    {
+      "id": "09483bd5-db01-49ec-8397-dafa0ef34a80",
+      "slug": "ns-205633-c5d0",
+      "name": "N.S",
+      "patch": {
+        "telegram_url": "https://t.me/sokolov_a"
+      }
+    },
+    {
+      "id": "8954db04-4ef8-4391-9ecc-0e7ecc26bf5d",
+      "slug": "iryna-205632-d2e9",
+      "name": "Iryna ❤️‍🇺🇦",
+      "patch": {
+        "telegram_url": "https://t.me/sfotkalla"
+      }
+    },
+    {
+      "id": "85a826f2-968c-46b5-8ac8-3aeabb745324",
+      "slug": "daria-205631-edfe",
+      "name": "Daria",
+      "patch": {
+        "telegram_url": "https://t.me/iamdaria_ca"
+      }
+    },
+    {
+      "id": "fc7a1ee9-988a-42da-89e7-7fddeca6e2fa",
+      "slug": "business-biz-205630-774b",
+      "name": "Марина",
+      "patch": {
+        "telegram_url": "https://t.me/marin04ka86"
+      }
+    },
+    {
+      "id": "8c070874-3a01-47eb-b26a-9dd0ed58a26d",
+      "slug": "aida-khazieva-pr-205628-e4f9",
+      "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+      "patch": {
+        "telegram_url": "https://t.me/aida_khazieva"
+      }
+    },
+    {
+      "id": "7c58ea6b-a321-40b2-873a-439e83f97310",
+      "slug": "kai-t-205627-dea6",
+      "name": "Kai - T",
+      "patch": {
+        "telegram_url": "https://t.me/mrs_yudi"
+      }
+    },
+    {
+      "id": "2b2cec61-024a-462e-a7c9-0592bfca6ecd",
+      "slug": "stanislav-kuznetsov-205626-7008",
+      "name": "Stanislav Kuznetsov",
+      "patch": {
+        "telegram_url": "https://t.me/stankuz77"
+      }
+    },
+    {
+      "id": "13355425-bdcb-40bb-b20b-a24e371fecea",
+      "slug": "ainura-205624-8314",
+      "name": "Ainura",
+      "patch": {
+        "telegram_url": "https://t.me/valeriia_translator"
+      }
+    },
+    {
+      "id": "a8a392fc-9f98-4add-80f1-df394f87ad3d",
+      "slug": "olenka-205623-a14e",
+      "name": "Olen’ka",
+      "patch": {
+        "telegram_url": "https://t.me/nevskaya08"
+      }
+    },
+    {
+      "id": "a0beb3f4-2d4a-443d-8ac8-908c7088fa2d",
+      "slug": "ponomarev-dmitry-205622-2300",
+      "name": "Ponomarev Dmitry",
+      "patch": {
+        "telegram_url": "https://t.me/jimmytree"
+      }
+    },
+    {
+      "id": "ded6a1aa-a917-464a-988a-1543b6f5fe05",
+      "slug": "lena-205621-71f9",
+      "name": "Lena",
+      "patch": {
+        "telegram_url": "https://t.me/lena_usa_russia"
+      }
+    },
+    {
+      "id": "b46a8bc6-da9a-4d13-9be9-9b055edc6fb7",
+      "slug": "alla-205619-082b",
+      "name": "Alla",
+      "patch": {
+        "telegram_url": "https://t.me/aaa_a_eid"
+      }
+    },
+    {
+      "id": "ffe6613e-9eed-4aac-b492-a675d3698bcb",
+      "slug": "the-loft-dental-studio-205618-9c86",
+      "name": "брекетами занимается. The Loft Dental Studio",
+      "patch": {
+        "telegram_url": "https://t.me/lussiena"
+      }
+    },
+    {
+      "id": "ae557fcd-6570-4099-af50-17e73f46682a",
+      "slug": "serena-205617-1553",
+      "name": "Serena",
+      "patch": {
+        "telegram_url": "https://t.me/ser_en_a"
+      }
+    },
+    {
+      "id": "376c030e-10e6-4c0d-ad90-67e2da740821",
+      "slug": "valeriia-205615-64b8",
+      "name": "Valeriia",
+      "patch": {
+        "telegram_url": "https://t.me/valeriiayv"
+      }
+    },
+    {
+      "id": "773d8dbb-a677-43f8-be25-34cecab7864a",
+      "slug": "nata-cali-205614-60c9",
+      "name": "Nata Cali",
+      "patch": {
+        "telegram_url": "https://t.me/nataikura"
+      }
+    },
+    {
+      "id": "bd082099-3b37-43e8-ab25-7796f387c87d",
+      "slug": "zbear-205613-7547",
+      "name": "ZBear",
+      "patch": {
+        "telegram_url": "https://t.me/zbear74"
+      }
+    },
+    {
+      "id": "49ede1f2-2aea-4630-82a0-c6ea33df92b6",
+      "slug": "ma-childcare-205612-768f",
+      "name": "MA · childcare",
+      "patch": {
+        "telegram_url": "https://t.me/marisol528"
+      }
+    },
+    {
+      "id": "4cc7a2b3-fa35-4c62-b625-1783bb3e7d48",
+      "slug": "nikita-golosov-205610-92f3",
+      "name": "Nikita Golosov",
+      "patch": {
+        "telegram_url": "https://t.me/go1osov"
+      }
+    },
+    {
+      "id": "535a830b-7251-496c-9ba7-3e64979b536c",
+      "slug": "polina-205609-ef5a",
+      "name": "Polina",
+      "patch": {
+        "telegram_url": "https://t.me/kniazeva_polina"
+      }
+    },
+    {
+      "id": "4f4f2489-2dfa-40a1-af4b-f9ec2a3118a5",
+      "slug": "tatsiana-losikova-205608-2e44",
+      "name": "Tatsiana Losikova",
+      "patch": {
+        "telegram_url": "https://t.me/buenita_tl"
+      }
+    },
+    {
+      "id": "3a444543-901d-48e9-87b7-c468d1e919b7",
+      "slug": "alexa-205606-5d12",
+      "name": "Alexa",
+      "patch": {
+        "telegram_url": "https://t.me/lisi4ka48"
+      }
+    },
+    {
+      "id": "738c40f4-83f3-4eb5-a6f1-3e0cbcb351d3",
+      "slug": "vaso-205605-0ebc",
+      "name": "Vaso",
+      "patch": {
+        "telegram_url": "https://t.me/vaskovaso"
+      }
+    },
+    {
+      "id": "bf47d6d3-2f74-4cf7-9010-facb53e635e6",
+      "slug": "sabina-yarantseva-205604-4676",
+      "name": "Sabina Yarantseva",
+      "patch": {
+        "telegram_url": "https://t.me/sabina_yara"
+      }
+    },
+    {
+      "id": "3cc20069-6116-44a0-8db2-15aa91bec2ae",
+      "slug": "exal-205603-c2d8",
+      "name": "ExAl",
+      "patch": {
+        "telegram_url": "https://t.me/usaworlds"
+      }
+    },
+    {
+      "id": "932cb9e2-e421-4d29-ad31-01a052a074d9",
+      "slug": "alina-205601-d7e9",
+      "name": "Alina",
+      "patch": {
+        "telegram_url": "https://t.me/alinohka2021"
+      }
+    },
+    {
+      "id": "25e1fc2f-37a5-458b-9a3f-d105b4e005bc",
+      "slug": "elena-r-205600-d428",
+      "name": "Elena R",
+      "patch": {
+        "telegram_url": "https://t.me/elenausa2018"
+      }
+    },
+    {
+      "id": "42a28076-8ead-4b30-af44-202efcd9c5f4",
+      "slug": "bulletproof-205559-66e8",
+      "name": "Bulletproof",
+      "patch": {
+        "telegram_url": "https://t.me/bulletproof013"
+      }
+    },
+    {
+      "id": "edbc1bd2-cd7a-4e28-97df-cb23b3773e9f",
+      "slug": "valentina-205558-0419",
+      "name": "Valentina",
+      "patch": {
+        "telegram_url": "https://t.me/fdshnjks"
+      }
+    },
+    {
+      "id": "aedd2210-4208-44e3-89da-10207a349808",
+      "slug": "dl-express-205556-c74a",
+      "name": "DL Express",
+      "patch": {
+        "telegram_url": "https://t.me/dlexpress"
+      }
+    },
+    {
+      "id": "7eea6d36-8872-4c5b-a65c-6b9d8095d55d",
+      "slug": "pomosch-w-la-205555-5feb",
+      "name": "Pomosch w LA",
+      "patch": {
+        "telegram_url": "https://t.me/loslana"
+      }
+    },
+    {
+      "id": "dbbec246-8857-4ce2-9d34-189cfb42cc2e",
+      "slug": "eric-205554-4b43",
+      "name": "Eric",
+      "patch": {
+        "telegram_url": "https://t.me/kazbat1"
+      }
+    }
+  ]
+}

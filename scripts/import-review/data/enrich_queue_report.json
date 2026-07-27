@@ -1,0 +1,267 @@
+{
+  "mode": "apply",
+  "loaded": 4551,
+  "stats": {
+    "unchanged": 1756,
+    "patched": 2795,
+    "applied": 2795
+  },
+  "fields_filled": {
+    "telegram_username": 2725,
+    "person_name": 250
+  },
+  "telegram_resolved": 4530,
+  "samples": [
+    {
+      "id": "de76b8b0",
+      "title": "Anna Lukina",
+      "patch": {
+        "telegram_username": "lukinaannet"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "784f9649",
+      "title": "Ди",
+      "patch": {
+        "telegram_username": "Dinodin22"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "e99d7745",
+      "title": "Tanzik",
+      "patch": {
+        "telegram_username": "tanzik_cake"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "4923b73e",
+      "title": "Liya",
+      "patch": {
+        "telegram_username": "liyarooon"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "29dd8a78",
+      "title": "Anna Stulneva",
+      "patch": {
+        "telegram_username": "AnnaStulneva"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "a0f14ed1",
+      "title": "Olga Kliukina",
+      "patch": {
+        "telegram_username": "okliukina78"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "3d9cf84b",
+      "title": "Lei",
+      "patch": {
+        "telegram_username": "LeiaShah"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "e6c92ea1",
+      "title": "Anna Stulneva",
+      "patch": {
+        "telegram_username": "AnnaStulneva"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "8ad1eea1",
+      "title": "Natalia Pshennik",
+      "patch": {
+        "telegram_username": "Natalia_Pshennik"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "0aceeee7",
+      "title": "Anna Stulneva",
+      "patch": {
+        "telegram_username": "AnnaStulneva"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "40ec2fe1",
+      "title": "Kseniia",
+      "patch": {
+        "telegram_username": "KaceySidel"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "131254d3",
+      "title": "Anna Lukina",
+      "patch": {
+        "telegram_username": "lukinaannet"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "2d63dd2d",
+      "title": "Kate",
+      "patch": {
+        "telegram_username": "kate_ermolina"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "3379d571",
+      "title": "Tanzik",
+      "patch": {
+        "telegram_username": "tanzik_cake"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "1568695e",
+      "title": "Evgeniya",
+      "patch": {
+        "telegram_username": "evgeniyakrizh"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "092840c2",
+      "title": "Юля",
+      "patch": {
+        "telegram_username": "luliiaza"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "5d14c140",
+      "title": "Anna Lukina",
+      "patch": {
+        "telegram_username": "lukinaannet"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "5e0a1dd0",
+      "title": "Love Rykova",
+      "patch": {
+        "telegram_username": "lpr3a"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "9c5c64ef",
+      "title": "Настя Рыжик Ginger Foto",
+      "patch": {
+        "telegram_username": "nastyafoto"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "db20c845",
+      "title": "Sveta ‍♀️",
+      "patch": {
+        "telegram_username": "sweetmushka"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "1c7d8156",
+      "title": "lady_pro_invest",
+      "patch": {
+        "telegram_username": "lady_pro_invest",
+        "person_name": "Екатерина Джемилева | Финансовый ментор"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "526a3f7d",
+      "title": "Anastasiya Posashenko",
+      "patch": {
+        "telegram_username": "devvasenki"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "a89ad5f9",
+      "title": "Jane OC",
+      "patch": {
+        "telegram_username": "MeetJane"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "33842f1b",
+      "title": "Kristina Berger",
+      "patch": {
+        "telegram_username": "kbergerusa"
+      },
+      "notes": [
+        "telegram"
+      ]
+    },
+    {
+      "id": "79bc7c13",
+      "title": "Olya Music teacher",
+      "patch": {
+        "telegram_username": "olya_bagryantseva"
+      },
+      "notes": [
+        "telegram"
+      ]
+    }
+  ]
+}

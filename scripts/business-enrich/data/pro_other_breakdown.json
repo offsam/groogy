@@ -1,0 +1,2046 @@
+{
+  "total": 246,
+  "cluster_counts": {
+    "photography_weak": 4,
+    "auto_weak": 19,
+    "it_tech": 16,
+    "food_weak": 14,
+    "spam_unclear": 6,
+    "selling_goods": 1,
+    "cleaning": 2,
+    "housing": 2,
+    "moving_delivery": 17,
+    "beauty_weak": 4,
+    "health_weak": 2,
+    "finance_weak": 6,
+    "immigration_help": 4,
+    "fitness_weak": 3,
+    "childcare_weak": 3,
+    "transport_rides": 9,
+    "translation_docs": 2,
+    "events_parties": 1,
+    "jobs_work": 3,
+    "music_art": 5,
+    "marketing_ads": 1,
+    "home_repair": 2,
+    "business_services": 1
+  },
+  "unclustered_count": 119,
+  "clusters": {
+    "moving_delivery": [
+      {
+        "name": "Svetlana K",
+        "slug": "svetlana-k-180918",
+        "snippet": "Svetlana K Дорогие девушки🌷 Кому нужны ПИЯВОЧКИ, будем рады, обращайтесь 😇 Есть в наличии в ЛА, также возможна доставка в ОС или почтой в любой штат. Благодарю "
+      },
+      {
+        "name": "Elena",
+        "slug": "elena-205143-1f35",
+        "snippet": "Elena 🍷 У Last Bottle сейчас винный марафон - реально можно поймать классное вино со скидками до 50–70% 😍 • для новичков дают $10 бонус • сейчас бесплатная дост"
+      },
+      {
+        "name": "Любов",
+        "slug": "business-biz-205545-f164",
+        "snippet": "Любов Вітаю, Всіх! 😊 Якщо ви шукаєте унікальний та оригінальний подарунок для своїх близьких — зверніть увагу на наші персоналізовані глянцеві журнали. Це стиль"
+      },
+      {
+        "name": "Azamat",
+        "slug": "azamat-205826-6e5c",
+        "snippet": "Azamat ‼️Всем Привет‼️ сейчас период для получения выплат по мед страховкам, Кто работает 🔴Doordash 🟠 Amazon 🟣Lyft 🔵Spark ✅Можете получить 860$ или 1700$✅ Если "
+      }
+    ],
+    "transport_rides": [
+      {
+        "name": "Tigran Arutiunian",
+        "slug": "tigran-arutiunian-172216",
+        "snippet": "Tigran Arutiunian Привет! Сдается в аренду 2026 Shevrolet Suburban, 2026 BMW 740 , оба новые, со всеми бумагами для Uber Black, SUV , пока только город, LAX в п"
+      },
+      {
+        "name": "Ana Gonzalez",
+        "slug": "ana-gonzalez-204820-d61c",
+        "snippet": "Ana Gonzalez Кто обожает путешествия и хочет завести новых друзей? **Собираем очередной девичник(** без ограничения по возрасту) на ПРОГРАММУ МЕЧТЫ с 5 по 11 се"
+      },
+      {
+        "name": "Mike Novak",
+        "slug": "mike-novak-205033-4e17",
+        "snippet": "Mike Novak 🚐 Премиальный частный трансфер | Bay Area и Сакраменто Надёжные и комфортные поездки по всей Bay Area, включая Сан-Франциско, Сакраменто, Роклин и др"
+      },
+      {
+        "name": "Arman Movsesian",
+        "slug": "arman-movsesian-205308-b5d0",
+        "snippet": "Arman Movsesian Всем привет, кто хочет поддержать отечественного производителя? Работаю над интересным проектом, если есть не равнодушные люди заходите по ссылк"
+      }
+    ],
+    "jobs_work": [
+      {
+        "name": "Ann Kivva",
+        "slug": "ann-kivva-204923-f92d",
+        "snippet": "Ann Kivva Онлайн помощник! Менеджер по продажам! Работа онлайн! В студию оклейки машин нужен помощник для ответа на сообщения в социальных сетях! Продажа и конс"
+      },
+      {
+        "name": "Альбина",
+        "slug": "business-biz-205547-5bac",
+        "snippet": "Альбина Иногда в эмиграции накрывает не «большими проблемами», а тихим внутренним «я устала». Вроде всё нормально… но сил мало, радости меньше, а ты как будто г"
+      },
+      {
+        "name": "Marianna Musinova",
+        "slug": "marianna-musinova-205236-0c72",
+        "snippet": "Marianna Musinova ‼️ **УЖЕ ЗАВТРА** ‼️ ️⚡️ Когда жизнь «налаживается», но внутри всё равно напряжение. Работа, дела, планы — всё вроде движется вперёд. Но ощуще"
+      }
+    ],
+    "housing": [
+      {
+        "name": "Andrei Tarzan",
+        "slug": "andrei-tarzan-234040",
+        "snippet": "Andrei Tarzan Привет, друзья! Если вы собираетесь на Гавайи, на остров Оаху — буду рад помочь сделать ваш отдых лёгким, ярким и без лишних забот. Что могу предл"
+      },
+      {
+        "name": "Nata Cali",
+        "slug": "nata-cali-205614-60c9",
+        "snippet": "Nata Cali Снимала и снимаю у этой компании, потому что они в ирвайне монополисты. Залог никогда не отдавали полностью, всегда находили, за что часть забрать ( к"
+      }
+    ],
+    "selling_goods": [
+      {
+        "name": "Nikita Golosov",
+        "slug": "nikita-golosov-205610-92f3",
+        "snippet": "Nikita Golosov У кого плохая вытяжка на кухне? Я продаю портативные вытяжки и мне нужны отзывы на Амазон, бесплатно отправлю товар, а вы мне оставите отзыв. Пиш"
+      }
+    ],
+    "business_services": [
+      {
+        "name": "Cali",
+        "slug": "cali-205405-30f5",
+        "snippet": "Cali Инъекции для похудения. Пептиды. GLP1 BPC157 GHK-CU Semaglutide аналог- Оземпик, Tirzepatide аналог -Мунджаро. 5mg, 3,ml Больше доза чем в обычной ручке. G"
+      }
+    ],
+    "it_tech": [
+      {
+        "name": "Влад Нестеренко",
+        "slug": "business-biz-181006",
+        "snippet": "Влад Нестеренко Создание САЙТОВ+ИИ Agent+Видеконвеер под блогеров! Автоматизируем ваши рутинные действия, поможем бизнесу!!! @ DefyConformity6 пишите! Создание "
+      },
+      {
+        "name": "Mila",
+        "slug": "oksana-moskvitina-234034",
+        "snippet": "Mila Я здесь делала, хорошие врачи, на ресепшн по русски говорят https://maps.apple/p/nNfybZeJmMmiBq Я здесь делала, хорошие врачи, на ресепшн по русски говорят"
+      },
+      {
+        "name": "Tanya Pozniansky",
+        "slug": "tanya-pozniansky-205243-58d6",
+        "snippet": "Tanya Pozniansky 🌺 LAST-MINUTE DEALS • SPRING BREAK DATES AVAILABLE! 🌺 🏖️ Two Beautiful Hawaiian Airbnb Homes — Amazing Prices! Hi everyone! If you’re still loo"
+      },
+      {
+        "name": "Alina Shakirova - Web & SEO Services",
+        "slug": "fb-post-34-alina-shakirova-web-seo-services",
+        "snippet": "Alina Shakirova - Web & SEO Services Website design, SEO optimization, and GEO targeting services for AI applications including ChatGPT and other AI platforms. "
+      }
+    ],
+    "marketing_ads": [
+      {
+        "name": "Oli",
+        "slug": "oli-205509-fbfa",
+        "snippet": "Oli 🚨 Пока ты думаешь, конкуренты уже забирают твоих клиентов с помощью AI Неважно, что именно ты продаешь: покраску домов, установку виниров, новостройки или д"
+      }
+    ],
+    "translation_docs": [
+      {
+        "name": "I M",
+        "slug": "i-m-205807-c490",
+        "snippet": "I M Нотариально заверенное согласие родителей на выезд ребёнка с бабушкой и дедушкой. Лучше оформить на русском и английском языках. Копия свидетельства о рожде"
+      },
+      {
+        "name": "Ksenia",
+        "slug": "ksenia-205811-7635",
+        "snippet": "Ksenia Апостиль делают в офисе секретаря штата в ЛА в порядке живой очереди, обычно очень быстро. Лайфхак: съездить туда на поезде (Metrolink). Офис в 15 минута"
+      }
+    ],
+    "immigration_help": [
+      {
+        "name": "Joanne Nellie",
+        "slug": "joanne-nellie-180950",
+        "snippet": "Joanne Nellie 🇺🇸 Green Card через брак с гражданином/гражданкой США Оформим ваш кейс под ключ • Adjustment of Status • Полное сопровождение до получения грин ка"
+      },
+      {
+        "name": "kalinka.service",
+        "slug": "kalinkaservice-150635",
+        "snippet": "kalinka.service https://www.instagram.com/kalinka.service/ https://www.instagram.com/kalinka.service/ Kalinka Service provides fast, reliable, and professional "
+      },
+      {
+        "name": "Kalinka Service — Rita Shvalikovskaya",
+        "slug": "consolidated-kalinka-service",
+        "snippet": "Kalinka Service — Rita Shvalikovskaya Паспорта РФ, гражданство, визы, справки · WhatsApp +1-305-335-0887 · @kalinka.service · Rita Паспорта РФ, гражданство, виз"
+      },
+      {
+        "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+        "slug": "aida-khazieva-pr-205628-e4f9",
+        "snippet": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR это правда супер✨ Я в США всего 1,5 года и эти встречи с МАК картами стали для мен"
+      }
+    ],
+    "events_parties": [
+      {
+        "name": "Roman Rybin",
+        "slug": "consolidated-roman-rybin-karaoke",
+        "snippet": "Roman Rybin Karaoke Summer Night · Chez Nous, Redwood City · 17 июля · $35/$40 · 916-280-3360 Karaoke Summer Night · Chez Nous, Redwood City · 17 июля · $35/$40"
+      }
+    ],
+    "beauty_weak": [
+      {
+        "name": "Viktoriia 🇺🇦🇺🇸",
+        "slug": "viktoriia-205344-eec8",
+        "snippet": "Viktoriia 🇺🇦🇺🇸 💅 МАНИКЮР • ПЕДИКЮР • ЛАМИНИРОВАНИЕ РЕСНИЦ • ИНДИВИДУАЛЬНОЕ ОБУЧЕНИЕ Открыта запись на процедуры и индивидуальное обучение в West Hollywood. ✨ За"
+      },
+      {
+        "name": "Stacy",
+        "slug": "stacy-205434-8dd1",
+        "snippet": "Stacy 🌞 Летний Glow для ваших волос - уже здесь! ✨ Привет, девочки! 💁‍♀️ Этим летом я даю СКИДКУ 30% на все профессиональные процедуры для волос с использование"
+      },
+      {
+        "name": "Anastasia Kinder",
+        "slug": "fb-post-30-anastasia-kinder",
+        "snippet": "Anastasia Kinder Russian manicure and pedicure services. Special introductory offer valid until end of month. By appointment only. Russian manicure and pedicure"
+      },
+      {
+        "name": "Julia Leo - Skincare Products",
+        "slug": "fb-post-10-julia-leo-skincare-products",
+        "snippet": "Julia Leo - Skincare Products Skincare product offerings and beauty treatments. Skincare product offerings and beauty treatments. Skincare product offerings and"
+      }
+    ],
+    "auto_weak": [
+      {
+        "name": "Александр Кл",
+        "slug": "business-9165592087-204917-92d5",
+        "snippet": "Александр Кл Выездная Диагностика авто от $50. выявление неисправностей $70, ремонт проблемы от $100. замена масла ДВС $80, запуск авто если аккумулятор сел $20"
+      },
+      {
+        "name": "Ivan Zhizhnevskii",
+        "slug": "ivan-zhizhnevskii-205000-77d0",
+        "snippet": "Ivan Zhizhnevskii Продается Toyota Prius 2007г. 350k пробег . Хорошая комплектация , камера заднего вида . Катализатор не оригинал . Машина в рабочем состоянии."
+      },
+      {
+        "name": "Alex из Dream Car",
+        "slug": "alex-dream-car",
+        "snippet": "Alex из Dream Car услуга / специалист 6194308588 Alex из Dream Car 6194308588 Alex из Dream Car"
+      },
+      {
+        "name": "Roman",
+        "slug": "roman-181510-ec0e",
+        "snippet": "Roman Сдам свою аренда Toyota Camry 2026 гибрид в Лос анжелесе 750 со страховкой. Пишите в личку. Сдам свою аренда Toyota Camry 2026 гибрид в Лос анжелесе 750 с"
+      }
+    ],
+    "home_repair": [
+      {
+        "name": "Ekaterina Mishurenkova",
+        "slug": "ekaterina-mishurenkova-204859-fc4c",
+        "snippet": "Ekaterina Mishurenkova Привет 🙂 Ремонт может быть без стресса — когда вас слышат, понимают и делают всё аккуратно, как для себя. Что делаем: • Interior / Exteri"
+      },
+      {
+        "name": "Master Valery",
+        "slug": "master-valery-205050-6c62",
+        "snippet": "Master Valery Ремонт и замена прокладки головки блока цилиндров на Тойота Приус, Кемри, и не только... Качество, гарантия, скидки. 916 504 1875 Ремонт и замена "
+      }
+    ],
+    "cleaning": [
+      {
+        "name": "Алёна Карташова",
+        "slug": "business-6366758737-204907-bf2a",
+        "snippet": "Алёна Карташова Привет! Провожу профессиональную глубокую чистку: ✨Диванов ✨Матрасов ✨Ковров и ковровых покрытий Удаление пятен,запахов с мягкой мебели. Выведен"
+      },
+      {
+        "name": "Rudzik Mykhailo",
+        "slug": "rudzik-mykhailo-205013-8177",
+        "snippet": "Rudzik Mykhailo Room for rent in a clean two-story house. I also live in the house, so I'm looking for a clean, respectful, and responsible person. Quiet and co"
+      }
+    ],
+    "health_weak": [
+      {
+        "name": "Анна Габедава",
+        "slug": "business-biz-205447-fe7c",
+        "snippet": "Анна Габедава 🇺🇸 Живете в США, но всё ещё не чувствуете себя уверенно на английском? Вы не одни ❤️ Очень многие иммигранты знают базовый английский, но теряются"
+      },
+      {
+        "name": "SvetickLA",
+        "slug": "svetickla-172213",
+        "snippet": "SvetickLA Дорогие друзья!!! Спешу сообщить, что у нас есть ПИЯВОЧКИ в ЛА))!!! Кто понимает в Гирудотерапии и ценит этот Уникальный Дар Природы, пожалуйста обращ"
+      }
+    ],
+    "food_weak": [
+      {
+        "name": "Nat Ben - Personal Image Consultant",
+        "slug": "fb-post-34-nat-ben-personal-image-consultant",
+        "snippet": "Nat Ben - Personal Image Consultant Strategic wardrobe and personal image consulting for life transitions including new relationships, career growth, and person"
+      },
+      {
+        "name": "Anonymous participant",
+        "slug": "anonymous-participant-205245-6c21",
+        "snippet": "Anonymous participant 🏡 Переуступка аренды — 2 комнаты + отдельная ванная в доме Сдаются 2 отдельные комнаты и 1 отдельная ванная комната в просторном 4-комнатн"
+      },
+      {
+        "name": "Ирина",
+        "slug": "business-biz-205800-7b0c",
+        "snippet": "Ирина Девочки, если кто ищет хорошего инструктора по вождению, могу смело рекомендовать Ангелину! Она профессионально обучает, с первых минут и реально помогает"
+      },
+      {
+        "name": "Good Food",
+        "slug": "good-food-180931",
+        "snippet": "Good Food Любите пельмени и выбираете халяль? В Good Food вас ждёт целый холодильник халяльных пельменей 🥟 Большой выбор, отличный вкус и качество, которому мож"
+      }
+    ],
+    "music_art": [
+      {
+        "name": "Tetiana Akhmednova",
+        "slug": "tetiana-akhmednova-205103-7a41",
+        "snippet": "Tetiana Akhmednova Преподаватель высшей категории с огромным опытом работы в музыкальной школе с удовольствием возьмется обучать вас игре на фортепиано у себя д"
+      },
+      {
+        "name": "Nadezhda Kurinnaya",
+        "slug": "nadezhda-kurinnaya-205057-a56b",
+        "snippet": "Nadezhda Kurinnaya Даю частные уроки гитары Опыт работы в США 17 лет. Александр Даю частные уроки гитары Опыт работы в США 17 лет. Александр Даю частные уроки г"
+      },
+      {
+        "name": "Olya Music teacher",
+        "slug": "olya-music-teacher-205418-dae7",
+        "snippet": "Olya Music teacher Приглашаю на занятия самых маленьких исполнителей- деток 3-6 лет! Если вы хотите, чтобы ваш ребенок мягко и с радостью вошел в мир музыки 💫 и"
+      },
+      {
+        "name": "Pavel Egorov",
+        "slug": "pavel-egorov-204852-f566",
+        "snippet": "Pavel Egorov Всем привет! Веду набор учеников на занятия по барабанам Приглашаю на индивидуальные занятия по игре на барабанах. Обучаю с нуля и продолжающих. По"
+      }
+    ],
+    "photography_weak": [
+      {
+        "name": "Daria Sergutina",
+        "slug": "daria-sergutina-205330-888c",
+        "snippet": "Daria Sergutina Привет! Меня зовут Даша, и я преподаю английский уже более 20 лет. Последние 4 года я помогаю эмигрантам в США уверенно говорить по-английски в "
+      },
+      {
+        "name": "Adgar",
+        "slug": "adgar-180959",
+        "snippet": "Adgar 🏠 Помощь с документами для аренды жилья и других нужд! 📄Bank Statements(стейтменты) 📄Paystubs(пейстабс). 📄CPN’s $150 📄Employment and verification $150 - С"
+      },
+      {
+        "name": "Taya",
+        "slug": "taya-181520-438f",
+        "snippet": "Taya Принимаю заказы на домашние вкусные пасочки- цукаты, шоколадные капли, изюм. Можно внутри начинить кремом - шоколадным или ванильным. Декор - толстый слой "
+      },
+      {
+        "name": "Taya",
+        "slug": "taya-181519-b6e4",
+        "snippet": "Taya Принимаю заказы на домашние вкусные пасочки- цукаты, шоколадные капли, изюм. Можно внутри начинить кремом - шоколадным или ванильным. Декор - толстый слой "
+      }
+    ],
+    "childcare_weak": [
+      {
+        "name": "Марина",
+        "slug": "business-biz-205630-774b",
+        "snippet": "Марина если кому-то будет интересно. У меня была одна запись на паспорт для ребенка, но мне надо было записать двоих. Я позвонила и они спокойно записали на ту "
+      },
+      {
+        "name": "Leyla Kamila",
+        "slug": "leyla-kamila-181525-4bd9",
+        "snippet": "Leyla Kamila Добрый день. Живу в lake Forest. Если кому то нужно по субботам могу присмотреть за вашим ребенком у себя дома. 20$ в час. у меня тоже есть дочь (6"
+      },
+      {
+        "name": "Yulia",
+        "slug": "yulia-205816-d191",
+        "snippet": "Yulia Мы ходили на эриалс, не понравилось, ушли спустя пару месяцев. Заинтересованности в том что делают дети нет никакой, преподаватели - молоденькие девочки, "
+      }
+    ],
+    "finance_weak": [
+      {
+        "name": "Tanya",
+        "slug": "tanya-150608",
+        "snippet": "Tanya Здравствуйте, обращайтесь если есть вопросы. Стоимость $1195 за две недели в горах Big Bear. Программа сильно субсидируется для русскоговорящих еврейских "
+      },
+      {
+        "name": "Lena",
+        "slug": "lena-205621-71f9",
+        "snippet": "Lena Round trip брала, удобнее если где-то задержка, билеты не пропадут. Turkish airlines в прошлый раз летала GEICO, у меня тогда самая низкая цена и норм по у"
+      },
+      {
+        "name": "suverdiboost",
+        "slug": "suverdiboost-171746",
+        "snippet": "suverdiboost Профессионально занимаюсь восстановлением кредитной истории ✔️ убираю негативные записи ✔️ поднимаю credit score ✔️ делаю credit boost ✔️ подготавл"
+      },
+      {
+        "name": "Rrr",
+        "slug": "rrr-205635-8c45",
+        "snippet": "Rrr Я не имел сними дела но вроде нормальные кредитную историю исправляют и ряд других услуг вроде Я не имел сними дела но вроде нормальные кредитную историю ис"
+      }
+    ],
+    "fitness_weak": [
+      {
+        "name": "Liudmila Irvine",
+        "slug": "liudmila-irvine-205551-3ed5",
+        "snippet": "Liudmila Irvine Сейчас выездных сессий нету, только личное присутствие и по записи. Напишите мне в личку, я вам расскажу как менять загранпаспорт, я меняла в ян"
+      },
+      {
+        "name": "Nataly Simonova",
+        "slug": "nataly-simonova-205733-d6c0",
+        "snippet": "Nataly Simonova Приглашаем девочек 11–15 лет на занятия по волейболу с тренером! (тренер русскоговорящий) Тренировки проходят на волейбольной площадке в районе "
+      },
+      {
+        "name": "victoria__kei",
+        "slug": "victoria-kei-150650",
+        "snippet": "victoria__kei https://www.instagram.com/victoria__kei?igsh=NTc4MTIwNjQ2YQ== Тренер и грамотный специалист по питанию . Очень хорошая девушка )) https://www.inst"
+      }
+    ],
+    "spam_unclear": [
+      {
+        "name": "Liliya",
+        "slug": "liliya",
+        "snippet": "Liliya событие"
+      },
+      {
+        "name": "Айгерим Бимолдина",
+        "slug": "pro-9467522179",
+        "snippet": "Айгерим Бимолдина услуга / специалист"
+      },
+      {
+        "name": "Наиля",
+        "slug": "pro-3fbbb7556d",
+        "snippet": "Наиля услуга / специалист"
+      },
+      {
+        "name": "Dasha✨",
+        "slug": "dasha",
+        "snippet": "Dasha✨ услуга / специалист"
+      }
+    ]
+  },
+  "unclustered_sample": [
+    {
+      "name": "Lev Kushner",
+      "slug": "lev-kushner-205253-0fa9",
+      "snippet": "Lev Kushner ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ вылет из любого города США ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ вылет из любого города США ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ [WWW.P"
+    },
+    {
+      "name": "Позвоните Татьяне",
+      "slug": "pro-c4e1bc2d00",
+      "snippet": "Позвоните Татьяне Позвоните Татьяне 949-662-8430 Позвоните Татьяне 949-662-8430 Позвоните Татьяне"
+    },
+    {
+      "name": "Екатерина Улицкая",
+      "slug": "pro-71a6dc73ce",
+      "snippet": "Екатерина Улицкая услуга / специалист Оля, вот сюда все, что не поддоается обычной переработке и считается опасным - электроприборы, батарейки, лампы и проч https://oclandfills.com"
+    },
+    {
+      "name": "Larisa Grib",
+      "slug": "larisa-grib-205459-d906",
+      "snippet": "Larisa Grib Скажите честно 🤍 у вас сейчас больше состояние «хочу выспаться и чтобы меня никто не трогал» или «мне нужна энергия и ресурс»? Я как раз с этим и работаю 🌿 Да Скажите ч"
+    },
+    {
+      "name": "Amega Studios",
+      "slug": "consolidated-amega-studios",
+      "snippet": "Amega Studios Casting · YouTube family comedy · Westlake Village · 18–25 · $100/day · castyoutube@gmail.com Casting · YouTube family comedy · Westlake Village · 18–25 · $100/day · "
+    },
+    {
+      "name": "Гора Ведьма",
+      "slug": "business-biz-205413-094d",
+      "snippet": "Гора Ведьма Меня зовут Гóра. Я работаю с физическим и внутренним состоянием человека. Если есть проблемы в душе или теле — можно обратиться ко мне. Особенно если уже пробо Меня зов"
+    },
+    {
+      "name": "Mralexgatto",
+      "slug": "mralexgatto",
+      "snippet": "Mralexgatto услуга / специалист Советую, профессионал своего дела @mralexgatto @mralexgatto Советую, профессионал своего дела @mralexgatto @mralexgatto"
+    },
+    {
+      "name": "Metro Tech Academy",
+      "slug": "vika-borel-150706",
+      "snippet": "Metro Tech Academy Онлайн школа программирования 9–17 · Python · Vika Borel Онлайн школа программирования 9–17 · Python · Vika Borel Metro Tech Academy — онлайн школа программирова"
+    },
+    {
+      "name": "Тимофій Лоза",
+      "slug": "business-biz-205400-59ff",
+      "snippet": "Тимофій Лоза 🇬🇧 Англійська, яка стане частиною вашого життя! Запрошуємо дітей, підлітків і дорослих на онлайн-курси англійської мови. ✨ На вас чекає 💬 максимум розмовної пра 🇬🇧 Анг"
+    },
+    {
+      "name": "Anna",
+      "slug": "anna-204932-e969",
+      "snippet": "Anna Потрясающий мастер. Никакого раздражения на глазах сразу после выполнения работы (у меня очень чувствительные глаза и кожа вокруг глаз). Шикарная скорость работ Потрясающий ма"
+    },
+    {
+      "name": "Марина",
+      "slug": "pro-fc7d8d59ae-1",
+      "snippet": "Марина услуга / специалист Марина +1 347 628 1344 👍🏻 привет) Марина +1 347 628 1344 Марина +1 347 628 1344 👍🏻 привет) Марина +1 347 628 1344"
+    },
+    {
+      "name": "Elena Nikiforova",
+      "slug": "elena-nikiforova-204959-c7ed",
+      "snippet": "Elena Nikiforova Инжир $5- 1 Lb, есть 4 Lb. Район Antelope, Watt Ave & Elverta Rd. 9163352706 Елена. Инжир $5- 1 Lb, есть 4 Lb. Район Antelope, Watt Ave & Elverta Rd. 9163352706 Ел"
+    },
+    {
+      "name": "Aiza M",
+      "slug": "aiza-m-205715-2ce1",
+      "snippet": "Aiza M Здравствуйте! Провожу занятия по английскому языку 🇺🇸🇬🇧 Объясняю на казахском, русском или полностью на английском — как Вам удобнее. Если Вы давно хотите нач Здравствуйте! "
+    },
+    {
+      "name": "Cell",
+      "slug": "cell-150621",
+      "snippet": "Cell Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167 Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167 Привет ✌️ Шахноза Хатамова, Cell:"
+    },
+    {
+      "name": "Anastasiya Breslavska",
+      "slug": "anastasiya-breslavska-205430-8625",
+      "snippet": "Anastasiya Breslavska Разговорный испанский в мини-группе с носителями Если ты понимаешь испанский, но говорить всё ещё сложно — это для тебя ⏱️ 1,5 часа живой практики 👥 мини-груп"
+    },
+    {
+      "name": "Elena",
+      "slug": "fbpack-home-swimming-classes-elena",
+      "snippet": "Elena Индивидуальные / домашние уроки плавания · Elena Индивидуальные / домашние уроки плавания · Elena Elena · Swimming Instructor · Private / Home Swimming Lessons Category: Educ"
+    },
+    {
+      "name": "Inna",
+      "slug": "inna",
+      "snippet": "Inna услуга / специалист (949) 910-7008 Евгения 👍👍👍👍 (949) 910-7008 Евгения 👍👍👍👍"
+    },
+    {
+      "name": "liliia_ser",
+      "slug": "liliia-ser",
+      "snippet": "liliia_ser услуга / специалист Может @Liliia_Ser 💫 Может @Liliia_Ser 💫"
+    },
+    {
+      "name": "Александр",
+      "slug": "pro-ead5436b9d",
+      "snippet": "Александр услуга / специалист Александр +1 (979) 619-3142 Александр +1 (979) 619-3142"
+    },
+    {
+      "name": "regyminate",
+      "slug": "regyminate-150651",
+      "snippet": "regyminate https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/regyminate?igsh=NTc4MTIwN"
+    },
+    {
+      "name": "Gag Baghdasaryan",
+      "slug": "gag-baghdasaryan",
+      "snippet": "Gag Baghdasaryan услуга / специалист 4246664118 4246664118"
+    },
+    {
+      "name": "Aram",
+      "slug": "aram",
+      "snippet": "Aram услуга / специалист 415-650-8769 Aram 415-650-8769 Aram"
+    },
+    {
+      "name": "Анна Готочкина",
+      "slug": "business-biz-205431-6370",
+      "snippet": "Анна Готочкина 🇺🇸 Понимаете английский, но боитесь говорить? Открыт набор на индивид. занятия Онлайн · 3 раза в неделю Оставьте “+” - назначим преподавателя и определим ваш 🇺🇸 Пони"
+    },
+    {
+      "name": "chirk_paint",
+      "slug": "chirk-paint",
+      "snippet": "chirk_paint услуга / специалист https://www.instagram.com/chirk_paint?igsh=NTc4MTIwNjQ2YQ== Ира🙏🏼 https://www.instagram.com/chirk_paint?igsh=NTc4MTIwNjQ2YQ== Ира🙏🏼"
+    },
+    {
+      "name": "Jane OC",
+      "slug": "jane-oc",
+      "snippet": "Jane OC услуга / специалист Таня летит 9494320911 Таня летит 9494320911"
+    },
+    {
+      "name": "La Paving - Construction Services",
+      "slug": "fb-post-8-la-paving-construction-services",
+      "snippet": "La Paving - Construction Services Construction and paving services. Construction and paving services. Construction and paving services. Original post: Construction paving services "
+    },
+    {
+      "name": "Анна Еремеев",
+      "slug": "pro-e77c72dedb",
+      "snippet": "Анна Еремеев услуга / специалист https://www.facebook.com/profile.php?id=61584759127972&mibextid=wwXIfr&mibextid=wwXIfr Не знаю, где они локально находятся, но постоянно попадаются"
+    },
+    {
+      "name": "Ольга",
+      "slug": "business-3109210864-172221",
+      "snippet": "Ольга Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864 Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864 Лекарства из России, есть "
+    },
+    {
+      "name": "Aleksandr Pshennik",
+      "slug": "aleksandr-pshennik",
+      "snippet": "Aleksandr Pshennik услуга / специалист +19494344734 Венер The best +19494344734 Венер The best"
+    },
+    {
+      "name": "Elizaveta Petrova",
+      "slug": "elizaveta-petrova-180911",
+      "snippet": "Elizaveta Petrova 📚 Устал учить английский по приложениям без результата? Живой преподаватель с 7-летним опытом — совсем другое. Языки: 🇺🇸🇩🇪🇫🇷🇪🇸. Разговорная практика, грамматика 📚"
+    },
+    {
+      "name": "Backstage hairsalon gallery Яна",
+      "slug": "backstage-hairsalon-gallery",
+      "snippet": "Backstage hairsalon gallery Яна услуга / специалист Backstage hairsalon + gallery Яна !!! https://www.instagram.com/yansar86?igsh=NTc4MTIwNjQ2YQ== Backstage hairsalon + gallery Яна"
+    },
+    {
+      "name": "Arazu Alieva - English Teacher",
+      "slug": "fb-post-6-arazu-alieva-english-teacher",
+      "snippet": "Arazu Alieva - English Teacher English language instruction and tutoring services. English language instruction and tutoring services. English language instruction and tutoring ser"
+    },
+    {
+      "name": "Макс",
+      "slug": "business-biz-180906",
+      "snippet": "Макс Оказываю высококачественные услуги по поокраске жилых домов и коммерческих помещений 🏠🏢✨. Оказываю высококачественные услуги по поокраске жилых домов и коммерческих помещений "
+    },
+    {
+      "name": "Andrew",
+      "slug": "andrew-181007",
+      "snippet": "Andrew Что касается рыбалки на нельму:Итак по поездке на нельму Могу принять вас в апреле,900$ с человека в день,что входит в стоимость тура 1.Встреча в аэропорту 1.1П Что касается"
+    },
+    {
+      "name": "hammond_cpa",
+      "slug": "hammond-cpa-150628",
+      "snippet": "hammond_cpa https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/hammond_cpa?igsh=NTc4M"
+    },
+    {
+      "name": "Elena Entsova",
+      "slug": "elena-entsova",
+      "snippet": "Elena Entsova услуга / специалист https://lookadme.com https://lookadme.com"
+    },
+    {
+      "name": "Ksu Usa",
+      "slug": "ksu-usa-1",
+      "snippet": "Ksu Usa услуга / специалист @Ksu_usa напишите Ксюше @Ksu_usa напишите Ксюше"
+    },
+    {
+      "name": "могу сдать в аренду",
+      "slug": "pro-b499ba88c3",
+      "snippet": "могу сдать в аренду услуга / специалист 9167770505 могу сдать в аренду 9167770505 могу сдать в аренду"
+    },
+    {
+      "name": "Sveetla",
+      "slug": "sveetla-205403-d7e2",
+      "snippet": "Sveetla 🇫🇷ФРАНЦУЗЬКА МОВА ОНЛАЙН Без перевантаження зайвою теорією. Без шаблонного підходу. З фокусом на реальне володіння мовою. Тільки системне навчання і результат. 🇫🇷ФРАНЦУЗЬКА"
+    },
+    {
+      "name": "Valentina Dolinta",
+      "slug": "valentina-dolinta",
+      "snippet": "Valentina Dolinta услуга / специалист 9166282655 9166282655"
+    },
+    {
+      "name": "Татьяны",
+      "slug": "pro-060de20aa7",
+      "snippet": "Татьяны услуга / специалист Вот объявление про работу с проживанием от Татьяны 657-204-2247 она может быть IHSS тоже, как только вам подтвердят, то оплачивать будет IHSS программа "
+    },
+    {
+      "name": "Галина",
+      "slug": "pro-865156f94c",
+      "snippet": "Галина +1 (916) 595-2348 Irina +1 (916) 595-2348 Irina +1 (916) 595-2348 Irina Источник: Telegram, дата: 2026-02-08T19:18:37+00:00 Галина +1 (916) 595-2348 Irina"
+    },
+    {
+      "name": "David Dee",
+      "slug": "david-dee-204956-2053",
+      "snippet": "David Dee 🌳 Профессиональное удаление пней (Stump Grinding) Работаем в Сакраменто и ближайших городах. Если на вашем участке есть старые или ненужные пни, которые портят 🌳 Професси"
+    },
+    {
+      "name": "открыла свою уютную студию ENDO Studio",
+      "slug": "endo-studio",
+      "snippet": "открыла свою уютную студию ENDO Studio Девочки, всем привет! 🤍 Хочу поделиться — я открыла свою уютную студию ENDO Studio OC в Costa Mesa ✨ Работаю на Endospheres Evolution (аппара"
+    },
+    {
+      "name": "Olga Savitskaya",
+      "slug": "olga-savitskaya21",
+      "snippet": "Olga Savitskaya услуга / специалист Я к ортодонту для взрослых обращалась. Могу дать контакт его ассистентки. @olga_savitskaya21 Я к ортодонту для взрослых обращалась. Могу дать ко"
+    },
+    {
+      "name": "Lynn J English",
+      "slug": "lynn-j-english-205002-47f7",
+      "snippet": "Lynn J English Набираем студентов новые классы и летнюю разговорную программу. Набираем студентов новые классы и летнюю разговорную программу. Набираем студентов новые классы и лет"
+    },
+    {
+      "name": "Kirill",
+      "slug": "kirill",
+      "snippet": "Kirill услуга / специалист https://www.usmobile.com/referrals?referrer=AD83214A&name=Kirill&utm_page_url=monster_referral https://www.usmobile.com/referrals?referrer=AD83214A&name="
+    },
+    {
+      "name": "Goar Goar",
+      "slug": "goar-goar-205823-7fc6",
+      "snippet": "Goar Goar Нанчик Очень рекомендую. Она не профессионал, но птичка у нее самая лучшая. Нанчик Очень рекомендую. Она не профессионал, но птичка у нее самая лучшая. Нанчик Очень реком"
+    },
+    {
+      "name": "Юлія",
+      "slug": "business-biz-205505-7df2",
+      "snippet": "Юлія УВАГА: відкрито набір на онлайн-курси іноземних мов 🌍 Доступні напрямки: англійська 🇬🇧, німецька 🇩🇪, французька 🇫🇷, іспанська 🇪🇸, італійська 🇮🇹, польська 🇵🇱, по УВАГА: відкрит"
+    },
+    {
+      "name": "Jane OC",
+      "slug": "jane-oc-205304-7225",
+      "snippet": "Jane OC Самый удобный вариант для этого возраста онлайн - очень бюджетно AI система обучения Synthesis Tutor. На английском, мой сын в этом именно возрасте на этой прог Самый удобн"
+    },
+    {
+      "name": "tatkaurbaniq",
+      "slug": "tatkaurbaniq-150645",
+      "snippet": "tatkaurbaniq https://www.instagram.com/tatkaurbaniq?igsh=NTc4MTIwNjQ2YQ== Стоит 200% https://www.instagram.com/tatkaurbaniq?igsh=NTc4MTIwNjQ2YQ== Стоит 200% Стоит 200%"
+    },
+    {
+      "name": "Aiza M",
+      "slug": "aiza-m-205644-4aee",
+      "snippet": "Aiza M Здравствуйте! Преподаю английский язык онлайн с индивидуальным подходом к каждому ученику. Хотите говорить свободно и уверенно? Напишите мне — проведём пробное Здравствуйте!"
+    },
+    {
+      "name": "Тетяна",
+      "slug": "business-biz-205704-b135",
+      "snippet": "Тетяна Здравствуйте. Принимаю заказы на вкусные, домашние пасочки,с изюм, цукаты, курага, шоколад. Ирвайн. Здравствуйте. Принимаю заказы на вкусные, домашние пасочки,с изюм, цукаты"
+    },
+    {
+      "name": "K Bunbich",
+      "slug": "k-bunbich",
+      "snippet": "K Bunbich услуга / специалист @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете"
+    },
+    {
+      "name": "Liudmyla Muzyra House Repair",
+      "slug": "fbpack-liudmyla-muzyra-house-repair",
+      "snippet": "Liudmyla Muzyra House Repair House repair House repair Liudmyla Muzyra · House Repair Category: Home Services ---FB_ENTITY_LIUDMYLA_MUZYRA--- { \"name\": \"Liudmyla Muzyra House Repai"
+    },
+    {
+      "name": "Liubov Cherkasova",
+      "slug": "liubov-cherkasova-205045-bb04",
+      "snippet": "Liubov Cherkasova Сниму мастербедрум в Кармайкл или около Я + 2 дочки. До $1000 Тел. 916-750-63-53 Сниму мастербедрум в Кармайкл или около Я + 2 дочки. До $1000 Тел. 916-750-63-53 "
+    },
+    {
+      "name": "julia_life_usa",
+      "slug": "julia-life-usa-150652",
+      "snippet": "julia_life_usa https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/julia_life_us"
+    },
+    {
+      "name": "Lisi4ka",
+      "slug": "lisi4ka48-1",
+      "snippet": "Lisi4ka услуга / специалист Это к нашей волшебнице❤️ @lisi4ka48 Это к нашей волшебнице❤️ @lisi4ka48"
+    },
+    {
+      "name": "Anna Sergeeva",
+      "slug": "anna-sergeeva-205553-7269",
+      "snippet": "Anna Sergeeva Помогаю получать заявки через Teлegram-чаты. 📌 Подходит для бuзнеса и проектов уsлуги товаpы sайты bоты Напиши «+» в личку, если интересно 🙂 Помогаю получать заявки ч"
+    },
+    {
+      "name": "Jenny",
+      "slug": "jenny-181008",
+      "snippet": "Jenny Друзья, заглядывайте за английским! Разбираем произношение, пополняем словарный запас, приструняем грамматику и просто весело проводим время 😉🤗 Друзья, заглядывайте за англий"
+    },
+    {
+      "name": "Дар'я",
+      "slug": "pro-e5f7d10c65",
+      "snippet": "Дар'я услуга / специалист https://www.aqua-tots.com/tustin/sign-up/?utm_source=google&utm_medium=cpc&utm_campaign=DAC_PMax_234_Tustin_CA&gad_source=1&gad_campaignid=23103853671&gbr"
+    },
+    {
+      "name": "Dance PROgression",
+      "slug": "dance-progression-031836",
+      "snippet": "Dance PROgression ✨Hi, everyone! 😉 If you’ve been thinking about dancing — or you have a daughter who loves to dance — you’re very welcome to join our dance family🤍 We offer K- ✨Hi"
+    },
+    {
+      "name": "k_bunbich",
+      "slug": "k-bunbich-1",
+      "snippet": "k_bunbich услуга / специалист @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете"
+    },
+    {
+      "name": "aleks_bake_",
+      "slug": "aleks-bake-150628",
+      "snippet": "aleks_bake_ Спасибо, заходите в мой инста, будем дружить🤗https://www.instagram.com/aleks_bake_?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr Спасибо, заходите в мой инста, будем дружить🤗"
+    },
+    {
+      "name": "annasurova1",
+      "slug": "annasurova1-1",
+      "snippet": "annasurova1 услуга / специалист @annasurova1 рекомендую @annasurova1 рекомендую"
+    },
+    {
+      "name": "irinka_milovskaia",
+      "slug": "irinka-milovskaia",
+      "snippet": "irinka_milovskaia услуга / специалист Здравствуйте. Мне написала @irinka_milovskaia, с предложением поменять рубли на доллары, - мы пообщались, созвонились, я убедился, что это жив"
+    },
+    {
+      "name": "Sasha Sorokina",
+      "slug": "sasha-sorokina-180912",
+      "snippet": "Sasha Sorokina 🎯 Английский с нуля или хочешь выйти на новый уровень? 7 лет преподавания. Любой уровень, онлайн, удобное время. Также: 🇩🇪🇫🇷🇪🇸. Грамматика без скуки, разговорна 🎯 Ан"
+    },
+    {
+      "name": "Связь",
+      "slug": "business-6503893846-172150",
+      "snippet": "Связь North Hollywood / Studio City / Burbank Индивидуальные тренировки в зале 📍 С чем помогу: — набрать мышечную массу и форму — увеличить силу — поставить технику North Hollywood"
+    },
+    {
+      "name": "Mary Ariel Chery - Karpenko",
+      "slug": "mary-ariel-chery-karpenko-204835-c04e",
+      "snippet": "Mary Ariel Chery - Karpenko 🐜🕷️ Лето в самом разгаре, а значит пришло время муравьев, пауков, уховерток и других нежелательных гостей! Если заметили насекомых дома или во дворе — н"
+    },
+    {
+      "name": "ekaterinakhomich",
+      "slug": "ekaterinakhomich-150703",
+      "snippet": "ekaterinakhomich https://www.instagram.com/ekaterinakhomich/ https://www.instagram.com/ekaterinakhomich/ https://www.instagram.com/ekaterinakhomich/ Источник: Telegram, дата: 2026-"
+    },
+    {
+      "name": "khan_archery_club",
+      "slug": "khan-archery-club-150704",
+      "snippet": "khan_archery_club Весь материал закупаю в Home Depot. Выходит на $150 по материалу. Всем желающим могу бесплатно скинуть список необходимых пиломатериалов и инструментов для пост В"
+    },
+    {
+      "name": "Svetlia40kUSA",
+      "slug": "svetlia40kusa",
+      "snippet": "Svetlia40kUSA услуга / специалист @Svetlia40kUSA @Svetlia40kUSA"
+    },
+    {
+      "name": "Revived Prince",
+      "slug": "revived-prince-204952-ae50",
+      "snippet": "Revived Prince Свежесобранный инжир: $5 лб за темный $6 лб за жёлтый и зеленый $8 лб за сизый(это знаменитый Smith сорт входящий в пятерку лучших мировых сортов) $10 лб за B Свежес"
+    },
+    {
+      "name": "maxgirr",
+      "slug": "maxgirr-150659",
+      "snippet": "maxgirr https://www.instagram.com/maxgirr?igsh=NTc4MTIwNjQ2YQ== 💪 https://www.instagram.com/maxgirr?igsh=NTc4MTIwNjQ2YQ== 💪 💪"
+    },
+    {
+      "name": "tetiana.malenkova",
+      "slug": "tetianamalenkova-150652",
+      "snippet": "tetiana.malenkova https://www.instagram.com/tetiana.malenkova?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/tetiana.malenkova?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/teti"
+    },
+    {
+      "name": "ksu_usa",
+      "slug": "ksu-usa",
+      "snippet": "ksu_usa услуга / специалист @Ksu_usa напишите Ксюше @Ksu_usa напишите Ксюше"
+    },
+    {
+      "name": "flamellecandles",
+      "slug": "flamellecandles-150648",
+      "snippet": "flamellecandles https://www.instagram.com/flamellecandles?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/flamellecandles?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/flamelleca"
+    },
+    {
+      "name": "lindas_bouquet",
+      "slug": "lindas-bouquet-150626",
+      "snippet": "lindas_bouquet https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/lindas_bouque"
+    },
+    {
+      "name": "Slavik Blyskuchy",
+      "slug": "slavik-blyskuchy",
+      "snippet": "Slavik Blyskuchy услуга / специалист 9166285029 9166285029"
+    },
+    {
+      "name": "videobyalexgatto",
+      "slug": "videobyalexgatto",
+      "snippet": "videobyalexgatto услуга / специалист Рекомендую. Настоящий профессионал😄 https://www.instagram.com/videobyalexgatto?igsh=NTc4MTIwNjQ2YQ== Рекомендую. Настоящий профессионал😄 https:"
+    }
+  ],
+  "all": [
+    {
+      "slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "snippet": "Lev Kushner ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ вылет из любого города США ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ вылет из любого города США ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ [WWW.PILGRIM-GROUP.ORG]( вылет из любого город"
+    },
+    {
+      "slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "snippet": "Daria Sergutina Привет! Меня зовут Даша, и я преподаю английский уже более 20 лет. Последние 4 года я помогаю эмигрантам в США уверенно говорить по-английски в реальных жизненн Привет! Меня зовут Даша, и я преподаю англи"
+    },
+    {
+      "slug": "pro-c4e1bc2d00",
+      "name": "Позвоните Татьяне",
+      "snippet": "Позвоните Татьяне Позвоните Татьяне 949-662-8430 Позвоните Татьяне 949-662-8430 Позвоните Татьяне"
+    },
+    {
+      "slug": "pro-71a6dc73ce",
+      "name": "Екатерина Улицкая",
+      "snippet": "Екатерина Улицкая услуга / специалист Оля, вот сюда все, что не поддоается обычной переработке и считается опасным - электроприборы, батарейки, лампы и проч https://oclandfills.com/hazardous-waste Оля, вот сюда все, что "
+    },
+    {
+      "slug": "business-9165592087-204917-92d5",
+      "name": "Александр Кл",
+      "snippet": "Александр Кл Выездная Диагностика авто от $50. выявление неисправностей $70, ремонт проблемы от $100. замена масла ДВС $80, запуск авто если аккумулятор сел $20. Замена ДВС Выездная Диагностика авто от $50. выявление неи"
+    },
+    {
+      "slug": "larisa-grib-205459-d906",
+      "name": "Larisa Grib",
+      "snippet": "Larisa Grib Скажите честно 🤍 у вас сейчас больше состояние «хочу выспаться и чтобы меня никто не трогал» или «мне нужна энергия и ресурс»? Я как раз с этим и работаю 🌿 Да Скажите честно 🤍 у вас сейчас больше состояние «х"
+    },
+    {
+      "slug": "consolidated-amega-studios",
+      "name": "Amega Studios",
+      "snippet": "Amega Studios Casting · YouTube family comedy · Westlake Village · 18–25 · $100/day · castyoutube@gmail.com Casting · YouTube family comedy · Westlake Village · 18–25 · $100/day · castyoutube@gmail.com Casting / Acting ·"
+    },
+    {
+      "slug": "business-biz-181006",
+      "name": "Влад Нестеренко",
+      "snippet": "Влад Нестеренко Создание САЙТОВ+ИИ Agent+Видеконвеер под блогеров! Автоматизируем ваши рутинные действия, поможем бизнесу!!! @ DefyConformity6 пишите! Создание САЙТОВ+ИИ Agent+Видеконвеер под блогеров! Автоматизируем ваш"
+    },
+    {
+      "slug": "fb-post-34-nat-ben-personal-image-consultant",
+      "name": "Nat Ben - Personal Image Consultant",
+      "snippet": "Nat Ben - Personal Image Consultant Strategic wardrobe and personal image consulting for life transitions including new relationships, career growth, and personal transformation. Strategic wardrobe and personal image con"
+    },
+    {
+      "slug": "business-biz-205413-094d",
+      "name": "Гора Ведьма",
+      "snippet": "Гора Ведьма Меня зовут Гóра. Я работаю с физическим и внутренним состоянием человека. Если есть проблемы в душе или теле — можно обратиться ко мне. Особенно если уже пробо Меня зовут Гóра. Я работаю с физическим и внутре"
+    },
+    {
+      "slug": "mralexgatto",
+      "name": "Mralexgatto",
+      "snippet": "Mralexgatto услуга / специалист Советую, профессионал своего дела @mralexgatto @mralexgatto Советую, профессионал своего дела @mralexgatto @mralexgatto"
+    },
+    {
+      "slug": "vika-borel-150706",
+      "name": "Metro Tech Academy",
+      "snippet": "Metro Tech Academy Онлайн школа программирования 9–17 · Python · Vika Borel Онлайн школа программирования 9–17 · Python · Vika Borel Metro Tech Academy — онлайн школа программирования для детей 9–17 лет (преподаватель Ви"
+    },
+    {
+      "slug": "ivan-zhizhnevskii-205000-77d0",
+      "name": "Ivan Zhizhnevskii",
+      "snippet": "Ivan Zhizhnevskii Продается Toyota Prius 2007г. 350k пробег . Хорошая комплектация , камера заднего вида . Катализатор не оригинал . Машина в рабочем состоянии. Гарантия на бат Продается Toyota Prius 2007г. 350k пробег ."
+    },
+    {
+      "slug": "business-biz-205400-59ff",
+      "name": "Тимофій Лоза",
+      "snippet": "Тимофій Лоза 🇬🇧 Англійська, яка стане частиною вашого життя! Запрошуємо дітей, підлітків і дорослих на онлайн-курси англійської мови. ✨ На вас чекає 💬 максимум розмовної пра 🇬🇧 Англійська, яка стане частиною вашого життя"
+    },
+    {
+      "slug": "anna-204932-e969",
+      "name": "Anna",
+      "snippet": "Anna Потрясающий мастер. Никакого раздражения на глазах сразу после выполнения работы (у меня очень чувствительные глаза и кожа вокруг глаз). Шикарная скорость работ Потрясающий мастер. Никакого раздражения на глазах сра"
+    },
+    {
+      "slug": "pro-fc7d8d59ae-1",
+      "name": "Марина",
+      "snippet": "Марина услуга / специалист Марина +1 347 628 1344 👍🏻 привет) Марина +1 347 628 1344 Марина +1 347 628 1344 👍🏻 привет) Марина +1 347 628 1344"
+    },
+    {
+      "slug": "elena-nikiforova-204959-c7ed",
+      "name": "Elena Nikiforova",
+      "snippet": "Elena Nikiforova Инжир $5- 1 Lb, есть 4 Lb. Район Antelope, Watt Ave & Elverta Rd. 9163352706 Елена. Инжир $5- 1 Lb, есть 4 Lb. Район Antelope, Watt Ave & Elverta Rd. 9163352706 Елена. Инжир $5- 1 Lb, есть 4 Lb. Район An"
+    },
+    {
+      "slug": "aiza-m-205715-2ce1",
+      "name": "Aiza M",
+      "snippet": "Aiza M Здравствуйте! Провожу занятия по английскому языку 🇺🇸🇬🇧 Объясняю на казахском, русском или полностью на английском — как Вам удобнее. Если Вы давно хотите нач Здравствуйте! Провожу занятия по английскому языку 🇺🇸🇬"
+    },
+    {
+      "slug": "cell-150621",
+      "name": "Cell",
+      "snippet": "Cell Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167 Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167 Привет ✌️ Шахноза Хатамова, Cell:"
+    },
+    {
+      "slug": "liliya",
+      "name": "Liliya",
+      "snippet": "Liliya событие"
+    },
+    {
+      "slug": "anastasiya-breslavska-205430-8625",
+      "name": "Anastasiya Breslavska",
+      "snippet": "Anastasiya Breslavska Разговорный испанский в мини-группе с носителями Если ты понимаешь испанский, но говорить всё ещё сложно — это для тебя ⏱️ 1,5 часа живой практики 👥 мини-груп Разговорный испанский в мини-группе с н"
+    },
+    {
+      "slug": "fbpack-home-swimming-classes-elena",
+      "name": "Elena",
+      "snippet": "Elena Индивидуальные / домашние уроки плавания · Elena Индивидуальные / домашние уроки плавания · Elena Elena · Swimming Instructor · Private / Home Swimming Lessons Category: Education / Sports Services Индивидуальные у"
+    },
+    {
+      "slug": "adgar-180959",
+      "name": "Adgar",
+      "snippet": "Adgar 🏠 Помощь с документами для аренды жилья и других нужд! 📄Bank Statements(стейтменты) 📄Paystubs(пейстабс). 📄CPN’s $150 📄Employment and verification $150 - Справк 🏠 Помощь с документами для аренды жилья и других нужд!"
+    },
+    {
+      "slug": "nikita-golosov-205610-92f3",
+      "name": "Nikita Golosov",
+      "snippet": "Nikita Golosov У кого плохая вытяжка на кухне? Я продаю портативные вытяжки и мне нужны отзывы на Амазон, бесплатно отправлю товар, а вы мне оставите отзыв. Пишите в лс кому и У кого плохая вытяжка на кухне? Я продаю пор"
+    },
+    {
+      "slug": "business-6366758737-204907-bf2a",
+      "name": "Алёна Карташова",
+      "snippet": "Алёна Карташова Привет! Провожу профессиональную глубокую чистку: ✨Диванов ✨Матрасов ✨Ковров и ковровых покрытий Удаление пятен,запахов с мягкой мебели. Выведение пылевых к Привет! Провожу профессиональную глубокую чистк"
+    },
+    {
+      "slug": "oksana-moskvitina-234034",
+      "name": "Mila",
+      "snippet": "Mila Я здесь делала, хорошие врачи, на ресепшн по русски говорят https://maps.apple/p/nNfybZeJmMmiBq Я здесь делала, хорошие врачи, на ресепшн по русски говорят https://maps.apple/p/nNfybZeJmMmiBq Я здесь делала, хорошие"
+    },
+    {
+      "slug": "inna",
+      "name": "Inna",
+      "snippet": "Inna услуга / специалист (949) 910-7008 Евгения 👍👍👍👍 (949) 910-7008 Евгения 👍👍👍👍"
+    },
+    {
+      "slug": "liliia-ser",
+      "name": "liliia_ser",
+      "snippet": "liliia_ser услуга / специалист Может @Liliia_Ser 💫 Может @Liliia_Ser 💫"
+    },
+    {
+      "slug": "pro-ead5436b9d",
+      "name": "Александр",
+      "snippet": "Александр услуга / специалист Александр +1 (979) 619-3142 Александр +1 (979) 619-3142"
+    },
+    {
+      "slug": "regyminate-150651",
+      "name": "regyminate",
+      "snippet": "regyminate https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ== Источник: Telegram, дата: 2026-0"
+    },
+    {
+      "slug": "gag-baghdasaryan",
+      "name": "Gag Baghdasaryan",
+      "snippet": "Gag Baghdasaryan услуга / специалист 4246664118 4246664118"
+    },
+    {
+      "slug": "andrei-tarzan-234040",
+      "name": "Andrei Tarzan",
+      "snippet": "Andrei Tarzan Привет, друзья! Если вы собираетесь на Гавайи, на остров Оаху — буду рад помочь сделать ваш отдых лёгким, ярким и без лишних забот. Что могу предложить: Скид Привет, друзья! Если вы собираетесь на Гавайи, н"
+    },
+    {
+      "slug": "aram",
+      "name": "Aram",
+      "snippet": "Aram услуга / специалист 415-650-8769 Aram 415-650-8769 Aram"
+    },
+    {
+      "slug": "svetlana-k-180918",
+      "name": "Svetlana K",
+      "snippet": "Svetlana K Дорогие девушки🌷 Кому нужны ПИЯВОЧКИ, будем рады, обращайтесь 😇 Есть в наличии в ЛА, также возможна доставка в ОС или почтой в любой штат. Благодарю 😇 Дорогие девушки🌷 Кому нужны ПИЯВОЧКИ, будем рады, обращайт"
+    },
+    {
+      "slug": "viktoriia-205344-eec8",
+      "name": "Viktoriia 🇺🇦🇺🇸",
+      "snippet": "Viktoriia 🇺🇦🇺🇸 💅 МАНИКЮР • ПЕДИКЮР • ЛАМИНИРОВАНИЕ РЕСНИЦ • ИНДИВИДУАЛЬНОЕ ОБУЧЕНИЕ Открыта запись на процедуры и индивидуальное обучение в West Hollywood. ✨ Запись открыта на 💅 МАНИКЮР • ПЕДИКЮР • ЛАМИНИРОВАНИЕ РЕСНИЦ •"
+    },
+    {
+      "slug": "business-biz-205431-6370",
+      "name": "Анна Готочкина",
+      "snippet": "Анна Готочкина 🇺🇸 Понимаете английский, но боитесь говорить? Открыт набор на индивид. занятия Онлайн · 3 раза в неделю Оставьте “+” - назначим преподавателя и определим ваш 🇺🇸 Понимаете английский, но боитесь говорить? О"
+    },
+    {
+      "slug": "chirk-paint",
+      "name": "chirk_paint",
+      "snippet": "chirk_paint услуга / специалист https://www.instagram.com/chirk_paint?igsh=NTc4MTIwNjQ2YQ== Ира🙏🏼 https://www.instagram.com/chirk_paint?igsh=NTc4MTIwNjQ2YQ== Ира🙏🏼"
+    },
+    {
+      "slug": "pro-9467522179",
+      "name": "Айгерим Бимолдина",
+      "snippet": "Айгерим Бимолдина услуга / специалист"
+    },
+    {
+      "slug": "jane-oc",
+      "name": "Jane OC",
+      "snippet": "Jane OC услуга / специалист Таня летит 9494320911 Таня летит 9494320911"
+    },
+    {
+      "slug": "fb-post-8-la-paving-construction-services",
+      "name": "La Paving - Construction Services",
+      "snippet": "La Paving - Construction Services Construction and paving services. Construction and paving services. Construction and paving services. Original post: Construction paving services ---FACEBOOK_SOURCE--- {\"address\": null, "
+    },
+    {
+      "slug": "business-biz-205447-fe7c",
+      "name": "Анна Габедава",
+      "snippet": "Анна Габедава 🇺🇸 Живете в США, но всё ещё не чувствуете себя уверенно на английском? Вы не одни ❤️ Очень многие иммигранты знают базовый английский, но теряются в реальных ра 🇺🇸 Живете в США, но всё ещё не чувствуете себ"
+    },
+    {
+      "slug": "tanya-150608",
+      "name": "Tanya",
+      "snippet": "Tanya Здравствуйте, обращайтесь если есть вопросы. Стоимость $1195 за две недели в горах Big Bear. Программа сильно субсидируется для русскоговорящих еврейских детей Здравствуйте, обращайтесь если есть вопросы. Стоимость"
+    },
+    {
+      "slug": "alex-dream-car",
+      "name": "Alex из Dream Car",
+      "snippet": "Alex из Dream Car услуга / специалист 6194308588 Alex из Dream Car 6194308588 Alex из Dream Car"
+    },
+    {
+      "slug": "pro-e77c72dedb",
+      "name": "Анна Еремеев",
+      "snippet": "Анна Еремеев услуга / специалист https://www.facebook.com/profile.php?id=61584759127972&mibextid=wwXIfr&mibextid=wwXIfr Не знаю, где они локально находятся, но постоянно попадаются на глаза мне) https://www.facebook.com/"
+    },
+    {
+      "slug": "business-3109210864-172221",
+      "name": "Ольга",
+      "snippet": "Ольга Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864 Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864 Лекарства из России, есть в наличии, можно привезти под заказ. 310"
+    },
+    {
+      "slug": "aleksandr-pshennik",
+      "name": "Aleksandr Pshennik",
+      "snippet": "Aleksandr Pshennik услуга / специалист +19494344734 Венер The best +19494344734 Венер The best"
+    },
+    {
+      "slug": "elizaveta-petrova-180911",
+      "name": "Elizaveta Petrova",
+      "snippet": "Elizaveta Petrova 📚 Устал учить английский по приложениям без результата? Живой преподаватель с 7-летним опытом — совсем другое. Языки: 🇺🇸🇩🇪🇫🇷🇪🇸. Разговорная практика, грамматика 📚 Устал учить английский по приложениям б"
+    },
+    {
+      "slug": "backstage-hairsalon-gallery",
+      "name": "Backstage hairsalon gallery Яна",
+      "snippet": "Backstage hairsalon gallery Яна услуга / специалист Backstage hairsalon + gallery Яна !!! https://www.instagram.com/yansar86?igsh=NTc4MTIwNjQ2YQ== Backstage hairsalon + gallery Яна !!! https://www.instagram.com/yansar86?"
+    },
+    {
+      "slug": "anonymous-participant-205245-6c21",
+      "name": "Anonymous participant",
+      "snippet": "Anonymous participant 🏡 Переуступка аренды — 2 комнаты + отдельная ванная в доме Сдаются 2 отдельные комнаты и 1 отдельная ванная комната в просторном 4-комнатном доме. Отличный вар 🏡 Переуступка аренды — 2 комнаты + отд"
+    },
+    {
+      "slug": "fb-post-6-arazu-alieva-english-teacher",
+      "name": "Arazu Alieva - English Teacher",
+      "snippet": "Arazu Alieva - English Teacher English language instruction and tutoring services. English language instruction and tutoring services. English language instruction and tutoring services. Original post: English teacher pr"
+    },
+    {
+      "slug": "joanne-nellie-180950",
+      "name": "Joanne Nellie",
+      "snippet": "Joanne Nellie 🇺🇸 Green Card через брак с гражданином/гражданкой США Оформим ваш кейс под ключ • Adjustment of Status • Полное сопровождение до получения грин карты • Подготов 🇺🇸 Green Card через брак с гражданином/гражда"
+    },
+    {
+      "slug": "business-biz-180906",
+      "name": "Макс",
+      "snippet": "Макс Оказываю высококачественные услуги по поокраске жилых домов и коммерческих помещений 🏠🏢✨. Оказываю высококачественные услуги по поокраске жилых домов и коммерческих помещений 🏠🏢✨. Оказываю высококачественные услуги "
+    },
+    {
+      "slug": "andrew-181007",
+      "name": "Andrew",
+      "snippet": "Andrew Что касается рыбалки на нельму:Итак по поездке на нельму Могу принять вас в апреле,900$ с человека в день,что входит в стоимость тура 1.Встреча в аэропорту 1.1П Что касается рыбалки на нельму:Итак по поездке на не"
+    },
+    {
+      "slug": "roman-181510-ec0e",
+      "name": "Roman",
+      "snippet": "Roman Сдам свою аренда Toyota Camry 2026 гибрид в Лос анжелесе 750 со страховкой. Пишите в личку. Сдам свою аренда Toyota Camry 2026 гибрид в Лос анжелесе 750 со страховкой. Пишите в личку. Сдам свою аренда Toyota Camry "
+    },
+    {
+      "slug": "lena-205621-71f9",
+      "name": "Lena",
+      "snippet": "Lena Round trip брала, удобнее если где-то задержка, билеты не пропадут. Turkish airlines в прошлый раз летала GEICO, у меня тогда самая низкая цена и норм по услови Round trip брала, удобнее если где-то задержка, билеты"
+    },
+    {
+      "slug": "yagmyrov-atajan-credit-repair-172215",
+      "name": "Phone",
+      "snippet": "Phone Столкнулись с Collection, просрочками или отказами банков? В США кредитная история решает всё — от аренды жилья до получения низких процентных ставок. Я — кред Столкнулись с Collection, просрочками или отказами бан"
+    },
+    {
+      "slug": "hammond-cpa-150628",
+      "name": "hammond_cpa",
+      "snippet": "hammond_cpa https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ== Источник: Telegram, дата: 20"
+    },
+    {
+      "slug": "liudmila-irvine-205551-3ed5",
+      "name": "Liudmila Irvine",
+      "snippet": "Liudmila Irvine Сейчас выездных сессий нету, только личное присутствие и по записи. Напишите мне в личку, я вам расскажу как менять загранпаспорт, я меняла в январе. Сейчас выездных сессий нету, только личное присутствие"
+    },
+    {
+      "slug": "business-biz-205800-7b0c",
+      "name": "Ирина",
+      "snippet": "Ирина Девочки, если кто ищет хорошего инструктора по вождению, могу смело рекомендовать Ангелину! Она профессионально обучает, с первых минут и реально помогает чув Девочки, если кто ищет хорошего инструктора по вождению"
+    },
+    {
+      "slug": "pro-3fbbb7556d",
+      "name": "Наиля",
+      "snippet": "Наиля услуга / специалист"
+    },
+    {
+      "slug": "business-biz-205630-774b",
+      "name": "Марина",
+      "snippet": "Марина если кому-то будет интересно. У меня была одна запись на паспорт для ребенка, но мне надо было записать двоих. Я позвонила и они спокойно записали на ту же дату если кому-то будет интересно. У меня была одна запис"
+    },
+    {
+      "slug": "tanya-pozniansky-205243-58d6",
+      "name": "Tanya Pozniansky",
+      "snippet": "Tanya Pozniansky 🌺 LAST-MINUTE DEALS • SPRING BREAK DATES AVAILABLE! 🌺 🏖️ Two Beautiful Hawaiian Airbnb Homes — Amazing Prices! Hi everyone! If you’re still looking for a sprin 🌺 LAST-MINUTE DEALS • SPRING BREAK DATES AV"
+    },
+    {
+      "slug": "elena-205143-1f35",
+      "name": "Elena",
+      "snippet": "Elena 🍷 У Last Bottle сейчас винный марафон - реально можно поймать классное вино со скидками до 50–70% 😍 • для новичков дают $10 бонус • сейчас бесплатная доставка П 🍷 У Last Bottle сейчас винный марафон - реально можно"
+    },
+    {
+      "slug": "dasha",
+      "name": "Dasha✨",
+      "snippet": "Dasha✨ услуга / специалист"
+    },
+    {
+      "slug": "elena-entsova",
+      "name": "Elena Entsova",
+      "snippet": "Elena Entsova услуга / специалист https://lookadme.com https://lookadme.com"
+    },
+    {
+      "slug": "tigran-arutiunian-172216",
+      "name": "Tigran Arutiunian",
+      "snippet": "Tigran Arutiunian Привет! Сдается в аренду 2026 Shevrolet Suburban, 2026 BMW 740 , оба новые, со всеми бумагами для Uber Black, SUV , пока только город, LAX в процессе! 310-300-0 Привет! Сдается в аренду 2026 Shevrolet S"
+    },
+    {
+      "slug": "ksu-usa-1",
+      "name": "Ksu Usa",
+      "snippet": "Ksu Usa услуга / специалист @Ksu_usa напишите Ксюше @Ksu_usa напишите Ксюше"
+    },
+    {
+      "slug": "pro-b499ba88c3",
+      "name": "могу сдать в аренду",
+      "snippet": "могу сдать в аренду услуга / специалист 9167770505 могу сдать в аренду 9167770505 могу сдать в аренду"
+    },
+    {
+      "slug": "kalinkaservice-150635",
+      "name": "kalinka.service",
+      "snippet": "kalinka.service https://www.instagram.com/kalinka.service/ https://www.instagram.com/kalinka.service/ Kalinka Service provides fast, reliable, and professional assistance with Russian Federation passports, visas to Russi"
+    },
+    {
+      "slug": "good-food-180931",
+      "name": "Good Food",
+      "snippet": "Good Food Любите пельмени и выбираете халяль? В Good Food вас ждёт целый холодильник халяльных пельменей 🥟 Большой выбор, отличный вкус и качество, которому можно доверят Любите пельмени и выбираете халяль? В Good Food в"
+    },
+    {
+      "slug": "business-biz-205545-f164",
+      "name": "Любов",
+      "snippet": "Любов Вітаю, Всіх! 😊 Якщо ви шукаєте унікальний та оригінальний подарунок для своїх близьких — зверніть увагу на наші персоналізовані глянцеві журнали. Це стильний і Вітаю, Всіх! 😊 Якщо ви шукаєте унікальний та оригіналь"
+    },
+    {
+      "slug": "ana-gonzalez-204820-d61c",
+      "name": "Ana Gonzalez",
+      "snippet": "Ana Gonzalez Кто обожает путешествия и хочет завести новых друзей? **Собираем очередной девичник(** без ограничения по возрасту) на ПРОГРАММУ МЕЧТЫ с 5 по 11 сентября. Прогр Кто обожает путешествия и хочет завести новых "
+    },
+    {
+      "slug": "azamat-205826-6e5c",
+      "name": "Azamat",
+      "snippet": "Azamat ‼️Всем Привет‼️ сейчас период для получения выплат по мед страховкам, Кто работает 🔴Doordash 🟠 Amazon 🟣Lyft 🔵Spark ✅Можете получить 860$ или 1700$✅ Если ‼️Всем Привет‼️ сейчас период для получения выплат по мед ст"
+    },
+    {
+      "slug": "business-biz-181515-e787",
+      "name": "Вячеслав",
+      "snippet": "Вячеслав Приветствую, меня зовут Вячеслав Я помогаю задержанным ICE и их семьям добиваться освобождения подачей Habeas Corpus в Федеральный суд Беру на себя подготовку Приветствую, меня зовут Вячеслав Я помогаю задержанн"
+    },
+    {
+      "slug": "sveetla-205403-d7e2",
+      "name": "Sveetla",
+      "snippet": "Sveetla 🇫🇷ФРАНЦУЗЬКА МОВА ОНЛАЙН Без перевантаження зайвою теорією. Без шаблонного підходу. З фокусом на реальне володіння мовою. Тільки системне навчання і результат. 🇫🇷ФРАНЦУЗЬКА МОВА ОНЛАЙН Без перевантаження зайвою т"
+    },
+    {
+      "slug": "valentina-dolinta",
+      "name": "Valentina Dolinta",
+      "snippet": "Valentina Dolinta услуга / специалист 9166282655 9166282655"
+    },
+    {
+      "slug": "avenir-slivinskiy-204906-0f9e",
+      "name": "Avenir Slivinskiy",
+      "snippet": "Avenir Slivinskiy Сдается в аренду — дуплекс в Rancho Cordova Просторный дуплекс с 2 спальнями и 2 ванными комнатами, площадью более 1,000 кв. футов. В главной спальне есть прост Сдается в аренду — дуплекс в Rancho Cordo"
+    },
+    {
+      "slug": "pro-060de20aa7",
+      "name": "Татьяны",
+      "snippet": "Татьяны услуга / специалист Вот объявление про работу с проживанием от Татьяны 657-204-2247 она может быть IHSS тоже, как только вам подтвердят, то оплачивать будет IHSS программа Вот объявление про работу с проживанием "
+    },
+    {
+      "slug": "i-m-205807-c490",
+      "name": "I M",
+      "snippet": "I M Нотариально заверенное согласие родителей на выезд ребёнка с бабушкой и дедушкой. Лучше оформить на русском и английском языках. Копия свидетельства о рождении Нотариально заверенное согласие родителей на выезд ребён"
+    },
+    {
+      "slug": "mark-terskiy",
+      "name": "Mark Terskiy",
+      "snippet": "Mark Terskiy услуга / специалист"
+    },
+    {
+      "slug": "leyla-kamila-181525-4bd9",
+      "name": "Leyla Kamila",
+      "snippet": "Leyla Kamila Добрый день. Живу в lake Forest. Если кому то нужно по субботам могу присмотреть за вашим ребенком у себя дома. 20$ в час. у меня тоже есть дочь (6 лет) Добрый день. Живу в lake Forest. Если кому то нужно по"
+    },
+    {
+      "slug": "consolidated-kalinka-service",
+      "name": "Kalinka Service — Rita Shvalikovskaya",
+      "snippet": "Kalinka Service — Rita Shvalikovskaya Паспорта РФ, гражданство, визы, справки · WhatsApp +1-305-335-0887 · @kalinka.service · Rita Паспорта РФ, гражданство, визы, справки · WhatsApp +1-305-335-0887 · @kalinka.service · R"
+    },
+    {
+      "slug": "pro-865156f94c",
+      "name": "Галина",
+      "snippet": "Галина +1 (916) 595-2348 Irina +1 (916) 595-2348 Irina +1 (916) 595-2348 Irina Источник: Telegram, дата: 2026-02-08T19:18:37+00:00 Галина +1 (916) 595-2348 Irina"
+    },
+    {
+      "slug": "david-dee-204956-2053",
+      "name": "David Dee",
+      "snippet": "David Dee 🌳 Профессиональное удаление пней (Stump Grinding) Работаем в Сакраменто и ближайших городах. Если на вашем участке есть старые или ненужные пни, которые портят 🌳 Профессиональное удаление пней (Stump Grinding) "
+    },
+    {
+      "slug": "endo-studio",
+      "name": "открыла свою уютную студию ENDO Studio",
+      "snippet": "открыла свою уютную студию ENDO Studio Девочки, всем привет! 🤍 Хочу поделиться — я открыла свою уютную студию ENDO Studio OC в Costa Mesa ✨ Работаю на Endospheres Evolution (аппарат последнего поколе Девочки, всем привет"
+    },
+    {
+      "slug": "elena",
+      "name": "Elena",
+      "snippet": "Elena услуга / специалист Всем привет! 🍷 У Last Bottle сейчас винный марафон - реально можно поймать классное вино со скидками до 50–70% 😍 • для новичков дают $10 бонус • сейчас бесплатная доставка Предложения обновляютс"
+    },
+    {
+      "slug": "mike-novak-205033-4e17",
+      "name": "Mike Novak",
+      "snippet": "Mike Novak 🚐 Премиальный частный трансфер | Bay Area и Сакраменто Надёжные и комфортные поездки по всей Bay Area, включая Сан-Франциско, Сакраменто, Роклин и другие город 🚐 Премиальный частный трансфер | Bay Area и Сакра"
+    },
+    {
+      "slug": "olga-savitskaya21",
+      "name": "Olga Savitskaya",
+      "snippet": "Olga Savitskaya услуга / специалист Я к ортодонту для взрослых обращалась. Могу дать контакт его ассистентки. @olga_savitskaya21 Я к ортодонту для взрослых обращалась. Могу дать контакт его ассистентки. @olga_savitskaya2"
+    },
+    {
+      "slug": "taya-181520-438f",
+      "name": "Taya",
+      "snippet": "Taya Принимаю заказы на домашние вкусные пасочки- цукаты, шоколадные капли, изюм. Можно внутри начинить кремом - шоколадным или ванильным. Декор - толстый слой белко Принимаю заказы на домашние вкусные пасочки- цукаты, ш"
+    },
+    {
+      "slug": "lynn-j-english-205002-47f7",
+      "name": "Lynn J English",
+      "snippet": "Lynn J English Набираем студентов новые классы и летнюю разговорную программу. Набираем студентов новые классы и летнюю разговорную программу. Набираем студентов новые классы и летнюю разговорную программу. , или через и"
+    },
+    {
+      "slug": "kirill",
+      "name": "Kirill",
+      "snippet": "Kirill услуга / специалист https://www.usmobile.com/referrals?referrer=AD83214A&name=Kirill&utm_page_url=monster_referral https://www.usmobile.com/referrals?referrer=AD83214A&name=Kirill&utm_page_url=monster_referral"
+    },
+    {
+      "slug": "goar-goar-205823-7fc6",
+      "name": "Goar Goar",
+      "snippet": "Goar Goar Нанчик Очень рекомендую. Она не профессионал, но птичка у нее самая лучшая. Нанчик Очень рекомендую. Она не профессионал, но птичка у нее самая лучшая. Нанчик Очень рекомендую. Она не профессионал, но птичка у "
+    },
+    {
+      "slug": "fb-post-34-alina-shakirova-web-seo-services",
+      "name": "Alina Shakirova - Web & SEO Services",
+      "snippet": "Alina Shakirova - Web & SEO Services Website design, SEO optimization, and GEO targeting services for AI applications including ChatGPT and other AI platforms. Special pricing currently active. Website design, SEO optimi"
+    },
+    {
+      "slug": "business-biz-205505-7df2",
+      "name": "Юлія",
+      "snippet": "Юлія УВАГА: відкрито набір на онлайн-курси іноземних мов 🌍 Доступні напрямки: англійська 🇬🇧, німецька 🇩🇪, французька 🇫🇷, іспанська 🇪🇸, італійська 🇮🇹, польська 🇵🇱, по УВАГА: відкрито набір на онлайн-курси іноземних мов 🌍 "
+    },
+    {
+      "slug": "jane-oc-205304-7225",
+      "name": "Jane OC",
+      "snippet": "Jane OC Самый удобный вариант для этого возраста онлайн - очень бюджетно AI система обучения Synthesis Tutor. На английском, мой сын в этом именно возрасте на этой прог Самый удобный вариант для этого возраста онлайн - о"
+    },
+    {
+      "slug": "consolidated-roman-rybin-karaoke",
+      "name": "Roman Rybin",
+      "snippet": "Roman Rybin Karaoke Summer Night · Chez Nous, Redwood City · 17 июля · $35/$40 · 916-280-3360 Karaoke Summer Night · Chez Nous, Redwood City · 17 июля · $35/$40 · 916-280-3360 Karaoke Summer Night · Chez Nous Cafe, Redwo"
+    },
+    {
+      "slug": "aleksey-popov-204823-683e",
+      "name": "Aleksey Popov",
+      "snippet": "Aleksey Popov 🚘 АВТО С АУКЦИОНОВ США 🇺🇸 ПО ЦЕНЕ НИЖЕ РЫНКА! 💰 Экономьте до 25–40**%** при покупке автомобиля из США! Ищете надежный автомобиль по выгодной цене? Мы подберем 🚘 АВТО С АУКЦИОНОВ США 🇺🇸 ПО ЦЕНЕ НИЖЕ РЫНКА! 💰"
+    },
+    {
+      "slug": "tatkaurbaniq-150645",
+      "name": "tatkaurbaniq",
+      "snippet": "tatkaurbaniq https://www.instagram.com/tatkaurbaniq?igsh=NTc4MTIwNjQ2YQ== Стоит 200% https://www.instagram.com/tatkaurbaniq?igsh=NTc4MTIwNjQ2YQ== Стоит 200% Стоит 200%"
+    },
+    {
+      "slug": "arman-movsesian-205308-b5d0",
+      "name": "Arman Movsesian",
+      "snippet": "Arman Movsesian Всем привет, кто хочет поддержать отечественного производителя? Работаю над интересным проектом, если есть не равнодушные люди заходите по ссылке не стесняйтесь Всем привет, кто хочет поддержать отечестве"
+    },
+    {
+      "slug": "aiza-m-205644-4aee",
+      "name": "Aiza M",
+      "snippet": "Aiza M Здравствуйте! Преподаю английский язык онлайн с индивидуальным подходом к каждому ученику. Хотите говорить свободно и уверенно? Напишите мне — проведём пробное Здравствуйте! Преподаю английский язык онлайн с индив"
+    },
+    {
+      "slug": "yulia-205816-d191",
+      "name": "Yulia",
+      "snippet": "Yulia Мы ходили на эриалс, не понравилось, ушли спустя пару месяцев. Заинтересованности в том что делают дети нет никакой, преподаватели - молоденькие девочки, которы Мы ходили на эриалс, не понравилось, ушли спустя пару"
+    },
+    {
+      "slug": "business-biz-205222-a632",
+      "name": "репетитор #репетиторпоматематике",
+      "snippet": "репетитор #репетиторпоматематике РЕПЕТИТОР ПО МАТЕМАТИКЕ 🇺🇸 Приветствую! Я - опытный репетитор по математике с многолетним стажем, готовый помочь вашему ребёнку достичь успехов в учёбе. С моим РЕПЕТИТОР ПО МАТЕМАТИКЕ 🇺🇸 "
+    },
+    {
+      "slug": "rudzik-mykhailo-205013-8177",
+      "name": "Rudzik Mykhailo",
+      "snippet": "Rudzik Mykhailo Room for rent in a clean two-story house. I also live in the house, so I'm looking for a clean, respectful, and responsible person. Quiet and comfortable place Room for rent in a clean two-story house. I "
+    },
+    {
+      "slug": "business-biz-205704-b135",
+      "name": "Тетяна",
+      "snippet": "Тетяна Здравствуйте. Принимаю заказы на вкусные, домашние пасочки,с изюм, цукаты, курага, шоколад. Ирвайн. Здравствуйте. Принимаю заказы на вкусные, домашние пасочки,с изюм, цукаты, курага, шоколад. Ирвайн. Здравствуйте."
+    },
+    {
+      "slug": "constantine-zm",
+      "name": "Constantine Zm",
+      "snippet": "Constantine Zm водитель 9298010807 9298010807"
+    },
+    {
+      "slug": "business-biz-205404-f206",
+      "name": "Снюс Лос Анджелес",
+      "snippet": "Снюс Лос Анджелес Снюс Лос Анджелес Шведский оригинал 20мг Аналог Velo/Lyft/Goat Самовывоз из Голливуда Также отправляю по городу и другим штатам Пишите в лс Снюс Лос Анджелес Шведский оригинал 20мг Аналог Velo/Lyft/Goat"
+    },
+    {
+      "slug": "ann-kivva-204923-f92d",
+      "name": "Ann Kivva",
+      "snippet": "Ann Kivva Онлайн помощник! Менеджер по продажам! Работа онлайн! В студию оклейки машин нужен помощник для ответа на сообщения в социальных сетях! Продажа и консультация п Онлайн помощник! Менеджер по продажам! Работа онл"
+    },
+    {
+      "slug": "k-bunbich",
+      "name": "K Bunbich",
+      "snippet": "K Bunbich услуга / специалист @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете"
+    },
+    {
+      "slug": "anna-cherkasov-205229-1ae8",
+      "name": "Anna Cherkasov",
+      "snippet": "Anna Cherkasov **Нужен сайт для вашего малого бизнеса?** Если вам нужен современный, красивый и удобный сайт — **Alice Wonder Marketing** поможет. Мы создаём сайты с **2012 г **Нужен сайт для вашего малого бизнеса?** Есл"
+    },
+    {
+      "slug": "business-biz-180926",
+      "name": "Инзира",
+      "snippet": "Инзира Всем привет! Меня зовут Инзира и я помогаю приобрести новую Tesla в Ирвайне. Если вы давно думали о Tesla — сейчас очень удачный момент. На данный момент дейс Всем привет! Меня зовут Инзира и я помогаю приобрести "
+    },
+    {
+      "slug": "suverdiboost-171746",
+      "name": "suverdiboost",
+      "snippet": "suverdiboost Профессионально занимаюсь восстановлением кредитной истории ✔️ убираю негативные записи ✔️ поднимаю credit score ✔️ делаю credit boost ✔️ подготавливаю профиль Профессионально занимаюсь восстановлением креди"
+    },
+    {
+      "slug": "batch2-viktoriya-adamovskaya-delicious-by-va",
+      "name": "Viktoriya Adamovskaya",
+      "snippet": "Viktoriya Adamovskaya Delicious by VA · шоколадная колбаска $35/500г · $60/кг · Aliso Viejo · @delicious_by_va Delicious by VA · шоколадная колбаска $35/500г · $60/кг · Aliso Viejo · @delicious_by_va Viktoriya Adamovskay"
+    },
+    {
+      "slug": "business-biz-205459-5cd8",
+      "name": "Габи",
+      "snippet": "Габи 👋 📦 Всегда в наличии большой ассортимент импортной табачной продукции: 🚬 СТИКИ ДЛЯ IQOS: HEETS • TEREA • FIIT ⚡️ УСТРОЙСТВА IQOS: ILUMA • 3 DUO • ILUMA PRIME 👋 📦 Всегда в наличии большой ассортимент импортной табачн"
+    },
+    {
+      "slug": "tetiana-akhmednova-205103-7a41",
+      "name": "Tetiana Akhmednova",
+      "snippet": "Tetiana Akhmednova Преподаватель высшей категории с огромным опытом работы в музыкальной школе с удовольствием возьмется обучать вас игре на фортепиано у себя дома в Сан- Франциск Преподаватель высшей категории с огромны"
+    },
+    {
+      "slug": "fbpack-liudmyla-muzyra-house-repair",
+      "name": "Liudmyla Muzyra House Repair",
+      "snippet": "Liudmyla Muzyra House Repair House repair House repair Liudmyla Muzyra · House Repair Category: Home Services ---FB_ENTITY_LIUDMYLA_MUZYRA--- { \"name\": \"Liudmyla Muzyra House Repair\", \"category\": \"Home Services\", \"subcat"
+    },
+    {
+      "slug": "liubov-cherkasova-205045-bb04",
+      "name": "Liubov Cherkasova",
+      "snippet": "Liubov Cherkasova Сниму мастербедрум в Кармайкл или около Я + 2 дочки. До $1000 Тел. 916-750-63-53 Сниму мастербедрум в Кармайкл или около Я + 2 дочки. До $1000 Тел. 916-750-63-53 Сниму мастербедрум в Кармайкл или около "
+    },
+    {
+      "slug": "julia-life-usa-150652",
+      "name": "julia_life_usa",
+      "snippet": "julia_life_usa https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ== Источник: Telegr"
+    },
+    {
+      "slug": "nadezhda-kurinnaya-205057-a56b",
+      "name": "Nadezhda Kurinnaya",
+      "snippet": "Nadezhda Kurinnaya Даю частные уроки гитары Опыт работы в США 17 лет. Александр Даю частные уроки гитары Опыт работы в США 17 лет. Александр Даю частные уроки гитары Опыт работы в США 17 лет. . Александр"
+    },
+    {
+      "slug": "lisi4ka48-1",
+      "name": "Lisi4ka",
+      "snippet": "Lisi4ka услуга / специалист Это к нашей волшебнице❤️ @lisi4ka48 Это к нашей волшебнице❤️ @lisi4ka48"
+    },
+    {
+      "slug": "business-biz-205547-5bac",
+      "name": "Альбина",
+      "snippet": "Альбина Иногда в эмиграции накрывает не «большими проблемами», а тихим внутренним «я устала». Вроде всё нормально… но сил мало, радости меньше, а ты как будто где-то по Иногда в эмиграции накрывает не «большими проблемам"
+    },
+    {
+      "slug": "anna-sergeeva-205553-7269",
+      "name": "Anna Sergeeva",
+      "snippet": "Anna Sergeeva Помогаю получать заявки через Teлegram-чаты. 📌 Подходит для бuзнеса и проектов уsлуги товаpы sайты bоты Напиши «+» в личку, если интересно 🙂 Помогаю получать заявки через Teлegram-чаты. 📌 Подходит для бuзне"
+    },
+    {
+      "slug": "marianna-musinova-205236-0c72",
+      "name": "Marianna Musinova",
+      "snippet": "Marianna Musinova ‼️ **УЖЕ ЗАВТРА** ‼️ ️⚡️ Когда жизнь «налаживается», но внутри всё равно напряжение. Работа, дела, планы — всё вроде движется вперёд. Но ощущение спокойствия ‼️ **УЖЕ ЗАВТРА** ‼️ ️⚡️ Когда жизнь «налажи"
+    },
+    {
+      "slug": "jenny-181008",
+      "name": "Jenny",
+      "snippet": "Jenny Друзья, заглядывайте за английским! Разбираем произношение, пополняем словарный запас, приструняем грамматику и просто весело проводим время 😉🤗 Друзья, заглядывайте за английским! Разбираем произношение, пополняем "
+    },
+    {
+      "slug": "aida-khazieva-pr-205628-e4f9",
+      "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+      "snippet": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR это правда супер✨ Я в США всего 1,5 года и эти встречи с МАК картами стали для меня большой поддержкой. Альбина очень тёплый человек и она реа"
+    },
+    {
+      "slug": "anastasiya-posashenko-150711",
+      "name": "Anastasiya Posashenko",
+      "snippet": "Anastasiya Posashenko Всем привет! Моя дочка Василиса состоит в Girl Scout, и сейчас она продаёт знаменитое печенье Girl Scout!Если не пробовали, очень советую и особенно на подарок, Всем привет! Моя дочка Василиса состо"
+    },
+    {
+      "slug": "anna-ann-205316-c799",
+      "name": "Anna Ann",
+      "snippet": "Anna Ann Англійська, німецька та італійська мови онлайн для діток, підлітків та дорослих! Індивідуальні або групові заняття. Авторська програма та найкращі підручники( б Англійська, німецька та італійська мови онлайн для"
+    },
+    {
+      "slug": "pro-e5f7d10c65",
+      "name": "Дар'я",
+      "snippet": "Дар'я услуга / специалист https://www.aqua-tots.com/tustin/sign-up/?utm_source=google&utm_medium=cpc&utm_campaign=DAC_PMax_234_Tustin_CA&gad_source=1&gad_campaignid=23103853671&gbraid=0AAAAADL4WpH7yd0S4J2tpt9HnktE2sSrx&g"
+    },
+    {
+      "slug": "dance-progression-031836",
+      "name": "Dance PROgression",
+      "snippet": "Dance PROgression ✨Hi, everyone! 😉 If you’ve been thinking about dancing — or you have a daughter who loves to dance — you’re very welcome to join our dance family🤍 We offer K- ✨Hi, everyone! 😉 If you’ve been thinking ab"
+    },
+    {
+      "slug": "k-bunbich-1",
+      "name": "k_bunbich",
+      "snippet": "k_bunbich услуга / специалист @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете @k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете"
+    },
+    {
+      "slug": "tetiana-markova-205433-5527",
+      "name": "Tetiana Markova",
+      "snippet": "Tetiana Markova Привет! 😊 Не пугайтесь, если не найдете меня в IG или Fb ближайший месяц-два. Я взяла небольшую творческую паузу, чтобы переосмыслить, как показывать вам свою Привет! 😊 Не пугайтесь, если не найдете меня "
+    },
+    {
+      "slug": "renna-171944",
+      "name": "renna^афк",
+      "snippet": "renna^афк 🚘 Ищете новую машину? Я помогу сэкономить тысячи долларов! Не тратьте время на дилеров и переплаты. ✔️ Лучшие предложения по Lease & Finance ✔️ Новые и подерж 🚘 Ищете новую машину? Я помогу сэкономить тысячи до"
+    },
+    {
+      "slug": "aleks-bake-150628",
+      "name": "aleks_bake_",
+      "snippet": "aleks_bake_ Спасибо, заходите в мой инста, будем дружить🤗https://www.instagram.com/aleks_bake_?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr Спасибо, заходите в мой инста, будем дружить🤗https://www.instagram.com/aleks_bake_?ig"
+    },
+    {
+      "slug": "annasurova1-1",
+      "name": "annasurova1",
+      "snippet": "annasurova1 услуга / специалист @annasurova1 рекомендую @annasurova1 рекомендую"
+    },
+    {
+      "slug": "irinka-milovskaia",
+      "name": "irinka_milovskaia",
+      "snippet": "irinka_milovskaia услуга / специалист Здравствуйте. Мне написала @irinka_milovskaia, с предложением поменять рубли на доллары, - мы пообщались, созвонились, я убедился, что это живой человек. Хотели встретиться вживую, н"
+    },
+    {
+      "slug": "elena-kaharlytska-205443-9eb3",
+      "name": "Elena Kaharlytska",
+      "snippet": "Elena Kaharlytska Вариант 1 🚀 Ваш сайт молчит, пока конкуренты забирают ваших клиентов Знакомо? Сайт вроде есть, а заявок — единицы. Мы уже помогли 50+ бизнесам в Европе и США пр Вариант 1 🚀 Ваш сайт молчит, пока конкуре"
+    },
+    {
+      "slug": "sasha-sorokina-180912",
+      "name": "Sasha Sorokina",
+      "snippet": "Sasha Sorokina 🎯 Английский с нуля или хочешь выйти на новый уровень? 7 лет преподавания. Любой уровень, онлайн, удобное время. Также: 🇩🇪🇫🇷🇪🇸. Грамматика без скуки, разговорна 🎯 Английский с нуля или хочешь выйти на новы"
+    },
+    {
+      "slug": "business-6503893846-172150",
+      "name": "Связь",
+      "snippet": "Связь North Hollywood / Studio City / Burbank Индивидуальные тренировки в зале 📍 С чем помогу: — набрать мышечную массу и форму — увеличить силу — поставить технику North Hollywood / Studio City / Burbank Индивидуальные "
+    },
+    {
+      "slug": "danil-goncharenko-205004-f0df",
+      "name": "Danil Goncharenko",
+      "snippet": "Danil Goncharenko Всем привет! 👋 Я недавно начал работать в дилерском центре в Sacramento. Если вы или ваши знакомые сейчас ищете автомобиль, буду рад помочь подобрать хороший в Всем привет! 👋 Я недавно начал работать в "
+    },
+    {
+      "slug": "business-biz-205703-dfca",
+      "name": "Тетяна",
+      "snippet": "Тетяна Здравствуйте. Принимаю заказы на пасочки. Домашние,вкусные, приготовлены с любовью и желанием поднять вам хорошее настроение.Пасочки по желанию с Изюм Цукаты Здравствуйте. Принимаю заказы на пасочки. Домашние,вкус"
+    },
+    {
+      "slug": "worldwide-employment-agency-204942-0650",
+      "name": "Worldwide Employment Agency",
+      "snippet": "Worldwide Employment Agency Дорогие друзья! Я снова обращаюсь к вам лично от себя, Natallia Platava, и от имени моей компании Worldwide Employment Agency. Самое большое богатство человека Дорогие друзья! Я снова обращаюс"
+    },
+    {
+      "slug": "olena-ol-205254-a65c",
+      "name": "Olena Ol",
+      "snippet": "Olena Ol 🌺 РОЗІГРАШ: розігруємо путівку на двох до Гаваїв 🌴 ✈️ переліт + готель. 6 днів/5 ночей райського відпочинку✨ 🎟 Як взяти участь? 1. Придбай онлайн-квиток за 1 🌺 РОЗІГРАШ: розігруємо путівку на двох до Гаваїв 🌴 ✈️"
+    },
+    {
+      "slug": "rrr-205635-8c45",
+      "name": "Rrr",
+      "snippet": "Rrr Я не имел сними дела но вроде нормальные кредитную историю исправляют и ряд других услуг вроде Я не имел сними дела но вроде нормальные кредитную историю исправляют и ряд других услуг вроде Я не имел сними дела но вр"
+    },
+    {
+      "slug": "fb-post-9-ruslan-kalumov-moving-services",
+      "name": "Ruslan Kalumov - Moving Services",
+      "snippet": "Ruslan Kalumov - Moving Services Moving and relocation services for residential and commercial moves. Moving and relocation services for residential and commercial moves. Moving and relocation services for residential an"
+    },
+    {
+      "slug": "mary-ariel-chery-karpenko-204835-c04e",
+      "name": "Mary Ariel Chery - Karpenko",
+      "snippet": "Mary Ariel Chery - Karpenko 🐜🕷️ Лето в самом разгаре, а значит пришло время муравьев, пауков, уховерток и других нежелательных гостей! Если заметили насекомых дома или во дворе — не ждите 🐜🕷️ Лето в самом разгаре, а знач"
+    },
+    {
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "name": "Olga Loginova, Lifespringhomeopathy.com",
+      "snippet": "Olga Loginova, Lifespringhomeopathy.com Практикующий гомеопат. Работаю с детьми и взрослыми. В практике с детьми чаще всего обращаются с вопросами: — частые простудные заболевания — аллергические реак Практикующий гомеоп"
+    },
+    {
+      "slug": "olya-music-teacher-205418-dae7",
+      "name": "Olya Music teacher",
+      "snippet": "Olya Music teacher Приглашаю на занятия самых маленьких исполнителей- деток 3-6 лет! Если вы хотите, чтобы ваш ребенок мягко и с радостью вошел в мир музыки 💫 и полюбил её навсегд Приглашаю на занятия самых маленьких исп"
+    },
+    {
+      "slug": "business-biz-180917",
+      "name": "Кристина",
+      "snippet": "Кристина У нас реально вкусно 😋 450гр - 30$ 600 - 40$ К Пасхе мы подготовили для вас подарочные сеты 🤍 В набор входит: • большой кулич (600 г) • 6 яиц, украшенных зол У нас реально вкусно 😋 450гр - 30$ 600 - 40$ К Пасхе "
+    },
+    {
+      "slug": "business-biz-205546-4e96",
+      "name": "Юля",
+      "snippet": "Юля Девочки, всем привет👋 Меня зовут Юля и я хочу пригласить вас на встречу с поющими чашами ✨ Я творческий человек и совсем недавно переехала в Ньюпорт-Бич. Сейча Девочки, всем привет👋 Меня зовут Юля и я хочу пригласить"
+    },
+    {
+      "slug": "anton-205307-42dd",
+      "name": "Anton",
+      "snippet": "Anton Если кто вдруг хотел открывать аккаунт дор даш, сейчас вступительный бонус 400$ Промокод: kg0ZklAAjuDk6y8j Или вот ссылка https://drd.sh/kg0ZklAAjuDk6y8j/ Если кто вдруг хотел открывать аккаунт дор даш, сейчас всту"
+    },
+    {
+      "slug": "ekaterinakhomich-150703",
+      "name": "ekaterinakhomich",
+      "snippet": "ekaterinakhomich https://www.instagram.com/ekaterinakhomich/ https://www.instagram.com/ekaterinakhomich/ https://www.instagram.com/ekaterinakhomich/ Источник: Telegram, дата: 2026-04-15T00:01:37+00:00"
+    },
+    {
+      "slug": "khan-archery-club-150704",
+      "name": "khan_archery_club",
+      "snippet": "khan_archery_club Весь материал закупаю в Home Depot. Выходит на $150 по материалу. Всем желающим могу бесплатно скинуть список необходимых пиломатериалов и инструментов для пост Весь материал закупаю в Home Depot. Выход"
+    },
+    {
+      "slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "name": "Kristina Immerman - Moscow-to-USA Courier",
+      "snippet": "Kristina Immerman - Moscow-to-USA Courier Personal courier service from Moscow to USA. Can transport packages, documents, and medications. Personal courier service from Moscow to USA. Can transport packages, documents, a"
+    },
+    {
+      "slug": "taya-181519-b6e4",
+      "name": "Taya",
+      "snippet": "Taya Принимаю заказы на домашние вкусные пасочки- цукаты, шоколадные капли, изюм. Можно внутри начинить кремом - шоколадным или ванильным. Декор - толстый слой белко Принимаю заказы на домашние вкусные пасочки- цукаты, ш"
+    },
+    {
+      "slug": "fb-post-26-tutowl-com-online-school",
+      "name": "TutOwl Online School",
+      "snippet": "TutOwl Online School Онлайн-школа для билингвов · русский / языки / STEM Онлайн-школа для билингвов · русский / языки / STEM TutOwl — онлайн-школа по авторским методикам для детей-билингвов в США и Канаде. Базируется в S"
+    },
+    {
+      "slug": "oli-205509-fbfa",
+      "name": "Oli",
+      "snippet": "Oli 🚨 Пока ты думаешь, конкуренты уже забирают твоих клиентов с помощью AI Неважно, что именно ты продаешь: покраску домов, установку виниров, новостройки или дорог 🚨 Пока ты думаешь, конкуренты уже забирают твоих клиент"
+    },
+    {
+      "slug": "olga-avdonina-205233-2439",
+      "name": "Olga Avdonina",
+      "snippet": "Olga Avdonina Посмотрит, возможно, вы узнаете в этих историях себя 😊 ✨ Уже завтра состоится бесплатный онлайн-мастер-класс «За пределами обычного дыхания», где можно познако Посмотрит, возможно, вы узнаете в этих история"
+    },
+    {
+      "slug": "business-biz-180842",
+      "name": "Милена Говель",
+      "snippet": "Милена Говель КАК БЕСПЛАТНО ПОЛУЧАТЬ НОВЫХ КЛИЕНТОВ КАЖДЫЙ ДЕНЬ В ЛЮБОЙ НИШЕ? Всем привет! Дарю подробный разбор новой системы продаж, которая собирается 1 раз и начинает ср КАК БЕСПЛАТНО ПОЛУЧАТЬ НОВЫХ КЛИЕНТОВ КАЖДЫЙ Д"
+    },
+    {
+      "slug": "svetlia40kusa",
+      "name": "Svetlia40kUSA",
+      "snippet": "Svetlia40kUSA услуга / специалист @Svetlia40kUSA @Svetlia40kUSA"
+    },
+    {
+      "slug": "revived-prince-204952-ae50",
+      "name": "Revived Prince",
+      "snippet": "Revived Prince Свежесобранный инжир: $5 лб за темный $6 лб за жёлтый и зеленый $8 лб за сизый(это знаменитый Smith сорт входящий в пятерку лучших мировых сортов) $10 лб за B Свежесобранный инжир: $5 лб за темный $6 лб за"
+    },
+    {
+      "slug": "maxgirr-150659",
+      "name": "maxgirr",
+      "snippet": "maxgirr https://www.instagram.com/maxgirr?igsh=NTc4MTIwNjQ2YQ== 💪 https://www.instagram.com/maxgirr?igsh=NTc4MTIwNjQ2YQ== 💪 💪"
+    },
+    {
+      "slug": "tetianamalenkova-150652",
+      "name": "tetiana.malenkova",
+      "snippet": "tetiana.malenkova https://www.instagram.com/tetiana.malenkova?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/tetiana.malenkova?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/tetiana.malenkova?igsh=NTc4MTIwNjQ2YQ== Исто"
+    },
+    {
+      "slug": "masha-angel-205138-3e8b",
+      "name": "Masha Angel",
+      "snippet": "Masha Angel Мажоров о что нашелся такой мастер, но со временем пигмент все же часто становиться желтым. От души рекомендации фиолетовой маски (никаких перчаток, фиолетовой Мажоров о что нашелся такой мастер, но со времен"
+    },
+    {
+      "slug": "virtualcopy-205510-b736",
+      "name": "Virtualcopy",
+      "snippet": "Virtualcopy Печать ДЛ/СДЛ/Ворк/Грин карт и др. документов Доставка/встреча Качество как оригинал Обращайтесь в ЛС Печать ДЛ/СДЛ/Ворк/Грин карт и др. документов Доставка/встреча Качество как оригинал Обращайтесь в ЛС Печа"
+    },
+    {
+      "slug": "ksu-usa",
+      "name": "ksu_usa",
+      "snippet": "ksu_usa услуга / специалист @Ksu_usa напишите Ксюше @Ksu_usa напишите Ксюше"
+    },
+    {
+      "slug": "flamellecandles-150648",
+      "name": "flamellecandles",
+      "snippet": "flamellecandles https://www.instagram.com/flamellecandles?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/flamellecandles?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/flamellecandles?igsh=NTc4MTIwNjQ2YQ== Источник: Te"
+    },
+    {
+      "slug": "anna-dav-205223-b6e5",
+      "name": "Anna Dav",
+      "snippet": "Anna Dav Приглашаю вас в Лейк-Тахо (Lake Tahoe) провести отдых с семьёй или друзьями в нашем уютном доме, всего в 5–6 минутах от озера. От $170+ за ночь. 🏡 3 спальни — и Приглашаю вас в Лейк-Тахо (Lake Tahoe) провести от"
+    },
+    {
+      "slug": "stacy-205434-8dd1",
+      "name": "Stacy",
+      "snippet": "Stacy 🌞 Летний Glow для ваших волос - уже здесь! ✨ Привет, девочки! 💁‍♀️ Этим летом я даю СКИДКУ 30% на все профессиональные процедуры для волос с использованием сал 🌞 Летний Glow для ваших волос - уже здесь! ✨ Привет, д"
+    },
+    {
+      "slug": "grigory-baranovsky-204802-cd6a",
+      "name": "Grigory Baranovsky",
+      "snippet": "Grigory Baranovsky **Высокооплачиваемая работа в США на Гавайях. **🏝️** **🇺🇸 **Авто кузовщик, рихтовщик** **Опыт работы** от 3 лет. Без опыта работы не беспокоить плиз. **Обяза **Высокооплачиваемая работа в США на Гавайя"
+    },
+    {
+      "slug": "lindas-bouquet-150626",
+      "name": "lindas_bouquet",
+      "snippet": "lindas_bouquet https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ== Источник: Telegr"
+    },
+    {
+      "slug": "ekaterina-mishurenkova-204859-fc4c",
+      "name": "Ekaterina Mishurenkova",
+      "snippet": "Ekaterina Mishurenkova Привет 🙂 Ремонт может быть без стресса — когда вас слышат, понимают и делают всё аккуратно, как для себя. Что делаем: • Interior / Exterior Painting (от $3/ Привет 🙂 Ремонт может быть без стресса —"
+    },
+    {
+      "slug": "slavik-blyskuchy",
+      "name": "Slavik Blyskuchy",
+      "snippet": "Slavik Blyskuchy услуга / специалист 9166285029 9166285029"
+    },
+    {
+      "slug": "videobyalexgatto",
+      "name": "videobyalexgatto",
+      "snippet": "videobyalexgatto услуга / специалист Рекомендую. Настоящий профессионал😄 https://www.instagram.com/videobyalexgatto?igsh=NTc4MTIwNjQ2YQ== Рекомендую. Настоящий профессионал😄 https://www.instagram.com/videobyalexgatto?igs"
+    },
+    {
+      "slug": "lyubov-nikonova-190932",
+      "name": "Lyubov Nikonova",
+      "snippet": "Lyubov Nikonova Для тех, кто сейчас в поиске Mercedes-Benz: рекомендую обратиться в Mercedes-Benz of Anaheim к Айман Зейтун. Сейчас у дилера отличные условия по лизингу на моде Для тех, кто сейчас в поиске Mercedes-Benz:"
+    },
+    {
+      "slug": "lisi4ka48",
+      "name": "lisi4ka48",
+      "snippet": "lisi4ka48 услуга / специалист Это к нашей волшебнице❤️ @lisi4ka48 Это к нашей волшебнице❤️ @lisi4ka48"
+    },
+    {
+      "slug": "pro-4dc2021a3e",
+      "name": "Ярослав",
+      "snippet": "Ярослав услуга / специалист 9169061818 Ярослав 9169061818 Ярослав"
+    },
+    {
+      "slug": "yurii-avramenko-205358-c281",
+      "name": "Yurii Avramenko",
+      "snippet": "Yurii Avramenko АНГЛІЙСЬКА МОВА 🇬🇧 ОНЛАЙН Мріяли вивчити англійську або покращити свій рівень? Школа BeBest запрошує прокачати знання легко та ефективно ✨ ✅ Для дорослих та ді АНГЛІЙСЬКА МОВА 🇬🇧 ОНЛАЙН Мріяли вивчити анг"
+    },
+    {
+      "slug": "tatsiana-losikova-205608-2e44",
+      "name": "Tatsiana Losikova",
+      "snippet": "Tatsiana Losikova Что значит и бракоразводным процессом и жилищным вопросом? Есть либо family court (развод) , либо civil (дом). Для развода могу рекомендовать Dewitt family law Что значит и бракоразводным процессом и жи"
+    },
+    {
+      "slug": "katerina-180947",
+      "name": "Katerina",
+      "snippet": "Katerina Сдаются авто 2023 года 900$ (страховка включена) Пишите, пожалуйста, в ЛС Сдаются авто 2023 года 900$ (страховка включена) Пишите, пожалуйста, в ЛС Сдаются авто 2023 года 900$ (страховка включена) Пишите, пожалу"
+    },
+    {
+      "slug": "sashalashangel-150654",
+      "name": "sashalashangel",
+      "snippet": "sashalashangel https://www.instagram.com/sashalashangel?igsh=NTc4MTIwNjQ2YQ== ✨💫 https://www.instagram.com/sashalashangel?igsh=NTc4MTIwNjQ2YQ== ✨💫 ✨💫"
+    },
+    {
+      "slug": "anton-sushev-150655",
+      "name": "anton_sushev",
+      "snippet": "anton_sushev https://www.instagram.com/anton_sushev?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/anton_sushev?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/anton_sushev?igsh=NTc4MTIwNjQ2YQ== Источник: Telegram, дата"
+    },
+    {
+      "slug": "aleksandr-172200",
+      "name": "Aleksandr",
+      "snippet": "Aleksandr 🚙 АРЕНДА — Jeep Gladiator / Wrangler 2025 🆕 Новая, без пробега 💲 $900 / месяц + страховка от арендатора 4x4 полный привод • Apple CarPlay / Android Auto • но 🚙 АРЕНДА — Jeep Gladiator / Wrangler 2025 🆕 Новая, б"
+    },
+    {
+      "slug": "svetlana-s-172211",
+      "name": "Svetlana S",
+      "snippet": "Svetlana S Здравствуйте Если вам нужно: — что-то пошить — укоротить брюки — подогнать платье по фигуре — заменить молнию — переделать или освежить любимую вещь Обращ Здравствуйте Если вам нужно: — что-то пошить — укороти"
+    },
+    {
+      "slug": "elena-r-205600-d428",
+      "name": "Elena R",
+      "snippet": "Elena R Мы ставили braces в Lunar Orthodontic. В городе Lake Forest. По цене дешевле и в рассрочку на пару лет без процентов, оказалось чуть больше $100 ежемесячно. Мы ставили braces в Lunar Orthodontic. В городе Lake Fo"
+    },
+    {
+      "slug": "kate-yuka-aesthetics-150659",
+      "name": "kate_yuka_aesthetics",
+      "snippet": "kate_yuka_aesthetics https://www.instagram.com/kate_yuka_aesthetics?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/kate_yuka_aesthetics?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/kate_yuka_aesthetics?igsh=NTc4MTIwN"
+    },
+    {
+      "slug": "irina-krasnodemsky-205029-f2f2",
+      "name": "Irina Krasnodemsky",
+      "snippet": "Irina Krasnodemsky Дуплекс в рент в Citrus Heights на San Simeon dr. 2 спальни,1 ванная и гараж на одну машину. $2,000 + депозит. Мы платим за воду и garbage. 916-595-4431 Дуплекс в рент в Citrus Heights на San Simeon dr"
+    },
+    {
+      "slug": "irina-electrolysis-205451-0a8b",
+      "name": "Irina Electrolysis",
+      "snippet": "Irina Electrolysis Девочки, всем привет! Обращаюсь к мастерам бьюти, кто уже снимает кабинет: если у вас сейчас не полностью заполнен график и есть свободные дни, предлагаю объеди Девочки, всем привет! Обращаюсь к мастер"
+    },
+    {
+      "slug": "business-9168415612-204824-9437",
+      "name": "Елена Бондаренко",
+      "snippet": "Елена Бондаренко Дорогие Мамочки!Приглашаю деток 4-6 лет на уроки фортепиано по инновационной мультимедийной программе»Растём с Музыкой».Ваш ребёночек пройдёт увлекательный путь Дорогие Мамочки!Приглашаю деток 4-6 лет на"
+    },
+    {
+      "slug": "mathwithasya",
+      "name": "Mathwithasya",
+      "snippet": "Mathwithasya услуга / специалист @mathwithasya ❤️ @mathwithasya ❤️"
+    },
+    {
+      "slug": "kristi-usa",
+      "name": "Kristi USA",
+      "snippet": "Kristi USA услуга / специалист @Kristi_USA возможно она @Kristi_USA возможно она"
+    },
+    {
+      "slug": "ksenia-205811-7635",
+      "name": "Ksenia",
+      "snippet": "Ksenia Апостиль делают в офисе секретаря штата в ЛА в порядке живой очереди, обычно очень быстро. Лайфхак: съездить туда на поезде (Metrolink). Офис в 15 минутах ходьб Апостиль делают в офисе секретаря штата в ЛА в поряд"
+    },
+    {
+      "slug": "olga-inozemtseva-205457-8b62",
+      "name": "Olga Inozemtseva",
+      "snippet": "Olga Inozemtseva Устали от того, что ребёнок только играет, а не создаёт? Дайте ему бесплатный час в Zoom, чтобы он сам сделал мультфильм или игру. 5–10 лет: Scratch (блочный ко Устали от того, что ребёнок только играет,"
+    },
+    {
+      "slug": "anton",
+      "name": "Anton",
+      "snippet": "Anton услуга / специалист Если кто вдруг хотел открывать аккаунт дор даш, сейчас вступительный бонус 400$ Промокод: kg0ZklAAjuDk6y8j Или вот ссылка https://drd.sh/kg0ZklAAjuDk6y8j/ Если кто вдруг хотел открывать аккаунт "
+    },
+    {
+      "slug": "grace-and-bloom-150627",
+      "name": "grace_and_bloom_",
+      "snippet": "grace_and_bloom_ https://www.instagram.com/grace_and_bloom_/ https://www.instagram.com/grace_and_bloom_/ https://www.instagram.com/grace_and_bloom_/ Источник: Telegram, дата: 2026-04-15T01:38:41+00:00"
+    },
+    {
+      "slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "snippet": "Aiza M Привет 👋 Провожу онлайн-уроки английского языка. Работаю индивидуально — под каждого ученика своя программа и темп. Объясняю просто и понятно, без скучной «шко Привет 👋 Провожу онлайн-уроки английского языка. Рабо"
+    },
+    {
+      "slug": "cali-205405-30f5",
+      "name": "Cali",
+      "snippet": "Cali Инъекции для похудения. Пептиды. GLP1 BPC157 GHK-CU Semaglutide аналог- Оземпик, Tirzepatide аналог -Мунджаро. 5mg, 3,ml Больше доза чем в обычной ручке. Gl Инъекции для похудения. Пептиды. GLP1 BPC157 GHK-CU Semagl"
+    },
+    {
+      "slug": "grigory-205456-de1c",
+      "name": "Grigory",
+      "snippet": "Grigory Поможем получить & продлить документы официально, оперативно и надежно нерезидентам Non-Domiciled/Limited-Term CDL DOT Medical Driver License any class CLP Comm Поможем получить & продлить документы официально, о"
+    },
+    {
+      "slug": "nova-maryana-205039-79de",
+      "name": "Nova Maryana",
+      "snippet": "Nova Maryana NOVAflowers Special Red Roses Sale! Brighten someone’s day with our stunning, high-quality red roses—imported fresh from Colombia and Ecuador. These beautiful b NOVAflowers Special Red Roses Sale! Brighten s"
+    },
+    {
+      "slug": "californian-pilot-205429-37d6",
+      "name": "Californian Pilot",
+      "snippet": "Californian Pilot Экскурсии по Лос Анджелесу на самолете. Можно увидеть Downtown LA Hollywood Sign Santa Monica pier Catalina island Laguna beach Экскурсии по Лос Анджелесу на самолете. Можно увидеть Downtown LA Hollywoo"
+    },
+    {
+      "slug": "lana-205640-2183",
+      "name": "Lana",
+      "snippet": "Lana Оплачу Вашу любую покупку или произведу оплату любых услуг рублями (доставку продуктов и подарков , цветов, курсы, ж/д и авиабилеты, коммунальные услуги , налог Оплачу Вашу любую покупку или произведу оплату любых у"
+    },
+    {
+      "slug": "karin-205637-d761",
+      "name": "Karinа",
+      "snippet": "Karinа Напишите мне в лс , если я забуду вечером посмотрю какая у подруги. Она у неё покрыла лечение рака у мейкуна. А вот из costco страховка отказала покрывать расх Напишите мне в лс , если я забуду вечером посмотрю ка"
+    },
+    {
+      "slug": "master-valery-205050-6c62",
+      "name": "Master Valery",
+      "snippet": "Master Valery Ремонт и замена прокладки головки блока цилиндров на Тойота Приус, Кемри, и не только... Качество, гарантия, скидки. 916 504 1875 Ремонт и замена прокладки головки блока цилиндров на Тойота Приус, Кемри, и "
+    },
+    {
+      "slug": "fb-post-30-anastasia-kinder",
+      "name": "Anastasia Kinder",
+      "snippet": "Anastasia Kinder Russian manicure and pedicure services. Special introductory offer valid until end of month. By appointment only. Russian manicure and pedicure services. Special introductory offer valid until end of mon"
+    },
+    {
+      "slug": "nazgul-nurlan-181522-8750",
+      "name": "Nazgul Nurlan",
+      "snippet": "Nazgul Nurlan 🌙 Подарочные боксы для Ифтара и Айт Мубарак. Принимаем заказы на финики в бельгийском шоколаде. ✨ Отличная идея для: • ифтара • подарков на Айт • угощения г 🌙 Подарочные боксы для Ифтара и Айт Мубарак. Прин"
+    },
+    {
+      "slug": "azamat-205815-c0ea",
+      "name": "Azamat",
+      "snippet": "Azamat ‼️Всем Привет‼️ сейчас период для получения выплат по мед страховкам, Кто работает 🔴Doordash 🟠 Amazon 🟣Lyft 🔵Spark ✅Можете получить 867$ или 1734$✅ Если ‼️Всем Привет‼️ сейчас период для получения выплат по мед ст"
+    },
+    {
+      "slug": "nata-cali-205614-60c9",
+      "name": "Nata Cali",
+      "snippet": "Nata Cali Снимала и снимаю у этой компании, потому что они в ирвайне монополисты. Залог никогда не отдавали полностью, всегда находили, за что часть забрать ( как минимум Снимала и снимаю у этой компании, потому что они "
+    },
+    {
+      "slug": "lisa-nekrasova-205120-a330",
+      "name": "Lisa Nekrasova",
+      "snippet": "Lisa Nekrasova Здравствуйте! Этим летом для новых учеников действует специальное летнее предложение на индивидуальные онлайн-занятия 💜 30 минут — 10 € вместо 15 € (оплата возм Здравствуйте! Этим летом для новых учеников "
+    },
+    {
+      "slug": "rent-car",
+      "name": "Rent Car",
+      "snippet": "Rent Car услуга / специалист 9167064757 9167064757"
+    },
+    {
+      "slug": "tim-samarin-204949-aaf8",
+      "name": "Tim Samarin",
+      "snippet": "Tim Samarin Аренда Toyota Prius 🛠️полностью обслуженные и технически исправные автомобили 🔧Наше техобслуживание и ремонт. ❗️Без ограничений по про пробегу. 🚕 clean titl Аренда Toyota Prius 🛠️полностью обслуженные и техни"
+    },
+    {
+      "slug": "alexandra-muz",
+      "name": "Alexandra Muz",
+      "snippet": "Alexandra Muz услуга / специалист не уверена, что он берет новых клиентов, но попробуйте Григорий - Piano Master 415-350-9273 не уверена, что он берет новых клиентов, но попробуйте Григорий - Piano Master 415-350-9273"
+    },
+    {
+      "slug": "alina-oc-hair-150626",
+      "name": "alina_oc_hair",
+      "snippet": "alina_oc_hair https://www.instagram.com/alina_oc_hair?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr https://www.instagram.com/alina_oc_hair?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr https://www.instagram.com/alina_oc_hair?igsh=N"
+    },
+    {
+      "slug": "svetlana-lass",
+      "name": "Svetlana Lass",
+      "snippet": "Svetlana Lass услуга / специалист @Svetlana_Lass @Svetlana_Lass"
+    },
+    {
+      "slug": "dirtybirdfarm",
+      "name": "dirtybirdfarm",
+      "snippet": "dirtybirdfarm услуга / специалист"
+    },
+    {
+      "slug": "business-9493860850-172223",
+      "name": "Сергей",
+      "snippet": "Сергей Сергей +1 (949) 386-0850 Сергей +1 (949) 386-0850 Сергей +1 (949) 386-0850 Источник: Telegram, дата: 2026-03-13T21:23:57+00:00 Сергей Сергей +1 (949) 386-0850"
+    },
+    {
+      "slug": "liliia-ser-1",
+      "name": "Liliia Ser",
+      "snippet": "Liliia Ser услуга / специалист Может @Liliia_Ser 💫 Может @Liliia_Ser 💫"
+    },
+    {
+      "slug": "yana-galinka-205107-766f",
+      "name": "Yana Galinka",
+      "snippet": "Yana Galinka Почему на самом деле мы так плохо понимаем носителей английского языка? 🤔 Да потому, что они не произносят слова четко и ясно.Потому что они учили не по книжкам Почему на самом деле мы так плохо понимаем нос"
+    },
+    {
+      "slug": "yelena-dean-204832-39fa",
+      "name": "Yelena Dean",
+      "snippet": "Yelena Dean Carmichael Rental 2000 sq ft home (built in 2012) on a quiet, peaceful street. Close to schools, grocery stores, and ARC — super convenient location. ✔ 4 bed Carmichael Rental 2000 sq ft home (built in 2012) "
+    },
+    {
+      "slug": "mralexgatto-1",
+      "name": "mralexgatto",
+      "snippet": "mralexgatto услуга / специалист Советую, профессионал своего дела @mralexgatto Советую, профессионал своего дела @mralexgatto"
+    },
+    {
+      "slug": "pavel-egorov-204852-f566",
+      "name": "Pavel Egorov",
+      "snippet": "Pavel Egorov Всем привет! Веду набор учеников на занятия по барабанам Приглашаю на индивидуальные занятия по игре на барабанах. Обучаю с нуля и продолжающих. Подходит для де Всем привет! Веду набор учеников на занятия по"
+    },
+    {
+      "slug": "fbpack-michael-finkelstein-gluten-free-bread",
+      "name": "Michael Finkelstein — Gluten Free Bread",
+      "snippet": "Michael Finkelstein — Gluten Free Bread Кошерный безглютеновый хлеб · гречневая/овсяная мука · $15 за 2 lb · Sherman Oaks / CA Кошерный безглютеновый хлеб · гречневая/овсяная мука · $15 за 2 lb · Sherman Oaks / CA Произв"
+    },
+    {
+      "slug": "guncha-atajanova-205252-7ab3",
+      "name": "Guncha Atajanova",
+      "snippet": "Guncha Atajanova Приветствую Всех! Позвольте представиться) Меня зовут Guncha ( Гунча) Я развиваю свой бизнес в сфере здоровья, красоты и wellnes Сотрудничаю с компанией Amw Приветствую Всех! Позвольте представиться) Мен"
+    },
+    {
+      "slug": "azamat-205828-cce8",
+      "name": "Azamat",
+      "snippet": "Azamat ‼️Всем Привет‼️ сейчас период для получения выплат по мед страховкам, Кто работает 🔴Doordash 🟠 Amazon 🟣Lyft 🔵Spark ✅Можете получить 867$ или 1734$✅ Если ‼️Всем Привет‼️ сейчас период для получения выплат по мед ст"
+    },
+    {
+      "slug": "leisan-hairstylist-oc-150646",
+      "name": "leisan_hairstylist_oc",
+      "snippet": "leisan_hairstylist_oc https://www.instagram.com/leisan_hairstylist_oc?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/leisan_hairstylist_oc?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/leisan_hairstylist_oc?igsh=NTc4M"
+    },
+    {
+      "slug": "elizaveta-pavlunenko-172152",
+      "name": "Elizaveta Pavlunenko",
+      "snippet": "Elizaveta Pavlunenko Сдам в аренду для работы в Uber-Lyft Black, Black SUV Chevrolet Suburban 2023 года. Есть все документы TCP и LAX (Permit). Тел. 213 759 31 60 Сдам в аренду для работы в Uber-Lyft Black, Black SUV Che"
+    },
+    {
+      "slug": "business-2247331592-172222",
+      "name": "Леонид",
+      "snippet": "Леонид ⚙️ Мaшинa в рᴇмᴏнтᴇ — ты бᴇз дᴏхᴏдa. Мᴏжнᴏ былᴏ избᴇжaть… ᴇслu бы былa ѕтрaхᴏвкa. ✔️ Phуѕicᴀl Dаmаgᴇ Inѕurᴀncᴇ — тᴇхнuку вᴏсстанᴏвuт ✔️ Nᴏn-Trucкing Liаbilitу ⚙️ Мaшинa в рᴇмᴏнтᴇ — ты бᴇз дᴏхᴏдa. Мᴏжнᴏ былᴏ избᴇжa"
+    },
+    {
+      "slug": "nataliawolfstudio-150658",
+      "name": "nataliawolfstudio",
+      "snippet": "nataliawolfstudio https://www.instagram.com/nataliawolfstudio?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/nataliawolfstudio?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/nataliawolfstudio?igsh=NTc4MTIwNjQ2YQ== Исто"
+    },
+    {
+      "slug": "svetickla-172213",
+      "name": "SvetickLA",
+      "snippet": "SvetickLA Дорогие друзья!!! Спешу сообщить, что у нас есть ПИЯВОЧКИ в ЛА))!!! Кто понимает в Гирудотерапии и ценит этот Уникальный Дар Природы, пожалуйста обращайтесь!! Дорогие друзья!!! Спешу сообщить, что у нас есть ПИ"
+    },
+    {
+      "slug": "averina-notary-public",
+      "name": "Averina Notary Public",
+      "snippet": "Averina Notary Public услуга / специалист @Averina_Notary_Public @Averina_Notary_Public"
+    },
+    {
+      "slug": "reel-150657",
+      "name": "reel",
+      "snippet": "reel https://www.instagram.com/reel/DB-kX1YxFMr/?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/reel/DB-kX1YxFMr/?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/reel/DB-kX1YxFMr/?igsh=NTc4MTIwNjQ2YQ== Источник: Telegra"
+    },
+    {
+      "slug": "pro-edf7a35986-1",
+      "name": "Сергей",
+      "snippet": "Сергей услуга / специалист 2792861376, Сергей 2792861376, Сергей"
+    },
+    {
+      "slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+      "name": "Mikhail Kulesh - Vehicle Rental",
+      "snippet": "Mikhail Kulesh - Vehicle Rental Vehicle rental services providing cars for temporary use. Vehicle rental services providing cars for temporary use. Vehicle rental services providing cars for temporary use. Original post:"
+    },
+    {
+      "slug": "nataly-simonova-205733-d6c0",
+      "name": "Nataly Simonova",
+      "snippet": "Nataly Simonova Приглашаем девочек 11–15 лет на занятия по волейболу с тренером! (тренер русскоговорящий) Тренировки проходят на волейбольной площадке в районе Great Park (не Приглашаем девочек 11–15 лет на занятия по во"
+    },
+    {
+      "slug": "yagmyrov-atajan-credit-repair-180956",
+      "name": "Yagmyrov Atajan Credit Repair",
+      "snippet": "Yagmyrov Atajan Credit Repair Есть просрочки, Collection или банки отказывают? В США кредитная история влияет на всё: аренду жилья, одобрение кредитов и процентные ставки. Я помогаю: • Нах Есть просрочки, Collection или "
+    },
+    {
+      "slug": "victoria-kei-150650",
+      "name": "victoria__kei",
+      "snippet": "victoria__kei https://www.instagram.com/victoria__kei?igsh=NTc4MTIwNjQ2YQ== Тренер и грамотный специалист по питанию . Очень хорошая девушка )) https://www.instagram.com/victoria__kei?igsh=NTc4MTIwNjQ2YQ== Тренер и грамо"
+    },
+    {
+      "slug": "artur-sh-205449-7381",
+      "name": "Artur Sh",
+      "snippet": "Artur Sh Саксофон, кларнет 🌺 Частные уроки 🌸 Любой возраст 🌺 Любой уровень 🎷 Саксофон, кларнет 🌺 Частные уроки 🌸 Любой возраст 🌺 Любой уровень 🎷 Саксофон, кларнет 🌺 Частные уроки 🌸 Любой возраст 🌺 Любой уровень 🎷"
+    },
+    {
+      "slug": "fb-post-10-julia-leo-skincare-products",
+      "name": "Julia Leo - Skincare Products",
+      "snippet": "Julia Leo - Skincare Products Skincare product offerings and beauty treatments. Skincare product offerings and beauty treatments. Skincare product offerings and beauty treatments. Original post: Skincare products ---FACE"
+    },
+    {
+      "slug": "tane4kazu",
+      "name": "Tane4kaZu",
+      "snippet": "Tane4kaZu услуга / специалист @Tane4kaZu @Tane4kaZu"
+    },
+    {
+      "slug": "lana-janew-190946",
+      "name": "Lana Janew",
+      "snippet": "Lana Janew Алёна Индюкова (818) 457-8599 Я ей заказывала несколько раз. Моя семья очень довольна её произведениям: вкус и качество великолепны!🎂🍰🧁😊 Алёна Индюкова (818) 457-8599 Я ей заказывала несколько раз. Моя семья о"
+    },
+    {
+      "slug": "justin-cox-205709-efd1",
+      "name": "Justin Cox",
+      "snippet": "Justin Cox Изготовление CDL / DL 🪪 Доступны почти все штаты 🇺🇸 Читающийся barcode 🚛 Помощь при отказе в замене или продлении Прохождение верификаций на Amazon и прочее Изготовление CDL / DL 🪪 Доступны почти все штаты 🇺🇸 "
+    },
+    {
+      "slug": "business-biz-180847",
+      "name": "Александр",
+      "snippet": "Александр Привет! Меня зовут Александр, я преподаватель по игре на гитаре Приглашаю на пробный урок по игре на Гитаре в ZOOM Для предзаписи напишите пожалуйста! в сообщен Привет! Меня зовут Александр, я преподаватель по "
+    },
+    {
+      "slug": "kingfargo-180941",
+      "name": "Kingfargo",
+      "snippet": "Kingfargo Помогу с созданием доказательств для вашего кейса 📄 Работаю без предоплат! ✅ Мастер своего дела, 7 лет опыта, недорого А так же любые иные документы. Помогу с созданием доказательств для вашего кейса 📄 Работаю "
+    },
+    {
+      "slug": "business-4156194812-172158",
+      "name": "Оксана Куриленко",
+      "snippet": "Оксана Куриленко Авто в лизинг Можем помочь даже если нет кpедитной исторuu 📲 +1 (415) 619-4812 Авто в лизинг Можем помочь даже если нет кpедитной исторuu 📲 +1 (415) 619-4812 Авто в лизинг Можем помочь даже если нет кpед"
+    },
+    {
+      "slug": "batch2-flora-barshak",
+      "name": "Flora Barshak",
+      "snippet": "Flora Barshak Caregiver Job · Flora Barshak Category: Jobs · Live-in Caregiver Location: Del Mar, San Diego, CA Phone: +1 (619) 889-3001 Responsibilities: - Легкое приготовл Caregiver Job · Flora Barshak Category: Jobs ·"
+    },
+    {
+      "slug": "aburik-181010",
+      "name": "Aburik",
+      "snippet": "Aburik 🚨🚨 СТОП. НЕ ЛИСТАЙ. 🚨🚨 🛍️ Сейчас идёт БОЛЬШАЯ РАСПРОДАЖА импортной табачки 💣 4 БЛОКА СТИКОВ ПОКУПАЕШЬ - НОВОЕ УСТРОЙСТВО IQOS / GLO или 5 БЛОК ПОЛУЧАЕШЬ БЕСПЛ 🚨🚨 СТОП. НЕ ЛИСТАЙ. 🚨🚨 🛍️ Сейчас идёт БОЛЬШАЯ РАСПРОДА"
+    },
+    {
+      "slug": "pilyulyame-150653",
+      "name": "pilyulya.me",
+      "snippet": "pilyulya.me https://www.instagram.com/pilyulya.me?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/pilyulya.me?igsh=NTc4MTIwNjQ2YQ== https://www.instagram.com/pilyulya.me?igsh=NTc4MTIwNjQ2YQ== Источник: Telegram, дата: 20"
+    },
+    {
+      "slug": "rita-torikashvili-205809-48fa",
+      "name": "Rita Torikashvili",
+      "snippet": "Rita Torikashvili Машина на которой он сдает, должна быть застрахована, но сам водитель не обязан быть вписан в страховку. У меня дочь в прошлом году права получила, пока училась Машина на которой он сдает, должна быть з"
+    },
+    {
+      "slug": "svetlana-fedorova-205250-24e0",
+      "name": "Svetlana Fedorova",
+      "snippet": "Svetlana Fedorova 😨 Как стать мастером тревожности: вредные советы, которые точно сработают! 😨 1️⃣ Проверяй телефон каждые 30 секунд. Вдруг там уже случилось что-то ужасное, а т 😨 Как стать мастером тревожности: вредные "
+    }
+  ]
+}

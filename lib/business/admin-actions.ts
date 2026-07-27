@@ -56,7 +56,7 @@ function revalidateBusinessAdmin(keepSlug?: string | null, dropSlug?: string | n
 
 export async function adminSetBusinessStatusAction(input: {
   businessId: string;
-  status: "pending" | "approved" | "rejected" | "archived";
+  status: "pending" | "approved" | "rejected" | "archived" | "deferred";
   slug?: string | null;
 }): Promise<BusinessAdminActionResult> {
   const { supabase, error } = await requireAdmin();
@@ -70,6 +70,31 @@ export async function adminSetBusinessStatusAction(input: {
 
   revalidateBusinessAdmin(input.slug);
   return ok("Статус обновлён.");
+}
+
+export async function adminSetBusinessCategoryAction(input: {
+  businessId: string;
+  categoryId: string | null;
+  slug?: string | null;
+}): Promise<BusinessAdminActionResult> {
+  const { supabase, error } = await requireAdmin();
+  if (error) return error;
+
+  const { error: rpcError } = await supabase.rpc("admin_set_business_category", {
+    p_business_id: input.businessId,
+    p_category_id: input.categoryId,
+  });
+  if (rpcError) {
+    const message = (rpcError.message ?? "").toLowerCase();
+    if (message.includes("category not found")) {
+      return fail("Категория не найдена или неактивна.");
+    }
+    return fail(mapDbError(rpcError));
+  }
+
+  revalidateBusinessAdmin(input.slug);
+  revalidatePath("/search");
+  return ok("Категория обновлена.");
 }
 
 export async function mergeBusinessesAction(input: {

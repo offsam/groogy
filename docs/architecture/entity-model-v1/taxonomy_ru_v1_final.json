@@ -1,0 +1,1803 @@
+{
+  "version": 1,
+  "name": "TAXONOMY_RU_V1_FINAL",
+  "status": "ready_to_freeze",
+  "freeze_policy": "After product approval, labels are frozen. Changes only via TAXONOMY_RU_V2+.",
+  "audience": "Russian-speaking users in the USA",
+  "sources_validated": [
+    "telegram_reviewer_v1 (Fun for Mom + LA_OrangeCounty, ~8426 posts with text)",
+    "facebook_entities + facebook-batches-1-6",
+    "published platform_categories (import-review category_backfill_report)",
+    "import_review_items reports (titles/labels sample)",
+    "TAXONOMY_V1",
+    "TAXONOMY_RU_V1"
+  ],
+  "constraints": {
+    "structure_unchanged": true,
+    "slugs_unchanged": true,
+    "sql_unchanged": true,
+    "migrations_unchanged": true,
+    "production_unchanged": true
+  },
+  "style_lock": {
+    "register": "catalog_conversational",
+    "rules": [
+      "Короткие бытовые ярлыки каталога",
+      "Соединитель «и», без «/» на home/catalog",
+      "Авто-семья: Автосервис · Мастера по авто · Машины · Запчасти",
+      "Остаток: Другое (не Прочее)",
+      "Латиница только где так ищут: SMM, IT",
+      "Один ярлык «Красота» во всех сущностях; смысл задаёт хаб"
+    ]
+  },
+  "changed_from_taxonomy_ru_v1": [
+    {
+      "entity": "hub",
+      "slug": "marketplace",
+      "from": "Барахолка",
+      "to": "Купи-продай",
+      "reason": "Product decision: Барахолка rejected; use Купи-продай (or Маркет / Рынок as alts)"
+    },
+    {
+      "entity": "business",
+      "slug": "pets",
+      "from": "Для животных",
+      "to": "Животные",
+      "reason": "Совпадает с published platform label; TG животн≈73 >> питомц≈7"
+    },
+    {
+      "entity": "business",
+      "slug": "travel",
+      "from": "Туризм и визы",
+      "to": "Визы и путешествия",
+      "reason": "TG: виза≈52, путешеств≈19, туризм≈6 — визы первичны для аудитории США"
+    },
+    {
+      "entity": "professional",
+      "slug": "travel",
+      "from": "Туризм и визы",
+      "to": "Визы и путешествия",
+      "reason": "Та же частотность; единый ярлык с Business.travel"
+    },
+    {
+      "entity": "marketplace",
+      "slug": "vehicles",
+      "from": "Авто",
+      "to": "Машины",
+      "reason": "TG: машин≈652 > авто≈343; в объявлениях говорят «машина»"
+    }
+  ],
+  "unchanged_from_taxonomy_ru_v1": [
+    "hub:business",
+    "hub:professional",
+    "hub:jobs",
+    "hub:real_estate",
+    "business.food",
+    "business.grocery",
+    "business.beauty",
+    "business.medical",
+    "business.legal",
+    "business.finance",
+    "business.insurance",
+    "business.auto",
+    "business.car_rental",
+    "business.moving",
+    "business.home_services",
+    "business.cleaning",
+    "business.education",
+    "business.fitness",
+    "business.real_estate_agencies",
+    "business.events",
+    "business.childcare",
+    "business.other",
+    "professional.beauty",
+    "professional.nails",
+    "professional.hair_makeup",
+    "professional.massage",
+    "professional.education",
+    "professional.languages",
+    "professional.stem_music",
+    "professional.legal",
+    "professional.immigration",
+    "professional.general",
+    "professional.medical",
+    "professional.photography_video",
+    "professional.fitness",
+    "professional.finance",
+    "professional.auto",
+    "professional.food",
+    "professional.childcare",
+    "professional.professional_services",
+    "professional.home_services",
+    "professional.pets",
+    "professional.insurance",
+    "professional.real_estate",
+    "professional.other",
+    "marketplace.furniture",
+    "marketplace.kids",
+    "marketplace.free",
+    "marketplace.wanted",
+    "marketplace.clothing",
+    "marketplace.electronics",
+    "marketplace.home",
+    "marketplace.auto_parts",
+    "marketplace.sports",
+    "marketplace.other",
+    "jobs.drivers",
+    "jobs.cleaning",
+    "jobs.beauty",
+    "jobs.childcare",
+    "jobs.restaurant",
+    "jobs.office",
+    "jobs.skilled_trades",
+    "jobs.photo_video",
+    "jobs.other",
+    "real_estate.apartments",
+    "real_estate.rooms",
+    "real_estate.houses",
+    "real_estate.commercial",
+    "real_estate.short_term",
+    "real_estate.other"
+  ],
+  "disputed_resolutions": [
+    {
+      "topic": "marketplace hub",
+      "options": [
+        "Купи-продай",
+        "Маркет",
+        "Рынок",
+        "Барахолка (отклонено)"
+      ],
+      "final": "Купи-продай",
+      "reason": "Product: Барахолка убрана. Выбрано Купи-продай (язык объявлений). Альтернативы: Маркет, Рынок."
+    },
+    {
+      "topic": "jobs hub",
+      "options": [
+        "Работа",
+        "Вакансии"
+      ],
+      "final": "Работа",
+      "reason": "TG: работа≈1122 vs вакансия≈128; лента включает «ищу работу»/подработку."
+    },
+    {
+      "topic": "business.events",
+      "options": [
+        "Праздники и площадки",
+        "Мероприятия",
+        "Ивенты"
+      ],
+      "final": "Праздники и площадки",
+      "reason": "Published «Мероприятия» путает с будущим Events-хабом. TG: праздник≈59, площадка≈65, мероприятие≈120 (часто календарь). Ярлык подчёркивает venue/праздничный бизнес."
+    },
+    {
+      "topic": "travel",
+      "options": [
+        "Туризм и визы",
+        "Визы и путешествия",
+        "Путешествия"
+      ],
+      "final": "Визы и путешествия",
+      "reason": "TG виза>>туризм; для США визовая помощь — главный intent."
+    },
+    {
+      "topic": "professional.food",
+      "options": [
+        "Домашняя еда",
+        "Кейтеринг",
+        "Домашняя кухня"
+      ],
+      "final": "Домашняя еда",
+      "reason": "TG домашняя еда≈33; FB Zulya: «готовая еда домашнего приготовления»."
+    },
+    {
+      "topic": "professional.professional_services",
+      "options": [
+        "Дизайн, SMM и IT",
+        "Фриланс",
+        "Дизайн и IT"
+      ],
+      "final": "Дизайн, SMM и IT",
+      "reason": "TG: дизайн≈71, SMM≈47, IT≈38; фриланс≈0 как самоназвание категории."
+    },
+    {
+      "topic": "marketplace.vehicles",
+      "options": [
+        "Авто",
+        "Машины",
+        "Автомобили"
+      ],
+      "final": "Машины",
+      "reason": "TG машин≈652 > авто≈343; Автосервис остаётся за Business."
+    },
+    {
+      "topic": "legal label vs адвокат",
+      "options": [
+        "Юристы",
+        "Адвокаты"
+      ],
+      "final": "Юристы",
+      "reason": "В объявлениях «адвокат»≈63 > «юрист»≈5, но platform/published уже «Юристы»; адвокат → search synonym. Иммиграционные часто «адвокат» — покрыто подкатегорией Иммиграция."
+    }
+  ],
+  "hubs": {
+    "business": {
+      "slug": "business",
+      "current": "Бизнесы",
+      "final": "Бизнесы",
+      "alternatives": [
+        "Компании",
+        "Каталог бизнесов"
+      ],
+      "description": "Организации и бренды: салоны, магазины, агентства, сервисы.",
+      "surfaces": {
+        "home": "Бизнесы",
+        "catalog": "Бизнесы",
+        "search": "Бизнесы",
+        "breadcrumb": "Бизнесы"
+      },
+      "reason": "Совпадает с IA V2. «Компании» уже; «Бизнесы» привычнее в каталоге русскоязычных США.",
+      "evidence": {
+        "tg": {
+          "бизнес": 350
+        },
+        "published_label": null,
+        "notes": "UI hub; owners rarely self-label «бизнес» in ads"
+      }
+    },
+    "professional": {
+      "slug": "professional",
+      "current": "Специалисты",
+      "final": "Специалисты",
+      "alternatives": [
+        "Мастера",
+        "Частные специалисты"
+      ],
+      "description": "Частные мастера и специалисты без компании.",
+      "surfaces": {
+        "home": "Специалисты",
+        "catalog": "Специалисты",
+        "search": "Специалисты",
+        "breadcrumb": "Специалисты"
+      },
+      "reason": "Шире, чем «Мастера» (юриста/бухгалтера обычно не называют мастером).",
+      "evidence": {
+        "tg": {
+          "мастер": 379,
+          "специалист": 144
+        },
+        "notes": "«Мастер» чаще, но узко → Специалисты"
+      }
+    },
+    "marketplace": {
+      "slug": "marketplace",
+      "current": "Барахолка",
+      "final": "Купи-продай",
+      "alternatives": [
+        "Маркет",
+        "Рынок",
+        "Купи / продай"
+      ],
+      "description": "Частные объявления о товарах: продажа, отдам, ищу.",
+      "surfaces": {
+        "home": "Купи-продай",
+        "catalog": "Купи-продай",
+        "search": "Купи-продай",
+        "breadcrumb": "Купи-продай"
+      },
+      "reason": "Продуктовое решение: «Барахолка» отвергнута. TG куплю/продам≈238. «Рынок» путается с продуктовым; «Маркет» — запасной короткий ярлык.",
+      "evidence": {
+        "tg": {
+          "барахолка": 0,
+          "куплю|продам": 238,
+          "отдам/free": 137,
+          "мебель": 347
+        },
+        "notes": "Product override: not Барахолка. Body language = куплю/продам/отдам."
+      }
+    },
+    "jobs": {
+      "slug": "jobs",
+      "current": "Работа",
+      "final": "Работа",
+      "alternatives": [
+        "Вакансии",
+        "Работа и подработка"
+      ],
+      "description": "Ищут сотрудников и ищут работу: одна лента.",
+      "surfaces": {
+        "home": "Работа",
+        "catalog": "Работа",
+        "search": "Работа",
+        "breadcrumb": "Работа"
+      },
+      "reason": "В чатах пишут «работа», не «вакансии». «Вакансии» звучит как корпоративный HR и хуже покрывает «ищу работу».",
+      "evidence": {
+        "tg": {
+          "работа": 1122,
+          "вакансия": 128,
+          "ищу работу": 34,
+          "требуется/hiring": 148
+        },
+        "notes": "Работа >> Вакансии"
+      }
+    },
+    "real_estate": {
+      "slug": "real_estate",
+      "current": "Недвижимость",
+      "final": "Недвижимость",
+      "alternatives": [
+        "Жильё",
+        "Аренда и продажа"
+      ],
+      "description": "Объявления о жилье и коммерции — не агентства.",
+      "surfaces": {
+        "home": "Недвижимость",
+        "catalog": "Недвижимость",
+        "search": "Недвижимость",
+        "breadcrumb": "Недвижимость"
+      },
+      "reason": "Стандартный хаб. «Жильё» уже и не покрывает commercial.",
+      "evidence": {
+        "tg": {
+          "квартира": 312,
+          "комната": 613,
+          "недвижимость": 15,
+          "жильё": 56
+        },
+        "notes": "Хаб «Недвижимость»; в объявлениях — квартира/комната"
+      }
+    }
+  },
+  "entities": {
+    "business": {
+      "categories": [
+        {
+          "slug": "food",
+          "parent": null,
+          "current": "Рестораны и кафе",
+          "final": "Рестораны и кафе",
+          "alternatives": [
+            "Еда",
+            "Кафе и рестораны"
+          ],
+          "description": "Кафе, рестораны, доставка и кейтеринг как бизнес.",
+          "reason": "TG ресторан≈132, кафе≈67; published short «Рестораны» → home surface",
+          "surfaces": {
+            "home": "Рестораны",
+            "catalog": "Рестораны и кафе",
+            "search": "Рестораны и кафе",
+            "breadcrumb": "Рестораны и кафе"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "grocery",
+          "parent": null,
+          "current": "Продукты",
+          "final": "Продукты",
+          "alternatives": [
+            "Продуктовые магазины",
+            "Магазины"
+          ],
+          "description": "Продуктовые магазины, рынки, specialty food.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Продукты",
+            "catalog": "Продукты",
+            "search": "Продукты",
+            "breadcrumb": "Продукты"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "beauty",
+          "parent": null,
+          "current": "Красота",
+          "final": "Красота",
+          "alternatives": [
+            "Салоны красоты",
+            "Бьюти"
+          ],
+          "description": "Салоны и студии красоты как компания.",
+          "reason": "На главной можно «Салоны», но slug общий с Pro — лучше один ярлык «Красота».",
+          "surfaces": {
+            "home": "Красота",
+            "catalog": "Красота",
+            "search": "Красота",
+            "breadcrumb": "Красота"
+          },
+          "doubt": "На главной можно «Салоны», но slug общий с Pro — лучше один ярлык «Красота»."
+        },
+        {
+          "slug": "medical",
+          "parent": null,
+          "current": "Медицина",
+          "final": "Медицина",
+          "alternatives": [
+            "Клиники",
+            "Здоровье"
+          ],
+          "description": "Клиники, кабинеты и медцентры.",
+          "reason": "«Клиники» точнее для бизнеса; «Медицина» короче и привычнее в каталоге.",
+          "surfaces": {
+            "home": "Медицина",
+            "catalog": "Медицина",
+            "search": "Медицина",
+            "breadcrumb": "Медицина"
+          },
+          "doubt": "«Клиники» точнее для бизнеса; «Медицина» короче и привычнее в каталоге."
+        },
+        {
+          "slug": "legal",
+          "parent": null,
+          "current": "Юристы",
+          "final": "Юристы",
+          "alternatives": [
+            "Юридические фирмы",
+            "Право"
+          ],
+          "description": "Юридические компании и офисы.",
+          "reason": "Юристы / юрфирмы → Юристы",
+          "surfaces": {
+            "home": "Юристы",
+            "catalog": "Юристы",
+            "search": "Юристы",
+            "breadcrumb": "Юристы"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "finance",
+          "parent": null,
+          "current": "Бухгалтерия и налоги",
+          "final": "Бухгалтерия и налоги",
+          "alternatives": [
+            "Финансы",
+            "Бухгалтерия"
+          ],
+          "description": "Бухгалтерские и налоговые офисы.",
+          "reason": "Финансы и бухгалтерия → Бухгалтерия и налоги",
+          "surfaces": {
+            "home": "Бухгалтерия",
+            "catalog": "Бухгалтерия и налоги",
+            "search": "Бухгалтерия и налоги",
+            "breadcrumb": "Бухгалтерия и налоги"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "insurance",
+          "parent": null,
+          "current": "Страхование",
+          "final": "Страхование",
+          "alternatives": [
+            "Страховые агентства",
+            "Страховка"
+          ],
+          "description": "Страховые агентства и офисы.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Страхование",
+            "catalog": "Страхование",
+            "search": "Страхование",
+            "breadcrumb": "Страхование"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "auto",
+          "parent": null,
+          "current": "Автосервис",
+          "final": "Автосервис",
+          "alternatives": [
+            "Авто",
+            "Ремонт авто"
+          ],
+          "description": "СТО, детейлинг и ремонт авто как бизнес.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Автосервис",
+            "catalog": "Автосервис",
+            "search": "Автосервис",
+            "breadcrumb": "Автосервис"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "car_rental",
+          "parent": null,
+          "current": "Аренда авто",
+          "final": "Аренда авто",
+          "alternatives": [
+            "Прокат авто",
+            "Car rental"
+          ],
+          "description": "Прокат автомобилей.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Аренда авто",
+            "catalog": "Аренда авто",
+            "search": "Аренда авто",
+            "breadcrumb": "Аренда авто"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "moving",
+          "parent": null,
+          "current": "Переезды",
+          "final": "Переезды",
+          "alternatives": [
+            "Муверы",
+            "Грузоперевозки"
+          ],
+          "description": "Переездные компании и перевозки.",
+          "reason": "«Муверы» живо в чатах США, но для каталога лучше «Переезды».",
+          "surfaces": {
+            "home": "Переезды",
+            "catalog": "Переезды",
+            "search": "Переезды",
+            "breadcrumb": "Переезды"
+          },
+          "doubt": "«Муверы» живо в чатах США, но для каталога лучше «Переезды»."
+        },
+        {
+          "slug": "home_services",
+          "parent": null,
+          "current": "Услуги для дома",
+          "final": "Услуги для дома",
+          "alternatives": [
+            "Дом и ремонт",
+            "Сервис для дома",
+            "Домашние услуги"
+          ],
+          "description": "Клининг, ремонт, handyman и другие сервисы для дома.",
+          "reason": "Дом и сервисы → Услуги для дома",
+          "surfaces": {
+            "home": "Для дома",
+            "catalog": "Услуги для дома",
+            "search": "Услуги для дома",
+            "breadcrumb": "Услуги для дома"
+          },
+          "doubt": null,
+          "children": [
+            {
+              "slug": "cleaning",
+              "parent": "home_services",
+              "current": "Уборка",
+              "final": "Уборка",
+              "alternatives": [
+                "Клининг",
+                "Клининговые компании"
+              ],
+              "description": "Клининговые компании.",
+              "reason": "Клининг → Уборка",
+              "surfaces": {
+                "home": null,
+                "catalog": "Уборка",
+                "search": "Уборка",
+                "breadcrumb": "Уборка"
+              },
+              "doubt": "«Клининг» привычен, но «Уборка» единее со Jobs."
+            }
+          ]
+        },
+        {
+          "slug": "education",
+          "parent": null,
+          "current": "Образование",
+          "final": "Образование",
+          "alternatives": [
+            "Школы и курсы",
+            "Обучение"
+          ],
+          "description": "Школы и учебные центры как организация.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Образование",
+            "catalog": "Образование",
+            "search": "Образование",
+            "breadcrumb": "Образование"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "fitness",
+          "parent": null,
+          "current": "Фитнес",
+          "final": "Фитнес",
+          "alternatives": [
+            "Спортзалы",
+            "Студии"
+          ],
+          "description": "Залы и фитнес-студии как бизнес.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Фитнес",
+            "catalog": "Фитнес",
+            "search": "Фитнес",
+            "breadcrumb": "Фитнес"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "pets",
+          "parent": null,
+          "current": "Для животных",
+          "final": "Животные",
+          "alternatives": [
+            "Для животных",
+            "Питомцы",
+            "Зооуслуги"
+          ],
+          "description": "Груминг, ветклиники и зоосервисы как бизнес.",
+          "reason": "Совпадает с published platform label; TG животн≈73 >> питомц≈7",
+          "surfaces": {
+            "home": "Животные",
+            "catalog": "Животные",
+            "search": "Животные",
+            "breadcrumb": "Животные"
+          },
+          "doubt": "«Питомцы» мило, но звучит как товары; «Для животных» яснее для сервиса."
+        },
+        {
+          "slug": "travel",
+          "parent": null,
+          "current": "Туризм и визы",
+          "final": "Визы и путешествия",
+          "alternatives": [
+            "Туризм и визы",
+            "Путешествия",
+            "Визы"
+          ],
+          "description": "Турагентства и визовые компании.",
+          "reason": "TG: виза≈52, путешеств≈19, туризм≈6 — визы первичны для аудитории США",
+          "surfaces": {
+            "home": "Визы",
+            "catalog": "Визы и путешествия",
+            "search": "Визы и путешествия",
+            "breadcrumb": "Визы и путешествия"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "real_estate_agencies",
+          "parent": null,
+          "current": "Агентства недвижимости",
+          "final": "Агентства недвижимости",
+          "alternatives": [
+            "Риелторские агентства",
+            "Недвижимость (агентства)"
+          ],
+          "description": "Агентства и брокерские офисы — не объявления квартир.",
+          "reason": "Длинно для главной; в хабе Бизнесы ок, на home можно короче «Агентства».",
+          "surfaces": {
+            "home": "Агентства",
+            "catalog": "Агентства недвижимости",
+            "search": "Агентства недвижимости",
+            "breadcrumb": "Агентства недвижимости"
+          },
+          "doubt": "Длинно для главной; в хабе Бизнесы ок, на home можно короче «Агентства»."
+        },
+        {
+          "slug": "events",
+          "parent": null,
+          "current": "Праздники и площадки",
+          "final": "Праздники и площадки",
+          "alternatives": [
+            "Ивенты",
+            "Мероприятия",
+            "Event-бизнес"
+          ],
+          "description": "Площадки и компании для праздников — не календарь событий.",
+          "reason": "Площадки и ивент-бизнес → Праздники и площадки",
+          "surfaces": {
+            "home": "Праздники",
+            "catalog": "Праздники и площадки",
+            "search": "Праздники и площадки",
+            "breadcrumb": "Праздники и площадки"
+          },
+          "doubt": "«Ивенты» живо, но калька; рекомендуем без «ивент»."
+        },
+        {
+          "slug": "childcare",
+          "parent": null,
+          "current": "Детские центры",
+          "final": "Детские центры",
+          "alternatives": [
+            "Детские сады",
+            "Для детей"
+          ],
+          "description": "Детские сады и центры как организация.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Детские центры",
+            "catalog": "Детские центры",
+            "search": "Детские центры",
+            "breadcrumb": "Детские центры"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "other",
+          "parent": null,
+          "current": "Другое",
+          "final": "Другое",
+          "alternatives": [
+            "Прочее",
+            "Разное"
+          ],
+          "description": "Временный бакет до классификации.",
+          "reason": "Прочее → Другое",
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          },
+          "doubt": null
+        }
+      ]
+    },
+    "professional": {
+      "categories": [
+        {
+          "slug": "beauty",
+          "parent": null,
+          "current": "Красота",
+          "final": "Красота",
+          "alternatives": [
+            "Бьюти-мастера",
+            "Мастера красоты"
+          ],
+          "description": "Частные мастера красоты.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Красота",
+            "catalog": "Красота",
+            "search": "Красота",
+            "breadcrumb": "Красота"
+          },
+          "doubt": null,
+          "children": [
+            {
+              "slug": "nails",
+              "parent": "beauty",
+              "current": "Маникюр и брови",
+              "final": "Маникюр и брови",
+              "alternatives": [
+                "Ногти",
+                "Ногти, брови, ресницы"
+              ],
+              "description": "Маникюр, брови, ресницы.",
+              "reason": "Ногти / брови / ресницы → Маникюр и брови",
+              "surfaces": {
+                "home": null,
+                "catalog": "Маникюр и брови",
+                "search": "Маникюр и брови",
+                "breadcrumb": "Маникюр и брови"
+              },
+              "doubt": "Ресницы не в коротком ярлыке; в описании/поиске покрыты."
+            },
+            {
+              "slug": "hair_makeup",
+              "parent": "beauty",
+              "current": "Волосы и макияж",
+              "final": "Волосы и макияж",
+              "alternatives": [
+                "Парикмахеры",
+                "Волосы / визаж"
+              ],
+              "description": "Стрижки, окрашивание, макияж.",
+              "reason": "Волосы / макияж → Волосы и макияж",
+              "surfaces": {
+                "home": null,
+                "catalog": "Волосы и макияж",
+                "search": "Волосы и макияж",
+                "breadcrumb": "Волосы и макияж"
+              },
+              "doubt": null
+            },
+            {
+              "slug": "massage",
+              "parent": "beauty",
+              "current": "Массаж",
+              "final": "Массаж",
+              "alternatives": [
+                "Массажисты"
+              ],
+              "description": "Частный массаж.",
+              "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+              "surfaces": {
+                "home": null,
+                "catalog": "Массаж",
+                "search": "Массаж",
+                "breadcrumb": "Массаж"
+              },
+              "doubt": null
+            }
+          ]
+        },
+        {
+          "slug": "education",
+          "parent": null,
+          "current": "Репетиторы",
+          "final": "Репетиторы",
+          "alternatives": [
+            "Обучение",
+            "Преподаватели"
+          ],
+          "description": "Частные преподаватели и репетиторы.",
+          "reason": "Репетиторы и обучение → Репетиторы",
+          "surfaces": {
+            "home": "Репетиторы",
+            "catalog": "Репетиторы",
+            "search": "Репетиторы",
+            "breadcrumb": "Репетиторы"
+          },
+          "doubt": null,
+          "children": [
+            {
+              "slug": "languages",
+              "parent": "education",
+              "current": "Языки",
+              "final": "Языки",
+              "alternatives": [
+                "Иностранные языки",
+                "English / ESL"
+              ],
+              "description": "Языковые занятия.",
+              "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+              "surfaces": {
+                "home": null,
+                "catalog": "Языки",
+                "search": "Языки",
+                "breadcrumb": "Языки"
+              },
+              "doubt": null
+            },
+            {
+              "slug": "stem_music",
+              "parent": "education",
+              "current": "Школа и музыка",
+              "final": "Школа и музыка",
+              "alternatives": [
+                "Предметы и музыка",
+                "STEM и музыка"
+              ],
+              "description": "Школьные предметы, STEM, музыка.",
+              "reason": "Школа / музыка / STEM → Школа и музыка",
+              "surfaces": {
+                "home": null,
+                "catalog": "Школа и музыка",
+                "search": "Школа и музыка",
+                "breadcrumb": "Школа и музыка"
+              },
+              "doubt": "STEM в UI лучше не оставлять латиницей."
+            }
+          ]
+        },
+        {
+          "slug": "legal",
+          "parent": null,
+          "current": "Юристы",
+          "final": "Юристы",
+          "alternatives": [
+            "Адвокаты",
+            "Юридическая помощь"
+          ],
+          "description": "Частные юристы и адвокаты.",
+          "reason": "В США «адвокат» ≠ attorney; «Юристы» безопаснее.",
+          "surfaces": {
+            "home": "Юристы",
+            "catalog": "Юристы",
+            "search": "Юристы",
+            "breadcrumb": "Юристы"
+          },
+          "doubt": "В США «адвокат» ≠ attorney; «Юристы» безопаснее.",
+          "children": [
+            {
+              "slug": "immigration",
+              "parent": "legal",
+              "current": "Иммиграция",
+              "final": "Иммиграция",
+              "alternatives": [
+                "Иммиграционные юристы",
+                "Визы и green card"
+              ],
+              "description": "Иммиграционная помощь.",
+              "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+              "surfaces": {
+                "home": null,
+                "catalog": "Иммиграция",
+                "search": "Иммиграция",
+                "breadcrumb": "Иммиграция"
+              },
+              "doubt": null
+            },
+            {
+              "slug": "general",
+              "parent": "legal",
+              "current": "Другие юридические услуги",
+              "final": "Другие юридические услуги",
+              "alternatives": [
+                "Общая практика",
+                "Прочие юридические"
+              ],
+              "description": "Юристы вне иммиграции.",
+              "reason": "Общая практика → Другие юридические услуги",
+              "surfaces": {
+                "home": null,
+                "catalog": "Другие юридические услуги",
+                "search": "Другие юридические услуги",
+                "breadcrumb": "Другие юридические услуги"
+              },
+              "doubt": "«Общая практика» — калька; длиннее, но понятнее."
+            }
+          ]
+        },
+        {
+          "slug": "medical",
+          "parent": null,
+          "current": "Здоровье",
+          "final": "Здоровье",
+          "alternatives": [
+            "Медспециалисты",
+            "Врачи и терапевты"
+          ],
+          "description": "Частные специалисты здоровья (не клиника).",
+          "reason": "Намеренно не «Медицина», чтобы отличать от Business.",
+          "surfaces": {
+            "home": "Здоровье",
+            "catalog": "Здоровье",
+            "search": "Здоровье",
+            "breadcrumb": "Здоровье"
+          },
+          "doubt": "Намеренно не «Медицина», чтобы отличать от Business."
+        },
+        {
+          "slug": "photography_video",
+          "parent": null,
+          "current": "Фото и видео",
+          "final": "Фото и видео",
+          "alternatives": [
+            "Фотографы",
+            "Фото/видео"
+          ],
+          "description": "Фотографы и видеографы.",
+          "reason": "Фото / видео → Фото и видео",
+          "surfaces": {
+            "home": "Фото и видео",
+            "catalog": "Фото и видео",
+            "search": "Фото и видео",
+            "breadcrumb": "Фото и видео"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "fitness",
+          "parent": null,
+          "current": "Тренеры",
+          "final": "Тренеры",
+          "alternatives": [
+            "Фитнес",
+            "Персональные тренеры"
+          ],
+          "description": "Персональные тренеры и инструкторы.",
+          "reason": "Намеренно не «Фитнес» (это залы в Business).",
+          "surfaces": {
+            "home": "Тренеры",
+            "catalog": "Тренеры",
+            "search": "Тренеры",
+            "breadcrumb": "Тренеры"
+          },
+          "doubt": "Намеренно не «Фитнес» (это залы в Business)."
+        },
+        {
+          "slug": "finance",
+          "parent": null,
+          "current": "Бухгалтеры",
+          "final": "Бухгалтеры",
+          "alternatives": [
+            "Налоги",
+            "Бухгалтерия"
+          ],
+          "description": "Частные бухгалтеры и налоговые консультанты.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Бухгалтеры",
+            "catalog": "Бухгалтеры",
+            "search": "Бухгалтеры",
+            "breadcrumb": "Бухгалтеры"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "auto",
+          "parent": null,
+          "current": "Мастера по авто",
+          "final": "Мастера по авто",
+          "alternatives": [
+            "Автомастера",
+            "Механики"
+          ],
+          "description": "Частные механики и детейлеры.",
+          "reason": "Автомастера → Мастера по авто",
+          "surfaces": {
+            "home": "Мастера по авто",
+            "catalog": "Мастера по авто",
+            "search": "Мастера по авто",
+            "breadcrumb": "Мастера по авто"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "travel",
+          "parent": null,
+          "current": "Туризм и визы",
+          "final": "Визы и путешествия",
+          "alternatives": [
+            "Визовая помощь",
+            "Туризм и визы"
+          ],
+          "description": "Частные турагенты и визовая помощь.",
+          "reason": "Та же частотность; единый ярлык с Business.travel",
+          "surfaces": {
+            "home": "Визы",
+            "catalog": "Визы и путешествия",
+            "search": "Визы и путешествия",
+            "breadcrumb": "Визы и путешествия"
+          },
+          "doubt": "Совпадает с Business.travel по ярлыку — ок: различие в хабе сущности."
+        },
+        {
+          "slug": "food",
+          "parent": null,
+          "current": "Домашняя еда",
+          "final": "Домашняя еда",
+          "alternatives": [
+            "Домашняя кухня",
+            "Кейтеринг"
+          ],
+          "description": "Частные повара и домашняя выпечка.",
+          "reason": "Домашняя еда / кейтеринг → Домашняя еда",
+          "surfaces": {
+            "home": "Домашняя еда",
+            "catalog": "Домашняя еда",
+            "search": "Домашняя еда",
+            "breadcrumb": "Домашняя еда"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "childcare",
+          "parent": null,
+          "current": "Няни",
+          "final": "Няни",
+          "alternatives": [
+            "Няни и сиделки",
+            "Уход за детьми"
+          ],
+          "description": "Няни и сиделки.",
+          "reason": "Сиделок мало в TG — при росте можно расширить ярлык.",
+          "surfaces": {
+            "home": "Няни",
+            "catalog": "Няни",
+            "search": "Няни",
+            "breadcrumb": "Няни"
+          },
+          "doubt": "Сиделок мало в TG — при росте можно расширить ярлык."
+        },
+        {
+          "slug": "professional_services",
+          "parent": null,
+          "current": "Дизайн, SMM и IT",
+          "final": "Дизайн, SMM и IT",
+          "alternatives": [
+            "Фриланс",
+            "Дизайн и IT",
+            "Digital-услуги"
+          ],
+          "description": "Дизайнеры, SMM, разработчики.",
+          "reason": "Дизайн / SMM / IT → Дизайн, SMM и IT",
+          "surfaces": {
+            "home": "Дизайн и IT",
+            "catalog": "Дизайн, SMM и IT",
+            "search": "Дизайн, SMM и IT",
+            "breadcrumb": "Дизайн, SMM и IT"
+          },
+          "doubt": "SMM/IT оставляем латиницей — так ищут."
+        },
+        {
+          "slug": "home_services",
+          "parent": null,
+          "current": "Мастера для дома",
+          "final": "Мастера для дома",
+          "alternatives": [
+            "Дом и ремонт",
+            "Услуги для дома",
+            "Handyman"
+          ],
+          "description": "Сантехник, электрик, ремонт как частник.",
+          "reason": "Дом и ремонт → Мастера для дома",
+          "surfaces": {
+            "home": "Для дома",
+            "catalog": "Мастера для дома",
+            "search": "Мастера для дома",
+            "breadcrumb": "Мастера для дома"
+          },
+          "doubt": "Отличаем от Business «Услуги для дома»."
+        },
+        {
+          "slug": "pets",
+          "parent": null,
+          "current": "Уход за животными",
+          "final": "Уход за животными",
+          "alternatives": [
+            "Зооняни",
+            "Груминг",
+            "Для животных"
+          ],
+          "description": "Частный уход и груминг.",
+          "reason": "Зооняни / груминг → Уход за животными",
+          "surfaces": {
+            "home": "Для животных",
+            "catalog": "Уход за животными",
+            "search": "Уход за животными",
+            "breadcrumb": "Уход за животными"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "insurance",
+          "parent": null,
+          "current": "Страховые агенты",
+          "final": "Страховые агенты",
+          "alternatives": [
+            "Страхование",
+            "Страховка"
+          ],
+          "description": "Частные страховые агенты.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Страхование",
+            "catalog": "Страховые агенты",
+            "search": "Страховые агенты",
+            "breadcrumb": "Страховые агенты"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "real_estate",
+          "parent": null,
+          "current": "Риелторы",
+          "final": "Риелторы",
+          "alternatives": [
+            "Агенты по недвижимости",
+            "Realtors"
+          ],
+          "description": "Частные риелторы (не агентство).",
+          "reason": "Орфография «риелтор»/«риэлтор» — берём «риелтор» как более частое в вебе.",
+          "surfaces": {
+            "home": "Риелторы",
+            "catalog": "Риелторы",
+            "search": "Риелторы",
+            "breadcrumb": "Риелторы"
+          },
+          "doubt": "Орфография «риелтор»/«риэлтор» — берём «риелтор» как более частое в вебе."
+        },
+        {
+          "slug": "other",
+          "parent": null,
+          "current": "Другое",
+          "final": "Другое",
+          "alternatives": [
+            "Прочее"
+          ],
+          "description": "Неклассифицированные специалисты.",
+          "reason": "Прочее → Другое",
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          },
+          "doubt": null
+        }
+      ]
+    },
+    "marketplace": {
+      "categories": [
+        {
+          "slug": "furniture",
+          "parent": null,
+          "current": "Мебель",
+          "final": "Мебель",
+          "alternatives": [
+            "Мебель и интерьер"
+          ],
+          "description": "Мебель с рук.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Мебель",
+            "catalog": "Мебель",
+            "search": "Мебель",
+            "breadcrumb": "Мебель"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "kids",
+          "parent": null,
+          "current": "Детские вещи",
+          "final": "Детские вещи",
+          "alternatives": [
+            "Дети",
+            "Для детей",
+            "Baby"
+          ],
+          "description": "Детские и baby-товары.",
+          "reason": "Дети → Детские вещи",
+          "surfaces": {
+            "home": "Детские вещи",
+            "catalog": "Детские вещи",
+            "search": "Детские вещи",
+            "breadcrumb": "Детские вещи"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "free",
+          "parent": null,
+          "current": "Отдам даром",
+          "final": "Отдам даром",
+          "alternatives": [
+            "Бесплатно",
+            "Free"
+          ],
+          "description": "Отдают бесплатно.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Отдам даром",
+            "catalog": "Отдам даром",
+            "search": "Отдам даром",
+            "breadcrumb": "Отдам даром"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "wanted",
+          "parent": null,
+          "current": "Ищу",
+          "final": "Ищу",
+          "alternatives": [
+            "Куплю",
+            "Ищу / куплю"
+          ],
+          "description": "Ищут или хотят купить.",
+          "reason": "Ищу / куплю → Ищу",
+          "surfaces": {
+            "home": "Ищу",
+            "catalog": "Ищу",
+            "search": "Ищу",
+            "breadcrumb": "Ищу"
+          },
+          "doubt": "Коротко; в поиске синоним «куплю»."
+        },
+        {
+          "slug": "clothing",
+          "parent": null,
+          "current": "Одежда",
+          "final": "Одежда",
+          "alternatives": [
+            "Одежда и обувь"
+          ],
+          "description": "Одежда и обувь с рук.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Одежда",
+            "catalog": "Одежда",
+            "search": "Одежда",
+            "breadcrumb": "Одежда"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "electronics",
+          "parent": null,
+          "current": "Электроника",
+          "final": "Электроника",
+          "alternatives": [
+            "Техника",
+            "Гаджеты"
+          ],
+          "description": "Телефоны, компьютеры, гаджеты.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Электроника",
+            "catalog": "Электроника",
+            "search": "Электроника",
+            "breadcrumb": "Электроника"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "home",
+          "parent": null,
+          "current": "Для дома",
+          "final": "Для дома",
+          "alternatives": [
+            "Дом и быт",
+            "Бытовая техника"
+          ],
+          "description": "Быт и техника для дома.",
+          "reason": "Дом и техника → Для дома",
+          "surfaces": {
+            "home": "Для дома",
+            "catalog": "Для дома",
+            "search": "Для дома",
+            "breadcrumb": "Для дома"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "auto_parts",
+          "parent": null,
+          "current": "Запчасти",
+          "final": "Запчасти",
+          "alternatives": [
+            "Автозапчасти",
+            "Запчасти для авто"
+          ],
+          "description": "Запчасти и автоаксессуары.",
+          "reason": "Автозапчасти → Запчасти",
+          "surfaces": {
+            "home": "Запчасти",
+            "catalog": "Запчасти",
+            "search": "Запчасти",
+            "breadcrumb": "Запчасти для авто"
+          },
+          "doubt": "В контексте Барахолки «Запчасти» достаточно; полный — в breadcrumb."
+        },
+        {
+          "slug": "vehicles",
+          "parent": null,
+          "current": "Авто",
+          "final": "Машины",
+          "alternatives": [
+            "Авто",
+            "Автомобили"
+          ],
+          "description": "Продажа машин в объявлениях.",
+          "reason": "TG: машин≈652 > авто≈343; в объявлениях говорят «машина»",
+          "surfaces": {
+            "home": "Машины",
+            "catalog": "Машины",
+            "search": "Машины",
+            "breadcrumb": "Машины"
+          },
+          "doubt": "Единый стиль «Авто» в маркетплейсе; Business — «Автосервис»."
+        },
+        {
+          "slug": "sports",
+          "parent": null,
+          "current": "Спорт",
+          "final": "Спорт",
+          "alternatives": [
+            "Спорттовары",
+            "Спортивные товары"
+          ],
+          "description": "Спортивные товары.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Спорт",
+            "catalog": "Спорт",
+            "search": "Спорт",
+            "breadcrumb": "Спорт"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "other",
+          "parent": null,
+          "current": "Другое",
+          "final": "Другое",
+          "alternatives": [
+            "Прочее",
+            "Разное"
+          ],
+          "description": "Прочие объявления.",
+          "reason": "Прочее → Другое",
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          },
+          "doubt": null
+        }
+      ]
+    },
+    "jobs": {
+      "categories": [
+        {
+          "slug": "drivers",
+          "parent": null,
+          "current": "Водители",
+          "final": "Водители",
+          "alternatives": [
+            "Водитель",
+            "Delivery / водители"
+          ],
+          "description": "Работа водителем и доставкой.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Водители",
+            "catalog": "Водители",
+            "search": "Водители",
+            "breadcrumb": "Водители"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "cleaning",
+          "parent": null,
+          "current": "Уборка",
+          "final": "Уборка",
+          "alternatives": [
+            "Клининг",
+            "Уборщицы"
+          ],
+          "description": "Работа в уборке.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Уборка",
+            "catalog": "Уборка",
+            "search": "Уборка",
+            "breadcrumb": "Уборка"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "beauty",
+          "parent": null,
+          "current": "Красота",
+          "final": "Красота",
+          "alternatives": [
+            "Салоны (персонал)",
+            "Мастера в салон"
+          ],
+          "description": "Набор мастеров в салоны и студии.",
+          "reason": "Красота (персонал) → Красота",
+          "surfaces": {
+            "home": "Красота",
+            "catalog": "Красота",
+            "search": "Красота",
+            "breadcrumb": "Красота"
+          },
+          "doubt": "Без «персонал» — контекст хаба Работа достаточный."
+        },
+        {
+          "slug": "childcare",
+          "parent": null,
+          "current": "Няни и уход",
+          "final": "Няни и уход",
+          "alternatives": [
+            "Няни",
+            "Уход за детьми"
+          ],
+          "description": "Няни, сиделки, уход.",
+          "reason": "Няни / уход → Няни и уход",
+          "surfaces": {
+            "home": "Няни",
+            "catalog": "Няни и уход",
+            "search": "Няни и уход",
+            "breadcrumb": "Няни и уход"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "restaurant",
+          "parent": null,
+          "current": "Рестораны и кухня",
+          "final": "Рестораны и кухня",
+          "alternatives": [
+            "Общепит",
+            "Кухня",
+            "HoReCa"
+          ],
+          "description": "Работа в кафе и на кухне.",
+          "reason": "Общепит → Рестораны и кухня",
+          "surfaces": {
+            "home": "Кухня",
+            "catalog": "Рестораны и кухня",
+            "search": "Рестораны и кухня",
+            "breadcrumb": "Рестораны и кухня"
+          },
+          "doubt": "«Общепит» канцелярит."
+        },
+        {
+          "slug": "office",
+          "parent": null,
+          "current": "Офис и продажи",
+          "final": "Офис и продажи",
+          "alternatives": [
+            "Офис",
+            "Продажи",
+            "Админ / sales"
+          ],
+          "description": "Офис, админ, продажи.",
+          "reason": "Офис / продажи → Офис и продажи",
+          "surfaces": {
+            "home": "Офис",
+            "catalog": "Офис и продажи",
+            "search": "Офис и продажи",
+            "breadcrumb": "Офис и продажи"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "skilled_trades",
+          "parent": null,
+          "current": "Стройка и ремёсла",
+          "final": "Стройка и ремёсла",
+          "alternatives": [
+            "Стройка",
+            "Рабочие специальности",
+            "Trades"
+          ],
+          "description": "Стройка, монтаж, рабочие специальности.",
+          "reason": "Ремёсла / стройка → Стройка и ремёсла",
+          "surfaces": {
+            "home": "Стройка",
+            "catalog": "Стройка и ремёсла",
+            "search": "Стройка и ремёсла",
+            "breadcrumb": "Стройка и ремёсла"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "photo_video",
+          "parent": null,
+          "current": "Фото и видео",
+          "final": "Фото и видео",
+          "alternatives": [
+            "Съёмка",
+            "Фото/видео смена"
+          ],
+          "description": "Смены и подработка на съёмках.",
+          "reason": "Фото / видео (смена) → Фото и видео",
+          "surfaces": {
+            "home": "Фото и видео",
+            "catalog": "Фото и видео",
+            "search": "Фото и видео",
+            "breadcrumb": "Фото и видео"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "other",
+          "parent": null,
+          "current": "Другое",
+          "final": "Другое",
+          "alternatives": [
+            "Прочее"
+          ],
+          "description": "Прочие предложения работы.",
+          "reason": "Прочее → Другое",
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          },
+          "doubt": null
+        }
+      ]
+    },
+    "real_estate": {
+      "categories": [
+        {
+          "slug": "apartments",
+          "parent": null,
+          "current": "Квартиры",
+          "final": "Квартиры",
+          "alternatives": [
+            "Апартаменты",
+            "Apartments"
+          ],
+          "description": "Аренда и продажа квартир.",
+          "reason": "В США apartment ≠ «апартаменты»; «Квартиры» правильнее для аудитории.",
+          "surfaces": {
+            "home": "Квартиры",
+            "catalog": "Квартиры",
+            "search": "Квартиры",
+            "breadcrumb": "Квартиры"
+          },
+          "doubt": "В США apartment ≠ «апартаменты»; «Квартиры» правильнее для аудитории."
+        },
+        {
+          "slug": "rooms",
+          "parent": null,
+          "current": "Комнаты",
+          "final": "Комнаты",
+          "alternatives": [
+            "Комната",
+            "Roommate"
+          ],
+          "description": "Комната или roommate.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Комнаты",
+            "catalog": "Комнаты",
+            "search": "Комнаты",
+            "breadcrumb": "Комнаты"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "houses",
+          "parent": null,
+          "current": "Дома",
+          "final": "Дома",
+          "alternatives": [
+            "Хаус",
+            "House"
+          ],
+          "description": "Дома в аренду или продажу.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Дома",
+            "catalog": "Дома",
+            "search": "Дома",
+            "breadcrumb": "Дома"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "commercial",
+          "parent": null,
+          "current": "Коммерческая",
+          "final": "Коммерческая",
+          "alternatives": [
+            "Коммерция",
+            "Офисы и склады"
+          ],
+          "description": "Офисы, ритейл, склады.",
+          "reason": "Коммерция → Коммерческая",
+          "surfaces": {
+            "home": "Коммерческая",
+            "catalog": "Коммерческая",
+            "search": "Коммерческая",
+            "breadcrumb": "Коммерческая недвижимость"
+          },
+          "doubt": "«Коммерция» звучит как торговля; «Коммерческая» = недвижимость."
+        },
+        {
+          "slug": "short_term",
+          "parent": null,
+          "current": "Посуточно",
+          "final": "Посуточно",
+          "alternatives": [
+            "Краткосрочно",
+            "Airbnb-стиль"
+          ],
+          "description": "Краткосрочная аренда.",
+          "reason": "Подтверждено TAXONOMY_RU_V1 и частотностью/platform labels",
+          "surfaces": {
+            "home": "Посуточно",
+            "catalog": "Посуточно",
+            "search": "Посуточно",
+            "breadcrumb": "Посуточно"
+          },
+          "doubt": null
+        },
+        {
+          "slug": "other",
+          "parent": null,
+          "current": "Другое",
+          "final": "Другое",
+          "alternatives": [
+            "Прочее"
+          ],
+          "description": "Прочие объявления о недвижимости.",
+          "reason": "Прочее → Другое",
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          },
+          "doubt": null
+        }
+      ]
+    }
+  },
+  "evidence_summary": {
+    "hubs": {
+      "business": {
+        "tg": {
+          "бизнес": 350
+        },
+        "published_label": null,
+        "notes": "UI hub; owners rarely self-label «бизнес» in ads"
+      },
+      "professional": {
+        "tg": {
+          "мастер": 379,
+          "специалист": 144
+        },
+        "notes": "«Мастер» чаще, но узко → Специалисты"
+      },
+      "marketplace": {
+        "tg": {
+          "барахолка": 0,
+          "куплю|продам": 238,
+          "отдам/free": 137,
+          "мебель": 347
+        },
+        "notes": "Купи-продай (not Барахолка); body uses куплю/продам/отдам"
+      },
+      "jobs": {
+        "tg": {
+          "работа": 1122,
+          "вакансия": 128,
+          "ищу работу": 34,
+          "требуется/hiring": 148
+        },
+        "notes": "Работа >> Вакансии"
+      },
+      "real_estate": {
+        "tg": {
+          "квартира": 312,
+          "комната": 613,
+          "недвижимость": 15,
+          "жильё": 56
+        },
+        "notes": "Хаб «Недвижимость»; в объявлениях — квартира/комната"
+      }
+    },
+    "phrases_tg_total_posts": 8426
+  },
+  "search_synonyms": {
+    "marketplace": [
+      "куплю",
+      "продам",
+      "отдам",
+      "даром",
+      "маркет",
+      "рынок"
+    ],
+    "jobs": [
+      "вакансия",
+      "ищу работу",
+      "подработка",
+      "требуется",
+      "hiring"
+    ],
+    "legal": [
+      "адвокат",
+      "юрист",
+      "immigration attorney"
+    ],
+    "auto": [
+      "ремонт авто",
+      "машина",
+      "СТО",
+      "детейлинг"
+    ],
+    "electronics": [
+      "телефон",
+      "ноутбук",
+      "айфон",
+      "техника"
+    ],
+    "travel": [
+      "виза",
+      "турагент",
+      "travel",
+      "green card"
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "mode": "apply",
+  "merges": [
+    {
+      "status": "already_archived",
+      "keep_slug": "lana-cher-181512-6cf0",
+      "drop_slug": "lana-cher-205647-957a"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "consolidated-stephen-law-pc",
+      "drop_slug": "fb-post-31-eugene-stephen-immigration-attorney"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "consolidated-tenina-law-inc",
+      "drop_slug": "fb-post-28-tenina-law-inc"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "kai-t-234038",
+      "drop_slug": "kai-t-205627-dea6"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "ida-seidova-150707",
+      "drop_slug": "dr-modarres-150637"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "wonderland-beauty-salon",
+      "drop_slug": "wonderland-salon-205355-7c07"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "beauty-studio-by-veronika",
+      "drop_slug": "united-states-beauty-studio-180905"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "oksana-150709",
+      "drop_slug": "stairedu-sergey-150606"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "oktel-205740-27a3",
+      "drop_slug": "oktel-181534-5dfb"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "fbpack-art-backyard-design-camp",
+      "drop_slug": "fbpack-katia-bulgakova-art-backyard"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "batch2-good-food",
+      "drop_slug": "good-food-190808"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "fbpack-vasiliki-cafe-bakery-laguna-niguel",
+      "drop_slug": "jane-oc-190806"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "tатьяна-032105",
+      "drop_slug": "enriched-ivan-stypnik"
+    },
+    {
+      "keep_id": "289ca8f8-6061-4dae-9ff3-a48477ad80a1",
+      "keep_slug": "private-studio-181516-6fe2",
+      "keep_name": "Уютная private studio",
+      "drop_id": "e2e4bc92-f3c4-4072-b141-4dcda83f1dc7",
+      "drop_slug": "business-biz-181517-806a",
+      "drop_name": "Татьяна",
+      "note": "same Tustin nail studio 13662 Newport Ave (Уютная ↔ Татьяна)",
+      "patch": {},
+      "keep_richness": 11,
+      "drop_richness": 11,
+      "status": "merged",
+      "offers_moved": 0
+    },
+    {
+      "keep_id": "5ec2d71c-7dc3-413e-a7bb-95dc3ea35aff",
+      "keep_slug": "chef-ramaz-kitchen",
+      "keep_name": "Chef Ramaz Kitchen",
+      "drop_id": "e9c7aef3-0dc7-4cf4-b864-cdeae3f36fce",
+      "drop_slug": "moonhalal",
+      "drop_name": "MoonHalal",
+      "note": "same kitchen 5800 Madison Ave Sacramento (Chef Ramaz Kitchen / MoonHalal)",
+      "patch": {},
+      "keep_richness": 14,
+      "drop_richness": 12,
+      "status": "merged",
+      "offers_moved": 0
+    },
+    {
+      "keep_id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "keep_slug": "bearchildrensacademyorg-031831",
+      "keep_name": "B.E.A.R. Children's Academy",
+      "drop_id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "drop_slug": "mama-bear-kids-club",
+      "drop_name": "Mama Bear Kids Club",
+      "note": "same suite 23221 S Pointe Dr #103 Laguna Hills (Mama Bear ↔ BEAR Academy)",
+      "patch": {
+        "instagram_url": "https://instagram.com/mama_bear_oc"
+      },
+      "keep_richness": 20,
+      "drop_richness": 16,
+      "status": "merged",
+      "offers_moved": 0
+    }
+  ],
+  "backfill": null
+}

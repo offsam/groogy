@@ -2,16 +2,17 @@
   "adapter": "generic_apify_group",
   "actor_input_template": {
     "startUrls": [],
-    "resultsLimit": 50,
+    "resultsLimit": 20,
+    "viewOption": "CHRONOLOGICAL",
+    "onlyPostsNewerThan": "2024-01-01",
     "proxyConfiguration": {
       "useApifyProxy": true
-    },
-    "cookiesKey": "cookies"
+    }
   },
   "notes": [
-    "Actor is NOT hard-coded. Set APIFY_ACTOR_ID or pass --actor-id.",
-    "Adjust actor_input_template keys to match the chosen Actor docs (startUrls vs groupUrls, etc.).",
-    "If the Actor needs Facebook cookies for closed groups, put JSON cookies in Apify secret storage or FACEBOOK_COOKIES_JSON env — never in this file, git, DB, or logs.",
-    "Public groups may work without cookies depending on the Actor."
+    "Default Actor example: 2chN8UQcH1CfxLRNE (set APIFY_ACTOR_ID).",
+    "Input uses startUrls[{url}] + resultsLimit; group URL is injected from FACEBOOK_GROUP_URL / --group-url.",
+    "Profile enrichment: local author snapshot always (when enabled). Remote page scrape only with --fetch-profile-pages + FACEBOOK_PROFILE_ACTOR_ID.",
+    "Cookies for closed groups: Apify secret storage or FACEBOOK_COOKIES_JSON only — never commit."
   ]
 }

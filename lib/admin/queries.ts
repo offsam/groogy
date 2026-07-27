@@ -1,5 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database, UserRole } from "@/types/database";
+import { DIRECTORY_SOURCE_LIST } from "@/lib/import-review/directory-sources";
 
 type Client = SupabaseClient<Database>;
 
@@ -48,6 +49,13 @@ export type AdminDashboardCounts = {
   listingReportsPending: number;
   usersTotal: number;
   pageViewsToday: number;
+  claimsPending: number;
+  importReviewPending: number;
+  eventsPending: number;
+  recommendationsPending: number;
+  yellowPagesPending: number;
+  /** Pending yellow_pages cards keyed by directory_source. */
+  directoryPendingBySource: Record<string, number>;
 };
 
 export async function getAdminUsers(client: Client): Promise<AdminUserRow[]> {
@@ -114,12 +122,100 @@ export async function getAdminAnalytics(client: Client): Promise<AdminAnalytics>
 export async function getAdminDashboardCounts(
   client: Client,
 ): Promise<AdminDashboardCounts> {
-  const analytics = await getAdminAnalytics(client);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const anyClient = client as SupabaseClient<any>;
+
+  const [
+    analytics,
+    claims,
+    importCounts,
+    eventsPending,
+    recommendationsPending,
+    yellowPagesPending,
+    directoryRows,
+  ] = await Promise.all([
+    getAdminAnalytics(client).catch(() => null),
+    anyClient
+      .from("business_claims")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "pending")
+      .then((r: { count: number | null; error: unknown }) => {
+        if (r.error) return 0;
+        return r.count ?? 0;
+      })
+      .catch(() => 0),
+    anyClient
+      .rpc("admin_import_review_counts")
+      .then((r: { data: unknown; error: unknown }) => {
+        if (r.error) return 0;
+        const raw = (r.data ?? {}) as { by_status?: Record<string, number> };
+        return Number(raw.by_status?.pending ?? 0);
+      })
+      .catch(() => 0),
+    anyClient
+      .from("import_comment_recommendations")
+      .select("id", { count: "exact", head: true })
+      .eq("kind", "event")
+      .eq("status", "pending")
+      .then((r: { count: number | null; error: unknown }) => {
+        if (r.error) return 0;
+        return r.count ?? 0;
+      })
+      .catch(() => 0),
+    anyClient
+      .from("import_comment_recommendations")
+      .select("id", { count: "exact", head: true })
+      .eq("kind", "profi")
+      .eq("status", "pending")
+      .neq("target_bucket", "yellow_pages")
+      .then((r: { count: number | null; error: unknown }) => {
+        if (r.error) return 0;
+        return r.count ?? 0;
+      })
+      .catch(() => 0),
+    anyClient
+      .from("import_comment_recommendations")
+      .select("id", { count: "exact", head: true })
+      .eq("target_bucket", "yellow_pages")
+      .eq("status", "pending")
+      .then((r: { count: number | null; error: unknown }) => {
+        if (r.error) return 0;
+        return r.count ?? 0;
+      })
+      .catch(() => 0),
+    Promise.all(
+      DIRECTORY_SOURCE_LIST.map((source) =>
+        anyClient
+          .from("import_comment_recommendations")
+          .select("id", { count: "exact", head: true })
+          .eq("target_bucket", "yellow_pages")
+          .eq("directory_source", source.id)
+          .eq("status", "pending")
+          .then((r: { count: number | null; error: unknown }) => {
+            if (r.error) return [source.id, 0] as const;
+            return [source.id, r.count ?? 0] as const;
+          })
+          .catch(() => [source.id, 0] as const),
+      ),
+    ),
+  ]);
+
+  const directoryPendingBySource: Record<string, number> = {};
+  for (const [source, count] of directoryRows) {
+    directoryPendingBySource[source] = count;
+  }
+
   return {
-    businessesPending: analytics.businesses_pending,
-    reviewsPending: analytics.reviews_pending,
-    listingReportsPending: analytics.listings_pending_reports,
-    usersTotal: analytics.users_total,
-    pageViewsToday: analytics.page_views_today,
+    businessesPending: analytics?.businesses_pending ?? 0,
+    reviewsPending: analytics?.reviews_pending ?? 0,
+    listingReportsPending: analytics?.listings_pending_reports ?? 0,
+    usersTotal: analytics?.users_total ?? 0,
+    pageViewsToday: analytics?.page_views_today ?? 0,
+    claimsPending: claims,
+    importReviewPending: importCounts,
+    eventsPending,
+    recommendationsPending,
+    yellowPagesPending,
+    directoryPendingBySource,
   };
 }

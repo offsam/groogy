@@ -1,0 +1,881 @@
+{
+  "mode": "apply",
+  "limit": 40,
+  "offset": 0,
+  "candidates": 40,
+  "results": [
+    {
+      "id": "f9df3dfc-5155-4698-9574-428ce668c650",
+      "slug": "flamellecandles-150648",
+      "name": "flamellecandles",
+      "source_url": "https://t.me/c/1333533747/73713",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/flamellecandles",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 63,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "edefd73c-dbcd-45be-b294-3d9a5211050e",
+      "slug": "olehkapitanchuk-massage-150636",
+      "name": "olehkapitanchuk_massage",
+      "source_url": "https://t.me/c/1333533747/73324",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 0,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "bf78e857-09c5-419a-9949-65323681b83a",
+      "slug": "regyminate-150651",
+      "name": "regyminate",
+      "source_url": "https://t.me/c/1333533747/72346",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/regyminate",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 58,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "3474b107-c440-499a-b0e7-0ac29015208c",
+      "slug": "grace-and-bloom-150627",
+      "name": "grace_and_bloom_",
+      "source_url": "https://t.me/c/1333533747/72403",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/grace_and_bloom_",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 43,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "bb557a69-0da5-4da1-8bfe-170729c5761e",
+      "slug": "ekaterinakhomich-150703",
+      "name": "ekaterinakhomich",
+      "source_url": "https://t.me/c/1333533747/72390",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/ekaterinakhomich",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 43,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "95ae11bf-c388-40f4-8ddb-69f423648f5f",
+      "slug": "creatoriakids-150649",
+      "name": "creatoriakids",
+      "source_url": "https://t.me/c/1333533747/72963",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/creatoriakids",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 808,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "c36cff2f-a70e-4da4-8459-3091edaf5758",
+      "slug": "anton-sushev-150655",
+      "name": "anton_sushev",
+      "source_url": "https://t.me/c/1333533747/71193",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/anton_sushev",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 60,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "8e393da3-969f-48a1-9056-14bb2786eb37",
+      "slug": "alina-oc-hair-150626",
+      "name": "alina_oc_hair",
+      "source_url": "https://t.me/c/1333533747/73171",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/alina_oc_hair",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 79,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "739b057b-3430-44a7-89a7-c9161b002e80",
+      "slug": "hammond-cpa-150628",
+      "name": "hammond_cpa",
+      "source_url": "https://t.me/c/1333533747/69554",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/hammond_cpa",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 59,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "a8c1b4fb-8dc2-45b2-a4c7-7740e2a892b8",
+      "slug": "tetianamalenkova-150652",
+      "name": "tetiana.malenkova",
+      "source_url": "https://t.me/c/1333533747/75707",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/tetiana.malenkova",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 65,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "49a02e0e-cdbe-4812-8f28-2bd52da7d022",
+      "slug": "mila-150710",
+      "name": "MilaTax",
+      "source_url": "https://t.me/c/1333533747/69579",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://milatax.com",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "MilaTax",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 310,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "47e540fd-aa7f-4ef9-a1c4-99fe444ba055",
+      "slug": "lindas-bouquet-150626",
+      "name": "lindas_bouquet",
+      "source_url": "https://t.me/c/1333533747/72460",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/lindas_bouquet",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 62,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "3aa29bbc-9768-4e22-b771-a17c6721fa44",
+      "slug": "leisan-hairstylist-oc-150646",
+      "name": "leisan_hairstylist_oc",
+      "source_url": "https://t.me/c/1333533747/75082",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/leisan_hairstylist_oc",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 69,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "slug": "dr-modarres-150637",
+      "name": "dr__modarres",
+      "source_url": "https://t.me/c/1333533747/72771",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/dr__modarres",
+        "website": "https://www.skinovationcleaning.com",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Skinovation Clinic",
+        "address": "200 Newport Center Drive Newport Beach, CA 92660"
+      },
+      "patch": {
+        "description": "This clinic specializes in aesthetic procedures, including EZ Gel - PRF for under-eye rejuvenation and lip augmentation using dermal fillers. EZ Gel - PRF is a natural product derived from the patient's own plasma, offering a smooth and natural result without the concerns of traditional fillers. It effectively improves skin quality, stimulates collagen production, and helps achieve a fresher, more rested appearance.\n\nУслуги: EZ Gel - PRF under eyes, Lip augmentation with dermal fillers, Skin quality improvement, Collagen stimulation"
+      },
+      "caption_len": 590,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "2aa40fa8-9d33-49d0-8bb2-a3a2cff67177",
+      "slug": "kseni-180915",
+      "name": "Kseni",
+      "source_url": "https://t.me/c/1333533747/72089",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "📍 Сдаются кабинеты в лицензированном Medical Spa | Newport Beach\n\nВ новом, современном Medical Spa в Newport Beach сдаются в аренду уютные кабинеты площадью ~9 м².\n\nКлиника полностью лицензирована, с премиальной атмосферой и удобной локацией.\n\n⸻\n\n✨ Подойдут для специалистов:\n • Наращивание ресниц\n • Эстетическая косметология (уходовые процедуры)\n • Фейшиал / уход за кожей\n • Массаж (ручной и аппаратный)\n • Brow / lash services\n • Другие направления beauty-индустрии\n\n❗️Рассматриваются только услуги, не пересекающиеся с инъекционной и аппаратной медицинской косметологией\n\n⸻\n\n💎 Условия:\n • Кабинеты ~9 м²\n • Современный интерьер, чистое и стильное пространство\n • Работа в окружении Medical Spa (высокий поток платежеспособных клиентов)\n • Гибкие условия аренды\n • Возможность долгосрочного сотрудничества\n• свободный паркинг \nАрендная плата $1500\n\nДополнительно :\nЕсть комната отдыха для персонала, полноценная кухня, нахождение администратора клиники, зона ожидания клиентов \n\nДоступно с 20 мая \n\n⸻\n\n📍 Локация:\n\nNewport Beach, CA — престижный район с высоким трафиком и премиальной аудиторией\n\nФото по запросу"
+      },
+      "caption_len": 1115,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "22b48f77-11fd-43e8-954e-11721072cea5",
+      "slug": "evgeny-rezko-150656",
+      "name": "evgeny_rezko",
+      "source_url": "https://t.me/c/1333533747/71081",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/evgeny_rezko",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Всем привет! 18 марта стартует марафон для йоги по онлайну. У кого бессонницы кто хочет подтянуть свое тело или же для общего самочувствия всем советую ☺️\n\n- подтянутое, аккуратное, мобильное тело здесь\n- при болях в спине, суставах, шее\n- повысить уровень выносливости, силы, гибкости\n- новый уровень энергии\n- покажи телу и голове, что есть еще огонь внутри\n\nRESET\nПерезагрузка тела за 7 дней\n\n- 11 практик\n- правки и корректировки\n- эфиры по технике и принципах занятий\n- практика сохраняются в записи\n- занятия от 20 минут до 1 часа\n\nЗапись - в личку инстаграмма\n \n\nДо 16 марта - 30 $\nПосле 16 марта - 40 $"
+      },
+      "caption_len": 640,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "1e1ef207-8951-4eb7-a018-8756b874a1f5",
+      "slug": "elena-garmazh-fysm-yoga-coach-150712",
+      "name": "Elena Garmazh FYSM Yoga Coach",
+      "source_url": "https://t.me/c/1333533747/73934",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": "fysmyogaelenagarmazh",
+        "hours_text": "Every Saturday at 10:00 AM",
+        "business_name": "FYSM Yoga",
+        "address": "Sherman Oaks Recreation Center"
+      },
+      "patch": {
+        "telegram_url": "https://t.me/fysmyogaelenagarmazh",
+        "description": "This is a space for body, breath, communication, and lightness. We will practice yoga for about an hour, and afterwards, we'll have a cozy yoga brunch right on the grass. It's free and open to everyone, regardless of skill level.\n\nУслуги: Yoga, Yoga Brunch, Community Gathering",
+        "address_line": "Sherman Oaks Recreation Center"
+      },
+      "caption_len": 718,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "1d60ecbd-909e-4c0b-8c4e-a72d26f410f5",
+      "slug": "kids-party-oc-150646",
+      "name": "kids_party_oc",
+      "source_url": "https://t.me/c/1333533747/74252",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/kids_party_oc",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Федор"
+      },
+      "caption_len": 67,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "0736f212-cd7f-415a-8386-6926b68217ef",
+      "slug": "natalia-rezvova-150712",
+      "name": "Letter Fox",
+      "source_url": "https://t.me/c/1333533747/69790",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": "lettersfox@gmail.com",
+        "instagram_url": null,
+        "website": "https://lettersfox.wixsite.com/letterfox",
+        "telegram_username": null,
+        "hours_text": "Submissions accepted until the end of February; results announced at the end of March.",
+        "business_name": "Letter Fox",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 508,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "4c3f6ee0-a27d-4c8e-8a52-fb2b70472858",
+      "slug": "nataliawolfstudio-150658",
+      "name": "nataliawolfstudio",
+      "source_url": "https://t.me/c/1333533747/70536",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/nataliawolfstudio",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 65,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "9555564d-0ffd-435a-ba36-8fcc50b51079",
+      "slug": "kate-yuka-aesthetics-150659",
+      "name": "kate_yuka_aesthetics",
+      "source_url": "https://t.me/c/1333533747/69828",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/kate_yuka_aesthetics",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 68,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "aa26f448-3536-4e7f-a089-21530f1d031c",
+      "slug": "reel-150657",
+      "name": "reel",
+      "source_url": "https://t.me/c/1333533747/70785",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/reel",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 65,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "13331824-1d68-4b07-934e-94f45c0993ea",
+      "slug": "julia-life-usa-150652",
+      "name": "julia_life_usa",
+      "source_url": "https://t.me/c/1333533747/71327",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/julia_life_usa",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 62,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "096f2053-300d-4523-a2a0-7719bd09800a",
+      "slug": "pilyulyame-150653",
+      "name": "pilyulya.me",
+      "source_url": "https://t.me/c/1333533747/71268",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/pilyulya.me",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 59,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "450d081c-3819-42d5-a7cb-7770e6af66cb",
+      "slug": "golden-star-181527-d6c5",
+      "name": "Golden star ️",
+      "source_url": "https://t.me/c/1333533747/70480",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Предлагаю услуги водителя для школьников, проживающих в районе Promenade / Los Olivos и обучающихся в Alderwood Elementary.\n\n✔ Водительский стаж более 10 лет\n✔ Ответственный и аккуратный стиль вождения\n✔ Пунктуальность и безопасность\n\nМогу:\n• отвозить ребёнка утром в школу\n• забирать после школы и доставлять домой\n\nВозможен как разовый подвоз, так и на постоянной основе.\n\nПо всем вопросам — в личные сообщения."
+      },
+      "caption_len": 413,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "source_url": "https://t.me/c/1333533747/71491",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "This business offers custom-made desserts for various occasions. They specialize in crafting delicious trifles and traditional honey cakes. Each order is prepared fresh, ensuring high quality and taste.\n\nУслуги: Trifles, Honey cakes",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/ceae9d7f-fad6-42c6-bc38-4c2ce777a72e/cover-tg-71491.jpg"
+      },
+      "caption_len": 99,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "e1cd8251-7619-47e0-b752-f7bed04d516f",
+      "slug": "business-biz-181523-7fd4",
+      "name": "Тетяна",
+      "source_url": "https://t.me/c/1955320601/258385",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": "Irvine"
+      },
+      "patch": {
+        "description": "This business offers a variety of delicious cakes, including traditional Medovik, classic Napoleon, and light Biscuit cakes. They provide sweet treats perfect for celebrating special occasions like March 8th. Customers are invited to order custom cakes to bring joy to their loved ones. The business serves the Irvine area.\n\nУслуги: Cakes, Medovik cake, Napoleon cake, Biscuit cake",
+        "address_line": "Irvine",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/e1cd8251-7619-47e0-b752-f7bed04d516f/cover-tg-258385.jpg"
+      },
+      "caption_len": 146,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "3e73fc2b-bfde-4794-abd1-4ecfe24e5fed",
+      "slug": "business-biz-181526-ebad",
+      "name": "Валентина",
+      "source_url": "https://t.me/c/1955320601/269669",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "🌟 ПОМОЩЬ В ПУ — КЕЙС \"ПОД КЛЮЧ\"!\n\n✍️ Убедительная история\n🔗 Надежные доказательства преследования\n⚖️ Опытный адвокат\n📝 Заполнение всех форм\n\n💸 Без предоплаты!\n🔐 Гарантия конфиденциальности\n\n👉 Обращайтесь уже сегодня!"
+      },
+      "caption_len": 216,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "slug": "us-drive-services-181542-a6e1",
+      "name": "US Drive Services",
+      "source_url": "https://t.me/c/1955320601/265305",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Помогаем с продлением Non-Domiciled CDL и DOT Medical Card\n\nЛегально, конфиденциально & оперативно \nОбращайтесь в Лс"
+      },
+      "caption_len": 116,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "d1af07a6-040f-4885-963c-1cdfafcaa7e3",
+      "slug": "roman-181510-ec0e",
+      "name": "Roman",
+      "source_url": "https://t.me/c/1955320601/276742",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам свою аренда Toyota Camry 2026 гибрид в Лос анжелесе 750 со страховкой. Пишите в личку."
+      },
+      "caption_len": 91,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "6e61e4e8-03be-4af5-ba59-bb34df0d2eb3",
+      "slug": "volodymyr-181511-3927",
+      "name": "Volodymyr",
+      "source_url": "https://t.me/c/1333533747/76052",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Delivery on July 26th to Irvine and surrounding areas. All products are made to order and fresh, so advance ordering is recommended.",
+        "business_name": "МОРЕ ВКУСА",
+        "address": null
+      },
+      "patch": {
+        "description": "МОРЕ ВКУСА specializes in homemade and natural products, prepared fresh for each order. Customers are encouraged to place orders in advance to ensure freshness. Delivery services are available to Irvine and its surrounding areas.\n\nУслуги: Буженина, Корейка, Копченые рёбрышки, Копченая курица, Холодец куриный, Холодец говяжий, Пирог с мясом, Пирог с капустой",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/6e61e4e8-03be-4af5-ba59-bb34df0d2eb3/cover-tg-76052.jpg"
+      },
+      "caption_len": 912,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "3324956d-6f03-4472-905c-a4d5cc84c990",
+      "slug": "business-biz-181526-47bc",
+      "name": "Камила",
+      "source_url": "https://t.me/c/1955320601/274327",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "✨ СКИДКА НА ШУГАРИНГ И ВОСКОВУЮ ДЕПИЛЯЦИЮ! ✨\n\n🎁 усики — в подарок!\n\n💖 Идеальная гладкость без раздражений\n💖 Быстро, качественно и максимально комфортно\n\n🔥 Специальные цены:\n• Бикини + подмышки — $40\n• Полное тело — $130\n\n📅 Записывайтесь заранее — количество мест ограничено!\n\nПодарите своей коже гладкость и уверенность каждый день ✨"
+      },
+      "caption_len": 333,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "5db3c8c3-9cb7-4a58-829c-64101bb5b196",
+      "slug": "r-r-181532-5aaf",
+      "name": "R R",
+      "source_url": "https://t.me/c/1955320601/250083",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Возьму в аренду ваш авто:\n\nKia Carnival hybrid\nKia Sorento hybrid\nLexus ES300h\nToyota Highlander hybrid\nHonda CRV hybrid"
+      },
+      "caption_len": 120,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "289ca8f8-6061-4dae-9ff3-a48477ad80a1",
+      "slug": "private-studio-181516-6fe2",
+      "name": "Уютная private studio",
+      "source_url": "https://t.me/c/1955320601/267560",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "✨ Russian маникюр в Tustin ✨ \n\nЛицензированный мастер маникюра и педикюра в Orange County 💅🏻 \nУютная private studio \n\n• Russian маникюр \n• Люкс педикюр \n• Наращивание ногтей \n• Парафинотерапия для рук и ног \n\n📍13662 Newport Ave, Tustin"
+      },
+      "caption_len": 242,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "ccfacc71-9af1-42da-9d56-ece0c8c175a6",
+      "slug": "nazgul-nurlan-181522-8750",
+      "name": "Nazgul Nurlan",
+      "source_url": "https://t.me/c/1333533747/71186",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "This business offers beautifully crafted gift boxes, ideal for Iftar and Eid Mubarak celebrations. They specialize in exquisite dates enrobed in rich Belgian chocolate, perfect for any occasion. These delightful treats are a wonderful option for Iftar gatherings, thoughtful Eid gifts, welcoming guests, or adding a special touch to your festive table.\n\nУслуги: Gift boxes for Iftar and Eid Mubarak, Dates in Belgian chocolate",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/ccfacc71-9af1-42da-9d56-ece0c8c175a6/cover-tg-71186.jpg"
+      },
+      "caption_len": 241,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "80cbe60c-48c4-4c28-a2ad-5b7c04aca961",
+      "slug": "leyla-kamila-181525-4bd9",
+      "name": "Leyla Kamila",
+      "source_url": "https://t.me/c/1333533747/69687",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Добрый день. Живу в lake Forest. Если кому то нужно по субботам могу присмотреть за вашим ребенком у себя дома. 20$ в час. у меня тоже есть дочь (6 лет)"
+      },
+      "caption_len": 153,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "2eca0f9a-2d06-48ca-b035-3adbc26c4d5f",
+      "slug": "business-biz-181520-51a0",
+      "name": "Роман",
+      "source_url": "https://t.me/c/1955320601/263133",
+      "ocr_model": "gemini-2.5-flash",
+      "image_uploaded": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "I specialize in comprehensive car detailing, covering both interior and exterior. My goal is to restore your vehicle to a like-new appearance. I ensure meticulous work, utilizing only professional-grade chemicals and equipment.\n\nУслуги: Interior detailing, Exterior detailing, Polishing, Ceramic coating, On-site service",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/2eca0f9a-2d06-48ca-b035-3adbc26c4d5f/cover-tg-263133.jpg"
+      },
+      "caption_len": 223,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "bdf0abea-8edf-454e-a738-f757f00b01cd",
+      "slug": "bekbolat-181530-3fa0",
+      "name": "Bekbolat",
+      "source_url": "https://t.me/c/1955320601/252193",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Сдам теслу model Y 2024 года, 850$ в месяц страховка включена, ограничение по милям. Обращаться в лс."
+      },
+      "caption_len": 101,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "e2e4bc92-f3c4-4072-b141-4dcda83f1dc7",
+      "slug": "business-biz-181517-806a",
+      "name": "Татьяна",
+      "source_url": "https://t.me/c/1955320601/266657",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "✨ Добро пожаловать в пространство красоты и заботы ✨\n\nМеня зовут Татьяна — я лицензированный мастер маникюра и педикюра в Orange County 💅\nЯ создаю не просто маникюр, а эстетичный, аккуратный и безупречный образ для ваших рук и ног.\n\nПриглашаю вас в мою уютную студию в Tustin:\n📍 13662 Newport Ave, Tustin, CA\n\nЗдесь каждая деталь продумана для вашего комфорта и расслабления 🤍\nТихая, приятная атмосфера, чистота и индивидуальный подход к каждой гостье.\n\n✨ Услуги, которые я предлагаю:\n💎 Маникюр и педикюр премиального качества\n💎 Наращивание и укрепление ногтей\n💎 Современные дизайны любой сложности\n💎 Парафинотерапия для глубокого ухода за кожей рук и ног\n\n☕ Для вас всегда доступны чай, кофе, вода и освежающие напитки\n\nЯ уделяю особое внимание стерильности, качеству материалов и эстетике результата — чтобы каждая клиентка чувствовала себя уверенно, ухоженно и по-настоящему красиво 💫\n\nБуду рада видеть вас в своей студии и подарить вам удовольствие от идеального сервиса 🤍\nЗапись в direct 💌"
+      },
+      "caption_len": 994,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "a0e13959-8064-45bd-b809-f5842fefb340",
+      "slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "source_url": "https://t.me/c/1955320601/253746",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Привет 👋\nПровожу онлайн-уроки английского языка.\n\nРаботаю индивидуально — под каждого ученика своя программа и темп. Объясняю просто и понятно, без скучной «школьной» подачи. Помогаю разговориться, подтянуть грамматику и уверенно чувствовать себя в английском.\n\nЕсли вам нужен результат и комфортная атмосфера — напишите в личные сообщения ✨"
+      },
+      "caption_len": 341,
+      "has_media": false,
+      "status": "updated"
+    }
+  ],
+  "summary": {
+    "updated": 21,
+    "dry_run": 0,
+    "noop": 19,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

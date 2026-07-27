@@ -1,0 +1,4275 @@
+{
+  "source": "https://bostonrussianpages.com/yellowpages",
+  "directory_source": "boston_pages",
+  "generated_at": "2026-07-27T00:44:43.814525+00:00",
+  "count": 139,
+  "errors": [
+    {
+      "url": "https://bostonrussianpages.com/city-westford-ma-c-208",
+      "error": "fetch failed https://bostonrussianpages.com/city-westford-ma-c-208: HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://bostonrussianpages.com/city-weston-ma-c-139",
+      "error": "fetch failed https://bostonrussianpages.com/city-weston-ma-c-139: HTTP Error 404: Not Found"
+    }
+  ],
+  "cards": [
+    {
+      "cluster_key": "brp-3865091b4f12076c",
+      "display_name": "A-Z Construction",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+17816329381"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перестройка домов, крыши & siding, дэки & порчи, кухни & ванные, мрамор & плитка, сантехнические & электрические работы",
+      "description": "Перестройка домов, крыши & siding, дэки & порчи, кухни & ванные, мрамор & плитка, сантехнические & электрические работы",
+      "source_url": "https://bostonrussianpages.com/a-z-construction-wiw-3261",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646418+00:00"
+    },
+    {
+      "cluster_key": "brp-93d51cb8dc7b7b51",
+      "display_name": "A.G. Home Improvement",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Shrewsbury",
+      "address": "93 Boylston Circle, Shrewsbury, MA, 01545",
+      "phones": [
+        "+15089229615"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://agsidingandroofing.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Осуществляем работы по ремонту и установке сайдинга и окон. Быстро. Качественно. Надежно. Все лицензии, полное страхование.",
+      "description": "Осуществляем работы по ремонту и установке сайдинга и окон. Быстро. Качественно. Надежно. Все лицензии, полное страхование.",
+      "source_url": "https://bostonrussianpages.com/ag-siding-wiw-3204",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646656+00:00"
+    },
+    {
+      "cluster_key": "brp-bd83dc3411efdd19",
+      "display_name": "AAA Restoration Specialist",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+17867045582"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды внутренних и наружных строительных работ. Обновление ванных комнат и кухонь. Licensed & Fully Insured",
+      "description": "Все виды внутренних и наружных строительных работ. Обновление ванных комнат и кухонь. Licensed & Fully Insured",
+      "source_url": "https://bostonrussianpages.com/aaa-restoration-specialist-wiw-3234",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646735+00:00"
+    },
+    {
+      "cluster_key": "brp-550b8a64a3ce025e",
+      "display_name": "ABP - Best Home Care Agency",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "29 Crafts St., Suite 550, Newton, MA, 02458",
+      "phones": [
+        "+16177798400"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://abpbesthomecare.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Медицинские услуги на дому. Высококвалифицированные русскоговорящие медсестры, физиотерапевты, компаньоны, логопеды, помощники по дому.",
+      "description": "Медицинские услуги на дому. Высококвалифицированные русскоговорящие медсестры, физиотерапевты, компаньоны, логопеды, помощники по дому.",
+      "source_url": "https://bostonrussianpages.com/abp-best-home-care-agency-wiw-1703",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646786+00:00"
+    },
+    {
+      "cluster_key": "brp-22a6134aba50e152",
+      "display_name": "Air Conditioner & Heating Contractors",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16172795260"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "В компанию по установке и обслуживанию кондиционеров и отопительных систем на постоянную работу и работу по контракту требуются специалисты и помощники.",
+      "description": "В компанию по установке и обслуживанию кондиционеров и отопительных систем на постоянную работу и работу по контракту требуются специалисты и помощники.",
+      "source_url": "https://bostonrussianpages.com/ac-heating-help-wanted-wiw-3266",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646844+00:00"
+    },
+    {
+      "cluster_key": "brp-1b4ea9f3a2ac1ebf",
+      "display_name": "Aleksandr Verbitsky, D.M.D.",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1415 Beacon Street, 3-rd floor, #321, Brookline, MA, 02446",
+      "phones": [
+        "+16177390626"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Рады видеть вас в нашем офисе и предлагаем все виды стоматологической помощи.",
+      "description": "Рады видеть вас в нашем офисе и предлагаем все виды стоматологической помощи.",
+      "source_url": "https://bostonrussianpages.com/aleksandr-verbitsky-dmd-wiw-3226",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646919+00:00"
+    },
+    {
+      "cluster_key": "brp-765f027a77795512",
+      "display_name": "Alex Shapoval, MBA, JD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Chelsea",
+      "address": "84 Winnisimmet Street, Chelsea, MA, 02150",
+      "phones": [
+        "+16178895800"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://shapovallaw.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Тяжелые автомобильные травмы. Травмы на работе, в магазинах, офисах. Вопросы иммиграции, развод, решение кредитно-финансовых проблем. Уголовное право.",
+      "description": "Тяжелые автомобильные травмы. Травмы на работе, в магазинах, офисах. Вопросы иммиграции, развод, решение кредитно-финансовых проблем. Уголовное право.",
+      "source_url": "https://bostonrussianpages.com/alex-shapoval-wiw-1266",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.646998+00:00"
+    },
+    {
+      "cluster_key": "brp-d78abd07d792a8cc",
+      "display_name": "Alexander Androsenko",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16173194102"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды ремонтно-строительных работ любой сложности. Высокое качество, включая консультации по дизайну. Соблюдение сроков! Обращайтесь! Звоните!",
+      "description": "Все виды ремонтно-строительных работ любой сложности. Высокое качество, включая консультации по дизайну. Соблюдение сроков! Обращайтесь! Звоните!",
+      "source_url": "https://bostonrussianpages.com/alexander-androsenko-wiw-2369",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647035+00:00"
+    },
+    {
+      "cluster_key": "brp-3cbf31ce35886592",
+      "display_name": "Alla Iokheles, Rufo Realty",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "950 Watertown St., Suite 11, Newton, MA, 02465",
+      "phones": [
+        "+16175293990"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://alla.ws.s3-website-us-east-1.amazonaws.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Успех в покупке/продаже недвижимости зависит от правильного выбора агента. Я помогу Вам осуществить Ваш план.",
+      "description": "Успех в покупке/продаже недвижимости зависит от правильного выбора агента. Я помогу Вам осуществить Ваш план.",
+      "source_url": "https://bostonrussianpages.com/alla-iokheles-rufo-realty-wiw-3251",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647072+00:00"
+    },
+    {
+      "cluster_key": "brp-590dfef749700e10",
+      "display_name": "Alla Tailoring",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "302 Watertown Street, Newton, MA, 02458",
+      "phones": [
+        "+16179648212"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://allatailoring.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонт одежды из кожи, текстиля, трикотажа и меха. Идеальный подгон по фигуре. Индивидуальный пошив одежды. Пошив одежды любой сложности по фото или образцу.",
+      "description": "Ремонт одежды из кожи, текстиля, трикотажа и меха. Идеальный подгон по фигуре. Индивидуальный пошив одежды. Пошив одежды любой сложности по фото или образцу.",
+      "source_url": "https://bostonrussianpages.com/alla-tailoring-wiw-2811",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647111+00:00"
+    },
+    {
+      "cluster_key": "brp-ba3c96782c3958c1",
+      "display_name": "American Snowmen",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+15083029450"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонт кондиционеров и коммерческих холодильников. Быстро. Качественно. С гарантией. Обслуживаем MA и NH.",
+      "description": "Ремонт кондиционеров и коммерческих холодильников. Быстро. Качественно. С гарантией. Обслуживаем MA и NH.",
+      "source_url": "https://bostonrussianpages.com/american-snowmen-wiw-3197",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647142+00:00"
+    },
+    {
+      "cluster_key": "brp-5362ba093a04e6cb",
+      "display_name": "Bazaar",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1432 Beacon St., Brookline, MA, 02446",
+      "phones": [
+        "+16177398450"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bazaarsupermarkets.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Если вы хотите вспомнить вкус вашего детства, почувствовать родные запахи и ароматы, в полной мере насладиться домашней кухней - приглашаем вас посетить магазины Базар.",
+      "description": "Если вы хотите вспомнить вкус вашего детства, почувствовать родные запахи и ароматы, в полной мере насладиться домашней кухней - приглашаем вас посетить магазины Базар.",
+      "source_url": "https://bostonrussianpages.com/bazaar-wiw-1546",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647184+00:00"
+    },
+    {
+      "cluster_key": "brp-c1eb8274423db009",
+      "display_name": "Bell Air Moving",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "117 Huntington Ave, Boston, MA, 02115",
+      "phones": [
+        "+16179686633"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bellairmoving.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перевозки мебели и других грузов в любую точку Восточного побережья. Перевозка мебели - аккуратно, быстро и недорого! Скидки для пожилых! Имеется лицензия и страховка!",
+      "description": "Перевозки мебели и других грузов в любую точку Восточного побережья. Перевозка мебели - аккуратно, быстро и недорого! Скидки для пожилых! Имеется лицензия и страховка!",
+      "source_url": "https://bostonrussianpages.com/bell-air-moving-wiw-797",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647224+00:00"
+    },
+    {
+      "cluster_key": "brp-5c82436303c0a821",
+      "display_name": "Best Of Siding & Roofing",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16039430354"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Крыши - металлические, черепичные, каменные, плоские крыши, commercial roofs. Siding, gutters, decks, окна. Гарантии. Insurance. Free estimates.",
+      "description": "Крыши - металлические, черепичные, каменные, плоские крыши, commercial roofs. Siding, gutters, decks, окна. Гарантии. Insurance. Free estimates.",
+      "source_url": "https://bostonrussianpages.com/best-of-siding-and-roofing-wiw-2980",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647260+00:00"
+    },
+    {
+      "cluster_key": "brp-67f2cdcd929e38f3",
+      "display_name": "Biryuk T Inc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+15089338966"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "General Contractor. Новое строительство и перестройка. Крыши, перекладка каминных труб, кухни, дизайн и установка. Внутренняя отделка и покраска. Финиширование подвалов. Сауны.",
+      "description": "General Contractor. Новое строительство и перестройка. Крыши, перекладка каминных труб, кухни, дизайн и установка. Внутренняя отделка и покраска. Финиширование подвалов. Сауны.",
+      "source_url": "https://bostonrussianpages.com/biryuk-t-inc-wiw-3310",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647296+00:00"
+    },
+    {
+      "cluster_key": "brp-9760e60f75f37d3a",
+      "display_name": "Boris Milman",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "2001 Beacon St., Suite 302, Boston, MA, 02135",
+      "phones": [
+        "+16177347100"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Иммиграция в США: грин-карты, рабочие, гостевые, студенческие визы, апелляции. Открытие и ведение корпораций в США и оффшорных корпораций.",
+      "description": "Иммиграция в США: грин-карты, рабочие, гостевые, студенческие визы, апелляции. Открытие и ведение корпораций в США и оффшорных корпораций.",
+      "source_url": "https://bostonrussianpages.com/boris-milman-wiw-298",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647332+00:00"
+    },
+    {
+      "cluster_key": "brp-5fc02d4a1a5dd8b9",
+      "display_name": "Boston Mass Transportation",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16174351788"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "В (NEMT) транспортную компанию требуются водители на постоянную работу с полной или частичной занятостью.",
+      "description": "В (NEMT) транспортную компанию требуются водители на постоянную работу с полной или частичной занятостью.",
+      "source_url": "https://bostonrussianpages.com/bos-mass-transportation-wiw-3164",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647375+00:00"
+    },
+    {
+      "cluster_key": "brp-6cc3d023e4076343",
+      "display_name": "Brookline Dental Studio",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1247-A Beacon St., Brookline, MA, 02446",
+      "phones": [
+        "+16175665400"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://brooklinedental.studio",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Первый в Бостоне русский стоматологический центр. Бесплатная стоматологическая программа для людей старше 65 лет и имеющих страховку МаssHealth. Наш офис оказывает все виды стоматологических услуг!",
+      "description": "Первый в Бостоне русский стоматологический центр. Бесплатная стоматологическая программа для людей старше 65 лет и имеющих страховку МаssHealth. Наш офис оказывает все виды стоматологических услуг!",
+      "source_url": "https://bostonrussianpages.com/brookline-dental-studio-wiw-114",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647433+00:00"
+    },
+    {
+      "cluster_key": "brp-6cae65bfcc557c44",
+      "display_name": "Brookline Driving School, Inc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "374 Boylston St., Brookline, MA, 02445",
+      "phones": [
+        "+16172329400"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://brooklinedriving.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Сделайте правильный выбор - с нами у вас не будет проблем! Наша методика и условия обучения вне конкуренции 25 лет работы в Бостоне! Отличная репутация!",
+      "description": "Сделайте правильный выбор - с нами у вас не будет проблем! Наша методика и условия обучения вне конкуренции 25 лет работы в Бостоне! Отличная репутация!",
+      "source_url": "https://bostonrussianpages.com/brookline-driving-school-inc-wiw-69",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647474+00:00"
+    },
+    {
+      "cluster_key": "brp-200b56c5266eceec",
+      "display_name": "Busy Hive",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "38 Falmouth Rd, Newton, MA, 02465",
+      "phones": [
+        "+16179646187"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Спокойная домашняя обстановка, горячие завтрак, обед и ужин. Занятия гимнастикой, рисованием, йогой и музыкой.",
+      "description": "Спокойная домашняя обстановка, горячие завтрак, обед и ужин. Занятия гимнастикой, рисованием, йогой и музыкой.",
+      "source_url": "https://bostonrussianpages.com/busy-hive-wiw-3305",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647507+00:00"
+    },
+    {
+      "cluster_key": "brp-30418f00c79abd21",
+      "display_name": "Cosmetic and Laser Center",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "330 Congress St, Boston, MA, 02210",
+      "phones": [
+        "+16179043660"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://1bostonlaser.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Лазерное удаление волос и сосудистых звёздочек, микроиглоукалывание, Botox и Restylane, удаление морщин & многое другое для поддержания Вашей красоты!",
+      "description": "Лазерное удаление волос и сосудистых звёздочек, микроиглоукалывание, Botox и Restylane, удаление морщин & многое другое для поддержания Вашей красоты!",
+      "source_url": "https://bostonrussianpages.com/cosmetic-laser-center-wiw-3026",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647544+00:00"
+    },
+    {
+      "cluster_key": "brp-97dab121cc616512",
+      "display_name": "Danique Jewelry and Gifts",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Watertown",
+      "address": "600 Pleasant St., Watertown, MA, 02472",
+      "phones": [
+        "+16173931816"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://daniquejewelry.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Danique Jewelry creates personalized, handmade jewelry crafted from high-quality materials to celebrate family and life’s milestones. From birthstone necklaces to custom rings, each piece is designe",
+      "description": "Danique Jewelry creates personalized, handmade jewelry crafted from high-quality materials to celebrate family and life’s milestones. From birthstone necklaces to custom rings, each piece is designe",
+      "source_url": "https://bostonrussianpages.com/danique-jewelry-and-gifts-wiw-3328",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647605+00:00"
+    },
+    {
+      "cluster_key": "brp-68ee3ce41f719ba3",
+      "display_name": "Daria Shokri, Hair Stylist Boston",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "82 Boylston St, Brookline, MA, 02445",
+      "phones": [
+        "+13156121500"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Профессиональный уход за волосами в Бостоне: keratin treatment, hair botox, Japanese straightening, окрашивание. Русскоязычный стилист в Brookline, MA. Акции и скидки.",
+      "description": "Профессиональный уход за волосами в Бостоне: keratin treatment, hair botox, Japanese straightening, окрашивание. Русскоязычный стилист в Brookline, MA. Акции и скидки.",
+      "source_url": "https://bostonrussianpages.com/daria-shokri-wiw-3363",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647659+00:00"
+    },
+    {
+      "cluster_key": "brp-a066fbcd3cb8f3db",
+      "display_name": "David S. Bograd",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brighton",
+      "address": "480 Washington Street, Suite 202, Brighton, MA, 02135",
+      "phones": [
+        "+16172541102"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bogradlaw.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ДОСТУПНО ДЛЯ КАЖДОГО! Консультации. Экстренная юридическая помощь. Юридическое обслуживание. Постоянная юридическая защита. Трудовое право, права иностранцев, уголовное право.",
+      "description": "ДОСТУПНО ДЛЯ КАЖДОГО! Консультации. Экстренная юридическая помощь. Юридическое обслуживание. Постоянная юридическая защита. Трудовое право, права иностранцев, уголовное право.",
+      "source_url": "https://bostonrussianpages.com/david-s-bograd-wiw-2872",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647703+00:00"
+    },
+    {
+      "cluster_key": "brp-cbf23e026d2eebd7",
+      "display_name": "Design & Thread",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "115 Sumner St, Newton, MA, 02459",
+      "phones": [
+        "+16179539863"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Стильные шторы и оригинальные идеи дизайнера Елены Бурдан создадут уют в вашем доме. Портьеры,занавесы, карнизы и кольца!",
+      "description": "Стильные шторы и оригинальные идеи дизайнера Елены Бурдан создадут уют в вашем доме. Портьеры,занавесы, карнизы и кольца!",
+      "source_url": "https://bostonrussianpages.com/design-and-thread-wiw-2887",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647740+00:00"
+    },
+    {
+      "cluster_key": "brp-f85fe002cf674825",
+      "display_name": "Easy Ship",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+19299997648"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Доставим Ваши посылки в Россию, Беларусь и другие страны",
+      "description": "Доставим Ваши посылки в Россию, Беларусь и другие страны",
+      "source_url": "https://bostonrussianpages.com/easy-ship-wiw-3348",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647769+00:00"
+    },
+    {
+      "cluster_key": "brp-5b8fa05c1dccf557",
+      "display_name": "Edward Gluzman, CPA, P. C.",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "40 John St., Newton, MA",
+      "phones": [
+        "+16179653212"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "My expertise in taxation and planning will help you maximize profits and ensure long term success of your business. Составление персональных и бизнес-налоговых деклараций. Составление Financial Stat",
+      "description": "My expertise in taxation and planning will help you maximize profits and ensure long term success of your business. Составление персональных и бизнес-налоговых деклараций. Составление Financial Stat",
+      "source_url": "https://bostonrussianpages.com/edward-gluzman-cpa-pc-wiw-3249",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647809+00:00"
+    },
+    {
+      "cluster_key": "brp-df60c5bc609ff4da",
+      "display_name": "Europe Today Furniture",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brighton",
+      "address": "380 Washington St., Brighton, MA, 02135",
+      "phones": [
+        "+16177822523"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Мебель на любой вкус. Позвоните и сравните цены! Магазин европейской мебели! Большой выбор и оптимальные цены вас удивят!",
+      "description": "Мебель на любой вкус. Позвоните и сравните цены! Магазин европейской мебели! Большой выбор и оптимальные цены вас удивят!",
+      "source_url": "https://bostonrussianpages.com/europe-today-furniture-wiw-1543",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647846+00:00"
+    },
+    {
+      "cluster_key": "brp-f125da05c211ca63",
+      "display_name": "Feinberg & Alban, P.C.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1051 Beacon St., Brookline, MA, 02446",
+      "phones": [
+        "+16175603231"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://feinbergalban.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Одна из старейших в Бостоне юридических фирм. Миллионы долларов компенсации нашим клиентам за последние несколько лет.Мы помогаем получить компенсацию за травмы!",
+      "description": "Одна из старейших в Бостоне юридических фирм. Миллионы долларов компенсации нашим клиентам за последние несколько лет.Мы помогаем получить компенсацию за травмы!",
+      "source_url": "https://bostonrussianpages.com/office-law-pc-wiw-691",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647885+00:00"
+    },
+    {
+      "cluster_key": "brp-51603e15dadd230f",
+      "display_name": "Gene Dvorkin Insurance Agency",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brighton",
+      "address": "2001 Beacon St., Brighton, MA, 02135",
+      "phones": [
+        "+16177314554"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://dvorkininsurance.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды страхования. Автомобили, такси. Дома, квартиры. Бизнесы. Максимальные скидки. Берем на себя переговоры со страховой компанией в случае аварии.",
+      "description": "Все виды страхования. Автомобили, такси. Дома, квартиры. Бизнесы. Максимальные скидки. Берем на себя переговоры со страховой компанией в случае аварии.",
+      "source_url": "https://bostonrussianpages.com/gene-dvorkin-insurance-agency-wiw-682",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647924+00:00"
+    },
+    {
+      "cluster_key": "brp-7ad6df0ece839a4a",
+      "display_name": "Gina Romm, William Raveis",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "1229 Centre St., Newton, MA, 02459",
+      "phones": [
+        "+16179661685"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://raveis.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "All Roads Lead to Romm - Всегда готова Вам помочь! Обладатель сертификатов высшей квалификации в Real Estate. В Real Estate с 1987 года.",
+      "description": "All Roads Lead to Romm - Всегда готова Вам помочь! Обладатель сертификатов высшей квалификации в Real Estate. В Real Estate с 1987 года.",
+      "source_url": "https://bostonrussianpages.com/gina-romm-william-raveis-wiw-2756",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.647962+00:00"
+    },
+    {
+      "cluster_key": "brp-9838a1fe86878f9a",
+      "display_name": "Happy Child",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "1191 Chestnut St., Newton, MA, 02464",
+      "phones": [
+        "+16179648231"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://happychildnewton.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Миссия нашей школы – создание условий для максимального раскрытия индивидуальности каждого ребёнка, сохраняя и преумножая его здоровье, любознательность, доверие и уважение к себе и окружающему мир",
+      "description": "Миссия нашей школы – создание условий для максимального раскрытия индивидуальности каждого ребёнка, сохраняя и преумножая его здоровье, любознательность, доверие и уважение к себе и окружающему мир",
+      "source_url": "https://bostonrussianpages.com/happy-child-wiw-2578",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648003+00:00"
+    },
+    {
+      "cluster_key": "brp-2a6bd3ced386f5c5",
+      "display_name": "Hebrew Rehabilitation Center",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "1200 Centre St., Boston, MA, 02131",
+      "phones": [
+        "+16173638000"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://hebrewseniorlife.org",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Еврейский реабилитационный Центр предлагает уникальную программу для русскоговорящих пациентов. Среди многочисленных специалистов нашего Центра более 90 говорят по-русски.",
+      "description": "Еврейский реабилитационный Центр предлагает уникальную программу для русскоговорящих пациентов. Среди многочисленных специалистов нашего Центра более 90 говорят по-русски.",
+      "source_url": "https://bostonrussianpages.com/hebrew-rehabilitation-center-wiw-3250",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648040+00:00"
+    },
+    {
+      "cluster_key": "brp-fb83bbd78ed4157f",
+      "display_name": "Hebrew Rehabilitation Center",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "1200 Centre St., Boston, MA",
+      "phones": [
+        "+16173638425"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "В связи с увеличением числа русскоговорящих пациентов в нашем центре, возрастает необходимость в персонале со знанием русского языка.",
+      "description": "В связи с увеличением числа русскоговорящих пациентов в нашем центре, возрастает необходимость в персонале со знанием русского языка.",
+      "source_url": "https://bostonrussianpages.com/hebrew-rehab-help-wanted-wiw-3263",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648075+00:00"
+    },
+    {
+      "cluster_key": "brp-8922b2ab5a887fd5",
+      "display_name": "Interpreter Training Programs",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "2001 Beacon St #105, Boston, MA, 02135",
+      "phones": [
+        "+16172771990"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://interpretertrain.com",
+        "https://fliphtml5.com/bookcase/ssoav",
+        "https://interpretertrain.com/info-requests"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Хотите овладеть профессией переводчика за 7 недель? Вам нужно улучшить английский или выучить его с нуля? Мы предлагаем 7-недельные программы подготовки русско-английских переводчиков, а также курсы",
+      "description": "Хотите овладеть профессией переводчика за 7 недель? Вам нужно улучшить английский или выучить его с нуля? Мы предлагаем 7-недельные программы подготовки русско-английских переводчиков, а также курсы",
+      "source_url": "https://bostonrussianpages.com/interpreter-training-programs-wiw-3104",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648117+00:00"
+    },
+    {
+      "cluster_key": "brp-a6fb27eac0db2bfa",
+      "display_name": "Irene F. Lipetsker, DMD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1247A Beacon St, Brookline, MA, 02446",
+      "phones": [
+        "+16175665400"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Косметическая стоматология. Лечение, протезирование, Root Canal Treatment. Ортодония (Braces, Invisaling) для взрослых и детей. Диагностика и лечение дисфункции нижнечелюстных суставов (TMJ)",
+      "description": "Косметическая стоматология. Лечение, протезирование, Root Canal Treatment. Ортодония (Braces, Invisaling) для взрослых и детей. Диагностика и лечение дисфункции нижнечелюстных суставов (TMJ)",
+      "source_url": "https://bostonrussianpages.com/irene-f-lipetsker-dmd-wiw-2440",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648170+00:00"
+    },
+    {
+      "cluster_key": "brp-688dbd6fcfa3989b",
+      "display_name": "Irina Deresh, DMD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1720 Beacon St., Brookline, MA, 02445",
+      "phones": [
+        "+16177345516"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://mytmd.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды лечения зубов. Специализируемся в челюстно-лицевой боли, включая сустав (TMJ). Косметическая стоматология, импланты. Все виды протезирования. Лечение десен.",
+      "description": "Все виды лечения зубов. Специализируемся в челюстно-лицевой боли, включая сустав (TMJ). Косметическая стоматология, импланты. Все виды протезирования. Лечение десен.",
+      "source_url": "https://bostonrussianpages.com/irina-deresh-dmd-wiw-727",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648208+00:00"
+    },
+    {
+      "cluster_key": "brp-2616e4c84117ea84",
+      "display_name": "JML FLOORS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Hyannis",
+      "address": "Hyannis, MA",
+      "phones": [
+        "+15083604623"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "JML FLOORS is a trusted flooring and tile installation company based in Hyannis, Massachusetts. With over 20 years of experience, they serve homeowners across Barnstable and Cape Cod, offering exper",
+      "description": "JML FLOORS is a trusted flooring and tile installation company based in Hyannis, Massachusetts. With over 20 years of experience, they serve homeowners across Barnstable and Cape Cod, offering exper",
+      "source_url": "https://bostonrussianpages.com/jml-floors-wiw-3347",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648248+00:00"
+    },
+    {
+      "cluster_key": "brp-ae677e9d311b3d17",
+      "display_name": "Karo Painting",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "Newton, MA",
+      "phones": [
+        "+16174479545"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Внутренняя и наружная покраска дома, квартир и офисов. Power washing.",
+      "description": "Внутренняя и наружная покраска дома, квартир и офисов. Power washing.",
+      "source_url": "https://bostonrussianpages.com/karo-painting-wiw-3253",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648277+00:00"
+    },
+    {
+      "cluster_key": "brp-13a4fd7f1b142e1a",
+      "display_name": "Khatchatour Kazarian, DMD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Watertown",
+      "address": "479 Main St., Watertown, MA, 02472",
+      "phones": [
+        "+16177446681"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://watertowndentistry.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды стоматологических услуг. Более 25 лет опыта. Современное оборудование. Мы говорим по-русски. Принимаем большинство страховок.",
+      "description": "Все виды стоматологических услуг. Более 25 лет опыта. Современное оборудование. Мы говорим по-русски. Принимаем большинство страховок.",
+      "source_url": "https://bostonrussianpages.com/khatchatour-kazarian-dmd-wiw-3119",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648307+00:00"
+    },
+    {
+      "cluster_key": "brp-9c9a711c8608f768",
+      "display_name": "Kovalev Insurance Agency, Inc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "188 Needham St., Suite 220, Newton, MA, 02464",
+      "phones": [
+        "+16175626060"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://kovalevinsurance.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Мы страхуем всё: дома, condo, квартиры, машины, такси, лодки, мотоциклы, бизнесы, свадьбы, дни рождения и другие торжества. У нас - лучшие страховые компании Америки, лучший выбор и лучшие цены!",
+      "description": "Мы страхуем всё: дома, condo, квартиры, машины, такси, лодки, мотоциклы, бизнесы, свадьбы, дни рождения и другие торжества. У нас - лучшие страховые компании Америки, лучший выбор и лучшие цены!",
+      "source_url": "https://bostonrussianpages.com/kovalev-insurance-agency-inc-wiw-1001",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648353+00:00"
+    },
+    {
+      "cluster_key": "brp-67ef91fdd3c9aaf8",
+      "display_name": "Lena Berman, Attorney At Law",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1583 Beacon St., Brookline, MA, 02446",
+      "phones": [
+        "+16172777887"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Профессиональная юридическая помощь для частных клиентов и бизнеса в Массачусетсе и Род-Айленде.",
+      "description": "Профессиональная юридическая помощь для частных клиентов и бизнеса в Массачусетсе и Род-Айленде.",
+      "source_url": "https://bostonrussianpages.com/usa-office-law-wiw-2336",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648384+00:00"
+    },
+    {
+      "cluster_key": "brp-ae8d412e7c888796",
+      "display_name": "Lev Matskevich, William Raveis",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "1229 Centre St., Newton, MA, 02459",
+      "phones": [
+        "+16173721070"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://raveis.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Top Listing Agent & Top Selling Agent. Помогаю продавать и покупать недвижимость в Newton, Brookline and Boston.",
+      "description": "Top Listing Agent & Top Selling Agent. Помогаю продавать и покупать недвижимость в Newton, Brookline and Boston.",
+      "source_url": "https://bostonrussianpages.com/lev-matskevich-william-raveis-wiw-3296",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648419+00:00"
+    },
+    {
+      "cluster_key": "brp-9b956ec4e2c9ebb7",
+      "display_name": "Luba Rogozin",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Needham",
+      "address": "Needham, MA",
+      "phones": [
+        "+16177753942"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Обращайтесь за помощью в покупке медицинской и зубной страховки. Если вы хотите получить более подробную информацию о страховках от русскоязычного агента, звоните!",
+      "description": "Обращайтесь за помощью в покупке медицинской и зубной страховки. Если вы хотите получить более подробную информацию о страховках от русскоязычного агента, звоните!",
+      "source_url": "https://bostonrussianpages.com/luba-rogozin-wiw-2850",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648455+00:00"
+    },
+    {
+      "cluster_key": "brp-f4b32bba4e72b115",
+      "display_name": "Luxe Hvac",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16178382097"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Устанавливаем мини сплит системы кондиционирования и отопления за 1-2 дня",
+      "description": "Устанавливаем мини сплит системы кондиционирования и отопления за 1-2 дня",
+      "source_url": "https://bostonrussianpages.com/luxe-hvac-wiw-3342",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648483+00:00"
+    },
+    {
+      "cluster_key": "brp-ea821439b08f72ee",
+      "display_name": "Mass Capital Mortgage Corp.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Dedham",
+      "address": "75 McNeil Way., #105, Dedham, MA, 02026",
+      "phones": [
+        "+17814611112"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://macap.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Предоставление моргиджей в Массачесетсе и во Флориде с самыми низкими процентами и с минимальными затратами на оформление займов. Широкий спектр программ.",
+      "description": "Предоставление моргиджей в Массачесетсе и во Флориде с самыми низкими процентами и с минимальными затратами на оформление займов. Широкий спектр программ.",
+      "source_url": "https://bostonrussianpages.com/mass-capital-mortgage-corp-wiw-2854",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648521+00:00"
+    },
+    {
+      "cluster_key": "brp-b7b7747f778060a4",
+      "display_name": "Masterpiece Flooring, LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+17812447684"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Укладка полов: паркет, карпет, линолеум, ламинат. Бесплатная оценка работ. Полное страхование.",
+      "description": "Укладка полов: паркет, карпет, линолеум, ламинат. Бесплатная оценка работ. Полное страхование.",
+      "source_url": "https://bostonrussianpages.com/masterpiece-flooring-llc-wiw-2257",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648551+00:00"
+    },
+    {
+      "cluster_key": "brp-56302e5403f279d7",
+      "display_name": "Moving",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+18572343047"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Профессиональная, быстрая и качественная транспортировка грузов. От коробки до объемов дома. Недорого и без скрытых платежей. Индивидуальный подход к каждому клиенту.",
+      "description": "Профессиональная, быстрая и качественная транспортировка грузов. От коробки до объемов дома. Недорого и без скрытых платежей. Индивидуальный подход к каждому клиенту.",
+      "source_url": "https://bostonrussianpages.com/moving-wiw-3071",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.648590+00:00"
+    },
+    {
+      "cluster_key": "brp-3a08a718565049ec",
+      "display_name": "Mr. Pipe Plumbing & Heating",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "551 Brookline Ave, Unit 2, Brookline, MA, 02445",
+      "phones": [
+        "+18573968571"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://mrpipeplumbing.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Любые сантехнические-газовые работы. Новое строительство, ремонт и реконструкция. Установка, замена и ремонт водонагревателей газовых линий, котлов отопления и канализации.",
+      "description": "Любые сантехнические-газовые работы. Новое строительство, ремонт и реконструкция. Установка, замена и ремонт водонагревателей газовых линий, котлов отопления и канализации.",
+      "source_url": "https://bostonrussianpages.com/mr-pipe-plumbing-and-heating-wiw-3233",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.649779+00:00"
+    },
+    {
+      "cluster_key": "brp-7318e6cc54a1760c",
+      "display_name": "Newton Driving School",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "50 Winchester St., Newton, MA, 02461",
+      "phones": [
+        "+16173326323"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://newtondrivingschool.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Newton Driving School помогает ученикам уверенно подготовиться к вождению и road test в Массачусетсе. Обучение на русском и английском, опытные инструкторы и спокойный подход.",
+      "description": "Newton Driving School помогает ученикам уверенно подготовиться к вождению и road test в Массачусетсе. Обучение на русском и английском, опытные инструкторы и спокойный подход.",
+      "source_url": "https://bostonrussianpages.com/newton-driving-school-wiw-1651",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.649822+00:00"
+    },
+    {
+      "cluster_key": "brp-6c1fd2dd265adef9",
+      "display_name": "Olesea Art Studio",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Marblehead",
+      "address": "183 Pleasant St, Marblehead, MA, 01945",
+      "phones": [
+        "+17816401597"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://oleseadesignart.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "20 Years Of Experience. Art Classes. Paint Nights. Any Art Work. Murals. Online Art Classes. Master Classes.",
+      "description": "20 Years Of Experience. Art Classes. Paint Nights. Any Art Work. Murals. Online Art Classes. Master Classes.",
+      "source_url": "https://bostonrussianpages.com/olesea-art-studio-wiw-3185",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.649858+00:00"
+    },
+    {
+      "cluster_key": "brp-8a77f7592025e2c1",
+      "display_name": "Olesya Koenig",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Cambridge",
+      "address": "Cambridge, MA",
+      "phones": [
+        "+18572538421"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Нотариальные услуги и переводы с русского и английского языков. Деловые переводы: научные статьи, юридические и медицинские документы, дипломы, свидетельства о рождении и бумаги по усыновлению.",
+      "description": "Нотариальные услуги и переводы с русского и английского языков. Деловые переводы: научные статьи, юридические и медицинские документы, дипломы, свидетельства о рождении и бумаги по усыновлению.",
+      "source_url": "https://bostonrussianpages.com/olesya-koenig-wiw-3057",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.649896+00:00"
+    },
+    {
+      "cluster_key": "brp-337218a7ab796b87",
+      "display_name": "Olga Pinsky, Bostonian Mortgage Corp.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "40 John Street, Newton, MA, 02459",
+      "phones": [
+        "+18573349253"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Сэкономьте свои деньги на покупке и перефинансировании! Одни из самых низких % ставок. Простой и быстрый процесс оформления. Большой выбор программ!",
+      "description": "Сэкономьте свои деньги на покупке и перефинансировании! Одни из самых низких % ставок. Простой и быстрый процесс оформления. Большой выбор программ!",
+      "source_url": "https://bostonrussianpages.com/olga-pinsky-bostonian-mortgage-corp-wiw-2863",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.649935+00:00"
+    },
+    {
+      "cluster_key": "brp-d7d5b22a8e5d95d3",
+      "display_name": "Olga Rotaru",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "90 Canal St, Boston, MA, 02114",
+      "phones": [
+        "+18573739257"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://northstarrealty.team",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Licensed in MA & NH Residential & Investment Properties Full Realtor Services to Buyers & Sellers Говорю по-русски & румынски Greater Boston Area, North Shore & Southern NH 15 лет опы",
+      "description": "Licensed in MA & NH Residential & Investment Properties Full Realtor Services to Buyers & Sellers Говорю по-русски & румынски Greater Boston Area, North Shore & Southern NH 15 лет опы",
+      "source_url": "https://bostonrussianpages.com/olga-rotaru-wiw-3212",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.649989+00:00"
+    },
+    {
+      "cluster_key": "brp-53d1d0cc0af7009a",
+      "display_name": "Oxana Meshcheryakova",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+17814848537"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Бухгалтерский учет. Заработная плата. Налоговые декларации. Налоговое планирование. Консультации",
+      "description": "Бухгалтерский учет. Заработная плата. Налоговые декларации. Налоговое планирование. Консультации",
+      "source_url": "https://bostonrussianpages.com/oxana-meshcheryakova-wiw-3326",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650021+00:00"
+    },
+    {
+      "cluster_key": "brp-0893455a790d9d94",
+      "display_name": "ParRuskids",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+15855033956"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Oнлайн школа для детей-билингвов от 8 до 15 лет. Русский язык, литература, история и география России. Все уровни языка от А0 до С1. Индивидуальные занятия или в мини-группах.",
+      "description": "Oнлайн школа для детей-билингвов от 8 до 15 лет. Русский язык, литература, история и география России. Все уровни языка от А0 до С1. Индивидуальные занятия или в мини-группах.",
+      "source_url": "https://bostonrussianpages.com/parruskids-wiw-3289",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650066+00:00"
+    },
+    {
+      "cluster_key": "brp-4f0f645ea40bf3bc",
+      "display_name": "Patios & Walkways",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+17867045582"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Increase the value of your home with beautiful hardscaping - eye-catching patios and stunning walkway.",
+      "description": "Increase the value of your home with beautiful hardscaping - eye-catching patios and stunning walkway.",
+      "source_url": "https://bostonrussianpages.com/patios-and-walkways-wiw-3247",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650098+00:00"
+    },
+    {
+      "cluster_key": "brp-cc22093147fe9f42",
+      "display_name": "Railings & Handrails",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16179354770"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Алюминевые перила & поручни - railing & handrails из Европы с установкой.",
+      "description": "Алюминевые перила & поручни - railing & handrails из Европы с установкой.",
+      "source_url": "https://bostonrussianpages.com/railings-and-handrails-wiw-3313",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650127+00:00"
+    },
+    {
+      "cluster_key": "brp-c1d6bb93939db10d",
+      "display_name": "Repair & New Construction",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16179593798"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Hardwood & Tile Floors. Kitchen Cabinets. Decks, Fences, Stairs Doors, Windows, Roofs, Gutters. Siding & Insulation. Sauna installation.",
+      "description": "Hardwood & Tile Floors. Kitchen Cabinets. Decks, Fences, Stairs Doors, Windows, Roofs, Gutters. Siding & Insulation. Sauna installation.",
+      "source_url": "https://bostonrussianpages.com/repair-and-new-construction-wiw-3121",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650161+00:00"
+    },
+    {
+      "cluster_key": "brp-57fcc19da47a81a9",
+      "display_name": "Rimma Pevzner, Metro Boston Realty Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Chestnut Hill",
+      "address": "1 Heathwood Ln, Chestnut Hill, MA, 02467",
+      "phones": [
+        "+15086123727"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://metrobostonrealtygroup.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Хотите правильно инвестировать? Мой многолетний опыт успешного брокера, инвестора, лендлорда - поможет вам сделать самые выгодные инвестиции в недвижимость.",
+      "description": "Хотите правильно инвестировать? Мой многолетний опыт успешного брокера, инвестора, лендлорда - поможет вам сделать самые выгодные инвестиции в недвижимость.",
+      "source_url": "https://bostonrussianpages.com/rimma-pevzner-metro-boston-realty-group-wiw-3252",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650199+00:00"
+    },
+    {
+      "cluster_key": "brp-0c2ae0278fa40da8",
+      "display_name": "Saadat Beauty House",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Wellesley",
+      "address": "868 Worcester Street, Wellesley, MA, 02482",
+      "phones": [
+        "+17816907473"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://saadatbeautyhouse.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Приглашаем вас посетить наше уютное спа! Приходите и наслаждайтесь красотой и релаксом!",
+      "description": "Приглашаем вас посетить наше уютное спа! Приходите и наслаждайтесь красотой и релаксом!",
+      "source_url": "https://bostonrussianpages.com/saadat-beauty-house-wiw-3360",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650230+00:00"
+    },
+    {
+      "cluster_key": "brp-09d0b1b298ed1776",
+      "display_name": "Salon DH Estetika & Hair Boutique",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "683 Tremont St., Boston, MA, 02118",
+      "phones": [
+        "+15082925143"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Инъекционная косметология для лица. Инъекционная косметология для волос. Волосы. Бьюти- консьерж.",
+      "description": "Инъекционная косметология для лица. Инъекционная косметология для волос. Волосы. Бьюти- консьерж.",
+      "source_url": "https://bostonrussianpages.com/salon-dh-estetica-wiw-2992",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650263+00:00"
+    },
+    {
+      "cluster_key": "brp-60624ec0beeaaf95",
+      "display_name": "Samuel Melkonian, Boston Mortgage Solutions",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Needham",
+      "address": "41 Shirley Rd., Needham, MA, 02494",
+      "phones": [
+        "+16179130603"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bostonmortgagesolutions.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "We will make the process of obtaining a mortgage simple and straight forward. Licensed in MA and NH. Insured and Bonded.",
+      "description": "We will make the process of obtaining a mortgage simple and straight forward. Licensed in MA and NH. Insured and Bonded.",
+      "source_url": "https://bostonrussianpages.com/samuel-melkonian-boston-mortgage-solutions-wiw-1851",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650335+00:00"
+    },
+    {
+      "cluster_key": "brp-6f534fc730a4e0a6",
+      "display_name": "Serenity Care PACE",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "149 California Street, Newton, MA, 02458",
+      "phones": [
+        "+16176991929"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Комплексная медицинская и социальная программа для пожилых людей (PACE). Родители ваши - заботы наши!",
+      "description": "Комплексная медицинская и социальная программа для пожилых людей (PACE). Родители ваши - заботы наши!",
+      "source_url": "https://bostonrussianpages.com/serenity-care-pace-wiw-3336",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650373+00:00"
+    },
+    {
+      "cluster_key": "brp-5cd224822d2f43fd",
+      "display_name": "Sergey Urman, MD, Boston Vision",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "24 Webster Pl., Brookline, MA, 02445",
+      "phones": [
+        "+16172022020"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bostonvision.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Глазной врач и хирург. 17 лет хирургического опыта. Более 10,000 успешно проведенных внутриглазных операций. Большой опыт удаления катаракты с помощью лазера.",
+      "description": "Глазной врач и хирург. 17 лет хирургического опыта. Более 10,000 успешно проведенных внутриглазных операций. Большой опыт удаления катаракты с помощью лазера.",
+      "source_url": "https://bostonrussianpages.com/sergey-urman-md-boston-vision-wiw-2338",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650408+00:00"
+    },
+    {
+      "cluster_key": "brp-31e7da85606e4439",
+      "display_name": "Stanetsky Memorial Chapel",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1668 Beacon St., Brookline, MA, 02445",
+      "phones": [
+        "+16172329300"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://dignitymemorial.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Мы гордимся тем, что служим еврейской общине Большого Бостона на протяжении более 125 лет. Помощь семьям - это и привилегия, и ответственность. Мы зарабатывали доверие еврейских семей на протяжении",
+      "description": "Мы гордимся тем, что служим еврейской общине Большого Бостона на протяжении более 125 лет. Помощь семьям - это и привилегия, и ответственность. Мы зарабатывали доверие еврейских семей на протяжении",
+      "source_url": "https://bostonrussianpages.com/stanetsky-memorial-chapel-wiw-3176",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650450+00:00"
+    },
+    {
+      "cluster_key": "brp-78f8ba38d82469eb",
+      "display_name": "Suburban Home Health Care",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "1050 Commonwealth Ave, Boston, MA, 02215",
+      "phones": [
+        "+16172647100"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://suburbanhomehealth.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Оказываем все медицинские услуги на дому.",
+      "description": "Оказываем все медицинские услуги на дому.",
+      "source_url": "https://bostonrussianpages.com/suburban-home-health-care-wiw-3300",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650478+00:00"
+    },
+    {
+      "cluster_key": "brp-e4ffa1b84d3a3e3f",
+      "display_name": "Superior Funding Corporation",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "343 Washington Street, Newton, MA, 02458",
+      "phones": [
+        "+18005065706"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://sfcorp.net",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Финансирование недвижимости в штате Massachusetts. Superior Funding Corporation предлагает одни из лучших существующих условий финансирования.",
+      "description": "Финансирование недвижимости в штате Massachusetts. Superior Funding Corporation предлагает одни из лучших существующих условий финансирования.",
+      "source_url": "https://bostonrussianpages.com/superior-funding-corporation-wiw-2919",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650513+00:00"
+    },
+    {
+      "cluster_key": "brp-1454fd9445c4ed97",
+      "display_name": "Svetlana Sheinina, EXP REALTY",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "361 Newbury Street, 5th Floor, Boston, MA, 02115",
+      "phones": [
+        "+19788083729"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://svetlanasheinina.exprealty.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Продаете? Покупаете? Инвестируете? Звоните, всегда Вам рада!",
+      "description": "Продаете? Покупаете? Инвестируете? Звоните, всегда Вам рада!",
+      "source_url": "https://bostonrussianpages.com/svetlana-sheinina-exp-realty-wiw-849",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650544+00:00"
+    },
+    {
+      "cluster_key": "brp-b19d137a9b26c3d9",
+      "display_name": "Svetlana Stepanskaia, Hillman Homes",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "1381 Washington St., Newton, MA, 02465",
+      "phones": [
+        "+16179222948"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://hillmanhomesma.com/agents/lana-stepanskaia",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Квалифицированная профессиональная помощь на всех этапах покупки или продажи недвижимости. 22 года в бизнесе.",
+      "description": "Квалифицированная профессиональная помощь на всех этапах покупки или продажи недвижимости. 22 года в бизнесе.",
+      "source_url": "https://bostonrussianpages.com/svetlana-stepanskaia-hillman-homes-wiw-844",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650578+00:00"
+    },
+    {
+      "cluster_key": "brp-7db94906bf112f7a",
+      "display_name": "Table Tennis Coach",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+18572311585"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Хотите научиться профессионально играть в пинг-понг? Уроки настольного тенниса. Индивидуальные и групповые тренировки, организация соревнований.",
+      "description": "Хотите научиться профессионально играть в пинг-понг? Уроки настольного тенниса. Индивидуальные и групповые тренировки, организация соревнований.",
+      "source_url": "https://bostonrussianpages.com/table-tennis-coach-wiw-2849",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650610+00:00"
+    },
+    {
+      "cluster_key": "brp-fddbb414d99b7837",
+      "display_name": "Table Tennis Coach",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+18572311585"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Professional Table Tennis Coach. All levels children and adults. Could come to your house (Newton and surrounding towns). The only sport that could increase IQ of your child and get your child fi",
+      "description": "Professional Table Tennis Coach. All levels children and adults. Could come to your house (Newton and surrounding towns). The only sport that could increase IQ of your child and get your child fi",
+      "source_url": "https://bostonrussianpages.com/table-tennis-coach-wiw-2952",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650651+00:00"
+    },
+    {
+      "cluster_key": "brp-42c9efaa295fd6f0",
+      "display_name": "Tatiana Zeliger",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16172441496"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Консультации по ведению и управлению бизнесом. Оказание помощи в выборе структуры бизнеса. Финансовый анализ. Отчеты и налоговые декларации. Планирование деятельности.",
+      "description": "Консультации по ведению и управлению бизнесом. Оказание помощи в выборе структуры бизнеса. Финансовый анализ. Отчеты и налоговые декларации. Планирование деятельности.",
+      "source_url": "https://bostonrussianpages.com/tatiana-zeliger-wiw-2070",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650686+00:00"
+    },
+    {
+      "cluster_key": "brp-bef248acbf3d9162",
+      "display_name": "TeleLance",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "Newton, MA",
+      "phones": [
+        "+16177950885"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "We are dedicated to helping clients achieve their business goals. We build websites that look fantastic, perform well in the search engines, drive leads, and provide new sales opportunities.",
+      "description": "We are dedicated to helping clients achieve their business goals. We build websites that look fantastic, perform well in the search engines, drive leads, and provide new sales opportunities.",
+      "source_url": "https://bostonrussianpages.com/telelance-wiw-3170",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650725+00:00"
+    },
+    {
+      "cluster_key": "brp-d7bf38e45c1337aa",
+      "display_name": "THE BEAUTY SPOT Needham",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Needham",
+      "address": "123 Highland Ave Ste 301, Needham, MA, 02494",
+      "phones": [
+        "+16173192254"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://thebeautyspotma.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "В салоне THE BEAUTY SPOT Needham весь апрель действуют акции: Классическое наращивание — $150 вместо $170 Lash Lift + Tint — $100 вместо $140",
+      "description": "В салоне THE BEAUTY SPOT Needham весь апрель действуют акции: Классическое наращивание — $150 вместо $170 Lash Lift + Tint — $100 вместо $140",
+      "source_url": "https://bostonrussianpages.com/the-beauty-spot-needham-wiw-3359",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650767+00:00"
+    },
+    {
+      "cluster_key": "brp-6f3ecb0dc331fca8",
+      "display_name": "TR Consulting Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "93 Union Street, Suite 321, Newton, MA, 02459",
+      "phones": [
+        "+15084354446"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://mathknowledge.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "We offer educational experience that goes beyond the basic - acquire strong mathematical skills, develop an effective learning pattern, enhance the confidence & desire to excel.",
+      "description": "We offer educational experience that goes beyond the basic - acquire strong mathematical skills, develop an effective learning pattern, enhance the confidence & desire to excel.",
+      "source_url": "https://bostonrussianpages.com/tr-consulting-group-wiw-2946",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650811+00:00"
+    },
+    {
+      "cluster_key": "brp-aa3aec03c67b122f",
+      "display_name": "Unique Aesthetics Beauty Spa",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "765 Beacon St, Newton, MA, 02459",
+      "phones": [
+        "+16172187766"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://uniqueaestheticsbeautyspa.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Применяем уникальные методики косметологии: - безоперационная подтяжка лица и регенерация кожи рук и тела. - химический пилинг, устраняющий дефекты кожи (тёмные пятна, рубцы).",
+      "description": "Применяем уникальные методики косметологии: - безоперационная подтяжка лица и регенерация кожи рук и тела. - химический пилинг, устраняющий дефекты кожи (тёмные пятна, рубцы).",
+      "source_url": "https://bostonrussianpages.com/unique-aesthetics-beauty-spa-wiw-3356",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650850+00:00"
+    },
+    {
+      "cluster_key": "brp-9fd1a01cac828174",
+      "display_name": "Vadim Spiegel",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Boston",
+      "address": "Boston, MA",
+      "phones": [
+        "+16176309909"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Индивидуальные и корпоративные налоги. Федеральное и штатное удержания. Месячные, квартальные и годовые отчёты, W2 и 1099. Самые низкие цены. Безупречный сервис. Более 10 лет опыта и отличные отзывы",
+      "description": "Индивидуальные и корпоративные налоги. Федеральное и штатное удержания. Месячные, квартальные и годовые отчёты, W2 и 1099. Самые низкие цены. Безупречный сервис. Более 10 лет опыта и отличные отзывы",
+      "source_url": "https://bostonrussianpages.com/vadim-spiegel-wiw-2998",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650890+00:00"
+    },
+    {
+      "cluster_key": "brp-ddd0fcc5137b0cfa",
+      "display_name": "Village Hair Design by Irina",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "219 Washington St, Brookline, MA, 02445",
+      "phones": [
+        "+16179750174"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Модельные женские и мужские стрижки, highlights, окраска бровей и ресниц маникюр, педикюр, waxing. Делаем свадебные и вечерние прически.",
+      "description": "Модельные женские и мужские стрижки, highlights, окраска бровей и ресниц маникюр, педикюр, waxing. Делаем свадебные и вечерние прически.",
+      "source_url": "https://bostonrussianpages.com/village-hair-design-by-irina-wiw-1216",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650928+00:00"
+    },
+    {
+      "cluster_key": "brp-b7a4610d5ffdf9fa",
+      "display_name": "Vladimir Barin, DC",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Needham",
+      "address": "35 Highland Cir., #303, Needham, MA, 02494",
+      "phones": [
+        "+16177825100"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Доктор - Хиропрактор. Лечение острых и хронических заболеваний позвоночников и суставов.",
+      "description": "Доктор - Хиропрактор. Лечение острых и хронических заболеваний позвоночников и суставов.",
+      "source_url": "https://bostonrussianpages.com/vladimir-barin-dc-wiw-2409",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650957+00:00"
+    },
+    {
+      "cluster_key": "brp-27fc84837de2ff0d",
+      "display_name": "Waban Market",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Waban",
+      "address": "10 Windsor Rd., Waban, MA, 02468",
+      "phones": [
+        "+16173324100"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://wabanmarket.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Если Вы захотели: домашней кухни, бабушкиных пирожков, доброжелательного обслуживания, свежих фруктов и овощей ПРИХОДИТЕ К НАМ! в “Waban Market”. Есть все по доступным для Вас ценам.",
+      "description": "Если Вы захотели: домашней кухни, бабушкиных пирожков, доброжелательного обслуживания, свежих фруктов и овощей ПРИХОДИТЕ К НАМ! в “Waban Market”. Есть все по доступным для Вас ценам.",
+      "source_url": "https://bostonrussianpages.com/waban-market-wiw-1556",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.650996+00:00"
+    },
+    {
+      "cluster_key": "brp-776d5ea1c7beefa7",
+      "display_name": "Watertown Tile",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Watertown",
+      "address": "660 Arsenal Street, Watertown, MA, 02472",
+      "phones": [
+        "+16179267200"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://watertowntile.com",
+        "https://fliphtml5.com/bookcase/ssoav",
+        "https://watertowntile.com/products/glass-tiles"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Watertown Tile - ваш надежный источник для всего, что нужно для ремонта кухни и ванной комнаты. Мы предлагаем широкий выбор плитки и специализируемся на изготовлении столешниц на заказ",
+      "description": "Watertown Tile - ваш надежный источник для всего, что нужно для ремонта кухни и ванной комнаты. Мы предлагаем широкий выбор плитки и специализируемся на изготовлении столешниц на заказ",
+      "source_url": "https://bostonrussianpages.com/watertown-tile-wiw-2423",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.651046+00:00"
+    },
+    {
+      "cluster_key": "brp-62d0232c838dc50f",
+      "display_name": "Weles Wood Floor Services",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Chestnut Hill",
+      "address": "800 Boylston St., Chestnut Hill, MA, 02467",
+      "phones": [
+        "+17609353787"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://weles.us",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Укладка, циклевка, ремонт и восстановление деревянных полов.",
+      "description": "Укладка, циклевка, ремонт и восстановление деревянных полов.",
+      "source_url": "https://bostonrussianpages.com/weles-wood-floor-services-wiw-3344",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.651080+00:00"
+    },
+    {
+      "cluster_key": "brp-559f7ef894097aa8",
+      "display_name": "Western Atlantic Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Chestnut Hill",
+      "address": "1330 Boylston St. 2nd floor, Chestnut Hill, MA, 02467",
+      "phones": [
+        "+16177554484"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://westernatlanticgroup.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Access to many off-market private sales! Expansive knowledge of residential and commercial sales and leasing, property management, and real estate investments.",
+      "description": "Access to many off-market private sales! Expansive knowledge of residential and commercial sales and leasing, property management, and real estate investments.",
+      "source_url": "https://bostonrussianpages.com/western-atlantic-group-wiw-3095",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.651118+00:00"
+    },
+    {
+      "cluster_key": "brp-764a3b5431108443",
+      "display_name": "Yes We Travel, Inc.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "241 Washington St., Brookline, MA, 02445",
+      "phones": [
+        "+16178792644"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://yeswetravel.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Авиабилеты, страховки, визы. Туры и круизы по Европе, Америке, странам Карибского бассейна. Автобусные экскурсии. Программы “Всё включено”.",
+      "description": "Авиабилеты, страховки, визы. Туры и круизы по Европе, Америке, странам Карибского бассейна. Автобусные экскурсии. Программы “Всё включено”.",
+      "source_url": "https://bostonrussianpages.com/yes-we-travel-wiw-2162",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.651159+00:00"
+    },
+    {
+      "cluster_key": "brp-30b924a0a7d263cb",
+      "display_name": "Yuri Shamritsky, DMD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1 Brookline Place, Suite 505, Brookline, MA, 02445",
+      "phones": [
+        "+16177358500"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://nsbendo.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Root canal can save your tooth! Saving your natural teeth - the easiest and best way to preserve your facial aesthetics and dental function. We provide both routine and urgent endodontic care.",
+      "description": "Root canal can save your tooth! Saving your natural teeth - the easiest and best way to preserve your facial aesthetics and dental function. We provide both routine and urgent endodontic care.",
+      "source_url": "https://bostonrussianpages.com/yuri-shamritsky-dmd-wiw-3227",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:41.651192+00:00"
+    },
+    {
+      "cluster_key": "brp-9dfc24f7098e673b",
+      "display_name": "ALD Insurance Agency",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Allston",
+      "address": "60A Brighton Ave., Allston, MA, 02134",
+      "phones": [
+        "+16177877877"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://aldinsurance.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Бесплатное получение автомобильных номеров. В случае аварии берем на себя переговоры со страховыми компаниями и оформление документов. Учитывается стаж вождения в России. Commercial Auto Insurance.",
+      "description": "Бесплатное получение автомобильных номеров. В случае аварии берем на себя переговоры со страховыми компаниями и оформление документов. Учитывается стаж вождения в России. Commercial Auto Insurance.",
+      "source_url": "https://bostonrussianpages.com/ald-insurance-agency-wiw-3238",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.420001+00:00"
+    },
+    {
+      "cluster_key": "brp-40889e984465c56c",
+      "display_name": "Aleks Averbuch, Averbuch Realty",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brighton",
+      "address": "1853 Commonwealth Ave., Brighton, MA, 02135",
+      "phones": [
+        "+16176990416"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://averbuch.com/index_en.html",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Предлагаю помощь в приобретение и продаже недвижимости. Качественно и профессионально проконсультирую Вас во всех вопросах в сфере недвижимости.",
+      "description": "Предлагаю помощь в приобретение и продаже недвижимости. Качественно и профессионально проконсультирую Вас во всех вопросах в сфере недвижимости.",
+      "source_url": "https://bostonrussianpages.com/aleks-averbuch-averbuch-realty-wiw-131",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.420102+00:00"
+    },
+    {
+      "cluster_key": "brp-461c26f78d6cbe29",
+      "display_name": "Art in Stone",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brighton",
+      "address": "164 Chestnut Hill Ave., Brighton, MA, 02135",
+      "phones": [
+        "+16172544999"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://artinstoneboston.com/ru",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Памятники. Выставочный зал с реальными образцами. Изготовление и установка. Низкие цены и скидки пенсионерам. Компания ART IN STONE - это опыт и забота, качество и понимание.",
+      "description": "Памятники. Выставочный зал с реальными образцами. Изготовление и установка. Низкие цены и скидки пенсионерам. Компания ART IN STONE - это опыт и забота, качество и понимание.",
+      "source_url": "https://bostonrussianpages.com/art-in-stone-wiw-802",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.420349+00:00"
+    },
+    {
+      "cluster_key": "brp-b9971591f579e8eb",
+      "display_name": "Belmont Auto Center",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Watertown",
+      "address": "180 Belmont St., Watertown, MA, 02472",
+      "phones": [
+        "+16179243131"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://belmont-autocenter.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонт и обслуживание автомобилей местного и иностранного производства. Factory scheduled maintenance services. Бесплатная доставка автомобиля в мастерскую и домой к клиенту в нашем районе!",
+      "description": "Ремонт и обслуживание автомобилей местного и иностранного производства. Factory scheduled maintenance services. Бесплатная доставка автомобиля в мастерскую и домой к клиенту в нашем районе!",
+      "source_url": "https://bostonrussianpages.com/belmont-auto-center-wiw-3248",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.420465+00:00"
+    },
+    {
+      "cluster_key": "brp-9299cbb2aa73840e",
+      "display_name": "Brighton House",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brighton",
+      "address": "170 Corey Rd, Brighton, MA, 02135",
+      "phones": [
+        "+16177310515"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://brightonrehabhc.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Постгоспитальный уход и реабилитация",
+      "description": "Постгоспитальный уход и реабилитация",
+      "source_url": "https://bostonrussianpages.com/brighton-house-wiw-2189",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.420846+00:00"
+    },
+    {
+      "cluster_key": "brp-4d379af311826003",
+      "display_name": "Central Pharmacy",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Allston",
+      "address": "1349 Commonwealth Ave., Allston, MA, 02134",
+      "phones": [
+        "+16172545900"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Русскоговорящий персонал нашей аптеки всегда готов и рад помочь вам! Мы принимаем все виды страховок. Бесплатная доставка заказов на дом. Большой выбор товаров для диабетиков.",
+      "description": "Русскоговорящий персонал нашей аптеки всегда готов и рад помочь вам! Мы принимаем все виды страховок. Бесплатная доставка заказов на дом. Большой выбор товаров для диабетиков.",
+      "source_url": "https://bostonrussianpages.com/central-pharmacy-wiw-2815",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.421242+00:00"
+    },
+    {
+      "cluster_key": "brp-905c4f37e96e4c1c",
+      "display_name": "Dmitry Frenklakh, New York Life Ins.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Waltham",
+      "address": "201 Jones Rd., 5th fl., Waltham, MA, 02451",
+      "phones": [
+        "+16178236865"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Вам нужен план, чтобы достичь ваших финансовый целей? Возможность максимизации финансового потенциала клиента для реализации его жизненных планов.",
+      "description": "Вам нужен план, чтобы достичь ваших финансовый целей? Возможность максимизации финансового потенциала клиента для реализации его жизненных планов.",
+      "source_url": "https://bostonrussianpages.com/financial-plan-service-wiw-2898",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.421670+00:00"
+    },
+    {
+      "cluster_key": "brp-8ed673202cf667d3",
+      "display_name": "Eurocraft Motosports",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Watertown",
+      "address": "71 Rosedale Rd., Watertown, MA, 02472",
+      "phones": [
+        "+16179246700"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://eurocraftmotors.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонтируем немецкие машины",
+      "description": "Ремонтируем немецкие машины",
+      "source_url": "https://bostonrussianpages.com/eurocraft-motosports-wiw-3294",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.421789+00:00"
+    },
+    {
+      "cluster_key": "brp-907749ff9a7fd2f2",
+      "display_name": "First School of Mathematics",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "1622-A Beacon Street, #304, Brookline, MA, 02446",
+      "phones": [
+        "+16175668744"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://firstschoolofmath.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "The highest results year after year! Уроки математики всех уровней, помощь к сдаче SAT. Уникальная программа, помощь в развитии логики, пространственное мышление.",
+      "description": "The highest results year after year! Уроки математики всех уровней, помощь к сдаче SAT. Уникальная программа, помощь в развитии логики, пространственное мышление.",
+      "source_url": "https://bostonrussianpages.com/first-school-of-mathematics-wiw-669",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.421937+00:00"
+    },
+    {
+      "cluster_key": "brp-4c65c1ae5e173483",
+      "display_name": "Gene Hashkes, William Raveis Real Estate",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "1229 Centre St., Newton, MA, 02459",
+      "phones": [
+        "+16172709040"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "The #1 Choice in Newton, Brookline, Greater Boston Communities & Surrounding Suburbs.",
+      "description": "The #1 Choice in Newton, Brookline, Greater Boston Communities & Surrounding Suburbs.",
+      "source_url": "https://bostonrussianpages.com/gene-hashkes-william-raveis-real-estate-wiw-3107",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.422106+00:00"
+    },
+    {
+      "cluster_key": "brp-4483b64dc9472f6a",
+      "display_name": "ID Roof Corp",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Wellesley",
+      "address": "11 River Street, Suite 202A, Wellesley, MA, 02481",
+      "phones": [
+        "+18576002299"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://roofersnearme-ma.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Новые дома. Пристройки. Крыши. Ремонт. Строительство от А до Я",
+      "description": "Новые дома. Пристройки. Крыши. Ремонт. Строительство от А до Я",
+      "source_url": "https://bostonrussianpages.com/id-roof-corp-wiw-3235",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.422329+00:00"
+    },
+    {
+      "cluster_key": "brp-4863c463c56a06c5",
+      "display_name": "Igor Mironov Construction",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "19 Laurel Ave, Newton, MA, 02453",
+      "phones": [
+        "+16172838915"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "От фундамента до крыши - мы поможем вам - спешите! И снаружи и внутри сделаем все от души! Перепланировка. Дизайн. Все виды ремонтно-строительных работ.",
+      "description": "От фундамента до крыши - мы поможем вам - спешите! И снаружи и внутри сделаем все от души! Перепланировка. Дизайн. Все виды ремонтно-строительных работ.",
+      "source_url": "https://bostonrussianpages.com/igor-mironov-construction-wiw-1461",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.422378+00:00"
+    },
+    {
+      "cluster_key": "brp-5adfb163227ea043",
+      "display_name": "Lawrence DuBuske, Boston Allergy Group",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "50 Union Street, Newton, MA, 02459",
+      "phones": [
+        "+19786328408"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bostonallergygroup.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Бронхиальная астма, сезонная и бытовая аллергия, аллергические заболевания кожи, лечение различных видов крапивницы. Аллергия на кошек и собак. Лекарственная и пищевая аллергия. Дисфункции иммунной",
+      "description": "Бронхиальная астма, сезонная и бытовая аллергия, аллергические заболевания кожи, лечение различных видов крапивницы. Аллергия на кошек и собак. Лекарственная и пищевая аллергия. Дисфункции иммунной",
+      "source_url": "https://bostonrussianpages.com/boston-allergy-group-wiw-3318",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.422893+00:00"
+    },
+    {
+      "cluster_key": "brp-f4581ad60c23a36f",
+      "display_name": "Lexel Moving & Storage",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Waltham",
+      "address": "621 Main St., Suite 4, Waltham, MA, 02452",
+      "phones": [
+        "+18556087755"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://lexelmoving.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Переезд квартир и домов, а также офисные переезжа. Локальные перевозки грузов по всей территории США. Доставка и сборка мебели.",
+      "description": "Переезд квартир и домов, а также офисные переезжа. Локальные перевозки грузов по всей территории США. Доставка и сборка мебели.",
+      "source_url": "https://bostonrussianpages.com/lexel-moving-storage-wiw-2805",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.423251+00:00"
+    },
+    {
+      "cluster_key": "brp-34baa6792b1816d4",
+      "display_name": "Max Morgovsky",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Needham",
+      "address": "160 Gould Street, Suite 212, Needham, MA, 02494",
+      "phones": [
+        "+17814465040"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://diamondpointwealthpartners.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Financial Advisor. Let's plan for your future financial planning, retirement services, cash flow & debt management, insurance & risk management, investment management, education planning.",
+      "description": "Financial Advisor. Let's plan for your future financial planning, retirement services, cash flow & debt management, insurance & risk management, investment management, education planning.",
+      "source_url": "https://bostonrussianpages.com/max-morgovsky-wiw-3339",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.423500+00:00"
+    },
+    {
+      "cluster_key": "brp-cdc5067038d63639",
+      "display_name": "Milana Stavitsky, MD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Wellesley",
+      "address": "422 Worcester St., Suite 302, Wellesley, MA, 02482",
+      "phones": [
+        "+16172459737"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://universal-pediatrics.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Педиатрический офис в Wellesley. Полное медицинское обслуживание детей и подростков до 21 года - 7 дней в неделю. Постоянный контакт с пациентами через e-mail.",
+      "description": "Педиатрический офис в Wellesley. Полное медицинское обслуживание детей и подростков до 21 года - 7 дней в неделю. Постоянный контакт с пациентами через e-mail.",
+      "source_url": "https://bostonrussianpages.com/milana-stavitsky-md-wiw-697",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.423546+00:00"
+    },
+    {
+      "cluster_key": "brp-671e11557309ab71",
+      "display_name": "Nadya Mikhaylova Piano Studio",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "Brookline, MA",
+      "phones": [
+        "+16172996882"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Уроки игры на фортепиано для детей и взрослых. Преподаватель с высшим музыкальным образованием по классу фортепиано. Студенческие концерты.",
+      "description": "Уроки игры на фортепиано для детей и взрослых. Преподаватель с высшим музыкальным образованием по классу фортепиано. Студенческие концерты.",
+      "source_url": "https://bostonrussianpages.com/nadya-mikhaylova-piano-studio-wiw-2857",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.423724+00:00"
+    },
+    {
+      "cluster_key": "brp-0e15f22073d5df8b",
+      "display_name": "Tatyana Malkina-Shtain, Best Choice Ins. Agency",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Allston",
+      "address": "163 Harvard Ave., Suite 14, Allston, MA, 02134",
+      "phones": [
+        "+16177828800"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bestchoiceagency.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды страхования. Страхование машины у нас позволит получить Вам скидку 15% на страховку вашего дома.",
+      "description": "Все виды страхования. Страхование машины у нас позволит получить Вам скидку 15% на страховку вашего дома.",
+      "source_url": "https://bostonrussianpages.com/tatyana-malkina-shtain-best-choice-ins-agency-wiw-2499",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.427361+00:00"
+    },
+    {
+      "cluster_key": "brp-4d05e176095c55cb",
+      "display_name": "Theater On The Roof",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Needham",
+      "address": "50 Kearney Rd., Needham, MA, 02494",
+      "phones": [
+        "+17814444300"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://theaterontheroof.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Камерный бостонский театр с уютной, творческой атмосферой, место, где вы сможете не только посмотреть спектакль, но и обсудить его с друзьями, единомышленниками и артистами театра. В репертуаре спек",
+      "description": "Камерный бостонский театр с уютной, творческой атмосферой, место, где вы сможете не только посмотреть спектакль, но и обсудить его с друзьями, единомышленниками и артистами театра. В репертуаре спек",
+      "source_url": "https://bostonrussianpages.com/theater-on-the-roof-wiw-2941",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.428011+00:00"
+    },
+    {
+      "cluster_key": "brp-e92678a25852f36b",
+      "display_name": "Val Gurvits, Boston Law Group, LLP",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "825 Beacon St., Suite 20, Newton, MA",
+      "phones": [
+        "+16179281804"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Многолетний опыт и безупречная репутация! Оформление корпорации и LLC, покупка/продажа бизнесов. Судебные процессы и опытное ведение переговоров!",
+      "description": "Многолетний опыт и безупречная репутация! Оформление корпорации и LLC, покупка/продажа бизнесов. Судебные процессы и опытное ведение переговоров!",
+      "source_url": "https://bostonrussianpages.com/val-gurvits-boston-law-group-llp-wiw-688",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.428979+00:00"
+    },
+    {
+      "cluster_key": "brp-c903ee56772230af",
+      "display_name": "Yelena Matskevich, William Raveis",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newton",
+      "address": "1229 Centre St., Newton, MA, 02459",
+      "phones": [
+        "+16178237017"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://raveis.com/teammember/yelenamatskevich/7516",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Top Listing Agent & Top Selling Agent. Помогаю продавать и покупать недвижимость в Newton, Brookline and Boston.",
+      "description": "Top Listing Agent & Top Selling Agent. Помогаю продавать и покупать недвижимость в Newton, Brookline and Boston.",
+      "source_url": "https://bostonrussianpages.com/yelena-matskevich-william-raveis-wiw-3297",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.429206+00:00"
+    },
+    {
+      "cluster_key": "brp-0d21ed5690736f1a",
+      "display_name": "Yuriy Lender, DMD, A+ Dentistry",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Brookline",
+      "address": "320 Washington St. 3rd fl., Brookline, MA, 02445",
+      "phones": [
+        "+16172649200"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://aplusdentist.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Забота о пациенте, взаимопонимание, эстетика и комфорт. ОБРАТИТЕ ВНИМАНИЕ - для пациентов старше 65-ти лет и имеющих MassHealth (Medicaid) работает стоматологическая программа, покрывающая большинст",
+      "description": "Забота о пациенте, взаимопонимание, эстетика и комфорт. ОБРАТИТЕ ВНИМАНИЕ - для пациентов старше 65-ти лет и имеющих MassHealth (Medicaid) работает стоматологическая программа, покрывающая большинст",
+      "source_url": "https://bostonrussianpages.com/yuriy-lender-dmd-a-dentistry-wiw-2741",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:42.429444+00:00"
+    },
+    {
+      "cluster_key": "brp-5c68861effc44950",
+      "display_name": "Igor Freyman",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newtonville",
+      "address": "60 Austin St., Suite 210, Newtonville, MA, 02460",
+      "phones": [
+        "+17817935801"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://igorfreymanlaw.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Представляем клиентов в суде по вопросам иммиграции, рабочих виз, решение вопросов депортации, политического убежища, подача апелляции. Семейное право и завещания.",
+      "description": "Представляем клиентов в суде по вопросам иммиграции, рабочих виз, решение вопросов депортации, политического убежища, подача апелляции. Семейное право и завещания.",
+      "source_url": "https://bostonrussianpages.com/igor-freyman-wiw-378",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:43.176673+00:00"
+    },
+    {
+      "cluster_key": "brp-b9f8a2bf69646d00",
+      "display_name": "Alma Mater Studio",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Lexington",
+      "address": "442 Marrett Road, Suite 7, Lexington, MA, 02421",
+      "phones": [
+        "+17813258285"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://almamaterstudio.org",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Alma Mater studio offers French classes for children and adults. Private lessons are available upon request. French classes are taught by a native speaker.",
+      "description": "Alma Mater studio offers French classes for children and adults. Private lessons are available upon request. French classes are taught by a native speaker.",
+      "source_url": "https://bostonrussianpages.com/alma-mater-studio-wiw-2945",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:43.904653+00:00"
+    },
+    {
+      "cluster_key": "brp-f1d16a19e49a4eb1",
+      "display_name": "Global Children School",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Cambridge",
+      "address": "17 Sellers St 1st Floor, Cambridge, MA, 02139",
+      "phones": [
+        "+18883500406"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://globalchildrenschool.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Детский сад для детей от 3 месяцев до 5 лет. Горячая еда и занятия включена в стоимость. STEAM, Музыка, Арт, Ритмика, Гимнастика. Английский, Испанский и Русский языки.",
+      "description": "Детский сад для детей от 3 месяцев до 5 лет. Горячая еда и занятия включена в стоимость. STEAM, Музыка, Арт, Ритмика, Гимнастика. Английский, Испанский и Русский языки.",
+      "source_url": "https://bostonrussianpages.com/global-children-school-wiw-3306",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:43.905533+00:00"
+    },
+    {
+      "cluster_key": "brp-50f3058dec1eb6d2",
+      "display_name": "Law Office of Irina Rubinshtein",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "West Roxbury",
+      "address": "1208 A VFW Pkwy., Suite 206, West Roxbury, MA, 02132",
+      "phones": [
+        "+16173272777"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://irinalaw.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Консультации опытных адвокатов по вопросам уголовного права и трудового законодательства, включая судебную защиту и многое другое - иммиграция, опека и развод.",
+      "description": "Консультации опытных адвокатов по вопросам уголовного права и трудового законодательства, включая судебную защиту и многое другое - иммиграция, опека и развод.",
+      "source_url": "https://bostonrussianpages.com/law-office-of-irina-rubinshtein-wiw-1010",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:43.905743+00:00"
+    },
+    {
+      "cluster_key": "brp-c175fbfad5187f45",
+      "display_name": "Mikhail Shulkin, DDS, Moody St. Dental",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Waltham",
+      "address": "52 Elm St., Waltham, MA, 02453",
+      "phones": [
+        "+17818940889"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://moodystreetdental.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Наш офис предлагает широкий спектр стоматологических услуг, включая dental bridges, crowns, inlays & onlays, dentures, implants, invisalign & tooth whitening",
+      "description": "Наш офис предлагает широкий спектр стоматологических услуг, включая dental bridges, crowns, inlays & onlays, dentures, implants, invisalign & tooth whitening",
+      "source_url": "https://bostonrussianpages.com/mikhail-shulkin-moody-street-dental-wiw-2974",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:45.274754+00:00"
+    },
+    {
+      "cluster_key": "brp-41d9e3b31bdc8922",
+      "display_name": "Peak Vision Care",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Newtonville",
+      "address": "336 Walnut St, Newtonville, MA, 02460",
+      "phones": [
+        "+16179643366"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://theopticalshopbrookline.com",
+        "https://fliphtml5.com/bookcase/ssoav",
+        "https://peakvisioncarema.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Peak Vision Care в Newtonville, MA - офтальмолог и оптика: комплексные проверки зрения, контактные линзы, лечение сухости глаз, детские осмотры и подбор очков.",
+      "description": "Peak Vision Care в Newtonville, MA - офтальмолог и оптика: комплексные проверки зрения, контактные линзы, лечение сухости глаз, детские осмотры и подбор очков.",
+      "source_url": "https://bostonrussianpages.com/peak-vision-care-wiw-2639",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:45.869051+00:00"
+    },
+    {
+      "cluster_key": "brp-d7f764c3b97d3bd8",
+      "display_name": "Ekaterina Shnayder, KZ Law Offices",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Natick",
+      "address": "10 West Central St., Suite 6, Natick, MA, 01760",
+      "phones": [
+        "+17813431606"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://kzlawoffices.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Иммиграция, оформление гринкарт, оформление рабочих виз и продление туристических и рабочих виз. Оформление документов связанных со статусом беженца.",
+      "description": "Иммиграция, оформление гринкарт, оформление рабочих виз и продление туристических и рабочих виз. Оформление документов связанных со статусом беженца.",
+      "source_url": "https://bostonrussianpages.com/ekaterina-shnayder-kz-law-offices-wiw-2828",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:46.526062+00:00"
+    },
+    {
+      "cluster_key": "brp-507d11b4a7c7f146",
+      "display_name": "River Street Collision",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Dedham",
+      "address": "98 River St., Dedham, MA, 02026",
+      "phones": [
+        "+17813576006"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://riverstcollision.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "One Call - Does It All! Кузовные работы. Вытяжка рам по заводским стандартам. Компьютерный подбор цвета для покраски автомобиля. Механические работы, связанные с аварией. Ведение переговоров со стр",
+      "description": "One Call - Does It All! Кузовные работы. Вытяжка рам по заводским стандартам. Компьютерный подбор цвета для покраски автомобиля. Механические работы, связанные с аварией. Ведение переговоров со стр",
+      "source_url": "https://bostonrussianpages.com/river-street-collision-wiw-2144",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:46.526698+00:00"
+    },
+    {
+      "cluster_key": "brp-d015315f393613e4",
+      "display_name": "Romantik Tour",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Westwood",
+      "address": "33 Birch St., Westwood, MA, 02090",
+      "phones": [
+        "+17813200102"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://romantiktourusa.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Татьяна и Дмитрий Кукуновы приглашают вас в путешествия!",
+      "description": "Татьяна и Дмитрий Кукуновы приглашают вас в путешествия!",
+      "source_url": "https://bostonrussianpages.com/romantik-tour-wiw-3256",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:46.526727+00:00"
+    },
+    {
+      "cluster_key": "brp-1ffe8a4942c5fa03",
+      "display_name": "Sveta Granovsky, DMD, Smile Design Dental Team",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Dedham",
+      "address": "347 Washington St., Dedham, MA, 02026",
+      "phones": [
+        "+17813294545"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://smiledesignteam.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Мы предлагаем широкий выбор услуг, основанных на последних достижениях косметической стоматологии.",
+      "description": "Мы предлагаем широкий выбор услуг, основанных на последних достижениях косметической стоматологии.",
+      "source_url": "https://bostonrussianpages.com/sveta-granovsky-dmd-smile-design-dental-team-wiw-2513",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:46.526841+00:00"
+    },
+    {
+      "cluster_key": "brp-617edb65bc515ecc",
+      "display_name": "Tiles Direct",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Norwood",
+      "address": "810 Boston Providence Hwy, Norwood, MA, 02062",
+      "phones": [
+        "+17812695694"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://tilesdirectinc.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "We are a regional importer and distributor of tile and natural stone. We maintain a vast inventory of ceramic, porcelain, glass and natural stone tile and we can custom fabricate natural stone slab",
+      "description": "We are a regional importer and distributor of tile and natural stone. We maintain a vast inventory of ceramic, porcelain, glass and natural stone tile and we can custom fabricate natural stone slab",
+      "source_url": "https://bostonrussianpages.com/tiles-direct-wiw-3272",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:46.526998+00:00"
+    },
+    {
+      "cluster_key": "brp-824899919da3880c",
+      "display_name": "Adagio Salon & Spa",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Natick",
+      "address": "56 E Central St # A, Natick, MA, 01760",
+      "phones": [
+        "+17742173348"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://adagionaticksalon.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Красивая причёска и ухоженный вид придадут вам шарм! Мы предлагаем - женские и мужские стрижки, окрашивание, мелирование (highlights), color melting, Балаяж, стильные укладки и up-do, сolor correcti",
+      "description": "Красивая причёска и ухоженный вид придадут вам шарм! Мы предлагаем - женские и мужские стрижки, окрашивание, мелирование (highlights), color melting, Балаяж, стильные укладки и up-do, сolor correcti",
+      "source_url": "https://bostonrussianpages.com/adagio-salon-and-spa-wiw-3174",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:47.207682+00:00"
+    },
+    {
+      "cluster_key": "brp-a6aae25f8cc591f7",
+      "display_name": "El Tera Hair Studio",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Natick",
+      "address": "56 E Central St, Natick, MA, 01760",
+      "phones": [
+        "+16177339285"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Стрижки, highlights, свадебные и вечерние прически. А также косметические процедуры - чистка, массаж, пилинги, вакс, ресницы.",
+      "description": "Стрижки, highlights, свадебные и вечерние прически. А также косметические процедуры - чистка, массаж, пилинги, вакс, ресницы.",
+      "source_url": "https://bostonrussianpages.com/el-tera-hair-studio-wiw-3060",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:47.207813+00:00"
+    },
+    {
+      "cluster_key": "brp-6cf83e1fd611773f",
+      "display_name": "Kristina Alexopoulos, RN",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Natick",
+      "address": "56 East Central Street, Natick, MA, 01760",
+      "phones": [
+        "+16178491856"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Уколы красоты (лицо и шея) с использованием филлеров на основе гиалуроновой кислоты. Инъекции: Botox, Dysport, Xeomin. Безоперационная подтяжка лица за счёт восстановления коллагенового каркаса кожи",
+      "description": "Уколы красоты (лицо и шея) с использованием филлеров на основе гиалуроновой кислоты. Инъекции: Botox, Dysport, Xeomin. Безоперационная подтяжка лица за счёт восстановления коллагенового каркаса кожи",
+      "source_url": "https://bostonrussianpages.com/kristina-alexopoulos-wiw-3210",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:47.208039+00:00"
+    },
+    {
+      "cluster_key": "brp-ad9020bc2586a5b8",
+      "display_name": "Yuliya M. Fisher-Nayyer",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Natick",
+      "address": "220 North Main Street, Suite 301, Natick, MA, 01760",
+      "phones": [
+        "+15088430750"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fishernayyerlaw.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Адвокат и посредник Юлия М. Фишер-Найер поможет вам с разрешением множественных вопросов по семейному праву. Разрешение семейных вопросов через судебные процессы.",
+      "description": "Адвокат и посредник Юлия М. Фишер-Найер поможет вам с разрешением множественных вопросов по семейному праву. Разрешение семейных вопросов через судебные процессы.",
+      "source_url": "https://bostonrussianpages.com/yuliya-m-fisher-nayyer-wiw-2783",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:47.208657+00:00"
+    },
+    {
+      "cluster_key": "brp-b8d08fdaf3103925",
+      "display_name": "Svetlana Trubetskaya",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Wayland",
+      "address": "Wayland, MA",
+      "phones": [
+        "+15085450626"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Авиабилеты, визы, туры, круизы, трансферы. Price match",
+      "description": "Авиабилеты, визы, туры, круизы, трансферы. Price match",
+      "source_url": "https://bostonrussianpages.com/svetlana-trubetskaya-wiw-3255",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:42:47.881952+00:00"
+    },
+    {
+      "cluster_key": "brp-89a888a6c540c151",
+      "display_name": "Elena Petrov, Keller Williams",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Concord",
+      "address": "59 Walden St, Concord, MA, 01742",
+      "phones": [
+        "+17814758097"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://kwbostonnorthwest.com/agent/elena-petrov",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Более 22 лет я помогаю моим клиентам успешно, быстро и с наименьшим стрессом купить или продать недвижимость.",
+      "description": "Более 22 лет я помогаю моим клиентам успешно, быстро и с наименьшим стрессом купить или продать недвижимость.",
+      "source_url": "https://bostonrussianpages.com/elena-petrov-keller-williams-wiw-3158",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:04.082884+00:00"
+    },
+    {
+      "cluster_key": "brp-31835a160cdf74d5",
+      "display_name": "Fitzgerald Stone & More",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Peabody",
+      "address": "108 Newbury St., Peabody, MA, 01960",
+      "phones": [
+        "+19785045524"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://peabodytile.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "At Fitzgerald Stone & More, the customer is our priority, and the experience is personal. We take great pride in the idea that our customers have chosen and entrusted in us to build their dream kitc",
+      "description": "At Fitzgerald Stone & More, the customer is our priority, and the experience is personal. We take great pride in the idea that our customers have chosen and entrusted in us to build their dream kitc",
+      "source_url": "https://bostonrussianpages.com/fitzgerald-stone-more-wiw-3271",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:05.188640+00:00"
+    },
+    {
+      "cluster_key": "brp-702b818d019053c0",
+      "display_name": "Michael Grossman, MD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "North Andover",
+      "address": "565 Turnpike St., Suite 74, North Andover, MA, 01845",
+      "phones": [
+        "+19786822121"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Нормальная и осложненная беременность и роды, все виды хирургической и консервативной гинекологии, лечение бесплодия.",
+      "description": "Нормальная и осложненная беременность и роды, все виды хирургической и консервативной гинекологии, лечение бесплодия.",
+      "source_url": "https://bostonrussianpages.com/michael-grossman-md-wiw-1740",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:05.188789+00:00"
+    },
+    {
+      "cluster_key": "brp-6bed4da9aca8fa2f",
+      "display_name": "Lina Klebaner",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Lexington",
+      "address": "922 Waltham St., Suite 105, Lexington, MA, 02421",
+      "phones": [
+        "+16177239030"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Юридические и финансовые консультации: составление договоров для корпораций, включая международные. Покупка и продажа бизнесов и недвижимости. Рабочая/бизнес виза, иммиграция.",
+      "description": "Юридические и финансовые консультации: составление договоров для корпораций, включая международные. Покупка и продажа бизнесов и недвижимости. Рабочая/бизнес виза, иммиграция.",
+      "source_url": "https://bostonrussianpages.com/lina-klebaner-wiw-692",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:05.727560+00:00"
+    },
+    {
+      "cluster_key": "brp-09cde4e0c238ab6e",
+      "display_name": "Ashland Driving School",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Ashland",
+      "address": "162b Pond St, Ashland, MA, 01721",
+      "phones": [
+        "+17818520691"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://driving-school-ashland-ma.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Регулярные и индивидуальные уроки вождения для взрослых. Подготовка к тесту по вождению. Организация прохождения теста по вождению.",
+      "description": "Регулярные и индивидуальные уроки вождения для взрослых. Подготовка к тесту по вождению. Организация прохождения теста по вождению.",
+      "source_url": "https://bostonrussianpages.com/ashland-driving-school-wiw-3364",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:06.255533+00:00"
+    },
+    {
+      "cluster_key": "brp-7f4b692424144aae",
+      "display_name": "I-One Inc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Framingham",
+      "address": "1 Debra Lane, Framingham, MA, 01701",
+      "phones": [
+        "+16172795260"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://ionehvac.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Системы отопления и кондиционирования, cолнечные батареи, QIV сертификация. Система скидок и все необходимые лицензии и страховки.",
+      "description": "Системы отопления и кондиционирования, cолнечные батареи, QIV сертификация. Система скидок и все необходимые лицензии и страховки.",
+      "source_url": "https://bostonrussianpages.com/i-one-inc-wiw-1987",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:06.255673+00:00"
+    },
+    {
+      "cluster_key": "brp-6cacda148d03b9ff",
+      "display_name": "Liliya Yanovskaya",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Framingham",
+      "address": "1101 Worcester Rd, Ste 100, Framingham, MA, 01701",
+      "phones": [
+        "+15082021000"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Врач-терапевт с многолетним опытом работы в США принимает пациентов в новом офисе во Framingham",
+      "description": "Врач-терапевт с многолетним опытом работы в США принимает пациентов в новом офисе во Framingham",
+      "source_url": "https://bostonrussianpages.com/liliya-yanovskaya-wiw-3337",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:06.255972+00:00"
+    },
+    {
+      "cluster_key": "brp-1d3b3e140c38c842",
+      "display_name": "Bay State Auto Body",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Stoughton",
+      "address": "1073 Washington St, Stoughton, MA, 02072",
+      "phones": [
+        "+17813444830"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://baystateautobody.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Любые кузовные и механические работы после аварии! Квалифицированные специалисты вернут вашей машине прекрасный вид!",
+      "description": "Любые кузовные и механические работы после аварии! Квалифицированные специалисты вернут вашей машине прекрасный вид!",
+      "source_url": "https://bostonrussianpages.com/bay-state-auto-body-wiw-800",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:07.319177+00:00"
+    },
+    {
+      "cluster_key": "brp-fdb90a628ea5127f",
+      "display_name": "Galaxy Kitchen",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Stoughton",
+      "address": "37 Dykeman Way, Stoughton, MA, 02072",
+      "phones": [
+        "+18502923369"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://galaxykitcheninc.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "We are passioned for design & quality customer service functionality, style & craftsmanship.",
+      "description": "We are passioned for design & quality customer service functionality, style & craftsmanship.",
+      "source_url": "https://bostonrussianpages.com/galaxy-kitchen-wiw-3352",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:07.319232+00:00"
+    },
+    {
+      "cluster_key": "brp-3777702c266b3121",
+      "display_name": "Natalia Semenova",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Stoughton",
+      "address": "Stoughton, MA",
+      "phones": [
+        "+16177555004"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перевод документов и их нотариальное заверение. Консультации по легализации документов для России и стран СНГ. С выездом на дом.",
+      "description": "Перевод документов и их нотариальное заверение. Консультации по легализации документов для России и стран СНГ. С выездом на дом.",
+      "source_url": "https://bostonrussianpages.com/natalia-semenova-wiw-1861",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:07.319273+00:00"
+    },
+    {
+      "cluster_key": "brp-8a3f45a2f6ab0300",
+      "display_name": "Pegasus Trucking & Moving",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Stoughton",
+      "address": "89 Tosca Dr, Stoughton, MA, 02072",
+      "phones": [
+        "+17813445500"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перевозка грузов в любую точку Америки. Наши транспортные услуги: перевозка и доставка грузов от дверей. Мы несем ответственность за груз в течении всего процесса перевозки.",
+      "description": "Перевозка грузов в любую точку Америки. Наши транспортные услуги: перевозка и доставка грузов от дверей. Мы несем ответственность за груз в течении всего процесса перевозки.",
+      "source_url": "https://bostonrussianpages.com/pegasus-trucking-moving-wiw-199",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:07.319314+00:00"
+    },
+    {
+      "cluster_key": "brp-7b3867f0b1e9860b",
+      "display_name": "Az-Book-Ah!",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Billerica",
+      "address": "5 Andover Road, UNIT 1, Billerica, MA, 01821",
+      "phones": [
+        "+19784300057"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://azbookah.com/new",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Русский язык и литературный кружок. Обучение проводится на базе программы для школ России. Программа курса и материалы подобраны в соответствии с возрастом и интересами ребенка.",
+      "description": "Русский язык и литературный кружок. Обучение проводится на базе программы для школ России. Программа курса и материалы подобраны в соответствии с возрастом и интересами ребенка.",
+      "source_url": "https://bostonrussianpages.com/az-book-ah-wiw-3001",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:08.910762+00:00"
+    },
+    {
+      "cluster_key": "brp-11bd8a6b312c0c91",
+      "display_name": "Leo Kharin DMD, FAGD",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Bedford",
+      "address": "41 North Rd., Suite 107, Bedford, MA, 01730",
+      "phones": [
+        "+17812757153"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://bedforddental.io",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Комплексная и косметическая стоматология AIRFLOW - Европейская безболезненная система для чистки зубов и десен INVISALIGN - невидимые элайнеры для выравнивания зубов BOTOX - для косметики и лечения",
+      "description": "Комплексная и косметическая стоматология AIRFLOW - Европейская безболезненная система для чистки зубов и десен INVISALIGN - невидимые элайнеры для выравнивания зубов BOTOX - для косметики и лечения",
+      "source_url": "https://bostonrussianpages.com/leo-kharin-wiw-3333",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:08.910858+00:00"
+    },
+    {
+      "cluster_key": "brp-7e0fe9abe8666bc8",
+      "display_name": "Marina Dvorkin",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Lexington",
+      "address": "238 Bedford Street Unit 2, Lexington, MA, 02420",
+      "phones": [
+        "+13399278403"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://dvorkinlaw.com",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Оформление наследства, составление завещания, семейное право, доверенности. Elder Law & Medicaid Planning, Power of Attorney, Healthcare Proxy",
+      "description": "Оформление наследства, составление завещания, семейное право, доверенности. Elder Law & Medicaid Planning, Power of Attorney, Healthcare Proxy",
+      "source_url": "https://bostonrussianpages.com/marina-dvorkin-wiw-3140",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:08.910935+00:00"
+    },
+    {
+      "cluster_key": "brp-39b0557999037974",
+      "display_name": "Tatyana Shamray, Aphrodite European SPA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "boston_pages",
+      "category_slug": null,
+      "category_guess": null,
+      "city": "Beverly",
+      "address": "100 Cummings Center #124-A, Beverly, MA, 01915",
+      "phones": [
+        "+19783251256"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://mysite.vagaro.com/premiermedspa",
+        "https://fliphtml5.com/bookcase/ssoav"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Огромный спектр услуг с использованием Израильской косметикой HL (Holly Land), Christina, HIKARI и др. Индивидуальный подход, высочайшее качество и огромный опыт гарантируют прекрасный результат.",
+      "description": "Огромный спектр услуг с использованием Израильской косметикой HL (Holly Land), Christina, HIKARI и др. Индивидуальный подход, высочайшее качество и огромный опыт гарантируют прекрасный результат.",
+      "source_url": "https://bostonrussianpages.com/tatyana-shamray-aphrodite-european-spa-wiw-3286",
+      "source_channel": "other",
+      "source_groups": [
+        "Boston Russian Pages"
+      ],
+      "region": "New England",
+      "scraped_at": "2026-07-27T00:43:10.810838+00:00"
+    }
+  ]
+}

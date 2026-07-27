@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-07-26T22:40:15.198404+00:00",
+  "mode": "apply",
+  "scanned_without_address": 328,
+  "filled": 7,
+  "by_source": {
+    "website": 7
+  },
+  "items": [
+    {
+      "id": "a972cd36-7035-4f60-80ce-195dfdbfef52",
+      "slug": "kai-t-234038",
+      "name": "Kai - T",
+      "status": "approved",
+      "source": "website",
+      "patch": {
+        "address_line": "325 Old Newport Blvd"
+      }
+    },
+    {
+      "id": "dfa94381-02bb-434f-9264-a54c20edee85",
+      "slug": "home-for-rent-in-sacramento-205010-f742",
+      "name": "Home for Rent in Sacramento",
+      "status": "approved",
+      "source": "website",
+      "patch": {
+        "address_line": "7174 Predial Way, Sacramento, CA 95842"
+      }
+    },
+    {
+      "id": "7b31be9c-df0b-4e12-b1ef-542a694e8737",
+      "slug": "oksana-moskvitina-234036",
+      "name": "Oksana Moskvitina",
+      "status": "pending",
+      "source": "website",
+      "patch": {
+        "address_line": "15825 Laguna Canyon Rd",
+        "latitude": 33.6645603,
+        "longitude": -117.7640287,
+        "location_precision": "street"
+      }
+    },
+    {
+      "id": "1a9c7456-54af-4760-ba9c-43b51de81dec",
+      "slug": "oksana-moskvitina-234039",
+      "name": "Oksana Moskvitina",
+      "status": "pending",
+      "source": "website",
+      "patch": {
+        "address_line": "3620 S Bristol St",
+        "latitude": 33.7123549,
+        "longitude": -117.8853969,
+        "location_precision": "street"
+      }
+    },
+    {
+      "id": "d25ea40d-2027-43af-ac94-d173b0bdc224",
+      "slug": "ann-kutner-205333-ab15",
+      "name": "Ann Kutner",
+      "status": "approved",
+      "source": "website",
+      "patch": {
+        "address_line": "2460 Sutter Street, San Francisco, CA, 94115-3016"
+      }
+    },
+    {
+      "id": "ae565eb5-e028-47e3-8857-24797388b6ee",
+      "slug": "daria-hovorun-205241-8dc1",
+      "name": "Daria Hovorun",
+      "status": "approved",
+      "source": "website",
+      "patch": {
+        "address_line": "2174 Market St",
+        "latitude": 33.8024707,
+        "longitude": -117.8935849,
+        "location_precision": "street"
+      }
+    },
+    {
+      "id": "6153f29b-b39f-4fe9-860e-e00db00791b5",
+      "slug": "movement-brewing-company-205317-684f",
+      "name": "Movement Brewing Company",
+      "status": "approved",
+      "source": "website",
+      "patch": {
+        "address_line": "11151 Trade Center Drive"
+      }
+    }
+  ]
+}

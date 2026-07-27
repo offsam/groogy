@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-07-27T00:32:10.067234+00:00",
+  "mode": "dry-run",
+  "min_confidence": "high",
+  "scanned": {
+    "businesses": 183,
+    "professionals": 747
+  },
+  "issues": 105,
+  "actionable": 20,
+  "applied": 0,
+  "by_reason": {
+    "person_name_brand_in_description": 52,
+    "person_name_website_brand": 52,
+    "weak_name_no_suggestion": 1
+  },
+  "by_confidence": {
+    "high": 20,
+    "medium": 84,
+    "low": 1
+  },
+  "actionable_sample": [
+    {
+      "entity_type": "business",
+      "id": "050ffffb-427e-40d3-92b5-208db5c22314",
+      "slug": "business-6505204379-204803-4bf1",
+      "from": "Анастасия Войцехова",
+      "to": "по адресу",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Всем привет!\nЯ мастер ногтевого сервиса.\nМеня зовут Анастасия.\nПредоставляю услуги маникюра и педикюра в салоне по адресу\n📍 525 W Remington Dr, Sunnyvale, CA\nРаботаю в комбинированной и аппаратной тех"
+    },
+    {
+      "entity_type": "business",
+      "id": "0d560364-8b6d-4e78-a40d-7881c1b96645",
+      "slug": "alena-petrova-172203",
+      "from": "Alena Petrova Hair",
+      "to": "Hollywood House of Beauty",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Hollywood House of Beauty offers a wide range of beauty services to help you find your perfect look. A licensed master hairdresser, Alyona Petrova, provides expert hair care including various cuts, co"
+    },
+    {
+      "entity_type": "business",
+      "id": "63b695f7-f771-49f8-9f6d-974805a61661",
+      "slug": "asiya-ahmadi-204845-c364",
+      "from": "Asiya Ahmadi",
+      "to": "NeroFix Recovery Clinic",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "🎉 ОТКРЫТИЕ NEROFIX RECOVERY CLINIC 🎉\nДрузья, рады сообщить, что в Citrus Heights открылась новая клиника массажа и восстановления — NeroFix Recovery Clinic!\nЕсли вас беспокоят боли в спине, шее, мышеч"
+    },
+    {
+      "entity_type": "business",
+      "id": "9575b4eb-e0fd-43d1-86f1-b410a7e096f1",
+      "slug": "andreeva-olga-205121-9a94",
+      "from": "Andreeva Olga",
+      "to": "Многие совмещают оба формата",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Всем привет! Меня зовут Ольга — я тренер по йоге в Сакраменто.\nВеду занятия в студии по адресу 6720 Madison Ave и онлайн.\nМногие совмещают оба формата — это удобно и даёт лучший результат.\nСейчас наби"
+    },
+    {
+      "entity_type": "business",
+      "id": "c01f5d37-2b2e-43f3-b667-5757521f6802",
+      "slug": "olga-savitskaya-150607",
+      "from": "Olga Savitskaya",
+      "to": "Dr. Aleksey Stugarev",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Dr. Aleksey Stugarev offers modern implant and cosmetic dentistry, focusing on precision, aesthetics, and long-term results. They specialize in full smile rehabilitation, including All-on-X implants, "
+    },
+    {
+      "entity_type": "business",
+      "id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "slug": "fbpack-art-backyard-design-camp",
+      "from": "Art Backyard",
+      "to": "Interior Design Camp",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Art Backyard · Interior Design Camp\nCategory: Education / Kids Activities\nLocation: 13031 Newport Ave, Tustin, CA\nProgram: Летний кемп по дизайну интерьера\nВозраст: 10–13 лет\nActivities\nСоздание макет"
+    },
+    {
+      "entity_type": "business",
+      "id": "d25ea40d-2027-43af-ac94-d173b0bdc224",
+      "slug": "ann-kutner-205333-ab15",
+      "from": "Ann Kutner",
+      "to": "Our Russian immersion preschool",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "🌞 Наш дошкольный центр погружения в русский язык принимает зачисления. 👉Узнайте о нашей учебной программе, расписании занятий и подходе к обучению детей в возрасте от 2 до 5 лет. Подробнее\n🌞Our Russia"
+    },
+    {
+      "entity_type": "business",
+      "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+      "slug": "nataliya-mishenina-204841-326b",
+      "from": "Nataliya  Mishenina",
+      "to": "Artistry Summer Camp",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Думаете, чем занять ребенка этим летом?\nЛето, полное творчества, игр и развития для вашего ребенка ✨\nПриглашаем детей 5–13 лет в творческий дневной лагерь в Сакраменто 🤩\nArtistry Summer Camp — это про"
+    },
+    {
+      "entity_type": "business",
+      "id": "e9c7aef3-0dc7-4cf4-b864-cdeae3f36fce",
+      "slug": "dustov-dustmuhammad-205024-5014",
+      "from": "Dustov Dustmuhammad",
+      "to": "MoonHalal",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Здравствуйте!\nПриветствуем вас в ресторане MoonHalal! 🌙\n📍 Адрес: 5800 Madison Ave S\nПриглашаем вас попробовать наши вкусные бургеры, сочную шаурму и новые блюда из меню. Мы готовим с душой и будем рад"
+    },
+    {
+      "entity_type": "business",
+      "id": "f1030f62-c39f-4019-be0e-cba489acdb8e",
+      "slug": "enriched-ivan-stypnik",
+      "from": "Ivan Stypnik",
+      "to": "Hair Salon",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Профессиональные мужские и женские стрижки.\nExperience: 10 years\nServices\nМужская стрижка\nУдлиненная мужская стрижка\nЖенская стрижка\nENRICHED_SOURCE\n{\"address\": \"1175 Baker St Ste E19\", \"booking_url\":"
+    },
+    {
+      "entity_type": "professional",
+      "id": "4626ade6-6a4b-4271-9191-f2cf58cfa79e",
+      "slug": "business-7717177777-172212",
+      "from": "Людмила Коста",
+      "to": "Call center",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "🚗 Ищете дешёвую и надёжную автостраховку?\nIzlatop Insurance Agency поможет подобрать для вас лучшую автостраховку по выгодной цене всего за несколько минут.\nМы сотрудничаем с более чем 40 ведущими стр"
+    },
+    {
+      "entity_type": "professional",
+      "id": "53c0381b-d4c0-40e0-b8d3-fd008ab705e3",
+      "slug": "ivan-gant-205422-e414",
+      "from": "Ivan Gant",
+      "to": "Old school",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "друзья! 😎✌🏼#Dj #LA #California #USA\nДобро пожаловать на борт Иван Гант! Dj Ivan Gant 😎🎧🎵\n(House music, hip-hop, pop, Old school songs, 80-х, 90-х)\nМузыка, которую ты любишь) Только топовые плейлисты и"
+    },
+    {
+      "entity_type": "professional",
+      "id": "5a9ed86e-e74f-4c12-91d6-7ac7efcd48ef",
+      "slug": "fbpack-olena-farah",
+      "from": "Olena Farah",
+      "to": "Private Nail Studio",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Olena Farah · Private Nail Studio\nLocation: Los Alamitos, CA\nInstagram: @helena_nails_studio\nCategory: Beauty · Nail Technician / Nail Studio\n\nServices:\n- Russian manicure\n- Russian pedicure\n- Builder"
+    },
+    {
+      "entity_type": "professional",
+      "id": "6760aac5-a2ae-4704-947b-4845e903bc54",
+      "slug": "consolidated-roman-rybin-karaoke",
+      "from": "Roman Rybin",
+      "to": "Chez Nous Cafe",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Karaoke Summer Night · Chez Nous Cafe, Redwood City, CA\nFriday, July 17 · Doors 7:00 PM · Show 8:00–11:30 PM\n\nHost: Roman Rybin, лидер группы «БангладешЪ-Оркестр»\nFormat: караоке-вечеринка — соло, дуэ"
+    },
+    {
+      "entity_type": "professional",
+      "id": "708eed84-4632-4f73-911e-e668d51f1a84",
+      "slug": "fbpack-peter-dudarenko",
+      "from": "Peter Katya Dudarenko",
+      "to": "Home Improvement Company",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Peter Katya Dudarenko · Remodeling / Property Management\nContact: Peter Dudarenko\nPhone: +1 (949) 226-1258\nCategory: Home Services\n\nServices:\n- Полный ремонт домов\n- Обновление жилья\n- Ремонтные проек"
+    },
+    {
+      "entity_type": "professional",
+      "id": "87e2470d-8f8f-4afe-b2f9-77b699d55913",
+      "slug": "fbpack-neptune-seafood",
+      "from": "Neptune Seafood",
+      "to": "Neptun Fish Company",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Выездная продажа морских деликатесов из Аляски.\nSeafood Market · Neptun Fish Company\nEvent: July 25 · San Diego, CA\nProducts\nКрасная икра\nЧёрная икра\nKing Salmon (холодного копчения)\nОсетрина (горячег"
+    },
+    {
+      "entity_type": "professional",
+      "id": "8dfced7f-37da-4965-96d0-b370a48361f9",
+      "slug": "batch2-lidiia-gordienko",
+      "from": "Lidiia Gordienko",
+      "to": "Orange County Shopping trips School",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Premium Taxi / Private Driver · Lidiia Gordienko\nVehicle: Tesla Model Y\nService area: Irvine, Mission Viejo, Orange County\nServices\nТрансфер в аэропорт\nПоездки по Orange County\nShopping trips\nSchool t"
+    },
+    {
+      "entity_type": "professional",
+      "id": "aa91af4f-fe0e-4f23-a3ee-f879a82f6f2a",
+      "slug": "alex-wins-204844-70d8",
+      "from": "Alex Wins",
+      "to": "Aqua Nova Swimming School",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "У вас есть свой бассейн дома, но ребенок все еще не умеет уверенно плавать? Мы приедем к вам и научим ребенка плавать прямо в вашем бассейне!\n\nAqua Nova Swimming School открывает сезон мобильных уроко"
+    },
+    {
+      "entity_type": "professional",
+      "id": "d1c5279d-e609-48bf-91d5-bc6bc297a40e",
+      "slug": "business-9492432736-190801",
+      "from": "Анна Гурина",
+      "to": "professional SPA",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Endospheres massage is the perfect gift for beauty and health, offering a professional SPA procedure on advanced equipment. This treatment provides visible results through body contouring, cellulite r"
+    },
+    {
+      "entity_type": "professional",
+      "id": "d507ecd0-55b3-4fab-83fe-c8a332e0fc05",
+      "slug": "nazgul-nurlan-181522-8750",
+      "from": "Nazgul Nurlan",
+      "to": "This business",
+      "reason": "person_name_brand_in_description",
+      "confidence": "high",
+      "preview": "This business offers beautifully crafted gift boxes, ideal for Iftar and Eid Mubarak celebrations. They specialize in exquisite dates enrobed in rich Belgian chocolate, perfect for any occasion. These"
+    }
+  ],
+  "no_suggestion": [
+    {
+      "entity_type": "professional",
+      "id": "bb0cda9b-8d4b-4bd7-8a67-d8c40366e40f",
+      "slug": "beauty-salon-181011",
+      "from": "Новый beauty salon",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резидентов — скидка $100 на первый месяц аренды. Парикмахерское к"
+    }
+  ]
+}

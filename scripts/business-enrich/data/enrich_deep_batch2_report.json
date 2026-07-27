@@ -1,0 +1,226 @@
+[
+  {
+    "slug": "ida-seidova-150707",
+    "status": "ok",
+    "from": "Ida Seidova",
+    "to": "Skinovation Clinic",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "google_maps_url",
+      "google_rating",
+      "google_reviews_count",
+      "instagram_url",
+      "latitude",
+      "longitude",
+      "name",
+      "opening_hours",
+      "phone",
+      "region",
+      "short_description",
+      "state_code"
+    ]
+  },
+  {
+    "slug": "fbpack-elizabeth-azamatov-oc-dance-fit",
+    "status": "ok",
+    "from": "OC Dance Fit — Elizabeth Azamatov",
+    "to": "OC Dance Fit — Elizabeth Azamatov",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "google_maps_url",
+      "latitude",
+      "longitude",
+      "region",
+      "short_description",
+      "state_code"
+    ]
+  },
+  {
+    "slug": "oksana-150709",
+    "status": "ok",
+    "from": "Oksana",
+    "to": "STAIR Academy",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "email",
+      "google_maps_url",
+      "google_rating",
+      "google_reviews_count",
+      "latitude",
+      "longitude",
+      "name",
+      "phone",
+      "region",
+      "short_description",
+      "state_code",
+      "website"
+    ]
+  },
+  {
+    "slug": "bearchildrensacademyorg-031831",
+    "status": "ok",
+    "from": "bearchildrensacademy.org",
+    "to": "B.E.A.R. Children's Academy",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "email",
+      "google_maps_url",
+      "google_rating",
+      "google_reviews_count",
+      "latitude",
+      "longitude",
+      "name",
+      "phone",
+      "region",
+      "short_description",
+      "state_code",
+      "website"
+    ]
+  },
+  {
+    "slug": "ma-150705",
+    "status": "ok",
+    "from": "MA",
+    "to": "Orange County Acting Academy",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "google_maps_url",
+      "google_rating",
+      "google_reviews_count",
+      "instagram_url",
+      "latitude",
+      "longitude",
+      "name",
+      "phone",
+      "region",
+      "short_description",
+      "state_code",
+      "website",
+      "yelp_url"
+    ]
+  },
+  {
+    "slug": "surprise-meballoons-150639",
+    "status": "ok",
+    "from": "surprise_me.balloons",
+    "to": "Surprise Me Balloon Bar",
+    "keys": [
+      "city",
+      "description",
+      "instagram_url",
+      "name",
+      "opening_hours",
+      "region",
+      "short_description",
+      "state_code"
+    ]
+  },
+  {
+    "slug": "fedor-tsvang-234035",
+    "status": "ok",
+    "from": "Fedor Tsvang",
+    "to": "Smile Kids Party (Tsvang Co)",
+    "keys": [
+      "city",
+      "description",
+      "instagram_url",
+      "name",
+      "opening_hours",
+      "region",
+      "short_description",
+      "state_code"
+    ]
+  },
+  {
+    "slug": "fb-post-26-tutowl-com-online-school",
+    "status": "ok",
+    "from": "Tutowl.com Online School",
+    "to": "TutOwl Online School",
+    "keys": [
+      "city",
+      "description",
+      "name",
+      "region",
+      "short_description",
+      "state_code",
+      "website"
+    ]
+  },
+  {
+    "slug": "телефон-032106",
+    "status": "ok",
+    "from": "Телефон",
+    "to": "AVELOREA Fine Jewelry",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "google_maps_url",
+      "latitude",
+      "longitude",
+      "name",
+      "region",
+      "short_description",
+      "state_code"
+    ]
+  },
+  {
+    "slug": "fbpack-sunrise-education-center",
+    "status": "ok",
+    "from": "Sunrise Education Center",
+    "to": "Sunrise Education Center",
+    "keys": [
+      "address_line",
+      "city",
+      "description",
+      "region",
+      "short_description",
+      "state_code"
+    ]
+  },
+  {
+    "slug": "fbpack-niargomsk-igra-v-glinu",
+    "status": "ok",
+    "from": "Игра в глину (Niargomsk)",
+    "to": "Наталья Яргомская (Niargomsk)",
+    "keys": [
+      "description",
+      "name",
+      "short_description"
+    ]
+  },
+  {
+    "slug": "oksana-150709",
+    "offers": "offers_ok:5"
+  },
+  {
+    "slug": "bearchildrensacademyorg-031831",
+    "offers": "offers_ok:2"
+  },
+  {
+    "slug": "fedor-tsvang-234035",
+    "offers": "offers_exist:1"
+  },
+  {
+    "slug": "ida-seidova-150707",
+    "offers": "offers_ok:5"
+  },
+  {
+    "slug": "surprise-meballoons-150639",
+    "offers": "offers_ok:3"
+  },
+  {
+    "slug": "телефон-032106",
+    "offers": "offers_ok:4"
+  }
+]

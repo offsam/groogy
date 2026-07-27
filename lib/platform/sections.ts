@@ -1,19 +1,27 @@
 /**
- * Five platform sections on the home page (not business categories).
- * Business categories (restaurants, beauty, …) live only on /search.
+ * Nine platform hubs on the home page (not business leaf categories).
+ * Leaf categories (restaurants, beauty, …) live under /search.
  */
 
 export type PlatformSectionKey =
   | "businesses"
+  | "professionals"
   | "marketplace"
-  | "services"
+  | "jobs"
+  | "real_estate"
+  | "events"
+  | "vehicles"
   | "lechu"
   | "transfers";
 
 export type PlatformSectionPin =
   | "businesses"
+  | "professionals"
   | "listings"
-  | "services"
+  | "jobs"
+  | "real_estate"
+  | "events"
+  | "auto"
   | "lechu"
   | "transfers";
 
@@ -40,8 +48,18 @@ export const PLATFORM_SECTIONS: readonly PlatformSection[] = [
     unitMany: "компаний",
   },
   {
+    key: "professionals",
+    title: "Специалисты",
+    href: "/professionals",
+    pin: "professionals",
+    hint: "мастера и профи",
+    unitOne: "специалист",
+    unitFew: "специалиста",
+    unitMany: "специалистов",
+  },
+  {
     key: "marketplace",
-    title: "Marketplace",
+    title: "Купи-продай",
     href: "/marketplace",
     pin: "listings",
     hint: "товары и объявления",
@@ -50,14 +68,44 @@ export const PLATFORM_SECTIONS: readonly PlatformSection[] = [
     unitMany: "объявлений",
   },
   {
-    key: "services",
-    title: "Услуги",
-    href: "/services",
-    pin: "services",
-    hint: "мастера и сервисы",
-    unitOne: "услуга",
-    unitFew: "услуги",
-    unitMany: "услуг",
+    key: "jobs",
+    title: "Работа",
+    href: "/jobs",
+    pin: "jobs",
+    hint: "вакансии и поиск работы",
+    unitOne: "вакансия",
+    unitFew: "вакансии",
+    unitMany: "вакансий",
+  },
+  {
+    key: "real_estate",
+    title: "Недвижимость",
+    href: "/real-estate",
+    pin: "real_estate",
+    hint: "аренда и продажа",
+    unitOne: "объект",
+    unitFew: "объекта",
+    unitMany: "объектов",
+  },
+  {
+    key: "events",
+    title: "События",
+    href: "/events",
+    pin: "events",
+    hint: "встречи и мероприятия",
+    unitOne: "событие",
+    unitFew: "события",
+    unitMany: "событий",
+  },
+  {
+    key: "vehicles",
+    title: "Авто",
+    href: "/vehicles",
+    pin: "auto",
+    hint: "машины и транспорт",
+    unitOne: "объявление",
+    unitFew: "объявления",
+    unitMany: "объявлений",
   },
   {
     key: "lechu",
@@ -86,8 +134,12 @@ export type PlatformSectionCounts = Record<PlatformSectionKey, number>;
 export function emptyPlatformSectionCounts(): PlatformSectionCounts {
   return {
     businesses: 0,
+    professionals: 0,
     marketplace: 0,
-    services: 0,
+    jobs: 0,
+    real_estate: 0,
+    events: 0,
+    vehicles: 0,
     lechu: 0,
     transfers: 0,
   };

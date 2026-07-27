@@ -1,0 +1,712 @@
+{
+  "desc_fills": [
+    {
+      "id": "f535c259-63ae-4cfe-a0d9-a8f84e3e1cde",
+      "slug": "23peony-150632",
+      "name": "23peony",
+      "patch": {
+        "website": "https://www.in"
+      },
+      "sources": {
+        "website": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "slug": "business-biz-181521-6c6a",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "patch": {
+        "phone": "+18135793725"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "a0e13959-8064-45bd-b809-f5842fefb340",
+      "slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "patch": {
+        "phone": "+18406220259"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "0007100c-7fa5-43dd-9fc0-b9365754a71f",
+      "slug": "al-autoservices-181112-85de",
+      "name": "Al · auto_services",
+      "patch": {
+        "address_line": "1617 Superior Ave"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Costa Mesa",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "2d592b4a-ca90-4b19-853f-e327a1c8545f",
+      "slug": "alena-181533-6d9d",
+      "name": "Alena",
+      "patch": {
+        "phone": "+16609987595"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "c23730c4-d649-4707-9cdc-009c5cc7059c",
+      "slug": "consolidated-amega-studios",
+      "name": "Amega Studios",
+      "patch": {
+        "email": "castyoutube@gmail.com"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Westlake Village",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "2f7243ba-9b74-4cbd-9859-9bb120663d79",
+      "slug": "andrei-tarzan-234040",
+      "name": "Andrei Tarzan",
+      "patch": {
+        "instagram_url": "andrei_hawaii"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "3b9ee24c-9b68-4ca6-8f69-497bca9bce83",
+      "slug": "angelina-181531-2d6e",
+      "name": "Angelina",
+      "patch": {
+        "phone": "+16727605660"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "e8d6864d-e7d6-4dd7-9795-1f43ea2f6f1c",
+      "slug": "anna-ahmatova-181529-484c",
+      "name": "Anna Ahmatova",
+      "patch": {
+        "phone": "+18216240627"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "13b50b34-e99c-4eca-b633-73a874484c90",
+      "slug": "batch2-anna-esthetician",
+      "name": "Anna Esthetician",
+      "patch": {
+        "instagram_url": "elegant_beauty_by_anna"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Huntington Beach",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "slug": "dr-modarres-150637",
+      "name": "dr__modarres",
+      "patch": {
+        "address_line": "200 Newport Center Drive"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "be657f6e-bb78-4a9b-aa7e-126cdd354f06",
+      "slug": "fbpack-evokify",
+      "name": "EVOKIFY",
+      "patch": {
+        "instagram_url": "evokifyhr"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Orange County",
+      "has_coords": true,
+      "cur_addr": null
+    },
+    {
+      "id": "450d081c-3819-42d5-a7cb-7770e6af66cb",
+      "slug": "golden-star-181527-d6c5",
+      "name": "Golden star ️",
+      "patch": {
+        "phone": "+18377768083"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "a37350f7-5ca7-44ed-bcbc-ad32a58a4507",
+      "slug": "hairdreams-by-galinakirbaba-150633",
+      "name": "hairdreams__by_galinakirbaba",
+      "patch": {
+        "website": "https://www.i"
+      },
+      "sources": {
+        "website": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "3bfbebd8-e757-41e4-ae58-87dc840377cf",
+      "slug": "instagramcom-180917",
+      "name": "instagram.com",
+      "patch": {
+        "instagram_url": "marinataemi"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "7400aa21-f702-4d66-9a0f-ca6a7fa00e9e",
+      "slug": "fbpack-ira-body-sculpting-studio",
+      "name": "Ira Body Sculpting Studio",
+      "patch": {
+        "instagram_url": "bodysculpting_by_ira"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Laguna Niguel",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "1246a05c-f4bb-46c3-ac80-6042bebe99ec",
+      "slug": "karimi-181541-2885",
+      "name": "Karimi",
+      "patch": {
+        "phone": "+17414841257"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "6bd41d68-1c9a-4bcf-ae14-a2bad144870f",
+      "slug": "lana-cher-181512-6cf0",
+      "name": "Lana Cher",
+      "patch": {
+        "address_line": "56 Essex Ln"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Irvine",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "80cbe60c-48c4-4c28-a2ad-5b7c04aca961",
+      "slug": "leyla-kamila-181525-4bd9",
+      "name": "Leyla Kamila",
+      "patch": {
+        "phone": "+17993092912"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Lake Forest",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "slug": "liubov-smetanina-181524-a3ca",
+      "name": "Liubov Smetanina",
+      "patch": {
+        "phone": "+15152114058"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "e50ae4fe-a765-4b70-bae2-3afcd9821cbe",
+      "slug": "fbpack-liudmyla-muzyra-house-repair",
+      "name": "Liudmyla Muzyra House Repair",
+      "patch": {
+        "phone": "+19495105266"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": null,
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "989bd6c6-1050-44b6-9b55-cd229e7d1b89",
+      "slug": "consolidated-narek-mega-motors-la",
+      "name": "Narek Mega Motors Los Angeles",
+      "patch": {
+        "instagram_url": "narek.megamotorsla"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Los Angeles",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "ccfacc71-9af1-42da-9d56-ece0c8c175a6",
+      "slug": "nazgul-nurlan-181522-8750",
+      "name": "Nazgul Nurlan",
+      "patch": {
+        "phone": "+17427356867"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "fbe0d02e-fd22-4045-834e-2fa8c89208a7",
+      "slug": "oktel-181534-5dfb",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "patch": {
+        "phone": "+18046890256"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "c3ece1cd-0e17-4cbb-b887-dbd14023319e",
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "name": "Olga Loginova, Lifespringhomeopathy.com",
+      "patch": {
+        "phone": "+17377749934"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "d1af07a6-040f-4885-963c-1cdfafcaa7e3",
+      "slug": "roman-181510-ec0e",
+      "name": "Roman",
+      "patch": {
+        "phone": "+17692997198"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "a97769a2-747a-4a40-8263-c32869433c35",
+      "slug": "consolidated-roman-rybin-karaoke",
+      "name": "Roman Rybin",
+      "patch": {
+        "email": "bangladesh.orkestr@gmail.com"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Redwood City",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "e3502be1-47bd-4469-8ad1-818bb76d7c60",
+      "slug": "rusoccom-190759",
+      "name": "rusoc.com",
+      "patch": {
+        "email": "russianschool@rusoc.com"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "0ad2b0cf-1d98-45f6-9ad7-5d819c38610f",
+      "slug": "consolidated-stephen-law-pc",
+      "name": "Stephen Law PC",
+      "patch": {
+        "email": "stephenlawpc@gmail.com"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Sacramento",
+      "has_coords": true,
+      "cur_addr": "2233 Watt Ave Ste 295, Sacramento, CA 95825"
+    },
+    {
+      "id": "f8a94255-6b7b-4048-be0f-b7f31be54925",
+      "slug": "taya-181519-b6e4",
+      "name": "Taya",
+      "patch": {
+        "phone": "+16169948569"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "519b933e-49fd-4c37-b97a-eea8941cf319",
+      "slug": "taya-181520-438f",
+      "name": "Taya",
+      "patch": {
+        "phone": "+16169948569"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "f33b0d87-5883-47ee-91bc-e2c478cbb41e",
+      "slug": "united-states-beauty-studio-180905",
+      "name": "United States Beauty studio",
+      "patch": {
+        "address_line": "230 E 17th St Ste 150"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Costa Mesa",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "slug": "business-5622520607-190801",
+      "name": "Unity Adult Day Health Care",
+      "patch": {
+        "email": "unityadhc@gmail.com"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Long Beach",
+      "has_coords": true,
+      "cur_addr": "3833 Atlantic Ave"
+    },
+    {
+      "id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "slug": "us-drive-services-181542-a6e1",
+      "name": "US Drive Services",
+      "patch": {
+        "phone": "+18546075872"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "slug": "consolidated-valeriia-andriushchenko",
+      "name": "Valeriia Andriushchenko",
+      "patch": {
+        "email": "agentvaleriia@gmail.com"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Orange County",
+      "has_coords": true,
+      "cur_addr": null
+    },
+    {
+      "id": "bce6b28c-a611-4a73-ab7a-eb34028597fe",
+      "slug": "business-biz-181539-36b0",
+      "name": "Алла",
+      "patch": {
+        "phone": "+16546923739"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "ef210492-2672-4785-ac75-8617d8738147",
+      "slug": "business-3478894784-172211",
+      "name": "Артём",
+      "patch": {
+        "instagram_url": "socalautobroker_"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "3e73fc2b-bfde-4794-abd1-4ecfe24e5fed",
+      "slug": "business-biz-181526-ebad",
+      "name": "Валентина",
+      "patch": {
+        "phone": "+18233149944"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb",
+      "slug": "business-biz-181515-e787",
+      "name": "Вячеслав",
+      "patch": {
+        "phone": "+18785039958"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "fff003d8-27aa-491e-b437-7cdb0c191cc4",
+      "slug": "денис-шульга-031833",
+      "name": "Денис Шульга",
+      "patch": {
+        "email": "dshulga@vistatax.us"
+      },
+      "sources": {
+        "email": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "8c200bb4-c4b0-4d9b-93b0-23de5e139a0e",
+      "slug": "business-biz-181509-88e4",
+      "name": "Оксана",
+      "patch": {
+        "address_line": "151 Calmus Dr"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "d071cbcb-296a-40a0-a5ff-4800af5be3a1",
+      "slug": "business-7543646222-171945",
+      "name": "репетитор англ",
+      "patch": {
+        "instagram_url": "red.cat_events"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "236c94aa-5717-4285-8521-27aa97b2307b",
+      "slug": "batch2-sergei-anischenko",
+      "name": "Сергей Анищенко",
+      "patch": {
+        "instagram_url": "povar_anischenko"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Los Angeles",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "50bb9088-f79b-4b8f-a542-2e4bcc8d8a2e",
+      "slug": "business-biz-181531-70e3",
+      "name": "Татьяна",
+      "patch": {
+        "phone": "+18337467222"
+      },
+      "sources": {
+        "phone": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "e2e4bc92-f3c4-4072-b141-4dcda83f1dc7",
+      "slug": "business-biz-181517-806a",
+      "name": "Татьяна",
+      "patch": {
+        "address_line": "13662 Newport Ave"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Orange",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "289ca8f8-6061-4dae-9ff3-a48477ad80a1",
+      "slug": "private-studio-181516-6fe2",
+      "name": "Уютная private studio",
+      "patch": {
+        "address_line": "13662 Newport Ave"
+      },
+      "sources": {
+        "address_line": "description"
+      },
+      "city": "Tustin",
+      "has_coords": false,
+      "cur_addr": null
+    },
+    {
+      "id": "2448e0b6-f344-4c0d-b3b5-b89b8c4d1cfa",
+      "slug": "business-7477881260-172151",
+      "name": "Яночка✨",
+      "patch": {
+        "instagram_url": "lashes_yana"
+      },
+      "sources": {
+        "instagram_url": "description"
+      },
+      "city": "Orange County",
+      "has_coords": false,
+      "cur_addr": null
+    }
+  ],
+  "desc_applied": 47,
+  "geo_report": [
+    {
+      "slug": "al-autoservices-181112-85de",
+      "ok": true,
+      "lat": 33.6330524,
+      "lng": -117.9270572,
+      "addr": "1617 Superior Ave"
+    },
+    {
+      "slug": "dr-modarres-150637",
+      "ok": true,
+      "lat": 33.6123788,
+      "lng": -117.8744473,
+      "addr": "200 Newport Center Drive"
+    },
+    {
+      "slug": "lana-cher-181512-6cf0",
+      "ok": true,
+      "lat": 33.7289625,
+      "lng": -117.7555623,
+      "addr": "56 Essex Ln"
+    },
+    {
+      "slug": "united-states-beauty-studio-180905",
+      "ok": false,
+      "addr": "230 E 17th St Ste 150"
+    },
+    {
+      "slug": "business-biz-181509-88e4",
+      "ok": false,
+      "addr": "151 Calmus Dr"
+    },
+    {
+      "slug": "business-biz-181517-806a",
+      "ok": true,
+      "lat": 33.741815,
+      "lng": -117.8182982,
+      "addr": "13662 Newport Ave"
+    },
+    {
+      "slug": "private-studio-181516-6fe2",
+      "ok": true,
+      "lat": 33.7418485,
+      "lng": -117.8182604,
+      "addr": "13662 Newport Ave"
+    }
+  ],
+  "geo_ok": 5,
+  "geo_fail": 2
+}

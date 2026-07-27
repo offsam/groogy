@@ -1,0 +1,162 @@
+[
+  {
+    "business_id": "5a35eed1-91f3-4f1c-8d03-a7bf53fc1937",
+    "business_slug": "fb-post-4-katrin-svt-nail-services",
+    "professional_slug": "katrin-svt-nail-services",
+    "display_name": "Katrin Svt - Nail Services",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "68a897cc-c01b-4df6-90b0-b3407bcff99c",
+    "business_slug": "fb-post-6-arazu-alieva-english-teacher",
+    "professional_slug": "arazu-alieva-english-teacher",
+    "display_name": "Arazu Alieva - English Teacher",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "19a5a2f3-dd5b-4f01-aae4-39cd2c0bb109",
+    "business_slug": "consolidated-olga-osipova-fitness",
+    "professional_slug": "olga-osipova-fitness",
+    "display_name": "Olga Osipova Fitness",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "94fd94b7-5755-40ab-84b0-04915bd8760d",
+    "business_slug": "consolidated-inna-meleshko-nails",
+    "professional_slug": "inna-meleshko",
+    "display_name": "Inna Meleshko",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "31d52ff6-65db-4f40-9743-186ec0337bc6",
+    "business_slug": "consolidated-anastasia-kinder-nails",
+    "professional_slug": "anastasia-kinder-russian-manicure-pedicure",
+    "display_name": "Anastasia Kinder — Russian Manicure / Pedicure",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "29a04125-1597-41ae-8f7f-303110499c7c",
+    "business_slug": "batch2-sbshealth-los-angeles-step-by-step-la",
+    "professional_slug": "sbshealth-los-angeles-step-by-step-la",
+    "display_name": "SBSHealth Los Angeles / Step by Step LA",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "abe76145-1358-45d0-a56e-0f397d7afd2a",
+    "business_slug": "batch2-enna-eskin",
+    "professional_slug": "enna-eskin",
+    "display_name": "Enna Eskin",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "d74b4a09-0474-4026-9047-0311ea4bb937",
+    "business_slug": "batch2-evgeniia-shtefan",
+    "professional_slug": "evgeniia-shtefan",
+    "display_name": "Evgeniia Shtefan",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "be657f6e-bb78-4a9b-aa7e-126cdd354f06",
+    "business_slug": "fbpack-evokify",
+    "professional_slug": "evokify",
+    "display_name": "EVOKIFY",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "d018160e-fafd-42a6-95b8-e0a75bdb3bf2",
+    "business_slug": "fbpack-ira-azovtseva",
+    "professional_slug": "ira-azovtseva",
+    "display_name": "Ira Azovtseva",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "c1eec3db-9027-43c1-bf24-a60c2696b709",
+    "business_slug": "fbpack-oksana-spasiuk-photography",
+    "professional_slug": "oksana-spasiuk",
+    "display_name": "Oksana Spasiuk",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "daa06a40-8047-43a1-94d1-f96c59c2ff28",
+    "business_slug": "fbpack-olena-farah",
+    "professional_slug": "olena-farah",
+    "display_name": "Olena Farah",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "65cba511-8967-4021-b803-f3cfc76e7378",
+    "business_slug": "fbpack-elmira-sibagatova-beauty-room-rental",
+    "professional_slug": "elmira-sibagatova-beauty-room-rental",
+    "display_name": "Elmira Sibagatova — Beauty Room Rental",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "d22c7762-bdb2-452d-810a-88d5ca8685b0",
+    "business_slug": "fbpack-anastasiia-razgulova-sugaring-nastena",
+    "professional_slug": "sugaring-nastena",
+    "display_name": "Sugaring Nastena",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "b1c28b22-4f5e-4db4-9e42-ab0bc1ed05a3",
+    "business_slug": "fbpack-vladimir-way-psychiatry",
+    "professional_slug": "vladimir-way",
+    "display_name": "Vladimir Way",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "61fe8087-3fb3-4409-89f8-6162fb97ecdc",
+    "business_slug": "fbpack-marine-licensed-cosmetologist",
+    "professional_slug": "-licensed-cosmetologist",
+    "display_name": "Марине — Licensed Cosmetologist",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "d04c16dc-5f43-47a7-a624-88d765418e2e",
+    "business_slug": "fbpack-niargomsk-igra-v-glinu",
+    "professional_slug": "--niargomsk",
+    "display_name": "Наталья Яргомская (Niargomsk)",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "c73baec0-dcd0-4c7a-b0bc-835a4c38f90a",
+    "business_slug": "fbpack-anastasia-pedicure-oc",
+    "professional_slug": "anastasia-pedicure-oc",
+    "display_name": "Anastasia Pedicure OC",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "9f2cf2f5-35a5-436f-abbe-0df7632ea7b5",
+    "business_slug": "fbpack-ok-daisy-corona-del-mar",
+    "professional_slug": "ok-daisy",
+    "display_name": "OK Daisy",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  },
+  {
+    "business_id": "37baee5f-f4f0-489c-bf6f-7f3e1fe0313b",
+    "business_slug": "fbpack-maryna-nails",
+    "professional_slug": "maryna-nails",
+    "display_name": "Maryna Nails",
+    "reason": "specialist_keywords_no_address",
+    "status": "dry_run"
+  }
+]

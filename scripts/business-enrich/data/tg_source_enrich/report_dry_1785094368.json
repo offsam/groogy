@@ -1,0 +1,82 @@
+{
+  "mode": "dry-run",
+  "limit": 3,
+  "offset": 0,
+  "candidates": 3,
+  "results": [
+    {
+      "id": "a61cab79-d21c-42cb-84bf-9b2498853308",
+      "slug": "милана-приглашаю-вас-150608",
+      "name": "Милана Приглашаю вас",
+      "source_url": "https://t.me/c/1333533747/72819",
+      "ocr_model": null,
+      "extracted": {
+        "phone": "+16578772661",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Дорогие дамы🌸 \nМеня зовут Милана\nПриглашаю вас на процедуру:\nНаращивание ресниц 🧚🏻‍♀️\nЛаминирование ресниц и бровей 🧚🏻\nМатериалы премиум качества ✨\nЗапускаю АКЦИЮ🔥\nНаращивание ресниц 5️⃣0️⃣$\nЛаминирование ресниц + бровей 5️⃣0️⃣$\nПринимаю на дому , Irvine 📍\n📞"
+      },
+      "caption_len": 275,
+      "has_media": true,
+      "status": "dry_run"
+    },
+    {
+      "id": "ab4e00ca-ef8b-442b-8a5e-33fef62e105f",
+      "slug": "inna-172218",
+      "name": "Бесплатная офисная комната (Encino)",
+      "source_url": "https://t.me/c/1955320601/250258",
+      "extracted": {
+        "phone": "+18186353501",
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Условие в обмен : быть в офисе пн–пт, с 9:00 до 17:00 и заниматься своими делами.",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 462,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "08f1c63c-4bc3-4f0d-bfe5-2c9e8eff1fa0",
+      "slug": "hair-extension-usa-150631",
+      "name": "hair_extension_usa",
+      "source_url": "https://t.me/c/1333533747/75838",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/hair_extension_usa",
+        "website": "https://book.squareup.com/appointments/rs9n1t8d3ug3cu/location/L6QVRQQX024AS/services?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaATCgFRwZG9mAmV4dG4DYWVtATEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGn6euoeasPBecDUzDIUcbQqO9hLAZnI9-8Hl4l9o2pk7348zlD9BEz3dYoaq8_aem_MP5JN_LpPkPbhiO7DBlLzQ",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Всем привет )) \nЯ переехала в новый уютный кабинет в Irvine! 🤍\n\nВ честь этого действует специальная скидка\n\n✨ Маникюр + Педикюр = 140 $ \n\nБуду рада видеть как новых, так и постоянных клиентов в новом красивом пространстве. 💕\n\n📍Irvine, CA\n\nЗаписывайтесь в Direct или по ссылке"
+      },
+      "caption_len": 676,
+      "has_media": true,
+      "status": "dry_run"
+    }
+  ],
+  "summary": {
+    "updated": 0,
+    "dry_run": 2,
+    "noop": 1,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

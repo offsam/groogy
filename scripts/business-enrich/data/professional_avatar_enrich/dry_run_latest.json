@@ -1,0 +1,532 @@
+{
+  "generated_at": "2026-07-26T23:19:04.510344+00:00",
+  "mode": "dry-run",
+  "needy_images": 285,
+  "candidates": 132,
+  "skip_reasons": {
+    "no_target": 131,
+    "skip_facebook": 22
+  },
+  "sample": [
+    {
+      "id": "042f8ee7-6673-45f5-8fce-52945fca7910",
+      "name": "Ange",
+      "author": "Ange",
+      "target": {
+        "user_id": "994364219",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70082,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "066489b9-c8e5-45e3-a340-ed3594cfb289",
+      "name": "Igor Pchelintsev",
+      "author": "Igor Pchelintsev",
+      "target": {
+        "user_id": "450047493",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 271825,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+      "name": "Larisa Grib",
+      "author": "Larisa Grib",
+      "target": {
+        "user_id": "5190886991",
+        "username": "la_aromaworld",
+        "chat_id": -1001955320601,
+        "message_id": 264879,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0b48174e-d476-4ba2-b7c6-adf9e28bc4d7",
+      "name": "Bekbolat",
+      "author": "Bekbolat",
+      "target": {
+        "user_id": "5181739502",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 252193,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0d016684-5f9d-4d00-81ce-4639f2e5ef60",
+      "name": "Serena",
+      "author": "Serena",
+      "target": {
+        "user_id": "766021094",
+        "username": "SER_EN_A",
+        "chat_id": -1001955320601,
+        "message_id": 268290,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "1114fe23-6cfd-4d85-a31c-1eafa68929e1",
+      "name": "Кристина",
+      "author": "Kristina Berger",
+      "target": {
+        "user_id": "294821039",
+        "username": "kbergerusa",
+        "chat_id": -1001333533747,
+        "message_id": 71184,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "12c01256-6391-4b1d-9c28-cf6f8fb90221",
+      "name": "US Drive Services",
+      "author": "US Drive Services",
+      "target": {
+        "user_id": "8546075872",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 265305,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+      "name": "Anna",
+      "author": "Anna",
+      "target": {
+        "user_id": "339463209",
+        "username": "anna_vyskrebets",
+        "chat_id": -1001333533747,
+        "message_id": 75957,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "192e2345-aca7-4972-a5c2-d8a78fd7f11f",
+      "name": "Милена",
+      "author": "Милена",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 71940,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "22d09ba7-c449-44f5-b840-3e2205520568",
+      "name": "Mila",
+      "author": "Mila",
+      "target": {
+        "user_id": "198684028",
+        "username": "lussiena",
+        "chat_id": -1001333533747,
+        "message_id": 69550,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "235c20b5-9b61-4001-bba4-87eca9ce857a",
+      "name": "Таисия Шаповалова",
+      "author": "Taюшка",
+      "target": {
+        "user_id": "5358379761",
+        "username": "Capytaytay",
+        "chat_id": -1001333533747,
+        "message_id": 75645,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "27c054bf-0862-4bc3-bbb1-720bed88f73a",
+      "name": "Angelina",
+      "author": "Angelina",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69918,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb",
+      "name": "Valeriia Soldatchenkova",
+      "author": "Valeriia Soldatchenkova",
+      "target": {
+        "user_id": "6583487058",
+        "username": "ler_kasss",
+        "chat_id": -1001955320601,
+        "message_id": 253306,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2d3a1db0-44aa-492c-b003-843b503a3ba8",
+      "name": "Roman",
+      "author": "Roman",
+      "target": {
+        "user_id": "8266974618",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 263931,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2ed8aa52-fa43-46c6-88ee-dde60294705b",
+      "name": "Anastasiya",
+      "author": "Anastasiya",
+      "target": {
+        "user_id": "475321329",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 74562,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2fe01c67-888a-4719-88ef-22bac7ebd0b3",
+      "name": "Альбина",
+      "author": "Альбина",
+      "target": {
+        "user_id": "1083507658",
+        "username": "albinapsychologist",
+        "chat_id": -1001955320601,
+        "message_id": 276762,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "31c1ae56-801f-4e65-8d6d-7e71f381dbe8",
+      "name": "Кристина Орлова",
+      "author": "Кристина Орлова",
+      "target": {
+        "user_id": "697127088",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 270249,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "32186ac8-f9e6-488b-ab6e-20c028b34cd5",
+      "name": "Valeriia",
+      "author": "Valeriia",
+      "target": {
+        "user_id": "5553935073",
+        "username": "valvivi666",
+        "chat_id": -1001955320601,
+        "message_id": 263227,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "33c5fa05-818a-451f-adc9-fe63f3b2fe3e",
+      "name": "Angelina",
+      "author": "Angelina",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70344,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "name": "Sandrina Rudenko",
+      "author": "Sandrina Rudenko",
+      "target": {
+        "user_id": "488377934",
+        "username": "Sandra_kisss",
+        "chat_id": -1001955320601,
+        "message_id": 255047,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "34885484-8818-479d-a9e2-2bc3c2aa2073",
+      "name": "Милена",
+      "author": "Милена",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69464,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "36e1ca84-e3dd-4226-8873-625c2be9d4db",
+      "name": "Аня Таран",
+      "author": "Аня Таран",
+      "target": {
+        "user_id": "744801476",
+        "username": "taran_anna1",
+        "chat_id": -1001955320601,
+        "message_id": 273804,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3b4be5f6-dcdd-470c-b42e-07f7098543de",
+      "name": "Alina ‍",
+      "author": "Alina ‍",
+      "target": {
+        "user_id": "672372776",
+        "username": "adelin9999",
+        "chat_id": -1001955320601,
+        "message_id": 254266,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3b94799c-49a4-4c0a-9985-e50b78bd33c1",
+      "name": "Stanislav Kuznetsov",
+      "author": "Stanislav Kuznetsov",
+      "target": {
+        "user_id": "446918469",
+        "username": "stankuz77",
+        "chat_id": -1001333533747,
+        "message_id": 69838,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3ba6d992-92af-4626-81ce-0f7475391fd8",
+      "name": "Angelina",
+      "author": "Angelina",
+      "target": {
+        "user_id": "884061891",
+        "username": "Angnna5524",
+        "chat_id": -1001955320601,
+        "message_id": 271912,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3d5630b0-b72c-4425-8a6b-cc39a44c952f",
+      "name": "Милена",
+      "author": "Милена",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 72419,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3e487161-67d1-4038-9da1-1de9247abfe9",
+      "name": "Камила",
+      "author": "Камила",
+      "target": {
+        "user_id": "1943094171",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 274327,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "434ec733-33e4-465b-b95f-5508cd4b361d",
+      "name": "Roman",
+      "author": "Roman",
+      "target": {
+        "user_id": "7692997198",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 276742,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "44ac3baa-c837-4aa8-9e21-7d0745fb5179",
+      "name": "Lena",
+      "author": "Lena",
+      "target": {
+        "user_id": "642587600",
+        "username": "lena_usa_russia",
+        "chat_id": -1001333533747,
+        "message_id": 72842,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "44d1d688-605a-4d37-bfc3-3a032e89a46b",
+      "name": "Phone",
+      "author": "Atajan Yagmyrov",
+      "target": {
+        "user_id": "1827855160",
+        "username": "atajan_yagmyrov777",
+        "chat_id": -1001955320601,
+        "message_id": 265642,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "45688ff9-209e-431b-84af-ea4b53959291",
+      "name": "hammond_cpa",
+      "author": "Anna Hammond, CPA",
+      "target": {
+        "user_id": "895489623",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69554,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "45e40d30-f185-4bc0-b5a8-b1abc38dd281",
+      "name": "Liudmila Irvine",
+      "author": "Liudmila Irvine",
+      "target": {
+        "user_id": "664499397",
+        "username": "LiudmilaIrvine",
+        "chat_id": -1001333533747,
+        "message_id": 74963,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4626ade6-6a4b-4271-9191-f2cf58cfa79e",
+      "name": "Людмила Коста",
+      "author": "Людмила Коста",
+      "target": {
+        "user_id": "8407076295",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 259068,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "46c172b1-8549-46aa-9a8d-86d470dc0b3a",
+      "name": "Ирина",
+      "author": "Ирина",
+      "target": {
+        "user_id": "7949701664",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69788,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "48d3d1c0-123c-45b4-92a6-03d9c1a7ed0c",
+      "name": "Anastasiia",
+      "author": "Anastasiia",
+      "target": {
+        "user_id": "808729048",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 75548,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "49895df0-fa03-4e79-90b0-9ba0416e43dd",
+      "name": "mary.shlykova",
+      "author": null,
+      "target": {
+        "user_id": null,
+        "username": "thisis_mary",
+        "chat_id": null,
+        "message_id": null,
+        "reason": "pro_telegram_url",
+        "via": "telegram_url"
+      }
+    },
+    {
+      "id": "49a00f1e-7149-4dad-a0c2-34ab060f61cd",
+      "name": "Tigran Arutiunian",
+      "author": "Tigran Arutiunian",
+      "target": {
+        "user_id": "5278331604",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 250280,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4a764875-f89d-4ef9-9bc4-74472acd3fa6",
+      "name": "Мила",
+      "author": "Jane OC",
+      "target": {
+        "user_id": null,
+        "username": "kud_ann",
+        "chat_id": null,
+        "message_id": null,
+        "reason": "pro_telegram_url",
+        "via": "telegram_url"
+      }
+    },
+    {
+      "id": "4b3bc61c-e106-4fec-b16c-bc185b578e93",
+      "name": "Vlad",
+      "author": "Vlad",
+      "target": {
+        "user_id": "7287649045",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 277375,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4e254cb0-d92f-4018-bd60-911c0a823601",
+      "name": "Женечка",
+      "author": "Женечка",
+      "target": {
+        "user_id": "860330122",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 75375,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    }
+  ]
+}

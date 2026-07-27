@@ -6,6 +6,11 @@ import { Loader2 } from "lucide-react";
 import { adminUpsertBusinessAction } from "@/lib/admin/actions";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
+import { AddressFieldsEditor } from "@/components/business/AddressFieldsEditor";
+import {
+  normalizeStructuredAddress,
+  type StructuredAddress,
+} from "@/lib/address/normalize";
 
 type CategoryOption = { id: string; name: string; slug: string };
 
@@ -25,7 +30,10 @@ type AdminBusinessFormProps = {
     google_reviews_count: number;
     city: string | null;
     address_line: string | null;
-    status: "draft" | "pending" | "approved" | "rejected" | "archived";
+    region?: string | null;
+    state_code?: string | null;
+    postal_code?: string | null;
+    status: "draft" | "pending" | "approved" | "rejected" | "archived" | "deferred";
     category_id: string | null;
   };
 };
@@ -47,6 +55,15 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
   const [name, setName] = useState(initial?.name ?? "");
   const [slug, setSlug] = useState(initial?.slug ?? "");
   const [slugTouched, setSlugTouched] = useState(Boolean(initial?.slug));
+  const [address, setAddress] = useState<StructuredAddress>(() =>
+    normalizeStructuredAddress({
+      addressLine: initial?.address_line,
+      city: initial?.city,
+      region: initial?.region,
+      stateCode: initial?.state_code,
+      postalCode: initial?.postal_code,
+    }),
+  );
 
   function onSubmit(formData: FormData) {
     setError(null);
@@ -60,8 +77,11 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
         description: String(formData.get("description") ?? ""),
         phone: String(formData.get("phone") ?? ""),
         website: String(formData.get("website") ?? ""),
-        city: String(formData.get("city") ?? ""),
-        addressLine: String(formData.get("addressLine") ?? ""),
+        city: address.city ?? "",
+        addressLine: address.addressLine ?? "",
+        region: address.region,
+        stateCode: address.stateCode,
+        postalCode: address.postalCode,
         instagramUrl: String(formData.get("instagramUrl") ?? ""),
         googleMapsUrl: String(formData.get("googleMapsUrl") ?? ""),
         googleRating: (() => {
@@ -81,7 +101,8 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
           | "approved"
           | "rejected"
           | "archived"
-          | "draft",
+          | "draft"
+          | "deferred",
         categoryId: String(formData.get("categoryId") || "") || null,
       });
       if (!result.ok) {
@@ -171,23 +192,18 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
             placeholder="https://instagram.com/…"
           />
         </label>
-        <label className="block space-y-1 text-sm">
-          <span className="font-medium text-slate-700">Город</span>
-          <input
-            className="w-full rounded-lg border border-slate-200 px-3 py-2"
-            defaultValue={initial?.city ?? ""}
-            name="city"
-          />
-        </label>
-        <label className="block space-y-1 text-sm">
-          <span className="font-medium text-slate-700">Адрес</span>
-          <input
-            className="w-full rounded-lg border border-slate-200 px-3 py-2"
-            defaultValue={initial?.address_line ?? ""}
-            name="addressLine"
-          />
-        </label>
-        <label className="block space-y-1 text-sm">
+        <div className="space-y-2 sm:col-span-2">
+          <p className="text-sm font-medium text-slate-700">Адрес</p>
+          <p className="text-xs text-slate-500">
+            Улица отдельно от города, штата, ZIP и округа — без дублей в одной строке.
+          </p>
+          <AddressFieldsEditor
+          businessName={name || initial?.name}
+          value={address}
+          onChange={setAddress}
+        />
+        </div>
+        <label className="block space-y-1 text-sm sm:col-span-2">
           <span className="font-medium text-slate-700">Google Maps URL</span>
           <input
             className="w-full rounded-lg border border-slate-200 px-3 py-2"
@@ -232,6 +248,7 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
             <option value="pending">На проверке</option>
             <option value="approved">Опубликован</option>
             <option value="rejected">Отклонён</option>
+            <option value="deferred">Отложен</option>
             <option value="archived">Архив</option>
             <option value="draft">Черновик</option>
           </select>

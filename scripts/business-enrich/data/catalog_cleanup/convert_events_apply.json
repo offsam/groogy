@@ -1,0 +1,26 @@
+[
+  {
+    "business_id": "c87866df-51e1-4740-8271-9444f2b3de87",
+    "business_slug": "fbpack-art-backyard-design-camp",
+    "event_slug": "art-backyard",
+    "reason": "import_event_or_temporal_event_signals",
+    "event_id": "312639fa-f8ef-4935-b4fa-150f6b3286cf",
+    "status": "converted"
+  },
+  {
+    "business_id": "323a24b2-f535-4f5e-bcd6-b94e42a0ccd5",
+    "business_slug": "fbpack-irina-kirzhner-summer-singles-picnic",
+    "event_slug": "irina-kirzhner",
+    "reason": "import_event_or_temporal_event_signals",
+    "event_id": "212b2211-7b04-4d72-a56a-89cbb1d91dcf",
+    "status": "converted"
+  },
+  {
+    "business_id": "e3502be1-47bd-4469-8ad1-818bb76d7c60",
+    "business_slug": "rusoccom-190759",
+    "event_slug": "rusoc-com",
+    "reason": "import_event_or_temporal_event_signals",
+    "event_id": "1541c0c9-670d-468f-b9ca-2f33ebe27264",
+    "status": "converted"
+  }
+]

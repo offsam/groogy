@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { Literata, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { PlatformResourceCounter } from "@/components/layout/PlatformResourceCounter";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
 import { BRAND_NAME } from "@/lib/brand";
 import "leaflet/dist/leaflet.css";
@@ -51,19 +50,6 @@ export default function RootLayout({
       <body className="overflow-x-hidden font-[family-name:var(--font-sans)]">
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-[1001]">
-            <div className="platform-top-counter-sticky">
-              <Suspense
-                fallback={
-                  <div className="border-b border-slate-200 bg-slate-50">
-                    <p className="mx-auto max-w-6xl px-4 py-1.5 text-xs text-slate-400">
-                      Считаем ресурсы…
-                    </p>
-                  </div>
-                }
-              >
-                <PlatformResourceCounter />
-              </Suspense>
-            </div>
             <Header />
           </div>
           <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 has-[.home-fullwidth]:max-w-none has-[.home-fullwidth]:px-0 has-[.home-fullwidth]:py-0">

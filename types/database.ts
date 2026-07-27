@@ -130,7 +130,7 @@ export type Database = {
           name: string;
           short_description: string | null;
           description: string | null;
-          status: "draft" | "pending" | "approved" | "rejected" | "archived";
+          status: "draft" | "pending" | "approved" | "rejected" | "archived" | "deferred";
           rating_avg: number;
           reviews_count: number;
           ai_verified_reviews_count: number;
@@ -139,16 +139,24 @@ export type Database = {
           email: string | null;
           website: string | null;
           instagram_url: string | null;
+          telegram_url: string | null;
+          source_url: string | null;
+          source_kind: "telegram" | "facebook" | "platform" | null;
           yelp_url: string | null;
+          yelp_rating: number | null;
+          yelp_reviews_count: number;
+          instagram_followers_count: number | null;
           google_maps_url: string | null;
           google_rating: number | null;
           google_reviews_count: number;
+          booking_url: string | null;
           image_url: string | null;
           address_line: string | null;
           city: string | null;
           region: string | null;
           state_code: string | null;
           city_geoid: string | null;
+          postal_code: string | null;
           latitude: number | null;
           longitude: number | null;
           location_precision: "street" | "county" | null;
@@ -163,7 +171,7 @@ export type Database = {
           name: string;
           short_description?: string | null;
           description?: string | null;
-          status?: "draft" | "pending" | "approved" | "rejected" | "archived";
+          status?: "draft" | "pending" | "approved" | "rejected" | "archived" | "deferred";
           rating_avg?: number;
           reviews_count?: number;
           ai_verified_reviews_count?: number;
@@ -172,15 +180,23 @@ export type Database = {
           email?: string | null;
           website?: string | null;
           instagram_url?: string | null;
+          telegram_url?: string | null;
+          source_url?: string | null;
+          source_kind?: "telegram" | "facebook" | "platform" | null;
           yelp_url?: string | null;
+          yelp_rating?: number | null;
+          yelp_reviews_count?: number;
+          instagram_followers_count?: number | null;
           google_maps_url?: string | null;
           google_rating?: number | null;
           google_reviews_count?: number;
+          booking_url?: string | null;
           image_url?: string | null;
           address_line?: string | null;
           city?: string | null;
           state_code?: string | null;
           city_geoid?: string | null;
+          postal_code?: string | null;
           region?: string | null;
           latitude?: number | null;
           longitude?: number | null;
@@ -743,6 +759,8 @@ export type Database = {
           contact_preference: ListingContactPreference;
           publisher_type: PublisherType;
           publisher_business_id: string | null;
+          source_url: string | null;
+          source_kind: "telegram" | "facebook" | "platform" | null;
           published_at: string | null;
           reserved_at: string | null;
           completed_at: string | null;
@@ -775,6 +793,8 @@ export type Database = {
           contact_preference?: ListingContactPreference;
           publisher_type?: PublisherType;
           publisher_business_id?: string | null;
+          source_url?: string | null;
+          source_kind?: "telegram" | "facebook" | "platform" | null;
           published_at?: string | null;
           reserved_at?: string | null;
           completed_at?: string | null;
@@ -1384,6 +1404,7 @@ export type Database = {
           website: string[];
           email: string[];
           photos_count: number;
+          preview_image_url: string | null;
           duplicate_status: string | null;
           recurring_cluster_id: string | null;
           occurrence_count: number | null;
@@ -1451,6 +1472,48 @@ export type Database = {
       };
     };
     Views: {
+      businesses_public: {
+        Row: {
+          id: string;
+          slug: string;
+          category_id: string | null;
+          name: string;
+          short_description: string | null;
+          description: string | null;
+          status: "draft" | "pending" | "approved" | "rejected" | "archived" | "deferred";
+          rating_avg: number;
+          reviews_count: number;
+          ai_verified_reviews_count: number;
+          transaction_verified_reviews_count: number;
+          google_rating: number | null;
+          google_reviews_count: number;
+          yelp_rating: number | null;
+          yelp_reviews_count: number;
+          instagram_followers_count: number | null;
+          image_url: string | null;
+          city: string | null;
+          region: string | null;
+          state_code: string | null;
+          postal_code: string | null;
+          latitude: number | null;
+          longitude: number | null;
+          location_precision: "street" | "county" | null;
+          opening_hours: import("@/lib/business/opening-hours").OpeningHours | null;
+          created_at: string;
+          updated_at: string;
+          has_phone: boolean;
+          has_email: boolean;
+          has_website: boolean;
+          has_instagram: boolean;
+          has_telegram: boolean;
+          has_yelp: boolean;
+          has_facebook: boolean;
+          has_google_maps: boolean;
+          has_source: boolean;
+          has_booking: boolean;
+        };
+        Relationships: [];
+      };
       marketplace_catalog: {
         Row: {
           id: string;
@@ -1831,7 +1894,14 @@ export type Database = {
       admin_set_business_status: {
         Args: {
           p_business_id: string;
-          p_status: "pending" | "approved" | "rejected" | "archived";
+          p_status: "pending" | "approved" | "rejected" | "archived" | "deferred";
+        };
+        Returns: undefined;
+      };
+      admin_set_business_category: {
+        Args: {
+          p_business_id: string;
+          p_category_id: string | null;
         };
         Returns: undefined;
       };
@@ -2026,7 +2096,8 @@ export type Database = {
             | "pending"
             | "approved"
             | "rejected"
-            | "archived";
+            | "archived"
+            | "deferred";
           p_category_id?: string | null;
           p_instagram_url?: string | null;
           p_google_maps_url?: string | null;
@@ -2037,7 +2108,7 @@ export type Database = {
       };
     };
     Enums: {
-      content_status: "draft" | "pending" | "approved" | "rejected" | "archived";
+      content_status: "draft" | "pending" | "approved" | "rejected" | "archived" | "deferred";
       user_role: UserRole;
       business_claim_status: "pending" | "approved" | "rejected" | "cancelled";
       review_moderation_status: ReviewModerationStatus;

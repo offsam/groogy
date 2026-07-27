@@ -1,0 +1,222 @@
+{
+  "mode": "dry-run",
+  "batch_id": "restore_place_businesses_v1",
+  "geocode": false,
+  "count": 16,
+  "plans": [
+    {
+      "business_id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "business_slug": "fbpack-art-backyard-design-camp",
+      "name": "Art Backyard",
+      "address_line": "13031 Newport Ave #202",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    },
+    {
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_slug": "micarebeauty-190930",
+      "name": "Mi Care Beauty",
+      "address_line": "17621 Irvine Blvd",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "8bfbd08b-9c7f-4551-af90-a72c416f1c5d",
+          "slug": "micarebeauty-190930",
+          "name": "Alexander Midas"
+        }
+      ]
+    },
+    {
+      "business_id": "ab4e00ca-ef8b-442b-8a5e-33fef62e105f",
+      "business_slug": "inna-172218",
+      "name": "Бесплатная офисная комната (Encino)",
+      "address_line": "17547 Ventura Blvd",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "0d79775b-384a-4f05-98d4-76f572c7f78a",
+          "slug": "inna-172218",
+          "name": "Inna"
+        }
+      ]
+    },
+    {
+      "business_id": "1e1ef207-8951-4eb7-a018-8756b874a1f5",
+      "business_slug": "elena-garmazh-fysm-yoga-coach-150712",
+      "name": "Elena Garmazh FYSM Yoga Coach",
+      "address_line": "Sherman Oaks Recreation Center",
+      "has_coords": false,
+      "needs_geocode": true,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "aa57b508-574a-4b31-a1a2-b5f5e2906682",
+          "slug": "elena-garmazh-fysm-yoga-coach-150712",
+          "name": "Elena Garmazh FYSM Yoga Coach"
+        }
+      ]
+    },
+    {
+      "business_id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "business_slug": "yummy-homemade-sweets-150641",
+      "name": "yummy_homemade_sweets",
+      "address_line": "Los Olivos at Irvine Spectrum",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "e0db1a8e-199b-4fd7-ac80-5165b9a12534",
+          "slug": "yummy-homemade-sweets-150641",
+          "name": "yummy_homemade_sweets"
+        }
+      ]
+    },
+    {
+      "business_id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "business_slug": "dr-modarres-150637",
+      "name": "dr__modarres",
+      "address_line": "200 Newport Center Drive",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "2b272b61-314f-4761-bb8e-86372ff1114c",
+          "slug": "dr-modarres-150637",
+          "name": "dr__modarres"
+        }
+      ]
+    },
+    {
+      "business_id": "84199fd9-4e20-4d26-ac47-90dc1a90e078",
+      "business_slug": "irin-pilates-031833",
+      "name": "Upgrade Pilates & Bodytherapy",
+      "address_line": "23010 Lake Forest Dr Suite C",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "7be68a33-86ad-4ef5-81e1-477e09d93011",
+          "slug": "irin-pilates-031833",
+          "name": "Irin Pilates"
+        }
+      ]
+    },
+    {
+      "business_id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "business_slug": "диана-калифорнийская-психолог-сложности-в-отношени-032111",
+      "name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "address_line": "Irvine, Tustin Sports Park",
+      "has_coords": false,
+      "needs_geocode": true,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "db29f4ca-ceb6-4654-856a-b8ddcc196dc9",
+          "slug": "pro-21adb09e5a",
+          "name": "Диана"
+        }
+      ]
+    },
+    {
+      "business_id": "535ad738-419f-4298-bbf4-d844baf7f69e",
+      "business_slug": "айзада-032108",
+      "name": "Айзада — шугаринг",
+      "address_line": "202 Fashion Lane",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "429bb004-c149-47bc-ae9f-d33b13fb5199",
+          "slug": "pro-c9a4e4c49c",
+          "name": "Айзада"
+        }
+      ]
+    },
+    {
+      "business_id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "business_slug": "mama-bear-oc-031830",
+      "name": "mama_bear_oc",
+      "address_line": "23221 S Pointe dr, suite 103, Laguna Hills",
+      "has_coords": false,
+      "needs_geocode": true,
+      "contact_patch_keys": [],
+      "professionals": [
+        {
+          "id": "6023e871-c8d8-4186-91d6-12043b08929e",
+          "slug": "mama-bear-oc-031830",
+          "name": "mama_bear_oc"
+        }
+      ]
+    },
+    {
+      "business_id": "c91a002f-d588-4c5c-99f9-70d4cbb30d43",
+      "business_slug": "fb-post-28-tenina-law-inc",
+      "name": "Tenina Law, Inc.",
+      "address_line": "15250 Ventura Blvd Suite 1200, Sherman Oaks, CA 91403",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    },
+    {
+      "business_id": "0cd83146-4145-4600-9233-46e60ad97215",
+      "business_slug": "fbpack-katia-bulgakova-art-backyard",
+      "name": "Art Backyard",
+      "address_line": "13031 Newport Ave #202",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    },
+    {
+      "business_id": "2417fed3-85c9-476b-b842-8776df79bb55",
+      "business_slug": "fb-post-31-eugene-stephen-immigration-attorney",
+      "name": "Eugene Stephen - Immigration Attorney",
+      "address_line": "2233 Watt Ave., Ste 295, Sacramento, CA 95825",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    },
+    {
+      "business_id": "f1030f62-c39f-4019-be0e-cba489acdb8e",
+      "business_slug": "enriched-ivan-stypnik",
+      "name": "Ivan Stypnik",
+      "address_line": "1175 Baker St Ste E19",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    },
+    {
+      "business_id": "8f848e16-9bbd-46ab-887b-17e0c5245d39",
+      "business_slug": "jane-oc-190806",
+      "name": "Vasilki Café Bakery (дубль Jane OC)",
+      "address_line": "31161 Niguel Rd A",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    },
+    {
+      "business_id": "12f33449-052f-401c-bb40-30db10459483",
+      "business_slug": "good-food-190808",
+      "name": "Good Food International Market (дубль)",
+      "address_line": "25565 Jeronimo Rd Unit 2",
+      "has_coords": true,
+      "needs_geocode": false,
+      "contact_patch_keys": [],
+      "professionals": []
+    }
+  ]
+}

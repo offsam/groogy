@@ -1,0 +1,173 @@
+[
+  {
+    "business_id": "7fb2ed26-08ec-4526-afb3-725e26d91a10",
+    "business_slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+    "professional_slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+    "display_name": "Daniel Mataev",
+    "reason": "person_name_no_place",
+    "professional_id": "7802379c-5080-4297-8ffa-479425710c94",
+    "status": "converted"
+  },
+  {
+    "business_id": "a87c53cc-764b-45e1-a15f-7175c88f7688",
+    "business_slug": "batch2-rita-sarafutdinova",
+    "professional_slug": "batch2-rita-sarafutdinova",
+    "display_name": "Rita Sarafutdinova",
+    "reason": "import_private_specialist",
+    "professional_id": "a0537080-bd6a-47bc-bccc-14f942f8063d",
+    "status": "converted"
+  },
+  {
+    "business_id": "4d6e63f8-8a2b-4eff-ab7c-ccc69c25df0c",
+    "business_slug": "fbpack-julia-kolesnikova",
+    "professional_slug": "fbpack-julia-kolesnikova",
+    "display_name": "Юлия",
+    "reason": "import_private_specialist",
+    "professional_id": "8255a72d-2bba-4a0a-974e-1f7dc5c4df79",
+    "status": "converted"
+  },
+  {
+    "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+    "business_slug": "micarebeauty-190930",
+    "professional_slug": "micarebeauty-190930",
+    "display_name": "Alexander Midas",
+    "reason": "import_private_specialist",
+    "professional_id": "8bfbd08b-9c7f-4551-af90-a72c416f1c5d",
+    "status": "converted"
+  },
+  {
+    "business_id": "a04e4990-a5cb-468e-8dfe-7686abd8f815",
+    "business_slug": "vorontsovaart-190935",
+    "professional_slug": "vorontsovaart-190935",
+    "display_name": "Vorontsovaart",
+    "reason": "import_private_specialist",
+    "professional_id": "da28c35f-fea9-4e11-b695-730d335b7ce0",
+    "status": "converted"
+  },
+  {
+    "business_id": "88c3df9b-a209-4fc7-b740-a07c69e927b9",
+    "business_slug": "lana-janew-190946",
+    "professional_slug": "lana-janew-190946",
+    "display_name": "Lana Janew",
+    "reason": "import_private_specialist",
+    "professional_id": "f4afbf0b-73e2-40a8-a574-5561a0b43060",
+    "status": "converted"
+  },
+  {
+    "business_id": "ca2f0d24-4e05-42a6-9fe3-cc0b07d3964c",
+    "business_slug": "oksana-moskvitina-234034",
+    "professional_slug": "oksana-moskvitina-234034",
+    "display_name": "Mila",
+    "reason": "import_private_specialist",
+    "professional_id": "22d09ba7-c449-44f5-b840-3e2205520568",
+    "status": "converted"
+  },
+  {
+    "business_id": "2f7243ba-9b74-4cbd-9859-9bb120663d79",
+    "business_slug": "andrei-tarzan-234040",
+    "professional_slug": "andrei-tarzan-234040",
+    "display_name": "Andrei Tarzan",
+    "reason": "import_private_specialist",
+    "professional_id": "2e88368c-d3bc-4ab5-9664-7edaaf210372",
+    "status": "converted"
+  },
+  {
+    "business_id": "f6788013-d523-415e-86e0-edd192d8b043",
+    "business_slug": "dovbenko-truck-insurance-234041",
+    "professional_slug": "dovbenko-truck-insurance-234041",
+    "display_name": "Dovbenko Agency",
+    "reason": "import_private_specialist",
+    "professional_id": "797cca76-2731-4340-a13e-68aad2387784",
+    "status": "converted"
+  },
+  {
+    "business_id": "ec01daaa-7c71-4419-a13c-0370a69e0229",
+    "business_slug": "satenik-adzhemian-234042",
+    "professional_slug": "satenik-adzhemian-234042",
+    "display_name": "Satenik Adzhemian",
+    "reason": "import_private_specialist",
+    "professional_id": "718ff65f-f360-4d92-a8e2-5f86b8ddb1b1",
+    "status": "converted"
+  },
+  {
+    "business_id": "963eb786-b32a-4dee-a3e4-4b53108646cb",
+    "business_slug": "business-biz-180842",
+    "professional_slug": "business-biz-180842",
+    "display_name": "Милена Говель",
+    "reason": "import_private_specialist",
+    "professional_id": "a73595f2-db01-4a2d-9491-5a3fd66cc048",
+    "status": "converted"
+  },
+  {
+    "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+    "business_slug": "realtor-valeriia-180843",
+    "professional_slug": "realtor-valeriia-180843",
+    "display_name": "Realtor Valeriia",
+    "reason": "import_private_specialist",
+    "professional_id": "9b84a892-937d-439d-9ecc-732cf7992c62",
+    "status": "converted"
+  },
+  {
+    "business_id": "be3f643f-52a4-4e05-9aa6-d2b650f1890f",
+    "business_slug": "helping-us-middle-and-high-school-180940",
+    "professional_slug": "helping-us-middle-and-high-school-180940",
+    "display_name": "Alina",
+    "reason": "import_private_specialist",
+    "professional_id": "ff2e4861-beef-442e-992a-5e0a69a5b6f9",
+    "status": "converted"
+  },
+  {
+    "business_id": "63ac1261-f77b-43bf-b60d-90196b868a91",
+    "business_slug": "high-school-180942",
+    "professional_slug": "high-school-180942",
+    "display_name": "Alina",
+    "reason": "import_private_specialist",
+    "professional_id": "62eecf99-8f84-403e-a79a-a606a980ce99",
+    "status": "converted"
+  },
+  {
+    "business_id": "2b2c6f3d-366f-4f8a-a208-2690fc077238",
+    "business_slug": "business-biz-181514-9c1f",
+    "professional_slug": "business-biz-181514-9c1f",
+    "display_name": "Ирина Кундухова",
+    "reason": "person_name_no_place",
+    "professional_id": "02df4d55-a6f8-46f4-bc06-8f9378cf6789",
+    "status": "converted"
+  },
+  {
+    "business_id": "06f3ea19-0f5e-4740-8c66-4bac4867c827",
+    "business_slug": "mybrows7-181514-0000",
+    "professional_slug": "mybrows7-181514-0000",
+    "display_name": "My_brows7",
+    "reason": "import_private_specialist",
+    "professional_id": "9d68c0d0-35cc-4bf6-b82f-0dc8bb2ddc23",
+    "status": "converted"
+  },
+  {
+    "business_id": "c3ece1cd-0e17-4cbb-b887-dbd14023319e",
+    "business_slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+    "professional_slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+    "display_name": "Olga Loginova, Lifespringhomeopathy.com",
+    "reason": "person_name_no_place",
+    "professional_id": "972dfca4-f431-46e0-a6d7-8b3033730fa3",
+    "status": "converted"
+  },
+  {
+    "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+    "business_slug": "liubov-smetanina-181524-a3ca",
+    "professional_slug": "liubov-smetanina-181524-a3ca",
+    "display_name": "Liubov Smetanina",
+    "reason": "person_name_no_place",
+    "professional_id": "36f06e33-5641-439c-ad67-f9c77fa6f3d0",
+    "status": "converted"
+  },
+  {
+    "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+    "business_slug": "us-drive-services-181542-a6e1",
+    "professional_slug": "us-drive-services-181542-a6e1",
+    "display_name": "US Drive Services",
+    "reason": "person_name_no_place",
+    "professional_id": "12c01256-6391-4b1d-9c28-cf6f8fb90221",
+    "status": "converted"
+  }
+]

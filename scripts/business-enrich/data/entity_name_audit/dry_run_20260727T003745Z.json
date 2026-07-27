@@ -1,0 +1,477 @@
+{
+  "generated_at": "2026-07-27T00:37:45.632769+00:00",
+  "mode": "dry-run",
+  "min_confidence": "high",
+  "scanned": {
+    "businesses": 183,
+    "professionals": 747
+  },
+  "issues": 69,
+  "actionable": 5,
+  "applied": 0,
+  "by_reason": {
+    "weak_name_brand_in_description": 7,
+    "person_name_website_brand": 6,
+    "weak_name_no_suggestion": 43,
+    "person_name_brand_in_description": 13
+  },
+  "by_confidence": {
+    "high": 20,
+    "medium": 6,
+    "low": 43
+  },
+  "actionable_sample": [
+    {
+      "entity_type": "business",
+      "id": "0007100c-7fa5-43dd-9fc0-b9365754a71f",
+      "slug": "al-autoservices-181112-85de",
+      "from": "Al · auto_services",
+      "to": "Wizards Registration Services",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Рады сообщить об открытии Wizards Registration Services в Costa Mesa!\n1617 Superior Ave, Costa Mesa, CA 92627\nMon-Friday 10:00AM - 4:00PM\nТеперь вы можете быстро и без очереди в DMV и лишних хлопот ре"
+    },
+    {
+      "entity_type": "business",
+      "id": "355f9c46-fc75-4396-812b-8c4024a90934",
+      "slug": "andytopmassage-205149-2d36",
+      "from": "andy_topmassage",
+      "to": "Хочу поделиться опытом массажа",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Хочу поделиться опытом массажа — возможно, кому-то будет полезно.\nРаботаю в офисе, много сижу, из-за этого появились зажимы в шее и боли в пояснице. Был запрос массажа, пошла к специалисту тоже по рек"
+    },
+    {
+      "entity_type": "business",
+      "id": "37cc54c2-f831-4b65-92d7-294cb8b67cf8",
+      "slug": "skilledparsnip6805-204811-2bc8",
+      "from": "SkilledParsnip6805",
+      "to": "Starway Truck & Trailer Repair",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "STARWAY TRUCK & TRAILER REPAIR — РЕМОНТ ГРУЗОВИКОВ И ПРИЦЕПОВ В САКРАМЕНТО!\nНужен ремонт вашего truck или trailer? Мы готовы помочь!\nРемонт подвески\nЗамена бушингов\nСварка и изготовление деталей (Weld"
+    },
+    {
+      "entity_type": "business",
+      "id": "49ede1f2-2aea-4630-82a0-c6ea33df92b6",
+      "slug": "ma-childcare-205612-768f",
+      "from": "MA · childcare",
+      "to": "Westcliff Early Learning Academy",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Если кто-то находится в поиске детского сада, могу порекомендовать Westcliff Early Learning Academy в Ирвайне. Монтессори, отличная STEM программа. Сад открыт под амбреллой университета. Я делала для "
+    },
+    {
+      "entity_type": "business",
+      "id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "slug": "mama-bear-oc-031830",
+      "from": "mama_bear_oc",
+      "to": "Mama Bear Kids Club",
+      "reason": "weak_name_brand_in_description",
+      "confidence": "high",
+      "preview": "Mama Bear Kids Club offers an exciting spring camp for children. The camp runs from March 16 to April 10, providing a variety of engaging activities. Children can enjoy development, creativity, and fu"
+    }
+  ],
+  "no_suggestion": [
+    {
+      "entity_type": "business",
+      "id": "105c5d3e-2c68-4925-a542-f52f0b4f4b55",
+      "slug": "lerkassss-205206-2144",
+      "from": "ler_kassss",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Мы переводили с Лерой И она заверила у нотариуса"
+    },
+    {
+      "entity_type": "business",
+      "id": "410ba9ed-d8ec-48f5-b127-b8df7566c375",
+      "slug": "3100-20000-204847-17ab",
+      "from": "$3.100 или $20.000?",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "$3.100 или $20.000?\nРазница между первоначальной оценкой страховой компании и реальной стоимостью ремонта после ДТП может быть огромной.\nОчень часто страховая рассчитывает ущерб только по тем поврежде"
+    },
+    {
+      "entity_type": "business",
+      "id": "4747b8eb-6f90-41ab-8af4-23bc8a6af2d8",
+      "slug": "rk-carrental-181111-6371",
+      "from": "RK · car_rental",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Сдам в аренду свой Lexus 2026 TX 350 AWD Premium 1100$ / месяц. Впишу в страховку за доп. Плату."
+    },
+    {
+      "entity_type": "business",
+      "id": "691b530e-938a-41ae-97ec-553222375596",
+      "slug": "tianaabaza-205205-53f5",
+      "from": "tiana_abaza",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Я делала у Тани губы и брови выводила старый перманент. Очень рекомендую! Она делает супер качественно"
+    },
+    {
+      "entity_type": "business",
+      "id": "7816695b-d7f0-4726-a48d-e3e771b0a418",
+      "slug": "energeticcorgi3380-205048-76cf",
+      "from": "EnergeticCorgi3380",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Уроки музыки в Линкольне! 🎹🎸🥁 Всем привет! Если вы ищете преподавателя музыки, то местная музыкальная студия в Линкольне сейчас набирает новых учеников! если вы хотите чтобы ваш ребенок обучался музык"
+    },
+    {
+      "entity_type": "business",
+      "id": "86db723e-8678-41a0-9bf1-83865bd5823a",
+      "slug": "unforgettableguava5978-205021-af52",
+      "from": "UnforgettableGuava5978",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Сдам комнату 750$ за подробной информацией обращайтесь по номеру а"
+    },
+    {
+      "entity_type": "business",
+      "id": "9db1a034-9e39-440f-8afd-79588f9f87ac",
+      "slug": "eleganthamster9292-205054-04ff",
+      "from": "ElegantHamster9292",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Привет всем. Сдаю 2bd апарты в Розвилле 95678. Возле Костко, без депозита. Подробности по тел"
+    },
+    {
+      "entity_type": "business",
+      "id": "b5692dd6-0dc1-4e7a-8033-64c3780c29a6",
+      "slug": "efficientgoose6262-204931-8bc9",
+      "from": "EfficientGoose6262",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Нужен хелпер с опытом на завтра сделать доставку в Айдахо.\nОтель оплачиваем\nБудет еще один человек.\nМувинг\nЕсли хорошо отработаете можем часто давать смены"
+    },
+    {
+      "entity_type": "business",
+      "id": "c7518754-d003-41c5-b793-8a15a3e90adc",
+      "slug": "electrolysisinla-180841",
+      "from": "electrolysis_in_la",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "⚡️ЭЛЕКТРОЭПИЛЯЦИЯ\nПожизненное удаление волос\nЧастная практика.\n🪪 Лицензия штата Калифорния\n•Единственный метод, который научно признан пожизненным.\nРаботает на любом цвете волос и любом типе кожи.\n•Ст"
+    },
+    {
+      "entity_type": "business",
+      "id": "e5ea11e6-4558-4c5c-a228-7fc285c7fd45",
+      "slug": "di-carrental-205641-f5a7",
+      "from": "Di · car_rental",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Сдам аккаунт дордаш женский. Первый месяц бесплатно. Сдам Теслу model 3\nСдаем женский аккаунт дурдаш. Новый. Первый месяц 300$"
+    },
+    {
+      "entity_type": "business",
+      "id": "ed0e7511-0cfd-449e-90d3-db1f93e9cfae",
+      "slug": "bh-legal-181110-201e",
+      "from": "BH · legal",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Мы помогаем Вам с открытием бизнеса в США🇺🇸, а именно\n✅Открываем разные виды компаний (LLC, Corporation)\n✅Получаем номер налогоплательщика (EIN).\nТакже\n✅Вносим изменения в существующие компании (смена"
+    },
+    {
+      "entity_type": "professional",
+      "id": "0399dcc8-6f49-4091-9b3d-481c6982d48b",
+      "slug": "diana-california-150634",
+      "from": "diana_california",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "🌿🧘 Новое пространство\nПространство для кайфа, отдыха и расслабления.\n\n🧘 Это место, где можно отпустить всё\nи погрузиться только в ощущения тела.\nМесто, где исцеляются душа и тело одновременно —\nчерез "
+    },
+    {
+      "entity_type": "professional",
+      "id": "060b61e3-ff87-440c-b053-1a00d0b273d1",
+      "slug": "evgeny-rezko-150656",
+      "from": "evgeny_rezko",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Всем привет! 18 марта стартует марафон для йоги по онлайну. У кого бессонницы кто хочет подтянуть свое тело или же для общего самочувствия всем советую ☺️\n\n- подтянутое, аккуратное, мобильное тело зде"
+    },
+    {
+      "entity_type": "professional",
+      "id": "0c75930c-0773-4418-bb2b-b8f725e45b83",
+      "slug": "yummy-homemade-sweets-150641-1",
+      "from": "yummy_homemade_sweets",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Indulge in delicious homemade Easter Kulich, available for pre-order. Choose from classic yeast kulich with raisins, or yeast-free cottage cheese kulich with either raisins or a rich custard filling. "
+    },
+    {
+      "entity_type": "professional",
+      "id": "10ebf4c0-8a98-4f7b-8de7-cd23fe13e603",
+      "slug": "delicious-by-va-150630",
+      "from": "delicious_by_va",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Experience the unforgettable taste of childhood with our chocolate sausage. This dessert instantly brings back warm memories, prepared using a cherished family recipe passed down through generations. "
+    },
+    {
+      "entity_type": "professional",
+      "id": "1dadf523-01e3-40fb-b446-c48e561680c5",
+      "slug": "lida-gordienko",
+      "from": "lida_gordienko",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Девушка только что довезла нас до LAX ( нас три человека и две мини таксы ) Приехала вовремя , машина чистая и главное доехали быстро ( машина Tesla Y) @Lida_Gordienko"
+    },
+    {
+      "entity_type": "professional",
+      "id": "23f72b12-fac8-4a7a-9438-f2c01dc3720d",
+      "slug": "liliia-ser",
+      "from": "liliia_ser",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Может @Liliia_Ser 💫"
+    },
+    {
+      "entity_type": "professional",
+      "id": "34494fe4-2ac4-45d5-91c8-f265339b5b2b",
+      "slug": "chirk-paint",
+      "from": "chirk_paint",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/chirk_paint?igsh=NTc4MTIwNjQ2YQ== Ира🙏🏼"
+    },
+    {
+      "entity_type": "professional",
+      "id": "3f144c65-f775-44ed-a8f3-20481002b72b",
+      "slug": "photograph-la-alina-150643",
+      "from": "photograph_la_alina",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Join us for a spring mini photo day in a bohemian style, creating a gentle and warm atmosphere with flowing fabrics and natural aesthetics. This photoshoot is perfect for those desiring beautiful spri"
+    },
+    {
+      "entity_type": "professional",
+      "id": "45688ff9-209e-431b-84af-ea4b53959291",
+      "slug": "hammond-cpa-150628",
+      "from": "hammond_cpa",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ==\n\nИсточник: Telegram, дата: 2026-01-30T00:08:55+00:00"
+    },
+    {
+      "entity_type": "professional",
+      "id": "4bde3eee-de02-4a7e-8fc4-c2dbc03b530b",
+      "slug": "shtefan-lashes",
+      "from": "shtefan_lashes",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Очень рекомендую Евгению, делает очень качественно, носятся реснички долго👍 Она лучшая в своем деле🤗 https://www.instagram.com/shtefan_lashes?igsh=MzRlODBiNWFlZA=="
+    },
+    {
+      "entity_type": "professional",
+      "id": "53668104-6b3d-4012-991a-cc38cabea0ee",
+      "slug": "tati-fgm",
+      "from": "tati_fgm",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@tati_fgm у Тани были\n\nТолько что нашла - замечательные сырки с уникальными вкусами и начинками, спасибо @tati_fgm Спасибо @tati_fgm\n\nСпасибо @tati_fgm за восхитительный муссовый торт. Очень стильно и"
+    },
+    {
+      "entity_type": "professional",
+      "id": "70b3cc47-bddb-4064-ba9f-2d144cce0722",
+      "slug": "averina-notary-public-1",
+      "from": "averina_notary_public",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@Averina_Notary_Public"
+    },
+    {
+      "entity_type": "professional",
+      "id": "79d703dc-edb4-4c65-84c2-49e19f24549a",
+      "slug": "fedor-tsvang",
+      "from": "fedor_tsvang",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Мы всегда зовем Федора Цванг - дети всегда очень хорошо проводят время. https://www.instagram.com/fedor_tsvang?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "entity_type": "professional",
+      "id": "7f25c845-bf69-4589-ac1b-dbad108a0c2e",
+      "slug": "julia-life-usa-150652",
+      "from": "julia_life_usa",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ==\n\nИсточник: Telegram, дата: 2026-03-23T17:28:54+00:00"
+    },
+    {
+      "entity_type": "professional",
+      "id": "80cc9a69-6ac9-4db9-b17f-ac73e88a6e4d",
+      "slug": "aleks-andra020289-150702",
+      "from": "aleks_andra020289",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Светлана К(больше информации никакой нету🫣🫣🫣)Вы у меня заказали торт на это воскресенье в инстаграм,мою страницу заблокировали вся информация по торту осталась в инстаграм,свяжитесь со мной тут пожалу"
+    },
+    {
+      "entity_type": "professional",
+      "id": "8c485f02-8f70-4d4e-9c54-3890471c4aa4",
+      "slug": "k-bunbich-1",
+      "from": "k_bunbich",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@k_bunbich Ксюша думаю как раз та, кто вам нужен. Не пожалеете"
+    },
+    {
+      "entity_type": "professional",
+      "id": "8daaa3bc-e9cc-4402-9076-fac740fd0480",
+      "slug": "aleks-bake-150628",
+      "from": "aleks_bake_",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Delight your loved ones with an exquisite custom dessert. This beautiful three-tiered composition features delicate macaron pastries and elegant marshmallow strawberry flowers. Each unique creation in"
+    },
+    {
+      "entity_type": "professional",
+      "id": "8e8f0198-2b98-403a-ac6b-f9957036b147",
+      "slug": "irinka-milovskaia",
+      "from": "irinka_milovskaia",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Здравствуйте. Мне написала @irinka_milovskaia, с предложением поменять рубли на доллары, - мы пообщались, созвонились, я убедился, что это живой человек. Хотели встретиться вживую, но потом решили по "
+    },
+    {
+      "entity_type": "professional",
+      "id": "92681534-689b-44dc-bc54-ac829979f8d1",
+      "slug": "vitaliia-zinchenko",
+      "from": "vitaliia_zinchenko",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Виталина лучшая!!! https://www.instagram.com/vitaliia_zinchenko?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "entity_type": "professional",
+      "id": "ace28bd6-df83-4b3a-a1c5-fa117db77a0a",
+      "slug": "ksu-usa",
+      "from": "ksu_usa",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "@Ksu_usa напишите Ксюше"
+    },
+    {
+      "entity_type": "professional",
+      "id": "b10a3a5a-3e57-4b93-87d8-ad1f20e46391",
+      "slug": "lindas-bouquet-150626",
+      "from": "lindas_bouquet",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ==\n\nИсточник: Telegram, дата: 2026-04-16T00:33:56+00:00"
+    },
+    {
+      "entity_type": "professional",
+      "id": "b94165ab-ffa5-452e-8938-13c020763a8e",
+      "slug": "aigerim-bimoldina-032107",
+      "from": "aigerim_bimoldina",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Приветик, Девочки-Визажисты! Я, парикмахер, если вам нужен будет  на выезды - причесочник, то я готова к предложениям! 9492306585 Aigerim, instagram @aigerim_bimoldina\n\nИсточник: Telegram, дата: 2026-"
+    },
+    {
+      "entity_type": "professional",
+      "id": "bb0cda9b-8d4b-4bd7-8a67-d8c40366e40f",
+      "slug": "beauty-salon-181011",
+      "from": "Новый beauty salon",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резидентов — скидка $100 на первый месяц аренды. Парикмахерское к"
+    },
+    {
+      "entity_type": "professional",
+      "id": "bf07619e-e47d-4754-8666-de28d681f50a",
+      "slug": "anton-sushev-150655",
+      "from": "anton_sushev",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/anton_sushev?igsh=NTc4MTIwNjQ2YQ==\n\nИсточник: Telegram, дата: 2026-03-20T03:01:14+00:00"
+    },
+    {
+      "entity_type": "professional",
+      "id": "c11b26db-7ac2-4158-8438-9be33e6dd7b8",
+      "slug": "kate-yuka-aesthetics-150659",
+      "from": "kate_yuka_aesthetics",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/kate_yuka_aesthetics?igsh=NTc4MTIwNjQ2YQ==\n\nИсточник: Telegram, дата: 2026-02-05T00:17:58+00:00"
+    },
+    {
+      "entity_type": "professional",
+      "id": "c515cc53-f5e2-41a3-b2e4-e3b6a6cc298e",
+      "slug": "swimmingcoach-losangeles-oc-031832",
+      "from": "swimmingcoach_losangeles_oc",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "Доброго времени суток !\nМеня зовут, Кристина! \nПроживаю в Орандж Канти и округи Irvine Newport Beach - Irvine !\n🏊Я тренер по плаванию со стажем более 14лет. \nКандидат Мастер спорта и дипломированный с"
+    },
+    {
+      "entity_type": "professional",
+      "id": "c7d0dda2-e9c7-422d-893a-6b5953e8672d",
+      "slug": "grace-and-bloom-150627",
+      "from": "grace_and_bloom_",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/grace_and_bloom_/\n\nИсточник: Telegram, дата: 2026-04-15T01:38:41+00:00"
+    },
+    {
+      "entity_type": "professional",
+      "id": "d41eeecc-953a-4b5e-b535-b8cbc83b0a59",
+      "slug": "hairdresser-nadia",
+      "from": "hairdresser_nadia",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "визаж / beauty"
+    },
+    {
+      "entity_type": "professional",
+      "id": "dcb9d6c5-e4a3-4119-8cf8-44b3051d8362",
+      "slug": "alina-oc-hair-150626",
+      "from": "alina_oc_hair",
+      "to": null,
+      "reason": "weak_name_no_suggestion",
+      "confidence": "low",
+      "preview": "https://www.instagram.com/alina_oc_hair?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr\n\nИсточник: Telegram, дата: 2026-05-02T05:55:39+00:00"
+    }
+  ]
+}

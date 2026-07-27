@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import { formatPrice } from "@/lib/listings/mappers";
@@ -17,6 +18,8 @@ type ListingCardProps = {
   listing: Listing;
   showFavorite?: boolean;
   showStatus?: boolean;
+  /** Admin / moderation: no public links or analytics. */
+  preview?: boolean;
 };
 
 function formatDate(value: string | null) {
@@ -51,26 +54,53 @@ function publisherLabel(listing: Listing) {
   return null;
 }
 
+function MaybeLink({
+  preview,
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  preview: boolean;
+  href: string;
+  className?: string;
+  onClick?: () => void;
+  children: ReactNode;
+}) {
+  if (preview) {
+    return <div className={className}>{children}</div>;
+  }
+  return (
+    <Link className={className} href={href} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
+
 export function ListingCard({
   listing,
   showFavorite = false,
   showStatus = false,
+  preview = false,
 }: ListingCardProps) {
   const cover = listing.media?.[0]?.publicUrl;
   const transactionType = listing.marketplace?.transactionType ?? "sell";
   const dateLabel = formatDate(listing.publishedAt ?? listing.createdAt);
   const location = [listing.city, listing.state].filter(Boolean).join(", ");
   const publisher = publisherLabel(listing);
+  const href = `/marketplace/${listing.id}`;
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
-      <Link
+      <MaybeLink
         className="block"
-        href={`/marketplace/${listing.id}`}
+        href={href}
+        preview={preview}
         onClick={() =>
           trackResourceOpen({ kind: "marketplace", id: listing.id })
         }
-      >        <div className="relative aspect-[4/3] bg-slate-100">
+      >
+        <div className="relative aspect-[4/3] bg-slate-100">
           {cover ? (
             <Image
               alt={listing.title}
@@ -81,31 +111,34 @@ export function ListingCard({
               unoptimized
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-sm text-slate-400">
-              Нет фото
+            <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 px-4 text-center text-sm font-semibold uppercase tracking-wide text-white">
+              {/комнат|сда[её]|аренд/i.test(listing.title)
+                ? "Недвижимость"
+                : "Объявление"}
             </div>
           )}
         </div>
-      </Link>
+      </MaybeLink>
 
       <div className="space-y-2 p-4">
         <div className="flex items-start justify-between gap-2">
-          <Link
+          <MaybeLink
             className="line-clamp-2 font-semibold text-slate-900 hover:underline"
-            href={`/marketplace/${listing.id}`}
+            href={href}
+            preview={preview}
             onClick={() =>
               trackResourceOpen({ kind: "marketplace", id: listing.id })
             }
           >
             {listing.title}
-          </Link>
-          {showFavorite && (
+          </MaybeLink>
+          {!preview && showFavorite ? (
             <FavoriteButton
               favoritesCount={listing.favoritesCount}
               initialFavorited={listing.favoritedByMe ?? false}
               listingId={listing.id}
             />
-          )}
+          ) : null}
         </div>
 
         <p className="text-lg font-bold text-slate-900">
@@ -147,7 +180,7 @@ export function ListingCard({
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs text-slate-400">
           {publisher && (
             <span>
-              {publisher.href ? (
+              {!preview && publisher.href ? (
                 <Link
                   className="text-slate-600 hover:underline"
                   href={publisher.href}

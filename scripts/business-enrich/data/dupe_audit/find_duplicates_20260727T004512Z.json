@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-07-27T00:45:12.489617+00:00",
+  "scanned": 304,
+  "phone_groups": [],
+  "street_groups": [
+    {
+      "key": "5352 auburn blvd sacramento|sacramento",
+      "members": [
+        {
+          "id": "192e6754-9c91-4456-abec-9ff06a867181",
+          "slug": "business-biz-205109-6cf5",
+          "name": "Диана Губарева",
+          "status": "approved",
+          "phone": null,
+          "address_line": "5352 Auburn Blvd, Sacramento",
+          "city": "Sacramento",
+          "website": null,
+          "instagram_url": "https://instagram.com/dianagubareva"
+        },
+        {
+          "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+          "slug": "artistry-summer-camp",
+          "name": "Artistry Summer Camp",
+          "status": "approved",
+          "phone": "+19163071847",
+          "address_line": "5352 Auburn Blvd, Sacramento",
+          "city": "Sacramento",
+          "website": null,
+          "instagram_url": null
+        }
+      ]
+    }
+  ],
+  "website_groups": [],
+  "instagram_groups": [],
+  "high_confidence": []
+}

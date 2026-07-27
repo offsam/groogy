@@ -8,31 +8,28 @@ import {
   pluralListings,
   pluralMembers,
   pluralOffers,
+  pluralResources,
   pluralReviews,
   pluralServices,
   pluralTransfers,
   pluralUpdates,
   type PlatformResourceStats,
 } from "@/lib/platform/resource-stats";
+import { cn } from "@/lib/utils";
 
 type CounterPart = {
   key: string;
   value: string;
   label: string;
+  tone?: "default" | "green" | "muted";
 };
 
 function formatDelta(n: number): string {
-  return n > 0 ? `+${n}` : `${n}`;
+  return n > 0 ? `+${n.toLocaleString("ru-RU")}` : `${n}`;
 }
 
 function buildParts(stats: PlatformResourceStats): CounterPart[] {
-  const parts: CounterPart[] = [
-    {
-      key: "businesses",
-      value: stats.businesses.toLocaleString("ru-RU"),
-      label: pluralBusinessCards(stats.businesses),
-    },
-  ];
+  const parts: CounterPart[] = [];
 
   const pushCount = (
     key: string,
@@ -47,6 +44,7 @@ function buildParts(stats: PlatformResourceStats): CounterPart[] {
     });
   };
 
+  pushCount("businesses", stats.businesses, pluralBusinessCards);
   pushCount("offers", stats.offers, pluralOffers);
   pushCount("listings", stats.listings, pluralListings);
   pushCount("services", stats.services, pluralServices);
@@ -56,18 +54,20 @@ function buildParts(stats: PlatformResourceStats): CounterPart[] {
   pushCount("categories", stats.categories, pluralCategories);
   pushCount("members", stats.members, pluralMembers);
 
-  if (stats.addedYesterday > 0) {
-    parts.push({
-      key: "added-yesterday",
-      value: formatDelta(stats.addedYesterday),
-      label: "добавлено вчера",
-    });
-  }
   if (stats.addedToday > 0) {
     parts.push({
       key: "added-today",
       value: formatDelta(stats.addedToday),
-      label: "добавлено сегодня",
+      label: "сегодня",
+      tone: "green",
+    });
+  }
+  if (stats.addedYesterday > 0) {
+    parts.push({
+      key: "added-yesterday",
+      value: formatDelta(stats.addedYesterday),
+      label: "вчера",
+      tone: "muted",
     });
   }
   if (stats.updatedToday > 0) {
@@ -75,13 +75,15 @@ function buildParts(stats: PlatformResourceStats): CounterPart[] {
       key: "updated-today",
       value: formatDelta(stats.updatedToday),
       label: `${pluralUpdates(stats.updatedToday)} сегодня`,
+      tone: "muted",
     });
   }
   if (stats.membersToday > 0) {
     parts.push({
       key: "members-today",
       value: formatDelta(stats.membersToday),
-      label: "новые участники сегодня",
+      label: "участников сегодня",
+      tone: "green",
     });
   }
 
@@ -132,30 +134,64 @@ export function PlatformResourceCounterClient({
     };
   }, []);
 
-  if (stats.businesses <= 0) return null;
+  if (stats.businesses <= 0 && stats.total <= 0) return null;
 
   const parts = buildParts(stats);
+  const totalLabel = pluralResources(stats.total || stats.businesses);
+  const totalValue = (stats.total || stats.businesses).toLocaleString("ru-RU");
 
   return (
-    <div className="border-b border-slate-200 bg-slate-50">
-      <div className="mx-auto max-w-[1400px] px-4 py-1.5 sm:px-6 lg:px-8">
-        <p className="flex flex-nowrap items-center overflow-x-auto whitespace-nowrap text-xs text-slate-600 sm:text-sm">
-          <span className="shrink-0 pr-1 text-slate-500">На платформе</span>
+    <div className="relative border-y border-slate-200/80 bg-gradient-to-r from-slate-50 via-white to-slate-50">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-blue/35 to-transparent"
+      />
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-2 px-4 py-2.5 sm:flex-row sm:items-center sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
+        <div className="flex shrink-0 items-baseline gap-2">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+            На платформе
+          </span>
+          <span className="font-[family-name:var(--font-display)] text-lg font-semibold tabular-nums leading-none text-slate-900 sm:text-xl">
+            {totalValue}
+          </span>
+          <span className="text-sm text-slate-500">{totalLabel}</span>
+        </div>
+
+        <div
+          aria-hidden
+          className="hidden h-5 w-px shrink-0 bg-slate-200 sm:block"
+        />
+
+        <ul className="flex min-w-0 flex-1 list-none items-center gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-2 [&::-webkit-scrollbar]:hidden">
           {parts.map((part) => (
-            <span
-              key={part.key}
-              className="inline-flex shrink-0 items-center"
-            >
-              <span className="mx-1.5 text-slate-300" aria-hidden="true">
-                ·
+            <li key={part.key} className="shrink-0">
+              <span
+                className={cn(
+                  "inline-flex items-baseline gap-1 rounded-full border px-2.5 py-1 text-[11px] sm:text-xs",
+                  part.tone === "green"
+                    ? "border-brand-green/25 bg-brand-green/10 text-emerald-800"
+                    : part.tone === "muted"
+                      ? "border-slate-200/80 bg-slate-50 text-slate-500"
+                      : "border-slate-200/90 bg-white text-slate-700 shadow-[0_1px_0_rgba(15,23,42,0.03)]",
+                )}
+              >
+                <span
+                  className={cn(
+                    "font-semibold tabular-nums",
+                    part.tone === "green"
+                      ? "text-brand-green"
+                      : part.tone === "muted"
+                        ? "text-slate-600"
+                        : "text-slate-900",
+                  )}
+                >
+                  {part.value}
+                </span>
+                <span className="whitespace-nowrap">{part.label}</span>
               </span>
-              <span className="tabular-nums">
-                <span className="font-semibold text-slate-900">{part.value}</span>{" "}
-                <span className="text-slate-600">{part.label}</span>
-              </span>
-            </span>
+            </li>
           ))}
-        </p>
+        </ul>
       </div>
     </div>
   );

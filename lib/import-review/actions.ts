@@ -3,11 +3,29 @@
 import { revalidatePath } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
+import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
+import { inferLocationPrecision } from "@/lib/business/location-precision";
+import { resolveImportDisplayName } from "@/lib/import-review/display-name";
 import type {
   ImportReviewEntityType,
   ImportReviewStatus,
   ImportReviewTargetCollection,
 } from "@/types/import-review";
+
+function resolveImportLocation(item: {
+  city?: string | null;
+  state?: string | null;
+  source_group?: string | null;
+  source?: string | null;
+  source_url?: string | null;
+}) {
+  return mergeLocationWithGroupFallback({
+    city: item.city,
+    region: item.state,
+    sourceGroup: item.source_group,
+    source: item.source ?? item.source_url,
+  });
+}
 
 export type ImportReviewActionResult =
   | {
@@ -46,7 +64,7 @@ function ok(
   return { ok: true, message, ...extra };
 }
 
-function mapDbError(error: { message?: string } | null): string {
+function mapDbError(error: { message?: string; code?: string } | null): string {
   const message = (error?.message ?? "").toLowerCase();
   if (message.includes("admin only")) return "Только для администраторов.";
   if (message.includes("reject_reason required")) {
@@ -65,6 +83,16 @@ function mapDbError(error: { message?: string } | null): string {
     return "Укажите карточку-дубликат.";
   }
   if (message.includes("not found")) return "Запись не найдена.";
+  if (
+    message.includes("businesses_slug_key") ||
+    message.includes("duplicate key") ||
+    error?.code === "23505"
+  ) {
+    return "Карточка с таким slug уже есть. Измените название или одобрите принудительно после правки.";
+  }
+  if (message.includes("name required") || message.includes("slug required")) {
+    return "Нужно название (title / business_name / person_name).";
+  }
   return error?.message || "Не удалось выполнить действие.";
 }
 
@@ -321,9 +349,16 @@ export async function approveImportReviewItemAction(input: {
     });
   }
 
-  const title =
-    item.title || item.business_name || item.person_name || item.source_text;
-  if (!title?.trim()) {
+  const resolvedName = resolveImportDisplayName({
+    title: item.title,
+    business_name: item.business_name,
+    person_name: item.person_name,
+    description: item.description || item.source_text,
+    source_text: item.source_text,
+    instagram: item.instagram,
+  });
+  const title = resolvedName.name;
+  if (!title?.trim() || title === "Без названия") {
     return fail("Нужно название (title / business_name / person_name).");
   }
   if (!item.target_collection) {
@@ -340,9 +375,12 @@ export async function approveImportReviewItemAction(input: {
     (item.website?.length ?? 0) > 0 ||
     (item.email?.length ?? 0) > 0 ||
     Boolean(item.telegram_username) ||
-    Boolean(item.telegram_user_id);
+    Boolean(item.telegram_user_id) ||
+    Boolean(item.source_url?.trim());
   if (!hasContact) {
-    return fail("Нужен хотя бы один контакт.");
+    return fail(
+      "Нужен хотя бы один контакт (телефон, соцсеть, Telegram ID или ссылка на пост).",
+    );
   }
 
   const duplicates = await findDuplicateMatches(supabase, item);
@@ -356,10 +394,71 @@ export async function approveImportReviewItemAction(input: {
   const collection = item.target_collection as ImportReviewTargetCollection;
   let publishedEntityType: string;
   let publishedEntityId: string;
+  const loc = resolveImportLocation(item);
+  const locationPrecision =
+    loc.region && !loc.city
+      ? ("county" as const)
+      : loc.city
+        ? ("city" as const)
+        : null;
 
-  if (
+  if (collection === "private_specialists") {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return fail("Нужно войти в аккаунт.");
+
+    const displayName = String(
+      item.person_name?.trim() || title || "Специалист",
+    ).trim();
+    const slug = slugify(displayName);
+    const sourceUrl = item.source_url?.trim() || null;
+    const sourceType = item.source?.toLowerCase().startsWith("facebook")
+      ? "FACEBOOK"
+      : item.source?.toLowerCase().includes("telegram")
+        ? "TELEGRAM"
+        : "IMPORT";
+    const { data: inserted, error: insertError } = await supabase
+      .from("professionals")
+      .insert({
+        owner_profile_id: null,
+        created_by_profile_id: user.id,
+        source_type: sourceType,
+        source_record_id: item.id,
+        source_url: sourceUrl,
+        imported_at: new Date().toISOString(),
+        import_batch_id: "import_review_approve",
+        display_name: displayName.slice(0, 120),
+        slug,
+        short_description: (item.description ?? "").slice(0, 280) || null,
+        description: item.description ?? item.source_text ?? null,
+        status: "approved",
+        visibility: "public",
+        city: loc.city,
+        region: loc.region,
+        state_code: loc.stateCode || "US-CA",
+        location_precision: locationPrecision,
+        // Area-only: never invent map pins without a street address.
+        latitude: null,
+        longitude: null,
+        public_exact_address: false,
+        phone: item.phone?.[0] ?? null,
+        email: item.email?.[0] ?? null,
+        website: item.website?.[0] ?? null,
+        instagram_url: item.instagram?.[0]
+          ? `https://instagram.com/${item.instagram[0].replace(/^@/, "")}`
+          : null,
+        published_at: new Date().toISOString(),
+      })
+      .select("id")
+      .single();
+    if (insertError || !inserted) {
+      return fail(insertError?.message || "Не удалось создать professional.");
+    }
+    publishedEntityType = "professional";
+    publishedEntityId = inserted.id;
+  } else if (
     collection === "businesses" ||
-    collection === "private_specialists" ||
     collection === "services" ||
     collection === "organizations"
   ) {
@@ -376,7 +475,7 @@ export async function approveImportReviewItemAction(input: {
         p_description: item.description ?? null,
         p_phone: phone,
         p_website: website,
-        p_city: item.city ?? null,
+        p_city: loc.city ?? "",
         p_address_line: null,
         p_status: "approved",
         p_category_id: null,
@@ -386,17 +485,47 @@ export async function approveImportReviewItemAction(input: {
     publishedEntityType = "business";
     publishedEntityId = businessId as string;
 
-    // Best-effort contact extras
-    if (item.instagram?.[0] || item.telegram_username) {
-      await supabase
-        .from("businesses")
-        .update({
-          instagram_url: item.instagram?.[0]
-            ? `https://instagram.com/${item.instagram[0].replace(/^@/, "")}`
-            : undefined,
-        })
-        .eq("id", publishedEntityId);
+    const sourceUrl = item.source_url?.trim() || null;
+    const sourceKind = sourceUrl
+      ? item.source?.toLowerCase().startsWith("facebook")
+        ? "facebook"
+        : "telegram"
+      : "platform";
+    const telegramUsername = item.telegram_username?.replace(/^@/, "").trim();
+    const businessPrecision = inferLocationPrecision({
+      addressLine: null,
+      city: loc.city,
+      region: loc.region,
+    });
+    const extras: {
+      source_url: string | null;
+      source_kind: "telegram" | "facebook" | "platform";
+      instagram_url?: string;
+      telegram_url?: string | null;
+      city?: string | null;
+      region?: string | null;
+      state_code?: string | null;
+      location_precision?: "street" | "county" | null;
+      latitude?: null;
+      longitude?: null;
+    } = {
+      source_url: sourceUrl,
+      source_kind: sourceKind,
+      city: loc.city,
+      region: loc.region,
+      state_code: loc.stateCode || "US-CA",
+      // Business map pins require street; county/city stay off the map.
+      location_precision: businessPrecision === "county" ? "county" : null,
+      latitude: null,
+      longitude: null,
+    };
+    if (item.instagram?.[0]) {
+      extras.instagram_url = `https://instagram.com/${item.instagram[0].replace(/^@/, "")}`;
     }
+    if (telegramUsername) {
+      extras.telegram_url = `https://t.me/${telegramUsername}`;
+    }
+    await supabase.from("businesses").update(extras).eq("id", publishedEntityId);
   } else if (
     collection === "marketplace" ||
     collection === "real_estate" ||
@@ -426,9 +555,15 @@ export async function approveImportReviewItemAction(input: {
         description: item.description ?? item.source_text ?? "",
         price_amount: item.price,
         price_currency: item.currency ?? "USD",
-        city: item.city,
-        state: item.state,
+        city: loc.city ?? item.city,
+        state: loc.region || loc.stateCode?.replace(/^US-/, "") || item.state,
         publisher_type: "profile",
+        source_url: item.source_url?.trim() || null,
+        source_kind: item.source_url?.trim()
+          ? item.source?.toLowerCase().startsWith("facebook")
+            ? "facebook"
+            : "telegram"
+          : "platform",
       })
       .select("id")
       .single();
@@ -471,9 +606,35 @@ export async function approveImportReviewItemAction(input: {
     publishedEntityType = "listing";
     publishedEntityId = inserted.id;
   } else if (collection === "events") {
-    return fail(
-      "Коллекция events ещё не реализована в рабочих таблицах. Смените target_collection или дождитесь схемы events.",
-    );
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return fail("Нужно войти в аккаунт.");
+
+    const eventTitle = String(title).trim();
+    const slug = slugify(eventTitle);
+    const { data: inserted, error: insertError } = await supabase
+      .from("events")
+      .insert({
+        owner_profile_id: user.id,
+        title: eventTitle.slice(0, 200),
+        slug,
+        description: item.description ?? item.source_text ?? null,
+        status: "published",
+        city: item.city ?? null,
+        state_code: "US-CA",
+        source_url: item.source_url?.trim() || null,
+        source_channel: item.source?.split(":")[0] || "telegram",
+        source_body: item.source_text ?? item.description ?? null,
+        format: "offline",
+      })
+      .select("id")
+      .single();
+    if (insertError || !inserted) {
+      return fail(insertError?.message || "Не удалось создать event.");
+    }
+    publishedEntityType = "event";
+    publishedEntityId = inserted.id;
   } else {
     return fail(`Неизвестная коллекция: ${collection}`);
   }

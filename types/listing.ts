@@ -193,6 +193,11 @@ export type Listing = {
   contactPreference: ListingContactPreference;
   publisherType: PublisherType;
   publisherBusinessId: string | null;
+  /** Original post URL — null on guest SSR; load via source API after auth. */
+  sourceUrl: string | null;
+  sourceKind: "telegram" | "facebook" | "platform" | null;
+  /** Safe flag for locked chip without exposing URL. */
+  hasSource: boolean;
   publishedAt: string | null;
   reservedAt: string | null;
   completedAt: string | null;

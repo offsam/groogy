@@ -6,6 +6,12 @@ import {
 } from "@/lib/ai/search-intent";
 import { distanceKm } from "@/lib/geo/distance";
 import {
+  correctSearchText,
+  correctTokenList,
+  type SpellCorrection,
+} from "@/lib/search/spellcheck";
+import { haystackMatchesToken } from "@/lib/search/synonyms";
+import {
   assertAiSearchRequestAllowed,
   clampSearchQuery,
   readAiSearchJsonBody,
@@ -15,8 +21,10 @@ import {
   consumeRateLimit,
 } from "@/lib/security/rate-limit";
 import { safeErrorMessage } from "@/lib/security/redact";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import { createServerClient } from "@/lib/supabase/server";
 import { getActiveCategories, searchBusinesses } from "@/lib/supabase/queries";
+import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { hasCoordinates, type Business } from "@/types/business";
 
 export const runtime = "nodejs";
@@ -41,28 +49,38 @@ function asOptionalCoord(value: unknown, kind: "lat" | "lng"): number | null {
 
 function hintScore(business: Business, hints: string[]): number {
   if (hints.length === 0) return 0;
+  const name = (business.name ?? "").toLowerCase();
   const haystack = [
     business.name,
     business.shortDescription,
     business.description,
     business.categoryName,
+    business.categorySlug,
   ]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
-  return hints.reduce(
-    (sum, hint) => sum + (haystack.includes(hint.toLowerCase()) ? 1 : 0),
-    0,
-  );
+  return hints.reduce((sum, hint) => {
+    const lower = hint.toLowerCase();
+    // Exact phrase in name beats weak synonym hits elsewhere (пол/tile).
+    if (name.includes(lower)) return sum + 6;
+    if (haystack.includes(lower)) return sum + 3;
+    if (haystackMatchesToken(haystack, hint)) return sum + 1;
+    return sum;
+  }, 0);
 }
 
-/** Nearest-first when coords present; then soft hint boost; then rating. */
+/** Nearest-first when coords present; then soft hint boost; then completeness. */
 function rankBusinesses(
   businesses: Business[],
   hints: string[],
   near: { lat: number; lng: number } | null,
 ): Business[] {
   return [...businesses].sort((a, b) => {
+    // Explicit service matches first (oil on card beats generic auto shop).
+    const hintDiff = hintScore(b, hints) - hintScore(a, hints);
+    if (hintDiff !== 0) return hintDiff;
+
     if (near) {
       const da = hasCoordinates(a)
         ? distanceKm(near.lat, near.lng, a.latitude, a.longitude)
@@ -73,14 +91,19 @@ function rankBusinesses(
       if (da !== db) return da - db;
     }
 
-    const hintDiff = hintScore(b, hints) - hintScore(a, hints);
-    if (hintDiff !== 0) return hintDiff;
-    return (b.ratingAvg ?? 0) - (a.ratingAvg ?? 0);
+    return compareBusinessesByCompleteness(a, b);
   });
 }
 
 function emptyIntent(): SearchIntent {
-  return { keywords: [], city: null, categorySlug: null, mustHints: [] };
+  return {
+    keywords: [],
+    city: null,
+    categorySlug: null,
+    mustHints: [],
+    preferCategory: false,
+    nearMe: false,
+  };
 }
 
 export async function POST(request: Request) {
@@ -138,11 +161,12 @@ export async function POST(request: Request) {
   }
 
   const client = await createServerClient();
+  const catalog = createServiceRoleClient();
   const categories = await getActiveCategories(client);
 
   // No query: plain catalog listing (no LLM, no key use).
   if (!q) {
-    const businesses = await searchBusinesses(client, {
+    const businesses = await searchBusinesses(catalog, {
       categorySlug: categoryOverride,
       city: cityOverride,
       hubId,
@@ -155,8 +179,14 @@ export async function POST(request: Request) {
       modelUsed: null,
       fallback: false,
       sortedByDistance: Boolean(near),
+      corrections: [],
     });
   }
+
+  // Deterministic typo fix (floring → flooring) before/alongside LLM.
+  const querySpell = correctSearchText(q);
+  const qForLlm = querySpell.corrected || q;
+  const corrections: SpellCorrection[] = [...querySpell.corrections];
 
   let intent = emptyIntent();
   let modelUsed: string | null = null;
@@ -167,7 +197,7 @@ export async function POST(request: Request) {
   } else {
     try {
       const parsed = await parseSearchIntent(
-        q,
+        qForLlm,
         categories.map((c) => ({ slug: c.slug, name: c.name })),
       );
       intent = parsed.intent;
@@ -181,9 +211,56 @@ export async function POST(request: Request) {
     }
   }
 
+  // Spell-correct LLM tokens too (in case model kept the typo).
+  {
+    const kw = correctTokenList(intent.keywords);
+    const hints = correctTokenList(intent.mustHints);
+    intent = {
+      ...intent,
+      keywords: kw.tokens,
+      mustHints: hints.tokens,
+    };
+    corrections.push(...kw.corrections, ...hints.corrections);
+  }
+
+  // Heuristic: obvious trade typos → search the corrected trade term (not empty category browse).
+  if (
+    corrections.some((c) =>
+      ["flooring", "plumbing", "electrician", "roofing", "painting", "painter"].includes(
+        c.to,
+      ),
+    )
+  ) {
+    const tradeTerms = corrections
+      .map((c) => c.to)
+      .filter((t) =>
+        ["flooring", "plumbing", "electrician", "roofing", "painting", "painter"].includes(
+          t,
+        ),
+      );
+    intent = {
+      ...intent,
+      preferCategory: false,
+      categorySlug: intent.categorySlug,
+      mustHints: [...new Set([...intent.mustHints, ...tradeTerms, ...intent.keywords])],
+      keywords:
+        intent.keywords.length > 0
+          ? intent.keywords
+          : tradeTerms,
+    };
+  }
+
   const searchQuery = fallback
-    ? q
+    ? qForLlm
     : (() => {
+        // Service-need mode: browse category, don't require exact phrase on cards.
+        // If we also have specific trade hints (flooring), prefer those over empty browse.
+        if (intent.preferCategory && intent.categorySlug) {
+          if (intent.mustHints.length > 0) {
+            return intent.mustHints.slice(0, 3).join(" ");
+          }
+          return "";
+        }
         const cityLower = intent.city?.toLowerCase() ?? "";
         const hintSet = new Set(intent.mustHints.map((h) => h.toLowerCase()));
         const tokens = intent.keywords.filter((k) => {
@@ -192,7 +269,10 @@ export async function POST(request: Request) {
           if (hintSet.has(lower)) return false;
           return true;
         });
-        return tokens.length > 0 ? tokens.join(" ") : q;
+        if (tokens.length > 0) return tokens.join(" ");
+        if (intent.mustHints.length > 0) return intent.mustHints.slice(0, 3).join(" ");
+        // Prefer corrected query over raw typo when LLM returned nothing useful.
+        return qForLlm;
       })();
 
   // County / metro names are hubs, not city ILIKE filters (Irvine ≠ "Orange County").
@@ -212,57 +292,124 @@ export async function POST(request: Request) {
     return rawCity;
   })();
 
-  // Prefer mustHints for ranking only; also fold language hints into soft boost.
-  // If hard keyword AND returns empty, retry with fewer tokens (drop redundant ones).
+  const categorySlug = categoryOverride ?? intent.categorySlug;
   const searchParams = {
-    categorySlug: categoryOverride ?? intent.categorySlug,
+    categorySlug,
     city: cityForFilter,
     hubId,
     nearLat,
     nearLng,
   };
 
-  let businesses = await searchBusinesses(client, {
+  let businesses = await searchBusinesses(catalog, {
     ...searchParams,
     query: searchQuery,
   });
 
+  // If text search was too strict, widen: primary token, then category browse.
   if (businesses.length === 0 && searchQuery) {
     const tokens = searchQuery.split(/\s+/).filter(Boolean);
     if (tokens.length > 1) {
-      // Retry with the longest / most specific token only.
       const primary = [...tokens].sort((a, b) => b.length - a.length)[0];
-      businesses = await searchBusinesses(client, {
+      businesses = await searchBusinesses(catalog, {
         ...searchParams,
         query: primary,
       });
     }
   }
 
-  if (businesses.length === 0 && (categoryOverride ?? intent.categorySlug)) {
-    // Last resort: category + hub, no text tokens.
-    businesses = await searchBusinesses(client, searchParams);
+  if (businesses.length === 0 && categorySlug) {
+    businesses = await searchBusinesses(catalog, searchParams);
   }
 
-  const softHints = fallback
-    ? []
-    : [
-        ...intent.mustHints,
-        ...intent.keywords.filter((k) =>
-          ["русский", "russian", "украинский", "ukrainian"].includes(
-            k.toLowerCase(),
-          ),
-        ),
-      ];
+  // Always pull hint-based matches (flooring on card) and merge on top of category browse.
+  const hintTerms = [
+    ...intent.mustHints,
+    ...(searchQuery ? searchQuery.split(/\s+/).filter(Boolean) : []),
+    ...corrections.map((c) => c.to),
+  ].filter(Boolean);
+  if (hintTerms.length > 0) {
+    const hintQuery = [...new Set(hintTerms)].slice(0, 4).join(" ");
+    const extras = await searchBusinesses(catalog, {
+      query: hintQuery,
+      city: cityForFilter,
+      hubId,
+      nearLat,
+      nearLng,
+    });
+    const seen = new Set(businesses.map((b) => b.id));
+    for (const extra of extras) {
+      if (seen.has(extra.id)) continue;
+      if (
+        categorySlug &&
+        intent.preferCategory &&
+        extra.categorySlug &&
+        extra.categorySlug !== categorySlug &&
+        !(categorySlug === "auto" && extra.categorySlug === "services") &&
+        !(categorySlug === "services" && extra.categorySlug === "auto")
+      ) {
+        // Still allow extras that strongly match the hint text.
+        const hay = [
+          extra.name,
+          extra.shortDescription,
+          extra.description,
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        const strong = hintTerms.some((h) => haystackMatchesToken(hay, h));
+        if (!strong) continue;
+      }
+      seen.add(extra.id);
+      businesses.push(extra);
+    }
+  }
 
-  const ranked = rankBusinesses(businesses, softHints, near);
+  // Last resort: corrected free-text across all categories in hub.
+  if (businesses.length === 0 && qForLlm && qForLlm !== searchQuery) {
+    businesses = await searchBusinesses(catalog, {
+      query: qForLlm,
+      city: cityForFilter,
+      hubId,
+      nearLat,
+      nearLng,
+    });
+  }
+
+  const softHints = [
+    ...intent.mustHints,
+    ...corrections.map((c) => c.to),
+    ...intent.keywords.filter((k) =>
+      ["русский", "russian", "украинский", "ukrainian"].includes(k.toLowerCase()),
+    ),
+  ];
+
+  let ranked = rankBusinesses(businesses, softHints, near);
+
+  // When we have trade/service hints and some cards match them, drop unrelated noise.
+  if (softHints.length > 0) {
+    const withScores = ranked.map((b) => ({ b, s: hintScore(b, softHints) }));
+    const strong = withScores.filter((x) => x.s >= 3).map((x) => x.b);
+    const any = withScores.filter((x) => x.s > 0).map((x) => x.b);
+    if (strong.length > 0) ranked = strong;
+    else if (any.length > 0) ranked = any;
+  }
+
+  // Deduplicate corrections for UI
+  const seenCorr = new Set<string>();
+  const uniqueCorrections = corrections.filter((c) => {
+    const key = `${c.from.toLowerCase()}→${c.to.toLowerCase()}`;
+    if (seenCorr.has(key)) return false;
+    seenCorr.add(key);
+    return c.from.toLowerCase() !== c.to.toLowerCase();
+  });
 
   return NextResponse.json({
     businesses: ranked,
     intent: fallback
       ? {
           ...emptyIntent(),
-          keywords: q
+          keywords: qForLlm
             .split(/[^\p{L}\p{N}]+/u)
             .map((t) => t.trim())
             .filter((t) => t.length >= 2)
@@ -271,6 +418,9 @@ export async function POST(request: Request) {
       : intent,
     modelUsed,
     fallback,
-    sortedByDistance: Boolean(near),
+    sortedByDistance: Boolean(near || intent.nearMe),
+    preferCategory: intent.preferCategory,
+    corrections: uniqueCorrections,
+    correctedQuery: uniqueCorrections.length > 0 ? qForLlm : null,
   });
 }

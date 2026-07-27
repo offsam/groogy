@@ -1,0 +1,467 @@
+{
+  "generated_at": "2026-07-26T23:28:38.328841+00:00",
+  "mode": "apply",
+  "needy": 411,
+  "updated": 229,
+  "applied": 229,
+  "field_hits": {
+    "cover_image_url": 215,
+    "instagram": 15,
+    "websites": 2
+  },
+  "image_stats": {
+    "from_professional": 110,
+    "from_preview": 31,
+    "from_fbcdn": 0,
+    "from_telegram_avatar": 70,
+    "from_website": 4,
+    "from_instagram": 0,
+    "rehost_fail": 0
+  },
+  "sample": [
+    {
+      "id": "00cfe5fe-2a48-4a26-915f-22f1c0adb821",
+      "name": "Natalia Rezvova",
+      "channel": "telegram",
+      "sources": [
+        "import_preview"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/cc80…"
+      }
+    },
+    {
+      "id": "00d5c687-ed9e-4591-b81b-338ae1f43dab",
+      "name": "Наргиза",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/ee3db…"
+      }
+    },
+    {
+      "id": "01be7d34-e2b6-407d-a329-8c864f804e92",
+      "name": "Рэй",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/01b…"
+      }
+    },
+    {
+      "id": "039854fc-f563-4980-b6be-c901861161d0",
+      "name": "Милана Приглашаю вас",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/a61cab79-…"
+      }
+    },
+    {
+      "id": "03d46653-9a3b-4c48-a207-942b1a87a94f",
+      "name": "Sasha",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/0dd3b888-…"
+      }
+    },
+    {
+      "id": "04fd44b2-acef-46bc-a34d-68b0158b0bfc",
+      "name": "Mariya Shostak",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/04f…"
+      }
+    },
+    {
+      "id": "062493e1-820f-4680-83f1-0bd51d3897ac",
+      "name": "sabina.kravchenko",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/3c3a…"
+      }
+    },
+    {
+      "id": "0724a216-474e-4218-b092-f29df5b0723f",
+      "name": "Viktor",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/2a7dad3e-…"
+      }
+    },
+    {
+      "id": "08a021c7-9c9c-4e9e-900d-3bd9251791ea",
+      "name": "Anna S",
+      "channel": "telegram",
+      "sources": [
+        "import_preview"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/e45b…"
+      }
+    },
+    {
+      "id": "09adf14b-b6ed-4f11-ac3b-a34a1e7b9b25",
+      "name": "Кристина",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/60db…"
+      }
+    },
+    {
+      "id": "0ad9d989-5e0a-4e35-b1b8-182a79c1348e",
+      "name": "photograph_la_alina",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/0fe50371-…"
+      }
+    },
+    {
+      "id": "0c2df2b1-0463-40b6-ba0e-923be3f9bfc9",
+      "name": "Юля",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/d174d…"
+      }
+    },
+    {
+      "id": "0cc930dc-0db5-4a97-9f34-c1238f4dffef",
+      "name": "Глендейл",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/4d91e591-…"
+      }
+    },
+    {
+      "id": "0d781d0c-e7c5-45b4-982c-76223dd155b9",
+      "name": "Сергей Петров",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/0d7…"
+      }
+    },
+    {
+      "id": "0f0efdf6-c585-4b53-a1e6-85ab35fe81ff",
+      "name": "Messenger",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/1b…"
+      }
+    },
+    {
+      "id": "11fd7129-e1fe-41ac-adca-a1c54a7a24d6",
+      "name": "Лёша Волков",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/74736…"
+      }
+    },
+    {
+      "id": "1342855d-70cc-4627-887c-e8f19613adcd",
+      "name": "aleks_bake_",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/1cbd…"
+      }
+    },
+    {
+      "id": "13542c06-f131-40fe-a5e8-1f2a0a2f3efe",
+      "name": "Aibek",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/135…"
+      }
+    },
+    {
+      "id": "13b9cf71-f29c-4bfd-ac74-187dcedc47d4",
+      "name": "регистрации LLC",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2ccc7…"
+      }
+    },
+    {
+      "id": "1404372e-fbe1-428b-9a06-52ca5b50364f",
+      "name": "Nata",
+      "channel": "telegram",
+      "sources": [
+        "web_or_ig"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/140…"
+      }
+    },
+    {
+      "id": "1646358c-3067-4472-bc9c-6d63dc41a3f2",
+      "name": "Elmira73",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/ce3cf29e-…"
+      }
+    },
+    {
+      "id": "16df8b6b-be0e-48da-beca-41f83b720f2f",
+      "name": "Яковлев Дмитрий",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/c19e7…"
+      }
+    },
+    {
+      "id": "191b4d3d-a070-4227-8d23-994e11fb6bab",
+      "name": "Мила",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4a764…"
+      }
+    },
+    {
+      "id": "1ae8f118-c789-4b90-b537-6d230f87c6b2",
+      "name": "Ольга",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/b04e381d-…"
+      }
+    },
+    {
+      "id": "1cd30a18-bc64-40be-aabd-ea51333fb4f4",
+      "name": "merengue.desert",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/dcc3c0b9-…"
+      }
+    },
+    {
+      "id": "1f2e3808-79e7-4e25-a876-681ceea2a327",
+      "name": "@Capytaytay",
+      "channel": "telegram",
+      "sources": [
+        "comment_text"
+      ],
+      "patch": {
+        "instagram": [
+          "capytaytay"
+        ]
+      }
+    },
+    {
+      "id": "21da47a9-09fc-4202-b84c-2ea63f0f3ef6",
+      "name": "Aleksandr Pshennik",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/21d…"
+      }
+    },
+    {
+      "id": "25a1d8b4-8ab0-4728-ac53-6b993976c78f",
+      "name": "Elena Garmazh FYSM Yoga Coach",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/25a…"
+      }
+    },
+    {
+      "id": "25b039ff-f942-473d-a19b-c6c7d4dde6c9",
+      "name": "Alyona Koolhaas",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/d8c8f…"
+      }
+    },
+    {
+      "id": "279da2f0-a8ac-4660-9adc-8cfac178f4d6",
+      "name": "swimmingcoach_orange_county",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/d71e0111-…"
+      }
+    },
+    {
+      "id": "2942c37c-0299-41c4-adc5-5008ffc43f09",
+      "name": "cakewithlove.ca",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/a15ed7ac-…"
+      }
+    },
+    {
+      "id": "29b4f7c1-b845-4a4f-a079-d136d5d2409d",
+      "name": "reel",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/29b…"
+      }
+    },
+    {
+      "id": "2a41fe3b-f3c5-4710-8ff5-3a966635ff2f",
+      "name": "Bek’s Flowers",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/559daaad-…"
+      }
+    },
+    {
+      "id": "2b537136-387d-4056-b1b5-52c2468e9860",
+      "name": "Anastasiya Zai",
+      "channel": "telegram",
+      "sources": [
+        "telegram_avatar"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/recommendation/2b5…"
+      }
+    },
+    {
+      "id": "2c124566-8003-4566-a6dd-d8dc16f6788b",
+      "name": "Сергей",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/c7b6ad11-…"
+      }
+    },
+    {
+      "id": "2d033708-ad9d-410f-b842-f6e6f1b45e6b",
+      "name": "SvetickLA",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/e99a7…"
+      }
+    },
+    {
+      "id": "2d44c98a-03b9-460d-b559-5c36bb60352f",
+      "name": "@Kristi_USA",
+      "channel": "telegram",
+      "sources": [
+        "comment_text"
+      ],
+      "patch": {
+        "instagram": [
+          "kristi_usa"
+        ]
+      }
+    },
+    {
+      "id": "2d517323-2197-4472-8498-889ad02d2bb5",
+      "name": "Александра",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/5658b957-…"
+      }
+    },
+    {
+      "id": "2fe18ee7-16fb-448b-94ae-da6fc24c7fa5",
+      "name": "Контакты",
+      "channel": "telegram",
+      "sources": [
+        "import_preview"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/a642…"
+      }
+    },
+    {
+      "id": "308f71fe-dbbf-4afe-bfce-21d5bd7232a3",
+      "name": "Запись",
+      "channel": "telegram",
+      "sources": [
+        "professional"
+      ],
+      "patch": {
+        "cover_image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/b9416…"
+      }
+    }
+  ]
+}

@@ -1,20 +1,27 @@
+import { computePresenceFlags, type BusinessPresenceFlags } from "@/lib/business/presence-flags";
+import { resolvePublicCityPostal } from "@/lib/address/normalize";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Business, BusinessSearchParams, Category } from "@/types/business";
 import type { BusinessWithCategory, Database, ProfileRow } from "@/types/database";
 import { hasCoordinates } from "@/types/business";
-import { mapBusiness, mapCategory } from "@/lib/supabase/mappers";
+import {
+  mapBusinessDetail,
+  mapBusinessList,
+  mapCategory,
+} from "@/lib/supabase/mappers";
 import {
   getRegionHubsByIds,
-  isLatLngInHubBounds,
-  locationTextMatchesHub,
+  locationFieldsMatchHub,
   parseHubIds,
 } from "@/lib/regions/hubs";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
 import { distanceKm } from "@/lib/geo/distance";
-import type { SupabaseClient } from "@supabase/supabase-js";
+import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 
 type Client = SupabaseClient<Database>;
 
-const BUSINESS_SELECT = `
+/** Full row — owners, profile detail, contacts API. */
+const BUSINESS_DETAIL_SELECT = `
   id,
   slug,
   category_id,
@@ -30,14 +37,24 @@ const BUSINESS_SELECT = `
   email,
   website,
   instagram_url,
+  telegram_url,
+  source_url,
+  source_kind,
   yelp_url,
+  yelp_rating,
+  yelp_reviews_count,
+  instagram_followers_count,
   google_maps_url,
   google_rating,
   google_reviews_count,
+  booking_url,
   image_url,
   address_line,
   city,
   region,
+  state_code,
+  city_geoid,
+  postal_code,
   latitude,
   longitude,
   location_precision,
@@ -51,6 +68,12 @@ const BUSINESS_SELECT = `
     icon
   )
 ` as const;
+
+/**
+ * List select still reads contact columns on the server so we can compute
+ * presence flags, then mapBusinessList strips plaintext before any response.
+ */
+const BUSINESS_LIST_SELECT = BUSINESS_DETAIL_SELECT;
 
 function escapeIlike(value: string): string {
   return value.replace(/[%_]/g, "\\$&");
@@ -123,6 +146,23 @@ export async function getActiveCategories(client: Client): Promise<Category[]> {
     .from("categories")
     .select("*")
     .eq("is_active", true)
+    .eq("domain", "business")
+    .order("sort_order", { ascending: true })
+    .order("name", { ascending: true });
+
+  if (error) throw error;
+  return (data ?? []).map(mapCategory);
+}
+
+/** Categories used on /professionals (shared business leaves + pro-only). */
+export async function getProfessionalCategories(
+  client: Client,
+): Promise<Category[]> {
+  const { data, error } = await client
+    .from("categories")
+    .select("*")
+    .eq("is_active", true)
+    .or("domain.eq.professional,domain.eq.business")
     .order("sort_order", { ascending: true })
     .order("name", { ascending: true });
 
@@ -136,50 +176,227 @@ export async function getApprovedBusinesses(
 ): Promise<Business[]> {
   const { data, error } = await client
     .from("businesses")
-    .select(BUSINESS_SELECT)
+    .select(BUSINESS_LIST_SELECT)
     .eq("status", "approved")
     .order("rating_avg", { ascending: false })
     .order("name", { ascending: true })
     .limit(limit);
 
   if (error) throw error;
-  return ((data ?? []) as BusinessWithCategory[]).map(mapBusiness);
+  return ((data ?? []) as BusinessWithCategory[]).map(mapBusinessList);
 }
 
 /** Newest + popular businesses with coordinates for the home activity map. */
-export async function getHomeActivityBusinesses(
+/** Home map pin — business or professional with an address + coordinates. */
+export type HomeMapPin = {
+  id: string;
+  kind: "business" | "professional";
+  name: string;
+  slug: string;
+  href: string;
+  city: string | null;
+  postalCode: string | null;
+  latitude: number;
+  longitude: number;
+  createdAt: string | null;
+  /** Listing-card preview fields */
+  imageUrl: string | null;
+  categoryName: string | null;
+  shortDescription: string | null;
+  description: string | null;
+  ratingAvg: number;
+  reviewsCount: number;
+  googleRating: number | null;
+  googleReviewsCount: number;
+  yelpRating: number | null;
+  yelpReviewsCount: number;
+  instagramFollowersCount: number | null;
+  presenceFlags: BusinessPresenceFlags;
+};
+
+/**
+ * All approved catalog rows that have both an address field and coordinates.
+ * Includes street + city-level pins (no county-only exclusion).
+ */
+export async function getHomeMapPins(
   client: Client,
-  limit = 40,
-): Promise<{ newest: Business[]; popular: Business[] }> {
-  const [newestRes, popularRes] = await Promise.all([
+  limit = 800,
+): Promise<HomeMapPin[]> {
+  const untyped = client as unknown as SupabaseClient;
+  const [bizRes, proRes] = await Promise.all([
     client
       .from("businesses")
-      .select(BUSINESS_SELECT)
+      .select(
+        "id, slug, name, city, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, google_maps_url, categories(name)",
+      )
       .eq("status", "approved")
+      .not("address_line", "is", null)
       .not("latitude", "is", null)
       .not("longitude", "is", null)
-      .neq("location_precision", "county")
       .order("created_at", { ascending: false })
       .limit(limit),
-    client
-      .from("businesses")
-      .select(BUSINESS_SELECT)
+    untyped
+      .from("professionals")
+      .select(
+        "id, slug, display_name, city, latitude, longitude, private_address_line, created_at, image_url, headline, short_description, rating_avg, reviews_count, phone, email, website, instagram_url, categories(name)",
+      )
       .eq("status", "approved")
+      .not("private_address_line", "is", null)
       .not("latitude", "is", null)
       .not("longitude", "is", null)
-      .neq("location_precision", "county")
-      .order("google_rating", { ascending: false })
-      .order("rating_avg", { ascending: false })
+      .order("created_at", { ascending: false })
       .limit(limit),
   ]);
 
-  if (newestRes.error) throw newestRes.error;
-  if (popularRes.error) throw popularRes.error;
+  if (bizRes.error) throw bizRes.error;
+  if (proRes.error) throw proRes.error;
 
-  return {
-    newest: ((newestRes.data ?? []) as BusinessWithCategory[]).map(mapBusiness),
-    popular: ((popularRes.data ?? []) as BusinessWithCategory[]).map(mapBusiness),
-  };
+  const pins: HomeMapPin[] = [];
+
+  for (const row of bizRes.data ?? []) {
+    const lat = row.latitude;
+    const lng = row.longitude;
+    if (typeof lat !== "number" || typeof lng !== "number") continue;
+    if (!(row.address_line ?? "").trim()) continue;
+    const cats = row.categories as { name: string } | { name: string }[] | null;
+    const categoryName = Array.isArray(cats)
+      ? (cats[0]?.name ?? null)
+      : (cats?.name ?? null);
+    const { city, postalCode } = resolvePublicCityPostal({
+      addressLine: row.address_line,
+      city: row.city,
+      region: null,
+      postalCode: row.postal_code,
+      shortDescription: row.short_description,
+      description: row.description,
+      businessName: row.name,
+    });
+    pins.push({
+      id: row.id,
+      kind: "business",
+      name: row.name,
+      slug: row.slug,
+      href: `/business/${row.slug}`,
+      city,
+      postalCode,
+      latitude: lat,
+      longitude: lng,
+      createdAt: row.created_at ?? null,
+      imageUrl: row.image_url ?? null,
+      categoryName,
+      shortDescription: row.short_description ?? null,
+      description: row.description ?? null,
+      ratingAvg: Number(row.rating_avg ?? 0),
+      reviewsCount: Number(row.reviews_count ?? 0),
+      googleRating:
+        row.google_rating == null ? null : Number(row.google_rating),
+      googleReviewsCount: Number(row.google_reviews_count ?? 0),
+      yelpRating: row.yelp_rating == null ? null : Number(row.yelp_rating),
+      yelpReviewsCount: Number(row.yelp_reviews_count ?? 0),
+      instagramFollowersCount:
+        row.instagram_followers_count == null
+          ? null
+          : Number(row.instagram_followers_count),
+      presenceFlags: computePresenceFlags(row),
+    });
+  }
+
+  for (const row of (proRes.data ?? []) as Array<{
+    id: string;
+    slug: string;
+    display_name: string;
+    city: string | null;
+    latitude: number | null;
+    longitude: number | null;
+    private_address_line: string | null;
+    created_at: string | null;
+    image_url: string | null;
+    headline: string | null;
+    short_description: string | null;
+    rating_avg: number | null;
+    reviews_count: number | null;
+    phone: string | null;
+    email: string | null;
+    website: string | null;
+    instagram_url: string | null;
+    categories: { name: string } | { name: string }[] | null;
+  }>) {
+    const lat = row.latitude;
+    const lng = row.longitude;
+    if (typeof lat !== "number" || typeof lng !== "number") continue;
+    if (!(row.private_address_line ?? "").trim()) continue;
+    const cats = row.categories;
+    const categoryName = Array.isArray(cats)
+      ? (cats[0]?.name ?? null)
+      : (cats?.name ?? null);
+    const { city, postalCode } = resolvePublicCityPostal({
+      addressLine: row.private_address_line,
+      city: row.city,
+      shortDescription: row.short_description || row.headline,
+      businessName: row.display_name,
+    });
+    pins.push({
+      id: row.id,
+      kind: "professional",
+      name: row.display_name,
+      slug: row.slug,
+      href: `/professional/${row.slug}`,
+      city,
+      postalCode,
+      latitude: lat,
+      longitude: lng,
+      createdAt: row.created_at ?? null,
+      imageUrl: row.image_url ?? null,
+      categoryName,
+      shortDescription: row.short_description || row.headline || null,
+      description: null,
+      ratingAvg: Number(row.rating_avg ?? 0),
+      reviewsCount: Number(row.reviews_count ?? 0),
+      googleRating: null,
+      googleReviewsCount: 0,
+      yelpRating: null,
+      yelpReviewsCount: 0,
+      instagramFollowersCount: null,
+      presenceFlags: computePresenceFlags({
+        phone: row.phone,
+        email: row.email,
+        website: row.website,
+        instagram_url: row.instagram_url,
+        latitude: lat,
+        longitude: lng,
+      }),
+    });
+  }
+
+  return pins;
+}
+
+/** @deprecated prefer getHomeMapPins */
+export async function getHomeMapBusinesses(
+  client: Client,
+  limit = 500,
+): Promise<Business[]> {
+  const { data, error } = await client
+    .from("businesses")
+    .select(BUSINESS_LIST_SELECT)
+    .eq("status", "approved")
+    .not("address_line", "is", null)
+    .not("latitude", "is", null)
+    .not("longitude", "is", null)
+    .order("created_at", { ascending: false })
+    .limit(limit);
+
+  if (error) throw error;
+  return ((data ?? []) as BusinessWithCategory[]).map(mapBusinessList);
+}
+
+/** @deprecated use getHomeMapPins */
+export async function getHomeActivityBusinesses(
+  client: Client,
+  limit = 500,
+): Promise<{ newest: Business[]; popular: Business[] }> {
+  const businesses = await getHomeMapBusinesses(client, limit);
+  return { newest: businesses, popular: businesses };
 }
 
 export async function getBusinessBySlug(
@@ -188,13 +405,13 @@ export async function getBusinessBySlug(
 ): Promise<Business | null> {
   const { data, error } = await client
     .from("businesses")
-    .select(BUSINESS_SELECT)
+    .select(BUSINESS_DETAIL_SELECT)
     .eq("slug", slug)
     .eq("status", "approved")
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapBusiness(data as BusinessWithCategory) : null;
+  return data ? mapBusinessDetail(data as BusinessWithCategory) : null;
 }
 
 /** Owner/admin read — any status (RLS-gated). */
@@ -204,12 +421,12 @@ export async function getBusinessBySlugForOwner(
 ): Promise<Business | null> {
   const { data, error } = await client
     .from("businesses")
-    .select(BUSINESS_SELECT)
+    .select(BUSINESS_DETAIL_SELECT)
     .eq("slug", slug)
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapBusiness(data as BusinessWithCategory) : null;
+  return data ? mapBusinessDetail(data as BusinessWithCategory) : null;
 }
 
 export async function getBusinessById(
@@ -218,13 +435,13 @@ export async function getBusinessById(
 ): Promise<Business | null> {
   const { data, error } = await client
     .from("businesses")
-    .select(BUSINESS_SELECT)
+    .select(BUSINESS_DETAIL_SELECT)
     .eq("id", id)
     .eq("status", "approved")
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapBusiness(data as BusinessWithCategory) : null;
+  return data ? mapBusinessDetail(data as BusinessWithCategory) : null;
 }
 
 export async function searchBusinesses(
@@ -243,7 +460,7 @@ export async function searchBusinesses(
 
   let request = client
     .from("businesses")
-    .select(BUSINESS_SELECT)
+    .select(BUSINESS_LIST_SELECT)
     .eq("status", "approved");
 
   if (categoryId) {
@@ -281,7 +498,7 @@ export async function searchBusinesses(
 
   if (error) throw error;
 
-  let results = ((data ?? []) as BusinessWithCategory[]).map(mapBusiness);
+  let results = ((data ?? []) as BusinessWithCategory[]).map(mapBusinessList);
 
   // Match category name against free-text query (not covered by column `.or`).
   // Synonyms: "маникюр" also matches "manicure" / "nails".
@@ -307,15 +524,20 @@ export async function searchBusinesses(
 
   if (params.hubId) {
     const hubs = getRegionHubsByIds(parseHubIds(params.hubId));
-    results = results.filter((business) => {
-      if (hasCoordinates(business)) {
-        return hubs.some((hub) =>
-          isLatLngInHubBounds(business.latitude, business.longitude, hub),
-        );
-      }
-      const loc = `${business.city ?? ""} ${business.region ?? ""} ${business.shortDescription ?? ""}`;
-      return hubs.some((hub) => locationTextMatchesHub(loc, hub));
-    });
+    results = results.filter((business) =>
+      hubs.some((hub) =>
+        locationFieldsMatchHub(
+          {
+            city: business.city,
+            region: business.region,
+            text: business.shortDescription,
+            latitude: business.latitude,
+            longitude: business.longitude,
+          },
+          hub,
+        ),
+      ),
+    );
   }
 
   const nearLat = params.nearLat;
@@ -334,8 +556,10 @@ export async function searchBusinesses(
         ? distanceKm(nearLat, nearLng, b.latitude, b.longitude)
         : Number.POSITIVE_INFINITY;
       if (da !== db) return da - db;
-      return (b.ratingAvg ?? 0) - (a.ratingAvg ?? 0);
+      return compareBusinessesByCompleteness(a, b);
     });
+  } else {
+    results = [...results].sort(compareBusinessesByCompleteness);
   }
 
   return results;
@@ -360,7 +584,7 @@ export async function getAllMappableBusinesses(
 ): Promise<Business[]> {
   const { data, error } = await client
     .from("businesses")
-    .select(BUSINESS_SELECT)
+    .select(BUSINESS_LIST_SELECT)
     .eq("status", "approved")
     .not("latitude", "is", null)
     .not("longitude", "is", null)
@@ -371,22 +595,23 @@ export async function getAllMappableBusinesses(
   if (error) throw error;
 
   return ((data ?? []) as BusinessWithCategory[])
-    .map(mapBusiness)
-    .filter(hasCoordinates)
-    .filter((b) => {
-      const address = b.addressLine?.trim() ?? "";
+    .filter((row) => {
+      const address = row.address_line?.trim() ?? "";
       if (!address) return false;
-      if (b.locationPrecision === "county") return false;
-      // Reject county-as-city placeholders without a street address pattern
-      const city = (b.city ?? "").trim().toLowerCase();
+      if (row.location_precision === "county") return false;
+      const city = (row.city ?? "").trim().toLowerCase();
       if (
-        (city === "orange county" || city === "los angeles" || city === "southern california") &&
+        (city === "orange county" ||
+          city === "los angeles" ||
+          city === "southern california") &&
         !/\d/.test(address)
       ) {
         return false;
       }
       return true;
-    });
+    })
+    .map(mapBusinessList)
+    .filter(hasCoordinates);
 }
 
 export async function getCategoryBySlug(

@@ -1,23 +1,30 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Eye, Globe, Mail, Navigation, Phone } from "lucide-react";
+import { Eye, Globe, Mail, Navigation, Phone, CalendarCheck } from "lucide-react";
 import {
   FacebookIcon,
   GoogleIcon,
   InstagramIcon,
+  TelegramIcon,
   YelpIcon,
 } from "@/components/brand/BrandIcons";
 import { QuickAuthModal } from "@/components/auth/QuickAuthModal";
 import { EditPencil } from "@/components/business/profile/edit/EditPencil";
-import { trackContactRevealAction } from "@/lib/admin/actions";
+import {
+  EMPTY_PRESENCE_FLAGS,
+  hasAnyPresenceFlag,
+  type BusinessPresenceFlags,
+} from "@/lib/business/presence-flags";
 import {
   hasGoogleMapsPresence,
   resolveFacebookUrl,
   resolveGoogleMapsUrl,
   resolveInstagramUrl,
+  resolveTelegramUrl,
   resolveWebsiteUrl,
   resolveYelpUrl,
+  telegramContactLabel,
   type BusinessPresence,
 } from "@/lib/business/presence";
 import { cn } from "@/lib/utils";
@@ -27,16 +34,16 @@ type BusinessContactsCardProps = {
   businessId: string;
   businessSlug: string;
   businessName: string;
+  /** Present for owners/edit; null for guests (load via API after auth). */
   phone?: string | null;
   email?: string | null;
-  /** Extra phones (e.g. Chinese line) shown after the primary number. */
   extraPhones?: string[];
   fallbackPhone?: string | null;
   fallbackEmail?: string | null;
   presence: BusinessPresence;
+  presenceFlags?: BusinessPresenceFlags | null;
   routeUrl?: string | null;
   initiallyRevealed?: boolean;
-  /** Logged-in users can reveal; guests see quick auth first. */
   isAuthenticated?: boolean;
   editMode?: boolean;
   onEdit?: () => void;
@@ -49,6 +56,22 @@ type ContactItem = {
   icon: ReactNode;
   label: ReactNode;
   external?: boolean;
+};
+
+type ContactsApiResponse = {
+  phone?: string | null;
+  email?: string | null;
+  extraPhones?: string[];
+  website?: string | null;
+  instagramUrl?: string | null;
+  telegramUrl?: string | null;
+  sourceUrl?: string | null;
+  sourceKind?: "telegram" | "facebook" | "platform" | null;
+  facebookUrl?: string | null;
+  yelpUrl?: string | null;
+  googleMapsUrl?: string | null;
+  routeUrl?: string | null;
+  addressLine?: string | null;
 };
 
 const chipClass =
@@ -92,53 +115,49 @@ function InstagramHandle({ url }: { url: string }) {
   }
 }
 
-/**
- * Contacts under the map.
- * Locked: icon chips preview (not clickable) + «Показать контакты».
- * Unlocked: same chips become links and full link labels appear (tracks reveal).
- */
-export function BusinessContactsCard({
-  businessId,
-  businessSlug,
-  businessName,
-  phone = null,
-  email = null,
-  extraPhones = [],
-  fallbackPhone = null,
-  fallbackEmail = null,
-  presence,
-  routeUrl = null,
-  initiallyRevealed = false,
-  isAuthenticated = false,
-  editMode = false,
-  onEdit,
-}: BusinessContactsCardProps) {
-  const phones = uniquePhones([phone, ...extraPhones, fallbackPhone]);
-  const resolvedEmail = email?.trim() || fallbackEmail?.trim() || null;
-  const website = resolveWebsiteUrl(presence);
-  const instagram = resolveInstagramUrl(presence);
-  const facebook = resolveFacebookUrl(presence);
-  const yelp = resolveYelpUrl(presence);
-  const googleHref = hasGoogleMapsPresence(presence)
-    ? resolveGoogleMapsUrl(presence, businessName)
+function buildItems(input: {
+  phones: string[];
+  email: string | null;
+  presence: BusinessPresence;
+  businessName: string;
+  routeUrl: string | null;
+}): ContactItem[] {
+  const website = resolveWebsiteUrl(input.presence);
+  const instagram = resolveInstagramUrl(input.presence);
+  const telegram = resolveTelegramUrl(input.presence);
+  const facebook = resolveFacebookUrl(input.presence);
+  const yelp = resolveYelpUrl(input.presence);
+  const googleHref = hasGoogleMapsPresence(input.presence)
+    ? resolveGoogleMapsUrl(input.presence, input.businessName)
     : null;
   const coordsRoute =
-    typeof presence.latitude === "number" &&
-    Number.isFinite(presence.latitude) &&
-    typeof presence.longitude === "number" &&
-    Number.isFinite(presence.longitude)
-      ? `https://www.google.com/maps/dir/?api=1&destination=${presence.latitude},${presence.longitude}`
+    typeof input.presence.latitude === "number" &&
+    Number.isFinite(input.presence.latitude) &&
+    typeof input.presence.longitude === "number" &&
+    Number.isFinite(input.presence.longitude)
+      ? `https://www.google.com/maps/dir/?api=1&destination=${input.presence.latitude},${input.presence.longitude}`
       : null;
   const routeHref =
-    routeUrl?.trim() ||
+    input.routeUrl?.trim() ||
     coordsRoute ||
-    (businessName.trim()
-      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(businessName.trim())}`
+    (input.businessName.trim()
+      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(input.businessName.trim())}`
       : null);
   const showRoute = Boolean(routeHref && routeHref !== googleHref);
+  const booking = input.presence.bookingUrl?.trim() || null;
 
   const items: ContactItem[] = [];
-  phones.forEach((resolvedPhone, index) => {
+  if (booking) {
+    items.push({
+      key: "booking",
+      title: "Онлайн-запись",
+      href: booking,
+      icon: <CalendarCheck aria-hidden="true" className="size-3.5" />,
+      label: "Записаться",
+      external: true,
+    });
+  }
+  input.phones.forEach((resolvedPhone, index) => {
     items.push({
       key: `phone-${index}`,
       title: index === 0 ? "Телефон" : `Телефон ${index + 1}`,
@@ -147,13 +166,23 @@ export function BusinessContactsCard({
       label: formatPhoneDisplay(resolvedPhone),
     });
   });
-  if (resolvedEmail) {
+  if (input.email) {
     items.push({
       key: "email",
       title: "Email",
-      href: `mailto:${resolvedEmail}`,
+      href: `mailto:${input.email}`,
       icon: <Mail aria-hidden="true" className="size-3.5" />,
-      label: resolvedEmail,
+      label: input.email,
+    });
+  }
+  if (telegram) {
+    items.push({
+      key: "telegram",
+      title: telegramContactLabel(telegram),
+      href: telegram,
+      icon: <TelegramIcon className="size-3.5" />,
+      label: telegramContactLabel(telegram),
+      external: true,
     });
   }
   if (website) {
@@ -216,47 +245,198 @@ export function BusinessContactsCard({
       external: true,
     });
   }
+  return items;
+}
+
+function flagChips(flags: BusinessPresenceFlags): Array<{ key: string; title: string; icon: ReactNode }> {
+  const chips: Array<{ key: string; title: string; icon: ReactNode }> = [];
+  if (flags.hasPhone) {
+    chips.push({
+      key: "phone",
+      title: "Телефон",
+      icon: <Phone aria-hidden="true" className="size-3.5" />,
+    });
+  }
+  if (flags.hasTelegram) {
+    chips.push({
+      key: "telegram",
+      title: "Telegram",
+      icon: <TelegramIcon className="size-3.5" />,
+    });
+  }
+  if (flags.hasWebsite) {
+    chips.push({
+      key: "website",
+      title: "Сайт",
+      icon: <Globe aria-hidden="true" className="size-3.5" />,
+    });
+  }
+  if (flags.hasInstagram) {
+    chips.push({
+      key: "instagram",
+      title: "Instagram",
+      icon: <InstagramIcon className="size-3.5 text-[#E4405F]" />,
+    });
+  }
+  if (flags.hasGoogleMaps) {
+    chips.push({
+      key: "google",
+      title: "Google Maps",
+      icon: <GoogleIcon className="size-3.5" />,
+    });
+  }
+  if (flags.hasEmail) {
+    chips.push({
+      key: "email",
+      title: "Email",
+      icon: <Mail aria-hidden="true" className="size-3.5" />,
+    });
+  }
+  if (flags.hasYelp) {
+    chips.push({
+      key: "yelp",
+      title: "Yelp",
+      icon: <YelpIcon className="size-3.5" />,
+    });
+  }
+  if (flags.hasFacebook) {
+    chips.push({
+      key: "facebook",
+      title: "Facebook",
+      icon: <FacebookIcon className="size-3.5" />,
+    });
+  }
+  return chips;
+}
+
+/**
+ * Contacts under the map.
+ * Guests see locked flag chips; after auth, contacts load from /api/business/[slug]/contacts.
+ * Owners in edit mode receive plaintext from SSR and skip the API.
+ */
+export function BusinessContactsCard({
+  businessId,
+  businessSlug,
+  businessName,
+  phone = null,
+  email = null,
+  extraPhones = [],
+  fallbackPhone = null,
+  fallbackEmail = null,
+  presence,
+  presenceFlags = null,
+  routeUrl = null,
+  initiallyRevealed = false,
+  isAuthenticated = false,
+  editMode = false,
+  onEdit,
+}: BusinessContactsCardProps) {
+  const hasServerContacts = Boolean(
+    phone?.trim() ||
+      email?.trim() ||
+      presence.website?.trim() ||
+      presence.instagramUrl?.trim() ||
+      presence.telegramUrl?.trim() ||
+      presence.yelpUrl?.trim() ||
+      presence.googleMapsUrl?.trim() ||
+      extraPhones.some((p) => p?.trim()) ||
+      fallbackPhone?.trim() ||
+      fallbackEmail?.trim(),
+  );
 
   const [revealed, setRevealed] = useState(
-    Boolean(initiallyRevealed && (isAuthenticated || editMode)),
+    Boolean(initiallyRevealed && (isAuthenticated || editMode) && hasServerContacts),
   );
   const [authOpen, setAuthOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [fetched, setFetched] = useState<ContactsApiResponse | null>(null);
   const tracked = useRef(revealed);
 
+  const flags = presenceFlags ?? EMPTY_PRESENCE_FLAGS;
+  const previewChips = flagChips(flags);
+
+  const activePresence: BusinessPresence = fetched
+    ? {
+        website: fetched.website,
+        instagramUrl: fetched.instagramUrl,
+        telegramUrl: fetched.telegramUrl,
+        sourceUrl: fetched.sourceUrl,
+        sourceKind: fetched.sourceKind,
+        facebookUrl: fetched.facebookUrl,
+        yelpUrl: fetched.yelpUrl,
+        googleMapsUrl: fetched.googleMapsUrl,
+        latitude: presence.latitude,
+        longitude: presence.longitude,
+      }
+    : presence;
+
+  const phones = uniquePhones([
+    fetched?.phone ?? phone,
+    ...(fetched?.extraPhones ?? []),
+    ...extraPhones,
+    fallbackPhone,
+  ]);
+  const resolvedEmail =
+    (fetched?.email ?? email)?.trim() || fallbackEmail?.trim() || null;
+
+  const items = buildItems({
+    phones,
+    email: resolvedEmail,
+    presence: activePresence,
+    businessName,
+    routeUrl: fetched?.routeUrl ?? routeUrl,
+  });
+
+  const showLocked =
+    !revealed && (hasAnyPresenceFlag(flags) || previewChips.length > 0 || items.length > 0);
+  const lockedChips =
+    previewChips.length > 0
+      ? previewChips
+      : items.map((item) => ({
+          key: item.key,
+          title: item.title,
+          icon: item.icon,
+        }));
+
+  async function loadContacts() {
+    // Edit mode already has plaintext contacts from SSR.
+    if (editMode && hasServerContacts) {
+      setRevealed(true);
+      return;
+    }
+    setLoading(true);
+    setLoadError(null);
+    try {
+      const res = await fetch(`/api/business/${encodeURIComponent(businessSlug)}/contacts`);
+      if (res.status === 401) {
+        setAuthOpen(true);
+        return;
+      }
+      if (!res.ok) {
+        throw new Error(`contacts_${res.status}`);
+      }
+      const data = (await res.json()) as ContactsApiResponse;
+      setFetched(data);
+      setRevealed(true);
+      tracked.current = true;
+    } catch {
+      setLoadError("Не удалось загрузить контакты. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   useEffect(() => {
-    if (!isAuthenticated || revealed) return;
+    if (!isAuthenticated || revealed || editMode) return;
     if (typeof window === "undefined") return;
     if (window.location.hash !== "#business-contacts") return;
-    setRevealed(true);
-    if (tracked.current) return;
-    tracked.current = true;
-    void trackContactRevealAction({
-      businessId,
-      businessSlug,
-      offerId: null,
-      offerSlug: null,
-      surface: "business",
-      path: `${window.location.pathname}${window.location.search}`,
-    });
-  }, [isAuthenticated, revealed, businessId, businessSlug]);
+    void loadContacts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- hash auto-reveal once
+  }, [isAuthenticated, revealed, editMode, businessSlug]);
 
-  if (items.length === 0 && !editMode) return null;
-
-  async function reveal() {
-    setRevealed(true);
-    if (tracked.current) return;
-    tracked.current = true;
-    void trackContactRevealAction({
-      businessId,
-      businessSlug,
-      offerId: null,
-      offerSlug: null,
-      surface: "business",
-      path:
-        typeof window !== "undefined"
-          ? `${window.location.pathname}${window.location.search}`
-          : null,
-    });
+  if (!hasAnyPresenceFlag(flags) && items.length === 0 && !editMode && !showLocked) {
+    return null;
   }
 
   function onShowContacts() {
@@ -264,7 +444,7 @@ export function BusinessContactsCard({
       setAuthOpen(true);
       return;
     }
-    void reveal();
+    void loadContacts();
   }
 
   const nextPath =
@@ -284,19 +464,19 @@ export function BusinessContactsCard({
         ) : null}
       </div>
 
-      {items.length === 0 && editMode ? (
+      {items.length === 0 && editMode && revealed ? (
         <p className="mt-2 text-sm text-slate-500">
           Контакты ещё не указаны — добавьте телефон или ссылки.
         </p>
       ) : null}
 
-      {items.length > 0 && !revealed ? (
+      {showLocked ? (
         <>
           <div
             aria-label="Доступные контакты"
             className="mt-3 flex flex-wrap gap-2"
           >
-            {items.map((item) => (
+            {lockedChips.map((item) => (
               <span
                 key={item.key}
                 aria-hidden="true"
@@ -308,23 +488,27 @@ export function BusinessContactsCard({
             ))}
           </div>
           <button
-            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800"
+            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800 disabled:opacity-60"
+            disabled={loading}
             style={{ color: "#ffffff" }}
             type="button"
             onClick={onShowContacts}
           >
             <Eye aria-hidden="true" className="size-4" style={{ color: "#ffffff" }} />
-            Показать контакты
+            {loading ? "Загрузка…" : "Показать контакты"}
           </button>
+          {loadError ? (
+            <p className="mt-2 text-sm text-red-600">{loadError}</p>
+          ) : null}
         </>
       ) : null}
 
-      {items.length > 0 && revealed ? (
+      {revealed && items.length > 0 ? (
         <ul className="mt-2 space-y-0.5">
           {items.map((item) => (
             <li key={item.key}>
               <a
-                className="flex items-center gap-3 rounded-xl px-1 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-brand-blue"
+                className="flex min-h-11 items-center gap-3 rounded-xl px-1 py-2.5 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-brand-blue sm:min-h-0 sm:py-1.5"
                 href={item.href}
                 title={item.title}
                 {...(item.external

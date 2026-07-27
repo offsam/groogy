@@ -2,8 +2,12 @@
 """Idempotent import of Reviewer v1 needs_review → import_review_items.
 
 Usage:
-  python scripts/import-review/import_needs_review.py --dry-run
-  python scripts/import-review/import_needs_review.py --apply
+  python scripts/import-review/import_needs_review.py \\
+    --source .../la_orange_county_reviewer_v1.json \\
+    --source-key telegram:la_orange_county \\
+    --dry-run
+
+  python scripts/import-review/import_needs_review.py ... --apply
 """
 
 from __future__ import annotations
@@ -11,15 +15,30 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
+
+from common import as_list, load_env, map_post
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_SOURCE = (
+DEFAULT_LOC_SOURCE = (
+    ROOT
+    / "scripts"
+    / "telegram-collector"
+    / "data"
+    / "la_orange_county"
+    / "full"
+    / "la_orange_county_reviewer_v1.json"
+)
+FFM_REVIEWER = (
     ROOT
     / "scripts"
     / "telegram-collector"
@@ -27,188 +46,66 @@ DEFAULT_SOURCE = (
     / "full"
     / "fun_for_mom_reviewer_v1.json"
 )
-
-ENTITY_TYPES = {
-    "business",
-    "private_specialist",
-    "marketplace_listing",
-    "organization",
-    "event",
-    "job",
-    "real_estate",
-}
-TARGET_COLLECTIONS = {
-    "businesses",
-    "private_specialists",
-    "services",
-    "marketplace",
-    "jobs",
-    "events",
-    "organizations",
-    "real_estate",
-}
 LOCKED_STATUSES = {"approved", "rejected", "duplicate"}
+SOURCE_KEY_LOC = "telegram:la_orange_county"
+SOURCE_KEY_FFM = "telegram:fun_for_mom"  # historical rows may still be plain "telegram"
 
 
-def load_env() -> None:
-    env_path = ROOT / ".env.local"
-    if not env_path.is_file():
-        return
-    for line in env_path.read_text().splitlines():
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, val = line.split("=", 1)
-        os.environ.setdefault(key.strip(), val.strip().strip('"').strip("'"))
+def normalize_phone(raw: str) -> str | None:
+    digits = re.sub(r"\D", "", raw or "")
+    if len(digits) == 10:
+        digits = "1" + digits
+    if len(digits) < 10:
+        return None
+    return digits[-11:] if len(digits) >= 11 else digits
 
 
-def as_list(value: Any) -> list[str]:
-    if value is None:
-        return []
-    if isinstance(value, list):
-        out: list[str] = []
-        for item in value:
-            if item is None:
-                continue
-            s = str(item).strip()
-            if s:
-                out.append(s)
-        return out
-    s = str(value).strip()
-    return [s] if s else []
+def normalize_ig(raw: str) -> str | None:
+    value = (raw or "").strip().lstrip("@").lower()
+    if "instagram.com/" in value:
+        value = value.split("instagram.com/")[-1].split("?")[0].strip("/").split("/")[0]
+    value = value.lstrip("@").strip()
+    return value or None
 
 
-def first_price(entity: dict[str, Any], marketplace: dict[str, Any] | None) -> tuple[float | None, str | None]:
-    if marketplace:
-        price = marketplace.get("price")
-        currency = marketplace.get("currency")
-        if price is not None:
-            try:
-                return float(price), (str(currency).upper() if currency else "USD")
-            except (TypeError, ValueError):
-                pass
-    prices = entity.get("prices") or []
-    if isinstance(prices, list) and prices:
-        p0 = prices[0]
-        if isinstance(p0, dict):
-            try:
-                return float(p0.get("amount")), (str(p0.get("currency") or "USD").upper())
-            except (TypeError, ValueError):
-                return None, None
-        try:
-            return float(p0), "USD"
-        except (TypeError, ValueError):
-            return None, None
-    return None, None
+def normalize_web(raw: str) -> str | None:
+    s = (raw or "").strip().lower()
+    if not s:
+        return None
+    if not s.startswith("http"):
+        s = "https://" + s
+    try:
+        host = (urlparse(s).netloc or "").removeprefix("www.")
+        return host or None
+    except Exception:
+        return None
 
 
-def source_fingerprint(source: str, chat_id: Any, message_ids: list[Any]) -> str:
-    ids = sorted({int(x) for x in message_ids if x is not None})
-    chat = str(chat_id) if chat_id is not None else ""
-    return f"{source}:{chat}:{','.join(str(i) for i in ids)}"
+def content_fingerprint(row: dict[str, Any]) -> str:
+    title = (row.get("title") or row.get("business_name") or row.get("person_name") or "")
+    title = re.sub(r"\s+", " ", str(title).strip().lower())
+    phones = sorted({p for p in (normalize_phone(x) or "" for x in as_list(row.get("phone"))) if p})
+    igs = sorted({g for g in (normalize_ig(x) or "" for x in as_list(row.get("instagram"))) if g})
+    webs = sorted({w for w in (normalize_web(x) or "" for x in as_list(row.get("website"))) if w})
+    return f"{title}|{','.join(phones)}|{','.join(igs)}|{','.join(webs)}"
 
 
-def map_post(post: dict[str, Any]) -> dict[str, Any]:
-    entity = post.get("extracted_entity") or {}
-    marketplace = entity.get("marketplace") if isinstance(entity.get("marketplace"), dict) else {}
-    message_ids = post.get("source_message_ids") or [post.get("primary_message_id") or post.get("message_id")]
-    message_ids = [int(x) for x in message_ids if x is not None]
-    chat_id = post.get("source_chat_id") or post.get("chat_id")
-    sender_id = entity.get("telegram_user_id") or post.get("sender_id")
-    tg_list = as_list(entity.get("telegram"))
-    username = None
-    if tg_list:
-        username = tg_list[0].lstrip("@")
-    elif post.get("sender_username"):
-        username = str(post["sender_username"]).lstrip("@")
+def has_public_contact(row: dict[str, Any]) -> bool:
+    if as_list(row.get("phone")) or as_list(row.get("whatsapp")):
+        return True
+    if as_list(row.get("instagram")) or as_list(row.get("website")) or as_list(row.get("email")):
+        return True
+    uname = (row.get("telegram_username") or "").strip().lstrip("@")
+    if uname and re.match(r"^[A-Za-z][A-Za-z0-9_]{3,31}$", uname):
+        return True
+    return False
 
-    entity_type = entity.get("entity_type")
-    if entity_type not in ENTITY_TYPES:
-        entity_type = None
-    target = entity.get("target_collection")
-    if target not in TARGET_COLLECTIONS:
-        target = None
 
-    price, currency = first_price(entity, marketplace)
-    title = (
-        marketplace.get("title")
-        or entity.get("business_name")
-        or entity.get("person_name")
-        or entity.get("telegram_display_name")
-        or post.get("sender_name")
-    )
-    description = entity.get("description") or post.get("merged_text") or post.get("text")
-    photos_count = int(post.get("media_count") or marketplace.get("photos_count") or 0)
-    source_media: list[dict[str, Any]] = []
-    if photos_count > 0 or post.get("has_media"):
-        for mid in message_ids:
-            source_media.append(
-                {
-                    "telegram_message_id": mid,
-                    "media_type": post.get("media_type") or "unknown",
-                    "original_filename": None,
-                    "width": None,
-                    "height": None,
-                    "telegram_media_reference": None,
-                    "download_status": "pending",
-                    "storage_path": None,
-                }
-            )
-
-    posted_at = (
-        post.get("message_date_start")
-        or post.get("message_date")
-        or entity.get("source_date")
-    )
-
-    return {
-        "source": "telegram",
-        "source_group": post.get("chat_title") or "Fun for Mom",
-        "source_chat_id": str(chat_id) if chat_id is not None else None,
-        "source_message_ids": message_ids,
-        "source_fingerprint": source_fingerprint("telegram", chat_id, message_ids),
-        "source_author_id": str(sender_id) if sender_id is not None else None,
-        "source_author_username": username,
-        "source_author_display_name": entity.get("telegram_display_name")
-        or post.get("sender_name"),
-        "source_posted_at": posted_at,
-        "source_text": post.get("merged_text") or post.get("text"),
-        "source_url": post.get("telegram_message_link"),
-        "source_media": source_media,
-        "ai_decision": post.get("decision") or post.get("reviewer_action"),
-        "ai_confidence": post.get("confidence") or post.get("reviewer_confidence"),
-        "ai_reason": post.get("reviewer_reason")
-        or post.get("decision_reason")
-        or post.get("missing_fields") and f"missing:{post.get('missing_fields')}",
-        "entity_type": entity_type,
-        "target_collection": target,
-        "category": entity.get("category"),
-        "subcategory": entity.get("subcategory"),
-        "title": title,
-        "business_name": entity.get("business_name"),
-        "person_name": entity.get("person_name"),
-        "description": description,
-        "services": as_list(entity.get("services")),
-        "price": price,
-        "currency": currency,
-        "city": entity.get("city") or marketplace.get("city"),
-        "state": entity.get("state"),
-        "phone": as_list(entity.get("phone")),
-        "whatsapp": as_list(entity.get("whatsapp")),
-        "telegram_username": username,
-        "telegram_user_id": str(sender_id) if sender_id is not None else None,
-        "instagram": as_list(entity.get("instagram")),
-        "website": as_list(entity.get("website")),
-        "email": as_list(entity.get("email")),
-        "photos_count": photos_count,
-        "duplicate_status": post.get("duplicate_status"),
-        "recurring_cluster_id": post.get("duplicate_of_internal_post_id")
-        or post.get("internal_post_id"),
-        "occurrence_count": post.get("occurrence_count"),
-        "first_seen": post.get("first_seen_at"),
-        "last_seen": post.get("last_seen_at"),
-        "raw_payload": post,
-        "review_status": "pending",
-    }
+def only_numeric_tg(row: dict[str, Any]) -> bool:
+    if has_public_contact(row):
+        return False
+    uid = (row.get("telegram_user_id") or row.get("source_author_id") or "").strip()
+    return bool(uid and uid.isdigit())
 
 
 class SupabaseRest:
@@ -248,20 +145,15 @@ class SupabaseRest:
 
     def fetch_existing(self, fingerprints: list[str]) -> dict[str, dict[str, Any]]:
         out: dict[str, dict[str, Any]] = {}
-        # chunk to avoid long URLs
         chunk_size = 80
         for i in range(0, len(fingerprints), chunk_size):
             chunk = fingerprints[i : i + chunk_size]
-            # PostgREST: in.(a,b,c)
-            quoted = ",".join(urllib.parse.quote(f, safe="") for f in chunk)
-            # Use filter via params — fingerprints may contain commas already encoded in value
-            # Better: use or / filter with quoted values
             values = ",".join(f'"{f}"' for f in chunk)
             rows = self._request(
                 "GET",
                 "/import_review_items",
                 params={
-                    "select": "id,source_fingerprint,review_status,updated_at",
+                    "select": "id,source_fingerprint,review_status,updated_at,source",
                     "source_fingerprint": f"in.({values})",
                 },
             )
@@ -269,33 +161,94 @@ class SupabaseRest:
                 out[row["source_fingerprint"]] = row
         return out
 
-    def insert_many(self, rows: list[dict[str, Any]], *, attempts: int = 4) -> int:
+    def count_by_source(self, source: str) -> int:
+        rows = self._request(
+            "GET",
+            "/import_review_items",
+            params={"select": "id", "source": f"eq.{source}", "limit": "1"},
+            prefer="count=exact",
+        )
+        # Prefer header count — urllib doesn't expose easily; fall back to range fetch
+        # Use RPC-less: fetch with Prefer count via raw request
+        return self._count("source", f"eq.{source}")
+
+    def _count(self, field: str, op: str) -> int:
+        qs = urllib.parse.urlencode({"select": "id", field: op})
+        req = urllib.request.Request(
+            f"{self.base}/import_review_items?{qs}",
+            method="GET",
+            headers={
+                "apikey": self.key,
+                "Authorization": f"Bearer {self.key}",
+                "Prefer": "count=exact",
+                "Range": "0-0",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                cr = resp.headers.get("content-range") or resp.headers.get("Content-Range") or ""
+                if "/" in cr:
+                    tail = cr.split("/")[-1]
+                    if tail.isdigit():
+                        return int(tail)
+        except urllib.error.HTTPError as exc:
+            cr = exc.headers.get("content-range") or exc.headers.get("Content-Range") or ""
+            if "/" in cr:
+                tail = cr.split("/")[-1]
+                if tail.isdigit():
+                    return int(tail)
+        # Fallback: bounded page count (should not be needed for verification)
+        rows = self._request(
+            "GET",
+            "/import_review_items",
+            params={"select": "id", field: op, "limit": "10000"},
+        )
+        return len(rows or [])
+
+    def insert_many(self, rows: list[dict[str, Any]], *, attempts: int = 4) -> list[dict[str, Any]]:
         if not rows:
-            return 0
+            return []
+        # Strip internal keys
+        clean = []
+        for r in rows:
+            item = {k: v for k, v in r.items() if not k.startswith("_")}
+            clean.append(item)
         last_exc: Exception | None = None
         for attempt in range(1, attempts + 1):
             try:
-                self._request(
+                created = self._request(
                     "POST",
                     "/import_review_items",
-                    body=rows,
-                    prefer="return=minimal",
+                    body=clean,
+                    prefer="return=representation",
                 )
-                return len(rows)
+                return created or []
             except Exception as exc:  # noqa: BLE001
                 last_exc = exc
                 if attempt == attempts:
                     break
-                import time
-
                 time.sleep(1.5 * attempt)
         assert last_exc is not None
         raise last_exc
 
+    def insert_audit(self, rows: list[dict[str, Any]]) -> int:
+        if not rows:
+            return 0
+        self._request(
+            "POST",
+            "/import_review_audit",
+            body=rows,
+            prefer="return=minimal",
+        )
+        return len(rows)
+
     def update_pending(self, item_id: str, row: dict[str, Any]) -> None:
-        payload = {k: v for k, v in row.items() if k != "raw_payload"}
-        # Keep raw_payload immutable on updates of already-imported pending rows:
-        # only refresh editable/source fields for pending/in_review/needs_more_info.
+        payload = {
+            k: v
+            for k, v in row.items()
+            if k not in {"raw_payload", "review_status", "source_fingerprint"}
+            and not k.startswith("_")
+        }
         self._request(
             "PATCH",
             "/import_review_items",
@@ -305,11 +258,146 @@ class SupabaseRest:
         )
 
 
+def load_ffm_contact_indexes() -> dict[str, Any]:
+    """Build contact indexes from Fun for Mom reviewer JSON (comparison only, not import)."""
+    phones: set[str] = set()
+    igs: set[str] = set()
+    webs: set[str] = set()
+    fps: set[str] = set()
+    if not FFM_REVIEWER.is_file():
+        return {"phone": phones, "instagram": igs, "website": webs, "fingerprint": fps, "posts": 0}
+    data = json.loads(FFM_REVIEWER.read_text(encoding="utf-8"))
+    posts = data.get("posts") or []
+    for p in posts:
+        row = map_post(p, source_key=SOURCE_KEY_FFM)
+        for ph in as_list(row.get("phone")):
+            n = normalize_phone(ph)
+            if n:
+                phones.add(n)
+        for ig in as_list(row.get("instagram")):
+            n = normalize_ig(ig)
+            if n:
+                igs.add(n)
+        for w in as_list(row.get("website")):
+            n = normalize_web(w)
+            if n:
+                webs.add(n)
+        fps.add(content_fingerprint(row))
+    return {
+        "phone": phones,
+        "instagram": igs,
+        "website": webs,
+        "fingerprint": fps,
+        "posts": len(posts),
+    }
+
+
+def annotate_cross_group_duplicates(
+    rows: list[dict[str, Any]],
+    ffm: dict[str, Any],
+) -> dict[str, int]:
+    stats = {
+        "phone": 0,
+        "instagram": 0,
+        "website": 0,
+        "fingerprint": 0,
+        "any": 0,
+    }
+    for row in rows:
+        hits: list[str] = []
+        for ph in as_list(row.get("phone")):
+            n = normalize_phone(ph)
+            if n and n in ffm["phone"]:
+                hits.append("phone")
+                break
+        for ig in as_list(row.get("instagram")):
+            n = normalize_ig(ig)
+            if n and n in ffm["instagram"]:
+                hits.append("instagram")
+                break
+        for w in as_list(row.get("website")):
+            n = normalize_web(w)
+            if n and n in ffm["website"]:
+                hits.append("website")
+                break
+        fp = content_fingerprint(row)
+        if fp and fp != "|||" and fp in ffm["fingerprint"]:
+            hits.append("fingerprint")
+
+        if not hits:
+            continue
+        stats["any"] += 1
+        for h in hits:
+            stats[h] += 1
+        # Keep source distinct; mark as likely duplicate for reviewer queue
+        prev = (row.get("duplicate_status") or "unique").lower()
+        if prev in {"unique", "", "none"} or prev == "recurring_ad":
+            row["duplicate_status"] = "likely_duplicate"
+        note = f"cross_group_duplicate_vs_fun_for_mom:{','.join(hits)}"
+        reason = row.get("ai_reason") or ""
+        if note not in str(reason):
+            row["ai_reason"] = f"{reason} | {note}".strip(" |")
+    return stats
+
+
+def print_dry_run_report(
+    *,
+    source_path: Path,
+    source_key: str,
+    posts: list[dict[str, Any]],
+    rows: list[dict[str, Any]],
+    to_insert: list[dict[str, Any]],
+    existing: dict[str, dict[str, Any]],
+    skipped_same: int,
+    skipped_locked: int,
+    ffm_overlap: dict[str, int],
+    errors: list[str],
+) -> None:
+    entity_types = Counter(r.get("entity_type") for r in rows)
+    dup_status = Counter(r.get("duplicate_status") for r in rows)
+    exact_dup = sum(1 for r in rows if (r.get("duplicate_status") or "").lower() == "exact_duplicate")
+    likely_dup = sum(1 for r in rows if (r.get("duplicate_status") or "").lower() == "likely_duplicate")
+
+    with_public = sum(1 for r in rows if has_public_contact(r))
+    only_tg = sum(1 for r in rows if only_numeric_tg(r))
+    no_contact = sum(1 for r in rows if not has_public_contact(r) and not only_numeric_tg(r))
+
+    print("=== Import Review dry-run ===")
+    print(f"source_file: {source_path}")
+    print(f"source_key: {source_key}")
+    print(f"needs_review found: {len(posts)}")
+    print(f"will create: {len(to_insert)}")
+    print(f"already exists (fingerprint): {len(existing)}")
+    print(f"skipped unchanged existing: {skipped_same}")
+    print(f"skipped locked: {skipped_locked}")
+    print(f"flagged exact_duplicate (AI): {exact_dup}")
+    print(f"flagged likely_duplicate (AI+cross): {likely_dup}")
+    print("overlap with Fun for Mom:")
+    print(f"  phone: {ffm_overlap['phone']}")
+    print(f"  instagram: {ffm_overlap['instagram']}")
+    print(f"  website: {ffm_overlap['website']}")
+    print(f"  fingerprint: {ffm_overlap['fingerprint']}")
+    print(f"  any: {ffm_overlap['any']}")
+    print(f"entity_type: {dict(entity_types)}")
+    print(f"duplicate_status: {dict(dup_status)}")
+    print(f"has real public contact: {with_public}")
+    print(f"only numeric telegram_user_id: {only_tg}")
+    print(f"no public contact: {no_contact}")
+    print(f"errors: {len(errors)}")
+    for e in errors[:10]:
+        print(f"  error: {e}")
+    # Sample fingerprints to prove namespace
+    if to_insert:
+        print(f"sample fingerprint: {to_insert[0]['source_fingerprint']}")
+        print(f"sample source field: {to_insert[0]['source']}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--apply", action="store_true")
-    parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
+    parser.add_argument("--source", type=Path, default=DEFAULT_LOC_SOURCE)
+    parser.add_argument("--source-key", type=str, default=SOURCE_KEY_LOC)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument(
         "--refresh-pending",
@@ -325,6 +413,17 @@ def main() -> int:
         print("Use only one of --dry-run / --apply", file=sys.stderr)
         return 2
 
+    source_key = args.source_key.strip()
+    if source_key == "telegram":
+        print(
+            "ABORT: plain source 'telegram' forbidden — use telegram:la_orange_county",
+            file=sys.stderr,
+        )
+        return 2
+    if "fun_for_mom" in str(args.source) and "la_orange" not in str(args.source):
+        print("ABORT: refusing Fun for Mom input for this import", file=sys.stderr)
+        return 2
+
     load_env()
     url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
@@ -333,19 +432,56 @@ def main() -> int:
         return 1
 
     data = json.loads(args.source.read_text(encoding="utf-8"))
+    # Stage-1 sanity on full reviewer file when not limited
+    if args.limit is None:
+        all_posts = data.get("posts") or []
+        counts = Counter(p.get("decision") for p in all_posts)
+        print(
+            "Reviewer file decisions:",
+            f"accepted={counts.get('accepted', 0)}",
+            f"needs_review={counts.get('needs_review', 0)}",
+            f"rejected={counts.get('rejected', 0)}",
+        )
+        if (
+            counts.get("accepted", 0) != 469
+            or counts.get("needs_review", 0) != 2804
+            or counts.get("rejected", 0) != 1466
+        ):
+            print(
+                "ABORT: unexpected reviewer counts (expected 469/2804/1466)",
+                file=sys.stderr,
+            )
+            return 2
+
     posts = [p for p in data.get("posts") or [] if p.get("decision") == "needs_review"]
     if args.limit:
         posts = posts[: args.limit]
 
-    rows = [map_post(p) for p in posts]
+    rows = [map_post(p, source_key=source_key) for p in posts]
+    # Safety: every row must carry the dedicated source key
+    bad_source = [r for r in rows if r.get("source") != source_key]
+    if bad_source:
+        print(f"ABORT: {len(bad_source)} rows missing source_key={source_key}", file=sys.stderr)
+        return 2
+
+    ffm = load_ffm_contact_indexes()
+    ffm_overlap = annotate_cross_group_duplicates(rows, ffm)
+
     fingerprints = [r["source_fingerprint"] for r in rows]
-    # detect mapping errors
     errors: list[str] = []
     for r in rows:
         if not r["source_message_ids"]:
             errors.append(f"missing message ids: {r.get('title')}")
         if not r["source_fingerprint"]:
             errors.append("empty fingerprint")
+        if not str(r["source_fingerprint"]).startswith(source_key + ":"):
+            errors.append(f"fingerprint missing source_key prefix: {r['source_fingerprint']}")
+
+    # Detect duplicate fingerprints within this batch
+    fp_counts = Counter(fingerprints)
+    batch_dup_fps = {fp for fp, n in fp_counts.items() if n > 1}
+    if batch_dup_fps:
+        errors.append(f"duplicate fingerprints inside batch: {len(batch_dup_fps)}")
 
     client = SupabaseRest(url, key)
     existing = client.fetch_existing(fingerprints) if rows else {}
@@ -354,9 +490,14 @@ def main() -> int:
     to_update: list[tuple[str, dict[str, Any]]] = []
     skipped_locked = 0
     skipped_same = 0
+    seen_fp: set[str] = set()
 
     for row in rows:
         fp = row["source_fingerprint"]
+        if fp in seen_fp:
+            # exact duplicate inside import batch — skip second copy
+            continue
+        seen_fp.add(fp)
         prev = existing.get(fp)
         if not prev:
             to_insert.append(row)
@@ -368,37 +509,53 @@ def main() -> int:
         if not args.refresh_pending:
             skipped_same += 1
             continue
-        # Safe refresh for pending / in_review / needs_more_info — no raw_payload overwrite
         update_row = dict(row)
-        update_row.pop("raw_payload", None)
-        update_row.pop("review_status", None)  # do not reset manual status
-        update_row.pop("source_fingerprint", None)
         to_update.append((prev["id"], update_row))
 
-    already = len(existing)
-    print("=== Import Review dry-run ===" if args.dry_run else "=== Import Review apply ===")
-    print(f"source: {args.source}")
-    print(f"needs_review found: {len(posts)}")
-    print(f"already existing: {already}")
-    print(f"new: {len(to_insert)}")
-    print(f"updatable (pending/in_review/needs_more_info): {len(to_update)}")
-    print(f"skipped unchanged existing: {skipped_same}")
-    print(f"skipped locked (approved/rejected/duplicate): {skipped_locked}")
-    print(f"errors: {len(errors)}")
-    for e in errors[:10]:
-        print(f"  error: {e}")
+    print_dry_run_report(
+        source_path=args.source,
+        source_key=source_key,
+        posts=posts,
+        rows=rows,
+        to_insert=to_insert,
+        existing=existing,
+        skipped_same=skipped_same,
+        skipped_locked=skipped_locked,
+        ffm_overlap=ffm_overlap,
+        errors=errors,
+    )
 
     if args.dry_run:
+        print("\nDRY-RUN complete. No writes performed.")
         return 0 if not errors else 1
 
-    # apply
+    # APPLY — queue only, never publish
+    print("\n=== Import Review apply ===")
     inserted = 0
     updated = 0
-    batch = 100
+    audit_rows = 0
+    batch = 50
     for i in range(0, len(to_insert), batch):
         chunk = to_insert[i : i + batch]
-        client.insert_many(chunk)
-        inserted += len(chunk)
+        created = client.insert_many(chunk)
+        inserted += len(created)
+        audits = []
+        for created_row in created:
+            audits.append(
+                {
+                    "item_id": created_row["id"],
+                    "admin_id": None,
+                    "action": "import_needs_review",
+                    "previous_status": None,
+                    "new_status": "pending",
+                    "changed_fields": {
+                        "source": source_key,
+                        "source_fingerprint": created_row.get("source_fingerprint"),
+                    },
+                    "note": f"Импорт needs_review из {source_key}",
+                }
+            )
+        audit_rows += client.insert_audit(audits)
         print(f"inserted {inserted}/{len(to_insert)}", flush=True)
 
     for item_id, payload in to_update:
@@ -407,7 +564,12 @@ def main() -> int:
         if updated % 100 == 0:
             print(f"updated {updated}/{len(to_update)}", flush=True)
 
-    print(f"done: inserted={inserted} updated={updated} skipped_locked={skipped_locked}")
+    in_db = client._count("source", f"eq.{source_key}")
+    print(
+        f"done: inserted={inserted} updated={updated} "
+        f"skipped_locked={skipped_locked} skipped_same={skipped_same} "
+        f"audit={audit_rows} source_rows_in_db={in_db}"
+    )
     return 0 if not errors else 1
 
 

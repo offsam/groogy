@@ -17,6 +17,7 @@ import type {
   LechuRewardType,
 } from "@/types/listing";
 import type { Database } from "@/types/database";
+import { hasProvenanceSource } from "@/lib/business/presence";
 
 type ListingRow = Database["public"]["Tables"]["listings"]["Row"];
 type MediaRow = Database["public"]["Tables"]["listing_media"]["Row"];
@@ -182,6 +183,17 @@ export function mapListingPublisher(
   };
 }
 
+export function stripListingSource(listing: Listing): Listing {
+  const platform = listing.sourceKind === "platform";
+  return {
+    ...listing,
+    sourceUrl: null,
+    // Platform provenance is public (КРУГИ) — keep kind so guests see the block.
+    sourceKind: platform ? "platform" : null,
+    hasSource: listing.hasSource || platform,
+  };
+}
+
 export function mapListing(
   row: ListingRow & {
     marketplace_listing_details?:
@@ -265,6 +277,12 @@ export function mapListing(
     contactPreference: row.contact_preference,
     publisherType: row.publisher_type ?? "profile",
     publisherBusinessId: row.publisher_business_id ?? null,
+    sourceUrl: row.source_url ?? null,
+    sourceKind: row.source_kind ?? null,
+    hasSource: hasProvenanceSource({
+      sourceUrl: row.source_url,
+      sourceKind: row.source_kind,
+    }),
     publishedAt: row.published_at,
     reservedAt: row.reserved_at,
     completedAt: row.completed_at,

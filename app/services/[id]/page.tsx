@@ -6,8 +6,9 @@ import { MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import { ReportListingForm } from "@/components/marketplace/ReportListingForm";
 import { ServiceOwnerActions } from "@/components/services/ServiceOwnerActions";
+import { ListingSourceCard } from "@/components/listings/ListingSourceCard";
 import { ErrorState } from "@/components/ui/DataState";
-import { formatServicePrice } from "@/lib/listings/mappers";
+import { formatServicePrice, stripListingSource } from "@/lib/listings/mappers";
 import { isListingOwner } from "@/lib/listings/permissions";
 import { getListingById } from "@/lib/listings/queries";
 import { createServerClient } from "@/lib/supabase/server";
@@ -147,6 +148,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = listing.service;
   const location = [listing.city, listing.state].filter(Boolean).join(", ");
   const images = listing.media ?? [];
+  const publicListing = user ? listing : stripListingSource(listing);
   const publisherLabel =
     listing.publisher?.name ?? listing.author?.label ?? null;
   const publisherHref =
@@ -319,6 +321,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
 
         <aside className="space-y-6">
+          <ListingSourceCard
+            hasSource={publicListing.hasSource}
+            initiallyRevealed={Boolean(user && publicListing.sourceUrl)}
+            isAuthenticated={Boolean(user)}
+            listingId={publicListing.id}
+            sourceKind={publicListing.sourceKind}
+            sourceUrl={publicListing.sourceUrl}
+          />
           {publisherLabel && (
             <section className="rounded-2xl border border-slate-200 bg-white p-6">
               <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-400">

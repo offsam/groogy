@@ -47,13 +47,6 @@ function ResizeHandler() {
   return null;
 }
 
-function hasStreetAddress(b: Business): boolean {
-  const address = b.addressLine?.trim() ?? "";
-  if (!address) return false;
-  if (b.locationPrecision === "county") return false;
-  return true;
-}
-
 type FullPlatformMapProps = {
   businesses: Business[];
 };
@@ -61,9 +54,9 @@ type FullPlatformMapProps = {
 export default function FullPlatformMap({ businesses }: FullPlatformMapProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  // Only real addresses — no county blobs
+  // Server already filtered to address + coords; addressLine is stripped in list payloads.
   const mappable = useMemo(
-    () => businesses.filter(hasCoordinates).filter(hasStreetAddress),
+    () => businesses.filter(hasCoordinates),
     [businesses],
   );
 

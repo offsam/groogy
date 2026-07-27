@@ -1,0 +1,431 @@
+{
+  "mode": "dry-run",
+  "limit": 20,
+  "offset": 0,
+  "candidates": 20,
+  "results": [
+    {
+      "id": "dcb4ad95-ebd7-4a53-88f3-403802b75092",
+      "slug": "black-label-auto-studio-180932",
+      "name": "Black Label Auto Studio",
+      "source_url": "https://t.me/c/1955320601/250450",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Black Label Auto Studio",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 243,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "5921c806-397d-46c7-93f4-69d2a6459c61",
+      "slug": "beauty-salon-181011",
+      "name": "Новый beauty salon",
+      "source_url": "https://t.me/c/1333533747/73128",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 429,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "a1d0e3ea-beb2-429f-9737-96cb8ec0ef0e",
+      "slug": "teastorm-150640",
+      "name": "_teastorm_",
+      "source_url": "https://t.me/c/1333533747/74441",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/_teastorm_",
+        "website": "https://teastormus.etsy.com",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "TeaStorm",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 554,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "08a135ce-ef88-43c1-a315-50fd6d636505",
+      "slug": "kelov-studio-181007",
+      "name": "Kelov Studio",
+      "source_url": "https://t.me/c/1955320601/250411",
+      "ocr_model": null,
+      "image_would_upload": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 301,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "289ca8f8-6061-4dae-9ff3-a48477ad80a1",
+      "slug": "private-studio-181516-6fe2",
+      "name": "Уютная private studio",
+      "source_url": "https://t.me/c/1955320601/267560",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 242,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "a0e13959-8064-45bd-b809-f5842fefb340",
+      "slug": "aiza-m-181528-e5d8",
+      "name": "Aiza M",
+      "source_url": "https://t.me/c/1955320601/253746",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 341,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "a2c4b3aa-1be4-4f1c-bec8-ceb6b7298bbd",
+      "slug": "delicious-by-va-150630",
+      "name": "delicious_by_va",
+      "source_url": "https://t.me/c/1333533747/76007",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/delicious_by_va",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Delicious by VA",
+        "address": "Aliso Viejo, Orange County"
+      },
+      "patch": {},
+      "caption_len": 581,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "90f884ec-0429-4a8f-87c0-123893891f8d",
+      "slug": "private-studio-172224",
+      "name": "Уютный private studio",
+      "source_url": "https://t.me/c/1955320601/277039",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/Stasia_manicure",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Stasia Manicure",
+        "address": "Beverly Hills"
+      },
+      "patch": {},
+      "caption_len": 287,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "slug": "dr-modarres-150637",
+      "name": "dr__modarres",
+      "source_url": "https://t.me/c/1333533747/72771",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/dr__modarres",
+        "website": "https://www.skinovationcleaning.com",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Skinovation Clinic",
+        "address": "200 Newport Center Drive Newport Beach, CA 92660"
+      },
+      "patch": {},
+      "caption_len": 590,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "1e1ef207-8951-4eb7-a018-8756b874a1f5",
+      "slug": "elena-garmazh-fysm-yoga-coach-150712",
+      "name": "Elena Garmazh FYSM Yoga Coach",
+      "source_url": "https://t.me/c/1333533747/73934",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": "fysmyogaelenagarmazh",
+        "hours_text": "Every Saturday at 10:00 AM",
+        "business_name": "FYSM Yoga",
+        "address": "Sherman Oaks Recreation Center"
+      },
+      "patch": {},
+      "caption_len": 718,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "f33b0d87-5883-47ee-91bc-e2c478cbb41e",
+      "slug": "united-states-beauty-studio-180905",
+      "name": "United States Beauty studio",
+      "source_url": "https://t.me/c/1955320601/269796",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 148,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "00b94a99-8964-4f4b-8494-7d4920655c98",
+      "slug": "alessandra-205417-7926",
+      "name": "Alessandra",
+      "source_url": "https://t.me/c/1333533747/71456",
+      "ocr_model": "gemini-2.5-flash",
+      "image_would_upload": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 368,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "0853d219-95d7-41a8-bc8d-e24f07b21666",
+      "slug": "o-m-205406-12c1",
+      "name": "O M",
+      "source_url": "https://t.me/c/1333533747/73748",
+      "ocr_model": "gemini-2.5-flash",
+      "image_would_upload": true,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 307,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "0899cdab-ee7e-4fb9-8364-45909b187bd3",
+      "slug": "bad-man-205543-2dcc",
+      "name": "BAD MAN",
+      "source_url": "https://t.me/c/1955320601/268718",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 89,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "0b481780-f169-4901-b18c-3eb2394127f9",
+      "slug": "grigory-205456-de1c",
+      "name": "Grigory",
+      "source_url": "https://t.me/c/1955320601/267289",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 215,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "105c5d3e-2c68-4925-a542-f52f0b4f4b55",
+      "slug": "lerkassss-205206-2144",
+      "name": "ler_kassss",
+      "source_url": "https://t.me/c/1333533747/69450",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/ler_kassss",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Мы переводили с Лерой \n\nИ она заверила у нотариуса"
+      },
+      "caption_len": 63,
+      "has_media": false,
+      "status": "dry_run"
+    },
+    {
+      "id": "13ef32f8-4378-4bd9-8288-926aba9cdd23",
+      "slug": "business-biz-205401-691e",
+      "name": "Настя❤️",
+      "source_url": "https://t.me/c/1955320601/275636",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 467,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "194c530b-52e4-475a-9b8c-f99664c9e38b",
+      "slug": "business-biz-205400-59ff",
+      "name": "Тимофій Лоза",
+      "source_url": "https://t.me/c/1955320601/276607",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 533,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "1a3d5bc4-e91f-48da-a0de-5619b7f182b5",
+      "slug": "business-biz-205526-b5d4",
+      "name": "Сергей",
+      "source_url": "https://t.me/c/1955320601/252724",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 303,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "1a4ed698-0d73-4448-9e89-4fbc3c1531c3",
+      "slug": "v-v-205427-f903",
+      "name": "V V",
+      "source_url": "https://t.me/c/1955320601/255746",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 584,
+      "has_media": false,
+      "status": "noop"
+    }
+  ],
+  "summary": {
+    "updated": 0,
+    "dry_run": 1,
+    "noop": 19,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

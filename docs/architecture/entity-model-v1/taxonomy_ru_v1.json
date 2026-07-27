@@ -1,0 +1,1434 @@
+{
+  "version": 1,
+  "name": "PLATFORM_TAXONOMY_RU_V1",
+  "purpose": "Russian display names for taxonomy slugs. Slugs and tree structure unchanged.",
+  "audience": "Russian-speaking users in the USA",
+  "style": {
+    "voice": "short everyday phrases, not calques",
+    "prefer": "noun phrases a person would tap in a catalog",
+    "avoid": [
+      "literal English calques",
+      "mixed auto synonyms",
+      "office jargon",
+      "slash-heavy labels on home"
+    ]
+  },
+  "hubs": {
+    "business": {
+      "slug": "business",
+      "recommended": "Бизнесы",
+      "alternatives": [
+        "Компании",
+        "Каталог бизнесов"
+      ],
+      "description": "Организации и бренды: салоны, магазины, агентства, сервисы.",
+      "surfaces": {
+        "home": "Бизнесы",
+        "catalog": "Бизнесы",
+        "search": "Бизнесы",
+        "breadcrumb": "Бизнесы"
+      },
+      "why": "Совпадает с IA V2. «Компании» уже; «Бизнесы» привычнее в каталоге русскоязычных США."
+    },
+    "professional": {
+      "slug": "professional",
+      "recommended": "Специалисты",
+      "alternatives": [
+        "Мастера",
+        "Частные специалисты"
+      ],
+      "description": "Частные мастера и специалисты без компании.",
+      "surfaces": {
+        "home": "Специалисты",
+        "catalog": "Специалисты",
+        "search": "Специалисты",
+        "breadcrumb": "Специалисты"
+      },
+      "why": "Шире, чем «Мастера» (юриста/бухгалтера обычно не называют мастером)."
+    },
+    "marketplace": {
+      "slug": "marketplace",
+      "recommended": "Купи-продай",
+      "alternatives": [
+        "Маркет",
+        "Рынок",
+        "Купи / продай"
+      ],
+      "description": "Частные объявления о товарах: продажа, отдам, ищу.",
+      "surfaces": {
+        "home": "Купи-продай",
+        "catalog": "Купи-продай",
+        "search": "Купи-продай",
+        "breadcrumb": "Купи-продай"
+      },
+      "why": "Барахолка отвергнута. Язык объявлений — куплю/продам. «Рынок» путается с продуктовым."
+    },
+    "jobs": {
+      "slug": "jobs",
+      "recommended": "Работа",
+      "alternatives": [
+        "Вакансии",
+        "Работа и подработка"
+      ],
+      "description": "Ищут сотрудников и ищут работу: одна лента.",
+      "surfaces": {
+        "home": "Работа",
+        "catalog": "Работа",
+        "search": "Работа",
+        "breadcrumb": "Работа"
+      },
+      "why": "В чатах пишут «работа», не «вакансии». «Вакансии» звучит как корпоративный HR и хуже покрывает «ищу работу»."
+    },
+    "real_estate": {
+      "slug": "real_estate",
+      "recommended": "Недвижимость",
+      "alternatives": [
+        "Жильё",
+        "Аренда и продажа"
+      ],
+      "description": "Объявления о жилье и коммерции — не агентства.",
+      "surfaces": {
+        "home": "Недвижимость",
+        "catalog": "Недвижимость",
+        "search": "Недвижимость",
+        "breadcrumb": "Недвижимость"
+      },
+      "why": "Стандартный хаб. «Жильё» уже и не покрывает commercial."
+    }
+  },
+  "entities": {
+    "business": {
+      "categories": [
+        {
+          "slug": "food",
+          "recommended": "Рестораны и кафе",
+          "alternatives": [
+            "Еда",
+            "Кафе и рестораны"
+          ],
+          "description": "Кафе, рестораны, доставка и кейтеринг как бизнес.",
+          "changed_from_en": "Food & Restaurants → не «Еда», а места общепита",
+          "changed_from_prior_ru": "Еда и рестораны → Рестораны и кафе",
+          "doubt": null,
+          "surfaces": {
+            "home": "Рестораны",
+            "catalog": "Рестораны и кафе",
+            "search": "Рестораны и кафе",
+            "breadcrumb": "Рестораны и кафе"
+          }
+        },
+        {
+          "slug": "grocery",
+          "recommended": "Продукты",
+          "alternatives": [
+            "Продуктовые магазины",
+            "Магазины"
+          ],
+          "description": "Продуктовые магазины, рынки, specialty food.",
+          "changed_from_en": "Grocery → Продукты",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Продукты",
+            "catalog": "Продукты",
+            "search": "Продукты",
+            "breadcrumb": "Продукты"
+          }
+        },
+        {
+          "slug": "beauty",
+          "recommended": "Красота",
+          "alternatives": [
+            "Салоны красоты",
+            "Бьюти"
+          ],
+          "description": "Салоны и студии красоты как компания.",
+          "changed_from_en": "Beauty → Красота",
+          "changed_from_prior_ru": null,
+          "doubt": "На главной можно «Салоны», но slug общий с Pro — лучше один ярлык «Красота».",
+          "surfaces": {
+            "home": "Красота",
+            "catalog": "Красота",
+            "search": "Красота",
+            "breadcrumb": "Красота"
+          }
+        },
+        {
+          "slug": "medical",
+          "recommended": "Медицина",
+          "alternatives": [
+            "Клиники",
+            "Здоровье"
+          ],
+          "description": "Клиники, кабинеты и медцентры.",
+          "changed_from_en": "Medical → Медицина",
+          "changed_from_prior_ru": null,
+          "doubt": "«Клиники» точнее для бизнеса; «Медицина» короче и привычнее в каталоге.",
+          "surfaces": {
+            "home": "Медицина",
+            "catalog": "Медицина",
+            "search": "Медицина",
+            "breadcrumb": "Медицина"
+          }
+        },
+        {
+          "slug": "legal",
+          "recommended": "Юристы",
+          "alternatives": [
+            "Юридические фирмы",
+            "Право"
+          ],
+          "description": "Юридические компании и офисы.",
+          "changed_from_en": "Legal → Юристы",
+          "changed_from_prior_ru": "Юристы / юрфирмы → Юристы",
+          "doubt": null,
+          "surfaces": {
+            "home": "Юристы",
+            "catalog": "Юристы",
+            "search": "Юристы",
+            "breadcrumb": "Юристы"
+          }
+        },
+        {
+          "slug": "finance",
+          "recommended": "Бухгалтерия и налоги",
+          "alternatives": [
+            "Финансы",
+            "Бухгалтерия"
+          ],
+          "description": "Бухгалтерские и налоговые офисы.",
+          "changed_from_en": "Finance & Accounting → Бухгалтерия и налоги",
+          "changed_from_prior_ru": "Финансы и бухгалтерия → Бухгалтерия и налоги",
+          "doubt": null,
+          "surfaces": {
+            "home": "Бухгалтерия",
+            "catalog": "Бухгалтерия и налоги",
+            "search": "Бухгалтерия и налоги",
+            "breadcrumb": "Бухгалтерия и налоги"
+          }
+        },
+        {
+          "slug": "insurance",
+          "recommended": "Страхование",
+          "alternatives": [
+            "Страховые агентства",
+            "Страховка"
+          ],
+          "description": "Страховые агентства и офисы.",
+          "changed_from_en": "Insurance → Страхование",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Страхование",
+            "catalog": "Страхование",
+            "search": "Страхование",
+            "breadcrumb": "Страхование"
+          }
+        },
+        {
+          "slug": "auto",
+          "recommended": "Автосервис",
+          "alternatives": [
+            "Авто",
+            "Ремонт авто"
+          ],
+          "description": "СТО, детейлинг и ремонт авто как бизнес.",
+          "changed_from_en": "Auto Services → Автосервис",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Автосервис",
+            "catalog": "Автосервис",
+            "search": "Автосервис",
+            "breadcrumb": "Автосервис"
+          }
+        },
+        {
+          "slug": "car_rental",
+          "recommended": "Аренда авто",
+          "alternatives": [
+            "Прокат авто",
+            "Car rental"
+          ],
+          "description": "Прокат автомобилей.",
+          "changed_from_en": "Car Rental → Аренда авто",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Аренда авто",
+            "catalog": "Аренда авто",
+            "search": "Аренда авто",
+            "breadcrumb": "Аренда авто"
+          }
+        },
+        {
+          "slug": "moving",
+          "recommended": "Переезды",
+          "alternatives": [
+            "Муверы",
+            "Грузоперевозки"
+          ],
+          "description": "Переездные компании и перевозки.",
+          "changed_from_en": "Moving → Переезды",
+          "changed_from_prior_ru": null,
+          "doubt": "«Муверы» живо в чатах США, но для каталога лучше «Переезды».",
+          "surfaces": {
+            "home": "Переезды",
+            "catalog": "Переезды",
+            "search": "Переезды",
+            "breadcrumb": "Переезды"
+          }
+        },
+        {
+          "slug": "home_services",
+          "recommended": "Услуги для дома",
+          "alternatives": [
+            "Дом и ремонт",
+            "Сервис для дома",
+            "Домашние услуги"
+          ],
+          "description": "Клининг, ремонт, handyman и другие сервисы для дома.",
+          "changed_from_en": "Home Services → Услуги для дома (не «Домашние услуги»)",
+          "changed_from_prior_ru": "Дом и сервисы → Услуги для дома",
+          "doubt": null,
+          "surfaces": {
+            "home": "Для дома",
+            "catalog": "Услуги для дома",
+            "search": "Услуги для дома",
+            "breadcrumb": "Услуги для дома"
+          },
+          "children": [
+            {
+              "slug": "cleaning",
+              "recommended": "Уборка",
+              "alternatives": [
+                "Клининг",
+                "Клининговые компании"
+              ],
+              "description": "Клининговые компании.",
+              "changed_from_en": "Cleaning → Уборка",
+              "changed_from_prior_ru": "Клининг → Уборка",
+              "doubt": "«Клининг» привычен, но «Уборка» единее со Jobs.",
+              "surfaces": {
+                "home": null,
+                "catalog": "Уборка",
+                "search": "Уборка",
+                "breadcrumb": "Уборка"
+              }
+            }
+          ]
+        },
+        {
+          "slug": "education",
+          "recommended": "Образование",
+          "alternatives": [
+            "Школы и курсы",
+            "Обучение"
+          ],
+          "description": "Школы и учебные центры как организация.",
+          "changed_from_en": "Education → Образование",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Образование",
+            "catalog": "Образование",
+            "search": "Образование",
+            "breadcrumb": "Образование"
+          }
+        },
+        {
+          "slug": "fitness",
+          "recommended": "Фитнес",
+          "alternatives": [
+            "Спортзалы",
+            "Студии"
+          ],
+          "description": "Залы и фитнес-студии как бизнес.",
+          "changed_from_en": "Fitness → Фитнес",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Фитнес",
+            "catalog": "Фитнес",
+            "search": "Фитнес",
+            "breadcrumb": "Фитнес"
+          }
+        },
+        {
+          "slug": "pets",
+          "recommended": "Для животных",
+          "alternatives": [
+            "Питомцы",
+            "Зооуслуги"
+          ],
+          "description": "Груминг, ветклиники и зоосервисы как бизнес.",
+          "changed_from_en": "Pet Services → Для животных",
+          "changed_from_prior_ru": "Питомцы → Для животных",
+          "doubt": "«Питомцы» мило, но звучит как товары; «Для животных» яснее для сервиса.",
+          "surfaces": {
+            "home": "Для животных",
+            "catalog": "Для животных",
+            "search": "Для животных",
+            "breadcrumb": "Для животных"
+          }
+        },
+        {
+          "slug": "travel",
+          "recommended": "Туризм и визы",
+          "alternatives": [
+            "Путешествия",
+            "Турагентства"
+          ],
+          "description": "Турагентства и визовые компании.",
+          "changed_from_en": "Travel → Туризм и визы",
+          "changed_from_prior_ru": "Путешествия → Туризм и визы",
+          "doubt": null,
+          "surfaces": {
+            "home": "Туризм",
+            "catalog": "Туризм и визы",
+            "search": "Туризм и визы",
+            "breadcrumb": "Туризм и визы"
+          }
+        },
+        {
+          "slug": "real_estate_agencies",
+          "recommended": "Агентства недвижимости",
+          "alternatives": [
+            "Риелторские агентства",
+            "Недвижимость (агентства)"
+          ],
+          "description": "Агентства и брокерские офисы — не объявления квартир.",
+          "changed_from_en": "Real Estate Agencies → Агентства недвижимости",
+          "changed_from_prior_ru": null,
+          "doubt": "Длинно для главной; в хабе Бизнесы ок, на home можно короче «Агентства».",
+          "surfaces": {
+            "home": "Агентства",
+            "catalog": "Агентства недвижимости",
+            "search": "Агентства недвижимости",
+            "breadcrumb": "Агентства недвижимости"
+          }
+        },
+        {
+          "slug": "events",
+          "recommended": "Праздники и площадки",
+          "alternatives": [
+            "Ивенты",
+            "Мероприятия",
+            "Event-бизнес"
+          ],
+          "description": "Площадки и компании для праздников — не календарь событий.",
+          "changed_from_en": "Event Businesses → Праздники и площадки",
+          "changed_from_prior_ru": "Площадки и ивент-бизнес → Праздники и площадки",
+          "doubt": "«Ивенты» живо, но калька; рекомендуем без «ивент».",
+          "surfaces": {
+            "home": "Праздники",
+            "catalog": "Праздники и площадки",
+            "search": "Праздники и площадки",
+            "breadcrumb": "Праздники и площадки"
+          }
+        },
+        {
+          "slug": "childcare",
+          "recommended": "Детские центры",
+          "alternatives": [
+            "Детские сады",
+            "Для детей"
+          ],
+          "description": "Детские сады и центры как организация.",
+          "changed_from_en": "Childcare Centers → Детские центры",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Детские центры",
+            "catalog": "Детские центры",
+            "search": "Детские центры",
+            "breadcrumb": "Детские центры"
+          }
+        },
+        {
+          "slug": "other",
+          "recommended": "Другое",
+          "alternatives": [
+            "Прочее",
+            "Разное"
+          ],
+          "description": "Временный бакет до классификации.",
+          "changed_from_en": "Other → Другое",
+          "changed_from_prior_ru": "Прочее → Другое",
+          "doubt": null,
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          }
+        }
+      ]
+    },
+    "professional": {
+      "categories": [
+        {
+          "slug": "beauty",
+          "recommended": "Красота",
+          "alternatives": [
+            "Бьюти-мастера",
+            "Мастера красоты"
+          ],
+          "description": "Частные мастера красоты.",
+          "changed_from_en": "Beauty → Красота",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Красота",
+            "catalog": "Красота",
+            "search": "Красота",
+            "breadcrumb": "Красота"
+          },
+          "children": [
+            {
+              "slug": "nails",
+              "recommended": "Маникюр и брови",
+              "alternatives": [
+                "Ногти",
+                "Ногти, брови, ресницы"
+              ],
+              "description": "Маникюр, брови, ресницы.",
+              "changed_from_en": "Nails / brows / lashes → Маникюр и брови",
+              "changed_from_prior_ru": "Ногти / брови / ресницы → Маникюр и брови",
+              "doubt": "Ресницы не в коротком ярлыке; в описании/поиске покрыты.",
+              "surfaces": {
+                "home": null,
+                "catalog": "Маникюр и брови",
+                "search": "Маникюр и брови",
+                "breadcrumb": "Маникюр и брови"
+              }
+            },
+            {
+              "slug": "hair_makeup",
+              "recommended": "Волосы и макияж",
+              "alternatives": [
+                "Парикмахеры",
+                "Волосы / визаж"
+              ],
+              "description": "Стрижки, окрашивание, макияж.",
+              "changed_from_en": "Hair / makeup → Волосы и макияж",
+              "changed_from_prior_ru": "Волосы / макияж → Волосы и макияж",
+              "doubt": null,
+              "surfaces": {
+                "home": null,
+                "catalog": "Волосы и макияж",
+                "search": "Волосы и макияж",
+                "breadcrumb": "Волосы и макияж"
+              }
+            },
+            {
+              "slug": "massage",
+              "recommended": "Массаж",
+              "alternatives": [
+                "Массажисты"
+              ],
+              "description": "Частный массаж.",
+              "changed_from_en": "Massage → Массаж",
+              "changed_from_prior_ru": null,
+              "doubt": null,
+              "surfaces": {
+                "home": null,
+                "catalog": "Массаж",
+                "search": "Массаж",
+                "breadcrumb": "Массаж"
+              }
+            }
+          ]
+        },
+        {
+          "slug": "education",
+          "recommended": "Репетиторы",
+          "alternatives": [
+            "Обучение",
+            "Преподаватели"
+          ],
+          "description": "Частные преподаватели и репетиторы.",
+          "changed_from_en": "Tutors & Teaching → Репетиторы",
+          "changed_from_prior_ru": "Репетиторы и обучение → Репетиторы",
+          "doubt": null,
+          "surfaces": {
+            "home": "Репетиторы",
+            "catalog": "Репетиторы",
+            "search": "Репетиторы",
+            "breadcrumb": "Репетиторы"
+          },
+          "children": [
+            {
+              "slug": "languages",
+              "recommended": "Языки",
+              "alternatives": [
+                "Иностранные языки",
+                "English / ESL"
+              ],
+              "description": "Языковые занятия.",
+              "changed_from_en": "Languages → Языки",
+              "changed_from_prior_ru": null,
+              "doubt": null,
+              "surfaces": {
+                "home": null,
+                "catalog": "Языки",
+                "search": "Языки",
+                "breadcrumb": "Языки"
+              }
+            },
+            {
+              "slug": "stem_music",
+              "recommended": "Школа и музыка",
+              "alternatives": [
+                "Предметы и музыка",
+                "STEM и музыка"
+              ],
+              "description": "Школьные предметы, STEM, музыка.",
+              "changed_from_en": "STEM / music → Школа и музыка",
+              "changed_from_prior_ru": "Школа / музыка / STEM → Школа и музыка",
+              "doubt": "STEM в UI лучше не оставлять латиницей.",
+              "surfaces": {
+                "home": null,
+                "catalog": "Школа и музыка",
+                "search": "Школа и музыка",
+                "breadcrumb": "Школа и музыка"
+              }
+            }
+          ]
+        },
+        {
+          "slug": "legal",
+          "recommended": "Юристы",
+          "alternatives": [
+            "Адвокаты",
+            "Юридическая помощь"
+          ],
+          "description": "Частные юристы и адвокаты.",
+          "changed_from_en": "Legal → Юристы",
+          "changed_from_prior_ru": null,
+          "doubt": "В США «адвокат» ≠ attorney; «Юристы» безопаснее.",
+          "surfaces": {
+            "home": "Юристы",
+            "catalog": "Юристы",
+            "search": "Юристы",
+            "breadcrumb": "Юристы"
+          },
+          "children": [
+            {
+              "slug": "immigration",
+              "recommended": "Иммиграция",
+              "alternatives": [
+                "Иммиграционные юристы",
+                "Визы и green card"
+              ],
+              "description": "Иммиграционная помощь.",
+              "changed_from_en": "Immigration → Иммиграция",
+              "changed_from_prior_ru": null,
+              "doubt": null,
+              "surfaces": {
+                "home": null,
+                "catalog": "Иммиграция",
+                "search": "Иммиграция",
+                "breadcrumb": "Иммиграция"
+              }
+            },
+            {
+              "slug": "general",
+              "recommended": "Другие юридические услуги",
+              "alternatives": [
+                "Общая практика",
+                "Прочие юридические"
+              ],
+              "description": "Юристы вне иммиграции.",
+              "changed_from_en": "General practice → Другие юридические услуги",
+              "changed_from_prior_ru": "Общая практика → Другие юридические услуги",
+              "doubt": "«Общая практика» — калька; длиннее, но понятнее.",
+              "surfaces": {
+                "home": null,
+                "catalog": "Другие юридические услуги",
+                "search": "Другие юридические услуги",
+                "breadcrumb": "Другие юридические услуги"
+              }
+            }
+          ]
+        },
+        {
+          "slug": "medical",
+          "recommended": "Здоровье",
+          "alternatives": [
+            "Медспециалисты",
+            "Врачи и терапевты"
+          ],
+          "description": "Частные специалисты здоровья (не клиника).",
+          "changed_from_en": "Health → Здоровье",
+          "changed_from_prior_ru": null,
+          "doubt": "Намеренно не «Медицина», чтобы отличать от Business.",
+          "surfaces": {
+            "home": "Здоровье",
+            "catalog": "Здоровье",
+            "search": "Здоровье",
+            "breadcrumb": "Здоровье"
+          }
+        },
+        {
+          "slug": "photography_video",
+          "recommended": "Фото и видео",
+          "alternatives": [
+            "Фотографы",
+            "Фото/видео"
+          ],
+          "description": "Фотографы и видеографы.",
+          "changed_from_en": "Photo & Video → Фото и видео",
+          "changed_from_prior_ru": "Фото / видео → Фото и видео",
+          "doubt": null,
+          "surfaces": {
+            "home": "Фото и видео",
+            "catalog": "Фото и видео",
+            "search": "Фото и видео",
+            "breadcrumb": "Фото и видео"
+          }
+        },
+        {
+          "slug": "fitness",
+          "recommended": "Тренеры",
+          "alternatives": [
+            "Фитнес",
+            "Персональные тренеры"
+          ],
+          "description": "Персональные тренеры и инструкторы.",
+          "changed_from_en": "Fitness coaches → Тренеры",
+          "changed_from_prior_ru": null,
+          "doubt": "Намеренно не «Фитнес» (это залы в Business).",
+          "surfaces": {
+            "home": "Тренеры",
+            "catalog": "Тренеры",
+            "search": "Тренеры",
+            "breadcrumb": "Тренеры"
+          }
+        },
+        {
+          "slug": "finance",
+          "recommended": "Бухгалтеры",
+          "alternatives": [
+            "Налоги",
+            "Бухгалтерия"
+          ],
+          "description": "Частные бухгалтеры и налоговые консультанты.",
+          "changed_from_en": "Accountants → Бухгалтеры",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Бухгалтеры",
+            "catalog": "Бухгалтеры",
+            "search": "Бухгалтеры",
+            "breadcrumb": "Бухгалтеры"
+          }
+        },
+        {
+          "slug": "auto",
+          "recommended": "Мастера по авто",
+          "alternatives": [
+            "Автомастера",
+            "Механики"
+          ],
+          "description": "Частные механики и детейлеры.",
+          "changed_from_en": "Auto specialists → Мастера по авто",
+          "changed_from_prior_ru": "Автомастера → Мастера по авто",
+          "doubt": null,
+          "surfaces": {
+            "home": "Мастера по авто",
+            "catalog": "Мастера по авто",
+            "search": "Мастера по авто",
+            "breadcrumb": "Мастера по авто"
+          }
+        },
+        {
+          "slug": "travel",
+          "recommended": "Туризм и визы",
+          "alternatives": [
+            "Травел",
+            "Визовая помощь"
+          ],
+          "description": "Частные турагенты и визовая помощь.",
+          "changed_from_en": "Travel specialists → Туризм и визы",
+          "changed_from_prior_ru": "Травел / визы → Туризм и визы",
+          "doubt": "Совпадает с Business.travel по ярлыку — ок: различие в хабе сущности.",
+          "surfaces": {
+            "home": "Туризм",
+            "catalog": "Туризм и визы",
+            "search": "Туризм и визы",
+            "breadcrumb": "Туризм и визы"
+          }
+        },
+        {
+          "slug": "food",
+          "recommended": "Домашняя еда",
+          "alternatives": [
+            "Домашняя кухня",
+            "Кейтеринг"
+          ],
+          "description": "Частные повара и домашняя выпечка.",
+          "changed_from_en": "Homemade food → Домашняя еда",
+          "changed_from_prior_ru": "Домашняя еда / кейтеринг → Домашняя еда",
+          "doubt": null,
+          "surfaces": {
+            "home": "Домашняя еда",
+            "catalog": "Домашняя еда",
+            "search": "Домашняя еда",
+            "breadcrumb": "Домашняя еда"
+          }
+        },
+        {
+          "slug": "childcare",
+          "recommended": "Няни",
+          "alternatives": [
+            "Няни и сиделки",
+            "Уход за детьми"
+          ],
+          "description": "Няни и сиделки.",
+          "changed_from_en": "Childcare → Няни",
+          "changed_from_prior_ru": null,
+          "doubt": "Сиделок мало в TG — при росте можно расширить ярлык.",
+          "surfaces": {
+            "home": "Няни",
+            "catalog": "Няни",
+            "search": "Няни",
+            "breadcrumb": "Няни"
+          }
+        },
+        {
+          "slug": "professional_services",
+          "recommended": "Дизайн, SMM и IT",
+          "alternatives": [
+            "Фриланс",
+            "Дизайн и IT",
+            "Digital-услуги"
+          ],
+          "description": "Дизайнеры, SMM, разработчики.",
+          "changed_from_en": "Design / SMM / IT → Дизайн, SMM и IT",
+          "changed_from_prior_ru": "Дизайн / SMM / IT → Дизайн, SMM и IT",
+          "doubt": "SMM/IT оставляем латиницей — так ищут.",
+          "surfaces": {
+            "home": "Дизайн и IT",
+            "catalog": "Дизайн, SMM и IT",
+            "search": "Дизайн, SMM и IT",
+            "breadcrumb": "Дизайн, SMM и IT"
+          }
+        },
+        {
+          "slug": "home_services",
+          "recommended": "Мастера для дома",
+          "alternatives": [
+            "Дом и ремонт",
+            "Услуги для дома",
+            "Handyman"
+          ],
+          "description": "Сантехник, электрик, ремонт как частник.",
+          "changed_from_en": "Home trades → Мастера для дома",
+          "changed_from_prior_ru": "Дом и ремонт → Мастера для дома",
+          "doubt": "Отличаем от Business «Услуги для дома».",
+          "surfaces": {
+            "home": "Для дома",
+            "catalog": "Мастера для дома",
+            "search": "Мастера для дома",
+            "breadcrumb": "Мастера для дома"
+          }
+        },
+        {
+          "slug": "pets",
+          "recommended": "Уход за животными",
+          "alternatives": [
+            "Зооняни",
+            "Груминг",
+            "Для животных"
+          ],
+          "description": "Частный уход и груминг.",
+          "changed_from_en": "Pet specialists → Уход за животными",
+          "changed_from_prior_ru": "Зооняни / груминг → Уход за животными",
+          "doubt": null,
+          "surfaces": {
+            "home": "Для животных",
+            "catalog": "Уход за животными",
+            "search": "Уход за животными",
+            "breadcrumb": "Уход за животными"
+          }
+        },
+        {
+          "slug": "insurance",
+          "recommended": "Страховые агенты",
+          "alternatives": [
+            "Страхование",
+            "Страховка"
+          ],
+          "description": "Частные страховые агенты.",
+          "changed_from_en": "Insurance agents → Страховые агенты",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Страхование",
+            "catalog": "Страховые агенты",
+            "search": "Страховые агенты",
+            "breadcrumb": "Страховые агенты"
+          }
+        },
+        {
+          "slug": "real_estate",
+          "recommended": "Риелторы",
+          "alternatives": [
+            "Агенты по недвижимости",
+            "Realtors"
+          ],
+          "description": "Частные риелторы (не агентство).",
+          "changed_from_en": "Realtors → Риелторы",
+          "changed_from_prior_ru": null,
+          "doubt": "Орфография «риелтор»/«риэлтор» — берём «риелтор» как более частое в вебе.",
+          "surfaces": {
+            "home": "Риелторы",
+            "catalog": "Риелторы",
+            "search": "Риелторы",
+            "breadcrumb": "Риелторы"
+          }
+        },
+        {
+          "slug": "other",
+          "recommended": "Другое",
+          "alternatives": [
+            "Прочее"
+          ],
+          "description": "Неклассифицированные специалисты.",
+          "changed_from_en": "Other → Другое",
+          "changed_from_prior_ru": "Прочее → Другое",
+          "doubt": null,
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          }
+        }
+      ]
+    },
+    "marketplace": {
+      "categories": [
+        {
+          "slug": "furniture",
+          "recommended": "Мебель",
+          "alternatives": [
+            "Мебель и интерьер"
+          ],
+          "description": "Мебель с рук.",
+          "changed_from_en": "Furniture → Мебель",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Мебель",
+            "catalog": "Мебель",
+            "search": "Мебель",
+            "breadcrumb": "Мебель"
+          }
+        },
+        {
+          "slug": "kids",
+          "recommended": "Детские вещи",
+          "alternatives": [
+            "Дети",
+            "Для детей",
+            "Baby"
+          ],
+          "description": "Детские и baby-товары.",
+          "changed_from_en": "Kids & baby → Детские вещи",
+          "changed_from_prior_ru": "Дети → Детские вещи",
+          "doubt": null,
+          "surfaces": {
+            "home": "Детские вещи",
+            "catalog": "Детские вещи",
+            "search": "Детские вещи",
+            "breadcrumb": "Детские вещи"
+          }
+        },
+        {
+          "slug": "free",
+          "recommended": "Отдам даром",
+          "alternatives": [
+            "Бесплатно",
+            "Free"
+          ],
+          "description": "Отдают бесплатно.",
+          "changed_from_en": "Free → Отдам даром",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Отдам даром",
+            "catalog": "Отдам даром",
+            "search": "Отдам даром",
+            "breadcrumb": "Отдам даром"
+          }
+        },
+        {
+          "slug": "wanted",
+          "recommended": "Ищу",
+          "alternatives": [
+            "Куплю",
+            "Ищу / куплю"
+          ],
+          "description": "Ищут или хотят купить.",
+          "changed_from_en": "Wanted → Ищу",
+          "changed_from_prior_ru": "Ищу / куплю → Ищу",
+          "doubt": "Коротко; в поиске синоним «куплю».",
+          "surfaces": {
+            "home": "Ищу",
+            "catalog": "Ищу",
+            "search": "Ищу",
+            "breadcrumb": "Ищу"
+          }
+        },
+        {
+          "slug": "clothing",
+          "recommended": "Одежда",
+          "alternatives": [
+            "Одежда и обувь"
+          ],
+          "description": "Одежда и обувь с рук.",
+          "changed_from_en": "Clothing → Одежда",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Одежда",
+            "catalog": "Одежда",
+            "search": "Одежда",
+            "breadcrumb": "Одежда"
+          }
+        },
+        {
+          "slug": "electronics",
+          "recommended": "Электроника",
+          "alternatives": [
+            "Техника",
+            "Гаджеты"
+          ],
+          "description": "Телефоны, компьютеры, гаджеты.",
+          "changed_from_en": "Electronics → Электроника",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Электроника",
+            "catalog": "Электроника",
+            "search": "Электроника",
+            "breadcrumb": "Электроника"
+          }
+        },
+        {
+          "slug": "home",
+          "recommended": "Для дома",
+          "alternatives": [
+            "Дом и быт",
+            "Бытовая техника"
+          ],
+          "description": "Быт и техника для дома.",
+          "changed_from_en": "Home & appliances → Для дома",
+          "changed_from_prior_ru": "Дом и техника → Для дома",
+          "doubt": null,
+          "surfaces": {
+            "home": "Для дома",
+            "catalog": "Для дома",
+            "search": "Для дома",
+            "breadcrumb": "Для дома"
+          }
+        },
+        {
+          "slug": "auto_parts",
+          "recommended": "Запчасти",
+          "alternatives": [
+            "Автозапчасти",
+            "Запчасти для авто"
+          ],
+          "description": "Запчасти и автоаксессуары.",
+          "changed_from_en": "Auto parts → Запчасти",
+          "changed_from_prior_ru": "Автозапчасти → Запчасти",
+          "doubt": "В контексте Барахолки «Запчасти» достаточно; полный — в breadcrumb.",
+          "surfaces": {
+            "home": "Запчасти",
+            "catalog": "Запчасти",
+            "search": "Запчасти",
+            "breadcrumb": "Запчасти для авто"
+          }
+        },
+        {
+          "slug": "vehicles",
+          "recommended": "Авто",
+          "alternatives": [
+            "Автомобили",
+            "Машины"
+          ],
+          "description": "Продажа машин в объявлениях.",
+          "changed_from_en": "Vehicles → Авто",
+          "changed_from_prior_ru": "Автомобили → Авто",
+          "doubt": "Единый стиль «Авто» в маркетплейсе; Business — «Автосервис».",
+          "surfaces": {
+            "home": "Авто",
+            "catalog": "Авто",
+            "search": "Авто",
+            "breadcrumb": "Авто"
+          }
+        },
+        {
+          "slug": "sports",
+          "recommended": "Спорт",
+          "alternatives": [
+            "Спорттовары",
+            "Спортивные товары"
+          ],
+          "description": "Спортивные товары.",
+          "changed_from_en": "Sports → Спорт",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Спорт",
+            "catalog": "Спорт",
+            "search": "Спорт",
+            "breadcrumb": "Спорт"
+          }
+        },
+        {
+          "slug": "other",
+          "recommended": "Другое",
+          "alternatives": [
+            "Прочее",
+            "Разное"
+          ],
+          "description": "Прочие объявления.",
+          "changed_from_en": "Other → Другое",
+          "changed_from_prior_ru": "Прочее → Другое",
+          "doubt": null,
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          }
+        }
+      ]
+    },
+    "jobs": {
+      "categories": [
+        {
+          "slug": "drivers",
+          "recommended": "Водители",
+          "alternatives": [
+            "Водитель",
+            "Delivery / водители"
+          ],
+          "description": "Работа водителем и доставкой.",
+          "changed_from_en": "Drivers → Водители",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Водители",
+            "catalog": "Водители",
+            "search": "Водители",
+            "breadcrumb": "Водители"
+          }
+        },
+        {
+          "slug": "cleaning",
+          "recommended": "Уборка",
+          "alternatives": [
+            "Клининг",
+            "Уборщицы"
+          ],
+          "description": "Работа в уборке.",
+          "changed_from_en": "Cleaning → Уборка",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Уборка",
+            "catalog": "Уборка",
+            "search": "Уборка",
+            "breadcrumb": "Уборка"
+          }
+        },
+        {
+          "slug": "beauty",
+          "recommended": "Красота",
+          "alternatives": [
+            "Салоны (персонал)",
+            "Мастера в салон"
+          ],
+          "description": "Набор мастеров в салоны и студии.",
+          "changed_from_en": "Beauty staff → Красота",
+          "changed_from_prior_ru": "Красота (персонал) → Красота",
+          "doubt": "Без «персонал» — контекст хаба Работа достаточный.",
+          "surfaces": {
+            "home": "Красота",
+            "catalog": "Красота",
+            "search": "Красота",
+            "breadcrumb": "Красота"
+          }
+        },
+        {
+          "slug": "childcare",
+          "recommended": "Няни и уход",
+          "alternatives": [
+            "Няни",
+            "Уход за детьми"
+          ],
+          "description": "Няни, сиделки, уход.",
+          "changed_from_en": "Childcare → Няни и уход",
+          "changed_from_prior_ru": "Няни / уход → Няни и уход",
+          "doubt": null,
+          "surfaces": {
+            "home": "Няни",
+            "catalog": "Няни и уход",
+            "search": "Няни и уход",
+            "breadcrumb": "Няни и уход"
+          }
+        },
+        {
+          "slug": "restaurant",
+          "recommended": "Рестораны и кухня",
+          "alternatives": [
+            "Общепит",
+            "Кухня",
+            "HoReCa"
+          ],
+          "description": "Работа в кафе и на кухне.",
+          "changed_from_en": "Restaurant / kitchen → Рестораны и кухня",
+          "changed_from_prior_ru": "Общепит → Рестораны и кухня",
+          "doubt": "«Общепит» канцелярит.",
+          "surfaces": {
+            "home": "Кухня",
+            "catalog": "Рестораны и кухня",
+            "search": "Рестораны и кухня",
+            "breadcrumb": "Рестораны и кухня"
+          }
+        },
+        {
+          "slug": "office",
+          "recommended": "Офис и продажи",
+          "alternatives": [
+            "Офис",
+            "Продажи",
+            "Админ / sales"
+          ],
+          "description": "Офис, админ, продажи.",
+          "changed_from_en": "Office / sales → Офис и продажи",
+          "changed_from_prior_ru": "Офис / продажи → Офис и продажи",
+          "doubt": null,
+          "surfaces": {
+            "home": "Офис",
+            "catalog": "Офис и продажи",
+            "search": "Офис и продажи",
+            "breadcrumb": "Офис и продажи"
+          }
+        },
+        {
+          "slug": "skilled_trades",
+          "recommended": "Стройка и ремёсла",
+          "alternatives": [
+            "Стройка",
+            "Рабочие специальности",
+            "Trades"
+          ],
+          "description": "Стройка, монтаж, рабочие специальности.",
+          "changed_from_en": "Skilled trades → Стройка и ремёсла",
+          "changed_from_prior_ru": "Ремёсла / стройка → Стройка и ремёсла",
+          "doubt": null,
+          "surfaces": {
+            "home": "Стройка",
+            "catalog": "Стройка и ремёсла",
+            "search": "Стройка и ремёсла",
+            "breadcrumb": "Стройка и ремёсла"
+          }
+        },
+        {
+          "slug": "photo_video",
+          "recommended": "Фото и видео",
+          "alternatives": [
+            "Съёмка",
+            "Фото/видео смена"
+          ],
+          "description": "Смены и подработка на съёмках.",
+          "changed_from_en": "Photo/video crew → Фото и видео",
+          "changed_from_prior_ru": "Фото / видео (смена) → Фото и видео",
+          "doubt": null,
+          "surfaces": {
+            "home": "Фото и видео",
+            "catalog": "Фото и видео",
+            "search": "Фото и видео",
+            "breadcrumb": "Фото и видео"
+          }
+        },
+        {
+          "slug": "other",
+          "recommended": "Другое",
+          "alternatives": [
+            "Прочее"
+          ],
+          "description": "Прочие предложения работы.",
+          "changed_from_en": "Other → Другое",
+          "changed_from_prior_ru": "Прочее → Другое",
+          "doubt": null,
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          }
+        }
+      ]
+    },
+    "real_estate": {
+      "categories": [
+        {
+          "slug": "apartments",
+          "recommended": "Квартиры",
+          "alternatives": [
+            "Апартаменты",
+            "Apartments"
+          ],
+          "description": "Аренда и продажа квартир.",
+          "changed_from_en": "Apartments → Квартиры",
+          "changed_from_prior_ru": null,
+          "doubt": "В США apartment ≠ «апартаменты»; «Квартиры» правильнее для аудитории.",
+          "surfaces": {
+            "home": "Квартиры",
+            "catalog": "Квартиры",
+            "search": "Квартиры",
+            "breadcrumb": "Квартиры"
+          }
+        },
+        {
+          "slug": "rooms",
+          "recommended": "Комнаты",
+          "alternatives": [
+            "Комната",
+            "Roommate"
+          ],
+          "description": "Комната или roommate.",
+          "changed_from_en": "Rooms → Комнаты",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Комнаты",
+            "catalog": "Комнаты",
+            "search": "Комнаты",
+            "breadcrumb": "Комнаты"
+          }
+        },
+        {
+          "slug": "houses",
+          "recommended": "Дома",
+          "alternatives": [
+            "Хаус",
+            "House"
+          ],
+          "description": "Дома в аренду или продажу.",
+          "changed_from_en": "Houses → Дома",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Дома",
+            "catalog": "Дома",
+            "search": "Дома",
+            "breadcrumb": "Дома"
+          }
+        },
+        {
+          "slug": "commercial",
+          "recommended": "Коммерческая",
+          "alternatives": [
+            "Коммерция",
+            "Офисы и склады"
+          ],
+          "description": "Офисы, ритейл, склады.",
+          "changed_from_en": "Commercial → Коммерческая",
+          "changed_from_prior_ru": "Коммерция → Коммерческая",
+          "doubt": "«Коммерция» звучит как торговля; «Коммерческая» = недвижимость.",
+          "surfaces": {
+            "home": "Коммерческая",
+            "catalog": "Коммерческая",
+            "search": "Коммерческая",
+            "breadcrumb": "Коммерческая недвижимость"
+          }
+        },
+        {
+          "slug": "short_term",
+          "recommended": "Посуточно",
+          "alternatives": [
+            "Краткосрочно",
+            "Airbnb-стиль"
+          ],
+          "description": "Краткосрочная аренда.",
+          "changed_from_en": "Short-term rental → Посуточно",
+          "changed_from_prior_ru": null,
+          "doubt": null,
+          "surfaces": {
+            "home": "Посуточно",
+            "catalog": "Посуточно",
+            "search": "Посуточно",
+            "breadcrumb": "Посуточно"
+          }
+        },
+        {
+          "slug": "other",
+          "recommended": "Другое",
+          "alternatives": [
+            "Прочее"
+          ],
+          "description": "Прочие объявления о недвижимости.",
+          "changed_from_en": "Other → Другое",
+          "changed_from_prior_ru": "Прочее → Другое",
+          "doubt": null,
+          "surfaces": {
+            "home": null,
+            "catalog": "Другое",
+            "search": "Другое",
+            "breadcrumb": "Другое"
+          }
+        }
+      ]
+    }
+  },
+  "style_unification": {
+    "auto_family": {
+      "business.auto": "Автосервис",
+      "business.car_rental": "Аренда авто",
+      "professional.auto": "Мастера по авто",
+      "marketplace.auto_parts": "Запчасти",
+      "marketplace.vehicles": "Авто",
+      "rule": "Не смешивать Авто / Автомобили / Машины / Автосервис без роли"
+    },
+    "home_family": {
+      "business.home_services": "Услуги для дома",
+      "professional.home_services": "Мастера для дома",
+      "marketplace.home": "Для дома"
+    },
+    "beauty_family": {
+      "all_entities": "Красота",
+      "rule": "Один ярлык; смысл задаёт хаб сущности"
+    },
+    "other_bucket": {
+      "recommended": "Другое",
+      "not": "Прочее"
+    },
+    "connectors": {
+      "prefer": "и",
+      "avoid_on_home": "/",
+      "ok_in_search_synonyms": true
+    }
+  },
+  "surfaces_policy": {
+    "home": "Короткие ярлыки хабов + топ-категории; other скрыт",
+    "catalog": "recommended display_name",
+    "search": "recommended + synonyms from alternatives",
+    "breadcrumb": "полная цепочка хаб → category → subcategory; допускается чуть длиннее"
+  },
+  "constraints_confirmed": {
+    "structure_unchanged": true,
+    "slugs_unchanged": true,
+    "architecture_unchanged": true,
+    "sql_unchanged": true,
+    "migrations_unchanged": true,
+    "production_unchanged": true
+  }
+}

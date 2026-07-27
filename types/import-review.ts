@@ -15,7 +15,9 @@ export type ImportReviewTargetCollection =
   | "jobs"
   | "events"
   | "organizations"
-  | "real_estate";
+  | "real_estate"
+  | "lechu"
+  | "transfers";
 
 export type ImportReviewEntityType =
   | "business"
@@ -24,7 +26,9 @@ export type ImportReviewEntityType =
   | "organization"
   | "event"
   | "job"
-  | "real_estate";
+  | "real_estate"
+  | "lechu_listing"
+  | "transfer_listing";
 
 export type ImportReviewSourceMedia = {
   telegram_message_id?: number | null;
@@ -75,6 +79,7 @@ export type ImportReviewItem = {
   website: string[];
   email: string[];
   photos_count: number;
+  preview_image_url?: string | null;
   duplicate_status: string | null;
   recurring_cluster_id: string | null;
   occurrence_count: number | null;
@@ -114,25 +119,29 @@ export const IMPORT_TARGET_COLLECTION_LABELS: Record<
   ImportReviewTargetCollection,
   string
 > = {
-  businesses: "Businesses",
-  private_specialists: "Specialists",
-  services: "Services",
+  businesses: "Бизнесы",
+  private_specialists: "Специалисты",
+  services: "Услуги",
   marketplace: "Marketplace",
-  jobs: "Jobs",
-  events: "Events",
-  organizations: "Organizations",
-  real_estate: "Real Estate",
+  jobs: "Вакансии",
+  events: "События",
+  organizations: "Организации",
+  real_estate: "Недвижимость",
+  lechu: "Лечу",
+  transfers: "Переводы",
 };
 
 export const IMPORT_ENTITY_TYPE_LABELS: Record<ImportReviewEntityType, string> =
   {
-    business: "Business",
-    private_specialist: "Specialist",
+    business: "Бизнес",
+    private_specialist: "Специалист",
     marketplace_listing: "Marketplace",
-    organization: "Organization",
-    event: "Event",
-    job: "Job",
-    real_estate: "Real Estate",
+    organization: "Организация",
+    event: "Событие",
+    job: "Вакансия",
+    real_estate: "Недвижимость",
+    lechu_listing: "Лечу",
+    transfer_listing: "Переводы",
   };
 
 export const REJECT_REASONS = [

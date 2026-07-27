@@ -1,0 +1,109 @@
+{
+  "mode": "apply",
+  "merges": [
+    {
+      "status": "already_archived",
+      "keep_slug": "lana-cher-181512-6cf0",
+      "drop_slug": "lana-cher-205647-957a"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "consolidated-stephen-law-pc",
+      "drop_slug": "fb-post-31-eugene-stephen-immigration-attorney"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "consolidated-tenina-law-inc",
+      "drop_slug": "fb-post-28-tenina-law-inc"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "kai-t-234038",
+      "drop_slug": "kai-t-205627-dea6"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "ida-seidova-150707",
+      "drop_slug": "dr-modarres-150637"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "wonderland-beauty-salon",
+      "drop_slug": "wonderland-salon-205355-7c07"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "beauty-studio-by-veronika",
+      "drop_slug": "united-states-beauty-studio-180905"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "oksana-150709",
+      "drop_slug": "stairedu-sergey-150606"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "oktel-205740-27a3",
+      "drop_slug": "oktel-181534-5dfb"
+    },
+    {
+      "keep_id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "keep_slug": "fbpack-art-backyard-design-camp",
+      "keep_name": "Art Backyard",
+      "drop_id": "0cd83146-4145-4600-9233-46e60ad97215",
+      "drop_slug": "fbpack-katia-bulgakova-art-backyard",
+      "drop_name": "Art Backyard",
+      "note": "Art Backyard same phone+address+website (pending duplicate)",
+      "patch": {},
+      "keep_richness": 22,
+      "drop_richness": 15,
+      "status": "merged",
+      "offers_moved": 0
+    },
+    {
+      "keep_id": "b49be8d8-b858-4b98-865f-bf41dd0d80db",
+      "keep_slug": "batch2-good-food",
+      "keep_name": "Good Food International Market",
+      "drop_id": "12f33449-052f-401c-bb40-30db10459483",
+      "drop_slug": "good-food-190808",
+      "drop_name": "Good Food International Market (дубль)",
+      "note": "Good Food International Market same phone+address+website (pending дубль)",
+      "patch": {},
+      "keep_richness": 21,
+      "drop_richness": 16,
+      "status": "merged",
+      "offers_moved": 0
+    },
+    {
+      "keep_id": "5f840c50-600d-4677-82f0-986417d6d773",
+      "keep_slug": "fbpack-vasiliki-cafe-bakery-laguna-niguel",
+      "keep_name": "Vasilki Café Bakery",
+      "drop_id": "8f848e16-9bbd-46ab-887b-17e0c5245d39",
+      "drop_slug": "jane-oc-190806",
+      "drop_name": "Vasilki Café Bakery (дубль Jane OC)",
+      "note": "Vasilki Café Bakery same phone+address (pending дубль Jane OC)",
+      "patch": {
+        "source_url": "https://t.me/c/1333533747/76218"
+      },
+      "keep_richness": 16,
+      "drop_richness": 14,
+      "status": "merged",
+      "offers_moved": 0
+    },
+    {
+      "keep_id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "keep_slug": "tатьяна-032105",
+      "keep_name": "Ultima Studio",
+      "drop_id": "f1030f62-c39f-4019-be0e-cba489acdb8e",
+      "drop_slug": "enriched-ivan-stypnik",
+      "drop_name": "Ivan Stypnik",
+      "note": "same barber suite 1175 Baker St Ste E19 Costa Mesa (Ultima vs Ivan)",
+      "patch": {},
+      "keep_richness": 21,
+      "drop_richness": 10,
+      "status": "merged",
+      "offers_moved": 1
+    }
+  ],
+  "backfill": null
+}

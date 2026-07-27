@@ -1,0 +1,1135 @@
+{
+  "generated_at": "2026-07-26T23:21:35.139542+00:00",
+  "mode": "apply",
+  "needy_images": 285,
+  "candidates": 132,
+  "applied": 100,
+  "failed": 32,
+  "unique_profiles_fetched": 83,
+  "skip_reasons": {
+    "no_target": 131,
+    "skip_facebook": 22
+  },
+  "results": [
+    {
+      "id": "042f8ee7-6673-45f5-8fce-52945fca7910",
+      "name": "Ange",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/042f8ee7-6673-45f5-8fce-52945fca7910/avatar_2dedc7972ad943c4.webp",
+      "target": {
+        "user_id": "994364219",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70082,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "066489b9-c8e5-45e3-a340-ed3594cfb289",
+      "name": "Igor Pchelintsev",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/066489b9-c8e5-45e3-a340-ed3594cfb289/avatar_5e6e21bfff4f53c6.webp",
+      "target": {
+        "user_id": "450047493",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 271825,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+      "name": "Larisa Grib",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d/avatar_bce97d651c781f44.webp",
+      "target": {
+        "user_id": "5190886991",
+        "username": "la_aromaworld",
+        "chat_id": -1001955320601,
+        "message_id": 264879,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0b48174e-d476-4ba2-b7c6-adf9e28bc4d7",
+      "name": "Bekbolat",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "5181739502",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 252193,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0d016684-5f9d-4d00-81ce-4639f2e5ef60",
+      "name": "Serena",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "766021094",
+        "username": "SER_EN_A",
+        "chat_id": -1001955320601,
+        "message_id": 268290,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "1114fe23-6cfd-4d85-a31c-1eafa68929e1",
+      "name": "Кристина",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/1114fe23-6cfd-4d85-a31c-1eafa68929e1/avatar_5127d9b7d1c3e221.webp",
+      "target": {
+        "user_id": "294821039",
+        "username": "kbergerusa",
+        "chat_id": -1001333533747,
+        "message_id": 71184,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "12c01256-6391-4b1d-9c28-cf6f8fb90221",
+      "name": "US Drive Services",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/12c01256-6391-4b1d-9c28-cf6f8fb90221/avatar_651ddbf4279e9725.webp",
+      "target": {
+        "user_id": "8546075872",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 265305,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+      "name": "Anna",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/15b06144-1009-46cf-9e48-40c6b4acc940/avatar_bc4831ba20dadab4.webp",
+      "target": {
+        "user_id": "339463209",
+        "username": "anna_vyskrebets",
+        "chat_id": -1001333533747,
+        "message_id": 75957,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "192e2345-aca7-4972-a5c2-d8a78fd7f11f",
+      "name": "Милена",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/192e2345-aca7-4972-a5c2-d8a78fd7f11f/avatar_10c0607c73d38a61.webp",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 71940,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "22d09ba7-c449-44f5-b840-3e2205520568",
+      "name": "Mila",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/22d09ba7-c449-44f5-b840-3e2205520568/avatar_3c625bc5a17d4d4e.webp",
+      "target": {
+        "user_id": "198684028",
+        "username": "lussiena",
+        "chat_id": -1001333533747,
+        "message_id": 69550,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "235c20b5-9b61-4001-bba4-87eca9ce857a",
+      "name": "Таисия Шаповалова",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/235c20b5-9b61-4001-bba4-87eca9ce857a/avatar_b94c683a463260a5.webp",
+      "target": {
+        "user_id": "5358379761",
+        "username": "Capytaytay",
+        "chat_id": -1001333533747,
+        "message_id": 75645,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "27c054bf-0862-4bc3-bbb1-720bed88f73a",
+      "name": "Angelina",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/27c054bf-0862-4bc3-bbb1-720bed88f73a/avatar_3c945738ea54249d.webp",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69918,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb",
+      "name": "Valeriia Soldatchenkova",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb/avatar_fea70fa8d4283c70.webp",
+      "target": {
+        "user_id": "6583487058",
+        "username": "ler_kasss",
+        "chat_id": -1001955320601,
+        "message_id": 253306,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2d3a1db0-44aa-492c-b003-843b503a3ba8",
+      "name": "Roman",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "8266974618",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 263931,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2ed8aa52-fa43-46c6-88ee-dde60294705b",
+      "name": "Anastasiya",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "475321329",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 74562,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2fe01c67-888a-4719-88ef-22bac7ebd0b3",
+      "name": "Альбина",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2fe01c67-888a-4719-88ef-22bac7ebd0b3/avatar_811487b52af75bae.webp",
+      "target": {
+        "user_id": "1083507658",
+        "username": "albinapsychologist",
+        "chat_id": -1001955320601,
+        "message_id": 276762,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "31c1ae56-801f-4e65-8d6d-7e71f381dbe8",
+      "name": "Кристина Орлова",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/31c1ae56-801f-4e65-8d6d-7e71f381dbe8/avatar_4e9446dc9cd319bf.webp",
+      "target": {
+        "user_id": "697127088",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 270249,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "32186ac8-f9e6-488b-ab6e-20c028b34cd5",
+      "name": "Valeriia",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/32186ac8-f9e6-488b-ab6e-20c028b34cd5/avatar_fff76074b80696c3.webp",
+      "target": {
+        "user_id": "5553935073",
+        "username": "valvivi666",
+        "chat_id": -1001955320601,
+        "message_id": 263227,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "33c5fa05-818a-451f-adc9-fe63f3b2fe3e",
+      "name": "Angelina",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/33c5fa05-818a-451f-adc9-fe63f3b2fe3e/avatar_3c945738ea54249d.webp",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70344,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "name": "Sandrina Rudenko",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "488377934",
+        "username": "Sandra_kisss",
+        "chat_id": -1001955320601,
+        "message_id": 255047,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "34885484-8818-479d-a9e2-2bc3c2aa2073",
+      "name": "Милена",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/34885484-8818-479d-a9e2-2bc3c2aa2073/avatar_10c0607c73d38a61.webp",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69464,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "36e1ca84-e3dd-4226-8873-625c2be9d4db",
+      "name": "Аня Таран",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/36e1ca84-e3dd-4226-8873-625c2be9d4db/avatar_73671dcc5e53eb8c.webp",
+      "target": {
+        "user_id": "744801476",
+        "username": "taran_anna1",
+        "chat_id": -1001955320601,
+        "message_id": 273804,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3b4be5f6-dcdd-470c-b42e-07f7098543de",
+      "name": "Alina ‍",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/3b4be5f6-dcdd-470c-b42e-07f7098543de/avatar_350aaa3324826576.webp",
+      "target": {
+        "user_id": "672372776",
+        "username": "adelin9999",
+        "chat_id": -1001955320601,
+        "message_id": 254266,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3b94799c-49a4-4c0a-9985-e50b78bd33c1",
+      "name": "Stanislav Kuznetsov",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "446918469",
+        "username": "stankuz77",
+        "chat_id": -1001333533747,
+        "message_id": 69838,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3ba6d992-92af-4626-81ce-0f7475391fd8",
+      "name": "Angelina",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/3ba6d992-92af-4626-81ce-0f7475391fd8/avatar_4c6fdd6687d88f53.webp",
+      "target": {
+        "user_id": "884061891",
+        "username": "Angnna5524",
+        "chat_id": -1001955320601,
+        "message_id": 271912,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3d5630b0-b72c-4425-8a6b-cc39a44c952f",
+      "name": "Милена",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/3d5630b0-b72c-4425-8a6b-cc39a44c952f/avatar_10c0607c73d38a61.webp",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 72419,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3e487161-67d1-4038-9da1-1de9247abfe9",
+      "name": "Камила",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/3e487161-67d1-4038-9da1-1de9247abfe9/avatar_9ba223d3c037831c.webp",
+      "target": {
+        "user_id": "1943094171",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 274327,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "434ec733-33e4-465b-b95f-5508cd4b361d",
+      "name": "Roman",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "7692997198",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 276742,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "44ac3baa-c837-4aa8-9e21-7d0745fb5179",
+      "name": "Lena",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/44ac3baa-c837-4aa8-9e21-7d0745fb5179/avatar_06327fbdce1c61b3.webp",
+      "target": {
+        "user_id": "642587600",
+        "username": "lena_usa_russia",
+        "chat_id": -1001333533747,
+        "message_id": 72842,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "44d1d688-605a-4d37-bfc3-3a032e89a46b",
+      "name": "Phone",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/44d1d688-605a-4d37-bfc3-3a032e89a46b/avatar_1957bf86e724485e.webp",
+      "target": {
+        "user_id": "1827855160",
+        "username": "atajan_yagmyrov777",
+        "chat_id": -1001955320601,
+        "message_id": 265642,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "45688ff9-209e-431b-84af-ea4b53959291",
+      "name": "hammond_cpa",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/45688ff9-209e-431b-84af-ea4b53959291/avatar_305ed5758e1c4e91.webp",
+      "target": {
+        "user_id": "895489623",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69554,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "45e40d30-f185-4bc0-b5a8-b1abc38dd281",
+      "name": "Liudmila Irvine",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "664499397",
+        "username": "LiudmilaIrvine",
+        "chat_id": -1001333533747,
+        "message_id": 74963,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4626ade6-6a4b-4271-9191-f2cf58cfa79e",
+      "name": "Людмила Коста",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4626ade6-6a4b-4271-9191-f2cf58cfa79e/avatar_630c91ec81771fa9.webp",
+      "target": {
+        "user_id": "8407076295",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 259068,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "46c172b1-8549-46aa-9a8d-86d470dc0b3a",
+      "name": "Ирина",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "7949701664",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69788,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "48d3d1c0-123c-45b4-92a6-03d9c1a7ed0c",
+      "name": "Anastasiia",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/48d3d1c0-123c-45b4-92a6-03d9c1a7ed0c/avatar_df7c9641f884d0d6.webp",
+      "target": {
+        "user_id": "808729048",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 75548,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "49895df0-fa03-4e79-90b0-9ba0416e43dd",
+      "name": "mary.shlykova",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": null,
+        "username": "thisis_mary",
+        "chat_id": null,
+        "message_id": null,
+        "reason": "pro_telegram_url",
+        "via": "telegram_url"
+      }
+    },
+    {
+      "id": "49a00f1e-7149-4dad-a0c2-34ab060f61cd",
+      "name": "Tigran Arutiunian",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "5278331604",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 250280,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4a764875-f89d-4ef9-9bc4-74472acd3fa6",
+      "name": "Мила",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4a764875-f89d-4ef9-9bc4-74472acd3fa6/avatar_1a391314dd5f242f.webp",
+      "target": {
+        "user_id": null,
+        "username": "kud_ann",
+        "chat_id": null,
+        "message_id": null,
+        "reason": "pro_telegram_url",
+        "via": "telegram_url"
+      }
+    },
+    {
+      "id": "4b3bc61c-e106-4fec-b16c-bc185b578e93",
+      "name": "Vlad",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4b3bc61c-e106-4fec-b16c-bc185b578e93/avatar_38ca87549fb89299.webp",
+      "target": {
+        "user_id": "7287649045",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 277375,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4e254cb0-d92f-4018-bd60-911c0a823601",
+      "name": "Женечка",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4e254cb0-d92f-4018-bd60-911c0a823601/avatar_8ce751cbc63c59fd.webp",
+      "target": {
+        "user_id": "860330122",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 75375,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "4ff40a99-303b-41b5-a384-8db2b5064aa1",
+      "name": "Konstantin Nutrition",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4ff40a99-303b-41b5-a384-8db2b5064aa1/avatar_07df5b48c343a078.webp",
+      "target": {
+        "user_id": "7049214354",
+        "username": "Hfdcvjohk",
+        "chat_id": -1001955320601,
+        "message_id": 249997,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "501cec85-72b4-438e-ad1b-3f2b768dec5c",
+      "name": "Angelina",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/501cec85-72b4-438e-ad1b-3f2b768dec5c/avatar_3c945738ea54249d.webp",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70100,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "502afb70-82fe-4c89-bff5-3d27ca671cf8",
+      "name": "Roman",
+      "ok": false,
+      "error": "upload:cannot identify image file <_io.BytesIO object at 0x10fb3fe00>",
+      "target": {
+        "user_id": "8266974618",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 263363,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "518e12d8-e712-4d3b-af10-5cb475d5db70",
+      "name": "hairdreams__by_galinakirbaba",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/518e12d8-e712-4d3b-af10-5cb475d5db70/avatar_0e1296253d840057.webp",
+      "target": {
+        "user_id": "484898585",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 73909,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "51ac67c4-e1fc-4fbf-af16-f498a686b5ee",
+      "name": "Azamat",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "8562707460",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 72380,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "51acd65b-5e34-4f96-b8a3-1a8d16cbaa44",
+      "name": "Пиклбол в Ирвайне",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/51acd65b-5e34-4f96-b8a3-1a8d16cbaa44/avatar_a41abbde3cf648ff.webp",
+      "target": {
+        "user_id": "8795558612",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70722,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "51b3083f-de09-4bca-83fe-5d4460595db2",
+      "name": "Оля",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/51b3083f-de09-4bca-83fe-5d4460595db2/avatar_c2af8011436db077.webp",
+      "target": {
+        "user_id": "1390057460",
+        "username": "Olga_Falevich",
+        "chat_id": -1001333533747,
+        "message_id": 70626,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "51d2f8d1-a4e4-4690-886c-ed007d91fb0f",
+      "name": "Милена",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/51d2f8d1-a4e4-4690-886c-ed007d91fb0f/avatar_10c0607c73d38a61.webp",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69597,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "523df6c4-975c-4ca3-9ca2-3f1c9c9cbb6c",
+      "name": "Ange",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/523df6c4-975c-4ca3-9ca2-3f1c9c9cbb6c/avatar_2dedc7972ad943c4.webp",
+      "target": {
+        "user_id": "994364219",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70361,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "56c7312f-626c-4b28-b73f-e9be0eb423c8",
+      "name": "Яночка✨",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/56c7312f-626c-4b28-b73f-e9be0eb423c8/avatar_a90f057e7a675b60.webp",
+      "target": {
+        "user_id": "1037310631",
+        "username": "green_yana",
+        "chat_id": -1001955320601,
+        "message_id": 269928,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "574bab0e-b00a-4907-beb6-0d5059039845",
+      "name": "Leyla Kamila",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "7993092912",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69687,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "58914e42-f1e5-453f-a7a5-88cbc88b9082",
+      "name": "Галина",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "2081548796",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69930,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "5a3e8b43-4013-4944-a933-054d9c1d7910",
+      "name": "открыла свою уютную студию ENDO Studio",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": null,
+        "username": "tatsiana_afanasieff",
+        "chat_id": null,
+        "message_id": null,
+        "reason": "pro_telegram_url",
+        "via": "telegram_url"
+      }
+    },
+    {
+      "id": "5a402be7-ee55-4588-8b28-5d8f66d512e9",
+      "name": "LIDIIA",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/5a402be7-ee55-4588-8b28-5d8f66d512e9/avatar_2d2e1730034fb66e.webp",
+      "target": {
+        "user_id": "1788929779",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 249929,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "5de7c362-d7ed-446d-822e-3d2fdfe2e086",
+      "name": "Иван",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "5724661273",
+        "username": "olivanerm",
+        "chat_id": -1001333533747,
+        "message_id": 70015,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "62eecf99-8f84-403e-a79a-a606a980ce99",
+      "name": "Alina",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/62eecf99-8f84-403e-a79a-a606a980ce99/avatar_c93dcfa3be9c7f8c.webp",
+      "target": {
+        "user_id": "6692254500",
+        "username": "alinatelychko",
+        "chat_id": -1001955320601,
+        "message_id": 271300,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "653bcb06-330c-41c7-b516-ca910ac6d2e1",
+      "name": "Goar Goar",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/653bcb06-330c-41c7-b516-ca910ac6d2e1/avatar_8b3f5556290a5b0b.webp",
+      "target": {
+        "user_id": "5899916796",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69945,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "6bc7e704-c9b3-427c-b9c4-63c1996c95a3",
+      "name": "Kim",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "6954161133",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 266333,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "6fc90ad6-d770-4009-8bce-33382d8f4a49",
+      "name": "Alena",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/6fc90ad6-d770-4009-8bce-33382d8f4a49/avatar_aa9dc4b61dbbf5a0.webp",
+      "target": {
+        "user_id": "6609987595",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69416,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "747367fc-68a6-4bc9-81d5-4639d93d0a5e",
+      "name": "Лёша Волков",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/747367fc-68a6-4bc9-81d5-4639d93d0a5e/avatar_a4b78b9e38ed9555.webp",
+      "target": {
+        "user_id": "760325836",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 263746,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "7ac2e8bb-d229-409a-af55-6373be9be122",
+      "name": "Lana.Investor RealtorInvestor",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/7ac2e8bb-d229-409a-af55-6373be9be122/avatar_cd44f6a389a2d6c6.webp",
+      "target": {
+        "user_id": "958893487",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 277684,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "7b6613fd-4c8e-4b61-8d62-a44362bf09bf",
+      "name": "Габи",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/7b6613fd-4c8e-4b61-8d62-a44362bf09bf/avatar_9f15b27d7fa72fcd.webp",
+      "target": {
+        "user_id": "7572944874",
+        "username": "abduloevgabi",
+        "chat_id": -1001955320601,
+        "message_id": 265062,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "7bee140c-f53c-4f00-a224-2d4901aad714",
+      "name": "Галина Бёрфильд",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "1606374232",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69991,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "7ce6c8ab-4fa5-40a2-a829-6758840fa401",
+      "name": "Andrea",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/7ce6c8ab-4fa5-40a2-a829-6758840fa401/avatar_f3367d591513f88b.webp",
+      "target": {
+        "user_id": "8596439433",
+        "username": "andrea64636",
+        "chat_id": -1001955320601,
+        "message_id": 272059,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "820514d3-f49a-441a-955d-4f421456ffbc",
+      "name": "Альбина",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/820514d3-f49a-441a-955d-4f421456ffbc/avatar_b488706d0983c535.webp",
+      "target": {
+        "user_id": "662080661",
+        "username": "a_kotliarovaA",
+        "chat_id": -1001333533747,
+        "message_id": 69468,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "8474a0de-757a-4751-970b-77bfd5449e43",
+      "name": "Masha Angel",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/8474a0de-757a-4751-970b-77bfd5449e43/avatar_ad1ac7c0126a33bf.webp",
+      "target": {
+        "user_id": "6793778132",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69400,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "854b4f88-2e80-4755-abdc-3707ff5cfa21",
+      "name": "Spitsyna Nata",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/854b4f88-2e80-4755-abdc-3707ff5cfa21/avatar_6ce195fffa47d183.webp",
+      "target": {
+        "user_id": "1681624748",
+        "username": "Catdog59",
+        "chat_id": -1001955320601,
+        "message_id": 258495,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "8e51d2f3-c1da-4b65-98e9-3bcd5ed5df73",
+      "name": "Bekbolat",
+      "ok": false,
+      "error": "upload:cannot identify image file <_io.BytesIO object at 0x10fb39d60>",
+      "target": {
+        "user_id": "5181739502",
+        "username": null,
+        "chat_id": -1001955320601,
+        "message_id": 252499,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "8ec63f5f-48aa-446c-a4f2-f12241cc7a73",
+      "name": "Elena Kaharlytska",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/8ec63f5f-48aa-446c-a4f2-f12241cc7a73/avatar_b4969f91934b3b3c.webp",
+      "target": {
+        "user_id": "708207795",
+        "username": "Oelenchik",
+        "chat_id": -1001955320601,
+        "message_id": 275887,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "926d878c-6305-4d72-8cff-81c2f0883aa3",
+      "name": "Anna Ahmatova",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/926d878c-6305-4d72-8cff-81c2f0883aa3/avatar_e937141c7be601e0.webp",
+      "target": {
+        "user_id": "8216240627",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 72774,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "92a57e49-a3e4-4bb2-a53c-bf4bf45e1b39",
+      "name": "Rrr",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "8186453324",
+        "username": "mgsbubd",
+        "chat_id": -1001955320601,
+        "message_id": 277140,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "945c24a7-20d8-4aff-bc43-5d86c653a5d0",
+      "name": "Ирина Кундухова",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "6070317520",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 75756,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "9b1fe2ee-6e38-45dc-866e-9d21518358de",
+      "name": "Anton",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "5635725371",
+        "username": "chasingusadream",
+        "chat_id": -1001333533747,
+        "message_id": 74303,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "9e14a749-ec2d-4e15-a012-fdfacdf8adec",
+      "name": "Angelina",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/9e14a749-ec2d-4e15-a012-fdfacdf8adec/avatar_3c945738ea54249d.webp",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 71325,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "a5006f0e-bfed-465c-89a5-24ee932eee23",
+      "name": "Valentyna Vasiura",
+      "ok": false,
+      "error": "no_profile_photo",
+      "target": {
+        "user_id": "6987736792",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70588,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "a5580939-447e-45c1-86bc-d8a0a7187dfe",
+      "name": "Oli",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/a5580939-447e-45c1-86bc-d8a0a7187dfe/avatar_9703c3ff26fed376.webp",
+      "target": {
+        "user_id": "120757505",
+        "username": "habrku",
+        "chat_id": -1001955320601,
+        "message_id": 262659,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "af7c5e1d-d9bf-4851-8688-a5f2e7972312",
+      "name": "Милена",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/af7c5e1d-d9bf-4851-8688-a5f2e7972312/avatar_10c0607c73d38a61.webp",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 70692,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "af9c50ac-6c30-40ec-85ed-86a5104d6c89",
+      "name": "Stacy",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/af9c50ac-6c30-40ec-85ed-86a5104d6c89/avatar_fc8a76147798f124.webp",
+      "target": {
+        "user_id": "887670782",
+        "username": "sstacya",
+        "chat_id": -1001333533747,
+        "message_id": 76237,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "affa9a4e-e965-4b7f-931e-b92748653722",
+      "name": "Милена",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/affa9a4e-e965-4b7f-931e-b92748653722/avatar_10c0607c73d38a61.webp",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "chat_id": -1001333533747,
+        "message_id": 69363,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "b470411a-7648-4e39-909d-6160f51a6340",
+      "name": "Kseni",
+      "ok": true,
+      "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/b470411a-7648-4e39-909d-6160f51a6340/avatar_d586ca82d05bb4fd.webp",
+      "target": {
+        "user_id": "5213773276",
+        "username": "kknkfrv",
+        "chat_id": -1001333533747,
+        "message_id": 72089,
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    }
+  ]
+}

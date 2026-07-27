@@ -1,15 +1,19 @@
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { formatBrandHeadline } from "@/lib/brand";
 import { getBrandLocationForProfile } from "@/lib/brand/location";
-import { getHubCategoryCounts } from "@/lib/platform/hub-category-counts";
+import {
+  getHubResourceStats,
+  type HubResourceStats,
+} from "@/lib/platform/hub-resource-stats";
 import { getPopularHomeResources } from "@/lib/platform/popular-resources";
 import {
   DEFAULT_REGION_HUB,
   resolveRegionHub,
 } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import {
-  getHomeActivityBusinesses,
+  getHomeMapPins,
   getProfileById,
 } from "@/lib/supabase/queries";
 
@@ -17,33 +21,24 @@ export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   let popularFeed: Awaited<ReturnType<typeof getPopularHomeResources>> = [];
-  let activityNewest: Awaited<
-    ReturnType<typeof getHomeActivityBusinesses>
-  >["newest"] = [];
-  let activityPopular: Awaited<
-    ReturnType<typeof getHomeActivityBusinesses>
-  >["popular"] = [];
+  let mapPins: Awaited<ReturnType<typeof getHomeMapPins>> = [];
   let error: string | null = null;
   let lockedFromProfile = false;
   let initialHub = DEFAULT_REGION_HUB;
   let initialInLabel = DEFAULT_REGION_HUB.inLabel;
   let initialCountyGeoid: string | null = DEFAULT_REGION_HUB.countyGeoids[0] ?? null;
-  let initialSectionCounts: Awaited<
-    ReturnType<typeof getHubCategoryCounts>
-  > | null = null;
+  let initialRegionStats: HubResourceStats | null = null;
+  let initialPlatformStats: HubResourceStats | null = null;
 
   try {
     const client = await createServerClient();
-    const [userResult, activity] = await Promise.all([
+    const catalog = createServiceRoleClient();
+    const [userResult, pins] = await Promise.all([
       client.auth.getUser(),
-      getHomeActivityBusinesses(client, 40).catch(() => ({
-        newest: [],
-        popular: [],
-      })),
+      getHomeMapPins(catalog, 800).catch(() => [] as typeof mapPins),
     ]);
 
-    activityNewest = activity.newest;
-    activityPopular = activity.popular;
+    mapPins = pins;
 
     const user = userResult.data.user;
     if (user) {
@@ -62,15 +57,17 @@ export default async function HomePage() {
       }
     }
 
-    const [feed, counts] = await Promise.all([
-      getPopularHomeResources(client, {
+    const [feed, regionStats, platformStats] = await Promise.all([
+      getPopularHomeResources(catalog, {
         hubId: initialHub.id,
         limit: 6,
       }).catch(() => [] as typeof popularFeed),
-      getHubCategoryCounts(initialHub.id).catch(() => null),
+      getHubResourceStats(initialHub.id).catch(() => null),
+      getHubResourceStats(null).catch(() => null),
     ]);
     popularFeed = feed;
-    initialSectionCounts = counts;
+    initialRegionStats = regionStats;
+    initialPlatformStats = platformStats;
   } catch (err) {
     error = err instanceof Error ? err.message : "Неизвестная ошибка";
   }
@@ -81,10 +78,10 @@ export default async function HomePage() {
       initialCountyGeoid={initialCountyGeoid}
       initialHub={initialHub}
       initialInLabel={initialInLabel}
-      initialSectionCounts={initialSectionCounts}
+      initialPlatformStats={initialPlatformStats}
+      initialRegionStats={initialRegionStats}
       lockedFromProfile={lockedFromProfile}
-      newest={activityNewest}
-      popular={activityPopular}
+      mapPins={mapPins}
       popularFeed={popularFeed}
     />
   );

@@ -1,0 +1,184 @@
+{
+  "stats": {
+    "total": 4,
+    "businesses": 4,
+    "listings": 0,
+    "already_has_image": 3,
+    "skipped": 3,
+    "by_source": {
+      "telegram_post": 1
+    },
+    "unavailable_signals": 0,
+    "duplicates": 0,
+    "estimated_upload_mb": 0.11,
+    "without_real_photo": 0,
+    "apply_status": {
+      "skipped": 3,
+      "applied": 1
+    }
+  },
+  "results": [
+    {
+      "review_item_id": "c05ab128-d501-4bd3-99b6-fed2fefed2ee",
+      "title": "bearchildrensacademy.org",
+      "entity_type": "business",
+      "entity_id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72362
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.bearchildrensacademy.org/summer",
+        "https://www.bearchildrensacademy.org"
+      ],
+      "already_has_image": true,
+      "skip_reason": "already_has_manual_or_real_image",
+      "chosen_source": null,
+      "chosen_url": null,
+      "estimated_bytes": 0,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "skipped",
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "a06df454-f259-4dc4-8304-e3a4774c568d",
+      "title": "Tатьяна",
+      "entity_type": "business",
+      "entity_id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "auto_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69353
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "mi_care_beauty"
+      ],
+      "websites": [
+        "https://maps.app.goo.gl/wHCGnYMucuGNNkk67?g_st=atm",
+        "https://maps.app.goo.gl/49fsmGgzTzy4uhan9?g_st=ic",
+        "https://maps.app.goo.gl/PuJVqEUcBkCpNV8w6?g_st=ic",
+        "https://maps.app.goo.gl/4zu7NA5HX4Xbfk6J7?g_st=ic",
+        "https://maps.app.goo.gl/g7ywpBc5VebK2ZyE6?g_st=ic",
+        "https://maps.app.goo.gl/wbgsBanQnucSgGT16?g_st=ic",
+        "https://maps.app.goo.gl/LLaHJYjg3j6gAXEQ7?g_st=ic",
+        "https://maps.app.goo.gl/QeuXGMbhrFhfv2xD9?g_st=ic",
+        "https://maps.app.goo.gl/4yZAf3QWu4EybHus6",
+        "https://maps.app.goo.gl/EB8wR9iddyK9a8pH8",
+        "https://maps.app.goo.gl/5Dvi8U5fe5hoxsMH6?g_st=it",
+        "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7?g_st=ic",
+        "https://ocpl.org/cards",
+        "https://maps.app.goo.gl/pNeSN7R7HDKLm4FN8?g_st=ac",
+        "https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8?g_st=ic",
+        "https://micarebeauty.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+        "https://maps.app.goo.gl/2ohf2LGZHjWKc9Rc7?g_st=ic",
+        "https://maps.app.goo.gl/hK2aZ68GyAF4VNA27?g_st=ic",
+        "https://maps.app.goo.gl/1S7izRQ2m7yHwZDk9?g_st=ic",
+        "https://maps.app.goo.gl/wZz7NHd89Xtz5VzS9?g_st=ic",
+        "https://maps.app.goo.gl/G2jiwp8kKmD4zhYs8?g_st=ic",
+        "https://maps.app.goo.gl/cbgRCpi3hbsnP2xa6?g_st=ic",
+        "https://maps.app.goo.gl/67hGMFict4MwMzuR8?g_st=ic",
+        "https://maps.app.goo.gl/yGBS98YeuFpbZJ1c8?g_st=ic",
+        "https://maps.app.goo.gl/52Wh4qZFgu5EtWv96?g_st=ic",
+        "https://maps.app.goo.gl/zHoLWkmfgJUjHTMG9?g_st=ic",
+        "https://maps.app.goo.gl/CYWCQqgDR22Eq85D8",
+        "https://maps.app.goo.gl/eLjF2NuPW7LPiaLW7?g_st=ic",
+        "https://maps.app.goo.gl/nbhVdte1AGC1STjY6",
+        "https://chat.whatsapp.com/JqAxqNDZ9q0IFiB44Fj4Fy",
+        "https://maps.app.goo.gl/aPGYp2K2qYRXURo39?g_st=ic",
+        "https://maps.app.goo.gl/1DR1W7SLz1PWP6k96?g_st=iw",
+        "https://maps.app.goo.gl/xsc8sWCgLgsWcvdJ6?g_st=ic",
+        "https://maps.app.goo.gl/czTWDKaEGitUHGPy7?g_st=com.google.maps.preview.copy",
+        "https://maps.app.goo.gl/eh3jtj3oCQ3fNHDF7?g_st=ic",
+        "https://maps.app.goo.gl/6GrKPixbSZkaTWfj9?g_st=ic"
+      ],
+      "already_has_image": true,
+      "skip_reason": "already_has_manual_or_real_image",
+      "chosen_source": null,
+      "chosen_url": null,
+      "estimated_bytes": 0,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "skipped",
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "24ca4916-bb9a-4eb6-84d6-6f5312e987e5",
+      "title": "dr__modarres",
+      "entity_type": "business",
+      "entity_id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72771
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "dr__modarres"
+      ],
+      "websites": [
+        "https://www.skinovationcleaning.com"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 112466,
+      "notes": [
+        "telegram_ok:1280x1148"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/32a6b89c-a465-4819-9862-6416ea8d2518/6e82350744066a33082823043d41dfb5f6fc52c4c52cb3acb47824d05a3c005d.webp",
+      "storage_path": "business/32a6b89c-a465-4819-9862-6416ea8d2518/6e82350744066a33082823043d41dfb5f6fc52c4c52cb3acb47824d05a3c005d.webp",
+      "sha256": "6e82350744066a33082823043d41dfb5f6fc52c4c52cb3acb47824d05a3c005d"
+    },
+    {
+      "review_item_id": "757de353-c711-4096-bfbb-a429f074f641",
+      "title": "Mila",
+      "entity_type": "business",
+      "entity_id": "49a02e0e-cdbe-4812-8f28-2bd52da7d022",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69579
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://milatax.com"
+      ],
+      "already_has_image": true,
+      "skip_reason": "already_has_manual_or_real_image",
+      "chosen_source": null,
+      "chosen_url": null,
+      "estimated_bytes": 0,
+      "notes": [],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "skipped",
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    }
+  ]
+}

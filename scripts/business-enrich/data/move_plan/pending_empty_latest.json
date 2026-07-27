@@ -1,0 +1,2973 @@
+{
+  "generatedAt": "2026-07-26T22:09:45.379Z",
+  "applied": true,
+  "counts": {
+    "move": 117,
+    "keep": 305,
+    "byReason": {
+      "not_a_service_offer": 26,
+      "no_service_signal": 79,
+      "empty_or_tiny_copy": 2,
+      "only_links_or_handles": 7,
+      "too_thin_no_service": 3
+    }
+  },
+  "move": [
+    {
+      "id": "9a074d09-04e8-40dc-8504-146f5df71102",
+      "name": "Dirty Bird Ranch",
+      "slug": "dirtybirdfarm-150701",
+      "reason": "not_a_service_offer",
+      "preview": "Farm ranch · Bonsall · Google 5.0★ (7) · ⚠️ Google: permanently closed Dirty Bird Ranch — working ranch / rescue farm на 5.5 acres в Bonsall"
+    },
+    {
+      "id": "29f635b3-40ae-4c4d-b691-eb0fa062b969",
+      "name": "TN · food",
+      "slug": "tn-food-205814-0c20",
+      "reason": "no_service_signal",
+      "preview": "На фармерс маркет и Bristol farms. Whole Foods в хантингтоне были помидоры На фармерс маркет и Bristol farms. Whole Foods в хантингтоне были"
+    },
+    {
+      "id": "831c4075-1f0e-417d-876b-d6e5ef219352",
+      "name": "Yulia",
+      "slug": "yulia-205824-7636",
+      "reason": "not_a_service_offer",
+      "preview": "Мы были в aqua tots месяца два , перешли в waterworks , там год уже занимается дочка, нам больше нравится . Но в aqua tots она быстро поплыл"
+    },
+    {
+      "id": "8954db04-4ef8-4391-9ecc-0e7ecc26bf5d",
+      "name": "Iryna ❤️‍🇺🇦",
+      "slug": "iryna-205632-d2e9",
+      "reason": "no_service_signal",
+      "preview": "було якось морально важко в еміграції знайшла віддушину у поезії (Костенко, Симоненко…) а згодом почала робити з їх віршів музику кому цікав"
+    },
+    {
+      "id": "b0248b8b-996c-4d5e-b178-2bf201a3ede0",
+      "name": "Ilya",
+      "slug": "fbpack-ilya-house-repair-job",
+      "reason": "empty_or_tiny_copy",
+      "preview": "(empty)"
+    },
+    {
+      "id": "a0beb3f4-2d4a-443d-8ac8-908c7088fa2d",
+      "name": "Ponomarev Dmitry",
+      "slug": "ponomarev-dmitry-205622-2300",
+      "reason": "not_a_service_offer",
+      "preview": "Спасибо за кулич и пасху! Все были в восторге от красоты и вкусноты. ❤️🤌 Спасибо за кулич и пасху! Все были в восторге от красоты и вкуснот"
+    },
+    {
+      "id": "451162e1-a39f-41e5-a09e-2a130572677d",
+      "name": "Виктория",
+      "slug": "business-biz-205825-befc",
+      "reason": "no_service_signal",
+      "preview": "Всем здравствуйте, у друзей пополнение. Вдруг кто-то мечтает о друге, могут привезти в начале апреля в наши края, ЛА и Сан Диего Всем здравс"
+    },
+    {
+      "id": "42a28076-8ead-4b30-af44-202efcd9c5f4",
+      "name": "Bulletproof",
+      "slug": "bulletproof-205559-66e8",
+      "reason": "not_a_service_offer",
+      "preview": "Zeusdc Мошенник , берет предоплату и кидает. Не делайте через него аккаунты Zeusdc Мошенник , берет предоплату и кидает. Не делайте через не"
+    },
+    {
+      "id": "68784d02-44e3-45a1-a3bb-d97cd243fe18",
+      "name": "Ahmadzhnova Feruza - Beauty Salon Hiring",
+      "slug": "fb-post-27-ahmadzhnova-feruza-beauty-salon-hiring",
+      "reason": "not_a_service_offer",
+      "preview": "(empty)"
+    },
+    {
+      "id": "0cd83146-4145-4600-9233-46e60ad97215",
+      "name": "Art Backyard",
+      "slug": "fbpack-katia-bulgakova-art-backyard",
+      "reason": "not_a_service_offer",
+      "preview": "ARCHIVED duplicate of Art Backyard · same phone+website+address Education · Interior Design Camp Services: - Kids interior design camp ---FB"
+    },
+    {
+      "id": "ef29f86a-885c-4e0e-9382-80a6c8b0e1b1",
+      "name": "Teresa M Dolan - Hair Color Model Coordinator",
+      "slug": "fb-post-35-teresa-m-dolan-hair-color-model-coordinator",
+      "reason": "empty_or_tiny_copy",
+      "preview": "(empty)"
+    },
+    {
+      "id": "5b35e679-9c65-4244-86ef-9aae89132526",
+      "name": "Stelar Tex - Helper Position",
+      "slug": "fb-post-24-stelar-tex-helper-position",
+      "reason": "not_a_service_offer",
+      "preview": "Нужен хэлпер Лагуна бич 323 819 79 60 Экстра"
+    },
+    {
+      "id": "fb2981b6-4b6a-4ba1-8988-eff7f4c3049a",
+      "name": "Artem Andrienko",
+      "slug": "artem-andrienko-204930-f75c",
+      "reason": "not_a_service_offer",
+      "preview": "Мы с моей девушкой ищем на подселение человека в свободную комнату в доме с 1 августа двухэтажный 3br дом, общая кухня/санузел/washer+dryer "
+    },
+    {
+      "id": "a75041e0-247e-481d-a18a-f1b0b2064883",
+      "name": "Наиля",
+      "slug": "business-3106001451-190939",
+      "reason": "no_service_signal",
+      "preview": "Приезжайте забирайте.Вроде в настройках все хорошо, на всякий случай мой номер Звоните Приезжайте забирайте.Вроде в настройках все хорошо, н"
+    },
+    {
+      "id": "8f034bd5-7ced-4d63-b158-f5af4582e149",
+      "name": "Tanzilka Deniz",
+      "slug": "tanzilka-deniz-204943-024c",
+      "reason": "no_service_signal",
+      "preview": "За всеми подробностями в личные сообщения или + ✨ За всеми подробностями в личные сообщения или + ✨"
+    },
+    {
+      "id": "1a9c7456-54af-4760-ba9c-43b51de81dec",
+      "name": "Oksana Moskvitina",
+      "slug": "oksana-moskvitina-234039",
+      "reason": "not_a_service_offer",
+      "preview": "Мой сын здесь наблюдается уже 2 года. Но ни разу не лечили, только чистка и осмотр. Мой сын здесь наблюдается уже 2 года. Но ни разу не лечи"
+    },
+    {
+      "id": "337b2c2b-a477-48dd-916e-8bccee911e81",
+      "name": "Анна Еремеев",
+      "slug": "business-6158475912-234039",
+      "reason": "not_a_service_offer",
+      "preview": "Не знаю, где они локально находятся, но постоянно попадаются на глаза мне) Не знаю, где они локально находятся, но постоянно попадаются на г"
+    },
+    {
+      "id": "762ab6f3-3690-4abd-9354-a2516c4f7bed",
+      "name": "Oleksandra Dymytrashko",
+      "slug": "oleksandra-dymytrashko-204904-850c",
+      "reason": "not_a_service_offer",
+      "preview": "СРОЧНО! Ищем жильё для семьи из 3 человек Добрый день, уважаемые соседи! Срочно ищем жильё для семьи: 2 взрослых + ребёнок 1 год. Ищем полдо"
+    },
+    {
+      "id": "7b31be9c-df0b-4e12-b1ef-542a694e8737",
+      "name": "Oksana Moskvitina",
+      "slug": "oksana-moskvitina-234036",
+      "reason": "not_a_service_offer",
+      "preview": "Моему сыну здесь дважды брали, очень быстро и самое важное-с первого раза Моему сыну здесь дважды брали, очень быстро и самое важное-с перво"
+    },
+    {
+      "id": "f7bfba85-b114-47ce-94e3-106a3e046ff2",
+      "name": "Tatiana Chueva",
+      "slug": "tatiana-chueva-204938-70d3",
+      "reason": "not_a_service_offer",
+      "preview": "Отдам котят бесплатно в добрые и заботливые руки ❤️ Малыши родились 13 июня. Уже сами кушают, ходят в лоток, активно играют и познают мир. О"
+    },
+    {
+      "id": "c1d79753-221e-4d33-bbda-0f7285f6ce09",
+      "name": "Natalie Revers",
+      "slug": "natalie-revers-204925-114b",
+      "reason": "no_service_signal",
+      "preview": "🍯 Свежий натуральный мед. Качественный, ароматный, без сахара, сиропов и каких-либо добавок — только натуральный пчелиный мёд. Если ищете н"
+    },
+    {
+      "id": "33600237-d410-421e-a94e-114d25f954b2",
+      "name": "Mark Terskiy",
+      "slug": "mark-terskiy-204928-bcc9",
+      "reason": "not_a_service_offer",
+      "preview": "Продам НОВЫЕ iPhone 17 PRO MAX 512gb Полностью разблокированные В наличии 5 синих и 1 оранжевый Забирать в Ирвайне Цену предлагайте в лс Про"
+    },
+    {
+      "id": "fcb7fb87-7c02-4628-a977-5876ccc9ecd5",
+      "name": "UnforgettableTurtle1584",
+      "slug": "unforgettableturtle1584-204934-13e7",
+      "reason": "not_a_service_offer",
+      "preview": "Ищем дом в рент с 15 сентября Район Natomas, до 3.5т Ищем дом в рент с 15 сентября Район Natomas, до 3.5т"
+    },
+    {
+      "id": "26c1c9fc-2585-434e-baf4-d5a7599351a2",
+      "name": "R R",
+      "slug": "r-r-205734-e11c",
+      "reason": "not_a_service_offer",
+      "preview": "Возьму в аренду Kia Carnival/ EV9/ SUV Для работы и личного пользования. На долгий срок. Возьму в аренду Kia Carnival/ EV9/ SUV Для работы и"
+    },
+    {
+      "id": "5c8208b4-bdf2-4acf-810e-421f40c32f59",
+      "name": "AdventurousGuava1629",
+      "slug": "adventurousguava1629-204945-e575",
+      "reason": "not_a_service_offer",
+      "preview": "Семья страх людей ищут гибридную машину так как форт или Линкольн или Toyota или Volkswagen или что-то в этом роде цена до двух с половиной "
+    },
+    {
+      "id": "9d71af8c-caec-4b25-9d88-26115ea98671",
+      "name": "Sky Sky",
+      "slug": "sky-sky-204941-a224",
+      "reason": "not_a_service_offer",
+      "preview": "Девочки, рекомендую отличного гитариста! Это Антон, у него высшее образование и он сразу нашел подход к ребенку. Уроки проходят на одном дых"
+    },
+    {
+      "id": "ba1d52f3-39b3-401b-810b-d25456245011",
+      "name": "Veronica Adams",
+      "slug": "veronica-adams-204946-d0bb",
+      "reason": "not_a_service_offer",
+      "preview": "Если кому надо котенки четыре вакцинированные и стерилизованные . Ищут добрых и любящих людей .Дворовые .Мать серая короткошестная и её годи"
+    },
+    {
+      "id": "22401562-6280-4cfd-a4d0-c15e22e5bff6",
+      "name": "Jane Smith",
+      "slug": "jane-smith-190945",
+      "reason": "no_service_signal",
+      "preview": "Алёна, моя жена. Мне кажется, никто в мире не наводит чистоту так тщательно и педантично, как она 😊 Её телефон . Алёна, моя жена. Мне кажет"
+    },
+    {
+      "id": "90a90da0-0c24-430e-afe9-a7ae2dd7af55",
+      "name": "Max S",
+      "slug": "max-s-205638-3b7b",
+      "reason": "no_service_signal",
+      "preview": "Жаль мы уже сняли жилье 😅 а так отличное предложение 👍🏼 и апарт комплекс классный и плюс ситуация понятная и выгодно по идее 👌🏼 это и е"
+    },
+    {
+      "id": "3a444543-901d-48e9-87b7-c468d1e919b7",
+      "name": "Alexa",
+      "slug": "alexa-205606-5d12",
+      "reason": "no_service_signal",
+      "preview": "Очень советую Елизавету❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥 Случайно такой акции на вечер нет? Очень советую Елизавету❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍"
+    },
+    {
+      "id": "4a9586f6-2a95-4cff-95a5-47e5e639e93b",
+      "name": "Kostantin Strilets",
+      "slug": "kostantin-strilets-205053-8c38",
+      "reason": "not_a_service_offer",
+      "preview": "Муж и жена ищут небольшой дом с гаражом в рент в районе Biscayne and 41, North Port FL. . Муж и жена ищут небольшой дом с гаражом в рент в р"
+    },
+    {
+      "id": "e8a646a4-eb64-431d-852e-52bf15c2bfe1",
+      "name": "VioletPhoenix5220",
+      "slug": "violetphoenix5220-205046-d1d8",
+      "reason": "not_a_service_offer",
+      "preview": "Две девушки ищут комнату в Розвилле. Если у вас есть варианты, пожалуйста, звоните или пишите по номеру: + Две девушки ищут комнату в Розвил"
+    },
+    {
+      "id": "7a0bb3bb-fb37-4283-8687-4b857eb14e0d",
+      "name": "Инна Бершацкая",
+      "slug": "business-2797580738-205056-19e5",
+      "reason": "no_service_signal",
+      "preview": "Отдам две коробки вещей на девочку 0-18. Больше маленьких вещей. Есть немного игрушек, пеленок и развивающий коврик. Состояние разное. Есть "
+    },
+    {
+      "id": "5e5289b5-b3fb-4996-a7a5-8ecb4e780aba",
+      "name": "lida_gordienko",
+      "slug": "lidagordienko-205153-e246",
+      "reason": "no_service_signal",
+      "preview": "Девушка только что довезла нас до LAX ( нас три человека и две мини таксы ) Приехала вовремя , машина чистая и главное доехали быстро ( маши"
+    },
+    {
+      "id": "5db3c8c3-9cb7-4a58-829c-64101bb5b196",
+      "name": "R R",
+      "slug": "r-r-181532-5aaf",
+      "reason": "not_a_service_offer",
+      "preview": "Возьму в аренду ваш авто: Kia Carnival hybrid Kia Sorento hybrid Lexus ES300h Toyota Highlander hybrid Honda CRV hybrid Возьму в аренду ваш "
+    },
+    {
+      "id": "6ee44efb-498a-4289-8e82-46eb11265e91",
+      "name": "cakewithlove.ca",
+      "slug": "cakewithloveca-205125-1ad0",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "3cb92558-a5f8-4f0d-ae3d-b610158a0cc9",
+      "name": "Дар'я",
+      "slug": "business-biz-205142-fea6",
+      "reason": "not_a_service_offer",
+      "preview": "Мы сюда ходим, сыну нравится"
+    },
+    {
+      "id": "62bb9ee8-2402-495b-88ba-1887529da758",
+      "name": "kristi_haircolourist_",
+      "slug": "kristihaircolourist-205132-ed0d",
+      "reason": "too_thin_no_service",
+      "preview": "Она делает) Она делает)"
+    },
+    {
+      "id": "e0985e57-a687-48f9-9026-6abceac6c4e3",
+      "name": "𝙒𝙤𝙭𝙮",
+      "slug": "oxy-205636-86a1",
+      "reason": "no_service_signal",
+      "preview": "Please please join my b _io Aapke liye surprise hai Girls jaldi jaldi aao admin de dungi Please please join my b _io Aapke liye surprise hai"
+    },
+    {
+      "id": "4cb97cc5-73f9-482f-b8f3-9d85727ad2e6",
+      "name": "taki_da_cafe",
+      "slug": "takidacafe-205150-6de3",
+      "reason": "no_service_signal",
+      "preview": "Здравствуйте Можно попробовать уточнить у Насти Эстерхази она точно делает Здравствуйте Можно попробовать уточнить у Насти Эстерхази она точ"
+    },
+    {
+      "id": "8ac90b21-22fa-46ca-b4d3-a482debfe0aa",
+      "name": "Dream Car",
+      "slug": "dream-car-205136-4732",
+      "reason": "no_service_signal",
+      "preview": "🇺🇸 🎉 РОЗЫГРЫШ КО ДНЮ НЕЗАВИСИМОСТИ США! 🎉🇺🇸 Празднуйте вместе с нами и нашими проверенными бизнес-партнёрами и получите шанс выиграть "
+    },
+    {
+      "id": "bc4e74e3-12c5-42af-b614-a9eab48c3d34",
+      "name": "ucla.edu",
+      "slug": "uclaedu-205157-0ffa",
+      "reason": "no_service_signal",
+      "preview": "sasharazor Напишите Александре, она у нас проводила тест онлайн , быть может сможет ответить на ваш вопрос. Но если сын учился в РФ он не мо"
+    },
+    {
+      "id": "a0b964d8-90a3-4cdf-8715-789ee33813b5",
+      "name": "fedor_tsvang",
+      "slug": "fedortsvang-205156-a658",
+      "reason": "no_service_signal",
+      "preview": "Мы всегда зовем Федора Цванг - дети всегда очень хорошо проводят время. Мы всегда зовем Федора Цванг - дети всегда очень хорошо проводят вре"
+    },
+    {
+      "id": "4c356c30-6f95-40f2-b957-02d2e4b13207",
+      "name": "vitaliia_zinchenko",
+      "slug": "vitaliiazinchenko-205204-dc27",
+      "reason": "too_thin_no_service",
+      "preview": "Виталина лучшая!!! Виталина лучшая!!!"
+    },
+    {
+      "id": "c7bb8ca8-f930-41d3-b74d-b88c1dce1d40",
+      "name": "chirk_paint",
+      "slug": "chirkpaint-205208-e6fe",
+      "reason": "only_links_or_handles",
+      "preview": "Ира🙏🏼 Ира🙏🏼"
+    },
+    {
+      "id": "e08a1694-462f-45d0-b09e-ba622ecf0b7a",
+      "name": "vepryk28",
+      "slug": "vepryk28-205146-5dfa",
+      "reason": "no_service_signal",
+      "preview": "Леша просто потрясающий: Вот его рабочий аккаунт: Леша просто потрясающий: Вот его рабочий аккаунт:"
+    },
+    {
+      "id": "8f777a16-f9a1-4675-a7db-220fd6c79b32",
+      "name": "iam.ok.sana",
+      "slug": "iamoksana-205202-9fe5",
+      "reason": "no_service_signal",
+      "preview": "И еще - знакомые обращались. Чтоб выбор был И еще - знакомые обращались. Чтоб выбор был"
+    },
+    {
+      "id": "5fd5783b-cbe5-4b64-aa60-ea741aaa8737",
+      "name": "olga_savitskaya21",
+      "slug": "olgasavitskaya21-205154-63c9",
+      "reason": "no_service_signal",
+      "preview": "Я к ортодонту для взрослых обращалась. Могу дать контакт его ассистентки. Я к ортодонту для взрослых обращалась. Могу дать контакт его ассис"
+    },
+    {
+      "id": "0368f161-4a78-4bd9-b225-fa0d564380fb",
+      "name": "tati_fgm",
+      "slug": "tatifgm-205145-25e9",
+      "reason": "no_service_signal",
+      "preview": "Только что нашла - замечательные сырки с уникальными вкусами и начинками, спасибо Спасибо Только что нашла - замечательные сырки с уникальны"
+    },
+    {
+      "id": "840c0632-2f12-43eb-b2d4-fe97a9ad1738",
+      "name": "videobyalexgatto",
+      "slug": "videobyalexgatto-205151-4f7a",
+      "reason": "no_service_signal",
+      "preview": "Рекомендую. Настоящий профессионал😄 Рекомендую. Настоящий профессионал😄"
+    },
+    {
+      "id": "a0b6503c-6a71-4b2f-af29-5eb78b222bb5",
+      "name": "Ангеліна Гудьковська",
+      "slug": "business-biz-180922",
+      "reason": "no_service_signal",
+      "preview": "Дівчата, досить гаяти час «відкладати», «я подумаю», починайте ЗМІНЮВАТИ своє ТІЛО прямо зараз 💉 Я лікар, а не маркетолог ! Допомогаю схудн"
+    },
+    {
+      "id": "13a8fea1-6cc6-4ced-bc64-496cbdb93848",
+      "name": "shtefan_lashes",
+      "slug": "shtefanlashes-205203-5f88",
+      "reason": "no_service_signal",
+      "preview": "Очень рекомендую Евгению, делает очень качественно, носятся реснички долго👍 Она лучшая в своем деле🤗 Очень рекомендую Евгению, делает очен"
+    },
+    {
+      "id": "3487dbf8-cc1a-4a36-b98a-35482723f5e8",
+      "name": "Evgeniia Nagrebetskii",
+      "slug": "evgeniia-nagrebetskii-205211-844e",
+      "reason": "no_service_signal",
+      "preview": "Вкуснейшая Павлова ✨ Хочу представить вашему вниманию десерт Павлова В наличии и на заказ По всем вопросам пожалуйста пишите в личные сообще"
+    },
+    {
+      "id": "846d1a94-0a02-4a32-bd64-8cb37106cdd0",
+      "name": "Ірина Пульків",
+      "slug": "business-biz-205214-1787",
+      "reason": "no_service_signal",
+      "preview": "Дівчатка, привіт🌷 Я, Іра, пропоную Вам свої ексклюзивні та стильні сумочки, які вʼяжу власними руками Ручна робота Маю готові в наявності, "
+    },
+    {
+      "id": "023f7524-c2ef-4612-8460-a657b5944db4",
+      "name": "Liudmyla Myla",
+      "slug": "liudmyla-myla-204818-d4ef",
+      "reason": "no_service_signal",
+      "preview": "В нашому садочку є вільні місця! Тому запрошуємо ваших малюків у теплу, затишну та дружню атмосферу нашого сімейного дитячого садочка. Вік д"
+    },
+    {
+      "id": "8f848e16-9bbd-46ab-887b-17e0c5245d39",
+      "name": "Vasilki Café Bakery (дубль Jane OC)",
+      "slug": "jane-oc-190806",
+      "reason": "not_a_service_offer",
+      "preview": "ARCHIVED duplicate of Vasilki Café Bakery · same phone+address 31161 Niguel Rd A Кафе Васильки уже открыто! Замечательный кофе, свежая выпеч"
+    },
+    {
+      "id": "48262441-df1d-40a5-9083-a87293888890",
+      "name": "Roman Soltinschi",
+      "slug": "roman-soltinschi-205230-578c",
+      "reason": "no_service_signal",
+      "preview": "Напоминаю - уже в эту пятницу 26-го июня - Не пропустите самый горячий вечер лета! Караоке и танцы с DJ RomanN Резервации по телефонам: ( На"
+    },
+    {
+      "id": "b788f26f-635e-4891-a352-da72a9249212",
+      "name": "sabina.kravchenko",
+      "slug": "sabinakravchenko-190804",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "1cc55ebb-4152-44b5-81d4-fefce5c05a80",
+      "name": "Бюро Переводов США",
+      "slug": "business-9169406945-204810-6e5d",
+      "reason": "no_service_signal",
+      "preview": "СЕРТИФИЦИРОВАННЫЙ ПЕРЕВОД документов для суда (и не только) Быстро Качественно Недорого Пишите в личку или звоните [ ]( СЕРТИФИЦИРОВАННЫЙ ПЕ"
+    },
+    {
+      "id": "94a1ccba-0c3c-450b-a44e-2f2f0d113ecd",
+      "name": "Crystalline Winged",
+      "slug": "crystalline-winged-205239-7fd2",
+      "reason": "no_service_signal",
+      "preview": "Women’s Retreat — Sophia Rising ✨ 📍 Mount Shasta 🗓 April 10–13 A sacred gathering for women to soften, reconnect with their feminine power"
+    },
+    {
+      "id": "7b7f4c9b-077b-4b6f-9f85-a1271d92c9e5",
+      "name": "Anna Dav",
+      "slug": "anna-dav-205240-0b5e",
+      "reason": "no_service_signal",
+      "preview": "❄️Последние семейные выходные февраля в Лейк-Тахо (Lake Tahoe) ❄️Приглашаю провести уютные зимние выходные в нашем домике в North Lake Tahoe"
+    },
+    {
+      "id": "1246a05c-f4bb-46c3-ac80-6042bebe99ec",
+      "name": "Karimi",
+      "slug": "karimi-181541-2885",
+      "reason": "no_service_signal",
+      "preview": "Ассаламу алейкум Мы открываем и разблокируем аккаунты Amazon Relay / Amazon Flex, Uber и Lyft. Пишите в личные сообщения. Ассаламу алейкум М"
+    },
+    {
+      "id": "c7490843-cc63-413a-b7c2-0f9a2eec06be",
+      "name": "Kai - T",
+      "slug": "kai-t-234037",
+      "reason": "no_service_signal",
+      "preview": "Мы ходили на RSM. Сначала в группу родитель и ребенок и потом дочка сама занималась в следующей группе. У них есть отчетные концерты, нам нр"
+    },
+    {
+      "id": "9a5f5763-aef9-4df2-91e6-b34233899128",
+      "name": "Анастасія",
+      "slug": "business-biz-180947",
+      "reason": "no_service_signal",
+      "preview": "🔴✅🇪🇸УВАГА: шукаю учнів, яким потрібна ІСПАНСЬКА для життя, а не для тесту. Розмова, підтримка, практика. Зі мною ви будете говорити. СТАВ"
+    },
+    {
+      "id": "8496ce2b-ea88-485e-89d7-8f25d6021ec6",
+      "name": "Антоніна",
+      "slug": "business-biz-181033-3d59",
+      "reason": "no_service_signal",
+      "preview": "Мої вітання Зараз є бажання набрати невеличку кількість українських учнів (7 -17 років) на майстер клас з програмування (це буде безкоштовно"
+    },
+    {
+      "id": "3a43f884-b67c-4f66-b529-294346682097",
+      "name": "Ильдар Якупов",
+      "slug": "business-biz-205247-ec8b",
+      "reason": "no_service_signal",
+      "preview": "Всем привет! 🤝 Меня зовут Ильдар. Помогаю предпринимателям и экспертам автоматизировать продажи и запускать цифровые продукты через Telegra"
+    },
+    {
+      "id": "94e1a09f-beb9-45bd-849f-7b70eae037d1",
+      "name": "EG · other",
+      "slug": "eg-other-181113-2cb0",
+      "reason": "no_service_signal",
+      "preview": "Женский аккаунт Дордаш в аренду напрямую от собственника гибкие условия. 📍Orange County Женский аккаунт Дордаш в аренду напрямую от собстве"
+    },
+    {
+      "id": "70a18104-4a59-453d-b011-7c5d3ed8bf34",
+      "name": "Konstantin Plaksin",
+      "slug": "konstantin-plaksin-205249-3935",
+      "reason": "no_service_signal",
+      "preview": "Ждать осталось немного! Уже через месяц начало тура долгожданного спектакля \"Опасные Игры\" с Глафирой Тархановой, Ильей Носковым, Еленой Аро"
+    },
+    {
+      "id": "0ecb9050-e0ae-420b-9da1-d6544c9de272",
+      "name": "древняя шаманка",
+      "slug": "business-biz-180901",
+      "reason": "no_service_signal",
+      "preview": "Хотите избавиться от хронических болей в спине, шее и коленях? …избавиться от зависимостей и изменить свою жизнь? …избавиться от депрессии и"
+    },
+    {
+      "id": "02e64277-4f14-40b9-a2a3-0390e75acea6",
+      "name": "European Delights Gourmet Foods",
+      "slug": "fbpack-european-delights-fountain-valley",
+      "reason": "no_service_signal",
+      "preview": "European gourmet / caviar · Fountain Valley · Google 4.7★ (100) European Delights Gourmet Foods — восточноевропейские продукты и икра в Foun"
+    },
+    {
+      "id": "e8f9c251-5f01-495b-8f75-3ab55ba730e1",
+      "name": "Keipikp",
+      "slug": "fbpack-keipikp-georgian-food",
+      "reason": "no_service_signal",
+      "preview": "Грузинская кухня на заказ · кейтеринг · Keipikp · Georgian Cuisine / Homemade Food Catering Instagram: Category: Food & Catering Services: -"
+    },
+    {
+      "id": "2bc5f56d-2bd5-45f1-be97-8a52116fa274",
+      "name": "Max",
+      "slug": "max-180951",
+      "reason": "no_service_signal",
+      "preview": "✅Быстрая и надежная регистрация аккаунтов Doordash,Uber,Lyft с гарантией качества. ✅Оформление за 7 дней, оплата после получения аккаунта ✅Г"
+    },
+    {
+      "id": "d75e9d66-6f8b-41b5-a0fd-cf022e2f36be",
+      "name": "Russ Flooring",
+      "slug": "fbpack-russ-flooring",
+      "reason": "no_service_signal",
+      "preview": "Flooring showroom · Mission Viejo · Google 5.0★ (7) Russ Flooring — flooring store in Mission Viejo, Orange County. Conveniently located in "
+    },
+    {
+      "id": "79418e20-13e9-4518-b150-0127521e7748",
+      "name": "Evgeniya Grigoreva",
+      "slug": "fbpack-evgeniya-grigoreva",
+      "reason": "no_service_signal",
+      "preview": "Обмен рублей по курсу ЦБ · Orange County · встреча при необходимости · Direct/Messenger Evgeniya Grigoreva · Currency Exchange / Money Excha"
+    },
+    {
+      "id": "97f75801-1cde-443e-889f-69b1ad94109e",
+      "name": "rushindocumentation.com",
+      "slug": "rushindocumentationcom-190933",
+      "reason": "no_service_signal",
+      "preview": "Rush In Documentation info Если вдруг телефон поменялся то у них есть страница на Facebook Они находятся в Лос-Анджелесе. Я три года назад д"
+    },
+    {
+      "id": "7c4b4da5-2b6f-4bb1-9393-3ad5c1102e82",
+      "name": "Kc84 Brecer",
+      "slug": "kc84-brecer-180938",
+      "reason": "no_service_signal",
+      "preview": "🔝 Прокачка вашего Telegram быстро и качественно 🔝 ✅ Приглашение участников в чаты ✅ Рассылка по различным чатам ✅ Рассылка в личные сообще"
+    },
+    {
+      "id": "9c014164-d438-4af9-8e48-d57961de1550",
+      "name": "My Retina Health",
+      "slug": "consolidated-my-retina-health",
+      "reason": "no_service_signal",
+      "preview": "Retina / eye specialist · Sherman Oaks · Google 4.8★ (102) My Retina Health (Diana Katsman MD PhD) — retina and eye care in Sherman Oaks. Ад"
+    },
+    {
+      "id": "13355425-bdcb-40bb-b20b-a24e371fecea",
+      "name": "Ainura",
+      "slug": "ainura-205624-8314",
+      "reason": "no_service_signal",
+      "preview": "Она умничка! Все очень быстро делает и не дорого! Ведет канал в телеграмм Она умничка! Все очень быстро делает и не дорого! Ведет канал в те"
+    },
+    {
+      "id": "5dec99eb-5e39-4b08-9403-57dc90c0302b",
+      "name": "reel",
+      "slug": "reel-205448-db5f",
+      "reason": "no_service_signal",
+      "preview": "Вот инстаграм моей малышки Айлин Вот инстаграм моей малышки Айлин"
+    },
+    {
+      "id": "3e64f510-b419-4bd7-9c38-7d35cf39d3b3",
+      "name": "Zulya Alieva",
+      "slug": "consolidated-zulya-alieva-homemade-food",
+      "reason": "no_service_signal",
+      "preview": "Домашняя еда и полуфабрикаты · Orange County · манты, пельмени, вареники · WhatsApp Домашняя готовая еда и полуфабрикаты на заказ. Category:"
+    },
+    {
+      "id": "77c748f7-8c2f-4385-9d91-52b28b6bd1de",
+      "name": "reel",
+      "slug": "reel-205444-7283",
+      "reason": "no_service_signal",
+      "preview": "Рассказываю про работу турагента. Кому интересно - пишите за подробностями) Рассказываю про работу турагента. Кому интересно - пишите за под"
+    },
+    {
+      "id": "8098487f-050f-4aee-a2b9-f8e3f92d26ef",
+      "name": "Marga Rita",
+      "slug": "marga-rita-180851",
+      "reason": "no_service_signal",
+      "preview": "✨ You’re warmly invited to Mehndi (Henna) ✨ We would love to welcome you for beautiful, elegant henna designs created with care and attentio"
+    },
+    {
+      "id": "56d0b8fc-5ce0-4ad0-b562-6475bb727512",
+      "name": "Anna Sergeeva",
+      "slug": "anna-sergeeva-205553-7269",
+      "reason": "no_service_signal",
+      "preview": "Помогаю получать заявки через Teлegram-чаты . 📌 Подходит для бuзнеса и проектов: — уsлуги — товаpы — sайты — bоты Напиши «+» в личку, если "
+    },
+    {
+      "id": "6b3a7d9b-83c4-455a-a897-13a340dbb899",
+      "name": "Роман Астененко",
+      "slug": "business-biz-205446-816c",
+      "reason": "no_service_signal",
+      "preview": "Перестаньте искать клиентов вручную. Это съедает время, которое вы могли бы вложить в сам бизнес. Поиск и привлечение лидов — отдайте нам. Н"
+    },
+    {
+      "id": "9c68330a-b20b-4af2-9665-e008bb9ea394",
+      "name": "reel",
+      "slug": "reel-205453-89ec",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "0a76b0b2-4400-423e-8ecd-b82fb4fe500f",
+      "name": "Nataly",
+      "slug": "nataly-205519-c8fe",
+      "reason": "no_service_signal",
+      "preview": "Звертаюся до батьків та дітей❤️ Мене звати Наталі Працюю в сфері it, як практикуючий спеціаліст- з командою програмістів організовуємо БЕЗКО"
+    },
+    {
+      "id": "dbbec246-8857-4ce2-9d34-189cfb42cc2e",
+      "name": "Eric",
+      "slug": "eric-205554-4b43",
+      "reason": "no_service_signal",
+      "preview": "Ребята привет! Завтра на своей машине выезжаю в Лас -Вегас в 10.00 есть свободные места. Пишите в личку или звоните Ребята привет! Завтра на"
+    },
+    {
+      "id": "19fd35e4-6c44-4a47-80cb-abaecbe5f1fd",
+      "name": "ЛарисаСударева",
+      "slug": "business-biz-205540-760a",
+      "reason": "no_service_signal",
+      "preview": "5 упражнений для четкой дикции Четверг, 8:30, а значит пришло время получить от меня первый простой и полезный материал Забирайте и пользуйт"
+    },
+    {
+      "id": "ebfc06e9-eeb9-4c74-9c91-c9f7b9d7956e",
+      "name": "Христя",
+      "slug": "business-biz-205517-8977",
+      "reason": "no_service_signal",
+      "preview": "Привіт! Я — Христина , таргетолог, і допомагаю бізнесам залучати нових клієнтів за допомогою таргетованої реклами в соцмережах. Якщо ви хоче"
+    },
+    {
+      "id": "12f33449-052f-401c-bb40-30db10459483",
+      "name": "Good Food International Market (дубль)",
+      "slug": "good-food-190808",
+      "reason": "not_a_service_offer",
+      "preview": "ARCHIVED duplicate of Good Food International Market · same phone+address+website ✨Добро пожаловать в магазин Good Food — здесь собраны все "
+    },
+    {
+      "id": "7eea6d36-8872-4c5b-a65c-6b9d8095d55d",
+      "name": "Pomosch w LA",
+      "slug": "pomosch-w-la-205555-5feb",
+      "reason": "no_service_signal",
+      "preview": "💥В наличии SIM-карта T-Mobile за 39 $🔥 с безлимитным интернетом и нормальной скоростью. Карта действует по всей территории США и не только"
+    },
+    {
+      "id": "6f0a8dec-81a0-45fd-9ecd-93869ae3af15",
+      "name": "Nata",
+      "slug": "nata-205648-791d",
+      "reason": "no_service_signal",
+      "preview": "Летняя процедура,освежит вашу кожу 🔥Приходите буду Рада вас принять 🥰 Летняя процедура,освежит вашу кожу 🔥Приходите буду Рада вас принять"
+    },
+    {
+      "id": "7e1f3e1a-c1da-4e9d-9d00-7a401f3eaf77",
+      "name": "Alexa LuxasBeautyLab",
+      "slug": "alexa-luxasbeautylab-205544-cd66",
+      "reason": "no_service_signal",
+      "preview": "TO THE WORLD YOU ARE A MOTHER, BUT TO YOUR FAMILY YOU ARE THE WORLD. HAPPY MOTHER’S DAY QUEENS !! 💖 TO THE WORLD YOU ARE A MOTHER, BUT TO Y"
+    },
+    {
+      "id": "85a826f2-968c-46b5-8ac8-3aeabb745324",
+      "name": "Daria",
+      "slug": "daria-205631-edfe",
+      "reason": "no_service_signal",
+      "preview": "Мы там жили. Комплекс старенький, апартаменты уставшие, в целом атмосфера спокойная, счета за электричество были космические летом, а кондиц"
+    },
+    {
+      "id": "edf3713b-eaf9-4bbe-bb9c-987d6973a8a1",
+      "name": "Тетяна",
+      "slug": "business-biz-205706-3889",
+      "reason": "no_service_signal",
+      "preview": "Здравствуйте, есть в наличии медовик-медовые коржи,заварной крем. Вес 1/кг. Ирвайн. Здравствуйте, есть в наличии медовик-медовые коржи,завар"
+    },
+    {
+      "id": "ed7187f4-dbe0-455d-ae6b-79d9d185821d",
+      "name": "R R",
+      "slug": "r-r-205741-3edd",
+      "reason": "not_a_service_offer",
+      "preview": "Возьму в аренду ваш авто: Kia Carnival hybrid Kia Sorento hybrid Lexus ES300h Toyota Highlander hybrid Возьму в аренду ваш авто: Kia Carniva"
+    },
+    {
+      "id": "ca0edcfb-ae66-460a-a7b7-9f02d2d49ead",
+      "name": "Anna D",
+      "slug": "anna-d-205804-dbc4",
+      "reason": "no_service_signal",
+      "preview": "Еще есть вариант ночных линз Ortho-K при миопии. На ночь одеваешь и целый день нормальное зрение. Еще есть вариант ночных линз Ortho-K при м"
+    },
+    {
+      "id": "5c1160fb-54dd-4efe-8e30-8f0fc829edb7",
+      "name": "Ilona",
+      "slug": "ilona-205755-e95d",
+      "reason": "no_service_signal",
+      "preview": "Всем привет! Сниму Спарк драйвер Волмарт. Женский аккаунт. Пишите в личку. Всем привет! Сниму Спарк драйвер Волмарт. Женский аккаунт. Пишите"
+    },
+    {
+      "id": "1b15c93b-40b4-49d3-bb7a-0dcde7062f96",
+      "name": "Алла",
+      "slug": "business-biz-205813-6759",
+      "reason": "no_service_signal",
+      "preview": "Спасибо да в Дана поинт я уже была , далековато ехать , там действительно много для взрослых и для детей Спасибо да в Дана поинт я уже была "
+    },
+    {
+      "id": "23402511-47c2-4f70-85f9-abba98f0324c",
+      "name": "reel",
+      "slug": "reel-205759-af81",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "11d7cf8f-32f4-4de2-ba51-4498e10d172e",
+      "name": "Natalia",
+      "slug": "natalia-205727-8e6d",
+      "reason": "no_service_signal",
+      "preview": "Подстригу вашего йорка за очень демократичную цену ✂️ Аккуратно и с любовью ❤️ Груминг йорков 🐶🐾 Нахожусь в Aliso Viejo Все вопросы — в ли"
+    },
+    {
+      "id": "21138172-f48f-477d-a709-a7ee01e1f5a3",
+      "name": "Margo23",
+      "slug": "margo23-205808-3197",
+      "reason": "no_service_signal",
+      "preview": "Какой ужас,Айгерим! Есть ли пост в инстаграмме я так же выложу 🙏 молимся за выздоровления и поможем чем сможем Какой ужас,Айгерим! Есть ли "
+    },
+    {
+      "id": "5e68b197-4551-4147-97bb-62bb39f6ce0c",
+      "name": "К С",
+      "slug": "business-biz-205830-d2d9",
+      "reason": "no_service_signal",
+      "preview": "Здравствуйте) моё объявление. Если кто-то заинтересуется, пишите) Благодарю! Здравствуйте) моё объявление. Если кто-то заинтересуется, пишит"
+    },
+    {
+      "id": "71b027ee-5496-4bf9-a80d-00692cc031b0",
+      "name": "A S",
+      "slug": "a-s-205818-08d6",
+      "reason": "no_service_signal",
+      "preview": "Я когда делала себе загранпаспорт в посольстве в хьюстоне в последний момент решила сделать доверенность но записи не было я договорилась с "
+    },
+    {
+      "id": "bb805da7-3d89-4a20-abde-e4516e8e8380",
+      "name": "Виктория",
+      "slug": "business-biz-205820-6f19",
+      "reason": "no_service_signal",
+      "preview": "Спросите у своего же учителя математики в школе, он может посоветовать кого-нибудь из учителей или даже сам может заниматься дополнительно. "
+    },
+    {
+      "id": "1f311fca-108a-451b-af02-037722643dc8",
+      "name": "Natalia",
+      "slug": "natalia-205829-ea1e",
+      "reason": "no_service_signal",
+      "preview": "Оля, спасибо тебе большое за доверие и такие слова 🤍🥹 Топик — просто чудо, я сама получила огромное удовольствие от работы с ним 🐶✨ Буду "
+    },
+    {
+      "id": "09483bd5-db01-49ec-8397-dafa0ef34a80",
+      "name": "N.S",
+      "slug": "ns-205633-c5d0",
+      "reason": "no_service_signal",
+      "preview": "Пишем отзыв на Google Maps Отзывы только пишут американцы из вашего штата/города бизнеса Скидки до 6 февраля! По поводу отзывов напишите мен"
+    },
+    {
+      "id": "53e149df-05c7-4bb7-9730-ed5667657603",
+      "name": "Kirill",
+      "slug": "kirill-205306-7b59",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "a8a392fc-9f98-4add-80f1-df394f87ad3d",
+      "name": "Olen’ka",
+      "slug": "olenka-205623-a14e",
+      "reason": "no_service_signal",
+      "preview": "Девочки, хочу от души порекомендовать грумера Наталью 🐶✂️ Посмотрите, какого красавчика она сделала из нашего Топика 😍 Мы в восторге, а он"
+    },
+    {
+      "id": "4cc7a2b3-fa35-4c62-b625-1783bb3e7d48",
+      "name": "Nikita Golosov",
+      "slug": "nikita-golosov-205610-92f3",
+      "reason": "no_service_signal",
+      "preview": "У кого плохая вытяжка на кухне? Я продаю портативные вытяжки и мне нужны отзывы на Амазон, бесплатно отправлю товар, а вы мне оставите отзыв"
+    },
+    {
+      "id": "9064a9b9-227c-4f05-841e-74f579e7c654",
+      "name": "Anastasiia Kushnir",
+      "slug": "anastasiia-kushnir-205514-9c05",
+      "reason": "no_service_signal",
+      "preview": "Усім привіт! Мене звати Настя😊 Спеціалізуюсь на налаштуванні таргетованої реклами в Meta Ads. 🔹 Маю досвід та реальні кейси: Приношу резул"
+    },
+    {
+      "id": "dd044ebe-3a15-4994-80f3-ab268f511af9",
+      "name": "reel",
+      "slug": "reel-205255-a92c",
+      "reason": "no_service_signal",
+      "preview": "Кто хочет поиграть с созданием Ai video и сделать свой первый сериал - классная платформа, где это можно сделать Пример здесь. Можно своего "
+    },
+    {
+      "id": "f0e7502d-ac5d-4459-8a61-da399afa4005",
+      "name": "Olga",
+      "slug": "olga-205416-6723",
+      "reason": "no_service_signal",
+      "preview": "😊 Собираю сборный заказ в Atomy Если кому-то что-то нужно — пишите в личные сообщения: • средства для личной гигиены • эко-средства для сти"
+    },
+    {
+      "id": "a461096e-6b86-4d60-a770-71f53513655a",
+      "name": "Monica",
+      "slug": "monica-205310-0d32",
+      "reason": "too_thin_no_service",
+      "preview": "Абсолютно Абсолютно"
+    },
+    {
+      "id": "1e9bb970-7bd2-4c71-9ece-e21e6504285b",
+      "name": "Olga Berger",
+      "slug": "olga-berger-205311-6ca3",
+      "reason": "only_links_or_handles",
+      "preview": "(empty)"
+    },
+    {
+      "id": "e37f76d4-cf4d-4304-877f-aa5e2274821a",
+      "name": "Shahida Matkarimova",
+      "slug": "shahida-matkarimova-205217-0f28",
+      "reason": "no_service_signal",
+      "preview": "🌿 Девочки, если летом вы чувствуете отечность, тяжесть в ногах или просто хотите уделить время себе , своему телу — буду рада видеть каждую"
+    },
+    {
+      "id": "f8f17058-9de3-49e0-b287-36b92d62aece",
+      "name": "Ilmira Begzhanova",
+      "slug": "ilmira-begzhanova-205248-fc0a",
+      "reason": "no_service_signal",
+      "preview": "👋 Всем привет! Я нумеролог. Выполняю расчёты по 6 направлениям нумерологии. 📲 Переходите в мой Telegram-бот, вводите свои данные и автомат"
+    }
+  ],
+  "keep": [
+    {
+      "id": "11e73735-8ce4-42c8-963a-f52f3b8a33ee",
+      "name": "Car Towing (Artur Arutiunov)",
+      "slug": "batch2-car-towing",
+      "reason": "has_service_signal",
+      "preview": "Эвакуатор / towing · Artur Arutiunov · ( Towing / Roadside Assistance · Car Towing Contact: Artur Arutiunov Phone: + Services: - Эвакуация л"
+    },
+    {
+      "id": "c0e9147e-4ca5-4d72-b3a6-73a5069290b5",
+      "name": "Милена",
+      "slug": "business-biz-205649-52ce",
+      "reason": "has_service_signal",
+      "preview": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$ Ванночка для ног с солью обработка стопы "
+    },
+    {
+      "id": "c7027541-9459-421d-a6da-a5f1c7cd44c2",
+      "name": "partyfornia",
+      "slug": "partyfornia-205155-0641",
+      "reason": "has_service_signal",
+      "preview": "Наталья и ее команда прекрасные аниматоры )) Наталья и ее команда прекрасные аниматоры ))"
+    },
+    {
+      "id": "b1b7833f-d195-4a9b-8bae-e9f1a2bd19a3",
+      "name": "Nadia Teterin",
+      "slug": "nadia-teterin-204759-1e1e",
+      "reason": "has_service_signal",
+      "preview": "HOUSE FOR RENT 4213 Leafmont way Sacramento CA 95826 4 bed 3.5 bath 2,400sf. 2 car garage with electric car charger. $3,000/mo. $3,000 depos"
+    },
+    {
+      "id": "cf10bd96-135f-44c8-aae5-4428b3d53054",
+      "name": "Lunelle Nail Salon",
+      "slug": "lunelle-nail-salon",
+      "reason": "has_service_signal",
+      "preview": "Lunelle Nail Salon — современный nail salon в Mission Viejo с европейским подходом. Чистый просторный зал, спокойная атмосфера и акцент на з"
+    },
+    {
+      "id": "5c2bdc3c-3e64-4247-8bf3-adf7d0c33044",
+      "name": "middle school",
+      "slug": "middle-school-205148-9418",
+      "reason": "has_service_signal",
+      "preview": "может помочь, занимается с elementary и middle school students может помочь, занимается с elementary и middle school students"
+    },
+    {
+      "id": "989bd6c6-1050-44b6-9b55-cd229e7d1b89",
+      "name": "Narek Mega Motors Los Angeles",
+      "slug": "consolidated-narek-mega-motors-la",
+      "reason": "has_service_signal",
+      "preview": "Auto broker · leasing all makes · July Lease Special · LA · ( · Auto Broker · Narek Mega Motors Los Angeles Contact: Narek Shahinyan Service"
+    },
+    {
+      "id": "c01f5d37-2b2e-43f3-b667-5757521f6802",
+      "name": "Olga Savitskaya",
+      "slug": "olga-savitskaya-150607",
+      "reason": "has_service_signal",
+      "preview": "Русскоязычный стоматолог в Orange County Dr. Aleksey Stugarev, DDS Implant & Cosmetic Dentistry Современная стоматология с акцентом на точно"
+    },
+    {
+      "id": "dcb4ad95-ebd7-4a53-88f3-403802b75092",
+      "name": "Black Label Auto Studio",
+      "slug": "black-label-auto-studio-180932",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Мы — Black Label Auto Studio. Профессионально выполняем оклейку автомобилей винилом любого цвета и премиальную тонировку. Гара"
+    },
+    {
+      "id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "name": "Tenina Law, Inc.",
+      "slug": "consolidated-tenina-law-inc",
+      "reason": "has_service_signal",
+      "preview": "Tax law · Sherman Oaks · Google 5.0★ (50) · ( Налоговые проверки, анализ операций, квалификация с точки зрения налогового законодательства и"
+    },
+    {
+      "id": "d8e02133-7958-44b8-842c-50ccfd9b9e96",
+      "name": "StairEdu Sergey",
+      "slug": "stairedu-sergey-150606",
+      "reason": "has_service_signal",
+      "preview": "StairEdu Sergey + This summer camp invites participants to build the future by exploring exciting fields. The program offers hands-on experi"
+    },
+    {
+      "id": "f1030f62-c39f-4019-be0e-cba489acdb8e",
+      "name": "Ivan Stypnik",
+      "slug": "enriched-ivan-stypnik",
+      "reason": "has_service_signal",
+      "preview": "Профессиональные мужские и женские стрижки. Профессиональные мужские и женские стрижки. Experience: 10 years Services: - Мужская стрижка - У"
+    },
+    {
+      "id": "44e482f0-3ec6-427f-b41d-5d827361fb1a",
+      "name": "Тетяна",
+      "slug": "business-biz-205702-39b7",
+      "reason": "has_service_signal",
+      "preview": "Я пеку паски домашние вкусные- цукаты, шоколадные капли, изюм. Можно начинить кремом - шоколадным или ванильным. Я пеку паски домашние вкусн"
+    },
+    {
+      "id": "9575b4eb-e0fd-43d1-86f1-b410a7e096f1",
+      "name": "Andreeva Olga",
+      "slug": "andreeva-olga-205121-9a94",
+      "reason": "has_service_signal",
+      "preview": "Всем привет! Меня зовут Ольга — я тренер по йоге в Сакраменто. Веду занятия в студии по адресу 6720 Madison Ave и онлайн. Многие совмещают о"
+    },
+    {
+      "id": "5f840c50-600d-4677-82f0-986417d6d773",
+      "name": "Vasilki Café Bakery",
+      "slug": "fbpack-vasiliki-cafe-bakery-laguna-niguel",
+      "reason": "has_service_signal",
+      "preview": "Кафе-пекарня Васильки · Laguna Niguel · Google 5.0★ Vasiliki Cafe Bakery (Кафе Васильки) — кофе, свежая выпечка и любимые блюда в Laguna Nig"
+    },
+    {
+      "id": "669c450d-ab31-472f-9923-36ffc5ad3332",
+      "name": "Lisa Nekrasova",
+      "slug": "lisa-nekrasova-205120-a330",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Этим летом для новых учеников действует специальное летнее предложение на индивидуальные онлайн-занятия: 💜 30 минут — 10 € вм"
+    },
+    {
+      "id": "8e40be08-825a-4d77-91ef-7654df25eeeb",
+      "name": "US VACATION",
+      "slug": "batch2-us-vacation",
+      "reason": "has_service_signal",
+      "preview": "US VACATION · туры · Тоскана 24–30 сен 2026 · $1750 · Ольга Пугачева · ( Travel Agency · US VACATION Contact: Ольга Пугачева Phone: + Experi"
+    },
+    {
+      "id": "b2ef6358-4bb4-45f2-9f01-acff7dc03838",
+      "name": "Elena",
+      "slug": "fbpack-home-swimming-classes-elena",
+      "reason": "has_service_signal",
+      "preview": "Индивидуальные / домашние уроки плавания · Elena · ( Elena · Swimming Instructor · Private / Home Swimming Lessons Phone: + Category: Educat"
+    },
+    {
+      "id": "deed474e-5d19-4718-bbc6-7e0a4042c1d6",
+      "name": "Tigran — Car Audio",
+      "slug": "batch2-tigran-hovhannisyan",
+      "reason": "has_service_signal",
+      "preview": "Car audio / шумоизоляция · LA · ( Tigran Hovhannisyan · Car Audio / Custom Automotive Solutions Address: 1218 E 1st St, Los Angeles, CA 9003"
+    },
+    {
+      "id": "852c6eb5-88fc-49f0-b9e0-41deb29ee338",
+      "name": "Orange County Acting Academy",
+      "slug": "ma-150705",
+      "reason": "has_service_signal",
+      "preview": "Acting for kids/TV/film · Mission Viejo · Google 4.6★ (22) Orange County Acting Academy — школа актёрского мастерства для TV/film в Mission "
+    },
+    {
+      "id": "7400aa21-f702-4d66-9a0f-ca6a7fa00e9e",
+      "name": "Ira Body Sculpting Studio",
+      "slug": "fbpack-ira-body-sculpting-studio",
+      "reason": "has_service_signal",
+      "preview": "Massage, Body sculpting, Wraps Beauty · Massage & Body Care Instagram: Services: - Massage - Body sculpting - Wraps ---FBPACK_SOURCE--- {\"ca"
+    },
+    {
+      "id": "f484d306-2c7e-46ab-8a81-8d0cce6d8587",
+      "name": "Алина Филинова",
+      "slug": "business-biz-205113-f7ac",
+      "reason": "has_service_signal",
+      "preview": "🤍 УТРЕННИЙ СТРЕЙЧИНГ Позволь себе начать выходные без спешки. Приглашаю тебя на атмосферную практику стретчинга на свежем воздухе — время, "
+    },
+    {
+      "id": "5921c806-397d-46c7-93f4-69d2a6459c61",
+      "name": "Новый beauty salon",
+      "slug": "beauty-salon-181011",
+      "reason": "has_service_signal",
+      "preview": "Новый beauty salon в Glendale. Мы только открылись и набираем сильную команду beauty professionals. Специальное предложение для первых резид"
+    },
+    {
+      "id": "b7ca77ec-2576-4b80-9bd1-5ad9dedd2584",
+      "name": "Treasure Rack San Diego",
+      "slug": "fbpack-treasure-rack-san-diego",
+      "reason": "has_service_signal",
+      "preview": "Marketplace б/у и новых вещей · SD · бесплатные объявления · Elena Nayerman / Inara Shelton Treasure Rack San Diego · Used & New Items Marke"
+    },
+    {
+      "id": "f6478075-2318-4346-94a7-409e292ec74c",
+      "name": "Inessa Ys",
+      "slug": "inessa-ys-205049-f16b",
+      "reason": "has_service_signal",
+      "preview": "ОТКРЫТ НАБОР В ДОМАШНИЙ ДЕТСКИЙ САД! 👶 Принимаем детей от 1 года. ✅ 30 лет опыта ✅ Район American River College (ZIP 95608) ✅ Забираем дете"
+    },
+    {
+      "id": "106b4614-29f9-48c0-8ffd-e7954238645f",
+      "name": "Merry Hive Daycare",
+      "slug": "fbpack-svetlana-melnik-merry-hive",
+      "reason": "has_service_signal",
+      "preview": "RU/EN preschool · Laguna Hills · Google 5.0★ (10) Merry Hive Russian English Preschool Contact: Svetlana Melnik Address: 23802 Avenida De La"
+    },
+    {
+      "id": "90f884ec-0429-4a8f-87c0-123893891f8d",
+      "name": "Уютный private studio",
+      "slug": "private-studio-172224",
+      "reason": "has_service_signal",
+      "preview": "💅🏻 Дорогие девушки, приглашаю вас на manicure & pedicure в Beverly Hills ✨ ✅ Маникюр + укрепление гелем — 70$ ✅ Педикюр — 70$ ✅ Наращивани"
+    },
+    {
+      "id": "9d9b3d10-81b5-4c67-bbfe-479ff0d7a850",
+      "name": "Jane OC",
+      "slug": "jane-oc-205304-7225",
+      "reason": "has_service_signal",
+      "preview": "Самый удобный вариант для этого возраста онлайн - очень бюджетно AI система обучения Synthesis Tutor. На английском, мой сын в этом именно в"
+    },
+    {
+      "id": "a1d0e3ea-beb2-429f-9737-96cb8ec0ef0e",
+      "name": "_teastorm_",
+      "slug": "teastorm-150640",
+      "reason": "has_service_signal",
+      "preview": "🍃 Девочки, хочу поделиться с вами важным 🤍 Мы открыли наш семейный чайный проект — TeaStorm. Это то, что мы действительно любим и во что в"
+    },
+    {
+      "id": "89138a4b-74d1-422e-8820-70ffed14b8e7",
+      "name": "Елена Бондаренко",
+      "slug": "business-9168415612-204824-9437",
+      "reason": "has_service_signal",
+      "preview": "Дорогие Мамочки !Приглашаю деток 4-6 лет на уроки фортепиано по инновационной мультимедийной программе»Растём с Музыкой».Ваш ребёночек пройд"
+    },
+    {
+      "id": "181e0cef-31fe-4dcd-b76d-869a67a34c71",
+      "name": "MAGAS INSTALLATION LLC",
+      "slug": "magas-installation-llc-204828-72c6",
+      "reason": "has_service_signal",
+      "preview": "MAGAS INSTALLATION LLC Предлагает услуги по установке окон и дверей а также сопутствующих работ. - Опыт работы - Свой бокс трак и пикап - Ин"
+    },
+    {
+      "id": "7aa29e04-f5bc-4aa6-86ad-dca323fc9737",
+      "name": "Nick's Premium Mobile Auto Detailing",
+      "slug": "nicks-premium-mobile-auto-detailing-204829-e6dd",
+      "reason": "has_service_signal",
+      "preview": "Меня зовут Николай. Я профессиональный авто детейлер с многолетним опытом. Специализируюсь на аккуратном восстановлении внешнего вида и защи"
+    },
+    {
+      "id": "e9c7aef3-0dc7-4cf4-b864-cdeae3f36fce",
+      "name": "Dustov Dustmuhammad",
+      "slug": "dustov-dustmuhammad-205024-5014",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Приветствуем вас в ресторане MoonHalal! 🌙 📍 Адрес: 5800 Madison Ave S Приглашаем вас попробовать наши вкусные бургеры, сочну"
+    },
+    {
+      "id": "dddce89c-d625-4e25-b81a-4eaa1cb024b3",
+      "name": "Sunrise Education Center",
+      "slug": "fbpack-sunrise-education-center",
+      "reason": "has_service_signal",
+      "preview": "Русский детский центр · Irvine · ( Sunrise Education Center (Heritage Schools) — сеть русскоязычных детских развивающих центров. Группы «Выр"
+    },
+    {
+      "id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+      "name": "mama_bear_oc",
+      "slug": "mama-bear-oc-031830",
+      "reason": "has_service_signal",
+      "preview": "Mama Bear Kids Club offers an exciting spring camp for children. The camp runs from March 16 to April 10, providing a variety of engaging ac"
+    },
+    {
+      "id": "601b813d-1d51-4959-a891-c5a289c113a2",
+      "name": "Lena Indiukova",
+      "slug": "fbpack-lena-indiukova",
+      "reason": "has_service_signal",
+      "preview": "Торты и десерты на заказ · Irvine Spectrum · Lena Indiukova · Custom Cakes / Homemade Desserts Location: Irvine, CA (Irvine Spectrum) Instag"
+    },
+    {
+      "id": "1e1ef207-8951-4eb7-a018-8756b874a1f5",
+      "name": "Elena Garmazh FYSM Yoga Coach",
+      "slug": "elena-garmazh-fysm-yoga-coach-150712",
+      "reason": "has_service_signal",
+      "preview": "Девочки и мальчики! Каждую субботу в 10:00 утра я провожу бесплатную йогу в стиле FYSM в парке Sherman Oaks Recreation 🌿 Это пространство д"
+    },
+    {
+      "id": "bae14643-a203-46fd-9179-bee4e7fd8898",
+      "name": "Lidiia Gordienko",
+      "slug": "batch2-lidiia-gordienko",
+      "reason": "has_service_signal",
+      "preview": "Tesla Model Y · аэропорт / OC / школьный трансфер · Premium Taxi / Private Driver · Lidiia Gordienko Vehicle: Tesla Model Y Service area: Ir"
+    },
+    {
+      "id": "0a6b12c5-6ad7-4798-a206-a574458f5898",
+      "name": "Приглашаем на отдых в наш уютный **Bronze Bull Chalet в Arno",
+      "slug": "bronze-bull-chalet-arno-205334-6488",
+      "reason": "has_service_signal",
+      "preview": "Приглашаем на отдых в наш уютный **Bronze Bull Chalet в Arnold, CA** — идеальное место для семьи или компании друзей. Зимой — катание в Bear"
+    },
+    {
+      "id": "450d081c-3819-42d5-a7cb-7770e6af66cb",
+      "name": "Golden star ️",
+      "slug": "golden-star-181527-d6c5",
+      "reason": "has_service_signal",
+      "preview": "Предлагаю услуги водителя для школьников, проживающих в районе Promenade / Los Olivos и обучающихся в Alderwood Elementary. ✔ Водительский с"
+    },
+    {
+      "id": "94bc7c39-9313-450a-869e-819d4e36cd5c",
+      "name": "Kaivy Alteration Studio",
+      "slug": "fbpack-kaivy-alteration-studio",
+      "reason": "has_service_signal",
+      "preview": "Kaivy Alteration Studio · Tailoring / Clothing Alterations Contact: Jekaterina \"Kate\" Mironova Location: Lake Forest, CA Phone: + Category: "
+    },
+    {
+      "id": "ceae9d7f-fad6-42c6-bc38-4c2ce777a72e",
+      "name": "٩(๑❛ᴗ❛๑)۶",
+      "slug": "business-biz-181521-6c6a",
+      "reason": "has_service_signal",
+      "preview": "Делаю трайфалы и медовики на заказ писать в личку или в тг канал 👇 This business offers custom-made desserts for various occasions. They sp"
+    },
+    {
+      "id": "d538c15f-f8bd-425f-80c4-aa81bd6dd627",
+      "name": "Евгений Чебатков — Stand Up Show",
+      "slug": "batch2-evgeniy-chebatkov-stand-up-show",
+      "reason": "has_service_signal",
+      "preview": "Stand-up · Tour 2026 · LA July 26 · BPM · Евгений Чебафов Евгений Чебатков — Stand Up Show Category: Entertainment · Comedy / Stand-up Artis"
+    },
+    {
+      "id": "e2e4bc92-f3c4-4072-b141-4dcda83f1dc7",
+      "name": "Татьяна",
+      "slug": "business-biz-181517-806a",
+      "reason": "has_service_signal",
+      "preview": "✨ Добро пожаловать в пространство красоты и заботы ✨ Меня зовут Татьяна — я лицензированный мастер маникюра и педикюра в Orange County 💅 Я "
+    },
+    {
+      "id": "8593bb13-aa33-4ff1-9aa2-983437b9e241",
+      "name": "Inna ☘️ Starominska",
+      "slug": "inna-starominska-205426-50ec",
+      "reason": "has_service_signal",
+      "preview": "❗️ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ ❗️ -30% ❗️ Хочете скинути 5,10,15 кг? Або й більше, але боялись почати? Я Вам в цьому допоможу! Схуднення"
+    },
+    {
+      "id": "535ad738-419f-4298-bbf4-d844baf7f69e",
+      "name": "Айзада — шугаринг",
+      "slug": "айзада-032108",
+      "reason": "has_service_signal",
+      "preview": "Шугаринг · Fashion Lane Tustin · ( ☎️ Здравствуйте девушки. Я вас приглашаю на шугаринг всех зон ❤️ Меня зовут Айзада и я мастер по депиляци"
+    },
+    {
+      "id": "cea1ba26-fa3b-4fa6-ba6b-68c24136da0f",
+      "name": "УКРАЇНОМОВНИЙ ЦЕНТР",
+      "slug": "business-biz-180902",
+      "reason": "has_service_signal",
+      "preview": "🔴🟢🟠УКРАЇНОМОВНИЙ ЦЕНТР ВІДКРИВАЄ НАБІР НА КУРСИ З АНГЛІЙСЬКОЇ 🇬🇧 МОВИ: Для дорослих та дітей : ВІД О ДО В2. НА: ✅Міні-групи ✅ІНДИВІДУАЛ"
+    },
+    {
+      "id": "cada7298-7a11-4c17-a45c-c4add9685de1",
+      "name": "Sergiy Kuzin, Loan Officer",
+      "slug": "sergiy-kuzin-loan-officer-204834-c234",
+      "reason": "has_service_signal",
+      "preview": "А какие ставки вам сегодня предлагают? 📊 **Обновление рынка — ставки на сегодня** 30 июня 2026 г. Текущие ставки по программе покупки жилья"
+    },
+    {
+      "id": "3f5d1730-2a19-49a5-add4-8632e2d4b5fc",
+      "name": "Joanne Nellie",
+      "slug": "joanne-nellie-180950",
+      "reason": "has_service_signal",
+      "preview": "🇺🇸 Green Card через брак с гражданином/гражданкой США Оформим ваш кейс под ключ: • Adjustment of Status • Полное сопровождение до получени"
+    },
+    {
+      "id": "6811eada-7c97-4d26-875f-1b1eaed670e4",
+      "name": "Californian Pilot",
+      "slug": "californian-pilot-205429-37d6",
+      "reason": "has_service_signal",
+      "preview": "Экскурсии по Лос Анджелесу на самолете. Можно увидеть Downtown LA Hollywood Sign Santa Monica pier Catalina island Laguna beach Экскурсии по"
+    },
+    {
+      "id": "241d4e97-04c2-4408-9f5c-562c0bde11ec",
+      "name": "𝒱𝒶𝓁𝑒𝓇𝒾𝓎𝒶",
+      "slug": "aleriya-204955-8abd",
+      "reason": "has_service_signal",
+      "preview": "Услуги страхования. Всем привет. Буду рада помочь с страхованием вашей машины. Сейчас вы можете получить полис в State Farm, даже с минималь"
+    },
+    {
+      "id": "2145becc-e1e5-4ea8-969c-c7bb03943566",
+      "name": "Licensed Home Bakery",
+      "slug": "licensed-home-bakery-180903",
+      "reason": "has_service_signal",
+      "preview": "🥧 ОСЕТИНСКИЕ ПИРОГИ В ЛОС-АНДЖЕЛЕСЕ Готовим настоящие осетинские пироги по традиционным рецептам. ✅ Health Permit Approved ✅ Licensed Home "
+    },
+    {
+      "id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+      "name": "Beauty Studio by Veronika",
+      "slug": "beauty-studio-by-veronika",
+      "reason": "has_service_signal",
+      "preview": "Beauty Studio by Veronika — luxury beauty salon in Orange County. We are setting a new standard in Orange County. Welcome to Veronika Beauty"
+    },
+    {
+      "id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "name": "OC Auto Aid",
+      "slug": "business-9495016346-171941",
+      "reason": "has_service_signal",
+      "preview": "Автосервис · Costa Mesa · Google 5.0★ (31) · ( OC Auto Aid — семейный автосервис в Costa Mesa, Orange County. Владелец Ruslan Mingazov и ком"
+    },
+    {
+      "id": "e7db7f45-2240-487a-8483-74cd5f4e70fc",
+      "name": "Serghei Stanislavovici",
+      "slug": "serghei-stanislavovici-204940-350e",
+      "reason": "has_service_signal",
+      "preview": "🚛 Reliable ELD Solution for Truck Drivers & Fleets in the USA HOS violations and inaccurate logbooks can lead to CSA points, costly audits,"
+    },
+    {
+      "id": "d591c0ee-db08-4cca-9a78-f24e92c7931e",
+      "name": "Nataliya  Mishenina",
+      "slug": "nataliya-mishenina-204841-326b",
+      "reason": "has_service_signal",
+      "preview": "Думаете, чем занять ребенка этим летом? Лето, полное творчества, игр и развития для вашего ребенка ✨ Приглашаем детей 5–13 лет в творческий "
+    },
+    {
+      "id": "84199fd9-4e20-4d26-ac47-90dc1a90e078",
+      "name": "Upgrade Pilates & Bodytherapy",
+      "slug": "irin-pilates-031833",
+      "reason": "has_service_signal",
+      "preview": "Reformer Pilates · Laguna Hills · Google 5.0★ (118) · ( Upgrade Pilates & Bodytherapy — boutique reformer Pilates studio в Laguna Hills (Iri"
+    },
+    {
+      "id": "7dd616be-9b5e-4166-b247-76c36e17503e",
+      "name": "Coding school PASV",
+      "slug": "coding-school-pasv-205322-3729",
+      "reason": "has_service_signal",
+      "preview": "🤔 «А получится ли у меня?» 🤔 «Стоит ли вообще идти в IT?» 🤔 «Смогу ли я найти работу?» Такие вопросы задаёт себе почти каждый перед старт"
+    },
+    {
+      "id": "a5ecca2b-0bf8-4675-af22-81566c98825c",
+      "name": "Компания USA Carpet & Couch Cleaning в поисках техника для в",
+      "slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "reason": "has_service_signal",
+      "preview": "Компания USA Carpet & Couch Cleaning в поисках техника для выездной химчистки ковров и диванов. 780 + отзывов на Yelp • Локация: San Jose - "
+    },
+    {
+      "id": "3bd86e66-95d3-4bd2-9d24-c5a0cb221f32",
+      "name": "Diamond Tint Studio",
+      "slug": "diamond-tint-studio-172158",
+      "reason": "has_service_signal",
+      "preview": "Тонировка и винил · Tujunga · ( 👋 Привет! Мы — Diamond Tint Studio. 🚗 Занимаемся профессиональной тонировкой автомобилей, 🎨 Оклейкой в цв"
+    },
+    {
+      "id": "94482c28-53ae-4a92-a1b1-86d0ef659f1f",
+      "name": "24-7 Logistics INC — набор CDL A водителей",
+      "slug": "24-7-logistics-inc-cdl-a-204926-2ed8",
+      "reason": "has_service_signal",
+      "preview": "🚛 24-7 Logistics INC — набор CDL A водителей Открыты позиции: 🚚 Reefer 💵 Выплата водителю от $3,000+ / неделя 📈 Средний Gross — $12,000+"
+    },
+    {
+      "id": "1f912b4c-7092-4ad9-a979-382c2432cbfd",
+      "name": "🚘 CrystalCar — чистота и уход за вашим автомобилем без лишне",
+      "slug": "crystalcar-204848-2871",
+      "reason": "has_service_signal",
+      "preview": "🚘 CrystalCar — чистота и уход за вашим автомобилем без лишнего пафоса. Если салон уже потерял свежий вид, а кузов не радует глаз — мы помож"
+    },
+    {
+      "id": "0a92acb4-a053-4486-afc0-0466acc69018",
+      "name": "массажсакраменто #alexmassage #sacramentomassage",
+      "slug": "alexmassage-sacramentomassage-204821-8d53",
+      "reason": "has_service_signal",
+      "preview": "Беспокоит боль в шее, спине или пояснице? Чувствуете постоянное напряжение и скованность? Меня зовут Александр Петров, я сертифицированный м"
+    },
+    {
+      "id": "a9d54c1b-9a67-40a2-82f1-dab1b44ae6ec",
+      "name": "Каждый день люди пользуются чистым воздухом в доме и даже не",
+      "slug": "business-8886684068-204925-138a",
+      "reason": "has_service_signal",
+      "preview": "Каждый день люди пользуются чистым воздухом в доме и даже не задумываются, кто за этим стоит. Сейчас мы ищем людей, которые готовы стать час"
+    },
+    {
+      "id": "8c390c82-0098-4093-a3f0-8ca095679334",
+      "name": "Pavel Egorov",
+      "slug": "pavel-egorov-204852-f566",
+      "reason": "has_service_signal",
+      "preview": "Всем привет! Веду набор учеников на занятия по барабанам Приглашаю на индивидуальные занятия по игре на барабанах. Обучаю с нуля и продолжаю"
+    },
+    {
+      "id": "4ac77629-1648-4a01-aabd-ff5a01acd9da",
+      "name": "Сдается красивая, уютная,полностью меблированная  студия в о",
+      "slug": "business-7472143135-204854-df5a",
+      "reason": "has_service_signal",
+      "preview": "Сдается красивая, уютная,полностью меблированная студия в отдельном гостивом домике с садом . В очень спокойном и безопасном районе города V"
+    },
+    {
+      "id": "96b3dc90-0a21-4c71-894f-f8c15b6f0df7",
+      "name": "SacramentoRealtor #SacramentoRealEstate #MarketUpdate #Calif",
+      "slug": "sacramentorealtor-sacramentorealestate-marketupdat-204911-d39a",
+      "reason": "has_service_signal",
+      "preview": "🏡 ЕЖЕНЕДЕЛЬНЫЙ ОБЗОР РЫНКА НЕДВИЖИМОСТИ Ну здравствуй, моё Sacramento! 🌴✨ Коротко о главном 👇 🏦 ФРС снова сохранила процентную ставку бе"
+    },
+    {
+      "id": "f8300515-85e6-4e15-98df-1d0405c00b35",
+      "name": "Alena",
+      "slug": "alena-190941",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте. Иван Напишите ему, он занимается полами Здравствуйте. Иван Напишите ему, он занимается полами"
+    },
+    {
+      "id": "2f715146-5581-4ff0-82c7-00f13af7dc28",
+      "name": "O M",
+      "slug": "o-m-190943",
+      "reason": "has_service_signal",
+      "preview": "+ + Набирайте эти номера , проверенные мастера + + Набирайте эти номера , проверенные мастера"
+    },
+    {
+      "id": "24ebbc6e-d8bd-4942-9e5a-522df7e464fc",
+      "name": "Corp Tax Inc",
+      "slug": "corp-tax-inc-180958",
+      "reason": "has_service_signal",
+      "preview": "Tax Filing 2026 🇺🇸 Поможем вернуть ваши деньги! Налоговый сезон открыт. Работаем со всеми типами кейсов: 📍 Single / Married 📍 Uber / Doo"
+    },
+    {
+      "id": "5ec2d71c-7dc3-413e-a7bb-95dc3ea35aff",
+      "name": "грузинскаяедасакраменто #хинкалисакраменто #хачапурисакрамен",
+      "slug": "business-9169367301-204903-fefa",
+      "reason": "has_service_signal",
+      "preview": "🔥 Хит этого сезона - baby хинкали 🔥 Ни в одном другом месте Сакраменто не продают такой уникальный снэк ! Baby хинкали - это хинкалёк, кот"
+    },
+    {
+      "id": "f33b0d87-5883-47ee-91bc-e2c478cbb41e",
+      "name": "United States Beauty studio",
+      "slug": "united-states-beauty-studio-180905",
+      "reason": "has_service_signal",
+      "preview": "230 E 17th St Ste 150 Costa Mesa, CA 92627 United States Beauty studio by Veronika. Очень профессиональный подход к маникюру, ну и другим се"
+    },
+    {
+      "id": "507ac692-aeef-43dc-bed2-36939f04998a",
+      "name": "Neo Aesthetics & Medical International Academy",
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "reason": "has_service_signal",
+      "preview": "Medical Assistant academy · Hallandale Beach, FL · Google 5.0★ (299) Neo Aesthetics & Medical International Academy Contact person: Asel Koc"
+    },
+    {
+      "id": "4747b8eb-6f90-41ab-8af4-23bc8a6af2d8",
+      "name": "RK · car_rental",
+      "slug": "rk-carrental-181111-6371",
+      "reason": "has_service_signal",
+      "preview": "Сдам в аренду свой Lexus 2026 TX 350 AWD Premium 1100$ / месяц. Впишу в страховку за доп. Плату. Сдам в аренду свой Lexus 2026 TX 350 AWD Pr"
+    },
+    {
+      "id": "0c5b8641-8463-47eb-a4b4-7a0d65014122",
+      "name": "LTD Tax & Accounting",
+      "slug": "consolidated-ltd-services-llc",
+      "reason": "has_service_signal",
+      "preview": "Tax / bookkeeping · Wake Forest NC · Google 5.0★ (2) LTD Tax & Accounting Services — tax preparation, bookkeeping, payroll и business accoun"
+    },
+    {
+      "id": "4b1e773a-9f4a-4c43-a835-b54938f30074",
+      "name": "Детский сад",
+      "slug": "business-2792203774-204920-2a96",
+      "reason": "has_service_signal",
+      "preview": "🌊 23 июля в нашем домашнем детском саду прошёл экологический праздник, посвящённый Международному дню китов и дельфинов. Главным событием д"
+    },
+    {
+      "id": "8fadbf3d-de9a-45f5-9647-a88530d9f37c",
+      "name": "RND Safe Cargo",
+      "slug": "rnd-safe-cargo-204927-21d4",
+      "reason": "has_service_signal",
+      "preview": "**🚛 RND Safe Cargo Inc приглашает к сотрудничеству OWNER-OPERATORS НА** **CAR HAULING** Pickup / Semi trucks с трейлерами на 2–9 машин Мы п"
+    },
+    {
+      "id": "a972cd36-7035-4f60-80ce-195dfdbfef52",
+      "name": "Kai - T",
+      "slug": "kai-t-234038",
+      "reason": "has_service_signal",
+      "preview": "Мы вот сюда ходили с года до 3х. Детская стоматология. Там доктор англоговорящая азиатка. Мы там были только на чистке, один раз рентген дел"
+    },
+    {
+      "id": "8fbfa368-c9eb-4aae-b212-1f221f276204",
+      "name": "Alex Kozhak",
+      "slug": "alex-kozhak-204922-8283",
+      "reason": "has_service_signal",
+      "preview": "❌ САКРАМЕНТО‼️ ВОСКРЕСЕНЬЕ, 26 ИЮЛЯ ❌ 🚛 Свежая чёрная смородина уже в Сакраменто! 🫐 😋 Ароматная, вкусная и очень полезная! Также привезём"
+    },
+    {
+      "id": "b5692dd6-0dc1-4e7a-8033-64c3780c29a6",
+      "name": "EfficientGoose6262",
+      "slug": "efficientgoose6262-204931-8bc9",
+      "reason": "has_service_signal",
+      "preview": "Нужен хелпер с опытом на завтра сделать доставку в Айдахо. Отель оплачиваем Будет еще один человек. Мувинг Если хорошо отработаете можем час"
+    },
+    {
+      "id": "ab4e00ca-ef8b-442b-8a5e-33fef62e105f",
+      "name": "Бесплатная офисная комната (Encino)",
+      "slug": "inna-172218",
+      "reason": "has_service_signal",
+      "preview": "Бесплатная меблированная офисная комната · Encino · не бьюти · ( Предлагаю бесплатно меблированную комнату в офисе. Подойдёт для офисной раб"
+    },
+    {
+      "id": "36a43815-eb25-45ba-8978-e73977f4aa88",
+      "name": "GreenLine Nina",
+      "slug": "greenline-nina-204935-4072",
+      "reason": "has_service_signal",
+      "preview": "📣ЛОКАЛЬНАЯ РАБОТА CDL A 💲$30/h 📍Stockton, CA 📲( 📣ЛОКАЛЬНАЯ РАБОТА CDL A 💲$30/h 📍Stockton, CA 📲("
+    },
+    {
+      "id": "8f620840-f34e-44cc-9d77-7e178e1dcf0f",
+      "name": "TutOwl Online School",
+      "slug": "fb-post-26-tutowl-com-online-school",
+      "reason": "has_service_signal",
+      "preview": "Онлайн-школа для билингвов · русский / языки / STEM · ( TutOwl — онлайн-школа по авторским методикам для детей-билингвов в США и Канаде. Баз"
+    },
+    {
+      "id": "6bc94b4e-0b5b-4abe-9818-0acc60a427a9",
+      "name": "Rent & Loans USA",
+      "slug": "rent-loans-usa-181000",
+      "reason": "has_service_signal",
+      "preview": "📄 Помощь с документами и открытием компании в США! ✅ Для аренды жилья ✅ Для получения кредитов (личных, авто, ипотека) ✅ Подтверждение адре"
+    },
+    {
+      "id": "ac04ad17-928b-46f5-b4ca-08f640a0dd16",
+      "name": "Ілля",
+      "slug": "business-biz-180935",
+      "reason": "has_service_signal",
+      "preview": "🇬🇧 Англійська для життя, роботи, подорожей, навчання та нових можливостей 🌏✨ Запрошуємо дітей, підлітків і дорослих на заняття 🤍 Ми допо"
+    },
+    {
+      "id": "6153f29b-b39f-4fe9-860e-e00db00791b5",
+      "name": "Movement Brewing Company",
+      "slug": "movement-brewing-company-205317-684f",
+      "reason": "has_service_signal",
+      "preview": "Join us for an afternoon of incredible classic cars, great food from West Coast Taco Bar, craft beer from Movement Brewing Company, and a ch"
+    },
+    {
+      "id": "5d32b0d7-960d-4b34-9109-68e637003a64",
+      "name": "S V 🇺🇦",
+      "slug": "s-v-181003",
+      "reason": "has_service_signal",
+      "preview": "Если кому нужен второй ключ 🔑 для машины 🚘, или попали в ситуацию с полной потерей ключей - пишите, сделаем по минимальным ценам, в тот же"
+    },
+    {
+      "id": "a6a8fd9f-0ece-4654-b283-89283611c1cf",
+      "name": "Yulia",
+      "slug": "yulia-205729-80d7",
+      "reason": "has_service_signal",
+      "preview": "Напишите мне в личку, какого рода съемка вам нужна? Репортаж, headshot? Напишите мне в личку, какого рода съемка вам нужна? Репортаж, headsh"
+    },
+    {
+      "id": "f2591a2f-5d06-4cb2-9f2d-581613ab7873",
+      "name": "Andrey Gromov",
+      "slug": "andrey-gromov-181005",
+      "reason": "has_service_signal",
+      "preview": "🚗 только в LA от 750 💰/ месяц Все включено!!! Подробности в лс 😉 🚗 только в LA от 750 💰/ месяц Все включено!!! Подробности в лс 😉"
+    },
+    {
+      "id": "a2c4b3aa-1be4-4f1c-bec8-ceb6b7298bbd",
+      "name": "delicious_by_va",
+      "slug": "delicious-by-va-150630",
+      "reason": "has_service_signal",
+      "preview": "Вкус детства, который невозможно забыть… ❤️ Есть десерты, которые мгновенно возвращают в самые теплые воспоминания. Шоколадная колбаска - им"
+    },
+    {
+      "id": "591307cb-5149-45de-a9b2-261fa58b5cc0",
+      "name": "Kate Brown",
+      "slug": "kate-brown-204947-c35d",
+      "reason": "has_service_signal",
+      "preview": "Hi! My daughter has been going to a group style Russian class in Walnut Creek every Sunday since summer and I cannot say enough wonderful th"
+    },
+    {
+      "id": "e5ea11e6-4558-4c5c-a228-7fc285c7fd45",
+      "name": "Di · car_rental",
+      "slug": "di-carrental-205641-f5a7",
+      "reason": "has_service_signal",
+      "preview": "Сдам аккаунт дордаш женский. Первый месяц бесплатно. Сдам Теслу model 3 Сдаем женский аккаунт дурдаш. Новый. Первый месяц 300$ Сдам аккаунт "
+    },
+    {
+      "id": "63a861f3-ed05-4d2f-81a9-d807893a6271",
+      "name": "Terapevt AlikNarvikovich",
+      "slug": "terapevt-aliknarvikovich-205007-5816",
+      "reason": "has_service_signal",
+      "preview": "Тел: . Приходите на лечебный массаж. Проведение предварительного осмотра, Составление индивидуальных реабилитационных программ. Вам станет л"
+    },
+    {
+      "id": "f08d5839-0f1c-4d55-9119-269e3dc67921",
+      "name": "Sunrise Montessori Center",
+      "slug": "sunrise-montessori-center-204954-933c",
+      "reason": "has_service_signal",
+      "preview": "Родители детей 6–12 лет! Открыта запись на дополнительные занятия в Sunrise Montessori (Citrus Heights). Робототехника, LEGO, шахматы, компь"
+    },
+    {
+      "id": "8234639c-91b2-47c9-b57b-2d8807ae8b25",
+      "name": "Lynn J English",
+      "slug": "lynn-j-english-205002-47f7",
+      "reason": "has_service_signal",
+      "preview": "Набираем студентов новые классы и летнюю разговорную программу. Звоните , или через или Lynn's School of English Набираем студентов новые кл"
+    },
+    {
+      "id": "c71f8339-ac50-4b55-b728-f8294fb51f3f",
+      "name": "Demik BBQ",
+      "slug": "demik-bbq-205325-1ea3",
+      "reason": "has_service_signal",
+      "preview": "🔥Премиальное выездное BBQ и личный шеф-повар в Сакраменто!🔥 Планируете вечеринку, день рождения или семейный ужин на бэкярде? Отдыхайте с "
+    },
+    {
+      "id": "e6b121b5-3d01-462b-adf4-09cb0f70af01",
+      "name": "Yelena Lobko",
+      "slug": "yelena-lobko-205006-7852",
+      "reason": "has_service_signal",
+      "preview": "Продается Домашнее козье молоко Куриные яйца Свежие огурцы Продается Домашнее козье молоко Куриные яйца Свежие огурцы"
+    },
+    {
+      "id": "8bca57e4-76a5-407b-b097-dfa86ec69d4e",
+      "name": "Elizaveta Petrova",
+      "slug": "elizaveta-petrova-180911",
+      "reason": "has_service_signal",
+      "preview": "📚 Устал учить английский по приложениям без результата? Живой преподаватель с 7-летним опытом — совсем другое. Языки: 🇺🇸🇩🇪🇫🇷🇪🇸. Раз"
+    },
+    {
+      "id": "1ffbcf12-80af-4c9e-a66a-af2f0a33d496",
+      "name": "Julia Colorist LA/OC 🇺🇸",
+      "slug": "julia-colorist-laoc-205343-1694",
+      "reason": "has_service_signal",
+      "preview": "•🪽КОЛОРИСТ •🪽Мастер по НАРАЩИВАНИЮ волос продажа волос 🪄Повторяю окрашивания с картинки 🪄 Бренд красителя : Paul Mitchell, Lebel 🔝 ⁃ Од"
+    },
+    {
+      "id": "a7fcdc31-5406-493a-860c-8519cc538e97",
+      "name": "Jenny",
+      "slug": "jenny-181008",
+      "reason": "has_service_signal",
+      "preview": "Друзья, заглядывайте за английским! Разбираем произношение, пополняем словарный запас, приструняем грамматику и просто весело проводим время"
+    },
+    {
+      "id": "dfa94381-02bb-434f-9264-a54c20edee85",
+      "name": "Home for Rent in Sacramento",
+      "slug": "home-for-rent-in-sacramento-205010-f742",
+      "reason": "has_service_signal",
+      "preview": "Bright & Spacious Home for Rent in Sacramento Only 7 minutes from I-80 in a great location! • 3 bedrooms | 2 bathrooms • Sunroom • 2-car gar"
+    },
+    {
+      "id": "bb084d51-f61b-4e44-8077-4dd804a4642c",
+      "name": "урокифортепиано #учительмузыки",
+      "slug": "business-biz-205331-3590",
+      "reason": "has_service_signal",
+      "preview": "🎼🎼🎼Уроки ФОРТЕПИАНО онлайн 🎹🎹🎹 👉🏻 Для детей от 7 лет и взрослых с любым уровнем подготовки О себе: имею высшее профессиональное обра"
+    },
+    {
+      "id": "7629dd9a-873c-4c8e-80ce-a22947e30f39",
+      "name": "Ford C-Max Energi Hybrid 2013",
+      "slug": "ford-c-max-energi-hybrid-2013-205012-37eb",
+      "reason": "has_service_signal",
+      "preview": "Ford C-Max Energi Hybrid 2013 ✔ Пробег: 140 560 миль ✔ Новые шины ✔ Недавно заменена помпа системы охлаждения ✔ Гибрид — очень экономичный р"
+    },
+    {
+      "id": "39b96ae1-51fc-4f94-ad81-be0680d006c1",
+      "name": "Yakushok Yaroslav",
+      "slug": "yakushok-yaroslav-205014-aa9d",
+      "reason": "has_service_signal",
+      "preview": "Всім привіт! На ярді є Kenworth 2027 та трейлери Reitnouer 2027. ✅ Вже на ярді ✅ Без очікування виробництва ✅ Фінансування доступне ✅ Спеціа"
+    },
+    {
+      "id": "979571ae-759c-45bd-af03-ff5fd06579e7",
+      "name": "Born Alex",
+      "slug": "born-alex-205015-8df7",
+      "reason": "has_service_signal",
+      "preview": "Автомобили с аукционов США. На внутренний рынок и на экспорт. СНГ+. Ссылка в комментариях. Доступ к аукциону Манхейм для самостоятельного по"
+    },
+    {
+      "id": "acb37bfa-da92-4dd4-ab59-9819765e68d5",
+      "name": "Akimbo Barbershop",
+      "slug": "akimbo-190946",
+      "reason": "has_service_signal",
+      "preview": "Мужские стрижки и борода · Glendale · ( Мужская стрижка и борода. Glendale. 📍 730 S Central Avenue 📞 + Запись открыта. Стрижка — $40, боро"
+    },
+    {
+      "id": "d25ea40d-2027-43af-ac94-d173b0bdc224",
+      "name": "Ann Kutner",
+      "slug": "ann-kutner-205333-ab15",
+      "reason": "has_service_signal",
+      "preview": "🌞 Наш дошкольный центр погружения в русский язык принимает зачисления. 👉Узнайте о нашей учебной программе, расписании занятий и подходе к "
+    },
+    {
+      "id": "cfaa89e2-9340-4134-b77d-0647883f0daa",
+      "name": "Daria Center (летний лагерь)",
+      "slug": "antonina-150605",
+      "reason": "has_service_signal",
+      "preview": "Детский летний лагерь · Lake Forest · ( 🌞 Приглашаем детей в летний лагерь Daria Center в Lake Forest! Каждый день — новые знания, творчест"
+    },
+    {
+      "id": "d01dcadf-c73f-4664-a054-f320b6c16e36",
+      "name": "Victoria Rogalska",
+      "slug": "victoria-rogalska-180925",
+      "reason": "has_service_signal",
+      "preview": "❗️ДІВЧАТА ДОСИТЬ ДУМАТИ , «ПРИЙМАТИ ДОВГО РІШЕННЯ» -4O% на всі препарати тільки СЬОГОДНІ ❗️ Хочете скинути 5,10,15,30 кг? Або й більше, але "
+    },
+    {
+      "id": "62e77701-3ea4-4ca2-8aa6-74967c464e45",
+      "name": "Болят пальцы, а чистого звука так и нет? Я научу играть легк",
+      "slug": "business-7874762355-205018-10fe",
+      "reason": "has_service_signal",
+      "preview": "# Болят пальцы, а чистого звука так и нет? Я научу играть легко и без зубрежки. Подберу программу под ваш вкус. Начнем? Пишите в WhatsApp: \ud83d"
+    },
+    {
+      "id": "86db723e-8678-41a0-9bf1-83865bd5823a",
+      "name": "UnforgettableGuava5978",
+      "slug": "unforgettableguava5978-205021-af52",
+      "reason": "has_service_signal",
+      "preview": "Сдам комнату 750$ за подробной информацией обращайтесь по номеру телефона + Сдам комнату 750$ за подробной информацией обращайтесь по номеру"
+    },
+    {
+      "id": "943eba0a-e586-4e73-b8d2-2362892ba88c",
+      "name": "Юлія Василович",
+      "slug": "business-biz-180934",
+      "reason": "has_service_signal",
+      "preview": "❗️ДІВЧАТА ПОЧНІТЬ НОВИЙ РІК З СЕБЕ ❗️ -30% ❗️ Хочете скинути 5,10,15 кг? Або й більше, але боялись почати? Я Вам в цьому допоможу! Схуднення"
+    },
+    {
+      "id": "cf121a15-9240-4685-bc9f-c619142d8278",
+      "name": "Lushov Construction Inc",
+      "slug": "lushov-construction-inc-205020-3ce6",
+      "reason": "has_service_signal",
+      "preview": "Dreaming of a fresh new look for your home? Lushov Construction Inc. is your trusted partner for construction and renovation projects! 🔨✨ W"
+    },
+    {
+      "id": "b669ffb4-febf-4548-b0bf-2bf610d0ff3e",
+      "name": "Ulyana Hur",
+      "slug": "ulyana-hur-205410-97db",
+      "reason": "has_service_signal",
+      "preview": "Шугаринг, ваксинг в Рендондо Бич, South Bay 📍 Приглашаем в уютную студию депиляции. 5 ⭐️ on Google, Yelp Опыт работы более 10 лет Работаем "
+    },
+    {
+      "id": "9d8e6887-18a7-44bf-a167-8781894cd988",
+      "name": "Surprise Me Balloon Bar",
+      "slug": "surprise-meballoons-150639",
+      "reason": "has_service_signal",
+      "preview": "Шары и декорации · Orange County · ( Surprise Me Balloon Bar — balloon backdrops, garlands и helium balloons для мероприятий в Orange County"
+    },
+    {
+      "id": "03322e2a-2bba-48ff-9a64-faa3fc675be0",
+      "name": "Ship Your Car with RCG LLC",
+      "slug": "ship-your-car-with-rcg-llc-205032-0494",
+      "reason": "has_service_signal",
+      "preview": "🚛🚗 Ship Your Car with RCG LLC — Fast, Safe & Reliable 💼 Broker Fee — Only $150 Shipping your vehicle with RCG LLC is simple, secure, and "
+    },
+    {
+      "id": "e93e6bf0-6ae6-41d0-b38a-a38e5316725a",
+      "name": "TranslatorPro — Михаил Богомольный",
+      "slug": "fbpack-translatorpro",
+      "reason": "has_service_signal",
+      "preview": "Сертифицированный перевод · нотариус · апостиль · ( TranslatorPro (Михаил Богомольный) — сертифицированный письменный и устный перевод, нота"
+    },
+    {
+      "id": "cceea977-8b65-4188-aec7-6c93819df060",
+      "name": "A3 Dynamix LLC",
+      "slug": "a3-dynamix-llc-204901-6a77",
+      "reason": "has_service_signal",
+      "preview": "Я помогу вам найти и приобрести автомобиль с аукционов Copart, IAAI и Manheim — быстро, безопасно и с максимальной выгодой! Что вы получите:"
+    },
+    {
+      "id": "82ddddd5-853a-48c3-89d6-cad7c4dc6305",
+      "name": "manager_G-shock",
+      "slug": "managerg-shock-205527-5a48",
+      "reason": "has_service_signal",
+      "preview": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+    },
+    {
+      "id": "1dd4341d-a82a-4476-b57a-f1609608ee5e",
+      "name": "BlackCaviar #RedCaviar #SevrugaCaviar #BelugaCaviar #Sturgeo",
+      "slug": "blackcaviar-redcaviar-sevrugacaviar-belugacaviar-s-205041-4f3b",
+      "reason": "has_service_signal",
+      "preview": "⚫🔴 Чёрная и красная икра от BestCaviarUSA.com BestCaviarUSA.com • ( 🔴⚫ ✨ Отборная икра для тех, кто ценит происхождение, текстуру и чистый"
+    },
+    {
+      "id": "8e675a11-ef6f-42fd-a21f-18b87ecccc8b",
+      "name": "Aged LLC",
+      "slug": "aged-llc-180936",
+      "reason": "has_service_signal",
+      "preview": "Финансовые решения для вас и вашего бизнеса Помогаем не только с Credit Repair, но и с дальнейшим движением по кредиту, финансированию и одо"
+    },
+    {
+      "id": "08a135ce-ef88-43c1-a315-50fd6d636505",
+      "name": "Kelov Studio",
+      "slug": "kelov-studio-181007",
+      "reason": "has_service_signal",
+      "preview": "HANDMADE теперь на Amazon. Открытки из переливающейся ткани, авторские чашки и наборы для снятия стресса 🤗 Весь товар изготовлен вручную — "
+    },
+    {
+      "id": "e0c66c1e-0351-4f6c-8c11-48efdc99bd3b",
+      "name": "Есть мебелированная новая студия. Отдельный вход с кодовым з",
+      "slug": "business-9169496332-205034-cef4",
+      "reason": "has_service_signal",
+      "preview": "Есть мебелированная новая студия. Отдельный вход с кодовым замком в доме , свой маленький дворик ( через дорогу парк). Очень тихое и чистое "
+    },
+    {
+      "id": "77b1a046-92ab-4d0a-abc5-8afbb10cbfa3",
+      "name": "Vladimir Shkarbanov",
+      "slug": "vladimir-shkarbanov-205035-769e",
+      "reason": "has_service_signal",
+      "preview": "Наружные работы и благоустройство -Бетонные работы -Ирригация(поливочные системы) -Дренаж -Подпорные стены -Укладка камня,брусчатка -Заборы "
+    },
+    {
+      "id": "dabde986-d340-4270-8fc6-fe7e358f21e7",
+      "name": "Akim Fam",
+      "slug": "akim-fam-205042-f633",
+      "reason": "has_service_signal",
+      "preview": "🐾 Pet Boarding – Dogs, Cats & Other Small Pets 🐾 Going on vacation, a business trip, or just need someone to care for your pet? I provide "
+    },
+    {
+      "id": "256ba171-8378-418e-b7f1-abec339d0c12",
+      "name": "M_Hussein",
+      "slug": "mhussein-180945",
+      "reason": "has_service_signal",
+      "preview": "Поможем получить & продлить документы официально, оперативно и надежно нерезидентам - Non-Domiciled/Limited-Term CDL - DOT Medical - Driver "
+    },
+    {
+      "id": "7816695b-d7f0-4726-a48d-e3e771b0a418",
+      "name": "EnergeticCorgi3380",
+      "slug": "energeticcorgi3380-205048-76cf",
+      "reason": "has_service_signal",
+      "preview": "Уроки музыки в Линкольне! 🎹🎸🥁 Всем привет! Если вы ищете преподавателя музыки, то местная музыкальная студия в Линкольне сейчас набирает "
+    },
+    {
+      "id": "9db1a034-9e39-440f-8afd-79588f9f87ac",
+      "name": "ElegantHamster9292",
+      "slug": "eleganthamster9292-205054-04ff",
+      "reason": "has_service_signal",
+      "preview": "Привет всем. Сдаю 2bd апарты в Розвилле 95678. Возле Костко, без депозита. Подробности по тел Привет всем. Сдаю 2bd апарты в Розвилле 95678."
+    },
+    {
+      "id": "dd686537-6658-481f-a63b-05e9dd4e6a8e",
+      "name": "Nadezhda Kurinnaya",
+      "slug": "nadezhda-kurinnaya-205057-a56b",
+      "reason": "has_service_signal",
+      "preview": "Даю частные уроки гитары Опыт работы в США 17 лет. Тел: . Александр Даю частные уроки гитары Опыт работы в США 17 лет. Тел: . Александр"
+    },
+    {
+      "id": "2d009609-eae2-44a6-b34b-7d2780a5bdd4",
+      "name": "Violetta Lawrence ❤️‍ Art Director",
+      "slug": "violetta-lawrence-art-director-181004",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Я - Виолетта. Веб - дизайнер и разработчик сайтов на WordPress с опытом работы +4 года и предлагаю хостинг с тех. поддержкой 2"
+    },
+    {
+      "id": "2c12e6fd-b233-463b-8572-f41b92974e87",
+      "name": "Влад Нестеренко",
+      "slug": "business-biz-181006",
+      "reason": "has_service_signal",
+      "preview": "Создание САЙТОВ+ИИ Agent+Видеконвеер под блогеров! Автоматизируем ваши рутинные действия, поможем бизнесу!!! @ DefyConformity6 пишите! Созда"
+    },
+    {
+      "id": "1d0bb0a6-f9e4-4d57-94cd-5a5a43c5fb50",
+      "name": "Andrew",
+      "slug": "andrew-181007",
+      "reason": "has_service_signal",
+      "preview": "Что касается рыбалки на нельму:Итак по поездке на нельму: Могу принять вас в апреле,900$ с человека в день,что входит в стоимость тура: 1.Вс"
+    },
+    {
+      "id": "c354a3ca-de9e-4e71-83ca-d56d110eaa5e",
+      "name": "hairremovallaser",
+      "slug": "hairremovallaser-205133-a5dc",
+      "reason": "has_service_signal",
+      "preview": "✨ Гладкая кожа начинается здесь. Попрощайтесь с бритвой и наслаждайтесь гладкой кожей надолго. Безопасная и эффективная лазерная эпиляция дл"
+    },
+    {
+      "id": "2fbcea30-f79e-4c09-b7d5-4f2687bc60d5",
+      "name": "Тимофей Кононов",
+      "slug": "business-9168449053-205100-902d",
+      "reason": "has_service_signal",
+      "preview": "💧Pressure Washing/ Мойка под давлением💧 Сделаем ваш дом чистым и свежим! ✅ Заборы ✅ Стены домов ✅ Крыши ✅ Драйвеи и дорожки Удаляем: ✔ Гря"
+    },
+    {
+      "id": "c965246d-9f91-46fa-b8e7-36c0316137ce",
+      "name": "Pavlo Rok",
+      "slug": "pavlo-rok-205105-181c",
+      "reason": "has_service_signal",
+      "preview": "Перед вызовом мастера - бесплатная консультация по AC. ( ‬ Перед вызовом мастера - бесплатная консультация по AC. ( ‬"
+    },
+    {
+      "id": "6b5ae521-4130-4687-a5e1-857c64b0d96c",
+      "name": "Nicol Kidman",
+      "slug": "nicol-kidman-204858-6bf8",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Меня зовут Ирина, я профессиональный парикмахер-колорист. Создаю красивые, ухоженные и здоровые волосы ✨ ✔ Окрашивание ✔ Вырав"
+    },
+    {
+      "id": "f6131c57-4331-4315-905a-9e38df69e8e8",
+      "name": "NorCal Wash Inc",
+      "slug": "norcal-wash-inc-204836-7cd5",
+      "reason": "has_service_signal",
+      "preview": "**Привет, соседи из Сакраменто! ** **👋 Ваша крыша готова к следующему сезону дождей?** Лето — абсолютно лучшее время для кровельных работ. "
+    },
+    {
+      "id": "289ca8f8-6061-4dae-9ff3-a48477ad80a1",
+      "name": "Уютная private studio",
+      "slug": "private-studio-181516-6fe2",
+      "reason": "has_service_signal",
+      "preview": "✨ Russian маникюр в Tustin ✨ Лицензированный мастер маникюра и педикюра в Orange County 💅🏻 Уютная private studio • Russian маникюр • Люкс "
+    },
+    {
+      "id": "e62e723f-3b08-42d3-ba22-b370d00c0dd9",
+      "name": "Tetiana Akhmednova",
+      "slug": "tetiana-akhmednova-205103-7a41",
+      "reason": "has_service_signal",
+      "preview": "Преподаватель высшей категории с огромным опытом работы в музыкальной школе с удовольствием возьмется обучать вас игре на фортепиано у себя "
+    },
+    {
+      "id": "2de9e85c-bc9f-47cc-83b1-9119427936d9",
+      "name": "Yana Galinka",
+      "slug": "yana-galinka-205107-766f",
+      "reason": "has_service_signal",
+      "preview": "Почему на самом деле мы так плохо понимаем носителей английского языка ? 🤔 Да потому, что они не произносят слова четко и ясно.Потому что о"
+    },
+    {
+      "id": "192e6754-9c91-4456-abec-9ff06a867181",
+      "name": "Диана Губарева",
+      "slug": "business-biz-205109-6cf5",
+      "reason": "has_service_signal",
+      "preview": "High Heels Beginners 👠 Starts August 4️⃣ Эта группа создана для тех, кто давно хотел попробовать High Heels, но не знал, с чего начать🙌 На"
+    },
+    {
+      "id": "cd0d431c-3621-4c7b-986b-1a3e7e09e789",
+      "name": "Александр",
+      "slug": "business-biz-180847",
+      "reason": "has_service_signal",
+      "preview": "Привет! Меня зовут Александр, я преподаватель по игре на гитаре Приглашаю на пробный урок по игре на Гитаре в ZOOM Для предзаписи напишите п"
+    },
+    {
+      "id": "b49be8d8-b858-4b98-865f-bf41dd0d80db",
+      "name": "Good Food International Market",
+      "slug": "batch2-good-food",
+      "reason": "has_service_signal",
+      "preview": "Восточноевропейский магазин · Mission Viejo · Google 4.5★ (63) Good Food · Eastern European Grocery Store Contact: Antonina Pavliuk Address:"
+    },
+    {
+      "id": "9e41b331-d2bc-4c94-9eb9-c147c77ed438",
+      "name": "Coastal Carts RMV",
+      "slug": "fbpack-coastal-carts-rmv",
+      "reason": "has_service_signal",
+      "preview": "Coastal Carts RMV · Golf Cart Repair & Maintenance Contact: Vlad Sulima Location: Corona, CA Phone: + Category: Automotive / Equipment Servi"
+    },
+    {
+      "id": "a0e13959-8064-45bd-b809-f5842fefb340",
+      "name": "Aiza M",
+      "slug": "aiza-m-181528-e5d8",
+      "reason": "has_service_signal",
+      "preview": "Привет 👋 Провожу онлайн-уроки английского языка. Работаю индивидуально — под каждого ученика своя программа и темп. Объясняю просто и понят"
+    },
+    {
+      "id": "aedd2210-4208-44e3-89da-10207a349808",
+      "name": "DL Express",
+      "slug": "dl-express-205556-c74a",
+      "reason": "has_service_signal",
+      "preview": "Консультации для тех, кто планирует уезжать из США, или если не тянете кредитную нагрузку! Если собираешься выезжать из США — дам подробную "
+    },
+    {
+      "id": "0ad2b0cf-1d98-45f6-9ad7-5d819c38610f",
+      "name": "Stephen Law PC",
+      "slug": "consolidated-stephen-law-pc",
+      "reason": "has_service_signal",
+      "preview": "Immigration law · AILA · Sacramento · Google 5.0★ (60) · ( Immigration Attorney · Eugene Stephen · Stephen Law PC Member: American Immigrati"
+    },
+    {
+      "id": "3bfbebd8-e757-41e4-ae58-87dc840377cf",
+      "name": "instagram.com",
+      "slug": "instagramcom-180917",
+      "reason": "has_service_signal",
+      "preview": "Всем привет! Открываю запись на фотосессии в апреле и мае ✨ В честь сезона выпусков действуют специальные цены для студентов, их друзей и ро"
+    },
+    {
+      "id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "name": "Unity Adult Day Health Care",
+      "slug": "business-5622520607-190801",
+      "reason": "has_service_signal",
+      "preview": "Дневной центр для пожилых · Long Beach · ( Unity Day Health Care is a day center for care and communication for seniors. We have created a w"
+    },
+    {
+      "id": "7fc8cd5d-15c9-42b6-acc7-78cf85a63cdb",
+      "name": "Вячеслав",
+      "slug": "business-biz-181515-e787",
+      "reason": "has_service_signal",
+      "preview": "Приветствую, меня зовут Вячеслав Я помогаю задержанным ICE и их семьям добиваться освобождения подачей Habeas Corpus в Федеральный суд Беру "
+    },
+    {
+      "id": "649f43f9-b1ef-493f-a45a-597c8c93f11f",
+      "name": "🔹 ИЩЕМ ОПЫТНЫХ КЛИНЕРОВ 🔹",
+      "slug": "business-biz-205139-be06",
+      "reason": "has_service_signal",
+      "preview": "🔹 ИЩЕМ ОПЫТНЫХ КЛИНЕРОВ 🔹 Клининговая компания в Sacramento, CA приглашает сотрудников с опытом уборки жилых домов. 💰 $22–30/час + чаевые"
+    },
+    {
+      "id": "450cbff6-f969-403d-9e95-b52cdb5faabf",
+      "name": "emphealthcare",
+      "slug": "emphealthcare-205158-d8dc",
+      "reason": "has_service_signal",
+      "preview": "Напишите им, они организовывают Можете сказать, что от Катерины - вдруг скидку сделают)) Напишите им, они организовывают Можете сказать, что"
+    },
+    {
+      "id": "8c200bb4-c4b0-4d9b-93b0-23de5e139a0e",
+      "name": "Оксана",
+      "slug": "business-biz-181509-88e4",
+      "reason": "has_service_signal",
+      "preview": "Меня зовут Оксана, я профессиональный косметолог с опытом 10+ лет. Процедуры: Чистка лица Массаж Пилинг Аппаратные процедуры И уход для здор"
+    },
+    {
+      "id": "6bd41d68-1c9a-4bcf-ae14-a2bad144870f",
+      "name": "Home Kids Academy",
+      "slug": "lana-cher-181512-6cf0",
+      "reason": "has_service_signal",
+      "preview": "Детская академия Home Kids Academy в Irvine: языки, спорт, музыка, Mini Medical. 22 мес.–6 лет. Home Kids Academy — детская академия в Irvin"
+    },
+    {
+      "id": "da0f7705-8345-4121-8c3a-d79345f0364a",
+      "name": "ZMD Aesthetics",
+      "slug": "zsaesthetics-190931",
+      "reason": "has_service_signal",
+      "preview": "Physician-led medical spa · Santa Ana · Google 4.9★ (19) · ( ZMD Aesthetics — physician-led medical spa в Santa Ana (Dr. Zarina Khabibulina)"
+    },
+    {
+      "id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "name": "Ultima Studio",
+      "slug": "tатьяна-032105",
+      "reason": "has_service_signal",
+      "preview": "Barber / hair studio · Costa Mesa · Google 5.0★ (161) Ultima Studio — barber / hair studio в Costa Mesa. Современный минималистичный зал, pr"
+    },
+    {
+      "id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "name": "Art Backyard",
+      "slug": "fbpack-art-backyard-design-camp",
+      "reason": "has_service_signal",
+      "preview": "Art & STEAM for kids · Tustin · Google 5.0★ (28) Art Backyard · Interior Design Camp Contact: Katia Bulgakova Category: Education / Kids Act"
+    },
+    {
+      "id": "355f9c46-fc75-4396-812b-8c4024a90934",
+      "name": "andy_topmassage",
+      "slug": "andytopmassage-205149-2d36",
+      "reason": "has_service_signal",
+      "preview": "Хочу поделиться опытом массажа — возможно, кому-то будет полезно. Работаю в офисе, много сижу, из-за этого появились зажимы в шее и боли в п"
+    },
+    {
+      "id": "0d560364-8b6d-4e78-a40d-7881c1b96645",
+      "name": "Alena Petrova Hair",
+      "slug": "alena-petrova-172203",
+      "reason": "has_service_signal",
+      "preview": "Парикмахер · West Hollywood · ( Hollywood House of Beauty offers a wide range of beauty services to help you find your perfect look. A licen"
+    },
+    {
+      "id": "410ba9ed-d8ec-48f5-b127-b8df7566c375",
+      "name": "$3.100 или $20.000?",
+      "slug": "3100-20000-204847-17ab",
+      "reason": "has_service_signal",
+      "preview": "$3.100 или $20.000? Разница между первоначальной оценкой страховой компании и реальной стоимостью ремонта после ДТП может быть огромной. Оче"
+    },
+    {
+      "id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "name": "AVELORÉA Fine Jewelry",
+      "slug": "телефон-032106",
+      "reason": "has_service_signal",
+      "preview": "Custom fine jewelry · Huntington Beach · Google 4.7★ (23) AVELOREA Fine Jewelry — custom engagement rings, wedding bands, fine jewelry и exp"
+    },
+    {
+      "id": "f368d14e-c024-4956-8550-f3fda6d8e15b",
+      "name": "valentinagab",
+      "slug": "valentinagab-205201-4d07",
+      "reason": "has_service_signal",
+      "preview": "делают качественно и недорого, работают на эко материалах 👌 делают качественно и недорого, работают на эко материалах 👌"
+    },
+    {
+      "id": "1a884ba2-c2fb-4607-b94b-d4fa1d5e6cdb",
+      "name": "Animal Clinic USA",
+      "slug": "animalclinicusa-190803",
+      "reason": "has_service_signal",
+      "preview": "⚠️ Пост-предупреждение о ветеринаре · Sherman Oaks · проверить вручную Девочки добрый вечер всем ! Хочу вас предостеречь 🤬от «ветеринара» ,"
+    },
+    {
+      "id": "1d23a81e-5c8b-4f2c-83c7-a1e63a58060d",
+      "name": "Skinovation Clinic",
+      "slug": "ida-seidova-150707",
+      "reason": "has_service_signal",
+      "preview": "Medical spa · Dr. Mo · Newport Beach · Google 5.0★ (64) Skinovation Clinic — medical spa в Newport Beach под руководством Dr. Hamid Modarres"
+    },
+    {
+      "id": "105c5d3e-2c68-4925-a542-f52f0b4f4b55",
+      "name": "ler_kassss",
+      "slug": "lerkassss-205206-2144",
+      "reason": "has_service_signal",
+      "preview": "Мы переводили с Лерой И она заверила у нотариуса Мы переводили с Лерой И она заверила у нотариуса"
+    },
+    {
+      "id": "691b530e-938a-41ae-97ec-553222375596",
+      "name": "tiana_abaza",
+      "slug": "tianaabaza-205205-53f5",
+      "reason": "has_service_signal",
+      "preview": "Я делала у Тани губы и брови выводила старый перманент. Очень рекомендую! Она делает супер качественно Я делала у Тани губы и брови выводила"
+    },
+    {
+      "id": "63b695f7-f771-49f8-9f6d-974805a61661",
+      "name": "Asiya Ahmadi",
+      "slug": "asiya-ahmadi-204845-c364",
+      "reason": "has_service_signal",
+      "preview": "🎉 ОТКРЫТИЕ NEROFIX RECOVERY CLINIC 🎉 Друзья, рады сообщить, что в Citrus Heights открылась новая клиника массажа и восстановления — NeroFi"
+    },
+    {
+      "id": "3988c537-d084-4bc2-bac4-bd3c96f1dca4",
+      "name": "ASL Detailing",
+      "slug": "asl-detailing-204826-93f7",
+      "reason": "has_service_signal",
+      "preview": "🚗 Всем привет! Предлагаю профессиональный мобильный детейлинг салона автомобиля в Сакраменто и ближайших районах. Приезжаю к вам домой или "
+    },
+    {
+      "id": "3f9b8ead-95f4-41bb-a267-fe265b0e1658",
+      "name": "KK Auto LLC",
+      "slug": "kk-auto-llc-204826-d946",
+      "reason": "has_service_signal",
+      "preview": "Автомобиль мечты с 0$ первым взносом — это реальность с KK Auto LLC! 🚗💨 Хотите новый автомобиль, но не хотите выводить крупную сумму из бю"
+    },
+    {
+      "id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "name": "B.E.A.R. Children's Academy",
+      "slug": "bearchildrensacademyorg-031831",
+      "reason": "has_service_signal",
+      "preview": "Academics + hands-on learning · Laguna Hills · Google 5.0★ (5) · ( B.E.A.R. Children's Academy — небольшие группы, академика и hands-on обуч"
+    },
+    {
+      "id": "49ede1f2-2aea-4630-82a0-c6ea33df92b6",
+      "name": "MA · childcare",
+      "slug": "ma-childcare-205612-768f",
+      "reason": "has_service_signal",
+      "preview": "Если кто-то находится в поиске детского сада, могу порекомендовать Westcliff Early Learning Academy в Ирвайне. Монтессори, отличная STEM про"
+    },
+    {
+      "id": "b11627c1-9443-4c23-be15-2d7c489a8cd0",
+      "name": "Ana Gonzalez",
+      "slug": "ana-gonzalez-204820-d61c",
+      "reason": "has_service_signal",
+      "preview": "Кто обожает путешествия и хочет завести новых друзей? **Собираем очередной девичник(** без ограничения по возрасту) на ПРОГРАММУ МЕЧТЫ с 5 п"
+    },
+    {
+      "id": "bd082099-3b37-43e8-ab25-7796f387c87d",
+      "name": "ZBear",
+      "slug": "zbear-205613-7547",
+      "reason": "has_service_signal",
+      "preview": "спасибо за ответ, как раз в geico и застраховался - переход оказался дешевле, чем добавлять сына в моей страховой. спасибо за ответ, как раз"
+    },
+    {
+      "id": "b46a8bc6-da9a-4d13-9be9-9b055edc6fb7",
+      "name": "Alla",
+      "slug": "alla-205619-082b",
+      "reason": "has_service_signal",
+      "preview": "В Мексике нет, но есть очень хороший доктор в Riverside, гинеколог от Бога , но не русский В Мексике нет, но есть очень хороший доктор в Riv"
+    },
+    {
+      "id": "9c2c1ba8-c377-4da6-9000-ec5a60d21830",
+      "name": "Ремонт моторов (Valley Blvd)",
+      "slug": "business-6197312653-172156",
+      "reason": "has_service_signal",
+      "preview": "Ремонт и замена двигателей · LA · ( РЕМОНТ МОТОРОВ • ДИАГНОСТИКА • ЗАМЕНА ДВИГАТЕЛЕЙ Профессионально восстанавливаем моторы любой сложности "
+    },
+    {
+      "id": "a4d29805-4195-4de4-8d69-3597926e389f",
+      "name": "репетитор #репетиторпоматематике",
+      "slug": "business-biz-205222-a632",
+      "reason": "has_service_signal",
+      "preview": "РЕПЕТИТОР ПО МАТЕМАТИКЕ 🇺🇸 Приветствую! Я - опытный репетитор по математике с многолетним стажем, готовый помочь вашему ребёнку достичь ус"
+    },
+    {
+      "id": "af5ae4e9-91ad-4fd2-bd59-8f1476aa147c",
+      "name": "Auto Body & Repair (Long Beach)",
+      "slug": "st-172208",
+      "reason": "has_service_signal",
+      "preview": "Кузовной ремонт EV & gas · Long Beach · ( Auto Body & Repair Shop in Long Beach EV & Gas Experts 1015 E Anaheim St, Long Beach, CA 90813 Cal"
+    },
+    {
+      "id": "fcccfd71-bb4b-4f9e-9c9f-011980f8fd57",
+      "name": "Передача аренды – The A.J. Apartments, Сакраменто",
+      "slug": "the-aj-apartments-205227-4761",
+      "reason": "has_service_signal",
+      "preview": "Передача аренды – The A.J. Apartments, Сакраменто Ищем человека, который сможет взять на себя аренду квартиры в The A.J. (251 6th Street, Sa"
+    },
+    {
+      "id": "75908193-bf8e-4039-ade4-c93b1015b573",
+      "name": "имплантациязубов",
+      "slug": "business-9163140203-204813-be8c",
+      "reason": "has_service_signal",
+      "preview": "Вчера звонил мужчина и рассказал о своей боли: «Я всегда прошу официанта принести что-нибудь мягкое…» Когда-то это было временным решением. "
+    },
+    {
+      "id": "37cc54c2-f831-4b65-92d7-294cb8b67cf8",
+      "name": "SkilledParsnip6805",
+      "slug": "skilledparsnip6805-204811-2bc8",
+      "reason": "has_service_signal",
+      "preview": "STARWAY TRUCK & TRAILER REPAIR — РЕМОНТ ГРУЗОВИКОВ И ПРИЦЕПОВ В САКРАМЕНТО! Нужен ремонт вашего truck или trailer? Мы готовы помочь! Ремонт "
+    },
+    {
+      "id": "bb4aa994-c104-472a-9461-395463024a97",
+      "name": "Collision Repair LA (Santa)",
+      "slug": "santa-172215",
+      "reason": "has_service_signal",
+      "preview": "Кузовной ремонт / страховки · LA · ( Автобадишоп в Лос-Анджелесе 🔧 Кузовной ремонт / collision repair LA ✔️ Работаем со всеми страховками ✔"
+    },
+    {
+      "id": "c472f9ae-785f-463c-a059-dc129305a521",
+      "name": "I❤️Montessori (Olga Semenova)",
+      "slug": "olga-daycare-imontessori-190759",
+      "reason": "has_service_signal",
+      "preview": "Montessori daycare 1–4 · Mission Viejo · license · от $2000/мес I❤️Montessori — лицензированный Монтессори-центр в Mission Viejo (Olga Semen"
+    },
+    {
+      "id": "172f3382-6ab6-4df4-a815-946e1fd37991",
+      "name": "Lev Kushner",
+      "slug": "lev-kushner-205253-0fa9",
+      "reason": "has_service_signal",
+      "preview": "ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ [ вылет из любого города США ЭКСКУРСИОННЫЕ ТУРЫ НА РУССКОМ ЯЗЫКЕ [ вылет из любого города США"
+    },
+    {
+      "id": "f4359146-12a5-42a3-ada6-ac665d8ca15e",
+      "name": "MK Motors",
+      "slug": "mk-motors-204808-4a00",
+      "reason": "has_service_signal",
+      "preview": "**MK Motors** **Всем привет!** Мы предоставляем услуги по оценке и урегулированию страховых случаев в Rancho Cordova. К нам приехала клиента"
+    },
+    {
+      "id": "d21f9248-7bce-4549-a5d5-2027a035165d",
+      "name": "Регистрация LLC",
+      "slug": "llc-172203",
+      "reason": "has_service_signal",
+      "preview": "Подготовка налоговых деклараций и регистрация компаний (CTEC License A353025 | NY License 13189644) • Индивидуальные и бизнес-декларации • Р"
+    },
+    {
+      "id": "d8ad2941-c5d2-4f88-8225-8a4fef53ac1e",
+      "name": "SofaClean AZ",
+      "slug": "анастасия-032106",
+      "reason": "has_service_signal",
+      "preview": "Химчистка мебели · Phoenix AZ · Google 5.0★ (227) SofaClean AZ — профессиональная химчистка мягкой мебели в Phoenix, Arizona. Eco-friendly с"
+    },
+    {
+      "id": "7228cc46-b6a8-45f2-8b83-5b3b5cb30ee7",
+      "name": "Есть зарегистрированная LLC",
+      "slug": "llc-204805-0168",
+      "reason": "has_service_signal",
+      "preview": "Всем добрый день! Ищу постоянную работу или подработку. Рассмотрю любые предложения: стройка, helper, moving, водитель, садовник, склад, физ"
+    },
+    {
+      "id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "name": "Metro Tech Academy",
+      "slug": "vika-borel-150706",
+      "reason": "has_service_signal",
+      "preview": "Онлайн школа программирования 9–17 · Python · Vika Borel Metro Tech Academy — онлайн школа программирования для детей 9–17 лет (преподавател"
+    },
+    {
+      "id": "be2e93ce-936a-4073-b4c5-7b6dd11bf8e0",
+      "name": "Title Company",
+      "slug": "title-company-205234-4c04",
+      "reason": "has_service_signal",
+      "preview": "Как заработать на земле в США: Land Flipping от поиска участка до продажи 🔥 Обычно эти стратегии дают только на закрытых воркшопах, но мы в"
+    },
+    {
+      "id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "name": "STAIR Academy",
+      "slug": "oksana-150709",
+      "reason": "has_service_signal",
+      "preview": "Robotics · AI · Python · ages 5–17 · Mission Viejo · Google 5.0★ STAIR Academy (Science · Technology · Artificial Intelligence · Robotics) —"
+    },
+    {
+      "id": "f7907794-0a7a-4534-b88f-f5dd989834b0",
+      "name": "Маке плов (Aibek)",
+      "slug": "aibek-172151",
+      "reason": "has_service_signal",
+      "preview": "Узбекская кухня / плов · Irvine · ( Make Pilaf offers delicious pilaf served with Achinuk salad and fresh bread. They also specialize in fla"
+    },
+    {
+      "id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "name": "your appointment at EVELINA BEAUTY SALON",
+      "slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "reason": "has_service_signal",
+      "preview": "Book your appointment at EVELINA BEAUTY SALON✨ 📲 Call: ( 📍Glendale 💄Makeup done by Mila. Price: $150 Evelina Beauty Salon offers professi"
+    },
+    {
+      "id": "9a28b437-3814-4e3d-afba-54fff50356bf",
+      "name": "Neptune Seafood",
+      "slug": "fbpack-neptune-seafood",
+      "reason": "has_service_signal",
+      "preview": "Рыба и икра · доставка LA 24.07 / SD 25.07 / OC 26.07 · заказ заранее · Karina · ( Выездная продажа морских деликатесов из Аляски. Seafood M"
+    },
+    {
+      "id": "1d94da10-79e3-405c-a1c6-32f0411c2abc",
+      "name": "Señor Doc",
+      "slug": "senor-doc-180946",
+      "reason": "has_service_signal",
+      "preview": "Оформление документов официально - CDL - Non-Domiciled/Limited-Term CDL - Driver License any category - DOT Medical - Car Title - Duplicates"
+    },
+    {
+      "id": "43d88222-8b27-4b4e-ab4c-920a9cc2112a",
+      "name": "Elvira S @mama_print",
+      "slug": "elvira-s-mama-print-150708",
+      "reason": "has_service_signal",
+      "preview": "Добрый день, дорогие родители! Сегодня у меня в библиотеке Мама ПРИНТ готовы яркие и увлекательные задания на весеннюю тему! Скачайте по ссы"
+    },
+    {
+      "id": "c7518754-d003-41c5-b793-8a15a3e90adc",
+      "name": "electrolysis_in_la",
+      "slug": "electrolysisinla-180841",
+      "reason": "has_service_signal",
+      "preview": "⚡️ЭЛЕКТРОЭПИЛЯЦИЯ Пожизненное удаление волос Частная практика. 🪪 Лицензия штата Калифорния ⸻ •Единственный метод, который научно признан по"
+    },
+    {
+      "id": "ae565eb5-e028-47e3-8857-24797388b6ee",
+      "name": "Daria Hovorun",
+      "slug": "daria-hovorun-205241-8dc1",
+      "reason": "has_service_signal",
+      "preview": "5’nizza в Сан Франциско — 12 февраля 2026. От первых харьковских квартирников до больших залов — четверть века пути, где голос, гитара и бит"
+    },
+    {
+      "id": "544067ec-6c7e-47d0-976b-7e8b193bedbb",
+      "name": "R R",
+      "slug": "r-r-181513-8b61",
+      "reason": "has_service_signal",
+      "preview": "Частный водитель в LA / Orange County Комфортные и спокойные поездки без лишнего стресса. Пунктуально, аккуратно, с вниманием к деталям. Нов"
+    },
+    {
+      "id": "cb9f639c-5bc6-4fd3-8fa4-05f5696762bc",
+      "name": "Svetlana K",
+      "slug": "svetlana-k-180918",
+      "reason": "has_service_signal",
+      "preview": "Дорогие девушки🌷 Кому нужны ПИЯВОЧКИ, будем рады, обращайтесь 😇 Есть в наличии в ЛА, также возможна доставка в ОС или почтой в любой штат."
+    },
+    {
+      "id": "fbe0d02e-fd22-4045-834e-2fa8c89208a7",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "slug": "oktel-181534-5dfb",
+      "reason": "has_service_signal",
+      "preview": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+    },
+    {
+      "id": "c0d00191-1576-470b-9dba-20c1fb0dadd6",
+      "name": "Слава Маршак",
+      "slug": "fbpack-slava-marshak-pet-relocation",
+      "reason": "has_service_signal",
+      "preview": "Международная перевозка животных · RU/EU ↔ USA · документы · легальный ввоз · Слава Маршак Слава Маршак · Pet Transport / International Pet "
+    },
+    {
+      "id": "9caea782-4e12-4d36-977d-5cfd918c17a2",
+      "name": "Teremok_homefood",
+      "slug": "teremokhomefood-180921",
+      "reason": "has_service_signal",
+      "preview": "Принимаю заказы на домашнюю еду с доставкой👩🏼‍🍳 Заморозка: - Котлеты (свино-говядина; курица) - Пельмени ручной лепки - Вареники ручной л"
+    },
+    {
+      "id": "c91a002f-d588-4c5c-99f9-70d4cbb30d43",
+      "name": "Tenina Law, Inc.",
+      "slug": "fb-post-28-tenina-law-inc",
+      "reason": "has_service_signal",
+      "preview": "Tax compliance services for cryptocurrency investments and transactions. Audits for crypto holdings and trading activity. Tax compliance ser"
+    },
+    {
+      "id": "0fa015de-a8f4-40eb-8a78-eac2a9bc7531",
+      "name": "SOFIIA",
+      "slug": "sofiia-180846",
+      "reason": "has_service_signal",
+      "preview": "Сдаю в аренду гидроциклы. Кого интересует — пишите в личные! Сдаю в аренду гидроциклы. Кого интересует — пишите в личные!"
+    },
+    {
+      "id": "001c2e46-6298-412e-8361-6b874f9a407f",
+      "name": "5 Star Appliance Repair",
+      "slug": "batch2-5-star-appliance-repair",
+      "reason": "has_service_signal",
+      "preview": "Same-day appliance repair you can trust. 20+ years fixing fridges, ovens, washers & dryers, all brands. Certified techs. Call 5 Star to book"
+    },
+    {
+      "id": "cecb27f7-0520-4537-9d51-e1e5b7dac0fb",
+      "name": "СММ ТАРГЕТ РЕКЛАМА США 🇺🇸 ОАЭ 🇦🇪",
+      "slug": "business-biz-180949",
+      "reason": "has_service_signal",
+      "preview": "🚨 Остались последние дни до дедлайна 15 апреля! Последняя неделя со скидками. 👩‍💼 Я Enrolled Agent (EA ), профессиональный бухгалтер. ✅ П"
+    },
+    {
+      "id": "af44239a-ed62-4b28-ae77-78bc80820799",
+      "name": "Mimoda Studio — «Высоцкий. Живой»",
+      "slug": "fbpack-danila-medvedev-vysotsky-zhivoy",
+      "reason": "has_service_signal",
+      "preview": "Спектакль · Mimoda Studio, 5774 W Pico Blvd · 24 июля Музыкально-пластический спектакль памяти Владимира Высоцкого. Диалог трёх художников ч"
+    },
+    {
+      "id": "bd490d98-d8c2-4e62-b509-6aac47a3d349",
+      "name": "Ирина",
+      "slug": "business-biz-181001",
+      "reason": "has_service_signal",
+      "preview": "🚗🚘🚘 Сдаю свои авто в аренду — недорого, без ограничений по пробегу! 🚗🚘🚘 Сдаю свои авто в аренду — недорого, без ограничений по пробегу"
+    },
+    {
+      "id": "489629f2-e037-4544-914b-71e10e303767",
+      "name": "ЕКАТЕРИНА",
+      "slug": "business-biz-180931",
+      "reason": "has_service_signal",
+      "preview": "Мечтаете, чтобы ваш бьюти-бизнес стал магнитом для клиентов? ❗️Я знаю, как превратить ваши соцсети (инстаграм, фейсбук, тик-ток, ютуб) в пол"
+    },
+    {
+      "id": "18691ab4-d897-43e6-899c-a382bb374848",
+      "name": "копирайтер",
+      "slug": "business-biz-180929",
+      "reason": "has_service_signal",
+      "preview": "Добрый день 👋 Я копирайтер, ищу заказчиков ✍️ Если мысль есть, а текст не складывается — то вам ко мне ✅ Пишу тексты для соцсетей, блогов и"
+    },
+    {
+      "id": "65605679-2cf2-4968-9a9b-320595df560c",
+      "name": "Ірина Капіцька",
+      "slug": "business-biz-180920",
+      "reason": "has_service_signal",
+      "preview": "Дівчата, ВИКЛЮЧНО СЬОГОДНІ і для учасників цієї групи! Я доставляю Mounjаro, Оzempic, Twincret та інші за адресою) Також, в мене спільнота б"
+    },
+    {
+      "id": "3c7aefef-aaf4-4c24-bc9a-06b8f986501a",
+      "name": "Vika sweet_bakery",
+      "slug": "vika-sweetbakery-180854",
+      "reason": "has_service_signal",
+      "preview": "Всем добрый день ! На Пасху будут доступны куличики с разными начинками и декором ручной работы . Нежные , сливочные пасхи из органических п"
+    },
+    {
+      "id": "bc9bded9-ff37-4e07-a8ca-61905470048c",
+      "name": "Art 4 Kids & Teens",
+      "slug": "consolidated-art4kidsandteens",
+      "reason": "has_service_signal",
+      "preview": "Арт-классы 5–16 · Mission Viejo · Google 4.9★ (33) · 1-й урок бесплатно Contact person: Natalie Shohdy Type: Business Subcategory: Art Class"
+    },
+    {
+      "id": "8c5132d3-0200-4f60-bfbf-28604769adef",
+      "name": "Баня от Алексея",
+      "slug": "consolidated-aleksey-carp-fishing-trip",
+      "reason": "has_service_signal",
+      "preview": "Рыбалка / баня · Lake Elsinore · ( Рыбалка на крупного карпа · «Баня от Алексея» Location: Lakeshore Dr, Lake Elsinore, CA 92530 Dates: заез"
+    },
+    {
+      "id": "2c49e794-878c-4860-a9fd-1b92f3de5891",
+      "name": "Grand Auto Group",
+      "slug": "grand-auto-group",
+      "reason": "has_service_signal",
+      "preview": "Кузовной ремонт · европейские авто · Santa Ana · Google 4.9★ (170) Grand Auto Group — автосервис и кузовной цех в Santa Ana, Orange County. "
+    },
+    {
+      "id": "1e17d81f-22c2-45dc-b449-ff99ffabfeba",
+      "name": "VIP Taxes",
+      "slug": "batch2-ksenia-andreychenko-taxes-vip",
+      "reason": "has_service_signal",
+      "preview": "Enrolled Agent · IRS/FTB · Woodland Hills · Google 5.0★ (13) · ( Taxes VIP · Ksenia Andreychenko Category: Accounting & Tax · Tax Preparatio"
+    },
+    {
+      "id": "f0acf9c0-4809-4344-9f12-a831bcff1a13",
+      "name": "Ʌ R L Ʌ N",
+      "slug": "r-l-n-181009",
+      "reason": "has_service_signal",
+      "preview": "Выезжаю в Coachella 🎆 из LA🏙️ Комфортная машина 2025г 🚗 Есть 4 места 🧑‍🧑‍🧒‍🧒 При необходимости могу подождать там до окончания \"Фести"
+    },
+    {
+      "id": "0007100c-7fa5-43dd-9fc0-b9365754a71f",
+      "name": "Al · auto_services",
+      "slug": "al-autoservices-181112-85de",
+      "reason": "has_service_signal",
+      "preview": "Рады сообщить об открытии Wizards Registration Services в Costa Mesa! 1617 Superior Ave, Costa Mesa, CA 92627 Mon-Friday 10:00AM - 4:00PM Те"
+    },
+    {
+      "id": "aac4f627-a911-4659-b3aa-82adec36446e",
+      "name": "no choice beauty studio",
+      "slug": "no-choice-beauty-studio-180954",
+      "reason": "has_service_signal",
+      "preview": "Девочки, привет! Ищем модель на маникюр гель завтра на 10:00 модель на маникюр в no choice beauty studio Бесплатно Хантингтон бич Желающие в"
+    },
+    {
+      "id": "ccf738ea-2e4d-4f85-a50a-b763acfb9173",
+      "name": "Svetlana Fedorova",
+      "slug": "svetlana-fedorova-205250-24e0",
+      "reason": "has_service_signal",
+      "preview": "😨 Как стать мастером тревожности: вредные советы, которые точно сработают! 😨 1️⃣ Проверяй телефон каждые 30 секунд. Вдруг там уже случилос"
+    },
+    {
+      "id": "bafe0d5b-c9ac-4538-a2db-ae2ab35c65f7",
+      "name": "Лидия",
+      "slug": "business-biz-180849",
+      "reason": "has_service_signal",
+      "preview": "🚕 Премиум-такси недорого и комфортно Меня зовут Лидия (Irvine / Mission Viejo, Orange County). Премиум-такси на Tesla Model Y: тихая, комфо"
+    },
+    {
+      "id": "a9384cd4-8a45-4ec9-97fa-23ebe295eed3",
+      "name": "Marshmallow Magic",
+      "slug": "batch2-yana-hodyniuk-marshmallow-magic",
+      "reason": "has_service_signal",
+      "preview": "Marshmallow Magic · съедобные букеты из зефира · подарочные наборы · доставка по всей США Marshmallow Magic — ручная работа Yana Hodyniuk. С"
+    },
+    {
+      "id": "54e0a828-7b5a-4a62-9c4e-0e3a09a64cec",
+      "name": "OC Dance Fit — Elizabeth Azamatov",
+      "slug": "fbpack-elizabeth-azamatov-oc-dance-fit",
+      "reason": "has_service_signal",
+      "preview": "Детские мастер-классы · танцы/театр · Perspektive Studio · SJC · ( OC Dance Fit — творческие мастер-классы для детей (Elizabeth Azamatov): т"
+    },
+    {
+      "id": "f1b7e83b-4f9d-4533-8327-0cef11f4c5e6",
+      "name": "Maria Inevatova",
+      "slug": "consolidated-maria-inevatova-beauty-space",
+      "reason": "has_service_signal",
+      "preview": "Аренда мест для мастеров · Tustin · 18062 Irvine Blvd Сдаются рабочие места для мастеров красоты. Contact: Мария Иневатова Category: Beauty "
+    },
+    {
+      "id": "60eb8001-580e-4288-b10a-c6a7cfc9fe30",
+      "name": "CaliBuilders",
+      "slug": "fbpack-calibuilders",
+      "reason": "has_service_signal",
+      "preview": "Construction, Home repair Home Services · Construction Recommendation Services: - Construction - Home repair Home Services · Construction Se"
+    },
+    {
+      "id": "b3f184ef-c052-4976-9a99-6c0d3f77fc4d",
+      "name": "Sasha Sorokina",
+      "slug": "sasha-sorokina-180912",
+      "reason": "has_service_signal",
+      "preview": "🎯 Английский с нуля или хочешь выйти на новый уровень? 7 лет преподавания. Любой уровень, онлайн, удобное время. Также: 🇩🇪🇫🇷🇪🇸. Грамм"
+    },
+    {
+      "id": "0dd07561-d635-43b2-8339-240e7316eb1e",
+      "name": "Smile Kids Party (Tsvang Co)",
+      "slug": "fedor-tsvang-234035",
+      "reason": "has_service_signal",
+      "preview": "Детские праздники от $250 · OC / SD / LA · ( Smile Kids Party (Tsvang Co) — аниматоры и шоу для детских дней рождения. Работают в Orange Cou"
+    },
+    {
+      "id": "08fc945b-963b-4ca1-b87c-068069af7e4c",
+      "name": "Ivan Handyman",
+      "slug": "enriched-llc-tsisar",
+      "reason": "has_service_signal",
+      "preview": "Handyman / construction · Tampa · ( Display name: Ivan Handyman Services: - House Painting - Interior Painting - Cabinet Painting - Laminate"
+    },
+    {
+      "id": "7b951600-84b3-46b2-942b-d68deda666b0",
+      "name": "Toyota Corolla Hybrid 2026 Rental",
+      "slug": "enriched-toyota-corolla-hybrid-2026-rental",
+      "reason": "has_service_signal",
+      "preview": "Car Rental Features: - Full insurance included - Apple CarPlay - Lane Keeping Assist - Parking Sensors - Backup Camera - Unlimited Mileage -"
+    },
+    {
+      "id": "416a0baf-6991-45cf-925a-6813fd58e573",
+      "name": "Yurii Avramenko",
+      "slug": "yurii-avramenko-205358-c281",
+      "reason": "has_service_signal",
+      "preview": "АНГЛІЙСЬКА МОВА 🇬🇧 ОНЛАЙН Мріяли вивчити англійську або покращити свій рівень? Школа BeBest запрошує прокачати знання легко та ефективно ✨"
+    },
+    {
+      "id": "0853d219-95d7-41a8-bc8d-e24f07b21666",
+      "name": "O M",
+      "slug": "o-m-205406-12c1",
+      "reason": "has_service_signal",
+      "preview": "😊 Я занимаюсь Face Painting 🎨 Рисую яркие и красивые рисунки для: 🎉 Дней рождений 🎈 Детских праздников 🎪 Ивентов и фестивалей 🦋 School"
+    },
+    {
+      "id": "194c530b-52e4-475a-9b8c-f99664c9e38b",
+      "name": "Тимофій Лоза",
+      "slug": "business-biz-205400-59ff",
+      "reason": "has_service_signal",
+      "preview": "🇬🇧 Англійська, яка стане частиною вашого життя! Запрошуємо дітей, підлітків і дорослих на онлайн-курси англійської мови. ✨ На вас чекає: \ud83d"
+    },
+    {
+      "id": "2d3bc28f-3222-4131-b58a-0d0d1a0a5219",
+      "name": "Sveetla",
+      "slug": "sveetla-205403-d7e2",
+      "reason": "has_service_signal",
+      "preview": "🇫🇷ФРАНЦУЗЬКА МОВА ОНЛАЙН Без перевантаження зайвою теорією. Без шаблонного підходу. З фокусом на реальне володіння мовою. Тільки системне "
+    },
+    {
+      "id": "ed0e7511-0cfd-449e-90d3-db1f93e9cfae",
+      "name": "BH · legal",
+      "slug": "bh-legal-181110-201e",
+      "reason": "has_service_signal",
+      "preview": "Мы помогаем Вам с открытием бизнеса в США🇺🇸, а именно : ✅Открываем разные виды компаний (LLC, Corporation) ✅Получаем номер налогоплательщи"
+    },
+    {
+      "id": "0605d94b-a254-4af5-a8b3-834ef166835a",
+      "name": "Nastya",
+      "slug": "nastya-180850",
+      "reason": "has_service_signal",
+      "preview": "🌸 ДЕНЬ МАТЕРІ | LIMITED DROP 🌸 Відкриваю невелику кількість десертів до цієї неділі 💛 Приймаю строго обмежену кількість замовлень — як ті"
+    },
+    {
+      "id": "62d6d018-37d0-48a5-9001-fc5fbd3623bc",
+      "name": "Hidjama🇺🇸",
+      "slug": "hidjama-205414-1f7f",
+      "reason": "has_service_signal",
+      "preview": "Ас-саляму алейкум ва рахматуллахи ва баракатуху, дорогие братья и сёстры 🤍 Напоминаем, что до 30 числа у нас действует акция -20%✨ Успейте "
+    },
+    {
+      "id": "00b94a99-8964-4f4b-8494-7d4920655c98",
+      "name": "Alessandra",
+      "slug": "alessandra-205417-7926",
+      "reason": "has_service_signal",
+      "preview": "Куличи - Паннетоне с зефирным декором. Много ароматных сухофруктов, много нежного клубничного зефира сверху. Основа- кулича дрожжевое тесто "
+    },
+    {
+      "id": "48734af1-d9b1-4918-944e-2228e85da28e",
+      "name": "маркетолог",
+      "slug": "business-biz-180944",
+      "reason": "has_service_signal",
+      "preview": "Всем привет! Я маркетолог, который приносит бизнесу реальные деньги 🔥 Как понять, что я тебе нужен? * Нет клиентов — разработаю стратегию и"
+    },
+    {
+      "id": "c6ffaa0c-4ddc-43ff-b839-447da7169ef2",
+      "name": "Ivan Gant",
+      "slug": "ivan-gant-205422-e414",
+      "reason": "has_service_signal",
+      "preview": "друзья! 😎✌🏼 Добро пожаловать на борт Иван Гант! Dj Ivan Gant 😎🎧🎵 (House music, hip-hop, pop, Old school songs, 80-х, 90-х) Музыка, кото"
+    },
+    {
+      "id": "4955de9c-91ea-4a76-bb69-91c19af1853a",
+      "name": "USA Legal 🇺🇸",
+      "slug": "usa-legal-205643-eb9d",
+      "reason": "has_service_signal",
+      "preview": "🇺🇦🤝 Політичний притулок у США для громадян України 🔥 Без передоплати! 😎 Досвідчені адвокати! 👉 Пишіть в ЛС для консультації 🇺🇦🤝 Пол"
+    },
+    {
+      "id": "bbeda8a0-36c1-4acc-9319-cdd7c6420265",
+      "name": "Olya Music teacher",
+      "slug": "olya-music-teacher-205418-dae7",
+      "reason": "has_service_signal",
+      "preview": "Приглашаю на занятия самых маленьких исполнителей- деток 3-6 лет! Если вы хотите, чтобы ваш ребенок мягко и с радостью вошел в мир музыки 💫"
+    },
+    {
+      "id": "1a4ed698-0d73-4448-9e89-4fbc3c1531c3",
+      "name": "V V",
+      "slug": "v-v-205427-f903",
+      "reason": "has_service_signal",
+      "preview": "Личный водитель | Orange County | 24/7 Если нужно спокойно и без нервов добраться по делам — могу помочь. Частный/личный водитель в Orange C"
+    },
+    {
+      "id": "c57f647a-2a01-4695-b8d4-0faeebdb39c0",
+      "name": "Андрій",
+      "slug": "business-biz-205518-8988",
+      "reason": "has_service_signal",
+      "preview": "Онлайн програмування для дітей (6+) — безкоштовний пробний урок. За 1 заняття дитина зробить свій перший міні-проєкт і зрозуміє, що комп’юте"
+    },
+    {
+      "id": "0b481780-f169-4901-b18c-3eb2394127f9",
+      "name": "Grigory",
+      "slug": "grigory-205456-de1c",
+      "reason": "has_service_signal",
+      "preview": "Поможем получить & продлить документы официально, оперативно и надежно нерезидентам - Non-Domiciled/Limited-Term CDL - DOT Medical - Driver "
+    },
+    {
+      "id": "681c2e81-a2fc-4a46-897a-9447491d10c8",
+      "name": "Virtualcopy",
+      "slug": "virtualcopy-205510-b736",
+      "reason": "has_service_signal",
+      "preview": "Печать ДЛ/СДЛ/Ворк/Грин карт и др. документов Доставка/встреча Качество как оригинал Обращайтесь в ЛС Печать ДЛ/СДЛ/Ворк/Грин карт и др. док"
+    },
+    {
+      "id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "name": "Mi Care Beauty",
+      "slug": "micarebeauty-190930",
+      "reason": "has_service_signal",
+      "preview": "Маникюр / педикюр · Tustin plaza · ( Всем привет! Я лицензированный мастер ногтевого сервиса в Калифорнии Предоставляю услуги маникюра и пед"
+    },
+    {
+      "id": "5ce45563-9f9d-492a-852f-d37987233c4f",
+      "name": "Artur Sh",
+      "slug": "artur-sh-205449-7381",
+      "reason": "has_service_signal",
+      "preview": "Саксофон, кларнет 🌺 Частные уроки 🌸 Любой возраст 🌺 Любой уровень 🎷 Саксофон, кларнет 🌺 Частные уроки 🌸 Любой возраст 🌺 Любой уровень"
+    },
+    {
+      "id": "995cb510-7518-4f2a-98c3-745cd8d9f47c",
+      "name": "agent of the west",
+      "slug": "agent-of-the-west-205502-23d3",
+      "reason": "has_service_signal",
+      "preview": "Добрый вечер! Ищем модель на маникюр gel X в салон красоты no choice на 11:00 Бесплатно Хантингтон Бич Подробности в лс Добрый вечер! Ищем м"
+    },
+    {
+      "id": "ce78673f-3d78-484b-ac79-b6efd4c938b0",
+      "name": "yummy_homemade_sweets",
+      "slug": "yummy-homemade-sweets-150641",
+      "reason": "has_service_signal",
+      "preview": "Принимаю заказы на торты и десерты – все готовлю только из качественных и натуральных продуктов. 📸 Больше моих работ в Instagram: 📍 Ирвайн"
+    },
+    {
+      "id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "name": "dr__modarres",
+      "slug": "dr-modarres-150637",
+      "reason": "has_service_signal",
+      "preview": "Пациентке была проведена процедура EZ Gel — PRF под глазами, а также увеличение губ с помощью dermal fillers 🤍 EZ Gel — PRF — натуральный п"
+    },
+    {
+      "id": "7a1f7307-af1d-402a-96b1-bd6a0faec838",
+      "name": "aike",
+      "slug": "aike-205508-990c",
+      "reason": "has_service_signal",
+      "preview": "Графический дизайнер. Создаю дизайны, логотипы, баннеры, и тд. Делаю фотошоп документов. Пишите в личку для подробностей Графический дизайне"
+    },
+    {
+      "id": "1a3d5bc4-e91f-48da-a0de-5619b7f182b5",
+      "name": "Сергей",
+      "slug": "business-biz-205526-b5d4",
+      "reason": "has_service_signal",
+      "preview": "Реклама для бизнеса в соцсетях. Опыт работы 3+ года 😉 Специализируюсь на рынках USA, Canada, UAE. Начинаю работу без предоплаты Предоставля"
+    },
+    {
+      "id": "0899cdab-ee7e-4fb9-8364-45909b187bd3",
+      "name": "BAD MAN",
+      "slug": "bad-man-205543-2dcc",
+      "reason": "has_service_signal",
+      "preview": "Завтра еду из Сан-Диего в Orange County в 03:30 pm Toyota Siena такси super дешёвый тариф Завтра в01:30 pm еду от union Station в Сан Диего "
+    },
+    {
+      "id": "d3ac2b05-a2b9-4e96-a58f-224adb7ae3a9",
+      "name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "slug": "диана-калифорнийская-психолог-сложности-в-отношени-032111",
+      "reason": "has_service_signal",
+      "preview": "Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог Диана, a psychologist, hypnologist, and body-ori"
+    },
+    {
+      "id": "2417fed3-85c9-476b-b842-8776df79bb55",
+      "name": "Eugene Stephen - Immigration Attorney",
+      "slug": "fb-post-31-eugene-stephen-immigration-attorney",
+      "reason": "has_service_signal",
+      "preview": "Immigration attorney services including case evaluation, asylum (political and religious), deportation defense, family immigration, intervie"
+    },
+    {
+      "id": "32dc09ea-6a59-4e03-8257-4e43fab1b879",
+      "name": "Regina Tax Preparer & Accountant",
+      "slug": "regina-tax-preparer-accountant-205523-5bc8",
+      "reason": "has_service_signal",
+      "preview": "Привет. Кому нужна подача персональной (или бизнес) декларации, обращайтесь, я бухгалтер, EA, могу подать декларацию в любой штат. 😊 Привет"
+    },
+    {
+      "id": "edbc1bd2-cd7a-4e28-97df-cb23b3773e9f",
+      "name": "Valentina",
+      "slug": "valentina-205558-0419",
+      "reason": "has_service_signal",
+      "preview": "🚀 Бизнес в логистике — запуск сегодня! Мы продаем MC и DOT под ключ — быстро, официально, без головной боли. 👉 Ждем на консультации 🚀 Биз"
+    },
+    {
+      "id": "1465affd-f950-42fe-a826-d97e44abd33f",
+      "name": "Touch of Europe Inc",
+      "slug": "touch-of-europe-inc-205127-f05a",
+      "reason": "has_service_signal",
+      "preview": "Дорогие одногруппники! Если вы еще не решили, что подарить себе или своим любимым на 8 марта (или просто в честь наступающий весны) приходит"
+    },
+    {
+      "id": "050ffffb-427e-40d3-92b5-208db5c22314",
+      "name": "Анастасия Войцехова",
+      "slug": "business-6505204379-204803-4bf1",
+      "reason": "has_service_signal",
+      "preview": "Всем привет! Я мастер ногтевого сервиса. Меня зовут Анастасия. Предоставляю услуги маникюра и педикюра в салоне по адресу: 📍 525 W Remingto"
+    },
+    {
+      "id": "62d8d561-5a41-481b-a5ec-41cb4d145a46",
+      "name": "58523 Yanaya",
+      "slug": "58523-yanaya-205530-1a13",
+      "reason": "has_service_signal",
+      "preview": "Набираю небольшую приватную группу коучинга для женщин, которые хотят выйти замуж за американца осознанно и выгодно, а не «как получится». Я"
+    },
+    {
+      "id": "ee3b40d9-5fbd-4bb1-92e7-fe8ea398e91a",
+      "name": "CryptoGolem",
+      "slug": "cryptogolem-205532-e4ec",
+      "reason": "has_service_signal",
+      "preview": "Групповые и индивидуальные тренировки для взрослых и детей, для любого уровня. Утренние и вечерние группы, занятия для женщин. Два зала в Ло"
+    },
+    {
+      "id": "08bf52d0-f4d2-49c1-a405-86e1761a02fc",
+      "name": "2 сочные шаурмы всего за $19.99",
+      "slug": "2-1999-204951-c2a7",
+      "reason": "has_service_signal",
+      "preview": "# 2 сочные шаурмы всего за $19.99 Идеальный повод собраться с другом, разделить обед с коллегой или просто устроить настоящий праздник живот"
+    },
+    {
+      "id": "2ea86edf-a8b5-47ae-a2c1-e86b9571c1f5",
+      "name": "Любов",
+      "slug": "business-biz-205545-f164",
+      "reason": "has_service_signal",
+      "preview": "Вітаю, Всіх! 😊 Якщо ви шукаєте унікальний та оригінальний подарунок для своїх близьких — зверніть увагу на наші персоналізовані глянцеві жу"
+    },
+    {
+      "id": "ecedd5a5-be54-4e45-83b1-57de17805d52",
+      "name": "Lena",
+      "slug": "lena-205257-4ea0",
+      "reason": "has_service_signal",
+      "preview": "​✨ Приглашаю на творческий вечер в Сакраменто! ✨ 📅 25 июля | Двери: 19:00 | Начало: 19:30 ​Что будет? 🎸 Живая музыка, 🎤 стендап и мой ден"
+    },
+    {
+      "id": "3cc20069-6116-44a0-8db2-15aa91bec2ae",
+      "name": "ExAl",
+      "slug": "exal-205603-c2d8",
+      "reason": "has_service_signal",
+      "preview": "Trader Joe’s урегулировал иск на $7,4 млн: как получить выплату - People. Сеть Trader Joe’s согласилась выплатить 7,4 миллиона долларов по к"
+    },
+    {
+      "id": "1edb8154-c1e5-4af7-936a-7c983c656444",
+      "name": "Nadia Papeka",
+      "slug": "nadia-papeka-205112-6407",
+      "reason": "has_service_signal",
+      "preview": "✨ Сдаётся отдельный кабинет в уютном салоне красоты ✨ 104 Lincoln Street, Suite 100, Roseville, CA 95678 Идеальное пространство для мастера,"
+    },
+    {
+      "id": "376c030e-10e6-4c0d-ad90-67e2da740821",
+      "name": "Valeriia",
+      "slug": "valeriia-205615-64b8",
+      "reason": "has_service_signal",
+      "preview": "Нам подняли через год на 110$, хотели на 150$, немного сторговались. Про то, что не возвращаются депозит не слышала. Но за компанию ничего п"
+    },
+    {
+      "id": "ffe6613e-9eed-4aac-b492-a675d3698bcb",
+      "name": "брекетами занимается. The Loft Dental Studio",
+      "slug": "the-loft-dental-studio-205618-9c86",
+      "reason": "has_service_signal",
+      "preview": "Я кажется и тут советовала Юлю Филипенка. Она терапевт и брекетами занимается. The Loft Dental Studio в Costa Mess Я кажется и тут советовал"
+    },
+    {
+      "id": "7c58ea6b-a321-40b2-873a-439e83f97310",
+      "name": "Kai - T",
+      "slug": "kai-t-205627-dea6",
+      "reason": "has_service_signal",
+      "preview": "Мы делали генеральную доверенность у Милы, отправляли в Россию что бы квартирные дела за нас кто-то решал. Так же перевод и апостиль для пос"
+    },
+    {
+      "id": "0634c0d7-575d-4283-ba8c-df7bd3e94784",
+      "name": "Irma Beauty Studio",
+      "slug": "irma-beauty-studio-204853-6b0a",
+      "reason": "has_service_signal",
+      "preview": "Идеальный цвет — это не просто окрашивание. Это работа мастера, который чувствует волосы и понимает, что подойдёт именно тебе. Меня зовут Ир"
+    },
+    {
+      "id": "fc7a7865-6aa3-45b2-9c7f-53ad1f5c6430",
+      "name": "Aiza M",
+      "slug": "aiza-m-205644-4aee",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Преподаю английский язык онлайн с индивидуальным подходом к каждому ученику. Хотите говорить свободно и уверенно? Напишите мне"
+    },
+    {
+      "id": "5c55ac36-fa4a-4b89-a3fe-5d99e257e149",
+      "name": "USA🇺🇲",
+      "slug": "usa-205738-5183",
+      "reason": "has_service_signal",
+      "preview": "🇺🇸Drivеr Licensе USA / Права DL, CDL без сдачи экзамена 🟢Официальный документ, без подделок 🟢 Любые проверки 🟢 Отзывы от клиентов 📍 По"
+    },
+    {
+      "id": "5afef8a0-9f47-43b2-98f3-cac62de60c4a",
+      "name": "Милена",
+      "slug": "business-biz-205650-46d3",
+      "reason": "has_service_signal",
+      "preview": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$ Ванночка для ног с солью обработка стопы "
+    },
+    {
+      "id": "7e2588c7-ec59-4e24-80c0-d9033e8070e3",
+      "name": "Yulia",
+      "slug": "yulia-205819-c741",
+      "reason": "has_service_signal",
+      "preview": "Когда я срочно искала гастроэнтеролога для сына, оказалось что вот так в срочном порядке только в ER. Очень забито все у этих врачей:( Если "
+    },
+    {
+      "id": "49ecd566-24ca-4ac2-ae97-8bfc18499d9d",
+      "name": "Aiza M",
+      "slug": "aiza-m-205715-2ce1",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте! Провожу занятия по английскому языку 🇺🇸🇬🇧 Объясняю на казахском, русском или полностью на английском — как Вам удобнее. Ес"
+    },
+    {
+      "id": "c036ad34-a75f-404c-a0ea-55138479fa56",
+      "name": "𝙤𝙠𝙩𝙚𝙡",
+      "slug": "oktel-205740-27a3",
+      "reason": "has_service_signal",
+      "preview": "Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин Сдам свои машины в рент, дешево, пишите в лс, есть несколько машин"
+    },
+    {
+      "id": "ec56b6a0-a3ea-4bab-974c-383429f3203d",
+      "name": "Yulia",
+      "slug": "yulia-205821-1987",
+      "reason": "has_service_signal",
+      "preview": "Таня Крутая! Мы у нее несколько раз заказывали торты , всегда чудесные! Таня Крутая! Мы у нее несколько раз заказывали торты , всегда чудесн"
+    },
+    {
+      "id": "d072e0b0-da7f-4ca7-8d34-4798cb1afe19",
+      "name": "SAida SAida",
+      "slug": "saida-saida-205654-def0",
+      "reason": "has_service_signal",
+      "preview": "Здравствуйте, друзья! 👋 OWAY Cargo теперь ещё ближе к вам в Лос-Анджелесе! 📍 Пункты приёма: North Hollywood — My Barber LA 5957 Laurel Can"
+    },
+    {
+      "id": "79a6dba4-0191-4e2b-8d59-9664a9810246",
+      "name": "Justin Cox",
+      "slug": "justin-cox-205709-efd1",
+      "reason": "has_service_signal",
+      "preview": "Изготовление CDL / DL 🪪 Доступны почти все штаты 🇺🇸 Читающийся barcode 🚛 Помощь при отказе в замене или продлении Прохождение верификаци"
+    },
+    {
+      "id": "6c175841-55eb-4b10-912e-1c59749540ef",
+      "name": "Базы, Услуги И Решения Для Вашего Проекта! Info По Ссылке",
+      "slug": "info-205758-0fab",
+      "reason": "has_service_signal",
+      "preview": "Всем доброго времени👋 Работа с данными, веб-разработка от лёгких ботов до сложных веб-приложений, написание скриптов и другие решения под в"
+    },
+    {
+      "id": "89b1e741-59eb-4d22-a66f-a08e88673216",
+      "name": "I M",
+      "slug": "i-m-205807-c490",
+      "reason": "has_service_signal",
+      "preview": "Нотариально заверенное согласие родителей на выезд ребёнка с бабушкой и дедушкой. Лучше оформить на русском и английском языках. Копия свиде"
+    },
+    {
+      "id": "a3ea487f-0201-4bb3-b595-d91ee8e75676",
+      "name": "Yulia",
+      "slug": "yulia-205816-d191",
+      "reason": "has_service_signal",
+      "preview": "Мы ходили на эриалс, не понравилось, ушли спустя пару месяцев. Заинтересованности в том что делают дети нет никакой, преподаватели - молоден"
+    },
+    {
+      "id": "b079f200-ba5f-4e1e-9a1e-2185095ec4b4",
+      "name": "Lana Cher",
+      "slug": "lana-cher-205647-957a",
+      "reason": "has_service_signal",
+      "preview": "Дорогие друзья! С радостью сообщаем, что в Irvine, в резиденции Northwood Point, ведёт набор детей детская академия Home Kids Academy! 📍 Ад"
+    },
+    {
+      "id": "a11cb281-4c82-41c1-924a-4399fef8ce6c",
+      "name": "Юлія",
+      "slug": "business-biz-205505-7df2",
+      "reason": "has_service_signal",
+      "preview": "УВАГА: відкрито набір на онлайн-курси іноземних мов 🌍 Доступні напрямки: англійська 🇬🇧, німецька 🇩🇪, французька 🇫🇷, іспанська 🇪🇸, і"
+    },
+    {
+      "id": "8c070874-3a01-47eb-b26a-9dd0ed58a26d",
+      "name": "Aida Khazieva | Виза талантов США | Грин карта | Косметолог | Иммиграция | PR",
+      "slug": "aida-khazieva-pr-205628-e4f9",
+      "reason": "has_service_signal",
+      "preview": "это правда супер✨ Я в США всего 1,5 года и эти встречи с МАК картами стали для меня большой поддержкой. Альбина очень тёплый человек и она р"
+    },
+    {
+      "id": "ddf5ce9b-78ea-4874-8736-5da8fd33f63e",
+      "name": "Christie V",
+      "slug": "christie-v-205345-fc04",
+      "reason": "has_service_signal",
+      "preview": "Переводчик на интервью в USCIS (Orange County, LA, San Diego, New York & New Jersey), консультирую по вопросам социальных программ. Опыт 5+ "
+    },
+    {
+      "id": "773d8dbb-a677-43f8-be25-34cecab7864a",
+      "name": "Nata Cali",
+      "slug": "nata-cali-205614-60c9",
+      "reason": "has_service_signal",
+      "preview": "Снимала и снимаю у этой компании, потому что они в ирвайне монополисты. Залог никогда не отдавали полностью, всегда находили, за что часть з"
+    },
+    {
+      "id": "8a7c7fd3-1f1c-4edc-9eab-804ed36d239a",
+      "name": "Licence Centre USA",
+      "slug": "licence-centre-usa-205512-a01b",
+      "reason": "has_service_signal",
+      "preview": "Помогу сделать стейтмент (изменить цифры/сделать с 0, удалить/добавить что-либо) 📄 Так же могу изменить что-либо на правах, билах, делаю лю"
+    },
+    {
+      "id": "f7d04941-1276-456f-80c3-a86f2044e679",
+      "name": "Анна Готочкина",
+      "slug": "business-biz-205431-6370",
+      "reason": "has_service_signal",
+      "preview": "🇺🇸 Понимаете английский, но боитесь говорить? Открыт набор на индивид. занятия Онлайн · 3 раза в неделю Оставьте “+” - назначим преподават"
+    },
+    {
+      "id": "2926ebb8-f020-4c2e-ac1b-73b46bf8c238",
+      "name": "Wonderland Salon",
+      "slug": "wonderland-salon-205355-7c07",
+      "reason": "has_service_signal",
+      "preview": "🎯 Интервью, которое может изменить всё — подготовьтесь к нему с уверенностью! YurMar Consulting помогает пройти интервью по убежищу (asylum"
+    },
+    {
+      "id": "d6fc222d-1ab1-4dfc-aa14-83b56f434ff9",
+      "name": "Tatiana Fgm",
+      "slug": "tatiana-fgm-205303-323e",
+      "reason": "has_service_signal",
+      "preview": "Я здесь делала несколько лет назад. Все прошло хорошо. Но по идее надо каждый год продлевать (мы не продлевали ничего) Нужно будет face time"
+    },
+    {
+      "id": "94d8ff42-fe48-48db-8d3a-5afec63367e0",
+      "name": "Анна Габедава",
+      "slug": "business-biz-205447-fe7c",
+      "reason": "has_service_signal",
+      "preview": "🇺🇸 Живете в США, но всё ещё не чувствуете себя уверенно на английском? Вы не одни ❤️ Очень многие иммигранты знают базовый английский, но "
+    },
+    {
+      "id": "72d9f6c7-0b93-4f0e-bb88-cac6bc84c228",
+      "name": "Tetiana Markova",
+      "slug": "tetiana-markova-205433-5527",
+      "reason": "has_service_signal",
+      "preview": "Привет! 😊 Не пугайтесь, если не найдете меня в IG или Fb ближайший месяц-два. Я взяла небольшую творческую паузу, чтобы переосмыслить, как "
+    },
+    {
+      "id": "7e2b42ec-b593-4390-9e93-dbea21c2cccd",
+      "name": "Ƥєđѫџʜѧ",
+      "slug": "business-biz-205424-2829",
+      "reason": "has_service_signal",
+      "preview": "💜 Скидка $15 для новых клиентов! Первые три педикюра — всего $55 / $40 ✨ Девочки, приглашаю вас на педикюр в уютной атмосфере 💅 Аккуратная"
+    },
+    {
+      "id": "5259acf4-8d66-4f9f-aa9a-60fbd5b39002",
+      "name": "Ірина",
+      "slug": "business-biz-205442-7364",
+      "reason": "has_service_signal",
+      "preview": "Я SMM-специалист Частичное ведение, разовая упаковка профиля с бесконечной поддержкой, полное ведение СММ специалист включает в себя ( веден"
+    },
+    {
+      "id": "7024cac1-0cfa-455b-a589-646bc0e1583c",
+      "name": "Evgeniya",
+      "slug": "evgeniya-205353-d9f7",
+      "reason": "has_service_signal",
+      "preview": "Десерты к 8 Марта 🌸 Весна начинается с нежности. С цветов. С тёплых слов. И, конечно, со сладких подарков. 8 Марта — это повод порадовать м"
+    },
+    {
+      "id": "ea58ecb8-8f77-43b1-bf4a-4440ce94e654",
+      "name": "Anna Ann",
+      "slug": "anna-ann-205316-c799",
+      "reason": "has_service_signal",
+      "preview": "Англійська, німецька та італійська мови онлайн для діток , підлітків та дорослих! Індивідуальні або групові заняття. Авторська програма та н"
+    },
+    {
+      "id": "89cdfb55-f18c-41cb-bdbf-bee7fea5735f",
+      "name": "Viktoriia 🇺🇦🇺🇸",
+      "slug": "viktoriia-205344-eec8",
+      "reason": "has_service_signal",
+      "preview": "💅 МАНИКЮР • ПЕДИКЮР • ЛАМИНИРОВАНИЕ РЕСНИЦ • ИНДИВИДУАЛЬНОЕ ОБУЧЕНИЕ Открыта запись на процедуры и индивидуальное обучение в West Hollywood"
+    },
+    {
+      "id": "c1839c33-38c7-459b-96eb-cc68b7c951fb",
+      "name": "Daria Sergutina",
+      "slug": "daria-sergutina-205330-888c",
+      "reason": "has_service_signal",
+      "preview": "Привет! Меня зовут Даша, и я преподаю английский уже более 20 лет. Последние 4 года я помогаю эмигрантам в США уверенно говорить по-английск"
+    },
+    {
+      "id": "13ef32f8-4378-4bd9-8288-926aba9cdd23",
+      "name": "Настя❤️",
+      "slug": "business-biz-205401-691e",
+      "reason": "has_service_signal",
+      "preview": "Приглашаю моделей на ламинирование ресниц, а также на коррекцию и ламинирование бровей! В связи с пополнением портфолио приглашаю моделей на"
+    },
+    {
+      "id": "9e1d4e89-fea6-4372-88df-f160e40eecf8",
+      "name": "Office",
+      "slug": "office-205354-a216",
+      "reason": "has_service_signal",
+      "preview": "🔥 NAVAT — HALAL СРЕДНЕАЗИАТСКАЯ КУХНЯ В LOS ANGELES 🔥 3 из 4 наших локаций работают до 4 утра! 🌅 ✅ Шаурма (курица, говядина) ✅ Бургеры и "
+    },
+    {
+      "id": "97d2caaa-56cd-4757-885e-e95fea9c2ea4",
+      "name": "Sunlit Pie | Осетинские пироги LA",
+      "slug": "sunlit-pie-la-205342-7e44",
+      "reason": "has_service_signal",
+      "preview": "🔥 ОСЕТИНСКИЕ ПИРОГИ В ЛОС АНДЖЕЛЕСЕ 🔥 Настоящие домашние осетинские пироги с большим количеством начинки и тонким нежным тестом ☀️ В меню:"
+    },
+    {
+      "id": "6548bc52-97d9-4764-99fa-cbb8fdacdb12",
+      "name": "Мувинг #MovingCompany #MoversX #Логистика #Переезды #Dispatc",
+      "slug": "movingcompany-moversx-dispatc-205320-b0e9",
+      "reason": "has_service_signal",
+      "preview": "🚚 **До сих пор управляете мувинговой компанией через звонки, сообщения и десятки разных чатов?** Пора работать по-другому. **MoversX** — со"
+    },
+    {
+      "id": "2eab151e-f3eb-4413-be34-b063357176ad",
+      "name": "Anonymous participant",
+      "slug": "anonymous-participant-205245-6c21",
+      "reason": "has_service_signal",
+      "preview": "🏡 Переуступка аренды — 2 комнаты + отдельная ванная в доме Сдаются 2 отдельные комнаты и 1 отдельная ванная комната в просторном 4-комнатно"
+    },
+    {
+      "id": "ed77a258-378a-491d-bf08-b29e4bbfc997",
+      "name": "semboko",
+      "slug": "semboko-205200-b4e0",
+      "reason": "has_service_signal",
+      "preview": "Хотела порекомендовать специалиста, возможно кто-то тут в поисках толкового исполнителя. ✨ Обсудить ваш текущий проект, рассмотреть систему,"
+    }
+  ]
+}

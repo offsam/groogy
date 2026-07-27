@@ -7,7 +7,7 @@ const BusinessMiniMapCanvas = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-40 items-center justify-center rounded-xl bg-slate-100 text-xs text-slate-400">
+      <div className="flex h-[8.5rem] items-center justify-center rounded-xl bg-slate-100 text-xs text-slate-400">
         Карта…
       </div>
     ),

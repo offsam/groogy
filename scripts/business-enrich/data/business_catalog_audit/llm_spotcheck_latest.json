@@ -1,0 +1,300 @@
+{
+  "model": "openai/gpt-4o-mini",
+  "n": 32,
+  "counts": {
+    "professional": 14,
+    "junk": 10,
+    "event": 3,
+    "business": 5
+  },
+  "results": [
+    {
+      "name": "Anna",
+      "slug": "anna-204932-e969",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed business place"
+      }
+    },
+    {
+      "name": "US VACATION",
+      "slug": "batch2-us-vacation",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "no address provided"
+      }
+    },
+    {
+      "name": "iam.ok.sana",
+      "slug": "iamoksana-205202-9fe5",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "instagram.com",
+      "slug": "instagramcom-180917",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "NorCal Wash Inc",
+      "slug": "norcal-wash-inc-204836-7cd5",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "Di · car_rental",
+      "slug": "di-carrental-205641-f5a7",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "not a service listing"
+      }
+    },
+    {
+      "name": "RK · car_rental",
+      "slug": "rk-carrental-181111-6371",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "no business place"
+      }
+    },
+    {
+      "name": "Mariia ✨",
+      "slug": "mariia-205350-08be",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "SacramentoRealtor #SacramentoRealEstate #MarketUpdate #Calif",
+      "slug": "sacramentorealtor-sacramentorealestate-marketupdat-204911-d39a",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "Darya",
+      "slug": "darya-205349-83d8",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "home studio not advertised as venue"
+      }
+    },
+    {
+      "name": "Anna Belous",
+      "slug": "anna-belous-205421-28f8",
+      "address": null,
+      "llm": {
+        "entity": "event",
+        "reason": "one-off event"
+      }
+    },
+    {
+      "name": "Treasure Rack San Diego",
+      "slug": "fbpack-treasure-rack-san-diego",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Новый beauty salon",
+      "slug": "beauty-salon-181011",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "no address"
+      }
+    },
+    {
+      "name": "Yagmyrov Atajan Credit Repair",
+      "slug": "yagmyrov-atajan-credit-repair-180956",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed business address"
+      }
+    },
+    {
+      "name": "Pavlo Rok",
+      "slug": "pavlo-rok-205105-181c",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Александр",
+      "slug": "business-biz-180847",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Ange",
+      "slug": "ange-205707-630e",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "Anonymous participant",
+      "slug": "anonymous-participant-205245-6c21",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "not a service listing"
+      }
+    },
+    {
+      "name": "Elena",
+      "slug": "fbpack-home-swimming-classes-elena",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "Nata Cali",
+      "slug": "nata-cali-205614-60c9",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Kostantin Strilets",
+      "slug": "kostantin-strilets-205053-8c38",
+      "address": null,
+      "llm": {
+        "entity": "junk",
+        "reason": "not a service listing"
+      }
+    },
+    {
+      "name": "Nastya",
+      "slug": "nastya-180850",
+      "address": null,
+      "llm": {
+        "entity": "event",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Volodymyr",
+      "slug": "volodymyr-181511-3927",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "Virtualcopy",
+      "slug": "virtualcopy-205510-b736",
+      "address": null,
+      "llm": {
+        "entity": "professional",
+        "reason": "no fixed public business place"
+      }
+    },
+    {
+      "name": "Grand Auto Group",
+      "slug": "grand-auto-group",
+      "address": "1409 E Warner Ave Suite A",
+      "llm": {
+        "entity": "business",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Бесплатная офисная комната (Encino)",
+      "slug": "inna-172218",
+      "address": "17547 Ventura Blvd",
+      "llm": {
+        "entity": "business",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Nadia Teterin",
+      "slug": "nadia-teterin-204759-1e1e",
+      "address": "4213 Leafmont way",
+      "llm": {
+        "entity": "junk",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Elena Garmazh FYSM Yoga Coach",
+      "slug": "elena-garmazh-fysm-yoga-coach-150712",
+      "address": "Sherman Oaks Recreation Center",
+      "llm": {
+        "entity": "event",
+        "reason": "one-off event"
+      }
+    },
+    {
+      "name": "Eugene Stephen - Immigration Attorney",
+      "slug": "fb-post-31-eugene-stephen-immigration-attorney",
+      "address": "2233 Watt Ave., Ste 295, Sacramento, CA 95825",
+      "llm": {
+        "entity": "professional",
+        "reason": "private person offering services without a fixed public business place"
+      }
+    },
+    {
+      "name": "AVELORÉA Fine Jewelry",
+      "slug": "телефон-032106",
+      "address": "5500 Bolsa Ave #130",
+      "llm": {
+        "entity": "business",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Good Food International Market",
+      "slug": "batch2-good-food",
+      "address": "25565 Jeronimo Rd Unit 2",
+      "llm": {
+        "entity": "business",
+        "reason": "short"
+      }
+    },
+    {
+      "name": "Sunrise Education Center",
+      "slug": "fbpack-sunrise-education-center",
+      "address": "2101 Business Center Dr Unit 110",
+      "llm": {
+        "entity": "business",
+        "reason": "short"
+      }
+    }
+  ]
+}

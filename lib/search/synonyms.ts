@@ -21,11 +21,36 @@ const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ["стоматолог", "стоматология", "dentist", "dental", "odontology"],
   ["сантехник", "сантехника", "plumber", "plumbing"],
   ["ресторан", "рестораны", "кафе", "restaurant", "restaurants", "cafe"],
-  ["автосервис", "авто", "mechanic", "auto", "car repair"],
+  ["автосервис", "авто", "mechanic", "auto", "car", "garage", "shop"],
+  [
+    "масло",
+    "масла",
+    "маслу",
+    "oil",
+    "oils",
+    "lube",
+    "смазка",
+  ],
+  ["шиномонтаж", "шины", "tire", "tires", "колёса", "колеса", "rim"],
   ["юрист", "адвокат", "lawyer", "attorney", "legal"],
   ["врач", "доктор", "клиника", "doctor", "clinic", "medical"],
   ["репетитор", "учитель", "школа", "tutor", "teacher", "school"],
   ["handyman", "хандимен", "мастер", "ремонт", "repair"],
+  // Typo forms (floring/floorin) live in spellcheck aliases, not here —
+  // otherwise "пол"/"tile" OR-expand from a typo and drown real flooring shops.
+  [
+    "flooring",
+    "floor",
+    "floors",
+    "hardwood",
+    "laminate",
+    "vinyl",
+    "плитка",
+    "ламинат",
+    "паркет",
+    "полы",
+  ],
+  ["рядом", "nearby", "near", "поблизости"],
 ];
 
 const LOOKUP = new Map<string, readonly string[]>();

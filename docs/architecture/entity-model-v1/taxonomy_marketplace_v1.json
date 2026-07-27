@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "name": "PLATFORM_TAXONOMY_V1",
+  "sources": [
+    "telegram",
+    "facebook_seed",
+    "published_business",
+    "import_review_items",
+    "PLATFORM_INFORMATION_ARCHITECTURE_V2",
+    "platform_taxonomy_v2.json"
+  ],
+  "rules": {
+    "max_depth": 3,
+    "one_primary_category_per_card": true,
+    "secondary_categories_max": 3,
+    "do_not_sum_telegram_and_import": true
+  },
+  "entity": "marketplace",
+  "max_depth": 1,
+  "primary_rule": "Goods / personal items. offer_kind handles free/wanted — also mirrored as categories for nav where data supports.",
+  "categories": [
+    {
+      "slug": "furniture",
+      "name_ru": "Мебель",
+      "name_en": "Furniture",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 95,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 95
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "kids",
+      "name_ru": "Дети",
+      "name_en": "Kids & baby",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 62,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 62
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "free",
+      "name_ru": "Отдам даром",
+      "name_en": "Free",
+      "description": "Giveaway; also offer_kind=giveaway.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 64,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 64
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "wanted",
+      "name_ru": "Ищу / куплю",
+      "name_en": "Wanted",
+      "description": "Seeking goods; also offer_kind=seek.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 38,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 38
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "clothing",
+      "name_ru": "Одежда",
+      "name_en": "Clothing",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 27,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 27
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "electronics",
+      "name_ru": "Электроника",
+      "name_en": "Electronics",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 21,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 21
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "home",
+      "name_ru": "Дом и техника",
+      "name_en": "Home & appliances",
+      "description": "Appliances + home goods.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 17,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 17
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "auto_parts",
+      "name_ru": "Автозапчасти",
+      "name_en": "Auto parts",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 29,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 29
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "vehicles",
+      "name_ru": "Автомобили",
+      "name_en": "Vehicles",
+      "description": "Cars for sale in classifieds; may later move to Vehicles entity.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 25,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 25
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "sports",
+      "name_ru": "Спорт",
+      "name_en": "Sports",
+      "description": "",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 10,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 10
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "other",
+      "name_ru": "Прочее",
+      "name_en": "Other",
+      "description": "Includes ~50% weakly tagged TG marketplace + 13 published without breakout.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 421,
+        "facebook_seed": 5,
+        "published": 13,
+        "import_queue_mixed": 767,
+        "signal": 439
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    }
+  ],
+  "filters_not_categories": [
+    "condition",
+    "price_range",
+    "negotiable",
+    "delivery",
+    "pickup",
+    "city",
+    "author_visibility"
+  ],
+  "merged_into_other_or_home": [
+    "tools",
+    "pets_goods",
+    "books_media",
+    "home_decor"
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "generated_at": "2026-07-26T23:17:19.550750+00:00",
+  "mode": "dry-run",
+  "needy_images": 285,
+  "candidates": 172,
+  "skip_reasons": {
+    "skip_facebook": 22,
+    "no_target": 91
+  },
+  "sample": [
+    {
+      "id": "0058dff5-c8ba-4f63-aa41-ea0032859d97",
+      "name": "Амина",
+      "author": "амена",
+      "target": {
+        "user_id": "1507581579",
+        "username": null,
+        "reason": "self_promo_author",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "020a0a43-8710-4d2f-acc6-2e7d56454e26",
+      "name": "Позвоните Татьяне",
+      "author": "Jane OC",
+      "target": {
+        "user_id": "952005511",
+        "username": null,
+        "reason": "item_telegram_contact",
+        "via": "item_contact"
+      }
+    },
+    {
+      "id": "0399dcc8-6f49-4091-9b3d-481c6982d48b",
+      "name": "diana_california",
+      "author": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "target": {
+        "user_id": "755850513",
+        "username": null,
+        "reason": "self_promo_author",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "042f8ee7-6673-45f5-8fce-52945fca7910",
+      "name": "Ange",
+      "author": "Ange",
+      "target": {
+        "user_id": "994364219",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "060b61e3-ff87-440c-b053-1a00d0b273d1",
+      "name": "evgeny_rezko",
+      "author": "Ирина К",
+      "target": {
+        "user_id": "340305153",
+        "username": null,
+        "reason": "item_telegram_contact",
+        "via": "item_contact"
+      }
+    },
+    {
+      "id": "066489b9-c8e5-45e3-a340-ed3594cfb289",
+      "name": "Igor Pchelintsev",
+      "author": "Igor Pchelintsev",
+      "target": {
+        "user_id": "450047493",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+      "name": "Larisa Grib",
+      "author": "Larisa Grib",
+      "target": {
+        "user_id": "5190886991",
+        "username": "la_aromaworld",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0ae2e921-99be-42da-8691-87cb580b36df",
+      "name": "The Village Spectrum",
+      "author": "Mariya Shostak",
+      "target": {
+        "user_id": "1094519163",
+        "username": null,
+        "reason": "self_promo_author",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0b48174e-d476-4ba2-b7c6-adf9e28bc4d7",
+      "name": "Bekbolat",
+      "author": "Bekbolat",
+      "target": {
+        "user_id": "5181739502",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "0d016684-5f9d-4d00-81ce-4639f2e5ef60",
+      "name": "Serena",
+      "author": "Serena",
+      "target": {
+        "user_id": "766021094",
+        "username": "SER_EN_A",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "1114fe23-6cfd-4d85-a31c-1eafa68929e1",
+      "name": "Кристина",
+      "author": "Kristina Berger",
+      "target": {
+        "user_id": "294821039",
+        "username": "kbergerusa",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "12c01256-6391-4b1d-9c28-cf6f8fb90221",
+      "name": "US Drive Services",
+      "author": "US Drive Services",
+      "target": {
+        "user_id": "8546075872",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+      "name": "Anna",
+      "author": "Anna",
+      "target": {
+        "user_id": "339463209",
+        "username": "anna_vyskrebets",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "192e2345-aca7-4972-a5c2-d8a78fd7f11f",
+      "name": "Милена",
+      "author": "Милена",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "1c0e1286-952f-4ec5-93b3-2ffd4bf9f764",
+      "name": "Cell",
+      "author": "Пиклбол в Ирвайне",
+      "target": {
+        "user_id": "8795558612",
+        "username": null,
+        "reason": "item_telegram_contact",
+        "via": "item_contact"
+      }
+    },
+    {
+      "id": "22d09ba7-c449-44f5-b840-3e2205520568",
+      "name": "Mila",
+      "author": "Mila",
+      "target": {
+        "user_id": "198684028",
+        "username": "lussiena",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "235c20b5-9b61-4001-bba4-87eca9ce857a",
+      "name": "Таисия Шаповалова",
+      "author": "Taюшка",
+      "target": {
+        "user_id": "5358379761",
+        "username": "Capytaytay",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "276df65d-f0e3-423c-af29-e53a122e2b74",
+      "name": "regyminate",
+      "author": "Елена Горбунова",
+      "target": {
+        "user_id": "806465852",
+        "username": null,
+        "reason": "item_telegram_contact",
+        "via": "item_contact"
+      }
+    },
+    {
+      "id": "27c054bf-0862-4bc3-bbb1-720bed88f73a",
+      "name": "Angelina",
+      "author": "Angelina",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb",
+      "name": "Valeriia Soldatchenkova",
+      "author": "Valeriia Soldatchenkova",
+      "target": {
+        "user_id": "6583487058",
+        "username": "ler_kasss",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2d3a1db0-44aa-492c-b003-843b503a3ba8",
+      "name": "Roman",
+      "author": "Roman",
+      "target": {
+        "user_id": "8266974618",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2ed8aa52-fa43-46c6-88ee-dde60294705b",
+      "name": "Anastasiya",
+      "author": "Anastasiya",
+      "target": {
+        "user_id": "475321329",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2f94a0b5-ca75-4551-a43a-b6733b363e6c",
+      "name": "Женя",
+      "author": "Женечка",
+      "target": {
+        "user_id": "860330122",
+        "username": null,
+        "reason": "self_promo_author",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "2fe01c67-888a-4719-88ef-22bac7ebd0b3",
+      "name": "Альбина",
+      "author": "Альбина",
+      "target": {
+        "user_id": "1083507658",
+        "username": "albinapsychologist",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "31c1ae56-801f-4e65-8d6d-7e71f381dbe8",
+      "name": "Кристина Орлова",
+      "author": "Кристина Орлова",
+      "target": {
+        "user_id": "697127088",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "32186ac8-f9e6-488b-ab6e-20c028b34cd5",
+      "name": "Valeriia",
+      "author": "Valeriia",
+      "target": {
+        "user_id": "5553935073",
+        "username": "valvivi666",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "33c5fa05-818a-451f-adc9-fe63f3b2fe3e",
+      "name": "Angelina",
+      "author": "Angelina",
+      "target": {
+        "user_id": "6727605660",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "name": "Sandrina Rudenko",
+      "author": "Sandrina Rudenko",
+      "target": {
+        "user_id": "488377934",
+        "username": "Sandra_kisss",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "34885484-8818-479d-a9e2-2bc3c2aa2073",
+      "name": "Милена",
+      "author": "Милена",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "36e1ca84-e3dd-4226-8873-625c2be9d4db",
+      "name": "Аня Таран",
+      "author": "Аня Таран",
+      "target": {
+        "user_id": "744801476",
+        "username": "taran_anna1",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3b4be5f6-dcdd-470c-b42e-07f7098543de",
+      "name": "Alina ‍",
+      "author": "Alina ‍",
+      "target": {
+        "user_id": "672372776",
+        "username": "adelin9999",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3b94799c-49a4-4c0a-9985-e50b78bd33c1",
+      "name": "Stanislav Kuznetsov",
+      "author": "Stanislav Kuznetsov",
+      "target": {
+        "user_id": "446918469",
+        "username": "stankuz77",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3ba6d992-92af-4626-81ce-0f7475391fd8",
+      "name": "Angelina",
+      "author": "Angelina",
+      "target": {
+        "user_id": "884061891",
+        "username": "Angnna5524",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3d5630b0-b72c-4425-8a6b-cc39a44c952f",
+      "name": "Милена",
+      "author": "Милена",
+      "target": {
+        "user_id": "8142442724",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "3e487161-67d1-4038-9da1-1de9247abfe9",
+      "name": "Камила",
+      "author": "Камила",
+      "target": {
+        "user_id": "1943094171",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "434ec733-33e4-465b-b95f-5508cd4b361d",
+      "name": "Roman",
+      "author": "Roman",
+      "target": {
+        "user_id": "7692997198",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "44ac3baa-c837-4aa8-9e21-7d0745fb5179",
+      "name": "Lena",
+      "author": "Lena",
+      "target": {
+        "user_id": "642587600",
+        "username": "lena_usa_russia",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "44d1d688-605a-4d37-bfc3-3a032e89a46b",
+      "name": "Phone",
+      "author": "Atajan Yagmyrov",
+      "target": {
+        "user_id": "1827855160",
+        "username": "atajan_yagmyrov777",
+        "reason": "telegram_handle_match",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "45688ff9-209e-431b-84af-ea4b53959291",
+      "name": "hammond_cpa",
+      "author": "Anna Hammond, CPA",
+      "target": {
+        "user_id": "895489623",
+        "username": null,
+        "reason": "name_compatible",
+        "via": "import_author"
+      }
+    },
+    {
+      "id": "45ac36ae-4ee2-48a0-826d-753920c1b412",
+      "name": "facial_massage_oc",
+      "author": "Anna",
+      "target": {
+        "user_id": "363760902",
+        "username": null,
+        "reason": "item_telegram_contact",
+        "via": "item_contact"
+      }
+    }
+  ]
+}

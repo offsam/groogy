@@ -341,6 +341,8 @@ export async function createListingDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
+      source_kind: "platform",
+      source_url: null,
     })
     .select("id")
     .single();
@@ -570,6 +572,8 @@ export async function createServiceDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
+      source_kind: "platform",
+      source_url: null,
     })
     .select("id")
     .single();
@@ -906,6 +910,8 @@ export async function createTransferDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
+      source_kind: "platform",
+      source_url: null,
     })
     .select("id")
     .single();
@@ -1133,6 +1139,8 @@ export async function createLechuDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
+      source_kind: "platform",
+      source_url: null,
     })
     .select("id")
     .single();

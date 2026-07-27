@@ -1,0 +1,3478 @@
+{
+  "matches": [
+    {
+      "item_id": "024647d2-a4f5-4a4f-8918-b52aa8dc3555",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "02a48ed7-d669-4df9-98c9-1e11ce1baa01",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "03873a4d-49c0-473e-8257-376313d0743f",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0466275c-966c-4ded-baef-80f5455bdeb8",
+      "item_title": "Mila",
+      "business_id": "ca2f0d24-4e05-42a6-9fe3-cc0b07d3964c",
+      "business_name": "Oksana Moskvitina",
+      "business_slug": "oksana-moskvitina-234034",
+      "match": "phone:+18186491772|soft_unique",
+      "occurrence_count": 13
+    },
+    {
+      "item_id": "04672b82-6747-4819-b7cd-c24ff1a3bd41",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "04a3a7af-a060-4e07-8e43-f4bf9441423c",
+      "item_title": "🔥 Скидка $28,580 на новый таунхаус! 🔥 📍 Pomona, CA 🏡 3 спаль…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "063a5165-ccba-4aad-9fde-5077382584b4",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "064bb7fa-e21f-401d-ac48-206cd791bc17",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "06bf4bee-43f7-4af7-bdf3-558ca4f52117",
+      "item_title": "🔥 Ставка 4.99% на покупку своего дома в Los Angeles County 🔥…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "06c491e2-1747-41f5-80df-2ee35201664f",
+      "item_title": "🔥 Ставка 4.99% на покупку своего дома в Los Angeles County 🔥…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "07a12cc8-974d-4a84-b9c2-87d538e3cfb5",
+      "item_title": "EV REPAIR",
+      "business_id": "af5ae4e9-91ad-4fd2-bd59-8f1476aa147c",
+      "business_name": "Auto Body & Repair (Long Beach)",
+      "business_slug": "st-172208",
+      "match": "phone:+14243555775|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "08076e5e-1790-47aa-8014-a85b1441af26",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "08fb08e3-d0a7-41e3-a92a-c68861f371e1",
+      "item_title": "Old School",
+      "business_id": "8ba2dd09-1513-486a-ad70-181a0341dcd7",
+      "business_name": "Old school",
+      "business_slug": "old-school-172202",
+      "match": "name:old school",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "09b51b8b-d278-4de9-b895-5c0d66ffb9ca",
+      "item_title": "Igor Green",
+      "business_id": "5761466b-eacf-4854-ad78-a484ce5fe31d",
+      "business_name": "Igor Green - Business Licensing Protection",
+      "business_slug": "fb-post-23-igor-green-business-licensing-protection",
+      "match": "phone:+19492261519",
+      "occurrence_count": 10
+    },
+    {
+      "item_id": "09bec863-bed0-4657-b7e4-4b6c65779c50",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0a9a0ba0-84fc-4907-bc4a-46c57495fc2d",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0b463c2c-d3e6-4fff-8ef9-7ec2ec231ded",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0b88c1cc-b5dd-451e-8ffe-609b599f498c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0bab259a-1cfe-44be-ad40-231112ab7094",
+      "item_title": "Если вы получили уведомление о начале аудита или запрос от I",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "0c2a1619-6084-43f0-9a05-f17070948229",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0e17a222-de74-440e-9266-60a87839182e",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0eadc758-425c-4173-a67c-23b99df48ffc",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0eb765a8-e0e4-4e6d-848e-aea736a55b1b",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "0fb46cf3-9552-4b41-9b04-d5db474f912e",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1004e1a7-388f-43f6-98ff-940db50c63b1",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "104b8e49-38f9-4dc8-9f6d-0e962eaaff21",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "10877810-2773-405d-bd7b-1529efadd086",
+      "item_title": "🔥 $39,750 первоначальный взнос за своё жильё в Long Beach 🏡…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "10d1ac77-4c61-40db-90ab-65a75222b264",
+      "item_title": "Evelina Klchyan",
+      "business_id": "f8ba1f7a-e9f9-4064-aa39-0611545fef04",
+      "business_name": "your appointment at EVELINA BEAUTY SALON",
+      "business_slug": "your-appointment-at-evelina-beauty-salon-171748",
+      "match": "phone:+14244084040|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "1235ab5d-759a-43a3-9dca-fe718d296669",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "131254d3-0da3-4c63-8704-4a5ab0a6d89e",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1389ee3c-eac7-4a6a-b939-1ea6c83b5181",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "13960e27-2ad7-4083-9ed1-fe484a09b8ae",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "14166f4e-da9d-4ac4-8732-a48a72e808f2",
+      "item_title": "oly_cake",
+      "business_id": "f535c259-63ae-4cfe-a0d9-a8f84e3e1cde",
+      "business_name": "23peony",
+      "business_slug": "23peony-150632",
+      "match": "instagram:@23peony|soft_unique",
+      "occurrence_count": 42
+    },
+    {
+      "item_id": "144174e2-d80c-4491-acb2-a29d74c44020",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1501af17-c6ff-4a97-b8b8-1f308f36e5a8",
+      "item_title": "‼️Ипотека под 3.99%‼️на таунхаус в Orange County. Anaheim, т…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "15615073-052b-4e04-87d3-f0c948e342c6",
+      "item_title": "Ребята, всех жду на Open House в это воскресенье, 12 июля! 🏡…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "156f0827-63e2-4a27-8cff-6f6664f0c1ba",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "15bac390-9133-4454-ad13-1856eada6e2e",
+      "item_title": "‼️Ставка 3.99% по ипотеке‼️ Таунхаус в Orange County, Placen…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "16e6490d-17a1-4da8-b695-6d28dcb58332",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1715fb08-c387-468d-9e35-b9ceb38c26c6",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1740b377-685a-491d-afec-bb25c8184195",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "17fda860-94da-4b30-a1cc-e2ca76ec19f4",
+      "item_title": "🏡 Самое доступное кондо в Orange County — всего за $280,000!…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "180df186-3153-42cf-8203-6c1a79d6e2b8",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "18123eeb-6c41-47c7-8164-f43fb93fd1a5",
+      "item_title": "pastry_kolesnikova",
+      "business_id": "4d6e63f8-8a2b-4eff-ab7c-ccc69c25df0c",
+      "business_name": "Julia Kolesnikova",
+      "business_slug": "fbpack-julia-kolesnikova",
+      "match": "instagram:@pastry_kolesnikova|soft_unique",
+      "occurrence_count": 33
+    },
+    {
+      "item_id": "18fad380-efe5-4889-a358-ffc000c07e16",
+      "item_title": "🔥 Open House в эту субботу, 18 июля, с 2:00 до 4:00 PM! 💰 От…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1a6e3fb9-1e32-42ba-b168-ba510f5cabde",
+      "item_title": "Открытие LLC",
+      "business_id": "62902e52-9474-4357-a1c6-86657c570ef3",
+      "business_name": "Открытие LLC",
+      "business_slug": "llc-172201",
+      "match": "name:открытие llc",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "1ac3c9b3-12da-480c-8b62-b6066fd15a18",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1ae92698-56ee-434c-8038-55a2eedfd9a0",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1aeea76a-2fd1-4b73-8768-c79aecc79ba8",
+      "item_title": "beautystudio_by_veronika",
+      "business_id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+      "business_name": "Beauty Studio by Veronika",
+      "business_slug": "beauty-studio-by-veronika",
+      "match": "instagram:@beautystudio_by_veronika|soft_unique",
+      "occurrence_count": 3
+    },
+    {
+      "item_id": "1c621710-749f-401c-9133-7a7c423872d5",
+      "item_title": "Anastasiya Posashenko",
+      "business_id": "c9188109-6310-4467-9608-74cebe29d8c9",
+      "business_name": "Anastasiya Posashenko",
+      "business_slug": "anastasiya-posashenko-150711",
+      "match": "name:anastasiya posashenko",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "1c6ed9b2-faa9-4291-a607-f8df682f3fb1",
+      "item_title": "high school",
+      "business_id": "63ac1261-f77b-43bf-b60d-90196b868a91",
+      "business_name": "high school",
+      "business_slug": "high-school-180942",
+      "match": "name:high school",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1cc365bb-d292-4856-bf80-56e6b2f58d45",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1cdd3328-7d96-4a59-869b-664471a32a3c",
+      "item_title": "Tina Chzhao",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 4
+    },
+    {
+      "item_id": "1d2ddac9-1c90-4b5f-b453-1c091bcbe3c8",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1d72a426-d685-4336-8dac-58f30277e4c5",
+      "item_title": "‼️Ипотека под 3.99%‼️на таунхаус в Orange County. Anaheim, т…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1df45ff0-d519-42f6-922a-418754873e6e",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "1ec0ccd5-40b1-49c5-a165-72da2ed6cef0",
+      "item_title": "В Unity Adult Day Health Care мы создаём не просто уход, а н…",
+      "business_id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "business_name": "Unity Adult Day Health Care",
+      "business_slug": "business-5622520607-190801",
+      "match": "phone:+15622520607",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "21040a80-12e6-4649-ab21-09c68b68e29d",
+      "item_title": "🏡 Покупка vs аренда — похожие ежемесячные платежи ПОКУПКА Ко…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "214071ce-d402-43c2-ac56-6039f1467915",
+      "item_title": "high school",
+      "business_id": "e3502be1-47bd-4469-8ad1-818bb76d7c60",
+      "business_name": "rusoc.com",
+      "business_slug": "rusoccom-190759",
+      "match": "phone:+19493942218|soft_unique",
+      "occurrence_count": 4
+    },
+    {
+      "item_id": "227ed8b7-1c6c-44f3-adea-021144dcf781",
+      "item_title": "Esencia Middle School",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2303bd29-2ef6-4135-8cf6-a943d831c898",
+      "item_title": "Santa Ana открылась новая эстетическая клиника",
+      "business_id": "da0f7705-8345-4121-8c3a-d79345f0364a",
+      "business_name": "ZMD Aesthetics",
+      "business_slug": "zsaesthetics-190931",
+      "match": "phone:+16574529754|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "23e30708-831c-4a64-a021-162425692fd9",
+      "item_title": "рядом кафе",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "245d2247-cd17-4b40-a327-ae57c16b7b91",
+      "item_title": "Anastasiia",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "25bc183a-9c30-4a04-adaf-aec20e8a15bc",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "271ae1e2-1a93-4f16-8360-de53d72895f1",
+      "item_title": "Estate Agency License",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "27da0430-f050-4f45-81e8-36bbaa28fee8",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "28b11fb6-7f35-4b30-bbcf-bf93ba6eaf86",
+      "item_title": "🏡 Покупка vs аренда — похожие ежемесячные платежи ПОКУПКА Ко…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "28b68777-566d-4c83-baa5-882f2d148fce",
+      "item_title": "Lana Janew",
+      "business_id": "88c3df9b-a209-4fc7-b740-a07c69e927b9",
+      "business_name": "Lana Janew",
+      "business_slug": "lana-janew-190946",
+      "match": "name:lana janew",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2901bb82-3be0-4347-a5dc-6e92a8180252",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2a12267d-dfb8-4ce9-9662-1255cd867507",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2acce833-8840-4b2d-942f-f3f675b75c77",
+      "item_title": "Снежана",
+      "business_id": "651e3efc-b361-4256-8cfd-3908c06209a0",
+      "business_name": "1touch_massage",
+      "business_slug": "1touch-massage-150700",
+      "match": "instagram:@1touch_massage|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2c6c4936-1dee-4d26-acbf-f251ed175e4d",
+      "item_title": "🔥 Open House — уже в это воскресенье, 5 июля | Rancho Missio…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2cd422e7-2555-4365-b26b-da54815de6a7",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2cdbd321-2a99-433b-a0d0-35dd9bf89686",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2ce966a5-a259-4462-b49c-79d7011535bd",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2d202aeb-e7ac-4654-b4fb-be13e1fcc189",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2d38b34a-4cac-4fae-92f9-9541e0a3c6dd",
+      "item_title": "Vorontsovaart",
+      "business_id": "a04e4990-a5cb-468e-8dfe-7686abd8f815",
+      "business_name": "Vorontsovaart",
+      "business_slug": "vorontsovaart-190935",
+      "match": "name:vorontsovaart",
+      "occurrence_count": 32
+    },
+    {
+      "item_id": "2d53a5a6-b8e8-48fa-8451-0ea5412fe5fb",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2d8bd2ef-111a-4875-be40-e37c64133278",
+      "item_title": "Влад",
+      "business_id": "cdae1b77-c27d-4de2-9e88-67bedc594c71",
+      "business_name": "Arvian Law Firm LLC",
+      "business_slug": "arvian-law-firm-llc-172214",
+      "match": "phone:+12136490001|soft_unique",
+      "occurrence_count": 16
+    },
+    {
+      "item_id": "2d8ceb50-fb5a-4ec4-980c-176e637462b6",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "2efa260a-bf25-4271-a925-50bda4eb7b6f",
+      "item_title": "Olga Loginova, Lifespringhomeopathy.com",
+      "business_id": "c3ece1cd-0e17-4cbb-b887-dbd14023319e",
+      "business_name": "Olga Loginova, Lifespringhomeopathy.com",
+      "business_slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "match": "name:olga loginova lifespringhomeopathy com",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "311e46fa-f73e-40bc-b044-49e1267ecaea",
+      "item_title": "Unity Day Health Care — место для пожилых людей, где забота…",
+      "business_id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "business_name": "Unity Adult Day Health Care",
+      "business_slug": "business-5622520607-190801",
+      "match": "phone:+15622520607|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "3126dc40-4351-45bd-a965-dedada5edf5c",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "31d8b902-e6f5-429d-9ca3-3acc8b8d413f",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "332d9e56-243f-4404-a65e-6503994408ae",
+      "item_title": "3.375% ипотечная ставка на свой дом в Калифорнии 🤩 📍 Jurupa…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "33f6cf21-1817-4e27-bddd-60f03193d138",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3431a88f-318e-401a-965e-ef339bd41fb1",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "35ab40fa-5c9a-4522-8a12-a4e6e906198d",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "35b641d4-dd6d-44a9-9a22-2b8c187fe60e",
+      "item_title": "Ребята, жду вас сейчас на Open House 🏡 🏡 3 BD | 3 BA | 2,065…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3633b601-3f05-407c-ae6c-15bfa383bf76",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "364e3050-d7ea-4427-8974-149d7bdc9718",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "36872704-3d66-4525-acc2-f78b39d91827",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "377c4776-812a-464c-9564-e21058bb1d93",
+      "item_title": "Victor Carpet Bros",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 10
+    },
+    {
+      "item_id": "3a3e776f-3479-4628-8747-5434e2f5c8b7",
+      "item_title": "endo.studio_oc",
+      "business_id": "86ce88f3-a2bd-42d8-8432-aa1d97ac6306",
+      "business_name": "открыла свою уютную студию ENDO Studio",
+      "business_slug": "открыла-свою-уютную-студию-endo-studio-150657",
+      "match": "instagram:@endo.studio_oc|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "3b081f83-dc3e-4cdc-b194-5937d8482b68",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3b2d4efb-eab4-4e19-8bd9-918baaea7082",
+      "item_title": "🔥 $39,750 первоначальный взнос за своё жильё в Long Beach 🏡…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3b5994c9-ba0c-4e7c-91c1-941e9690a788",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3b6d2345-782b-4b37-b0bd-675c9350e0e1",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3d13acff-db4f-445e-a99b-38b208f5e788",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3d5c354b-5b14-41d0-aa6c-d291c867973c",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "3f38eee9-6ece-43d0-a7a1-35c212cfb6e4",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "407cbeed-adb1-4534-8837-5a2e8cc429a8",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "40aa6cfb-5d66-4890-be08-39ae58e8807b",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4102a98e-1692-4dd7-b614-3ad21d67c4f3",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "418dc6d5-43de-412e-91b9-7f2528dc8a57",
+      "item_title": "Helping US middle and high school",
+      "business_id": "be3f643f-52a4-4e05-9aa6-d2b650f1890f",
+      "business_name": "Helping US middle and high school",
+      "business_slug": "helping-us-middle-and-high-school-180940",
+      "match": "name:helping us middle and high school",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4198630c-4dce-4296-853c-4166244e34a0",
+      "item_title": "Dovbenko Truck Insurance",
+      "business_id": "f6788013-d523-415e-86e0-edd192d8b043",
+      "business_name": "Dovbenko Truck Insurance",
+      "business_slug": "dovbenko-truck-insurance-234041",
+      "match": "phone:+13126216111",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "42d3653c-789b-4124-b4dc-7246d13b8058",
+      "item_title": "Задача их проверки -  определить, какие операции были соверш",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "4337add7-abb5-4748-952a-e24a36f007dd",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4435d2e2-8154-437d-8e2c-77771cd318c6",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "450267bf-4703-4ead-a5c4-0ddd8957f917",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "45bd86cf-1645-4230-adc0-6f4754776dd7",
+      "item_title": "Lena",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "45e1b2ba-eae4-481a-954c-0d2bcbfc2a04",
+      "item_title": "Сдаются две отдельные комнаты в аренду в трехуровневом таунх…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 76
+    },
+    {
+      "item_id": "473d6d6c-8814-4754-bcb3-589534e8d794",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "47cb37b5-0442-4d42-ba88-f2aeaa7027a4",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "480be74c-ca79-452a-b4d1-33725f81b4e8",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "482f9b23-f8c9-40d9-8546-d626bb031621",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "48f45a10-1f35-4afa-81a6-58b6c9cd5fe4",
+      "item_title": "🏡 Свой дом в Covina, CA — за $496,990 ✨ 1 BD | 1.5 BA | 890…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4925cb88-5337-4e9e-a45e-d6b9a24bee74",
+      "item_title": "Love Rykova",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 4
+    },
+    {
+      "item_id": "4a069c5b-9bda-4f5a-8b7c-d09146392834",
+      "item_title": "Dentist",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4b4a8aab-4dcd-442b-aeac-c5cd09aa6aff",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4b69a22d-6828-434b-bd83-d0696c316cd4",
+      "item_title": "Лонг-Бич открылся новый центр",
+      "business_id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "business_name": "Unity Adult Day Health Care",
+      "business_slug": "business-5622520607-190801",
+      "match": "phone:+15622520607|soft_unique",
+      "occurrence_count": 6
+    },
+    {
+      "item_id": "4ca88c8f-4803-4d79-be4b-875a4d0b31bd",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4cecdb89-c3bb-438b-9e59-875f2c637f4c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4d868ec4-a7f5-4844-802b-918f8fd904db",
+      "item_title": "Masha Angel",
+      "business_id": "7495de75-d05d-4279-89cf-2b93eeb0341e",
+      "business_name": "Masha Angel",
+      "business_slug": "masha-angel-150621",
+      "match": "name:masha angel",
+      "occurrence_count": 4
+    },
+    {
+      "item_id": "4e1aeb53-8c1e-4d57-bcec-8bed3bc147d9",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "4f06dd7b-39ec-422f-ac62-7e7895199e1c",
+      "item_title": "Самое ДЕШЁВОЕ НОВОЕ кондо в Orange County 🔥 $569,990 1 bed |…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "50710aef-cdff-4149-babe-ed3f7440aaad",
+      "item_title": "Anastasiya Zai",
+      "business_id": "cf10bd96-135f-44c8-aae5-4428b3d53054",
+      "business_name": "Lunelle Nail Salon",
+      "business_slug": "lunelle-nail-salon",
+      "match": "website:lunellenail.com|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5119b4e4-d2fd-4648-8ffe-93890b1450b3",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "52cdfc48-497d-4bfb-9e83-3ae6993f1182",
+      "item_title": "Ekaterina Samsonova",
+      "business_id": "ce9ca0ea-89ad-48aa-a55b-c5f60d844686",
+      "business_name": "Ekaterina Samsonova",
+      "business_slug": "ekaterina-samsonova-150707",
+      "match": "name:ekaterina samsonova",
+      "occurrence_count": 5
+    },
+    {
+      "item_id": "54c8ed82-8b12-44fd-9462-58dcd5006131",
+      "item_title": "Олег",
+      "business_id": "1fb3e210-c315-4a43-b739-b9e799ccb710",
+      "business_name": "Izlatop Insurance Agency",
+      "business_slug": "business-7717177777-172212",
+      "match": "phone:+17717177777|soft_unique",
+      "occurrence_count": 5
+    },
+    {
+      "item_id": "5556b166-251f-4b33-b5ff-6b4f9367e180",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "561c2656-6689-4633-832f-8ad55d674677",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "56487216-c58b-44ea-b85d-9c0ac2f2a75f",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "56da326c-42f7-47d6-945e-629c42453b38",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5781bf45-1978-4bc0-9011-aebba32c069d",
+      "item_title": "Christmas",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 6
+    },
+    {
+      "item_id": "57921383-f39e-4213-890e-c4481764c415",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "584670d4-6595-4125-a987-ce08dec5dee2",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "58b76831-04f3-46bd-9fd3-bae1d68c254a",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "59db7945-72cf-45f2-af6d-c87e59c6bff2",
+      "item_title": null,
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5a229df8-d9c2-4f03-b81f-b94db81ab16e",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5a29c184-8d44-42cf-a02d-46dafe6c5995",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5baba7e7-3156-4a39-8bf2-84d30c420cce",
+      "item_title": "Контакты",
+      "business_id": "d21f9248-7bce-4549-a5d5-2027a035165d",
+      "business_name": "Регистрация LLC",
+      "business_slug": "llc-172203",
+      "match": "phone:+13476098430|soft_unique",
+      "occurrence_count": 16
+    },
+    {
+      "item_id": "5d14c140-bfde-4dff-82ca-f9aebbb2061b",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5d47a144-f78d-4c69-9c4c-3c9db83f676e",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "5d6ef399-b769-490d-8bd2-88ff8694fec3",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "61602406-792d-4ad5-88fd-88db5b40eb7e",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "61b0da02-432b-44e5-b9c1-845171b614d5",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "62392921-1543-4245-a9d9-c25729db9026",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "63279e62-e77a-4ad7-ab44-37b22a0bcb8c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "643576d6-2fbb-454c-a02f-93b5fdd3f143",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6508e067-4d1f-4d55-bda2-cc96fd6db1be",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "65644d23-6942-4a1e-a164-ebf05a163f8d",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "67112662-1ee4-480e-b23e-ce39c2a460db",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6798b485-9d06-4f5a-9aa0-084e86b91ab2",
+      "item_title": "🏡 Покупка vs аренда — похожие ежемесячные платежи ПОКУПКА Ко…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "67c3ea6c-0828-4f48-89f2-d43e816d981e",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "685317aa-06d3-411e-b285-450995badcf1",
+      "item_title": "🔥 Ипотечная ставка от 3.375% на покупку своего дома в Лос Ан…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "69c7c1a4-53ec-4227-bd57-7a75b25d2e88",
+      "item_title": "Dovbenko Agency",
+      "business_id": "f6788013-d523-415e-86e0-edd192d8b043",
+      "business_name": "Dovbenko Truck Insurance",
+      "business_slug": "dovbenko-truck-insurance-234041",
+      "match": "phone:+13126216111|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "6a3828cf-8d73-4074-ac3e-8e02ce067d3f",
+      "item_title": "Good Food",
+      "business_id": "b49be8d8-b858-4b98-865f-bf41dd0d80db",
+      "business_name": "Good Food International Market",
+      "business_slug": "batch2-good-food",
+      "match": "instagram:@goodfoodmarket1",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6acd2aac-aa61-4b58-9613-232b43b11f1f",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6becfb8e-5fca-477c-a6b0-8ba944acd923",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6c0a8d03-510c-462f-aac3-d9c8197eb510",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6d4471bd-0de3-4b07-85f9-3b4f90e82e0a",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6e194bad-8667-4bc7-a7ff-012638b18b38",
+      "item_title": "Lena Indiukova",
+      "business_id": "601b813d-1d51-4959-a891-c5a289c113a2",
+      "business_name": "Lena Indiukova",
+      "business_slug": "fbpack-lena-indiukova",
+      "match": "name:lena indiukova",
+      "occurrence_count": 9
+    },
+    {
+      "item_id": "6e4380a4-a7bd-47eb-9fe4-15499c8f4f42",
+      "item_title": "Ultima Studio",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "6ec3e24a-4863-46f9-bd3d-07c1aa2a1568",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "71003f83-3abf-414f-98cd-3d2c3f62eb58",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "710c4091-6a2e-4936-ab1a-cc21eab210f5",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "715587a2-3429-4443-898b-cbd42d9c6987",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "727199ee-fa8e-472c-a335-082e1c045059",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "735a470d-9db1-4acc-b749-439f6eea5087",
+      "item_title": "чтение#математика#аналитическоемышление#шахматы#Критическоем",
+      "business_id": "8f620840-f34e-44cc-9d77-7e178e1dcf0f",
+      "business_name": "TutOwl Online School",
+      "business_slug": "fb-post-26-tutowl-com-online-school",
+      "match": "instagram:@tutowlonline|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "73fe57a5-9714-4017-969e-c2c8d80c6f10",
+      "item_title": "Телефон",
+      "business_id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+      "business_name": "AVELORÉA Fine Jewelry",
+      "business_slug": "телефон-032106",
+      "match": "instagram:@avelorea.workshop",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "741208bf-d9bd-4f5a-8f44-17a567b18d62",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7512f835-e6e2-449b-92cf-cd7a2124e33a",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "774e532f-25d1-453e-8e36-062ab5c88662",
+      "item_title": "Хорошие документы не заменяют доверие в семье. Они помогают ",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "7792dc0f-2c6c-4fdd-8753-3f3e05d5c52e",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "77c2c0d7-4e4c-4c8b-880a-c00a52562ec7",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "78e7ffca-fd97-4d36-abf3-b47254ad148f",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "79096255-1241-492e-ad73-bad35cac6f18",
+      "item_title": "Atajan Yagmyrov",
+      "business_id": "a23bc2ac-b453-4212-9910-5de293b5e9c9",
+      "business_name": "Yagmyrov Atajan Credit Repair",
+      "business_slug": "yagmyrov-atajan-credit-repair-172215",
+      "match": "phone:+17382003610",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "79752a63-4626-4568-8259-c4c87dde5c3b",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "79ed93df-091d-40a1-8acc-6f1849328372",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7b0310bf-68f6-44eb-b678-cf615e12bc6f",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7b38650b-0aeb-47c6-aff1-73561e49fd6d",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7b8ef93e-64f9-4ab9-9dc3-afd806fe1017",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7c0b5da8-161d-43e3-b4d0-fe602b849031",
+      "item_title": "Ребята, жду вас завтра, 12 июля, на Open House 🏡 Очень краси…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7c1b369b-8136-4579-8258-a86967e21e4e",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7c419892-d28b-49de-9d16-f11e4e96d861",
+      "item_title": "Satenik Adzhemian",
+      "business_id": "ec01daaa-7c71-4419-a13c-0370a69e0229",
+      "business_name": "Satenik Adzhemian",
+      "business_slug": "satenik-adzhemian-234042",
+      "match": "phone:+18184542222",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "7d2ba4e5-791e-4ff1-a013-5793995f6aad",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7d7273f2-2be3-451a-a54f-e1f11dc84653",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7da9a11d-2ae2-4151-b7a1-c36056465367",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7eaba795-06eb-4902-9baa-1123cf513ba2",
+      "item_title": "Elena Amnuel",
+      "business_id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "business_name": "B.E.A.R. Children's Academy",
+      "business_slug": "bearchildrensacademyorg-031831",
+      "match": "phone:+19495729467|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7f12f514-1fd8-4f98-af94-e53281799b09",
+      "item_title": "Tiana",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "7f2b3f09-9c14-4580-93f1-93efec481c73",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "80bfb342-7099-4235-bf56-e99e2f88d356",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "815bee84-ab9d-4508-9877-039e7adeb6d1",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8198aa35-14bb-480f-9a89-898be7d6524e",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "81ad7d72-9354-45ae-ba13-7fb42a63b0a0",
+      "item_title": "Сдаются две отдельные комнаты в аренду в трехуровневом таунх…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "81d31d1d-b3ee-419d-b10d-d2cee513e076",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8261ab09-761b-45f5-bc86-cb1aa360d320",
+      "item_title": "No Insurance",
+      "business_id": "a87c53cc-764b-45e1-a15f-7175c88f7688",
+      "business_name": "Rita Sarafutdinova",
+      "business_slug": "batch2-rita-sarafutdinova",
+      "match": "phone:+19344445871|soft_unique",
+      "occurrence_count": 3
+    },
+    {
+      "item_id": "829aed31-c3b4-4d7e-8ca9-bc3b9383795f",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "829bec4d-cdf2-490e-aca8-082c554be434",
+      "item_title": "После подписания settlement agreement изменить распределение",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": 4
+    },
+    {
+      "item_id": "830b749a-dd47-4f33-958f-11f4e257854c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8333b1a6-9896-408d-bd39-c4e9cd479b80",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "84f6f68f-7241-4d8a-a087-f91f31fe2c0e",
+      "item_title": "‼️Ипотека под 3.99%‼️на таунхаус в Orange County. Anaheim, т…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8521c668-3918-477c-9cd3-868e400fb3bf",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "85d9533f-de0c-458b-906c-4af692343dea",
+      "item_title": "🔥 Первоначальный взнос от 3% + до $20,000 помощи на покупку…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "862b9f49-0a60-4907-acfa-c91d380a99f2",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "863c9486-6e8b-4628-b87f-eb6c063d624f",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "867dc7c8-5313-46f9-987a-41cc3e7e3548",
+      "item_title": "Zarina Khabibulina",
+      "business_id": "da0f7705-8345-4121-8c3a-d79345f0364a",
+      "business_name": "ZMD Aesthetics",
+      "business_slug": "zsaesthetics-190931",
+      "match": "instagram:@zs.aesthetics|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "886b86c2-73dd-47db-8602-8c799e85f060",
+      "item_title": "Realtor Valeriia",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "88c264ad-2c3a-49ae-bc49-4f2b8597fb58",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8a3b8803-c56f-4bce-8e84-0ce148dd08ee",
+      "item_title": "Детский Развивающий Центр",
+      "business_id": "dddce89c-d625-4e25-b81a-4eaa1cb024b3",
+      "business_name": "Sunrise Education Center",
+      "business_slug": "fbpack-sunrise-education-center",
+      "match": "phone:+13109167095|soft_unique",
+      "occurrence_count": 7
+    },
+    {
+      "item_id": "8ac4ee3a-48ce-400d-af39-b1bb977df979",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8adfd41a-cc13-4d74-bc1c-ac3e2e8bcc3c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8b86262e-afea-408b-925d-741ee0b4adf3",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8b8e1d15-38c9-4510-9c7e-8c0bad1c16d4",
+      "item_title": "Veta Piluga",
+      "business_id": "f12b6557-9f62-4656-b8e0-8c0c79879d21",
+      "business_name": "Флорида",
+      "business_slug": "business-7867507987-172159",
+      "match": "phone:+17867507987|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "8b92e923-7b5f-4b09-aac0-893523f1b480",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8f9ef436-3403-43b1-88b3-653a6e8190b3",
+      "item_title": "🔥 Ставка 4.75% на собственный дом в Valencia, CA 💰 $799,990…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8fae216f-afc6-4505-87eb-f6ef201707ff",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "8ff1c901-f4ed-45d2-8bb8-16aa35687f5c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "91127f0e-39f5-4a07-9082-3613c8ad0d74",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9159106a-95b7-4f91-8e16-01f92623c69c",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "919068d4-260a-420a-874c-07991f986c67",
+      "item_title": "Мария",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "phone:+19497451105|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "93b7a897-9b48-4947-8424-793428147844",
+      "item_title": "reel",
+      "business_id": "aa26f448-3536-4e7f-a089-21530f1d031c",
+      "business_name": "reel",
+      "business_slug": "reel-150657",
+      "match": "website:studio.dreem-world.ai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9428958e-bbf9-4d7f-9e34-f7108ca5e4b1",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "94a5d0fb-6761-423c-a614-16421af04886",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "955416ad-d245-422c-8e5b-4f12b55eec3e",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "95a666e9-52fc-4dce-a688-1229b1870471",
+      "item_title": "🏡 Покупка vs аренда — похожие ежемесячные платежи ПОКУПКА Ко…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "95ac8657-3b2a-4cb3-b758-33d8a12b1b95",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "95d12c42-0d0f-401d-a54e-8b1d98038b35",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9671caad-daf9-4d42-a180-0db7604ce263",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "979b8df0-0abe-42c3-b1be-9541ff05470e",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9945e471-8140-4018-a751-90b62c4b8192",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "99988bba-80d5-4558-a386-8c847a07a7f1",
+      "item_title": "Петровская Елена",
+      "business_id": "1fb3e210-c315-4a43-b739-b9e799ccb710",
+      "business_name": "Izlatop Insurance Agency",
+      "business_slug": "business-7717177777-172212",
+      "match": "phone:+17717177777|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "9a197cda-45b7-4fc3-8b61-a09382257755",
+      "item_title": "Daniel Mataev",
+      "business_id": "7fb2ed26-08ec-4526-afb3-725e26d91a10",
+      "business_name": "Den Mataev — Silver Bay Caviar Delivery",
+      "business_slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+      "match": "phone:+19293405993|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "9a26f6c4-513c-4195-80f9-3b59899e81a4",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9aa2ed51-09a6-472e-a271-4e7dc083bd11",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9afc7e68-e58c-4c4e-8414-f6764195164d",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9b420f8c-a38d-4f8a-b4b4-6fa1eefa55fb",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9c189622-0b37-4a29-b2cb-d9b282ab0370",
+      "item_title": "Bek’s Flowers",
+      "business_id": "559daaad-6cc7-4745-a5e0-7830de7feb59",
+      "business_name": "Bek’s Flowers",
+      "business_slug": "beks-flowers-172153",
+      "match": "name:bek s flowers",
+      "occurrence_count": 24
+    },
+    {
+      "item_id": "9c53d769-da1e-4691-b9dd-d4a4f16c0dc4",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9cd67cd9-c576-437a-a8f8-8d8c144db886",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9d5152e3-4f9c-4ff9-b43b-2c18aff4fa9c",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "9f77515b-271a-478c-9193-29481f71310b",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a0dc62c8-49c4-4dd2-8d80-63f953cc92d8",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a1c8ce30-618d-4aac-b646-c84cf1cd92d8",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a20b755d-fb63-44a5-8bd8-a967c33e5e65",
+      "item_title": "Ищете выгодные варианты? 🏡\nЭти дома в Ирвайне находятся на рынке больше 60 дней.",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a26d133c-b83e-40a9-8512-9414798ec3ee",
+      "item_title": "Продавец",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a40f2933-83ff-4b39-8255-7ce933dd0b9d",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a4718902-b86a-430e-874b-56776016a0e5",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a505fdfc-9920-4ae5-bab7-e09c697b5e9d",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a5ba42ff-2413-4f25-ada5-7dd26705eca0",
+      "item_title": "LTD Services LLC",
+      "business_id": "0c5b8641-8463-47eb-a4b4-7a0d65014122",
+      "business_name": "LTD Tax & Accounting",
+      "business_slug": "consolidated-ltd-services-llc",
+      "match": "phone:+19195324774|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "a605b08a-e235-4d6f-8a92-970595c8c769",
+      "item_title": "art_backyard",
+      "business_id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "business_name": "Art Backyard",
+      "business_slug": "fbpack-art-backyard-design-camp",
+      "match": "phone:+19498801030",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a64b9573-e4d9-491a-8136-0b36864a6ffb",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a69fd5a4-c9f5-4020-85f5-62c627bacd55",
+      "item_title": "Anastasiia",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a6de23c1-1620-49c6-8674-5c98b785f679",
+      "item_title": "Mariia",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 20
+    },
+    {
+      "item_id": "a7248d91-b0cd-4126-a45f-584027511f93",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a732c623-9fa9-414b-a30a-4e5b8f38af2d",
+      "item_title": "My_brows7",
+      "business_id": "06f3ea19-0f5e-4740-8c66-4bac4867c827",
+      "business_name": "My_brows7",
+      "business_slug": "mybrows7-181514-0000",
+      "match": "name:my brows7",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a76aa662-fead-428a-8317-3d5047d53aa2",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a8522515-a437-479f-b80f-12716000b17b",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a855fba5-dcf5-4e17-8799-b523f460b95e",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "a90b01d4-e49f-4584-b7ce-6d0152f96682",
+      "item_title": "Сдаются комнаты в трёхэтажном таунхаусе в Anaheim 🏡 Комната…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "aa82b1b8-10ae-42a8-842c-9dfcc00f7837",
+      "item_title": "Andrei Tarzan",
+      "business_id": "2f7243ba-9b74-4cbd-9859-9bb120663d79",
+      "business_name": "Andrei Tarzan",
+      "business_slug": "andrei-tarzan-234040",
+      "match": "phone:+13233045871",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "aab850d1-905d-44c2-967b-87d704e9f882",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ab125583-b97b-4d80-8250-d6ed4314f24d",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ac43cd61-0e43-4142-81f5-93cfb3ee1c06",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "acbdba62-c02b-4083-a85b-4a8c1a492917",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ad3c82a2-6e4a-420a-8659-00f037af7bb1",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ad6178d8-2c15-4200-8b7b-4a7e1cd3db76",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "adc62a52-295b-486d-bf0f-e9c1ccfe3a57",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "aea56e08-86bb-43ec-b37f-54c30f87a758",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "af17a995-af49-4ccb-9531-1ea5c83057e3",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "af4fd8c6-9861-4f65-bd94-5a837ed95c56",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b14083f2-9206-4856-846d-4e0a28bd0a7f",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b1628644-db51-4bab-8295-11652b32c1c0",
+      "item_title": "Alla V Tenina",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "b1934497-230f-4fa4-913b-2d375b3bf4ad",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b2043142-c0e5-496f-86bc-9595939a3e9f",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b2d45293-fb23-4bd4-a898-6634ad8c99f9",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b46d8cca-95d9-4f40-b027-d16d46d27814",
+      "item_title": "Сдаются комнаты в трехэтажном таунхаусе в Anaheim 🏡 Комната…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b4842952-47f3-4949-9443-649468c4a35d",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b4ccca6d-0612-4eaf-a180-54fd03fb04b7",
+      "item_title": "Esencia Middle School",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b604b7f5-fa05-4ec1-8687-b0bb5d4aae52",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b64fecdf-bb71-4381-8ebf-c960f19fca5b",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b6dadb00-20aa-4f12-b928-869da033c85f",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b853d5e4-7a23-49ef-b0f2-5b1e0cf8ace6",
+      "item_title": "Сдаются комнаты в трехэтажном таунхаусе в Anaheim 🏡 Комната…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "b9864d89-44c3-4d2e-9cff-89462c0da4cb",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "bae2292f-5f57-404d-b7d9-e3470b6b9667",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "bb541171-0ebc-4c41-9917-30e0393eb4d3",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "bbd9d023-385d-4234-9824-6bb5e4e35355",
+      "item_title": "Lisa Harvey",
+      "business_id": "02e64277-4f14-40b9-a2a3-0390e75acea6",
+      "business_name": "European Delights Gourmet Foods",
+      "business_slug": "fbpack-european-delights-fountain-valley",
+      "match": "phone:+19495311494|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "bc04f254-fbe9-4c21-9d9a-94a4402cd3c1",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "bda1b5c3-52cd-4f0a-9542-b614ede8f5b5",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "be2e37a3-00e6-46d6-8b3c-463b87719a86",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "be7608b5-848d-48e3-bf2f-b581837b85b4",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "bfc7dd6a-f3d3-46b7-8632-be5cf32f9b13",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c11a6074-9ac7-43a7-b941-4c018f6a7957",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c1e00625-d2f5-4abf-a03b-df7cba64f1c2",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c51a4ba9-74be-4947-b706-6252856737c8",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c523bfff-861c-4e2d-bb06-96d20f60765b",
+      "item_title": "При финансовых трудностях важно оценивать не только размер з",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "c53d9ca0-607e-4a30-8f14-798a4d742959",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c593e147-aadf-4fdd-b80d-c4419d16dc6f",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c665db48-0bee-469e-b188-bc7f8a9c89f8",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c7c0b8d6-6b6a-4e15-ae97-48a02403457f",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c94e1387-1024-491a-9914-fae6fe00bf03",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 7
+    },
+    {
+      "item_id": "c9be306a-41e5-420c-bf42-d19100fa709c",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "c9edc747-6a52-43f9-8727-fcf97f5c0812",
+      "item_title": "Liubov Smetanina",
+      "business_id": "dd3dd2ab-836d-41d6-b5f9-671142306ad8",
+      "business_name": "Liubov Smetanina",
+      "business_slug": "liubov-smetanina-181524-a3ca",
+      "match": "name:liubov smetanina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cb100381-3fa3-4c4d-b49e-7f920e9d0635",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cb25e388-91ed-47d5-81f2-27a9a346c691",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cbb1b77b-1efd-43cc-94fc-6cd02c9eaaa1",
+      "item_title": "Сдаются комнаты в трехэтажном таунхаусе в Anaheim 🏡 Комната…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cd4c125f-ef90-49a7-adc9-8a183c81521b",
+      "item_title": "Anna K",
+      "business_id": "c6574256-203b-4cad-adff-951002d13de3",
+      "business_name": "Мила",
+      "business_slug": "мила-150620",
+      "match": "phone:+19492353309|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ce45de72-1358-44d3-a224-115e6303b82f",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cebb525f-edbd-4dc5-a587-b80e99704560",
+      "item_title": "Милена Говель",
+      "business_id": "963eb786-b32a-4dee-a3e4-4b53108646cb",
+      "business_name": "Алия Сидорова",
+      "business_slug": "business-biz-180842",
+      "match": "website:sbsite.pro|soft_unique",
+      "occurrence_count": 3
+    },
+    {
+      "item_id": "cf4ee7fe-f41b-4373-bede-81bd9605765e",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cf71121e-af11-41ba-9835-1a9844628a26",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 43
+    },
+    {
+      "item_id": "cfec55f1-a10e-42f9-b06c-fc895c97fde6",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "cff899b1-ebbc-42fb-a3ea-4bc0ef73927f",
+      "item_title": "REALTOR Fathom Realty",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d0f65610-6027-44e7-b9c3-75e2e54ee7cb",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d0fc5446-b041-4447-84c4-fcf549ec0863",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d155f658-1341-4aea-a4ce-3bbc208bcd11",
+      "item_title": "🏡 Самое доступное кондо в Orange County — всего за $280,000!…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d1ee62e3-6dd8-4e8c-8ecf-499d8ebd0eac",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d31ee1ce-c1bf-4d3e-852f-4e4fc7b10327",
+      "item_title": "Mira Счастье",
+      "business_id": "dddce89c-d625-4e25-b81a-4eaa1cb024b3",
+      "business_name": "Sunrise Education Center",
+      "business_slug": "fbpack-sunrise-education-center",
+      "match": "phone:+13109167095|soft_unique",
+      "occurrence_count": 9
+    },
+    {
+      "item_id": "d36445d5-a120-4585-817c-b1a0f271de9f",
+      "item_title": "Upgrade Computers",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "d4844287-14c5-482d-b9f4-2dea4a2acd54",
+      "item_title": "‼️ 794,990 — Long Beach, CA | Готовая ко въезду новостройка…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d5c2944f-bf11-43f0-97a3-99c3e0e26f88",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d76afa36-b3c8-4852-b89b-7d53d9be03d2",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d7b45de1-723d-47a9-babe-ce6ac20d2c75",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d884b539-bcc7-4183-970d-2cda46252ce6",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d9213ca5-8bfc-44e4-aed2-85cb5077dccc",
+      "item_title": "Транспорт для пожилых людей до нашего центра — комфортно и б…",
+      "business_id": "e0e6e2b5-2d44-44ae-9d25-3661b2452134",
+      "business_name": "Unity Adult Day Health Care",
+      "business_slug": "business-5622520607-190801",
+      "match": "phone:+15622520607|soft_unique",
+      "occurrence_count": 2
+    },
+    {
+      "item_id": "d99a1ead-da1d-4077-91e3-ba4781818670",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "d99cbfb6-f3c1-43c2-aeae-d20acc41c33b",
+      "item_title": "🔥 $29,450 — первый взнос за своё жильё в Калифорнии 🏡 Новое…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "da0f9f9b-c6a9-4412-b75b-21c1988ac2b3",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "da35598c-0968-4386-9f82-8a64f648d76b",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "da45a380-7b2d-483f-9dd7-6ebb5617c2d9",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "daceecbc-f12f-43a9-a695-a057aaef2aa6",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "dc28909d-ef41-4296-9250-2541de10f7d3",
+      "item_title": "Rita Sarafutdinova",
+      "business_id": "a87c53cc-764b-45e1-a15f-7175c88f7688",
+      "business_name": "Rita Sarafutdinova",
+      "business_slug": "batch2-rita-sarafutdinova",
+      "match": "phone:+19344445871",
+      "occurrence_count": 6
+    },
+    {
+      "item_id": "dc3df3f5-ffaa-4493-907a-beb89070892a",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "dc61dd71-5e27-4bfc-8958-5aa9bb13bacf",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "dc63e86d-88f6-4158-a533-9699ab65b4ee",
+      "item_title": "Estate Agency License",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "dcc14cbf-1091-45de-8e84-4b4c57c77cba",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "de76b8b0-7636-428f-9843-1afb4406f4f3",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "df01ac4a-a9d5-472c-bbca-629d76f4ef73",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "df29c7c9-56f9-42da-b18d-d6fe8cf09a3f",
+      "item_title": "🔥 Ваш новый дом в Covina, CA всего за $468,990 🔥 Готовая нов…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "dfaea53f-6c67-4478-9395-58f6da6b396a",
+      "item_title": "Ирина К",
+      "business_id": "323a24b2-f535-4f5e-bcd6-b94e42a0ccd5",
+      "business_name": "Irina Kirzhner — Летний пикник знакомств",
+      "business_slug": "fbpack-irina-kirzhner-summer-singles-picnic",
+      "match": "phone:+18185324155|soft_unique",
+      "occurrence_count": 10
+    },
+    {
+      "item_id": "e013b376-fa5b-4343-9667-360b76969389",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e079c9ff-affd-4db8-8848-1c3844c4571b",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e0e3563d-aabf-46ad-9cae-3575fc6dc3cd",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e1858f93-c8db-417b-bf67-cd79f4c41e05",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e38e6fba-b890-4b42-afee-1a4659ab34be",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e3a7ce56-5df0-42ca-93c4-fb618e55e0ae",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e476c153-994d-471a-8152-4e96711fbd11",
+      "item_title": "Realtor Valeriia",
+      "business_id": "4b0c91bb-b304-4cf6-8137-d7c2b8f73f66",
+      "business_name": "Realtor Valeriia",
+      "business_slug": "realtor-valeriia-180843",
+      "match": "name:realtor valeriia",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e47ee58b-39f5-404d-9740-8e34a363b887",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e4eae7fd-cb92-4682-9e93-f3f3cff59a60",
+      "item_title": "Kristina @ Arvian",
+      "business_id": "cdae1b77-c27d-4de2-9e88-67bedc594c71",
+      "business_name": "Arvian Law Firm LLC",
+      "business_slug": "arvian-law-firm-llc-172214",
+      "match": "phone:+12136490001|soft_unique",
+      "occurrence_count": 13
+    },
+    {
+      "item_id": "e6064cb5-815e-4992-8a2d-76afcc5af1d8",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e6404c07-dd4b-47d4-bb55-92d8ec4db932",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e6cfdd72-d7e8-4bc3-ae35-79c9d9ee1915",
+      "item_title": "Решения по разводу, налогам и estate planning должны принима",
+      "business_id": "7dcde6ec-cf32-4bcd-947a-0614107a40ea",
+      "business_name": "Tenina Law, Inc.",
+      "business_slug": "consolidated-tenina-law-inc",
+      "match": "phone:+12135960265|soft_unique",
+      "occurrence_count": null
+    },
+    {
+      "item_id": "e7bc9de9-52d5-4664-a646-819fe4329878",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e7c38c9d-dacd-4572-989c-786e5e22d40b",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "e81dd379-8d06-449f-bfd5-d1cf26ab9107",
+      "item_title": "репетитор англ",
+      "business_id": "d071cbcb-296a-40a0-a5ff-4800af5be3a1",
+      "business_name": "репетитор англ",
+      "business_slug": "business-7543646222-171945",
+      "match": "name:репетитор англ",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ea035168-1d0a-4c5e-bed6-7276d5754deb",
+      "item_title": "Estate Agency License",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ead34df2-e796-404d-b880-0ef194340042",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ebfd50e8-3184-495a-a785-95eedc8d91d7",
+      "item_title": "Екатерина Улицкая",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ed4895bf-3901-4f63-9d11-a0f76f6ae459",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ed53957e-0617-4f8a-8b0e-983a5062d4bd",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ee49fcf4-00c7-4dfc-b546-de6132685def",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ee5e42b0-12b4-42a1-97cc-649ab2d41c3a",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f017e48e-b88b-4eee-aa03-5f8620b036d6",
+      "item_title": "Телефон",
+      "business_id": "9c2c1ba8-c377-4da6-9000-ec5a60d21830",
+      "business_name": "Ремонт моторов (Valley Blvd)",
+      "business_slug": "business-6197312653-172156",
+      "match": "phone:+16197312653",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f0c4e1a4-5351-4867-8b70-9df86d606354",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f142123b-357e-4b58-a8da-4b373f0524f5",
+      "item_title": "🏡 Свой дом в Murrieta, CA за $529,990 2 BD | 2 BA | 1,460 sq…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f1640555-34d7-4eeb-bc36-5bf2122746b6",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f3e8917b-ddc3-4d74-a202-4673001ea51d",
+      "item_title": "Сдаются комнаты в трехэтажном таунхаусе в Anaheim 🏡 Комната…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f4a16116-97e3-4a10-ae3b-7eedc43b2307",
+      "item_title": "‼️ 794,990 — Long Beach, CA | Готовая ко въезду новостройка…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f4b170ba-068b-45c2-a285-de6075b6a445",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f4d8904a-ea47-4bdd-8bec-864be5e8c9d7",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f53aafce-79f6-46e7-847f-25e3afe6faa0",
+      "item_title": "US Drive Services",
+      "business_id": "a0182ae4-81a7-4289-85eb-1991ed8cc8ac",
+      "business_name": "US Drive Services",
+      "business_slug": "us-drive-services-181542-a6e1",
+      "match": "name:us drive services",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f57cc676-302a-412e-a29a-0a1eaedb4882",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f57f7141-1b05-438d-af87-03c6d1beea1b",
+      "item_title": "🔥 $29,450 — первый взнос за своё жильё в Калифорнии 🏡 Новое…",
+      "business_id": "0f3b6e01-8c73-4d49-8101-51559f50147c",
+      "business_name": "Valeriia Andriushchenko",
+      "business_slug": "consolidated-valeriia-andriushchenko",
+      "match": "phone:+19495315828|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f67012b2-b516-4848-b973-343ef0033d03",
+      "item_title": "Mariya Shostak",
+      "business_id": "ec094d1e-3118-4419-90f5-7ff9baaf766f",
+      "business_name": "The Village Spectrum",
+      "business_slug": "the-village-spectrum-150616",
+      "match": "phone:+19495161466|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f698229e-1c58-4b28-9e95-e687604165dc",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f7ae1af8-bbab-494a-90c1-d0cfcbe94707",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "f82fcb88-d554-4497-8ea3-3b82f7d90d5b",
+      "item_title": "katebulgak",
+      "business_id": "c87866df-51e1-4740-8271-9444f2b3de87",
+      "business_name": "Art Backyard",
+      "business_slug": "fbpack-art-backyard-design-camp",
+      "match": "phone:+19498801030|soft_unique",
+      "occurrence_count": 5
+    },
+    {
+      "item_id": "f967e317-8908-4b1e-a652-1d9bd7e900c0",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "fa4cce60-ff7a-4b90-826f-a875e785e48c",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "fc2af17b-9403-4fdf-8768-bb55076c9f76",
+      "item_title": "Maksim Degtyar",
+      "business_id": "493714fd-620c-4e19-8c5c-eacf0264e4db",
+      "business_name": "Toujours Flower Boutique",
+      "business_slug": "toujours-flower-boutique-172155",
+      "match": "phone:+19493516824|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "fc75f2e0-bced-4c7c-aec9-78d3aa02eacf",
+      "item_title": "Alexander Midas",
+      "business_id": "41eda3b7-e047-408b-947e-434da74e3d9b",
+      "business_name": "Mi Care Beauty",
+      "business_slug": "micarebeauty-190930",
+      "match": "website:maps.app.goo.gl|soft_unique",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "fc82b840-2047-409c-8642-cf2e59682d66",
+      "item_title": "Anna Lukina",
+      "business_id": "610150a7-b8f8-43c3-814c-a2da566c12bd",
+      "business_name": "Anna Lukina",
+      "business_slug": "anna-lukina-180846",
+      "match": "name:anna lukina",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "fcd05c5a-423a-4c0a-9218-0b8b55d71a59",
+      "item_title": "Звоните",
+      "business_id": "98f586da-91b7-4bb0-8b67-b88f6f61e5e7",
+      "business_name": "OC Auto Aid",
+      "business_slug": "business-9495016346-171941",
+      "match": "phone:+19495016346",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "fcdd60ee-1f40-4ccb-9b38-a1fb1fb02e1d",
+      "item_title": "Anastasiya Zai",
+      "business_id": "5618b24c-22ea-4d7f-bb73-d114529d2980",
+      "business_name": "Anastasiya Zai",
+      "business_slug": "anastasiya-zai-180857",
+      "match": "name:anastasiya zai",
+      "occurrence_count": 1
+    },
+    {
+      "item_id": "ff6ecf97-53fc-4d74-802b-d5b6f31618b3",
+      "item_title": "Good Food",
+      "business_id": "b0529f07-2477-4ca6-9df2-cd5fad545080",
+      "business_name": "Good Food",
+      "business_slug": "good-food-180931",
+      "match": "name:good food",
+      "occurrence_count": 1
+    }
+  ]
+}

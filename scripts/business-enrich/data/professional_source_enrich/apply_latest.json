@@ -1,0 +1,662 @@
+{
+  "generated_at": "2026-07-27T01:00:41.197229+00:00",
+  "mode": "apply",
+  "needy": 744,
+  "matched_import_item": 558,
+  "updated": 95,
+  "applied": 95,
+  "field_hits": {
+    "telegram_url": 30,
+    "image_url": 29,
+    "description": 27,
+    "short_description": 21,
+    "phone": 15,
+    "instagram_url": 11,
+    "email": 10,
+    "website": 6
+  },
+  "image_stats": {
+    "from_preview": 0,
+    "from_fbcdn": 29,
+    "from_telegram": 0,
+    "from_website": 0,
+    "from_instagram": 0,
+    "rehost_fail": 1
+  },
+  "sample": [
+    {
+      "id": "0014e2f8-fecf-4bf6-9aa6-700d44c035aa",
+      "slug": "lev-kushner-205253-0fa9",
+      "name": "Lev Kushner",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "8ba41c7d-87f8-4f4d-803b-34c6bb0b04d4",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/0014e2f8-fecf-4bf6-9aa6-700d44c035aa/5e4eff3f0401606c.webp"
+      }
+    },
+    {
+      "id": "01e4721f-b2c7-4400-b53f-fbfb565b6600",
+      "slug": "daria-sergutina-205330-888c",
+      "name": "Daria Sergutina",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "4ace97e0-f1b7-4411-8d1c-0cd1175c92a6",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/01e4721f-b2c7-4400-b53f-fbfb565b6600/f0c83daa8b97484c.webp"
+      }
+    },
+    {
+      "id": "0389ed4d-3845-4540-b5ee-5cb50d6250a1",
+      "slug": "fedor-tsvang-1",
+      "name": "Fedor Tsvang",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "a521df6c-03d7-48e0-a0a0-166276c5d1c5",
+      "patch": {
+        "phone": "+19495198900",
+        "instagram_url": "https://www.instagram.com/tsvang_co",
+        "telegram_url": "https://t.me/fedprivet"
+      }
+    },
+    {
+      "id": "062a3f9f-d774-46f1-bce4-37921c945b6e",
+      "slug": "pro-49b60ee02b",
+      "name": "Ольге",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "014b9cb1-ffd2-4867-8290-a06791d6d501",
+      "patch": {
+        "telegram_url": "https://t.me/marinadietitian"
+      }
+    },
+    {
+      "id": "0750f9fa-9f00-4d08-b283-e2c12693375f",
+      "slug": "pro-67e0ab57c8",
+      "name": "Алекс",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "c2aaf8bc-0080-4040-bfbc-e4c32a31ee45",
+      "patch": {
+        "description": "Алекс мой сын у него стрижется, очень доволен"
+      }
+    },
+    {
+      "id": "08f3bc3d-fe80-41ce-a3bc-4904913c68dc",
+      "slug": "dmitry-belyaev-204806-7a4e",
+      "name": "Dmitry Belyaev",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "4adb73ca-0607-4601-8619-7fa798bd983c",
+      "patch": {
+        "website": "https://fliphtml5.com/bookcase/ssoav"
+      }
+    },
+    {
+      "id": "0955aa37-e482-4190-8146-fbc095d334d8",
+      "slug": "saida-saida",
+      "name": "SAida SAida",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "a06ae65b-979a-4b8d-938a-684635a62c64",
+      "patch": {
+        "description": "Здравствуйте, друзья! 👋 OWAY Cargo теперь ещё ближе к вам в Лос-Анджелесе! 📍 Пункты приёма: North Hollywood — My Barber LA 5957 Laurel Canyon Blvd, Valley Village, CA 91607 West Hollywood — My Barber LA 7858 Santa Monica Blvd, West Hollywood, CA 90046 Irvine — The Residences on Jamboree 2801 Kelvin Ave, Irvine, CA 92614 Тарифы и сроки доставки: 🇷🇺 🇧🇾 Россия, Беларусь $18 / 1 кг = 16–21 дней 🇰🇬 🇰🇿 Кыргызстан, Казахстан $12 / 1 кг = 7–12 дней 🔴 ВАЖНО: доставка по Бишкеку БЕСПЛАТНАЯ! В регионы отправляем через курьерские службы. По всем вопросам пишите менеджеру. Мы всегда на связи и готовы помочь! 📦 Instagram: OWAY Cargo Instagram⁠ OWAY Cargo — надёжная доставка из США в страны СНГ.",
+        "short_description": "Здравствуйте, друзья! 👋 OWAY Cargo теперь ещё ближе к вам в Лос-Анджелесе! 📍 Пункты приёма: North Hollywood — My Barber LA 5957 Laurel Canyon Blvd, Valley Village, CA 91607 West Hollywood — My Barber LA 7858 Santa Monica Blvd, West Hollywoo"
+      }
+    },
+    {
+      "id": "0b553755-2228-42f6-9b28-931dfa962dad",
+      "slug": "vika-borel",
+      "name": "Vika Borel",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "e44cf544-a29e-4acc-87c1-7844456522f4",
+      "patch": {
+        "description": "Всем привет! Приглашаю детей и подростков в онлайн-школу программирования на русском языке, специально для семей в эмиграции. Я — fullstack-разработчик и преподаватель с 7-летним опытом (Skillbox, Otus, МШП). За годы преподавания и работы разработчиком я увидела, насколько часто обучение оторвано от потребностей реальной работы в IT. Поэтому решила создать свою школу с системным подходом, сильной практикой и развитием инженерного мышления. Это не курсы, это школа с программой на несколько лет и выбором специализации на третьем году обучения: — fullstack-разработка — мобильная разработка — машинное обучение и ИИ — кибербезопасность Что важно: ✔ мини-группы до 6 человек ✔ занятия в Zoom 2 раза в неделю по 1.5 часа ✔ собственная платформа с заданиями и отслеживанием прогресса ✔ обучение на русском языке (поможет сохранить родной язык через среду) Перед стартом будет: ✅ бесплатный пробный урок ✅ онлайн-встреча для родителей Подробная программа и информация: Буду рада ответить на вопросы в личных сообщениях 🙂",
+        "short_description": "Всем привет! Приглашаю детей и подростков в онлайн-школу программирования на русском языке, специально для семей в эмиграции. Я — fullstack-разработчик и преподаватель с 7-летним опытом (Skillbox, Otus, МШП). За годы преподавания и работы р"
+      }
+    },
+    {
+      "id": "0babfc0d-d722-4a5f-93c9-f3a12a41953c",
+      "slug": "consolidated-amega-studios",
+      "name": "Amega Studios",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": null,
+      "patch": {
+        "phone": "+13474151381",
+        "website": "http://www.keeperexpert.com"
+      }
+    },
+    {
+      "id": "0ef252b6-c64d-4d1a-ae70-3d2c9547fdd0",
+      "slug": "rafik-barseghyan-205218-d3d6",
+      "name": "Rafik Barseghyan",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "63ef306a-dab5-4685-816b-1e6ae1589515",
+      "patch": {
+        "phone": "+19172000012"
+      }
+    },
+    {
+      "id": "10645934-ed91-4e10-b97b-a2ac3d974e06",
+      "slug": "natalia-rezvova",
+      "name": "Natalia Rezvova",
+      "sources": [
+        "description"
+      ],
+      "review_id": null,
+      "patch": {
+        "email": "lettersfox@gmail.com"
+      }
+    },
+    {
+      "id": "15162127-191b-4cc3-a54e-07d786708559",
+      "slug": "vladimir-shkarbanov-205035-769e",
+      "name": "Vladimir Shkarbanov",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "857ae634-ca40-465c-832d-843b15fca007",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/15162127-191b-4cc3-a54e-07d786708559/cebb0caa81ed113a.webp"
+      }
+    },
+    {
+      "id": "17677bd1-cb6e-402d-8ced-9ecf4f413d95",
+      "slug": "usa-carpet-couch-cleaning-204929-3f6a",
+      "name": "Компания USA Carpet & Couch Cleaning в поисках техника для в",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "c57086c7-2d2a-4700-a0cb-efa434073dc3",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/17677bd1-cb6e-402d-8ced-9ecf4f413d95/dd14e84da5233a37.webp"
+      }
+    },
+    {
+      "id": "18299c7a-336b-4c21-aefa-d2ebc2f1ec1b",
+      "slug": "dmitry",
+      "name": "Dmitry",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "f8e30ff9-41b9-44cf-9bff-a55303b77792",
+      "patch": {
+        "description": "📊 У вас могут быть проблемы с IRS, а вы даже не знаете об этом? 📉 Налоги, задолженности, пенни, штрафы — всё это может внезапно вырвать из бюджета тысячи долларов, но предупредить это проще, чем кажется 👇 🔥 Мы запусктили БЕСПЛАТНУЮ проверку вашей налоговой ситуации в США — без звонков в IRS, без давления и скрытых условий: ✔ Полную картину вашей ситуации в IRS ✔ Проверку — прошла ли декларация ✔ Почему нет рефанда (если он задерживается) ✔ Есть ли задолженность, штрафы или риски взыскания ✔ Статус аккаунта и потенциальные действия IRS ⚠️ Если выявлены риски или долг — для вас формируется персональный план действий: • либо профессиональный Resolution Plan • либо понятный пошаговый DIY-план (если хотите решить самостоятельно) Без звонков, без давления, без обязательств. Всё онлайн. Конфиденциально. 🎯 Проверка особенно полезна если: — вы уже подали декларацию и не знаете её статус — ждёте рефанд, но деньги не приходят — получали письма от IRS — давно не проверяли свой налоговый аккаунт 👉 Бесплатная проверка здесь: Лучше узнать сейчас, чем получить неприятный сюрприз позже.",
+        "short_description": "📊 У вас могут быть проблемы с IRS, а вы даже не знаете об этом? 📉 Налоги, задолженности, пенни, штрафы — всё это может внезапно вырвать из бюджета тысячи долларов, но предупредить это проще, чем кажется 👇 🔥 Мы запусктили БЕСПЛАТНУЮ проверку"
+      }
+    },
+    {
+      "id": "19893689-27cf-40c1-854b-d08ff8a984a7",
+      "slug": "ucla-edu",
+      "name": "ucla.edu",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "b6d46c00-d64b-4be1-9f6b-1ea760a17959",
+      "patch": {
+        "email": "sasharazor@ucla.edu"
+      }
+    },
+    {
+      "id": "23f72b12-fac8-4a7a-9438-f2c01dc3720d",
+      "slug": "liliia-ser",
+      "name": "liliia_ser",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "2bfb12e0-1ce4-46b5-bf72-0b08b063a4c0",
+      "patch": {
+        "telegram_url": "https://t.me/DariaStretchDance"
+      }
+    },
+    {
+      "id": "24169004-4c61-4190-a2d6-36e42b5751a2",
+      "slug": "braidifornia",
+      "name": "Braidifornia",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "0c83d01c-d9d8-49af-9177-d82e1dd1f85c",
+      "patch": {
+        "email": "info@learninglabpreschool.com",
+        "instagram_url": "https://www.instagram.com/learninglabpreschool",
+        "telegram_url": "https://t.me/braidifornia"
+      }
+    },
+    {
+      "id": "243ea119-92f3-4ef2-a1d9-9c36cabb094b",
+      "slug": "pro-2992ffad27",
+      "name": "Светлана Зайченко",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "ab26a971-8635-4431-9a58-d044875b6785",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/243ea119-92f3-4ef2-a1d9-9c36cabb094b/6a069f1ae837797f.webp",
+        "description": "🏠КАК КУПИТЬ НЕДВИЖИМОСТЬ В США, ЕСЛИ БАНКИ ГОВОРЯТ «НЕТ»? Устали от того, что покупка дома кажется несбыточной мечтой из-за кредитных рейтингов, огромных даунпейментов и бесконечных проверок? Или у вас есть капитал, но вы не знаете, как заставить его работать на 100%, обходя стандартные банковские схемы? В 📍Сакраменто пройдет живая встреча, которая перевернет ваше представление о рынке недвижимости 🇺🇸США. Мы будем 💬говорить о том, как забирать дома в собственность БЕЗ участия банков. 📝Это легально, это прибыльно, и это то, что называют «креативными стратегиями». КОМУ ТОЧНО НУЖНО БЫТЬ ✅Тем, кто хочет свой дом, но не хочет (или не может) брать обычную ипотеку. Вы узнаете, как договориться напрямую с продавцом и заехать в жилье на своих условиях. ✅Тем, кто застрял на низкооплачиваемой работе. Мы покажем путь в самую востребованную нишу мира, где доход зависит только от вашей смекалки и навыков коммуникации. ✅Инвесторам и профи. Здесь вы найдете партнеров для сделок, которые не светятся на Zillow, и единомышленников, готовых к совместным проектам. Главный гость и спикер: На встрече будет Артем Ракаев - основатель сообщества 🇺🇸USAbyTemamila. Артем уже помог сотням людей в США уйти с нелюбимой работы и выстроить свою дорогу в недвижимости. Это человек-практик, который покажет, что недвижимость - это не про долги перед банком, а про свободу и правильные договоренности. Что вы получите от этой встречи? ✅Нетворкинг: Живое общение с теми, кто уже делает результат. ✅Знания: Поймете, где искать такие дома и как их оформлять. ✅Окружение: Вы попадете в комьюнити людей, которые развиваются и помогают друг другу расти. ✅Это не лекция. Это встреча охотников за недвижимостью, где каждый может найти свой путь. 📍Сакраменто 🗓28 февраля Количество мест ограничено, так как это живой формат 👀«глаза в глаза». Занимайте свое место прямо сейчас: 👉Регистрация здесь: ⏰Перестаньте ждать одобрения от банков - начните строить свое будущее сами! 🤝",
+        "short_description": "🏠КАК КУПИТЬ НЕДВИЖИМОСТЬ В США, ЕСЛИ БАНКИ ГОВОРЯТ «НЕТ»? Устали от того, что покупка дома кажется несбыточной мечтой из-за кредитных рейтингов, огромных даунпейментов и бесконечных проверок? Или у вас есть капитал, но вы не знаете, как зас"
+      }
+    },
+    {
+      "id": "24a4f303-5c26-4ffa-800d-481b3d6d8310",
+      "slug": "blackcaviar-redcaviar-sevrugacaviar-belugacaviar-s-205041-4f3b",
+      "name": "BlackCaviar #RedCaviar #SevrugaCaviar #BelugaCaviar #Sturgeo",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "96f7bebc-a8bd-4e23-a965-d980129b6295",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/24a4f303-5c26-4ffa-800d-481b3d6d8310/eda7b02fab8e9a5b.webp"
+      }
+    },
+    {
+      "id": "2e36983e-c21b-43df-8127-614057f935b5",
+      "slug": "licensed-home-bakery-180903",
+      "name": "Licensed Home Bakery",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "48ab52b6-e88d-4fd7-8310-67a887ea56a8",
+      "patch": {
+        "telegram_url": "https://t.me/sunlit_pie"
+      }
+    },
+    {
+      "id": "321336a8-7028-441a-bbb8-00a70314ee94",
+      "slug": "taki-da-cafe",
+      "name": "taki_da_cafe",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "7123db21-bdc1-4a0a-8701-155f154ea473",
+      "patch": {
+        "telegram_url": "https://t.me/anna_vyskrebets"
+      }
+    },
+    {
+      "id": "34494fe4-2ac4-45d5-91c8-f265339b5b2b",
+      "slug": "chirk-paint",
+      "name": "chirk_paint",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "483d43eb-e32c-4835-88ac-9255efcec506",
+      "patch": {
+        "telegram_url": "https://t.me/deskysn"
+      }
+    },
+    {
+      "id": "3d01f2e4-ce6e-4b43-888f-0bb971581578",
+      "slug": "pro-e77c72dedb",
+      "name": "Анна Еремеев",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "765f368a-771f-4210-82c1-31b54bf4a5c3",
+      "patch": {
+        "telegram_url": "https://t.me/AnnAngel21"
+      }
+    },
+    {
+      "id": "3d48dfa7-4594-4e92-9936-388a1cc2f9de",
+      "slug": "aleksandr-pshennik",
+      "name": "Aleksandr Pshennik",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "eef71cab-f599-4df3-b220-07f5aa4876fb",
+      "patch": {
+        "telegram_url": "https://t.me/Aleksandr_Pshennik"
+      }
+    },
+    {
+      "id": "3de4b69f-b588-4913-b147-1f12ce97f2a7",
+      "slug": "born-alex-205015-8df7",
+      "name": "Born Alex",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "5bff487a-7313-4876-8a12-f3c8b451b886",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/3de4b69f-b588-4913-b147-1f12ce97f2a7/a030f4ebae599cf7.webp"
+      }
+    },
+    {
+      "id": "3fb5345f-313d-404c-a96a-10e3dac320dd",
+      "slug": "pasha-fomin",
+      "name": "Pasha Fomin",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "896437cb-288c-4215-98eb-c9cedbffb286",
+      "patch": {
+        "description": "Требуется подготовщик автомобилей (Auto Body Prep) В небольшую кузовную мастерскую в требуется подготовщик автомобилей. Что нужно делать: Разборка и сборка деталей. Шлифовка. Шпаклевка. Грунтование. Подготовка к покраске. Поддержание чистоты на рабочем месте. Если у вас есть Минимальный опыт в кузовном ремонте, ответственность, аккуратность и желание работать Звоните по номеру",
+        "short_description": "Требуется подготовщик автомобилей (Auto Body Prep) В небольшую кузовную мастерскую в требуется подготовщик автомобилей. Что нужно делать: Разборка и сборка деталей. Шлифовка. Шпаклевка. Грунтование. Подготовка к покраске. Поддержание чистот"
+      }
+    },
+    {
+      "id": "4297e3ec-1ade-4faf-b4fe-5ea8ab2fff37",
+      "slug": "ludmila-kachkar",
+      "name": "Ludmila Kachkar",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "c5791ef3-b402-47d6-893d-dc582f862497",
+      "patch": {
+        "description": "**ГДЕ В СЕВЕРНОМ ТЕХАСЕ МОЖНО ТОРГОВАТЬСЯ ЗА НЕДВИЖИМОСТЬ** Представьте, что вы выбираете дом в Далласе — Форт-Уэрте в 2026 году. Фриско, МакКинни, Аллен, Уайли, Флауэр-Маунд или Мэнсфилд? На карте это один регион, но на рынке недвижимости — совершенно разные истории. Где цены держатся крепко? Где уже есть возможность торговаться? А где за тот же бюджет можно получить больше пространства? Русскоязычный риэлтор Irina Hightower разобрала, как сейчас ведут себя популярные пригороды Dallas–Fort Worth и, что это значит для покупателей и продавцов: www.DallasTelegraph.com/dfw-real-estate-market-2026/",
+        "short_description": "**ГДЕ В СЕВЕРНОМ ТЕХАСЕ МОЖНО ТОРГОВАТЬСЯ ЗА НЕДВИЖИМОСТЬ** Представьте, что вы выбираете дом в Далласе — Форт-Уэрте в 2026 году. Фриско, МакКинни, Аллен, Уайли, Флауэр-Маунд или Мэнсфилд? На карте это один регион, но на рынке недвижимости "
+      }
+    },
+    {
+      "id": "445cbbd2-9a90-49c0-abbf-38de96f18a8f",
+      "slug": "rush-in-documentation",
+      "name": "Rush In Documentation",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "b9c7b5d9-24ab-470e-95ea-5f3f042d6429",
+      "patch": {
+        "email": "info@rushindocumentation.com",
+        "instagram_url": "https://www.instagram.com/rushindocumentation.com"
+      }
+    },
+    {
+      "id": "478881b3-a48a-4bca-9087-4aff40e81c10",
+      "slug": "pro-3fbbb7556d",
+      "name": "Наиля",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "570ad7b0-ae63-4ad6-969f-2e0142082444",
+      "patch": {
+        "description": "Приезжайте забирайте.Вроде в настройках все хорошо, на всякий случай мой номер Звоните",
+        "short_description": "Приезжайте забирайте.Вроде в настройках все хорошо, на всякий случай мой номер Звоните"
+      }
+    },
+    {
+      "id": "4bde3eee-de02-4a7e-8fc4-c2dbc03b530b",
+      "slug": "shtefan-lashes",
+      "name": "shtefan_lashes",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "91df486a-816d-4396-bb13-6d5951784f41",
+      "patch": {
+        "telegram_url": "https://t.me/Sugaring_OrangeCounty"
+      }
+    },
+    {
+      "id": "4ca580d7-6663-4bbb-a87b-c2d9884e317b",
+      "slug": "sunlit-pie-la-205342-7e44",
+      "name": "Sunlit Pie | Осетинские пироги LA",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "056b598d-0106-4ee7-a9c4-77f7a08c9fc0",
+      "patch": {
+        "instagram_url": "https://www.instagram.com/Direct"
+      }
+    },
+    {
+      "id": "514f6459-f601-4849-a6ac-739e08e51b36",
+      "slug": "ana-gonzalez-204820-d61c",
+      "name": "Ana Gonzalez",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "50947c22-2199-4bcf-8831-c318d2504788",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/514f6459-f601-4849-a6ac-739e08e51b36/dcab2d1f20f9e46f.webp"
+      }
+    },
+    {
+      "id": "517e52ce-ab51-4682-a1c2-9414e5efb001",
+      "slug": "movingcompany-moversx-dispatc-205320-b0e9",
+      "name": "Мувинг #MovingCompany #MoversX #Логистика #Переезды #Dispatc",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "48355c33-24cf-4402-873c-c61e565f2d06",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/517e52ce-ab51-4682-a1c2-9414e5efb001/ba975b1b158b1c39.webp"
+      }
+    },
+    {
+      "id": "55350e2a-cafa-458c-83f0-d7defe584929",
+      "slug": "mark-terskiy",
+      "name": "Mark Terskiy",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "e5b7431d-3a04-48e0-83af-18cc36c41426",
+      "patch": {
+        "telegram_url": "https://t.me/markterskiy",
+        "description": "Продам НОВЫЕ iPhone 17 PRO MAX 512gb Полностью разблокированные В наличии 5 синих и 1 оранжевый Забирать в Ирвайне Цену предлагайте в лс",
+        "short_description": "Продам НОВЫЕ iPhone 17 PRO MAX 512gb Полностью разблокированные В наличии 5 синих и 1 оранжевый Забирать в Ирвайне Цену предлагайте в лс"
+      }
+    },
+    {
+      "id": "55818134-02c4-4e2b-a91e-a8daa30a0263",
+      "slug": "maksim-degtyar",
+      "name": "Maksim Degtyar",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "fc2af17b-9403-4fdf-8768-bb55076c9f76",
+      "patch": {
+        "phone": "+19493516824",
+        "email": "lamourtoujoursflowers@gmail.com",
+        "instagram_url": "https://www.instagram.com/lamour_toujours_flowers",
+        "description": "Друзья! Не пропустите самую жаркую вечеринку этой зимы! 7го Февраля в 237 Ocean Ave, Laguna Beach! Будем играть только самые любимые наши хиты! Здесь будут все!",
+        "short_description": "Друзья! Не пропустите самую жаркую вечеринку этой зимы! 7го Февраля в 237 Ocean Ave, Laguna Beach! Будем играть только самые любимые наши хиты! Здесь будут все!"
+      }
+    },
+    {
+      "id": "575f9e98-bc56-4fe6-abec-39bc2fe06c94",
+      "slug": "aleksei-sukhoverkhov",
+      "name": "Aleksei Sukhoverkhov",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "0ab78179-572c-440e-b09b-4c079df18a03",
+      "patch": {
+        "telegram_url": "https://t.me/alekseisukhoverkhov",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/575f9e98-bc56-4fe6-abec-39bc2fe06c94/f20ad2819ab447fd.webp",
+        "description": "Нужны клиенты из интернета для Вашего бизнеса? При запуске или развитии проекта Вам нужен сайт, который приносит клиентов — заявки, обращения и продажи, а не просто “присутствие в интернете”. Под задачи Вашего бизнеса: лендинг, корпоративный сайт, каталог товаров и услуг, интернет-магазин, система бронирования, сайт эксперта или личного бренда, агентства недвижимости. С применением ИИ моделей там, где это требуется. Вы получаете полноценный собственный сайт на своем хостинге с системой управления (админкой), где можно спокойно самостоятельно добавлять и редактировать контент без привлечения разработчика. AI используется как вспомогательный инструмент для ускорения и улучшения разработки, но не заменяет создание сайта — всё, что касается логики, структуры и кода, делается вручную и под задачу проекта. При необходимости возможноДальнейшее продвижение и развитие проекта, если это действительно важно для роста бизнеса. Почему обращаются именно ко мне: 1. Более 20 лет занимаюсь развитием онлайн-проектов, маркетингом и продвижением, последние 7+ лет — профессиональной веб-разработкой и программированием. За это время реализовал более 30 сайтов под ключ для бизнеса, сервисов, агентств и частных проектов. 2. Я автор трёх плагинов для одной из самых популярных в мире систем управления сайтами. Это означает опыт не только в создании сайтов, но и в разработке функционала и решений под реальные бизнес-задачи, включая качественный и безопасный код. 3. В прошлом — журналист и специалист в инвестиционном банкинге. Поэтому я понимаю не только разработку, но и контент, структуру, бизнес-логику и цели проекта. Сегодня я живу на собственной яхте в Греции и работаю с клиентами из Европы, США и других стран мира. Если Вы хотите сайт, который работает на клиентов — напишите мне. Разберём задачу и подберём оптимальное решение под бизнес и бюджет. Первая консультация и обсуждение — бесплатно. Выберите любой удобный способ связи: Telegram: WhatsApp / Viber / телефон: +30",
+        "short_description": "Нужны клиенты из интернета для Вашего бизнеса? При запуске или развитии проекта Вам нужен сайт, который приносит клиентов — заявки, обращения и продажи, а не просто “присутствие в интернете”. Под задачи Вашего бизнеса: лендинг, корпоративны"
+      }
+    },
+    {
+      "id": "584b0fd9-b6c5-476a-ab7f-1c60521b2df6",
+      "slug": "pro-43ec4e5f88",
+      "name": ", ,",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "479f06b0-394f-4384-befc-7bf310d70abd",
+      "patch": {
+        "telegram_url": "https://t.me/aik2275",
+        "description": "Хочешь силу, выносливость и уверенность? Приходи в наш зал — бокс, ММА, борьба и многое другое. Тренировки для любого уровня и возрастов для взрослых и детей Начни сегодня! 22661 lambert st ste 207. Lake forest ca 92630 Wrestling fundamentals Monday to Thursday 515-615pm Intermediate Wrestling Monday to Thursday 645-745 Advanced wrestling Monday and Wednesday 8-9pm Youth jiu jitsu Monday to Thursday 515-615 and Saturday 1030-1130 Adult jiu jitsu Monday to Thursday 11am-12pm Monday to Friday 630-8pm Saturdays 1130-1 Boxing Mondays and Wednesday 645–745pm Tuesday and Thursday 515-615 Friday 8-9pm",
+        "short_description": "Хочешь силу, выносливость и уверенность? Приходи в наш зал — бокс, ММА, борьба и многое другое. Тренировки для любого уровня и возрастов для взрослых и детей Начни сегодня! 22661 lambert st ste 207. Lake forest ca 92630 Wrestling fundamenta"
+      }
+    },
+    {
+      "id": "5a816a98-cee7-4b05-9d4b-887595ef6a2c",
+      "slug": "elena",
+      "name": "Elena",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "0f8e1791-593a-46e3-9752-772fbf3a5797",
+      "patch": {
+        "email": "help@lastbottlewines.com",
+        "instagram_url": "https://www.instagram.com/LastBottleWines",
+        "telegram_url": "https://t.me/signalyrev"
+      }
+    },
+    {
+      "id": "5a9ed86e-e74f-4c12-91d6-7ac7efcd48ef",
+      "slug": "fbpack-olena-farah",
+      "name": "Olena Farah",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": null,
+      "patch": {
+        "phone": "+16172777887"
+      }
+    },
+    {
+      "id": "5eb5e260-fd2f-4988-b00b-5f13c1e6ff44",
+      "slug": "margarita-shvalikovskaya-205653-ef12",
+      "name": "Margarita Shvalikovskaya",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "cea6b032-0f88-409b-a330-2600ac1235f9",
+      "patch": {
+        "phone": "+19082451396",
+        "website": "http://www.mygnp.com/index"
+      }
+    },
+    {
+      "id": "5ec2fd21-2c70-4594-ae8f-e9f00f352c10",
+      "slug": "lynn-j-english-205002-47f7",
+      "name": "Lynn J English",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "a6f0a728-67c5-4f6f-9ac4-ff022248e647",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/5ec2fd21-2c70-4594-ae8f-e9f00f352c10/e691a638a1e46653.webp"
+      }
+    },
+    {
+      "id": "5ef272ba-1712-4ab2-b102-d8aa4d2791e7",
+      "slug": "tatiana-fgm",
+      "name": "Tatiana Fgm",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "3f6bb4d5-4bc5-4396-9348-f2bc0526a0db",
+      "patch": {
+        "telegram_url": "https://t.me/tati_fgm"
+      }
+    },
+    {
+      "id": "61abb075-b49e-494a-a1cb-eff6e05a611d",
+      "slug": "kirill",
+      "name": "Kirill",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "8a6dc459-0304-4cde-a467-6bc9ee8ee7df",
+      "patch": {
+        "telegram_url": "https://t.me/kirka1983"
+      }
+    },
+    {
+      "id": "6c679049-4cd7-4a81-a971-1c1bce46a4cf",
+      "slug": "business-biz-205222-a632",
+      "name": "репетитор #репетиторпоматематике",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "07d20ea5-e351-49f6-90b0-aaf8af89ab63",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/6c679049-4cd7-4a81-a971-1c1bce46a4cf/1a18084995385314.webp",
+        "instagram_url": "https://www.instagram.com/red.cat_events"
+      }
+    },
+    {
+      "id": "6cd8bda2-c0ac-4abf-8285-c72821b53914",
+      "slug": "farruh-kochkarov-204833-dda2",
+      "name": "Farruh Kochkarov",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "3521d9b9-0135-424f-8663-0eebb4901311",
+      "patch": {
+        "website": "https://fliphtml5.com/bookcase/ssoav"
+      }
+    },
+    {
+      "id": "6ce441b1-128e-4e72-aad3-41f9a7ff6a2a",
+      "slug": "elvira-aksenova-205536-bd87",
+      "name": "Elvira Aksenova",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "de531d44-3fe6-482b-aa51-a393d66da381",
+      "patch": {
+        "instagram_url": "https://www.instagram.com/mama_print"
+      }
+    },
+    {
+      "id": "6fbb7d96-44a1-40d2-ba69-dd75ef4e042f",
+      "slug": "yakushok-yaroslav-205014-aa9d",
+      "name": "Yakushok Yaroslav",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "cf448466-8980-42a2-a181-5105ca3e5f23",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/6fbb7d96-44a1-40d2-ba69-dd75ef4e042f/2612e0b581f154dc.webp"
+      }
+    },
+    {
+      "id": "70af5f72-407b-47d7-97fd-f39a10cf40bf",
+      "slug": "daria-pavlii-205130-c2f8",
+      "name": "Daria Pavlii",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": "b9518a62-c361-4770-8a27-44bcf8e693b8",
+      "patch": {
+        "phone": "+13156121500",
+        "website": "https://fliphtml5.com/bookcase/ssoav"
+      }
+    },
+    {
+      "id": "71ed699f-44d3-455f-9a81-4d0d89019b7f",
+      "slug": "inga-kolesnikova",
+      "name": "Inga Kolesnikova",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "31695803-3b38-4c73-982f-fd10252e27b5",
+      "patch": {
+        "email": "inga@loankea.com",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/71ed699f-44d3-455f-9a81-4d0d89019b7f/5e8829f27dcc42ad.webp",
+        "description": "‼️Почему цена дома - это не единственная цифра, на которую стоит смотреть? Многие покупатели начинают поиск с одного вопроса: «Сколько стоит этот дом?» Но гораздо важнее задать еще несколько вопросов до того, как вы примете решение о покупке. 📌 Каким будет ежегодный налог на недвижимость? 📌 Есть ли дополнительный ежегодный налог на развитие инфраструктуры (Mello Roos, CDD)? 📌 Сколько будет стоить страховка именно для этого дома? 📌 Требуется ли отдельная страховка от наводнения (Flood Insurance) или от пожара (Fire Plan Insurance)? 📌 Есть ли HOA и какой размер ежемесячных или ежегодных взносов? Интересный факт: Даже если стоимость двух домов одинаковая, ежегодные расходы на их содержание могут существенно отличаться из-за налогов на недвижимость, стоимости страхования, возможной необходимости дополнительного страхового покрытия и взносов HOA. В результате разница в ежегодных расходах может составлять несколько тысяч долларов, хотя цена покупки у домов одинаковая. Именно поэтому я всегда рекомендую своим клиентам оценивать не только стоимость дома, но и все сопутствующие расходы. Такой подход помогает избежать неприятных сюрпризов после закрытия сделки и принять действительно взвешенное решение. 📩 Если вы только планируете покупку дома то свяжитесь со мной, я помогу заранее рассчитать все основные расходы, чтобы вы понимали полную стоимость владения недвижимостью еще до того, как сделаете предложение продавцу. Ваш эксперт по ипотечному кредитованию в США Инга Колесникова! ☎️ 📧 #Mortgage #RealEstate #MortgageBroker #HomeBuying #HousingMarket #MortgageNews #Finance #RealEstateUSA",
+        "short_description": "‼️Почему цена дома - это не единственная цифра, на которую стоит смотреть? Многие покупатели начинают поиск с одного вопроса: «Сколько стоит этот дом?» Но гораздо важнее задать еще несколько вопросов до того, как вы примете решение о покупк"
+      }
+    },
+    {
+      "id": "7b05c3b3-f51e-4ec4-a77f-66fe5ace547d",
+      "slug": "pavlo-rok-205105-181c",
+      "name": "Pavlo Rok",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "7cf3f38e-6cd6-4771-81bb-535794149ad8",
+      "patch": {
+        "description": "Перед вызовом мастера - бесплатная консультация по AC. ‬"
+      }
+    }
+  ]
+}

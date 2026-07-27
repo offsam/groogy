@@ -1,0 +1,675 @@
+{
+  "total_ready": 392,
+  "changes": 31,
+  "by_reason": {
+    "revert_true_event": 10,
+    "services_org→businesses": 4,
+    "car_rental→marketplace": 13,
+    "goods→marketplace": 3,
+    "housing→real_estate": 1
+  },
+  "before": {
+    "entity_type": {
+      "marketplace_listing": 210,
+      "business": 25,
+      "private_specialist": 25,
+      "real_estate": 108,
+      "lechu_listing": 15,
+      "transfer_listing": 9
+    },
+    "target_collection": {
+      "marketplace": 212,
+      "businesses": 9,
+      "private_specialists": 23,
+      "real_estate": 117,
+      "services": 7,
+      "lechu": 15,
+      "transfers": 9
+    }
+  },
+  "after": {
+    "entity_type": {
+      "business": 7,
+      "marketplace_listing": 224,
+      "real_estate": 109,
+      "event": 10,
+      "private_specialist": 18,
+      "lechu_listing": 15,
+      "transfer_listing": 9
+    },
+    "target_collection": {
+      "businesses": 7,
+      "marketplace": 224,
+      "real_estate": 109,
+      "events": 10,
+      "private_specialists": 18,
+      "lechu": 15,
+      "transfers": 9
+    },
+    "total": 392
+  },
+  "decisions": [
+    {
+      "id": "df3ade72-c9e1-4b07-8796-2bba9a3d6629",
+      "title": "imoms.oc",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "events"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "214071ce-d402-43c2-ac56-6039f1467915",
+      "title": "high school",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "education"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "1c7d8156-fd61-4518-911e-72266418a906",
+      "title": "lady_pro_invest",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "other"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "d9acb86d-223a-41b0-92f5-99868007c698",
+      "title": "University High School",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "events"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "0acdd9e0-3ed0-4f4c-9cd7-6b62b9ee7b04",
+      "title": "Елена",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "private_specialists",
+        "category": "health"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "4158702e-962b-4adc-b0c0-d994dd11a43b",
+      "title": "anna_womens_life",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "other"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "5518ec35-9362-49c4-b13c-7510d0e04bb4",
+      "title": "Амина",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "private_specialists",
+        "category": "events"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "33637293-0422-46fa-89fa-fafa746ab913",
+      "title": "Лана",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "private_specialists",
+        "category": "education"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "cb492536-2ae4-40bc-97cc-d9548f50e288",
+      "title": "Анечка",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "private_specialists",
+        "category": "events"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "be8f9a54-7d42-42c0-a27a-3e99696e72fb",
+      "title": "Дарья Цыман",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "private_specialists",
+        "category": "health"
+      },
+      "to": {
+        "entity_type": "event",
+        "target_collection": "events",
+        "category": "events"
+      },
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "d3856ad7-7d72-42ea-9feb-b8cb8de2d9db",
+      "title": "My Docs & Services",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "other"
+      },
+      "to": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "other"
+      },
+      "reason": "services_org→businesses"
+    },
+    {
+      "id": "5e6cd69e-6db6-434d-b1ba-084f4887b30f",
+      "title": "Николай Григорьевич",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "60e96a67-b15a-4088-adbc-6f52cac7212f",
+      "title": "Abraham Lincoln",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "d177f328-cd0a-4eb9-aef2-d322b843325d",
+      "title": "🛍🤠",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "marketplace",
+        "category": "other"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "food"
+      },
+      "reason": "goods→marketplace"
+    },
+    {
+      "id": "d02e6863-c6aa-4433-b07a-8b39645fc952",
+      "title": "Ida",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "141c1806-ae93-44fa-ae78-d573c54cc641",
+      "title": "Dmitrii E",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "bf99c27a-9a0a-4b10-9218-ba1b1192fdbb",
+      "title": "Alex P",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "dd56db22-3ebb-4fc6-b2d2-47f5e5b90ccd",
+      "title": "Ольга Романова",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "marketplace",
+        "category": "food"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "food"
+      },
+      "reason": "goods→marketplace"
+    },
+    {
+      "id": "bb651770-a844-440f-9f21-1d92075ec4a7",
+      "title": "Ina",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "8bc07a96-ccec-4852-8957-0d566cb14f43",
+      "title": "Ina",
+      "from": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "auto_services"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "c804560b-8d82-41f2-add1-1d7ddee62963",
+      "title": "Александр Радчук",
+      "from": {
+        "entity_type": "private_specialist",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "34af89f2-973c-4b1a-8af8-9c9d111dd9ee",
+      "title": "Совесть",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "bcb1f510-1137-4812-ab56-3bc0c4678efc",
+      "title": "Александр Хостел",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "real_estate_services"
+      },
+      "to": {
+        "entity_type": "real_estate",
+        "target_collection": "real_estate",
+        "category": "real_estate"
+      },
+      "reason": "housing→real_estate"
+    },
+    {
+      "id": "d6558faa-6b28-4d26-b8bb-c1f26b184112",
+      "title": "😈",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "6cde711c-e82a-4dab-9a5e-6e762fc6c11c",
+      "title": "Детский Сад Ромашка Laguna Hills",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "childcare"
+      },
+      "to": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "childcare"
+      },
+      "reason": "services_org→businesses"
+    },
+    {
+      "id": "576817b8-5e8c-414d-b9f1-47f6cc5092da",
+      "title": "~~~~ $$$$$",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "food"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "food"
+      },
+      "reason": "goods→marketplace"
+    },
+    {
+      "id": "bc425262-676f-41e1-95b3-6f48faf55de1",
+      "title": "Driving instructor",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "3e905414-0d24-4052-b70b-743eb03368d7",
+      "title": "DARK 2",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "real_estate",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "318f3b53-1aa1-4ec7-916e-81b1a962f91d",
+      "title": "Nick",
+      "from": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "other"
+      },
+      "to": {
+        "entity_type": "marketplace_listing",
+        "target_collection": "marketplace",
+        "category": "car_rental"
+      },
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "df01ac4a-a9d5-472c-bbca-629d76f4ef73",
+      "title": "US Drive Services",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "auto_services"
+      },
+      "to": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "auto_services"
+      },
+      "reason": "services_org→businesses"
+    },
+    {
+      "id": "4f0360d6-76f8-4d66-aabd-4ecf7e101ab0",
+      "title": "Akto Moving",
+      "from": {
+        "entity_type": "business",
+        "target_collection": "services",
+        "category": "car_rental"
+      },
+      "to": {
+        "entity_type": "business",
+        "target_collection": "businesses",
+        "category": "car_rental"
+      },
+      "reason": "services_org→businesses"
+    }
+  ],
+  "applied": [
+    {
+      "id": "df3ade72-c9e1-4b07-8796-2bba9a3d6629",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "214071ce-d402-43c2-ac56-6039f1467915",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "1c7d8156-fd61-4518-911e-72266418a906",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "d9acb86d-223a-41b0-92f5-99868007c698",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "0acdd9e0-3ed0-4f4c-9cd7-6b62b9ee7b04",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "4158702e-962b-4adc-b0c0-d994dd11a43b",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "5518ec35-9362-49c4-b13c-7510d0e04bb4",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "33637293-0422-46fa-89fa-fafa746ab913",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "cb492536-2ae4-40bc-97cc-d9548f50e288",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "be8f9a54-7d42-42c0-a27a-3e99696e72fb",
+      "ok": true,
+      "reason": "revert_true_event"
+    },
+    {
+      "id": "d3856ad7-7d72-42ea-9feb-b8cb8de2d9db",
+      "ok": true,
+      "reason": "services_org→businesses"
+    },
+    {
+      "id": "5e6cd69e-6db6-434d-b1ba-084f4887b30f",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "60e96a67-b15a-4088-adbc-6f52cac7212f",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "d177f328-cd0a-4eb9-aef2-d322b843325d",
+      "ok": true,
+      "reason": "goods→marketplace"
+    },
+    {
+      "id": "d02e6863-c6aa-4433-b07a-8b39645fc952",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "141c1806-ae93-44fa-ae78-d573c54cc641",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "bf99c27a-9a0a-4b10-9218-ba1b1192fdbb",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "dd56db22-3ebb-4fc6-b2d2-47f5e5b90ccd",
+      "ok": true,
+      "reason": "goods→marketplace"
+    },
+    {
+      "id": "bb651770-a844-440f-9f21-1d92075ec4a7",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "8bc07a96-ccec-4852-8957-0d566cb14f43",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "c804560b-8d82-41f2-add1-1d7ddee62963",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "34af89f2-973c-4b1a-8af8-9c9d111dd9ee",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "bcb1f510-1137-4812-ab56-3bc0c4678efc",
+      "ok": true,
+      "reason": "housing→real_estate"
+    },
+    {
+      "id": "d6558faa-6b28-4d26-b8bb-c1f26b184112",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "6cde711c-e82a-4dab-9a5e-6e762fc6c11c",
+      "ok": true,
+      "reason": "services_org→businesses"
+    },
+    {
+      "id": "576817b8-5e8c-414d-b9f1-47f6cc5092da",
+      "ok": true,
+      "reason": "goods→marketplace"
+    },
+    {
+      "id": "bc425262-676f-41e1-95b3-6f48faf55de1",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "3e905414-0d24-4052-b70b-743eb03368d7",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "318f3b53-1aa1-4ec7-916e-81b1a962f91d",
+      "ok": true,
+      "reason": "car_rental→marketplace"
+    },
+    {
+      "id": "df01ac4a-a9d5-472c-bbca-629d76f4ef73",
+      "ok": true,
+      "reason": "services_org→businesses"
+    },
+    {
+      "id": "4f0360d6-76f8-4d66-aabd-4ecf7e101ab0",
+      "ok": true,
+      "reason": "services_org→businesses"
+    }
+  ]
+}

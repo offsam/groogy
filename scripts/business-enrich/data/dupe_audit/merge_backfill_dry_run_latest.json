@@ -1,0 +1,104 @@
+{
+  "mode": "dry_run",
+  "merges": [
+    {
+      "status": "already_archived",
+      "keep_slug": "lana-cher-181512-6cf0",
+      "drop_slug": "lana-cher-205647-957a"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "consolidated-stephen-law-pc",
+      "drop_slug": "fb-post-31-eugene-stephen-immigration-attorney"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "consolidated-tenina-law-inc",
+      "drop_slug": "fb-post-28-tenina-law-inc"
+    },
+    {
+      "status": "already_archived",
+      "keep_slug": "kai-t-234038",
+      "drop_slug": "kai-t-205627-dea6"
+    },
+    {
+      "keep_id": "1d23a81e-5c8b-4f2c-83c7-a1e63a58060d",
+      "keep_slug": "ida-seidova-150707",
+      "keep_name": "Skinovation Clinic",
+      "drop_id": "32a6b89c-a465-4819-9862-6416ea8d2518",
+      "drop_slug": "dr-modarres-150637",
+      "drop_name": "dr__modarres",
+      "note": "Skinovation Clinic @ 200 Newport Center — drop doctor alias card",
+      "patch": {
+        "region": "Orange County",
+        "description": "This clinic specializes in aesthetic procedures, including EZ Gel - PRF for under-eye rejuvenation and lip augmentation using dermal fillers. EZ Gel - PRF is a natural product derived from the patient's own plasma, offering a smooth and natural result without the concerns of traditional fillers. It effectively improves skin quality, stimulates collagen production, and helps achieve a fresher, more rested appearance.\n\nУслуги: EZ Gel - PRF under eyes, Lip augmentation with dermal fillers, Skin quality improvement, Collagen stimulation"
+      },
+      "keep_richness": 20,
+      "drop_richness": 16,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "4669cc85-a49c-4818-b9bf-ca325cbdb98b",
+      "keep_slug": "wonderland-beauty-salon",
+      "keep_name": "Wonderland beauty salon",
+      "drop_id": "2926ebb8-f020-4c2e-ac1b-73b46bf8c238",
+      "drop_slug": "wonderland-salon-205355-7c07",
+      "drop_name": "Wonderland Salon",
+      "note": "Wonderland beauty salon duplicate (force keep phone card)",
+      "patch": {
+        "telegram_url": "https://t.me/maria_tumanyan",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business-covers/2926ebb8-f020-4c2e-ac1b-73b46bf8c238/cover-tg-255271.jpg",
+        "description": "🎯 Интервью, которое может изменить всё — подготовьтесь к нему с уверенностью!\nYurMar Consulting помогает пройти интервью по убежищу (asylum) спокойно и эффективно\n🔹 Разберём возможные вопросы\n🔹 Поможем структурировать личную историю\n🔹 Отработаем уверенные и точные ответы\n💼 Также предлагаем профессиональное сопровождение по другим направлениям\n🩺 Социально-медицинский консалтинг\n(Medi-Cal, Medicare, IHSS, хоспис и пр.)\n🛂 Иммиграционные и юридико-бюрократические вопросы\n(заполнение форм, работа с документами, семейное и уголовное право, Personal Injury: ДТП и несчастные случаи)\n🗣️ Переводы и сопровождение на интервью\nПереводчик на интервью по asylum\nПереводы документов по делу asylum\n📱 Telegram / (818) 319‑2621"
+      },
+      "keep_richness": 8,
+      "drop_richness": 11,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "7f910fcd-95b6-4c1d-8537-8ec19e3edcfb",
+      "keep_slug": "beauty-studio-by-veronika",
+      "keep_name": "Beauty Studio by Veronika",
+      "drop_id": "f33b0d87-5883-47ee-91bc-e2c478cbb41e",
+      "drop_slug": "united-states-beauty-studio-180905",
+      "drop_name": "United States Beauty studio",
+      "note": "same Veronika studio @ 230 E 17th St Ste 150 Costa Mesa",
+      "patch": {},
+      "keep_richness": 23,
+      "drop_richness": 10,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "keep_slug": "oksana-150709",
+      "keep_name": "STAIR Academy",
+      "drop_id": "d8e02133-7958-44b8-842c-50ccfd9b9e96",
+      "drop_slug": "stairedu-sergey-150606",
+      "drop_name": "StairEdu Sergey",
+      "note": "same STAIR / StairEdu brand @ Mission Viejo",
+      "patch": {
+        "region": "Orange County"
+      },
+      "keep_richness": 19,
+      "drop_richness": 12,
+      "status": "dry_run"
+    },
+    {
+      "keep_id": "c036ad34-a75f-404c-a0ea-55138479fa56",
+      "keep_slug": "oktel-205740-27a3",
+      "keep_name": "𝙤𝙠𝙩𝙚𝙡",
+      "drop_id": "fbe0d02e-fd22-4045-834e-2fa8c89208a7",
+      "drop_slug": "oktel-181534-5dfb",
+      "drop_name": "𝙤𝙠𝙩𝙚𝙡",
+      "note": "identical oktel rental spam cards",
+      "patch": {},
+      "keep_richness": 7,
+      "drop_richness": 7,
+      "status": "dry_run"
+    }
+  ],
+  "backfill": {
+    "scanned": 208,
+    "updated": 0,
+    "items": []
+  }
+}

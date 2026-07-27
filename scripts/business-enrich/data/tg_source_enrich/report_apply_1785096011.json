@@ -1,0 +1,658 @@
+{
+  "mode": "apply",
+  "limit": 30,
+  "offset": 0,
+  "candidates": 30,
+  "results": [
+    {
+      "id": "3aa29bbc-9768-4e22-b771-a17c6721fa44",
+      "slug": "leisan-hairstylist-oc-150646",
+      "name": "leisan_hairstylist_oc",
+      "source_url": "https://t.me/c/1333533747/75082",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/leisan_hairstylist_oc",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 69,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "bb557a69-0da5-4da1-8bfe-170729c5761e",
+      "slug": "ekaterinakhomich-150703",
+      "name": "ekaterinakhomich",
+      "source_url": "https://t.me/c/1333533747/72390",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/ekaterinakhomich",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 43,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "43d88222-8b27-4b4e-ab4c-920a9cc2112a",
+      "slug": "elvira-s-mama-print-150708",
+      "name": "Elvira S @mama_print",
+      "source_url": "https://t.me/c/1333533747/71718",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://mama-print.ru/blog/links",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Мама ПРИНТ",
+        "address": null
+      },
+      "patch": {
+        "description": "Мама ПРИНТ offers a library of over 8000 developmental materials, 9 courses, and 100 thematic kits for children aged 2 to 7. These resources are created and adapted by a mother of bilingual children, serving as a key assistant in child development. Currently, bright and engaging spring-themed tasks, including a giant Easter coloring book and Easter logic and thinking activities, are available for free download.\n\nУслуги: Educational materials, Developmental activities, Coloring books, Logic tasks, Courses, Thematic kits for children"
+      },
+      "caption_len": 405,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "b3163aa9-2bf5-49c0-843c-98f389e6e065",
+      "slug": "daria-stretch-dance-150647",
+      "name": "daria_stretch_dance",
+      "source_url": "https://t.me/c/1333533747/74220",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/daria_stretch_dance",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Провожу занятия - stretching ( растяжка) в мини-группах каждый вт и чт на 6:30 вечера , пятница на 10 утра,",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Привет-привет! \nКто хочет улучшить осанку, чувствовать легкость в теле, сесть на шпагат и тд тд \n\nПровожу занятия - stretching ( растяжка) в мини-группах каждый вт и чт на 6:30 вечера , пятница на 10 утра, \n📍территориально зал в Ирвайн ( около аэропорта) 🧘🤸\nПо вторникам и воскресеньям утренние около океана ( Corona Del Mar) 🌊 \n\n💫 Занятия для любого уровня подготовки ✨\nТак же есть варианты индивидуальных занятий 👌🏻\n\n💌Если есть вопросы и желаешь присоединиться к занятиям - пиши💌 тут или в inst \nP.S. на этой неделе есть места для записи ✅✅✅"
+      },
+      "caption_len": 628,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "3474b107-c440-499a-b0e7-0ac29015208c",
+      "slug": "grace-and-bloom-150627",
+      "name": "grace_and_bloom_",
+      "source_url": "https://t.me/c/1333533747/72403",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/grace_and_bloom_",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 43,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "603932d3-eea2-4bed-902d-45add50a9198",
+      "slug": "karelinphotography-150637",
+      "name": "karelin.photography",
+      "source_url": "https://t.me/c/1333533747/72399",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/karelin.photography",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Karelin Photography",
+        "address": null
+      },
+      "patch": {
+        "description": "Max is a photographer with over 10 years of experience. He specializes in capturing weddings, love stories, portraits, family sessions, and various events. If you desire vibrant and beautiful photographs, you're welcome to connect.\n\nУслуги: weddings, love story, portraits, family shoots, events"
+      },
+      "caption_len": 195,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "4ad6b1ec-e6ab-401d-a885-96d6e315a0d2",
+      "slug": "sashalashangel-150654",
+      "name": "sashalashangel",
+      "source_url": "https://t.me/c/1333533747/71265",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/sashalashangel",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "✨💫"
+      },
+      "caption_len": 65,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "096f2053-300d-4523-a2a0-7719bd09800a",
+      "slug": "pilyulyame-150653",
+      "name": "pilyulya.me",
+      "source_url": "https://t.me/c/1333533747/71268",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/pilyulya.me",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 59,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "02c46786-b130-4112-b230-37b45a017054",
+      "slug": "taticakeoc-150651",
+      "name": "tati.cake.oc",
+      "source_url": "https://t.me/c/1333533747/72298",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/tati.cake.oc",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "У меня есть)))\n\nМожно посмотреть наличие здесь:"
+      },
+      "caption_len": 127,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "13331824-1d68-4b07-934e-94f45c0993ea",
+      "slug": "julia-life-usa-150652",
+      "name": "julia_life_usa",
+      "source_url": "https://t.me/c/1333533747/71327",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/julia_life_usa",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 62,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "ae4a3a90-d623-4f91-abd2-350f6c3742e9",
+      "slug": "facial-massage-oc-150649",
+      "name": "facial_massage_oc",
+      "source_url": "https://t.me/c/1333533747/72383",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/facial_massage_oc",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Здравствуйте, Светлана 🌸\nЯ лицензированный эстетист, работаю руками и на проф косметике. Использую разные техники: лимфодренаж, букальный, миофасциальный. Приходите!"
+      },
+      "caption_len": 251,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "abdb2377-5a4a-4e57-920d-414d37ce0299",
+      "slug": "dmitry-150709",
+      "name": "Dmitry",
+      "source_url": "https://t.me/c/1333533747/70102",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://ti.alter.tax/",
+        "telegram_username": null,
+        "hours_text": "📉 Налоги, задолженности, пенни, штрафы — всё это может внезапно вырвать из бюджета тысячи долларов, но предупредить это проще, чем кажется 👇",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "📊 У вас могут быть проблемы с IRS, а вы даже не знаете об этом?\n📉 Налоги, задолженности, пенни, штрафы — всё это может внезапно вырвать из бюджета тысячи долларов, но предупредить это проще, чем кажется 👇\n\n🔥 Мы запусктили БЕСПЛАТНУЮ проверку вашей налоговой ситуации в США — без звонков в IRS, без давления и скрытых условий:\n\n✔ Полную картину вашей ситуации в IRS\n✔ Проверку — прошла ли декларация\n✔ Почему нет рефанда (если он задерживается)\n✔ Есть ли задолженность, штрафы или риски взыскания\n✔ Статус аккаунта и потенциальные действия IRS\n\n⚠️ Если выявлены риски или долг —\nдля вас формируется персональный план действий:\n• либо профессиональный Resolution Plan\n• либо понятный пошаговый DIY-план (если хотите решить самостоятельно)\n\nБез звонков, без давления, без обязательств.\nВсё онлайн. Конфиденциально.\n\n🎯 Проверка особенно полезна если:\n— вы уже подали декларацию и не знаете её статус\n— ждёте рефанд, но деньги не приходят\n— получали письма от IRS\n— давно не проверяли свой налоговый аккаунт\n\n👉 Бесплатная проверка здесь:\n\nЛучше узнать сейчас, чем получить неприятный сюрприз позже."
+      },
+      "caption_len": 1115,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "a1d0e3ea-beb2-429f-9737-96cb8ec0ef0e",
+      "slug": "teastorm-150640",
+      "name": "_teastorm_",
+      "source_url": "https://t.me/c/1333533747/74441",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/_teastorm_",
+        "website": "https://teastormus.etsy.com",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "TeaStorm",
+        "address": null
+      },
+      "patch": {
+        "description": "TeaStorm is a small family business offering quality loose leaf tea. Each variety is unique, revealing notes like floral, honey, creamy, fruity, or rich deep flavors. We are happy to help with your selection if you have any questions.\n\nУслуги: Premium loose leaf tea, Quality loose leaf tea"
+      },
+      "caption_len": 554,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "aa26f448-3536-4e7f-a089-21530f1d031c",
+      "slug": "reel-150657",
+      "name": "reel",
+      "source_url": "https://t.me/c/1333533747/70785",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/reel",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 65,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "9555564d-0ffd-435a-ba36-8fcc50b51079",
+      "slug": "kate-yuka-aesthetics-150659",
+      "name": "kate_yuka_aesthetics",
+      "source_url": "https://t.me/c/1333533747/69828",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/kate_yuka_aesthetics",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 68,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "a15ed7ac-94e5-4e48-8fbc-f0de7ad781d7",
+      "slug": "евгения-150642",
+      "name": "Евгения",
+      "source_url": "https://t.me/c/1333533747/69514",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/cakewithlove.ca",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Cake With Love",
+        "address": null
+      },
+      "patch": {
+        "description": "Evgenia is a professional confectioner with over 10 years of experience. She creates amazingly delicious cakes and stylish candy bars, where every detail reflects taste, aesthetics, and love for her craft. Her cakes are not just desserts, but true art, designed to make your celebration unforgettable, bright, beautiful, and incredibly delicious.\n\nУслуги: Cakes, Candy bars"
+      },
+      "caption_len": 477,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "95ae11bf-c388-40f4-8ddb-69f423648f5f",
+      "slug": "creatoriakids-150649",
+      "name": "creatoriakids",
+      "source_url": "https://t.me/c/1333533747/72963",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/creatoriakids",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "🕊️ Родителям: места в группе ограничены. Приглашаем вас стать частью нашей обновленной программы.",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 808,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "8e393da3-969f-48a1-9056-14bb2786eb37",
+      "slug": "alina-oc-hair-150626",
+      "name": "alina_oc_hair",
+      "source_url": "https://t.me/c/1333533747/73171",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/alina_oc_hair",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 79,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "739b057b-3430-44a7-89a7-c9161b002e80",
+      "slug": "hammond-cpa-150628",
+      "name": "hammond_cpa",
+      "source_url": "https://t.me/c/1333533747/69554",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/hammond_cpa",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ==",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 59,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "a8c1b4fb-8dc2-45b2-a4c7-7740e2a892b8",
+      "slug": "tetianamalenkova-150652",
+      "name": "tetiana.malenkova",
+      "source_url": "https://t.me/c/1333533747/75707",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/tetiana.malenkova",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 65,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "4c3f6ee0-a27d-4c8e-8a52-fb2b70472858",
+      "slug": "nataliawolfstudio-150658",
+      "name": "nataliawolfstudio",
+      "source_url": "https://t.me/c/1333533747/70536",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/nataliawolfstudio",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 65,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "0736f212-cd7f-415a-8386-6926b68217ef",
+      "slug": "natalia-rezvova-150712",
+      "name": "Letter Fox",
+      "source_url": "https://t.me/c/1333533747/69790",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": "lettersfox@gmail.com",
+        "instagram_url": null,
+        "website": "https://lettersfox.wixsite.com/letterfox",
+        "telegram_username": null,
+        "hours_text": "Submissions accepted until the end of February; results announced at the end of March.",
+        "business_name": "Letter Fox",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 508,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "08a135ce-ef88-43c1-a315-50fd6d636505",
+      "slug": "kelov-studio-181007",
+      "name": "Kelov Studio",
+      "source_url": "https://t.me/c/1955320601/250411",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "HANDMADE теперь на Amazon.\n\nОткрытки из переливающейся ткани, авторские чашки и наборы для снятия стресса 🤗\nВесь товар изготовлен вручную — с вниманием и с душой.\n\nНаберите в поиске Amazon: Kelov Studio\nМы только открылись и будем рады вашей поддержке.\n\nKelov Studio — потому что нам не всё равно. 🥳☺️"
+      },
+      "caption_len": 301,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "b2d9acec-450b-4224-b575-a1a93721781b",
+      "slug": "business-biz-180953",
+      "name": "Оля",
+      "source_url": "https://t.me/c/1333533747/70626",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Сейчас у нас действует весеннее предложение — батут + БЕСПЛАТНАЯ гирлянда из шаров от $195 🎉",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Всем привет 💛\n\nЕсли вы планируете проведение праздника в ближайшее время— буду рада помочь!\n\nЯ Оля, мама и основатель компании детских праздников This Is Bananas Events 🎈 (Лос-Анджелес).\n\nМы предлагаем:\n• Белые батуты (bounce house)\n• Воздушные гирлянды и декор\n• Детские столы и стульчики\n• Оформление праздников\n\nСейчас у нас действует весеннее предложение — батут + БЕСПЛАТНАЯ гирлянда из шаров от $195 🎉\n\nИдеально для красивого, но при этом простого и спокойного праздника без лишнего стресса.\n\nЕсли у вас уже есть дата — напишите в личные сообщения"
+      },
+      "caption_len": 553,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "49a02e0e-cdbe-4812-8f28-2bd52da7d022",
+      "slug": "mila-150710",
+      "name": "MilaTax",
+      "source_url": "https://t.me/c/1333533747/69579",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": "https://milatax.com",
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "MilaTax",
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 310,
+      "has_media": true,
+      "status": "noop"
+    },
+    {
+      "id": "a37350f7-5ca7-44ed-bcbc-ad32a58a4507",
+      "slug": "hairdreams-by-galinakirbaba-150633",
+      "name": "hairdreams__by_galinakirbaba",
+      "source_url": "https://t.me/c/1333533747/73909",
+      "ocr_model": null,
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/hairdreams__by_galinakirbaba",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "Пишите, пожалуйста, мне в личные сообщения в Instagram — здесь я часто теряю сообщения ☺️",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "description": "Девочки, кто хочет такое окрашивание? 🤍\nИщу модель на окрашивание в таком стиле на среду 5/20 ✨\n\nЦвет можно выбрать на ваш вкус 💙💜💚🩷❤️\n\nПишите, пожалуйста, мне в личные сообщения в Instagram — здесь я часто теряю сообщения ☺️"
+      },
+      "caption_len": 321,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "47e540fd-aa7f-4ef9-a1c4-99fe444ba055",
+      "slug": "lindas-bouquet-150626",
+      "name": "lindas_bouquet",
+      "source_url": "https://t.me/c/1333533747/72460",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/lindas_bouquet",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": null,
+        "address": null
+      },
+      "patch": {},
+      "caption_len": 62,
+      "has_media": false,
+      "status": "noop"
+    },
+    {
+      "id": "0fe50371-d9c5-4238-98b4-c9fe679189de",
+      "slug": "photograph-la-alina-150643",
+      "name": "photograph_la_alina",
+      "source_url": "https://t.me/c/1333533747/71881",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/photograph_la_alina",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": "April 11 (Saturday)",
+        "business_name": "Alina Photography",
+        "address": null
+      },
+      "patch": {
+        "description": "Join us for a spring mini photo day in a bohemian style, creating a gentle and warm atmosphere with flowing fabrics and natural aesthetics. This photoshoot is perfect for those desiring beautiful spring photographs or expecting a baby. We provide consultation on looks, a personalized mood board, and all necessary props and decor. You'll receive approximately 300 raw photos and 20 professionally edited images, along with video backstage and short reels.\n\nУслуги: Spring mini photo day in bohemian style, Individual photoshoot (35 minutes), Consultation on looks (video or chat), Individual mood board for the shoot, All props and decor (fabric, items, details), ~300 best raw photos, 20 professionally edited photos (color correction + retouching), Video backstage"
+      },
+      "caption_len": 961,
+      "has_media": true,
+      "status": "updated"
+    },
+    {
+      "id": "14754245-a747-4ab7-8e21-375e9bf46e50",
+      "slug": "амина-150656",
+      "name": "Амина",
+      "source_url": "https://t.me/c/1333533747/71885",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": null,
+        "website": null,
+        "telegram_username": "aminotk",
+        "hours_text": "- участвовала во Всероссийских олимпиадах по химии",
+        "business_name": null,
+        "address": null
+      },
+      "patch": {
+        "telegram_url": "https://t.me/aminotk",
+        "description": "Привет! Меня зовут Амина. Я учусь в 10 классе американской школы и провожу онлайн занятия по химии для школьников.\n\nМогу помочь с темами уровня Honor Chemistry и ниже (школьная неорганическая и общая химия). Объясняю материал, помогаю разобраться с домашними заданиями и подготовиться к тестам. Занятия могу проводить как на русском, так и на английском.\n\nМой опыт:\n- занимаюсь химией с 7 класса (олимпиадная подготовка)\n- участвовала во Всероссийских олимпиадах по химии\n-проходила курсы по химии от МГУ\n- занималась со сборной Москвы по химии и участвовала во многих выездных сборах\n- 2 года училась в специализированном химическом классе, где нас готовили к олимпиадам \n- уже есть опыт проводения репетиторских занятий, после моих объяснений у учеников улучшалось понимание тем и оценки\n- учительница по химии в американской школе просила меня помогать русскоязычным ученикам с объяснением сложных тем\n\nПисать можно в телеграмм:"
+      },
+      "caption_len": 940,
+      "has_media": false,
+      "status": "updated"
+    },
+    {
+      "id": "194d7e89-dcc8-4aca-9082-0fbaa314fc23",
+      "slug": "виктория-150643",
+      "name": "Виктория",
+      "source_url": "https://t.me/c/1333533747/69413",
+      "ocr_model": "gemini-2.5-flash",
+      "extracted": {
+        "phone": null,
+        "email": null,
+        "instagram_url": "https://www.instagram.com/viktoria.bouquetory",
+        "website": null,
+        "telegram_username": null,
+        "hours_text": null,
+        "business_name": "Viktoria Bouquetory",
+        "address": "Irvine / Orange County, CA"
+      },
+      "patch": {
+        "description": "Viktoria specializes in creating unique fruit and flower bouquets and custom gift compositions for any occasion. She crafts arrangements that evoke genuine emotions, perfect for birthdays, special events, or just because. Whether you're looking for a grand gesture or a charming mini-composition, Viktoria is dedicated to creating something truly special and memorable. She offers personalized orders to match your mood and event, ensuring a delightful surprise.\n\nУслуги: Fruit and flower bouquets, Gift compositions for birthdays and special events, Custom orders, Mini compositions",
+        "address_line": "Irvine / Orange County, CA"
+      },
+      "caption_len": 878,
+      "has_media": true,
+      "status": "updated"
+    }
+  ],
+  "summary": {
+    "updated": 15,
+    "dry_run": 0,
+    "noop": 15,
+    "tg_error": 0,
+    "tg_missing": 0,
+    "patch_error": 0
+  }
+}

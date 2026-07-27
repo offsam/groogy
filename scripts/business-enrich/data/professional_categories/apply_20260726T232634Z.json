@@ -1,0 +1,430 @@
+{
+  "generated_at": "2026-07-26T23:26:34.553133+00:00",
+  "mode": "apply",
+  "total_approved": 486,
+  "skipped_already_set": 195,
+  "updated": 291,
+  "by_category": {
+    "pro_other": 89,
+    "beauty": 46,
+    "education": 30,
+    "home_services": 21,
+    "fitness": 16,
+    "insurance": 13,
+    "home_food": 9,
+    "photo_video": 9,
+    "massage_wellness": 9,
+    "childcare": 8,
+    "legal": 7,
+    "auto": 7,
+    "finance": 7,
+    "health": 7,
+    "pets": 4,
+    "real_estate": 3,
+    "creative": 3,
+    "events": 2,
+    "travel": 1
+  },
+  "sample": [
+    {
+      "id": "7cc350bd-decb-4381-9165-88acc50db0f1",
+      "slug": "fbpack-liudmyla-muzyra-house-repair",
+      "display_name": "Liudmyla Muzyra House Repair",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "d357aa27-60d2-4d51-8b69-b49bc4122174",
+      "slug": "master-valery-205050-6c62",
+      "display_name": "Master Valery",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "2f3d50a5-d67e-431f-91ec-b4ac7f9f80fe",
+      "slug": "braidifornia-205140-b261",
+      "display_name": "Braidifornia",
+      "category_slug": "childcare",
+      "category_id": "b1000001-0000-4000-8000-000000000003",
+      "category_name": "Дети и няни"
+    },
+    {
+      "id": "c136a4d4-34c8-4db6-9afa-65411752c321",
+      "slug": "fbpack-victor-home-repair-specialist",
+      "display_name": "Victor Home Repair Specialist",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "4247c057-e72e-448a-be0c-da8ea24d887c",
+      "slug": "business-biz-205128-4506",
+      "display_name": "Кристина",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "c4bf1db0-5abe-4c49-9371-229405c80de0",
+      "slug": "business-biz-205659-48e0",
+      "display_name": "Оксана",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "da4435d6-8ce8-412f-9338-6d1618756d4c",
+      "slug": "consolidated-ruzanna-melikyan-cleaning",
+      "display_name": "Ruzanna Melikyan",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "d5ff11f2-47e8-482e-919b-534313e1154d",
+      "slug": "azamat-205815-c0ea",
+      "display_name": "Azamat",
+      "category_slug": "insurance",
+      "category_id": "a1000001-0000-4000-8000-00000000000d",
+      "category_name": "Страхование"
+    },
+    {
+      "id": "a7187921-df77-4ff2-816b-30fe4d0345a1",
+      "slug": "natalia-205124-c51f",
+      "display_name": "Natalia",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "4908d013-f53f-47e9-8272-7dba3f2757a1",
+      "slug": "fb-post-13-eugenia-delaveri-real-estate-agent",
+      "display_name": "Eugenia Delaveri - Real Estate Agent",
+      "category_slug": "real_estate",
+      "category_id": "a1000001-0000-4000-8000-000000000009",
+      "category_name": "Недвижимость"
+    },
+    {
+      "id": "87a4d724-e97d-4e8d-9bf5-2defd50a273c",
+      "slug": "slava-swim-204814-060f",
+      "display_name": "Slava Swim",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "eddeef1f-9300-4c6f-ade4-e30b3370c695",
+      "slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+      "display_name": "Mikhail Kulesh - Vehicle Rental",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "d70450da-2c7f-46a2-b6c5-dddab23cfe37",
+      "slug": "fb-post-23-igor-green-business-licensing-protection",
+      "display_name": "Igor Green - Business Licensing Protection",
+      "category_slug": "legal",
+      "category_id": "a1000001-0000-4000-8000-000000000006",
+      "category_name": "Юристы"
+    },
+    {
+      "id": "d2d3efd9-0494-4706-936d-933dbfa728ec",
+      "slug": "pavel-beloglazov-205037-92fd",
+      "display_name": "Pavel  Beloglazov",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "72d8c3ac-f78e-4fd6-9b85-01ca14f09856",
+      "slug": "business-9166660427-205031-3265",
+      "display_name": "Илия Мо",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "6760aac5-a2ae-4704-947b-4845e903bc54",
+      "slug": "consolidated-roman-rybin-karaoke",
+      "display_name": "Roman Rybin",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "6a850bd9-4544-409d-9335-160b753c36bc",
+      "slug": "arman-movsesian-205308-b5d0",
+      "display_name": "Arman Movsesian",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "eb527fd5-5cbd-4ca8-90aa-c9f9f269de04",
+      "slug": "karina-bgantseva-205314-9fa7",
+      "display_name": "Karina Bgantseva",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "10c84d9b-04fb-41b7-a361-cadae690eb7a",
+      "slug": "business-biz-180858",
+      "display_name": "Реналь",
+      "category_slug": "auto",
+      "category_id": "a1000001-0000-4000-8000-000000000004",
+      "category_name": "Автосервис"
+    },
+    {
+      "id": "dffe8631-dea2-4f94-997f-6c96c8ae27d1",
+      "slug": "yelena-dean-204832-39fa",
+      "display_name": "Yelena Dean",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "39813339-8402-451a-8934-89718259d7da",
+      "slug": "business-9162016271-205017-a355",
+      "display_name": "Алёна Симагина",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "93831ffe-6034-4a5a-b0ea-041853637cc2",
+      "slug": "business-biz-181520-51a0",
+      "display_name": "Роман",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "58a3ea0f-0c66-4e5b-b68f-c620032bb1e2",
+      "slug": "david-dee-204956-2053",
+      "display_name": "David Dee",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "ed0562d7-5515-4612-83d7-beb3c2ad4595",
+      "slug": "business-biz-181526-ebad",
+      "display_name": "Валентина",
+      "category_slug": "legal",
+      "category_id": "a1000001-0000-4000-8000-000000000006",
+      "category_name": "Юристы"
+    },
+    {
+      "id": "ff3fd2da-f16e-4a04-9c78-53371f8fa435",
+      "slug": "business-biz-181523-7fd4",
+      "display_name": "Тетяна",
+      "category_slug": "home_food",
+      "category_id": "b1000001-0000-4000-8000-000000000006",
+      "category_name": "Домашняя еда и выпечка"
+    },
+    {
+      "id": "a1c477ce-af23-4d32-98ce-d6f26cd1d1bc",
+      "slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "display_name": "Kristina Immerman - Moscow-to-USA Courier",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "a93c6d64-d550-4a40-9622-5a6b29842d2f",
+      "slug": "revived-prince-204952-ae50",
+      "display_name": "Revived Prince",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "0babfc0d-d722-4a5f-93c9-f3a12a41953c",
+      "slug": "consolidated-amega-studios",
+      "display_name": "Amega Studios",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "d2345e9d-e1ab-40f0-8846-0a9eddf07c4e",
+      "slug": "nikita-180903",
+      "display_name": "Nikita",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "51ac67c4-e1fc-4fbf-af16-f498a686b5ee",
+      "slug": "azamat-205826-6e5c",
+      "display_name": "Azamat",
+      "category_slug": "insurance",
+      "category_id": "a1000001-0000-4000-8000-00000000000d",
+      "category_name": "Страхование"
+    },
+    {
+      "id": "ad583acb-938a-405d-b64f-2b1d1056c9c1",
+      "slug": "olga-kliukina-180930",
+      "display_name": "Olga Kliukina",
+      "category_slug": "creative",
+      "category_id": "b1000001-0000-4000-8000-000000000007",
+      "category_name": "Дизайн и handmade"
+    },
+    {
+      "id": "434ec733-33e4-465b-b95f-5508cd4b361d",
+      "slug": "roman-181510-ec0e",
+      "display_name": "Roman",
+      "category_slug": "insurance",
+      "category_id": "a1000001-0000-4000-8000-00000000000d",
+      "category_name": "Страхование"
+    },
+    {
+      "id": "712b1c19-f47a-483b-a4d6-ae58d3c77929",
+      "slug": "ann-kivva-204923-f92d",
+      "display_name": "Ann Kivva",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "d94bf411-0c94-418d-989a-46341a52a9ea",
+      "slug": "alina-kalinina-204855-cb1b",
+      "display_name": "Alina Kalinina",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "132142c1-ebc3-47d7-9981-8e9e178fa3b0",
+      "slug": "olga-gorevaia-204912-41ae",
+      "display_name": "Olga Gorevaia",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "6154a101-b10d-4d77-9e93-49c6a4ad3ca5",
+      "slug": "mila-190940",
+      "display_name": "Mila",
+      "category_slug": "finance",
+      "category_id": "a1000001-0000-4000-8000-00000000000c",
+      "category_name": "Финансы и бухгалтерия"
+    },
+    {
+      "id": "b278ec15-bd0c-47f3-aaa7-01279f073d70",
+      "slug": "ekaterina-mishurenkova-204859-fc4c",
+      "display_name": "Ekaterina Mishurenkova",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "409e099e-8b2b-4ffc-9bbb-1c860b40d517",
+      "slug": "business-biz-180906",
+      "display_name": "Макс",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "f177854a-61ed-4c66-b72c-cf86897a2ac5",
+      "slug": "yagmyrov-atajan-credit-repair-180956",
+      "display_name": "Yagmyrov Atajan Credit Repair",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "84d66a53-9195-4d48-9249-32df5c8cc4b9",
+      "slug": "baisal-kbn-204918-58b8",
+      "display_name": "Baisal Kbn",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "da30e5d5-cfe6-49e0-a021-4f06f51225b0",
+      "slug": "oleksandr-205701-5753",
+      "display_name": "Oleksandr",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "08f953bd-0256-436f-933d-69055d1cbd00",
+      "slug": "business-9165592087-204917-92d5",
+      "display_name": "Александр Кл",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "390bc68d-3ad4-4aad-b01c-b983174d0c20",
+      "slug": "american-english-180939",
+      "display_name": "American English",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "f4008d93-76ce-420b-b90d-3e99c15b7eed",
+      "slug": "fb-post-10-julia-leo-skincare-products",
+      "display_name": "Julia Leo - Skincare Products",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "53e02364-4446-43fb-959a-b69dc8bfda17",
+      "slug": "avenir-slivinskiy-204906-0f9e",
+      "display_name": "Avenir Slivinskiy",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "7bf50b11-9df2-4ffb-859b-7470f02806e4",
+      "slug": "gulnur-zakirova-204909-3c71",
+      "display_name": "Gulnur Zakirova",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "2288d150-10cb-49eb-a47f-ea42304dd5a6",
+      "slug": "business-6366758737-204907-bf2a",
+      "display_name": "Алёна Карташова",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "9a22ce3c-580b-4d94-ab26-fc4ebe2ab263",
+      "slug": "sarkis-karagashian-204915-c658",
+      "display_name": "Sarkis Karagashian",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "b5067d91-fda3-4f36-99c6-444db12603fc",
+      "slug": "vitalii-brizhatyi-204914-c4fa",
+      "display_name": "Vitalii Brizhatyi",
+      "category_slug": "pets",
+      "category_id": "a1000001-0000-4000-8000-00000000000b",
+      "category_name": "Животные"
+    },
+    {
+      "id": "15b06144-1009-46cf-9e48-40c6b4acc940",
+      "slug": "anna-204932-e969",
+      "display_name": "Anna",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    }
+  ]
+}

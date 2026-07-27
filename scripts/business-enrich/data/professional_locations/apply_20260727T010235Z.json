@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-07-27T01:02:35.799021+00:00",
+  "mode": "apply",
+  "scanned": 747,
+  "updated": 5,
+  "fields": {
+    "city": 5
+  },
+  "samples": [
+    {
+      "slug": "mike-california-180856",
+      "name": "Mike California",
+      "patch": {
+        "city": "Newport Beach"
+      }
+    },
+    {
+      "slug": "christie-v-205345-fc04",
+      "name": "Christie V",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "tatsiana-losikova-205608-2e44",
+      "name": "Tatsiana Losikova",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "evgeniya-slimface-205348-2d47",
+      "name": "Evgeniya Slimface",
+      "patch": {
+        "city": "Orange"
+      }
+    },
+    {
+      "slug": "business-biz-180907",
+      "name": "Маргарита",
+      "patch": {
+        "city": "Huntington Beach"
+      }
+    }
+  ]
+}

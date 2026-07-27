@@ -1,0 +1,1147 @@
+{
+  "total": 189,
+  "kinds": {
+    "чужая_рекомендация": 31,
+    "неясная_услуга": 127,
+    "очень_короткий": 4,
+    "товар_продажа": 5,
+    "пустой_stub": 20,
+    "жильё": 2
+  },
+  "items": [
+    {
+      "name": "Позвоните Татьяне",
+      "slug": "pro-c4e1bc2d00",
+      "kind": "чужая_рекомендация",
+      "snip": "Позвоните Татьяне 949-662-8430"
+    },
+    {
+      "name": "Екатерина Улицкая",
+      "slug": "pro-71a6dc73ce",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Larisa Grib",
+      "slug": "larisa-grib-205459-d906",
+      "kind": "чужая_рекомендация",
+      "snip": "Скажите честно 🤍\nу вас сейчас больше состояние «хочу выспаться и чтобы меня никто не трогал»\nили «мне нужна энергия и ре"
+    },
+    {
+      "name": "Гора Ведьма",
+      "slug": "business-biz-205413-094d",
+      "kind": "неясная_услуга",
+      "snip": "Меня зовут Гóра. Я работаю с физическим и внутренним состоянием человека.\n\nЕсли есть проблемы в душе или теле — можно об"
+    },
+    {
+      "name": "Mralexgatto",
+      "slug": "mralexgatto",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Anna",
+      "slug": "anna-204932-e969",
+      "kind": "чужая_рекомендация",
+      "snip": "Потрясающий мастер. Никакого раздражения на глазах сразу после выполнения работы (у меня очень чувствительные глаза и ко"
+    },
+    {
+      "name": "Марина",
+      "slug": "pro-fc7d8d59ae-1",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Cell",
+      "slug": "cell-150621",
+      "kind": "неясная_услуга",
+      "snip": "Привет ✌️ Шахноза Хатамова, Cell: 657-335-6167"
+    },
+    {
+      "name": "Liliya",
+      "slug": "liliya",
+      "kind": "очень_короткий",
+      "snip": "событие"
+    },
+    {
+      "name": "Nikita Golosov",
+      "slug": "nikita-golosov-205610-92f3",
+      "kind": "товар_продажа",
+      "snip": "У кого плохая вытяжка на кухне? Я продаю портативные вытяжки и мне нужны отзывы на Амазон, бесплатно отправлю товар, а в"
+    },
+    {
+      "name": "Алёна Карташова",
+      "slug": "business-6366758737-204907-bf2a",
+      "kind": "неясная_услуга",
+      "snip": "Привет! Провожу профессиональную глубокую чистку:\n✨Диванов\n\n✨Матрасов\n\n✨Ковров и ковровых покрытий\n\nУдаление пятен,запах"
+    },
+    {
+      "name": "Mila",
+      "slug": "oksana-moskvitina-234034",
+      "kind": "неясная_услуга",
+      "snip": "Я здесь делала, хорошие врачи, на ресепшн по русски говорят\n\nhttps://maps.apple/p/nNfybZeJmMmiBq"
+    },
+    {
+      "name": "Ainura",
+      "slug": "ainura",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Inna",
+      "slug": "inna",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "liliia_ser",
+      "slug": "liliia-ser",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Александр",
+      "slug": "pro-ead5436b9d",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "regyminate",
+      "slug": "regyminate-150651",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/regyminate?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Gag Baghdasaryan",
+      "slug": "gag-baghdasaryan",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Aram",
+      "slug": "aram",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "chirk_paint",
+      "slug": "chirk-paint",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Айгерим Бимолдина",
+      "slug": "pro-9467522179",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Jane OC",
+      "slug": "jane-oc",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Анна Еремеев",
+      "slug": "pro-e77c72dedb",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Ольга",
+      "slug": "business-3109210864-172221",
+      "kind": "товар_продажа",
+      "snip": "Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864"
+    },
+    {
+      "name": "Aleksandr Pshennik",
+      "slug": "aleksandr-pshennik",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Lena",
+      "slug": "lena-205621-71f9",
+      "kind": "неясная_услуга",
+      "snip": "Round trip брала, удобнее если где-то задержка, билеты не пропадут. Turkish airlines в прошлый раз летала\nGEICO, у меня "
+    },
+    {
+      "name": "hammond_cpa",
+      "slug": "hammond-cpa-150628",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/hammond_cpa?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Liudmila Irvine",
+      "slug": "liudmila-irvine-205551-3ed5",
+      "kind": "чужая_рекомендация",
+      "snip": "Сейчас выездных сессий нету, только личное присутствие и по записи.\nНапишите мне в личку, я вам расскажу как менять загр"
+    },
+    {
+      "name": "Ирина",
+      "slug": "business-biz-205800-7b0c",
+      "kind": "чужая_рекомендация",
+      "snip": "Девочки, если кто ищет хорошего инструктора по вождению, могу смело рекомендовать Ангелину! \nОна профессионально обучает"
+    },
+    {
+      "name": "Наиля",
+      "slug": "pro-3fbbb7556d",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Марина",
+      "slug": "business-biz-205630-774b",
+      "kind": "неясная_услуга",
+      "snip": "если кому-то будет интересно. У меня была одна запись на паспорт для ребенка, но мне надо было записать двоих. Я позвони"
+    },
+    {
+      "name": "Elena",
+      "slug": "elena-205143-1f35",
+      "kind": "чужая_рекомендация",
+      "snip": "🍷\nУ Last Bottle сейчас винный марафон - реально можно поймать классное вино со скидками до 50–70% 😍\n• для новичков дают "
+    },
+    {
+      "name": "Dasha✨",
+      "slug": "dasha",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Elena Entsova",
+      "slug": "elena-entsova",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Ksu Usa",
+      "slug": "ksu-usa-1",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "могу сдать в аренду",
+      "slug": "pro-b499ba88c3",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Любов",
+      "slug": "business-biz-205545-f164",
+      "kind": "неясная_услуга",
+      "snip": "Вітаю, Всіх! 😊\n\nЯкщо ви шукаєте унікальний та оригінальний подарунок для своїх близьких — зверніть увагу на наші персона"
+    },
+    {
+      "name": "Ana Gonzalez",
+      "slug": "ana-gonzalez-204820-d61c",
+      "kind": "неясная_услуга",
+      "snip": "Кто обожает путешествия и хочет завести новых друзей? **Собираем очередной девичник(** без ограничения по возрасту) на П"
+    },
+    {
+      "name": "Azamat",
+      "slug": "azamat-205826-6e5c",
+      "kind": "неясная_услуга",
+      "snip": "‼️Всем Привет‼️\n сейчас период для получения выплат по мед страховкам, \n\nКто работает \n🔴Doordash \n🟠 Amazon\n🟣Lyft \n🔵Spark"
+    },
+    {
+      "name": "Valentina Dolinta",
+      "slug": "valentina-dolinta",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Ivan Gant",
+      "slug": "ivan-gant-205422-e414",
+      "kind": "неясная_услуга",
+      "snip": "друзья! 😎✌🏼#Dj #LA #California #USA\n \nДобро пожаловать на борт Иван Гант! Dj Ivan Gant 😎🎧🎵\n (House music, hip-hop, pop, "
+    },
+    {
+      "name": "Avenir Slivinskiy",
+      "slug": "avenir-slivinskiy-204906-0f9e",
+      "kind": "чужая_рекомендация",
+      "snip": "Сдается в аренду — дуплекс в Rancho Cordova\nПросторный дуплекс с 2 спальнями и 2 ванными комнатами, площадью более 1,000"
+    },
+    {
+      "name": "Татьяны",
+      "slug": "pro-060de20aa7",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "I M",
+      "slug": "i-m-205807-c490",
+      "kind": "чужая_рекомендация",
+      "snip": "Нотариально заверенное согласие родителей на выезд ребёнка с бабушкой и дедушкой. Лучше оформить на русском и английском"
+    },
+    {
+      "name": "Mark Terskiy",
+      "slug": "mark-terskiy",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Maksim Degtyar",
+      "slug": "maksim-degtyar",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Valerie Guseva",
+      "slug": "valerie-guseva",
+      "kind": "неясная_услуга",
+      "snip": "фото / видео"
+    },
+    {
+      "name": "Leyla Kamila",
+      "slug": "leyla-kamila-181525-4bd9",
+      "kind": "неясная_услуга",
+      "snip": "Добрый день. Живу в lake Forest. Если кому то нужно по субботам могу присмотреть за вашим ребенком у себя дома. 20$  в ч"
+    },
+    {
+      "name": ", ,",
+      "slug": "pro-43ec4e5f88",
+      "kind": "очень_короткий",
+      "snip": "фитнес"
+    },
+    {
+      "name": "Галина",
+      "slug": "pro-865156f94c",
+      "kind": "неясная_услуга",
+      "snip": "+1 (916) 595-2348\nIrina"
+    },
+    {
+      "name": "открыла свою уютную студию ENDO Studio",
+      "slug": "endo-studio",
+      "kind": "неясная_услуга",
+      "snip": "Девочки, всем привет! 🤍\nХочу поделиться — я открыла свою уютную студию ENDO Studio OC в Costa Mesa ✨\nРаботаю на Endosphe"
+    },
+    {
+      "name": "Elena",
+      "slug": "elena",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Mike Novak",
+      "slug": "mike-novak-205033-4e17",
+      "kind": "неясная_услуга",
+      "snip": "🚐 Премиальный частный трансфер | Bay Area и Сакраменто\n\nНадёжные и комфортные поездки по всей Bay Area, включая Сан-Фран"
+    },
+    {
+      "name": "Olga Savitskaya",
+      "slug": "olga-savitskaya21",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Lynn J English",
+      "slug": "lynn-j-english-205002-47f7",
+      "kind": "неясная_услуга",
+      "snip": "Набираем студентов новые классы и летнюю разговорную программу."
+    },
+    {
+      "name": "Kirill",
+      "slug": "kirill",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Goar Goar",
+      "slug": "goar-goar-205823-7fc6",
+      "kind": "чужая_рекомендация",
+      "snip": "Нанчик  Очень рекомендую. Она не профессионал, но птичка у нее самая лучшая."
+    },
+    {
+      "name": "tatkaurbaniq",
+      "slug": "tatkaurbaniq-150645",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/tatkaurbaniq?igsh=NTc4MTIwNjQ2YQ==\n\nСтоит 200%"
+    },
+    {
+      "name": "Arman Movsesian",
+      "slug": "arman-movsesian-205308-b5d0",
+      "kind": "неясная_услуга",
+      "snip": "Всем привет, кто хочет поддержать отечественного производителя? Работаю над интересным проектом, если есть не равнодушны"
+    },
+    {
+      "name": "Yulia",
+      "slug": "yulia-205816-d191",
+      "kind": "неясная_услуга",
+      "snip": "Мы ходили на эриалс, не понравилось, ушли спустя пару месяцев. Заинтересованности в том что делают дети нет никакой, пре"
+    },
+    {
+      "name": "Nana Karagezian",
+      "slug": "nana-karagezian",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Constantine Zm",
+      "slug": "constantine-zm",
+      "kind": "очень_короткий",
+      "snip": "водитель"
+    },
+    {
+      "name": "Argen Chomoev",
+      "slug": "argen-chomoev",
+      "kind": "неясная_услуга",
+      "snip": "фото / видео"
+    },
+    {
+      "name": "Снюс Лос Анджелес",
+      "slug": "business-biz-205404-f206",
+      "kind": "неясная_услуга",
+      "snip": "Снюс Лос Анджелес\nШведский оригинал \n20мг\nАналог Velo/Lyft/Goat\nСамовывоз из Голливуда\nТакже отправляю по городу и други"
+    },
+    {
+      "name": "Alla",
+      "slug": "alla-205619-082b",
+      "kind": "неясная_услуга",
+      "snip": "В Мексике нет, но есть очень хороший доктор в Riverside, гинеколог от Бога, но не русский"
+    },
+    {
+      "name": "K Bunbich",
+      "slug": "k-bunbich",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Инзира",
+      "slug": "business-biz-180926",
+      "kind": "чужая_рекомендация",
+      "snip": "Всем привет! Меня зовут Инзира и я помогаю приобрести новую Tesla в Ирвайне.\n\nЕсли вы давно думали о Tesla — сейчас очен"
+    },
+    {
+      "name": "Габи",
+      "slug": "business-biz-205459-5cd8",
+      "kind": "товар_продажа",
+      "snip": "👋\n\n📦 Всегда в наличии большой ассортимент импортной табачной продукции:\n\n🚬 СТИКИ ДЛЯ IQOS:\nHEETS • TEREA • FIIT\n\n⚡️ УСТР"
+    },
+    {
+      "name": "Liudmyla Muzyra House Repair",
+      "slug": "fbpack-liudmyla-muzyra-house-repair",
+      "kind": "неясная_услуга",
+      "snip": "House repair"
+    },
+    {
+      "name": "Liubov Cherkasova",
+      "slug": "liubov-cherkasova-205045-bb04",
+      "kind": "неясная_услуга",
+      "snip": "Сниму мастербедрум в Кармайкл или около \n Я + 2 дочки. До $1000\nТел. 916-750-63-53"
+    },
+    {
+      "name": "julia_life_usa",
+      "slug": "julia-life-usa-150652",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/julia_life_usa?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Lisi4ka",
+      "slug": "lisi4ka48-1",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Альбина",
+      "slug": "business-biz-205547-5bac",
+      "kind": "неясная_услуга",
+      "snip": "Иногда в эмиграции накрывает не «большими проблемами», а тихим внутренним «я устала».\nВроде всё нормально… но сил мало, "
+    },
+    {
+      "name": "Anna Sergeeva",
+      "slug": "anna-sergeeva-205553-7269",
+      "kind": "неясная_услуга",
+      "snip": "Помогаю получать заявки через Teлegram-чаты.\n📌 Подходит для бuзнеса и проектов\nуsлуги\nтоваpы\nsайты\nbоты\nНапиши «+» в лич"
+    },
+    {
+      "name": "Marianna Musinova",
+      "slug": "marianna-musinova-205236-0c72",
+      "kind": "неясная_услуга",
+      "snip": "‼️ **УЖЕ ЗАВТРА** ‼️\n\n️⚡️ Когда жизнь «налаживается», но внутри всё равно напряжение.\n\nРабота, дела, планы — всё вроде д"
+    },
+    {
+      "name": "scgb2025irvine",
+      "slug": "scgb2025irvine-150647",
+      "kind": "неясная_услуга",
+      "snip": "Футбольный клуб Golden Boys проводит набор детей в группы для деток (5-6 лет) и группы (7-8 лет). Занятия проходят в Ирв"
+    },
+    {
+      "name": "Slava Swim",
+      "slug": "slava-swim-204814-060f",
+      "kind": "неясная_услуга",
+      "snip": "Всем привет 👋 Присоединяйтесь к нашим групповым занятиям по спортивному плаванию для детей! 🏊‍♂️ Если ваш ребёнок уже ув"
+    },
+    {
+      "name": "Anastasiya Posashenko",
+      "slug": "anastasiya-posashenko-150711",
+      "kind": "чужая_рекомендация",
+      "snip": "Всем привет!\nМоя дочка Василиса состоит в Girl Scout, и сейчас она продаёт знаменитое печенье Girl Scout!Если не пробова"
+    },
+    {
+      "name": "Дар'я",
+      "slug": "pro-e5f7d10c65",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Dance PROgression",
+      "slug": "dance-progression-031836",
+      "kind": "неясная_услуга",
+      "snip": "✨Hi, everyone! 😉\n\nIf you’ve been thinking about dancing — or you have a daughter who loves to dance — you’re very welcom"
+    },
+    {
+      "name": "k_bunbich",
+      "slug": "k-bunbich-1",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Tetiana Markova",
+      "slug": "tetiana-markova-205433-5527",
+      "kind": "неясная_услуга",
+      "snip": "Привет! 😊\n\nНе пугайтесь, если не найдете меня в IG или Fb ближайший месяц-два.\n\nЯ взяла небольшую творческую паузу, чтоб"
+    },
+    {
+      "name": "Surprise Me Balloon Bar",
+      "slug": "surprise-meballoons-150639",
+      "kind": "неясная_услуга",
+      "snip": "Шары и декорации · Orange County"
+    },
+    {
+      "name": "renna^афк",
+      "slug": "renna-171944",
+      "kind": "неясная_услуга",
+      "snip": "🚘 Ищете новую машину? Я помогу сэкономить тысячи долларов!\n\nНе тратьте время на дилеров и переплаты.\n\n✔️ Лучшие предложе"
+    },
+    {
+      "name": "aleks_bake_",
+      "slug": "aleks-bake-150628",
+      "kind": "неясная_услуга",
+      "snip": "Спасибо, заходите в мой инста, будем дружить🤗https://www.instagram.com/aleks_bake_?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source="
+    },
+    {
+      "name": "annasurova1",
+      "slug": "annasurova1-1",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "irinka_milovskaia",
+      "slug": "irinka-milovskaia",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Elena Kaharlytska",
+      "slug": "elena-kaharlytska-205443-9eb3",
+      "kind": "чужая_рекомендация",
+      "snip": "Вариант 1\n🚀 Ваш сайт молчит, пока конкуренты забирают ваших клиентов\nЗнакомо? Сайт вроде есть, а заявок — единицы.\nМы уж"
+    },
+    {
+      "name": "Связь",
+      "slug": "business-6503893846-172150",
+      "kind": "неясная_услуга",
+      "snip": "North Hollywood / Studio City / Burbank\nИндивидуальные тренировки в зале\n\n📍 С чем помогу:\n— набрать мышечную массу и фор"
+    },
+    {
+      "name": "Мастер Fahim",
+      "slug": "fahim-190942",
+      "kind": "неясная_услуга",
+      "snip": "Therapeutic Martial Arts, мы туда ходим уже год, замечательный мастер\nМастер Fahim 949-228-3406 студия для детей с трех "
+    },
+    {
+      "name": "Danil Goncharenko",
+      "slug": "danil-goncharenko-205004-f0df",
+      "kind": "неясная_услуга",
+      "snip": "Всем привет! 👋\n\nЯ недавно начал работать в дилерском центре в Sacramento. Если вы или ваши знакомые сейчас ищете автомоб"
+    },
+    {
+      "name": "Nastya",
+      "slug": "nastya-180850",
+      "kind": "неясная_услуга",
+      "snip": "🌸 ДЕНЬ МАТЕРІ | LIMITED DROP 🌸\n\nВідкриваю невелику кількість десертів до цієї неділі 💛\nПриймаю строго обмежену кількість"
+    },
+    {
+      "name": "Yulia",
+      "slug": "yulia-205819-c741",
+      "kind": "неясная_услуга",
+      "snip": "Когда я срочно искала гастроэнтеролога для сына, оказалось что вот так в срочном порядке только в ER. Очень забито все у"
+    },
+    {
+      "name": "Worldwide Employment Agency",
+      "slug": "worldwide-employment-agency-204942-0650",
+      "kind": "неясная_услуга",
+      "snip": "Дорогие друзья!\nЯ снова обращаюсь к вам лично от себя, Natallia Platava, и от имени моей компании Worldwide Employment A"
+    },
+    {
+      "name": "Olena Ol",
+      "slug": "olena-ol-205254-a65c",
+      "kind": "неясная_услуга",
+      "snip": "🌺 РОЗІГРАШ: розігруємо путівку на двох до Гаваїв 🌴\n✈️ переліт + готель.  6 днів/5 ночей райського відпочинку✨\n\n🎟 Як взят"
+    },
+    {
+      "name": "Ruslan Kalumov - Moving Services",
+      "slug": "fb-post-9-ruslan-kalumov-moving-services",
+      "kind": "неясная_услуга",
+      "snip": "Moving and relocation services for residential and commercial moves."
+    },
+    {
+      "name": "Mary Ariel Chery - Karpenko",
+      "slug": "mary-ariel-chery-karpenko-204835-c04e",
+      "kind": "чужая_рекомендация",
+      "snip": "🐜🕷️ Лето в самом разгаре, а значит пришло время муравьев, пауков, уховерток и других нежелательных гостей!\n\nЕсли заметил"
+    },
+    {
+      "name": "Olga Loginova, Lifespringhomeopathy.com",
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "kind": "неясная_услуга",
+      "snip": "Практикующий гомеопат. Работаю с детьми и взрослыми.\nВ практике с детьми чаще всего обращаются с вопросами:\n— частые про"
+    },
+    {
+      "name": "Юля",
+      "slug": "business-biz-205546-4e96",
+      "kind": "чужая_рекомендация",
+      "snip": "Девочки, всем привет👋\nМеня зовут Юля и я хочу пригласить вас на встречу с поющими чашами ✨\n\nЯ творческий человек и совсе"
+    },
+    {
+      "name": "Anton",
+      "slug": "anton-205307-42dd",
+      "kind": "неясная_услуга",
+      "snip": "Если кто вдруг хотел открывать аккаунт дор даш, сейчас вступительный бонус 400$\nПромокод: kg0ZklAAjuDk6y8j\nИли вот ссылк"
+    },
+    {
+      "name": "ekaterinakhomich",
+      "slug": "ekaterinakhomich-150703",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/ekaterinakhomich/"
+    },
+    {
+      "name": "khan_archery_club",
+      "slug": "khan-archery-club-150704",
+      "kind": "неясная_услуга",
+      "snip": "Весь материал закупаю в Home Depot. Выходит на $150 по материалу. Всем желающим могу бесплатно скинуть список необходимы"
+    },
+    {
+      "name": "Виталина",
+      "slug": "business-biz-205409-f8f7",
+      "kind": "неясная_услуга",
+      "snip": "Шахматы онлайн для детей всех возрастов и взрослых! ♟️ \n\n✅ тренера кандидаты мастера спорта\n✅гибкое расписание \n✅ индиви"
+    },
+    {
+      "name": "Kristina Immerman - Moscow-to-USA Courier",
+      "slug": "fb-post-37-kristina-immerman-moscow-to-usa-courier",
+      "kind": "неясная_услуга",
+      "snip": "Personal courier service from Moscow to USA. Can transport packages, documents, and medications."
+    },
+    {
+      "name": "Oli",
+      "slug": "oli-205509-fbfa",
+      "kind": "неясная_услуга",
+      "snip": "🚨 Пока ты думаешь, конкуренты уже забирают твоих клиентов с помощью AI\nНеважно, что именно ты продаешь: покраску домов, "
+    },
+    {
+      "name": "Olga Avdonina",
+      "slug": "olga-avdonina-205233-2439",
+      "kind": "неясная_услуга",
+      "snip": "Посмотрит, возможно, вы узнаете в этих историях себя 😊\n\n✨ Уже завтра состоится бесплатный онлайн-мастер-класс «За предел"
+    },
+    {
+      "name": "Natalie Revers",
+      "slug": "natalie-revers-204925-114b",
+      "kind": "чужая_рекомендация",
+      "snip": "🍯 Свежий натуральный мед.\nКачественный, ароматный, без сахара, сиропов и каких-либо добавок — только натуральный пчелины"
+    },
+    {
+      "name": "Милена Говель",
+      "slug": "business-biz-180842",
+      "kind": "неясная_услуга",
+      "snip": "КАК БЕСПЛАТНО ПОЛУЧАТЬ НОВЫХ КЛИЕНТОВ КАЖДЫЙ ДЕНЬ В ЛЮБОЙ НИШЕ?\n\nВсем привет! Дарю подробный разбор новой системы продаж"
+    },
+    {
+      "name": "Svetlia40kUSA",
+      "slug": "svetlia40kusa",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "maxgirr",
+      "slug": "maxgirr-150659",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/maxgirr?igsh=NTc4MTIwNjQ2YQ== 💪"
+    },
+    {
+      "name": "tetiana.malenkova",
+      "slug": "tetianamalenkova-150652",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/tetiana.malenkova?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Alena",
+      "slug": "alena-190941",
+      "kind": "очень_короткий",
+      "snip": ""
+    },
+    {
+      "name": "Masha Angel",
+      "slug": "masha-angel-205138-3e8b",
+      "kind": "чужая_рекомендация",
+      "snip": "Мажоров о что нашелся такой мастер, но со временем пигмент все же часто становиться желтым.\nОт души рекомендации фиолето"
+    },
+    {
+      "name": "Ильдар Якупов",
+      "slug": "business-biz-205247-ec8b",
+      "kind": "неясная_услуга",
+      "snip": "Всем привет! 🤝\nМеня зовут Ильдар. Помогаю предпринимателям и экспертам автоматизировать продажи и запускать цифровые про"
+    },
+    {
+      "name": "ksu_usa",
+      "slug": "ksu-usa",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "flamellecandles",
+      "slug": "flamellecandles-150648",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/flamellecandles?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Anna Dav",
+      "slug": "anna-dav-205223-b6e5",
+      "kind": "неясная_услуга",
+      "snip": "Приглашаю вас в Лейк-Тахо (Lake Tahoe) провести отдых с семьёй или друзьями в нашем уютном доме, всего в 5–6 минутах от "
+    },
+    {
+      "name": "Tatiana Fgm",
+      "slug": "tatiana-fgm-205303-323e",
+      "kind": "неясная_услуга",
+      "snip": "Я здесь делала несколько лет назад. Все прошло хорошо. Но по идее надо каждый год продлевать (мы не продлевали ничего)\nН"
+    },
+    {
+      "name": "lindas_bouquet",
+      "slug": "lindas-bouquet-150626",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/lindas_bouquet?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Ekaterina Mishurenkova",
+      "slug": "ekaterina-mishurenkova-204859-fc4c",
+      "kind": "чужая_рекомендация",
+      "snip": "Привет 🙂 \n\nРемонт может быть без стресса — когда вас слышат, понимают и делают всё аккуратно, как для себя.\n\nЧто делаем:"
+    },
+    {
+      "name": "Slavik Blyskuchy",
+      "slug": "slavik-blyskuchy",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "videobyalexgatto",
+      "slug": "videobyalexgatto",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Lyubov Nikonova",
+      "slug": "lyubov-nikonova-190932",
+      "kind": "чужая_рекомендация",
+      "snip": "Для тех, кто сейчас в поиске Mercedes-Benz: рекомендую обратиться в Mercedes-Benz of Anaheim к Айман Зейтун.\nСейчас у ди"
+    },
+    {
+      "name": "lisi4ka48",
+      "slug": "lisi4ka48",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Ekaterina Samsonova",
+      "slug": "ekaterina-samsonova",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Ярослав",
+      "slug": "pro-4dc2021a3e",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "iam.ok.sana",
+      "slug": "iam-ok-sana",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Tatsiana Losikova",
+      "slug": "tatsiana-losikova-205608-2e44",
+      "kind": "чужая_рекомендация",
+      "snip": "Что значит и бракоразводным процессом и жилищным вопросом? Есть либо family court (развод) , либо civil (дом). Для разво"
+    },
+    {
+      "name": "Katerina",
+      "slug": "katerina-180947",
+      "kind": "неясная_услуга",
+      "snip": "Сдаются авто 2023 года 900$ (страховка включена) \nПишите, пожалуйста,  в ЛС"
+    },
+    {
+      "name": "sashalashangel",
+      "slug": "sashalashangel-150654",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/sashalashangel?igsh=NTc4MTIwNjQ2YQ== ✨💫"
+    },
+    {
+      "name": "anton_sushev",
+      "slug": "anton-sushev-150655",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/anton_sushev?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Aleksandr",
+      "slug": "aleksandr-172200",
+      "kind": "чужая_рекомендация",
+      "snip": "🚙 АРЕНДА — Jeep Gladiator / Wrangler 2025 \n🆕 Новая, без пробега\n\n💲 $900 / месяц + страховка от арендатора\n\n4x4 полный пр"
+    },
+    {
+      "name": "Svetlana S",
+      "slug": "svetlana-s-172211",
+      "kind": "неясная_услуга",
+      "snip": "Здравствуйте \n\nЕсли вам нужно:\n— что-то пошить \n— укоротить брюки\n— подогнать платье по фигуре \n— заменить молнию\n— пере"
+    },
+    {
+      "name": "Elena R",
+      "slug": "elena-r-205600-d428",
+      "kind": "неясная_услуга",
+      "snip": "Мы ставили braces в Lunar Orthodontic. В городе Lake Forest. По цене дешевле и в рассрочку на пару лет без процентов, ок"
+    },
+    {
+      "name": "kate_yuka_aesthetics",
+      "slug": "kate-yuka-aesthetics-150659",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/kate_yuka_aesthetics?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Irina Krasnodemsky",
+      "slug": "irina-krasnodemsky-205029-f2f2",
+      "kind": "неясная_услуга",
+      "snip": "Дуплекс в рент в Citrus Heights на San Simeon dr. 2 спальни,1 ванная и гараж на одну машину. $2,000 + депозит. Мы платим"
+    },
+    {
+      "name": "Irina Electrolysis",
+      "slug": "irina-electrolysis-205451-0a8b",
+      "kind": "неясная_услуга",
+      "snip": "Девочки, всем привет!\nОбращаюсь к мастерам бьюти, кто уже снимает кабинет: если у вас сейчас не полностью заполнен графи"
+    },
+    {
+      "name": "Елена Бондаренко",
+      "slug": "business-9168415612-204824-9437",
+      "kind": "неясная_услуга",
+      "snip": "Дорогие Мамочки!Приглашаю деток 4-6 лет на уроки фортепиано по инновационной мультимедийной программе»Растём с Музыкой»."
+    },
+    {
+      "name": "Mathwithasya",
+      "slug": "mathwithasya",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Kristi USA",
+      "slug": "kristi-usa",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Ksenia",
+      "slug": "ksenia-205811-7635",
+      "kind": "неясная_услуга",
+      "snip": "Апостиль делают в офисе секретаря штата в ЛА в порядке живой очереди, обычно очень быстро. Лайфхак: съездить туда на пое"
+    },
+    {
+      "name": "Olga Inozemtseva",
+      "slug": "olga-inozemtseva-205457-8b62",
+      "kind": "неясная_услуга",
+      "snip": "Устали от того, что ребёнок только играет, а не создаёт? Дайте ему бесплатный час в Zoom, чтобы он сам сделал мультфильм"
+    },
+    {
+      "name": "Anton",
+      "slug": "anton",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "grace_and_bloom_",
+      "slug": "grace-and-bloom-150627",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/grace_and_bloom_/"
+    },
+    {
+      "name": "Nova Maryana",
+      "slug": "nova-maryana-205039-79de",
+      "kind": "неясная_услуга",
+      "snip": "NOVAflowers Special Red Roses Sale!\nBrighten someone’s day with our stunning, high-quality red roses—imported fresh from"
+    },
+    {
+      "name": "Californian Pilot",
+      "slug": "californian-pilot-205429-37d6",
+      "kind": "неясная_услуга",
+      "snip": "Экскурсии по Лос Анджелесу на самолете. \nМожно увидеть \nDowntown LA \nHollywood Sign \nSanta Monica pier\nCatalina island \n"
+    },
+    {
+      "name": "Lana",
+      "slug": "lana-205640-2183",
+      "kind": "товар_продажа",
+      "snip": "Оплачу Вашу любую покупку или произведу оплату любых услуг рублями (доставку продуктов и подарков , цветов, курсы, ж/д и"
+    },
+    {
+      "name": "Милена",
+      "slug": "business-biz-205650-46d3",
+      "kind": "неясная_услуга",
+      "snip": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$\n\nВанночка для ног с с"
+    },
+    {
+      "name": "Karinа",
+      "slug": "karin-205637-d761",
+      "kind": "чужая_рекомендация",
+      "snip": "Напишите мне в лс , если я забуду вечером посмотрю какая у подруги. Она у неё покрыла лечение рака у мейкуна.  А вот из "
+    },
+    {
+      "name": "Master Valery",
+      "slug": "master-valery-205050-6c62",
+      "kind": "неясная_услуга",
+      "snip": "Ремонт и замена прокладки головки блока цилиндров на Тойота Приус, Кемри, и не только...\nКачество, гарантия, скидки.\n916"
+    },
+    {
+      "name": "Nazgul Nurlan",
+      "slug": "nazgul-nurlan-181522-8750",
+      "kind": "чужая_рекомендация",
+      "snip": "🌙 Подарочные боксы для Ифтара и Айт Мубарак. \n \nПринимаем заказы на финики в бельгийском шоколаде. \n✨ Отличная идея для:"
+    },
+    {
+      "name": "Azamat",
+      "slug": "azamat-205815-c0ea",
+      "kind": "неясная_услуга",
+      "snip": "‼️Всем Привет‼️\n сейчас период для получения выплат по мед страховкам, \n\nКто работает \n🔴Doordash \n🟠 Amazon\n🟣Lyft \n🔵Spark"
+    },
+    {
+      "name": "Nata Cali",
+      "slug": "nata-cali-205614-60c9",
+      "kind": "неясная_услуга",
+      "snip": "Снимала и снимаю у этой компании, потому что они в ирвайне монополисты. Залог никогда не отдавали полностью, всегда нахо"
+    },
+    {
+      "name": "Lisa Nekrasova",
+      "slug": "lisa-nekrasova-205120-a330",
+      "kind": "чужая_рекомендация",
+      "snip": "Здравствуйте!\nЭтим летом для новых учеников действует специальное летнее предложение на индивидуальные онлайн-занятия\n💜 "
+    },
+    {
+      "name": "Rent Car",
+      "slug": "rent-car",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Alexandra Muz",
+      "slug": "alexandra-muz",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "alina_oc_hair",
+      "slug": "alina-oc-hair-150626",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/alina_oc_hair?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr"
+    },
+    {
+      "name": "Svetlana Lass",
+      "slug": "svetlana-lass",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "dirtybirdfarm",
+      "slug": "dirtybirdfarm",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Сергей",
+      "slug": "business-9493860850-172223",
+      "kind": "неясная_услуга",
+      "snip": "Сергей \n\n+1 (949) 386-0850"
+    },
+    {
+      "name": "Liliia Ser",
+      "slug": "liliia-ser-1",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Yelena Dean",
+      "slug": "yelena-dean-204832-39fa",
+      "kind": "неясная_услуга",
+      "snip": "Carmichael Rental \n2000 sq ft home (built in 2012) on a quiet, peaceful street.\n\nClose to schools, grocery stores, and A"
+    },
+    {
+      "name": "mralexgatto",
+      "slug": "mralexgatto-1",
+      "kind": "чужая_рекомендация",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Yelena Lobko",
+      "slug": "yelena-lobko-205006-7852",
+      "kind": "неясная_услуга",
+      "snip": "Продается\nДомашнее козье молоко\nКуриные яйца\nСвежие огурцы"
+    },
+    {
+      "name": "Michael Finkelstein — Gluten Free Bread",
+      "slug": "fbpack-michael-finkelstein-gluten-free-bread",
+      "kind": "неясная_услуга",
+      "snip": "Кошерный безглютеновый хлеб · гречневая/овсяная мука · $15 за 2 lb · Sherman Oaks / CA"
+    },
+    {
+      "name": "Guncha Atajanova",
+      "slug": "guncha-atajanova-205252-7ab3",
+      "kind": "неясная_услуга",
+      "snip": "Приветствую Всех!\nПозвольте представиться)\n\nМеня зовут Guncha ( Гунча)\n\nЯ развиваю свой бизнес в сфере здоровья, красоты"
+    },
+    {
+      "name": "Azamat",
+      "slug": "azamat-205828-cce8",
+      "kind": "неясная_услуга",
+      "snip": "‼️Всем Привет‼️\n сейчас период для получения выплат по мед страховкам, \n\nКто работает \n🔴Doordash \n🟠 Amazon\n🟣Lyft \n🔵Spark"
+    },
+    {
+      "name": "leisan_hairstylist_oc",
+      "slug": "leisan-hairstylist-oc-150646",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/leisan_hairstylist_oc?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Elizaveta Pavlunenko",
+      "slug": "elizaveta-pavlunenko-172152",
+      "kind": "жильё",
+      "snip": "Сдам в аренду для работы в Uber-Lyft Black, Black SUV Chevrolet Suburban 2023 года. Есть все документы TCP и LAX (Permit"
+    },
+    {
+      "name": "Леонид",
+      "slug": "business-2247331592-172222",
+      "kind": "неясная_услуга",
+      "snip": "⚙️ Мaшинa в рᴇмᴏнтᴇ — ты бᴇз дᴏхᴏдa.\nМᴏжнᴏ былᴏ избᴇжaть… ᴇслu бы былa ѕтрaхᴏвкa.\n\n✔️ Phуѕicᴀl Dаmаgᴇ Inѕurᴀncᴇ — тᴇхнuк"
+    },
+    {
+      "name": "nataliawolfstudio",
+      "slug": "nataliawolfstudio-150658",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/nataliawolfstudio?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Averina Notary Public",
+      "slug": "averina-notary-public",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Andrey Gromov",
+      "slug": "andrey-gromov-181005",
+      "kind": "неясная_услуга",
+      "snip": "🚗 только в LA\nот 750 💰/ месяц \nВсе включено!!! \nПодробности в лс 😉"
+    },
+    {
+      "name": "reel",
+      "slug": "reel-150657",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/reel/DB-kX1YxFMr/?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Сергей",
+      "slug": "pro-edf7a35986-1",
+      "kind": "неясная_услуга",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Mikhail Kulesh - Vehicle Rental",
+      "slug": "fb-post-7-mikhail-kulesh-vehicle-rental",
+      "kind": "неясная_услуга",
+      "snip": "Vehicle rental services providing cars for temporary use."
+    },
+    {
+      "name": "Valeriia",
+      "slug": "valeriia-205615-64b8",
+      "kind": "неясная_услуга",
+      "snip": "Нам подняли через год на 110$, хотели на 150$, немного сторговались. Про то, что не возвращаются депозит не слышала. Но "
+    },
+    {
+      "name": "victoria__kei",
+      "slug": "victoria-kei-150650",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/victoria__kei?igsh=NTc4MTIwNjQ2YQ==\n\n\nТренер и грамотный специалист по питанию . \nОчень хороша"
+    },
+    {
+      "name": "Artur Sh",
+      "slug": "artur-sh-205449-7381",
+      "kind": "неясная_услуга",
+      "snip": "Саксофон, кларнет 🌺\n\nЧастные уроки 🌸\n\nЛюбой возраст 🌺\n\nЛюбой уровень 🎷"
+    },
+    {
+      "name": "Милена",
+      "slug": "business-biz-205649-52ce",
+      "kind": "неясная_услуга",
+      "snip": "Также есть сухая обработка стопы + крем маска /заживляющий крем для потресканых или сухих стоп 30$\n\nВанночка для ног с с"
+    },
+    {
+      "name": "Tane4kaZu",
+      "slug": "tane4kazu",
+      "kind": "пустой_stub",
+      "snip": "услуга / специалист"
+    },
+    {
+      "name": "Lana Janew",
+      "slug": "lana-janew-190946",
+      "kind": "неясная_услуга",
+      "snip": "Алёна Индюкова\n\n(818) 457-8599\nЯ ей заказывала несколько раз. Моя семья очень довольна её произведениям: вкус и качество"
+    },
+    {
+      "name": "Kingfargo",
+      "slug": "kingfargo-180941",
+      "kind": "неясная_услуга",
+      "snip": "Помогу с созданием доказательств для вашего кейса 📄\nРаботаю без предоплат! ✅\nМастер своего дела, 7 лет опыта, недорого \n"
+    },
+    {
+      "name": "Оксана Куриленко",
+      "slug": "business-4156194812-172158",
+      "kind": "неясная_услуга",
+      "snip": "Авто в лизинг\nМожем помочь даже если нет кpедитной исторuu\n📲 +1 (415) 619-4812"
+    },
+    {
+      "name": "Flora Barshak",
+      "slug": "batch2-flora-barshak",
+      "kind": "жильё",
+      "snip": "Caregiver Job · Flora Barshak\nCategory: Jobs · Live-in Caregiver\nLocation: Del Mar, San Diego, CA\nPhone: +1 (619) 889-30"
+    },
+    {
+      "name": "Aburik",
+      "slug": "aburik-181010",
+      "kind": "товар_продажа",
+      "snip": "🚨🚨 СТОП. НЕ ЛИСТАЙ. 🚨🚨\n\n🛍️ Сейчас идёт БОЛЬШАЯ РАСПРОДАЖА импортной табачки \n💣 4 БЛОКА СТИКОВ ПОКУПАЕШЬ - НОВОЕ УСТРОЙСТ"
+    },
+    {
+      "name": "pilyulya.me",
+      "slug": "pilyulyame-150653",
+      "kind": "неясная_услуга",
+      "snip": "https://www.instagram.com/pilyulya.me?igsh=NTc4MTIwNjQ2YQ=="
+    },
+    {
+      "name": "Rita Torikashvili",
+      "slug": "rita-torikashvili-205809-48fa",
+      "kind": "неясная_услуга",
+      "snip": "Машина на которой он сдает, должна быть застрахована, но сам водитель не обязан быть вписан в страховку. У меня дочь в п"
+    },
+    {
+      "name": "Svetlana Fedorova",
+      "slug": "svetlana-fedorova-205250-24e0",
+      "kind": "неясная_услуга",
+      "snip": "😨 Как стать мастером тревожности: вредные советы, которые точно сработают! 😨\n\n1️⃣ Проверяй телефон каждые 30 секунд. Вдр"
+    }
+  ]
+}

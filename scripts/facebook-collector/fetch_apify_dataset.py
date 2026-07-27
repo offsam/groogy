@@ -181,18 +181,13 @@ def wait_for_run(
         time.sleep(poll_seconds)
 
 
-def run_actor_and_fetch_items(
+def run_actor_with_input(
     *,
     actor_id: str,
-    group_url: str,
-    limit: int,
-    template: dict[str, Any] | None = None,
+    actor_input: dict[str, Any],
+    limit: int | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Mode B: start Actor, wait, return dataset items + run meta (no secrets)."""
-    actor_input = build_actor_input(
-        group_url=group_url, limit=limit, template=template
-    )
-    # Never log actor_input — may contain cookies
+    """Start Actor with a fully prepared input payload (no group-url injection)."""
     run = start_actor_run(actor_id, actor_input)
     run_id = run.get("id")
     if not run_id:
@@ -210,3 +205,19 @@ def run_actor_and_fetch_items(
         "item_count": len(items),
     }
     return items, meta
+
+
+def run_actor_and_fetch_items(
+    *,
+    actor_id: str,
+    group_url: str,
+    limit: int,
+    template: dict[str, Any] | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Mode B: start Actor, wait, return dataset items + run meta (no secrets)."""
+    actor_input = build_actor_input(
+        group_url=group_url, limit=limit, template=template
+    )
+    return run_actor_with_input(
+        actor_id=actor_id, actor_input=actor_input, limit=limit
+    )

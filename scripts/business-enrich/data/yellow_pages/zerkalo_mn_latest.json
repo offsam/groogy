@@ -1,0 +1,3850 @@
+{
+  "source": "https://www.zerkalomn.com/yellow-pages1.html",
+  "directory_source": "zerkalo_mn",
+  "generated_at": "2026-07-27T00:51:06.710624+00:00",
+  "count": 137,
+  "errors": [
+    {
+      "url": "http://www.zerkalomn.com/travel-agencies.html",
+      "error": "fetch failed http://www.zerkalomn.com/travel-agencies.html: HTTP Error 404: Not Found"
+    }
+  ],
+  "cards": [
+    {
+      "cluster_key": "zmn-dbcf4c34d4c6fdfe",
+      "display_name": "All rights reserved",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "articles",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635451600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "articles",
+      "description": "All rights reserved",
+      "source_url": "https://www.zerkalomn.com/articles.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:29.730853+00:00"
+    },
+    {
+      "cluster_key": "zmn-6ce33ca292475cfa",
+      "display_name": "Contact us: E-mail: i [email protected] Phone",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635451600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "services",
+      "description": "Contact us: E-mail: i [email protected] Phone",
+      "source_url": "https://www.zerkalomn.com/services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:31.246959+00:00"
+    },
+    {
+      "cluster_key": "zmn-cce850e799c4a02b",
+      "display_name": "New Clients & Advertising orders",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122291600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "services",
+      "description": "New Clients & Advertising orders",
+      "source_url": "https://www.zerkalomn.com/services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:31.246984+00:00"
+    },
+    {
+      "cluster_key": "zmn-e708cabbbd896d5b",
+      "display_name": "Fax",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635451602"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Address: 8 Nathan Lane. N. Plymouth, MN 55441 Copyright © 2016 Zerkalo, Inc.",
+      "description": "Address: 8 Nathan Lane. N. Plymouth, MN 55441 Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "https://www.zerkalomn.com/services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:31.246998+00:00"
+    },
+    {
+      "cluster_key": "zmn-08b0b6c2734cd2d3",
+      "display_name": "ЖУРНАЛ «Зеркало»",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "media",
+      "category_guess": "СМИ",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635451600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/1052107210891089-10841077107610801072-1087108610831080107510881072109210801103--mass-media-printing.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:31.804961+00:00"
+    },
+    {
+      "cluster_key": "zmn-87059bc3302e9ea8",
+      "display_name": "НЕ ПРОПУСТИТЕ! INTERNAUKA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "105610721079108510861077  other services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635451600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ Консалтинговые услуги с привлечение высококвалифицированных специалистов в областях информационных, медицинских, агро-технологий, строительства и торговли. ​",
+      "description": "​ Консалтинговые услуги с привлечение высококвалифицированных специалистов в областях информационных, медицинских, агро-технологий, строительства и торговли. ​",
+      "source_url": "http://www.zerkalomn.com/105610721079108510861077--other-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:32.576402+00:00"
+    },
+    {
+      "cluster_key": "zmn-cd09f8ae259de4fc",
+      "display_name": "MUSEUM OF RUSSIAN ART",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "105610721079108510861077  other services",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128219045"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "105610721079108510861077  other services",
+      "description": "MUSEUM OF RUSSIAN ART",
+      "source_url": "http://www.zerkalomn.com/105610721079108510861077--other-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:32.576465+00:00"
+    },
+    {
+      "cluster_key": "zmn-9982745ba24f2f44",
+      "display_name": "DIGNITY ADULT DAY CARE (Ирина Грудская)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19522294861"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "DIGNITY ADULT DAY CARE (Ирина Грудская)",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.202048+00:00"
+    },
+    {
+      "cluster_key": "zmn-d44676303e1ad7bc",
+      "display_name": "HEARTLAND ADULT DAY CARE (Инесса Маринова)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635468766"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "HEARTLAND ADULT DAY CARE (Инесса Маринова)",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.202967+00:00"
+    },
+    {
+      "cluster_key": "zmn-e0b8ad9b4ee284f0",
+      "display_name": "HELPFUL HANDS TRANSPORTATION",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127413757"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ",",
+      "description": ",",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.203044+00:00"
+    },
+    {
+      "cluster_key": "zmn-f84f3881a6830c33",
+      "display_name": "612-221-5353 LEGACY ADULT DAY CARE (Нелла Малойло)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122968931"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "612-221-5353 LEGACY ADULT DAY CARE (Нелла Малойло)",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.203138+00:00"
+    },
+    {
+      "cluster_key": "zmn-3fec0e160e2693de",
+      "display_name": "ACTIVE DAY ADULT DAY CARE -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529302168"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "ACTIVE DAY ADULT DAY CARE -",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.203348+00:00"
+    },
+    {
+      "cluster_key": "zmn-4cf497a30a5f061f",
+      "display_name": "SIRIUS TRANSPORTATION",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128504343"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "SIRIUS TRANSPORTATION",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.203383+00:00"
+    },
+    {
+      "cluster_key": "zmn-bbc0464e5869e58f",
+      "display_name": "MIK TRANSPORTATION -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127992899"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "MIK TRANSPORTATION -",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.203398+00:00"
+    },
+    {
+      "cluster_key": "zmn-09c34a6b87ab8679",
+      "display_name": "METROPOLITAN CONSULTING GROUP LLC -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+15037052035"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ ​ Copyright © 2016 Zerkalo, Inc.",
+      "description": "​ ​ Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/adult-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.203470+00:00"
+    },
+    {
+      "cluster_key": "zmn-418c10c79bd4aa58",
+      "display_name": "Стилист-парикмахер Олеся Евграфова",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "beauty",
+      "category_guess": "красота",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19522618303"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все услуги стилиста-парикмахера. Copyright © 2016 Zerkalo, Inc.",
+      "description": "Все услуги стилиста-парикмахера. Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/beauty-salon-spa-cosmetic-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:33.703449+00:00"
+    },
+    {
+      "cluster_key": "zmn-c78680aaea684173",
+      "display_name": "SEARS IMPORTS AUTOS -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128129197"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Mercedes-Benz",
+      "description": "Mercedes-Benz",
+      "source_url": "http://www.zerkalomn.com/car-dealers-in-minnesota-service-in-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:34.227158+00:00"
+    },
+    {
+      "cluster_key": "zmn-c1381fdcaf659a57",
+      "display_name": "Cars Dealership, russian-speaking customer service available LUTHER WESTSIDE VOLKSWAGEN (Вадим Лядов)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19523740641"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Huge choice of new and used cars of all makes. We buy, sell, and repair . Excellent quality, individual touch.",
+      "description": "Huge choice of new and used cars of all makes. We buy, sell, and repair . Excellent quality, individual touch.",
+      "source_url": "http://www.zerkalomn.com/car-dealers-in-minnesota-service-in-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:34.227210+00:00"
+    },
+    {
+      "cluster_key": "zmn-be3b02aa5d478650",
+      "display_name": "RUDY LUTHER TOYOTA (Борис Сонкин)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17634582627"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ / Toyota Cars Dealership, over 30 years experience helping customers finding the right car Copyright © 2016 Zerkalo, Inc.",
+      "description": "​ / Toyota Cars Dealership, over 30 years experience helping customers finding the right car Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/car-dealers-in-minnesota-service-in-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:34.227233+00:00"
+    },
+    {
+      "cluster_key": "zmn-78ce00e3ac611749",
+      "display_name": "AUTO BODY CARE (Юрий Фролов)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127813055"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ / Все виды кузовных и покрасочных работ, восстановление автомобиля после аварии и повреждений ударами града. Замена автомобильных стекол. Подготовка для продажи. / All types of auto body services , restoration of your car after collision or hail. Windshield replacement.",
+      "description": "​ / Все виды кузовных и покрасочных работ, восстановление автомобиля после аварии и повреждений ударами града. Замена автомобильных стекол. Подготовка для продажи. / All types of auto body services , restoration of your car after collision or hail. Windshield replacement.",
+      "source_url": "http://www.zerkalomn.com/car-repair-and-services-in-mn.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:34.758461+00:00"
+    },
+    {
+      "cluster_key": "zmn-1675a6015060fd3f",
+      "display_name": "WALSER NISSAN WAYZATA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124266995"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "авто",
+      "description": "WALSER NISSAN WAYZATA",
+      "source_url": "http://www.zerkalomn.com/car-repair-and-services-in-mn.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:34.758488+00:00"
+    },
+    {
+      "cluster_key": "zmn-8481bd78c7eb0916",
+      "display_name": "AUTO GLASS TECH (Алекс Леонович)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124234761"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Замена автомобильных стекол с выездом на место нахождения автомобиля. / Windshield replacement at your location. ​ ​ Copyright © 2016 Zerkalo, Inc.",
+      "description": "Замена автомобильных стекол с выездом на место нахождения автомобиля. / Windshield replacement at your location. ​ ​ Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/car-repair-and-services-in-mn.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:34.758508+00:00"
+    },
+    {
+      "cluster_key": "zmn-faa8662fe9ff5910",
+      "display_name": "MAGIC JACK",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "tech",
+      "category_guess": "компьютеры",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16516213400"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ / интернет-телефон",
+      "description": "​ / интернет-телефон",
+      "source_url": "http://www.zerkalomn.com/computers-tv-services-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:35.271328+00:00"
+    },
+    {
+      "cluster_key": "zmn-14f7bdfd5977c096",
+      "display_name": "MIDWEST TV - установка русскоязычных телеканалов",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "tech",
+      "category_guess": "компьютеры",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122291600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "компьютеры",
+      "description": "MIDWEST TV - установка русскоязычных телеканалов",
+      "source_url": "http://www.zerkalomn.com/computers-tv-services-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:35.271362+00:00"
+    },
+    {
+      "cluster_key": "zmn-d2edf38401a069c1",
+      "display_name": "TECH-MAN» (обслуживание и ремонт PC) (Илья Лейкинд)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "tech",
+      "category_guess": "компьютеры",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122459715"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ",",
+      "description": ",",
+      "source_url": "http://www.zerkalomn.com/computers-tv-services-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:35.271390+00:00"
+    },
+    {
+      "cluster_key": "zmn-6838d2817a0f55da",
+      "display_name": "612-454-6490 ​ SIR SPEEDY - печать, вывески -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "tech",
+      "category_guess": "компьютеры",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635428812"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/computers-tv-services-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:35.271410+00:00"
+    },
+    {
+      "cluster_key": "zmn-8042ed0e60715995",
+      "display_name": "HODROFF-EPSTEIN",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "other",
+      "category_guess": "ритуальные услуги",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128711234"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/funeral-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:36.469966+00:00"
+    },
+    {
+      "cluster_key": "zmn-c9befcfe26905f08",
+      "display_name": "612 – 369-2292 AVALON Construction Inc",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122396505"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​",
+      "description": "​",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185883+00:00"
+    },
+    {
+      "cluster_key": "zmn-43d9633d31f3c9ba",
+      "display_name": "MN KITCHEN REMODEL - ​",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17632185746"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ", 612-387-5439 / Новые кухни, современный и классический дизайн, отличные цены.",
+      "description": ", 612-387-5439 / Новые кухни, современный и классический дизайн, отличные цены.",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185912+00:00"
+    },
+    {
+      "cluster_key": "zmn-219c055e5281150a",
+      "display_name": "GENERAL HEATING and COOLING (Сергей Гришчук)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19524844031"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ", 952-452-0140 / Ремонт, замена и устанавка систем охлаждения и нагрева воздуха, воды, помещения. I.K.",
+      "description": ", 952-452-0140 / Ремонт, замена и устанавка систем охлаждения и нагрева воздуха, воды, помещения. I.K.",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185937+00:00"
+    },
+    {
+      "cluster_key": "zmn-f3aae2c48e090a7b",
+      "display_name": "LINE STRAIGHT (Игорь Куловеров)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19524578908"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Ремонтно-отделочные работы работы.",
+      "description": "Ремонтно-отделочные работы работы.",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185954+00:00"
+    },
+    {
+      "cluster_key": "zmn-a2585ac04c63325b",
+      "display_name": "R & J Floors (Джафар)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125789172"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "строительство / ремонт",
+      "description": "R & J Floors (Джафар)",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185969+00:00"
+    },
+    {
+      "cluster_key": "zmn-7167ccd0345a81ac",
+      "display_name": "SHARPENING CENTER",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529386007"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Заточка инструментов.",
+      "description": "Заточка инструментов.",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185983+00:00"
+    },
+    {
+      "cluster_key": "zmn-4e5a87c0884fbb0d",
+      "display_name": "HOME STEAD ROAD",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "home_services",
+      "category_guess": "строительство / ремонт",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126442757"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ", 612-325-0542 / Строительная компания, занимающая ремонтом жилых домов Home SteadRoad Home SteadRoad ​ Copyright © 2016 Zerkalo, Inc.",
+      "description": ", 612-325-0542 / Строительная компания, занимающая ремонтом жилых домов Home SteadRoad Home SteadRoad ​ Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/general-construction-remodeling-interior-exterior-handyman.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:37.185999+00:00"
+    },
+    {
+      "cluster_key": "zmn-9496ff628f65c4df",
+      "display_name": "LUDMILA LUSHAEVA -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529943159"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "страхование",
+      "description": "LUDMILA LUSHAEVA -",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227778+00:00"
+    },
+    {
+      "cluster_key": "zmn-98cb8ad1896a0f5f",
+      "display_name": "CITY INSURANCE (Сергей Кенигсберг)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123107739"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "финансирование, все виды страховок",
+      "description": "финансирование, все виды страховок",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227815+00:00"
+    },
+    {
+      "cluster_key": "zmn-a32ecd5ed968c3f7",
+      "display_name": "INNA KIM -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16513737973"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "страхование",
+      "description": "INNA KIM -",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227828+00:00"
+    },
+    {
+      "cluster_key": "zmn-3e40415524081521",
+      "display_name": "WELLS FARGO, WEALTH BROKERAGE SERVICES (Вадим Салов) -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126671448"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "страхование",
+      "description": "WELLS FARGO, WEALTH BROKERAGE SERVICES (Вадим Салов) -",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227902+00:00"
+    },
+    {
+      "cluster_key": "zmn-f1c7c2b21c0c4e41",
+      "display_name": "LIBERTY MUTUAL GROUP (Андрей Шофман)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19528916363"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "страхование жизни, автомобиля, недвижимости",
+      "description": "страхование жизни, автомобиля, недвижимости",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227927+00:00"
+    },
+    {
+      "cluster_key": "zmn-c9a8c5445fa55980",
+      "display_name": "WISE CHOICE INSURANCE AGENCY (Фаина Михайлова)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126164980"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "все виды страховок ​",
+      "description": "все виды страховок ​",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227946+00:00"
+    },
+    {
+      "cluster_key": "zmn-72541a7fb93d671c",
+      "display_name": "УСЛУГИ СТРАХОВАНИЯ (Светлана Яцкина)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "страхование",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16129869386"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "все виды страховок",
+      "description": "все виды страховок",
+      "source_url": "http://www.zerkalomn.com/insurance-companies.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.227963+00:00"
+    },
+    {
+      "cluster_key": "zmn-11be476cfe87cc0e",
+      "display_name": "A-Z FRIENDLY LANGUAGES",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635664312"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Устные переводы и сертифицированный перевод документов.",
+      "description": "Устные переводы и сертифицированный перевод документов.",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.751481+00:00"
+    },
+    {
+      "cluster_key": "zmn-ac81650e92926592",
+      "display_name": "THE LANGUAGE BANK",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125889410"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Устные переводы и сертифицированный перевод документов.",
+      "description": "Устные переводы и сертифицированный перевод документов.",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.751506+00:00"
+    },
+    {
+      "cluster_key": "zmn-5cd5158485e0bd13",
+      "display_name": "ALEKSANDR KABAKOV",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128679247"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Услуги нотариуса, заверение профессиональных переводов.",
+      "description": "Услуги нотариуса, заверение профессиональных переводов.",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.751520+00:00"
+    },
+    {
+      "cluster_key": "zmn-4c78206f15d104cf",
+      "display_name": "РАФАИЛ ШИРЛЬ",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635226002"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перевод легальных документов.",
+      "description": "Перевод легальных документов.",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.751534+00:00"
+    },
+    {
+      "cluster_key": "zmn-2c6ada68428fe6b9",
+      "display_name": "НИНА ЛЯХ -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529943185"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перевод легальных документов.",
+      "description": "Перевод легальных документов.",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.751546+00:00"
+    },
+    {
+      "cluster_key": "zmn-949b0f34e76ca5ec",
+      "display_name": "SLAVIC TRANSLATION SERVICES (Владимир Чиникайло)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126186642"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Устные переводы и сертифицированный перевод документов. Copyright © 2016 Zerkalo, Inc.",
+      "description": "Устные переводы и сертифицированный перевод документов. Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/interpreters-documents-certified-translations-to-and-from-russian.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:38.751566+00:00"
+    },
+    {
+      "cluster_key": "zmn-4fb4654e71a3cea8",
+      "display_name": "FAIRY TALE ACADEMY” - Сказочная Академия (Татьяна Невельская)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635571300"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Plymouth, MN.",
+      "description": "Plymouth, MN.",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804491+00:00"
+    },
+    {
+      "cluster_key": "zmn-a4f821b1870c1e4c",
+      "display_name": "Детский сад \"СОЛНЕЧНЫЕ ЛУЧИКИ\"",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19522504553"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "“",
+      "description": "“",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804525+00:00"
+    },
+    {
+      "cluster_key": "zmn-72430805c33ca046",
+      "display_name": "ВИННИ ПУХ” (Елена Клоснер)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16517726542"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Saint Paul, MN. “",
+      "description": "Saint Paul, MN. “",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804540+00:00"
+    },
+    {
+      "cluster_key": "zmn-ccb1e01a5011bf6e",
+      "display_name": "СОЛНЫШКО” (Светлана Уният)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127062675"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "NE Minneapolis, MN. “",
+      "description": "NE Minneapolis, MN. “",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804554+00:00"
+    },
+    {
+      "cluster_key": "zmn-589e15fda39d4b40",
+      "display_name": "ТЕРЕМОК” (Анна Диксон)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122518098"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Minnetonka, MN. “",
+      "description": "Minnetonka, MN. “",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804567+00:00"
+    },
+    {
+      "cluster_key": "zmn-1215a7fa2a5455f2",
+      "display_name": "У БАБУШКИ” (Ольга Гальперина)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17632084943"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Plymouth, MN. “",
+      "description": "Plymouth, MN. “",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804581+00:00"
+    },
+    {
+      "cluster_key": "zmn-7c1365ce3a5ec83a",
+      "display_name": "ДЕТСКИЙ МИР”",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19522976690"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ", 952-297-6689 / Eagan, MN. “",
+      "description": ", 952-297-6689 / Eagan, MN. “",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804596+00:00"
+    },
+    {
+      "cluster_key": "zmn-fcd97195c8faff5c",
+      "display_name": "ЗОЛОТАЯ РЫБКА”",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "auto",
+      "category_guess": "авто",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+13058349581"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Eden Prairie, MN. “LITTLE BEE'S CHILD CARE CENTER” 763 -780-0187 / Spring Lake Park, MN. Copyright © 2016 Zerkalo, Inc.",
+      "description": "Eden Prairie, MN. “LITTLE BEE'S CHILD CARE CENTER” 763 -780-0187 / Spring Lake Park, MN. Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/kids-day-care.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:39.804611+00:00"
+    },
+    {
+      "cluster_key": "zmn-79c4ab9477add1e9",
+      "display_name": "АДВОКАТ АНДРЕЙ ЛЕБЕДЕВ",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16517720879"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Банкротства, защита по всем криминальным делам (DWI, вождение автомобиля в нетрезвом состоянии, нарушение правил дорожного движения), иммиграция (воссоединение семей, виза для невест и др.), разводы, custody.",
+      "description": "Банкротства, защита по всем криминальным делам (DWI, вождение автомобиля в нетрезвом состоянии, нарушение правил дорожного движения), иммиграция (воссоединение семей, виза для невест и др.), разводы, custody.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.541780+00:00"
+    },
+    {
+      "cluster_key": "zmn-aa271f6eb7eac584",
+      "display_name": "АДВОКАТ АЛЕКСЕЙ БРУСИЛОВСКИЙ",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122096064"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Семейное право, уголовные дела, иммиграция, наследство, завещания, опека при недееспособности.",
+      "description": "Семейное право, уголовные дела, иммиграция, наследство, завещания, опека при недееспособности.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.541912+00:00"
+    },
+    {
+      "cluster_key": "zmn-11b16503f387b57c",
+      "display_name": "АДВОКАТ ГЕННАДИЙ БРОНШТЕЙН",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16127569080"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Уголовные дела, мелкие правонарушения, иммиграция, семейное право, арбитраж и медиация.",
+      "description": "Уголовные дела, мелкие правонарушения, иммиграция, семейное право, арбитраж и медиация.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.541969+00:00"
+    },
+    {
+      "cluster_key": "zmn-3aa8a90048c256c1",
+      "display_name": "GRIFFEL, DORSHOW & CHARTERED (Bryce Johnson)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125293333"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "А втомобильные аварии, производственные травмы, любые виды серьезных телесных повреждений, дискриминация на службе, медицинские ошибки, несчастные случаи со смертельным исходом, травмы, полученных из-за дефекта изделий.",
+      "description": "А втомобильные аварии, производственные травмы, любые виды серьезных телесных повреждений, дискриминация на службе, медицинские ошибки, несчастные случаи со смертельным исходом, травмы, полученных из-за дефекта изделий.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.541998+00:00"
+    },
+    {
+      "cluster_key": "zmn-047f5ebd2dcb70ba",
+      "display_name": "GUZIOR, ARMBRECHT, MAHER (Yurek Guzior, Matt Armbrecht, Tim Maher)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123730007"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Все виды иммиграционных дел, воссоединение семьи, визы невест, аппликации на грин карты и гражданство, убежище, депортация. Уголовное право, DWI. Все вопросы, связанные с бизнесом, включая ведение дел в суде. Завещания, наследство, имущественные вопросы. Разводы, медиация.",
+      "description": "Все виды иммиграционных дел, воссоединение семьи, визы невест, аппликации на грин карты и гражданство, убежище, депортация. Уголовное право, DWI. Все вопросы, связанные с бизнесом, включая ведение дел в суде. Завещания, наследство, имущественные вопросы. Разводы, медиация.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542029+00:00"
+    },
+    {
+      "cluster_key": "zmn-a6f94370b42cf7e7",
+      "display_name": "PARKER & WENNER (Boris Parker, Nick Wenner)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123552200"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Бизнес и коммерция, real estate, судебные процессы, иммиграция.",
+      "description": "Бизнес и коммерция, real estate, судебные процессы, иммиграция.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542047+00:00"
+    },
+    {
+      "cluster_key": "zmn-3cc8fceb697b8012",
+      "display_name": "RLG ROIFE LAW GROUP (Надежда Ройфе)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19525444544"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Иммиграционные вопросы, Social Security, депортация, гражданство, отвод от экзаменов, бенефиты по социальному страхованию.",
+      "description": "Иммиграционные вопросы, Social Security, депортация, гражданство, отвод от экзаменов, бенефиты по социальному страхованию.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542183+00:00"
+    },
+    {
+      "cluster_key": "zmn-a1c4d02b74eee63d",
+      "display_name": "SALITERMAN & SIEFFERMAN (Richard Saliterman)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123391400"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Бизнес-иски, арбитражные суды, недвижимость (корпоративная и личная), завещания (составление и обжалование), франчайзинг и торговые марки, трудовое право и судебная практика, компьютерное право и судебная практика, банкротство и дебиторская/кредиторская задолженность.",
+      "description": "Бизнес-иски, арбитражные суды, недвижимость (корпоративная и личная), завещания (составление и обжалование), франчайзинг и торговые марки, трудовое право и судебная практика, компьютерное право и судебная практика, банкротство и дебиторская/кредиторская задолженность.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542293+00:00"
+    },
+    {
+      "cluster_key": "zmn-e4fa10398a039ef0",
+      "display_name": "SHERAYZEN LAW OFFICE (Евгений Шерайзен)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19525008159"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Международное налоговое право, международные контракты, международный бизнес: открытие счета в иностранных банках, продажа недвижимого имущества за рубежом, права собственности на бизнес на рубежом, право наследования за рубежом, дарение из-за рубежа.",
+      "description": "Международное налоговое право, международные контракты, международный бизнес: открытие счета в иностранных банках, продажа недвижимого имущества за рубежом, права собственности на бизнес на рубежом, право наследования за рубежом, дарение из-за рубежа.",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542341+00:00"
+    },
+    {
+      "cluster_key": "zmn-4be1c12c525af0e3",
+      "display_name": "A-Z FRIENDLY LANGUAGE",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635664312"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "юристы",
+      "description": "A-Z FRIENDLY LANGUAGE",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542370+00:00"
+    },
+    {
+      "cluster_key": "zmn-5b1bfc8f02a3b1ec",
+      "display_name": "НИНА ЛЯХ",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529943185"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ ​",
+      "description": "​ ​",
+      "source_url": "http://www.zerkalomn.com/lawyers-immigrationa-and-criminal-law-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:40.542388+00:00"
+    },
+    {
+      "cluster_key": "zmn-a7bfb3892c2cb9d9",
+      "display_name": "ARABELLA MEDICAL LLC",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122291600"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Qoustic Wound Therapy System.",
+      "description": "Qoustic Wound Therapy System.",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.269516+00:00"
+    },
+    {
+      "cluster_key": "zmn-9b386a89e8032b46",
+      "display_name": "Oksana Evans, NCCPA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124293081"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ UNTANGLING NUTRITION (Arinn, NTP) . www.untanglingnutrition.com",
+      "description": "​ UNTANGLING NUTRITION (Arinn, NTP) . www.untanglingnutrition.com",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.269602+00:00"
+    },
+    {
+      "cluster_key": "zmn-cf351b9e940eb037",
+      "display_name": "CHILD AND TEEN CHECKUPS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17633244280"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "медицина",
+      "description": "CHILD AND TEEN CHECKUPS",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.269799+00:00"
+    },
+    {
+      "cluster_key": "zmn-49b16d4fedf8ac66",
+      "display_name": "MEDICARE - Услуги Страховки для имеющих -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+18009187454"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ NORTHSIDE CHIROPRACTIC (Dr.",
+      "description": "​ NORTHSIDE CHIROPRACTIC (Dr.",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.269854+00:00"
+    },
+    {
+      "cluster_key": "zmn-06cba690eed1ea06",
+      "display_name": "Greg Olson)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125220440"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Лазерная, мануальная терапия, терапия ультразвуком, иглотерапия, реабилитация, лечение травм.",
+      "description": "Лазерная, мануальная терапия, терапия ультразвуком, иглотерапия, реабилитация, лечение травм.",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.269894+00:00"
+    },
+    {
+      "cluster_key": "zmn-cb60f465ced03ede",
+      "display_name": "ДОМАШНИЙ ЛОГОПЕД - (612)-505-1 336 SLAVIC TRANSLATION SERVICES",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126186642"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Перевод в медицинских учреждениях.",
+      "description": "Перевод в медицинских учреждениях.",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.269953+00:00"
+    },
+    {
+      "cluster_key": "zmn-3c7572938d2bfea2",
+      "display_name": "Dentists GENDLER DENTAL CENTER (Доктор Иосиф Гендлер, дантист)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19528361113"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "медицина",
+      "description": "Dentists GENDLER DENTAL CENTER (Доктор Иосиф Гендлер, дантист)",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.270038+00:00"
+    },
+    {
+      "cluster_key": "zmn-966ef01c5325df77",
+      "display_name": "DENTIST DR LYANSKAYA (Доктор Рита Лянская, дантист)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "health",
+      "category_guess": "медицина",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19522851677"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ Copyright © 2016 Zerkalo, Inc.",
+      "description": "​ Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/medical-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.270084+00:00"
+    },
+    {
+      "cluster_key": "zmn-47b8267e377d25ed",
+      "display_name": "GRAND BOXING (школа Марата Котловского)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17634166389"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "school of",
+      "description": "school of",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.885899+00:00"
+    },
+    {
+      "cluster_key": "zmn-1a84ba2485972659",
+      "display_name": "Marat Kotlovski ROYAL RHYTHMIC ACADEMY OF MINNESOTA -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529740322"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "organizations clubs activities",
+      "description": "Marat Kotlovski ROYAL RHYTHMIC ACADEMY OF MINNESOTA -",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.885934+00:00"
+    },
+    {
+      "cluster_key": "zmn-3404ccdb796327d3",
+      "display_name": "DENIS EVSTUHIN (Rubinshtein Music Academy) -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122266693"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "organizations clubs activities",
+      "description": "DENIS EVSTUHIN (Rubinshtein Music Academy) -",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.885953+00:00"
+    },
+    {
+      "cluster_key": "zmn-901979409338c687",
+      "display_name": "DOCSgym, все виды спортивной борьбы",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125215836"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "all types of wrestling",
+      "description": "all types of wrestling",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.885973+00:00"
+    },
+    {
+      "cluster_key": "zmn-2f78bd72a2394666",
+      "display_name": "RUSSIAN SOUL - Культурный центр (Елена Каллевиг)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124659309"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "organizations clubs activities",
+      "description": "RUSSIAN SOUL - Культурный центр (Елена Каллевиг)",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.885994+00:00"
+    },
+    {
+      "cluster_key": "zmn-352b9eb4c4eac376",
+      "display_name": "TWIN CITIES RHYTHMIC - художественная гимнастика (Варвара Низовских)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16129780459"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "organizations clubs activities",
+      "description": "TWIN CITIES RHYTHMIC - художественная гимнастика (Варвара Низовских)",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.886023+00:00"
+    },
+    {
+      "cluster_key": "zmn-bbb743c1cac47b68",
+      "display_name": "COLOR SPLASH - Художественная школа (Виктория Нейман)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125992989"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "art school MUSIC LESSONS Василий Касаткин - (уроки музыки) /",
+      "description": "art school MUSIC LESSONS Василий Касаткин - (уроки музыки) /",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.886049+00:00"
+    },
+    {
+      "cluster_key": "zmn-4545c7010125bce7",
+      "display_name": "612-280-6814 PIANO LESSONS, ELLA BEGELMAN (уроки музыки) -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17637425196"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "PETERSON'S SCHOOL OF",
+      "description": "PETERSON'S SCHOOL OF",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.886072+00:00"
+    },
+    {
+      "cluster_key": "zmn-8d73de08a46fbb6c",
+      "display_name": "MUSIC - Высококвалифицированные преподаватели, дающие уроки игры на многих музыкальных инструментах -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "organizations clubs activities",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+13204557222"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/organizations-clubs-activities.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:41.886119+00:00"
+    },
+    {
+      "cluster_key": "zmn-b5647dbe18663d74",
+      "display_name": "ALL STAR REAL ESTATE (Виктор Школьников, Матвей Гезунтерман)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122422761"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "ALL STAR REAL ESTATE (Виктор Школьников, Матвей Гезунтерман)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907171+00:00"
+    },
+    {
+      "cluster_key": "zmn-3ed3ebd9012fdd3c",
+      "display_name": "EDINA REALTY, REAL ESTATE, FINANCING (Светлана Яцкина)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16129869386"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "EDINA REALTY, REAL ESTATE, FINANCING (Светлана Яцкина)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907203+00:00"
+    },
+    {
+      "cluster_key": "zmn-2774723530beb72e",
+      "display_name": "STEWART TITLE (Жанна Мельник) russian speaking realtor -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122863616"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "STEWART TITLE (Жанна Мельник) russian speaking realtor -",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907223+00:00"
+    },
+    {
+      "cluster_key": "zmn-d77db658d2a0d591",
+      "display_name": "PREFERRED ACCOUNTABILITY (Нина Лях ) -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529943185"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "- russian speaking realtor KELLY/",
+      "description": "- russian speaking realtor KELLY/",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907241+00:00"
+    },
+    {
+      "cluster_key": "zmn-aa1d768b6ac817a6",
+      "display_name": "WILLIAMS PREMIER REALTY",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16513353467"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "WILLIAMS PREMIER REALTY",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907254+00:00"
+    },
+    {
+      "cluster_key": "zmn-40961babef52c0e5",
+      "display_name": "REALTY GROUP (Елена Иберт) -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635916191"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "REALTY GROUP (Елена Иберт) -",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907268+00:00"
+    },
+    {
+      "cluster_key": "zmn-55389caafe59cf11",
+      "display_name": "JEM PROPERTIES (Марк Стипаков)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125984001"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "JEM PROPERTIES (Марк Стипаков)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907281+00:00"
+    },
+    {
+      "cluster_key": "zmn-711454709d65b031",
+      "display_name": "DANNY KLADNIRSKY, The Gold Group (Риалтор)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16514426904"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "DANNY KLADNIRSKY, The Gold Group (Риалтор)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907296+00:00"
+    },
+    {
+      "cluster_key": "zmn-af37f6f149a662aa",
+      "display_name": "MARK RUCHKO, Counselor Realty (Риалтор)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17633706232"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "MARK RUCHKO, Counselor Realty (Риалтор)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907312+00:00"
+    },
+    {
+      "cluster_key": "zmn-b36c74c92148b799",
+      "display_name": "VAYNTRUB GROUP (REMAX Results)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122505115"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "VAYNTRUB GROUP (REMAX Results)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907328+00:00"
+    },
+    {
+      "cluster_key": "zmn-c59ebf4a4857881c",
+      "display_name": "GMAX Realty (Людмила Лущаева)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529943159"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "недвижимость",
+      "description": "GMAX Realty (Людмила Лущаева)",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907341+00:00"
+    },
+    {
+      "cluster_key": "zmn-4a30745d59f463a7",
+      "display_name": "The Hilock an ECUMEN Living Space",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122301338"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/real-estate-services-and-agents.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:42.907364+00:00"
+    },
+    {
+      "cluster_key": "zmn-fd875eaea7171c9d",
+      "display_name": "SOURCE OF LIFE RUSSIAN CHURCH -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "other",
+      "category_guess": "религия",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17632283635"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "CHABAD in Maple Grove. -",
+      "description": "CHABAD in Maple Grove. -",
+      "source_url": "http://www.zerkalomn.com/religion---organizations-congregations.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:43.478096+00:00"
+    },
+    {
+      "cluster_key": "zmn-029a4a69b6fac867",
+      "display_name": "612-520-1263 RUSSIAN ORTHODOX CHURCH -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "other",
+      "category_guess": "религия",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635741001"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ Copyright © 2016 Zerkalo, Inc.",
+      "description": "​ Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/religion---organizations-congregations.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:43.478132+00:00"
+    },
+    {
+      "cluster_key": "zmn-e244ca00fb24729e",
+      "display_name": "EURO GOURMET CAFE & DELI",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "рестораны",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529338747"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "рестораны",
+      "description": "EURO GOURMET CAFE & DELI",
+      "source_url": "http://www.zerkalomn.com/restaurants-catering.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.030755+00:00"
+    },
+    {
+      "cluster_key": "zmn-db887126c24ab974",
+      "display_name": "GRILL HALL",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "рестораны",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17639995918"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​",
+      "description": "​",
+      "source_url": "http://www.zerkalomn.com/restaurants-catering.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.030781+00:00"
+    },
+    {
+      "cluster_key": "zmn-8705e9da50db70d3",
+      "display_name": "MOSCOW ON THE HILL -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "рестораны",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512911236"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "(РЕСТОРАН) Copyright © 2016 Zerkalo, Inc.",
+      "description": "(РЕСТОРАН) Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/restaurants-catering.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.030797+00:00"
+    },
+    {
+      "cluster_key": "zmn-e2eec25a68b186ef",
+      "display_name": "ARKADY’S MARKET (Инна Альберт)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635449000"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "ARKADY’S MARKET (Инна Альберт)",
+      "source_url": "http://www.zerkalomn.com/russian-grocery-stores.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.578180+00:00"
+    },
+    {
+      "cluster_key": "zmn-f9d44525cf77fdaa",
+      "display_name": "EURO GOURMET CAFE AND DELI",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529338747"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "EURO GOURMET CAFE AND DELI",
+      "source_url": "http://www.zerkalomn.com/russian-grocery-stores.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.578226+00:00"
+    },
+    {
+      "cluster_key": "zmn-693e069cd9c4e876",
+      "display_name": "EUROPEAN DELICACIES (Яков Вайсберг, Рагим Мамедов)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19525415494"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "EUROPEAN DELICACIES (Яков Вайсберг, Рагим Мамедов)",
+      "source_url": "http://www.zerkalomn.com/russian-grocery-stores.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.578249+00:00"
+    },
+    {
+      "cluster_key": "zmn-3369c4ce8702c14b",
+      "display_name": "FRUIT AND FISH",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635401812"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "FRUIT AND FISH",
+      "source_url": "http://www.zerkalomn.com/russian-grocery-stores.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.578261+00:00"
+    },
+    {
+      "cluster_key": "zmn-00f4b503375fef09",
+      "display_name": "MINSK MARKET (Ирина и Артур Чайка)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512090564"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/russian-grocery-stores.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:44.578381+00:00"
+    },
+    {
+      "cluster_key": "zmn-159e898d5916bd3d",
+      "display_name": "ВАСИЛИЙ КАСАТКИН, уроки музыки",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122806814"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "schools private lessons",
+      "description": "ВАСИЛИЙ КАСАТКИН, уроки музыки",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.265858+00:00"
+    },
+    {
+      "cluster_key": "zmn-7d68464136203bc6",
+      "display_name": "COLOR SPLASH, художественная школа (Виктория Нейман)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16125992989"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "schools private lessons",
+      "description": "COLOR SPLASH, художественная школа (Виктория Нейман)",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.265902+00:00"
+    },
+    {
+      "cluster_key": "zmn-52539be8c950f56f",
+      "display_name": "EAGLE RIDGE ACADEMY",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19527467760"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "schools private lessons",
+      "description": "EAGLE RIDGE ACADEMY",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.265936+00:00"
+    },
+    {
+      "cluster_key": "zmn-f3629a1a593dacda",
+      "display_name": "ROYAL RHYTHMIC ACADEMY OF MINNESOTA -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529740322"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​",
+      "description": "​",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.265953+00:00"
+    },
+    {
+      "cluster_key": "zmn-97f74e0a798ad82a",
+      "display_name": "FAIRY TALE ACADEMY - ВОЛШЕБНЫЙ МИР ЗНАНИЙ ДЛЯ ДЕТЕЙ -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124812539"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "schools private lessons",
+      "description": "FAIRY TALE ACADEMY - ВОЛШЕБНЫЙ МИР ЗНАНИЙ ДЛЯ ДЕТЕЙ -",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.265974+00:00"
+    },
+    {
+      "cluster_key": "zmn-3fb35e9ab2e4f901",
+      "display_name": "GRAND BOXING, школа бокса",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17634166389"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​",
+      "description": "​",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.265989+00:00"
+    },
+    {
+      "cluster_key": "zmn-6abed475cf59e297",
+      "display_name": "БУКВАРЬ, ШКОЛА РУССКОГО ЯЗЫКА (Владимир Сивривер)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123841616"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "schools private lessons",
+      "description": "БУКВАРЬ, ШКОЛА РУССКОГО ЯЗЫКА (Владимир Сивривер)",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.266007+00:00"
+    },
+    {
+      "cluster_key": "zmn-28db3323cd0b9770",
+      "display_name": "PARNASSUS PREPARATORY SCHOOL",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17634961416"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "[email protected]",
+      "description": "[email protected]",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.266022+00:00"
+    },
+    {
+      "cluster_key": "zmn-9dfaed106cf3b7f7",
+      "display_name": "RAJMN RUSSIAN AMERICAN JEWS IN MINNESOTA",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512554742"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "schools private lessons",
+      "description": "RAJMN RUSSIAN AMERICAN JEWS IN MINNESOTA",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.266038+00:00"
+    },
+    {
+      "cluster_key": "zmn-1cb308a9d683c490",
+      "display_name": "НАША ШКОЛА - Первая чартерная школа с изучением русского языка и литературы",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "schools private lessons",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19257461880"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "PETERSON'S SCHOOL OF",
+      "description": "PETERSON'S SCHOOL OF",
+      "source_url": "http://www.zerkalomn.com/schools-private-lessons.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:45.266071+00:00"
+    },
+    {
+      "cluster_key": "zmn-601451234f5c388a",
+      "display_name": "Русская душа\" - Культурный центр (Елена Каллевиг)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "social funds and organizations",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124659309"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "social funds and organizations",
+      "description": "Русская душа\" - Культурный центр (Елена Каллевиг)",
+      "source_url": "http://www.zerkalomn.com/social-funds-and-organizations.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:46.113951+00:00"
+    },
+    {
+      "cluster_key": "zmn-c133392cea61cf2b",
+      "display_name": "RAJMN Russian American Jews in Minnesota (Илана Володарская)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "social funds and organizations",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512554742"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "social funds and organizations",
+      "description": "RAJMN Russian American Jews in Minnesota (Илана Володарская)",
+      "source_url": "http://www.zerkalomn.com/social-funds-and-organizations.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:46.114020+00:00"
+    },
+    {
+      "cluster_key": "zmn-8649782f5fb60082",
+      "display_name": "Музей русского искусства",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "social funds and organizations",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16128219045"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "social funds and organizations",
+      "description": "Музей русского искусства",
+      "source_url": "http://www.zerkalomn.com/social-funds-and-organizations.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:46.114038+00:00"
+    },
+    {
+      "cluster_key": "zmn-4497e940398013d3",
+      "display_name": "Международный Бизнесс с Миннесотой SHARPENING CENTER",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "retail",
+      "category_guess": "магазины",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529386007"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​",
+      "description": "​",
+      "source_url": "http://www.zerkalomn.com/stores-with-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:46.790666+00:00"
+    },
+    {
+      "cluster_key": "zmn-09a4dac27030173b",
+      "display_name": "PARADISE LIQUOR",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "retail",
+      "category_guess": "магазины",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635258830"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Copyright © 2016 Zerkalo, Inc.",
+      "description": "Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/stores-with-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:46.790704+00:00"
+    },
+    {
+      "cluster_key": "zmn-a892dacf95b4eeec",
+      "display_name": "Income Tax Service ( Леонид Майзель) -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16124751999"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​",
+      "description": "​",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517673+00:00"
+    },
+    {
+      "cluster_key": "zmn-44abe75509dac1ad",
+      "display_name": "Светлана Яцкина, Accounting, Income Tax Service",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16129869386"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "оформление налогов, ведение учет",
+      "description": "оформление налогов, ведение учет",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517710+00:00"
+    },
+    {
+      "cluster_key": "zmn-d75ee031b9191208",
+      "display_name": "METIS FINANCIAL, Сергей Кенигсберг",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123107739"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "оформление налоговых деклараций",
+      "description": "оформление налоговых деклараций",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517728+00:00"
+    },
+    {
+      "cluster_key": "zmn-d4e4e618e2cf3d29",
+      "display_name": "Рафаил Ширль, Income Tax and Financial Services",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+17635226002"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "налоговые декларации, платежные ведомости",
+      "description": "налоговые декларации, платежные ведомости",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517748+00:00"
+    },
+    {
+      "cluster_key": "zmn-6aa983aaf0c9a6fa",
+      "display_name": "Игорь Дыхне, Certified Public Account",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122701812"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "налоги, бухгалтерия",
+      "description": "налоги, бухгалтерия",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517765+00:00"
+    },
+    {
+      "cluster_key": "zmn-a434e349613a2dd9",
+      "display_name": "Нина Лях, Income Tax Service",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19529943185"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "оформление налогов",
+      "description": "оформление налогов",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517781+00:00"
+    },
+    {
+      "cluster_key": "zmn-77c5df3ef240148f",
+      "display_name": "WEALTH BROKERAGE SERVICES (Вадим Салов)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "finance",
+      "category_guess": "налоги / финансы",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126671448"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ФИНАНСОВЫЕ КОНСУЛЬТАЦИИ на русском языке ​ Copyright © 2016 Zerkalo, Inc.",
+      "description": "ФИНАНСОВЫЕ КОНСУЛЬТАЦИИ на русском языке ​ Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/tax-financing-investments-in-minnesota.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:47.517803+00:00"
+    },
+    {
+      "cluster_key": "zmn-c8fb337e8049769a",
+      "display_name": "PARADISE CHARTER CRUISES - торжества на теплоходе",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "weddings jubilee events entertainment",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19524748058"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Круизы по реке Миссисипи и озеру Миннетонка. Идеальные условия для проведения свадеб, мальчишников, девичников, дней рождений, юбилеев, Бар и Бат Мицв, казино-вечеринок, корпоративных и закрытых вечеринок и др. торжественных и праздничных событий.",
+      "description": "Круизы по реке Миссисипи и озеру Миннетонка. Идеальные условия для проведения свадеб, мальчишников, девичников, дней рождений, юбилеев, Бар и Бат Мицв, казино-вечеринок, корпоративных и закрытых вечеринок и др. торжественных и праздничных событий.",
+      "source_url": "http://www.zerkalomn.com/weddings-jubilee-events-entertainment.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:55.195203+00:00"
+    },
+    {
+      "cluster_key": "zmn-d4e33958b453fc01",
+      "display_name": "ВАСИЛИЙ КАСАТКИН -",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "weddings jubilee events entertainment",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122806814"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Музыкальное сопровождение любых торжеств, свадеб, дней рождений, бар-бат мицвот.",
+      "description": "Музыкальное сопровождение любых торжеств, свадеб, дней рождений, бар-бат мицвот.",
+      "source_url": "http://www.zerkalomn.com/weddings-jubilee-events-entertainment.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:55.195237+00:00"
+    },
+    {
+      "cluster_key": "zmn-9d57486e346bc32c",
+      "display_name": "ST PETERSBURG, ресторан (Ирина Великсон)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "weddings jubilee events entertainment",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19522705536"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​, 763-587-1787 - Прекрасные условия для проведения свадеб, мальчишников, девичников, дней рождений, юбилеев, Бар и Бат Мицв, казино-вечеринок, корпоративных и закрытых вечеринок и др. торжественных и праздничных событий. Copyright © 2016 Zerkalo, Inc.",
+      "description": "​, 763-587-1787 - Прекрасные условия для проведения свадеб, мальчишников, девичников, дней рождений, юбилеев, Бар и Бат Мицв, казино-вечеринок, корпоративных и закрытых вечеринок и др. торжественных и праздничных событий. Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "http://www.zerkalomn.com/weddings-jubilee-events-entertainment.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:55.195264+00:00"
+    },
+    {
+      "cluster_key": "zmn-1a88897a086ed908",
+      "display_name": "GENDLER DENTAL CENTER (Доктор Иосиф Гендлер, дантист)",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": null,
+      "category_guess": "dentists",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19528361113"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "dentists",
+      "description": "GENDLER DENTAL CENTER (Доктор Иосиф Гендлер, дантист)",
+      "source_url": "https://www.zerkalomn.com/dentists.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:50:57.721922+00:00"
+    },
+    {
+      "cluster_key": "zmn-e84f64241cc506f7",
+      "display_name": "AKSANA TRAVEL & VACATIONS",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512519383"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "​ / Все виды отдыха, международные авиабилеты , туры . GABRIEL TRAVEL (Малко Андрей). 1-888-505-4196 / Все виды отдых, международные авиабилеты , туры .",
+      "description": "​ / Все виды отдыха, международные авиабилеты , туры . GABRIEL TRAVEL (Малко Андрей). 1-888-505-4196 / Все виды отдых, международные авиабилеты , туры .",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:51:05.563294+00:00"
+    },
+    {
+      "cluster_key": "zmn-23f5f092dc009443",
+      "display_name": "MIRACLE TRAVEL (Marianna Miracle)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16512519382"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Отдых в Доминиканской Республике , в Мексике , на Карибах и Гавайиях , круизы . Авиабилеты по всему миру, во все города России и СНГ. MISSION VALLEY TRAVEL (Денис Агафонов). 1-888-887-3060 / Авиабилеты в любую точку планеты.",
+      "description": "Отдых в Доминиканской Республике , в Мексике , на Карибах и Гавайиях , круизы . Авиабилеты по всему миру, во все города России и СНГ. MISSION VALLEY TRAVEL (Денис Агафонов). 1-888-887-3060 / Авиабилеты в любую точку планеты.",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:51:05.563335+00:00"
+    },
+    {
+      "cluster_key": "zmn-762b20d71135336a",
+      "display_name": "PARADISE CHARTER CRUISES",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+19524748058"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Круизы по реке Миссисипи и озеру Миннетонка. Меню на русском языке.",
+      "description": "Круизы по реке Миссисипи и озеру Миннетонка. Меню на русском языке.",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:51:05.563352+00:00"
+    },
+    {
+      "cluster_key": "zmn-c23e1117470ecd07",
+      "display_name": "SMALL TRAVEL AGENCY (Алекс Мостов)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16122328414"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "All inclusive : Карибские острова и Мексика , Флорида , Лас-Вегас, круизы на Аляску , в Европу и по Карибам, авиабилеты, отели, рент машин.",
+      "description": "All inclusive : Карибские острова и Мексика , Флорида , Лас-Вегас, круизы на Аляску , в Европу и по Карибам, авиабилеты, отели, рент машин.",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:51:05.563376+00:00"
+    },
+    {
+      "cluster_key": "zmn-d4e11822ecd0b6b4",
+      "display_name": "EZ LUX Tra vel (Лиза Левин)",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16126954428"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Исключительно низкие цены . Все услуги включены в оплату. Туры с сопровождением .",
+      "description": "Исключительно низкие цены . Все услуги включены в оплату. Туры с сопровождением .",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:51:05.563395+00:00"
+    },
+    {
+      "cluster_key": "zmn-fa89a62a943f759b",
+      "display_name": "VACATION TRAVEL, INC (Евгений Рябой )",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "zerkalo_mn",
+      "category_slug": "travel",
+      "category_guess": "туризм",
+      "city": "Minneapolis",
+      "address": null,
+      "phones": [
+        "+16123863495"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ", 612-353-1277 / Разработка индивидуальных и групповых туристических маршрутов. Круизы, туры, all-inclusive . Copyright © 2016 Zerkalo, Inc.",
+      "description": ", 612-353-1277 / Разработка индивидуальных и групповых туристических маршрутов. Круизы, туры, all-inclusive . Copyright © 2016 Zerkalo, Inc.",
+      "source_url": "https://www.zerkalomn.com/travel-agencies-russian-speaking-services.html",
+      "source_channel": "other",
+      "source_groups": [
+        "Zerkalo Minnesota"
+      ],
+      "region": "Minnesota",
+      "scraped_at": "2026-07-27T00:51:05.563415+00:00"
+    }
+  ]
+}

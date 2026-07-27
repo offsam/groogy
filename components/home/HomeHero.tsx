@@ -2,18 +2,17 @@
 
 import Image from "next/image";
 import { SearchBar } from "@/components/search/SearchBar";
-import { HomeHubCategoryCounts } from "@/components/home/HomeHubCategoryCounts";
+import { HomeRegionActivityLine } from "@/components/home/HomeRegionStatsStrip";
 import { RegionHubPicker } from "@/components/regions/RegionHubPicker";
-import type { HubCategoryCounts } from "@/lib/platform/hub-category-counts";
+import type { HubResourceStats } from "@/lib/platform/hub-resource-stats";
 import type { RegionHub, RegionHubId } from "@/lib/regions/hubs";
 
 type HomeHeroProps = {
   hub: RegionHub;
   hubs: RegionHub[];
   inLabel: string;
-  hubIdsParam: string;
-  initialSectionCounts?: HubCategoryCounts | null;
-  ssrHubId?: string;
+  regionStats?: HubResourceStats | null;
+  platformStats?: HubResourceStats | null;
   geoPrompt?: boolean;
   geoLoading?: boolean;
   onAllowGeo?: () => void;
@@ -25,9 +24,8 @@ export function HomeHero({
   hub,
   hubs,
   inLabel,
-  hubIdsParam,
-  initialSectionCounts = null,
-  ssrHubId,
+  regionStats = null,
+  platformStats = null,
   geoPrompt = false,
   geoLoading = false,
   onAllowGeo,
@@ -36,12 +34,7 @@ export function HomeHero({
 }: HomeHeroProps) {
   return (
     <section className="relative isolate w-full overflow-hidden">
-      {/*
-        Mobile: taller strip + stacked layout so title / search / plaques
-        don't fight for the same absolute band.
-        Desktop: keep the compact panorama composition.
-      */}
-      <div className="relative min-h-[300px] w-full sm:min-h-0 sm:h-[280px] md:h-[300px] lg:h-[320px]">
+      <div className="relative min-h-[220px] w-full sm:min-h-0 sm:h-[260px] md:h-[280px] lg:h-[300px]">
         <Image
           alt={hub.panoramaAlt}
           className="object-cover object-[center_40%]"
@@ -57,15 +50,14 @@ export function HomeHero({
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/55"
+          className="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-transparent to-slate-950/70"
         />
 
-        <div className="relative z-[1] flex min-h-[300px] flex-col sm:absolute sm:inset-0 sm:min-h-0">
-          <div className="mx-auto flex w-full max-w-[1400px] flex-1 flex-col gap-3 px-4 pb-2 pt-3 sm:h-full sm:justify-between sm:gap-4 sm:px-6 sm:pb-[7.25rem] sm:pt-4 lg:flex-row lg:items-start lg:gap-10 lg:px-8 lg:pt-5">
-            <div className="flex min-w-0 items-start gap-2.5 pt-0.5">
-              {/* Align under header brand mark */}
+        <div className="relative z-[1] flex min-h-[220px] flex-col sm:absolute sm:inset-0 sm:min-h-0">
+          <div className="mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-center gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-5">
+            <div className="flex min-w-0 items-start gap-2.5">
               <div aria-hidden className="hidden size-9 shrink-0 sm:block" />
-              <div className="min-w-0">
+              <div className="min-w-0 w-full max-w-xl">
                 <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                   <h1 className="font-[family-name:var(--font-display)] text-[1.35rem] font-semibold leading-tight tracking-tight text-white sm:text-2xl md:text-3xl">
                     в {inLabel}
@@ -90,24 +82,26 @@ export function HomeHero({
                     />
                   ) : null}
                 </div>
-              </div>
-            </div>
 
-            {/* Mobile: header search only. Desktop: hero search (header search hidden via CSS). */}
-            <div className="home-hero-search hidden min-w-0 w-full sm:block lg:mt-1 lg:max-w-[420px] lg:flex-1">
-              <SearchBar variant="hero" />
+                <HomeRegionActivityLine stats={regionStats} />
+
+                <div className="home-hero-search mt-3 w-full sm:mt-3.5">
+                  <SearchBar variant="hero" />
+                </div>
+              </div>
             </div>
           </div>
 
-          <HomeHubCategoryCounts
-            hubId={hubIdsParam}
-            initial={
-              ssrHubId && hubIdsParam === ssrHubId
-                ? initialSectionCounts
-                : null
-            }
-            variant="hero"
-          />
+          <div className="mx-auto w-full max-w-[1400px] px-4 pb-3 pt-1 sm:px-6 sm:pb-4 lg:px-8">
+            <div className="flex min-w-0 items-start gap-2.5">
+              <div aria-hidden className="hidden size-9 shrink-0 sm:block" />
+              <HomeRegionActivityLine
+                className="mt-0 sm:mt-0"
+                prefix="На платформе"
+                stats={platformStats}
+              />
+            </div>
+          </div>
         </div>
       </div>
 

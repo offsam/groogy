@@ -1,0 +1,1932 @@
+{
+  "source": "https://www.russianseattle.com/yellow_r.htm",
+  "network": "russianamerica.com",
+  "city_hub": "seattle",
+  "generated_at": "2026-07-27T00:21:39.643192+00:00",
+  "count": 63,
+  "cards": [
+    {
+      "cluster_key": "rasea-8aabcb47964cf6f3",
+      "display_name": "Taskar Garage Mobile Care repair",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "auto",
+      "category_guess": "автосервис",
+      "city": "Seattle",
+      "address": "7501 15th Avenue NW Seattle, WA 98117",
+      "phones": [
+        "+12062976066",
+        "+12067788749"
+      ],
+      "emails": [
+        "taskargarage@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Mikhail Taskar Taskar Garage Mobile Care repair -- Выбор Русского Сиэтла -- For All Your Auto Care Needs Since 1994",
+      "description": "Mikhail Taskar Taskar Garage Mobile Care repair -- Выбор Русского Сиэтла -- For All Your Auto Care Needs Since 1994",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#auto",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.621528+00:00"
+    },
+    {
+      "cluster_key": "rasea-e9b0a1d3bdabe1ae",
+      "display_name": "Школа водителей грузовиков и автобусов.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "education",
+      "category_guess": "обучение",
+      "city": "Seattle",
+      "address": "18057 - 28th Ave NE Seattle, WA 98155",
+      "phones": [
+        "+12063673100",
+        "+12062710636"
+      ],
+      "emails": [
+        "dimitrys@comcast.net"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Обучение и прием экзаменов на русском языке.",
+      "description": "Обучение и прием экзаменов на русском языке.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#education",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.621821+00:00"
+    },
+    {
+      "cluster_key": "rasea-73662769300500f5",
+      "display_name": "Let's' Remodel",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Portland",
+      "address": "Showroom Address: 12518 NE Airport Way Ste.148 Portland, OR 97230 CCB:172095 WA:LETSRR*856DB Licensed-Bonded-Insured Web Site: www.LetsRemodel.net",
+      "phones": [
+        "+15032083687"
+      ],
+      "emails": [
+        "info@letsremodel.net"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.LetsRemodel.net",
+        "http://www.houzz.com/pro/letsremodelportland/lets-remodel",
+        "https://plus.google.com/+LetsRemodelPortland/about",
+        "https://www.yelp.com/biz/lets-remodel-portland",
+        "https://member.angieslist.com/member/login",
+        "https://www.LetsRemodel.net"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Let's' Remodel is a One Stop Shop for All your Kitchen & Bathroom Remodeling Needs Let's Remodel предоставляет услуги по дизайну и строительству новых кухонь и ванн. Если вы ищете надежного контрактора для вашего проекта позвоните нам по телефону 503-208-3687 или напишите нам inf",
+      "description": "Let's' Remodel is a One Stop Shop for All your Kitchen & Bathroom Remodeling Needs Let's Remodel предоставляет услуги по дизайну и строительству новых кухонь и ванн. Если вы ищете надежного контрактора для вашего проекта позвоните нам по телефону 503-208-3687 или напишите нам info@letsremodel.net",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#home_services",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.622738+00:00"
+    },
+    {
+      "cluster_key": "rasea-72eb4954ba9af510",
+      "display_name": "NORTHUP DESIGN ASSOCIATION",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Bellevue",
+      "address": "15867 Northup Way Bellevue, WA 98008 Web Site: www.northupdesign.com/",
+      "phones": [],
+      "emails": [
+        "dorleska@msn.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.northupdesign.com",
+        "https://www.northupdesign.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "1 2 лет стажа работы в архитектурных и инженерных компаниях города Seattle. АРХИТЕКТУРНАЯ КОМПАНИЯ ВЫПОЛНЯЕТ: Проектирование SINGLE and MULTY-FAMILY (DUPL, TRIPL.) новых жилых домов; Архитектурную документацию для перестройки сущствующих жилых домов; Инженерные расчеты, печать РЕ",
+      "description": "1 2 лет стажа работы в архитектурных и инженерных компаниях города Seattle. АРХИТЕКТУРНАЯ КОМПАНИЯ ВЫПОЛНЯЕТ: Проектирование SINGLE and MULTY-FAMILY (DUPL, TRIPL.) новых жилых домов; Архитектурную документацию для перестройки сущствующих жилых домов; Инженерные расчеты, печать РЕ. ИМЕЮТСЯ ПЛАНЫ более 200 домов площадью 1500 ... 3500 S.F., по которым построены дома в районе SEATTLE.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#home_services",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.623330+00:00"
+    },
+    {
+      "cluster_key": "rasea-3a603d4f729c1c57",
+      "display_name": "Tsaruk Tile Floor Николай",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Seattle",
+      "address": null,
+      "phones": [
+        "+14253876915"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Плитка - гранит, мрамор, керамика Стаж - 15 лет",
+      "description": "Плитка - гранит, мрамор, керамика Стаж - 15 лет",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#home_services",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.623490+00:00"
+    },
+    {
+      "cluster_key": "rasea-b4b2518fa208f4e8",
+      "display_name": "Alexanders Heating Inc.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "home_services",
+      "category_guess": "дом / ремонт",
+      "city": "Kirkland",
+      "address": "http://www.russianseattle.com/alexanders/ http://alexandersheating.com/ Kirkland, WA",
+      "phones": [
+        "+12062952500"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://alexandersheating.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Heating, Air Conditioning, Inserts, Water Heaters, Fireplaces",
+      "description": "Heating, Air Conditioning, Inserts, Water Heaters, Fireplaces",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#home_services",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.623825+00:00"
+    },
+    {
+      "cluster_key": "rasea-9aa0f8b0b0d6c3e7",
+      "display_name": "Real Estate Agent Покупка и продажа домов",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Redmond",
+      "address": "RE/MAX Preference Redmond Office 16310 Northeast 85th Street, Redmond WA 98052 (425) 298-4104 http://www.seattle 4you.com/",
+      "phones": [
+        "+14259418997",
+        "+14252984104"
+      ],
+      "emails": [
+        "ybillig@live.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.seattle4you.com",
+        "http://www.seattle"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Yulia Billig Real Estate Agent Покупка и продажа домов. Профессиональный сервис, помощь с финансированием и адаптацией на новом месте Звоните или пишите по всем волнующим вас вопросам Real Estate!",
+      "description": "Yulia Billig Real Estate Agent Покупка и продажа домов. Профессиональный сервис, помощь с финансированием и адаптацией на новом месте Звоните или пишите по всем волнующим вас вопросам Real Estate!",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#real_estate",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.624306+00:00"
+    },
+    {
+      "cluster_key": "rasea-5bc26cc78ca9a5c6",
+      "display_name": "Игорь Шубин",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Seattle",
+      "address": "website: www.johnlscott.com/igors",
+      "phones": [],
+      "emails": [
+        "igors@johnlscott.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.johnlscott.com/igors",
+        "http://www.oleghomes.mywindermere.com",
+        "https://www.johnlscott.com/igors"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Real Estate Broker Помощь в покупке и продаже недвижимости: - покупающим впервые; - инвесторам; - желающим продать «старый» и купить новый дом .",
+      "description": "Real Estate Broker Помощь в покупке и продаже недвижимости: - покупающим впервые; - инвесторам; - желающим продать «старый» и купить новый дом .",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#real_estate",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.624710+00:00"
+    },
+    {
+      "cluster_key": "rasea-4e17ca1752f0508b",
+      "display_name": "Anatoly German",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "real_estate",
+      "category_guess": "недвижимость",
+      "city": "Bellevue",
+      "address": "Skyline Properties,inc 606 120th Ave. N.E. Suite D-204 Bellevue, WA 98005 425-455-2065",
+      "phones": [
+        "+14258699677",
+        "+12062262851",
+        "+14258696757",
+        "+14254552065"
+      ],
+      "emails": [
+        "anatolik.german@att.net"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Associate Broker Selling residential & commercial properties from 1979. Tax appeals for clients (tax reduction) Work with best loan officers & other experts in the field. Free advice on any subject",
+      "description": "Associate Broker Selling residential & commercial properties from 1979. Tax appeals for clients (tax reduction) Work with best loan officers & other experts in the field. Free advice on any subject",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#real_estate",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.624978+00:00"
+    },
+    {
+      "cluster_key": "rasea-f2b6ec849568efd2",
+      "display_name": "Авария",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "legal",
+      "category_guess": "юристы",
+      "city": "Everett",
+      "address": "https://www.ricotessandore.com/ Key Bank Tower 2707 Colby Avenue, Suite 901 Everett, WA 98201 Colony Park Center 19000 33rd Avenue West, Suite 100 Lynnwood, WA ",
+      "phones": [
+        "+14254933452",
+        "+14257789800",
+        "+13609612454"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://www.ricotessandore.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "The Law Offices of Rico Tessandore Авария? Травма? Я могу помочь Выбор Русского Сиэтла !! Многолетний опыт работы в страховых компаниях и детальное знание изнутри их методик позволяет мне теперь получить максимальную компенсацию для моих клиентов.",
+      "description": "The Law Offices of Rico Tessandore Авария? Травма? Я могу помочь Выбор Русского Сиэтла !! Многолетний опыт работы в страховых компаниях и детальное знание изнутри их методик позволяет мне теперь получить максимальную компенсацию для моих клиентов.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#legal",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.625566+00:00"
+    },
+    {
+      "cluster_key": "rasea-0bb814775a80eedb",
+      "display_name": "Hanna Vater",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "creative",
+      "category_guess": "творчество",
+      "city": "Seattle",
+      "address": "hanavater@hotmail.com",
+      "phones": [
+        "+12063673356",
+        "+12063358692"
+      ],
+      "emails": [
+        "hanavater@hotmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Painter and Graphic Designer. Lessons for children 6 - 16",
+      "description": "Painter and Graphic Designer. Lessons for children 6 - 16",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#creative",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.625982+00:00"
+    },
+    {
+      "cluster_key": "rasea-21c40ce5fb3255fe",
+      "display_name": "Ben & Raisa Gertsberg",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "creative",
+      "category_guess": "творчество",
+      "city": "Seattle",
+      "address": "raisag@gte.net",
+      "phones": [],
+      "emails": [
+        "raisag@gte.net"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.yessy.com/brg",
+        "http://www.itsabeautifulworld.biz",
+        "https://www.itsabeautifulworld.biz"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Fine Digital Art and Photography",
+      "description": "Fine Digital Art and Photography",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#creative",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.626159+00:00"
+    },
+    {
+      "cluster_key": "rasea-c8ced4156ff2b61b",
+      "display_name": "ArtLaneGallery Галерея русских художников Сиэтла",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "creative",
+      "category_guess": "творчество",
+      "city": "Seattle",
+      "address": "artlanegallery.com",
+      "phones": [
+        "+12064190424"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "творчество",
+      "description": "ArtLaneGallery Галерея русских художников Сиэтла",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#creative",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.626319+00:00"
+    },
+    {
+      "cluster_key": "rasea-c83d18a72d0c4863",
+      "display_name": "Akopyan & Company, CPA Member of Washington State Society of Certif…",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "finance",
+      "category_guess": "бухгалтерия / налоги",
+      "city": "Seattle",
+      "address": "2412 2nd Avenue Seattle, WA 98121 http://ygacpa.com/",
+      "phones": [
+        "+12068383800"
+      ],
+      "emails": [
+        "yuriy@ygacpa.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://ygacpa.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ied Public Accountants. 12 years of experience working for CPA firms. Составление налоговых отчетов Открытие новых бизнесов Составление финансовых отчетов Консультации по вопросам вашего бизнеса Налоговое и финансовое планирование",
+      "description": "ied Public Accountants. 12 years of experience working for CPA firms. Составление налоговых отчетов Открытие новых бизнесов Составление финансовых отчетов Консультации по вопросам вашего бизнеса Налоговое и финансовое планирование",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#finance",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.626952+00:00"
+    },
+    {
+      "cluster_key": "rasea-d4796f4230fc46ce",
+      "display_name": "Alina Frenkel Независимый доверенный страховой брокер ЗАЩИТА ВАС И…",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "insurance",
+      "category_guess": "страховки",
+      "city": "Seattle",
+      "address": null,
+      "phones": [
+        "+14257396565",
+        "+14257399955",
+        "+18002898003"
+      ],
+      "emails": [
+        "alinafrenkel@choiceinsurance.net"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ВАШЕГО БИЗНЕСА Мы покупаем страховые продукты для наших клиентов с 1986 года. Вы находитесь всегда на первом месте, и ваш выбор - наш приоритет. Наша цель - защитить вас, чтобы вы могли беспрепятственно вести свой бизнес и свою жизнь. Как бутик-агентство, мы находим наилучшее стр",
+      "description": "ВАШЕГО БИЗНЕСА Мы покупаем страховые продукты для наших клиентов с 1986 года. Вы находитесь всегда на первом месте, и ваш выбор - наш приоритет. Наша цель - защитить вас, чтобы вы могли беспрепятственно вести свой бизнес и свою жизнь. Как бутик-агентство, мы находим наилучшее страхование соответствующее интересам вашей компании. Мы собираем покрытие конкретнo по вашим потребностям и устраняем ненужное в целях экономии. Мы лицензированы в 25 штатах, и даже в случае переезда в другой штат вы будете застрахованы. Имея более чем 15-летний опыт работы в сфере страхования, я помогалa клиентам в нескольких штатах. Я предпочитаю качество а не количество, ценю отношения, и всегда нахожу самый оптимальный вариант, по самым разумным ценам! Я специализируюсь на страховании владельцев любого бизнеса, к",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#insurance",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.627880+00:00"
+    },
+    {
+      "cluster_key": "rasea-edded314a42f7786",
+      "display_name": "Tetiana Canon Personal Insurance Consultant Забота о бизнесе означа…",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "insurance",
+      "category_guess": "страховки",
+      "city": "Federal Way",
+      "address": "Cynthia Squires Agency 31653 Pacific HWY S. Suite C Federal Way, WA 98003 http://www.cynthiasquires.com/",
+      "phones": [
+        "+12535291957",
+        "+12539464585"
+      ],
+      "emails": [
+        "tcanon@amfam.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.cynthiasquires.com",
+        "http://www.CynthiaSquires.com",
+        "https://www.CynthiaSquires.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ет заботу о наших клиентах. Поэтому наша задача помочь Вам в выборе страхового покрытия, которое в полной мере отвечает Вашим нуждам. Мы гарантируем, что Вы получите все скидки, которые Вам положены. МЫ ПРЕДЛАГАЕМ СЛЕДУЮЩИЕ ВИДЫ СТРАХОВКИ: ٧ АВТОМОБИЛЬНАЯ ٧ СТРАХОВКА ЖИЗНИ ٧ ДОМ/",
+      "description": "ет заботу о наших клиентах. Поэтому наша задача помочь Вам в выборе страхового покрытия, которое в полной мере отвечает Вашим нуждам. Мы гарантируем, что Вы получите все скидки, которые Вам положены. МЫ ПРЕДЛАГАЕМ СЛЕДУЮЩИЕ ВИДЫ СТРАХОВКИ: ٧ АВТОМОБИЛЬНАЯ ٧ СТРАХОВКА ЖИЗНИ ٧ ДОМ/MANUFACTURED/ CONDO/ TOWNHOUSE ٧ СЪЕМНОЕ ЖИЛЬЕ (RENTERS) ٧ БИЗНЕС ٧ КЕМПЕР/ТРЕЙЛЕР ٧ MOTORHOME ٧ МОТОЦИКЛ ٧ ЛОДКИ И КАТЕРА ٧ QUADS/SNOWMOBILE ВСЕГДА В ВАШЕМ РАЙОНЕ!",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#insurance",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.628609+00:00"
+    },
+    {
+      "cluster_key": "rasea-8ef18dab28c57748",
+      "display_name": "Trans Net",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "логистика",
+      "city": "Issaquah",
+      "address": "TransNet Inc. 710 N W JUNIPER STREET SUITE 100, Issaquah, WA 98027 www.transnetinc.com",
+      "phones": [
+        "+14255570558",
+        "+14255570498"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.transnetinc.com",
+        "https://www.transnetinc.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Experts in transportation / logistics / import and export operations to former USRR. Moving food items / frozen commodities / cars / trucks / etc Наша компания является экспертом в осуществлении любых видов грузовых перевозок на территорию бывшего Советского Союза. Поможем с офор",
+      "description": "Experts in transportation / logistics / import and export operations to former USRR. Moving food items / frozen commodities / cars / trucks / etc Наша компания является экспертом в осуществлении любых видов грузовых перевозок на территорию бывшего Советского Союза. Поможем с оформлением экспортных документов.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.629092+00:00"
+    },
+    {
+      "cluster_key": "rasea-43dc2473ccc0b10d",
+      "display_name": "Перевозки в штате Вашингтон",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "fitness",
+      "category_guess": "спорт",
+      "city": "Seattle",
+      "address": null,
+      "phones": [
+        "+12062910420"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "У вас есть пианино или рояль которое вы хотите перевезти? Мы занимаемся перевозками в штате Вашингтон более 20 лет. Используем только профессиональное оборудование и безопасные методы в перемещении музыкальных инструментов. По вашему желанию мы можем захватить любую мебель, котор",
+      "description": "У вас есть пианино или рояль которое вы хотите перевезти? Мы занимаемся перевозками в штате Вашингтон более 20 лет. Используем только профессиональное оборудование и безопасные методы в перемещении музыкальных инструментов. По вашему желанию мы можем захватить любую мебель, которую нужно доставить вместе с вашим пианино. Звоните 206 291 0420 Артур",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#fitness",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.630035+00:00"
+    },
+    {
+      "cluster_key": "rasea-588dd8433e7aeb2f",
+      "display_name": "Russian Yellow Pages in WA",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "creative",
+      "category_guess": "СМИ",
+      "city": "Kirkland",
+      "address": "11411 NE 124th ST #195 Kirkland, WA 98034 www.russianreklama.net",
+      "phones": [
+        "+14258213741",
+        "+14258213854"
+      ],
+      "emails": [
+        "russianworld@russianreklama.net"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.russianreklama.net",
+        "https://www.russianreklama.net"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "(7th edition)",
+      "description": "(7th edition)",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#creative",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.630379+00:00"
+    },
+    {
+      "cluster_key": "rasea-5802dd86167bc77b",
+      "display_name": "Реклама & Жизнь",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "creative",
+      "category_guess": "СМИ",
+      "city": "Seattle",
+      "address": "Email: rekl_ama@yahoo.com Site: http://reklamaus.com/",
+      "phones": [
+        "+12532615954"
+      ],
+      "emails": [
+        "rekl_ama@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://reklamaus.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "СМИ",
+      "description": "Реклама & Жизнь",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#creative",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.630573+00:00"
+    },
+    {
+      "cluster_key": "rasea-6503c55fcb16fa0f",
+      "display_name": "Music for All Occasions",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "events",
+      "category_guess": "музыка",
+      "city": "Seattle",
+      "address": "http://www.seattlestringensemble.com/",
+      "phones": [
+        "+12067895967"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.seattlestringensemble.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Seattle String Ensemble Music for All Occasions",
+      "description": "Seattle String Ensemble Music for All Occasions",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#events",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631094+00:00"
+    },
+    {
+      "cluster_key": "rasea-c69e2b9d862128a5",
+      "display_name": "Tatiana Benbalit, D.M.A.",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "events",
+      "category_guess": "музыка",
+      "city": "Shoreline",
+      "address": "Shoreline, WA tabestep@yahoo.com",
+      "phones": [
+        "+12065338079"
+      ],
+      "emails": [
+        "tabestep@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Piano lessons. All levels and ages",
+      "description": "Piano lessons. All levels and ages",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#events",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631226+00:00"
+    },
+    {
+      "cluster_key": "rasea-846fa403387a09b5",
+      "display_name": "Piroshky Piroshky",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "рестораны / кафе",
+      "city": "Seattle",
+      "address": "1908 Pike Place Seattle WA 98101",
+      "phones": [
+        "+12064416068"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "рестораны / кафе",
+      "description": "Piroshky Piroshky",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631351+00:00"
+    },
+    {
+      "cluster_key": "rasea-0e0dc1fe16019763",
+      "display_name": "European Foods",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Seattle",
+      "address": "13520 Aurora Ave N. Seattle, WA 98133",
+      "phones": [
+        "+12063612583"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.eurofoodseattle.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "European Foods",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631615+00:00"
+    },
+    {
+      "cluster_key": "rasea-c42c91b3826b82f2",
+      "display_name": "European Deli Food",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Seattle",
+      "address": "22931 Hwy 99 Edmonds, WA 98026",
+      "phones": [
+        "+14257712001"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "European Deli Food",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631705+00:00"
+    },
+    {
+      "cluster_key": "rasea-66ed944a0e8a514e",
+      "display_name": "European Food Store",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Lynnwood",
+      "address": "20101 44th Ave. W #D-1 Lynnwood, WA 98036",
+      "phones": [
+        "+14256731418"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "European Food Store",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631819+00:00"
+    },
+    {
+      "cluster_key": "rasea-5249aaadcd209bde",
+      "display_name": "European Food \"Troika\"",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Lynnwood",
+      "address": "14007 Hwy 99 Suite E Lynnwood, WA 98037",
+      "phones": [
+        "+14257454868"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "European Food \"Troika\"",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.631932+00:00"
+    },
+    {
+      "cluster_key": "rasea-a99340053f22d729",
+      "display_name": "Food Pavilion",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Everett",
+      "address": "Everett",
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "Food Pavilion",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.632050+00:00"
+    },
+    {
+      "cluster_key": "rasea-7b99f52b7591d8fe",
+      "display_name": "Matrioshka",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Everett",
+      "address": "1001 N Broadway Ave Everett, WA 98201",
+      "phones": [
+        "+14253038030"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "Matrioshka",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.632142+00:00"
+    },
+    {
+      "cluster_key": "rasea-8ab73447838e151d",
+      "display_name": "International Deli",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Bothell",
+      "address": "2020 Maltbu Rd Suite #8 Bothell, WA 98021 ( рядом с \" Fred Meyer\")",
+      "phones": [
+        "+14254869676"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "\"У Марийки\"",
+      "description": "\"У Марийки\"",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.632368+00:00"
+    },
+    {
+      "cluster_key": "rasea-ff46b5df6fadfbb5",
+      "display_name": "Romance Deli ( new store ) ( Магазин Delicatessen of Europe в новом…",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Bellevue",
+      "address": "14310 NE 20th Street, Bellevue, WA 98007 (accross from \"Ross\" store)",
+      "phones": [
+        "+14252895599"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "месте и под новым названием)",
+      "description": "месте и под новым названием)",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.632539+00:00"
+    },
+    {
+      "cluster_key": "rasea-61a715608992bc41",
+      "display_name": "International Deli",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Bellevue",
+      "address": "15015 Main Str. Suite #10 Bellevue, WA 98007",
+      "phones": [
+        "+14258650439"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "\"У Марийки\"",
+      "description": "\"У Марийки\"",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.632715+00:00"
+    },
+    {
+      "cluster_key": "rasea-1d8c64a8c10bffef",
+      "display_name": "Рыбный магазин \" Awers\"",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Bellevue",
+      "address": "12832 NE 14th Place. Bellevue, WA 98005",
+      "phones": [
+        "+14257477866"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.red-caviar.com/russian-seattle-ad"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Икра, копченая и мороженая рыба.",
+      "description": "Икра, копченая и мороженая рыба.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.632946+00:00"
+    },
+    {
+      "cluster_key": "rasea-b4929cb35f3b3fc3",
+      "display_name": "Stop & Shop",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Bellevue",
+      "address": "1313 156 Avenue NE, #100 Bellevue, WA 98007",
+      "phones": [
+        "+14256410818"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "Stop & Shop",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.633042+00:00"
+    },
+    {
+      "cluster_key": "rasea-90b65cf867454150",
+      "display_name": "Arbat",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Kirkland",
+      "address": "12053 124th Avenue NE Kirkland, WA 98034",
+      "phones": [
+        "+14258255830"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ". Natural Food.",
+      "description": ". Natural Food.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.633143+00:00"
+    },
+    {
+      "cluster_key": "rasea-ba1b44e2c47158bc",
+      "display_name": "Eurasia Deli House",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Kent",
+      "address": "25650 102nd Pl SE Kent, WA 98030",
+      "phones": [
+        "+12535200870"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "Eurasia Deli House",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.633868+00:00"
+    },
+    {
+      "cluster_key": "rasea-087794af79c157e3",
+      "display_name": "European Food Market",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "продукты",
+      "city": "Redmond",
+      "address": "8129 161st Avenue NE Redmond, WA 98052-3806",
+      "phones": [
+        "+14258618474"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "продукты",
+      "description": "European Food Market",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.634329+00:00"
+    },
+    {
+      "cluster_key": "rasea-c6bd1b6ce86fd505",
+      "display_name": "Elite Treasures Company L.L.C.",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "магазины",
+      "city": "Kirkland",
+      "address": "108 Central Way Kirkland, WA 98033 http://elitetreasurescompany.com",
+      "phones": [
+        "+14255760021"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://elitetreasurescompany.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "We buy gold diamonds silver platinum!",
+      "description": "We buy gold diamonds silver platinum!",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.635423+00:00"
+    },
+    {
+      "cluster_key": "rasea-c1c64250fd3fa97d",
+      "display_name": "Europa Distributing Co.",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "food",
+      "category_guess": "магазины",
+      "city": "Seattle",
+      "address": "EMail: europa220V@yahoo.com",
+      "phones": [
+        "+12062263020"
+      ],
+      "emails": [
+        "europa220v@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "MultiSystem TVs, VCRs, Camcorders, Electronic Translators 110-220V",
+      "description": "MultiSystem TVs, VCRs, Camcorders, Electronic Translators 110-220V",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#food",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.635676+00:00"
+    },
+    {
+      "cluster_key": "rasea-38b1c11b655f6f7d",
+      "display_name": "B oris Studio",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "home_services",
+      "category_guess": "техуслуги",
+      "city": "Seattle",
+      "address": "www.boris-studio.com",
+      "phones": [
+        "+12062263020"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.boris-studio.com",
+        "https://www.boris-studio.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Professional video service Weddings,Birthdays and other occasions",
+      "description": "Professional video service Weddings,Birthdays and other occasions",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#home_services",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.635938+00:00"
+    },
+    {
+      "cluster_key": "rasea-790857194a1f6427",
+      "display_name": "Regina Frank",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Seattle",
+      "address": "Languages: Russian, Czech, Slovak, German. Notary services Help with any kind of documents",
+      "phones": [
+        "+14252355564",
+        "+14252353899",
+        "+12068989914"
+      ],
+      "emails": [
+        "reginafrank@earthlink.net"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Certified interpreter/translator Notary Public",
+      "description": "Certified interpreter/translator Notary Public",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#legal",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.636190+00:00"
+    },
+    {
+      "cluster_key": "rasea-a58caae53b0d511a",
+      "display_name": "Anna Solomykina",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Seattle",
+      "address": "Fast and accurate translation of all kinds of documents Notary services http://www.translatorseattle.com/",
+      "phones": [
+        "+12069920117"
+      ],
+      "emails": [
+        "info@translatorseattle.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.translatorseattle.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Certified Translator",
+      "description": "Certified Translator",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#legal",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.636415+00:00"
+    },
+    {
+      "cluster_key": "rasea-eee46c5531561f37",
+      "display_name": "Бронислава Мазус",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "legal",
+      "category_guess": "переводы",
+      "city": "Seattle",
+      "address": "Переводы, оформление, апостиль и нотариальные заверения любых документов. Профессионально и недорого",
+      "phones": [
+        "+14252463520"
+      ],
+      "emails": [
+        "mzelikman@verizon.net"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Certified Russian Translator/Interpreter",
+      "description": "Certified Russian Translator/Interpreter",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#legal",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.636640+00:00"
+    },
+    {
+      "cluster_key": "rasea-8194f6176f8c2b4c",
+      "display_name": "East West Tours",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "BOTHELL",
+      "address": "18518 BOTHELL WAY NE. STE B, BOTHELL WA 98011 http://www.east-west-tours.com/",
+      "phones": [
+        "+18007763341",
+        "+14254872835",
+        "+14254880979"
+      ],
+      "emails": [
+        "info@east-west-tours.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.east-west-tours.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Full service travel agency specializing in travel to Russia, Ukraine, Baltic & other CIS (former Soviet Union) countries.",
+      "description": "Full service travel agency specializing in travel to Russia, Ukraine, Baltic & other CIS (former Soviet Union) countries.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.637102+00:00"
+    },
+    {
+      "cluster_key": "rasea-2012df02905fa224",
+      "display_name": "Klondike Travel",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "Seattle",
+      "address": "www.klondike-travel.com",
+      "phones": [
+        "+14254498516",
+        "+14258024715"
+      ],
+      "emails": [
+        "arinafateeva@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.klondike-travel.com",
+        "https://www.klondike-travel.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Увлекательные экскурсии с квалифицированным русско-говорящим гидом по Сиэтлу, штату Вашингтон и Ванкуверу (Канада).",
+      "description": "Увлекательные экскурсии с квалифицированным русско-говорящим гидом по Сиэтлу, штату Вашингтон и Ванкуверу (Канада).",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.637340+00:00"
+    },
+    {
+      "cluster_key": "rasea-2b89142eb8fc7bf8",
+      "display_name": "2000 Travel Ltd",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "Vancouver",
+      "address": "#240 - 970 Burrard st. Vancouver, BC, Canada, V6Z 2R4 www.2000travelltd.com",
+      "phones": [
+        "+18776320244"
+      ],
+      "emails": [
+        "2000travel@telus.net"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.2000travelltd.com",
+        "https://www.2000travelltd.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Туры и экскурсии по Западной Канаде. Vancouver, Whistler, Victoria. 4-х дневные туры в Ванкувере от 398 долларов.",
+      "description": "Туры и экскурсии по Западной Канаде. Vancouver, Whistler, Victoria. 4-х дневные туры в Ванкувере от 398 долларов.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.637593+00:00"
+    },
+    {
+      "cluster_key": "rasea-b8be064dbbec30da",
+      "display_name": "Медицинский туризм",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "Seattle",
+      "address": null,
+      "phones": [
+        "+15032587558"
+      ],
+      "emails": [
+        "droozhba@yahoo.com",
+        "nvaynberg56@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Специалист по медицинскому туризму компании „Droozhba” LLC поможет выбрать подходящий именно для Вас санаторий в г.Трускавец. Также мы поможем Вам выбрать зубную клинику в Украине или Белоруссии.",
+      "description": "Специалист по медицинскому туризму компании „Droozhba” LLC поможет выбрать подходящий именно для Вас санаторий в г.Трускавец. Также мы поможем Вам выбрать зубную клинику в Украине или Белоруссии.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.637797+00:00"
+    },
+    {
+      "cluster_key": "rasea-39985c9b3daa6625",
+      "display_name": "Dubman Tours",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "Vancouver",
+      "address": "#26-8511 Cumberland Place, Burnaby BC, V3N 5C1 Canada http://dubmantours.com/",
+      "phones": [
+        "+16043156930",
+        "+16045220906"
+      ],
+      "emails": [
+        "elena@dubmantours.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://dubmantours.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Туры , экскурсии и путешествия по Ванкуверу и Западной Канаде. Vancouver, Whistler, Victoria Мы принимаем заказы на групповое обслуживание и на индивидуальный сервис. Если Вы ещё не полностью определились с экскурсионной программой, транспортом и развлечениями, связывайтесь, мы п",
+      "description": "Туры , экскурсии и путешествия по Ванкуверу и Западной Канаде. Vancouver, Whistler, Victoria Мы принимаем заказы на групповое обслуживание и на индивидуальный сервис. Если Вы ещё не полностью определились с экскурсионной программой, транспортом и развлечениями, связывайтесь, мы подберём для Вас оптимальный вариант.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.638166+00:00"
+    },
+    {
+      "cluster_key": "rasea-bd467602d99b1a28",
+      "display_name": "Светлана Баевская",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "Seattle",
+      "address": null,
+      "phones": [],
+      "emails": [
+        "tbaevsky@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Дипломированный гид по ИЗРАИЛЮ. Лектор",
+      "description": "Дипломированный гид по ИЗРАИЛЮ. Лектор",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.638278+00:00"
+    },
+    {
+      "cluster_key": "rasea-7e57a9bdda416149",
+      "display_name": "Worldventures",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "travel",
+      "category_guess": "турагентства",
+      "city": "Seattle",
+      "address": "www.dl.worldventures.biz www.dl.worldventures.com",
+      "phones": [],
+      "emails": [
+        "dlesenco@live.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.dl.worldventures.com",
+        "http://www.dl.worldventures.biz",
+        "https://www.dl.worldventures.biz",
+        "https://www.dl.worldventures.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Всё для любителей путешествий: авиобилеты, круизы, гостиницы, каникулы (включая \"All- inclusive\" и доступ в системе \"RCI\"), а также возможность создания частного туристического агентства",
+      "description": "Всё для любителей путешествий: авиобилеты, круизы, гостиницы, каникулы (включая \"All- inclusive\" и доступ в системе \"RCI\"), а также возможность создания частного туристического агентства",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#travel",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.638568+00:00"
+    },
+    {
+      "cluster_key": "rasea-3086bc6dc490d454",
+      "display_name": "Школа русского языка Для детей в возрасте от 3-х до 5-ти лет: Утрен…",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "childcare",
+      "category_guess": "семья / дети",
+      "city": "Bellevue",
+      "address": "12443 Bel-Red Road #340 Bellevue, WA 98005 http://russianschoolofwa.com/",
+      "phones": [
+        "+14256539581",
+        "+12067553183"
+      ],
+      "emails": [
+        "rls93wa@yahoo.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://russianschoolofwa.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ние развивающие классы (8:30 - 12:30; 10:00 - 14:00) Для детей в возрасте от 4-х до 16-ти лет: В вечерние часы и в выходные дни - Классы русского языка и литературы, математики, рисования, хорового пения, аэробики, танцев, каратэ, шахмат, музыкально театральный класс, м ировой ху",
+      "description": "ние развивающие классы (8:30 - 12:30; 10:00 - 14:00) Для детей в возрасте от 4-х до 16-ти лет: В вечерние часы и в выходные дни - Классы русского языка и литературы, математики, рисования, хорового пения, аэробики, танцев, каратэ, шахмат, музыкально театральный класс, м ировой художествяенной культуры, фортеп ьяно. Доставка детей из дневных школ. Группа продленного дня. Только у нас: летний и зимний лагерь. Для англоговорящих родителей у нас работают классы русского языка для взрослых. Школа открыта 7 дней в неделю, а также в летние месяцы.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#childcare",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.639141+00:00"
+    },
+    {
+      "cluster_key": "rasea-daeb087a192192bb",
+      "display_name": "РУССКАЯ ШКОЛА «ДА ВИНЧИ» (детский образовательный центр) приглашает…",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "childcare",
+      "category_guess": "семья / дети",
+      "city": "Bellevue",
+      "address": "1 4110 NE 21st Street Bellevue, WA 98007 http://www.centerdavinci.com",
+      "phones": [
+        "+14252692131",
+        "+14255982190"
+      ],
+      "emails": [
+        "centerdavinci@hotmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.centerdavinci.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "детей от 2 до 16 лет. Школа создана с целью изучения, развития и сохранения русского языка, культуры и традиций. Программы, специально разработанные для детей, живущих вне России и успешно применяемые на уроках, выдержали проверку временем и высоко оценены специалистами России и ",
+      "description": "детей от 2 до 16 лет. Школа создана с целью изучения, развития и сохранения русского языка, культуры и традиций. Программы, специально разработанные для детей, живущих вне России и успешно применяемые на уроках, выдержали проверку временем и высоко оценены специалистами России и Америки. А внеклассные методы обучения помогают развивать и закреплять знание русского языка и применять его в жизни. Только у нас работает детский лагерь во время всех школьных каникул!",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#childcare",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.639596+00:00"
+    },
+    {
+      "cluster_key": "rasea-19388a495ead44d6",
+      "display_name": "Детский садик \"Р осинка\" Лицензионный детский садик и подготовитель…",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "childcare",
+      "category_guess": "семья / дети",
+      "city": "Redmond",
+      "address": "15317 NE 62 Court, Redmond WA, 98052 ( Карта )",
+      "phones": [
+        "+14257738018",
+        "+14253091685",
+        "+14252188715"
+      ],
+      "emails": [
+        "rosinkacare@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://maps.google.com/maps?hl=en&q=15317+NE+62+Court+Redmond+WA+98052&ie=UTF8&ll=47.65504,-122.129345&spn=0.041627,0.108833&z=14"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "ные классы. Имеем отличные рекомендации. В садике работают воспитатели с более чем 3 - х летним опытом работы с детьми. Английский и русский языки -- Математика -- Музыкальн ы е занятия -- Рисование . Знакомим ребенка с окружающим миром посредством игр, наглядных пособий и книг д",
+      "description": "ные классы. Имеем отличные рекомендации. В садике работают воспитатели с более чем 3 - х летним опытом работы с детьми. Английский и русский языки -- Математика -- Музыкальн ы е занятия -- Рисование . Знакомим ребенка с окружающим миром посредством игр, наглядных пособий и книг для разного возраста.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#childcare",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.640015+00:00"
+    },
+    {
+      "cluster_key": "rasea-30e9cb542d4ad864",
+      "display_name": "Evergreen Nursing School",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "education",
+      "category_guess": "обучение",
+      "city": "Bellevue",
+      "address": "16326 SE 15th Street Bellevue, WA 98006 www.evergreennursingschool.org",
+      "phones": [
+        "+14254498229",
+        "+14254589044"
+      ],
+      "emails": [
+        "enursingschool@gmail.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.evergreennursingschool.org",
+        "https://www.evergreennursingschool.org"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Certified Nursing Assistant Program in Bellevue Самая дефицитная медицинская специальность всего за два месяца! Самая дефицитная медицинская специальность всего за два месяца! Измени свою жизнь сегодня!",
+      "description": "Certified Nursing Assistant Program in Bellevue Самая дефицитная медицинская специальность всего за два месяца! Самая дефицитная медицинская специальность всего за два месяца! Измени свою жизнь сегодня!",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#education",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.640374+00:00"
+    },
+    {
+      "cluster_key": "rasea-fa6c92657a459285",
+      "display_name": "\" Olgino\" Adult Family Home",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "health",
+      "category_guess": "уход",
+      "city": "Bothell",
+      "address": "24328 47th Ave SE Bothell, WA 98021 www.OLGINO.com",
+      "phones": [
+        "+12065109559",
+        "+12063993939"
+      ],
+      "emails": [
+        "olgino@olgino.com"
+      ],
+      "instagram": [],
+      "websites": [
+        "http://www.OLGINO.com",
+        "https://www.OLGINO.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "уход",
+      "description": "\" Olgino\" Adult Family Home",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#health",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.640760+00:00"
+    },
+    {
+      "cluster_key": "rasea-1d1ade2d2916ec06",
+      "display_name": "Soccer Club \"Spartak\" Футбольный клуб \"Спартак\"",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "fitness",
+      "category_guess": "спорт",
+      "city": "Seattle",
+      "address": "http://www.spartakseattle.com/",
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.spartakseattle.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "спорт",
+      "description": "Soccer Club \"Spartak\" Футбольный клуб \"Спартак\"",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#fitness",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.641116+00:00"
+    },
+    {
+      "cluster_key": "rasea-d4772e1ba7dcae7d",
+      "display_name": "Soccer Club \"Dinamo\" Футбольный клуб \"Динамо\"",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "fitness",
+      "category_guess": "спорт",
+      "city": "seattle",
+      "address": "http://www.dinamo-seattle.org/",
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.dinamo-seattle.org"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "спорт",
+      "description": "Soccer Club \"Dinamo\" Футбольный клуб \"Динамо\"",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#fitness",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.641279+00:00"
+    },
+    {
+      "cluster_key": "rasea-6ef998c007213433",
+      "display_name": "Впервые в Сиэтле",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "fitness",
+      "category_guess": "спорт",
+      "city": "Seattle",
+      "address": "http://www.russianseattle.com/soccer_seattle.htm",
+      "phones": [
+        "+14257441156"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": ". За 6 месяцев. Подготовка футболистов в любую клубную команду.",
+      "description": ". За 6 месяцев. Подготовка футболистов в любую клубную команду.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#fitness",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.641452+00:00"
+    },
+    {
+      "cluster_key": "rasea-d03e036aaa8ee92e",
+      "display_name": "Перевозки в штате Вашингтон",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "other",
+      "category_guess": "прочие услуги",
+      "city": "Seattle",
+      "address": null,
+      "phones": [
+        "+12062910420"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "У вас есть пианино или рояль которое вы хотите перевезти? Мы занимаемся перевозками в штате Вашингтон более 20 лет. Используем только профессиональное оборудование и безопасные методы в перемещении музыкальных инструментов. По вашему желанию мы можем захватить любую мебель, котор",
+      "description": "У вас есть пианино или рояль которое вы хотите перевезти? Мы занимаемся перевозками в штате Вашингтон более 20 лет. Используем только профессиональное оборудование и безопасные методы в перемещении музыкальных инструментов. По вашему желанию мы можем захватить любую мебель, которую нужно доставить вместе с вашим пианино. Звоните 206 291 0420 Артур",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#other",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.641949+00:00"
+    },
+    {
+      "cluster_key": "rasea-88ac5059887c8bcd",
+      "display_name": "Парикмахерская",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "other",
+      "category_guess": "прочие услуги",
+      "city": "Everett",
+      "address": "Everett. WA http://www.hairstylistN.com",
+      "phones": [
+        "+14252934299"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.hairstylistN.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Я делаю: стрижки, укладки, свадебные прически, косички, покраски,химзавивки, химвыпрямление, японское ( CH1) выправление, наращивание волос.",
+      "description": "Я делаю: стрижки, укладки, свадебные прически, косички, покраски,химзавивки, химвыпрямление, японское ( CH1) выправление, наращивание волос.",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#other",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.642302+00:00"
+    },
+    {
+      "cluster_key": "rasea-d64bc27cd1917b41",
+      "display_name": "Лучшее русское ТВ - etvnet.com",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "category_slug": "other",
+      "category_guess": "организации",
+      "city": "Seattle",
+      "address": null,
+      "phones": [
+        "+18552516545",
+        "+13474745809"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "https://www.etvnet.com"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Подключайтесь и смотрите русскоязычное интернет ТВ ETVNET! Более 200 каналов Прямого эфира, Запись эфира за 14 дней, Архив за 15 лет без телерекламы. Самые последние новинки кино и телевидения! Фильмы, сериалы, передачи, мультики - без телерекламы в отличном качестве! Смотрите на",
+      "description": "Подключайтесь и смотрите русскоязычное интернет ТВ ETVNET! Более 200 каналов Прямого эфира, Запись эфира за 14 дней, Архив за 15 лет без телерекламы. Самые последние новинки кино и телевидения! Фильмы, сериалы, передачи, мультики - без телерекламы в отличном качестве! Смотрите на приставке ETVNET, SMART TV, устройствах ANDROID. Подпишитесь на год и получите телеприставку в подарок! Первые 2 недели - смотрите бесплатно!",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#other",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.642766+00:00"
+    },
+    {
+      "cluster_key": "rasea-674587f63b5e8c34",
+      "display_name": "Christian Seattle",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "other",
+      "category_guess": "церкви",
+      "city": "Seattle",
+      "address": null,
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "церкви",
+      "description": "Christian Seattle",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#other",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.642993+00:00"
+    },
+    {
+      "cluster_key": "rasea-d34a1879a9c4adea",
+      "display_name": "Jewish Seattle",
+      "entity_type_guess": "professional",
+      "target_bucket": "yellow_pages",
+      "category_slug": "other",
+      "category_guess": "церкви",
+      "city": "Seattle",
+      "address": null,
+      "phones": [],
+      "emails": [],
+      "instagram": [],
+      "websites": [
+        "http://www.evreyinseattle.org"
+      ],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "церкви",
+      "description": "Jewish Seattle",
+      "source_url": "https://www.russianseattle.com/yellow_r.htm#other",
+      "source_channel": "other",
+      "source_groups": [
+        "Russian America",
+        "Russian Seattle Yellow Pages"
+      ],
+      "region": "Seattle / Washington",
+      "scraped_at": "2026-07-27T00:21:39.643121+00:00"
+    }
+  ]
+}

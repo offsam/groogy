@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { patchBusinessProfileAction } from "@/lib/business/owner-actions";
 import { uploadBusinessCoverAction } from "@/lib/business/cover-upload-action";
@@ -45,33 +45,107 @@ export function EditPhotoDialog({
   imageUrl,
 }: EditPhotoDialogProps) {
   const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const compressedRef = useRef<CompressedImage | null>(null);
+  const selectedFileRef = useRef<File | null>(null);
+  const previewUrlRef = useRef<string | null>(null);
+
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [url, setUrl] = useState(imageUrl ?? "");
   const [preview, setPreview] = useState<string | null>(null);
   const [compressed, setCompressed] = useState<CompressedImage | null>(null);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
   const [compressing, setCompressing] = useState(false);
   const [mode, setMode] = useState<"file" | "url">("file");
 
+  function clearPreview() {
+    if (previewUrlRef.current) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = null;
+    }
+    setPreview(null);
+  }
+
+  function resetFileState() {
+    compressedRef.current = null;
+    selectedFileRef.current = null;
+    setCompressed(null);
+    setSelectedName(null);
+    clearPreview();
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }
+
+  useEffect(() => {
+    if (!open) return;
+    setError(null);
+    setUrl(imageUrl ?? "");
+    // Keep file selection while dialog stays open across re-renders.
+  }, [open, imageUrl]);
+
+  useEffect(() => {
+    return () => {
+      if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+    };
+  }, []);
+
+  async function prepareFile(file: File): Promise<CompressedImage> {
+    try {
+      return await compressBusinessImage(file);
+    } catch {
+      // Fallback: server will recompress with sharp.
+      return {
+        blob: file,
+        file,
+        width: 0,
+        height: 0,
+        originalBytes: file.size,
+        compressedBytes: file.size,
+        mimeType: file.type || "image/png",
+      };
+    }
+  }
+
   async function onPickFile(file: File | null) {
     setError(null);
+    compressedRef.current = null;
+    selectedFileRef.current = null;
     setCompressed(null);
-    if (preview) {
-      URL.revokeObjectURL(preview);
-      setPreview(null);
-    }
+    setSelectedName(null);
+    clearPreview();
     if (!file) return;
 
+    selectedFileRef.current = file;
+    setSelectedName(file.name);
     setCompressing(true);
     try {
-      const result = await compressBusinessImage(file);
+      const result = await prepareFile(file);
+      compressedRef.current = result;
       setCompressed(result);
-      setPreview(URL.createObjectURL(result.blob));
+      const objectUrl = URL.createObjectURL(result.blob);
+      previewUrlRef.current = objectUrl;
+      setPreview(objectUrl);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Не удалось сжать фото.");
+      setError(err instanceof Error ? err.message : "Не удалось обработать фото.");
+      selectedFileRef.current = null;
+      setSelectedName(null);
     } finally {
       setCompressing(false);
     }
+  }
+
+  async function resolveUploadFile(): Promise<File | null> {
+    if (compressedRef.current?.file) return compressedRef.current.file;
+    if (compressed?.file) return compressed.file;
+
+    const fromInput = fileInputRef.current?.files?.[0] ?? null;
+    const raw = selectedFileRef.current ?? fromInput;
+    if (!raw) return null;
+
+    const prepared = await prepareFile(raw);
+    compressedRef.current = prepared;
+    setCompressed(prepared);
+    return prepared.file;
   }
 
   return (
@@ -81,19 +155,20 @@ export function EditPhotoDialog({
       pending={pending || compressing}
       title="Фото"
       onClose={() => {
-        if (preview) URL.revokeObjectURL(preview);
+        resetFileState();
         onClose();
       }}
       onSave={() => {
         setError(null);
         startTransition(async () => {
           if (mode === "file") {
-            if (!compressed) {
+            const file = await resolveUploadFile();
+            if (!file) {
               setError("Выберите фото для загрузки.");
               return;
             }
             const formData = new FormData();
-            formData.set("file", compressed.file);
+            formData.set("file", file);
             const result = await uploadBusinessCoverAction({
               businessId,
               businessSlug,
@@ -114,7 +189,7 @@ export function EditPhotoDialog({
               return;
             }
           }
-          if (preview) URL.revokeObjectURL(preview);
+          resetFileState();
           onClose();
           router.refresh();
         });
@@ -151,12 +226,18 @@ export function EditPhotoDialog({
         <div className="space-y-3">
           <Field label="Фото с устройства">
             <input
+              ref={fileInputRef}
               accept="image/jpeg,image/png,image/webp,image/*"
               className="block w-full text-sm text-slate-600 file:mr-3 file:rounded-lg file:border-0 file:bg-brand-blue/10 file:px-3 file:py-2 file:text-sm file:font-medium file:text-brand-blue-deep"
               type="file"
               onChange={(e) => void onPickFile(e.target.files?.[0] ?? null)}
             />
           </Field>
+          {selectedName ? (
+            <p className="text-sm font-medium text-slate-800">
+              Выбрано: {selectedName}
+            </p>
+          ) : null}
           {compressing ? (
             <p className="text-sm text-slate-500">Сжимаем без потери качества…</p>
           ) : null}
@@ -170,19 +251,33 @@ export function EditPhotoDialog({
                       100,
                   )}%)`
                 : null}
-              , {compressed.width}×{compressed.height}
+              {compressed.width > 0
+                ? `, ${compressed.width}×${compressed.height}`
+                : null}
             </p>
           ) : null}
-          {(preview || imageUrl) && (
+          {preview ? (
             <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                alt="Превью"
+                alt="Новое фото"
                 className="h-full w-full object-cover"
-                src={preview || imageUrl || ""}
+                src={preview}
               />
             </div>
-          )}
+          ) : imageUrl ? (
+            <div className="space-y-1.5">
+              <p className="text-xs font-medium text-slate-500">Текущее фото</p>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt="Текущее фото"
+                  className="h-full w-full object-cover"
+                  src={imageUrl}
+                />
+              </div>
+            </div>
+          ) : null}
           <p className="text-xs text-slate-500">
             Фото автоматически уменьшается до 2048px и сжимается в WebP так, чтобы
             файл был маленьким, а картинка оставалась чёткой.

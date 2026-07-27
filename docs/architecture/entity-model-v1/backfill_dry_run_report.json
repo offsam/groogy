@@ -1,0 +1,205 @@
+{
+  "mode": "dry_run",
+  "mapping_version": 1,
+  "counts": {
+    "legacy_business_categories": 15,
+    "legacy_listing_categories": 30,
+    "mapped_business_categories": 15,
+    "mapped_listing_categories": 30,
+    "approved_businesses": 307,
+    "active_marketplace": 13,
+    "active_services": 18
+  },
+  "category_unmapped": {
+    "business": [],
+    "listing": []
+  },
+  "entity_backfill": {
+    "business": {
+      "candidates": 307,
+      "with_mapped_primary": 276,
+      "unmapped_or_null_category": [
+        {
+          "id": "88f119a3-60d7-4ab1-95c6-dafd4867920b",
+          "slug": "aleks-bake-150628",
+          "category_slug": null
+        },
+        {
+          "id": "c36cff2f-a70e-4da4-8459-3091edaf5758",
+          "slug": "anton-sushev-150655",
+          "category_slug": null
+        },
+        {
+          "id": "f3c5d4c2-e26c-4690-916c-11f4025e5764",
+          "slug": "cell-150621",
+          "category_slug": null
+        },
+        {
+          "id": "ce9ca0ea-89ad-48aa-a55b-c5f60d844686",
+          "slug": "ekaterina-samsonova-150707",
+          "category_slug": null
+        },
+        {
+          "id": "bb557a69-0da5-4da1-8bfe-170729c5761e",
+          "slug": "ekaterinakhomich-150703",
+          "category_slug": null
+        },
+        {
+          "id": "f9df3dfc-5155-4698-9574-428ce668c650",
+          "slug": "flamellecandles-150648",
+          "category_slug": null
+        },
+        {
+          "id": "ab4e00ca-ef8b-442b-8a5e-33fef62e105f",
+          "slug": "inna-172218",
+          "category_slug": null
+        },
+        {
+          "id": "13331824-1d68-4b07-934e-94f45c0993ea",
+          "slug": "julia-life-usa-150652",
+          "category_slug": null
+        },
+        {
+          "id": "fcd6029d-c550-4a9a-8415-4d08bbe6a292",
+          "slug": "kalinkaservice-150635",
+          "category_slug": null
+        },
+        {
+          "id": "e6da58ad-3405-4ac1-9a31-72f2fa9b194d",
+          "slug": "khan-archery-club-150704",
+          "category_slug": null
+        },
+        {
+          "id": "47e540fd-aa7f-4ef9-a1c4-99fe444ba055",
+          "slug": "lindas-bouquet-150626",
+          "category_slug": null
+        },
+        {
+          "id": "5f382e6a-f085-418f-8b72-360cd5977ca9",
+          "slug": "mama-bear-oc-031830",
+          "category_slug": null
+        },
+        {
+          "id": "2f715146-5581-4ff0-82c7-00f13af7dc28",
+          "slug": "o-m-190943",
+          "category_slug": null
+        },
+        {
+          "id": "096f2053-300d-4523-a2a0-7719bd09800a",
+          "slug": "pilyulyame-150653",
+          "category_slug": null
+        },
+        {
+          "id": "bf78e857-09c5-419a-9949-65323681b83a",
+          "slug": "regyminate-150651",
+          "category_slug": null
+        },
+        {
+          "id": "b788f26f-635e-4891-a352-da72a9249212",
+          "slug": "sabinakravchenko-190804",
+          "category_slug": null
+        },
+        {
+          "id": "09e98398-ee1d-41e9-a2ee-5fe44df47a90",
+          "slug": "suverdiboost-171746",
+          "category_slug": null
+        },
+        {
+          "id": "e046ace7-1e47-41f2-a3ad-5dd6a19530ce",
+          "slug": "svetlana-s-172211",
+          "category_slug": null
+        },
+        {
+          "id": "02c46786-b130-4112-b230-37b45a017054",
+          "slug": "taticakeoc-150651",
+          "category_slug": null
+        },
+        {
+          "id": "ab3d72bf-0746-4290-9897-e4d976404e25",
+          "slug": "tatkaurbaniq-150645",
+          "category_slug": null
+        },
+        {
+          "id": "a8c1b4fb-8dc2-45b2-a4c7-7740e2a892b8",
+          "slug": "tetianamalenkova-150652",
+          "category_slug": null
+        },
+        {
+          "id": "493714fd-620c-4e19-8c5c-eacf0264e4db",
+          "slug": "toujours-flower-boutique-172155",
+          "category_slug": null
+        },
+        {
+          "id": "a04e4990-a5cb-468e-8dfe-7686abd8f815",
+          "slug": "vorontsovaart-190935",
+          "category_slug": null
+        },
+        {
+          "id": "5658b957-f07a-4a67-b0b0-eaa54818af09",
+          "slug": "александра-150624",
+          "category_slug": null
+        },
+        {
+          "id": "194d7e89-dcc8-4aca-9082-0fbaa314fc23",
+          "slug": "виктория-150643",
+          "category_slug": null
+        },
+        {
+          "id": "44e6cb87-dd35-47ae-93a6-1447dda5799d",
+          "slug": "галина-150623",
+          "category_slug": null
+        },
+        {
+          "id": "9bd10b93-d3b5-4e0f-8a9e-d1940da45399",
+          "slug": "ирина-кундухова-150617",
+          "category_slug": null
+        },
+        {
+          "id": "a75041e0-247e-481d-a18a-f1b0b2064883",
+          "slug": "business-3106001451-190939",
+          "category_slug": null
+        },
+        {
+          "id": "19e9218c-bcf4-4fcc-8bc6-437cfe57dd00",
+          "slug": "позвоните-татьяне-150622",
+          "category_slug": null
+        },
+        {
+          "id": "723479d5-3b9a-4f28-8d78-0f5ccbf4d3e2",
+          "slug": "business-9493860850-172223",
+          "category_slug": null
+        },
+        {
+          "id": "0eb8baa9-1f43-4ff4-8c59-6c84bfb50dae",
+          "slug": "телефон-032106",
+          "category_slug": null
+        }
+      ],
+      "unmapped_or_null_category_count": 31
+    },
+    "marketplace_item": {
+      "candidates": 13,
+      "with_mapped_primary": 13,
+      "unmapped_category_count": 0,
+      "unmapped_sample": [],
+      "offer_kind_histogram": {
+        "sell": 12,
+        "seek": 1
+      }
+    }
+  },
+  "offer_kind_samples": [],
+  "anti_scrape_checks": [
+    {
+      "check": "anon_select_businesses",
+      "ok": true,
+      "detail": "HTTP 401 businesses?select=id,phone&limit=1: {\"code\":\"42501\",\"details\":null,\"hint\":\"Grant the required privileges to the current role with: GRANT SELECT ON public.businesses TO anon;\",\"message\":\"permi"
+    },
+    {
+      "check": "businesses_public_no_contacts",
+      "ok": true,
+      "detail": "keys_sample=['ai_verified_reviews_count', 'category_id', 'city', 'created_at', 'description', 'google_rating', 'google_reviews_count', 'has_email', 'has_facebook', 'has_google_maps', 'has_instagram', 'has_phone'] leaked=[]"
+    }
+  ],
+  "errors": []
+}

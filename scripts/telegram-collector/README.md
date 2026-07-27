@@ -3,6 +3,9 @@
 Подключение обычного Telegram-аккаунта через **Telethon** (MTProto), не Bot API.
 На этом этапе только авторизация и проверка доступа к группам/каналам.
 
+> **Private machine runbook** (gitignored): `.local/collectors/TELEGRAM_RUNBOOK.md`  
+> Wrappers: `.local/collectors/bin/tg-estimate.sh` / `tg-confirm-run.sh`
+
 ## Требования
 
 В корне проекта (`.env` или `.env.local`):

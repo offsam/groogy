@@ -1,0 +1,428 @@
+{
+  "generated_at": "2026-07-26T20:47:52.471097+00:00",
+  "mode": "dry-run",
+  "total_approved": 204,
+  "skipped_already_set": 0,
+  "updated": 204,
+  "by_category": {
+    "pro_other": 57,
+    "beauty": 42,
+    "education": 13,
+    "fitness": 12,
+    "photo_video": 12,
+    "massage_wellness": 11,
+    "health": 9,
+    "insurance": 8,
+    "home_food": 8,
+    "finance": 7,
+    "auto": 6,
+    "home_services": 6,
+    "childcare": 5,
+    "legal": 4,
+    "creative": 2,
+    "travel": 1,
+    "real_estate": 1
+  },
+  "sample": [
+    {
+      "id": "f81c085d-f3af-4159-b56e-9e9a1a4257d8",
+      "slug": "fb-post-4-katrin-svt-nail-services",
+      "display_name": "Katrin Svt - Nail Services",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "3ed683c3-3b09-4870-ab01-f7c80a3aeb21",
+      "slug": "fb-post-6-arazu-alieva-english-teacher",
+      "display_name": "Arazu Alieva - English Teacher",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "b31d9422-2614-419f-a07f-e3e5290a11e4",
+      "slug": "consolidated-olga-osipova-fitness",
+      "display_name": "Olga Osipova Fitness",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "83238b7b-b9ae-43d4-8ca7-56a1baba4d1a",
+      "slug": "consolidated-inna-meleshko-nails",
+      "display_name": "Inna Meleshko",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "4495a4ff-fc8b-441e-a724-033bc9afdb8b",
+      "slug": "batch2-sbshealth-los-angeles-step-by-step-la",
+      "display_name": "SBSHealth Los Angeles / Step by Step LA",
+      "category_slug": "massage_wellness",
+      "category_id": "b1000001-0000-4000-8000-000000000001",
+      "category_name": "Массаж и wellness"
+    },
+    {
+      "id": "798a0991-a867-4fa9-a84d-9774a46548b3",
+      "slug": "batch2-enna-eskin",
+      "display_name": "Enna Eskin",
+      "category_slug": "photo_video",
+      "category_id": "b1000001-0000-4000-8000-000000000004",
+      "category_name": "Фото и видео"
+    },
+    {
+      "id": "2f94a0b5-ca75-4551-a43a-b6733b363e6c",
+      "slug": "batch2-evgeniia-shtefan",
+      "display_name": "Женя",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "f2088754-d1c7-42bf-9128-00b1146c3e17",
+      "slug": "fbpack-evokify",
+      "display_name": "EVOKIFY",
+      "category_slug": "photo_video",
+      "category_id": "b1000001-0000-4000-8000-000000000004",
+      "category_name": "Фото и видео"
+    },
+    {
+      "id": "402617c4-e5ec-4e5c-a93c-140280b61b4c",
+      "slug": "fbpack-ira-azovtseva",
+      "display_name": "Ira Azovtseva",
+      "category_slug": "massage_wellness",
+      "category_id": "b1000001-0000-4000-8000-000000000001",
+      "category_name": "Массаж и wellness"
+    },
+    {
+      "id": "65d45a1e-49f3-48e4-aa19-fdcd5432bea5",
+      "slug": "fbpack-oksana-spasiuk-photography",
+      "display_name": "Oksana Spasiuk",
+      "category_slug": "photo_video",
+      "category_id": "b1000001-0000-4000-8000-000000000004",
+      "category_name": "Фото и видео"
+    },
+    {
+      "id": "5a9ed86e-e74f-4c12-91d6-7ac7efcd48ef",
+      "slug": "fbpack-olena-farah",
+      "display_name": "Olena Farah",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "a585e35a-6db1-4f83-89dd-df2ef521cce0",
+      "slug": "fbpack-elmira-sibagatova-beauty-room-rental",
+      "display_name": "Elmira Sibagatova — Beauty Room Rental",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "e23e3430-7afd-4081-8715-2fe7d2046b72",
+      "slug": "fbpack-anastasiia-razgulova-sugaring-nastena",
+      "display_name": "Sugaring Nastena",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "cb1ad9e0-d5b8-4f52-a2e6-0d5c5d33d7ec",
+      "slug": "fbpack-vladimir-way-psychiatry",
+      "display_name": "Vladimir Way",
+      "category_slug": "health",
+      "category_id": "b1000001-0000-4000-8000-000000000002",
+      "category_name": "Здоровье и психика"
+    },
+    {
+      "id": "9732d206-2c43-426d-9136-c9d68f64c9f1",
+      "slug": "fbpack-marine-licensed-cosmetologist",
+      "display_name": "Марине — Licensed Cosmetologist",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "6a14cdb5-02e9-4256-b8e1-bfcb004d4320",
+      "slug": "fbpack-niargomsk-igra-v-glinu",
+      "display_name": "Наталья Яргомская (Niargomsk)",
+      "category_slug": "health",
+      "category_id": "b1000001-0000-4000-8000-000000000002",
+      "category_name": "Здоровье и психика"
+    },
+    {
+      "id": "382363c2-d510-40e8-bf8e-343adde03e62",
+      "slug": "fbpack-anastasia-pedicure-oc",
+      "display_name": "Anastasia Pedicure OC",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "823c8101-472d-4e9f-882a-4703ae6b2fcf",
+      "slug": "fbpack-ok-daisy-corona-del-mar",
+      "display_name": "OK Daisy",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "8a62b8b0-d21a-48e9-8ea4-177f470afebc",
+      "slug": "fbpack-maryna-nails",
+      "display_name": "Maryna Nails",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "cb0c187f-63d8-48a9-a0a4-c78a6f83b210",
+      "slug": "happytailsgroomingoc-031830",
+      "display_name": "happy.tails.grooming.oc",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "6023e871-c8d8-4186-91d6-12043b08929e",
+      "slug": "mama-bear-oc-031830",
+      "display_name": "mama_bear_oc",
+      "category_slug": "childcare",
+      "category_id": "b1000001-0000-4000-8000-000000000003",
+      "category_name": "Дети и няни"
+    },
+    {
+      "id": "c515cc53-f5e2-41a3-b2e4-e3b6a6cc298e",
+      "slug": "swimmingcoach-losangeles-oc-031832",
+      "display_name": "swimmingcoach_losangeles_oc",
+      "category_slug": "health",
+      "category_id": "b1000001-0000-4000-8000-000000000002",
+      "category_name": "Здоровье и психика"
+    },
+    {
+      "id": "b91f9437-8f77-4ba3-9cba-b8d98cb81da4",
+      "slug": "pro-044a6e346d",
+      "display_name": "Денис Шульга",
+      "category_slug": "finance",
+      "category_id": "a1000001-0000-4000-8000-00000000000c",
+      "category_name": "Финансы и бухгалтерия"
+    },
+    {
+      "id": "a4f6fe5f-2053-4f88-b06d-f492fb5ccece",
+      "slug": "evgeniya-slimface-031834",
+      "display_name": "Evgeniya Slimface",
+      "category_slug": "massage_wellness",
+      "category_id": "b1000001-0000-4000-8000-000000000001",
+      "category_name": "Массаж и wellness"
+    },
+    {
+      "id": "52d91693-1ff1-4d27-bf98-bcea6a18a964",
+      "slug": "pro-53ae6dee73",
+      "display_name": "Натали",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "2dc3de33-926b-4e17-a381-2a1ff8507d24",
+      "slug": "pro-14d781a660",
+      "display_name": "Мигель Фигероа",
+      "category_slug": "insurance",
+      "category_id": "a1000001-0000-4000-8000-00000000000d",
+      "category_name": "Страхование"
+    },
+    {
+      "id": "8b4f216f-5b9a-40e8-8258-072d8b49b1da",
+      "slug": "dance-progression-031836",
+      "display_name": "Dance PROgression",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "b94165ab-ffa5-452e-8938-13c020763a8e",
+      "slug": "aigerim-bimoldina-032107",
+      "display_name": "aigerim_bimoldina",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "ee3dbcf9-c1f0-4bef-ba03-a53ebf2886e7",
+      "slug": "pro-a472853b45",
+      "display_name": "Наргиза",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "429bb004-c149-47bc-ae9f-d33b13fb5199",
+      "slug": "pro-c9a4e4c49c",
+      "display_name": "Айзада",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "cf558ccd-0b77-4c19-86b9-49036c02ed5e",
+      "slug": "nata-032109",
+      "display_name": "Natasha",
+      "category_slug": "photo_video",
+      "category_id": "b1000001-0000-4000-8000-000000000004",
+      "category_name": "Фото и видео"
+    },
+    {
+      "id": "bcb302f9-1d3e-4403-aa7e-63d9d18e07ee",
+      "slug": "vivika-032110",
+      "display_name": "Vivika",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "9d90b6d4-8297-447a-8340-fea513f0cbf8",
+      "slug": "victoria-yakovenko-032110",
+      "display_name": "Victoria Yakovenko",
+      "category_slug": "auto",
+      "category_id": "a1000001-0000-4000-8000-000000000004",
+      "category_name": "Автосервис"
+    },
+    {
+      "id": "db29f4ca-ceb6-4654-856a-b8ddcc196dc9",
+      "slug": "pro-21adb09e5a",
+      "display_name": "Диана",
+      "category_slug": "massage_wellness",
+      "category_id": "b1000001-0000-4000-8000-000000000001",
+      "category_name": "Массаж и wellness"
+    },
+    {
+      "id": "95fc9cd2-4388-4f0f-8c72-dbecddb2053b",
+      "slug": "pro-edf7a35986",
+      "display_name": "Сергей",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "category_name": "Образование"
+    },
+    {
+      "id": "5e92da59-45b5-4c56-9d10-179674b21e3b",
+      "slug": "elmira73-150606",
+      "display_name": "Elmira73",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "3a822bd3-8b8f-4137-a346-f387fe50b60c",
+      "slug": "tanya-150608",
+      "display_name": "Tanya",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "e30ca8dd-fbe3-43f0-97c1-d5589f922946",
+      "slug": "pro-2698a0a2b2",
+      "display_name": "Милана Приглашаю вас",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "546155c4-87cd-47b7-bdaf-9f8cf19548d0",
+      "slug": "pro-fc7d8d59ae",
+      "display_name": "Марина",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "e1407934-772c-45cf-b075-6d9f486a5079",
+      "slug": "acrossers-dance-studio-150610",
+      "display_name": "Acrossers Dance Studio",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "d8c8fdc0-413b-45bc-ac8b-4d786563f4f7",
+      "slug": "alyona-koolhaas-150611",
+      "display_name": "Alyona Koolhaas",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "category_name": "Прочее"
+    },
+    {
+      "id": "ea621fb2-db11-4940-972c-57d56b78d538",
+      "slug": "pro-67a5cf9537",
+      "display_name": "Алла",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "2ed8aa52-fa43-46c6-88ee-dde60294705b",
+      "slug": "anastasiya-150613",
+      "display_name": "Anastasiya",
+      "category_slug": "health",
+      "category_id": "b1000001-0000-4000-8000-000000000002",
+      "category_name": "Здоровье и психика"
+    },
+    {
+      "id": "698d19b2-f57f-4497-8e91-c499037434c3",
+      "slug": "pro-69d72b6fb9",
+      "display_name": "Таисия Шаповалова",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "0ae2e921-99be-42da-8691-87cb580b36df",
+      "slug": "the-village-spectrum-150616",
+      "display_name": "The Village Spectrum",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "945c24a7-20d8-4aff-bc43-5d86c653a5d0",
+      "slug": "pro-1a6c881981",
+      "display_name": "Ирина Кундухова",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "category_name": "Дом и ремонт"
+    },
+    {
+      "id": "d174d46d-e3d3-4548-96b2-4457ba1f7cd2",
+      "slug": "pro-7ba57728da",
+      "display_name": "Юля",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "category_name": "Красота"
+    },
+    {
+      "id": "7be68a33-86ad-4ef5-81e1-477e09d93011",
+      "slug": "irin-pilates-031833",
+      "display_name": "Irin Pilates",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "category_name": "Спорт и фитнес"
+    },
+    {
+      "id": "c07b038e-2bf6-43bc-a303-af89fc293fa9",
+      "slug": "natalia-belova-150618",
+      "display_name": "Natalia Belova",
+      "category_slug": "finance",
+      "category_id": "a1000001-0000-4000-8000-00000000000c",
+      "category_name": "Финансы и бухгалтерия"
+    },
+    {
+      "id": "4a764875-f89d-4ef9-9bc4-74472acd3fa6",
+      "slug": "pro-a73375c0bc",
+      "display_name": "Мила",
+      "category_slug": "legal",
+      "category_id": "a1000001-0000-4000-8000-000000000006",
+      "category_name": "Юристы"
+    }
+  ]
+}

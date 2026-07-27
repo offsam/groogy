@@ -1,0 +1,15 @@
+{
+  "slug": "lana-cher-181512-6cf0",
+  "renamed_to": "Home Kids Academy",
+  "source": "https://t.me/c/1333533747/75776",
+  "extracted": {
+    "phone": "+13107179848",
+    "instagram": "https://www.instagram.com/homekidsacademy",
+    "hours": "Mon-Fri 08:00-17:45 (from flyer Open 8:00-5:45)",
+    "address": "56 Essex Ln, Irvine, CA 92620",
+    "services": ["Spanish/English", "Russian optional", "Mini Medical", "Sport", "Dance/Play", "Music", "meals"],
+    "price_note": "$1720 Full Time",
+    "image": "flyer from telegram post"
+  },
+  "pipeline": ["telegram_source_post", "download_media", "read_flyer", "fill_empty_fields", "telegram_url_in_contacts"]
+}

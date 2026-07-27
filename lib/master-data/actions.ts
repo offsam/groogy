@@ -2,9 +2,17 @@
 
 import { revalidatePath, revalidateTag } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
-import { MASTER_DATA_TAG, searchCities } from "@/lib/master-data/queries";
+import {
+  getUsStates,
+  MASTER_DATA_TAG,
+  searchCities,
+} from "@/lib/master-data/queries";
 import { userIsAdmin } from "@/lib/reviews/queries";
-import type { CitySearchResult, MasterDataDomain } from "@/types/master-data";
+import type {
+  CitySearchResult,
+  MasterDataDomain,
+  UsStateOption,
+} from "@/types/master-data";
 import type { ListingDomain, ListingType } from "@/types/listing";
 
 export type MasterDataActionResult =
@@ -69,6 +77,20 @@ export async function searchCitiesAction(
     return {
       ok: false,
       message: err instanceof Error ? err.message : "Ошибка поиска городов",
+    };
+  }
+}
+
+export async function getUsStatesAction(): Promise<
+  { ok: true; states: UsStateOption[] } | { ok: false; message: string }
+> {
+  try {
+    const states = await getUsStates();
+    return { ok: true, states };
+  } catch (err) {
+    return {
+      ok: false,
+      message: err instanceof Error ? err.message : "Ошибка загрузки штатов",
     };
   }
 }

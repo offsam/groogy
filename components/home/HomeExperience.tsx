@@ -6,12 +6,16 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { HomeActivityMap } from "@/components/home/HomeActivityMap";
 import { useHomeRegion } from "@/components/home/useHomeRegion";
 import { PopularResourcesSection } from "@/components/home/PopularResourcesSection";
+import {
+  sectionStatFromHub,
+  useHubRegionStats,
+} from "@/components/home/HomeRegionStatsStrip";
 import { ErrorState } from "@/components/ui/DataState";
 import { KrugiPinIcon } from "@/components/brand/KrugiPinIcon";
-import type { HubCategoryCounts } from "@/lib/platform/hub-category-counts";
+import type { HubResourceStats } from "@/lib/platform/hub-resource-stats";
 import { PLATFORM_SECTIONS } from "@/lib/platform/sections";
 import type { PopularHomeItem } from "@/lib/platform/popular-resources";
-import type { Business } from "@/types/business";
+import type { HomeMapPin } from "@/lib/supabase/queries";
 import type { RegionHub } from "@/lib/regions/hubs";
 import { withHubParam } from "@/lib/regions/hubs";
 
@@ -20,10 +24,10 @@ type HomeExperienceProps = {
   initialHub: RegionHub;
   initialInLabel: string;
   initialCountyGeoid: string | null;
-  initialSectionCounts: HubCategoryCounts | null;
+  initialRegionStats: HubResourceStats | null;
+  initialPlatformStats: HubResourceStats | null;
   popularFeed: PopularHomeItem[];
-  newest: Business[];
-  popular: Business[];
+  mapPins: HomeMapPin[];
   error: string | null;
 };
 
@@ -32,10 +36,10 @@ export function HomeExperience({
   initialHub,
   initialInLabel,
   initialCountyGeoid,
-  initialSectionCounts,
+  initialRegionStats,
+  initialPlatformStats,
   popularFeed,
-  newest,
-  popular,
+  mapPins,
   error,
 }: HomeExperienceProps) {
   const { region, hubIdsParam, geoStatus, requestGeolocation, dismissGeoPrompt, setHubs } =
@@ -46,6 +50,18 @@ export function HomeExperience({
       initialCountyGeoid,
     });
 
+  const regionStats = useHubRegionStats(
+    hubIdsParam,
+    initialRegionStats,
+    initialHub.id,
+  );
+
+  const platformStats = useHubRegionStats(
+    "all",
+    initialPlatformStats,
+    "all",
+  );
+
   const directoryPins = useMemo(
     () =>
       PLATFORM_SECTIONS.map((item) => ({
@@ -53,8 +69,9 @@ export function HomeExperience({
         title: item.title,
         pin: item.pin,
         href: withHubParam(item.href, hubIdsParam),
+        stats: sectionStatFromHub(regionStats, item.key),
       })),
-    [hubIdsParam],
+    [hubIdsParam, regionStats],
   );
 
   return (
@@ -63,11 +80,10 @@ export function HomeExperience({
         geoLoading={geoStatus === "loading"}
         geoPrompt={geoStatus === "prompt" || geoStatus === "loading"}
         hub={region.hub}
-        hubIdsParam={hubIdsParam}
         hubs={region.hubs}
         inLabel={region.inLabel}
-        initialSectionCounts={initialSectionCounts}
-        ssrHubId={initialHub.id}
+        platformStats={platformStats}
+        regionStats={regionStats}
         onAllowGeo={requestGeolocation}
         onDismissGeo={dismissGeoPrompt}
         onChangeHubs={setHubs}
@@ -76,28 +92,49 @@ export function HomeExperience({
       <HomeActivityMap
         hub={region.hub}
         hubs={region.hubs}
-        newest={newest}
-        popular={popular}
+        pins={mapPins}
       />
 
-      <section className="relative z-30 mx-auto max-w-[1400px] px-3 pb-6 pt-2 sm:-mt-24 sm:px-6 sm:pb-8 sm:pt-0 lg:px-8">
-        <p className="mb-3 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400 sm:mb-4">
-          Разделы
-        </p>
-        <div className="grid grid-cols-5 gap-x-1.5 gap-y-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-7 sm:gap-y-6">
+      <section className="relative z-30 mx-auto max-w-[1400px] px-3 pb-6 pt-4 sm:px-6 sm:pb-8 sm:pt-6 lg:px-8">
+        <div className="mb-4 flex items-center justify-between gap-3 sm:mb-5">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400">
+            Разделы
+          </p>
+          <Link
+            className="text-[11px] font-medium text-slate-500 transition hover:text-slate-800 sm:text-xs"
+            href={withHubParam("/search", hubIdsParam)}
+          >
+            Смотреть все
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 lg:gap-5">
           {directoryPins.map((item) => (
             <Link
               key={item.key}
-              className="group flex w-full flex-col items-center gap-1 text-center sm:w-[6.25rem] sm:gap-1.5"
+              className="group flex min-w-0 items-start gap-2.5 sm:gap-3"
               href={item.href}
             >
               <KrugiPinIcon
-                className="size-12 transition group-hover:-translate-y-0.5 sm:size-[4.2rem]"
+                className="size-12 shrink-0 transition group-hover:-translate-y-0.5 sm:size-[3.75rem]"
                 name={item.pin}
               />
-              <span className="text-[10px] font-medium leading-tight text-slate-700 sm:text-xs">
-                {item.title}
-              </span>
+              <div className="min-w-0 pt-0.5">
+                <p className="truncate text-[13px] font-semibold leading-tight text-slate-800 sm:text-sm">
+                  {item.title}
+                </p>
+                {item.stats ? (
+                  <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
+                    <span className="font-[family-name:var(--font-display)] text-sm font-semibold tabular-nums leading-none text-slate-900 sm:text-[15px]">
+                      {item.stats.count.toLocaleString("ru-RU")}
+                    </span>
+                    {item.stats.addedToday > 0 ? (
+                      <span className="text-[11px] font-semibold tabular-nums leading-none text-brand-green sm:text-xs">
+                        +{item.stats.addedToday.toLocaleString("ru-RU")}
+                      </span>
+                    ) : null}
+                  </p>
+                ) : null}
+              </div>
             </Link>
           ))}
         </div>

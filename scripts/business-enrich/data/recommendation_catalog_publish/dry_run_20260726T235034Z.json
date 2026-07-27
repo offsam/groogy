@@ -1,0 +1,545 @@
+{
+  "generated_at": "2026-07-26T23:50:34.564186+00:00",
+  "mode": "dry-run",
+  "bucket_filter": "all",
+  "candidates": 371,
+  "applied": 0,
+  "errors": 0,
+  "action_counts": {
+    "create_professional": 147,
+    "merge_professional": 168,
+    "create_business": 12,
+    "merge_business": 44
+  },
+  "category_counts": {
+    "pro:pro_other": 69,
+    "pro:beauty": 58,
+    "pro:home_services": 22,
+    "pro:auto": 20,
+    "pro:legal": 19,
+    "pro:home_food": 18,
+    "pro:education": 18,
+    "biz:services": 18,
+    "biz:beauty": 17,
+    "pro:fitness": 16,
+    "pro:real_estate": 16,
+    "pro:childcare": 13,
+    "pro:insurance": 12,
+    "pro:massage_wellness": 12,
+    "pro:photo_video": 8,
+    "pro:events": 8,
+    "biz:education": 6,
+    "biz:events": 4,
+    "pro:creative": 3,
+    "biz:insurance": 3,
+    "biz:finance": 3,
+    "biz:pets": 3,
+    "pro:health": 2,
+    "pro:finance": 1,
+    "biz:legal": 1,
+    "biz:auto": 1
+  },
+  "sample": [
+    {
+      "rec_id": "00cfe5fe-2a48-4a26-915f-22f1c0adb821",
+      "name": "Natalia Rezvova",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "childcare",
+      "category_id": "b1000001-0000-4000-8000-000000000003",
+      "match_id": null,
+      "guess": "няня"
+    },
+    {
+      "rec_id": "00d5c687-ed9e-4591-b81b-338ae1f43dab",
+      "name": "Наргиза",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "ee3dbcf9-c1f0-4bef-ba03-a53ebf2886e7",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "0192f996-4ddb-457d-854a-f23598ebd9b9",
+      "name": "Constantine Zm",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": null,
+      "guess": "водитель"
+    },
+    {
+      "rec_id": "01be7d34-e2b6-407d-a329-8c864f804e92",
+      "name": "Рэй",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "insurance",
+      "category_id": "a1000001-0000-4000-8000-00000000000d",
+      "match_id": "ee948a06-84f7-45d0-85f4-a08fc732669f",
+      "guess": "авто / страхование"
+    },
+    {
+      "rec_id": "039854fc-f563-4980-b6be-c901861161d0",
+      "name": "Милана Приглашаю вас",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "e30ca8dd-fbe3-43f0-97c1-d5589f922946",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "03d46653-9a3b-4c48-a207-942b1a87a94f",
+      "name": "Sasha",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "match_id": "8b4f216f-5b9a-40e8-8258-072d8b49b1da",
+      "guess": "фитнес"
+    },
+    {
+      "rec_id": "04fd44b2-acef-46bc-a34d-68b0158b0bfc",
+      "name": "Mariya Shostak",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "match_id": "0ae2e921-99be-42da-8691-87cb580b36df",
+      "guess": "фитнес"
+    },
+    {
+      "rec_id": "0505e59c-e892-41b6-b6c0-594234043883",
+      "name": "fedor_tsvang",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "childcare",
+      "category_id": "b1000001-0000-4000-8000-000000000003",
+      "match_id": null,
+      "guess": "няня"
+    },
+    {
+      "rec_id": "055060bf-02f6-4e97-ad76-20dfb0673c42",
+      "name": "Viktor",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "home_services",
+      "category_id": "b1000001-0000-4000-8000-000000000005",
+      "match_id": "c136a4d4-34c8-4db6-9afa-65411752c321",
+      "guess": "сантехник"
+    },
+    {
+      "rec_id": "062493e1-820f-4680-83f1-0bd51d3897ac",
+      "name": "sabina.kravchenko",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": "8acc9994-309a-467c-8897-852db437d1e5",
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "066877fd-2c26-42bb-8efd-dccd522caa5e",
+      "name": "Kirill",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": null,
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "0724a216-474e-4218-b092-f29df5b0723f",
+      "name": "Viktor",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "auto",
+      "category_id": "a1000001-0000-4000-8000-000000000004",
+      "match_id": "fa5c2558-b4a5-476f-ba58-ccc14a4ae001",
+      "guess": "автосервис"
+    },
+    {
+      "rec_id": "08a021c7-9c9c-4e9e-900d-3bd9251791ea",
+      "name": "Anna S",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "17318e7d-337e-4c6f-9545-c7c6f1bc6934",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "09adf14b-b6ed-4f11-ac3b-a34a1e7b9b25",
+      "name": "Кристина",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "4247c057-e72e-448a-be0c-da8ea24d887c",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "0ad9d989-5e0a-4e35-b1b8-182a79c1348e",
+      "name": "photograph_la_alina",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "photo_video",
+      "category_id": "b1000001-0000-4000-8000-000000000004",
+      "match_id": "3f144c65-f775-44ed-a8f3-20481002b72b",
+      "guess": "фото / видео"
+    },
+    {
+      "rec_id": "0c2df2b1-0463-40b6-ba0e-923be3f9bfc9",
+      "name": "Юля",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "massage_wellness",
+      "category_id": "b1000001-0000-4000-8000-000000000001",
+      "match_id": "d174d46d-e3d3-4548-96b2-4457ba1f7cd2",
+      "guess": "массаж"
+    },
+    {
+      "rec_id": "0cc930dc-0db5-4a97-9f34-c1238f4dffef",
+      "name": "Глендейл",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "81c37aef-9f84-4e68-9d6c-bfda25acf72e",
+      "guess": "парикмахер"
+    },
+    {
+      "rec_id": "0d781d0c-e7c5-45b4-982c-76223dd155b9",
+      "name": "Сергей Петров",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "ab4b3fd7-a1a5-43ba-9075-bd09e1ee4315",
+      "guess": "косметология"
+    },
+    {
+      "rec_id": "0f0efdf6-c585-4b53-a1e6-85ab35fe81ff",
+      "name": "Messenger",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "legal",
+      "category_id": "a1000001-0000-4000-8000-000000000006",
+      "match_id": "579b18c5-f3f7-4a83-9ace-3d8d92f4040d",
+      "guess": "юрист"
+    },
+    {
+      "rec_id": "0f1b4759-b3eb-4fd4-8299-f3d580699f8c",
+      "name": "Pavel Martynenko",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "real_estate",
+      "category_id": "a1000001-0000-4000-8000-000000000009",
+      "match_id": null,
+      "guess": "риелтор"
+    },
+    {
+      "rec_id": "1031e458-13e6-4dba-a2d5-8a0736e06905",
+      "name": "Позвоните Татьяне",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": "020a0a43-8710-4d2f-acc6-2e7d56454e26",
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "114f8836-10e7-4a06-abba-4dc3e45f1b80",
+      "name": "lisi4ka48",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": null,
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "11fd7129-e1fe-41ac-adca-a1c54a7a24d6",
+      "name": "Лёша Волков",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "auto",
+      "category_id": "a1000001-0000-4000-8000-000000000004",
+      "match_id": "747367fc-68a6-4bc9-81d5-4639d93d0a5e",
+      "guess": "автосервис"
+    },
+    {
+      "rec_id": "1342855d-70cc-4627-887c-e8f19613adcd",
+      "name": "aleks_bake_",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "home_food",
+      "category_id": "b1000001-0000-4000-8000-000000000006",
+      "match_id": "8daaa3bc-e9cc-4402-9076-fac740fd0480",
+      "guess": "кейтеринг / цветы"
+    },
+    {
+      "rec_id": "13b9cf71-f29c-4bfd-ac74-187dcedc47d4",
+      "name": "регистрации LLC",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "match_id": "2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb",
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "16425e8d-5a13-4922-b519-c3573714cdf5",
+      "name": "Inna",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": null,
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "1646358c-3067-4472-bc9c-6d63dc41a3f2",
+      "name": "Elmira73",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "5e92da59-45b5-4c56-9d10-179674b21e3b",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "16df8b6b-be0e-48da-beca-41f83b720f2f",
+      "name": "Яковлев Дмитрий",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "match_id": "c19e7003-b220-418a-9b84-8d4ae5c73695",
+      "guess": "фитнес"
+    },
+    {
+      "rec_id": "17733c9a-06d5-41fc-9d57-0bc41138fc22",
+      "name": "kids_party_oc",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "events",
+      "category_id": "a1000001-0000-4000-8000-00000000000f",
+      "match_id": "cd9b01da-00fe-424f-8487-9a9690593984",
+      "guess": "событие"
+    },
+    {
+      "rec_id": "186a5281-dffc-49cb-bbce-4b9877554710",
+      "name": "chirk_paint",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": null,
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "191b4d3d-a070-4227-8d23-994e11fb6bab",
+      "name": "Мила",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "legal",
+      "category_id": "a1000001-0000-4000-8000-000000000006",
+      "match_id": "4a764875-f89d-4ef9-9bc4-74472acd3fa6",
+      "guess": "бухгалтерия / нотариус"
+    },
+    {
+      "rec_id": "193e8a99-7a54-4cbf-9392-a1b0564b0bf0",
+      "name": "+17478506840",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "legal",
+      "category_id": "a1000001-0000-4000-8000-000000000006",
+      "match_id": null,
+      "guess": "юрист"
+    },
+    {
+      "rec_id": "1ae8f118-c789-4b90-b537-6d230f87c6b2",
+      "name": "Ольга",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "3d170272-5756-4de4-9dd6-06f6ef986fac",
+      "guess": "косметология"
+    },
+    {
+      "rec_id": "1b9e8b65-d58d-447f-9f27-8014e6baf81e",
+      "name": "Марина рекомендую",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "events",
+      "category_id": "a1000001-0000-4000-8000-00000000000f",
+      "match_id": null,
+      "guess": "кейтеринг / цветы"
+    },
+    {
+      "rec_id": "1bd87564-26e7-4786-a94a-138bd4b55ac8",
+      "name": "grace_and_bloom_",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "c7d0dda2-e9c7-422d-893a-6b5953e8672d",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "1cd30a18-bc64-40be-aabd-ea51333fb4f4",
+      "name": "merengue.desert",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "home_food",
+      "category_id": "b1000001-0000-4000-8000-000000000006",
+      "match_id": "baf4b2ef-97b5-4c0e-9d3b-1f81c7b39f54",
+      "guess": "кейтеринг / цветы"
+    },
+    {
+      "rec_id": "1d38b33a-e979-4819-9c4e-f9eea4bd5bc9",
+      "name": "leisan_hairstylist_oc",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": "e668c7fd-f986-4f83-b519-76c04b5ef958",
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "1fe64a10-4900-4571-a3e6-11fd758bd72d",
+      "name": "shtefan_lashes",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": null,
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "20240be1-51d9-4eb4-9ba8-66910ea86838",
+      "name": "lindas_bouquet",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": "b10a3a5a-3e57-4b93-87d8-ad1f20e46391",
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "21da47a9-09fc-4202-b84c-2ea63f0f3ef6",
+      "name": "Aleksandr Pshennik",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "pro_other",
+      "category_id": "b1000001-0000-4000-8000-000000000008",
+      "match_id": null,
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "25b039ff-f942-473d-a19b-c6c7d4dde6c9",
+      "name": "Alyona Koolhaas",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "match_id": "d8c8fdc0-413b-45bc-ac8b-4d786563f4f7",
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "279da2f0-a8ac-4660-9adc-8cfac178f4d6",
+      "name": "swimmingcoach_orange_county",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "fitness",
+      "category_id": "a1000001-0000-4000-8000-00000000000a",
+      "match_id": "c515cc53-f5e2-41a3-b2e4-e3b6a6cc298e",
+      "guess": "фитнес"
+    },
+    {
+      "rec_id": "28c7ba22-dad6-4d6d-bb36-d2bcbaa9605d",
+      "name": "creatoriakids",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "childcare",
+      "category_id": "b1000001-0000-4000-8000-000000000003",
+      "match_id": "554f485b-5f09-4e57-acf3-c00d8a60b0a2",
+      "guess": "няня"
+    },
+    {
+      "rec_id": "292f46e6-9ddd-4580-a474-ffa8981ff370",
+      "name": "Tigran Arutiunian",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "auto",
+      "category_id": "a1000001-0000-4000-8000-000000000004",
+      "match_id": "49a00f1e-7149-4dad-a0c2-34ab060f61cd",
+      "guess": "автосервис"
+    },
+    {
+      "rec_id": "2942c37c-0299-41c4-adc5-5008ffc43f09",
+      "name": "cakewithlove.ca",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "home_food",
+      "category_id": "b1000001-0000-4000-8000-000000000006",
+      "match_id": "e234ffa7-f8b8-4491-bac5-31282ecc3ee3",
+      "guess": "кейтеринг / цветы"
+    },
+    {
+      "rec_id": "29b4f7c1-b845-4a4f-a079-d136d5d2409d",
+      "name": "reel",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": null,
+      "guess": "косметология"
+    },
+    {
+      "rec_id": "29dbc069-a7dc-4ed3-bccc-75963c6a2ce5",
+      "name": "julia_life_usa",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "insurance",
+      "category_id": "a1000001-0000-4000-8000-00000000000d",
+      "match_id": "7f25c845-bf69-4589-ac1b-dbad108a0c2e",
+      "guess": "услуга / специалист"
+    },
+    {
+      "rec_id": "2a41fe3b-f3c5-4710-8ff5-3a966635ff2f",
+      "name": "Bek’s Flowers",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "events",
+      "category_id": "a1000001-0000-4000-8000-00000000000f",
+      "match_id": "7355336f-3b6e-4c60-a3d8-e9906ff05449",
+      "guess": "событие"
+    },
+    {
+      "rec_id": "2b537136-387d-4056-b1b5-52c2468e9860",
+      "name": "Anastasiya Zai",
+      "bucket": "professional",
+      "action": "create_professional",
+      "category_slug": "beauty",
+      "category_id": "a1000001-0000-4000-8000-000000000003",
+      "match_id": null,
+      "guess": "визаж / beauty"
+    },
+    {
+      "rec_id": "2c124566-8003-4566-a6dd-d8dc16f6788b",
+      "name": "Сергей",
+      "bucket": "professional",
+      "action": "merge_professional",
+      "category_slug": "education",
+      "category_id": "a1000001-0000-4000-8000-000000000007",
+      "match_id": "95fc9cd2-4388-4f0f-8c72-dbecddb2053b",
+      "guess": "репетитор"
+    }
+  ],
+  "error_sample": []
+}

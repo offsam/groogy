@@ -32,7 +32,7 @@ export function BusinessGallery({ name, images, className }: BusinessGalleryProp
     <div className={cn("relative", className)}>
       {/* Mobile: hero + thumb strip */}
       <div className="sm:hidden">
-        <div className="relative aspect-[16/11] overflow-hidden bg-slate-100">
+        <div className="relative mx-4 aspect-[16/11] overflow-hidden rounded-xl bg-slate-100">
           <Image
             alt={name}
             className="object-cover"

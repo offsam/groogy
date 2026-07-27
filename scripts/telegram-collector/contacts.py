@@ -4,12 +4,22 @@ from __future__ import annotations
 
 import re
 from typing import Any
+from urllib.parse import urlparse
 
 PHONE_RE = re.compile(
     r"(?:\+?\d[\d\-\s().]{8,}\d)",
 )
-INSTAGRAM_RE = re.compile(
-    r"(?:instagram\.com/|instagr\.am/|@|инста(?:грам)?[:\s@]*)([A-Za-z0-9._]{2,30})",
+# Mask http(s)/www spans so UUID path digits are not read as phones.
+URL_SPAN_RE = re.compile(
+    r"https?://[^\s<>\"']+|www\.[^\s<>\"']+",
+    re.IGNORECASE,
+)
+INSTAGRAM_URL_RE = re.compile(
+    r"(?:instagram\.com/|instagr\.am/)([A-Za-z0-9._]{2,30})",
+    re.IGNORECASE,
+)
+INSTAGRAM_LABELED_RE = re.compile(
+    r"(?:instagram|инста(?:грам)?)\s*[:：]\s*@?([A-Za-z0-9._]{2,30})\b",
     re.IGNORECASE,
 )
 INSTAGRAM_HANDLE_RE = re.compile(
@@ -19,23 +29,43 @@ WEBSITE_RE = re.compile(
     r"(?:https?://|www\.)[^\s<>\"']+",
     re.IGNORECASE,
 )
+# Bare hosts with a path (tinyurl.com/x, loveoverse.com/events/…)
+BARE_WEBSITE_RE = re.compile(
+    r"(?<![A-Za-z0-9@/])("
+    r"(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+"
+    r"(?:com|net|org|io|co|app|coach|at|me|link|cc)"
+    r"/[^\s<>\"']+"
+    r")",
+    re.IGNORECASE,
+)
 EMAIL_RE = re.compile(
     r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}",
 )
-TELEGRAM_RE = re.compile(
-    r"(?:t\.me/|telegram\.me/|tg://resolve\?domain=)([A-Za-z0-9_]{4,})",
+TELEGRAM_URL_RE = re.compile(
+    r"(?:t\.me/|telegram\.me/|tg://resolve\?domain=)([A-Za-z0-9_]{4,32})",
     re.IGNORECASE,
 )
-WHATSAPP_RE = re.compile(
-    r"(?:wa\.me/|whatsapp\.com/send\?phone=|whats?app)[^\s]*",
+TELEGRAM_LABELED_RE = re.compile(
+    r"(?:telegram|телеграм(?:м)?)\s*[:：]\s*@?([A-Za-z0-9_]{4,32})\b",
+    re.IGNORECASE,
+)
+WHATSAPP_URL_RE = re.compile(
+    r"https?://(?:wa\.me|api\.whatsapp\.com)/\S+",
+    re.IGNORECASE,
+)
+WHATSAPP_LABELED_RE = re.compile(
+    r"whats?app\s*[:：]\s*(\S+)",
     re.IGNORECASE,
 )
 
 # Keep Instagram false-positives down a bit.
 INSTAGRAM_STOP = {
     "gmail",
+    "gmail.com",
     "yahoo",
+    "yahoo.com",
     "mail",
+    "mail.com",
     "email",
     "http",
     "https",
@@ -48,7 +78,42 @@ INSTAGRAM_STOP = {
     "for",
     "mom",
     "fun",
+    "messenger",
+    "whatsapp",
+    "telegram",
+    "facebook",
+    "outlook",
+    "hotmail",
 }
+
+TELEGRAM_PATH_STOP = {
+    "share",
+    "joinchat",
+    "addstickers",
+    "proxy",
+    "socks",
+    "iv",
+}
+
+WA_SHORTENER_HOSTS = {
+    "rb.gy",
+    "bit.ly",
+    "bitly.com",
+    "tinyurl.com",
+    "t.co",
+    "cutt.ly",
+}
+
+SOCIAL_HOST_MARKERS = (
+    "instagram.com",
+    "instagr.am",
+    "facebook.com",
+    "fb.com",
+    "t.me/",
+    "telegram.me",
+    "wa.me/",
+    "whatsapp.com",
+)
 
 
 def normalize_phone(raw: str) -> str | None:
@@ -66,10 +131,28 @@ def normalize_phone(raw: str) -> str | None:
     return "+" + digits if len(digits) >= 10 else None
 
 
+def _mask_urls(text: str) -> str:
+    """Replace URL spans with spaces (preserve offsets) so phones aren't mined from paths."""
+    return URL_SPAN_RE.sub(lambda m: " " * len(m.group(0)), text or "")
+
+
+# "Telegram ID: 8135793725" must not become a US phone (+18135793725).
+TELEGRAM_ID_SPAN_RE = re.compile(
+    r"(?:telegram\s*id|tg\s*id|user\s*id)\s*[:：]?\s*\d{6,15}",
+    re.IGNORECASE,
+)
+
+
+def _mask_non_phone_digit_spans(text: str) -> str:
+    """Blank Telegram/user id labels so their digits are not mined as phones."""
+    return TELEGRAM_ID_SPAN_RE.sub(lambda m: " " * len(m.group(0)), text or "")
+
+
 def extract_phones(text: str) -> list[str]:
     found: list[str] = []
     seen: set[str] = set()
-    for match in PHONE_RE.finditer(text or ""):
+    scrubbed = _mask_non_phone_digit_spans(_mask_urls(text or ""))
+    for match in PHONE_RE.finditer(scrubbed):
         phone = normalize_phone(match.group(0))
         if phone and phone not in seen:
             seen.add(phone)
@@ -81,48 +164,165 @@ def extract_emails(text: str) -> list[str]:
     return sorted({m.group(0).lower() for m in EMAIL_RE.finditer(text or "")})
 
 
-def extract_websites(text: str) -> list[str]:
-    urls: list[str] = []
-    seen: set[str] = set()
-    for match in WEBSITE_RE.finditer(text or ""):
-        url = match.group(0).rstrip(".,);]")
-        # Skip pure social hosts handled elsewhere when possible.
-        lower = url.lower()
-        if "instagram.com" in lower or "t.me/" in lower or "wa.me/" in lower:
-            continue
-        if url not in seen:
-            seen.add(url)
-            urls.append(url)
-    return urls
+def _normalize_url(url: str) -> str:
+    u = (url or "").strip().rstrip(".,);]\"'")
+    if not u:
+        return u
+    if not re.match(r"^https?://", u, re.I):
+        u = "https://" + u
+    return u
 
 
-def extract_instagram(text: str) -> list[str]:
+def _url_host(url: str) -> str:
+    try:
+        return (urlparse(_normalize_url(url)).netloc or "").lower().removeprefix("www.")
+    except Exception:
+        return ""
+
+
+def _is_social_or_chat_url(url: str) -> bool:
+    lower = url.lower()
+    return any(m in lower for m in SOCIAL_HOST_MARKERS)
+
+
+def extract_whatsapp(text: str) -> list[str]:
+    """Return normalized WhatsApp targets (URLs), without WHATSAPP: prefixes."""
     found: list[str] = []
     seen: set[str] = set()
-    for pattern in (INSTAGRAM_RE, INSTAGRAM_HANDLE_RE):
-        for match in pattern.finditer(text or ""):
-            handle = match.group(1).strip(".").lower()
-            if handle in INSTAGRAM_STOP or handle.isdigit():
-                continue
-            if handle not in seen:
-                seen.add(handle)
-                found.append(handle)
+
+    def _add(raw: str) -> None:
+        value = raw.strip().rstrip(".,);]\"'")
+        if not value:
+            return
+        # Drop accidental capture of trailing punctuation-only
+        if value.lower() in {"whatsapp", "whats", "app"}:
+            return
+        value = _normalize_url(value)
+        key = value.lower()
+        if key not in seen:
+            seen.add(key)
+            found.append(value)
+
+    for match in WHATSAPP_URL_RE.finditer(text or ""):
+        _add(match.group(0))
+    for match in WHATSAPP_LABELED_RE.finditer(text or ""):
+        candidate = match.group(1)
+        # Only keep if it looks like a link / phone short target
+        if re.search(r"(https?://|www\.|wa\.me|[\w-]+\.[\w.-]+/\S*|\+\d|\d{8,})", candidate, re.I):
+            _add(candidate)
     return found
+
+
+def extract_websites(text: str) -> list[str]:
+    urls: list[str] = []
+    seen_urls: set[str] = set()
+    seen_host_paths: set[str] = set()
+    wa_normalized = {u.lower() for u in extract_whatsapp(text or "")}
+    wa_hosts_paths = set()
+    for w in wa_normalized:
+        try:
+            p = urlparse(w)
+            wa_hosts_paths.add((p.netloc.lower().removeprefix("www."), p.path.rstrip("/")))
+        except Exception:
+            pass
+
+    # WhatsApp-labeled short links on the same line should not become websites
+    wa_line_urls: set[str] = set()
+    for line in (text or "").splitlines():
+        if re.search(r"whats?app", line, re.I):
+            for match in WEBSITE_RE.finditer(line):
+                wa_line_urls.add(_normalize_url(match.group(0)).lower())
+            for match in BARE_WEBSITE_RE.finditer(line):
+                wa_line_urls.add(_normalize_url(match.group(1)).lower())
+
+    def _add(raw: str) -> None:
+        url = _normalize_url(raw)
+        if not url or _is_social_or_chat_url(url):
+            return
+        lower = url.lower()
+        if lower in wa_normalized or lower in wa_line_urls:
+            return
+        try:
+            p = urlparse(url)
+            host = p.netloc.lower().removeprefix("www.")
+            path = p.path.rstrip("/")
+            if (host, path) in wa_hosts_paths:
+                return
+            if host in WA_SHORTENER_HOSTS and lower in wa_line_urls:
+                return
+            host_key = f"{host}{path}"
+        except Exception:
+            host_key = lower
+        if lower in seen_urls or host_key in seen_host_paths:
+            return
+        seen_urls.add(lower)
+        seen_host_paths.add(host_key)
+        urls.append(url)
+
+    for match in WEBSITE_RE.finditer(text or ""):
+        _add(match.group(0))
+    for match in BARE_WEBSITE_RE.finditer(text or ""):
+        _add(match.group(1))
+    return urls
 
 
 def extract_telegram(text: str) -> list[str]:
     found: list[str] = []
     seen: set[str] = set()
-    for match in TELEGRAM_RE.finditer(text or ""):
-        handle = match.group(1).lower()
-        if handle not in seen:
-            seen.add(handle)
-            found.append(handle)
+
+    def _add(handle: str) -> None:
+        h = handle.strip().lstrip("@").lower()
+        if not h or h in TELEGRAM_PATH_STOP or h.isdigit():
+            return
+        if h not in seen:
+            seen.add(h)
+            found.append(h)
+
+    for match in TELEGRAM_URL_RE.finditer(text or ""):
+        _add(match.group(1))
+    for match in TELEGRAM_LABELED_RE.finditer(text or ""):
+        _add(match.group(1))
     return found
 
 
-def extract_whatsapp(text: str) -> list[str]:
-    return sorted({m.group(0) for m in WHATSAPP_RE.finditer(text or "")})
+def extract_instagram(text: str) -> list[str]:
+    found: list[str] = []
+    seen: set[str] = set()
+    # Handles claimed by Telegram labels must not become Instagram
+    telegram_handles = set(extract_telegram(text or ""))
+
+    def _add(handle: str) -> None:
+        h = handle.strip(".").lower()
+        if not h or h in INSTAGRAM_STOP or h.isdigit():
+            return
+        if h.endswith((".com", ".net", ".org", ".ru", ".io")):
+            return
+        # Multi-word display names are not handles (spaces already excluded by regex)
+        if h in telegram_handles:
+            return
+        if h not in seen:
+            seen.add(h)
+            found.append(h)
+
+    for match in INSTAGRAM_URL_RE.finditer(text or ""):
+        _add(match.group(1))
+    for match in INSTAGRAM_LABELED_RE.finditer(text or ""):
+        # "Instagram: RND Safe Cargo" is a display name, not a handle
+        after = (text or "")[match.end(1) : match.end(1) + 24]
+        if re.match(r"[ \t]+[A-Za-zА-Яа-яЁё]", after):
+            continue
+        _add(match.group(1))
+    # Bare @handles — skip if they sit on a Telegram-labeled line
+    for match in INSTAGRAM_HANDLE_RE.finditer(text or ""):
+        start = match.start(1)
+        # look back ~40 chars for telegram label
+        window = (text or "")[max(0, start - 40) : start].lower()
+        if re.search(r"(?:telegram|телеграм(?:м)?)\s*[:：]?\s*@?$", window):
+            continue
+        if match.group(1).lower() in telegram_handles:
+            continue
+        _add(match.group(1))
+    return found
 
 
 def has_contact_signal(text: str) -> bool:

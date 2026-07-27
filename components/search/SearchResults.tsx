@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { BusinessList } from "@/components/business/BusinessList";
 import { OfferSearchResults } from "@/components/search/OfferSearchResults";
@@ -9,23 +8,16 @@ import { CategoryFilter } from "@/components/search/CategoryFilter";
 import { SearchBar } from "@/components/search/SearchBar";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
-import { getActiveCategories, searchBusinesses } from "@/lib/supabase/queries";
+import { getActiveCategories } from "@/lib/supabase/queries";
 import type { Business, Category } from "@/types/business";
-
-const BusinessMap = dynamic(() => import("@/components/map/BusinessMap"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-full w-full items-center justify-center rounded-xl bg-slate-100 text-sm text-slate-400">
-      Загрузка карты…
-    </div>
-  ),
-});
 
 type SearchIntentSummary = {
   keywords: string[];
   city: string | null;
   categorySlug: string | null;
   mustHints: string[];
+  preferCategory?: boolean;
+  nearMe?: boolean;
 };
 
 type AiSearchResponse = {
@@ -34,6 +26,9 @@ type AiSearchResponse = {
   modelUsed: string | null;
   fallback: boolean;
   sortedByDistance?: boolean;
+  preferCategory?: boolean;
+  corrections?: Array<{ from: string; to: string }>;
+  correctedQuery?: string | null;
 };
 
 type UserCoords = { lat: number; lng: number };
@@ -49,19 +44,26 @@ function intentHintLabel(
   intent: SearchIntentSummary,
   categories: Category[],
   fallback: boolean,
+  options?: { sortedByDistance?: boolean },
 ): string | null {
   if (fallback) return "обычный поиск (AI временно недоступен)";
   const parts: string[] = [];
-  if (intent.city) parts.push(intent.city);
-  if (intent.categorySlug) {
+  if (intent.preferCategory && intent.categorySlug) {
+    const cat = categories.find((c) => c.slug === intent.categorySlug);
+    parts.push(cat ? `подходящие: ${cat.name}` : "подходящая категория");
+  } else if (intent.categorySlug) {
     const cat = categories.find((c) => c.slug === intent.categorySlug);
     parts.push(cat?.name ?? intent.categorySlug);
   }
+  if (intent.city) parts.push(intent.city);
   if (intent.mustHints.length > 0) {
     parts.push(intent.mustHints.slice(0, 2).join(", "));
   }
-  if (parts.length === 0 && intent.keywords.length > 0) {
+  if (!intent.preferCategory && intent.keywords.length > 0) {
     parts.push(intent.keywords.slice(0, 3).join(" · "));
+  }
+  if (options?.sortedByDistance || intent.nearMe) {
+    parts.push("рядом");
   }
   return parts.length > 0 ? parts.join(" · ") : null;
 }
@@ -110,6 +112,7 @@ export function SearchResults({
   const [aiHint, setAiHint] = useState<string | null>(null);
   const [userCoords, setUserCoords] = useState<UserCoords | null>(null);
   const [sortedByDistance, setSortedByDistance] = useState(false);
+  const [spellHint, setSpellHint] = useState<string | null>(null);
 
   useEffect(() => {
     setCategory(initialCategory);
@@ -166,6 +169,7 @@ export function SearchResults({
       setSelectedId(null);
       setAiHint(null);
       setSortedByDistance(false);
+      setSpellHint(null);
 
       try {
         const client = createBrowserClient();
@@ -199,26 +203,50 @@ export function SearchResults({
           const data = (await aiRes.json()) as AiSearchResponse;
           setCategories(cats);
           setResults(data.businesses ?? []);
-          setAiHint(intentHintLabel(data.intent, cats, data.fallback));
+          setAiHint(
+            intentHintLabel(data.intent, cats, data.fallback, {
+              sortedByDistance: Boolean(data.sortedByDistance && near),
+            }),
+          );
           setSortedByDistance(Boolean(data.sortedByDistance && near));
+          if (data.corrections && data.corrections.length > 0) {
+            const bits = data.corrections
+              .slice(0, 3)
+              .map((c) => `«${c.from}» → «${c.to}»`);
+            setSpellHint(`Исправили опечатку: ${bits.join(", ")}`);
+          } else {
+            setSpellHint(null);
+          }
           return;
         }
 
-        const [cats, businesses] = await Promise.all([
+        const params = new URLSearchParams();
+        if (category) params.set("category", category);
+        if (initialCity) params.set("city", initialCity);
+        if (initialHubId) params.set("hub", initialHubId);
+        if (near) {
+          params.set("lat", String(near.lat));
+          params.set("lng", String(near.lng));
+        }
+
+        const [cats, searchRes] = await Promise.all([
           catsPromise,
-          searchBusinesses(client, {
-            categorySlug: category,
-            city: initialCity,
-            hubId: initialHubId,
-            nearLat: near?.lat,
-            nearLng: near?.lng,
-          }),
+          fetch(`/api/search/businesses?${params.toString()}`),
         ]);
 
         if (cancelled) return;
+
+        if (!searchRes.ok) {
+          throw new Error(`Search failed (${searchRes.status})`);
+        }
+
+        const data = (await searchRes.json()) as {
+          businesses?: Business[];
+          sortedByDistance?: boolean;
+        };
         setCategories(cats);
-        setResults(businesses);
-        setSortedByDistance(Boolean(near));
+        setResults(data.businesses ?? []);
+        setSortedByDistance(Boolean(data.sortedByDistance && near));
       } catch (err) {
         if (cancelled) return;
         setResults([]);
@@ -273,6 +301,9 @@ export function SearchResults({
             </>
           )}
         </p>
+        {!loading && spellHint && (
+          <p className="text-xs text-brand-orange">{spellHint}</p>
+        )}
         {!loading && aiHint && (
           <p className="text-xs text-slate-400">AI понял: {aiHint}</p>
         )}
@@ -286,22 +317,11 @@ export function SearchResults({
         <>
           <OfferSearchResults city={initialCity} query={initialQuery} />
 
-          {/* Map stays fixed at top; list scrolls underneath */}
-          <div className="sticky top-[7.5rem] z-20 h-[32vh] min-h-[180px] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm sm:top-24 sm:h-[46vh] sm:min-h-[220px]">
-            <BusinessMap
-              businesses={results}
-              onSelect={setSelectedId}
-              selectedId={selectedId}
-            />
-          </div>
-
-          <div className="pt-4">
-            <BusinessList
-              businesses={results}
-              onSelect={setSelectedId}
-              selectedId={selectedId}
-            />
-          </div>
+          <BusinessList
+            businesses={results}
+            onSelect={setSelectedId}
+            selectedId={selectedId}
+          />
         </>
       )}
     </div>

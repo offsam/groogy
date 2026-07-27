@@ -1,0 +1,2773 @@
+{
+  "generated_at": "2026-07-26T20:32:36.402457+00:00",
+  "mode": "apply",
+  "batch_id": "merge_professional_duplicates_v1",
+  "total_approved": 215,
+  "cluster_count": 6,
+  "rows_to_archive": 11,
+  "services_from_merges": 14,
+  "singles_backfill": 133,
+  "clusters": [
+    {
+      "keeper_id": "4e7b4138-03ef-415a-b23e-14991d8b98bb",
+      "keeper_slug": "business-biz-180904",
+      "keeper_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+      "reason": "high_confidence_duplicate",
+      "member_count": 7,
+      "archive_ids": [
+        "34d22cb8-b06d-4b67-92c9-291eaa0c2e68",
+        "77546eeb-7e8a-4ed2-8529-d4d38c0063a4",
+        "3bfa18ff-171d-4b87-9e7a-d8674da370f6",
+        "8d04e2ee-ea76-4299-9ab9-4e2b2c4d9481",
+        "b003733d-580f-41f6-a8b4-8cf48f93d520",
+        "3eb85cd2-5e46-44ab-9df3-dfd6fd5ebdf3"
+      ],
+      "archive_slugs": [
+        "business-biz-180845",
+        "business-biz-180908",
+        "business-biz-180909",
+        "business-biz-180910",
+        "business-biz-180937",
+        "business-biz-181031-d341"
+      ],
+      "patch": {
+        "city": "Orange County",
+        "region": "CA",
+        "state_code": "US-CA",
+        "headline": "Психолог",
+        "short_description": "🔥 Скидка 50% на массаж и SPA-процедуры до конца июня 🔥\n\n65$~ 60 мин. \n\n🤲Ваше тело работает для вас каждый день. Дайте ему час качественного восстановления.\n\n❗️Приглашаю моделей на полноценные процедуры в рамках повышения квалификации и отра",
+        "description": "🔥 Скидка 50% на массаж и SPA-процедуры до конца июня 🔥\n\n65$~ 60 мин. \n\n🤲Ваше тело работает для вас каждый день. Дайте ему час качественного восстановления.\n\n❗️Приглашаю моделей на полноценные процедуры в рамках повышения квалификации и отработки новых техник.\n\nВы получаете:\n❗️Любой вид массажа ❗️\n\n❗️Восстановление \n❗️Антистресс \n❗️Антицеллюлитный \n❗️Стоун~ терапия\n\n✅Полный сеанс массажа\n✅Индивидуальную проработку проблемных  и болезненных зон\n✅Улучшение самочувствия и тонус тела\n✅Стоимость в 2 раза ниже обычной!\n\n❗️Количество мест ограничено.\n\n📲 Запись в личные сообщения.\n+1 (323) 974‑4498\n\nАдрес студии:\nИрвайн , Тастин бульвар \nПодробнее в личку.",
+        "import_batch_id": "merge_professional_duplicates_v1",
+        "updated_at": "2026-07-26T20:31:30.545567+00:00",
+        "display_name": "Диана Калифорнийская"
+      },
+      "services": [
+        {
+          "title": "Психолог",
+          "description": "Девочки , всех приветствую 🤲🏻\n\nТолько одно место на завтра🧘‍♀️\n\nПишите в личку для уточнений🤲🏻",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "SPA-уход",
+          "description": "🔥 Скидка 50% на массаж и SPA-процедуры до конца июня 🔥\n\n65$~ 60 мин. \n\n🤲Ваше тело работает для вас каждый день. Дайте ему час качественного восстановления.\n\n❗️Приглашаю моделей на полноценные процедуры в рамках повышения квалификации и отработки новых техник.\n\nВы получаете:\n❗️Любой вид массажа ❗️\n\n❗️Восстановление \n❗️Антистресс \n❗️Антицеллюлитный \n❗️Стоун~ терапия\n\n✅Полный сеанс массажа\n✅Индивидуальную проработку проблемных  и болезненных зон\n✅Улучшение самочувствия и тонус тела\n✅Стоимость в 2 раза ниже обычной!\n\n❗️Количество мест ограничено.\n\n📲 Запись в личные сообщения.\n+1 (323) 974‑4498\n\nАдрес студии:\nИрвайн , Тастин бульвар \nПодробнее в личку.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 50.0,
+          "price_max": 65.0,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "SPA-уход",
+          "description": "С наступающим праздничком!!💝\nЗабота о себе в День матери 🥳🩵\n\nПредложение 💝\n\nSpa уход \nмассаж + пилинг тела , с арома терапией  от Doterra 🍃\nДлительность ~ 60 мин. \n\nСтоимость в половину - при полноценной процедуре тела \n✨45 $ вместо 90 $ ✨\n\nИ еще будет подарочек , после процедуры в честь открытия студии💝🤲",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 45.0,
+          "price_max": 60.0,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "Пилинг тела",
+          "description": "Друзья , Приветствую 👋🏻 \n\nИщу модель!\nНа май есть окошки \nДни и время высылаю в личку \n( время обсуждаем ) \nМодель на спа уход массаж + пилинг тела с арома терапией 🍃🧘‍♂️\n\n✨Стоимость  массажа в половину - при полноценной процедуре для тела \n\nИ еще будет подарочек , после процедуры в честь открытия студии 💝\n\nЛицо не снимаю , только процесс и руки мастера 🤲🏻\n\nАдрес ; \nТастин бульвар \nПодробнее в личку 🤲🏻",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "Антистресс-массаж",
+          "description": "💝Массаж 70$ вместо 90$ 💝\n\n🧘‍♂️ Когда тело расслабляется — голова тоже начинает отпускать мысли и  уходит постоянный шум. \n\nПровожу:\nСеансы по телесно ориентированной терапии. \n\n• антистресс массаж \n\n• мягкое восстановление после нагрузок и сидячего образа жизни\n\n• работу с мышечными зажимами и хроническим напряжением\n\n 🍃После работы с телом , уходит навязчивая боль в спине и шее \n\nПодходит тем, кто чувствует усталость, скованность, потерю энергии или просто хочет снова чувствовать своё тело живым.\n\nМы находимся: \n📍Irvine / Tustin / Orange County\n🎁 МАЙ ~  самые лояльные условия\n\n📩 Пишите в личные сообщения для подробностей и записи 🤲🏻",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 70.0,
+          "price_max": 90.0,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "Массаж",
+          "description": "🌸 Девочки, сегодня после обеда  с 13 ч. освободилось одно окошко на массаж!\n\nВместо того чтобы оставлять его пустым, дарю скидку 50% на любой вид массажа. 🤍\n\nЕсли давно хотели расслабиться, снять напряжение, избавиться от усталости и посвятить час себе — сегодня отличный повод это сделать.\n\n📩 Напишите мне в личные сообщения, чтобы забронировать время.",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 50.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ],
+      "members": [
+        {
+          "id": "4e7b4138-03ef-415a-b23e-14991d8b98bb",
+          "slug": "business-biz-180904",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Orange County",
+          "score": 7
+        },
+        {
+          "id": "8d04e2ee-ea76-4299-9ab9-4e2b2c4d9481",
+          "slug": "business-biz-180910",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Irvine",
+          "score": 6
+        },
+        {
+          "id": "3bfa18ff-171d-4b87-9e7a-d8674da370f6",
+          "slug": "business-biz-180909",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Orange County",
+          "score": 5
+        },
+        {
+          "id": "b003733d-580f-41f6-a8b4-8cf48f93d520",
+          "slug": "business-biz-180937",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Orange County",
+          "score": 4
+        },
+        {
+          "id": "77546eeb-7e8a-4ed2-8529-d4d38c0063a4",
+          "slug": "business-biz-180908",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Orange County",
+          "score": 1
+        },
+        {
+          "id": "3eb85cd2-5e46-44ab-9df3-dfd6fd5ebdf3",
+          "slug": "business-biz-181031-d341",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Orange County",
+          "score": 1
+        },
+        {
+          "id": "34d22cb8-b06d-4b67-92c9-291eaa0c2e68",
+          "slug": "business-biz-180845",
+          "display_name": "Диана Калифорнийская | Психолог. Сложности в отношениях. ПСИХОЛОГ. ГИПНОТЕРАПЕВТ. Телесно ориентированный психолог",
+          "city": "Orange County",
+          "score": -21
+        }
+      ]
+    },
+    {
+      "keeper_id": "5d2de3d9-58b4-4f2f-9a58-a65da70ee736",
+      "keeper_slug": "hair-extension-usa-150631",
+      "keeper_name": "hair_extension_usa",
+      "reason": "high_confidence_duplicate",
+      "member_count": 2,
+      "archive_ids": [
+        "3afdbbf9-8239-4279-9703-5d067ab9f808"
+      ],
+      "archive_slugs": [
+        "consolidated-anastasia-kinder-nails"
+      ],
+      "patch": {
+        "website": "https://instagram.com/hair_extension_usa",
+        "instagram_url": "https://instagram.com/hair_extension_usa",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/08f1c63c-4bc3-4f0d-bfe5-2c9e8eff1fa0/fe9b30358a284fb9cce8de720d16d976a7dde617795486ce388549da2c1717a0.webp",
+        "city": "Irvine",
+        "region": "CA",
+        "state_code": "US-CA",
+        "private_address_line": "Irvine, California",
+        "source_url": "https://t.me/c/1333533747/75838",
+        "headline": "Массаж и SPA",
+        "short_description": "Русский маникюр и педикюр · Irvine · маникюр+педикюр $140 (лето) · рекомендация",
+        "description": "Type: Specialist\n\nSubcategory: Manicure & Pedicure\n\nInstagram: hair_extension_usa\n\nPromotions: Russian manicure and pedicure package\n\nServices:\n- Russian manicure\n- Pedicure\n\n---CONSOLIDATED_SOURCE---\n{\"category\": \"Beauty Services\", \"city\": \"Irvine\", \"entity_name\": \"Anastasia Kinder\", \"entity_type\": \"Specialist\", \"id\": \"anastasia-kinder-nails\", \"instagram\": \"hair_extension_usa\", \"promotions\": [{\"currency\": \"USD\", \"name\": \"Russian manicure and pedicure package\", \"price\": 140}], \"services\": [\"Russian manicure\", \"Pedicure\"], \"state\": \"CA\", \"subcategory\": \"Manicure & Pedicure\"}\n\n---BATCH2_UPDATES---\n{\"entity\": \"Anastasia Kinder\", \"changes\": [\"Irvine location\", \"Manicure + Pedicure promotion $140\"]}\n\nBeauty · Nail Services\n\nInstagram: @hair_extension_usa\n\nServices:\n- Manicure\n- Pedicure\n\n---FBPACK_SOURCE---\n{\"category\": \"Beauty\", \"instagram\": \"hair_extension_usa\", \"location\": \"Irvine CA\", \"name\": \"Anastasia Kinder\", \"services\": [\"Manicure\", \"Pedicure\"], \"source\": \"Facebook\", \"subcategory\": \"Nail Services\"}\n\nМастер маникюра. Акция для новых клиентов в связи с переездом на новое место работы.\n\nCategory: Beauty · Nail Salon\nOffer: Special promotion for new clients\nContact: Facebook Direct Message\n\n---FB_ENTITY_ANASTASIA_KINDER---\n{\n  \"entity\": \"Nail Technician\",\n  \"name\": \"Anastasia Kinder\",\n  \"category\": \"Beauty\",\n  \"subcategory\": \"Nail Salon\",\n  \"description\": \"Мастер маникюра. Акция для новых клиентов в связи с переездом на новое место работы.\",\n  \"offer\": \"Special promotion for new clients\",\n  \"contact\": \"Facebook Direct Message\"\n}\n\nАкция: маникюр + педикюр — $140 (весь месяц).\nLocation: Irvine, CA\nServices: Маникюр, Педикюр\nInstagram: https://www.instagram.com/hair_extension_usa\nContact: Direct / ссылка в профиле\n\nNote: имя в этом объявлении не указано; Instagram handle совпадает с карточкой Anastasia Kinder из прошлых данных. Текст про nails, Instagram — hair extensions (возможное несоответствие).\n\n---FB_ENTITY_IRVINE_NAILS_140---\n{\n  \"entity\": \"Nail Technician\",\n  \"name\": null,\n  \"matched_existing\": \"Anastasia Kinder\",\n  \"match_reason\": \"instagram hair_extension_usa from prior imports\",\n  \"category\": \"Beauty\",\n  \"subcategory\": \"Nail Salon\",\n  \"location\": \"Irvine, CA\",\n  \"services\": [\n    \"Маникюр\",\n    \"Педикюр\"\n  ],\n  \"promotion\": {\n    \"manicure_pedicure\": 140,\n    \"duration\": \"entire month\",\n    \"currency\": \"USD\"\n  },\n  \"instagram\": \"https://www.instagram.com/hair_extension_usa\",\n  \"contact\": \"Direct / profile link\",\n  \"caveat\": \"Name missing in ad; Instagram niche may not match manicure/pedicure text\"\n}\n\nAnastasia Kinder · Irvine, CA\nServices: Маникюр · Педикюр\nPromotion: Маникюр + Педикюр — $140\nLocation: Новый кабинет в Irvine\nInstagram: @hair_extension_usa\nBooking: Direct / ссылка в профиле Instagram\n\n---FB_UPDATE_ANASTASIA_KINDER_IRVINE---\n{\n  \"name\": \"Anastasia Kinder\",\n  \"city\": \"Irvine, CA\",\n  \"services\": [\n    \"Маникюр\",\n    \"Педикюр\"\n  ],\n  \"promotion\": {\n    \"item\": \"Маникюр + Педикюр\",\n    \"price\": 140\n  },\n  \"location_update\": \"Новый кабинет в Irvine\",\n  \"instagram\": \"@hair_extension_usa\",\n  \"booking\": \"Direct / ссылка в профиле Instagram\"\n}\n\n---FB_RECOMMENDATION_RUSSIAN_MANICURE---\nРекомендованный мастер русского маникюра и педикюра в Irvine.\nПользователь отмечает качество педикюра.\nЛетнее предложение: маникюр + педикюр — $140.\nКатегория: Beauty / Russian Manicure & Pedicure",
+        "import_batch_id": "merge_professional_duplicates_v1",
+        "updated_at": "2026-07-26T20:31:30.538757+00:00",
+        "display_name": "hair_extension_usa"
+      },
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "Type: Specialist\n\nSubcategory: Manicure & Pedicure\n\nInstagram: hair_extension_usa\n\nPromotions: Russian manicure and pedicure package\n\nServices:\n- Russian manicure\n- Pedicure\n\n---CONSOLIDATED_SOURCE---\n{\"category\": \"Beauty Services\", \"city\": \"Irvine\", \"entity_name\": \"Anastasia Kinder\", \"entity_type\": \"Specialist\", \"id\": \"anastasia-kinder-nails\", \"instagram\": \"hair_extension_usa\", \"promotions\": [{\"currency\": \"USD\", \"name\": \"Russian manicure and pedicure package\", \"price\": 140}], \"services\": [\"Russian manicure\", \"Pedicure\"], \"state\": \"CA\", \"subcategory\": \"Manicure & Pedicure\"}\n\n---BATCH2_UPDATES---\n{\"entity\": \"Anastasia Kinder\", \"changes\": [\"Irvine location\", \"Manicure + Pedicure promotion $140\"]}\n\nBeauty · Nail Services\n\nInstagram: @hair_extension_usa\n\nServices:\n- Manicure\n- Pedicure\n\n---FBPACK_SOURCE---\n{\"category\": \"Beauty\", \"instagram\": \"hair_extension_usa\", \"location\": \"Irvine CA\", \"name\": \"Anastasia Kinder\", \"services\": [\"Manicure\", \"Pedicure\"], \"source\": \"Facebook\", \"subcategory\": \"Nail Services\"}\n\nМастер маникюра. Акция для новых клиентов в связи с переездом на новое место работы.\n\nCategory: Beauty · Nail Salon\nOffer: Special promotion for new clients\nContact: Facebook Direct Message\n\n---FB_ENTITY_ANASTASIA_KINDER---\n{\n  \"entity\": \"Nail Technician\",\n  \"name\": \"Anastasia Kinder\",\n  \"category\": \"Beauty\",\n  \"subcategory\": \"Nail Salon\",\n  \"description\": \"Мастер маникюра. Акция для новых клиентов в связи с переездом на новое место работы.\",\n  \"offer\": \"Special promotion for new clients\",\n  \"contact\": \"Facebook Direct Message\"\n}\n\nАкция: маникюр + педикюр — $140 (весь месяц).\nLocation: Irvine, CA\nServices: Маникюр, Педикюр\nInstagram: https://www.instagram.com/hair_extension_usa\nContact: Direct / ссылка в профиле\n\nNote: имя в этом объявлении не указано; Instagram handle совпадает с карточкой Anastasia Kinder из прошлых данных. Текст про nails, Instagram — hair extensions (возможное несоответствие).\n\n---FB_ENTITY_IRVINE_NAILS_140---\n{\n  \"entity\": \"Nail Technician\",\n  \"n",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 140.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "A special offer is available for Russian Manicure and Pedicu",
+          "description": "A special offer is available for Russian Manicure and Pedicure services. Enjoy perfect nails, premium care, and long-lasting results. This limited-time offer is valid until the end of the month. New and returning clients are welcome to experience services in a beautiful new space in Irvine.\n\nУслуги: Russian Manicure, Pedicure",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ],
+      "members": [
+        {
+          "id": "5d2de3d9-58b4-4f2f-9a58-a65da70ee736",
+          "slug": "hair-extension-usa-150631",
+          "display_name": "hair_extension_usa",
+          "city": "Orange County",
+          "score": 98
+        },
+        {
+          "id": "3afdbbf9-8239-4279-9703-5d067ab9f808",
+          "slug": "consolidated-anastasia-kinder-nails",
+          "display_name": "Anastasia Kinder — Russian Manicure / Pedicure",
+          "city": "Irvine",
+          "score": 83
+        }
+      ]
+    },
+    {
+      "keeper_id": "2f94a0b5-ca75-4551-a43a-b6733b363e6c",
+      "keeper_slug": "batch2-evgeniia-shtefan",
+      "keeper_name": "Evgeniia Shtefan",
+      "reason": "high_confidence_duplicate",
+      "member_count": 2,
+      "archive_ids": [
+        "4af2d6e7-4a3f-46cc-ba91-33e2883dece9"
+      ],
+      "archive_slugs": [
+        "pro-d80bc7bc07"
+      ],
+      "patch": {
+        "website": "https://instagram.com/lashes_shtefan",
+        "instagram_url": "https://instagram.com/lashes_shtefan",
+        "image_url": "/images/categories/beauty.svg",
+        "city": "Aliso Viejo",
+        "region": "CA",
+        "state_code": "US-CA",
+        "source_url": "https://t.me/c/1333533747/76036",
+        "headline": "Ресницы",
+        "short_description": "Lash artist · 9+ лет · Aliso Viejo · наращивание ресниц · @lashes_shtefan",
+        "description": "Evgeniia Shtefan · Lash Artist / Eyelash Extensions\nLocation: Aliso Viejo, CA\nInstagram: @lashes_shtefan\nCategory: Beauty\n\nCredentials:\n- Сертифицированный и лицензированный lash-мастер\n- Опыт: 9+ лет\n\nServices:\n- Наращивание ресниц\n- Индивидуальный подбор эффекта\n- Создание натуральных и объёмных образов\n\nFeatures:\n- Работа на качественных материалах\n- Индивидуальный подход\n- Уютная студия\n\n---FB_ENTITY_EVGENIIA_SHTEFAN---\n{\n  \"entity\": \"Beauty Services\",\n  \"name\": \"Evgeniia Shtefan\",\n  \"category\": \"Beauty\",\n  \"subcategory\": \"Lash Artist / Eyelash Extensions\",\n  \"location\": \"Aliso Viejo, CA\",\n  \"instagram\": \"@lashes_shtefan\",\n  \"credentials\": [\n    \"Сертифицированный и лицензированный lash-мастер\",\n    \"Опыт: 9+ лет\"\n  ],\n  \"services\": [\n    \"Наращивание ресниц\",\n    \"Индивидуальный подбор эффекта\",\n    \"Создание натуральных и объёмных образов\"\n  ],\n  \"features\": [\n    \"Работа на качественных материалах\",\n    \"Индивидуальный подход\",\n    \"Уютная студия\"\n  ]\n}",
+        "import_batch_id": "merge_professional_duplicates_v1",
+        "updated_at": "2026-07-26T20:31:30.540563+00:00",
+        "display_name": "Женя"
+      },
+      "services": [
+        {
+          "title": "Ресницы",
+          "description": "Evgeniia Shtefan · Lash Artist / Eyelash Extensions\nLocation: Aliso Viejo, CA\nInstagram: @lashes_shtefan\nCategory: Beauty\n\nCredentials:\n- Сертифицированный и лицензированный lash-мастер\n- Опыт: 9+ лет\n\nServices:\n- Наращивание ресниц\n- Индивидуальный подбор эффекта\n- Создание натуральных и объёмных образов\n\nFeatures:\n- Работа на качественных материалах\n- Индивидуальный подход\n- Уютная студия\n\n---FB_ENTITY_EVGENIIA_SHTEFAN---\n{\n  \"entity\": \"Beauty Services\",\n  \"name\": \"Evgeniia Shtefan\",\n  \"category\": \"Beauty\",\n  \"subcategory\": \"Lash Artist / Eyelash Extensions\",\n  \"location\": \"Aliso Viejo, CA\",\n  \"instagram\": \"@lashes_shtefan\",\n  \"credentials\": [\n    \"Сертифицированный и лицензированный lash-мастер\",\n    \"Опыт: 9+ лет\"\n  ],\n  \"services\": [\n    \"Наращивание ресниц\",\n    \"Индивидуальный подбор эффекта\",\n    \"Создание натуральных и объёмных образов\"\n  ],\n  \"features\": [\n    \"Работа на качественных материалах\",\n    \"Индивидуальный подход\",\n    \"Уютная студия\"\n  ]\n}",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ],
+      "members": [
+        {
+          "id": "2f94a0b5-ca75-4551-a43a-b6733b363e6c",
+          "slug": "batch2-evgeniia-shtefan",
+          "display_name": "Evgeniia Shtefan",
+          "city": "Aliso Viejo",
+          "score": 83
+        },
+        {
+          "id": "4af2d6e7-4a3f-46cc-ba91-33e2883dece9",
+          "slug": "pro-d80bc7bc07",
+          "display_name": "Женя",
+          "city": "Orange County",
+          "score": 24
+        }
+      ]
+    },
+    {
+      "keeper_id": "926d878c-6305-4d72-8cff-81c2f0883aa3",
+      "keeper_slug": "anna-ahmatova-181529-484c",
+      "keeper_name": "Anna Ahmatova",
+      "reason": "high_confidence_duplicate",
+      "member_count": 2,
+      "archive_ids": [
+        "94ccdc10-cb33-4db3-9400-3e2ac450f8ce"
+      ],
+      "archive_slugs": [
+        "anna-ahmatova-150616"
+      ],
+      "patch": {
+        "phone": "+17473063680",
+        "image_url": "/images/categories/education.svg",
+        "city": "Orange County",
+        "region": "CA",
+        "state_code": "US-CA",
+        "source_url": "https://t.me/c/1333533747/72774",
+        "headline": "Массаж и SPA",
+        "short_description": "ПРЕМИУМ МАССАЖ И ШУГАРИНГ | ЛИЦЕНЗИРОВАННЫЙ КОСМЕТОЛОГ США\n\nСпециалист с высшим медицинским образованием и действующей лицензией косметолога в США.\nОпыт работы в сфере эстетики тела с 2016 года.\n\nПредлагаются процедуры премиум-уровня, напра",
+        "description": "ПРЕМИУМ МАССАЖ И ШУГАРИНГ | ЛИЦЕНЗИРОВАННЫЙ КОСМЕТОЛОГ США\n\nСпециалист с высшим медицинским образованием и действующей лицензией косметолога в США.\nОпыт работы в сфере эстетики тела с 2016 года.\n\nПредлагаются процедуры премиум-уровня, направленные на глубокое расслабление, восстановление тела и эстетический результат.\n\n🌿 МАССАЖ ТЕЛА\nИндивидуально подобранные техники для снятия напряжения, улучшения самочувствия и ощущения лёгкости в теле.\n\n✨ Специальное предложение для новых клиентов:\nЗнакомство с мастером — 40 минут $50\n\nШУГАРИНГ и ВАКСИНГ\n\nДеликатная и качественная депиляция с использованием профессиональных материалов. Максимальный комфорт и чистый результат.\n\n— приватная и спокойная атмосфера\n— высокий уровень сервиса\n— соблюдение всех норм гигиены и стерильности\n\n📍 Частная студия\n📩 Запись в личные сообщения\n\nКоличество мест по акции ограничено.",
+        "import_batch_id": "merge_professional_duplicates_v1",
+        "updated_at": "2026-07-26T20:31:30.541646+00:00",
+        "display_name": "Anna Ahmatova"
+      },
+      "services": [
+        {
+          "title": "Chipolino child care - Newport Beach",
+          "description": "Chipolino child care - Newport Beach \n\n( \nРаботают с OCDE",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "Массаж",
+          "description": "ПРЕМИУМ МАССАЖ И ШУГАРИНГ | ЛИЦЕНЗИРОВАННЫЙ КОСМЕТОЛОГ США\n\nСпециалист с высшим медицинским образованием и действующей лицензией косметолога в США.\nОпыт работы в сфере эстетики тела с 2016 года.\n\nПредлагаются процедуры премиум-уровня, направленные на глубокое расслабление, восстановление тела и эстетический результат.\n\n🌿 МАССАЖ ТЕЛА\nИндивидуально подобранные техники для снятия напряжения, улучшения самочувствия и ощущения лёгкости в теле.\n\n✨ Специальное предложение для новых клиентов:\nЗнакомство с мастером — 40 минут $50\n\nШУГАРИНГ и ВАКСИНГ\n\nДеликатная и качественная депиляция с использованием профессиональных материалов. Максимальный комфорт и чистый результат.\n\n— приватная и спокойная атмосфера\n— высокий уровень сервиса\n— соблюдение всех норм гигиены и стерильности\n\n📍 Частная студия\n📩 Запись в личные сообщения\n\nКоличество мест по акции ограничено.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 40.0,
+          "price_max": 50.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ],
+      "members": [
+        {
+          "id": "926d878c-6305-4d72-8cff-81c2f0883aa3",
+          "slug": "anna-ahmatova-181529-484c",
+          "display_name": "Anna Ahmatova",
+          "city": "Orange County",
+          "score": 87
+        },
+        {
+          "id": "94ccdc10-cb33-4db3-9400-3e2ac450f8ce",
+          "slug": "anna-ahmatova-150616",
+          "display_name": "Anna Ahmatova",
+          "city": "Orange County",
+          "score": 60
+        }
+      ]
+    },
+    {
+      "keeper_id": "945c24a7-20d8-4aff-bc43-5d86c653a5d0",
+      "keeper_slug": "pro-1a6c881981",
+      "keeper_name": "Ирина Кундухова",
+      "reason": "high_confidence_duplicate",
+      "member_count": 2,
+      "archive_ids": [
+        "02df4d55-a6f8-46f4-bc06-8f9378cf6789"
+      ],
+      "archive_slugs": [
+        "business-biz-181514-9c1f"
+      ],
+      "patch": {
+        "phone": "+18186998831",
+        "image_url": "/images/categories/services.svg",
+        "city": "Orange County",
+        "region": "CA",
+        "state_code": "US-CA",
+        "source_url": "https://t.me/c/1333533747/75756",
+        "headline": "🚨LOCKSMITH SERVICE 🚨\n\nОстались ключи в машине,а машина закрылась?\n\nПотеряли ключи от дома и не можете войти?\n\nЗабыли код от сейфа,но его нужно срочно открыть?\n\n",
+        "short_description": "🚨LOCKSMITH SERVICE 🚨\n\nОстались ключи в машине,а машина закрылась?\n\nПотеряли ключи от дома и не можете войти?\n\nЗабыли код от сейфа,но его нужно срочно открыть?\n\nЭто и многое другое,связанное с замками можно легко решить позвонив по номеру 81",
+        "description": "🚨LOCKSMITH SERVICE 🚨\n\nОстались ключи в машине,а машина закрылась?\n\nПотеряли ключи от дома и не можете войти?\n\nЗабыли код от сейфа,но его нужно срочно открыть?\n\nЭто и многое другое,связанное с замками можно легко решить позвонив по номеру 818 699 88 31 -Сергей.\n\nТак же возможен экстренный сервис в ночное время.\nРаботаю по всему Оранж Каунти.",
+        "import_batch_id": "merge_professional_duplicates_v1",
+        "updated_at": "2026-07-26T20:31:30.543064+00:00",
+        "display_name": "Ирина Кундухова"
+      },
+      "services": [
+        {
+          "title": "LOCKSMITH SERVICE",
+          "description": "🚨LOCKSMITH SERVICE 🚨\n\nОстались ключи в машине,а машина закрылась?\n\nПотеряли ключи от дома и не можете войти?\n\nЗабыли код от сейфа,но его нужно срочно открыть?\n\nЭто и многое другое,связанное с замками можно легко решить позвонив по номеру 818 699 88 31 -Сергей.\n\nТак же возможен экстренный сервис в ночное время.\nРаботаю по всему Оранж Каунти.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 699.0,
+          "price_max": 818.0,
+          "currency": "USD",
+          "is_active": true
+        },
+        {
+          "title": "Осетинские пироги под заказ! Начинки: мясо( говядина); карто",
+          "description": "Осетинские пироги под заказ! Начинки: мясо( говядина); картошка с сыром; шпинат с сыром; только с сыром) Ирвайн)",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ],
+      "members": [
+        {
+          "id": "945c24a7-20d8-4aff-bc43-5d86c653a5d0",
+          "slug": "pro-1a6c881981",
+          "display_name": "Ирина Кундухова",
+          "city": "Orange County",
+          "score": 21
+        },
+        {
+          "id": "02df4d55-a6f8-46f4-bc06-8f9378cf6789",
+          "slug": "business-biz-181514-9c1f",
+          "display_name": "Ирина Кундухова",
+          "city": "Orange County",
+          "score": -16
+        }
+      ]
+    },
+    {
+      "keeper_id": "d460d10d-ce86-4126-87fd-1ba6c6173830",
+      "keeper_slug": "yana-shvedova-180927",
+      "keeper_name": "Yana Shvedova",
+      "reason": "high_confidence_duplicate",
+      "member_count": 2,
+      "archive_ids": [
+        "60688c6c-124d-4c88-b270-ea741695934b"
+      ],
+      "archive_slugs": [
+        "yana-shvedova-180923"
+      ],
+      "patch": {
+        "city": "Orange County",
+        "region": "CA",
+        "state_code": "US-CA",
+        "headline": "Фотограф",
+        "short_description": "📸 Фотограф в Лос-Анджелесе\nПредлагаю фото- и видеосъёмку для вашего бизнеса:\n— контент для Instagram и сайтов\n— фото товаров для Amazon\n— визуал для онлайн-магазинов, кафе, салонов, студий и т.д.\n\n📍LA и окрестности\n📩 Пишите в Direct для бро",
+        "description": "📸 Фотограф в Лос-Анджелесе\nПредлагаю фото- и видеосъёмку для вашего бизнеса:\n— контент для Instagram и сайтов\n— фото товаров для Amazon\n— визуал для онлайн-магазинов, кафе, салонов, студий и т.д.\n\n📍LA и окрестности\n📩 Пишите в Direct для брони и примеров работ.",
+        "import_batch_id": "merge_professional_duplicates_v1",
+        "updated_at": "2026-07-26T20:31:30.546668+00:00",
+        "display_name": "Yana Shvedova"
+      },
+      "services": [
+        {
+          "title": "Фотограф в Лос-Анджелесе",
+          "description": "📸 Фотограф в Лос-Анджелесе\nИндивидуальные и семейные фотосессии, love story, мероприятия, коммерция. Видео в подарок🎁\n\n📍LA и окрестности\n📩 Пишите в Direct для брони и портфолио.",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ],
+      "members": [
+        {
+          "id": "d460d10d-ce86-4126-87fd-1ba6c6173830",
+          "slug": "yana-shvedova-180927",
+          "display_name": "Yana Shvedova",
+          "city": "Orange County",
+          "score": 69
+        },
+        {
+          "id": "60688c6c-124d-4c88-b270-ea741695934b",
+          "slug": "yana-shvedova-180923",
+          "display_name": "Yana Shvedova",
+          "city": "Orange County",
+          "score": 61
+        }
+      ]
+    }
+  ],
+  "singles": [
+    {
+      "id": "3ed683c3-3b09-4870-ab01-f7c80a3aeb21",
+      "slug": "fb-post-6-arazu-alieva-english-teacher",
+      "services": [
+        {
+          "title": "English language instruction and tutoring services",
+          "description": "English language instruction and tutoring services.\n\nOriginal post:\nEnglish teacher providing instruction\n\n---FACEBOOK_SOURCE---\n{\"address\": null, \"category\": \"Education\", \"city\": null, \"confidence\": \"LOW\", \"description\": \"English language instruction and tutoring services.\", \"email\": null, \"entity_name\": \"Arazu Alieva - English Teacher\", \"entity_type\": \"Specialist\", \"facebook_page\": null, \"instagram\": null, \"needs_enrichment\": true, \"original_text\": \"English teacher providing instruction\", \"phone\": null, \"price\": null, \"source_author\": \"Arazu Alieva\", \"source_post_date\": \"2026-07-16T00:00:00Z\", \"source_post_number\": 6, \"source_post_url\": \"https://www.facebook.com/groups/107680889267042/\", \"state\": null, \"subcategory\": \"English Language Tutoring\", \"website\": null}",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 16.0,
+          "price_max": 1076.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "b31d9422-2614-419f-a07f-e3e5290a11e4",
+      "slug": "consolidated-olga-osipova-fitness",
+      "services": [
+        {
+          "title": "Ольга Осипова — персональный тренер и нутрициолог, 13+ лет о",
+          "description": "Ольга Осипова — персональный тренер и нутрициолог, 13+ лет опыта. Онлайн-тренировки из любой точки: групповые (2–8), персональные, программа похудения, планы питания. Первая тренировка бесплатно.\n\nСайт: https://fitness.reflectingclouds.com",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "83238b7b-b9ae-43d4-8ca7-56a1baba4d1a",
+      "slug": "consolidated-inna-meleshko-nails",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "Inna Meleshko — nail technician, Laguna Hills, CA.\nУслуги: комбинированный маникюр, гель-лак, укрепление, педикюр, обработка стоп.\nТочный street-адрес пока не подтверждён (ранее ошибочно подставлен Encino от другого поста).",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "4495a4ff-fc8b-441e-a724-033bc9afdb8b",
+      "slug": "batch2-sbshealth-los-angeles-step-by-step-la",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "SBSHealth Los Angeles / Step by Step LA\nCategory: Healthcare · Pain Management / Therapeutic Massage\nLocation: Beverly Hills, CA\nPhone: +1 (310) 895-8340\nContacts: Messenger · WhatsApp · Telegram\n\nSpecialist: 35+ лет опыта · бывший хирург · терапевтический и спортивный массаж\n\nServices:\n- Работа с позвоночником\n- Работа с суставами\n- Лечение различных видов боли\n- Индивидуальный подход\n- Поиск причины боли, а не только временное облегчение\n\nConditions: боль в спине · ограничение подвижности · последствия травм · мышечный дисбаланс · напряжение от стресса\n\n---FB_ENTITY_SBSHEALTH_STEP_BY_STEP_LA---\n{\n  \"entity\": \"Health & Wellness Service\",\n  \"name\": \"SBSHealth Los Angeles / Step by Step LA\",\n  \"category\": \"Healthcare\",\n  \"subcategory\": \"Pain Management / Therapeutic Massage\",\n  \"location\": \"Beverly Hills, CA\",\n  \"phone\": \"+1 (310) 895-8340\",\n  \"contacts\": [\n    \"Messenger\",\n    \"WhatsApp\",\n    \"Telegram\"\n  ],\n  \"specialist_profile\": {\n    \"experience\": \"35+ лет опыта\",\n    \"background\": \"Бывший хирург\",\n    \"focus\": \"Терапевтический и спортивный массаж\"\n  },\n  \"services\": [\n    \"Работа с позвоночником\",\n    \"Работа с суставами\",\n    \"Лечение различных видов боли\",\n    \"Индивидуальный подход\",\n    \"Поиск причины боли, а не только временное облегчение\"\n  ],\n  \"conditions\": [\n    \"Боль в спине\",\n    \"Ограничение подвижности\",\n    \"Последствия травм\",\n    \"Мышечный дисбаланс\",\n    \"Напряжение от стресса\"\n  ]\n}",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 310.0,
+          "price_max": 895.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "f2088754-d1c7-42bf-9128-00b1146c3e17",
+      "slug": "fbpack-evokify",
+      "services": [
+        {
+          "title": "Positions: Photographer · Assistant Photographer",
+          "description": "Positions: Photographer · Assistant Photographer\n\nOffer:\n- Обучение без опыта\n- Оборудование предоставляет компания\n- Оплата бензина\n- Гибкий график\n- 1099 / cash\n\nPay:\n- От $20/hour + bonuses\n- $100–$600 за смену\n\nФото ресторанов · OC/Long Beach · от $20/ч · обучение · Artur · (213) 803-6133 · @EvokifyHR",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 20.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "402617c4-e5ec-4e5c-a93c-140280b61b4c",
+      "slug": "fbpack-ira-azovtseva",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "Ira Azovtseva · Body Sculpting / Massage Therapy\nLocation: Laguna Niguel, CA\nInstagram: @bodysculpting_by_ira\nCategory: Beauty / Wellness\n\nCredentials: Сертифицированный и лицензированный массажист\n\nServices:\n- Лимфодренажный массаж\n- Антицеллюлитный массаж\n- Медовый массаж\n- Аппаратные процедуры\n- Детокс-обертывание\n- Коррекция фигуры\n- Эстетические процедуры для тела\n\nFeatures:\n- Бесплатная парковка\n- Wi-Fi\n- Уютная студия\n- Специальное предложение для новых клиентов\n\n---FB_ENTITY_IRA_AZOVTSEVA---\n{\n  \"entity\": \"Beauty & Wellness Service\",\n  \"name\": \"Ira Azovtseva\",\n  \"category\": \"Beauty / Wellness\",\n  \"subcategory\": \"Body Sculpting / Massage Therapy\",\n  \"location\": \"Laguna Niguel, CA\",\n  \"instagram\": \"@bodysculpting_by_ira\",\n  \"credentials\": [\n    \"Сертифицированный и лицензированный массажист\"\n  ],\n  \"services\": [\n    \"Лимфодренажный массаж\",\n    \"Антицеллюлитный массаж\",\n    \"Медовый массаж\",\n    \"Аппаратные процедуры\",\n    \"Детокс-обертывание\",\n    \"Коррекция фигуры\",\n    \"Эстетические процедуры для тела\"\n  ],\n  \"features\": [\n    \"Бесплатная парковка\",\n    \"Wi-Fi\",\n    \"Уютная студия\",\n    \"Специальное предложение для новых клиентов\"\n  ]\n}",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "a585e35a-6db1-4f83-89dd-df2ef521cce0",
+      "slug": "fbpack-elmira-sibagatova-beauty-room-rental",
+      "services": [
+        {
+          "title": "Ресницы",
+          "description": "Предлагается аренда beauty rooms в Newport Beach и Costa Mesa для специалистов индустрии красоты и wellness.\n\nКонтакт: Elmira Sibagatova\nЛокации: Newport Beach, CA · Costa Mesa, CA\n\nДля кого:\n• Estheticians\n• LPG Endermologie специалисты\n• Lash / Brow artists\n• Massage therapists\n• Wellness специалисты\n\nУсловия аренды: daily / weekly / monthly · от $450 / месяц\nОсобенности: чистое премиальное пространство, готовое к работе; гибкий график; район с платежеспособной клиентурой; можно развивать бизнес без полного договора аренды.\n\nКатегория: Beauty / Salon Suite / Commercial Rental",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 450.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e23e3430-7afd-4081-8715-2fe7d2046b72",
+      "slug": "fbpack-anastasiia-razgulova-sugaring-nastena",
+      "services": [
+        {
+          "title": "Мастер по шугарингу в Orange County",
+          "description": "Мастер по шугарингу в Orange County.\nПрофессиональное удаление волос с акцентом на комфортную процедуру.\n\nКонтакт: Anastasiia Razgulova\nТелефон: +1 (858) 933-6540\nInstagram: @sugaring_nastena\n\nУслуги:\n• Sugar waxing / шугаринг\n• Удаление волос\n• Уходовые процедуры\n\nАкция: шугаринг спины — $40\n\nЗапись через Instagram DM или телефон.\nКатегория: Beauty / Hair Removal",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 858.0,
+          "price_max": 933.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "cb1ad9e0-d5b8-4f52-a2e6-0d5c5d33d7ec",
+      "slug": "fbpack-vladimir-way-psychiatry",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "Vladimir Way — психиатр, психотерапевт и нейропсихолог, доктор медицинских наук, профессор.\nПрактика с 1992 года (Россия, Европа, США). Бутиковая практика: ограниченное число пациентов, конфиденциальность, личные ответы без ассистентов.\n\nКонтакт: WhatsApp +1 (213) 526-4881\nОфис: Irvine, CA\nТакже онлайн-консультации по всей Америке\n\nСпециализация:\n• Тревожные расстройства, депрессия, выгорание\n• Панические атаки, OCD (навязчивые мысли и действия)\n• Кризисы смысла, зависимости\n• Психологические трудности адаптации эмигрантов в США\n• Нейропсихологическая оценка\n• Медикаментозная поддержка при необходимости\n\nЦены по запросу.\nКатегория: Health / Mental Health / Psychiatry",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 213.0,
+          "price_max": 1992.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "9732d206-2c43-426d-9136-c9d68f64c9f1",
+      "slug": "fbpack-marine-licensed-cosmetologist",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "Марине — лицензированный косметолог в Калифорнии с опытом более 13 лет.\nРаботает с профессиональной лечебной косметикой из Израиля, подбирает процедуры индивидуально.\nФокус — здоровье кожи, омоложение и уход без инъекций и хирургии.\n\nКонтакт: +1 (408) 829-4006\nЛокация: Blanc Studio (California)\nРекомендация / автор поста: Satenik Adzhemian\n\nУслуги:\n• Глубокое очищение кожи\n• Уход за проблемной и чувствительной кожей\n• Омолаживающие процедуры\n• Интенсивное увлажнение и восстановление\n• Скульптурный и лимфодренажный массаж лица\n• Подбор домашнего ухода\n\nЦены по запросу.\nКатегория: Beauty / Cosmetology / Skincare",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 408.0,
+          "price_max": 829.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "6a14cdb5-02e9-4256-b8e1-bfcb004d4320",
+      "slug": "fbpack-niargomsk-igra-v-glinu",
+      "services": [
+        {
+          "title": "Наталья Яргомская (Niargomsk) — арт-лайф-коуч, практический ",
+          "description": "Наталья Яргомская (Niargomsk) — арт-лайф-коуч, практический психолог и гештальт-практик в Южной Калифорнии. Индивидуальные сессии онлайн и офлайн (Orange County), групповые программы.\n\nТакже проводит творческие занятия для детей «Игра в глину» (4–10 лет) в Irvine — лепка для развития творчества, воображения и общения.\n\nТелефон: (949) 354-1359 · Email: niargomsk@gmail.com\nСайт: https://www.niargomsk.com · Instagram: @lifecoach_niargomsk",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 354.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "382363c2-d510-40e8-bf8e-343adde03e62",
+      "slug": "fbpack-anastasia-pedicure-oc",
+      "services": [
+        {
+          "title": "Педикюр",
+          "description": "Anastasia — мастер русского педикюра в Orange County.\nРекомендована в обсуждении как мастер, который любит делать педикюр.\n\nInstagram: https://www.instagram.com/anastasia_pedicure_oc\nЗона: Orange County\nУслуги: русский педикюр, педикюрные услуги\n\nКатегория: Beauty / Russian Pedicure\n\nПримечание: отдельная сущность от Anastasia Kinder (@hair_extension_usa).",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "823c8101-472d-4e9f-882a-4703ae6b2fcf",
+      "slug": "fbpack-ok-daisy-corona-del-mar",
+      "services": [
+        {
+          "title": "Педикюр",
+          "description": "OK Daisy — nail salon в Corona del Mar / Newport Beach.\nАкцент на классический французский педикюр, чистые кутикулы и премиальный результат.\n\nТелефон: +1 (949) 568-7281\nInstagram (пост): https://www.instagram.com/p/Dab2oSdPvJv/\nЛокация: Corona del Mar, Newport Beach, CA\nПарковка: Free underground parking\n\nУслуги:\n• Russian Pedicure\n• French Pedicure\n• Nail services\n\nКатегория: Beauty / Russian Pedicure",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 568.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "cb0c187f-63d8-48a9-a0a4-c78a6f83b210",
+      "slug": "happytailsgroomingoc-031830",
+      "services": [
+        {
+          "title": "Стрижка",
+          "description": "Всем добрый вечер 🤍\nХочу пригласить ваших хвостиков на бережный груминг 🐶✂️\nРаботаю с маленькими и средними породами (йорки, мальтезе, бишоны, мальтипу и др.)\nОчень аккуратный, спокойный подход — без стресса и без клеток, всё внимание только вашему малышу ❤️\nСейчас набираю клиентов и действует промо-цена:\n✨ полный груминг — $50\nВключает:\n• купание и правильную сушку\n• стрижку с учётом ваших пожеланий\n• когти (стрижка + шлифовка)\n• чистку ушек\n• гигиену (по необходимости)\n• лёгкую чистку зубов\n📍 Aliso Viejo\n\nМои работы можно посмотреть здесь: https://www.instagram.com/happy.tails.grooming.oc?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr\n\nБуду рада новым знакомствам 🤍\nПишите в личные сообщения\n\n🐶 Друзья, приглашаю ваших хвостиков на груминг в Aliso Viejo 🐾\n\nРаботаю с маленькими и средними породами собак и подбираю уход индивидуально для каждого питомца ❤️\n\nПредлагаю:\n✂️ гигиенический груминг\n✂️ модельные и pet-стрижки\n🛁 купание и профессиональную сушку\n🪮 deshedding (вычес и удаление отмершего подшерстка во время линьки)\n🐾 стрижку и шлифовку когтей\n👂 чистку ушек\n🦷 легкую гигиену зубов\n\nПомогу подобрать стиль именно для вашей собачки — от практичной короткой стрижки до пушистого «тедди» или породного образа.\n\nСпокойная домашняя атмосфера, без клеток и лишнего стресса. Всё внимание уделяется только вашему питомцу 🐶❤️\n\nФото работ можно посмотреть в Instagram: https://www.instagram.com/happy.tails.grooming.oc?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr\n\nДля записи пишите в личные сообщения или по телефону \n+1 (208) 948-0225",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 50.0,
+          "price_max": 208.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "6023e871-c8d8-4186-91d6-12043b08929e",
+      "slug": "mama-bear-oc-031830",
+      "services": [
+        {
+          "title": "Mama Bear Kids Club offers an exciting spring camp for child",
+          "description": "Mama Bear Kids Club offers an exciting spring camp for children. The camp runs from March 16 to April 10, providing a variety of engaging activities. Children can enjoy development, creativity, and fun times with friends. Activities include chess, Russian language, gymnastics, cooking, and arts.\n\nУслуги: Spring Camp, Therapeutic Physical Culture, Russian Language, Drawing, Sculpting, Chess, Gymnastics, Cooking",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 16.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "c515cc53-f5e2-41a3-b2e4-e3b6a6cc298e",
+      "slug": "swimmingcoach-losangeles-oc-031832",
+      "services": [
+        {
+          "title": "Доброго времени суток !",
+          "description": "Доброго времени суток !\nМеня зовут, Кристина! \nПроживаю в Орандж Канти и округи Irvine Newport Beach - Irvine !\n🏊Я тренер по плаванию со стажем более 14лет. \nКандидат Мастер спорта и дипломированный специалист🏊. \n\n🤽🤸🏼‍♀️🏃Зная психологию детей я легко нахожу с ними контакт, настраиваю на позитив и основную цель, получать удовольствие от плавания.\nРаботаю как с грудничками с 1 месяца по методике осознанного плавания, так и со взрослыми. Обучаю взрослых по собственной методике.\nПомогаю преодолеть страх воды, со мной начинали плыть те, кто когда-то тонул и не раз.\nЕсли у вас есть страх воды или вы давно мечтали научиться нырять или вы хотите чтобы купание вашего ребёнка было безопасно, вам ко мне!\n\nВыезжаю в ваш бассейн в ближайшие населенные пункты, а также приглашаю в мой бассейн!\n\nМой номер\n\nTelegram -kohka911\nInstagram \n\nПисать в телеграм в личные сообщения\n\nВсем мир❤️\n\nЦена 50$ -25мин в моем бассейн\n60$-30 мин\n80 $ -40 мин в моем бассейне\nПриехать к Вам \n80 $ - 25-30 минут В вашем бассейне \n100 $ -40 минут",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 50.0,
+          "price_max": 911.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "a4f6fe5f-2053-4f88-b06d-f492fb5ccece",
+      "slug": "evgeniya-slimface-031834",
+      "services": [
+        {
+          "title": "Celebrate Women's Day with a special offer: buy a gift certi",
+          "description": "Celebrate Women's Day with a special offer: buy a gift certificate and enjoy 90 minutes of massage for the price of 60 minutes. This is the perfect gift of love and care for a special woman in your life, as many often deny themselves this pleasure. Treat yourself or your loved ones to an unforgettable experience of relaxation and skincare.\n\nУслуги: Face massage, Skincare",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 60.0,
+          "price_max": 90.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "52d91693-1ff1-4d27-bf98-bcea6a18a964",
+      "slug": "pro-53ae6dee73",
+      "services": [
+        {
+          "title": "Окрашивание",
+          "description": "Привет, меня зовут Натали!\nЯ лицензированный стилист парикмахер!\nПриглашаю на окрашивания и стрижки любой сложности!\nИндивидуально подбираю цвет и стрижку на консультации!\nИмею большой опыт в Украине и Америке.\nЛокация Laguna Beach!\nМой номер \n773 837 2363\nInstagram  https://www.instagram.com/styliststates?igsh=NTc4MTIwNjQ2YQ==",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 773.0,
+          "price_max": 837.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "2dc3de33-926b-4e17-a381-2a1ff8507d24",
+      "slug": "pro-14d781a660",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "🌟 Друзья! 🌟\nМеня зовут Мигель Фигероа, я лицензированный страховой брокер в Калифорнии.\nПредлагаю услуги страхования для вас, ваших семей и бизнеса:\n\n✅ Автострахование (car insurance)\n✅ Страхование жилья и аренды (homeowners & renters insurance)\n✅ Бизнес-страхование (general liability, workers’ comp и другое)\n\n📲 Пишите мне в личные сообщения — консультация бесплатная.\nLicense # 4409544\n📞 323-422-7999\n📷 Instagram: @mihel_insurance",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 323.0,
+          "price_max": 544.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8b4f216f-5b9a-40e8-8258-072d8b49b1da",
+      "slug": "dance-progression-031836",
+      "services": [
+        {
+          "title": "Hi, everyone!",
+          "description": "✨Hi, everyone! 😉\n\nIf you’ve been thinking about dancing — or you have a daughter who loves to dance — you’re very welcome to join our dance family🤍\n\nWe offer K-Pop classes for girls ages 7-15 💫\n• Beginner\n• Intermediate\n• Advanced\n\nAnd Ladies Jazz-Funk Fusion classes 🤍👟\n\n🗓Classes:\n• Sunday mornings (AV)\n• Tuesday evenings (LH)\n\n🎁Special February offer:\n✨ February trial class is FREE ❗️♥️\n\n🚀New choreography starts ⬇️\nTHIS Sunday:\n• K-Pop (girls) 9–10 AM\n\nTHIS Tuesday:\n• K-Pop (girls) 6-7 pm\n• Jazz-Funk (Ladies) 7–8 PM\n\n📩To join: send me a DM or text\n📞 (Sasha 💁‍♀️)\n\nLet’s enter 🆕2026 with Dance ♥️",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 15.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "b94165ab-ffa5-452e-8938-13c020763a8e",
+      "slug": "aigerim-bimoldina-032107",
+      "services": [
+        {
+          "title": "Парикмахер",
+          "description": "Приветик, Девочки-Визажисты! Я, парикмахер, если вам нужен будет  на выезды - причесочник, то я готова к предложениям! 9492306585 Aigerim, instagram @aigerim_bimoldina",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 85.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "ee3dbcf9-c1f0-4bef-ba03-a53ebf2886e7",
+      "slug": "pro-a472853b45",
+      "services": [
+        {
+          "title": "Ресницы",
+          "description": "Здравствуйте! Меня зовут Наргиза.\n7 лет имею опыт в сфере перманентного макияжа(лицензия есть).\n\nПредоставляю следующие услуги:\n• Перманентный макияж\n• Ламинирование бровей и ресниц\n• Окрашивание бровей\n• Пирсинг ушей\n• Лазерное удаление старого татуажа\n\n✨ Сейчас требуются модели на наращивание ресниц (по сниженной цене, для практики).\n\n📍 Ирвайн, комплекс Santa Clara\n☎️ 513-410-3875 — Наргиза\n🛜 https://www.instagram.com/my_brows7?igsh=NTc4MTIwNjQ2YQ==\n\nБуду рада сотрудничеству и новым клиентам!",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 410.0,
+          "price_max": 513.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "429bb004-c149-47bc-ae9f-d33b13fb5199",
+      "slug": "pro-c9a4e4c49c",
+      "services": [
+        {
+          "title": "Здравствуйте девушки",
+          "description": "☎️ \n \nЗдравствуйте девушки. \nЯ вас приглашаю на шугаринг всех зон ❤️\n Меня зовут Айзада и я мастер по депиляции😊\n Работаю на премиальной сахарной пасте 😍\n Удаление волос без боли и раздражение ❤️\n Максимально бережно для кожи ❤️\n Уютное место, женская атмосфера, индивидуальный подход 😍\n✅ бикини 50\n✅ глубокое бикини 60\n✅подмышки 20\n✅руки полностью 40\n✅руки до локтя 30\n✅ноги полностью 40\n✅ ноги до колен 30 \nЖду вас с нетерпением😍\nПс еще для тех девушек которые есть дети или не могут выехать по каким либо другим причинам, у меня отличная новость 😍\nМогу сама приехать к вам и сделать все как надо ❤️",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 50.0,
+          "price_max": 60.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "cf558ccd-0b77-4c19-86b9-49036c02ed5e",
+      "slug": "nata-032109",
+      "services": [
+        {
+          "title": "Добрый день!",
+          "description": "Добрый день! \nЯ автоброкер в Калифорнии. \nПодберу авто, \nПомогу оформить лизинг или кредит, \nпокажу лучшие варианты.\n9495949994\nНаталья\n\nДевушки и владельцы бизнеса в Лос-Анджелесе!\nСейчас открываю несколько мест для новых коллабораций и создания контента для локальных брендов и бизнесов.\nЗа последний месяц мои видео набрали более 145 000 просмотров, а основная аудитория находится в США.\nЕсли вам нужен свежий, живой и современный контент для Instagram, я могу приехать к вам и создать его под ключ.\nПакет — $250\nЧто входит:\n✨ Выезд на вашу локацию ✨ Съемка фото и видео ✨ Идея и сценарий ролика ✨ Монтаж Reels ✨ Публикация сторис с отметкой вашего бизнеса ✨ Готовый контент для ваших соцсетей\nФорматы, которые работают:\n🎤 Интервью 🎭 Ролики с юмором 📍 Обзор бизнеса ✨ Beauty & Fashion 🍽 Рестораны и кафе 🏡 Недвижимость 🚗 Автомобильный бизнес 👶 Детские товары и услуги 👨‍👩‍👧‍👦 Семейный и lifestyle-контент 📦 Любой бизнес, который хочет привлекать клиентов через социальные сети\nМоя цель — показать ваш бизнес так, чтобы он вызывал доверие, интерес и желание обратиться именно к вам.\nЕсли вы давно хотели красивые Reels, но всё откладывали — сейчас отличный момент начать.\nНапишите мне в личные сообщения, и мы обсудим идею именно для вашего бизнеса.\nNatasha \n9495949994",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 94.0,
+          "price_max": 145.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "9d90b6d4-8297-447a-8340-fea513f0cbf8",
+      "slug": "victoria-yakovenko-032110",
+      "services": [
+        {
+          "title": "Сдаю машину в рент",
+          "description": "Сдаю машину в рент \n(424)421-49-17",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 421.0,
+          "price_max": 424.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "95fc9cd2-4388-4f0f-8c72-dbecddb2053b",
+      "slug": "pro-edf7a35986",
+      "services": [
+        {
+          "title": "Здравствуйте !  Частные уроки фортепиано для детей и взрослы",
+          "description": "Здравствуйте ! 🎹 Частные уроки фортепиано для детей и взрослых\n\nЗдравствуйте!\n\nМеня зовут Сергей. Я профессиональный пианист с многолетним опытом выступлений и преподавания, участник всемирно известной группы Leonid & Friends.\nОбразование - консерватория по классу фортепиано \n\nПриглашаю на индивидуальные уроки фортепиано:\n• детей от 5 лет;\n• подростков;\n• взрослых любого возраста — даже если вы никогда раньше не играли.\n\nНа занятиях вы:\n\nнаучитесь играть любимые произведения и современные песни;\nосвоите правильную технику игры;\nразовьёте музыкальный слух и чувство ритма;\nнаучитесь читать ноты и уверенно играть без страха.\n\nКаждая программа составляется индивидуально с учётом возраста, уровня подготовки и ваших целей. Уроки проходят в спокойной, доброжелательной атмосфере, где обучение приносит удовольствие и реальные результаты.\n\n📍 Индивидуальные занятия.\n📞 Напишите мне в личные сообщения, чтобы узнать подробности и записаться на первый урок.\nлибо по тел \n3053994293",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 93.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "5e92da59-45b5-4c56-9d10-179674b21e3b",
+      "slug": "elmira73-150606",
+      "services": [
+        {
+          "title": "This professional certification course focuses on LPG Enderm",
+          "description": "This professional certification course focuses on LPG Endermologie, offered in Los Angeles, CA. The comprehensive 2-day program costs $800 and includes hands-on practice with professional LPG machines. A certificate is issued upon successful completion, and no equipment purchase is necessary. The course is conducted in a small group format, ensuring personal attention for all participants.\n\nУслуги: LPG Endermologie Professional Certification, Hands-on training with professional LPG machines, Certification issuance, Small group training, Personalized instruction",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 800.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "3a822bd3-8b8f-4137-a346-f387fe50b60c",
+      "slug": "tanya-150608",
+      "services": [
+        {
+          "title": "Camp Gesher offers a summer program from July 21 to August 2",
+          "description": "Camp Gesher offers a summer program from July 21 to August 2, 2026, for campers aged 8-17 (entering 3rd-12th grades) in the Big Bear mountains. Tuition is $2,345, with a CIT option at $1,645. Financial assistance includes grants for first and second-time campers, sibling discounts, and early-bird discounts. The program is heavily subsidized for Russian-speaking Jewish children living in Orange County, California, and an interview is required for the Counselor-in-Training program.\n\nУслуги: Summer Camp, Camper Grants, Sibling Discount, Early-Bird Discount, Counselor-in-Training Program",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 17.0,
+          "price_max": 21.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e30ca8dd-fbe3-43f0-97c1-d5589f922946",
+      "slug": "pro-2698a0a2b2",
+      "services": [
+        {
+          "title": "Ресницы",
+          "description": "Дорогие дамы🌸 \nМеня зовут Милана\nПриглашаю вас на процедуру:\nНаращивание ресниц 🧚🏻‍♀️\nЛаминирование ресниц и бровей 🧚🏻\nМатериалы премиум качества ✨\nЗапускаю АКЦИЮ🔥\nНаращивание ресниц  5️⃣0️⃣$\nЛаминирование 3️⃣0️⃣$\nПринимаю на дому , можете прийти с детками 🫂",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e1407934-772c-45cf-b075-6d9f486a5079",
+      "slug": "acrossers-dance-studio-150610",
+      "services": [
+        {
+          "title": "Ищете место, где ребёнок сможет не просто научиться танцеват",
+          "description": "Привет! 👋\n\nИщете место, где ребёнок сможет не просто научиться танцевать, но и стать увереннее, найти друзей и почувствовать себя частью настоящей команды? 💙\n\nAcrossers Dance Studio приглашает детей 6–12 лет присоединиться к новому набору!\n\nМожно начинать с нуля — мы всему научим. А если у ребёнка уже есть танцевальный опыт, поможем развить технику и перейти на следующий уровень.\n\nЧто ждёт ребёнка:\n• 🕺 Основы и техника street dance\n• 🎶 Хореография, музыкальность и импровизация\n• 👨‍🏫 Занятия с разными тренерами\n• 🎬 Видеопроекты и работа на камеру\n• 🎭 Концерты и выступления\n• 🏆 Соревнования и чемпионаты\n• ❤️ Друзья, команда и яркие эмоции\n\n📍 Laguna Hills • Santa Ana • Северный Голливуд\n📲 Первое пробное занятие бесплатно: SMS/Call (",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "d8c8fdc0-413b-45bc-ac8b-4d786563f4f7",
+      "slug": "alyona-koolhaas-150611",
+      "services": [
+        {
+          "title": "Мария, я могу вам помочь с русским языком. Обращайтесь в лич",
+          "description": "Мария, я могу вам помочь с русским языком. Обращайтесь в личку или по телефону с конкретними вопросами. 608-393-6578, Алена",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 393.0,
+          "price_max": 608.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "ea621fb2-db11-4940-972c-57d56b78d538",
+      "slug": "pro-67a5cf9537",
+      "services": [
+        {
+          "title": "Вот она занимается реставрацией кожи, чисткой диванов и ковр",
+          "description": "Вот она занимается реставрацией кожи, чисткой диванов и ковролинов . +1 949 500 7690 Дана",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 500.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "2ed8aa52-fa43-46c6-88ee-dde60294705b",
+      "slug": "anastasiya-150613",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "Девочки, хочу посоветовать прекрасного  консультанта по грудному вскармливанию. У нее опыт работы в родильном доме более 10лет.\nОна предлагает поддержку и сопровождение беременным  и кормящим мамам 🤱\nПомогаю по вопросам: — правильного прикладывания;\n— позиций для кормления;\n— лактации (недостаток/избыток молока);\n— боли при кормлении;\n— лактостаза и мастита;\n— недостаточной прибавки веса у малыша;\n— и других вопросов ГВ.\nФормат консультаций: онлайн / офлайн, также возможны переписка и звонки.\nКонтакт: +1 (657) 465-2422\nВераника.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 465.0,
+          "price_max": 657.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "698d19b2-f57f-4497-8e91-c499037434c3",
+      "slug": "pro-69d72b6fb9",
+      "services": [
+        {
+          "title": "Здравствуйте! Меня зовут Таисия Шаповалова, мне 15 лет",
+          "description": "Здравствуйте! Меня зовут Таисия Шаповалова, мне 15 лет.\nЯ профессиональная фигуристка и занимаюсь фигурным катанием уже 12 лет ⛸️\n\n• Выступала на Национальных соревнованиях США\n• Трижды выходила в финалы США\n• Заканчивала сезон в топ-2 по своему региону\n\nСейчас готова проводить занятия по ОФП (общей физической подготовке) для детей и взрослых 💪\n\nНа тренировках работаем над:\n• силой и выносливостью\n• растяжкой и гибкостью\n• координацией и балансом\n• прыжковой подготовкой\n• общей спортивной формой\n\nТакже готова собирать группы и проводить групповые тренировки!\n\nСтоимость: 25$ в час.\nБуду рада с вами позаниматься 😊\nПишите, буду рада вам! Ещё готова помогать детям от 7-15 с русским языком, и с математикой тоже!\nМой номер телефона: +19499430838",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 15.0,
+          "price_max": 25.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "0ae2e921-99be-42da-8691-87cb580b36df",
+      "slug": "the-village-spectrum-150616",
+      "services": [
+        {
+          "title": "Возможно кто-то хочет улучшить навыки игры в теннис",
+          "description": "Девочки всем привет!\n🎾Возможно кто-то хочет улучшить навыки игры в теннис. \nЕсть одно место. \n1 раз в неделю, в 9:30 утра.\nThe Village Spectrum\n Мария",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 30.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "d174d46d-e3d3-4548-96b2-4457ba1f7cd2",
+      "slug": "pro-7ba57728da",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "🌿 Уход • Косметология • Массаж\n✨Иногда отмена записи — это чей-то шанс. Есть одно свободное время в это воскресенье\n📅 15 марта 🕒 15:30\n🤍Буду рада познакомиться или снова увидеть вас на процедуре.\n📍 Irvine, CA 📞 (949) 316-7145",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 15.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "7be68a33-86ad-4ef5-81e1-477e09d93011",
+      "slug": "irin-pilates-031833",
+      "services": [
+        {
+          "title": "Upgrade Pilates & Bodytherapy — boutique reformer Pilates st",
+          "description": "Upgrade Pilates & Bodytherapy — boutique reformer Pilates studio в Laguna Hills (Irina Vassilyeva). Classical training, private и group classes, bodytherapy.\n\nАдрес: 23010 Lake Forest Dr Suite C, Laguna Hills, CA 92653.\nЧасы: Пн–Сб 7:00–19:00.\nТелефон: (949) 424-7730 · Сайт: https://upgradepilates.com",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 19.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "a5006f0e-bfed-465c-89a5-24ee932eee23",
+      "slug": "valentyna-vasiura-150620",
+      "services": [
+        {
+          "title": "Здравствуйте!",
+          "description": "Здравствуйте! \nПредлагаю помощь с налоговыми декларациями.\n\nЯ — CTEC Registered Tax Preparer (California) с бухгалтерским образованием. Работаю в соответствии с требованиями IRS, конфиденциально и аккуратно.\nПодготавливаю федеральные и калифорнийские налоговые декларации (Form 1040 и CA Form 540) для физических лиц и LLC, а также помогаю с документами и основными налоговыми вопросами.\n\n📩 Пишите в личные сообщения — с радостью отвечу!\n📞 (949) 701 7980 Валентина",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 540.0,
+          "price_max": 1040.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "58914e42-f1e5-453f-a7a5-88cbc88b9082",
+      "slug": "pro-865156f94c",
+      "services": [
+        {
+          "title": "Галина",
+          "description": "+1 (916) 595-2348\nIrina",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 595.0,
+          "price_max": 916.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "cbdf082f-be29-43f4-861d-988e55f3db34",
+      "slug": "pro-68e754e358",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "Привет, меня зовут София, и я мастер маникюра. Я приглашаю вас на расслабление и прекрасные ноготочки. Я работаю на хороших материалах, поэтому за качество можно не переживать, мои гели не дают отслоек и сколов, обеспечивая хорошую носку. Весь расходный материал одноразовый.\n\nУслуги: Маникюр с покрытием (укрепление гелем и однотонное покрытие) - $70, Маникюр без покрытия (комби маникюр) - $50, Педикюр с покрытием (с обработкой стопы) - $80, Педикюр без покрытия (с обработкой стопы) - $60",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 50.0,
+          "price_max": 70.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "56f51abc-23db-44e1-9630-58004972516f",
+      "slug": "pro-05b5e161b9",
+      "services": [
+        {
+          "title": "Hello everyone! My name is Kristina, I am a licensed hairdre",
+          "description": "Hello everyone! My name is Kristina, I am a licensed hairdresser-colorist. I will gladly help you transform: get a stylish haircut or choose the perfect coloring. Get a $20 discount on your first coloring! I also offer free consultations and will answer all your questions.\n\nУслуги: Haircuts, Hair Coloring, Consultations",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 20.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8daaa3bc-e9cc-4402-9076-fac740fd0480",
+      "slug": "aleks-bake-150628",
+      "services": [
+        {
+          "title": "Delight your loved ones with an exquisite custom dessert. Th",
+          "description": "Delight your loved ones with an exquisite custom dessert. This beautiful three-tiered composition features delicate macaron pastries and elegant marshmallow strawberry flowers. Each unique creation includes 22 macarons adorned with white chocolate initials, complemented by 7 large marshmallow flowers and several small buds. These handcrafted desserts are perfect for special occasions, but please note that availability is limited.\n\nУслуги: Custom Desserts, Macarons, Marshmallow Flowers",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 22.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8798de11-c53e-4c63-80a9-4a997ccfe7c3",
+      "slug": "glekelphoto-150630",
+      "services": [
+        {
+          "title": "I offer short, light photoshoots for families, couples, and ",
+          "description": "I offer short, light photoshoots for families, couples, and individuals. Sessions can be held at your home, on the property, or by the pool, and can include your pets. Each 20-30 minute session costs $100 and includes all original photos, with selected images retouched. Limited spots are available for booking.\n\nУслуги: Family photoshoots, Couple photoshoots, Individual photoshoots, Pet photoshoots",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 20.0,
+          "price_max": 30.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "518e12d8-e712-4d3b-af10-5cb475d5db70",
+      "slug": "hairdreams-by-galinakirbaba-150633",
+      "services": [
+        {
+          "title": "Окрашивание",
+          "description": "Девочки, кто хочет такое окрашивание? 🤍\nИщу модель на окрашивание в таком стиле на среду 5/20 ✨\n\nЦвет можно выбрать на ваш вкус 💙💜💚🩷❤️\n\nПишите, пожалуйста, мне в личные сообщения в Instagram — здесь я часто теряю сообщения ☺️",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 20.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "0399dcc8-6f49-4091-9b3d-481c6982d48b",
+      "slug": "diana-california-150634",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "🌿🧘 Новое пространство\nПространство для кайфа, отдыха и расслабления.\n\n🧘 Это место, где можно отпустить всё\nи погрузиться только в ощущения тела.\nМесто, где исцеляются душа и тело одновременно —\nчерез заботу о себе, любовь к себе, глубокое расслабление и контакт с собой.\n\n🙏 Приглашаю на расслабляющий SPA-массаж — мягкое восстановление тела и нервной системы.\n\nСнятие напряжения, усталости, зажимов, глубокое расслабление и ощущение «возвращения к себе».\n\n• спокойная атмосфера\n• внимательная работа с телом\n• расслабление мышц и нервной системы\n• ароматерапия и восстановление ресурса\n\n🎁Сейчас действует лояльная стоимость на процедуры.\nЕсли откликается — напишите в личные сообщения, расскажу подробнее.\n\n🤲🏻Отзывы и подробнее обо мне в инстаграм:",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "b67a179d-1c91-415f-bcd9-35e74946151e",
+      "slug": "olehkapitanchuk-massage-150636",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "Профессиональный массаж с выездом на дом 💆‍♂️\n\nРаботаю в Orange County и окрестностях только по выходным (суббота и воскресенье). Предлагаю качественный массаж для восстановления, расслабления и снятия напряжения после тренировок или рабочего дня.\n\n✔️ Индивидуальный подход\n✔️ Работа с мышечными зажимами и стрессом\n✔️ Комфорт прямо у вас дома\n\n🪪 Калифорнийская массажная лицензия \n\n📍 Выезд на дом по выходным\n📩 Пишите в личные сообщения для записи и уточнения деталей\n\n📲 Instagram: https://www.instagram.com/olehkapitanchuk_massage?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr\n\nВаше тело скажет вам спасибо",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "c06a9a1d-45db-44d2-a510-3eeb7bc49b05",
+      "slug": "karelinphotography-150637",
+      "services": [
+        {
+          "title": "Max is a photographer with over 10 years of experience. He s",
+          "description": "Max is a photographer with over 10 years of experience. He specializes in capturing weddings, love stories, portraits, family sessions, and various events. If you desire vibrant and beautiful photographs, you're welcome to connect.\n\nУслуги: weddings, love story, portraits, family shoots, events",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "ca7f0283-de8d-48c1-9847-d13894ed2308",
+      "slug": "pro-3f65329a9d",
+      "services": [
+        {
+          "title": "I created a YouTube channel specifically for busy people, of",
+          "description": "I created a YouTube channel specifically for busy people, offering free 15-minute Pilates workouts. These short sessions are designed to fit into any schedule, whether it's before work, during lunch, or in the evening. With no equipment needed, just a mat, you can achieve a toned core, firm glutes, a strong back, and improved posture. Join me, Irina, from Upgrade Pilates and Bodytherapy, to boost your energy and transform your body.\n\nУслуги: Pilates workouts, Online fitness, Body therapy",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 15.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "67334b1c-ca57-461e-ae43-f80616bf5b46",
+      "slug": "pro-dbaeca33cc",
+      "services": [
+        {
+          "title": "Всем привет. Меня зовут Леся. Я иллюстратор и графический ди",
+          "description": "Всем привет. Меня зовут Леся. Я иллюстратор и графический дизайнер.\nЯ создала мягкий ночник для ваших деток.\n\nМягкий ночник - подушечка, которая светится мягким теплым светом, создан из качественной мягкой ткани ✨ Уникальные авторские иллюстрации.\nНочник служит для успокоения малыша перед сном и для борьбы со страхом темноты. \n\nНочник упакован в подарочную коробку, батарейки входят в набор.\nСтоимость - 35$. Ценность - счастливый малыш и спокойные ночи ⭐️\n\nПишите в лс -",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 35.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e234ffa7-f8b8-4491-bac5-31282ecc3ee3",
+      "slug": "pro-832404531d",
+      "services": [
+        {
+          "title": "Evgenia is a professional confectioner with over 10 years of",
+          "description": "Evgenia is a professional confectioner with over 10 years of experience. She creates amazingly delicious cakes and stylish candy bars, where every detail reflects taste, aesthetics, and love for her craft. Her cakes are not just desserts, but true art, designed to make your celebration unforgettable, bright, beautiful, and incredibly delicious.\n\nУслуги: Cakes, Candy bars",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "3f144c65-f775-44ed-a8f3-20481002b72b",
+      "slug": "photograph-la-alina-150643",
+      "services": [
+        {
+          "title": "Join us for a spring mini photo day in a bohemian style, cre",
+          "description": "Join us for a spring mini photo day in a bohemian style, creating a gentle and warm atmosphere with flowing fabrics and natural aesthetics. This photoshoot is perfect for those desiring beautiful spring photographs or expecting a baby. We provide consultation on looks, a personalized mood board, and all necessary props and decor. You'll receive approximately 300 raw photos and 20 professionally edited images, along with video backstage and short reels.\n\nУслуги: Spring mini photo day in bohemian style, Individual photoshoot (35 minutes), Consultation on looks (video or chat), Individual mood board for the shoot, All props and decor (fabric, items, details), ~300 best raw photos, 20 professionally edited photos (color correction + retouching), Video backstage",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 20.0,
+          "price_max": 300.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "f8bf4a91-2b93-4d9c-851c-eac6fc1dfe8a",
+      "slug": "daria-stretch-dance-150647",
+      "services": [
+        {
+          "title": "Привет-привет!",
+          "description": "Привет-привет! \nКто хочет улучшить осанку, чувствовать легкость в теле, сесть на шпагат и тд тд \n\nПровожу занятия - stretching ( растяжка) в мини-группах каждый вт и чт на 6:30 вечера , пятница на 10 утра, \n📍территориально зал в Ирвайн ( около аэропорта) 🧘🤸\nПо вторникам и воскресеньям утренние около океана ( Corona Del Mar) 🌊 \n\n💫 Занятия для любого уровня подготовки ✨\nТак же есть варианты индивидуальных занятий 👌🏻\n\n💌Если есть вопросы и желаешь присоединиться к занятиям - пиши💌 тут или в inst \nP.S. на этой неделе есть места для записи ✅✅✅",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 30.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "554f485b-5f09-4e57-acf3-c00d8a60b0a2",
+      "slug": "creatoriakids-150649",
+      "services": [
+        {
+          "title": "Creatoria - лицензированный премиальный детский сад  в Ирвай",
+          "description": "Creatoria - лицензированный премиальный детский сад  в Ирвайне.\n⠀\n⠀\n⠀\n🍀 Kids Yoga - Йога\n🌱 Dance & Movement - Танец и ритмика\n🌿 Music - Музыкальное развитие\n🍃 Art  - Исследование и творчество\n⠀\nНаша цель -  предоставить детям лучший образовательный опыт в малой  группе.\n⠀\n🕊️ Родителям: места в группе ограничены. Приглашаем вас стать частью нашей обновленной программы.\n⠀\n🤍 Педагогам: для обсуждения сотрудничества пишите в личные сообщения.\n⠀\nТак же будем благодарны за рекомендации 😌\n⠀\n📍  Irvine, 92602\nOrchard Hills Village\n⠀\nПриглашаем ознакомиться  с атмосферой детского сада по ссылке:\n⠀\nhttps://www.instagram.com/creatoriakids\n\nCreatoria - лицензированный премиальный детский сад  в Ирвайне.\n⠀\n⠀",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "060b61e3-ff87-440c-b053-1a00d0b273d1",
+      "slug": "evgeny-rezko-150656",
+      "services": [
+        {
+          "title": "Всем привет! 18 марта стартует марафон для йоги по онлайну. ",
+          "description": "Всем привет! 18 марта стартует марафон для йоги по онлайну. У кого бессонницы кто хочет подтянуть свое тело или же для общего самочувствия всем советую ☺️\n\n- подтянутое, аккуратное, мобильное тело здесь\n- при болях в спине, суставах, шее\n- повысить уровень выносливости, силы, гибкости\n- новый уровень энергии\n- покажи телу и голове, что есть еще огонь внутри\n\nRESET\nПерезагрузка тела за 7 дней\n\n- 11 практик\n- правки и корректировки\n- эфиры по технике и принципах занятий\n- практика сохраняются в записи\n- занятия от 20 минут до 1 часа\n\nЗапись - в личку инстаграмма\n \n\nДо 16 марта - 30 $\nПосле 16 марта - 40 $",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 20.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "0058dff5-c8ba-4f63-aa41-ea0032859d97",
+      "slug": "pro-71a793a03e",
+      "services": [
+        {
+          "title": "Привет! Меня зовут Амина. Я учусь в 10 классе американской ш",
+          "description": "Привет! Меня зовут Амина. Я учусь в 10 классе американской школы и провожу онлайн занятия по химии для школьников.\n\nМогу помочь с темами уровня Honor Chemistry и ниже (школьная неорганическая и общая химия). Объясняю материал, помогаю разобраться с домашними заданиями и подготовиться к тестам. Занятия могу проводить как на русском, так и на английском.\n\nМой опыт:\n- занимаюсь химией с 7 класса (олимпиадная подготовка)\n- участвовала во Всероссийских олимпиадах по химии\n-проходила курсы по химии от МГУ\n- занималась со сборной Москвы по химии и участвовала во многих выездных сборах\n- 2 года училась в специализированном химическом классе, где нас готовили к олимпиадам \n- уже есть опыт проводения репетиторских занятий, после моих объяснений у учеников улучшалось понимание тем и оценки\n- учительница по химии в американской школе просила меня помогать русскоязычным ученикам с объяснением сложных тем\n\nПисать можно в телеграмм:",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "5a3e8b43-4013-4944-a933-054d9c1d7910",
+      "slug": "endo-studio",
+      "services": [
+        {
+          "title": "Хочу поделиться — я открыла свою уютную студию ENDO Studio O",
+          "description": "Девочки, всем привет! 🤍\nХочу поделиться — я открыла свою уютную студию ENDO Studio OC в Costa Mesa ✨\nРаботаю на Endospheres Evolution (аппарат последнего поколения) — процедуры для тела и лица. Также делаю австрийские STYX body wraps (Whiskey Swaddling Wrap & Cello Gel Thermal Wrap) 🌿\nСейчас действует promo для новых клиентов:\n✨ Endospheres Lower Body — $119 ✨ Endospheres Upper Body — $169 ✨ Endospheres Face — $149 ✨ STYX body wrapping — $159\nБуду очень рада новым знакомствам и гостям в студии 🤍\n\n📸 Instagram\n\n📍 Costa Mesa / Newport area\n\nМожно написать мне здесь или в Instagram, если есть вопросы 💌",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 119.0,
+          "price_max": 169.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "88a5c3f9-2f06-46a9-be45-d9b0f48bcae8",
+      "slug": "1touch-massage-150700",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "💖 Подарок ко Дню святого Валентина, который запомнится 💖\n\nПарный массаж — это не просто процедура, а время вместе :\nспокойствие, расслабление, прикосновения и ощущение близости 💆‍♀️💆‍♂️\nИдеально для пары, подруг, мамы и дочки — или просто для двух близких людей, которые хотят отдохнуть вместе.\n\nДо 16 февраля действует праздничная акция:\n✨ 70 минут парного массажа\nвместо 225$ — 195$\n\nАтмосфера уюта, заботы и то самое чувство, что вы выбрали правильный подарок 💞\nКоличество мест ограничено, поэтому лучше записаться заранее.\n📍Irvine \nПишите в личные сообщения — с радостью подберу удобное время 🤍",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 16.0,
+          "price_max": 70.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e5b4a468-03de-4d26-8b36-dbdcaef7f5db",
+      "slug": "beauty-skin-by-sandra-150701",
+      "services": [
+        {
+          "title": "Пилинг тела",
+          "description": "–40% до 14 февраля на Signature Glow (Face + Neck + Décolleté) — всего $119 вместо $199\n\nЛицензированный косметолог с медицинским образованием и 15+ лет опыта.\n\nSignature Glow включает:\n • Химический пилинг для мягкого обновления кожи\n • 2 индивидуально подобранные сыворотки под ваш запрос\n • Терапевтическая маска для фиксации результата и сияния\n • Массаж кожи головы для снятия спазмов и улучшения лимфодренажа лица\n\nРезультат — чистая, свежая, сияющая кожа уже после первой процедуры.\nРезультат останется с вами 3-4 недели при соблюдении всех рекомендаций🤩🤩🤩\nДля записи пишите в личные сообщения или мой",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 40.0,
+          "price_max": 119.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "a0b829f1-add5-4d15-a53b-f877d2dcc44b",
+      "slug": "khan-archery-club-150704",
+      "services": [
+        {
+          "title": "Весь материал закупаю в Home Depot. Выходит на $150 по матер",
+          "description": "Весь материал закупаю в Home Depot. Выходит на $150 по материалу. Всем желающим могу бесплатно скинуть список необходимых пиломатериалов и инструментов для постройки🫣😉.\nТак же приглашаю детей от 12 лет на тренировки по олимпийской стрельбе из лука в Mile square park (Orange County)",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 12.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "3f3a1da1-2d06-4cc9-9d27-b42e015feca5",
+      "slug": "ekaterina-samsonova-150707",
+      "services": [
+        {
+          "title": "Hand-knitted sequin tops are available to order, offering a ",
+          "description": "Hand-knitted sequin tops are available to order, offering a stylish and elegant addition to your outfit for parties, concerts, or any event. These versatile tops can be worn as a second layer over a tank top or light shirt, directly on the body, or over a swimsuit. Customization options include length, strap width, and neckline depth. Made from 100% cotton yarn with 3mm and 6mm sequins, they come in a wide range of colors and are priced at $45.\n\nУслуги: Custom hand-knitted sequin tops, Customization (length, strap width, neckline depth)",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 45.0,
+          "price_max": 100.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "f30e6bf8-ea0e-434d-9c40-d2fa3280e0a5",
+      "slug": "mila-150710",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "MilaTax — подготовка налоговых деклараций с персональным вниманием. Liudmila Morozova, CTEC-registered (#A356279), IRS PTIN holder. Базируется в Irvine, обслуживает клиентов по всему Orange County и удалённо по всей California.\n\nУслуги: Federal + CA returns, W-2, 1099 / self-employed, small business (Schedule C), rental & investments, extensions & amendments, bookkeeping (QuickBooks).\n\nПроцесс: intake questionnaire → secure document upload → review & e-file. Большинство деклараций готовы за 3–5 рабочих дней после получения всех документов.\n\nСайт: https://milatax.com — запись на консультацию через форму на сайте.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 79.0,
+          "price_max": 1099.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "bd121fd5-49dd-446a-b5ec-6762ecade471",
+      "slug": "pro-fed553eb97",
+      "services": [
+        {
+          "title": "Evgenia Bobrovskaya offers live face classes focused on natu",
+          "description": "Evgenia Bobrovskaya offers live face classes focused on natural face lifting techniques in Orange County. With experience as a massage therapist-esthetician since 2014, she shares proven methods to help reduce facial puffiness and achieve a lighter appearance. She also provides valuable tips and techniques through her online channel.\n\nУслуги: Live natural face lifting classes, Techniques for reducing facial puffiness, Face massage and esthetician services",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "dd633466-1f64-4360-8bde-992277e71214",
+      "slug": "mike-california-171748",
+      "services": [
+        {
+          "title": "Открывается новый лицензированный детский сад в Westpark, Ir",
+          "description": "✨ Открывается новый лицензированный детский сад в Westpark, Irvine\n\n💜 Mira Club 💜билингвальный детский сад для малышей\n\nМы рады объявить об открытии уютного пространства, где дети растут, играют и познают мир сразу на двух языках 🤍\n\n✨ Что мы предлагаем:\n• Билингвальная среда (английский + русский)\n• Заботливая и безопасная атмосфера\n• Полноценное сбалансированное питание\n• Развивающие занятия и обучение через игру\n• Одна маленькая группа — максимум внимания каждому ребёнку\n• Лицензированный детский сад, соответствующий всем требованиям и стандартам безопасности\n\n🕒 Доступные программы:\n• 5 дней в неделю\n• 3 дня в неделю\n• 2 дня в неделю\n\n📍 Район Westpark, Irvine\n\nКоличество мест очень ограничено — запись уже открыта.\n\n📞 Для записи и вопросов:\nКсения — 949-656-9711\n\nMira Club\nA world of learning and care 🌿",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 656.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "4b3bc61c-e106-4fec-b16c-bc185b578e93",
+      "slug": "vlad-171749",
+      "services": [
+        {
+          "title": "Vlad",
+          "description": "Предлагаем услуги клининга в ЛА,поможем убрать ваш дом или квартиру,занимаемся уборкой после ремонта. На первый заказ делаем скидку. Оплата почасовая,гарантируем качественную уборку,дополнительную информацию можно узнать в личном сообщении, или по телефону\n +1 (747)3430718",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 718.0,
+          "price_max": 747.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8d83ad6c-1afb-43d9-a9be-cd0bacd0accf",
+      "slug": "renna-171944",
+      "services": [
+        {
+          "title": "Ищете новую машину? Я помогу сэкономить тысячи долларов!",
+          "description": "🚘 Ищете новую машину? Я помогу сэкономить тысячи долларов!\n\nНе тратьте время на дилеров и переплаты.\n\n✔️ Лучшие предложения по Lease & Finance\n✔️ Новые и подержанные автомобили\n✔️ Одобрение даже в сложных ситуациях\n✔️ Trade-In и выкуп авто\n✔️ Быстро, честно и без скрытых комиссий\n\n📍Работаю по всей Калифорнии.\n\n📲 Call or Text: (949) 775-9053",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 775.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "73a632e4-5c96-48c7-9dbd-18de2ba441f3",
+      "slug": "business-7543646222-171945",
+      "services": [
+        {
+          "title": "Red Cat Events",
+          "description": "Red Cat Events 🎉\nДелаем яркие детские праздники в Майами и соседних городах для ваших деток ✨\nБудем рады стать частью вашего праздника!!\n\nInstagram: red.cat_events\nWhat’s up: 754(364)6222",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 364.0,
+          "price_max": 754.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "40a95673-0d77-4970-bdbf-b69475875b58",
+      "slug": "san-diego-171752",
+      "services": [
+        {
+          "title": "This business provides car rental services, featuring popula",
+          "description": "This business provides car rental services, featuring popular models such as the Lexus RX 350 and Toyota Prius. Monthly rental options are available, with insurance and maintenance costs already included in the price. Services are offered in the regions of Los Angeles, Orange County, and San Diego.\n\nУслуги: Car Rental, Lexus RX 350 rental, Toyota Prius rental, Insurance included, Maintenance included",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 350.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8fd91830-566d-46c5-b048-b8c5bb108462",
+      "slug": "business-6503893846-172150",
+      "services": [
+        {
+          "title": "North Hollywood / Studio City / Burbank",
+          "description": "North Hollywood / Studio City / Burbank\nИндивидуальные тренировки в зале\n\n📍 С чем помогу:\n— набрать мышечную массу и форму\n— увеличить силу\n— поставить технику с нуля\n— сдвинуться, если веса встали\n— сбросить лишний вес\n— показать рабочие кардиотренировки\n\n📍 Как всё проходит:\nЯ не из тех, кто стоит со стороны и говорит, что делать.\nЯ тренируюсь вместе с тобой, можно сказать твой gym bro 🦧\n\nПоказываю всё на себе,\nсразу корректирую технику,\nобъясняю по ходу, чтобы ты реально понял, как работать🏋🏿\n\n📍 Обо мне:\n— 10 лет в зале\n— 3 года тренирую людей\n— сам постоянно тренируюсь и прогрессирую\n\n📍 Подход:\nКаждую тренировку подстраиваю под тебя:\nуровень, цель, состояние.\n\n📍 Важно:\nГлавное — желание тренироваться и полная самоотдача \n\n📍 Стоимость:\n💰 $50 / 1 тренировка\n\n📌Связь:\n6503893846 - Звонки\\iMessage\n\nПиши:\n— цель\n— есть ли опыт\n— когда удобно\n\nНачнём прогрессировать вместе💪",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 46.0,
+          "price_max": 50.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "96944352-e3ea-433f-b8c1-a51e3a1cda07",
+      "slug": "business-7477881260-172151",
+      "services": [
+        {
+          "title": "Ресницы",
+          "description": "Тушь? Наращивание? Уже не актуально\n\nLash lift — $80\nFirst visit — $20 off\n\nПроснулась. Умылась. Пошла красивая. Всё.\n\n📅 Успей до 20 апреля — акций у меня почти не бывает \n\nБрови тоже могут быть безупречными — аккуратное оформление и ламинирование.\n\n📍 Sherman Oaks, CA\n🤞 Inst: lashes_yana\n📲 +1 (747) 788-1260\n\nПерманентный макияж любой зоны💛 Большой опыт, приятные цены, индивидуальный подход к каждому клиенту, одноразовые материалы✨\n\nПерманент делаю в натуральной технике, на 1,5-2 года✨ Обязательно строим форму, обсуждаем цвет и все Ваши пожелания🫶\n\nТак же имею 10-летний опыт работы с бровями, приведу их в идеальный вид: скорректирую асимметрию, подающие кончики, ширину, посадку глаз, замаскирую шрамы, «открою» взгляд.\n\n💖 Instagram: lashes_yana\n\n📍Sherman Oaks, CA \n📝 Запись и консультация: 1 (747) 788-1260",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 20.0,
+          "price_max": 80.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e76db0a1-08da-4d19-abdd-f53bcea485c3",
+      "slug": "elizaveta-pavlunenko-172152",
+      "services": [
+        {
+          "title": "Сдам в аренду для работы в Uber-Lyft Black, Black SUV Chevro",
+          "description": "Сдам в аренду для работы в Uber-Lyft Black, Black SUV Chevrolet Suburban 2023 года. Есть все документы TCP и LAX (Permit). Тел. 213 759 31 60",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 213.0,
+          "price_max": 759.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "7355336f-3b6e-4c60-a3d8-e9906ff05449",
+      "slug": "beks-flowers-172153",
+      "services": [
+        {
+          "title": "Букеты готовые и на заказ",
+          "description": "Букеты готовые и на заказ\nот 50$\nОформление свадеб и ивентов\nМагазин в Гленделе\nБыстрая доставка и организация даже в ОС\n818-474-0001\nВоцап / телеграм / смс / звонки",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 50.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "f8b4813e-046b-42b3-bdaa-71a210e03765",
+      "slug": "ilona-nails-172153",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "​Маникюр и педикюр в Van Nuys! 💅✨\n​Милые дамы, приглашаю вас на профессиональный уход в уютной домашней обстановке. Работаю только с высококачественными материалами и стерильным инструментом. Помогу вашим ручкам и ножкам выглядеть безупречно! 🤗\n​📍 Адрес: Sherman Way, Van Nuys, 91405\n📞 Запись по телефону: +17472769089, Илона",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 89.0,
+          "price_max": 1747.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "81c37aef-9f84-4e68-9d6c-bfda25acf72e",
+      "slug": "business-8183349501-172154",
+      "services": [
+        {
+          "title": "Сдаётся кресло в барбершопе. Глендейл 8183349501",
+          "description": "Сдаётся кресло в барбершопе. Глендейл 8183349501",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "09e79eee-6bdd-4864-b7c5-6eac5083826d",
+      "slug": "maria-masha-tumanyan-172155",
+      "services": [
+        {
+          "title": "Главное интервью в вашей жизни — подготовьтесь к нему правил",
+          "description": "❓ Главное интервью в вашей жизни — подготовьтесь к нему правильно!\nYurMar Consulting помогает пройти интервью по убежищу (asylum) уверенно и без лишнего стресса.\nРазберём вопросы, отработаем ответы, поможем структурировать личную историю.\nТакже предлагаем:\n🩺 Социально-медицинский консалтинг (Medi-Cal, Medicare, IHSS, хоспис)\n🛂 Иммиграция и юридико-бюрократические вопросы (формы, документы, семейное право, уголовные дела, Personal Injury — например, аварии и несчастные случаи)\n🗣️ Услуги переводчика на интервью по asylum + переводы документов по делу asylum\n📱 Telegram / WhatsApp: (\n\n🎯 Интервью, которое может изменить всё — подготовьтесь к нему с уверенностью!\nYurMar Consulting помогает пройти интервью по убежищу (asylum) спокойно и эффективно:\n🔹 Разберём возможные вопросы\n🔹 Поможем структурировать личную историю\n🔹 Отработаем уверенные и точные ответы\n\n💼 Также предлагаем профессиональное сопровождение по другим направлениям:\n🩺 Социально-медицинский консалтинг\n(Medi-Cal, Medicare, IHSS, хоспис и пр.)\n🛂 Иммиграционные и юридико-бюрократические вопросы\n(заполнение форм, работа с документами, семейное и уголовное право, Personal Injury: ДТП и несчастные случаи)\n🗣️ Переводы и сопровождение на интервью\n– Переводчик на интервью по asylum\n– Переводы документов по делу asylum\n📱 Telegram / WhatsApp: (818) 319‑2621",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 319.0,
+          "price_max": 818.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "04dfe0cf-64bb-487e-a5f3-98edc7528ca6",
+      "slug": "toujours-flower-boutique-172155",
+      "services": [
+        {
+          "title": "День св. Валентина уже через 3 дня! Заказывайте цветы только",
+          "description": "День св. Валентина уже через 3 дня! Заказывайте цветы только у самых лучших L'amour Toujours Flower Boutique\n949-351-6824",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 351.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "444169e0-49b5-4c13-80fc-1f99ab077eeb",
+      "slug": "1-172157",
+      "services": [
+        {
+          "title": "️ РЕПЕТИТОР АНГЛИЙСКОГО ОНЛАЙН",
+          "description": "❗️ РЕПЕТИТОР АНГЛИЙСКОГО ОНЛАЙН\n\n❗️1500 р/ час занятий 💳\nИндивидуальные занятия, легкая методика , разговорный английский и технический анг для работы \nОпыт работы 18 лет / студенты из разных стран \n+7 988 268 99 34\n\nРЕПЕТИТОР АНГЛИЙСКОГО ОНЛАЙН\n\n• Английский для взрослых\n•Разговорный + бизнес английский индивидуально \n•IТ / юристы / врачи / топ менеджеры \n•С 0 до уровня C1\n•19 лет практики, ученики из 12 стран \n•Онлайн под ваш запрос и время \n\n💳 1800 р / час \n📩 +7 988 268 99 34 (WhatsApp)\nЛюдмила\n\n❗️1500 р/ час занятий 💳\nИндивидуальные занятия, легкая методика , разговорный английский и технический анг для работы \nОпыт работы 18 лет / студенты из разных стран \n+7 988 268 99 34",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 18.0,
+          "price_max": 1500.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "fa5c2558-b4a5-476f-ba58-ccc14a4ae001",
+      "slug": "business-4156194812-172158",
+      "services": [
+        {
+          "title": "Авто в лизинг",
+          "description": "Авто в лизинг\nМожем помочь даже если нет кpедитной исторuu\n📲 +1 (415) 619-4812",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 415.0,
+          "price_max": 619.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "bf6c0633-633d-4d24-830c-221a059cda65",
+      "slug": "aleksandr-172200",
+      "services": [
+        {
+          "title": "АРЕНДА — Jeep Gladiator / Wrangler 2025",
+          "description": "🚙 АРЕНДА — Jeep Gladiator / Wrangler 2025 \n🆕 Новая, без пробега\n\n💲 $900 / месяц + страховка от арендатора\n\n4x4 полный привод • Apple CarPlay / Android Auto • новый салон\nОтлично для города и выездов на природу\n\nВ личные сообщения или по телефону: 323-599-0402\n\nАРЕНДА — Jeep Gladiator Mojave / Wrangler 2025\n$850 / месяц — страховка ОТ АРЕНДАТОРА\nВозвратный депозит: $500\n4x4 полный привод\nApple CarPlay / Android Auto\nНовый салон\nКомфортный для города и уверенный для выездов на природу\nДля оформления необходимо 2 или более документов для подтверждения личности.\nПишите в личные сообщения или звоните: 323-599-0402\n\n🚙 АРЕНДА — Jeep Gladiator / Wrangler 2025\n🆕 Новая, без пробега",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 323.0,
+          "price_max": 900.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "fd796b65-3dec-4fd8-9372-a95ec83c4b71",
+      "slug": "llc-172201",
+      "services": [
+        {
+          "title": "Трактовый бизнес?",
+          "description": "Трактовый бизнес? \n~US DOT/MC number. \nОткрываем транспортные компании. \n\n~Продаете/ покупаете компанию с DOT/MC? \n-Поможем с оформлением.\n\n~Открытие LLC / INC. \nЛюбой штат (с SSN и без)\n*Получение EIN -налогового номера\n\n ☎️786.202.66.99\n\n▪️Открытие компаний LLC / INC в любом штате(с SSN и без)\nПолучение EIN -налогового номера\n\n▪️Открываем транспортные компании «под ключ». \nUS DOT/MC number. \n\n▪️Продаете/ покупаете компанию с DOT/MC? \nПереоформим, защитив все ваши интересы.\n\n+1 (786) 202-6699\n\nОткроем транспортную компанию «под ключ».\n\nПоможем с оформлением, защитив Ваши интересы.\n\nEIN -налоговый номер",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 202.0,
+          "price_max": 786.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "641a0849-b052-4cec-a406-d534e4dd6059",
+      "slug": "laorangecountybot-172204",
+      "services": [
+        {
+          "title": "UMOC Universal Moving OC is a moving company with 5 years of",
+          "description": "UMOC Universal Moving OC is a moving company with 5 years of experience, specializing in local and long-distance relocations. They serve all areas of Orange County with 26ft trucks, suitable for 1-4 bedroom homes, and also assist with interstate moves. Their services include essential packing materials like plastic wrap and tape, along with furniture disassembly and assembly, all included in the total cost.\n\nУслуги: Local moving, Long-distance moving, Residential moving (1-4 bedrooms), Interstate moving, Packing supplies (plastic wrap, tape), Furniture disassembly, Furniture assembly",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 26.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "31c1ae56-801f-4e65-8d6d-7e71f381dbe8",
+      "slug": "business-2247331591-172207",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "🚛 Нужно срочно застраховать commercial truck?\n\nПоможем быстро подобрать coverage для работы на дороге, груза и требований брокеров.\n\nДоступные покрытия:\n\n✅ Physical Damage\n✅ Cargo Insurance\n✅ Non-Trucking Liability\n✅ Commercial Auto\n✅ COI для брокеров\n\nРаботаем по всей территории США 🇺🇸\nКонсультация бесплатно.\n\n📞 +1 224 733 1591",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 224.0,
+          "price_max": 733.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "6bc7e704-c9b3-427c-b9c4-63c1996c95a3",
+      "slug": "kim-172209",
+      "services": [
+        {
+          "title": "Ресницы",
+          "description": "Продаю готовый beauty-бизнес / fully set up esthetician setup в Lake Forest, Orange County, CA.\n\nРассматриваю продажу своего полностью упакованного beauty-бизнеса для косметолога / esthetician или другого beauty-мастера, кто хочет зайти в сферу уже с готовой базой и начать зарабатывать быстрее.\n\nЛокация: Lake Forest, Orange County\n\nЧто входит:\nwebsite\nGoogle Business Profile\nYelp\nInstagram page\nFacebook page \nTikTok page\nThreads\nготовое меню услуг\nклиентская база\nготовая beauty-упаковка для старта\n\nОборудование и материалы:\n\nLED Zemits\nWarmer towel\nNanopen for microneedling \nкушетка\nультразвук\nинструменты для экстракции\ncart / мебель / storage\nbowls / кисточки / рабочие аксессуары\n\nкосметика и материалы для старта:\nacne treatments\npigmentation \nanti-age\npeels\nexosomes\nрасходники\n\nПо кабинету:\n\nСейчас кабинет в формате shared suite / 50/50\n\nаренда: $142.50 в неделю\nочень удобный вариант для старта без большого fixed rent\n\nТакже есть возможность в будущем перейти в отдельный кабинет, если захотите расширяться.\n\nВажно:\n\nЭто не просто продажа оборудования, а готовый beauty business setup, с которым можно реально стартовать почти сразу.\n\nПри необходимости могу также:\n\nобъяснить, с чего начать\nпомочь с соцсетями\nподсказать методы по привлечению клиентов\nрассказать, как запускать таргет самой\nтакже порекомендовать хорошего таргетолога\nнаучить всем протоколам (акне, пигментация, антиэйдж и тд)\n\nТакже отдельно:\n\nЕсли вам не нужен готовый бизнес, но вы beauty-специалист и хотите запустить или красиво упаковать свой business в США, я также помогаю с:\n\nупаковкой beauty-бизнеса\nсозданием / структурой website\nInstagram / social media setup\nGoogle Business Profile\nYelp\nоформлением услуг и меню\nпозиционированием\nстратегией привлечения клиентов\n\nПодходит для:\n\nestheticians / косметологов\nlash artists\nbrow artists\nnail technicians\nPMU artists\nmassage therapists\nи других beauty-специалистов\n\nSerious inquiries only. Пишите в личные / DM\n9496974649",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 50.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "747367fc-68a6-4bc9-81d5-4639d93d0a5e",
+      "slug": "business-4243094233-172210",
+      "services": [
+        {
+          "title": "Аренда авто в Калифорнии",
+          "description": "🌴 Аренда авто в Калифорнии🌴 \n\nБолее 300 автомобилей в наличии — от эконома до люкса\nДоставка авто по городу и в аэропорт\n\nПишите или звоните +1 424 309 4233",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 300.0,
+          "price_max": 424.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "bb91fa1a-9538-46ad-8eaa-bf3c4420b0e3",
+      "slug": "business-3478894784-172211",
+      "services": [
+        {
+          "title": "Artem is an experienced auto broker in California, represent",
+          "description": "Artem is an experienced auto broker in California, representing a company with over 30 years in the business. He specializes in securing optimal car deals, ensuring clients avoid overpaying. Services cover new and used vehicles, leasing, financing, and cash purchases, accommodating all credit histories. Additionally, he offers car buyback, trade-in, and personalized deal optimization. His services are provided at no cost to the client, as he earns from the dealer.\n\nУслуги: Auto brokering, Car deal optimization, Leasing, Financing, Cash purchases, New car acquisition, Used car acquisition, Assistance with any credit history",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 30.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "c0a2618e-9aca-4370-9d5b-80cd50565bdc",
+      "slug": "svetlana-s-172211",
+      "services": [
+        {
+          "title": "Здравствуйте",
+          "description": "Здравствуйте \n\nЕсли вам нужно:\n— что-то пошить \n— укоротить брюки\n— подогнать платье по фигуре \n— заменить молнию\n— переделать или освежить любимую вещь\n\n Обращайтесь \n✂️ Альбина 🧵 \n💬 (747) 320-6977\n📍North Hollywood \n\nРаботает качественно и с душой",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 320.0,
+          "price_max": 747.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "4626ade6-6a4b-4271-9191-f2cf58cfa79e",
+      "slug": "business-7717177777-172212",
+      "services": [
+        {
+          "title": "Ищете дешёвую и надёжную автостраховку?",
+          "description": "🚗 Ищете дешёвую и надёжную автостраховку?\nIzlatop Insurance Agency поможет подобрать для вас лучшую автостраховку по выгодной цене всего за несколько минут.\nМы сотрудничаем с более чем 40 ведущими страховыми компаниями, включая:\nProgressive • Travelers • Nationwide • Liberty Mutual • Chubb • CNA • National General и другие.\n💡 Возможно, вы переплачиваете за страховку?\nОтправьте нам свой текущий полис, и мы бесплатно проверим его и найдём более выгодное предложение.\nПочему выбирают нас:\n✅ Лицензированное страховое агентство\n✅ Быстрое и простое оформление\n✅ Индивидуальный подбор страховки\n✅ Экономия вашего времени и денег\n📞 Call center: \n📍 Адрес: 7100 Foundry Row | Liberty Center\nНапишите или позвоните нам уже сегодня и начните экономить на автостраховке!",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 40.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "e99a7cdc-0584-4fb4-8eef-3ebd174f3b73",
+      "slug": "svetickla-172213",
+      "services": [
+        {
+          "title": "Сеанс терапии",
+          "description": "Дорогие друзья!!!\nСпешу сообщить, что у нас есть ПИЯВОЧКИ в ЛА))!!!\n\nКто понимает в Гирудотерапии и ценит этот Уникальный Дар Природы, пожалуйста обращайтесь!!\n\nВозможна отправка по США. \n\nПишите пожалуйста в личку.\nПредпочтительнее в Телеграм)\n\n@ Svetick_Happiness\n\nБлагодарю \nСветлана ⚘️\n323-304-5577",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 304.0,
+          "price_max": 323.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "bd174fee-f4bb-4046-a051-c4cd76bdba4f",
+      "slug": "arvian-law-firm-llc-172214",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "Добрый день.\n🔥Лицензированный иммиграционный адвокат Виталий Малюк, Arvian Law Firm LLC.\nМы с удовольствием поможем вам с различными типами виз:\n— EB-1, EB-2, EB-2 NIW, EB-3, O-1, L-1; \n— Оказываем помощь в воссоединении семьи, смене статуса, сопровождаем по политическому убежищу.\nМы готовы предоставить вам квалифицированную юридическую поддержку.\n✅Первая консультация бесплатная (если вы на территории США): .",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "44d1d688-605a-4d37-bfc3-3a032e89a46b",
+      "slug": "yagmyrov-atajan-credit-repair-172215",
+      "services": [
+        {
+          "title": "Столкнулись с Collection, просрочками или отказами банков?",
+          "description": "Столкнулись с Collection, просрочками или отказами банков?\nВ США кредитная история решает всё — от аренды жилья до получения низких процентных ставок.\n\nЯ — кредитный эксперт, который помогает:\n💠 Находить и исправлять ошибки в отчётах Experian, Equifax, TransUnion\n💠 Удалять Collection  и отрицательные записи\n💠 Повышать кредитный рейтинг до 750 стратегически, а не «случайно»\n💠 Готовить профиль к ипотеке, автокредиту и премиальным кредитным картам \n\nПишите в DM — проведу бесплатный аудит вашей ситуации и расскажу, какие шаги дадут результат именно вам.",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 750.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "066489b9-c8e5-45e3-a340-ed3594cfb289",
+      "slug": "igor-pchelintsev-172216",
+      "services": [
+        {
+          "title": "Поможем оформить лицензии:",
+          "description": "Поможем оформить лицензии:\nB General Building\nB-2 Residential Remodeling \nС (Plumber, electrician, etc.)\n\nПишите 👉(949)226-1519 SMS, Тelegram, Viber,      WhatsApp\n\nS.P.Igor Pchelintsev\nLicensе # 220001568\n\nМАЙСКАЯ АКЦИЯ! -20% на услуги до 05/10/26!\nПомощь в оформлении лицензий:\nЛицензия на мувинг MOVERS PERMIT \nЛицензия автодилера VEHICLE DEALER LICENSE\n\nЛицензии на ремонт авто AUTOMOTIVE REPAIR \nЛицензии слесаря LOCKSMITH                    \nЛицензии города CITY BUSINESS LICENSE \n\nПишите 👉(949)226-1519 \nSMS, Тelegram, Viber, WhatsApp\n\nMemorial Day sale: -25% на услуги до 31 Мая!\n\nПомощь в ОФОРМЛЕНИИ ЛИЦЕНЗИЙ и ОТКРЫТИИ КОМПАНИЙ : \nЛицензия на мувинг MOVERS PERMIT \nЛицензия автодилера VEHICLE DEALER LICENSE\nРемонтно-строительные работы(“A”, “B” and “C\" LICENSE )\nЛицензия на ремонт бытовой техники HOME APPLIANCE SERVICE\nЛицензии на ремонт авто AUTOMOTIVE REPAIR \nЛицензии слесаря LOCKSMITH\nЛицензии на Домашнюю кухню COTTAGE FOOD и MEHKO                           \nЛицензии города CITY BUSINESS LICENSE \n\nПишите 👉(949)226-1519 sms, Telegram, WhatsApp, \nEmail: moverspermit1@gmail.com\n\nОткрытие LLC,  C-corporation, Переход по налогам в S-Corp    \nDBA(второе бизнес-имя компании)\nОтчеты Statement of Information           \n ITIN (подготовка заявки)                            \nВнесение изменений в Articles (cмена названия, Учредителей, вида бизнеса, адреса, тел., E-mail)\n\nПишите 👉(949)226-1519 sms, Telegram, WhatsApp, \nEmail: moverspermit1@gmail.com",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 226.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "49a00f1e-7149-4dad-a0c2-34ab060f61cd",
+      "slug": "tigran-arutiunian-172216",
+      "services": [
+        {
+          "title": "Привет! Сдается в аренду 2026 Shevrolet Suburban, 2026 BMW 7",
+          "description": "Привет! Сдается в аренду 2026 Shevrolet Suburban, 2026 BMW 740 , оба новые, со всеми бумагами для Uber Black, SUV , пока только город, LAX в процессе! 310-300-0002",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 310.0,
+          "price_max": 740.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "2ccc7c4f-3d00-4aa1-b605-0a65ac850eeb",
+      "slug": "llc-172217",
+      "services": [
+        {
+          "title": "Быстрые и качественные услуги перевода!",
+          "description": "Быстрые и качественные услуги перевода!\n\n• Устный перевод (оффлайн и онлайн по телефону/Zoom/Skype).\n• Перевод документов для суда, USCIS, медицинских учреждений, школ и др. (возможность нотариального заверения).\n• Помощь в заполнении форм и регистрации LLC/Inc.\n\nСрочные заказы выполняю в течение 1-3 суток! Гарантированная скорость и качество.\n\nОпыт 2 года, быстрая обратная связь, доступные цены.\n\nСвязаться и задать вопросы можно по телефону: 2135481099\n\nПрисоединяйтесь к группе по адаптации и получите скидку 5% на первый заказ!\nПолезную информацию по адаптации и отзывы смотрите по ссылке в профиле.",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 99.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "0d79775b-384a-4f05-98d4-76f572c7f78a",
+      "slug": "inna-172218",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "Предлагаю бесплатно меблированную комнату в офисе. Подойдёт для офисной работы или старта проекта (не бьюти и массажей).\nУсловие: быть в офисе пн–пт, 9:00–17:00.\nАдрес: 17547 Ventura Blvd, Encino. Free parking.\nТел: (818) 635-3501 — сначала SMS.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 17.0,
+          "price_max": 1754.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "d7ccb16b-513b-4c90-8e3e-a68f55d9bf3d",
+      "slug": "yana-adabir-172218",
+      "services": [
+        {
+          "title": "Автоброкер в Лос-Анджелесе",
+          "description": "Автоброкер в Лос-Анджелесе .\n\n💥 Работаю под ключ: от подбора до оформления — всё беру на себя\n💸 От $0 down payment\n🚘 От $200 в месяц\n📄 Одобряю без официального дохода\n⏱️ Авто — в тот же день!\n✅ Исправляю кредитную историю и помогаю со страховкой\n\n📞 5622546578",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 200.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "ab4b3fd7-a1a5-43ba-9075-bd09e1ee4315",
+      "slug": "business-2134424111-172219",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "Добрый день, меня зовут Сергей Петров. \n\nЯ сертифицированный гипнотерапевт-регрессолог (услуга не является медицинской или психотерапевтической, не заменяет консультации врача). \n\nПомогаю людям освобождаться от не понятных страхов, тревоги, эмоциональной боли через мягкие, глубокие техники гипноза и регрессии. \n\nВ своей практике я использую классические и современные методы гипноза, регрессию к корню проблемы, работу с внутренними частями и позитивные внушения.\nМоя цель — помочь человеку понять источник проблемы, освободить тело и сознание от накопленного напряжения и вернуть ощущение гармонии, уверенности и спокойствия.\n____\nПоверьте, Вам будет интересно. Вы можете обратиться с любым запросом.\n____\n📩 Предварительная консультация:\nТелефон: 213-442-4111 (WhatsApp, Telegram)\nС уважением,\nСергей Петров",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 213.0,
+          "price_max": 442.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "5a402be7-ee55-4588-8b28-5d8f66d512e9",
+      "slug": "lidiia-172220",
+      "services": [
+        {
+          "title": "Нужен надежный хэндимен?",
+          "description": "🔧 Нужен надежный хэндимен? 🔧\n\nПредлагаю профессиональные услуги по ремонту и бытовому обслуживанию!  \n• Мелкий ремонт  \n• Электрика  \n• Сборка мебели  \n• Установка светильников и многое другое\n\nРаботаю качественно, быстро и аккуратно.  \nОпыт и ответственность — гарантирую!  \n\nСвяжитесь со мной в Telegram: (916) 432-9163  \nБуду рад помочь вам с любыми домашними делами!",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 432.0,
+          "price_max": 916.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "3d170272-5756-4de4-9dd6-06f6ef986fac",
+      "slug": "business-3109210864-172221",
+      "services": [
+        {
+          "title": "Лекарства из России, есть в наличии, можно привезти под зака",
+          "description": "Лекарства из России, есть в наличии, можно привезти под заказ. 3109210864",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 64.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "deeb94d7-f220-481a-aecc-c47997c57112",
+      "slug": "business-9493860850-172223",
+      "services": [
+        {
+          "title": "Сергей",
+          "description": "Сергей \n\n+1 (949) 386-0850",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 386.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "d1c5279d-e609-48bf-91d5-bc6bc297a40e",
+      "slug": "business-9492432736-190801",
+      "services": [
+        {
+          "title": "Endospheres massage is the perfect gift for beauty and healt",
+          "description": "Endospheres massage is the perfect gift for beauty and health, offering a professional SPA procedure on advanced equipment. This treatment provides visible results through body contouring, cellulite reduction, lymphatic drainage, detox, and improved skin quality. It's not just a massage, but a comprehensive experience designed for relaxation and pleasure. Gift certificates for $100 and $200 are available, making it an ideal present for any woman.\n\nУслуги: Body contouring, Cellulite reduction, Lymphatic drainage and detox, Skin quality improvement, Relaxation and wellness",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 100.0,
+          "price_max": 200.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "3ba6d992-92af-4626-81ce-0f7475391fd8",
+      "slug": "angelina-190934",
+      "services": [
+        {
+          "title": "Сдается авто в аренду в LA",
+          "description": "Сдается авто в аренду в LA\n\nОт 350$ / неделя\nБольшой автопарк\nВыгодные условия\n\n📞 +1(424)6003587",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 350.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "b62b5b9c-e5f6-4307-9475-769774a0220a",
+      "slug": "business-6576999740-190936",
+      "services": [
+        {
+          "title": "Окрашивание",
+          "description": "Меня зовут Екатерина,\nЯ квалифицированный парикмахер - стилист \n\nБуду рада видеть вас на :\n▪️Женские и мужские стрижки \n▪️Детские стрижки \n▪️Наращивание волос \n▪️Окрашивания любой \nсложности :\n◾️Один тон \n◾️Тонирование \n◾️техника Air touch Balayage Shatush highlighting\n▪️Горячие и холодные уходы :\n◾️Botox \n◾️Keratin\n◾️Bixyplastia \n◾️cold Botox Honey 🍯 \n\n📲Телефон для записи и бесплатной консультации \n📍Glendale+1 6576999740",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 40.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "488d08e5-0120-421c-ac35-9271aadb0db8",
+      "slug": "anna-a-a-190937",
+      "services": [
+        {
+          "title": "Сюда не отвечайте, звоните сразу мне на телефон, я прекрасна",
+          "description": "девочки, кому нужна няня или посмотреть за пожилым человеком или прекрасный шеф. В районе санкла ментэ. Оранж каунти. Район тиджей макса звоните. Нина .порядочьна жэнщина70лет 4582457431\nСюда не отвечайте, звоните сразу мне на телефон, я прекрасная добрая женщина дам вам всю Любовь заботу. Уборка готовка все, что надо ищу дополнительный заработок..пику торты",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 31.0,
+          "price_max": 70.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "5bb8f2c9-307f-477a-b733-a4403e2588c5",
+      "slug": "mmgg-forms-190938",
+      "services": [
+        {
+          "title": "Помощь с подготовкой кейсa",
+          "description": "Помощь с подготовкой кейсa💾\n\nПомощь и подготовка документов и форм:\nНа основании ТАЛАНТОВ или опыта работы с соответствующим образованием \nEB1A, EB2(NIW), EB3, подготовка и сбор всех необходимых документов, заполнение всех форм, также помощь в заполнении и подготовкой : \n•I-589 заявление на убежище;\n•I-765 право на работу и SSN (категория С8, С11 и другие)\n•I-912 освобождение от пошлины;\n•Смена адреса проживания, смена суда;\n•I-485 заявление на Green Card;\n•I-130 заявление на воссоединение, I-864 спонсорство;\n•I-821 TPS;\n•I-134;\n•I-131 travel документ;\n•N-400 заявление на гражданство.\n\nТакже мы предоставляем услуги сертифитированного перевода для подачи в USCIS, суд, школы и DMV.\nПисать в лс или по телефону (415) 988 5434",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 589.0,
+          "price_max": 765.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8fdb755b-b8bb-4305-8246-0a089d35bcf8",
+      "slug": "fahim-190942",
+      "services": [
+        {
+          "title": "Therapeutic Martial Arts, мы туда ходим уже год, замечательн",
+          "description": "Therapeutic Martial Arts, мы туда ходим уже год, замечательный мастер\nМастер Fahim 949-228-3406 студия для детей с трех лет",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 228.0,
+          "price_max": 949.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8e27fb04-5a88-42ea-8c37-2b4fee6a2131",
+      "slug": "business-biz-180844",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "добрый день🤍 меня зовут София и я мастер маникюра, я приглашаю вас на маникюр🤍 \n\nЯ работаю на хороших материалах, поэтому за качество можно даже не переживать, мои гели не дают отслоек и сколов, так что, хорошая носка обеспечена😇\n\nВесь расходный материал одноразовый🤫\n                           *Маникюр*\n\nманикюр с покрытием (укрепление гелем и однотонное покрытие)-$70\n\nманикюр без покрытия (комби маникюр)-$50\n\n                            *Педикюр*\nпедикюр с покрытием (с обработкой стопы)-$80\n\nпедикюр без покрытия (с обработкой стопы)-$60 \n\n📍Newport\n\nпосмотреть мои работы можно в инстаграмм \n\nBeautytouch_by_sofi",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 50.0,
+          "price_max": 70.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "71859a69-33b7-4aa5-9d74-0dd477807c06",
+      "slug": "anna-lukina-180846",
+      "services": [
+        {
+          "title": "Окрашивание",
+          "description": "Привет! Я — Анна, женский парикмахер-колорист с калифорнийской лицензией, опыт более 9 лет.\nРаботаю с любыми типами волос и создаю идеальный цвет и уход 💫\n\n✨ Все виды окрашиваний — от блонда до сложных техник\n✨ Кератин, ботокс, уходы для восстановления и блеска\n\nПишете в личку для записи или консультации 💌",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "d4fec947-4f53-4aa6-a9f2-14e3c8a76754",
+      "slug": "lutsenko-yuliia-180853",
+      "services": [
+        {
+          "title": "Пилинг тела",
+          "description": "Я — косметолог, работаю в Costa Mesa.\n\nВ своей работе я делаю акцент на здоровье кожи, а не только на визуальный результат. Для меня важно не просто “сделать красиво”, а понять состояние кожи и подобрать уход, который действительно даст результат.\n\nМой подход:\n— индивидуальный подбор процедур под тип и состояние кожи\n— бережная работа с чувствительной и проблемной кожей\n— восстановление кожного барьера\n— работа с акне и постакне\n— постепенный, но стабильный результат без перегрузки кожи\n\nПроцедуры, которые я выполняю:\n— уходовые и глубокие очищающие процедуры\n— химические пилинги\n— массаж лица\n— работа с воспалениями и неровным тоном кожи\n— восстановительные процедуры для сияния и гладкости кожи\n\nЯ работаю на результат и комфорт клиента, поэтому всегда объясняю каждый этап и подбираю уход, который подходит именно вам.\n\nCosta Mesa\nЗапись в личные сообщения",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "ad3b1467-adc2-40ff-8ca8-95a0854f6b4f",
+      "slug": "chingis-180855",
+      "services": [
+        {
+          "title": "Дорогие мамы!",
+          "description": "Дорогие мамы!\nКак профессиональный тренер и хендимен, устанавливаю шведские стенки в детских комнатах.\n\nОтлично развивает силу, гибкость и координацию у детей и взрослых.\n\n$300 — цена под ключ: доставка, сборка и установка включены.\nOrange County + 10 миль.",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 300.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "c0079dd2-7605-4a89-a9fd-2091e8639ce6",
+      "slug": "anastasiya-zai-180857",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "МОДЕЛЬ В САЛОН 💅✨\n\nРаботаю стерильно, в условиях салона\nИщу модель на:\n\nМаникюр , комбинированный / аппаратный \n\n⏱ Время работы: 2-2.5  часа\n📍 Локация: Mission Viejo\n💲30 (расходники)\n \nОтработка скорости .\n\n💎 Горячее капсульное наращивание волос \n\n✨ Роскошная длина и объем за 2–4 часа\nГорячее капсульное наращивание — самый естественный и незаметный метод. Капсулы маленькие, комфортные и практически не ощущаются в носке.\n\nПочему выбирают меня:\n• Опыт работы более 6 лет\n• Итальянские микрокапсулы — аккуратно и незаметно\n• Натуральные премиум волосы (Lux / Premium) \n• Без вреда для ваших волос\n• Индивидуальный подбор длины, цвета и густоты\n• Комфортная и аккуратная работа\n\n💆‍♀️ Идеально для:\n• Тонких и редких волос\n• Удлинения и объема\n• Коррекции стрижки\n• Мгновенного WOW-результата\n\n📍 Orange County / Lake Forest",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 30.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "fc57911f-ebe5-4df5-bf71-cc360e42c4be",
+      "slug": "business-biz-180907",
+      "services": [
+        {
+          "title": "Ищу моделей для beauty-процедур в Orange County",
+          "description": "🌸 Ищу моделей для beauty-процедур в Orange County 🌸\n\nМеня зовут Маргарита. Я лицензированный esthetician / косметолог-эстетист с медицинским образованием. Сейчас начинаю развивать своё направление в сфере красоты в Америке и набираю моделей для портфолио, контента и отработки luxury beauty protocols ✨\n\nСейчас действует special model price — оплата только за рабочие материалы и косметику.\n\nНапример:\n✨ professional facial cleansing / glow facial — от $30–40 для моделей  \nОбычная стоимость такой процедуры может быть значительно выше.\n\nЧто входит:\n✔ определение типа кожи  \n✔ professional facial cleansing  \n✔ ultrasonic skin cleansing  \n✔ glow facial  \n✔ anti-age skin care protocols  \n✔ relaxing / sculpting facial massage  \n✔ masks & gentle peels  \n✔ weekend skin refresh  \n✔ уход для сияния кожи перед мероприятиями, фотосессиями и свиданиями ✨\n\nПроцедуры подбираются индивидуально по типу и состоянию кожи.\n\nМой подход — мягкий, эстетичный, luxury beauty care без агрессивных обещаний и без медицинских процедур.\n\n⏱ Процедура занимает примерно 1–1.5 часа  \n📍 Orange County: Irvine • Newport Beach • Costa Mesa • Huntington Beach • Tustin  \n📩 Для записи — DM",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 30.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "6ebdce64-b248-4541-981b-1a9a5c8e3e25",
+      "slug": "anastasiia-vasileva-180915",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "Стресс, тревожность и постоянное напряжение часто проявляются в теле:\nзажатые плечи, дискомфорт в спине и шее, усталость и проблемы со сном.\n\nЯ практикующий мастер массажа с 9-летним опытом.\nРаботаю с мышечным напряжением, восстановлением после нагрузки и общим состоянием организма.\n\nПровожу:\n• терапевтический массаж тела\n• коррекцию фигуры\n• техники для лица\n\nКаждый сеанс подбирается индивидуально — без шаблонов.\n\n📍 Приём в Huntington Beach\n🚗 Выезд по Los Angeles и Orange County\n🎁 Доступны подарочные сертификаты\n\nВесь апрель для новых клиентов действует специальное предложение:\nМинус $40 на общий массаж тела\n\n60 минут — $60 (вместо $100)\n90 минут — $100 (вместо $140)\n\nЗапись в личные сообщения.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 40.0,
+          "price_max": 60.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "b470411a-7648-4e39-909d-6160f51a6340",
+      "slug": "kseni-180915",
+      "services": [
+        {
+          "title": "Массаж",
+          "description": "📍 Сдаются кабинеты в лицензированном Medical Spa | Newport Beach\n\nВ новом, современном Medical Spa в Newport Beach сдаются в аренду уютные кабинеты площадью ~9 м².\n\nКлиника полностью лицензирована, с премиальной атмосферой и удобной локацией.\n\n⸻\n\n✨ Подойдут для специалистов:\n • Наращивание ресниц\n • Эстетическая косметология (уходовые процедуры)\n • Фейшиал / уход за кожей\n • Массаж (ручной и аппаратный)\n • Brow / lash services\n • Другие направления beauty-индустрии\n\n❗️Рассматриваются только услуги, не пересекающиеся с инъекционной и аппаратной медицинской косметологией\n\n⸻\n\n💎 Условия:\n • Кабинеты ~9 м²\n • Современный интерьер, чистое и стильное пространство\n • Работа в окружении Medical Spa (высокий поток платежеспособных клиентов)\n • Гибкие условия аренды\n • Возможность долгосрочного сотрудничества\n• свободный паркинг \nАрендная плата $1500\n\nДополнительно :\nЕсть комната отдыха для персонала, полноценная кухня, нахождение администратора клиники, зона ожидания клиентов \n\nДоступно с 20 мая \n\n⸻\n\n📍 Локация:\n\nNewport Beach, CA — престижный район с высоким трафиком и премиальной аудиторией\n\nФото по запросу",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 20.0,
+          "price_max": 1500.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "9a42f4f9-06d2-402d-89b0-e5ba3d50708d",
+      "slug": "business-biz-180917",
+      "services": [
+        {
+          "title": "У нас реально вкусно",
+          "description": "У нас реально вкусно 😋 \n450гр - 30$\n600 - 40$\n\nК Пасхе мы подготовили для вас подарочные сеты 🤍\n\nВ набор входит:\n• большой кулич (600 г)\n• 6 яиц, украшенных золотой бумагой\n• 100гр конфет Twix\nЦена набора - 60$\n\nИдеальный вариант для подарка или для уютного праздничного стола 🕊️\n\nКоличество сетов ограничено.\nЗаказы принимаем заранее в Telegram и Instagram.\n\nС любовью, Sunlit Pie ❤️",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 30.0,
+          "price_max": 450.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "11c6a1f5-3d54-4d1b-8a81-140a0a1fd162",
+      "slug": "business-biz-180923",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "Сдаётся оборудованное рабочее место для мастера маникюра/педикюра: удобное кресло и рабочий стол. В студии: чисто и уютно, есть всё необходимое для комфортной работы, дружелюбная атмосфера.",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "6ab9fbd9-14fa-43a4-a46a-144ec7b89a23",
+      "slug": "business-biz-180924",
+      "services": [
+        {
+          "title": "Відчуваєте, що емоційно стало важче, ніж раніше?",
+          "description": "Відчуваєте, що емоційно стало важче, ніж раніше?\nПостійна тривога, перевтома або відчуття, що «щось не так»?\n\nЯ можу допомогти \nз цим розібратися 🌱\n\nМене звати Катерина — практичний психолог, магістр клінічної психології.\nПрацюю дбайливо, структуровано.\n\nЗапити, з якими працюю:\n• тривожні та депресивні стани\n• панічні атаки, безсоння\n• емоційне виснаження та травматичний досвід\n• суїцидальні думки та самопошкоджуюча поведінка (без гострої кризи)\n• іпохондрія\n• патопсихологічне дослідження\n\nМетоди: КПТ, психоедукація, арт-терапія, МАК, SeeFar CBT\nДля дітей — ігрова, арт та казкотерапія + робота з батьками\n\n🎁 Перша сесія безкоштовна (45-50 хв)\n\n📍 600 грн / 60 хв\n📍 мови: Українська, російська\n\nДля більш детальної інформації пишіть у приватні повідомлення.",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 45.0,
+          "price_max": 50.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "4be46f26-9beb-4fff-ae77-8c633d1b966a",
+      "slug": "good-food-180931",
+      "services": [
+        {
+          "title": "Good Food offers a wide selection of delicious halal dumplin",
+          "description": "Good Food offers a wide selection of delicious halal dumplings. Customers can trust the excellent taste and quality of their products. A whole refrigerator of these delightful dumplings awaits you.\n\nУслуги: Halal dumplings, Halal pelmeni\n\n🐟 В Good Food — большой выбор вяленой и сушёной рыбы на любой вкус!\n\nТаранька, лещ, бычок, чехонь, корюшка, окунь, густера и другие любимые закуски уже на полках магазина.\n\nСвежие поставки, знакомые вкусы и отличный выбор для приятного вечера. Заходите в Good Food!💚\n\nКоличество отдельных позиций может быть ограничено.\n\n📍25565 Jeronimo Rd Unit 2, Mission Viejo",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "24f745e2-fad2-41c2-8ab5-3260b946c8e8",
+      "slug": "business-biz-180943",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "Привет! Меня зовут Марьяна ✨\nЯ помогаю с оформлением и продвижением Etsy-магазинов.\n\nСама уже несколько лет работаю с Etsy и знаю, как:\n• красиво оформить магазин\n• сделать продающие листинги\n• подобрать SEO для Etsy\n• настроить Etsy Ads\n• улучшить фотографии и описание товаров\n• увеличить просмотры и продажи\n\nТакже могу помочь:\n— с оформлением магазина с нуля\n— переводом и адаптацией листингов на английский\n— консультацией по продвижению Etsy\n\nРаботаю как с новичками, так и с уже действующими магазинами ✨\n\nЕсли интересно — напишите «+» в личные сообщения, и я расскажу подробнее 🤍",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "51b3083f-de09-4bca-83fe-5d4460595db2",
+      "slug": "business-biz-180953",
+      "services": [
+        {
+          "title": "Всем привет",
+          "description": "Всем привет 💛\n\nЕсли вы планируете проведение праздника в ближайшее время— буду рада помочь!\n\nЯ Оля, мама и основатель компании детских праздников This Is Bananas Events 🎈 (Лос-Анджелес).\n\nМы предлагаем:\n• Белые батуты (bounce house)\n• Воздушные гирлянды и декор\n• Детские столы и стульчики\n• Оформление праздников\n\nСейчас у нас действует весеннее предложение — батут + БЕСПЛАТНАЯ гирлянда из шаров от $195 🎉\n\nИдеально для красивого, но при этом простого и спокойного праздника без лишнего стресса.\n\nЕсли у вас уже есть дата — напишите в личные сообщения",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 195.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "6fc90ad6-d770-4009-8bce-33382d8f4a49",
+      "slug": "alena-181533-6d9d",
+      "services": [
+        {
+          "title": "Всем привет, сдам машину кия спортидж 2024 г. За 500$ в меся",
+          "description": "Всем привет, сдам машину кия спортидж 2024 г. За 500$ в месяц, машина гибридная, сдаю не дорого, так как одна дверь немного подмятая и её я буду делать со временем.\nЕсли кому то нужна срочно машина, то пожалуйста обращайтесь.",
+          "offer_kind": "service",
+          "price_mode": "fixed",
+          "price_amount": 500.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "7802379c-5080-4297-8ffa-479425710c94",
+      "slug": "fb-post-1-den-mataev-caviar-seafood-delivery",
+      "services": [
+        {
+          "title": "Доставка красной икры и копчёной рыбы по Orange County, Los ",
+          "description": "Доставка красной икры и копчёной рыбы по Orange County, Los Angeles, Valleys и другим районам Южной Калифорнии.\nПродукт напрямую от поставщика — бренд Silver Bay. Кошерная икра малосол с насыщенным вкусом; также кошерная копчёная рыба. Доставка к двери.\n\nКонтакт: Den Mataev\nТелефон: +1 (929) 340-5993\n\nПродукты и цены:\n• Икра Silver Bay, кошерная, малосол — $75 / 500 г\n• Лосось копчёный — $23 / 1 фунт\n• Форель копчёная — $15 / 0.5 фунта\n• Скумбрия копчёная — $15–18 за штуку\n\nКатегория: Food / Caviar & Smoked Fish Delivery\n\nДОСТАВКА ИКРЫ КО ДНЮ НЕЗАВИСИМОСТИ 4 ИЮЛЯ!!!\n\nБуду развозить икру по ЛА, валлам, ОС и другим районам в среду 24 июня в четверг 25 июня!\n\nПродукт высочайшего качества напрямую от поставщика — бренд Cooper River. Кошерная, с насыщенным вкусом, малосол. Одна из лучших фирм на рынке США уже много лет!\n\n💰 Цена:\n• 1 упаковка (500 г) — $75\n• При покупке 2 и более — по $70 за упаковку.\n\nТак же в ассортименте есть шикарная копченная рыба\n\nЛосось 1 Паунд - $21\nФорель 0.5 паунда $15\nСкумбрия по штучно $15-18 в зависимости от размера.\n\n🚗 Доставка прямо к вашей двери —\nНе нужно никуда ехать, тратить время и бензин. Всё для вашего удобства и комфорта.\n\n⭐ Сотни довольных клиентов и реальные отзывы.\n\nДорогие друзья! Порадуйте себя и своих близких за прекрасным столов в этот праздник!\n\nПишите в личные сообщения или по телефону 9293405993, количество ограничено 🔥",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 340.0,
+          "price_max": 929.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "a0537080-bd6a-47bc-bccc-14f942f8063d",
+      "slug": "batch2-rita-sarafutdinova",
+      "services": [
+        {
+          "title": "LegalShield Associate · Rita Sarafutdinova",
+          "description": "LegalShield Associate · Rita Sarafutdinova\nDriver Legal Protection & Legal Plans\nPhone: +1 (934) 444-5871\nWebsite: rita.legalshieldassociate.com/commercial-driver\nCoverage: all US states + Canada\n\nCommercial driver services:\n- Accident representation\n- License reinstatement\n- Moving violations\n- DOT violations\n- Non-moving violations\n- Overweight / Overlength violations\n- Logbook issues\n- Medical card issues\n- Equipment violations\n- Motor carrier authority issues\n- Insurance issues\n- Load spillage\n- CSA consultations\n\nPersonal legal services:\n- Divorce\n- Immigration\n- Employment disputes\n- Document review\n- Legal calls and letters\n- Emergency legal assistance 24/7\n\n---FB_ENTITY_RITA_SARAFUTDINOVA---\n{\n  \"entity\": \"Legal Services\",\n  \"name\": \"Rita Sarafutdinova\",\n  \"business\": \"LegalShield Associate\",\n  \"category\": \"Legal Services\",\n  \"subcategory\": \"Driver Legal Protection & Legal Plans\",\n  \"phone\": \"+1 (934) 444-5871\",\n  \"website\": \"https://rita.legalshieldassociate.com/commercial-driver\",\n  \"coverage\": [\n    \"All US states\",\n    \"Canada\"\n  ],\n  \"commercial_driver_services\": [\n    \"Accident representation\",\n    \"License reinstatement\",\n    \"Moving violations\",\n    \"DOT violations\",\n    \"Non-moving violations\",\n    \"Overweight / Overlength violations\",\n    \"Logbook issues\",\n    \"Medical card issues\",\n    \"Equipment violations\",\n    \"Motor carrier authority issues\",\n    \"Insurance issues\",\n    \"Load spillage\",\n    \"CSA consultations\"\n  ],\n  \"personal_legal_services\": [\n    \"Divorce\",\n    \"Immigration\",\n    \"Employment disputes\",\n    \"Document review\",\n    \"Legal calls and letters\",\n    \"Emergency legal assistance 24/7\"\n  ]\n}",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 444.0,
+          "price_max": 934.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "8bfbd08b-9c7f-4551-af90-a72c416f1c5d",
+      "slug": "micarebeauty-190930",
+      "services": [
+        {
+          "title": "Маникюр",
+          "description": "Всем привет! \nЯ лицензированный мастер ногтевого сервиса в Калифорнии \n\nПредоставляю услуги маникюра и педикюра в студии по адресу: \n📍  https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8?g_st=ic\nРаботаю в комбинированной и аппаратной технике.\nГарантия на покрытие.\nСтерилизация: автоклавирование.\n\nЦены:\n•Комплекс: маникюр с покрытием $70\n•Маникюр без покрытия $50\n•Комплекс: педикюр с покрытием $70\n•Педикюр без покрытия $60\n\nОнлайн - бронирование:\n📅 https://micarebeauty.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio\n\nInstagram:\n👉 https://www.instagram.com/mi_care_beauty?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr\n\n📞 :  +1 9497451105\n\nБезупречный маникюр в Ирвайне ✨\nИщете мастера, которому можно доверить здоровье своих рук? Меня зовут Мария, я лицензированный специалист с 3,5-летним опытом. Мой приоритет — чистота, качество и ваш комфорт.\nПочему выбирают Mi Care Beauty:\n• Техника: Комбинированный и аппаратный маникюр для идеального результата.\n• Безопасность: Стерилизация инструментов в автоклаве (медицинский стандарт).\n• Уверенность: Даю гарантию на покрытие.\nНаш прайс:\n💅 Маникюр: от $50 (комплекс с покрытием — $70)\n🦶 Педикюр: от $60 (комплекс с покрытием — $70)\n📍принимаю в уютной студии по адресу https://maps.app.goo.gl/VqbEt8oyRRTDzE9A7?g_st=ic\n🗓 Записаться онлайн: https://micarebeauty.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio\n📞 Связаться напрямую: +1 (949) 745-11-05\nInstagram:\n👉 https://www.instagram.com/mi_care_beauty?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr\n\n📞 : +1 9497451105",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 50.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "da28c35f-fea9-4e11-b695-730d335b7ce0",
+      "slug": "vorontsovaart-190935",
+      "services": [
+        {
+          "title": "Custom oil portraits and original paintings on canvas",
+          "description": "Custom oil portraits and original paintings on canvas.\n\nI create professional, hand-painted artwork from your photo or idea. A timeless piece for your home or a meaningful gift for someone special.\nHello RV Owners! We are Fantastica Music Healing Camp at Burning Man and are looking to rent 3–4 older RVs for 2026. We have 6+ years of RV experience at Burning Man, including operation, care, and cleaning. Responsible camp, respectful renters. Please contact us. Thank you!\n+1 (323) 202-3722",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 202.0,
+          "price_max": 323.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "f4afbf0b-73e2-40a8-a574-5561a0b43060",
+      "slug": "lana-janew-190946",
+      "services": [
+        {
+          "title": "Алёна Индюкова",
+          "description": "Алёна Индюкова\n\n(818) 457-8599\nЯ ей заказывала несколько раз. Моя семья очень довольна её произведениям: вкус и качество великолепны!🎂🍰🧁😊",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 457.0,
+          "price_max": 818.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "2e88368c-d3bc-4ab5-9664-7edaaf210372",
+      "slug": "andrei-tarzan-234040",
+      "services": [
+        {
+          "title": "Привет, друзья!",
+          "description": "Привет, друзья!\nЕсли вы собираетесь на Гавайи, на остров Оаху — буду рад помочь сделать ваш отдых лёгким, ярким и без лишних забот.\n\nЧто могу предложить:\n\n Скидки на жилье ! От 90$ сутки \n\n• Прокат машин и мопедов  на короткий и на долгий срок \n\n• Индивидуальные туры по красивым и малоизвестным местам острова\n\n* Уроки серфинга \n\n• Подскажу, где вкусно и недорого поесть\n\n• Помогу с любыми вопросами по отдыху\n\nЖиву на Оаху и отлично знаю остров. Буду рад помочь вам провести отпуск без хлопот и открыть настоящие Гавайи.\n\nInstagram: andrei_hawaii",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 90.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "797cca76-2731-4340-a13e-68aad2387784",
+      "slug": "dovbenko-truck-insurance-234041",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "# 🚚 Dovbenko Truck Insurance — надёжное страхование для тракеров и транспортных компаний\n# \n* Cargo\n* Liability\n* Physical Damage\n* Occupational Accident\n* Страховые программы для владельцев траков и автопарков\n\nСовременные страховые решения, профессиональный сервис и поддержка на каждом этапе сотрудничества.\n\n📞 312-621-6111 | 773-627-8892\n\n# 🚚 Страхование для транспортной индустрии с Dovbenko Agency!\n# \n\nМы предоставляем комплексные страховые решения для вашей защиты как на дороге, так и за её пределами:\n* Commercial General Liability\n* Primary Liability\n* Motor Truck Cargo\n* Physical Damage\n* Non-Trucking Liability\n* Occupational Accident\n\nДругие программы:\n\n- FLEET Program – Специальная программа для бизнеса с автопарком более 10 транспортных средств\n\n- Non-Fleet Program – разработана для малого бизнеса с 1-5 транспортными средствами\n\n- Test Drive Program – дает возможность контролировать сумму платежа на основе пробега, делая страхование более адаптивным для новых предприятий (0-1 год в бизнесе)\n\n📞 312-621-6111 | 773-627-8892\n\nНе откладывайте, свяжитесь с нами и получите персональную консультацию!",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 312.0,
+          "price_max": 621.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "718ff65f-f360-4d92-a8e2-5f86b8ddb1b1",
+      "slug": "satenik-adzhemian-234042",
+      "services": [
+        {
+          "title": "Лабораторные анализы, не выходя из дома",
+          "description": "🏠 Лабораторные анализы, не выходя из дома\nПрофессиональный выездной забор крови в Sherman Oaks и близлежащих районах.\n\n✔ Забор крови на дому\n✔ Быстрые результаты анализов\n✔ Принимаем большинство страховых планов\n✔ Возможна оплата наличными (Self-Pay)\n✔ ПЦР и широкий спектр лабораторных исследований\n\n📍 Sherman Oaks, CA\n\n📞 Звоните или пишите: 818-454-2222\n\nМы привезем лабораторию к вам домой или в офис!",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 454.0,
+          "price_max": 818.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "a73595f2-db01-4a2d-9491-5a3fd66cc048",
+      "slug": "business-biz-180842",
+      "services": [
+        {
+          "title": "КАК БЕСПЛАТНО ПОЛУЧАТЬ НОВЫХ КЛИЕНТОВ КАЖДЫЙ ДЕНЬ В ЛЮБОЙ НИ",
+          "description": "КАК БЕСПЛАТНО ПОЛУЧАТЬ НОВЫХ КЛИЕНТОВ КАЖДЫЙ ДЕНЬ В ЛЮБОЙ НИШЕ?\n\nВсем привет! Дарю подробный разбор новой системы продаж, которая собирается 1 раз и начинает сразу приносить клиентов \n\nЗабрать подробный разбор системы + схему сборки для 250 ниш можно по ссылке ниже 👇🏻👇🏻👇🏻\n\nhttps://sbsite.pro//b09895f_1?utm_source=telegram&utm_medium=peachvsl&utm_content=offer1",
+          "offer_kind": "service",
+          "price_mode": "range",
+          "price_amount": null,
+          "price_min": 250.0,
+          "price_max": 989.0,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "9b84a892-937d-439d-9ecc-732cf7992c62",
+      "slug": "realtor-valeriia-180843",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "🔥 Самые доступные 2-bedroom condo в Orange County\n💰 Цены от $449,000\n\n✔️ Хорошие школы\n✔️ HOA до $500/месяц\n✔️ Отличная альтернатива аренде\n\n📎 Все предложения по ссылке:\nhttps://portal.onehome.com/en-US/share/2640569F80131\n\nНадоело арендовать? Надоело платить чужую ипотеку?\nОбращайтесь ко мне — найду дом на ваш вкус и бюджет.\nПрофессионально сопровожу сделку от консультации с ипотечным специалистом до получения ключей 🔑\nСвою комиссию я запрашиваю у продавца ✅\n\n🏡 Open House! Цена снижена с $628,000 до $598,000. Продавец мотивирован!\n\n📍 29454 Falling Leaf, Lake Elsinore, CA\n\n🏡 4 спальни | 2 ванные | 1,771 Sq.Ft.\n🌿 Участок — 11,761 Sq.Ft.\n\n✨ Особенности дома:\n• Полностью выплаченные солнечные панели.\n• Просторная открытая планировка с большим количеством естественного света.\n• Современная кухня, объединенная с гостиной.\n• Большой участок с возможностью построить бассейн, разбить сад или создать собственную зону отдыха.\n• Панорамные виды на горы и окрестности Lake Elsinore.\n• Гараж на 2 автомобиля.\n• Дом построен в 2006 году.\n\n📅 Open House:\nСуббота, 25 июля\n🕛 12:00 PM – 3:00 PM\n\n📸 Больше фотографий и все детали по ссылке у меня в сторис\n\nValeriia Andriushchenko\nREALTOR®\nFathom Realty\nDRE #02248658\nBroker DRE #01901202",
+          "offer_kind": "service",
+          "price_mode": "from",
+          "price_amount": 449.0,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "ff2e4861-beef-442e-992a-5e0a69a5b6f9",
+      "slug": "helping-us-middle-and-high-school-180940",
+      "services": [
+        {
+          "title": "Math Tutor | 13+ Years of Experience",
+          "description": "🇺🇸 Math Tutor | 13+ Years of Experience\n\nHelping US middle and high school students (Grades 5–12) build confidence and excel in mathematics.\n\n📚 Subjects:\n\n• Pre-Algebra\n• Algebra I & II\n• Geometry\n• Honors Math\n• Precalculus\n• SAT Math\n• PSAT Math\n• ACT Math\n• School Placement Tests\n• Homework & Test Preparation\n\n✔️ Personalized one-on-one online lessons\n\n✔️ Focus on deep understanding rather than memorization\n\n✔️ Clear explanations that make complex concepts easier to understand\n\n✔️ Structured learning plans tailored to each student's goals\n\n✔️ Support for struggling students as well as advanced learners\n\nWhether your goal is improving grades, preparing for SAT/ACT, catching up in class, or getting ahead academically, lessons are designed to help you achieve measurable progress.\n\nLanguages: English 🇺🇸 | Russian 🇷🇺\n\n🌎 Online lessons worldwide\n\n📩 Message me for availability and details.",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "62eecf99-8f84-403e-a79a-a606a980ce99",
+      "slug": "high-school-180942",
+      "services": [
+        {
+          "title": "Math Tutor | 13+ years experience",
+          "description": "Math Tutor | 13+ years experience\n.\nWorking with US middle & high school students\n(Grades 5–12)\nFocus:\n• deep understanding, not memorizing\n• clear explanations\n• structured learning\n.\nLanguages: English / Russian\n📩 DM for details",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "9d68c0d0-35cc-4bf6-b82f-0dc8bb2ddc23",
+      "slug": "mybrows7-181514-0000",
+      "services": [
+        {
+          "title": "Брови",
+          "description": "✨ Не нравится старый татуаж бровей? Это можно исправить!\n\nЕсли цвет стал серым, красным, синим или форма больше не подходит вашему лицу — не спешите перекрывать старый пигмент новым.\n\nЛазерное удаление помогает постепенно осветлить старый татуаж, чтобы:\n✔️ подготовить кожу к новому качественному перманентному макияжу;\n✔️ избавиться от нежелательного оттенка;\n✔️ скорректировать неудачную форму;\n✔️ вернуть естественный вид бровям.\n\nПроцедура проводится аккуратно, с учетом особенностей вашей кожи и пигмента. Количество сеансов зависит от глубины, цвета и состава пигмента.\n\n📍Запишитесь на консультацию, и я оценю ваш случай, расскажу, сколько процедур может понадобиться, и составлю индивидуальный план удаления.\n\nКрасивые брови начинаются с правильной подготовки. 🤍",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    },
+    {
+      "id": "972dfca4-f431-46e0-a6d7-8b3033730fa3",
+      "slug": "olga-loginova-lifespringhomeopathycom-181518-5db4",
+      "services": [
+        {
+          "title": "Консультация",
+          "description": "Практикующий гомеопат. Работаю с детьми и взрослыми.\nВ практике с детьми чаще всего обращаются с вопросами:\n— частые простудные заболевания\n— аллергические реакции\n— трудности с обучением и концентрацией\n— поведенческие и эмоциональные особенности и др.\nТакже работаю со взрослыми: -головные боли\n— гормональный дисбаланс\n— хроническая усталость\n— тревожность, нарушения сна\n— общее ощущение, что «организм не справляется» и другие заболевания. \nГомеопатия — это системный и индивидуальный подход, при котором учитывается не только диагноз, а особенности реакции организма, эмоциональное состояние и общая картина здоровья.\nВ своей работе я опираюсь на классический принцип индивидуального подбора. Ко мне чаще приходят те, кто уже ищет более глубокий и бережный подход к своему здоровью или здоровью ребёнка.\n💬 На консультации я подробно разбираю симптомы, чтобы понять возможные причины, а не только работать с проявлениями.\n📍 Консультации проходят в офисе и онлайн.\nБолее полную информации о моей практике вы можете найти на сайте Lifespringhomeopathy.com \n📩  можете написать мне в личные сообщения, чтобы задать вопрос или обсудить вашу ситуацию",
+          "offer_kind": "service",
+          "price_mode": "contact",
+          "price_amount": null,
+          "price_min": null,
+          "price_max": null,
+          "currency": "USD",
+          "is_active": true
+        }
+      ]
+    }
+  ],
+  "apply_results": [
+    {
+      "keeper_id": "4e7b4138-03ef-415a-b23e-14991d8b98bb",
+      "services_created": 6,
+      "archived": 6
+    },
+    {
+      "keeper_id": "5d2de3d9-58b4-4f2f-9a58-a65da70ee736",
+      "services_created": 2,
+      "archived": 1
+    },
+    {
+      "keeper_id": "2f94a0b5-ca75-4551-a43a-b6733b363e6c",
+      "services_created": 1,
+      "archived": 1
+    },
+    {
+      "keeper_id": "926d878c-6305-4d72-8cff-81c2f0883aa3",
+      "services_created": 2,
+      "archived": 1
+    },
+    {
+      "keeper_id": "945c24a7-20d8-4aff-bc43-5d86c653a5d0",
+      "services_created": 2,
+      "archived": 1
+    },
+    {
+      "keeper_id": "d460d10d-ce86-4126-87fd-1ba6c6173830",
+      "services_created": 1,
+      "archived": 1
+    }
+  ]
+}

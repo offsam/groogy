@@ -1,0 +1,652 @@
+{
+  "generated_at": "2026-07-26T23:09:36.687911+00:00",
+  "mode": "apply",
+  "needy": 486,
+  "matched_import_item": 390,
+  "updated": 186,
+  "applied": 186,
+  "field_hits": {
+    "image_url": 108,
+    "telegram_url": 80,
+    "phone": 22,
+    "website": 15,
+    "instagram_url": 11,
+    "email": 2,
+    "description": 1
+  },
+  "image_stats": {
+    "from_preview": 32,
+    "from_fbcdn": 76,
+    "from_telegram": 0,
+    "from_website": 6,
+    "from_instagram": 0,
+    "rehost_fail": 1
+  },
+  "sample": [
+    {
+      "id": "01175285-2ed0-4780-bce4-dd58107422f2",
+      "slug": "vera-zhezherun-204839-82b3",
+      "name": "Vera Zhezherun",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "262d27ed-f023-4f27-8cc9-6622ca0a7820",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/01175285-2ed0-4780-bce4-dd58107422f2/e89d6670e2e4e487.webp"
+      }
+    },
+    {
+      "id": "021524c5-7253-4b6e-b656-45ef2e38b1ad",
+      "slug": "valter-eslon-205228-0ffb",
+      "name": "Valter Eslon",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "c72f3334-4a5a-4e5e-8623-0b8881d13f1b",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/021524c5-7253-4b6e-b656-45ef2e38b1ad/035b18b133454d07.webp"
+      }
+    },
+    {
+      "id": "045fce71-1b9e-40d4-8b3c-da96cc9d34eb",
+      "slug": "andrey-ka-204830-8347",
+      "name": "Andrey Ka",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "3b3b14c8-bf5c-4268-ae98-d0543a512b6d",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/045fce71-1b9e-40d4-8b3c-da96cc9d34eb/a867e8dc677846db.webp"
+      }
+    },
+    {
+      "id": "05d932bf-e42d-4adb-a992-bbcd86d487f9",
+      "slug": "alina-205601-d7e9",
+      "name": "Alina",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "b3ef4f86-9bbf-4dbf-89cf-4b9f9b4b1c8c",
+      "patch": {
+        "telegram_url": "https://t.me/alinohka2021"
+      }
+    },
+    {
+      "id": "06176c3c-9cc8-48f3-8d5f-dbe649d40eaf",
+      "slug": "russ-russell-205215-bbbb",
+      "name": "Russ Russell",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "067fd985-e11c-4e77-8dce-07eb76867ed8",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/06176c3c-9cc8-48f3-8d5f-dbe649d40eaf/4293a7ee764c7641.webp"
+      }
+    },
+    {
+      "id": "09fc39f7-fee1-4c35-81b3-9b1ffcda1e4d",
+      "slug": "larisa-grib-205459-d906",
+      "name": "Larisa Grib",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "41ed548d-db82-4e34-959b-5ef17600566f",
+      "patch": {
+        "telegram_url": "https://t.me/la_aromaworld",
+        "phone": "+16507992310"
+      }
+    },
+    {
+      "id": "0d016684-5f9d-4d00-81ce-4639f2e5ef60",
+      "slug": "serena-205617-1553",
+      "name": "Serena",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "fb1cbc15-227c-4c80-b2e5-60200034b52a",
+      "patch": {
+        "telegram_url": "https://t.me/SER_EN_A"
+      }
+    },
+    {
+      "id": "0d1a18a3-4b72-4aae-a063-ec87d5a2cb74",
+      "slug": "business-biz-205413-094d",
+      "name": "Гора Ведьма",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "25d1e130-1f89-4b91-a204-2af7cd2c593b",
+      "patch": {
+        "telegram_url": "https://t.me/Gora_Vedma"
+      }
+    },
+    {
+      "id": "0e68617a-0620-4b6d-b679-88c2da4c9431",
+      "slug": "maria-komissarova-204850-2eaf",
+      "name": "Maria Komissarova",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "c8c049da-8f6c-4a23-ad27-5e5d036cc390",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/0e68617a-0620-4b6d-b679-88c2da4c9431/2658a010789514ce.webp"
+      }
+    },
+    {
+      "id": "0f6456d2-eaaa-40ba-8381-808b58427e16",
+      "slug": "business-biz-205652-76db",
+      "name": "Алла",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "4cfa455a-8154-460c-b729-9013dc68ace2",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/4cfa455a-8154-460c-b729-9013dc68ace2/449c4e5287c67945.webp"
+      }
+    },
+    {
+      "id": "0fad5766-97f0-4844-b32c-921904557b37",
+      "slug": "fbpack-karina-lazareva-house-cleaning",
+      "name": "Karina Lazareva — House Cleaning",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": null,
+      "patch": {
+        "instagram_url": "https://www.instagram.com/houseofthe_sun_"
+      }
+    },
+    {
+      "id": "10bad016-a69f-4614-82c2-b41d7879ed82",
+      "slug": "ivan-zhizhnevskii-205000-77d0",
+      "name": "Ivan Zhizhnevskii",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "3b98377b-7555-4dc8-8ba5-53b311d0a135",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/10bad016-a69f-4614-82c2-b41d7879ed82/d666b7533a967f97.webp",
+        "instagram_url": "https://www.instagram.com/yana_ivaa_"
+      }
+    },
+    {
+      "id": "1114fe23-6cfd-4d85-a31c-1eafa68929e1",
+      "slug": "business-biz-205420-32a9",
+      "name": "Кристина",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "7b51af8f-5e24-4179-a377-408869dff809",
+      "patch": {
+        "telegram_url": "https://t.me/kbergerusa"
+      }
+    },
+    {
+      "id": "1162257f-6070-4d35-b2f1-28057910ae04",
+      "slug": "polina-ste-205019-bdb4",
+      "name": "Polina Ste",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "fa87f9fb-f9a0-4dc2-a3dd-9991167d41fc",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/1162257f-6070-4d35-b2f1-28057910ae04/b8e06bc300c7ebf0.webp"
+      }
+    },
+    {
+      "id": "170e5a4a-634e-4ec4-9811-1c04a55fc09e",
+      "slug": "business-biz-205751-24ed",
+      "name": "Алла",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "73e374fe-d0de-4927-a3a0-42283ecabe47",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/73e374fe-d0de-4927-a3a0-42283ecabe47/449c4e5287c67945.webp"
+      }
+    },
+    {
+      "id": "1ab10197-233f-4d01-a3b5-5e7c968c5261",
+      "slug": "elena-nikiforova-204959-c7ed",
+      "name": "Elena Nikiforova",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "9edda8d0-3252-447d-ad8e-bc46ec19de76",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/1ab10197-233f-4d01-a3b5-5e7c968c5261/bb34c97d682ca9f6.webp"
+      }
+    },
+    {
+      "id": "1d8f5df2-5bb7-4990-bd95-a31dcc4e915d",
+      "slug": "anastasiya-breslavska-205430-8625",
+      "name": "Anastasiya Breslavska",
+      "sources": [
+        "import_review",
+        "recommendations",
+        "website"
+      ],
+      "review_id": "cb4187aa-5d2b-4a69-9418-3295235775a6",
+      "patch": {
+        "telegram_url": "https://t.me/a_breslavskaya",
+        "website": "https://digitalcookie.girlscouts.org/scout/vasilisa910929",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/1d8f5df2-5bb7-4990-bd95-a31dcc4e915d/3d9bae32680cc39e.webp"
+      }
+    },
+    {
+      "id": "1faac057-0698-42ee-ab26-bac6e751e0ba",
+      "slug": "business-biz-205334-ec41",
+      "name": "Марк Макаров",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "7ca899b2-681f-48af-9529-92bdb1275b52",
+      "patch": {
+        "telegram_url": "https://t.me/immigrationform"
+      }
+    },
+    {
+      "id": "2284acc4-8d82-447e-b97a-78f439f20b3e",
+      "slug": "olga-osipova-205232-c5b4",
+      "name": "Olga Osipova",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "a6b6d817-bad4-4287-98bf-e5c99a0ee370",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2284acc4-8d82-447e-b97a-78f439f20b3e/56fb18eae06094a9.webp"
+      }
+    },
+    {
+      "id": "235c20b5-9b61-4001-bba4-87eca9ce857a",
+      "slug": "business-biz-205439-7de7",
+      "name": "Таисия Шаповалова",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "1c6b3f05-76d3-478e-8b65-c61ea24a12e7",
+      "patch": {
+        "telegram_url": "https://t.me/Capytaytay",
+        "phone": "+19499430838"
+      }
+    },
+    {
+      "id": "23fc512c-5c6a-411d-ab4d-19f47be1e10a",
+      "slug": "olena-king-205237-3b54",
+      "name": "Olena King",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "a602f742-091d-4a4e-981f-fa114bd527bd",
+      "patch": {
+        "telegram_url": "https://t.me/olena_k58",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/23fc512c-5c6a-411d-ab4d-19f47be1e10a/a3e9cea97bf706a1.webp",
+        "phone": "+17149170440",
+        "instagram_url": "https://www.instagram.com/avelorea.workshop",
+        "website": "https://avelorea.jewelry"
+      }
+    },
+    {
+      "id": "2760ad0e-9b0c-48fc-92ce-949ad75adba9",
+      "slug": "help-immigrants-204800-b942",
+      "name": "Помощь Иммигрантам • Help Immigrants",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "c08e4259-611c-43b1-a982-b9eccfebd176",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2760ad0e-9b0c-48fc-92ce-949ad75adba9/3d670fbcb6fb1618.webp"
+      }
+    },
+    {
+      "id": "27e5b399-b5c0-45da-aadc-b467e1179b99",
+      "slug": "iryna-ar-204957-b824",
+      "name": "Iryna Ar",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "7b000681-3f8a-4c2f-976c-913ac20302f4",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/27e5b399-b5c0-45da-aadc-b467e1179b99/5262e77fa4e7efe1.webp"
+      }
+    },
+    {
+      "id": "2a6f80bc-b4df-4a43-95e4-d44b04c26925",
+      "slug": "kate-205352-fef8",
+      "name": "Kate",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "5973a141-3a24-4068-9db9-2e04426b256d",
+      "patch": {
+        "telegram_url": "https://t.me/kate_ermolina",
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/5973a141-3a24-4068-9db9-2e04426b256d/37d9eb4efc72d592.webp"
+      }
+    },
+    {
+      "id": "2d3fd617-3f22-45e6-b746-5de9bc00acff",
+      "slug": "alexandra-zhura-205118-5caf",
+      "name": "Alexandra Zhura",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "009c086b-1dd5-4041-8a11-3175b219a7c9",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2d3fd617-3f22-45e6-b746-5de9bc00acff/d9d00b736b1c7ae6.webp"
+      }
+    },
+    {
+      "id": "2e88368c-d3bc-4ab5-9664-7edaaf210372",
+      "slug": "andrei-tarzan-234040",
+      "name": "Andrei Tarzan",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "aa82b1b8-10ae-42a8-842c-9dfcc00f7837",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2e88368c-d3bc-4ab5-9664-7edaaf210372/85a2361587ec5484.webp",
+        "website": "http://natarzanke.us"
+      }
+    },
+    {
+      "id": "2f3d50a5-d67e-431f-91ec-b4ac7f9f80fe",
+      "slug": "braidifornia-205140-b261",
+      "name": "Braidifornia",
+      "sources": [
+        "website"
+      ],
+      "review_id": "0c83d01c-d9d8-49af-9177-d82e1dd1f85c",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/2f3d50a5-d67e-431f-91ec-b4ac7f9f80fe/4580e8aca420aba9.webp"
+      }
+    },
+    {
+      "id": "2fe01c67-888a-4719-88ef-22bac7ebd0b3",
+      "slug": "business-biz-205438-a4f5",
+      "name": "Альбина",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "e7750492-7a11-49cc-b164-609942aedecf",
+      "patch": {
+        "telegram_url": "https://t.me/albinapsychologist"
+      }
+    },
+    {
+      "id": "31046edd-0210-4bd1-b9e3-0c63010f438d",
+      "slug": "viorika-205408-5246",
+      "name": "Viorika",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "64a9b272-a1e4-4c62-9024-df50a7295967",
+      "patch": {
+        "telegram_url": "https://t.me/Viorika123456"
+      }
+    },
+    {
+      "id": "31618667-b46d-4e6a-be79-a8e6a998c953",
+      "slug": "darya-205349-83d8",
+      "name": "Darya",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "85355126-cba5-40f7-a63e-ef6f67c5183e",
+      "patch": {
+        "telegram_url": "https://t.me/DaryaLakoza"
+      }
+    },
+    {
+      "id": "317724c2-c2ac-4c39-ba58-d39b4a58dc99",
+      "slug": "business-biz-205347-bdbc",
+      "name": "Виктория",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "2313dd08-7629-460f-b0e8-bab37af7e674",
+      "patch": {
+        "telegram_url": "https://t.me/nails_ukr_la99"
+      }
+    },
+    {
+      "id": "32186ac8-f9e6-488b-ab6e-20c028b34cd5",
+      "slug": "valeriia-205506-ad68",
+      "name": "Valeriia",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "fafad4f3-421e-4b96-9254-f00f405eb96a",
+      "patch": {
+        "telegram_url": "https://t.me/valvivi666"
+      }
+    },
+    {
+      "id": "341a295e-1659-4039-ab3c-83ed99029a55",
+      "slug": "sandrina-rudenko-205521-2a6d",
+      "name": "Sandrina Rudenko",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "5fd351c5-646f-415d-a9ab-6cb3b40881bd",
+      "patch": {
+        "telegram_url": "https://t.me/Sandra_kisss"
+      }
+    },
+    {
+      "id": "36e1ca84-e3dd-4226-8873-625c2be9d4db",
+      "slug": "business-biz-205337-54af",
+      "name": "Аня Таран",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "5575872c-fb22-401e-a1f5-dad41ee9c750",
+      "patch": {
+        "telegram_url": "https://t.me/taran_anna1"
+      }
+    },
+    {
+      "id": "36ffd9d9-83f2-4a8a-a2c3-945931ab1be8",
+      "slug": "fb-post-8-la-paving-construction-services",
+      "name": "La Paving - Construction Services",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": null,
+      "patch": {
+        "phone": "+16319722906"
+      }
+    },
+    {
+      "id": "39813339-8402-451a-8934-89718259d7da",
+      "slug": "business-9162016271-205017-a355",
+      "name": "Алёна Симагина",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "d914ea74-48da-47db-9edc-ca2744220022",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/39813339-8402-451a-8934-89718259d7da/2b5ab06a38735345.webp"
+      }
+    },
+    {
+      "id": "3b4be5f6-dcdd-470c-b42e-07f7098543de",
+      "slug": "alina-205522-ff07",
+      "name": "Alina ‍",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "04632878-6416-4fd1-a165-43cae717c85e",
+      "patch": {
+        "telegram_url": "https://t.me/adelin9999"
+      }
+    },
+    {
+      "id": "3b94799c-49a4-4c0a-9985-e50b78bd33c1",
+      "slug": "stanislav-kuznetsov-205626-7008",
+      "name": "Stanislav Kuznetsov",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "927036e6-88a9-4d60-8108-07af611183f3",
+      "patch": {
+        "telegram_url": "https://t.me/stankuz77",
+        "phone": "+19167011310"
+      }
+    },
+    {
+      "id": "3e485152-9de5-497c-8b79-54da0695a705",
+      "slug": "artur-moiseev-205026-f41e",
+      "name": "Artur Moiseev",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "e3aa89b0-815f-4653-8e9e-6f5daa9e5aab",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/3e485152-9de5-497c-8b79-54da0695a705/eb98e36e140f0a5e.webp"
+      }
+    },
+    {
+      "id": "3ed683c3-3b09-4870-ab01-f7c80a3aeb21",
+      "slug": "fb-post-6-arazu-alieva-english-teacher",
+      "name": "Arazu Alieva - English Teacher",
+      "sources": [
+        "recommendations"
+      ],
+      "review_id": null,
+      "patch": {
+        "phone": "+13234917757"
+      }
+    },
+    {
+      "id": "40c2c723-b304-45d4-96d5-33dbb10c0238",
+      "slug": "business-biz-205753-f515",
+      "name": "Тетяна",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "ad426b10-11b0-487c-a8e5-d43467344f60",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/ad426b10-11b0-487c-a8e5-d43467344f60/6e02a9fccfd361d8.webp"
+      }
+    },
+    {
+      "id": "4247c057-e72e-448a-be0c-da8ea24d887c",
+      "slug": "business-biz-205128-4506",
+      "name": "Кристина",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "60dbfe9e-f7af-4b2c-8f60-6515abadc897",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/60dbfe9e-f7af-4b2c-8f60-6515abadc897/2f9ae14ee8873adc.webp"
+      }
+    },
+    {
+      "id": "44ac3baa-c837-4aa8-9e21-7d0745fb5179",
+      "slug": "lena-205621-71f9",
+      "name": "Lena",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "37e69069-3614-405e-aaf5-e0a055f7a3d9",
+      "patch": {
+        "telegram_url": "https://t.me/lena_usa_russia"
+      }
+    },
+    {
+      "id": "45e40d30-f185-4bc0-b5a8-b1abc38dd281",
+      "slug": "liudmila-irvine-205551-3ed5",
+      "name": "Liudmila Irvine",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "37a0871a-249e-442c-98b8-94a7163bd766",
+      "patch": {
+        "telegram_url": "https://t.me/LiudmilaIrvine"
+      }
+    },
+    {
+      "id": "47a9aff1-0bde-44d6-9807-57e4a129f881",
+      "slug": "business-biz-205630-774b",
+      "name": "Марина",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "78dfa3d3-7510-49df-bcfc-16b534e608ce",
+      "patch": {
+        "telegram_url": "https://t.me/Marin04ka86"
+      }
+    },
+    {
+      "id": "4860050b-b35c-415d-a48b-94499092ee89",
+      "slug": "elena-205143-1f35",
+      "name": "Elena",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "0f8e1791-593a-46e3-9752-772fbf3a5797",
+      "patch": {
+        "telegram_url": "https://t.me/signalyrev"
+      }
+    },
+    {
+      "id": "49e03896-9087-4573-a938-33932d859847",
+      "slug": "business-biz-181539-36b0",
+      "name": "Алла",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "ef3459a3-ffd6-484c-b38b-4e9bb8036ab1",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/import-review/ef3459a3-ffd6-484c-b38b-4e9bb8036ab1/cd4605147d896821.webp"
+      }
+    },
+    {
+      "id": "4be46f26-9beb-4fff-ae77-8c633d1b966a",
+      "slug": "good-food-180931",
+      "name": "Good Food",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "d494b014-a713-46b5-8237-defb5ed97dc3",
+      "patch": {
+        "telegram_url": "https://t.me/Good_Food_Market",
+        "phone": "+19497759773",
+        "website": "https://goodfoodmarket.store"
+      }
+    },
+    {
+      "id": "4d5eca00-d0d4-4800-9890-0d6eac4689ec",
+      "slug": "serg-ko-205327-4ac8",
+      "name": "Serg Ko",
+      "sources": [
+        "import_review"
+      ],
+      "review_id": "4990a7ac-8d8b-4062-878e-b368b98a2827",
+      "patch": {
+        "image_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/professional/4d5eca00-d0d4-4800-9890-0d6eac4689ec/20b122f51ec37944.webp"
+      }
+    },
+    {
+      "id": "4ff40a99-303b-41b5-a384-8db2b5064aa1",
+      "slug": "konstantin-nutrition-205531-70ad",
+      "name": "Konstantin Nutrition",
+      "sources": [
+        "import_review",
+        "recommendations"
+      ],
+      "review_id": "8512e455-baed-4b27-bc37-7d674b07bf8c",
+      "patch": {
+        "telegram_url": "https://t.me/Hfdcvjohk",
+        "phone": "+19167011310"
+      }
+    }
+  ]
+}

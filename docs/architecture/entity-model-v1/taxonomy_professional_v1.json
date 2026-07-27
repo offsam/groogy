@@ -1,0 +1,514 @@
+{
+  "version": 1,
+  "name": "PLATFORM_TAXONOMY_V1",
+  "sources": [
+    "telegram",
+    "facebook_seed",
+    "published_business",
+    "import_review_items",
+    "PLATFORM_INFORMATION_ARCHITECTURE_V2",
+    "platform_taxonomy_v2.json"
+  ],
+  "rules": {
+    "max_depth": 3,
+    "one_primary_category_per_card": true,
+    "secondary_categories_max": 3,
+    "do_not_sum_telegram_and_import": true
+  },
+  "entity": "professional",
+  "max_depth": 3,
+  "primary_rule": "Private specialist / person brand. 0..1 Professional per account.",
+  "categories": [
+    {
+      "slug": "beauty",
+      "name_ru": "Красота",
+      "name_en": "Beauty",
+      "description": "Частные мастера красоты.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 509,
+        "facebook_seed": 4,
+        "published": 0,
+        "import_queue_mixed": 569,
+        "signal": 513
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": [
+        {
+          "slug": "nails",
+          "name_ru": "Ногти / брови / ресницы",
+          "name_en": "Nails / brows / lashes",
+          "description": "",
+          "parent": "beauty",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 151,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 151
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": "From TG text refine",
+          "children": []
+        },
+        {
+          "slug": "hair_makeup",
+          "name_ru": "Волосы / макияж",
+          "name_en": "Hair / makeup",
+          "description": "",
+          "parent": "beauty",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 205,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 205
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        },
+        {
+          "slug": "massage",
+          "name_ru": "Массаж",
+          "name_en": "Massage",
+          "description": "",
+          "parent": "beauty",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 35,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 35
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "slug": "education",
+      "name_ru": "Репетиторы и обучение",
+      "name_en": "Tutors & Teaching",
+      "description": "Частные преподаватели.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 388,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 442,
+        "signal": 389
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": [
+        {
+          "slug": "languages",
+          "name_ru": "Языки",
+          "name_en": "Languages",
+          "description": "",
+          "parent": "education",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 285,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 285
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        },
+        {
+          "slug": "stem_music",
+          "name_ru": "Школа / музыка / STEM",
+          "name_en": "STEM / music",
+          "description": "",
+          "parent": "education",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 14,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 14
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "slug": "legal",
+      "name_ru": "Юристы",
+      "name_en": "Legal",
+      "description": "Частные юристы / адвокаты.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 165,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 211,
+        "signal": 166
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": [
+        {
+          "slug": "immigration",
+          "name_ru": "Иммиграция",
+          "name_en": "Immigration",
+          "description": "",
+          "parent": "legal",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 70,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 70
+          },
+          "status": "active",
+          "keep_even_if_small": true,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        },
+        {
+          "slug": "general",
+          "name_ru": "Общая практика",
+          "name_en": "General practice",
+          "description": "",
+          "parent": "legal",
+          "level": "subcategory",
+          "counts": {
+            "telegram": 97,
+            "facebook_seed": 0,
+            "published": 0,
+            "import_queue_mixed": 0,
+            "signal": 97
+          },
+          "status": "active",
+          "keep_even_if_small": false,
+          "merge_into": null,
+          "notes": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "slug": "medical",
+      "name_ru": "Здоровье",
+      "name_en": "Health",
+      "description": "Частные специалисты здоровья (не клиника).",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 116,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 185,
+        "signal": 116
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "photography_video",
+      "name_ru": "Фото / видео",
+      "name_en": "Photo & Video",
+      "description": "Фотографы, видеографы.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 108,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 112,
+        "signal": 108
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "fitness",
+      "name_ru": "Тренеры",
+      "name_en": "Fitness coaches",
+      "description": "Персональные тренеры, йога-инструкторы.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 59,
+        "facebook_seed": 4,
+        "published": 0,
+        "import_queue_mixed": 91,
+        "signal": 63
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "finance",
+      "name_ru": "Бухгалтеры",
+      "name_en": "Accountants",
+      "description": "Частные бухгалтеры / налоговые консультанты.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 61,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 103,
+        "signal": 61
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "auto",
+      "name_ru": "Автомастера",
+      "name_en": "Auto specialists",
+      "description": "Частные механики / детейлеры.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 92,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 409,
+        "signal": 93
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "travel",
+      "name_ru": "Травел / визы",
+      "name_en": "Travel specialists",
+      "description": "Частные турагенты / визовая помощь.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 84,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 128,
+        "signal": 84
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "food",
+      "name_ru": "Домашняя еда / кейтеринг",
+      "name_en": "Homemade food",
+      "description": "Частные повара / домашняя выпечка.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 63,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 295,
+        "signal": 64
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "childcare",
+      "name_ru": "Няни",
+      "name_en": "Childcare",
+      "description": "Няни и сиделки как специалист.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 40,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 153,
+        "signal": 40
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "professional_services",
+      "name_ru": "Дизайн / SMM / IT",
+      "name_en": "Design / SMM / IT",
+      "description": "Дизайнеры, SMM, разработчики.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 165,
+        "facebook_seed": 1,
+        "published": 0,
+        "import_queue_mixed": 168,
+        "signal": 166
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "home_services",
+      "name_ru": "Дом и ремонт",
+      "name_en": "Home trades",
+      "description": "Сантехник, электрик, handyman как частник.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 14,
+        "facebook_seed": 3,
+        "published": 0,
+        "import_queue_mixed": 0,
+        "signal": 17
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": "Merge cleaning/home tiny TG into this.",
+      "children": []
+    },
+    {
+      "slug": "pets",
+      "name_ru": "Зооняни / груминг",
+      "name_en": "Pet specialists",
+      "description": "Частный pet care.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 7,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 33,
+        "signal": 7
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "insurance",
+      "name_ru": "Страховые агенты",
+      "name_en": "Insurance agents",
+      "description": "Частные агенты.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 14,
+        "facebook_seed": 0,
+        "published": 0,
+        "import_queue_mixed": 39,
+        "signal": 14
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    },
+    {
+      "slug": "real_estate",
+      "name_ru": "Риелторы",
+      "name_en": "Realtors",
+      "description": "Частные риелторы (не агентство).",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 2,
+        "facebook_seed": 2,
+        "published": 0,
+        "import_queue_mixed": 821,
+        "signal": 4
+      },
+      "status": "active",
+      "keep_even_if_small": true,
+      "merge_into": null,
+      "notes": "Import cat inflated by listings; keep as Pro category for agents.",
+      "children": []
+    },
+    {
+      "slug": "other",
+      "name_ru": "Прочее",
+      "name_en": "Other",
+      "description": "Неклассифицированные специалисты.",
+      "parent": null,
+      "level": "category",
+      "counts": {
+        "telegram": 387,
+        "facebook_seed": 5,
+        "published": 0,
+        "import_queue_mixed": 1237,
+        "signal": 392
+      },
+      "status": "active",
+      "keep_even_if_small": false,
+      "merge_into": null,
+      "notes": null,
+      "children": []
+    }
+  ],
+  "filters_not_categories": [
+    "languages",
+    "mobile_service",
+    "online_sessions",
+    "experience_years",
+    "service_radius",
+    "verified_credentials"
+  ]
+}

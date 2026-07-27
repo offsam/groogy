@@ -1,0 +1,78 @@
+{
+  "mode": "apply",
+  "fixes": [
+    {
+      "slug": "kate-brown-204947-c35d",
+      "name": "Kate Brown",
+      "src_hub": "san-francisco",
+      "was": {
+        "city": "Chula Vista",
+        "region": "San Diego County",
+        "postal_code": "91911",
+        "latitude": 32.59813,
+        "longitude": -117.0644301,
+        "coord_hub": "san-diego"
+      },
+      "patch": {
+        "region": "San Francisco County",
+        "state_code": "US-CA",
+        "city": "San Francisco",
+        "latitude": 37.7832032,
+        "longitude": -122.4612323,
+        "location_precision": "county",
+        "postal_code": "94118"
+      },
+      "geo_display": "3rd Avenue, Jordan Park, Inner Richmond, Richmond District, San Francisco, California, 94118, United States",
+      "source_url": "https://facebook.com/groups/russiansf/permalink/10163773423890783"
+    },
+    {
+      "slug": "dustov-dustmuhammad-205024-5014",
+      "name": "Dustov Dustmuhammad",
+      "src_hub": "sacramento",
+      "was": {
+        "city": "Buena Park",
+        "region": "Los Angeles County",
+        "postal_code": "90620",
+        "latitude": 33.8364111,
+        "longitude": -118.0035839,
+        "coord_hub": "orange-county"
+      },
+      "patch": {
+        "region": "Sacramento County",
+        "state_code": "US-CA",
+        "city": "Sacramento",
+        "latitude": 38.6600186,
+        "longitude": -121.3278806,
+        "location_precision": "street",
+        "postal_code": "95841"
+      },
+      "geo_display": "Nour's Cafe, 5800, Madison Avenue, Sacramento County, California, 95841, United States",
+      "source_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27247528024911573"
+    },
+    {
+      "slug": "movement-brewing-company-205317-684f",
+      "name": "Movement Brewing Company",
+      "src_hub": "sacramento",
+      "was": {
+        "city": null,
+        "region": "Orange County",
+        "postal_code": null,
+        "latitude": null,
+        "longitude": null,
+        "coord_hub": null
+      },
+      "patch": {
+        "region": "Sacramento County",
+        "state_code": "US-CA",
+        "city": "Rancho Cordova",
+        "latitude": 38.6021922,
+        "longitude": -121.2706039,
+        "location_precision": "street",
+        "postal_code": "95670"
+      },
+      "geo_display": "11151, Trade Center Drive, Soudan, Rancho Cordova, Sacramento County, California, 95670, United States",
+      "source_url": "https://facebook.com/groups/Russian.Sacramento/permalink/27506394979024875"
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,393 @@
+{
+  "stats": {
+    "total": 10,
+    "businesses": 8,
+    "listings": 2,
+    "already_has_image": 0,
+    "skipped": 0,
+    "by_source": {
+      "telegram_post": 6,
+      "website_og": 2,
+      "category_default": 2
+    },
+    "unavailable_signals": 6,
+    "duplicates": 0,
+    "estimated_upload_mb": 0.73,
+    "without_real_photo": 2,
+    "apply_status": {
+      "applied": 8,
+      "error:RuntimeError": 2
+    }
+  },
+  "results": [
+    {
+      "review_item_id": "74420d5e-b7b5-4465-b96f-bb6afbdfa46b",
+      "title": "Денис Шульга",
+      "entity_type": "business",
+      "entity_id": "fff003d8-27aa-491e-b437-7cdb0c191cc4",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "accounting",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70206
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "vistatax.us"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 69614,
+      "notes": [
+        "telegram_ok:691x634"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/fff003d8-27aa-491e-b437-7cdb0c191cc4/daa331b69d10907768a5f780544b12f25061cc3ad075b2e91e8552def67b80e1.webp",
+      "storage_path": "business/fff003d8-27aa-491e-b437-7cdb0c191cc4/daa331b69d10907768a5f780544b12f25061cc3ad075b2e91e8552def67b80e1.webp",
+      "sha256": "daa331b69d10907768a5f780544b12f25061cc3ad075b2e91e8552def67b80e1"
+    },
+    {
+      "review_item_id": "d38abb1d-6e51-47ea-afdf-8350536bb301",
+      "title": "Hyundai Tucson",
+      "entity_type": "listing",
+      "entity_id": "7f16314e-448c-4bfb-8053-4f6e2363bbf4",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "auto_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        276349,
+        276350,
+        276351,
+        276352,
+        276353,
+        276354,
+        276355,
+        276356,
+        276357
+      ],
+      "photos_count": 8,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 123898,
+      "notes": [
+        "telegram_ok:1280x1280"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/sign/listing-images/listings/56d4ff6a-6b1f-4509-b34b-6c45b3babd61/7f16314e-448c-4bfb-8053-4f6e2363bbf4/d4b833b9ed01b8323fa694d6cb2f6e2431d520e3223bbcab61e881a3840d4634.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85NWFhZTY5Yi1iNzBiLTQ0YmQtYmZmYi00MTQ2MmY5MWFhYjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsaXN0aW5nLWltYWdlcy9saXN0aW5ncy81NmQ0ZmY2YS02YjFmLTQ1MDktYjM0Yi02YzQ1YjNiYWJkNjEvN2YxNjMxNGUtNDQ4Yy00YmZiLTgwNTMtNGY2ZTIzNjNiYmY0L2Q0YjgzM2I5ZWQwMWI4MzIzZmE2OTRkNmNiMmY2ZTI0MzFkNTIwZTMyMjNiYmNhYjYxZTg4MWEzODQwZDQ2MzQud2VicCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODUwMDE3NjIsImV4cCI6MTc4NTAwNTM2Mn0.GbqRxqvBSyjuZmPbS10LBJoYHx1GPq3Rn0fEcPB75ss",
+      "storage_path": "listings/56d4ff6a-6b1f-4509-b34b-6c45b3babd61/7f16314e-448c-4bfb-8053-4f6e2363bbf4/d4b833b9ed01b8323fa694d6cb2f6e2431d520e3223bbcab61e881a3840d4634.webp",
+      "sha256": "d4b833b9ed01b8323fa694d6cb2f6e2431d520e3223bbcab61e881a3840d4634"
+    },
+    {
+      "review_item_id": "13362b9c-0bd3-4a48-9b20-ad45b3a451cd",
+      "title": "KatrinL",
+      "entity_type": "listing",
+      "entity_id": "3a7c6859-8c5d-4ea9-9404-398890146830",
+      "published_entity_type": "listing",
+      "source": "telegram:la_orange_county",
+      "category": "real_estate_services",
+      "chat_id": "-1001955320601",
+      "message_ids": [
+        274103
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 141758,
+      "notes": [
+        "telegram_ok:877x1280"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/sign/listing-images/listings/56d4ff6a-6b1f-4509-b34b-6c45b3babd61/3a7c6859-8c5d-4ea9-9404-398890146830/40d307e800babf4c1c93fc888b3e6112ff42236062bce965a5052e2e1dea1de4.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85NWFhZTY5Yi1iNzBiLTQ0YmQtYmZmYi00MTQ2MmY5MWFhYjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsaXN0aW5nLWltYWdlcy9saXN0aW5ncy81NmQ0ZmY2YS02YjFmLTQ1MDktYjM0Yi02YzQ1YjNiYWJkNjEvM2E3YzY4NTktOGM1ZC00ZWE5LTk0MDQtMzk4ODkwMTQ2ODMwLzQwZDMwN2U4MDBiYWJmNGMxYzkzZmM4ODhiM2U2MTEyZmY0MjIzNjA2MmJjZTk2NWE1MDUyZTJlMWRlYTFkZTQud2VicCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODUwMDE3NjUsImV4cCI6MTc4NTAwNTM2NX0.QLn-mGcZC7J6YEdSSWU7Lky3p-GI1rcRvphCnVqd3GY",
+      "storage_path": "listings/56d4ff6a-6b1f-4509-b34b-6c45b3babd61/3a7c6859-8c5d-4ea9-9404-398890146830/40d307e800babf4c1c93fc888b3e6112ff42236062bce965a5052e2e1dea1de4.webp",
+      "sha256": "40d307e800babf4c1c93fc888b3e6112ff42236062bce965a5052e2e1dea1de4"
+    },
+    {
+      "review_item_id": "932f47ec-d9ab-44c0-baaf-88afb25511df",
+      "title": "MA",
+      "entity_type": "business",
+      "entity_id": "852c6eb5-88fc-49f0-b9e0-41deb29ee338",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        74631
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://ocacting.com/acting-classes/acting-classes-for-kids/"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://ocacting.com/wp-content/uploads/2023/08/20230903083844logo.webp",
+      "estimated_bytes": 18522,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/852c6eb5-88fc-49f0-b9e0-41deb29ee338/161b38f51f5c4e8295a8736d6f57b2493e0aee2bb051864cd4a28bdd6e73164b.webp",
+      "storage_path": "business/852c6eb5-88fc-49f0-b9e0-41deb29ee338/161b38f51f5c4e8295a8736d6f57b2493e0aee2bb051864cd4a28bdd6e73164b.webp",
+      "sha256": "161b38f51f5c4e8295a8736d6f57b2493e0aee2bb051864cd4a28bdd6e73164b"
+    },
+    {
+      "review_item_id": "c05ab128-d501-4bd3-99b6-fed2fefed2ee",
+      "title": "bearchildrensacademy.org",
+      "entity_type": "business",
+      "entity_id": "675a0673-9227-4f84-adb0-70ef0ad392d6",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        72362
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.bearchildrensacademy.org/summer",
+        "https://www.bearchildrensacademy.org"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/education.svg",
+      "estimated_bytes": 8000,
+      "notes": [
+        "favicon_reject:bad_mime",
+        "HTTP 409 /media_assets: {\"code\":\"23505\",\"details\":\"Key (entity_type, entity_id)=(business, 675a0673-9227-4f84-adb0-70ef0ad392d6) already exists.\",\"hint\":null,\"message\":\"duplicate key value violates un"
+      ],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": "error:RuntimeError",
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "eda0374b-b2db-4664-9732-684726e7946f",
+      "title": "Evgeniya Slimface",
+      "entity_type": "business",
+      "entity_id": "cc6b0a7d-8083-4c6d-bc7c-6575d90f6dc1",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        70087
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "slimface_massage"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 86790,
+      "notes": [
+        "telegram_ok:960x1280"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/cc6b0a7d-8083-4c6d-bc7c-6575d90f6dc1/a16d5a999821d75411f9eb8e094aec26aa41238dad6a1f53f6b68d11a18ac191.webp",
+      "storage_path": "business/cc6b0a7d-8083-4c6d-bc7c-6575d90f6dc1/a16d5a999821d75411f9eb8e094aec26aa41238dad6a1f53f6b68d11a18ac191.webp",
+      "sha256": "a16d5a999821d75411f9eb8e094aec26aa41238dad6a1f53f6b68d11a18ac191"
+    },
+    {
+      "review_item_id": "a06df454-f259-4dc4-8304-e3a4774c568d",
+      "title": "Tатьяна",
+      "entity_type": "business",
+      "entity_id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "auto_services",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69353
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "mi_care_beauty"
+      ],
+      "websites": [
+        "https://maps.app.goo.gl/wHCGnYMucuGNNkk67?g_st=atm",
+        "https://maps.app.goo.gl/49fsmGgzTzy4uhan9?g_st=ic",
+        "https://maps.app.goo.gl/PuJVqEUcBkCpNV8w6?g_st=ic",
+        "https://maps.app.goo.gl/4zu7NA5HX4Xbfk6J7?g_st=ic",
+        "https://maps.app.goo.gl/g7ywpBc5VebK2ZyE6?g_st=ic",
+        "https://maps.app.goo.gl/wbgsBanQnucSgGT16?g_st=ic",
+        "https://maps.app.goo.gl/LLaHJYjg3j6gAXEQ7?g_st=ic",
+        "https://maps.app.goo.gl/QeuXGMbhrFhfv2xD9?g_st=ic",
+        "https://maps.app.goo.gl/4yZAf3QWu4EybHus6",
+        "https://maps.app.goo.gl/EB8wR9iddyK9a8pH8",
+        "https://maps.app.goo.gl/5Dvi8U5fe5hoxsMH6?g_st=it",
+        "https://maps.app.goo.gl/Gtt9NP99PKmW6P9k7?g_st=ic",
+        "https://ocpl.org/cards",
+        "https://maps.app.goo.gl/pNeSN7R7HDKLm4FN8?g_st=ac",
+        "https://maps.app.goo.gl/3KsLSjBqpUiJCaAu8?g_st=ic",
+        "https://micarebeauty.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+        "https://maps.app.goo.gl/2ohf2LGZHjWKc9Rc7?g_st=ic",
+        "https://maps.app.goo.gl/hK2aZ68GyAF4VNA27?g_st=ic",
+        "https://maps.app.goo.gl/1S7izRQ2m7yHwZDk9?g_st=ic",
+        "https://maps.app.goo.gl/wZz7NHd89Xtz5VzS9?g_st=ic",
+        "https://maps.app.goo.gl/G2jiwp8kKmD4zhYs8?g_st=ic",
+        "https://maps.app.goo.gl/cbgRCpi3hbsnP2xa6?g_st=ic",
+        "https://maps.app.goo.gl/67hGMFict4MwMzuR8?g_st=ic",
+        "https://maps.app.goo.gl/yGBS98YeuFpbZJ1c8?g_st=ic",
+        "https://maps.app.goo.gl/52Wh4qZFgu5EtWv96?g_st=ic",
+        "https://maps.app.goo.gl/zHoLWkmfgJUjHTMG9?g_st=ic",
+        "https://maps.app.goo.gl/CYWCQqgDR22Eq85D8",
+        "https://maps.app.goo.gl/eLjF2NuPW7LPiaLW7?g_st=ic",
+        "https://maps.app.goo.gl/nbhVdte1AGC1STjY6",
+        "https://chat.whatsapp.com/JqAxqNDZ9q0IFiB44Fj4Fy",
+        "https://maps.app.goo.gl/aPGYp2K2qYRXURo39?g_st=ic",
+        "https://maps.app.goo.gl/1DR1W7SLz1PWP6k96?g_st=iw",
+        "https://maps.app.goo.gl/xsc8sWCgLgsWcvdJ6?g_st=ic",
+        "https://maps.app.goo.gl/czTWDKaEGitUHGPy7?g_st=com.google.maps.preview.copy",
+        "https://maps.app.goo.gl/eh3jtj3oCQ3fNHDF7?g_st=ic",
+        "https://maps.app.goo.gl/6GrKPixbSZkaTWfj9?g_st=ic"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "category_default",
+      "chosen_url": "/images/categories/auto.svg",
+      "estimated_bytes": 8000,
+      "notes": [
+        "HTTP 409 /media_assets: {\"code\":\"23505\",\"details\":\"Key (entity_type, entity_id)=(business, d31aedbd-89bd-4261-8197-607dfc7f0a35) already exists.\",\"hint\":null,\"message\":\"duplicate key value violates un"
+      ],
+      "unavailable": [
+        "telegram:no_photos",
+        "instagram:http_403",
+        "website:maps.app.goo.gl:HTTPError"
+      ],
+      "duplicate": false,
+      "apply_status": "error:RuntimeError",
+      "public_url": null,
+      "storage_path": null,
+      "sha256": null
+    },
+    {
+      "review_item_id": "e44cf544-a29e-4acc-87c1-7844456522f4",
+      "title": "Vika Borel",
+      "entity_type": "business",
+      "entity_id": "de630029-e690-4b1b-94fc-b5fef1bae929",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "education",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        73871
+      ],
+      "photos_count": 1,
+      "instagram": [],
+      "websites": [
+        "https://www.metrotech.academy"
+      ],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "website_og",
+      "chosen_url": "https://metrotech.academy/preview.jpg",
+      "estimated_bytes": 12952,
+      "notes": [],
+      "unavailable": [
+        "telegram:no_photos"
+      ],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/de630029-e690-4b1b-94fc-b5fef1bae929/8d459d860873773734ca1f8c63db576f04385dce506ef0ed27146025c6ed6513.webp",
+      "storage_path": "business/de630029-e690-4b1b-94fc-b5fef1bae929/8d459d860873773734ca1f8c63db576f04385dce506ef0ed27146025c6ed6513.webp",
+      "sha256": "8d459d860873773734ca1f8c63db576f04385dce506ef0ed27146025c6ed6513"
+    },
+    {
+      "review_item_id": "4dc7bbea-2ebc-4e45-be73-46aec67b9c27",
+      "title": "Натали",
+      "entity_type": "business",
+      "entity_id": "8e8f4a5d-aada-4521-93ef-638ddb7990db",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "beauty",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69910
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "styliststates"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 195780,
+      "notes": [
+        "telegram_ok:1024x1280"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/8e8f4a5d-aada-4521-93ef-638ddb7990db/701c07397726b1da3fbb42139145db6603ad5ac5685443971a18718eea61d7dd.webp",
+      "storage_path": "business/8e8f4a5d-aada-4521-93ef-638ddb7990db/701c07397726b1da3fbb42139145db6603ad5ac5685443971a18718eea61d7dd.webp",
+      "sha256": "701c07397726b1da3fbb42139145db6603ad5ac5685443971a18718eea61d7dd"
+    },
+    {
+      "review_item_id": "d1743ed7-3d13-432b-aa7a-2b777dc7815f",
+      "title": "Мигель Фигероа",
+      "entity_type": "business",
+      "entity_id": "337ff738-d464-4749-863a-815d31671e90",
+      "published_entity_type": "business",
+      "source": "telegram",
+      "category": "insurance",
+      "chat_id": "-1001333533747",
+      "message_ids": [
+        69611
+      ],
+      "photos_count": 1,
+      "instagram": [
+        "mihel_insurance"
+      ],
+      "websites": [],
+      "already_has_image": false,
+      "skip_reason": null,
+      "chosen_source": "telegram_post",
+      "chosen_url": null,
+      "estimated_bytes": 104532,
+      "notes": [
+        "telegram_ok:1024x1280"
+      ],
+      "unavailable": [],
+      "duplicate": false,
+      "apply_status": "applied",
+      "public_url": "https://zmsbosigfmnmyavuhlyb.supabase.co/storage/v1/object/public/business-images/business/337ff738-d464-4749-863a-815d31671e90/40310f08ab352e46ff44b39990c8177be9f6b54ced5e5312ead7bee32bde29b5.webp",
+      "storage_path": "business/337ff738-d464-4749-863a-815d31671e90/40310f08ab352e46ff44b39990c8177be9f6b54ced5e5312ead7bee32bde29b5.webp",
+      "sha256": "40310f08ab352e46ff44b39990c8177be9f6b54ced5e5312ead7bee32bde29b5"
+    }
+  ]
+}

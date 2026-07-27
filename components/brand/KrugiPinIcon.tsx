@@ -7,6 +7,7 @@ import {
   Car,
   CircleHelp,
   Heart,
+  Home,
   LogOut,
   Megaphone,
   MessageCircle,
@@ -27,10 +28,12 @@ import { cn } from "@/lib/utils";
 /** Brand pin marks — hub set under the map + legacy sheet pins. */
 export const KRUGI_PIN_NAMES = [
   "businesses",
+  "professionals",
   "services",
   "reviews",
   "listings",
   "jobs",
+  "real_estate",
   "auto",
   "food",
   "lechu",
@@ -53,10 +56,12 @@ export type KrugiPinName = (typeof KRUGI_PIN_NAMES)[number];
 
 const PIN_ICONS: Record<KrugiPinName, LucideIcon> = {
   businesses: Building2,
+  professionals: UserRound,
   services: Wrench,
   reviews: Star,
   listings: ShoppingBag,
   jobs: BriefcaseBusiness,
+  real_estate: Home,
   auto: Car,
   food: UtensilsCrossed,
   lechu: Plane,
@@ -84,6 +89,10 @@ const PIN_STYLE: Record<
     disc: "bg-gradient-to-br from-sky-50 to-brand-blue/15 ring-1 ring-brand-blue/20",
     ink: "text-brand-blue-deep",
   },
+  professionals: {
+    disc: "bg-gradient-to-br from-emerald-50 to-brand-green/20 ring-1 ring-brand-green/25",
+    ink: "text-brand-green-deep",
+  },
   services: {
     disc: "bg-gradient-to-br from-emerald-50 to-brand-green/20 ring-1 ring-brand-green/25",
     ink: "text-brand-green-deep",
@@ -99,6 +108,10 @@ const PIN_STYLE: Record<
   jobs: {
     disc: "bg-gradient-to-br from-slate-50 to-slate-200/80 ring-1 ring-slate-300/60",
     ink: "text-slate-700",
+  },
+  real_estate: {
+    disc: "bg-gradient-to-br from-sky-50 to-brand-blue/10 ring-1 ring-brand-blue/20",
+    ink: "text-brand-blue-deep",
   },
   auto: {
     disc: "bg-gradient-to-br from-slate-50 to-slate-200/70 ring-1 ring-slate-300/50",

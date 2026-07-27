@@ -1,0 +1,33 @@
+---
+description: Do only what the user explicitly asks — no freelancing
+alwaysApply: true
+---
+
+# Strict scope — no self-initiative
+
+## Absolute rule
+
+Do **only** what the user explicitly asked for in the current message (and any clarification they give for that ask).
+
+Do **not**:
+- Add UI flourishes, restyles, badges, rings, counters, labels, or “nice extras” they did not request
+- Expand the task into related cleanup, refactors, renames, or “while we’re here” fixes
+- Start scripts, migrations, geocodes, or catalog changes unless they said to
+- Invent a next step and execute it — wait for their command
+- “Improve” design, copy, or architecture beyond the asked change
+
+## If unsure
+
+Ask one short clarifying question. Do not guess and ship.
+
+## Allowed without being asked
+
+- Read files / inspect code needed to answer or to implement **their** ask
+- Fix a compile/lint error **caused by the change they requested** (minimal fix only)
+- Report blockers briefly when their ask cannot be done as stated
+
+## Examples
+
+- User: “убери наклон карты” → remove tilt only. Do not restyle pins, add counters, or change markers.
+- User: “выложи адреса на карту” → show those addresses. Do not invent new pin chrome or side UI.
+- User vents or asks “что делать?” → answer in text. Do not start coding until they say what to run.

@@ -4,16 +4,24 @@ export type RegionHubId =
   | "orange-county"
   | "los-angeles"
   | "san-diego"
+  | "sacramento"
+  | "san-francisco"
+  | "seattle"
   | "new-york"
   | "oregon"
   | "default";
 
-/** Southern California launch hubs shown in the home region picker. */
-export const SOCAL_LAUNCH_HUB_IDS = [
+/** California hubs shown in the home / header region picker. */
+export const CALIFORNIA_LAUNCH_HUB_IDS = [
   "orange-county",
   "los-angeles",
   "san-diego",
+  "sacramento",
+  "san-francisco",
 ] as const satisfies readonly Exclude<RegionHubId, "default">[];
+
+/** @deprecated Use CALIFORNIA_LAUNCH_HUB_IDS */
+export const SOCAL_LAUNCH_HUB_IDS = CALIFORNIA_LAUNCH_HUB_IDS;
 
 /** Inclusive lat/lng box for home map pins (keep hubs from leaking into each other). */
 export type RegionMapBounds = {
@@ -172,7 +180,8 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
     mapZoom: 11,
     mapBounds: {
       north: 33.2,
-      south: 32.5,
+      // Stay north of the US–Mexico line (Tijuana starts ~32.53)
+      south: 32.54,
       west: -117.35,
       east: -116.85,
     },
@@ -195,6 +204,129 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
       "el cajon",
       "la mesa",
       "national city",
+    ],
+  },
+  sacramento: {
+    id: "sacramento",
+    inLabel: "Сакраменто",
+    shortLabel: "Sacramento",
+    countyGeoids: ["06067"], // Sacramento County
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Капитолий Сакраменто",
+    mapCenter: { lat: 38.5816, lng: -121.4944 },
+    mapZoom: 11,
+    mapBounds: {
+      north: 38.8,
+      south: 38.35,
+      west: -121.7,
+      east: -121.2,
+    },
+    exampleQueries: [
+      "русский магазин Sacramento",
+      "юрист Sacramento",
+      "стоматолог Roseville",
+    ],
+    cityAliases: [
+      "sacramento",
+      "сакраменто",
+      "roseville",
+      "elk grove",
+      "folsom",
+      "citrus heights",
+      "rancho cordova",
+      "carmichael",
+      "fair oaks",
+      "davis",
+      "west sacramento",
+      "natomas",
+    ],
+  },
+  "san-francisco": {
+    id: "san-francisco",
+    inLabel: "Сан-Франциско",
+    shortLabel: "San Francisco",
+    // SF city/county + close Bay cities often tagged as SF in listings
+    countyGeoids: [
+      "06075", // San Francisco
+      "06081", // San Mateo
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Мост Золотые Ворота, Сан-Франциско",
+    mapCenter: { lat: 37.7749, lng: -122.4194 },
+    mapZoom: 11,
+    mapBounds: {
+      north: 37.95,
+      south: 37.45,
+      west: -122.55,
+      east: -122.15,
+    },
+    exampleQueries: [
+      "русский ресторан SF",
+      "маникюр San Francisco",
+      "адвокат Bay Area",
+    ],
+    cityAliases: [
+      "san francisco",
+      "сан-франциско",
+      "sf",
+      "bay area",
+      "dali city",
+      "daly city",
+      "south san francisco",
+      "pacifica",
+      "san mateo",
+      "burlingame",
+      "millbrae",
+      "brisbane",
+    ],
+  },
+  seattle: {
+    id: "seattle",
+    inLabel: "Сиэтле",
+    shortLabel: "Seattle",
+    // King + nearby Snohomish / Pierce for Eastside / Tacoma spillover
+    countyGeoids: [
+      "53033", // King
+      "53061", // Snohomish
+      "53053", // Pierce
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1502175353174-a7a70e73b362?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Сиэтл и Space Needle",
+    mapCenter: { lat: 47.6062, lng: -122.3321 },
+    mapZoom: 11,
+    mapBounds: {
+      north: 47.85,
+      south: 47.35,
+      west: -122.55,
+      east: -121.95,
+    },
+    exampleQueries: [
+      "русский магазин Seattle",
+      "стоматолог Bellevue",
+      "риэлтор Redmond",
+    ],
+    cityAliases: [
+      "seattle",
+      "сиэтл",
+      "сиэттл",
+      "bellevue",
+      "redmond",
+      "kirkland",
+      "lynnwood",
+      "everett",
+      "tacoma",
+      "renton",
+      "kent",
+      "federal way",
+      "bothell",
+      "shoreline",
+      "issaquah",
+      "sammamish",
+      "mountlake terrace",
+      "washington",
     ],
   },
   "new-york": {
@@ -260,9 +392,9 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
 /** Default when ZIP/geo unknown — SoCal launch market. */
 export const DEFAULT_REGION_HUB: RegionHub = REGION_HUBS["orange-county"];
 
-/** Ordered list for the home «Изменить» region picker (SoCal first). */
+/** Ordered list for the home «Изменить» region picker (California launch markets). */
 export function getSelectableRegionHubs(): RegionHub[] {
-  return SOCAL_LAUNCH_HUB_IDS.map((id) => REGION_HUBS[id]);
+  return CALIFORNIA_LAUNCH_HUB_IDS.map((id) => REGION_HUBS[id]);
 }
 
 const COUNTY_TO_HUB = new Map<string, RegionHub>();
@@ -321,6 +453,47 @@ export function locationTextMatchesHub(
   return tokens.some((token) => token && loc.includes(token));
 }
 
+/**
+ * Hub match for a catalog row.
+ * Coordinates win. If `city` clearly belongs to a launch hub, only that hub
+ * matches — a wrong default `region` like «Orange County» on a Sacramento
+ * business must not pull it into OC search.
+ */
+export function locationFieldsMatchHub(
+  fields: {
+    city?: string | null;
+    region?: string | null;
+    text?: string | null;
+    latitude?: number | null;
+    longitude?: number | null;
+  },
+  hub: RegionHub,
+): boolean {
+  const lat = fields.latitude;
+  const lng = fields.longitude;
+  if (
+    typeof lat === "number" &&
+    Number.isFinite(lat) &&
+    typeof lng === "number" &&
+    Number.isFinite(lng)
+  ) {
+    return isLatLngInHubBounds(lat, lng, hub);
+  }
+
+  const city = (fields.city ?? "").trim();
+  if (city) {
+    const byCity = getSelectableRegionHubs().filter((h) =>
+      locationTextMatchesHub(city, h),
+    );
+    if (byCity.length > 0) {
+      return byCity.some((h) => h.id === hub.id);
+    }
+  }
+
+  const loc = `${city} ${fields.region ?? ""} ${fields.text ?? ""}`;
+  return locationTextMatchesHub(loc, hub);
+}
+
 export function isLatLngInAnyHub(
   lat: number,
   lng: number,
@@ -373,7 +546,40 @@ export function formatHubsShortLabel(hubs: readonly RegionHub[]): string {
   return `${hubs[0].shortLabel} +${hubs.length - 1}`;
 }
 
-/** Union map view — wider bounds / lower zoom when several hubs are selected. */
+/**
+ * Web-Mercator zoom for `bounds` in a map face of `size` px.
+ * Home face is ~2× page width — fixed low zooms undershoot and show Baja.
+ * `contain` = entire bounds visible (may show outside); `cover` = bounds fill the frame (may crop).
+ */
+export function zoomToFitBounds(
+  bounds: RegionMapBounds,
+  size: { width: number; height: number },
+  options?: { paddingRatio?: number; fit?: "contain" | "cover" },
+): number {
+  const paddingRatio = options?.paddingRatio ?? 0.1;
+  const fit = options?.fit ?? "contain";
+  const width = Math.max(1, size.width * (1 - paddingRatio * 2));
+  const height = Math.max(1, size.height * (1 - paddingRatio * 2));
+
+  const mercatorY = (lat: number) => {
+    const sin = Math.sin((lat * Math.PI) / 180);
+    const clamped = Math.min(0.9999, Math.max(-0.9999, sin));
+    return 0.5 - Math.log((1 + clamped) / (1 - clamped)) / (4 * Math.PI);
+  };
+
+  const xSpan = Math.max(1e-9, (bounds.east - bounds.west) / 360);
+  const ySpan = Math.max(
+    1e-9,
+    Math.abs(mercatorY(bounds.north) - mercatorY(bounds.south)),
+  );
+  const zoomX = Math.log2(width / (256 * xSpan));
+  const zoomY = Math.log2(height / (256 * ySpan));
+  const zoom = fit === "cover" ? Math.max(zoomX, zoomY) : Math.min(zoomX, zoomY);
+  if (!Number.isFinite(zoom)) return 10;
+  return Math.min(12, Math.max(7.5, zoom));
+}
+
+/** Union map view — tighter bounds; zoom refined with viewport via zoomToFitBounds. */
 export function mergeHubsForMap(hubs: readonly RegionHub[]): RegionHub {
   const list = hubs.length > 0 ? [...hubs] : [DEFAULT_REGION_HUB];
   if (list.length === 1) return list[0];
@@ -384,12 +590,12 @@ export function mergeHubsForMap(hubs: readonly RegionHub[]): RegionHub {
     east: Math.max(...list.map((h) => h.mapBounds.east)),
     west: Math.min(...list.map((h) => h.mapBounds.west)),
   };
-  // Pad so coast / edges aren't clipped under the 3D trapezoid + fades
-  const padLat = (raw.north - raw.south) * 0.08;
-  const padLng = (raw.east - raw.west) * 0.08;
+  // Light pad on north/coast only — never push south into Mexico
+  const padLat = Math.min(0.05, (raw.north - raw.south) * 0.03);
+  const padLng = Math.min(0.06, (raw.east - raw.west) * 0.04);
   const bounds: RegionMapBounds = {
     north: raw.north + padLat,
-    south: raw.south - padLat,
+    south: raw.south,
     east: raw.east + padLng,
     west: raw.west - padLng,
   };
@@ -397,15 +603,12 @@ export function mergeHubsForMap(hubs: readonly RegionHub[]): RegionHub {
     lat: (bounds.north + bounds.south) / 2,
     lng: (bounds.west + bounds.east) / 2,
   };
-  const latSpan = bounds.north - bounds.south;
-  const lngSpan = bounds.east - bounds.west;
-  const span = Math.max(latSpan, lngSpan);
-  // Zoom must stay below 9 for multi-hub — canvas/pins used to clamp to 9 and cropped SoCal
-  let mapZoom = 9.25;
-  if (span > 2.4 || list.length >= 3) mapZoom = 7.6;
-  else if (span > 1.7) mapZoom = 8.1;
-  else if (span > 1.15) mapZoom = 8.6;
-  else if (span > 0.75) mapZoom = 9;
+  // Fallback before face measure — cover page-sized frame so Baja stays out
+  const mapZoom = zoomToFitBounds(
+    bounds,
+    { width: 1200, height: 920 },
+    { paddingRatio: 0.06, fit: "cover" },
+  );
 
   return {
     ...list[0],

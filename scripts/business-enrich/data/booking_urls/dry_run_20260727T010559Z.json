@@ -1,0 +1,251 @@
+{
+  "generated_at": "2026-07-27T01:05:11.700433+00:00",
+  "mode": "dry_run",
+  "scanned": 35,
+  "found": [
+    {
+      "id": "050ffffb-427e-40d3-92b5-208db5c22314",
+      "slug": "business-6505204379-204803-4bf1",
+      "name": "Анастасия Войцехова",
+      "website": "https://lc-nail-salon.square.site",
+      "booking_url": "https://book.squareup.com/appointments/x8aj05arbumd2h",
+      "link_text": "(squareup appointments)",
+      "score": 145,
+      "reason": "square_book",
+      "had_existing": "https://lc-nail-salon.square.site/"
+    },
+    {
+      "id": "0e911e58-eb99-4bcb-8301-59d37f38c650",
+      "slug": "klou-nail-studio",
+      "name": "Klou Nail Studio",
+      "website": "https://klounailstudio.com/",
+      "booking_url": "https://booking.mangomint.com/klou",
+      "link_text": "Book now",
+      "score": 150,
+      "reason": "link_match",
+      "had_existing": "https://booking.mangomint.com/klou"
+    },
+    {
+      "id": "1d23a81e-5c8b-4f2c-83c7-a1e63a58060d",
+      "slug": "ida-seidova-150707",
+      "name": "Skinovation Clinic",
+      "website": "https://www.skinovationclinic.com",
+      "booking_url": "https://www.skinovationclinic.com/booking-form",
+      "link_text": "Booking Form",
+      "score": 120,
+      "reason": "wix_book_page",
+      "had_existing": null
+    },
+    {
+      "id": "2c49e794-878c-4860-a9fd-1b92f3de5891",
+      "slug": "grand-auto-group",
+      "name": "Grand Auto Group",
+      "website": "https://grandautogroupoc.com",
+      "booking_url": "https://grandautogroupoc.com/#booking",
+      "link_text": "Tekmetric Book Now",
+      "score": 100,
+      "reason": "tekmetric_anchor",
+      "had_existing": "https://grandautogroupoc.com/"
+    },
+    {
+      "id": "507ac692-aeef-43dc-bed2-36939f04998a",
+      "slug": "batch2-neo-aesthetics-medical-international-academy",
+      "name": "Neo Aesthetics & Medical International Academy",
+      "website": "https://neobeautyschool.com",
+      "booking_url": "https://neobeautyschool.com/schedule-an-appointment/",
+      "link_text": "Schedule an Appointment",
+      "score": 110,
+      "reason": "link_match",
+      "had_existing": "https://neobeautyschool.com/schedule-an-appointment/"
+    },
+    {
+      "id": "5ec2d71c-7dc3-413e-a7bb-95dc3ea35aff",
+      "slug": "chef-ramaz-kitchen",
+      "name": "Chef Ramaz Kitchen",
+      "website": "https://moonhalal.square.site/",
+      "booking_url": "https://moonhalal.square.site/",
+      "link_text": "(square.site home)",
+      "score": 70,
+      "reason": "square_site_home",
+      "had_existing": "https://moonhalal.square.site/"
+    },
+    {
+      "id": "84199fd9-4e20-4d26-ac47-90dc1a90e078",
+      "slug": "irin-pilates-031833",
+      "name": "Upgrade Pilates & Bodytherapy",
+      "website": "https://upgradepilates.com",
+      "booking_url": "https://www.vagaro.com/upgradepilates",
+      "link_text": "(provider url)",
+      "score": 140,
+      "reason": "provider_url",
+      "had_existing": null
+    },
+    {
+      "id": "cf10bd96-135f-44c8-aae5-4428b3d53054",
+      "slug": "lunelle-nail-salon",
+      "name": "Lunelle Nail Salon",
+      "website": "https://www.lunellenail.com",
+      "booking_url": "https://book.squareup.com/appointments/11f06cfbc49a65b3b0923cecef6dbaf0",
+      "link_text": "(squareAppointment locationId)",
+      "score": 130,
+      "reason": "square_location",
+      "had_existing": null
+    },
+    {
+      "id": "d31aedbd-89bd-4261-8197-607dfc7f0a35",
+      "slug": "tатьяна-032105",
+      "name": "Ultima Studio",
+      "website": "https://ultimastudio.co",
+      "booking_url": "https://getsquire.com/booking/book/ultima-studio-costa-mesa",
+      "link_text": "Book now",
+      "score": 150,
+      "reason": "link_match",
+      "had_existing": "https://getsquire.com/booking/book/ultima-studio-costa-mesa"
+    },
+    {
+      "id": "ee3aacb9-9458-4e00-94ac-bf4582365684",
+      "slug": "oksana-150709",
+      "name": "STAIR Academy",
+      "website": "https://www.stairedu.com",
+      "booking_url": "https://www.stairedu.com/booking-calendar",
+      "link_text": "Booking Calendar",
+      "score": 120,
+      "reason": "wix_book_page",
+      "had_existing": "https://www.stairedu.com/book-online"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "batch2-5-star-appliance-repair",
+      "name": "5 Star Appliance Repair",
+      "website": "https://5starappliancerepair.pro"
+    },
+    {
+      "slug": "consolidated-stephen-law-pc",
+      "name": "Stephen Law PC",
+      "website": "https://StephenLawPC.com"
+    },
+    {
+      "slug": "consolidated-ltd-services-llc",
+      "name": "LTD Tax & Accounting",
+      "website": "https://www.ltdtaxaccounting.com"
+    },
+    {
+      "slug": "fedor-tsvang-234035",
+      "name": "Smile Kids Party (Tsvang Co)",
+      "website": "https://smile-kidsparty.com/"
+    },
+    {
+      "slug": "телефон-032106",
+      "name": "AVELORÉA Fine Jewelry",
+      "website": "https://avelorea.jewelry"
+    },
+    {
+      "slug": "batch2-ksenia-andreychenko-taxes-vip",
+      "name": "VIP Taxes",
+      "website": "https://www.taxesvip.com"
+    },
+    {
+      "slug": "elvira-s-mama-print-150708",
+      "name": "Elvira S @mama_print",
+      "website": "https://mama-print.ru/blog/links"
+    },
+    {
+      "slug": "fbpack-elizabeth-azamatov-oc-dance-fit",
+      "name": "OC Dance Fit — Elizabeth Azamatov",
+      "website": "https://www.ocdance.fit"
+    },
+    {
+      "slug": "bearchildrensacademyorg-031831",
+      "name": "B.E.A.R. Children's Academy",
+      "website": "https://www.bearchildrensacademy.org"
+    },
+    {
+      "slug": "consolidated-tenina-law-inc",
+      "name": "Tenina Law, Inc.",
+      "website": "https://teninalaw.com"
+    },
+    {
+      "slug": "ma-150705",
+      "name": "Orange County Acting Academy",
+      "website": "https://ocacting.com"
+    },
+    {
+      "slug": "business-9495016346-171941",
+      "name": "OC Auto Aid",
+      "website": "https://ocautoaid.com/"
+    },
+    {
+      "slug": "daria-hovorun-205241-8dc1",
+      "name": "Daria Hovorun",
+      "website": "https://bomond.com/events/5nizza-25-year-anniversary-tour-north-america/5-nizza-san-francisco"
+    },
+    {
+      "slug": "batch2-good-food",
+      "name": "Good Food International Market",
+      "website": "https://goodfoodmarket.store"
+    },
+    {
+      "slug": "surprise-me-balloons",
+      "name": "surprise_me.balloons",
+      "website": "https://surprisemeballoonbar.com/"
+    },
+    {
+      "slug": "consolidated-art4kidsandteens",
+      "name": "Art 4 Kids & Teens",
+      "website": "https://www.art4kidsandteens.com"
+    },
+    {
+      "slug": "olga-daycare-imontessori-190759",
+      "name": "I❤️Montessori (Olga Semenova)",
+      "website": "https://www.playusa2023.com"
+    },
+    {
+      "slug": "fbpack-art-backyard-design-camp",
+      "name": "Art Backyard",
+      "website": "https://www.artbackyard.com"
+    },
+    {
+      "slug": "ann-kutner-205333-ab15",
+      "name": "Ann Kutner",
+      "website": "https://www.teremokpreschoolsf.com/"
+    },
+    {
+      "slug": "анастасия-032106",
+      "name": "SofaClean AZ",
+      "website": "https://sofacleanus.com"
+    },
+    {
+      "slug": "zsaesthetics-190931",
+      "name": "ZMD Aesthetics",
+      "website": "https://zmdaesthetics.com"
+    },
+    {
+      "slug": "reel-205255-a92c",
+      "name": "reel",
+      "website": "https://studio.dreem-world.ai/r/Q8890E"
+    },
+    {
+      "slug": "fbpack-sunrise-education-center",
+      "name": "Sunrise Education Center",
+      "website": "https://suncenter.aqulas.me"
+    },
+    {
+      "slug": "fbpack-translatorpro",
+      "name": "TranslatorPro — Михаил Богомольный",
+      "website": "https://www.translatorpro.org"
+    },
+    {
+      "slug": "vanilla-street-bakery",
+      "name": "Vanilla Street Bakery",
+      "website": "https://yougenius.coach/p/french-for-beginners/"
+    }
+  ],
+  "errors": [],
+  "unchanged": [
+    "klou-nail-studio",
+    "batch2-neo-aesthetics-medical-international-academy",
+    "chef-ramaz-kitchen",
+    "tатьяна-032105"
+  ]
+}

@@ -25,7 +25,7 @@ export default async function AdminEditBusinessPage({ params }: PageProps) {
     supabase
       .from("businesses")
       .select(
-        "id, name, slug, short_description, description, phone, website, instagram_url, google_maps_url, google_rating, google_reviews_count, city, address_line, status, category_id",
+        "id, name, slug, short_description, description, phone, website, instagram_url, google_maps_url, google_rating, google_reviews_count, city, address_line, region, state_code, postal_code, status, category_id",
       )
       .eq("id", id)
       .maybeSingle(),
@@ -64,6 +64,9 @@ export default async function AdminEditBusinessPage({ params }: PageProps) {
           google_reviews_count: business.google_reviews_count,
           city: business.city,
           address_line: business.address_line,
+          region: business.region,
+          state_code: business.state_code,
+          postal_code: business.postal_code,
           status: business.status,
           category_id: business.category_id,
         }}

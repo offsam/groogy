@@ -44,8 +44,8 @@ export type CommentRecommendation = {
 };
 
 /** Table not yet in generated Database types — use untyped from() for admin. */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function recommendationsTable(client: Client): any {
+function recommendationsTable(client: Client) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- table pending in Database types
   return (client as SupabaseClient<any>).from("import_comment_recommendations");
 }
 

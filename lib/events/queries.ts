@@ -8,13 +8,13 @@ import type { EventSort, EventWhen } from "@/lib/events/regions";
 type Client = SupabaseClient<Database>;
 
 /** Table not yet in generated Database types — use untyped from() for admin. */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function recommendationsTable(client: Client): any {
+function recommendationsTable(client: Client) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- table pending in Database types
   return (client as SupabaseClient<any>).from("import_comment_recommendations");
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function eventsTable(client: Client): any {
+function eventsTable(client: Client) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- table pending in Database types
   return (client as SupabaseClient<any>).from("events");
 }
 

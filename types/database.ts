@@ -137,6 +137,7 @@ export type Database = {
           transaction_verified_reviews_count: number;
           likes_count: number;
           followers_count: number;
+          dislikes_count: number;
           phone: string | null;
           email: string | null;
           website: string | null;
@@ -180,6 +181,7 @@ export type Database = {
           transaction_verified_reviews_count?: number;
           likes_count?: number;
           followers_count?: number;
+          dislikes_count?: number;
           phone?: string | null;
           email?: string | null;
           website?: string | null;
@@ -1005,6 +1007,22 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["business_likes"]["Insert"]>;
         Relationships: [];
       };
+      business_dislikes: {
+        Row: {
+          user_id: string;
+          business_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id?: string;
+          business_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["business_dislikes"]["Insert"]
+        >;
+        Relationships: [];
+      };
       business_followers: {
         Row: {
           user_id: string;
@@ -1034,6 +1052,22 @@ export type Database = {
         };
         Update: Partial<
           Database["public"]["Tables"]["professional_likes"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      professional_dislikes: {
+        Row: {
+          user_id: string;
+          professional_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id?: string;
+          professional_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["professional_dislikes"]["Insert"]
         >;
         Relationships: [];
       };
@@ -1553,6 +1587,7 @@ export type Database = {
           transaction_verified_reviews_count: number;
           likes_count: number;
           followers_count: number;
+          dislikes_count: number;
           google_rating: number | null;
           google_reviews_count: number;
           yelp_rating: number | null;

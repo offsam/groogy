@@ -5,15 +5,18 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { createServerClient } from "@/lib/supabase/server";
 
 export type EngagementActionResult =
-  | { ok: true; message?: string }
+  | { ok: true; message?: string; clearedOpposite?: boolean }
   | { ok: false; message: string };
 
 function fail(message: string): EngagementActionResult {
   return { ok: false, message };
 }
 
-function ok(message?: string): EngagementActionResult {
-  return { ok: true, message };
+function ok(
+  message?: string,
+  extra?: { clearedOpposite?: boolean },
+): EngagementActionResult {
+  return { ok: true, message, ...extra };
 }
 
 function mapDbError(error: { message?: string; code?: string } | null): string {
@@ -42,7 +45,9 @@ async function requireUser() {
   return { supabase, user, error: null as EngagementActionResult | null };
 }
 
-function db(supabase: Awaited<ReturnType<typeof createServerClient>>): SupabaseClient {
+function db(
+  supabase: Awaited<ReturnType<typeof createServerClient>>,
+): SupabaseClient {
   return supabase as unknown as SupabaseClient;
 }
 
@@ -53,7 +58,15 @@ export async function likeBusinessAction(
   const { supabase, user, error } = await requireUser();
   if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
 
-  const { error: insertError } = await db(supabase)
+  const client = db(supabase);
+  const { data: cleared } = await client
+    .from("business_dislikes")
+    .delete()
+    .eq("business_id", businessId)
+    .eq("user_id", user.id)
+    .select("business_id");
+
+  const { error: insertError } = await client
     .from("business_likes")
     .insert({ business_id: businessId });
 
@@ -63,7 +76,9 @@ export async function likeBusinessAction(
   }
 
   revalidatePath(`/business/${businessSlug}`);
-  return ok("Лайк сохранён.");
+  return ok("Лайк сохранён.", {
+    clearedOpposite: Boolean(cleared?.length),
+  });
 }
 
 export async function unlikeBusinessAction(
@@ -83,6 +98,55 @@ export async function unlikeBusinessAction(
 
   revalidatePath(`/business/${businessSlug}`);
   return ok("Лайк убран.");
+}
+
+export async function dislikeBusinessAction(
+  businessId: string,
+  businessSlug: string,
+): Promise<EngagementActionResult> {
+  const { supabase, user, error } = await requireUser();
+  if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
+
+  const client = db(supabase);
+  const { data: cleared } = await client
+    .from("business_likes")
+    .delete()
+    .eq("business_id", businessId)
+    .eq("user_id", user.id)
+    .select("business_id");
+
+  const { error: insertError } = await client
+    .from("business_dislikes")
+    .insert({ business_id: businessId });
+
+  if (insertError) {
+    if (insertError.code === "23505") return ok("Уже в дизлайках.");
+    return fail(mapDbError(insertError));
+  }
+
+  revalidatePath(`/business/${businessSlug}`);
+  return ok("Дизлайк сохранён.", {
+    clearedOpposite: Boolean(cleared?.length),
+  });
+}
+
+export async function undislikeBusinessAction(
+  businessId: string,
+  businessSlug: string,
+): Promise<EngagementActionResult> {
+  const { supabase, user, error } = await requireUser();
+  if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
+
+  const { error: deleteError } = await db(supabase)
+    .from("business_dislikes")
+    .delete()
+    .eq("business_id", businessId)
+    .eq("user_id", user.id);
+
+  if (deleteError) return fail(mapDbError(deleteError));
+
+  revalidatePath(`/business/${businessSlug}`);
+  return ok("Дизлайк убран.");
 }
 
 export async function followBusinessAction(
@@ -131,7 +195,15 @@ export async function likeProfessionalAction(
   const { supabase, user, error } = await requireUser();
   if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
 
-  const { error: insertError } = await db(supabase)
+  const client = db(supabase);
+  const { data: cleared } = await client
+    .from("professional_dislikes")
+    .delete()
+    .eq("professional_id", professionalId)
+    .eq("user_id", user.id)
+    .select("professional_id");
+
+  const { error: insertError } = await client
     .from("professional_likes")
     .insert({ professional_id: professionalId });
 
@@ -141,7 +213,9 @@ export async function likeProfessionalAction(
   }
 
   revalidatePath(`/professional/${professionalSlug}`);
-  return ok("Лайк сохранён.");
+  return ok("Лайк сохранён.", {
+    clearedOpposite: Boolean(cleared?.length),
+  });
 }
 
 export async function unlikeProfessionalAction(
@@ -161,6 +235,55 @@ export async function unlikeProfessionalAction(
 
   revalidatePath(`/professional/${professionalSlug}`);
   return ok("Лайк убран.");
+}
+
+export async function dislikeProfessionalAction(
+  professionalId: string,
+  professionalSlug: string,
+): Promise<EngagementActionResult> {
+  const { supabase, user, error } = await requireUser();
+  if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
+
+  const client = db(supabase);
+  const { data: cleared } = await client
+    .from("professional_likes")
+    .delete()
+    .eq("professional_id", professionalId)
+    .eq("user_id", user.id)
+    .select("professional_id");
+
+  const { error: insertError } = await client
+    .from("professional_dislikes")
+    .insert({ professional_id: professionalId });
+
+  if (insertError) {
+    if (insertError.code === "23505") return ok("Уже в дизлайках.");
+    return fail(mapDbError(insertError));
+  }
+
+  revalidatePath(`/professional/${professionalSlug}`);
+  return ok("Дизлайк сохранён.", {
+    clearedOpposite: Boolean(cleared?.length),
+  });
+}
+
+export async function undislikeProfessionalAction(
+  professionalId: string,
+  professionalSlug: string,
+): Promise<EngagementActionResult> {
+  const { supabase, user, error } = await requireUser();
+  if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
+
+  const { error: deleteError } = await db(supabase)
+    .from("professional_dislikes")
+    .delete()
+    .eq("professional_id", professionalId)
+    .eq("user_id", user.id);
+
+  if (deleteError) return fail(mapDbError(deleteError));
+
+  revalidatePath(`/professional/${professionalSlug}`);
+  return ok("Дизлайк убран.");
 }
 
 export async function followProfessionalAction(

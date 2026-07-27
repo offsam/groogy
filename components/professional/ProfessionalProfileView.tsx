@@ -49,8 +49,10 @@ export function ProfessionalProfileView({
       : null;
   const engagementState: EntityEngagement = engagement ?? {
     likesCount: professional.likesCount ?? 0,
+    dislikesCount: professional.dislikesCount ?? 0,
     followersCount: professional.followersCount ?? 0,
     likedByMe: false,
+    dislikedByMe: false,
     followedByMe: false,
   };
 
@@ -101,6 +103,9 @@ export function ProfessionalProfileView({
             {engagementState.likesCount > 0 ? (
               <span>{engagementState.likesCount} лайков</span>
             ) : null}
+            {engagementState.dislikesCount > 0 ? (
+              <span>{engagementState.dislikesCount} дизлайков</span>
+            ) : null}
             {engagementState.followersCount > 0 ? (
               <span>{engagementState.followersCount} подписчиков</span>
             ) : null}
@@ -119,7 +124,9 @@ export function ProfessionalProfileView({
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <LikeFollowButtons
+              dislikesCount={engagementState.dislikesCount}
               followersCount={engagementState.followersCount}
+              initialDisliked={engagementState.dislikedByMe}
               initialFollowed={engagementState.followedByMe}
               initialLiked={engagementState.likedByMe}
               isAuthenticated={Boolean(currentUserId)}

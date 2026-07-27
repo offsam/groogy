@@ -80,13 +80,16 @@ export default async function ProfessionalPage({ params }: PageProps) {
     user?.id ?? null,
     {
       likesCount: professional.likesCount ?? 0,
+      dislikesCount: professional.dislikesCount ?? 0,
       followersCount: professional.followersCount ?? 0,
     },
   ).catch(
     (): EntityEngagement => ({
       likesCount: professional.likesCount ?? 0,
+      dislikesCount: professional.dislikesCount ?? 0,
       followersCount: professional.followersCount ?? 0,
       likedByMe: false,
+      dislikedByMe: false,
       followedByMe: false,
     }),
   );

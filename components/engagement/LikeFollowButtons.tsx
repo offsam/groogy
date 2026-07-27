@@ -1,12 +1,16 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Bookmark, Heart, Loader2 } from "lucide-react";
+import { Bookmark, Heart, Loader2, ThumbsDown } from "lucide-react";
 import {
+  dislikeBusinessAction,
+  dislikeProfessionalAction,
   followBusinessAction,
   followProfessionalAction,
   likeBusinessAction,
   likeProfessionalAction,
+  undislikeBusinessAction,
+  undislikeProfessionalAction,
   unfollowBusinessAction,
   unfollowProfessionalAction,
   unlikeBusinessAction,
@@ -21,8 +25,10 @@ type LikeFollowButtonsProps = {
   targetId: string;
   slug: string;
   initialLiked: boolean;
+  initialDisliked: boolean;
   initialFollowed: boolean;
   likesCount: number;
+  dislikesCount: number;
   followersCount: number;
   /** When false, buttons still show counts but prompt login via link. */
   isAuthenticated: boolean;
@@ -38,8 +44,10 @@ export function LikeFollowButtons({
   targetId,
   slug,
   initialLiked,
+  initialDisliked,
   initialFollowed,
   likesCount,
+  dislikesCount,
   followersCount,
   isAuthenticated,
   className,
@@ -47,38 +55,87 @@ export function LikeFollowButtons({
 }: LikeFollowButtonsProps) {
   const [pending, startTransition] = useTransition();
   const [liked, setLiked] = useState(initialLiked);
+  const [disliked, setDisliked] = useState(initialDisliked);
   const [followed, setFollowed] = useState(initialFollowed);
   const [likes, setLikes] = useState(likesCount);
+  const [dislikes, setDislikes] = useState(dislikesCount);
   const [followers, setFollowers] = useState(followersCount);
+
+  function loginRedirect() {
+    window.location.href = `/login?next=${encodeURIComponent(
+      kind === "business" ? `/business/${slug}` : `/professional/${slug}`,
+    )}`;
+  }
 
   function toggleLike() {
     if (!isAuthenticated) {
-          window.location.href = `/login?next=${encodeURIComponent(
-        kind === "business" ? `/business/${slug}` : `/professional/${slug}`,
-      )}`;
+      loginRedirect();
       return;
     }
     startTransition(async () => {
+      if (liked) {
+        const result =
+          kind === "business"
+            ? await unlikeBusinessAction(targetId, slug)
+            : await unlikeProfessionalAction(targetId, slug);
+        if (result.ok) {
+          setLiked(false);
+          setLikes((c) => Math.max(0, c - 1));
+        }
+        return;
+      }
+
       const result =
         kind === "business"
-          ? liked
-            ? await unlikeBusinessAction(targetId, slug)
-            : await likeBusinessAction(targetId, slug)
-          : liked
-            ? await unlikeProfessionalAction(targetId, slug)
-            : await likeProfessionalAction(targetId, slug);
+          ? await likeBusinessAction(targetId, slug)
+          : await likeProfessionalAction(targetId, slug);
       if (result.ok) {
-        setLiked(!liked);
-        setLikes((c) => (liked ? Math.max(0, c - 1) : c + 1));
+        setLiked(true);
+        setLikes((c) => c + 1);
+        if (disliked || result.clearedOpposite) {
+          setDisliked(false);
+          setDislikes((c) => Math.max(0, c - (disliked ? 1 : 0)));
+        }
+      }
+    });
+  }
+
+  function toggleDislike() {
+    if (!isAuthenticated) {
+      loginRedirect();
+      return;
+    }
+    startTransition(async () => {
+      if (disliked) {
+        const result =
+          kind === "business"
+            ? await undislikeBusinessAction(targetId, slug)
+            : await undislikeProfessionalAction(targetId, slug);
+        if (result.ok) {
+          setDisliked(false);
+          setDislikes((c) => Math.max(0, c - 1));
+        }
+        return;
+      }
+
+      const result =
+        kind === "business"
+          ? await dislikeBusinessAction(targetId, slug)
+          : await dislikeProfessionalAction(targetId, slug);
+      if (result.ok) {
+        setDisliked(true);
+        setDislikes((c) => c + 1);
+        if (liked || result.clearedOpposite) {
+          setLiked(false);
+          setLikes((c) => Math.max(0, c - (liked ? 1 : 0)));
+        }
       }
     });
   }
 
   function toggleFollow() {
     if (!isAuthenticated) {
-          window.location.href = `/login?next=${encodeURIComponent(
-        kind === "business" ? `/business/${slug}` : `/professional/${slug}`,
-      )}`;
+      loginRedirect();
       return;
     }
     startTransition(async () => {
@@ -119,6 +176,22 @@ export function LikeFollowButtons({
               className={cn("size-3.5", liked && "fill-rose-500 text-rose-500")}
             />
           )}
+        </button>
+        <button
+          aria-label={disliked ? "Убрать дизлайк" : "Дизлайк"}
+          className={cn(
+            iconBtn,
+            disliked && "border-slate-300 bg-slate-100 text-slate-800",
+          )}
+          disabled={pending}
+          onClick={toggleDislike}
+          title={disliked ? "Убрать дизлайк" : "Дизлайк"}
+          type="button"
+        >
+          <ThumbsDown
+            aria-hidden="true"
+            className={cn("size-3.5", disliked && "fill-slate-700 text-slate-800")}
+          />
         </button>
         <button
           aria-label={followed ? "Отписаться" : "Подписаться"}
@@ -165,6 +238,23 @@ export function LikeFollowButtons({
         )}
         <span>{likes}</span>
         <span className="sr-only sm:not-sr-only sm:inline">Лайк</span>
+      </button>
+      <button
+        aria-label={disliked ? "Убрать дизлайк" : "Дизлайк"}
+        className={cn(
+          "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50 disabled:opacity-60 sm:min-h-0 sm:py-1.5",
+          disliked && "border-slate-300 bg-slate-100 text-slate-800",
+        )}
+        disabled={pending}
+        onClick={toggleDislike}
+        type="button"
+      >
+        <ThumbsDown
+          aria-hidden="true"
+          className={cn("size-3.5", disliked && "fill-slate-700 text-slate-800")}
+        />
+        <span>{dislikes}</span>
+        <span className="sr-only sm:not-sr-only sm:inline">Дизлайк</span>
       </button>
       <button
         aria-label={followed ? "Отписаться" : "Подписаться"}

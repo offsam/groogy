@@ -111,12 +111,15 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     getActiveCategories(catalog).catch(() => [] as Category[]),
     getBusinessEngagement(client, fullBusiness.id, user?.id ?? null, {
       likesCount: fullBusiness.likesCount ?? 0,
+      dislikesCount: fullBusiness.dislikesCount ?? 0,
       followersCount: fullBusiness.followersCount ?? 0,
     }).catch(
       (): EntityEngagement => ({
         likesCount: fullBusiness.likesCount ?? 0,
+        dislikesCount: fullBusiness.dislikesCount ?? 0,
         followersCount: fullBusiness.followersCount ?? 0,
         likedByMe: false,
+        dislikedByMe: false,
         followedByMe: false,
       }),
     ),

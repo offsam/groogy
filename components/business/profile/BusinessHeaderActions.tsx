@@ -13,8 +13,10 @@ type BusinessHeaderActionsProps = {
   /** Public online booking URL (Book Now). */
   bookingUrl?: string | null;
   likesCount?: number;
+  dislikesCount?: number;
   followersCount?: number;
   likedByMe?: boolean;
+  dislikedByMe?: boolean;
   followedByMe?: boolean;
   isAuthenticated?: boolean;
   className?: string;
@@ -27,8 +29,10 @@ export function BusinessHeaderActions({
   email = null,
   bookingUrl = null,
   likesCount = 0,
+  dislikesCount = 0,
   followersCount = 0,
   likedByMe = false,
+  dislikedByMe = false,
   followedByMe = false,
   isAuthenticated = false,
   className,
@@ -74,7 +78,9 @@ export function BusinessHeaderActions({
       </button>
       <LikeFollowButtons
         compact
+        dislikesCount={dislikesCount}
         followersCount={followersCount}
+        initialDisliked={dislikedByMe}
         initialFollowed={followedByMe}
         initialLiked={likedByMe}
         isAuthenticated={isAuthenticated}

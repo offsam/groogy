@@ -35,6 +35,7 @@ export type Professional = {
   ratingAvg: number;
   reviewsCount: number;
   likesCount: number;
+  dislikesCount: number;
   followersCount: number;
   city: string | null;
   region: string | null;
@@ -93,6 +94,7 @@ export type ProfessionalPublicRow = {
   rating_avg: number | string;
   reviews_count: number;
   likes_count?: number;
+  dislikes_count?: number;
   followers_count?: number;
   city: string | null;
   region: string | null;

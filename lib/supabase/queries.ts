@@ -34,6 +34,7 @@ const BUSINESS_DETAIL_SELECT = `
   ai_verified_reviews_count,
   transaction_verified_reviews_count,
   likes_count,
+  dislikes_count,
   followers_count,
   phone,
   email,

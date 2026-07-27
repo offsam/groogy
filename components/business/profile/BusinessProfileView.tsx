@@ -15,6 +15,7 @@ import {
   Sparkles,
   Star,
   Store,
+  ThumbsDown,
   Users,
 } from "lucide-react";
 import { BusinessCard } from "@/components/business/BusinessCard";
@@ -206,8 +207,10 @@ export function BusinessProfileView({
     business.transactionVerifiedReviewsCount > 0;
   const engagementState: EntityEngagement = engagement ?? {
     likesCount: business.likesCount ?? 0,
+    dislikesCount: business.dislikesCount ?? 0,
     followersCount: business.followersCount ?? 0,
     likedByMe: false,
+    dislikedByMe: false,
     followedByMe: false,
   };
 
@@ -351,6 +354,11 @@ export function BusinessProfileView({
                     {engagementState.likesCount} лайков
                   </span>
                 ) : null}
+                {engagementState.dislikesCount > 0 ? (
+                  <span className="text-slate-500">
+                    {engagementState.dislikesCount} дизлайков
+                  </span>
+                ) : null}
                 {engagementState.followersCount > 0 ? (
                   <span className="text-slate-500">
                     {engagementState.followersCount} подписчиков
@@ -442,6 +450,8 @@ export function BusinessProfileView({
                 businessName={business.name}
                 businessSlug={businessSlug}
                 className="mt-3 w-full sm:hidden"
+                dislikedByMe={engagementState.dislikedByMe}
+                dislikesCount={engagementState.dislikesCount}
                 email={actionEmail}
                 followedByMe={engagementState.followedByMe}
                 followersCount={engagementState.followersCount}
@@ -457,6 +467,8 @@ export function BusinessProfileView({
             businessName={business.name}
             businessSlug={businessSlug}
             className="hidden sm:flex"
+            dislikedByMe={engagementState.dislikedByMe}
+            dislikesCount={engagementState.dislikesCount}
             email={actionEmail}
             followedByMe={engagementState.followedByMe}
             followersCount={engagementState.followersCount}
@@ -807,6 +819,13 @@ export function BusinessProfileView({
                         {engagementState.likesCount}
                       </p>
                       <p className="text-[11px] text-slate-500">Лайки</p>
+                    </div>
+                    <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
+                      <ThumbsDown aria-hidden="true" className="mx-auto size-4 text-slate-400" />
+                      <p className="mt-1 text-base font-semibold tabular-nums text-slate-900">
+                        {engagementState.dislikesCount}
+                      </p>
+                      <p className="text-[11px] text-slate-500">Дизлайки</p>
                     </div>
                     <div className="rounded-xl bg-slate-50 px-2.5 py-3 text-center">
                       <Users aria-hidden="true" className="mx-auto size-4 text-slate-400" />

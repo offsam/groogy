@@ -1,5 +1,7 @@
 /** Display helpers for import-review queue cards (junk titles, category labels). */
 
+import { demathAlnum } from "@/lib/admin/paste-enrich";
+
 const JUNK_TITLES = new Set(
   [
     "messenger",
@@ -24,8 +26,23 @@ const JUNK_TITLES = new Set(
 
 const EMAIL_DOMAIN_RE = /^[a-z0-9.-]+\.(com|net|org|ru|io|co|info)$/i;
 
+/** Meta labels from posts («Контакты», «Когда: …») — never an entity name. */
+const META_LABELS =
+  "контакты?|contacts?|телефон\\w*|phone|почта|e-?mail|когда|when|дата|date|где|where|адрес|address|локация|location|билеты?|tickets?|цена|price|стоимость|оплат[аы]|payment|форма|form|регистрац\\w*|registration|запись|как\\s+записаться|как\\s+оплатить|тема|theme|возраст|age|продолжительность|duration|описание|description|услуги|services|график|расписание|hours";
+
+const META_ONLY_RE = new RegExp(`^\\s*(?:${META_LABELS})\\s*[:：]?\\s*$`, "iu");
+const META_PREFIX_RE = new RegExp(`^\\s*(?:${META_LABELS})\\s*[:：]`, "iu");
+
+const QUOTED_NAME_RE = /[«"“„]([^«»"“”„\n]{2,60})[»"”]/gu;
+
+const LETTER_RE = /\p{L}/gu;
+
+function letterCount(value: string): number {
+  return (value.match(LETTER_RE) || []).length;
+}
+
 const BRAND_TOKEN_RE =
-  /\b(clinic|studio|salon|center|centre|school|camp|spa|dental|dentistry|recovery|group|company|llc|inc|house|beauty|preschool|restaurant|cafe|café|kitchen|market|shop|store|halal|gym|academy|institute|lab|labs|therapy|massage|services|service|registration|kids|club|truck|trailer|repair|motors|jewelry|клиник|студи|салон|центр|школ|лагер|спа|ресторан|кафе|садик|садок|магазин|агентств|мастерск|сервис)\b/i;
+  /\b(clinic|studio|salon|center|centre|school|camp|spa|dental|dentistry|recovery|group|company|llc|inc|house|beauty|preschool|restaurant|cafe|café|kitchen|market|shop|store|halal|gym|academy|institute|lab|labs|therapy|massage|services|service|registration|kids|club|truck|trailer|repair|motors|jewelry|cargo|express|logistics|delivery|movers|transport|клиник|студи|салон|центр|школ|лагер|спа|ресторан|кафе|садик|садок|магазин|агентств|мастерск|сервис|карго|доставка)\b/i;
 
 const CATEGORY_DOT_NAME_RE =
   /^[A-Za-zА-Яа-яЁё0-9]{1,20}\s*[·•]\s*[a-z][a-z0-9_]{1,40}$/;
@@ -103,6 +120,8 @@ export function isJunkImportTitle(raw: string | null | undefined): boolean {
   if (!t) return true;
   const lower = t.toLowerCase();
   if (JUNK_TITLES.has(lower)) return true;
+  if (META_ONLY_RE.test(t) || META_PREFIX_RE.test(t)) return true;
+  if (letterCount(t) < 3) return true;
   if (EMAIL_DOMAIN_RE.test(lower)) return true;
   if (lower.includes("@")) return true;
   if (CATEGORY_DOT_NAME_RE.test(t)) return true;
@@ -183,6 +202,180 @@ function acceptBrand(cand: string | null | undefined, current?: string): string 
   return c;
 }
 
+/** Sentence openers and section labels that look like names but are not. */
+const BRAND_STOPWORDS = new Set([
+  "здравствуйте",
+  "привет",
+  "внимание",
+  "важно",
+  "новинка",
+  "акция",
+  "тарифы",
+  "цены",
+  "адрес",
+  "адреса",
+  "контакты",
+  "инстаграм",
+  "instagram",
+  "telegram",
+  "whatsapp",
+  "facebook",
+  "мы",
+  "наши",
+  "все",
+  "также",
+  "если",
+  "друзья",
+  "россия",
+  "беларусь",
+  "украина",
+  "казахстан",
+  "кыргызстан",
+  "сша",
+  "usa",
+  "america",
+  "california",
+  "new",
+  "north",
+  "south",
+  "east",
+  "west",
+  "the",
+  "and",
+  "for",
+  "with",
+]);
+
+const BRAND_CANDIDATE_RE =
+  /\b([A-ZА-ЯЁ][\p{L}\p{N}&'’-]{1,24}(?:\s+[A-ZА-ЯЁ][\p{L}\p{N}&'’-]{1,24}){0,2})\b/gu;
+
+/**
+ * «North Hollywood — My Barber LA» is a pickup venue, not the advertiser.
+ * True brands sit before the dash («OWAY Cargo — надёжная доставка»).
+ */
+function isVenueAfterDash(text: string, index: number): boolean {
+  const before = text.slice(Math.max(0, index - 48), index);
+  return /[—–-]\s*$/.test(before);
+}
+
+/**
+ * The name an ad repeats is the brand. Works where keyword patterns fail —
+ * «OWAY Cargo» has no Clinic / Studio token but is named three times.
+ *
+ * Deliberately strict: only a single clear leader (count >= 2, no tie) wins,
+ * so an ad mentioning two companies returns nothing rather than a guess.
+ * Venue names that only appear after «City — …» are ignored.
+ */
+export function repeatedBrandFromText(
+  description: string | null | undefined,
+): string | null {
+  const text = (description || "").replace(/\s+/g, " ").trim();
+  if (text.length < 40) return null;
+
+  type Stat = {
+    display: string;
+    words: number;
+    count: number;
+    at: number;
+    brandish: boolean;
+  };
+  const stats = new Map<string, Stat>();
+  for (const match of text.matchAll(BRAND_CANDIDATE_RE)) {
+    const at = match.index ?? text.length;
+    // Skip «City — Venue» hits so pickup partners never outrank the advertiser.
+    if (isVenueAfterDash(text, at)) continue;
+
+    const words = cleanBrand(match[1] || "").split(" ");
+    // Count every leading sub-phrase: «OWAY Cargo Instagram» also votes for
+    // «OWAY Cargo», so a trailing word cannot split the tally.
+    for (let n = 1; n <= words.length; n += 1) {
+      const phrase = words.slice(0, n).join(" ");
+      if (phrase.length < 4) continue;
+      if (words.slice(0, n).some((w) => BRAND_STOPWORDS.has(w.toLowerCase()))) {
+        break;
+      }
+      if (n === 1 && !/[A-Z]{2,}/.test(phrase)) continue;
+      const key = phrase.toLowerCase();
+      const seen = stats.get(key);
+      if (seen) seen.count += 1;
+      else
+        stats.set(key, {
+          display: phrase,
+          words: n,
+          count: 1,
+          at,
+          brandish: BRAND_TOKEN_RE.test(phrase),
+        });
+    }
+  }
+
+  const ranked = [...stats.values()]
+    .filter((s) => s.count >= 2)
+    .sort(
+      (a, b) =>
+        b.count - a.count ||
+        Number(b.brandish) - Number(a.brandish) ||
+        b.words - a.words ||
+        a.at - b.at,
+    );
+  if (!ranked.length) return null;
+  // Two different names repeated equally often — the ad mentions several
+  // companies, so guessing between them would be worse than saying nothing.
+  // A brand-token leader (Cargo / Studio) may still win over a tied generic.
+  const family = (s: Stat) => s.display.split(" ")[0].toLowerCase();
+  const top = ranked[0];
+  const rival = ranked.find(
+    (s) =>
+      family(s) !== family(top) &&
+      s.count === top.count &&
+      Number(s.brandish) === Number(top.brandish),
+  );
+  if (rival) return null;
+  return acceptBrand(top.display);
+}
+
+/**
+ * The one-line pitch an ad puts next to its own name:
+ * «OWAY Cargo — надёжная доставка из США в страны СНГ».
+ */
+export function taglineForBrand(
+  description: string | null | undefined,
+  brand: string | null | undefined,
+): string | null {
+  const text = (description || "").replace(/\s+/g, " ").trim();
+  const name = (brand || "").trim();
+  if (!text || name.length < 3) return null;
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(
+    `${escaped}\\s*(?:[—–]|-{1,2}|\\bis\\s+a\\b)\\s*([^.!?\\n]{10,140})`,
+    "iu",
+  );
+  const hit = text.match(re)?.[1]?.trim();
+  if (!hit) return null;
+  const tagline = hit.replace(/[\s,;:—–-]+$/, "").trim();
+  if (letterCount(tagline) < 10) return null;
+  return tagline.slice(0, 160);
+}
+
+/** Explicit name in quotes: «В гости к Сказке», "Заюшкина избушка". */
+function quotedNameFromText(raw: string): string | null {
+  for (const line of raw.split("\n").slice(0, 12)) {
+    const t = line.trim();
+    if (!t || META_ONLY_RE.test(t) || META_PREFIX_RE.test(t)) continue;
+    for (const m of t.matchAll(QUOTED_NAME_RE)) {
+      const candidate = cleanBrand(m[1] || "");
+      if (
+        candidate.length >= 3 &&
+        letterCount(candidate) >= 3 &&
+        !isJunkImportTitle(candidate)
+      ) {
+        return candidate;
+      }
+    }
+  }
+  return null;
+}
+
 /**
  * Infer a brand/person name from ad text when title is junk
  * (e.g. Telegram sender = "Messenger", email domain = "gmail.com"),
@@ -238,7 +431,7 @@ export function inferNameFromDescription(description: string | null | undefined)
     }
   }
 
-  return null;
+  return quotedNameFromText(demathAlnum(text)) ?? repeatedBrandFromText(text);
 }
 
 /** Prefer real Instagram handles; drop email domains mistaken as IG. */

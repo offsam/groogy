@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import { formatServicePrice } from "@/lib/listings/mappers";
 import type { Listing } from "@/types/listing";
 import {
@@ -120,6 +121,9 @@ export function ServiceCard({
             ? formatServicePrice(service, listing.priceCurrency)
             : "Цена не указана"}
         </p>
+        {listing.paymentMethods?.length ? (
+          <PaymentMethodIcons methods={listing.paymentMethods} size="sm" />
+        ) : null}
 
         <div className="flex flex-wrap gap-x-2 gap-y-1 text-xs text-slate-500">
           {service?.pricingType && (

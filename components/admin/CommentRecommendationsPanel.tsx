@@ -34,6 +34,8 @@ type Props = {
   bucketCounts: Record<string, number>;
   status: string;
   category: string;
+  /** List URL for filters/pagination (IA or legacy). */
+  listBasePath?: string;
 };
 
 const BUCKET_TABS: {
@@ -138,6 +140,22 @@ function CardGrid({
                     </span>
                   ) : null}
                   <OriginBadges third={third} self={self} />
+                  {item.status === "suspected_duplicate" ? (
+                    <span
+                      className="rounded-md bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-900"
+                      title={
+                        item.duplicate_reason ||
+                        "Похоже на существующую карточку"
+                      }
+                    >
+                      подозрение на дубликат
+                    </span>
+                  ) : null}
+                  {item.status === "merged" ? (
+                    <span className="rounded-md bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
+                      прикреплено
+                    </span>
+                  ) : null}
             </div>
 
             <button
@@ -186,6 +204,7 @@ export function CommentRecommendationsPanel({
   bucketCounts,
   status,
   category,
+  listBasePath = "/admin/recommendations",
 }: Props) {
   const [previewId, setPreviewId] = useState<string | null>(null);
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
@@ -209,7 +228,7 @@ export function CommentRecommendationsPanel({
     if (nextCategory && nextCategory !== "all") q.set("category", nextCategory);
     if (page > 1 && nextBucket === bucket) q.set("page", String(page));
     const qs = q.toString();
-    return qs ? `/admin/recommendations?${qs}` : "/admin/recommendations";
+    return qs ? `${listBasePath}?${qs}` : listBasePath;
   }
 
   function pageHref(nextPage: number) {
@@ -219,7 +238,7 @@ export function CommentRecommendationsPanel({
     if (category && category !== "all") q.set("category", category);
     if (nextPage > 1) q.set("page", String(nextPage));
     const qs = q.toString();
-    return qs ? `/admin/recommendations?${qs}` : "/admin/recommendations";
+    return qs ? `${listBasePath}?${qs}` : listBasePath;
   }
 
   return (
@@ -233,6 +252,59 @@ export function CommentRecommendationsPanel({
         <span className="font-medium text-amber-900">Без якоря</span> — не
         переносим.
       </p>
+
+      <div className="flex flex-wrap gap-2 text-sm">
+        <Link
+          href={(() => {
+            const q = new URLSearchParams();
+            if (bucket && bucket !== "all") q.set("bucket", bucket);
+            if (category && category !== "all") q.set("category", category);
+            const qs = q.toString();
+            return qs ? `${listBasePath}?${qs}` : listBasePath;
+          })()}
+          className={
+            status === "pending"
+              ? "font-semibold text-brand-blue"
+              : "text-slate-500 hover:text-brand-blue"
+          }
+        >
+          Pending
+        </Link>
+        <span className="text-slate-300">·</span>
+        <Link
+          href={(() => {
+            const q = new URLSearchParams();
+            q.set("status", "suspected_duplicate");
+            if (bucket && bucket !== "all") q.set("bucket", bucket);
+            if (category && category !== "all") q.set("category", category);
+            return `${listBasePath}?${q.toString()}`;
+          })()}
+          className={
+            status === "suspected_duplicate"
+              ? "font-semibold text-brand-blue"
+              : "text-slate-500 hover:text-brand-blue"
+          }
+        >
+          Подозрение на дубликат
+        </Link>
+        <span className="text-slate-300">·</span>
+        <Link
+          href={(() => {
+            const q = new URLSearchParams();
+            q.set("status", "all");
+            if (bucket && bucket !== "all") q.set("bucket", bucket);
+            if (category && category !== "all") q.set("category", category);
+            return `${listBasePath}?${q.toString()}`;
+          })()}
+          className={
+            status === "all"
+              ? "font-semibold text-brand-blue"
+              : "text-slate-500 hover:text-brand-blue"
+          }
+        >
+          Все статусы
+        </Link>
+      </div>
 
       <div className="space-y-2">
         <p className="text-xs font-medium uppercase tracking-wide text-slate-400">

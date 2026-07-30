@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Literata, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { MobilePreview } from "@/components/layout/MobilePreview";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
 import { BRAND_NAME } from "@/lib/brand";
 import "leaflet/dist/leaflet.css";
@@ -52,11 +53,12 @@ export default function RootLayout({
           <div className="sticky top-0 z-[1001]">
             <Header />
           </div>
-          <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 has-[.home-fullwidth]:max-w-none has-[.home-fullwidth]:px-0 has-[.home-fullwidth]:py-0">
+          <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 has-[.home-fullwidth]:max-w-none has-[.home-fullwidth]:px-0 has-[.home-fullwidth]:py-0 has-[.admin-shell]:max-w-none has-[.admin-shell]:px-4 has-[.admin-shell]:py-6 sm:has-[.admin-shell]:px-6">
             {children}
           </main>
           <Footer />
         </div>
+        <MobilePreview />
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>

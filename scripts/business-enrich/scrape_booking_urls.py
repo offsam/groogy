@@ -80,8 +80,27 @@ BOOK_HOSTS = (
     "servicetitan.com",
     "tekmetric.com",
     "booking.tekmetric.com",
+    # Online ordering — «Заказать онлайн» is the same CTA for food / retail.
+    "toasttab.com",
+    "order.toasttab.com",
+    "chownow.com",
+    "slicelife.com",
+    "order.online",
+    "doordash.com",
+    "grubhub.com",
+    "ubereats.com",
+    "seamless.com",
+    "postmates.com",
+    "menufy.com",
+    "beyondmenu.com",
+    "popmenu.com",
+    "spoton.com",
+    "clover.com",
+    "olo.com",
 )
 
+# The card's action link: «записаться» for services, «заказать» for food and
+# retail. Both land in booking_url, so both belong in one CTA vocabulary.
 BOOK_TEXT = re.compile(
     r"^\s*(book\s*now|book\s*online|book\s*an?\s*appointment|"
     r"book\s*appointment|book\s*your\s*(class|service|appointment)|"
@@ -89,7 +108,13 @@ BOOK_TEXT = re.compile(
     r"make\s*an?\s*appointment|request\s*an?\s*appointment|"
     r"записаться|запись\s*онлайн|онлайн[\-\s]?запись|"
     r"забронировать|book\s*a\s*(class|session|tour|visit|lesson)|"
-    r"reserve\s*now|appointments?)\s*$",
+    r"reserve\s*now|appointments?|"
+    r"order\s*(online|now|here|ahead|food|pickup|takeout|delivery)?|"
+    r"online\s*order(?:ing)?|order\s*&\s*pay|"
+    r"(?:place|start)\s*(?:your\s*)?order|"
+    r"заказать(?:\s*(?:онлайн|сейчас|доставку|еду))?|"
+    r"сделать\s*заказ|оформить\s*заказ|"
+    r"онлайн[\-\s]?заказ|заказ\s*онлайн)\s*$",
     re.I,
 )
 
@@ -109,7 +134,9 @@ REJECT_HREF = re.compile(
 BOOK_HREF_HINT = re.compile(
     r"(book|booking|appoint|schedule|calendly|acuity|vagaro|fresha|"
     r"booksy|setmore|styleseat|glossgenius|mindbody|reserve|tekmetric|"
-    r"mangomint|squire|запис)",
+    r"mangomint|squire|запис|"
+    r"order|ordering|заказ|toasttab|chownow|slicelife|doordash|grubhub|"
+    r"ubereats|menufy|beyondmenu|popmenu|clover|olo)",
     re.I,
 )
 
@@ -307,6 +334,13 @@ def score_candidate(abs_url: str, text: str, page_host: str) -> int:
         score += 10
     if re.search(
         r"/book(?:-online|-now|/|$)|/booking|/appoint|/schedule-an|/reserve",
+        abs_url,
+        re.I,
+    ):
+        score += 30
+    # Own ordering page beats an aggregator listed in the footer.
+    if re.search(
+        r"/order(?:-online|-now|-ahead|/|$)|/online-order(?:ing)?|/ordering(?:/|$)",
         abs_url,
         re.I,
     ):

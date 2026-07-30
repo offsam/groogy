@@ -1,10 +1,35 @@
 # NAVIGATION_COVERAGE_REPORT.md
 
-**Date:** 2026-07-27  
-**Scope:** `docs/navigation/` validation & coverage  
-**Method:** filesystem link check + BFS reachability from `AI_AGENT_START_HERE.md` / `PROJECT_INDEX.md`
+**Date:** 2026-07-27 · **PROJECT_CONTEXT chain follow-up:** 2026-07-28  
+**Scope:** `docs/navigation/` validation & coverage (+ LLM Context entry)  
+**Method:** filesystem link check + BFS reachability from `PROJECT_CONTEXT_V1.md` → `AI_AGENT_START_HERE.md` / `PROJECT_INDEX.md`
 
-Related: [`NAVIGATION_RULES.md`](./NAVIGATION_RULES.md) · [`DEPENDENCY_MAP.md`](./DEPENDENCY_MAP.md)
+Related: [`NAVIGATION_RULES.md`](./NAVIGATION_RULES.md) · [`DEPENDENCY_MAP.md`](./DEPENDENCY_MAP.md) · [`PROJECT_CONTEXT_V1.md`](../context/PROJECT_CONTEXT_V1.md)
+
+---
+
+## 0. PROJECT_CONTEXT chain (required)
+
+| Check | Result |
+|---|---|
+| [`PROJECT_CONTEXT_V1.md`](../context/PROJECT_CONTEXT_V1.md) exists | **Yes** |
+| Linked from [`AI_AGENT_START_HERE.md`](./AI_AGENT_START_HERE.md) as step 1 | **Yes** |
+| Linked from [`PROJECT_INDEX.md`](./PROJECT_INDEX.md) § Context (first section) | **Yes** |
+| Canonical chain starts with Context | **Yes:** Context → Start Here → Index → SoT → code |
+| Context declared non-SoT / derived | **Yes** (Context header + Maintenance Metadata + Navigation Rules) |
+| Stale-Context → prefer SoT | **Yes** ([`AI_AGENT_START_HERE.md`](./AI_AGENT_START_HERE.md) note) |
+
+### Bypass paths (must not restart orientation without Context)
+
+| Path | Status |
+|---|---|
+| `AI_AGENT_START_HERE` alone as “first doc” | **Closed** — Before starting / Workflow require Context first |
+| `PROJECT_INDEX` without Context | **Closed** — Index preamble + § Context point to Context first |
+| Navigation checklist “Start Here first” | **Closed** — Rules checklist now requires Context-first chain |
+| Coverage BFS starting only at Start Here | **Closed** — method updated to Context → Start Here |
+| Non-nav docs that still say “agent entry = Start Here” (e.g. architecture context cross-links) | **Noted** — outside navigation layer; agents following nav chain are unaffected. Do not invent SoT rewrites in coverage. |
+
+**Verdict:** Navigation layer has **no approved onboarding path that skips** `PROJECT_CONTEXT_V1.md`.
 
 ---
 
@@ -141,6 +166,8 @@ Navigation must not invent architecture. These are **gaps**, not todos executed 
 4. If Deployment / Security / Events get real SoT docs later, upgrade Project Index from “Unknown/partial” to those files — do not invent interim specs in nav.
 5. Refresh this coverage report when subsystem count changes.
 6. Keep freeze vs lifecycle distinction visible on every agent start path.
+7. Keep **PROJECT_CONTEXT-first** chain intact; after any SoT change, record Context freshness in Knowledge Refresh (do not auto-rewrite Context).
+8. Re-verify §0 PROJECT_CONTEXT chain checks whenever Start Here / Index / Rules change.
 
 ---
 
@@ -169,3 +196,17 @@ Linked into navigation (no longer orphans from `PROJECT_INDEX`):
 - `docs/architecture/runtime/ARCHITECTURE_STABILIZATION_V1.md`
 
 Roadmap item **A7** / **P-22**: review + commit `docs/navigation/` (this tree).
+
+---
+
+## 9. Follow-up (2026-07-28) — PROJECT_CONTEXT maintenance
+
+| Deliverable | Status |
+|---|---|
+| Context file exists + in Index/Start Here | Done |
+| §0 chain checks in this report | Done |
+| Navigation Rules: SoT change → check Context | Done |
+| Knowledge Refresh: Context freshness checklist | Done |
+| Context Maintenance Metadata (real anchors) | Done |
+| SoT documents left unchanged | Yes |
+| Context remains derived (not new canon) | Yes |

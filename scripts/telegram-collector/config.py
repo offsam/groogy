@@ -14,9 +14,20 @@ SESSION_NAME = str(SCRIPT_DIR / "telegram_business")
 
 REQUIRED_VARS = ("TELEGRAM_API_ID", "TELEGRAM_API_HASH", "TELEGRAM_PHONE")
 
+_ENV_LOADED = False
+
 
 def load_env() -> None:
-    """Load .env then .env.local from project root (local overrides)."""
+    """Load .env then .env.local from project root (local overrides).
+
+    Idempotent: after the first successful load, later calls are no-ops so
+    CLI overrides (e.g. --llm-provider openai) are not clobbered by .env.local
+    when get_credentials() re-enters.
+    """
+    global _ENV_LOADED
+    if _ENV_LOADED:
+        return
+
     env_path = PROJECT_ROOT / ".env"
     env_local_path = PROJECT_ROOT / ".env.local"
 
@@ -35,6 +46,8 @@ def load_env() -> None:
         )
         print(f"Ожидаемый путь: {PROJECT_ROOT}", file=sys.stderr)
         sys.exit(1)
+
+    _ENV_LOADED = True
 
 
 def get_credentials() -> tuple[int, str, str]:

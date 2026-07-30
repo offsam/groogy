@@ -1,0 +1,31 @@
+---
+description: Mobile-first UI — phone changes must cascade cleanly to tablet and desktop.
+alwaysApply: true
+---
+
+# Mobile responsive (КРУГИ)
+
+One layout system for all screens. We design and change **mobile first**; tablet and desktop **automatically** pick up the same structure via fluid layout and breakpoints — not a second parallel redesign.
+
+## Cascade (required)
+
+- Base CSS / Tailwind (no prefix) = **phone**. That is the source of truth.
+- `sm:` / `md:` / `lg:` only **add** space, columns, or density — they must not invent a conflicting layout.
+- After a mobile change, quickly sanity-check **tablet (~768)** and **desktop (≥1024)** in the same session: nothing clipped, duplicated, or left looking like a stretched phone.
+- Prefer one component tree. Avoid `hidden sm:block` / `sm:hidden` twins unless the UX truly needs different chrome (e.g. header search on home).
+
+## Phone range
+
+- Fluid across **~360–430px** (Android → iPhone → large phones). No single hard-coded width as the layout truth.
+- No horizontal page scroll; wrap/truncate copy and stats cleanly.
+- Touch targets ≥ ~44px for primary taps.
+
+## Must not
+
+- Mobile-only hacks that break or look wrong on tablet/desktop.
+- Separate “mobile page” and “desktop page” for the same screen.
+- Hover-only primary actions on mobile.
+
+## Preview
+
+Desktop: one floating **«Мобильная версия»** control — a single phone-shaped frame (~390×844). Exit with **«Десктоп»**. No multi-device switcher; fluid CSS covers other phones.

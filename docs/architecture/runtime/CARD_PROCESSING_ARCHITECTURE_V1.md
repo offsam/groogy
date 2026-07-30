@@ -21,14 +21,25 @@ migrations through `20260727230000`).
 
 ```text
 P0 COLLECT → P1 INGEST → P2 EXTRACT → P3 CLASSIFY → P4 DEDUPE
-          → P5 REVIEW → P6 PUBLISH → P7 POST-ENRICH → P8 LIVE/RETIRE
+          → P5 REVIEW QUEUE
+              → P5A Auto Enrichment
+              → P5B AI Enrichment
+              → P5C Completeness + Quality
+              → P5D Moderator Review
+          → P6 PUBLISH → P7 POST-ENRICH (entity-only remainder) → P8 LIVE/RETIRE
               [G1]        [G2]                [G3]
 ```
+
+P5A–P5C reuse the existing **queue** enrich modules (same code as P2
+`run_enrichment_pipeline.py`); they do not invent a second enrichment stack.
+Entity-only P7 (Places, geocode, ratings, pro `card_summary`, …) stays **after**
+P6. Integration detail: `../P5_PRE_PUBLISH_ENRICH_INTEGRATION_V1.md`.
+**Auto launch of P5A–C is OFF** — CLI dry-run / capped `--apply` only.
 
 This order is **the only allowed order** (§2). Three hard gates (G1–G3, §3) separate
 the phases where the card changes custody: artifacts → queue → entity.
 
-All stages except P5 are machine-executed (rule or AI); P5 is the only stage where a
+All stages except P5D are machine-executed (rule or AI); P5D is the only stage where a
 human judges content (§8). Every stage is launched manually today — the canon does not
 require a scheduler, it requires *order and gates*.
 
@@ -43,7 +54,7 @@ require a scheduler, it requires *order and gates*.
 | P2 | EXTRACT — fill the queue row from its own material (contacts from source_text, photo hydration, website/directory fill) | yes, any time before P6 | **yes** — fill-empty-only by convention | rule | `hydrate_queue_media.py`, `run_enrichment_pipeline.py`, `enrich_queue.py` |
 | P3 | CLASSIFY — set `entity_type` + `target_collection` (+confidence/reason) or park with `[needs_manual_type]` | yes, but **only on rows still NULL** | yes — PATCH guarded by `entity_type=is.null`; never overwrites a set type | rule (regex tree per NULL_CLASSIFICATION_ALGORITHM_V1) or human | `classify_null_queue.py`, admin edit |
 | P4 | DEDUPE — cluster reposts, mark satellites `duplicate` | yes | yes for clustering (stable keys); duplicate-marking is reversible (`duplicate → pending`) | rule (+human confirm on publish) | `dedupe_open_queue.py`, `merge_pending_clusters.py` |
-| P5 | REVIEW — human decision on the card | yes until `approved` | n/a (judgment) | **human only** | admin UI → `admin_import_review_set_status` / `save_fields` |
+| P5 | REVIEW — P5A–C machine enrich on queue (reuse P2 modules), then P5D human decision | P5A–C: yes fill-empty; P5D: until `approved` | P5A–C idempotent; P5D n/a | P5A–C: rule (+ existing AI signals); **P5D human only** | `run_pre_publish_enrich.py` (auto OFF) + admin UI |
 | P6 | PUBLISH — entity created, queue row terminally `approved` | **no** — `approved` is terminal; re-approve is an idempotent no-op returning the existing mapping | **yes by construction** (idempotent re-approve in both mark RPCs) | human (approve) or rule (autopublish of `ready_to_publish`) | `approveImportReviewItemAction` / `autopublish_strong_accepted.py` |
 | P7 | POST-ENRICH — fill-empty on the entity from allowed sources (ENRICHMENT_RULES tiers A/B/C) | yes, unbounded | **yes** — fill-empty-only; re-runs converge | rule (+AI for tier C) | `business-enrich` scripts, media pipeline |
 | P8 | LIVE/RETIRE — owner/admin edits, reviews projection, merge, archive | yes | merge: no (one-way, audited via `business.merged` event); edits: n/a | human + triggers | admin UI, owner UI, RPCs |
@@ -169,7 +180,8 @@ reviews accumulation, merge, archive. Nothing after P6 may touch the queue row.
 
 | Point | Form | Mandatory? |
 |---|---|---|
-| P5 decision | status change + notes/reason via RPC | yes — the only content-judgment stage |
+| P5 decision | status change + notes/reason via RPC (P5D) | yes — the only content-judgment stage |
+| P5A–C pre-publish enrich | CLI `run_pre_publish_enrich.py` (dry-run default; auto OFF) | yes before human when testing the new path; still optional until ops enable |
 | Gate-demanded confirmations | `[event_date_confirmed]`, `[human_confirmed]` tags in `review_notes` | yes, for events / specialist-`other` |
 | Duplicate override | `force` on approve after reviewing matches | yes when matches exist |
 | MEDIUM classification confirmations | `[needs_manual_type]` queue with inline proposals | yes for the parked backlog |

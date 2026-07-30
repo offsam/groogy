@@ -1,12 +1,27 @@
 /** Presence signals shown as compact badges on listing cards / profile. */
 
+import {
+  contactHref,
+  type ContactChannelId,
+  type ContactLink,
+} from "@/lib/contacts/channels";
+
+/** Where a card came from. `null` = external but unclassified. */
+export type SourceKind =
+  | "telegram"
+  | "facebook"
+  | "directory"
+  | "platform"
+  | null;
+
 export type BusinessPresence = {
   website?: string | null;
   instagramUrl?: string | null;
   telegramUrl?: string | null;
   sourceUrl?: string | null;
-  sourceKind?: "telegram" | "facebook" | "platform" | null;
+  sourceKind?: "telegram" | "facebook" | "platform" | "directory" | null;
   facebookUrl?: string | null;
+  tiktokUrl?: string | null;
   yelpUrl?: string | null;
   googleMapsUrl?: string | null;
   bookingUrl?: string | null;
@@ -14,7 +29,20 @@ export type BusinessPresence = {
   googleReviewsCount?: number | null;
   latitude?: number | null;
   longitude?: number | null;
+  /** Channels without a dedicated column (Facebook, TikTok, WhatsApp, …). */
+  contactLinks?: ContactLink[] | null;
 };
+
+/** Value of an extra channel stored in `contact_links`. */
+export function contactLinkValue(
+  presence: BusinessPresence,
+  channel: ContactChannelId,
+): string | null {
+  const found = presence.contactLinks?.find(
+    (link) => link.channel === channel && link.value.trim(),
+  );
+  return found?.value.trim() || null;
+}
 
 function normalizeHttpUrl(url: string): string {
   return url.startsWith("http") ? url : `https://${url}`;
@@ -61,6 +89,22 @@ export function isYelpUrl(url: string | null | undefined): boolean {
   }
 }
 
+export function isTikTokUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname
+      .toLowerCase()
+      .replace(/^www\./, "");
+    return (
+      host === "tiktok.com" ||
+      host.endsWith(".tiktok.com") ||
+      host === "vm.tiktok.com"
+    );
+  } catch {
+    return /tiktok\.com/i.test(url);
+  }
+}
+
 /** Instagram only — never treat a website field as Instagram here for dual display. */
 export function resolveInstagramUrl(presence: BusinessPresence): string | null {
   const direct = presence.instagramUrl?.trim() || null;
@@ -83,7 +127,7 @@ export function isTelegramUrl(url: string | null | undefined): boolean {
   }
 }
 
-/** Public website — never Instagram/Facebook/Yelp/Telegram social pages. */
+/** Public website — never Instagram/Facebook/Yelp/Telegram/TikTok social pages. */
 export function resolveWebsiteUrl(presence: BusinessPresence): string | null {
   const website = presence.website?.trim() || null;
   if (!website) return null;
@@ -91,7 +135,8 @@ export function resolveWebsiteUrl(presence: BusinessPresence): string | null {
     isInstagramUrl(website) ||
     isFacebookUrl(website) ||
     isYelpUrl(website) ||
-    isTelegramUrl(website)
+    isTelegramUrl(website) ||
+    isTikTokUrl(website)
   ) {
     return null;
   }
@@ -101,8 +146,20 @@ export function resolveWebsiteUrl(presence: BusinessPresence): string | null {
 export function resolveFacebookUrl(presence: BusinessPresence): string | null {
   const direct = presence.facebookUrl?.trim() || null;
   if (direct) return normalizeHttpUrl(direct);
+  const stored = contactLinkValue(presence, "facebook");
+  if (stored) return contactHref("facebook", stored);
   const website = presence.website?.trim() || null;
   if (website && isFacebookUrl(website)) return normalizeHttpUrl(website);
+  return null;
+}
+
+export function resolveTikTokUrl(presence: BusinessPresence): string | null {
+  const direct = presence.tiktokUrl?.trim() || null;
+  if (direct) return normalizeHttpUrl(direct);
+  const stored = contactLinkValue(presence, "tiktok");
+  if (stored) return contactHref("tiktok", stored);
+  const website = presence.website?.trim() || null;
+  if (website && isTikTokUrl(website)) return normalizeHttpUrl(website);
   return null;
 }
 
@@ -151,17 +208,60 @@ export function telegramContactLabel(url: string): string {
   return "Telegram";
 }
 
+/** Known directory / yellow-pages hosts (Svoi, Orange Pages, …). */
+export function isDirectorySourceUrl(url: string | null | undefined): boolean {
+  if (!url?.trim()) return false;
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname
+      .toLowerCase()
+      .replace(/^www\./, "");
+    return (
+      host === "svoi.us" ||
+      host.endsWith(".svoi.us") ||
+      /(orange.?pages|yellow.?pages|to4ka|echoru|zerkalo)/i.test(host)
+    );
+  } catch {
+    return /svoi\.us|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo/i.test(
+      url,
+    );
+  }
+}
+
+function sourceHostLabel(url: string): string {
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname
+      .toLowerCase()
+      .replace(/^www\./, "");
+    if (host === "svoi.us" || host.endsWith(".svoi.us")) return "Svoi";
+    return host || "Справочник";
+  } catch {
+    return "Справочник";
+  }
+}
+
 export function isPlatformSource(
   kind: BusinessPresence["sourceKind"] | null | undefined,
 ): boolean {
   return kind === "platform";
 }
 
-/** External post URL — never for platform-origin cards. */
+/**
+ * «Created on КРУГИ» — the only case where we may claim the card as ours.
+ * A stored external URL always wins over the kind: bad imports have written
+ * `platform` on top of real directory links, and we must not repeat the claim.
+ */
+export function isPlatformOrigin(presence: {
+  sourceUrl?: string | null;
+  sourceKind?: BusinessPresence["sourceKind"];
+}): boolean {
+  if (presence.sourceUrl?.trim()) return false;
+  return isPlatformSource(presence.sourceKind);
+}
+
+/** External post / directory URL, whatever the stored kind claims. */
 export function resolveSourceUrl(presence: BusinessPresence): string | null {
   const direct = presence.sourceUrl?.trim() || null;
   if (!direct) return null;
-  if (isPlatformSource(presence.sourceKind)) return null;
   return normalizeHttpUrl(direct);
 }
 
@@ -170,20 +270,85 @@ export function hasProvenanceSource(presence: {
   sourceUrl?: string | null;
   sourceKind?: BusinessPresence["sourceKind"];
 }): boolean {
-  if (isPlatformSource(presence.sourceKind)) return true;
-  return Boolean(presence.sourceUrl?.trim());
+  if (presence.sourceUrl?.trim()) return true;
+  return isPlatformSource(presence.sourceKind);
 }
 
+/** Textual source hints that mean a directory / yellow-pages import. */
+const DIRECTORY_SOURCE_HINT =
+  /(directory|svoi|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|ruspages|slavic.?seattle|russian.?seattle|boston.?pages|our.?texas)/i;
+
+/** Textual source hints that mean the card was really created on КРУГИ. */
+const PLATFORM_SOURCE_HINT = /^(platform|krugi|user|owner|admin|manual)$/i;
+
+/**
+ * Single classifier for provenance on import / publish / section move.
+ *
+ * The URL wins over the textual hint — a card carrying an external link is
+ * never ours. Returns `null` when the origin is genuinely unknown; callers
+ * must store that null rather than falling back to `"platform"`, otherwise we
+ * claim someone else's listing as our own.
+ */
+export function resolveSourceKind(
+  sourceUrl: string | null | undefined,
+  rawSource?: string | null,
+): SourceKind {
+  const url = sourceUrl?.trim() || null;
+  const hint = rawSource?.trim().toLowerCase() || "";
+
+  if (url) {
+    if (isFacebookUrl(url)) return "facebook";
+    if (isTelegramUrl(url)) return "telegram";
+    if (isDirectorySourceUrl(url)) return "directory";
+  }
+
+  if (hint.startsWith("facebook")) return "facebook";
+  if (hint.includes("telegram")) return "telegram";
+  if (DIRECTORY_SOURCE_HINT.test(hint)) return "directory";
+
+  // An unknown external link is still not ours — leave the kind unresolved and
+  // let the UI label it by hostname.
+  if (url) return null;
+  if (PLATFORM_SOURCE_HINT.test(hint)) return "platform";
+  return null;
+}
+
+/**
+ * professionals / jobs keep provenance in an uppercase `source_type`.
+ * `professionals_public` maps USER/ADMIN back to `platform` and derives
+ * `directory` from the URL, so IMPORT is the right home for directory rows.
+ */
+export function sourceTypeFromKind(
+  kind: SourceKind,
+): "TELEGRAM" | "FACEBOOK" | "IMPORT" | "ADMIN" {
+  if (kind === "telegram") return "TELEGRAM";
+  if (kind === "facebook") return "FACEBOOK";
+  if (kind === "platform") return "ADMIN";
+  return "IMPORT";
+}
+
+/**
+ * Label for an external source link. `platform` is deliberately not handled
+ * here — a card with a URL is labelled by that URL, never as КРУГИ.
+ */
 export function sourceContactLabel(
   kind: BusinessPresence["sourceKind"],
   url: string,
 ): string {
-  if (kind === "platform") return "КРУГИ";
   if (kind === "facebook" || isFacebookUrl(url)) {
     return "Оригинальный пост в Facebook";
   }
   if (kind === "telegram" || isTelegramUrl(url)) {
     return telegramContactLabel(url);
+  }
+  if (kind === "directory" || isDirectorySourceUrl(url)) {
+    return `Справочник · ${sourceHostLabel(url)}`;
+  }
+  try {
+    const host = new URL(normalizeHttpUrl(url)).hostname.replace(/^www\./, "");
+    if (host) return host;
+  } catch {
+    // fall through
   }
   return "Источник";
 }

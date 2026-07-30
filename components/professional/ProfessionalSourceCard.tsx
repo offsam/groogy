@@ -1,7 +1,7 @@
 "use client";
 
 import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
-import { isPlatformSource } from "@/lib/business/presence";
+import { isPlatformOrigin } from "@/lib/business/presence";
 import type { Professional } from "@/types/professional";
 
 type ProfessionalSourceCardProps = {
@@ -16,7 +16,7 @@ export function ProfessionalSourceCard({
   isAuthenticated = false,
   initiallyRevealed = false,
 }: ProfessionalSourceCardProps) {
-  const platform = isPlatformSource(professional.sourceKind);
+  const platform = isPlatformOrigin(professional);
   const hasSource =
     professional.presenceFlags.hasSource ||
     platform ||

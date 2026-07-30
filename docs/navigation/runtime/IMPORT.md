@@ -12,6 +12,8 @@ Ingest Telegram / Facebook / directory source material into the import-review qu
 ## Primary documents
 
 - Collector READMEs: [`../../../scripts/telegram-collector/README.md`](../../../scripts/telegram-collector/README.md), [`../../../scripts/facebook-collector/README.md`](../../../scripts/facebook-collector/README.md)
+- Extraction contract: [`../../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md)
+- Pipeline index: [`../pipeline/INDEX.md`](../pipeline/INDEX.md)
 - AI index: [`../ai/INDEX.md`](../ai/INDEX.md)
 
 ## Primary code location

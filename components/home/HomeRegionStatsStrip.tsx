@@ -102,16 +102,26 @@ export function useHubRegionStats(
   return stats;
 }
 
+function pluralRu(n: number, one: string, few: string, many: string): string {
+  const abs = Math.abs(n) % 100;
+  const last = abs % 10;
+  if (abs > 10 && abs < 20) return many;
+  if (last === 1) return one;
+  if (last >= 2 && last <= 4) return few;
+  return many;
+}
+
+function cardCount(stats: HubResourceStats, key: string): number {
+  return stats.cards.find((c) => c.key === key)?.count ?? 0;
+}
+
 /** Compact region totals under «в {region}» on the hero photo. */
 export function HomeRegionActivityLine({
   stats,
   className,
-  prefix,
 }: {
   stats: HubResourceStats | null;
   className?: string;
-  /** Optional lead-in, e.g. «На платформе» for the platform totals line. */
-  prefix?: string;
 }) {
   if (!stats) return null;
   if (
@@ -124,22 +134,16 @@ export function HomeRegionActivityLine({
   }
 
   const parts: { key: string; node: ReactNode }[] = [];
-  if (prefix?.trim()) {
-    parts.push({
-      key: "prefix",
-      node: <span className="font-medium text-white/70">{prefix.trim()}</span>,
-    });
-  }
   if (stats.total > 0) {
     parts.push({
       key: "total",
       node: (
         <>
-          всего{" "}
+          уже{" "}
           <span className="font-semibold tabular-nums text-white/90">
             {stats.total.toLocaleString("ru-RU")}
           </span>{" "}
-          в каталоге
+          {pluralRu(stats.total, "карточка", "карточки", "карточек")}
         </>
       ),
     });
@@ -179,6 +183,125 @@ export function HomeRegionActivityLine({
             {formatDelta(stats.updatedToday)}
           </span>{" "}
           обновлений
+        </>
+      ),
+    });
+  }
+
+  return (
+    <p
+      className={cn(
+        "mt-2 text-[11px] leading-snug text-white/60 sm:mt-2.5 sm:text-xs",
+        className,
+      )}
+    >
+      {parts.map((part, i) => (
+        <span key={part.key}>
+          {i > 0 ? <span className="mx-1.5 text-white/35">·</span> : null}
+          {part.node}
+        </span>
+      ))}
+    </p>
+  );
+}
+
+/** Platform totals under the AI search: «В Кругах уже …». */
+export function HomePlatformActivityLine({
+  stats,
+  className,
+}: {
+  stats: HubResourceStats | null;
+  className?: string;
+}) {
+  if (!stats) return null;
+
+  const businesses = cardCount(stats, "businesses");
+  const professionals = cardCount(stats, "professionals");
+  const members = stats.members ?? 0;
+
+  if (
+    stats.total <= 0 &&
+    stats.addedYesterday <= 0 &&
+    members <= 0 &&
+    businesses <= 0 &&
+    professionals <= 0
+  ) {
+    return null;
+  }
+
+  const parts: { key: string; node: ReactNode }[] = [
+    {
+      key: "prefix",
+      node: <span className="font-medium text-white/70">В Кругах уже</span>,
+    },
+  ];
+
+  if (stats.total > 0) {
+    parts.push({
+      key: "total",
+      node: (
+        <>
+          в каталоге{" "}
+          <span className="font-semibold tabular-nums text-white/90">
+            {stats.total.toLocaleString("ru-RU")}
+          </span>
+        </>
+      ),
+    });
+  }
+  if (stats.addedYesterday > 0) {
+    parts.push({
+      key: "yesterday",
+      node: (
+        <>
+          добавлено вчера{" "}
+          <span className="font-semibold tabular-nums text-white/85">
+            {stats.addedYesterday.toLocaleString("ru-RU")}
+          </span>
+        </>
+      ),
+    });
+  }
+  if (members > 0) {
+    parts.push({
+      key: "members",
+      node: (
+        <>
+          <span className="font-semibold tabular-nums text-white/90">
+            {members.toLocaleString("ru-RU")}
+          </span>{" "}
+          {pluralRu(members, "пользователь", "пользователя", "пользователей")}
+        </>
+      ),
+    });
+  }
+  if (businesses > 0) {
+    parts.push({
+      key: "businesses",
+      node: (
+        <>
+          <span className="font-semibold tabular-nums text-white/90">
+            {businesses.toLocaleString("ru-RU")}
+          </span>{" "}
+          {pluralRu(businesses, "бизнес", "бизнеса", "бизнесов")}
+        </>
+      ),
+    });
+  }
+  if (professionals > 0) {
+    parts.push({
+      key: "professionals",
+      node: (
+        <>
+          <span className="font-semibold tabular-nums text-white/90">
+            {professionals.toLocaleString("ru-RU")}
+          </span>{" "}
+          {pluralRu(
+            professionals,
+            "профессионал",
+            "профессионала",
+            "профессионалов",
+          )}
         </>
       ),
     });

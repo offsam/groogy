@@ -1,5 +1,6 @@
 import type { Job, JobRow } from "@/types/job";
 import { normalizeUsZip } from "@/lib/brand";
+import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 
 export function mapJob(row: JobRow): Job {
   const raw = row.businesses as
@@ -30,11 +31,15 @@ export function mapJob(row: JobRow): Job {
     id: row.id,
     slug: row.slug,
     title: row.title,
-    description: row.description,
+    description: redactContactsFromPublicText(row.description),
+    descriptionOriginal: redactContactsFromPublicText(
+      row.description_original ?? null,
+    ),
     city: row.city,
     stateCode: row.state_code,
     postalCode: row.postal_code,
     status: row.status,
+    paymentMethods: (row.payment_methods ?? []).filter(Boolean),
     businessId: row.business_id,
     businessSlug: biz?.slug ?? null,
     businessName: biz?.name ?? null,

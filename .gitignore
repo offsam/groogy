@@ -3,6 +3,7 @@
 
 # Next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
@@ -47,7 +48,12 @@ scripts/facebook-collector/data/poc/
 .local/
 
 # Local enrich / collector session scratch
-scripts/**/data/*session*.json
+scripts/**/data/
+!scripts/**/data/.gitkeep
+docs/audits/data/
+.tmp-check/
+.tmp/
+
 .vercel
 .env*
 !.env.example

@@ -7,6 +7,12 @@ import {
   updateProfessionalAction,
   type CreateProfessionalInput,
 } from "@/lib/professional/actions";
+import { ContactLinksEditor } from "@/components/contacts/ContactLinksEditor";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  serializeContactLinks,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 
 type ProfessionalFormProps = {
   mode: "create" | "edit";
@@ -31,6 +37,14 @@ export function ProfessionalForm({ mode, slug, initial }: ProfessionalFormProps)
   const [website, setWebsite] = useState(initial?.website ?? "");
   const [instagramUrl, setInstagramUrl] = useState(initial?.instagramUrl ?? "");
   const [telegramUrl, setTelegramUrl] = useState(initial?.telegramUrl ?? "");
+  const [contactLinks, setContactLinks] = useState<ContactLink[]>(
+    initial?.contactLinks ?? [],
+  );
+  const [employerName, setEmployerName] = useState(initial?.employerName ?? "");
+  const [employerRole, setEmployerRole] = useState(initial?.employerRole ?? "");
+  const [employerBusinessSlug, setEmployerBusinessSlug] = useState(
+    initial?.employerBusinessSlug ?? "",
+  );
 
   function submit(publish: boolean) {
     setError(null);
@@ -46,6 +60,10 @@ export function ProfessionalForm({ mode, slug, initial }: ProfessionalFormProps)
       website,
       instagramUrl,
       telegramUrl,
+      contactLinks: serializeContactLinks(contactLinks),
+      employerName,
+      employerRole,
+      employerBusinessSlug,
       publish,
     };
 
@@ -192,6 +210,54 @@ export function ProfessionalForm({ mode, slug, initial }: ProfessionalFormProps)
           onChange={(e) => setTelegramUrl(e.target.value)}
         />
       </label>
+
+      {CONTACT_LINKS_COLUMN_READY ? (
+        <ContactLinksEditor
+          exclude={["website", "instagram", "telegram"]}
+          value={contactLinks}
+          onChange={setContactLinks}
+        />
+      ) : null}
+
+      <fieldset className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50/60 p-4">
+        <legend className="px-1 text-sm font-semibold text-slate-900">
+          Работает в компании
+        </legend>
+        <p className="text-xs text-slate-500">
+          Если вы сотрудник, а не владелец бизнеса — укажите компанию. Это не
+          делает вас владельцем карточки бизнеса.
+        </p>
+        <label className="block text-sm font-medium text-slate-700">
+          Компания
+          <input
+            className={field}
+            placeholder="Название компании"
+            value={employerName}
+            onChange={(e) => setEmployerName(e.target.value)}
+          />
+        </label>
+        <label className="block text-sm font-medium text-slate-700">
+          Должность
+          <input
+            className={field}
+            placeholder="Например: маркетолог, дизайнер"
+            value={employerRole}
+            onChange={(e) => setEmployerRole(e.target.value)}
+          />
+        </label>
+        <label className="block text-sm font-medium text-slate-700">
+          Бизнес в КРУГИ (slug)
+          <input
+            className={field}
+            placeholder="slug карточки бизнеса, если есть в каталоге"
+            value={employerBusinessSlug}
+            onChange={(e) => setEmployerBusinessSlug(e.target.value)}
+          />
+          <span className="mt-1 block text-xs font-normal text-slate-500">
+            Опционально: ссылка на карточку бизнеса появится в профиле.
+          </span>
+        </label>
+      </fieldset>
 
       {error ? (
         <p className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">

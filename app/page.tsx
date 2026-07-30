@@ -7,8 +7,8 @@ import {
 } from "@/lib/platform/hub-resource-stats";
 import { getPopularHomeResources } from "@/lib/platform/popular-resources";
 import {
-  DEFAULT_REGION_HUB,
-  getSelectableRegionHubs,
+  USA_OVERVIEW_HUB,
+  getMapPinRegionHubs,
   resolveRegionHub,
 } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
@@ -25,11 +25,11 @@ export default async function HomePage() {
   let mapPins: Awaited<ReturnType<typeof getHomeMapPins>> = [];
   let error: string | null = null;
   let lockedFromProfile = false;
-  let initialHub = DEFAULT_REGION_HUB;
-  let initialInLabel = DEFAULT_REGION_HUB.inLabel;
-  let initialCountyGeoid: string | null = DEFAULT_REGION_HUB.countyGeoids[0] ?? null;
+  // Guests without a saved/profile region start on the USA overview map.
+  let initialHub = USA_OVERVIEW_HUB;
+  let initialInLabel = USA_OVERVIEW_HUB.inLabel;
+  let initialCountyGeoid: string | null = null;
   let initialRegionStats: HubResourceStats | null = null;
-  let initialPlatformStats: HubResourceStats | null = null;
 
   try {
     const client = await createServerClient();
@@ -38,7 +38,7 @@ export default async function HomePage() {
       client.auth.getUser(),
       // Per-hub bounding boxes — national newest-800 left LA empty while counts showed ~300.
       getHomeMapPins(catalog, {
-        hubs: getSelectableRegionHubs(),
+        hubs: getMapPinRegionHubs(),
         limitPerHub: 500,
       }).catch(() => [] as typeof mapPins),
     ]);
@@ -62,17 +62,17 @@ export default async function HomePage() {
       }
     }
 
-    const [feed, regionStats, platformStats] = await Promise.all([
+    const [feed, regionStats] = await Promise.all([
       getPopularHomeResources(catalog, {
-        hubId: initialHub.id,
+        hubId: lockedFromProfile ? initialHub.id : null,
         limit: 6,
       }).catch(() => [] as typeof popularFeed),
-      getHubResourceStats(initialHub.id).catch(() => null),
-      getHubResourceStats(null).catch(() => null),
+      lockedFromProfile
+        ? getHubResourceStats(initialHub.id).catch(() => null)
+        : getHubResourceStats(null).catch(() => null),
     ]);
     popularFeed = feed;
     initialRegionStats = regionStats;
-    initialPlatformStats = platformStats;
   } catch (err) {
     error = err instanceof Error ? err.message : "Неизвестная ошибка";
   }
@@ -83,7 +83,6 @@ export default async function HomePage() {
       initialCountyGeoid={initialCountyGeoid}
       initialHub={initialHub}
       initialInLabel={initialInLabel}
-      initialPlatformStats={initialPlatformStats}
       initialRegionStats={initialRegionStats}
       lockedFromProfile={lockedFromProfile}
       mapPins={mapPins}

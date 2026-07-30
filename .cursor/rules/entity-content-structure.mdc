@@ -1,0 +1,41 @@
+---
+description: Contacts, address, and narrative stay in separate blocks on every entity card — never mix into description.
+alwaysApply: true
+---
+
+# Entity content structure (КРУГИ)
+
+Applies to **every** public entity: business, professional, event, job, listing, lechu, transfer, service — profiles, cards, search teasers, admin previews that mirror public UI.
+
+## Blocks (required separation)
+
+1. **Описание / о нас** — only human narrative about the entity (who they are, what they do). No phones, emails, Telegram/Instagram/WhatsApp handles or URLs, websites, «звоните/пишите», bare `@handles`, registration forms, or street addresses.
+2. **Контакты** — dedicated gated/contacts block (or entity contact fields). Reveal UX may hide values; presence icons are fine. Contact metrics depend on this gate.
+3. **Адрес / локация** — dedicated location block (street, city, ZIP, zone text). Not buried inside description paragraphs.
+4. **Карта** — if there is a **concrete street address** (or reliable lat/lng), show a map in the location area. City-only / service-area-only → text is enough, no fake pin.
+
+## Must not
+
+- Put contact data or full street address into `description` / `short_description` / `headline` / card blurbs / service blurbs as the place to find them.
+- Render raw phones/emails/social URLs/addresses inside «О нас» / «О специалисте» / «Описание» on public pages.
+- Skip the map when street-level address (or geo) is already on the entity.
+
+## When changing UI or imports
+
+- Always run public copy through `redactContactsFromPublicText` / `publicNarrativeText` (or `structureBusinessProfileCopy` for businesses) from `lib/content/structure-business-profile.ts` — do not invent a one-off stripper per entity.
+- On import/enrich: parse contacts and address **out** of free text into structured fields; leave narrative clean.
+- Events / affiches: «Обогатить» runs `structure_event_from_text` (date, where, price, phone, registration form) and cleans description; Approve publishes those fields, not the raw dump.
+- Admin-only dumps (source footers, FB markers) stay out of public copy (`sanitizePublicDescription`).
+
+## Examples
+
+```text
+❌ «Мастер маникюра. Тел: 714-555-1212. Instagram @nails»
+✅ description: «Мастер маникюра…»  |  contacts: phone + instagram  |  location: address (+ map if street)
+
+❌ Address only inside a long about paragraph, no location block
+✅ Location card with address; about without the street/phone lines
+
+❌ «Come visit us at 123 Main St… Call 949-555-1212»
+✅ description: «Come visit us…» (street/phone stripped)  |  contacts + address blocks
+```

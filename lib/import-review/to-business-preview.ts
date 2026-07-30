@@ -1,13 +1,27 @@
 import type { Business } from "@/types/business";
 import type { BusinessOffer } from "@/types/business-offer";
 import type { Professional } from "@/types/professional";
+import type { Job } from "@/types/job";
 import type { ImportReviewItem } from "@/types/import-review";
+import type { PlatformEvent } from "@/lib/events/queries";
+import { structureEventFromText } from "@/lib/events/structure-event-from-text";
+import {
+  narrativeWithContactPointer,
+  shortNarrativeTeaser,
+} from "@/lib/content/structure-business-profile";
 import { computePresenceFlags } from "@/lib/business/presence-flags";
+import {
+  isFacebookUrl,
+  isInstagramUrl,
+  isTikTokUrl,
+  isYelpUrl,
+} from "@/lib/business/presence";
 import {
   importCategoryLabel,
   resolveImportDisplayName,
   sanitizeInstagramHandles,
 } from "@/lib/import-review/display-name";
+import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
 
 /** Fields enough to render a public BusinessCard / profile teaser. */
 export type ImportReviewPreviewFields = {
@@ -19,6 +33,8 @@ export type ImportReviewPreviewFields = {
   category?: string | null;
   city?: string | null;
   state?: string | null;
+  address_line?: string | null;
+  postal_code?: string | null;
   phone?: string[] | null;
   email?: string[] | null;
   website?: string[] | null;
@@ -37,6 +53,8 @@ export type ImportReviewPreviewFields = {
   source_text?: string | null;
   source_url?: string | null;
   source?: string | null;
+  source_group?: string | null;
+  payment_methods?: string[] | null;
 };
 
 function first(values: string[] | null | undefined): string | null {
@@ -44,7 +62,7 @@ function first(values: string[] | null | undefined): string | null {
   return v || null;
 }
 
-function asHttpUrl(raw: string | null): string | null {
+function asHttpUrl(raw: string | null | undefined): string | null {
   if (!raw) return null;
   const t = raw.trim();
   if (!t) return null;
@@ -54,13 +72,56 @@ function asHttpUrl(raw: string | null): string | null {
   return `https://${t}`;
 }
 
+function isSocialWebsiteUrl(url: string): boolean {
+  return (
+    isFacebookUrl(url) ||
+    isInstagramUrl(url) ||
+    isYelpUrl(url) ||
+    isTikTokUrl(url)
+  );
+}
+
+function pickWebsiteUrl(urls: string[] | null | undefined): string | null {
+  return asHttpUrl(
+    first((urls ?? []).filter((w) => w.trim() && !isSocialWebsiteUrl(w))),
+  );
+}
+
+function pickSocialUrl(
+  urls: string[] | null | undefined,
+  match: (u: string) => boolean,
+): string | null {
+  return asHttpUrl(first((urls ?? []).filter((w) => match(w.trim()))));
+}
+
 function shortFrom(description: string | null, services: string[]): string | null {
-  if (description?.trim()) {
-    const line = description.trim().split(/\n+/)[0]?.trim() ?? "";
-    return line.slice(0, 160) || null;
-  }
+  const teaser = shortNarrativeTeaser(description, 160);
+  if (teaser) return teaser;
   if (services.length) return services.slice(0, 3).join(" · ");
   return null;
+}
+
+/** Clean description for every queue preview — contacts → pointer to contacts block. */
+function cleanPreviewDescription(
+  description: string | null | undefined,
+): string | null {
+  return narrativeWithContactPointer(description).text;
+}
+
+/** Payment icons on every preview card — queue field or parse from ad text. */
+export function resolvePreviewPaymentMethods(
+  item: ImportReviewPreviewFields,
+): string[] {
+  const fromField = (item.payment_methods ?? [])
+    .map((m) => m.trim())
+    .filter(Boolean);
+  if (fromField.length) {
+    return Array.from(new Set(fromField));
+  }
+  const blob = [item.description, item.source_text, item.title]
+    .filter((x): x is string => Boolean(x?.trim()))
+    .join("\n");
+  return structureEventFromText(blob).paymentMethods;
 }
 
 function slugify(text: string): string {
@@ -80,19 +141,19 @@ export function importReviewToBusinessPreview(
 ): Business {
   const resolved = resolveImportDisplayName(item);
   const name = resolved.name;
-  const description = item.description?.trim() || null;
+  const description = cleanPreviewDescription(item.description);
   const services = item.services ?? [];
-  const website = asHttpUrl(
-    first(
-      (item.website ?? []).filter(
-        (w) => !/facebook\.com|fb\.com|instagram\.com/i.test(w),
-      ),
-    ),
-  );
+  const website = pickWebsiteUrl(item.website);
+  const facebookUrl = pickSocialUrl(item.website, isFacebookUrl);
+  const yelpUrl = pickSocialUrl(item.website, isYelpUrl);
+  const tiktokUrl = pickSocialUrl(item.website, isTikTokUrl);
   const igHandle = sanitizeInstagramHandles(item.instagram)[0] ?? null;
   const instagram = asHttpUrl(igHandle);
   const phone = first(item.phone);
   const email = first(item.email);
+  const telegramUrl = item.telegram_username?.trim()
+    ? `https://t.me/${item.telegram_username.replace(/^@/, "")}`
+    : null;
   const categoryLabel = importCategoryLabel(item.category);
   const imageUrl = item.preview_image_url?.trim() || null;
   const presenceFlags = computePresenceFlags({
@@ -100,14 +161,15 @@ export function importReviewToBusinessPreview(
     email,
     website,
     instagramUrl: instagram,
-    telegramUrl: null,
+    telegramUrl,
     sourceUrl: item.source_url?.trim() || null,
     sourceKind: item.source_url?.trim()
       ? item.source?.toLowerCase().startsWith("facebook")
         ? "facebook"
         : "telegram"
       : null,
-    yelpUrl: null,
+    facebookUrl,
+    yelpUrl,
     googleMapsUrl: null,
   });
 
@@ -128,14 +190,16 @@ export function importReviewToBusinessPreview(
     email,
     website,
     instagramUrl: instagram,
-    telegramUrl: null,
+    telegramUrl,
     sourceUrl: item.source_url?.trim() || null,
     sourceKind: item.source_url?.trim()
       ? item.source?.toLowerCase().startsWith("facebook")
         ? "facebook"
         : "telegram"
       : null,
-    yelpUrl: null,
+    facebookUrl,
+    tiktokUrl,
+    yelpUrl,
     yelpRating: null,
     yelpReviewsCount: 0,
     instagramFollowersCount: null,
@@ -143,16 +207,18 @@ export function importReviewToBusinessPreview(
     googleRating: null,
     googleReviewsCount: 0,
     bookingUrl: null,
+    contactLinks: [],
     imageUrl,
-    addressLine: null,
+    addressLine: item.address_line?.trim() || null,
     city: item.city?.trim() || null,
     region: item.state?.trim() || null,
     latitude: null,
     longitude: null,
-    locationPrecision: null,
+    locationPrecision: item.address_line?.trim() ? "street" : null,
     openingHours: null,
     createdAt: null,
     presenceFlags,
+    paymentMethods: resolvePreviewPaymentMethods(item),
   };
 }
 
@@ -162,15 +228,9 @@ export function importReviewToProfessionalPreview(
 ): Professional {
   const resolved = resolveImportDisplayName(item);
   const name = resolved.name;
-  const description = item.description?.trim() || null;
+  const description = cleanPreviewDescription(item.description);
   const services = item.services ?? [];
-  const website = asHttpUrl(
-    first(
-      (item.website ?? []).filter(
-        (w) => !/facebook\.com|fb\.com|instagram\.com/i.test(w),
-      ),
-    ),
-  );
+  const website = pickWebsiteUrl(item.website);
   const igHandle = sanitizeInstagramHandles(item.instagram)[0] ?? null;
   const instagram = asHttpUrl(igHandle);
   const phone = first(item.phone);
@@ -221,6 +281,7 @@ export function importReviewToProfessionalPreview(
     website,
     instagramUrl: instagram,
     telegramUrl: tg,
+    contactLinks: [],
     sourceUrl: item.source_url?.trim() || null,
     sourceKind: item.source_url?.trim()
       ? item.source?.toLowerCase().startsWith("facebook")
@@ -229,6 +290,7 @@ export function importReviewToProfessionalPreview(
       : null,
     servicePreviewTitles: services.slice(0, 3),
     serviceCount: services.length || undefined,
+    paymentMethods: resolvePreviewPaymentMethods(item),
   };
 }
 
@@ -277,6 +339,22 @@ export function importReviewToOfferPreviews(
 export function importReviewItemToPreviewFields(
   item: ImportReviewItem,
 ): ImportReviewPreviewFields {
+  const loc = mergeLocationWithGroupFallback({
+    city: item.city,
+    region: item.state,
+    sourceGroup: item.source_group,
+    source: item.source,
+    text: [item.description, item.source_text].filter(Boolean).join("\n"),
+  });
+  // City-scoped groups → city; county-scoped (Fun for Mom / OC) → region as place label.
+  const place = loc.city || loc.region || item.city?.trim() || null;
+  const area =
+    loc.city && loc.region
+      ? loc.region
+      : loc.stateCode && loc.stateCode !== "US-CA"
+        ? loc.stateCode
+        : item.state?.trim() || loc.stateCode || null;
+
   return {
     id: item.id,
     title: item.title,
@@ -284,8 +362,10 @@ export function importReviewItemToPreviewFields(
     person_name: item.person_name,
     description: item.description || item.source_text,
     category: item.category,
-    city: item.city,
-    state: item.state,
+    city: place,
+    state: area,
+    address_line: item.address_line?.trim() || null,
+    postal_code: item.postal_code?.trim() || null,
     phone: item.phone,
     email: item.email,
     website: item.website,
@@ -304,5 +384,122 @@ export function importReviewItemToPreviewFields(
     source_text: item.source_text,
     source_url: item.source_url,
     source: item.source,
+    source_group: item.source_group,
+    payment_methods: item.payment_methods ?? null,
+  };
+}
+
+/** Queue → EventProfileView / EventCard preview (admin only). */
+export function importReviewToEventPreview(
+  fields: ImportReviewPreviewFields,
+): PlatformEvent {
+  const title =
+    resolveImportDisplayName(fields).name ||
+    fields.title?.trim() ||
+    "Событие";
+
+  let telegramUrl: string | null = null;
+  if (fields.telegram_username?.trim()) {
+    const handle = fields.telegram_username.trim().replace(/^@/, "");
+    if (handle) telegramUrl = `https://t.me/${handle}`;
+  }
+  if (!telegramUrl) {
+    for (const w of fields.website ?? []) {
+      const m = w.match(/(?:t\.me|telegram\.me)\/([A-Za-z0-9_]{4,32})/i);
+      if (
+        m?.[1] &&
+        !/^\d+$/.test(m[1]) &&
+        !["c", "s"].includes(m[1].toLowerCase())
+      ) {
+        telegramUrl = `https://t.me/${m[1]}`;
+        break;
+      }
+    }
+  }
+
+  const priceLabel =
+    fields.price != null
+      ? `${fields.currency ?? "USD"} ${fields.price}`.trim()
+      : null;
+
+  const structured = structureEventFromText(
+    [fields.description, fields.source_text, fields.title]
+      .filter((x): x is string => Boolean(x?.trim()))
+      .join("\n"),
+  );
+
+  // Prefer queue fields; fall back to affiche parse from the post body.
+  const eventAtLabel = structured.eventAtLabel;
+  const startsAt = structured.startsAt;
+  const resolvedPrice =
+    priceLabel ||
+    structured.priceLabel ||
+    (structured.priceAmount != null
+      ? `$${structured.priceAmount}`
+      : null);
+
+  return {
+    id: fields.id,
+    title,
+    slug: `preview-${fields.id.slice(0, 8)}`,
+    description: cleanPreviewDescription(
+      structured.description || fields.description || null,
+    ),
+    status: "pending",
+    starts_at: startsAt,
+    ends_at: null,
+    event_at_label: eventAtLabel,
+    city: fields.city ?? structured.city ?? null,
+    state_code: fields.state ?? null,
+    address_line: fields.address_line ?? structured.addressLine ?? null,
+    latitude: null,
+    longitude: null,
+    cover_image_url: fields.preview_image_url ?? null,
+    registration_url:
+      pickWebsiteUrl(fields.website) || structured.registrationUrl || null,
+    source_url: fields.source_url ?? null,
+    source_posted_at: null,
+    source_body: fields.source_text ?? null,
+    format: fields.address_line || structured.addressLine ? "offline" : null,
+    price_label: resolvedPrice,
+    payment_methods: resolvePreviewPaymentMethods(fields),
+    phone: first(fields.phone) ?? structured.phone ?? null,
+    telegram_url: telegramUrl,
+    created_at: new Date().toISOString(),
+  };
+}
+
+/** Queue → JobCard preview (admin only). */
+export function importReviewToJobPreview(
+  fields: ImportReviewPreviewFields,
+): Job {
+  const title =
+    fields.title?.trim() ||
+    fields.business_name?.trim() ||
+    "Вакансия";
+  const employer =
+    fields.business_name?.trim() ||
+    fields.person_name?.trim() ||
+    null;
+  return {
+    id: fields.id,
+    slug: `preview-${fields.id.slice(0, 8)}`,
+    title,
+    description: cleanPreviewDescription(fields.description),
+    city: fields.city ?? null,
+    stateCode: fields.state ?? null,
+    postalCode: null,
+    status: "pending",
+    businessId: null,
+    businessSlug: null,
+    businessName: employer,
+    businessImageUrl: fields.preview_image_url ?? null,
+    businessCity: fields.city ?? null,
+    businessRegion: fields.state ?? null,
+    businessAddressLine: null,
+    businessLocationPrecision: null,
+    paymentMethods: resolvePreviewPaymentMethods(fields),
+    publishedAt: null,
+    createdAt: new Date().toISOString(),
   };
 }

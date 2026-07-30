@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RealEstateCard } from "@/components/real-estate/RealEstateCard";
 import { EmptyState } from "@/components/ui/DataState";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 
@@ -63,21 +64,11 @@ export default async function RealEstatePage() {
           description="Когда появятся опубликованные объявления, они будут здесь."
         />
       ) : (
-        <ul className="divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {listings.map((item) => (
-            <li key={item.id}>
-              <a
-                className="block px-4 py-3 transition hover:bg-slate-50"
-                href={`/real-estate/${item.slug}`}
-              >
-                <p className="font-medium text-slate-900">{item.title}</p>
-                {item.city ? (
-                  <p className="mt-0.5 text-sm text-slate-500">{item.city}</p>
-                ) : null}
-              </a>
-            </li>
+            <RealEstateCard key={item.id} item={item} />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

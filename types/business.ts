@@ -1,5 +1,6 @@
 import type { OpeningHours } from "@/lib/business/opening-hours";
 import type { BusinessPresenceFlags } from "@/lib/business/presence-flags";
+import type { ContactLink } from "@/lib/contacts/channels";
 
 export type Category = {
   id: string;
@@ -20,6 +21,8 @@ export type Business = {
   categoryName: string | null;
   shortDescription: string | null;
   description: string | null;
+  /** Source-language about text; shown behind «Показать оригинал». */
+  descriptionOriginal?: string | null;
   ratingAvg: number;
   reviewsCount: number;
   aiVerifiedReviewsCount: number;
@@ -33,7 +36,11 @@ export type Business = {
   telegramUrl: string | null;
   /** Original post / import provenance — gated via contacts reveal. */
   sourceUrl: string | null;
-  sourceKind: "telegram" | "facebook" | "platform" | null;
+  sourceKind: "telegram" | "facebook" | "platform" | "directory" | null;
+  /** Facebook page URL when known (also may appear in description extract). */
+  facebookUrl: string | null;
+  /** TikTok profile URL when known. */
+  tiktokUrl: string | null;
   yelpUrl: string | null;
   /** Public listing metric — Yelp stars when known. */
   yelpRating: number | null;
@@ -47,6 +54,10 @@ export type Business = {
    * Online booking / «Book now» URL — public CTA (not contact-gated).
    */
   bookingUrl: string | null;
+  /** Accepted payment methods discovered from public copy/resources. */
+  paymentMethods?: string[];
+  /** Channels without a dedicated column — gated like other contacts. */
+  contactLinks: ContactLink[];
   imageUrl: string | null;
   /** Street / suite only — no city, state, ZIP, or county. */
   addressLine: string | null;
@@ -65,6 +76,9 @@ export type Business = {
   createdAt?: string | null;
   /** Safe for listing cards — which contact channels exist without exposing values. */
   presenceFlags: BusinessPresenceFlags;
+  /** Community origin — admin + public third-party count. */
+  thirdPartyMentionCount?: number | null;
+  selfAdMentionCount?: number | null;
 };
 
 export type BusinessSearchParams = {

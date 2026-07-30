@@ -2,6 +2,7 @@ import type { Business } from "@/types/business";
 import type { Listing } from "@/types/listing";
 import type { Professional } from "@/types/professional";
 import { computePresenceFlags } from "@/lib/business/presence-flags";
+import { normalizeCityLabel } from "@/lib/geo/city-aliases";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 
 function first(values: string[] | null | undefined): string | null {
@@ -50,52 +51,6 @@ function slugFromName(name: string, id: string): string {
   return `${base}-${id.slice(0, 8)}`;
 }
 
-/** Cyrillic city labels from to4ka / directories → English catalog city. */
-const CYRILLIC_CITY_TO_EN: Record<string, string> = {
-  "нью-йорк": "New York",
-  "нью йорк": "New York",
-  "лос-анджелес": "Los Angeles",
-  "лос анджелес": "Los Angeles",
-  "сан-франциско": "San Francisco",
-  "сан франциско": "San Francisco",
-  "сан-диего": "San Diego",
-  "сан диего": "San Diego",
-  чикаго: "Chicago",
-  бостон: "Boston",
-  майами: "Miami",
-  филадельфия: "Philadelphia",
-  сакраменто: "Sacramento",
-  глендейл: "Glendale",
-  сиэтл: "Seattle",
-  сиэттл: "Seattle",
-  хьюстон: "Houston",
-  даллас: "Dallas",
-  атланта: "Atlanta",
-  "лас-вегас": "Las Vegas",
-  "лас вегас": "Las Vegas",
-  бруклин: "Brooklyn",
-  "статен-айленд": "Staten Island",
-  бруклинн: "Brooklyn",
-};
-
-function normalizeInferredCity(raw: string): string | null {
-  const cleaned = raw
-    .replace(/\s+/g, " ")
-    .replace(/^[,.\s]+|[,.\s]+$/g, "")
-    .trim();
-  if (!cleaned) return null;
-  if (/^(usa|us|united states|america)$/i.test(cleaned)) return null;
-  if (/^[A-Z]{2}$/i.test(cleaned)) return null;
-  if (/^\d+$/.test(cleaned)) return null;
-  const mapped = CYRILLIC_CITY_TO_EN[cleaned.toLowerCase()];
-  if (mapped) return mapped;
-  // Title-case simple Latin city names; keep mixed Cyrillic as-is if unmapped
-  if (/^[a-z .'-]+$/i.test(cleaned)) {
-    return cleaned.replace(/\b\w/g, (c) => c.toUpperCase());
-  }
-  return cleaned;
-}
-
 /**
  * City for preview/completeness: DB city, else parse from address in notes
  * (to4ka often has «2116 Avenue P, Нью-Йорк, NY, USA» with city=null).
@@ -104,7 +59,7 @@ export function resolveYellowPagesCity(
   item: Pick<CommentRecommendation, "city" | "notes">,
 ): string | null {
   const direct = item.city?.trim() || null;
-  if (direct) return normalizeInferredCity(direct) || direct;
+  if (direct) return normalizeCityLabel(direct) || direct;
 
   const address = noteField(item.notes, "address");
   if (!address) return null;
@@ -114,7 +69,7 @@ export function resolveYellowPagesCity(
     /,\s*([^,]+?)\s*,\s*([A-Za-zА-Яа-яЁё]{2})\s*(?:,\s*(?:USA|United States))?\s*$/i,
   );
   if (withState?.[1]) {
-    const city = normalizeInferredCity(withState[1]);
+    const city = normalizeCityLabel(withState[1]);
     if (city) return city;
   }
 
@@ -123,7 +78,7 @@ export function resolveYellowPagesCity(
     /^([^,]+?)\s*,\s*(?:USA|United States|[A-Z]{2})\s*$/i,
   );
   if (cityOnly?.[1] && !/\d/.test(cityOnly[1])) {
-    const city = normalizeInferredCity(cityOnly[1]);
+    const city = normalizeCityLabel(cityOnly[1]);
     if (city) return city;
   }
 
@@ -232,6 +187,8 @@ export function yellowPagesToBusinessPreview(
     telegramUrl: null,
     sourceUrl: c.sourceUrl,
     sourceKind: "platform",
+    facebookUrl: c.facebook,
+    tiktokUrl: null,
     yelpUrl: c.yelp,
     yelpRating: null,
     yelpReviewsCount: 0,
@@ -240,6 +197,7 @@ export function yellowPagesToBusinessPreview(
     googleRating: null,
     googleReviewsCount: 0,
     bookingUrl: null,
+    contactLinks: [],
     imageUrl: item.cover_image_url,
     addressLine: c.address,
     city,
@@ -300,6 +258,7 @@ export function yellowPagesToProfessionalPreview(
     website: c.website,
     instagramUrl: c.instagramUrl,
     telegramUrl: null,
+    contactLinks: [],
     sourceUrl: c.sourceUrl,
     sourceKind: "platform",
     thirdPartyMentionCount: item.third_party_mention_count,

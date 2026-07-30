@@ -123,6 +123,41 @@ export async function getAdminAnalytics(client: Client): Promise<AdminAnalytics>
   };
 }
 
+async function countPendingByDirectorySource(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  anyClient: SupabaseClient<any>,
+  filter: {
+    targetBucket?: string;
+    sourceChannel?: string;
+  },
+): Promise<Record<string, number>> {
+  const counts: Record<string, number> = {};
+  const pageSize = 1000;
+  let from = 0;
+  for (let page = 0; page < 50; page += 1) {
+    let query = anyClient
+      .from("import_comment_recommendations")
+      .select("directory_source")
+      .eq("status", "pending")
+      .range(from, from + pageSize - 1);
+    if (filter.targetBucket) {
+      query = query.eq("target_bucket", filter.targetBucket);
+    }
+    if (filter.sourceChannel) {
+      query = query.eq("source_channel", filter.sourceChannel);
+    }
+    const { data, error } = await query;
+    if (error || !data?.length) break;
+    for (const row of data as Array<{ directory_source?: string | null }>) {
+      const key = row.directory_source?.trim() || "unknown";
+      counts[key] = (counts[key] ?? 0) + 1;
+    }
+    if (data.length < pageSize) break;
+    from += pageSize;
+  }
+  return counts;
+}
+
 export async function getAdminDashboardCounts(
   client: Client,
 ): Promise<AdminDashboardCounts> {
@@ -136,8 +171,8 @@ export async function getAdminDashboardCounts(
     eventsPending,
     recommendationsPending,
     yellowPagesPending,
-    directoryRows,
-    telegramRows,
+    directoryPendingBySourceRaw,
+    telegramPendingBySourceRaw,
     telegramPending,
   ] = await Promise.all([
     getAdminAnalytics(client).catch(() => null),
@@ -194,38 +229,12 @@ export async function getAdminDashboardCounts(
           return r.count ?? 0;
         }),
     ).catch(() => 0),
-    Promise.all(
-      DIRECTORY_SOURCE_LIST.map((source) =>
-        Promise.resolve(
-          anyClient
-            .from("import_comment_recommendations")
-            .select("id", { count: "exact", head: true })
-            .eq("target_bucket", "yellow_pages")
-            .eq("directory_source", source.id)
-            .eq("status", "pending")
-            .then((r: { count: number | null; error: unknown }) => {
-              if (r.error) return [source.id, 0] as const;
-              return [source.id, r.count ?? 0] as const;
-            }),
-        ).catch(() => [source.id, 0] as const),
-      ),
-    ),
-    Promise.all(
-      TELEGRAM_SOURCE_LIST.map((source) =>
-        Promise.resolve(
-          anyClient
-            .from("import_comment_recommendations")
-            .select("id", { count: "exact", head: true })
-            .eq("source_channel", "telegram")
-            .eq("directory_source", source.id)
-            .eq("status", "pending")
-            .then((r: { count: number | null; error: unknown }) => {
-              if (r.error) return [source.id, 0] as const;
-              return [source.id, r.count ?? 0] as const;
-            }),
-        ).catch(() => [source.id, 0] as const),
-      ),
-    ),
+    countPendingByDirectorySource(anyClient, {
+      targetBucket: "yellow_pages",
+    }).catch(() => ({}) as Record<string, number>),
+    countPendingByDirectorySource(anyClient, {
+      sourceChannel: "telegram",
+    }).catch(() => ({}) as Record<string, number>),
     Promise.resolve(
       anyClient
         .from("import_comment_recommendations")
@@ -239,13 +248,20 @@ export async function getAdminDashboardCounts(
     ).catch(() => 0),
   ]);
 
-  const directoryPendingBySource: Record<string, number> = {};
-  for (const [source, count] of directoryRows) {
-    directoryPendingBySource[source] = count;
+  const directoryPendingBySource: Record<string, number> = {
+    ...directoryPendingBySourceRaw,
+  };
+  for (const source of DIRECTORY_SOURCE_LIST) {
+    directoryPendingBySource[source.id] =
+      directoryPendingBySource[source.id] ?? 0;
   }
-  const telegramPendingBySource: Record<string, number> = {};
-  for (const [source, count] of telegramRows) {
-    telegramPendingBySource[source] = count;
+
+  const telegramPendingBySource: Record<string, number> = {
+    ...telegramPendingBySourceRaw,
+  };
+  for (const source of TELEGRAM_SOURCE_LIST) {
+    telegramPendingBySource[source.id] =
+      telegramPendingBySource[source.id] ?? 0;
   }
 
   return {

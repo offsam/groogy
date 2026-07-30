@@ -1,13 +1,13 @@
 "use client";
 
 import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
-import { isPlatformSource } from "@/lib/business/presence";
+import { isPlatformOrigin } from "@/lib/business/presence";
 
 type ListingSourceCardProps = {
   listingId: string;
   hasSource: boolean;
   sourceUrl?: string | null;
-  sourceKind?: "telegram" | "facebook" | "platform" | null;
+  sourceKind?: "telegram" | "facebook" | "directory" | "platform" | null;
   isAuthenticated?: boolean;
   initiallyRevealed?: boolean;
 };
@@ -21,7 +21,7 @@ export function ListingSourceCard({
   isAuthenticated = false,
   initiallyRevealed = false,
 }: ListingSourceCardProps) {
-  const platform = isPlatformSource(sourceKind);
+  const platform = isPlatformOrigin({ sourceKind, sourceUrl });
 
   return (
     <EntitySourceCard

@@ -70,6 +70,7 @@ SOCAL_CITIES: tuple[str, ...] = (
     "Rancho Santa Margarita",
     "San Clemente",
     "Dana Point",
+    "Orange County",
     # San Diego County
     "San Diego",
     "La Jolla",

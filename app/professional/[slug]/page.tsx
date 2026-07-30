@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
+import { listPublishedCommunityMentionsForProfessional } from "@/lib/community-mentions/queries";
+import { thirdPartySourceUrlsFromMentions } from "@/lib/community-mentions/source-urls";
 import {
   getOwnedProfessionalBySlug,
   getProfessionalBySlug,
@@ -10,6 +12,13 @@ import {
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
+import { getProfessionalCategories } from "@/lib/supabase/queries";
+import { listOwnerPromotions } from "@/lib/promotions/queries";
+import {
+  isFollowingOwner,
+  listOwnerUpdates,
+} from "@/lib/updates/queries";
+import type { Category } from "@/types/business";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -43,9 +52,10 @@ export default async function ProfessionalPage({ params }: PageProps) {
 
   let professional = await getProfessionalBySlug(catalog, slug);
   let isOwner = false;
+  let isAdmin = false;
 
   if (user) {
-    const isAdmin = await userIsAdmin(client).catch(() => false);
+    isAdmin = await userIsAdmin(client).catch(() => false);
 
     if (!professional) {
       const owned = await getOwnedProfessionalBySlug(client, slug).catch(() => null);
@@ -68,16 +78,43 @@ export default async function ProfessionalPage({ params }: PageProps) {
 
   if (!professional) notFound();
 
-  const services = await getProfessionalServices(catalog, professional.id).catch(
-    () => [],
+  const [services, categories, communityMentions, promotions, updates, following] =
+    await Promise.all([
+    getProfessionalServices(catalog, professional.id).catch(() => []),
+    isAdmin
+      ? getProfessionalCategories(catalog).catch(() => [] as Category[])
+      : Promise.resolve([] as Category[]),
+    listPublishedCommunityMentionsForProfessional(catalog, professional.id).catch(
+      () => [],
+    ),
+    listOwnerPromotions(catalog, "professional", professional.id).catch(() => []),
+    listOwnerUpdates(catalog, "professional", professional.id).catch(() => []),
+    user
+      ? isFollowingOwner(client, user.id, "professional", professional.id).catch(
+          () => false,
+        )
+      : Promise.resolve(false),
+  ]);
+
+  const communitySourceUrls = thirdPartySourceUrlsFromMentions(
+    communityMentions.map((m) => ({
+      sourceUrl: m.sourceUrl,
+      kind: m.kind,
+    })),
   );
 
   return (
     <ProfessionalProfileView
+      categories={categories}
+      communitySourceUrls={communitySourceUrls}
       currentUserId={user?.id ?? null}
+      initialFollowing={following}
+      isAdmin={isAdmin}
       isOwner={isOwner}
       professional={professional}
+      promotions={promotions}
       services={services}
+      updates={updates}
     />
   );
 }

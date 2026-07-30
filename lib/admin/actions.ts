@@ -8,6 +8,12 @@ import {
   validateStructuredAddress,
 } from "@/lib/address/normalize";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
+import { normalizeTelegramInput } from "@/lib/business/presence";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  serializeContactLinks,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 import type { UserRole } from "@/types/database";
 
 export type AdminActionResult =
@@ -117,6 +123,9 @@ export async function adminUpsertBusinessAction(input: {
   googleMapsUrl?: string;
   googleRating?: number | null;
   googleReviewsCount?: number | null;
+  email?: string;
+  telegramUrl?: string;
+  contactLinks?: ContactLink[];
 }): Promise<AdminActionResult> {
   const { supabase, error } = await requireAdmin();
   if (error) return error;
@@ -168,6 +177,15 @@ export async function adminUpsertBusinessAction(input: {
           city: normalized.city,
           region: normalized.region,
         }),
+        ...(input.email !== undefined
+          ? { email: input.email.trim() || null }
+          : {}),
+        ...(input.telegramUrl !== undefined
+          ? { telegram_url: normalizeTelegramInput(input.telegramUrl) }
+          : {}),
+        ...(CONTACT_LINKS_COLUMN_READY && input.contactLinks !== undefined
+          ? { contact_links: serializeContactLinks(input.contactLinks) }
+          : {}),
         ...(!input.id
           ? { source_kind: "platform" as const, source_url: null }
           : {}),

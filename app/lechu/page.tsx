@@ -76,8 +76,14 @@ export default async function LechuPage({ searchParams }: PageProps) {
     page = result.page;
     pageSize = result.pageSize;
   } catch (err) {
-    loadError =
-      err instanceof Error ? err.message : "Не удалось загрузить каталог";
+    if (err instanceof Error) {
+      loadError = err.message;
+    } else if (err && typeof err === "object" && "message" in err) {
+      const e = err as { message?: unknown; code?: unknown; details?: unknown; hint?: unknown };
+      loadError = [e.code, e.message, e.details, e.hint].filter(Boolean).join(" — ") || "Не удалось загрузить каталог";
+    } else {
+      loadError = "Не удалось загрузить каталог";
+    }
   }
 
   const totalPages = Math.max(1, Math.ceil(total / pageSize));

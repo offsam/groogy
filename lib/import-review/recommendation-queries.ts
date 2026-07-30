@@ -41,6 +41,28 @@ export type CommentRecommendation = {
   notes: string | null;
   published_entity_type?: string | null;
   published_entity_id?: string | null;
+  duplicate_of_entity_type?: string | null;
+  duplicate_of_entity_id?: string | null;
+  duplicate_confidence?: "suspected" | "confirmed" | string | null;
+  duplicate_reason?: string | null;
+  external_source?: string | null;
+  external_id?: string | null;
+  source_language?: string | null;
+  title_original?: string | null;
+  description_original?: string | null;
+  venue_name?: string | null;
+  address_line?: string | null;
+  price_label?: string | null;
+  payment_methods?: string[] | null;
+  starts_at?: string | null;
+  ends_at?: string | null;
+  state_code?: string | null;
+  category?: string | null;
+  tags?: string[] | null;
+  audience_label?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  registration_url?: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -50,6 +72,10 @@ function recommendationsTable(client: Client) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- table pending in Database types
   return (client as SupabaseClient<any>).from("import_comment_recommendations");
 }
+
+/** Columns enough for Inbox list adapters — skips heavy arrays / geo / originals. */
+const INBOX_RECOMMENDATION_SELECT =
+  "id, kind, display_name, mention_count, source_channel, source_groups, directory_source, target_bucket, category_guess, notes, status, created_at, updated_at, event_at, starts_at, ends_at";
 
 export async function listCommentRecommendations(
   client: Client,
@@ -66,15 +92,22 @@ export async function listCommentRecommendations(
     entity?: "all" | "professional" | "business" | "service";
     /** Exact category_guess values to include */
     categoryGuesses?: string[];
+    /**
+     * `inbox` = slim columns for Review Center list (no comment_texts etc.).
+     * Default `full` keeps existing callers intact.
+     */
+    selectMode?: "full" | "inbox";
   } = {},
 ): Promise<{ items: CommentRecommendation[]; total: number }> {
   const page = Math.max(1, opts.page ?? 1);
   const pageSize = Math.min(500, Math.max(1, opts.pageSize ?? 50));
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
+  const selectCols =
+    opts.selectMode === "inbox" ? INBOX_RECOMMENDATION_SELECT : "*";
 
   let query = recommendationsTable(client)
-    .select("*", { count: "exact" })
+    .select(selectCols, { count: "exact" })
     .order("mention_count", { ascending: false })
     .order("updated_at", { ascending: false })
     .range(from, to);
@@ -107,8 +140,16 @@ export async function listCommentRecommendations(
   const { data, error, count } = await query;
   if (error) throw error;
   return {
-    items: ((data ?? []) as CommentRecommendation[]).map((row) => ({
+    items: ((data ?? []) as unknown as CommentRecommendation[]).map((row) => ({
       ...row,
+      phones: row.phones ?? [],
+      instagram: row.instagram ?? [],
+      websites: row.websites ?? [],
+      comment_texts: row.comment_texts ?? [],
+      request_snippets: row.request_snippets ?? [],
+      source_post_urls: row.source_post_urls ?? [],
+      source_groups: row.source_groups ?? [],
+      recommender_names: row.recommender_names ?? [],
       target_bucket: row.target_bucket || "unclassified",
       directory_source: row.directory_source ?? null,
       third_party_mention_count: Number(row.third_party_mention_count ?? 0),
@@ -117,6 +158,31 @@ export async function listCommentRecommendations(
     })),
     total: count ?? 0,
   };
+}
+
+/** Exact pending (+ optional status/kind) count without loading rows. */
+export async function countCommentRecommendations(
+  client: Client,
+  opts: {
+    status?: string;
+    kind?: "profi" | "event" | "all";
+  } = {},
+): Promise<number> {
+  let query = recommendationsTable(client).select("id", {
+    count: "exact",
+    head: true,
+  });
+  if (opts.status && opts.status !== "all") {
+    query = query.eq("status", opts.status);
+  } else if (!opts.status) {
+    query = query.eq("status", "pending");
+  }
+  if (opts.kind && opts.kind !== "all") {
+    query = query.eq("kind", opts.kind);
+  }
+  const { count, error } = await query;
+  if (error) throw error;
+  return count ?? 0;
 }
 
 /** Facet counts for entity type + category within a source/queue. */
@@ -242,14 +308,4 @@ export async function countCommentRecommendationsByBucket(
     counts[b] = (counts[b] ?? 0) + 1;
   }
   return counts;
-}
-
-export async function countCommentRecommendations(
-  client: Client,
-): Promise<number> {
-  const { count, error } = await recommendationsTable(client)
-    .select("id", { count: "exact", head: true })
-    .eq("status", "pending");
-  if (error) throw error;
-  return count ?? 0;
 }

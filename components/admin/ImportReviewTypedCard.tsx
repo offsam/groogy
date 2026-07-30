@@ -7,21 +7,43 @@ import { ServiceCard } from "@/components/services/ServiceCard";
 import { LechuCard } from "@/components/lechu/LechuCard";
 import { TransferCard } from "@/components/transfers/TransferCard";
 import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
+import { EventCard } from "@/components/events/EventCard";
+import { JobCard } from "@/components/jobs/JobCard";
+import {
+  RealEstateCard,
+  type RealEstateCardItem,
+} from "@/components/real-estate/RealEstateCard";
 import {
   importReviewItemToPreviewFields,
   importReviewToBusinessPreview,
+  importReviewToEventPreview,
+  importReviewToJobPreview,
   importReviewToProfessionalPreview,
   type ImportReviewPreviewFields,
 } from "@/lib/import-review/to-business-preview";
 import { importReviewToListingPreview } from "@/lib/import-review/to-listing-preview";
-import {
-  IMPORT_PREVIEW_KIND_HINTS,
-  IMPORT_PREVIEW_KIND_LABELS,
-  resolveImportPreviewKind,
-  type ImportPreviewKind,
-} from "@/lib/import-review/preview-section";
+import { resolveImportPreviewKind } from "@/lib/import-review/preview-section";
+import { PreviewSectionBadge } from "@/components/admin/PreviewSectionBadge";
 import type { ImportReviewItem } from "@/types/import-review";
+import type { Listing } from "@/types/listing";
 import { cn } from "@/lib/utils";
+
+function listingToRealEstateCardItem(listing: Listing): RealEstateCardItem {
+  return {
+    id: listing.id,
+    title: listing.title,
+    slug: listing.id,
+    city: listing.city,
+    priceAmount: listing.priceAmount,
+    priceCurrency: listing.priceCurrency,
+    offerKind:
+      (listing.marketplace?.transactionType as string | undefined) === "rent"
+        ? "rent"
+        : "sell",
+    coverUrl: listing.media?.[0]?.publicUrl ?? null,
+    paymentMethods: listing.paymentMethods ?? null,
+  };
+}
 
 type PreviewSource =
   | ImportReviewItem
@@ -49,81 +71,6 @@ function fieldsFrom(item: PreviewSource): ImportReviewPreviewFields & {
     };
   }
   return item;
-}
-
-function SectionBadge({ kind }: { kind: ImportPreviewKind }) {
-  return (
-    <div className="mb-2 flex flex-wrap items-center gap-2">
-      <span className="rounded-md border border-brand-blue/20 bg-brand-blue/5 px-2 py-0.5 text-[11px] font-semibold text-brand-blue-deep">
-        {IMPORT_PREVIEW_KIND_LABELS[kind]}
-      </span>
-      <span className="text-[11px] text-slate-500">
-        {IMPORT_PREVIEW_KIND_HINTS[kind]}
-      </span>
-    </div>
-  );
-}
-
-/** Jobs/events without a dedicated public card — marketplace-like shell. */
-function GenericSectionCard({
-  title,
-  description,
-  price,
-  currency,
-  city,
-  state,
-  imageUrl,
-  kind,
-}: {
-  title: string;
-  description: string;
-  price: number | null;
-  currency: string;
-  city: string | null;
-  state: string | null;
-  imageUrl: string | null;
-  kind: ImportPreviewKind;
-}) {
-  const location = [city, state].filter(Boolean).join(", ");
-  const priceLabel =
-    price != null
-      ? new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: currency || "USD",
-          maximumFractionDigits: 0,
-        }).format(price)
-      : null;
-
-  return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-      <div className="relative aspect-[4/3] bg-slate-100">
-        {imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            alt=""
-            className="h-full w-full object-cover"
-            src={imageUrl}
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 px-4 text-center text-sm font-semibold uppercase tracking-wide text-white">
-            {IMPORT_PREVIEW_KIND_LABELS[kind]}
-          </div>
-        )}
-      </div>
-      <div className="space-y-1.5 p-4">
-        <h3 className="line-clamp-2 font-semibold text-slate-900">{title}</h3>
-        {priceLabel ? (
-          <p className="text-lg font-bold text-slate-900">{priceLabel}</p>
-        ) : null}
-        {description ? (
-          <p className="line-clamp-2 text-sm text-slate-600">{description}</p>
-        ) : null}
-        {location ? (
-          <p className="text-xs text-slate-500">{location}</p>
-        ) : null}
-      </div>
-    </article>
-  );
 }
 
 export function ImportReviewTypedCard({
@@ -164,33 +111,32 @@ export function ImportReviewTypedCard({
         preview
       />
     );
-  } else if (kind === "marketplace" || kind === "real_estate") {
+  } else if (kind === "marketplace") {
     card = (
       <ListingCard
         listing={importReviewToListingPreview(fields, kind)}
         preview
       />
     );
-  } else {
-    const listing = importReviewToListingPreview(fields, kind);
+  } else if (kind === "real_estate") {
     card = (
-      <GenericSectionCard
-        city={listing.city}
-        currency={listing.priceCurrency}
-        description={listing.description}
-        imageUrl={listing.media?.[0]?.publicUrl ?? null}
-        kind={kind}
-        price={listing.priceAmount}
-        state={listing.state}
-        title={listing.title}
+      <RealEstateCard
+        item={listingToRealEstateCardItem(
+          importReviewToListingPreview(fields, kind),
+        )}
+        preview
       />
     );
+  } else if (kind === "events") {
+    card = <EventCard event={importReviewToEventPreview(fields)} preview />;
+  } else {
+    card = <JobCard job={importReviewToJobPreview(fields)} preview />;
   }
 
   return (
-    <div className={cn(className)}>
-      {showSectionBadge ? <SectionBadge kind={kind} /> : null}
-      {card}
+    <div className={cn("min-w-0 w-full overflow-hidden", className)}>
+      {showSectionBadge ? <PreviewSectionBadge kind={kind} /> : null}
+      <div className="min-w-0 max-w-full overflow-hidden">{card}</div>
     </div>
   );
 }

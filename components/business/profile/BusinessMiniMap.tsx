@@ -18,6 +18,8 @@ type BusinessMiniMapProps = {
   lat: number;
   lng: number;
   zoom?: number;
+  /** City / county precision → area map without a misleading exact pin. */
+  showMarker?: boolean;
 };
 
 export function BusinessMiniMap(props: BusinessMiniMapProps) {

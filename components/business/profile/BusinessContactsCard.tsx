@@ -7,6 +7,7 @@ import {
   GoogleIcon,
   InstagramIcon,
   TelegramIcon,
+  TikTokIcon,
   YelpIcon,
 } from "@/components/brand/BrandIcons";
 import { QuickAuthModal } from "@/components/auth/QuickAuthModal";
@@ -22,11 +23,20 @@ import {
   resolveGoogleMapsUrl,
   resolveInstagramUrl,
   resolveTelegramUrl,
+  resolveTikTokUrl,
   resolveWebsiteUrl,
   resolveYelpUrl,
   telegramContactLabel,
   type BusinessPresence,
 } from "@/lib/business/presence";
+import { ContactChannelIcon } from "@/components/contacts/ContactChannelIcon";
+import {
+  contactDisplayLabel,
+  contactHref,
+  getContactChannel,
+  type ContactChannelId,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 import { cn } from "@/lib/utils";
 import { formatWebsiteHost } from "@/lib/supabase/mappers";
 
@@ -66,10 +76,12 @@ type ContactsApiResponse = {
   instagramUrl?: string | null;
   telegramUrl?: string | null;
   sourceUrl?: string | null;
-  sourceKind?: "telegram" | "facebook" | "platform" | null;
+  sourceKind?: "telegram" | "facebook" | "platform" | "directory" | null;
   facebookUrl?: string | null;
+  tiktokUrl?: string | null;
   yelpUrl?: string | null;
   googleMapsUrl?: string | null;
+  contactLinks?: ContactLink[];
   routeUrl?: string | null;
   addressLine?: string | null;
 };
@@ -126,6 +138,7 @@ function buildItems(input: {
   const instagram = resolveInstagramUrl(input.presence);
   const telegram = resolveTelegramUrl(input.presence);
   const facebook = resolveFacebookUrl(input.presence);
+  const tiktok = resolveTikTokUrl(input.presence);
   const yelp = resolveYelpUrl(input.presence);
   const googleHref = hasGoogleMapsPresence(input.presence)
     ? resolveGoogleMapsUrl(input.presence, input.businessName)
@@ -215,6 +228,16 @@ function buildItems(input: {
       external: true,
     });
   }
+  if (tiktok) {
+    items.push({
+      key: "tiktok",
+      title: "TikTok",
+      href: tiktok,
+      icon: <TikTokIcon className="size-3.5" />,
+      label: "TikTok",
+      external: true,
+    });
+  }
   if (yelp) {
     items.push({
       key: "yelp",
@@ -235,6 +258,26 @@ function buildItems(input: {
       external: true,
     });
   }
+  // Channels without a dedicated column — Facebook/TikTok already rendered above.
+  const rendered = new Set(items.map((item) => item.key));
+  (input.presence.contactLinks ?? []).forEach((link, index) => {
+    const channel = getContactChannel(link.channel);
+    if (!channel) return;
+    if (rendered.has(channel.id)) return;
+    const href = contactHref(channel.id, link.value);
+    if (!href) return;
+    rendered.add(channel.id);
+    items.push({
+      key: `${channel.id}-${index}`,
+      title: channel.needsLabel
+        ? link.label?.trim() || channel.label
+        : channel.label,
+      href,
+      icon: <ContactChannelIcon channel={channel.id} />,
+      label: contactDisplayLabel(link),
+      external: !href.startsWith("tel:") && !href.startsWith("mailto:"),
+    });
+  });
   if (showRoute && routeHref) {
     items.push({
       key: "route",
@@ -306,11 +349,22 @@ function flagChips(flags: BusinessPresenceFlags): Array<{ key: string; title: st
       icon: <FacebookIcon className="size-3.5" />,
     });
   }
+  const chipped = new Set(chips.map((chip) => chip.key));
+  (flags.extraChannels ?? []).forEach((channelId: ContactChannelId) => {
+    const channel = getContactChannel(channelId);
+    if (!channel || chipped.has(channel.id)) return;
+    chipped.add(channel.id);
+    chips.push({
+      key: channel.id,
+      title: channel.label,
+      icon: <ContactChannelIcon channel={channel.id} />,
+    });
+  });
   return chips;
 }
 
 /**
- * Contacts under the map.
+ * Contacts card (sidebar on lg+, main column on phone).
  * Guests see locked flag chips; after auth, contacts load from /api/business/[slug]/contacts.
  * Owners in edit mode receive plaintext from SSR and skip the API.
  */
@@ -339,6 +393,7 @@ export function BusinessContactsCard({
       presence.telegramUrl?.trim() ||
       presence.yelpUrl?.trim() ||
       presence.googleMapsUrl?.trim() ||
+      (presence.contactLinks?.length ?? 0) > 0 ||
       extraPhones.some((p) => p?.trim()) ||
       fallbackPhone?.trim() ||
       fallbackEmail?.trim(),
@@ -364,8 +419,10 @@ export function BusinessContactsCard({
         sourceUrl: fetched.sourceUrl,
         sourceKind: fetched.sourceKind,
         facebookUrl: fetched.facebookUrl,
+        tiktokUrl: fetched.tiktokUrl,
         yelpUrl: fetched.yelpUrl,
         googleMapsUrl: fetched.googleMapsUrl,
+        contactLinks: fetched.contactLinks ?? [],
         latitude: presence.latitude,
         longitude: presence.longitude,
       }
@@ -400,9 +457,10 @@ export function BusinessContactsCard({
         }));
 
   async function loadContacts() {
-    // Edit mode already has plaintext contacts from SSR.
-    if (editMode && hasServerContacts) {
+    // Edit / admin preview already have plaintext contacts — skip API.
+    if ((editMode || initiallyRevealed) && hasServerContacts) {
       setRevealed(true);
+      tracked.current = true;
       return;
     }
     setLoading(true);
@@ -440,7 +498,7 @@ export function BusinessContactsCard({
   }
 
   function onShowContacts() {
-    if (!isAuthenticated && !editMode) {
+    if (!isAuthenticated && !editMode && !initiallyRevealed) {
       setAuthOpen(true);
       return;
     }

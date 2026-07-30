@@ -1,4 +1,5 @@
 import { sanitizePublicDescription } from "@/lib/content/sanitize-public-description";
+import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import type {
   BusinessOffer,
   BusinessOfferAttributes,
@@ -61,8 +62,10 @@ export function mapBusinessOffer(
     offerType: row.offer_type,
     title: row.title,
     slug: row.slug,
-    shortDescription: row.short_description,
-    description: sanitizePublicDescription(row.description),
+    shortDescription: redactContactsFromPublicText(row.short_description),
+    description: redactContactsFromPublicText(
+      sanitizePublicDescription(row.description),
+    ),
     categoryId: row.category_id,
     categoryName: category?.name ?? null,
     subcategoryId: row.subcategory_id,

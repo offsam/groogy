@@ -1,164 +1,95 @@
 "use client";
 
-import { useState } from "react";
-import { BusinessCard } from "@/components/business/BusinessCard";
-import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
-import { ServiceCard } from "@/components/services/ServiceCard";
-import { RecommendationPreviewModal } from "@/components/admin/RecommendationPreviewModal";
-import {
-  filterRecommendations,
-  RecommendationQueueFilters,
-} from "@/components/admin/RecommendationQueueFilters";
+import Link from "next/link";
 import type { DirectorySourceMeta } from "@/lib/import-review/directory-sources";
-import type { RecommendationEntityFilter } from "@/lib/import-review/recommendation-category";
-import { recommendationCategoryLabel } from "@/lib/import-review/recommendation-category";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
-import {
-  yellowPagesEntityKind,
-  yellowPagesToBusinessPreview,
-  yellowPagesToProfessionalPreview,
-  yellowPagesToServicePreview,
-} from "@/lib/import-review/yellow-pages-preview";
+import { recommendationCategoryLabel } from "@/lib/import-review/recommendation-category";
+import { yellowPagesEntityKind } from "@/lib/import-review/yellow-pages-preview";
+import { reviewWorkspacePath } from "@/lib/admin/review-workspace/task-id";
+import type { ImportSourceStats } from "@/lib/admin/imports/types";
+import { ImportSourceStatsCard } from "@/components/admin/ImportSourceStatsCard";
+import { directorySourceInboxHref } from "@/lib/admin/imports/inbox-href";
 
 type Props = {
   source: DirectorySourceMeta;
   items: CommentRecommendation[];
   total: number;
-  status: string;
-  entity: RecommendationEntityFilter;
-  category: string;
+  stats: ImportSourceStats;
 };
-
-function buildHref(
-  source: DirectorySourceMeta,
-  next: {
-    status: string;
-    entity: RecommendationEntityFilter;
-    category: string;
-  },
-) {
-  const q = new URLSearchParams();
-  if (next.status && next.status !== "pending") q.set("status", next.status);
-  if (next.entity && next.entity !== "all") q.set("entity", next.entity);
-  if (next.category && next.category !== "all") q.set("category", next.category);
-  const qs = q.toString();
-  return qs
-    ? `/admin/directories/${source.slug}?${qs}`
-    : `/admin/directories/${source.slug}`;
-}
 
 export function DirectorySourcePanel({
   source,
   items,
   total,
-  status,
-  entity,
-  category,
+  stats,
 }: Props) {
-  const [previewId, setPreviewId] = useState<string | null>(null);
-  const filtered = filterRecommendations(items, { entity, category });
-  const previewItem = previewId
-    ? (filtered.find((i) => i.id === previewId) ??
-      items.find((i) => i.id === previewId) ??
-      null)
-    : null;
+  const inboxHref = directorySourceInboxHref(source.id);
 
   return (
     <div className="space-y-5">
-      <RecommendationQueueFilters
-        category={category}
-        entity={entity}
-        hrefFor={({ entity: e, category: c }) =>
-          buildHref(source, { status, entity: e, category: c })
-        }
-        items={items}
-        status={status}
-        statusAllHref={buildHref(source, {
-          status: "all",
-          entity,
-          category,
-        })}
-        statusPendingHref={buildHref(source, {
-          status: "pending",
-          entity,
-          category,
-        })}
-      />
+      <ImportSourceStatsCard stats={stats} />
+
+      <div className="flex flex-wrap items-center gap-3">
+        <Link
+          href={inboxHref}
+          className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+        >
+          Open in Inbox
+        </Link>
+        <p className="text-sm text-slate-500">
+          Модерация только в Review Center. Здесь — история и диагностика
+          справочника.
+        </p>
+      </div>
 
       <p className="text-sm text-slate-500">
-        Показано {filtered.length} из {total}
+        Недавние записи: {items.length}
+        {total > items.length ? ` (из ${total})` : ""}
       </p>
 
-      {filtered.length === 0 ? (
+      {items.length === 0 ? (
         <div className="rounded-xl border border-slate-200 bg-white px-4 py-10 text-center text-sm text-slate-500">
-          Нет карточек по выбранным фильтрам из {source.shortTitle}
+          Нет импортированных записей из {source.shortTitle}.
         </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((item) => {
+        <ul className="divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          {items.map((item) => {
             const kind = yellowPagesEntityKind(item);
+            const title =
+              item.display_name?.trim() ||
+              item.comment_texts?.[0]?.trim()?.slice(0, 80) ||
+              "Без названия";
             return (
-              <div key={item.id} className="space-y-2">
-                <div className="flex flex-wrap items-center gap-2 px-0.5">
-                  <span className="rounded-md bg-brand-yellow/25 px-2 py-0.5 text-[11px] font-semibold text-amber-950">
-                    {kind === "professional"
-                      ? "профи"
-                      : kind === "service"
-                        ? "услуга"
-                        : "бизнес"}
-                  </span>
-                  <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                    {recommendationCategoryLabel(item.category_guess)}
-                  </span>
-                  {item.city ? (
-                    <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                      {item.city}
+              <li
+                key={item.id}
+                className="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div className="min-w-0 space-y-1">
+                  <p className="truncate font-medium text-slate-900">{title}</p>
+                  <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
+                    <span>
+                      {kind === "professional"
+                        ? "Professional"
+                        : kind === "service"
+                          ? "Service"
+                          : "Business"}
                     </span>
-                  ) : null}
+                    <span>{recommendationCategoryLabel(item.category_guess)}</span>
+                    <span className="uppercase tracking-wide">{item.status}</span>
+                    {item.city ? <span>{item.city}</span> : null}
+                  </p>
                 </div>
-
-                <button
-                  className="w-full rounded-2xl text-left transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
-                  type="button"
-                  onClick={() => setPreviewId(item.id)}
+                <Link
+                  href={reviewWorkspacePath("recommendation", item.id)}
+                  className="shrink-0 text-sm font-medium text-brand-blue hover:underline"
                 >
-                  {kind === "professional" ? (
-                    <ProfessionalCard
-                      professional={yellowPagesToProfessionalPreview(item)}
-                      preview
-                    />
-                  ) : kind === "service" ? (
-                    <ServiceCard
-                      listing={yellowPagesToServicePreview(item)}
-                      preview
-                    />
-                  ) : (
-                    <BusinessCard
-                      business={yellowPagesToBusinessPreview(item)}
-                      preview
-                    />
-                  )}
-                </button>
-
-                <button
-                  className="text-xs font-medium text-brand-blue hover:underline"
-                  type="button"
-                  onClick={() => setPreviewId(item.id)}
-                >
-                  Открыть · одобрить / отклонить →
-                </button>
-              </div>
+                  Open in Review Center →
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
-
-      {previewItem ? (
-        <RecommendationPreviewModal
-          item={previewItem}
-          onClose={() => setPreviewId(null)}
-        />
-      ) : null}
     </div>
   );
 }

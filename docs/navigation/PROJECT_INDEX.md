@@ -2,9 +2,15 @@
 
 **Question answered:** Where do I go?
 
-Read [`AI_AGENT_START_HERE.md`](./AI_AGENT_START_HERE.md) first.
+Read [`PROJECT_CONTEXT_V1.md`](../context/PROJECT_CONTEXT_V1.md) first, then [`AI_AGENT_START_HERE.md`](./AI_AGENT_START_HERE.md).
 
 Compact TOC only. No explanations.
+
+---
+
+## Context
+
+- [`PROJECT_CONTEXT_V1.md`](../context/PROJECT_CONTEXT_V1.md) — Primary onboarding document for all LLMs. Must be read before `AI_AGENT_START_HERE`.
 
 ---
 
@@ -13,9 +19,13 @@ Compact TOC only. No explanations.
 - Index: [`runtime/INDEX.md`](./runtime/INDEX.md)
 - Live map: [`../architecture/runtime/PLATFORM_LIFECYCLE_V1.md`](../architecture/runtime/PLATFORM_LIFECYCLE_V1.md)
 - Canonical card pipeline: [`../architecture/runtime/CARD_PROCESSING_ARCHITECTURE_V1.md`](../architecture/runtime/CARD_PROCESSING_ARCHITECTURE_V1.md)
-- Extraction/classification contract (P2–P3, drift-checked in CI): [`../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md)
+- Extraction/classification contract (P2–P3, CI): [`../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md)
+- Entity section routing: [`../architecture/pipeline/ENTITY_SECTION_ROUTING_V1.md`](../architecture/pipeline/ENTITY_SECTION_ROUTING_V1.md)
+- USA location canon: [`../architecture/runtime/USA_LOCATION_CANON_V1.md`](../architecture/runtime/USA_LOCATION_CANON_V1.md)
+- Pipeline index: [`pipeline/INDEX.md`](./pipeline/INDEX.md)
 - Card lifecycle: [`../architecture/card/CARD_LIFECYCLE_ARCHITECTURE_V1.md`](../architecture/card/CARD_LIFECYCLE_ARCHITECTURE_V1.md)
 - Stabilization: [`../architecture/runtime/ARCHITECTURE_STABILIZATION_V1.md`](../architecture/runtime/ARCHITECTURE_STABILIZATION_V1.md)
+- Domain events consumer: [`runtime/DOMAIN_EVENTS.md`](./runtime/DOMAIN_EVENTS.md)
 
 ---
 
@@ -41,9 +51,10 @@ Compact TOC only. No explanations.
 - Index: [`database/INDEX.md`](./database/INDEX.md)
 - Live migrations: [`../../supabase/migrations/`](../../supabase/migrations/)
 - Generated TS types: [`../../types/database.ts`](../../types/database.ts)
+- Types refresh ritual: [`../architecture/runtime/DB_TYPES_RITUAL_V1.md`](../architecture/runtime/DB_TYPES_RITUAL_V1.md)
 - Alignment notes: [`../architecture/entity-model-v1/DATABASE_ALIGNMENT_V1.md`](../architecture/entity-model-v1/DATABASE_ALIGNMENT_V1.md)
 - ⚠️ [`../database-schema.md`](../database-schema.md) — historical **proposal**; not live SoT
-
+- Migration report: [`../migration-0001-report.md`](../migration-0001-report.md)
 ---
 
 ## API
@@ -57,15 +68,19 @@ Compact TOC only. No explanations.
 
 - Index: [`admin/INDEX.md`](./admin/INDEX.md)
 - App root: [`../../app/admin/`](../../app/admin/)
-- Design: [`../architecture/entity-model-v1/ADMIN_REVIEW_CENTER_V1.md`](../architecture/entity-model-v1/ADMIN_REVIEW_CENTER_V1.md)
+- **Admin Panel IA V2 (target SoT):** [`../architecture/ADMIN_PANEL_IA_V2.md`](../architecture/ADMIN_PANEL_IA_V2.md)
+- Review workspace design: [`../architecture/entity-model-v1/ADMIN_REVIEW_CENTER_V1.md`](../architecture/entity-model-v1/ADMIN_REVIEW_CENTER_V1.md)
+- Live panel audit: [`../audits/ADMIN_PANEL_IA_AUDIT_V1.md`](../audits/ADMIN_PANEL_IA_AUDIT_V1.md)
 
 ---
 
 ## Import Pipeline
 
+- Pipeline index: [`pipeline/INDEX.md`](./pipeline/INDEX.md)
 - Runtime entry: [`runtime/IMPORT.md`](./runtime/IMPORT.md)
 - Review entry: [`runtime/REVIEW.md`](./runtime/REVIEW.md)
 - Publish entry: [`runtime/PUBLISH.md`](./runtime/PUBLISH.md)
+- Extraction contract: [`../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md)
 - Pipeline audit (data facts): [`../audits/PIPELINE_AUDIT_V1.md`](../audits/PIPELINE_AUDIT_V1.md)
 
 ---
@@ -87,8 +102,20 @@ Compact TOC only. No explanations.
 - Telegram collector: [`../../scripts/telegram-collector/README.md`](../../scripts/telegram-collector/README.md)
 - Facebook collector: [`../../scripts/facebook-collector/README.md`](../../scripts/facebook-collector/README.md)
 - Directory scrapers: `scripts/business-enrich/scrape_*.py` (see [`ai/INDEX.md`](./ai/INDEX.md))
+- Business seed: [`../../scripts/business-seed/`](../../scripts/business-seed/), [`SOURCE.md`](../../scripts/business-seed/SOURCE.md)
+- Master data import: [`../../scripts/master-data/`](../../scripts/master-data/), [`SOURCE.md`](../../scripts/master-data/SOURCE.md)
+- Jobs backfill: [`../../scripts/jobs/`](../../scripts/jobs/)
+- Entity-model scripts: [`../../scripts/entity-model/`](../../scripts/entity-model/)
+- Runtime consumer: [`../../scripts/runtime/`](../../scripts/runtime/) (see [`runtime/DOMAIN_EVENTS.md`](./runtime/DOMAIN_EVENTS.md))
 - Supabase clients: [`../../lib/supabase/`](../../lib/supabase/)
 
+---
+
+## CI / quality gates
+
+- Workflow: [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml)
+- Drift tests: `scripts/import-review/test_extraction_contract.py`, `scripts/import-review/test_review_tags.py` (invoked by CI)
+- Types ritual after migrations: [`../architecture/runtime/DB_TYPES_RITUAL_V1.md`](../architecture/runtime/DB_TYPES_RITUAL_V1.md)
 ---
 
 ## Security
@@ -108,13 +135,16 @@ Compact TOC only. No explanations.
 - **Unknown as dedicated docs** — no deployment runbook found under `docs/`.
 - App: Next.js (`package.json` scripts: `dev` / `build` / `start`)
 - DB: Supabase project + `supabase/migrations/`
+- CI: [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml)
 
 ---
 
 ## Architecture Decisions
 
 - No `ADR*.md` files found in repo.
-- Resolution / freeze layer: [`../architecture/entity-model-v1/ARCHITECTURE_FREEZE_V1.md`](../architecture/entity-model-v1/ARCHITECTURE_FREEZE_V1.md)
+- Alignment roadmap (current violation→task law): [`../architecture/ARCHITECTURE_ALIGNMENT_ROADMAP_V1.md`](../architecture/ARCHITECTURE_ALIGNMENT_ROADMAP_V1.md)
+- Core domain: [`../architecture/domain/CORE_DOMAIN_ARCHITECTURE_V1.md`](../architecture/domain/CORE_DOMAIN_ARCHITECTURE_V1.md)
+- Resolution / freeze layer (earlier pack): [`../architecture/entity-model-v1/ARCHITECTURE_FREEZE_V1.md`](../architecture/entity-model-v1/ARCHITECTURE_FREEZE_V1.md)
 - Freeze report: [`../architecture/entity-model-v1/ARCHITECTURE_FREEZE_REPORT_V1.md`](../architecture/entity-model-v1/ARCHITECTURE_FREEZE_REPORT_V1.md)
 - Final audit: [`../architecture/entity-model-v1/ARCHITECTURE_FINAL_AUDIT_V1.md`](../architecture/entity-model-v1/ARCHITECTURE_FINAL_AUDIT_V1.md)
 - Overview report: [`../architecture/entity-model-v1/REPORT.md`](../architecture/entity-model-v1/REPORT.md)
@@ -140,6 +170,10 @@ Folder: [`../audits/`](../audits/)
 | [`RECOMMENDATIONS_V1.md`](../audits/RECOMMENDATIONS_V1.md) |
 | [`DATA_CLEANUP_PLAN_V1.md`](../audits/DATA_CLEANUP_PLAN_V1.md) |
 | [`PHASE_PLAN_V1.md`](../audits/PHASE_PLAN_V1.md) |
+| [`PROFESSIONAL_CLEANUP_PHASE1_V1.md`](../audits/PROFESSIONAL_CLEANUP_PHASE1_V1.md) |
+| [`PROFESSIONAL_CLEANUP_PHASE2_V1.md`](../audits/PROFESSIONAL_CLEANUP_PHASE2_V1.md) |
+| [`PROFESSIONAL_CLEANUP_HANDOFF_ADMIN_REVIEW_V1.md`](../audits/PROFESSIONAL_CLEANUP_HANDOFF_ADMIN_REVIEW_V1.md) |
+| [`ADMIN_PANEL_IA_AUDIT_V1.md`](../audits/ADMIN_PANEL_IA_AUDIT_V1.md) |
 
 ---
 
@@ -159,3 +193,4 @@ Folder: [`../audits/`](../audits/)
 - Rules: [`NAVIGATION_RULES.md`](./NAVIGATION_RULES.md)
 - Coverage report: [`NAVIGATION_COVERAGE_REPORT.md`](./NAVIGATION_COVERAGE_REPORT.md)
 - Dependency map: [`DEPENDENCY_MAP.md`](./DEPENDENCY_MAP.md)
+- Latest knowledge refresh: [`KNOWLEDGE_REFRESH_REPORT_V1.md`](./KNOWLEDGE_REFRESH_REPORT_V1.md)

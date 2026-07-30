@@ -37,6 +37,8 @@ sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
 sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
 
 from common import SupabaseRest, load_env  # noqa: E402
+from source_kind import resolve_source_kind  # noqa: E402
+from address_geo import resolve_address_geo  # noqa: E402
 from google_places import (  # noqa: E402
     lookup_business_places,
     maps_api_key,
@@ -425,8 +427,9 @@ def enrich_orange_pages_detail(rec: dict[str, Any]) -> dict[str, Any]:
         ):
             cleaned_addr = normalize_street_line(street_only)[:160]
     if cleaned_addr:
+        # Precision is decided by the geo step (address_geo), not by the string
+        # shape — a street-like line without coordinates is not a street pin.
         out["address_line"] = cleaned_addr
-        out["location_precision"] = "street"
         zip_m = re.search(r"\bCA\s+(\d{5})\b", str(addr), re.I)
         if zip_m and zip_m.group(1).startswith("9"):
             out["postal_code"] = zip_m.group(1)
@@ -799,7 +802,10 @@ def publish_business(
         "status": "approved",
         "category_id": category_id,
         "source_url": (rec.get("source_post_urls") or [None])[0],
-        "source_kind": "platform",
+        "source_kind": resolve_source_kind(
+            (rec.get("source_post_urls") or [None])[0],
+            rec.get("directory_source") or rec.get("source_channel"),
+        ),
         "updated_at": now,
     }
     for k in (
@@ -820,6 +826,16 @@ def publish_business(
             body[k] = patch[k]
     if patch.get("state_code"):
         body["state_code"] = patch["state_code"]
+    # Address found → geocode it, so the card publishes with a real pin.
+    if body.get("address_line") and body.get("latitude") is None and not dry_run:
+        geo = resolve_address_geo(
+            body["address_line"],
+            body.get("city"),
+            body.get("state_code"),
+            body.get("postal_code"),
+        )
+        body.update(geo.patch)
+        print(f"  geo: {geo.reason} {geo.query or ''}", flush=True)
     cover = rec.get("cover_image_url")
     if cover and "placeholder" not in str(cover).lower():
         body["image_url"] = cover
@@ -910,8 +926,10 @@ def publish_professional(
         "published_at": now,
         "updated_at": now,
         "created_at": now,
+        # Street precision comes from the geo step only; without coordinates a
+        # card stays city/county level.
         "location_precision": patch.get("location_precision")
-        or ("street" if patch.get("address_line") else "county" if city else None),
+        or ("city" if city else None),
         "public_exact_address": False,
     }
     if patch.get("instagram_url"):
@@ -1105,7 +1123,6 @@ def main() -> int:
             addr = note_field(notes, "address")
             fill_patch: dict[str, Any] = {
                 "address_line": normalize_street_line(addr) if addr else None,
-                "location_precision": "street" if streetish(addr) else None,
                 "city": english_city(rec.get("city")) or rec.get("city"),
                 "website": plain_website(rec.get("websites") or []),
                 "phone": (rec.get("phones") or [None])[0],
@@ -1220,7 +1237,6 @@ def main() -> int:
         fill_patch: dict[str, Any] = {}
         if svoi.get("address_line") and streetish(svoi["address_line"]):
             fill_patch["address_line"] = normalize_street_line(svoi["address_line"])
-            fill_patch["location_precision"] = "street"
         elif svoi.get("address_line"):
             # city-only maps pin — keep as city hint, not street
             if not city_hint:
@@ -1252,7 +1268,6 @@ def main() -> int:
             if web.get("address_line") and not streetish(fill_patch.get("address_line")):
                 if streetish(web["address_line"]):
                     fill_patch["address_line"] = normalize_street_line(web["address_line"])
-                    fill_patch["location_precision"] = "street"
             for k in ("city", "state_code", "postal_code", "instagram_url", "yelp_url"):
                 if web.get(k) and not fill_patch.get(k):
                     fill_patch[k] = web[k]

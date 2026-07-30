@@ -276,10 +276,13 @@ def map_post(
         source_group=source_group,
         source=resolved_source,
         chat_title=post.get("chat_title"),
+        chat_id=str(chat_id) if chat_id is not None else None,
         address_line=entity.get("address")
         or entity.get("address_line")
         or marketplace.get("address")
         or marketplace.get("address_line"),
+        text=entity.get("description") or post.get("merged_text") or post.get("text"),
+        postal_code=entity.get("postal_code") or marketplace.get("postal_code"),
     )
 
     return {
@@ -317,6 +320,9 @@ def map_post(
         "currency": currency,
         "city": location.get("city"),
         "state": location.get("state"),
+        "county_geoid": location.get("county_geoid"),
+        "postal_code": location.get("postal_code"),
+        "location_source": location.get("location_source"),
         "phone": as_list(entity.get("phone")),
         "whatsapp": as_list(entity.get("whatsapp")),
         "telegram_username": username,

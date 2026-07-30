@@ -31,6 +31,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
+sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
 
 from common import SupabaseRest, load_env  # noqa: E402
 from eligibility import (  # noqa: E402
@@ -38,6 +39,7 @@ from eligibility import (  # noqa: E402
     normalize_phone,
     normalize_telegram_username,
 )
+from recommendation_subject import recommended_subject_name  # noqa: E402
 
 REVIEWER_PATHS = [
     (
@@ -536,6 +538,17 @@ def merge_into(
     else:
         row["self_ad_mention_count"] = int(row.get("self_ad_mention_count") or 0) + 1
     nice = clean_display_name(contacts.get("name"), fallback=author if not is_recommendation else None)
+    if is_recommendation:
+        subject = recommended_subject_name(text)
+        if subject:
+            nice = clean_display_name(subject) or subject
+        elif author and nice and clean_display_name(author) and (
+            nice.lower() == author.lower()
+            or nice.lower() in author.lower()
+            or author.lower() in nice.lower()
+        ):
+            # Author is the recommender — do not use as the card title.
+            nice = None
     if not nice and contacts.get("telegrams"):
         nice = f"@{contacts['telegrams'][0]}"
     if not nice and contacts.get("instagram"):
@@ -563,6 +576,17 @@ def merge_into(
             row.setdefault("_emails", [])
             if em not in row["_emails"]:
                 row["_emails"].append(em)
+    elif is_recommendation and not row.get("display_name"):
+        # Still collect contacts even when the subject name is unknown.
+        for p in contacts.get("phones") or []:
+            if p not in row["phones"]:
+                row["phones"].append(p)
+        for ig in contacts.get("instagram") or []:
+            if ig not in row["instagram"]:
+                row["instagram"].append(ig)
+        for w in contacts.get("websites") or []:
+            if w not in row["websites"] and len(row["websites"]) < 8:
+                row["websites"].append(w)
     snippet = re.sub(r"\s+", " ", text or "").strip()[:220]
     if is_recommendation:
         if snippet and snippet not in row["comment_texts"] and len(row["comment_texts"]) < 8:
@@ -1025,6 +1049,14 @@ def main() -> int:
         action="store_true",
         help="Only Sacramento / SF / SD groups",
     )
+    parser.add_argument(
+        "--no-replace",
+        action="store_true",
+        help=(
+            "Upsert only — do not DELETE pending rows for directory_source first. "
+            "Use for incremental windows so older pending backlog is kept."
+        ),
+    )
     args = parser.parse_args()
 
     allow = {
@@ -1076,26 +1108,31 @@ def main() -> int:
             os.environ["NEXT_PUBLIC_SUPABASE_URL"],
             os.environ["SUPABASE_SERVICE_ROLE_KEY"],
         )
-        # Only clear pending rows for groups we intentionally imported.
-        # Cross-group clusters may carry extra labels — do NOT wipe those queues.
-        if allow:
-            replace_ds = sorted(
-                {
-                    directory_source_for_group(g)
-                    for g in allow
-                    if directory_source_for_group(g)
-                }
-            )
+        replace_ds: list[str] | None
+        if args.no_replace:
+            replace_ds = None
+            print("replace_directory_sources=None (--no-replace)", flush=True)
         else:
-            replace_ds = sorted(
-                {
-                    directory_source_for_group(g)
-                    for item in report["items"]
-                    for g in (item.get("source_groups") or [])
-                    if directory_source_for_group(g)
-                }
-            )
-        print(f"replace_directory_sources={replace_ds}", flush=True)
+            # Only clear pending rows for groups we intentionally imported.
+            # Cross-group clusters may carry extra labels — do NOT wipe those queues.
+            if allow:
+                replace_ds = sorted(
+                    {
+                        directory_source_for_group(g)
+                        for g in allow
+                        if directory_source_for_group(g)
+                    }
+                )
+            else:
+                replace_ds = sorted(
+                    {
+                        directory_source_for_group(g)
+                        for item in report["items"]
+                        for g in (item.get("source_groups") or [])
+                        if directory_source_for_group(g)
+                    }
+                )
+            print(f"replace_directory_sources={replace_ds}", flush=True)
         n = upsert_clusters(
             client,
             report["items"],

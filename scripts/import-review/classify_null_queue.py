@@ -33,85 +33,17 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
-sys.path.insert(0, str(ROOT / "scripts" / "telegram-collector"))
-sys.path.insert(0, str(ROOT / "scripts" / "facebook-collector"))
 
 from common import SupabaseRest, load_env  # noqa: E402
-from reviewer import detect_lechu_or_transfer  # noqa: E402
-from facebook_decision_policy import (  # noqa: E402
-    BUSINESS_SIGNAL_RE,
-    JOB_HIRE_RE,
-    MARKETPLACE_RE,
-    REAL_ESTATE_OFFER_RE,
-    SPECIALIST_SIGNAL_RE,
-)
+from entity_routing import ENTITY_TO_COLLECTION, route_from_row  # noqa: E402
 
-REAL_ESTATE_CATEGORIES = {
-    "real_estate_services",
-    "realtor",
-    "mortgage",
-    "property_management",
-}
-
-TARGET_BY_TYPE = {
-    "event": "events",
-    "real_estate": "real_estate",
-    "lechu_listing": "lechu",
-    "transfer_listing": "transfers",
-    "job": "jobs",
-    "marketplace_listing": "marketplace",
-    "business": "businesses",
-    "private_specialist": "private_specialists",
-}
+TARGET_BY_TYPE = dict(ENTITY_TO_COLLECTION)
 
 
 def classify(row: dict) -> tuple[str | None, str, str]:
-    """Return (entity_type|None, confidence, reason)."""
-    category = (row.get("category") or "").strip()
-    text = row.get("source_text") or ""
-    business_name = (row.get("business_name") or "").strip()
-    person_name = (row.get("person_name") or "").strip()
-    has_contact = bool(
-        (row.get("phone") or []) or (row.get("website") or []) or (row.get("instagram") or [])
-    )
-
-    # Gate 0 — hard route by explicit keyword category
-    if category == "events":
-        return "event", "high", "gate0:category=events"
-    if category in REAL_ESTATE_CATEGORIES:
-        return "real_estate", "high", f"gate0:category={category}"
-    if REAL_ESTATE_OFFER_RE.search(text):
-        return "real_estate", "high", "gate0:real_estate_offer_re"
-
-    # Gate 1 — route-shaped listings
-    travel = detect_lechu_or_transfer(text)
-    if travel == "lechu_listing":
-        return "lechu_listing", "high", "gate1:lechu_re"
-    if travel == "transfer_listing":
-        return "transfer_listing", "high", "gate1:transfer_re"
-    if JOB_HIRE_RE.search(text):
-        return "job", "medium", "gate1:job_hire_re"
-    if MARKETPLACE_RE.search(text) and not business_name:
-        return "marketplace_listing", "medium", "gate1:marketplace_re"
-
-    # Gate 2 — business vs private_specialist
-    signal = None
-    reason = ""
-    if business_name and not person_name:
-        signal, reason = "business", "gate2:business_name_slot"
-    elif person_name and not business_name:
-        signal, reason = "private_specialist", "gate2:person_name_slot"
-    elif BUSINESS_SIGNAL_RE.search(text) and not SPECIALIST_SIGNAL_RE.search(text):
-        signal, reason = "business", "gate2:business_signal_re"
-    elif SPECIALIST_SIGNAL_RE.search(text) and not BUSINESS_SIGNAL_RE.search(text):
-        signal, reason = "private_specialist", "gate2:specialist_signal_re"
-
-    if signal is not None:
-        confidence = "high" if has_contact else "medium"
-        return signal, confidence, reason + (":with_contact" if has_contact else ":no_contact")
-
-    # Gate 3 — nothing fired
-    return None, "none", "gate3:no_signal"
+    """Return (entity_type|None, confidence, reason). Delegates to entity_routing."""
+    result = route_from_row(row)
+    return result.entity_type, result.confidence, result.reason
 
 
 def fetch_null_rows(client: SupabaseRest) -> list[dict]:

@@ -72,6 +72,7 @@ type Props = {
     category: string;
   }) => string;
   statusPendingHref: string;
+  statusSuspectedHref: string;
   statusAllHref: string;
   status: string;
 };
@@ -82,6 +83,7 @@ export function RecommendationQueueFilters({
   items,
   hrefFor,
   statusPendingHref,
+  statusSuspectedHref,
   statusAllHref,
   status,
 }: Props) {
@@ -106,6 +108,17 @@ export function RecommendationQueueFilters({
             }
           >
             Pending
+          </Link>
+          <span className="text-slate-300">·</span>
+          <Link
+            href={statusSuspectedHref}
+            className={
+              status === "suspected_duplicate"
+                ? "font-semibold text-brand-blue"
+                : "text-slate-500 hover:text-brand-blue"
+            }
+          >
+            Подозрение на дубликат
           </Link>
           <span className="text-slate-300">·</span>
           <Link

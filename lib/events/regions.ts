@@ -1,5 +1,11 @@
 /** Event geography — aligned with home region hubs (incl. Sacramento / SF). */
 
+import {
+  EVENT_CATEGORIES,
+  parseEventCategory,
+  type EventCategory,
+} from "@/lib/events/categories";
+
 export type EventRegionId =
   | "sacramento"
   | "san-francisco"
@@ -55,3 +61,44 @@ export function citiesForRegionIds(ids: EventRegionId[]): string[] {
 export function serializeEventRegions(ids: EventRegionId[]): string {
   return ids.join(",");
 }
+
+/** YYYY-MM-DD or null. */
+export function parseEventDate(raw: string | undefined): string | null {
+  if (!raw?.trim()) return null;
+  const s = raw.trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
+  return s;
+}
+
+export function parseEventCategoryParam(
+  raw: string | undefined,
+): EventCategory | null {
+  return parseEventCategory(raw);
+}
+
+export function pacificTodayYmd(): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
+export function weekendRangeFrom(ymd: string): { start: string; end: string } {
+  const [y, m, d] = ymd.split("-").map(Number);
+  const utc = new Date(Date.UTC(y!, m! - 1, d!));
+  // Approximate weekday in Pacific via noon UTC-8 offset
+  const pacific = new Date(utc.getTime() + 8 * 60 * 60 * 1000);
+  const dow = pacific.getUTCDay(); // 0 Sun … 6 Sat
+  const toSat = dow === 6 ? 0 : dow === 0 ? -1 : 6 - dow;
+  const sat = new Date(utc);
+  sat.setUTCDate(sat.getUTCDate() + toSat);
+  const sun = new Date(sat);
+  sun.setUTCDate(sun.getUTCDate() + 1);
+  const fmt = (dt: Date) => dt.toISOString().slice(0, 10);
+  return { start: fmt(sat), end: fmt(sun) };
+}
+
+export { EVENT_CATEGORIES };
+export type { EventCategory };

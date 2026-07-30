@@ -85,6 +85,37 @@ def _is_noise_unit(unit: str) -> bool:
     return False
 
 
+def _line_key(line: str) -> str:
+    return re.sub(r"[^\w\s]+", " ", (line or "").lower(), flags=re.UNICODE).strip()
+
+
+def _drop_covered_lines(unit: str, covered_lines: set[str]) -> str:
+    """Keep only lines the base text does not already have.
+
+    A paragraph often repeats the ad's header verbatim and adds one new
+    sentence; appending it whole is what duplicated «Заюшкина избушка» blocks.
+    """
+    kept = [
+        line
+        for line in unit.split("\n")
+        if not _line_key(line) or _line_key(line) not in covered_lines
+    ]
+    return "\n".join(kept).strip()
+
+
+def _dedupe_lines(text: str) -> str:
+    seen: set[str] = set()
+    out: list[str] = []
+    for line in text.split("\n"):
+        key = _line_key(line)
+        if key and key in seen:
+            continue
+        if key:
+            seen.add(key)
+        out.append(line)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(out)).strip()
+
+
 def _contained(shorter: str, longer: str) -> bool:
     sa, sb = text_tokens(shorter), text_tokens(longer)
     if not sa or not sb:
@@ -147,7 +178,7 @@ def merge_descriptions(
     3. Use the richest related text as base.
     4. Append unique factual sentences/paragraphs not already covered.
     """
-    candidates = collect_description_candidates(rows)
+    candidates = [_dedupe_lines(c) for c in collect_description_candidates(rows)]
     if not candidates:
         return None
     if len(candidates) == 1:
@@ -169,9 +200,13 @@ def merge_descriptions(
         return base[:max_chars]
 
     covered = text_tokens(base)
+    covered_lines = {_line_key(line) for line in base.split("\n") if _line_key(line)}
     extras: list[str] = []
     for other in related[1:]:
         for unit in _split_units(other):
+            if _is_noise_unit(unit):
+                continue
+            unit = _drop_covered_lines(unit, covered_lines)
             if _is_noise_unit(unit):
                 continue
             ut = text_tokens(unit)
@@ -185,6 +220,9 @@ def merge_descriptions(
                 continue
             extras.append(unit)
             covered |= ut
+            covered_lines |= {
+                _line_key(line) for line in unit.split("\n") if _line_key(line)
+            }
             if len(base) + sum(len(x) + 2 for x in extras) >= max_chars:
                 break
         if len(base) + sum(len(x) + 2 for x in extras) >= max_chars:
@@ -195,7 +233,7 @@ def merge_descriptions(
 
     # Prefer paragraph join; keep extras compact
     extra_block = "\n\n".join(extras)
-    merged = f"{base}\n\n{extra_block}".strip()
+    merged = _dedupe_lines(f"{base}\n\n{extra_block}")
     if len(merged) > max_chars:
         merged = merged[: max_chars - 1].rsplit("\n", 1)[0].rstrip() + "…"
     return merged

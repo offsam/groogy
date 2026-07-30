@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { ImportReviewDetailPanel } from "@/components/admin/ImportReviewDetailPanel";
+import { LegacyMigrationBanner } from "@/components/admin/LegacyMigrationBanner";
 import {
   getImportReviewItem,
   listImportReviewItems,
@@ -70,6 +71,7 @@ export default async function AdminImportReviewDetailPage({
 
   return (
     <div className="mx-auto max-w-6xl space-y-4">
+      <LegacyMigrationBanner migrationId="import-review" />
       <ImportReviewDetailPanel
         categories={(categories ?? []).map((c) => ({
           id: c.id,

@@ -18,6 +18,7 @@ import type {
   LechuRewardType,
 } from "@/types/listing";
 import type { Database } from "@/types/database";
+import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import { hasProvenanceSource } from "@/lib/business/presence";
 
 type ListingRow = Database["public"]["Tables"]["listings"]["Row"];
@@ -265,7 +266,11 @@ export function mapListing(
     visibility: row.visibility,
     authorVisibility: row.author_visibility,
     title: row.title,
-    description: row.description,
+    description: redactContactsFromPublicText(row.description) ?? "",
+    descriptionOriginal: redactContactsFromPublicText(
+      (row as { description_original?: string | null }).description_original ??
+        null,
+    ),
     priceAmount: row.price_amount != null ? Number(row.price_amount) : null,
     priceCurrency: row.price_currency,
     isNegotiable: row.is_negotiable,
@@ -278,12 +283,17 @@ export function mapListing(
     contactPreference: row.contact_preference,
     publisherType: row.publisher_type ?? "profile",
     publisherBusinessId: row.publisher_business_id ?? null,
+    paymentMethods: (
+      row as typeof row & { payment_methods?: string[] | null }
+    ).payment_methods?.filter(Boolean) ?? [],
     sourceUrl: row.source_url ?? null,
     sourceKind: row.source_kind ?? null,
-    hasSource: hasProvenanceSource({
-      sourceUrl: row.source_url,
-      sourceKind: row.source_kind,
-    }),
+    // Guest selects omit source_url (reveal gate), so kind alone proves provenance.
+    hasSource:
+      hasProvenanceSource({
+        sourceUrl: row.source_url,
+        sourceKind: row.source_kind,
+      }) || Boolean(row.source_kind),
     publishedAt: row.published_at,
     reservedAt: row.reserved_at,
     completedAt: row.completed_at,

@@ -14,23 +14,26 @@ type SearchPageProps = {
     category?: string;
     city?: string;
     hub?: string;
+    view?: string;
   }>;
 };
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const { q, category, city, hub: hubParam } = await searchParams;
+  const { q, category, city, hub: hubParam, view } = await searchParams;
   const hubs = await resolveRequestHubs(hubParam);
   const hubIds = serializeHubIds(hubs.map((h) => h.id));
+  const initialView = view === "all" ? "all" : "overview";
 
   return (
     <>
       <SyncHubCookie hubId={hubIds} />
       <SearchResults
-        key={`${q ?? ""}|${category ?? ""}|${city ?? ""}|${hubIds}`}
+        key={`${q ?? ""}|${category ?? ""}|${city ?? ""}|${hubIds}|${initialView}`}
         initialCategory={category ?? null}
         initialCity={city ?? null}
         initialHubId={hubIds}
         initialQuery={q ?? ""}
+        initialView={initialView}
       />
     </>
   );

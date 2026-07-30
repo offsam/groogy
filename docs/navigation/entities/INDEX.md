@@ -3,6 +3,7 @@
 Canonical design vs live implementation can differ.  
 Design SoT: [`ARCHITECTURE_FREEZE_V1.md`](../../architecture/entity-model-v1/ARCHITECTURE_FREEZE_V1.md)  
 Aliases: [`ENTITY_TYPE_MAPPING_V1.md`](../../architecture/entity-model-v1/ENTITY_TYPE_MAPPING_V1.md)  
+Section routing (ingress + live move): [`ENTITY_SECTION_ROUTING_V1.md`](../../architecture/pipeline/ENTITY_SECTION_ROUTING_V1.md)  
 Live map: [`PLATFORM_LIFECYCLE_V1.md`](../../architecture/runtime/PLATFORM_LIFECYCLE_V1.md)  
 Data audit: [`ENTITY_AUDIT_V1.md`](../../audits/ENTITY_AUDIT_V1.md)
 
@@ -34,5 +35,8 @@ Data audit: [`ENTITY_AUDIT_V1.md`](../../audits/ENTITY_AUDIT_V1.md)
 - [`FIELD_AUDIT_V1.md`](../../audits/FIELD_AUDIT_V1.md)
 - [`QUALITY_CARD_RULES_V1.md`](../../audits/QUALITY_CARD_RULES_V1.md)
 - [`DEAD_FIELDS_V1.md`](../../audits/DEAD_FIELDS_V1.md)
+- Professional cleanup Phase 1 (data only): [`PROFESSIONAL_CLEANUP_PHASE1_V1.md`](../../audits/PROFESSIONAL_CLEANUP_PHASE1_V1.md)
+- Professional cleanup Phase 2 (executed): [`PROFESSIONAL_CLEANUP_PHASE2_V1.md`](../../audits/PROFESSIONAL_CLEANUP_PHASE2_V1.md)
+- Professional cleanup → Admin Review handoff (closed): [`PROFESSIONAL_CLEANUP_HANDOFF_ADMIN_REVIEW_V1.md`](../../audits/PROFESSIONAL_CLEANUP_HANDOFF_ADMIN_REVIEW_V1.md)
 - Pre-freeze category/entity audit: [`entity-category-unification-audit.md`](../../architecture/entity-category-unification-audit.md)
 - Professional UI notes: [`PROFESSIONAL_PAGE.md`](../../architecture/entity-model-v1/PROFESSIONAL_PAGE.md)

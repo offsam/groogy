@@ -3,8 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { MapPin } from "lucide-react";
+import { MapPin, ShoppingBag } from "lucide-react";
+import {
+  CategoryAccentBar,
+  CategoryChip,
+  CategoryMediaFallback,
+} from "@/components/platform/CategoryCardChrome";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import { formatPrice } from "@/lib/listings/mappers";
 import type { Listing } from "@/types/listing";
 import {
@@ -92,6 +98,7 @@ export function ListingCard({
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+      <CategoryAccentBar theme="marketplace" />
       <MaybeLink
         className="block"
         href={href}
@@ -111,16 +118,17 @@ export function ListingCard({
               unoptimized
             />
           ) : (
-            <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 px-4 text-center text-sm font-semibold uppercase tracking-wide text-white">
-              {/комнат|сда[её]|аренд/i.test(listing.title)
-                ? "Недвижимость"
-                : "Объявление"}
-            </div>
+            <CategoryMediaFallback
+              icon={ShoppingBag}
+              theme="marketplace"
+            />
           )}
         </div>
       </MaybeLink>
 
       <div className="space-y-2 p-4">
+        <CategoryChip theme="marketplace" />
+
         <div className="flex items-start justify-between gap-2">
           <MaybeLink
             className="line-clamp-2 font-semibold text-slate-900 hover:underline"
@@ -153,6 +161,9 @@ export function ListingCard({
             </span>
           )}
         </p>
+        {listing.paymentMethods?.length ? (
+          <PaymentMethodIcons methods={listing.paymentMethods} size="sm" />
+        ) : null}
 
         <div className="flex flex-wrap gap-x-2 gap-y-1 text-xs text-slate-500">
           <span>{TRANSACTION_LABELS[transactionType]}</span>

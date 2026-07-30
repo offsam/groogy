@@ -33,12 +33,14 @@ type BusinessMiniMapCanvasProps = {
   lat: number;
   lng: number;
   zoom?: number;
+  showMarker?: boolean;
 };
 
 export default function BusinessMiniMapCanvas({
   lat,
   lng,
   zoom = 14,
+  showMarker = true,
 }: BusinessMiniMapCanvasProps) {
   return (
     <div className="relative overflow-hidden rounded-xl bg-slate-100">
@@ -54,7 +56,7 @@ export default function BusinessMiniMapCanvas({
       >
         <AttributionControl {...MAP_ATTRIBUTION_CONTROL} />
         <TileLayer attribution={OSM_ATTRIBUTION} url={OSM_TILE_URL} />
-        <Marker icon={pinIcon} position={[lat, lng]} />
+        {showMarker ? <Marker icon={pinIcon} position={[lat, lng]} /> : null}
         <ResizeHandler />
       </MapContainer>
       <MapAttribution className="absolute bottom-1 right-1 rounded bg-white/85 px-1.5 py-0.5 text-[9px] leading-none text-slate-500" />

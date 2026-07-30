@@ -37,11 +37,17 @@ sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
 sys.path.insert(0, str(ROOT / "scripts" / "facebook-collector"))
 
 from common import SupabaseRest, load_env  # noqa: E402
+from address_geo import resolve_address_geo  # noqa: E402
 from web_enrichment import (  # noqa: E402
+    extract_payment_methods,
     extract_instagram_profile,
     extract_website_profile,
     extract_website_profile_deep,
+    is_plausible_service_title,
 )
+from enrich_resource_queue import run_resource_bfs, sanitize_street_line  # noqa: E402
+from shared_hosts import is_shared_non_identity_host  # noqa: E402
+from source_record_urls import source_record_urls  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; KrugiBizEnrich/1.0; +https://krugi.app)"
 TIMEOUT = 12
@@ -150,12 +156,29 @@ def normalize_website(url: str | None) -> str | None:
 def looks_like_street(address: str | None) -> bool:
     if not address:
         return False
-    # reject city-only "Irvine, CA, 92618"
-    if not re.search(r"(^|\b)\d{1,6}\s+[A-Za-zА-Яа-я]", address):
+    # A blob that still carries a phone or e-mail is a contact line, not a street
+    if not sanitize_street_line(address):
         return False
     if re.fullmatch(r"[A-Za-z .'-]+,\s*[A-Z]{2}(,\s*\d{5})?", address.strip()):
         return False
     return True
+
+
+def scraped_address(raw: Any) -> tuple[str | None, dict[str, str | None]]:
+    """(street line, parts) for a scraped address; contacts stripped out.
+
+    Returns (None, {}) for contact blobs, (None, parts) for city-only values so
+    city / state are still usable without inventing a street.
+    """
+    value = str(raw or "").strip()
+    if not value:
+        return None, {}
+    street = sanitize_street_line(value)
+    if street:
+        return clean_street_typos(street), parse_address_parts(street)
+    if re.search(r"@|\+?\d[\d()\-.\s]{7,}\d", value):
+        return None, {}
+    return None, parse_address_parts(value)
 
 
 def clean_street_typos(address: str) -> str:
@@ -349,42 +372,6 @@ def parse_hours_to_weekly(hours_raw: str | None) -> dict[str, Any] | None:
     return None
 
 
-def geocode(query: str) -> tuple[float, float] | None:
-    q = urllib.parse.urlencode(
-        {
-            "q": query,
-            "format": "json",
-            "limit": 3,
-            "countrycodes": "us",
-            "addressdetails": 1,
-        }
-    )
-    req = urllib.request.Request(
-        f"https://nominatim.openstreetmap.org/search?{q}",
-        headers={"User-Agent": "KrugiBizEnrich/1.0 (catalog enrich; contact@krugi.app)"},
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode())
-    except Exception:
-        return None
-    if not data:
-        return None
-    for item in data:
-        cls = (item.get("class") or "", item.get("type") or "")
-        if cls[0] in {"place", "boundary"} and cls[1] in {
-            "city",
-            "town",
-            "village",
-            "county",
-            "state",
-            "country",
-        }:
-            continue
-        return float(item["lat"]), float(item["lon"])
-    return float(data[0]["lat"]), float(data[0]["lon"])
-
-
 def search_yelp(name: str, city: str | None) -> str | None:
     loc = (city or "Orange County, CA").strip()
     if loc.lower() in {"orange county", "oc"}:
@@ -563,7 +550,12 @@ def fill_empty(dst: dict[str, Any], field: str, value: Any, sources: dict[str, s
     sources[field] = "set"
 
 
-def enrich_one(biz: dict[str, Any]) -> dict[str, Any]:
+def enrich_one(
+    biz: dict[str, Any],
+    *,
+    on_event: Any = None,
+    client: Any = None,
+) -> dict[str, Any]:
     report: dict[str, Any] = {
         "id": biz["id"],
         "name": biz.get("name"),
@@ -574,175 +566,325 @@ def enrich_one(biz: dict[str, Any]) -> dict[str, Any]:
         "sources": {},
         "notes": [],
         "skipped": None,
+        "bfs_steps": [],
     }
-    website = normalize_website(biz.get("website"))
-    if not website:
+
+    stored_website = biz.get("website")
+    if is_shared_non_identity_host(stored_website):
+        # A platform page (meetup / eventbrite / docs) is nobody's own site —
+        # re-mining it would keep re-importing the platform's contacts.
+        report["notes"].append(f"website_is_platform host={host_of(stored_website)}")
+        stored_website = None
+
+    card_urls = [
+        stored_website,
+        biz.get("instagram_url"),
+        biz.get("yelp_url"),
+        biz.get("facebook_url") if "facebook_url" in biz else None,
+        biz.get("tiktok_url") if "tiktok_url" in biz else None,
+        biz.get("booking_url") if "booking_url" in biz else None,
+    ]
+    card_urls.extend(source_record_urls(client, biz.get("id")))
+    card_blob = "\n".join(
+        str(x)
+        for x in (biz.get("name"), biz.get("short_description"), biz.get("description"))
+        if x
+    )
+
+    def after_resource(
+        found: dict[str, Any], layer: dict[str, Any]
+    ) -> list[str]:
+        """Pull URLs/contacts from narrative after source (and later pages)."""
+        try:
+            from contacts import (  # type: ignore
+                extract_emails,
+                extract_instagram,
+                extract_phones,
+                extract_websites,
+            )
+        except Exception:
+            return []
+
+        blob = "\n".join(
+            str(x)
+            for x in (
+                card_blob,
+                found.get("description"),
+                layer.get("description") if isinstance(layer, dict) else None,
+            )
+            if x
+        )
+        if not blob or len(blob.strip()) < 8:
+            return []
+        urls: list[str] = []
+        for w in extract_websites(blob) or []:
+            urls.append(str(w))
+        for ig in extract_instagram(blob) or []:
+            if ig:
+                urls.append(str(ig))
+                if not found.get("instagram_url"):
+                    found["instagram_url"] = str(ig).split("?")[0][:300]
+        phones = extract_phones(blob) or []
+        if phones and not found.get("phone"):
+            found["phone"] = str(phones[0])[:40]
+        emails = extract_emails(blob) or []
+        if emails and not found.get("email"):
+            found["email"] = str(emails[0]).lower()[:120]
+        return urls
+
+    bfs = run_resource_bfs(
+        source_url=biz.get("source_url"),
+        card_urls=card_urls,
+        max_resources=8,
+        website_pages=6,
+        on_event=on_event,
+        sequential=True,
+        after_resource=after_resource,
+    )
+    report["bfs_steps"] = bfs.get("steps") or []
+    found = dict(bfs.get("found") or {})
+    discovered_payments: list[str] = []
+    for method in list(found.get("payment_methods") or []) + extract_payment_methods(
+        card_blob
+    ):
+        label = str(method).strip()
+        if label and label not in discovered_payments:
+            discovered_payments.append(label)
+    if not (biz.get("payment_methods") or []) and discovered_payments:
+        report["patch"]["payment_methods"] = discovered_payments
+        report["sources"]["payment_methods"] = "bfs"
+
+    website = normalize_website(found.get("website") or stored_website)
+    if not website and not biz.get("source_url") and not report["patch"]:
         report["skipped"] = "no_or_junk_website"
         return report
 
-    # Deep fetch: homepage + a few contact-ish subpages (hours/address are
-    # frequently on /contact or /hours, not the homepage) — see
-    # extract_website_profile_deep() in web_enrichment.py.
-    profile = extract_website_profile_deep(website)
-    report["website_profile_status"] = profile.get("status")
-    if profile.get("pages_tried"):
-        report["pages_tried"] = profile["pages_tried"]
-    if profile.get("status") != "ok":
-        report["notes"].append(f"website:{profile.get('error') or profile.get('status')}")
-        # still try yelp/geo with existing fields
-    else:
-        site_name = profile.get("name")
-        compatible = name_website_compatible(str(biz.get("name") or ""), website, site_name)
-        if not compatible:
-            # Website already stored on published card — still enrich, but flag mismatch.
-            report["notes"].append(
-                f"name_website_soft_mismatch name={biz.get('name')!r} site_name={site_name!r} host={host_of(website)}"
-            )
-
-        # Description
-        if not (biz.get("description") or "").strip() or len(biz.get("description") or "") < 120:
-            desc = (profile.get("description") or "").strip()
-            if len(desc) >= 80:
-                report["patch"]["description"] = desc[:4000]
-                report["sources"]["description"] = "website"
-
-        if not (biz.get("short_description") or "").strip():
-            desc = (profile.get("description") or biz.get("description") or "").strip()
-            if desc:
-                report["patch"]["short_description"] = desc[:180]
-                report["sources"]["short_description"] = "website"
-
-        # Phone / email / ig
-        if not biz.get("phone"):
-            phones = profile.get("phone") or []
-            if phones:
-                report["patch"]["phone"] = phones[0][:40]
-                report["sources"]["phone"] = "website"
-        if not biz.get("email"):
-            emails = [e for e in (profile.get("email") or []) if not is_junk_email(e)]
-            if emails:
-                report["patch"]["email"] = emails[0][:120]
-                report["sources"]["email"] = "website"
-        if not biz.get("instagram_url"):
-            for link in profile.get("social_links") or []:
-                if "instagram.com" in link.lower():
-                    report["patch"]["instagram_url"] = link.split("?")[0][:300]
-                    report["sources"]["instagram_url"] = "website"
+    # Map BFS found → fill-empty patch (before deep-only path)
+    if found.get("description") and (
+        not (biz.get("description") or "").strip()
+        or len(biz.get("description") or "") < 120
+    ):
+        desc = str(found["description"]).strip()
+        if len(desc) >= 80:
+            report["patch"]["description"] = desc[:4000]
+            report["sources"]["description"] = "bfs"
+    if found.get("description") and not (biz.get("short_description") or "").strip():
+        report["patch"]["short_description"] = str(found["description"]).strip()[:180]
+        report["sources"]["short_description"] = "bfs"
+    if not biz.get("phone") and found.get("phone"):
+        report["patch"]["phone"] = str(found["phone"])[:40]
+        report["sources"]["phone"] = "bfs"
+    if not biz.get("email") and found.get("email"):
+        em = str(found["email"])
+        if not is_junk_email(em):
+            report["patch"]["email"] = em[:120]
+            report["sources"]["email"] = "bfs"
+    if not biz.get("instagram_url"):
+        ig = found.get("instagram_url")
+        if not ig:
+            for link in found.get("social_links") or []:
+                if "instagram.com" in str(link).lower():
+                    ig = link
                     break
+        if ig:
+            report["patch"]["instagram_url"] = str(ig).split("?")[0][:300]
+            report["sources"]["instagram_url"] = "bfs"
+    if found.get("yelp_url") and not biz.get("yelp_url"):
+        report["patch"]["yelp_url"] = str(found["yelp_url"]).split("?")[0][:300]
+        report["sources"]["yelp_url"] = "bfs"
+    if (
+        website
+        and not is_shared_non_identity_host(website)
+        and (not normalize_website(stored_website) or is_junk_website(stored_website))
+    ):
+        report["patch"]["website"] = website
+        report["sources"]["website"] = "bfs"
 
-        # Address + city
-        addr = profile.get("address")
-        if addr:
-            parts = parse_address_parts(addr)
-            if looks_like_street(addr):
-                if not biz.get("address_line") and parts.get("address_line"):
-                    report["patch"]["address_line"] = clean_street_typos(parts["address_line"])
-                    report["sources"]["address_line"] = "website"
-            # city from full or city-only address blocks
-            if (not biz.get("city") or str(biz.get("city")).lower() in {
-                "orange county",
-                "oc",
-                "los angeles",
-            }) and parts.get("city"):
-                report["patch"]["city"] = parts["city"]
-                report["sources"]["city"] = "website"
-            elif (not biz.get("city") or str(biz.get("city")).lower() in {
-                "orange county",
-                "oc",
-            }) and not looks_like_street(addr):
-                # "Irvine, CA, 92618"
-                m = re.match(r"^\s*([A-Za-z .'-]+),\s*([A-Z]{2})", addr)
-                if m:
-                    report["patch"]["city"] = m.group(1).strip()[:80]
-                    report["sources"]["city"] = "website"
-                    if not biz.get("state_code"):
-                        report["patch"]["state_code"] = f"US-{m.group(2)}"
-                        report["sources"]["state_code"] = "website"
-            if looks_like_street(addr):
-                if not biz.get("state_code") and parts.get("state_code"):
-                    report["patch"]["state_code"] = parts["state_code"]
-                    report["sources"]["state_code"] = "website"
-                if not biz.get("region") and parts.get("region"):
-                    report["patch"]["region"] = parts["region"]
-                    report["sources"]["region"] = "website"
+    if not (biz.get("booking_url") or "").strip():
+        book = (found.get("booking_url") or "").strip() or None
+        if not book:
+            try:
+                from booking_extract import resolve_booking_url, is_booking_platform_url
 
-        # Hours
-        if not biz.get("opening_hours"):
-            weekly = parse_hours_spec_blob(profile.get("hours")) or parse_hours_to_weekly(
-                profile.get("hours")
+                seed = website or biz.get("website")
+                book = resolve_booking_url(seed) if seed else None
+                if not book and is_booking_platform_url(seed):
+                    book = normalize_website(seed)
+            except Exception:
+                book = None
+        if book:
+            report["patch"]["booking_url"] = str(book)[:500]
+            report["sources"]["booking_url"] = "bfs"
+
+    addr = found.get("address_line") or found.get("address")
+    if addr:
+        street, parts = scraped_address(addr)
+        if street:
+            if not biz.get("address_line") and parts.get("address_line"):
+                report["patch"]["address_line"] = parts["address_line"]
+                report["sources"]["address_line"] = "bfs"
+        if not biz.get("city") and parts.get("city"):
+            report["patch"]["city"] = parts["city"]
+            report["sources"]["city"] = "bfs"
+        if not biz.get("state_code") and parts.get("state_code"):
+            report["patch"]["state_code"] = parts["state_code"]
+            report["sources"]["state_code"] = "bfs"
+
+    # Continue with website-deep offers / hours / yelp / geo using resolved website
+    profile: dict[str, Any] = {"status": "skipped"}
+    if website:
+        profile = extract_website_profile_deep(website)
+        report["website_profile_status"] = profile.get("status")
+        if profile.get("pages_tried"):
+            report["pages_tried"] = profile["pages_tried"]
+        if profile.get("status") != "ok":
+            report["notes"].append(
+                f"website:{profile.get('error') or profile.get('status')}"
             )
-            if weekly:
-                report["patch"]["opening_hours"] = weekly
-                report["sources"]["opening_hours"] = "website"
+        else:
+            site_name = profile.get("name")
+            compatible = name_website_compatible(
+                str(biz.get("name") or ""), website, site_name
+            )
+            if not compatible:
+                report["notes"].append(
+                    f"name_website_soft_mismatch name={biz.get('name')!r} "
+                    f"site_name={site_name!r} host={host_of(website)}"
+                )
 
-        # Aggregate rating from JSON-LD sometimes in description path — skip if not available
+            if "description" not in report["patch"]:
+                if not (biz.get("description") or "").strip() or len(
+                    biz.get("description") or ""
+                ) < 120:
+                    desc = (profile.get("description") or "").strip()
+                    if len(desc) >= 80:
+                        report["patch"]["description"] = desc[:4000]
+                        report["sources"]["description"] = "website"
 
-        # Services / prices
-        collected: list[dict[str, Any]] = []
-        for page in discover_service_pages(website):
-            html = http_get(page)
-            if not html:
-                continue
-            found = extract_services_from_html(html)
-            for o in found:
-                key = o["title"].lower()
+            if "short_description" not in report["patch"] and not (
+                biz.get("short_description") or ""
+            ).strip():
+                desc = (profile.get("description") or biz.get("description") or "").strip()
+                if desc:
+                    report["patch"]["short_description"] = desc[:180]
+                    report["sources"]["short_description"] = "website"
+
+            if "phone" not in report["patch"] and not biz.get("phone"):
+                phones = profile.get("phone") or []
+                if phones:
+                    report["patch"]["phone"] = phones[0][:40]
+                    report["sources"]["phone"] = "website"
+            if "email" not in report["patch"] and not biz.get("email"):
+                emails = [e for e in (profile.get("email") or []) if not is_junk_email(e)]
+                if emails:
+                    report["patch"]["email"] = emails[0][:120]
+                    report["sources"]["email"] = "website"
+            if "instagram_url" not in report["patch"] and not biz.get("instagram_url"):
+                for link in profile.get("social_links") or []:
+                    if "instagram.com" in link.lower():
+                        report["patch"]["instagram_url"] = link.split("?")[0][:300]
+                        report["sources"]["instagram_url"] = "website"
+                        break
+
+            addr2 = profile.get("address")
+            if addr2 and "address_line" not in report["patch"]:
+                street2, parts = scraped_address(addr2)
+                if street2:
+                    if not biz.get("address_line") and parts.get("address_line"):
+                        report["patch"]["address_line"] = parts["address_line"]
+                        report["sources"]["address_line"] = "website"
+                if (
+                    not biz.get("city")
+                    or str(biz.get("city")).lower()
+                    in {"orange county", "oc", "los angeles"}
+                ) and parts.get("city"):
+                    if "city" not in report["patch"]:
+                        report["patch"]["city"] = parts["city"]
+                        report["sources"]["city"] = "website"
+                if street2:
+                    if not biz.get("state_code") and parts.get("state_code"):
+                        if "state_code" not in report["patch"]:
+                            report["patch"]["state_code"] = parts["state_code"]
+                            report["sources"]["state_code"] = "website"
+                    if not biz.get("region") and parts.get("region"):
+                        report["patch"]["region"] = parts["region"]
+                        report["sources"]["region"] = "website"
+
+            if not biz.get("opening_hours"):
+                weekly = parse_hours_spec_blob(profile.get("hours")) or parse_hours_to_weekly(
+                    profile.get("hours")
+                )
+                if weekly:
+                    report["patch"]["opening_hours"] = weekly
+                    report["sources"]["opening_hours"] = "website"
+
+            # Offers from service pages
+            collected: list[dict[str, Any]] = []
+            for page in discover_service_pages(website):
+                html = http_get(page)
+                if not html:
+                    continue
+                for o in extract_services_from_html(html):
+                    key = o["title"].lower()
+                    if any(x["title"].lower() == key for x in collected):
+                        continue
+                    collected.append(o)
+                if len(collected) >= 20:
+                    break
+                time.sleep(0.15)
+            for title in profile.get("services") or found.get("services") or []:
+                t = str(title).strip()
+                if not is_plausible_service_title(t):
+                    continue
+                key = t.lower()
                 if any(x["title"].lower() == key for x in collected):
                     continue
-                collected.append(o)
-            if len(collected) >= 20:
-                break
-            time.sleep(0.15)
-        report["offers"] = collected
-        if collected:
-            report["sources"]["offers"] = f"website:{len(collected)}"
+                collected.append(
+                    {
+                        "title": t[:120],
+                        "price_mode": "contact",
+                        "currency": "USD",
+                    }
+                )
+            if collected:
+                report["offers"] = collected[:30]
+                report["sources"]["offers"] = f"website:{len(collected)}"
 
-    # Instagram enrich description/avatar if still empty
+    # Instagram enrich description if still empty
     ig = report["patch"].get("instagram_url") or biz.get("instagram_url")
     if ig and (
         not (biz.get("description") or "").strip()
         or len(biz.get("description") or "") < 120
     ) and "description" not in report["patch"]:
         igp = extract_instagram_profile(ig)
-        if igp.get("status") == "ok" and igp.get("description"):
-            report["patch"]["description"] = str(igp["description"])[:4000]
+        if igp.get("status") == "ok" and (igp.get("description") or igp.get("bio")):
+            report["patch"]["description"] = str(
+                igp.get("description") or igp.get("bio")
+            )[:4000]
             report["sources"]["description"] = "instagram"
 
-    # Geocode
+    # Address found → geo step (shared contract: coords + precision together).
     street = report["patch"].get("address_line") or biz.get("address_line")
     city = report["patch"].get("city") or biz.get("city")
-    if street and looks_like_street(street) and (
-        biz.get("latitude") is None or not biz.get("google_maps_url")
-    ):
+    state = report["patch"].get("state_code") or biz.get("state_code")
+    if street and biz.get("latitude") is None:
         street_q = clean_street_typos(str(street))
-        query = ", ".join(
-            p
-            for p in [street_q, city, "CA", "USA"]
-            if p and str(p).lower() not in {"orange county", "oc"}
-        )
-        hit = geocode(query)
-        time.sleep(1.1)  # Nominatim courtesy
-        if not hit and "Parkway" in street_q:
-            hit = geocode(query.replace("Parkway", "Pkwy"))
-            time.sleep(1.0)
-        if hit:
-            lat, lng = hit
-            if biz.get("latitude") is None:
-                report["patch"]["latitude"] = lat
-                report["patch"]["longitude"] = lng
-                report["patch"]["location_precision"] = "street"
-                report["sources"]["geo"] = "nominatim"
-            if not biz.get("google_maps_url"):
-                report["patch"]["google_maps_url"] = (
-                    "https://www.google.com/maps/search/?api=1&query="
-                    + urllib.parse.quote(f"{street_q}, {city or ''}, CA")
-                )
-                report["sources"]["google_maps_url"] = "address_query"
-            # fix typo in stored address if we normalized
-            if report["patch"].get("address_line") and street_q != street:
-                report["patch"]["address_line"] = street_q.split(",")[0].strip()[:160]
+        postal = report["patch"].get("postal_code") or biz.get("postal_code")
+        geo = resolve_address_geo(street_q, city, state, postal)
+        if not geo.ok and "Parkway" in street_q:
+            geo = resolve_address_geo(
+                street_q.replace("Parkway", "Pkwy"), city, state, postal
+            )
+        for key, value in geo.patch.items():
+            if key == "google_maps_url" and biz.get("google_maps_url"):
+                continue
+            report["patch"][key] = value
+        if geo.ok:
+            report["sources"]["geo"] = "nominatim"
+            report["sources"]["google_maps_url"] = "address_query"
 
     # Yelp
-    if not biz.get("yelp_url"):
+    if not biz.get("yelp_url") and "yelp_url" not in report["patch"]:
         yelp = search_yelp(str(biz.get("name") or ""), city if isinstance(city, str) else None)
         time.sleep(0.4)
         if yelp:
@@ -752,25 +894,20 @@ def enrich_one(biz: dict[str, Any]) -> dict[str, Any]:
     return report
 
 
-def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None) -> list[dict[str, Any]]:
-    if slug:
-        rows = (
-            client._request(
-                "GET",
-                "/businesses",
-                params={
-                    "select": (
-                        "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
-                        "address_line,description,short_description,google_maps_url,google_rating,"
-                        "google_reviews_count,yelp_url,latitude,longitude,opening_hours,image_url,status"
-                    ),
-                    "slug": f"eq.{slug}",
-                    "limit": "1",
-                },
-            )
-            or []
-        )
-        return rows
+def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None, id_: str | None = None) -> list[dict[str, Any]]:
+    select = (
+        "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
+        "address_line,description,short_description,google_maps_url,google_rating,"
+        "google_reviews_count,yelp_url,latitude,longitude,opening_hours,image_url,"
+        "source_url,payment_methods,status"
+    )
+    if id_ or slug:
+        params: dict[str, str] = {"select": select, "limit": "1"}
+        if id_:
+            params["id"] = f"eq.{id_}"
+        else:
+            params["slug"] = f"eq.{slug}"
+        return client._request("GET", "/businesses", params=params) or []
 
     rows: list[dict[str, Any]] = []
     offset = 0
@@ -780,11 +917,7 @@ def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None) 
                 "GET",
                 "/businesses",
                 params={
-                    "select": (
-                        "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
-                        "address_line,description,short_description,google_maps_url,google_rating,"
-                        "google_reviews_count,yelp_url,latitude,longitude,opening_hours,image_url,status"
-                    ),
+                    "select": select,
                     "status": "eq.approved",
                     "website": "not.is.null",
                     "order": "updated_at.asc",
@@ -818,7 +951,12 @@ def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None) 
             g += 1
         return g
 
-    rows = [b for b in rows if not is_junk_website(b.get("website")) and b.get("slug") != "beauty-studio-by-veronika"]
+    rows = [
+        b
+        for b in rows
+        if not is_junk_website(b.get("website"))
+        and b.get("slug") != "beauty-studio-by-veronika"
+    ]
     rows.sort(key=lambda b: -gap_count(b))
     if limit is not None:
         rows = rows[:limit]
@@ -915,27 +1053,107 @@ def main() -> int:
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--slug", type=str, default=None)
+    parser.add_argument("--id", type=str, default=None, help="Single business id (preferred)")
+    parser.add_argument(
+        "--ndjson",
+        action="store_true",
+        help="Stream started/resource/finished NDJSON for admin UI",
+    )
     args = parser.parse_args()
     if not args.dry_run and not args.apply:
         print("Specify --dry-run or --apply", file=sys.stderr)
         return 2
+    if args.ndjson and not (args.id or args.slug):
+        print("--ndjson requires --id or --slug", file=sys.stderr)
+        return 2
+
+    def emit(obj: dict[str, Any]) -> None:
+        if args.ndjson:
+            print(json.dumps(obj, ensure_ascii=False), flush=True)
 
     load_env()
     client = SupabaseRest(
         os.environ["NEXT_PUBLIC_SUPABASE_URL"],
         os.environ["SUPABASE_SERVICE_ROLE_KEY"],
     )
-    targets = fetch_targets(client, limit=None if args.slug else args.limit, slug=args.slug)
-    print(json.dumps({"targets": len(targets), "mode": "dry_run" if args.dry_run else "apply"}, ensure_ascii=False))
+    targets = fetch_targets(
+        client,
+        limit=None if (args.slug or args.id) else args.limit,
+        slug=args.slug,
+        id_=args.id,
+    )
+    if (args.slug or args.id) and not targets:
+        msg = f"Business not found id={args.id!r} slug={args.slug!r}"
+        if args.ndjson:
+            emit({"type": "error", "message": msg})
+        else:
+            print(msg, file=sys.stderr)
+        return 1
+    if not args.ndjson:
+        print(
+            json.dumps(
+                {
+                    "targets": len(targets),
+                    "mode": "dry_run" if args.dry_run else "apply",
+                },
+                ensure_ascii=False,
+            )
+        )
 
     reports: list[dict[str, Any]] = []
     for biz in targets:
-        print(f"… {biz.get('name')} ({biz.get('website')})", flush=True)
-        rep = enrich_one(biz)
+        label = f"Обогащение бизнеса «{biz.get('slug') or biz.get('id')}»"
+        if args.ndjson:
+            emit(
+                {
+                    "type": "started",
+                    "id": biz.get("id"),
+                    "label": label,
+                    "mode": "apply" if args.apply else "dry-run",
+                }
+            )
+        else:
+            print(f"… {biz.get('name')} ({biz.get('website')})", flush=True)
+
+        def on_event(ev: dict[str, Any]) -> None:
+            if args.ndjson:
+                emit(ev)
+
+        rep = enrich_one(biz, on_event=on_event, client=client)
+        steps = rep.get("bfs_steps") or []
+        ok_n = sum(1 for s in steps if s.get("outcome") == "ok")
+        fail_n = sum(1 for s in steps if s.get("outcome") in ("empty", "error"))
         if args.apply and not rep.get("skipped"):
             rep["apply_result"] = apply_report(client, rep)
         reports.append(rep)
+        if args.ndjson:
+            emit(
+                {
+                    "type": "finished",
+                    "result": {
+                        "id": biz.get("id"),
+                        "label": label,
+                        "skipped": bool(rep.get("skipped")),
+                        "reason": (
+                            f"Пропуск: {rep.get('skipped')}"
+                            if rep.get("skipped")
+                            else (
+                                None
+                                if rep.get("patch")
+                                else "Готово — новых полей не нашлось (fill-empty)."
+                            )
+                        ),
+                        "patch": rep.get("patch") or {},
+                        "resources": steps,
+                        "resources_ok": ok_n,
+                        "resources_failed": fail_n,
+                    },
+                }
+            )
         time.sleep(0.2)
+
+    if args.ndjson:
+        return 0
 
     out_path = ROOT / "scripts" / "business-enrich" / "data" / "enrich_published_report.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)

@@ -347,15 +347,16 @@ def ground_and_guard(result: dict[str, Any]) -> dict[str, Any]:
     validated = validate_analysis_result(payload)
     result.update(validated)
 
-    # Hard guards
+    # Hard guards — goods sales route to marketplace; personal garage sales stay rejected.
     import re
+    from pathlib import Path as _P
+    import sys as _S
+
+    _S.path.insert(0, str(_P(__file__).resolve().parents[1] / "import-review"))
+    from entity_routing import PERSONAL_GOODS_RE, detect_goods_sale  # noqa: E402
 
     job = re.compile(
         r"\b(вакансия|hiring|ищу\s+работу|looking\s+for\s+(?:a\s+)?(?:job|position)|front\s*desk)\b",
-        re.I,
-    )
-    marketplace = re.compile(
-        r"\b(прода[юе]м\s+(?:личн|свою|детск)|отда[мю]\s+даром|garage\s+sale)\b",
         re.I,
     )
     housing = re.compile(
@@ -379,10 +380,17 @@ def ground_and_guard(result: dict[str, Any]) -> dict[str, Any]:
         result["classification"] = "job_post"
         result["decision"] = "rejected"
         result["decision_reason"] = "Вакансия / поиск работы."
-    elif marketplace.search(text) and result.get("decision") == "accepted":
+    elif PERSONAL_GOODS_RE.search(text) and result.get("decision") == "accepted":
         result["classification"] = "marketplace_item"
         result["decision"] = "rejected"
         result["decision_reason"] = "Личная продажа вещи."
+    elif detect_goods_sale(text):
+        result["classification"] = "marketplace_item"
+        entity["entity_type"] = "marketplace_listing"
+        entity["target_collection"] = "marketplace"
+        if result.get("decision") == "accepted":
+            result["decision"] = "needs_review"
+        result["decision_reason"] = "Продажа товара → marketplace."
     elif housing.search(text) and result.get("decision") == "accepted":
         result["classification"] = "real_estate_listing"
         result["decision"] = "rejected"
@@ -980,7 +988,19 @@ async def run(args: argparse.Namespace) -> int:
             flush=True,
         )
 
+    # Re-apply CLI overrides after any credential/estimate side-effects.
+    # (load_env is now idempotent, but keep this belt-and-suspenders.)
+    if getattr(args, "llm_provider", None):
+        os.environ["TELEGRAM_LLM_PROVIDER"] = str(args.llm_provider)
+    if getattr(args, "llm_model", None):
+        os.environ["TELEGRAM_LLM_MODEL"] = str(args.llm_model)
+
     client_llm = LLMClient(tracker, request_delay_s=0.12, timeout_s=90)
+    print(
+        f"LLM client ready provider={client_llm.provider} "
+        f"model={client_llm.model} base={client_llm.base_url}",
+        flush=True,
+    )
     checkpoint["status"] = "running"
     checkpoint["stop_reason"] = None
     checkpoint["scope_estimate"] = scope

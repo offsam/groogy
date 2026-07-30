@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { ENTITY_DESCRIPTION_ORIGINAL_READY } from "@/lib/content/description-original";
 import type { Database } from "@/types/database";
 import type {
   Listing,
@@ -27,10 +28,20 @@ import { userIsAdmin } from "@/lib/reviews/queries";
 import {
   getRegionHubsByIds,
   isLatLngInHubBounds,
+  isUsaOverviewHub,
+  locationTextMatchesHub,
   parseHubIds,
 } from "@/lib/regions/hubs";
+import {
+  countyGeoidMatchesPlaces,
+  parsePlaceTokens,
+} from "@/lib/geo/place-tokens";
 
 type Client = SupabaseClient<Database>;
+
+function untyped(client: Client) {
+  return client as unknown as import("@supabase/supabase-js").SupabaseClient<any>;
+}
 
 type ListingRowInput = Parameters<typeof mapListing>[0];
 
@@ -38,6 +49,38 @@ async function getCityGeoidsForHubIds(
   client: Client,
   hubIdParam: string,
 ): Promise<string[]> {
+  // Place tokens (county:/city:) — resolve county geoids directly.
+  if (hubIdParam.includes("county:") || hubIdParam.includes("city:")) {
+    const {
+      countyGeoidsForPlaceTokens,
+      parsePlaceTokens,
+    } = await import("@/lib/geo/place-tokens");
+    const tokens = parsePlaceTokens(hubIdParam);
+    let countyGeoids = countyGeoidsForPlaceTokens(tokens);
+    // city tokens without countyGeoid on token — look up
+    for (const t of tokens) {
+      if (t.kind === "city" && !t.countyGeoid) {
+        const { data } = await client
+          .from("platform_cities")
+          .select("primary_county_geoid")
+          .eq("geoid", t.geoid)
+          .maybeSingle();
+        if (data?.primary_county_geoid) {
+          countyGeoids = [...countyGeoids, data.primary_county_geoid];
+        }
+      }
+    }
+    countyGeoids = [...new Set(countyGeoids)];
+    if (countyGeoids.length === 0) return [];
+    const { data, error } = await client
+      .from("platform_cities")
+      .select("geoid")
+      .in("primary_county_geoid", countyGeoids)
+      .eq("is_active", true);
+    if (error) throw error;
+    return (data ?? []).map((row) => row.geoid);
+  }
+
   const hubs = getRegionHubsByIds(parseHubIds(hubIdParam));
   const countyGeoids = hubs.flatMap((h) => [...h.countyGeoids]);
   if (countyGeoids.length === 0) return [];
@@ -54,6 +97,7 @@ function listingInHubs(
   row: {
     city?: string | null;
     city_geoid?: string | null;
+    county_geoid?: string | null;
     latitude?: number | null;
     longitude?: number | null;
   },
@@ -61,6 +105,18 @@ function listingInHubs(
   cityGeoids: Set<string>,
 ): boolean {
   const hubs = getRegionHubsByIds(parseHubIds(hubIdParam));
+  if (row.county_geoid) {
+    if (hubs.length === 1 && isUsaOverviewHub(hubs[0])) return true;
+    if (hubIdParam.includes("county:") || hubIdParam.includes("city:")) {
+      const match = countyGeoidMatchesPlaces(
+        row.county_geoid,
+        parsePlaceTokens(hubIdParam),
+      );
+      if (match !== null) return match;
+    }
+    const allowed = hubs.flatMap((h) => [...h.countyGeoids]);
+    if (allowed.length > 0) return allowed.includes(row.county_geoid);
+  }
   if (row.city_geoid && cityGeoids.has(row.city_geoid)) return true;
   if (
     typeof row.latitude === "number" &&
@@ -72,13 +128,10 @@ function listingInHubs(
       isLatLngInHubBounds(row.latitude!, row.longitude!, hub),
     );
   }
-  const city = (row.city ?? "").toLowerCase();
-  if (!city) return false;
-  return hubs.some(
-    (hub) =>
-      city.includes(hub.shortLabel.toLowerCase()) ||
-      city.includes(hub.inLabel.toLowerCase()),
-  );
+  const city = (row.city ?? "").trim();
+  // No location at all = nationwide offer (same rule as jobs / professionals).
+  if (!city) return true;
+  return hubs.some((hub) => locationTextMatchesHub(city, hub));
 }
 
 /** When hub is set, filter catalog ids by listing location, then paginate. */
@@ -104,9 +157,29 @@ async function paginateIdsForHub(
   }
 
   const cityGeoids = new Set(await getCityGeoidsForHubIds(client, hubId));
-  const { data, error } = await client
+  const untyped = client as unknown as {
+    from: (t: string) => {
+      select: (c: string) => {
+        in: (
+          col: string,
+          vals: string[],
+        ) => Promise<{
+          data: Array<{
+            id: string;
+            city?: string | null;
+            city_geoid?: string | null;
+            county_geoid?: string | null;
+            latitude?: number | null;
+            longitude?: number | null;
+          }> | null;
+          error: { message: string } | null;
+        }>;
+      };
+    };
+  };
+  const { data, error } = await untyped
     .from("listings")
-    .select("id, city, city_geoid, latitude, longitude")
+    .select("id, city, city_geoid, county_geoid, latitude, longitude")
     .in("id", orderedIds);
   if (error) throw error;
 
@@ -152,14 +225,18 @@ async function hydrateCatalogResult(
     };
   }
 
-  const { data, error } = await client
+  const { data, error } = await untyped(client)
     .from("listings")
-    .select(LISTING_SELECT)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- nested select blows TS depth
+    .select(listingSelectFor(opts.userId) as any)
     .in("id", ids);
   if (error) throw error;
 
   const byId = new Map(
-    (data ?? []).map((row) => [row.id, row as unknown as ListingRowInput]),
+    ((data ?? []) as unknown as Array<{ id: string }>).map((row) => [
+      row.id,
+      row as unknown as ListingRowInput,
+    ]),
   );
   const ordered = ids
     .map((id) => byId.get(id))
@@ -199,7 +276,7 @@ const LISTING_SELECT = `
   visibility,
   author_visibility,
   title,
-  description,
+  description,${ENTITY_DESCRIPTION_ORIGINAL_READY ? "\n  description_original," : ""}
   price_amount,
   price_currency,
   is_negotiable,
@@ -212,6 +289,7 @@ const LISTING_SELECT = `
   contact_preference,
   publisher_type,
   publisher_business_id,
+  payment_methods,
   source_url,
   source_kind,
   published_at,
@@ -306,6 +384,16 @@ const LISTING_SELECT_ADMIN = LISTING_SELECT.replace(
   "expires_at,\n  favorites_count,",
   "expires_at,\n  moderation_reason,\n  favorites_count,",
 );
+
+/** Guests have no grant on listings.source_url — reveal goes through the API gate. */
+const LISTING_SELECT_PUBLIC = LISTING_SELECT.replace(
+  "  source_url,\n",
+  "",
+) as typeof LISTING_SELECT;
+
+function listingSelectFor(userId: string | null): typeof LISTING_SELECT {
+  return userId ? LISTING_SELECT : LISTING_SELECT_PUBLIC;
+}
 
 async function attachPublishers(
   client: Client,
@@ -727,9 +815,9 @@ export async function getListingById(
   id: string,
   userId: string | null = null,
 ): Promise<Listing | null> {
-  const { data, error } = await client
+  const { data, error } = await untyped(client)
     .from("listings")
-    .select(LISTING_SELECT)
+    .select(listingSelectFor(userId) as any)
     .eq("id", id)
     .maybeSingle();
 
@@ -752,9 +840,9 @@ export async function getMyListings(
   status?: ListingStatus | null,
   listingType: "marketplace_item" | "service" = "marketplace_item",
 ): Promise<Listing[]> {
-  let query = client
+  let query = untyped(client)
     .from("listings")
-    .select(LISTING_SELECT)
+    .select(LISTING_SELECT as any)
     .eq("owner_id", userId)
     .eq("listing_type", listingType)
     .order("updated_at", { ascending: false });
@@ -785,14 +873,17 @@ export async function getPublicProfileListings(
   const ids = (data ?? []).map((r) => r.id);
   if (ids.length === 0) return [];
 
-  const { data: full, error: fullError } = await client
+  const { data: full, error: fullError } = await untyped(client)
     .from("listings")
-    .select(LISTING_SELECT)
+    .select(LISTING_SELECT_PUBLIC as any)
     .in("id", ids);
   if (fullError) throw fullError;
 
   const byId = new Map(
-    (full ?? []).map((row) => [row.id, row as unknown as ListingRowInput]),
+    ((full ?? []) as unknown as Array<{ id: string }>).map((row) => [
+      row.id,
+      row as unknown as ListingRowInput,
+    ]),
   );
   const ordered = ids
     .map((id) => byId.get(id))
@@ -813,14 +904,17 @@ export async function getPublicProfileServiceListings(
   const ids = (data ?? []).map((r) => r.id);
   if (ids.length === 0) return [];
 
-  const { data: full, error: fullError } = await client
+  const { data: full, error: fullError } = await untyped(client)
     .from("listings")
-    .select(LISTING_SELECT)
+    .select(LISTING_SELECT_PUBLIC as any)
     .in("id", ids);
   if (fullError) throw fullError;
 
   const byId = new Map(
-    (full ?? []).map((row) => [row.id, row as unknown as ListingRowInput]),
+    ((full ?? []) as unknown as Array<{ id: string }>).map((row) => [
+      row.id,
+      row as unknown as ListingRowInput,
+    ]),
   );
   const ordered = ids
     .map((id) => byId.get(id))
@@ -833,9 +927,9 @@ export async function getBusinessPublicServiceListings(
   client: Client,
   businessId: string,
 ): Promise<Listing[]> {
-  const { data, error } = await client
+  const { data, error } = await untyped(client)
     .from("listings")
-    .select(LISTING_SELECT)
+    .select(LISTING_SELECT_PUBLIC as any)
     .eq("listing_type", "service")
     .eq("publisher_type", "business")
     .eq("publisher_business_id", businessId)

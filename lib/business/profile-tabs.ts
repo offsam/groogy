@@ -1,6 +1,8 @@
 export type ProfileTab = {
   id: string;
   label: string;
+  /** Content count shown next to the label; omit for tabs without a count. */
+  count?: number;
 };
 
 export function tabHref(

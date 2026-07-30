@@ -9,6 +9,7 @@ export type RegionHubId =
   | "seattle"
   | "new-york"
   | "oregon"
+  | "usa-overview"
   | "default";
 
 /** California hubs shown in the home / header region picker. */
@@ -18,7 +19,7 @@ export const CALIFORNIA_LAUNCH_HUB_IDS = [
   "san-diego",
   "sacramento",
   "san-francisco",
-] as const satisfies readonly Exclude<RegionHubId, "default">[];
+] as const satisfies readonly Exclude<RegionHubId, "default" | "usa-overview">[];
 
 /** @deprecated Use CALIFORNIA_LAUNCH_HUB_IDS */
 export const SOCAL_LAUNCH_HUB_IDS = CALIFORNIA_LAUNCH_HUB_IDS;
@@ -58,7 +59,10 @@ export type RegionHub = {
  * Active hubs. Add a hub here + county GEOIDs — ZIP/geo will pick it up automatically.
  * County FIPS: https://www.census.gov/library/reference/code-lists/ansi.html
  */
-export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
+export const REGION_HUBS: Record<
+  Exclude<RegionHubId, "default" | "usa-overview">,
+  RegionHub
+> = {
   "orange-county": {
     id: "orange-county",
     inLabel: "Оранж Каунти",
@@ -145,7 +149,6 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
     cityAliases: [
       "los angeles",
       "лос-анджелес",
-      "la",
       "hollywood hills",
       "glendale",
       "burbank",
@@ -389,11 +392,50 @@ export const REGION_HUBS: Record<Exclude<RegionHubId, "default">, RegionHub> = {
   },
 };
 
-/** Default when ZIP/geo unknown — SoCal launch market. */
+/** Default when ZIP/geo unknown — SoCal launch market (after guest picks a region). */
 export const DEFAULT_REGION_HUB: RegionHub = REGION_HUBS["orange-county"];
 
-/** Ordered list for the home «Изменить» region picker (California launch markets). */
+/**
+ * Guest home before region/geo — continental USA camera (not a picker option).
+ * Pins still come from loaded hubs; map frame shows the whole country.
+ */
+export const USA_OVERVIEW_HUB: RegionHub = {
+  id: "usa-overview",
+  inLabel: "США",
+  shortLabel: "США",
+  countyGeoids: [],
+  panoramaUrl:
+    "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=2400&q=80",
+  panoramaAlt: "Панорама США",
+  mapCenter: { lat: 39.5, lng: -98.35 },
+  mapZoom: 4,
+  mapBounds: {
+    north: 49.4,
+    south: 24.5,
+    west: -125.0,
+    east: -66.9,
+  },
+  exampleQueries: [
+    "русский ресторан",
+    "детский стоматолог",
+    "помощь с документами",
+  ],
+};
+
+export function isUsaOverviewHub(hub: RegionHub | null | undefined): boolean {
+  return hub?.id === "usa-overview";
+}
+
+/** Ordered list for the home / header region picker (США + California launch). */
 export function getSelectableRegionHubs(): RegionHub[] {
+  return [
+    USA_OVERVIEW_HUB,
+    ...CALIFORNIA_LAUNCH_HUB_IDS.map((id) => REGION_HUBS[id]),
+  ];
+}
+
+/** Hubs used to load home map pins (local markets only — not the USA overview frame). */
+export function getMapPinRegionHubs(): RegionHub[] {
   return CALIFORNIA_LAUNCH_HUB_IDS.map((id) => REGION_HUBS[id]);
 }
 
@@ -406,7 +448,8 @@ for (const hub of Object.values(REGION_HUBS)) {
 
 export function getRegionHubById(id: string | null | undefined): RegionHub {
   if (!id || id === "default") return DEFAULT_REGION_HUB;
-  return REGION_HUBS[id as Exclude<RegionHubId, "default">] ?? DEFAULT_REGION_HUB;
+  if (id === "usa-overview") return USA_OVERVIEW_HUB;
+  return REGION_HUBS[id as Exclude<RegionHubId, "default" | "usa-overview">] ?? DEFAULT_REGION_HUB;
 }
 
 export function getRegionHubByCountyGeoid(
@@ -438,6 +481,24 @@ export function isLatLngInHubBounds(
   );
 }
 
+const WORD_CHAR_RE = /[\p{L}\p{N}]/u;
+
+/**
+ * Token match on whole words only. A plain `includes` puts Portland, Philadelphia
+ * and Laguna Hills into the Los Angeles hub, so a token may not sit inside a longer word.
+ */
+function containsLocationToken(haystack: string, token: string): boolean {
+  for (let from = 0; from <= haystack.length - token.length; ) {
+    const at = haystack.indexOf(token, from);
+    if (at < 0) return false;
+    const before = at > 0 ? haystack[at - 1] : "";
+    const after = haystack[at + token.length] ?? "";
+    if (!WORD_CHAR_RE.test(before) && !WORD_CHAR_RE.test(after)) return true;
+    from = at + 1;
+  }
+  return false;
+}
+
 /** Text location (city/region) against hub labels + city aliases. */
 export function locationTextMatchesHub(
   locationText: string,
@@ -450,14 +511,13 @@ export function locationTextMatchesHub(
     hub.inLabel.toLowerCase(),
     ...(hub.cityAliases ?? []),
   ];
-  return tokens.some((token) => token && loc.includes(token));
+  return tokens.some((token) => token && containsLocationToken(loc, token));
 }
 
 /**
  * Hub match for a catalog row.
- * Coordinates win. If `city` clearly belongs to a launch hub, only that hub
- * matches — a wrong default `region` like «Orange County» on a Sacramento
- * business must not pull it into OC search.
+ * county_geoid wins when present (USA Location Canon).
+ * Legacy fallback: coordinates → city aliases → city+region text.
  */
 export function locationFieldsMatchHub(
   fields: {
@@ -466,9 +526,19 @@ export function locationFieldsMatchHub(
     text?: string | null;
     latitude?: number | null;
     longitude?: number | null;
+    countyGeoid?: string | null;
+    county_geoid?: string | null;
   },
   hub: RegionHub,
 ): boolean {
+  // National overview = whole catalog for this filter.
+  if (isUsaOverviewHub(hub)) return true;
+
+  const countyGeoid = fields.countyGeoid ?? fields.county_geoid ?? null;
+  if (countyGeoid && hub.countyGeoids.length > 0) {
+    return hub.countyGeoids.includes(countyGeoid);
+  }
+
   const lat = fields.latitude;
   const lng = fields.longitude;
   if (
@@ -482,8 +552,8 @@ export function locationFieldsMatchHub(
 
   const city = (fields.city ?? "").trim();
   if (city) {
-    const byCity = getSelectableRegionHubs().filter((h) =>
-      locationTextMatchesHub(city, h),
+    const byCity = getSelectableRegionHubs().filter(
+      (h) => !isUsaOverviewHub(h) && locationTextMatchesHub(city, h),
     );
     if (byCity.length > 0) {
       return byCity.some((h) => h.id === hub.id);
@@ -636,7 +706,32 @@ export function withHubParam(href: string, hubIds: string | readonly string[]): 
 
 /** Persist guest hub selection (one or many) for client + server. */
 export function persistGuestHubIds(hubIds: readonly string[]) {
-  const serialized = serializeHubIds(hubIds);
+  const cleaned = hubIds
+    .map((id) => id.trim())
+    .filter((id) => id && id !== "default");
+  const metros = cleaned.filter((id) => id !== "usa-overview");
+  // США is exclusive: alone, or drop it when any local hub is chosen.
+  const finalIds =
+    metros.length > 0
+      ? metros
+      : cleaned.includes("usa-overview")
+        ? ["usa-overview"]
+        : [];
+
+  if (finalIds.length === 0) {
+    try {
+      localStorage.removeItem(GUEST_REGION_STORAGE_KEY);
+    } catch {
+      // ignore
+    }
+    try {
+      document.cookie = `${GUEST_REGION_COOKIE}=; path=/; max-age=0; SameSite=Lax`;
+    } catch {
+      // ignore
+    }
+    return;
+  }
+  const serialized = serializeHubIds(finalIds);
   try {
     localStorage.setItem(GUEST_REGION_STORAGE_KEY, serialized);
   } catch {

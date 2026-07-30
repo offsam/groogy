@@ -8,6 +8,11 @@ import {
   normalizeStructuredAddress,
   validateStructuredAddress,
 } from "@/lib/address/normalize";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  serializeContactLinks,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 import { userIsAdmin, userOwnsBusiness } from "@/lib/reviews/queries";
 
 export type OwnerActionResult =
@@ -58,6 +63,7 @@ export async function patchBusinessProfileAction(input: {
     instagramUrl?: string | null;
     yelpUrl?: string | null;
     googleMapsUrl?: string | null;
+    contactLinks?: ContactLink[];
     imageUrl?: string | null;
     addressLine?: string | null;
     city?: string | null;
@@ -83,6 +89,7 @@ export async function patchBusinessProfileAction(input: {
     instagram_url?: string | null;
     yelp_url?: string | null;
     google_maps_url?: string | null;
+    contact_links?: ContactLink[];
     image_url?: string | null;
     address_line?: string | null;
     city?: string | null;
@@ -114,6 +121,9 @@ export async function patchBusinessProfileAction(input: {
   if (p.yelpUrl !== undefined) row.yelp_url = emptyToNull(p.yelpUrl);
   if (p.googleMapsUrl !== undefined) {
     row.google_maps_url = emptyToNull(p.googleMapsUrl);
+  }
+  if (CONTACT_LINKS_COLUMN_READY && p.contactLinks !== undefined) {
+    row.contact_links = serializeContactLinks(p.contactLinks);
   }
   if (p.imageUrl !== undefined) row.image_url = emptyToNull(p.imageUrl);
 

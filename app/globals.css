@@ -41,11 +41,147 @@ body {
   font-family: var(--font-sans), "Segoe UI", sans-serif;
 }
 
-/* Home: hide sticky top counter (hero has section counts). */
-/* Desktop home: hero search only — hide duplicate header search from sm up. */
+/* Apple-like liquid glass pin bubble (neutral — no brand fill) */
+.krugi-glass-bubble {
+  overflow: hidden;
+  border-radius: 9999px;
+  isolation: isolate;
+  background:
+    linear-gradient(
+      165deg,
+      rgb(255 255 255 / 0.92) 0%,
+      rgb(255 255 255 / 0.42) 42%,
+      rgb(226 232 240 / 0.38) 100%
+    );
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  box-shadow:
+    inset 0 1.5px 0 rgb(255 255 255 / 0.95),
+    inset 0 -10px 18px rgb(15 23 42 / 0.06),
+    inset 0 0 0 0.5px rgb(255 255 255 / 0.65),
+    0 1px 2px rgb(15 23 42 / 0.04),
+    0 10px 28px rgb(15 23 42 / 0.12);
+  border: 1px solid rgb(255 255 255 / 0.75);
+}
+
+.krugi-glass-bubble__shine {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0.88) 0%,
+    rgb(255 255 255 / 0.28) 38%,
+    transparent 62%
+  );
+}
+
+.krugi-glass-bubble__spec {
+  pointer-events: none;
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  top: 8%;
+  height: 34%;
+  border-radius: 9999px;
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0.95) 0%,
+    rgb(255 255 255 / 0.35) 55%,
+    transparent 100%
+  );
+  filter: blur(0.4px);
+  box-shadow: 0 0 12px rgb(255 255 255 / 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .krugi-glass-bubble {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+
+/* Home: hero has AI search — hide duplicate header search on all widths. */
+body:has(.home-fullwidth) .header-search {
+  display: none;
+}
+
+/* Businesses (/search): no header search — AI search lives on home only. */
+body:has(.search-page) .header-search {
+  display: none;
+}
+
+/* Businesses title sits closer to the header */
+body:has(.search-page) main {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
 @media (min-width: 640px) {
-  body:has(.home-fullwidth) .header-search {
-    display: none;
+  body:has(.search-page) main {
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/*
+ * Hero photo → map: photo soft-fades at the bottom; map tucks under with a
+ * wide elliptical reveal (horizon / looking-down onto the map).
+ */
+.home-hero-photo {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 58%,
+    rgb(0 0 0 / 0.92) 72%,
+    rgb(0 0 0 / 0.55) 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 58%,
+    rgb(0 0 0 / 0.92) 72%,
+    rgb(0 0 0 / 0.55) 86%,
+    transparent 100%
+  );
+}
+
+.home-map-from-hero {
+  margin-top: -2.75rem;
+}
+
+@media (min-width: 640px) {
+  .home-map-from-hero {
+    margin-top: -3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-map-from-hero {
+    margin-top: -4rem;
+  }
+}
+
+.home-map-from-hero__frame {
+  -webkit-mask-image: radial-gradient(
+    140% 72% at 50% -8%,
+    transparent 36%,
+    #000 58%
+  );
+  mask-image: radial-gradient(
+    140% 72% at 50% -8%,
+    transparent 36%,
+    #000 58%
+  );
+  box-shadow: 0 -18px 40px rgb(15 23 42 / 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-map-from-hero {
+    margin-top: -1.5rem;
   }
 }
 
@@ -137,6 +273,29 @@ a {
   height: 28px;
   transform: scale(1.08);
   filter: drop-shadow(0 2px 6px rgba(31, 111, 229, 0.45));
+}
+
+.home-map-state-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2.5px solid rgba(255, 255, 255, 0.95);
+  background: color-mix(in srgb, var(--brand-blue) 92%, white);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.22),
+    0 0 0 1px color-mix(in srgb, var(--brand-blue) 35%, transparent);
+  cursor: pointer;
+  transition: transform 120ms ease;
+}
+
+.home-map-state-cluster:hover {
+  transform: scale(1.06);
+  background: var(--brand-blue);
 }
 
 /* Keep zoom controls above the soft edge fade */

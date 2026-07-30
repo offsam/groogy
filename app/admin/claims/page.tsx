@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { AdminClaimsPanel } from "@/components/admin/AdminClaimsPanel";
+import { LegacyMigrationBanner } from "@/components/admin/LegacyMigrationBanner";
 import { getPendingBusinessClaims } from "@/lib/admin/claim-actions";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
@@ -22,6 +23,7 @@ export default async function AdminClaimsPage() {
 
   return (
     <div className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-0">
+      <LegacyMigrationBanner migrationId="claims" />
       <header className="space-y-1">
         <h1 className="text-2xl font-bold tracking-tight text-slate-900">
           Заявки «Это мой бизнес»

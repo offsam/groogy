@@ -94,7 +94,7 @@ export function previewKindToPlatformSection(
     case "marketplace":
       return "marketplace";
     case "real_estate":
-      return "marketplace";
+      return "real_estate";
     case "services":
       return "professionals";
     case "professional":
@@ -103,6 +103,10 @@ export function previewKindToPlatformSection(
       return "lechu";
     case "transfers":
       return "transfers";
+    case "jobs":
+      return "jobs";
+    case "events":
+      return "events";
     default:
       return null;
   }

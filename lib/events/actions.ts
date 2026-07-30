@@ -64,12 +64,34 @@ function slugifyEventTitle(input: string): string {
   return `${base}-${stamp}`;
 }
 
+function normalizeHttpUrl(raw: string | undefined | null): string | null {
+  const value = raw?.trim() || null;
+  if (!value) return null;
+  if (!/^https?:\/\//i.test(value)) return null;
+  return value;
+}
+
+function normalizeTelegramUrl(raw: string | undefined | null): string | null {
+  const value = raw?.trim() || null;
+  if (!value) return null;
+  if (/^https?:\/\//i.test(value)) return value;
+  const handle = value.replace(/^@/, "");
+  if (/^[A-Za-z0-9_]{4,32}$/.test(handle)) {
+    return `https://t.me/${handle}`;
+  }
+  return null;
+}
+
 export async function createEventAction(input: {
   title: string;
   description?: string;
   city?: string;
+  addressLine?: string;
   startsAt?: string;
   registrationUrl?: string;
+  phone?: string;
+  telegramUrl?: string;
+  priceLabel?: string;
   format?: "online" | "offline" | "hybrid" | "unknown";
 }): Promise<EventActionResult> {
   const supabase = await createServerClient();
@@ -81,6 +103,12 @@ export async function createEventAction(input: {
   const title = input.title?.trim();
   if (!title || title.length < 3) {
     return fail("Укажите название события (минимум 3 символа).");
+  }
+
+  const format = input.format || "unknown";
+  const addressLine = input.addressLine?.trim().slice(0, 240) || null;
+  if ((format === "offline" || format === "hybrid") && !addressLine) {
+    return fail("Для офлайн и гибрид укажите адрес площадки.");
   }
 
   let startsAt: string | null = null;
@@ -103,13 +131,17 @@ export async function createEventAction(input: {
     }
   }
 
-  const registration = input.registrationUrl?.trim() || null;
-  if (registration && !/^https?:\/\//i.test(registration)) {
+  const registration = normalizeHttpUrl(input.registrationUrl);
+  if (input.registrationUrl?.trim() && !registration) {
     return fail("Ссылка должна начинаться с http:// или https://");
   }
 
+  const telegramUrl = normalizeTelegramUrl(input.telegramUrl);
+  if (input.telegramUrl?.trim() && !telegramUrl) {
+    return fail("Telegram: укажите @username или https://t.me/…");
+  }
+
   const slug = slugifyEventTitle(title);
-  const format = input.format || "unknown";
 
   const { data, error } = await (
     supabase as unknown as {
@@ -132,9 +164,13 @@ export async function createEventAction(input: {
       slug,
       description: input.description?.trim().slice(0, 8000) || null,
       city: input.city?.trim().slice(0, 80) || null,
+      address_line: addressLine,
       starts_at: startsAt,
       event_at_label: eventAtLabel,
       registration_url: registration,
+      phone: input.phone?.trim().slice(0, 40) || null,
+      telegram_url: telegramUrl,
+      price_label: input.priceLabel?.trim().slice(0, 80) || null,
       format,
       status: "published",
       source_channel: "user",

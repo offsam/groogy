@@ -7,6 +7,10 @@ import {
   resolveWebsiteUrl,
   type BusinessPresence,
 } from "@/lib/business/presence";
+import {
+  parseContactLinks,
+  type ContactChannelId,
+} from "@/lib/contacts/channels";
 
 /** Boolean presence signals safe to expose on listing cards (no URLs / phones). */
 export type BusinessPresenceFlags = {
@@ -20,6 +24,8 @@ export type BusinessPresenceFlags = {
   hasGoogleMaps: boolean;
   hasSource: boolean;
   hasBooking: boolean;
+  /** Channels stored in `contact_links` (Facebook, TikTok, WhatsApp, …). */
+  extraChannels?: ContactChannelId[];
 };
 
 export const EMPTY_PRESENCE_FLAGS: BusinessPresenceFlags = {
@@ -47,6 +53,8 @@ type ContactSource = {
   sourceUrl?: string | null;
   source_kind?: string | null;
   sourceKind?: string | null;
+  facebook_url?: string | null;
+  facebookUrl?: string | null;
   yelp_url?: string | null;
   yelpUrl?: string | null;
   google_maps_url?: string | null;
@@ -54,6 +62,8 @@ type ContactSource = {
   booking_url?: string | null;
   bookingUrl?: string | null;
   has_booking?: boolean | null;
+  contact_links?: unknown;
+  contactLinks?: unknown;
   latitude?: number | null;
   longitude?: number | null;
 };
@@ -72,8 +82,13 @@ export function computePresenceFlags(source: ContactSource): BusinessPresenceFla
   const sourceUrl = trimmed(source.source_url ?? source.sourceUrl);
   const sourceKind = trimmed(source.source_kind ?? source.sourceKind);
   const yelp = trimmed(source.yelp_url ?? source.yelpUrl);
+  const facebook = trimmed(source.facebook_url ?? source.facebookUrl);
   const googleMaps = trimmed(source.google_maps_url ?? source.googleMapsUrl);
   const booking = trimmed(source.booking_url ?? source.bookingUrl);
+  const extraLinks = parseContactLinks(
+    source.contact_links ?? source.contactLinks,
+  );
+  const extraChannels = extraLinks.map((link) => link.channel);
 
   const presence: BusinessPresence = {
     website,
@@ -81,6 +96,7 @@ export function computePresenceFlags(source: ContactSource): BusinessPresenceFla
     telegramUrl: telegram,
     sourceUrl,
     sourceKind: sourceKind as BusinessPresence["sourceKind"],
+    facebookUrl: facebook,
     yelpUrl: yelp,
     googleMapsUrl: googleMaps,
     latitude: source.latitude,
@@ -103,10 +119,15 @@ export function computePresenceFlags(source: ContactSource): BusinessPresenceFla
     hasInstagram: Boolean(instagram) || websiteIsIg,
     hasTelegram: Boolean(telegram),
     hasYelp: Boolean(yelp) || websiteIsYelp,
-    hasFacebook: websiteIsFb,
+    hasFacebook:
+      Boolean(facebook) || websiteIsFb || extraChannels.includes("facebook"),
     hasGoogleMaps: hasGoogleMapsPresence(presence),
     hasSource,
-    hasBooking: Boolean(booking) || Boolean(source.has_booking),
+    hasBooking:
+      Boolean(booking) ||
+      Boolean(source.has_booking) ||
+      extraChannels.includes("booking"),
+    extraChannels,
   };
 }
 
@@ -121,6 +142,7 @@ export function hasAnyPresenceFlag(flags: BusinessPresenceFlags): boolean {
     flags.hasFacebook ||
     flags.hasGoogleMaps ||
     flags.hasSource ||
-    flags.hasBooking
+    flags.hasBooking ||
+    (flags.extraChannels?.length ?? 0) > 0
   );
 }

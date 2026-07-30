@@ -131,6 +131,29 @@ def normalize_phone(raw: str) -> str | None:
     return "+" + digits if len(digits) >= 10 else None
 
 
+# Group admins sign posts they publish for someone else. That contact belongs
+# to the channel, not to the advertiser whose ad it sits under.
+AD_FOOTER_RE = re.compile(
+    r"^.{0,80}?(?:"
+    r"по\s+(?:всем\s+)?вопросам\s+реклам\w*|"
+    r"по\s+реклам\w*|"
+    r"реклама\s+(?:и\s+сотрудничеств\w*|в\s+канале|у\s+нас)|"
+    r"разместить\s+реклам\w*|"
+    r"размещение\s+реклам\w*|"
+    r"заказать\s+реклам\w*|"
+    r"сотрудничество\s+и\s+реклама|"
+    r"for\s+advertis\w*|"
+    r"ads?\s*[:：]"
+    r").{0,200}$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def mask_ad_footer(text: str) -> str:
+    """Blank ad-manager lines, keeping offsets, before mining contacts."""
+    return AD_FOOTER_RE.sub(lambda m: " " * len(m.group(0)), text or "")
+
+
 def _mask_urls(text: str) -> str:
     """Replace URL spans with spaces (preserve offsets) so phones aren't mined from paths."""
     return URL_SPAN_RE.sub(lambda m: " " * len(m.group(0)), text or "")
@@ -151,7 +174,7 @@ def _mask_non_phone_digit_spans(text: str) -> str:
 def extract_phones(text: str) -> list[str]:
     found: list[str] = []
     seen: set[str] = set()
-    scrubbed = _mask_non_phone_digit_spans(_mask_urls(text or ""))
+    scrubbed = _mask_non_phone_digit_spans(_mask_urls(mask_ad_footer(text)))
     for match in PHONE_RE.finditer(scrubbed):
         phone = normalize_phone(match.group(0))
         if phone and phone not in seen:
@@ -161,7 +184,7 @@ def extract_phones(text: str) -> list[str]:
 
 
 def extract_emails(text: str) -> list[str]:
-    return sorted({m.group(0).lower() for m in EMAIL_RE.finditer(text or "")})
+    return sorted({m.group(0).lower() for m in EMAIL_RE.finditer(mask_ad_footer(text))})
 
 
 def _normalize_url(url: str) -> str:
@@ -189,6 +212,7 @@ def extract_whatsapp(text: str) -> list[str]:
     """Return normalized WhatsApp targets (URLs), without WHATSAPP: prefixes."""
     found: list[str] = []
     seen: set[str] = set()
+    text = mask_ad_footer(text)
 
     def _add(raw: str) -> None:
         value = raw.strip().rstrip(".,);]\"'")
@@ -217,6 +241,7 @@ def extract_websites(text: str) -> list[str]:
     urls: list[str] = []
     seen_urls: set[str] = set()
     seen_host_paths: set[str] = set()
+    text = mask_ad_footer(text)
     wa_normalized = {u.lower() for u in extract_whatsapp(text or "")}
     wa_hosts_paths = set()
     for w in wa_normalized:
@@ -269,6 +294,7 @@ def extract_websites(text: str) -> list[str]:
 def extract_telegram(text: str) -> list[str]:
     found: list[str] = []
     seen: set[str] = set()
+    text = mask_ad_footer(text)
 
     def _add(handle: str) -> None:
         h = handle.strip().lstrip("@").lower()
@@ -288,6 +314,7 @@ def extract_telegram(text: str) -> list[str]:
 def extract_instagram(text: str) -> list[str]:
     found: list[str] = []
     seen: set[str] = set()
+    text = mask_ad_footer(text)
     # Handles claimed by Telegram labels must not become Instagram
     telegram_handles = set(extract_telegram(text or ""))
 

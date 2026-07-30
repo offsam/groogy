@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { Eye, Globe, Mail, Phone } from "lucide-react";
+import { Eye, Globe, Mail, Phone, CalendarCheck } from "lucide-react";
 import {
   InstagramIcon,
   TelegramIcon,
@@ -14,6 +14,13 @@ import {
   resolveWebsiteUrl,
   telegramContactLabel,
 } from "@/lib/business/presence";
+import { ContactChannelIcon } from "@/components/contacts/ContactChannelIcon";
+import {
+  contactDisplayLabel,
+  contactHref,
+  getContactChannel,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 import { formatWebsiteHost } from "@/lib/supabase/mappers";
 import { cn } from "@/lib/utils";
 import type { Professional } from "@/types/professional";
@@ -30,6 +37,7 @@ type ContactsApiResponse = {
   website?: string | null;
   instagramUrl?: string | null;
   telegramUrl?: string | null;
+  contactLinks?: ContactLink[];
 };
 
 type ContactItem = {
@@ -68,8 +76,10 @@ function buildItems(input: {
   phone: string | null;
   email: string | null;
   website: string | null;
+  bookingUrl?: string | null;
   instagramUrl: string | null;
   telegramUrl: string | null;
+  contactLinks?: ContactLink[];
 }): ContactItem[] {
   const presence = {
     website: input.website,
@@ -77,6 +87,7 @@ function buildItems(input: {
     telegramUrl: input.telegramUrl,
   };
   const website = resolveWebsiteUrl(presence);
+  const booking = input.bookingUrl?.trim() || null;
   const instagram =
     resolveInstagramUrl(presence) ||
     (input.website && isInstagramUrl(input.website)
@@ -103,6 +114,16 @@ function buildItems(input: {
       href: `mailto:${input.email.trim()}`,
       icon: <Mail aria-hidden="true" className="size-3.5" />,
       label: input.email.trim(),
+    });
+  }
+  if (booking) {
+    items.push({
+      key: "booking",
+      title: "Онлайн-запись",
+      href: booking,
+      icon: <CalendarCheck aria-hidden="true" className="size-3.5" />,
+      label: "Записаться",
+      external: true,
     });
   }
   if (telegram) {
@@ -135,6 +156,24 @@ function buildItems(input: {
       external: true,
     });
   }
+  const rendered = new Set(items.map((item) => item.key));
+  (input.contactLinks ?? []).forEach((link, index) => {
+    const channel = getContactChannel(link.channel);
+    if (!channel || rendered.has(channel.id)) return;
+    const href = contactHref(channel.id, link.value);
+    if (!href) return;
+    rendered.add(channel.id);
+    items.push({
+      key: `${channel.id}-${index}`,
+      title: channel.needsLabel
+        ? link.label?.trim() || channel.label
+        : channel.label,
+      href,
+      icon: <ContactChannelIcon channel={channel.id} />,
+      label: contactDisplayLabel(link),
+      external: !href.startsWith("tel:") && !href.startsWith("mailto:"),
+    });
+  });
   return items;
 }
 
@@ -162,6 +201,13 @@ function flagChips(professional: Professional) {
       icon: <Globe aria-hidden="true" className="size-3.5" />,
     });
   }
+  if (flags.hasBooking) {
+    chips.push({
+      key: "booking",
+      title: "Запись",
+      icon: <CalendarCheck aria-hidden="true" className="size-3.5" />,
+    });
+  }
   if (flags.hasInstagram) {
     chips.push({
       key: "instagram",
@@ -176,6 +222,17 @@ function flagChips(professional: Professional) {
       icon: <Mail aria-hidden="true" className="size-3.5" />,
     });
   }
+  const chipped = new Set(chips.map((chip) => chip.key));
+  (flags.extraChannels ?? []).forEach((channelId) => {
+    const channel = getContactChannel(channelId);
+    if (!channel || chipped.has(channel.id)) return;
+    chipped.add(channel.id);
+    chips.push({
+      key: channel.id,
+      title: channel.label,
+      icon: <ContactChannelIcon channel={channel.id} />,
+    });
+  });
   return chips;
 }
 
@@ -192,8 +249,10 @@ export function ProfessionalContactsCard({
     professional.phone?.trim() ||
       professional.email?.trim() ||
       professional.website?.trim() ||
+      professional.bookingUrl?.trim() ||
       professional.instagramUrl?.trim() ||
-      professional.telegramUrl?.trim(),
+      professional.telegramUrl?.trim() ||
+      professional.contactLinks.length > 0,
   );
 
   const [revealed, setRevealed] = useState(
@@ -210,15 +269,19 @@ export function ProfessionalContactsCard({
     professional.presenceFlags.hasPhone ||
     professional.presenceFlags.hasEmail ||
     professional.presenceFlags.hasWebsite ||
+    professional.presenceFlags.hasBooking ||
     professional.presenceFlags.hasInstagram ||
-    professional.presenceFlags.hasTelegram;
+    professional.presenceFlags.hasTelegram ||
+    (professional.presenceFlags.extraChannels?.length ?? 0) > 0;
 
   const items = buildItems({
     phone: fetched?.phone ?? professional.phone,
     email: fetched?.email ?? professional.email,
     website: fetched?.website ?? professional.website,
+    bookingUrl: professional.bookingUrl,
     instagramUrl: fetched?.instagramUrl ?? professional.instagramUrl,
     telegramUrl: fetched?.telegramUrl ?? professional.telegramUrl,
+    contactLinks: fetched?.contactLinks ?? professional.contactLinks,
   });
 
   const showLocked = !revealed && hasAnyFlag;

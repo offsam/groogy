@@ -18,6 +18,14 @@ import type {
   ImportReviewTargetCollection,
 } from "@/types/import-review";
 
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[];
+
 export type UserRole = "user" | "business_owner" | "moderator" | "admin";
 
 export type ReviewModerationStatus =
@@ -141,7 +149,7 @@ export type Database = {
           instagram_url: string | null;
           telegram_url: string | null;
           source_url: string | null;
-          source_kind: "telegram" | "facebook" | "platform" | null;
+          source_kind: "telegram" | "facebook" | "directory" | "platform" | null;
           yelp_url: string | null;
           yelp_rating: number | null;
           yelp_reviews_count: number;
@@ -150,6 +158,13 @@ export type Database = {
           google_rating: number | null;
           google_reviews_count: number;
           booking_url: string | null;
+          payment_methods: string[];
+          contact_links: import("@/lib/contacts/channels").ContactLink[];
+          location_confidence: string | null;
+          location_source: string | null;
+          county_geoid: string | null;
+          self_ad_mention_count: number;
+          third_party_mention_count: number;
           image_url: string | null;
           address_line: string | null;
           city: string | null;
@@ -182,7 +197,7 @@ export type Database = {
           instagram_url?: string | null;
           telegram_url?: string | null;
           source_url?: string | null;
-          source_kind?: "telegram" | "facebook" | "platform" | null;
+          source_kind?: "telegram" | "facebook" | "directory" | "platform" | null;
           yelp_url?: string | null;
           yelp_rating?: number | null;
           yelp_reviews_count?: number;
@@ -191,6 +206,13 @@ export type Database = {
           google_rating?: number | null;
           google_reviews_count?: number;
           booking_url?: string | null;
+          payment_methods?: string[];
+          contact_links?: import("@/lib/contacts/channels").ContactLink[];
+          location_confidence?: string | null;
+          location_source?: string | null;
+          county_geoid?: string | null;
+          self_ad_mention_count?: number;
+          third_party_mention_count?: number;
           image_url?: string | null;
           address_line?: string | null;
           city?: string | null;
@@ -759,8 +781,9 @@ export type Database = {
           contact_preference: ListingContactPreference;
           publisher_type: PublisherType;
           publisher_business_id: string | null;
+          payment_methods: string[];
           source_url: string | null;
-          source_kind: "telegram" | "facebook" | "platform" | null;
+          source_kind: "telegram" | "facebook" | "directory" | "platform" | null;
           published_at: string | null;
           reserved_at: string | null;
           completed_at: string | null;
@@ -793,8 +816,9 @@ export type Database = {
           contact_preference?: ListingContactPreference;
           publisher_type?: PublisherType;
           publisher_business_id?: string | null;
+          payment_methods?: string[];
           source_url?: string | null;
-          source_kind?: "telegram" | "facebook" | "platform" | null;
+          source_kind?: "telegram" | "facebook" | "directory" | "platform" | null;
           published_at?: string | null;
           reserved_at?: string | null;
           completed_at?: string | null;
@@ -1365,6 +1389,185 @@ export type Database = {
         >;
         Relationships: [];
       };
+      entity_enrich_runs: {
+        Row: {
+          admin_id: string | null;
+          created_at: string;
+          entity_id: string;
+          entity_kind: string;
+          id: string;
+          note: string | null;
+          payload: Json;
+        }
+        Insert: {
+          admin_id?: string | null;
+          created_at?: string;
+          entity_id: string;
+          entity_kind: string;
+          id?: string;
+          note?: string | null;
+          payload?: Json;
+        }
+        Update: {
+          admin_id?: string | null;
+          created_at?: string;
+          entity_id?: string;
+          entity_kind?: string;
+          id?: string;
+          note?: string | null;
+          payload?: Json;
+        }
+        Relationships: []
+      }
+      entity_moves: {
+        Row: {
+          created_at: string;
+          from_id: string;
+          from_path: string;
+          from_slug: string | null;
+          from_type: string;
+          id: string;
+          moved_by: string | null;
+          reason: string | null;
+          to_id: string;
+          to_path: string;
+          to_slug: string | null;
+          to_type: string;
+        }
+        Insert: {
+          created_at?: string;
+          from_id: string;
+          from_path: string;
+          from_slug?: string | null;
+          from_type: string;
+          id?: string;
+          moved_by?: string | null;
+          reason?: string | null;
+          to_id: string;
+          to_path: string;
+          to_slug?: string | null;
+          to_type: string;
+        }
+        Update: {
+          created_at?: string;
+          from_id?: string;
+          from_path?: string;
+          from_slug?: string | null;
+          from_type?: string;
+          id?: string;
+          moved_by?: string | null;
+          reason?: string | null;
+          to_id?: string;
+          to_path?: string;
+          to_slug?: string | null;
+          to_type?: string;
+        }
+        Relationships: []
+      }
+      entity_promotions: {
+        Row: {
+          body: string | null;
+          category_id: string | null;
+          created_at: string;
+          discount_label: string | null;
+          discount_percent: number | null;
+          id: string;
+          owner_id: string;
+          owner_type: string;
+          sort_order: number;
+          source_import_item_id: string | null;
+          status: string;
+          title: string;
+          updated_at: string;
+          valid_from: string | null;
+          valid_until: string | null;
+        }
+        Insert: {
+          body?: string | null;
+          category_id?: string | null;
+          created_at?: string;
+          discount_label?: string | null;
+          discount_percent?: number | null;
+          id?: string;
+          owner_id: string;
+          owner_type: string;
+          sort_order?: number;
+          source_import_item_id?: string | null;
+          status?: string;
+          title: string;
+          updated_at?: string;
+          valid_from?: string | null;
+          valid_until?: string | null;
+        }
+        Update: {
+          body?: string | null;
+          category_id?: string | null;
+          created_at?: string;
+          discount_label?: string | null;
+          discount_percent?: number | null;
+          id?: string;
+          owner_id?: string;
+          owner_type?: string;
+          sort_order?: number;
+          source_import_item_id?: string | null;
+          status?: string;
+          title?: string;
+          updated_at?: string;
+          valid_from?: string | null;
+          valid_until?: string | null;
+        }
+        Relationships: [
+          {
+            foreignKeyName: "entity_promotions_category_id_fkey";
+            columns: ["category_id"];
+            isOneToOne: false;
+            referencedRelation: "categories";
+            referencedColumns: ["id"];
+          },
+        ]
+      }
+      entity_updates: {
+        Row: {
+          body: string | null;
+          created_at: string;
+          id: string;
+          owner_id: string;
+          owner_type: string;
+          published_at: string;
+          source: string;
+          source_url: string | null;
+          status: string;
+          title: string;
+          updated_at: string;
+        }
+        Insert: {
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+          owner_id: string;
+          owner_type: string;
+          published_at?: string;
+          source?: string;
+          source_url?: string | null;
+          status?: string;
+          title: string;
+          updated_at?: string;
+        }
+        Update: {
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+          owner_id?: string;
+          owner_type?: string;
+          published_at?: string;
+          source?: string;
+          source_url?: string | null;
+          status?: string;
+          title?: string;
+          updated_at?: string;
+        }
+        Relationships: []
+      }
       import_review_items: {
         Row: {
           id: string;
@@ -1392,6 +1595,13 @@ export type Database = {
           person_name: string | null;
           description: string | null;
           services: string[];
+          payment_methods: string[];
+          updates: import("@/types/update").QueueUpdate[] | null;
+          promotions: import("@/types/promotion").QueuePromotion[] | null;
+          location_confidence: string | null;
+          location_source: string | null;
+          county_geoid: string | null;
+          address_line: string | null;
           price: number | null;
           currency: string | null;
           city: string | null;

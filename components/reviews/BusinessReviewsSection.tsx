@@ -634,6 +634,7 @@ export function BusinessReviewsSection({
   mySession,
   isOwner,
   currentUserId,
+  preview = false,
 }: {
   businessId: string;
   businessSlug: string;
@@ -646,8 +647,10 @@ export function BusinessReviewsSection({
   mySession: ReviewVerificationSession | null;
   isOwner: boolean;
   currentUserId: string | null;
+  /** Admin import preview — hide login / write CTAs. */
+  preview?: boolean;
 }) {
-  const canWrite = Boolean(currentUserId) && !isOwner;
+  const canWrite = Boolean(currentUserId) && !isOwner && !preview;
 
   return (
     <section className="space-y-5">
@@ -668,7 +671,7 @@ export function BusinessReviewsSection({
         </div>
       </div>
 
-      {!currentUserId && (
+      {!preview && !currentUserId && (
         <div className="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-6 text-center">
           <p className="text-sm text-slate-600">Чтобы оставить отзыв, войдите в аккаунт.</p>
           <Link
@@ -681,7 +684,7 @@ export function BusinessReviewsSection({
         </div>
       )}
 
-      {isOwner && (
+      {!preview && isOwner && (
         <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
           Вы владелец этого бизнеса — оставлять отзыв нельзя, но можно отвечать на
           опубликованные отзывы. Диалог AI-проверки пользователей вам недоступен.
@@ -699,7 +702,9 @@ export function BusinessReviewsSection({
 
       {reviews.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-10 text-center text-sm text-slate-500">
-          Пока нет опубликованных отзывов. Будьте первым — после короткой AI-проверки.
+          {preview
+            ? "Отзывов пока нет — после публикации появятся здесь."
+            : "Пока нет опубликованных отзывов. Будьте первым — после короткой AI-проверки."}
         </div>
       ) : (
         <ul className="space-y-3">

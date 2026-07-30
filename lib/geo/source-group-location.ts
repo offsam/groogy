@@ -1,7 +1,11 @@
 /**
  * Resolve city/region from Telegram/Facebook group names when the post
  * itself has no explicit location.
+ *
+ * Group matching uses the USA catalog (data/geo/source_location_groups.json).
  */
+
+import { resolveFromSourceGroupCatalog } from "@/lib/geo/source-location-groups";
 
 export type SourceGroupLocation = {
   /** City name when the group is city-scoped (Sacramento, LA). */
@@ -9,6 +13,7 @@ export type SourceGroupLocation = {
   /** County / metro when the group is area-scoped (Orange County). */
   region: string | null;
   stateCode: string;
+  countyGeoid?: string | null;
   /** Hub id for filters when known. */
   hubId:
     | "orange-county"
@@ -16,61 +21,11 @@ export type SourceGroupLocation = {
     | "san-diego"
     | "sacramento"
     | "san-francisco"
+    | "seattle"
+    | "new-york"
+    | "oregon"
     | null;
 };
-
-type Rule = {
-  match: RegExp;
-  location: SourceGroupLocation;
-};
-
-const RULES: Rule[] = [
-  {
-    match: /la[_\s-]?orange\s*county|orange\s*county|orangecounty|\boc\b|fun\s*for\s*mom/i,
-    location: {
-      city: null,
-      region: "Orange County",
-      stateCode: "US-CA",
-      hubId: "orange-county",
-    },
-  },
-  {
-    match: /los\s*angeles|\bla\b|russian\.?la|full_group|glendale/i,
-    location: {
-      city: "Los Angeles",
-      region: "Los Angeles County",
-      stateCode: "US-CA",
-      hubId: "los-angeles",
-    },
-  },
-  {
-    match: /sacramento|russian\.?sacramento|сакраменто/i,
-    location: {
-      city: "Sacramento",
-      region: "Sacramento County",
-      stateCode: "US-CA",
-      hubId: "sacramento",
-    },
-  },
-  {
-    match: /san\s*diego|sandiego/i,
-    location: {
-      city: "San Diego",
-      region: "San Diego County",
-      stateCode: "US-CA",
-      hubId: "san-diego",
-    },
-  },
-  {
-    match: /san\s*francisco|\bsf\b|bay\s*area|russiansf|сан[\s-]?франциско/i,
-    location: {
-      city: "San Francisco",
-      region: "San Francisco County",
-      stateCode: "US-CA",
-      hubId: "san-francisco",
-    },
-  },
-];
 
 /**
  * Infer location from source_group / source key / chat title.
@@ -79,12 +34,15 @@ const RULES: Rule[] = [
 export function resolveLocationFromSourceGroup(
   ...parts: Array<string | null | undefined>
 ): SourceGroupLocation | null {
-  const blob = parts.filter(Boolean).join(" ").trim();
-  if (!blob) return null;
-  for (const rule of RULES) {
-    if (rule.match.test(blob)) return { ...rule.location };
-  }
-  return null;
+  const hit = resolveFromSourceGroupCatalog(...parts);
+  if (!hit) return null;
+  return {
+    city: hit.city,
+    region: hit.region,
+    stateCode: hit.stateCode,
+    countyGeoid: hit.countyGeoid,
+    hubId: (hit.hubId as SourceGroupLocation["hubId"]) ?? null,
+  };
 }
 
 /** County-style labels that belong in `region`, not `city`. */
@@ -100,17 +58,138 @@ export function isCountyOrMetroLabel(value: string | null | undefined): boolean 
     v === "san diego county" ||
     v === "sacramento county" ||
     v === "san francisco county" ||
-    v === "bay area"
+    v === "bay area" ||
+    v === "southern california"
   );
 }
 
 /**
- * Merge explicit post location with group fallback.
+ * Infer location from free text (description / source_text).
+ * Explicit place in the post beats the source-group fallback.
+ */
+export function resolveLocationFromText(
+  text: string | null | undefined,
+): SourceGroupLocation | null {
+  const blob = (text || "").trim().slice(0, 2500);
+  if (!blob) return null;
+
+  const textRules: Array<{ match: RegExp; location: SourceGroupLocation }> = [
+    {
+      match: /\b(orange\s*county|оранж(?:\s*каунти)?|\boc\b)\b/i,
+      location: {
+        city: null,
+        region: "Orange County",
+        stateCode: "US-CA",
+        countyGeoid: "06059",
+        hubId: "orange-county",
+      },
+    },
+    {
+      match: /\b(sacramento|сакраменто)\b/i,
+      location: {
+        city: "Sacramento",
+        region: "Sacramento County",
+        stateCode: "US-CA",
+        countyGeoid: "06067",
+        hubId: "sacramento",
+      },
+    },
+    {
+      match: /\b(san\s*diego|сан[-\s]?диего)\b/i,
+      location: {
+        city: "San Diego",
+        region: "San Diego County",
+        stateCode: "US-CA",
+        countyGeoid: "06073",
+        hubId: "san-diego",
+      },
+    },
+    {
+      match: /\b(san\s*francisco|\bsf\b|bay\s*area|сан[-\s]?франциско)\b/i,
+      location: {
+        city: "San Francisco",
+        region: "San Francisco County",
+        stateCode: "US-CA",
+        countyGeoid: "06075",
+        hubId: "san-francisco",
+      },
+    },
+    {
+      match: /\b(los\s*angeles|\bla\b|лос[-\s]?анджелес\w*)\b/i,
+      location: {
+        city: "Los Angeles",
+        region: "Los Angeles County",
+        stateCode: "US-CA",
+        countyGeoid: "06037",
+        hubId: "los-angeles",
+      },
+    },
+    {
+      match: /\b(denver|денвер)\b/i,
+      location: {
+        city: "Denver",
+        region: "Denver County",
+        stateCode: "US-CO",
+        countyGeoid: "08031",
+        hubId: null,
+      },
+    },
+    {
+      match: /\b(seattle|сиэтл|сиэттл)\b/i,
+      location: {
+        city: "Seattle",
+        region: "King County",
+        stateCode: "US-WA",
+        countyGeoid: "53033",
+        hubId: "seattle",
+      },
+    },
+    {
+      match:
+        /\b(irvine|айрвин|anaheim|santa\s*ana|tustin|costa\s*mesa|newport\s*beach|huntington\s*beach|fullerton|buena\s*park|garden\s*grove)\b/i,
+      location: {
+        city: null,
+        region: "Orange County",
+        stateCode: "US-CA",
+        countyGeoid: "06059",
+        hubId: "orange-county",
+      },
+    },
+  ];
+
+  for (const rule of textRules) {
+    const m = rule.match.exec(blob);
+    if (!m) continue;
+    const raw = m[0].replace(/\s+/g, " ").trim().toLowerCase();
+    const loc = { ...rule.location };
+    const ocCities: Record<string, string> = {
+      irvine: "Irvine",
+      айрвин: "Irvine",
+      anaheim: "Anaheim",
+      "santa ana": "Santa Ana",
+      tustin: "Tustin",
+      "costa mesa": "Costa Mesa",
+      "newport beach": "Newport Beach",
+      "huntington beach": "Huntington Beach",
+      fullerton: "Fullerton",
+      "buena park": "Buena Park",
+      "garden grove": "Garden Grove",
+    };
+    if (loc.hubId === "orange-county" && ocCities[raw]) {
+      loc.city = ocCities[raw]!;
+    }
+    return loc;
+  }
+  return null;
+}
+
+/**
+ * Merge explicit post location with text mention, then group fallback.
  *
  * - Explicit real city wins when present.
  * - County labels in `city` move to `region`.
- * - If there is no city (street-only post), fill city/region from the
- *   source group (Russian.Sacramento → Sacramento, etc.).
+ * - Else take place from description/source_text (e.g. «Orange County»).
+ * - Else fill from the source group (Russian.Sacramento → Sacramento).
  */
 export function mergeLocationWithGroupFallback(input: {
   city?: string | null;
@@ -118,37 +197,45 @@ export function mergeLocationWithGroupFallback(input: {
   stateCode?: string | null;
   sourceGroup?: string | null;
   source?: string | null;
+  chatId?: string | null;
+  text?: string | null;
 }): {
   city: string | null;
   region: string | null;
   stateCode: string | null;
+  countyGeoid: string | null;
 } {
   let city = input.city?.trim() || null;
   let region = input.region?.trim() || null;
   let stateCode = input.stateCode?.trim() || null;
+  let countyGeoid: string | null = null;
 
-  // "Orange County" typed as city → move to region (before group fill)
   if (city && isCountyOrMetroLabel(city)) {
     if (!region) region = city.replace(/\boc\b/i, "Orange County");
     if (/^oc$/i.test(city.trim())) region = "Orange County";
     city = null;
   }
 
+  const fromText = resolveLocationFromText(input.text);
   const fromGroup = resolveLocationFromSourceGroup(
+    input.chatId,
     input.sourceGroup,
     input.source,
   );
-  if (fromGroup) {
-    // Street-only / missing city → take the group's city (Sacramento, LA, …)
-    if (!city && fromGroup.city) city = fromGroup.city;
-    if (!region && fromGroup.region) region = fromGroup.region;
-    if (!stateCode) stateCode = fromGroup.stateCode;
+  const filler = fromText || fromGroup;
+  if (filler) {
+    if (!city && filler.city) city = filler.city;
+    if (!city && !region && filler.region) region = filler.region;
+    if (!region && filler.region) region = filler.region;
+    if (!stateCode) stateCode = filler.stateCode;
+    if (filler.countyGeoid) countyGeoid = filler.countyGeoid;
   }
 
   return {
     city,
     region,
     stateCode: stateCode || (city || region ? "US-CA" : null),
+    countyGeoid,
   };
 }
 
@@ -169,8 +256,6 @@ export function sourceHubCorrection(input: {
   );
   if (!fromGroup?.hubId) return null;
 
-  // Defer to hubs mapBounds via dynamic import avoidance — lightweight check:
-  // if city clearly belongs to another known metro, treat as conflict.
   const city = (input.city || "").trim().toLowerCase();
   const foreignCity =
     (fromGroup.hubId === "sacramento" &&

@@ -12,7 +12,6 @@ type HomeHeroProps = {
   hubs: RegionHub[];
   inLabel: string;
   regionStats?: HubResourceStats | null;
-  platformStats?: HubResourceStats | null;
   geoPrompt?: boolean;
   geoLoading?: boolean;
   onAllowGeo?: () => void;
@@ -25,7 +24,6 @@ export function HomeHero({
   hubs,
   inLabel,
   regionStats = null,
-  platformStats = null,
   geoPrompt = false,
   geoLoading = false,
   onAllowGeo,
@@ -33,8 +31,8 @@ export function HomeHero({
   onChangeHubs,
 }: HomeHeroProps) {
   return (
-    <section className="relative isolate w-full overflow-hidden">
-      <div className="relative min-h-[220px] w-full sm:min-h-0 sm:h-[260px] md:h-[280px] lg:h-[300px]">
+    <section className="home-hero relative isolate z-20 w-full overflow-hidden">
+      <div className="home-hero-photo relative min-h-[220px] w-full sm:min-h-0 sm:h-[260px] md:h-[280px] lg:h-[300px]">
         <Image
           alt={hub.panoramaAlt}
           className="object-cover object-[center_40%]"
@@ -50,7 +48,16 @@ export function HomeHero({
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-transparent to-slate-950/70"
+          className="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-transparent to-slate-950/55"
+        />
+        {/* Soft horizon — photo dissolves into the map below */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-16 sm:h-20 md:h-24"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent 0%, rgb(15 23 42 / 0.15) 45%, rgb(15 23 42 / 0.05) 70%, transparent 100%)",
+          }}
         />
 
         <div className="relative z-[1] flex min-h-[220px] flex-col sm:absolute sm:inset-0 sm:min-h-0">
@@ -89,17 +96,6 @@ export function HomeHero({
                   <SearchBar variant="hero" />
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="mx-auto w-full max-w-[1400px] px-4 pb-3 pt-1 sm:px-6 sm:pb-4 lg:px-8">
-            <div className="flex min-w-0 items-start gap-2.5">
-              <div aria-hidden className="hidden size-9 shrink-0 sm:block" />
-              <HomeRegionActivityLine
-                className="mt-0 sm:mt-0"
-                prefix="На платформе"
-                stats={platformStats}
-              />
             </div>
           </div>
         </div>

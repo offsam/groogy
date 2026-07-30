@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Calendar } from "lucide-react";
+import {
+  CategoryAccentBar,
+  CategoryChip,
+  CategoryMediaFallback,
+} from "@/components/platform/CategoryCardChrome";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import type { PlatformEvent } from "@/lib/events/queries";
 import { eventTimingLabel } from "@/lib/events/timing";
 
@@ -17,18 +24,25 @@ function formatWhen(iso: string | null, label: string | null): string | null {
   }
 }
 
-export function EventCard({ event }: { event: PlatformEvent }) {
+export function EventCard({
+  event,
+  preview = false,
+}: {
+  event: PlatformEvent;
+  /** Admin moderation: no public navigation. */
+  preview?: boolean;
+}) {
   const timing = eventTimingLabel(event.starts_at);
   const whenLabel = formatWhen(event.starts_at, event.event_at_label);
   const past = timing.kind === "past";
 
-  return (
-    <Link
-      href={`/events/${event.slug}`}
-      className={`flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition hover:border-slate-300 hover:shadow-sm ${
-        past ? "border-slate-200 opacity-80" : "border-slate-200"
-      }`}
-    >
+  const className = `flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition ${
+    past ? "border-slate-200 opacity-80" : "border-slate-200"
+  } ${preview ? "" : "hover:border-slate-300 hover:shadow-sm"}`;
+
+  const body = (
+    <>
+      <CategoryAccentBar muted={past} theme="events" />
       {event.cover_image_url ? (
         <div className="relative h-40 w-full bg-slate-100">
           <Image
@@ -41,12 +55,13 @@ export function EventCard({ event }: { event: PlatformEvent }) {
           />
         </div>
       ) : (
-        <div className="flex h-40 items-center justify-center bg-slate-100 text-xs text-slate-400">
-          Без обложки
+        <div className="h-40 w-full">
+          <CategoryMediaFallback icon={Calendar} theme="events" />
         </div>
       )}
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-2 flex flex-wrap gap-1.5">
+          <CategoryChip muted={past} theme="events" />
           <span
             className={`inline-flex rounded-md px-2 py-0.5 text-xs font-medium ${
               past
@@ -69,7 +84,30 @@ export function EventCard({ event }: { event: PlatformEvent }) {
           {event.city ? <span>{event.city}</span> : null}
           {whenLabel ? <span>· {whenLabel}</span> : null}
         </div>
+        {event.price_label || (event.payment_methods?.length ?? 0) > 0 ? (
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            {event.price_label ? (
+              <span className="text-sm font-semibold text-slate-800">
+                {event.price_label}
+              </span>
+            ) : null}
+            <PaymentMethodIcons
+              methods={event.payment_methods}
+              size="sm"
+            />
+          </div>
+        ) : null}
       </div>
+    </>
+  );
+
+  if (preview) {
+    return <div className={className}>{body}</div>;
+  }
+
+  return (
+    <Link href={`/events/${event.slug}`} className={className}>
+      {body}
     </Link>
   );
 }

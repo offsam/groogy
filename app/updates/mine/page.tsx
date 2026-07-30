@@ -1,0 +1,60 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { createServerClient } from "@/lib/supabase/server";
+import { listFollowedUpdates } from "@/lib/updates/queries";
+import { UpdateCard } from "@/components/shared/UpdateCard";
+
+export const dynamic = "force-dynamic";
+
+export default async function MyUpdatesPage() {
+  const supabase = await createServerClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/login?next=/updates/mine");
+
+  const updates = await listFollowedUpdates(supabase, user.id, { limit: 60 });
+
+  return (
+    <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+      <header className="space-y-2">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            Мои обновления
+          </h1>
+          <Link
+            href="/updates"
+            className="text-sm font-medium text-brand-blue hover:underline"
+          >
+            Все обновления
+          </Link>
+        </div>
+        <p className="max-w-2xl text-sm text-slate-600 sm:text-base">
+          Новости от карточек, на которые вы подписаны.
+        </p>
+      </header>
+
+      <section className="mt-6 space-y-3" aria-live="polite">
+        {updates.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-8 text-center text-sm text-slate-500">
+            <p>Пока нет обновлений по подпискам.</p>
+            <p className="mt-2">
+              Откройте{" "}
+              <Link
+                href="/search"
+                className="font-medium text-brand-blue hover:underline"
+              >
+                каталог
+              </Link>{" "}
+              и нажмите «Подписаться» на карточке.
+            </p>
+          </div>
+        ) : (
+          updates.map((update) => (
+            <UpdateCard key={update.id} update={update} showOwner />
+          ))
+        )}
+      </section>
+    </main>
+  );
+}

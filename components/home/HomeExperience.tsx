@@ -17,7 +17,7 @@ import { PLATFORM_SECTIONS } from "@/lib/platform/sections";
 import type { PopularHomeItem } from "@/lib/platform/popular-resources";
 import type { HomeMapPin } from "@/lib/supabase/queries";
 import type { RegionHub } from "@/lib/regions/hubs";
-import { withHubParam } from "@/lib/regions/hubs";
+import { isUsaOverviewHub, withHubParam } from "@/lib/regions/hubs";
 
 type HomeExperienceProps = {
   lockedFromProfile: boolean;
@@ -25,7 +25,6 @@ type HomeExperienceProps = {
   initialInLabel: string;
   initialCountyGeoid: string | null;
   initialRegionStats: HubResourceStats | null;
-  initialPlatformStats: HubResourceStats | null;
   popularFeed: PopularHomeItem[];
   mapPins: HomeMapPin[];
   error: string | null;
@@ -37,29 +36,32 @@ export function HomeExperience({
   initialInLabel,
   initialCountyGeoid,
   initialRegionStats,
-  initialPlatformStats,
   popularFeed,
   mapPins,
   error,
 }: HomeExperienceProps) {
-  const { region, hubIdsParam, geoStatus, requestGeolocation, dismissGeoPrompt, setHubs } =
-    useHomeRegion({
-      lockedFromProfile,
-      initialHub,
-      initialInLabel,
-      initialCountyGeoid,
-    });
+  const {
+    region,
+    hubIdsParam,
+    nationalOverview,
+    geoStatus,
+    requestGeolocation,
+    dismissGeoPrompt,
+    setHubs,
+  } = useHomeRegion({
+    lockedFromProfile,
+    initialHub,
+    initialInLabel,
+    initialCountyGeoid,
+  });
+
+  const statsHubKey = nationalOverview ? "all" : hubIdsParam;
+  const ssrStatsHubKey = isUsaOverviewHub(initialHub) ? "all" : initialHub.id;
 
   const regionStats = useHubRegionStats(
-    hubIdsParam,
+    statsHubKey,
     initialRegionStats,
-    initialHub.id,
-  );
-
-  const platformStats = useHubRegionStats(
-    "all",
-    initialPlatformStats,
-    "all",
+    ssrStatsHubKey,
   );
 
   const directoryPins = useMemo(
@@ -68,10 +70,15 @@ export function HomeExperience({
         key: item.key,
         title: item.title,
         pin: item.pin,
-        href: withHubParam(item.href, hubIdsParam),
+        href:
+          nationalOverview
+            ? withHubParam(item.href, "usa-overview")
+            : hubIdsParam
+              ? withHubParam(item.href, hubIdsParam)
+              : item.href,
         stats: sectionStatFromHub(regionStats, item.key),
       })),
-    [hubIdsParam, regionStats],
+    [hubIdsParam, nationalOverview, regionStats],
   );
 
   return (
@@ -82,7 +89,6 @@ export function HomeExperience({
         hub={region.hub}
         hubs={region.hubs}
         inLabel={region.inLabel}
-        platformStats={platformStats}
         regionStats={regionStats}
         onAllowGeo={requestGeolocation}
         onDismissGeo={dismissGeoPrompt}
@@ -92,43 +98,33 @@ export function HomeExperience({
       <HomeActivityMap
         hub={region.hub}
         hubs={region.hubs}
+        nationalOverview={nationalOverview}
         pins={mapPins}
       />
 
       <section className="relative z-30 mx-auto max-w-[1400px] px-3 pb-6 pt-4 sm:px-6 sm:pb-8 sm:pt-6 lg:px-8">
-        <div className="mb-4 flex items-center justify-between gap-3 sm:mb-5">
-          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400">
-            Разделы
-          </p>
-          <Link
-            className="text-[11px] font-medium text-slate-500 transition hover:text-slate-800 sm:text-xs"
-            href={withHubParam("/search", hubIdsParam)}
-          >
-            Смотреть все
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 lg:gap-5">
+        <div className="mx-auto grid max-w-lg grid-cols-3 gap-x-3 gap-y-5 sm:max-w-xl sm:gap-x-5 sm:gap-y-6 md:max-w-2xl md:gap-x-8">
           {directoryPins.map((item) => (
             <Link
               key={item.key}
-              className="group flex min-w-0 items-start gap-2.5 sm:gap-3"
+              className="group flex min-w-0 flex-col items-center gap-2 text-center"
               href={item.href}
             >
               <KrugiPinIcon
-                className="size-12 shrink-0 transition group-hover:-translate-y-0.5 sm:size-[3.75rem]"
+                className="size-[4.25rem] transition group-hover:-translate-y-0.5 sm:size-[4.75rem]"
                 name={item.pin}
               />
-              <div className="min-w-0 pt-0.5">
-                <p className="truncate text-[13px] font-semibold leading-tight text-slate-800 sm:text-sm">
+              <div className="min-w-0 w-full">
+                <p className="text-[12px] font-semibold leading-tight text-slate-800 sm:text-[13px]">
                   {item.title}
                 </p>
                 {item.stats ? (
-                  <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
-                    <span className="font-[family-name:var(--font-display)] text-sm font-semibold tabular-nums leading-none text-slate-900 sm:text-[15px]">
+                  <p className="mt-0.5 flex flex-wrap items-baseline justify-center gap-x-1 gap-y-0.5">
+                    <span className="font-[family-name:var(--font-display)] text-[11px] font-semibold tabular-nums leading-none text-slate-500 sm:text-xs">
                       {item.stats.count.toLocaleString("ru-RU")}
                     </span>
                     {item.stats.addedToday > 0 ? (
-                      <span className="text-[11px] font-semibold tabular-nums leading-none text-brand-green sm:text-xs">
+                      <span className="text-[10px] font-semibold tabular-nums leading-none text-brand-green sm:text-[11px]">
                         +{item.stats.addedToday.toLocaleString("ru-RU")}
                       </span>
                     ) : null}
@@ -147,7 +143,7 @@ export function HomeExperience({
       ) : (
         <PopularResourcesSection
           hubIdsParam={hubIdsParam}
-          initialHubId={initialHub.id}
+          initialHubId={isUsaOverviewHub(initialHub) ? "" : initialHub.id}
           items={popularFeed}
         />
       )}

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import type {
-  ImportReviewItem,
   ImportReviewStatus,
   ImportReviewTargetCollection,
 } from "@/types/import-review";
@@ -26,6 +25,10 @@ import { ImportReviewContactIcons } from "@/components/admin/ImportReviewContact
 import { ImportReviewPreviewModal } from "@/components/admin/ImportReviewPreviewModal";
 import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
 import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
+import {
+  isProfessionalCleanupSource,
+  PROFESSIONAL_CLEANUP_SOURCE,
+} from "@/lib/import-review/professional-cleanup";
 
 function daysSince(iso: string | null): number | null {
   if (!iso) return null;
@@ -190,6 +193,22 @@ export function ImportReviewQueuePanel({
             </button>
           );
         })}
+        <button
+          type="button"
+          onClick={() =>
+            setParams({
+              q: PROFESSIONAL_CLEANUP_SOURCE,
+              status: "pending",
+            })
+          }
+          className={`rounded-full px-3 py-1 text-xs ${
+            q === PROFESSIONAL_CLEANUP_SOURCE
+              ? "bg-brand-orange text-white"
+              : "border border-brand-orange/40 bg-orange-50 text-orange-900"
+          }`}
+        >
+          Professional Cleanup
+        </button>
       </div>
 
       <form
@@ -299,6 +318,11 @@ export function ImportReviewQueuePanel({
               <li key={item.id} className="space-y-2 rounded-2xl border border-slate-200 bg-white p-3">
                 <ImportReviewTypedCard item={item} />
                 <div className="flex flex-wrap items-center gap-1.5">
+                  {isProfessionalCleanupSource(item.source) ? (
+                    <span className="rounded border border-brand-orange/40 bg-orange-50 px-2 py-0.5 text-[11px] font-medium text-orange-900">
+                      Cleanup Review
+                    </span>
+                  ) : null}
                   {junkTitle ? (
                     <span className="rounded border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800">
                       Название из текста (сырое было мусорным)

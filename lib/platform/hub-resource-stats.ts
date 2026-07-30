@@ -27,16 +27,24 @@ type EntityStamp = { created: string | null; updated: string | null };
 
 type HubScopedRow = {
   city: string | null;
+  county_geoid?: string | null;
   created_at: string | null;
   updated_at: string | null;
   published_at?: string | null;
 };
 
 /** Empty city = nationwide / unset → visible in every hub (same as jobs/pros). */
-function rowMatchesHub(city: string | null | undefined, hubId: string): boolean {
-  const text = city?.trim();
-  if (!text) return true;
+function rowMatchesHub(
+  row: { city?: string | null; county_geoid?: string | null },
+  hubId: string,
+): boolean {
   const hubs = getRegionHubsByIds(parseHubIds(hubId));
+  if (row.county_geoid) {
+    const allowed = hubs.flatMap((h) => [...h.countyGeoids]);
+    if (allowed.length > 0) return allowed.includes(row.county_geoid);
+  }
+  const text = row.city?.trim();
+  if (!text) return true;
   return hubs.some((hub) => locationTextMatchesHub(text, hub));
 }
 
@@ -49,12 +57,12 @@ async function loadHubScopedPublished(
   try {
     const { data, error } = await db(client)
       .from(table)
-      .select("city, created_at, updated_at, published_at")
+      .select("city, county_geoid, created_at, updated_at, published_at")
       .eq("status", "published")
       .limit(5000);
     if (error || !data) return [];
     return (data as unknown as HubScopedRow[])
-      .filter((row) => !hubId || rowMatchesHub(row.city, hubId))
+      .filter((row) => !hubId || rowMatchesHub(row, hubId))
       .map((row) => {
         const published = row.published_at ?? null;
         const created = row.created_at ?? null;
@@ -66,6 +74,93 @@ async function loadHubScopedPublished(
   } catch {
     return [];
   }
+}
+
+/** Exact row count via PostgREST `head` — never capped by a fetch limit. */
+async function exactCount(
+  client: unknown,
+  table: string,
+  filters: Record<string, string | number | boolean> = {},
+): Promise<number | null> {
+  try {
+    let query = db(client).from(table).select("id", { count: "exact", head: true });
+    for (const [column, value] of Object.entries(filters)) {
+      query = query.eq(column, value);
+    }
+    const { count, error } = await query;
+    if (error) return null;
+    return count ?? 0;
+  } catch {
+    return null;
+  }
+}
+
+type NationalCounts = {
+  businesses: number | null;
+  professionals: number | null;
+  offers: number | null;
+  jobs: number | null;
+  events: number | null;
+  realEstate: number | null;
+  vehicles: number | null;
+  marketplace: number | null;
+  services: number | null;
+  lechu: number | null;
+  transfers: number | null;
+};
+
+/**
+ * Whole-catalog totals for hub=all. Section lists are fetched with limits
+ * (and can fail), so the hero number must come from real counts instead of
+ * `array.length`. Catalog views are readable by anon, base tables by service role.
+ */
+async function loadNationalCounts(
+  anon: unknown,
+  catalog: unknown,
+): Promise<NationalCounts> {
+  const [
+    businesses,
+    professionals,
+    offers,
+    jobs,
+    events,
+    realEstate,
+    vehicles,
+    marketplace,
+    services,
+    lechu,
+    transfers,
+  ] = await Promise.all([
+    exactCount(catalog, "businesses", { status: "approved" }),
+    exactCount(catalog, "professionals", { status: "approved" }),
+    exactCount(catalog, "business_offers", {
+      status: "active",
+      visibility: "public",
+      is_available: true,
+    }),
+    exactCount(catalog, "jobs", { status: "published" }),
+    exactCount(catalog, "events", { status: "published" }),
+    exactCount(catalog, "real_estate_listings", { status: "published" }),
+    exactCount(catalog, "vehicles", { status: "published" }),
+    exactCount(anon, "marketplace_catalog"),
+    exactCount(anon, "services_catalog"),
+    exactCount(anon, "lechu_catalog"),
+    exactCount(anon, "transfers_catalog"),
+  ]);
+
+  return {
+    businesses,
+    professionals,
+    offers,
+    jobs,
+    events,
+    realEstate,
+    vehicles,
+    marketplace,
+    services,
+    lechu,
+    transfers,
+  };
 }
 
 function countInDay(stamps: EntityStamp[], dayKey: string): number {
@@ -95,6 +190,8 @@ export type HubResourceStats = {
   addedYesterday: number;
   addedToday: number;
   updatedToday: number;
+  /** Platform-wide profile count (only set for hub=all / null). */
+  members: number;
   /** ISO timestamp used for addedSince (client last visit or start of today). */
   since: string | null;
 };
@@ -106,6 +203,7 @@ export function emptyHubResourceStats(): HubResourceStats {
     addedYesterday: 0,
     addedToday: 0,
     updatedToday: 0,
+    members: 0,
     since: null,
   };
 }
@@ -219,6 +317,8 @@ export async function getHubResourceStats(
       pageSize: scopedHub ? 100 : 500,
     }).catch(() => ({ listings: [], total: 0, page: 1, pageSize: 100 })),
   ]);
+
+  const national = scopedHub ? null : await loadNationalCounts(client, catalog);
 
   const professionalStamps: EntityStamp[] = professionals.map((p) => ({
     created: p.publishedAt ?? p.createdAt ?? null,
@@ -344,11 +444,16 @@ export async function getHubResourceStats(
   const vehiclesYesterday = countInDay(vehicleStamps, yKey);
   const vehiclesSince = countSinceMs(vehicleStamps, sinceOk);
 
-  const resolvedProfessionals = professionals.length;
-  const resolvedJobs = jobs.length;
-  const resolvedRealEstate = realEstateStamps.length;
-  const resolvedEvents = eventStamps.length;
-  const resolvedVehicles = vehicleStamps.length;
+  const resolvedProfessionals = national?.professionals ?? professionals.length;
+  const resolvedJobs = national?.jobs ?? jobs.length;
+  const resolvedRealEstate = national?.realEstate ?? realEstateStamps.length;
+  const resolvedEvents = national?.events ?? eventStamps.length;
+  const resolvedVehicles = national?.vehicles ?? vehicleStamps.length;
+  const resolvedMarketplace = national?.marketplace ?? marketplace.total;
+  const resolvedLechu = national?.lechu ?? lechu.total;
+  const resolvedTransfers = national?.transfers ?? transfers.total;
+  const resolvedServices = national?.services ?? 0;
+  if (national?.offers != null) offerCount = national.offers;
 
   // Hero line: same day buckets as section cards
   const addedToday =
@@ -379,7 +484,7 @@ export async function getHubResourceStats(
 
   const cards: HubStatCard[] = [];
 
-  const businessCount = businesses.length;
+  const businessCount = national?.businesses ?? businesses.length;
   cards.push({
     key: "businesses",
     kind: "resource",
@@ -422,11 +527,22 @@ export async function getHubResourceStats(
     key: "listings",
     kind: "resource",
     label: "Объявления",
-    unit: shortUnit(marketplace.total, "объявление", "объявления", "объявлений"),
+    unit: shortUnit(resolvedMarketplace, "объявление", "объявления", "объявлений"),
     slug: null,
-    count: marketplace.total,
+    count: resolvedMarketplace,
     addedToday: listingsToday,
     addedSince: sinceOk != null ? listingsSince : listingsToday,
+  });
+
+  cards.push({
+    key: "services",
+    kind: "resource",
+    label: "Услуги",
+    unit: shortUnit(resolvedServices, "услуга", "услуги", "услуг"),
+    slug: null,
+    count: resolvedServices,
+    addedToday: 0,
+    addedSince: 0,
   });
 
   cards.push({
@@ -477,9 +593,9 @@ export async function getHubResourceStats(
     key: "lechu",
     kind: "resource",
     label: "Лечу",
-    unit: shortUnit(lechu.total, "маршрут", "маршрута", "маршрутов"),
+    unit: shortUnit(resolvedLechu, "маршрут", "маршрута", "маршрутов"),
     slug: null,
-    count: lechu.total,
+    count: resolvedLechu,
     addedToday: lechuToday,
     addedSince: sinceOk != null ? lechuSince : lechuToday,
   });
@@ -488,9 +604,14 @@ export async function getHubResourceStats(
     key: "transfers",
     kind: "resource",
     label: "Переводы",
-    unit: shortUnit(transfers.total, "предложение", "предложения", "предложений"),
+    unit: shortUnit(
+      resolvedTransfers,
+      "предложение",
+      "предложения",
+      "предложений",
+    ),
     slug: null,
-    count: transfers.total,
+    count: resolvedTransfers,
     addedToday: transfersToday,
     addedSince: sinceOk != null ? transfersSince : transfersToday,
   });
@@ -525,14 +646,27 @@ export async function getHubResourceStats(
   const total =
     businessCount +
     offerCount +
-    marketplace.total +
+    resolvedMarketplace +
+    resolvedServices +
     resolvedProfessionals +
     resolvedJobs +
     resolvedRealEstate +
     resolvedEvents +
     resolvedVehicles +
-    lechu.total +
-    transfers.total;
+    resolvedLechu +
+    resolvedTransfers;
+
+  let members = 0;
+  if (!scopedHub) {
+    try {
+      const { count, error } = await db(catalog)
+        .from("profiles")
+        .select("id", { count: "exact", head: true });
+      if (!error) members = count ?? 0;
+    } catch {
+      members = 0;
+    }
+  }
 
   return {
     cards,
@@ -540,6 +674,7 @@ export async function getHubResourceStats(
     addedYesterday,
     addedToday,
     updatedToday,
+    members,
     since: sinceOk != null ? new Date(sinceOk).toISOString() : null,
   };
 }

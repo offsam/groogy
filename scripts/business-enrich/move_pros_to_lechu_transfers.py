@@ -24,6 +24,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
 from common import SupabaseRest, load_env  # noqa: E402
+from source_kind import resolve_source_kind  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "data"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -71,14 +72,8 @@ MOVES: list[dict[str, Any]] = [
 ]
 
 
-def source_kind(pro: dict[str, Any]) -> str:
-    st = (pro.get("source_type") or "").lower()
-    url = (pro.get("source_url") or "").lower()
-    if "facebook" in st or "facebook.com" in url:
-        return "facebook"
-    if "telegram" in st or "t.me" in url:
-        return "telegram"
-    return "platform"
+def source_kind(pro: dict[str, Any]) -> str | None:
+    return resolve_source_kind(pro.get("source_url"), pro.get("source_type"))
 
 
 def build_description(pro: dict[str, Any]) -> str:

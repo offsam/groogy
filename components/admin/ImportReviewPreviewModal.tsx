@@ -3,14 +3,20 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Check, Eye, Loader2, Pause, X, XCircle } from "lucide-react";
+import { Check, Eye, GitMerge, Loader2, Pause, X, XCircle } from "lucide-react";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
 import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
-import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
+import { EventProfileView } from "@/components/events/EventProfileView";
+import { JobProfileView } from "@/components/jobs/JobProfileView";
+import { MarketplaceListingProfileView } from "@/components/marketplace/MarketplaceListingProfileView";
+import { LechuProfileView } from "@/components/lechu/LechuProfileView";
+import { TransferProfileView } from "@/components/transfers/TransferProfileView";
+import { ServiceProfileView } from "@/components/services/ServiceProfileView";
 import { Button } from "@/components/ui/Button";
 import {
   approveImportReviewItemAction,
+  mergeImportReviewIntoExistingAction,
   setImportReviewStatusAction,
   type DuplicateMatch,
   type ImportReviewActionResult,
@@ -18,9 +24,12 @@ import {
 import {
   importReviewItemToPreviewFields,
   importReviewToBusinessPreview,
+  importReviewToEventPreview,
+  importReviewToJobPreview,
   importReviewToOfferPreviews,
   importReviewToProfessionalPreview,
 } from "@/lib/import-review/to-business-preview";
+import { importReviewToListingPreview } from "@/lib/import-review/to-listing-preview";
 import {
   businessPreviewCompleteness,
   listingPreviewCompleteness,
@@ -134,16 +143,19 @@ export function ImportReviewPreviewModal({
       onClick={onClose}
     >
       <div
-        className="flex max-h-[96vh] w-full max-w-5xl flex-col overflow-hidden rounded-t-2xl border border-slate-200 bg-slate-50 shadow-2xl sm:rounded-2xl"
+        className="flex max-h-[96vh] w-full max-w-5xl flex-col overflow-hidden rounded-t-2xl border border-slate-200 bg-slate-50 shadow-2xl max-sm:h-[100dvh] max-sm:max-h-none max-sm:rounded-none sm:rounded-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3 sm:px-5">
+        <div className="flex items-start justify-between gap-3 border-b border-slate-200 bg-white px-3 py-2.5 sm:px-5 sm:py-3">
           <div className="min-w-0">
-            <p className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-400">
+            <p className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-slate-400 sm:text-[11px]">
               <Eye className="size-3.5" />
-              {IMPORT_PREVIEW_KIND_LABELS[kind]} · превью раздела
+              <span className="sm:hidden">Превью</span>
+              <span className="hidden sm:inline">
+                {IMPORT_PREVIEW_KIND_LABELS[kind]} · превью раздела
+              </span>
             </p>
-            <p className="mt-0.5 truncate text-sm text-slate-600">
+            <p className="mt-0.5 truncate text-xs text-slate-600 sm:text-sm">
               {IMPORT_REVIEW_STATUS_LABELS[item.review_status]} ·{" "}
               {IMPORT_PREVIEW_KIND_HINTS[kind]}
             </p>
@@ -158,9 +170,9 @@ export function ImportReviewPreviewModal({
           </button>
         </div>
 
-        <div className="overflow-y-auto px-3 py-4 sm:px-5">
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
-            <div className="pointer-events-none select-none rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 sm:p-4">
+        <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-3 py-4 sm:px-5">
+          <div className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
+            <div className="min-w-0 overflow-x-hidden rounded-xl border border-slate-200 bg-white p-2.5 sm:rounded-2xl sm:p-4">
               {kind === "business" ? (
                 <BusinessProfileView
                   autoClaim={false}
@@ -173,6 +185,7 @@ export function ImportReviewPreviewModal({
                   myReview={null}
                   mySession={null}
                   offers={offers}
+                  preview
                   reviews={[]}
                   similar={[]}
                 />
@@ -180,6 +193,7 @@ export function ImportReviewPreviewModal({
                 <ProfessionalProfileView
                   currentUserId={null}
                   isOwner={false}
+                  preview
                   professional={professional}
                   services={offers.map((o, index) => ({
                     id: o.id,
@@ -198,23 +212,40 @@ export function ImportReviewPreviewModal({
                     currency: o.currency,
                     priceUnit:
                       typeof o.priceUnit === "string" ? o.priceUnit : null,
+                    durationMinutes: null,
                     sortOrder: index * 10,
                   }))}
                 />
+              ) : kind === "events" ? (
+                <EventProfileView
+                  event={importReviewToEventPreview(fields)}
+                  preview
+                />
+              ) : kind === "jobs" ? (
+                <JobProfileView
+                  job={importReviewToJobPreview(fields)}
+                  preview
+                />
+              ) : kind === "lechu" ? (
+                <LechuProfileView
+                  listing={importReviewToListingPreview(fields, kind)}
+                  preview
+                />
+              ) : kind === "transfers" ? (
+                <TransferProfileView
+                  listing={importReviewToListingPreview(fields, kind)}
+                  preview
+                />
+              ) : kind === "services" ? (
+                <ServiceProfileView
+                  listing={importReviewToListingPreview(fields, kind)}
+                  preview
+                />
               ) : (
-                <div className="mx-auto max-w-md">
-                  <ImportReviewTypedCard item={item} />
-                  {fields.description ? (
-                    <div className="mt-4 rounded-xl border border-slate-100 bg-white p-4">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                        Описание объявления
-                      </p>
-                      <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">
-                        {fields.description}
-                      </p>
-                    </div>
-                  ) : null}
-                </div>
+                <MarketplaceListingProfileView
+                  listing={importReviewToListingPreview(fields, kind)}
+                  preview
+                />
               )}
             </div>
 
@@ -270,20 +301,63 @@ export function ImportReviewPreviewModal({
           </div>
         </div>
 
-        <div className="space-y-3 border-t border-slate-200 bg-white px-4 py-3 sm:px-5">
+        <div className="space-y-3 border-t border-slate-200 bg-white px-3 py-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom))] sm:px-5 sm:py-3">
           {error ? <AuthAlert tone="error">{error}</AuthAlert> : null}
           {duplicates.length > 0 ? (
             <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-950">
               <p className="font-medium">Возможные дубликаты</p>
-              <ul className="mt-1 space-y-0.5 text-xs">
+              <ul className="mt-2 space-y-2 text-xs">
                 {duplicates.slice(0, 5).map((d) => (
-                  <li key={`${d.kind}-${d.id}`}>
-                    {d.kind}: {d.title || d.id} — {d.reason}
+                  <li
+                    key={`${d.kind}-${d.id}`}
+                    className="space-y-1.5 rounded-md border border-amber-200/70 bg-white/60 px-2 py-1.5"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span>
+                        {d.kind}: {d.title || d.id} — {d.reason}
+                      </span>
+                      <Button
+                        className="gap-1 px-2.5 py-1 text-xs"
+                        disabled={pending || locked}
+                        onClick={() =>
+                          run(
+                            () =>
+                              mergeImportReviewIntoExistingAction({
+                                id: item.id,
+                                matchKind: d.kind,
+                                matchId: d.id,
+                                matchTitle: d.title,
+                                matchReason: d.reason,
+                                matchSlug: d.slug,
+                              }),
+                            "approved",
+                          )
+                        }
+                      >
+                        <GitMerge className="h-3.5 w-3.5" />
+                        Объединить
+                      </Button>
+                    </div>
+                    {d.mergePreview ? (
+                      <div className="text-[11px] text-amber-950/90">
+                        <p className="font-medium">При объединении</p>
+                        <p>{d.mergePreview.summary}</p>
+                        {d.mergePreview.willAdd.length > 0 ? (
+                          <p>
+                            Добавит: {d.mergePreview.willAdd.join("; ")}
+                          </p>
+                        ) : (
+                          <p>Новых полей не добавит</p>
+                        )}
+                        <p>{d.mergePreview.queueEffect}</p>
+                      </div>
+                    ) : null}
                   </li>
                 ))}
               </ul>
               <Button
-                className="mt-2"
+                className="mt-2 min-h-11 w-full sm:min-h-0 sm:w-auto"
+                variant="secondary"
                 disabled={pending || locked}
                 onClick={() =>
                   run(
@@ -301,12 +375,13 @@ export function ImportReviewPreviewModal({
                 ) : (
                   <Check className="mr-2 h-4 w-4" />
                 )}
-                Одобрить несмотря на совпадения
+                Одобрить как новую
               </Button>
             </div>
           ) : null}
-          <div className="grid gap-2 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
             <Button
+              className="min-h-11 sm:min-h-0"
               disabled={pending || locked}
               onClick={() =>
                 run(
@@ -323,6 +398,7 @@ export function ImportReviewPreviewModal({
               Одобрить
             </Button>
             <Button
+              className="min-h-11 sm:min-h-0"
               disabled={pending || locked || item.review_status === "in_review"}
               variant="secondary"
               onClick={() =>
@@ -340,7 +416,7 @@ export function ImportReviewPreviewModal({
               Отложить
             </Button>
             <Button
-              className="border-red-200 text-red-700 hover:bg-red-50"
+              className="min-h-11 border-red-200 text-red-700 hover:bg-red-50 sm:min-h-0"
               disabled={pending || locked}
               variant="secondary"
               onClick={() =>
@@ -361,7 +437,7 @@ export function ImportReviewPreviewModal({
           </div>
           <div className="flex flex-wrap gap-2">
             <Link
-              className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 sm:min-h-0 sm:w-auto"
               href={`/admin/import-review/${item.id}${filterQuery ? `?${filterQuery}` : ""}`}
               onClick={onClose}
             >

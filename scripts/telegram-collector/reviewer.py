@@ -175,89 +175,30 @@ def attach_telegram_contact(entity: dict[str, Any], post: dict[str, Any]) -> dic
     return entity
 
 
-def infer_target_collection(entity_type: str | None, category: str | None, classification: str | None) -> str:
-    if entity_type == "marketplace_listing":
-        return "marketplace"
-    if entity_type == "real_estate" or classification == "real_estate_listing":
-        return "real_estate"
-    if entity_type == "job" or classification == "job_post":
-        return "jobs"
-    if entity_type == "event" or classification == "event_ad":
-        return "events"
-    if entity_type == "organization":
-        return "organizations"
-    if entity_type == "business":
-        return "businesses"
-    if entity_type == "private_specialist":
-        return "private_specialists"
-    if entity_type == "lechu_listing" or classification == "lechu":
-        return "lechu"
-    if entity_type == "transfer_listing" or classification == "transfer":
-        return "transfers"
-    if category in {"food", "beauty", "auto_services", "car_rental"} and entity_type == "business":
-        return "businesses"
-    return "services"
+# Canonical P3 router — single source of truth (no specialist fallback).
+from pathlib import Path as _Path
+import sys as _sys
 
-
-LECHU_RE = re.compile(
-    r"(?:^|\n|#)\s*лечу\b|#лечу\b|летим\b|летит\b|"
-    r"возьму\s+(?:посыл|документ|чемодан|вещи)|"
-    r"заберу\s+и\s+привезу|"
-    r"передам\s+(?:посыл|документ)|"
-    r"flying\s+to|take\s+packages?\b",
-    re.I,
-)
-TRANSFER_RE = re.compile(
-    r"(?:денежн\w*\s+)?перевод(?:ы|ов)?\s+(?:в|из|на)\s+(?:росси|сша|украин|европ|карт)|"
-    r"money\s+transfer|wire\s+transfer|remittance|swift\b|"
-    r"крипто\s*(?:в|→|->|to)\s*фиат|фиат\s*(?:в|→|->|to)\s*крипто|"
-    r"обмен\s+валют|меняю\s+(?:руб|доллар|\$)|"
-    r"куплю\s+руб|продам\s+руб|куплю\s+доллар|продам\s+доллар|"
-    r"рубл\w*\s+на\s+(?:карт|доллар)|доллар\w*\s+на\s+руб|"
-    r"переведу\s+(?:деньги|доллар|руб)|"
-    r"оплачу\s+(?:вашу|ваш[уые]?).{0,40}рубл|"
-    r"комисси[яи]\s*\d+\s*%\s*(?:за\s+)?перевод",
-    re.I,
-)
-TRANSLATOR_NOISE_RE = re.compile(
-    r"переводчик|certified\s+translation|апостил|document\s+preparation|"
-    r"преподаватель|язык(?:а|ов)?\b",
-    re.I,
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1] / "import-review"))
+from entity_routing import (  # noqa: E402
+    detect_lechu_or_transfer,
+    infer_entity_type as _route_infer_entity_type,
+    infer_target_collection as _route_infer_target_collection,
+    route_from_post,
+    tag_needs_manual,
 )
 
 
-def detect_lechu_or_transfer(text: str) -> str | None:
-    blob = text or ""
-    if LECHU_RE.search(blob):
-        return "lechu_listing"
-    if TRANSFER_RE.search(blob) and not TRANSLATOR_NOISE_RE.search(blob):
-        return "transfer_listing"
-    return None
+def infer_target_collection(
+    entity_type: str | None,
+    category: str | None,
+    classification: str | None,
+) -> str | None:
+    return _route_infer_target_collection(entity_type, category, classification)
 
 
-def infer_entity_type(post: dict[str, Any], entity: dict[str, Any]) -> str:
-    text = post.get("merged_text") or entity.get("description") or ""
-    travel = detect_lechu_or_transfer(text)
-    if travel:
-        return travel
-    classification = post.get("classification")
-    if classification == "marketplace_item":
-        return "marketplace_listing"
-    if classification == "real_estate_listing":
-        return "real_estate"
-    if classification == "job_post":
-        return "job"
-    if classification == "event_ad":
-        return "event"
-    if classification == "direct_business_ad":
-        return "business"
-    if classification in {"direct_specialist_ad", "self_promotion_without_contact"}:
-        return "private_specialist"
-    if entity.get("business_name") and not entity.get("person_name"):
-        return "business"
-    if entity.get("person_name"):
-        return "private_specialist"
-    return "private_specialist"
+def infer_entity_type(post: dict[str, Any], entity: dict[str, Any]) -> str | None:
+    return _route_infer_entity_type(post, entity)
 
 
 def fix_category(entity: dict[str, Any], text: str) -> str:
@@ -347,7 +288,14 @@ def normalize_entity(post: dict[str, Any]) -> dict[str, Any]:
     entity["category"] = fix_category(entity, text)
     et = entity.get("entity_type")
     if et not in ENTITY_TYPES:
-        et = infer_entity_type(post, entity)
+        routed = route_from_post(post, entity)
+        et = routed.entity_type
+        if routed.needs_manual_type:
+            entity["needs_manual_type"] = True
+            entity["routing_reason"] = routed.reason
+        elif routed.ok:
+            entity["target_collection"] = routed.target_collection
+            entity["routing_reason"] = routed.reason
     entity["entity_type"] = et
     return entity
 
@@ -433,8 +381,23 @@ def apply_reviewer_decision(post: dict[str, Any], review: dict[str, Any]) -> dic
 
     target = review.get("target_collection")
     if target not in TARGET_COLLECTIONS:
-        target = infer_target_collection(entity.get("entity_type"), entity.get("category"), out.get("classification"))
+        target = infer_target_collection(
+            entity.get("entity_type"),
+            entity.get("category"),
+            out.get("classification"),
+        )
     entity["target_collection"] = target
+
+    # Unclassified → park for human; never invent a type (G2).
+    if not entity.get("entity_type") or not entity.get("target_collection"):
+        entity["entity_type"] = None
+        entity["target_collection"] = None
+        entity["needs_manual_type"] = True
+        notes = out.get("review_notes") or entity.get("review_notes")
+        out["review_notes"] = tag_needs_manual(notes)
+        if action == "promote_to_accepted":
+            action = "keep_review"
+            review["reason"] = (review.get("reason") or "") + " | needs_manual_type"
 
     # Contact gate for promote
     if action == "promote_to_accepted" and not has_any_contact(entity, out):

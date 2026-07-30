@@ -9,8 +9,8 @@ import { SearchBar } from "@/components/search/SearchBar";
 import { BRAND_NAME } from "@/lib/brand";
 import { getBrandLocationForProfile } from "@/lib/brand/location";
 import {
-  DEFAULT_REGION_HUB,
   GUEST_REGION_COOKIE,
+  USA_OVERVIEW_HUB,
   formatHubsInLabel,
   getRegionHubsByIds,
   parseHubIds,
@@ -25,7 +25,7 @@ export async function Header() {
   let displayName: string | null = null;
   let isAuthenticated = false;
   let isAdmin = false;
-  let hubs = [DEFAULT_REGION_HUB];
+  let hubs = [USA_OVERVIEW_HUB];
 
   try {
     const cookieStore = await cookies();
@@ -77,24 +77,15 @@ export async function Header() {
           >
             <BrandMark className="size-8 sm:size-9" priority size={36} />
           </Link>
-          <div className="min-w-0 leading-tight">
-            <Link
-              className="block truncate text-base font-bold tracking-tight text-slate-900 sm:text-lg"
-              href="/"
-              title={BRAND_NAME}
-            >
-              {BRAND_NAME}
-            </Link>
-            <Suspense
-              fallback={
-                <span className="block truncate text-xs font-medium leading-tight text-slate-500 sm:text-[13px]">
-                  в {inLabel}
-                </span>
-              }
-            >
-              <HeaderRegionChip hubs={hubs} />
-            </Suspense>
-          </div>
+          <Suspense
+            fallback={
+              <span className="truncate text-base font-bold tracking-tight text-slate-900 sm:text-lg">
+                Круги в {inLabel}
+              </span>
+            }
+          >
+            <HeaderRegionChip hubs={hubs} />
+          </Suspense>
         </div>
 
         <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:ml-0 sm:gap-2">

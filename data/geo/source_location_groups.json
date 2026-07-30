@@ -1,0 +1,222 @@
+[
+  {
+    "id": "tg_la_orange_county",
+    "chat_ids": ["-1001955320601"],
+    "match": "la[._\\s-]?orange\\s*county|telegram:la_orange_county|orangecounty|\\boc\\b|fun\\s*for\\s*mom|fun_for_mom|funfmom|telegram:fun_for_mom",
+    "scope": "county",
+    "city": null,
+    "region": "Orange County",
+    "county_geoid": "06059",
+    "state_code": "US-CA",
+    "hub_id": "orange-county"
+  },
+  {
+    "id": "tg_fun_for_mom",
+    "chat_ids": ["-1001333533747"],
+    "match": null,
+    "scope": "county",
+    "city": null,
+    "region": "Orange County",
+    "county_geoid": "06059",
+    "state_code": "US-CA",
+    "hub_id": "orange-county"
+  },
+  {
+    "id": "fb_russian_la",
+    "chat_ids": [],
+    "match": "los\\s*angeles|russian\\.?la|full_group|glendale|facebook\\.com/groups/.*la\\b",
+    "scope": "city",
+    "city": "Los Angeles",
+    "region": "Los Angeles County",
+    "county_geoid": "06037",
+    "state_code": "US-CA",
+    "hub_id": "los-angeles"
+  },
+  {
+    "id": "tg_sacramento",
+    "chat_ids": [],
+    "match": "sacramento|russian\\.?sacramento|сакраменто|sacramento_adaptation|sacramento_rusrek|telegram:sacramento",
+    "scope": "city",
+    "city": "Sacramento",
+    "region": "Sacramento County",
+    "county_geoid": "06067",
+    "state_code": "US-CA",
+    "hub_id": "sacramento"
+  },
+  {
+    "id": "tg_san_diego",
+    "chat_ids": [],
+    "match": "san\\s*diego|sandiego|sd_rusrek|sd_general|telegram:san_diego",
+    "scope": "city",
+    "city": "San Diego",
+    "region": "San Diego County",
+    "county_geoid": "06073",
+    "state_code": "US-CA",
+    "hub_id": "san-diego"
+  },
+  {
+    "id": "tg_san_francisco",
+    "chat_ids": [],
+    "match": "san\\s*francisco|\\bsf\\b|bay\\s*area|russiansf|сан[\\s-]?франциско|sf_rusrek|sf_general|telegram:san_francisco",
+    "scope": "city",
+    "city": "San Francisco",
+    "region": "San Francisco County",
+    "county_geoid": "06075",
+    "state_code": "US-CA",
+    "hub_id": "san-francisco"
+  },
+  {
+    "id": "seattle",
+    "chat_ids": [],
+    "match": "seattle|сиэтл|сиэттл|slavic\\s*seattle|russian\\.?seattle|telegram:seattle",
+    "scope": "city",
+    "city": "Seattle",
+    "region": "King County",
+    "county_geoid": "53033",
+    "state_code": "US-WA",
+    "hub_id": "seattle"
+  },
+  {
+    "id": "portland",
+    "chat_ids": [],
+    "match": "portland|портленд|russian\\.?portland|oregon\\s*russian|telegram:portland",
+    "scope": "city",
+    "city": "Portland",
+    "region": "Multnomah County",
+    "county_geoid": "41051",
+    "state_code": "US-OR",
+    "hub_id": "oregon"
+  },
+  {
+    "id": "denver",
+    "chat_ids": [],
+    "match": "denver|денвер|russian\\.?denver|colorado\\s*russian|telegram:denver",
+    "scope": "city",
+    "city": "Denver",
+    "region": "Denver County",
+    "county_geoid": "08031",
+    "state_code": "US-CO",
+    "hub_id": null
+  },
+  {
+    "id": "new_york",
+    "chat_ids": [],
+    "match": "new\\s*york|\\bnyc\\b|brooklyn|brighton's?\\s*beach|нью[\\s-]?йорк|russian\\.?ny|telegram:new_york",
+    "scope": "metro",
+    "city": "New York",
+    "region": "New York County",
+    "county_geoid": "36061",
+    "state_code": "US-NY",
+    "hub_id": "new-york"
+  },
+  {
+    "id": "chicago",
+    "chat_ids": [],
+    "match": "chicago|чикаго|russian\\.?chicago|telegram:chicago",
+    "scope": "city",
+    "city": "Chicago",
+    "region": "Cook County",
+    "county_geoid": "17031",
+    "state_code": "US-IL",
+    "hub_id": null
+  },
+  {
+    "id": "miami",
+    "chat_ids": [],
+    "match": "miami|майами|russian\\.?miami|telegram:miami",
+    "scope": "city",
+    "city": "Miami",
+    "region": "Miami-Dade County",
+    "county_geoid": "12086",
+    "state_code": "US-FL",
+    "hub_id": null
+  },
+  {
+    "id": "houston",
+    "chat_ids": [],
+    "match": "houston|хьюстон|russian\\.?houston|our\\s*texas|telegram:houston",
+    "scope": "city",
+    "city": "Houston",
+    "region": "Harris County",
+    "county_geoid": "48201",
+    "state_code": "US-TX",
+    "hub_id": null
+  },
+  {
+    "id": "dallas",
+    "chat_ids": [],
+    "match": "dallas|даллас|russian\\.?dallas|telegram:dallas",
+    "scope": "city",
+    "city": "Dallas",
+    "region": "Dallas County",
+    "county_geoid": "48113",
+    "state_code": "US-TX",
+    "hub_id": null
+  },
+  {
+    "id": "boston",
+    "chat_ids": [],
+    "match": "boston|бостон|russian\\.?boston|telegram:boston",
+    "scope": "city",
+    "city": "Boston",
+    "region": "Suffolk County",
+    "county_geoid": "25025",
+    "state_code": "US-MA",
+    "hub_id": null
+  },
+  {
+    "id": "minneapolis",
+    "chat_ids": [],
+    "match": "minneapolis|minnesota|zerkalo|миннеаполис|миннесота|telegram:minneapolis",
+    "scope": "city",
+    "city": "Minneapolis",
+    "region": "Hennepin County",
+    "county_geoid": "27053",
+    "state_code": "US-MN",
+    "hub_id": null
+  },
+  {
+    "id": "philadelphia",
+    "chat_ids": [],
+    "match": "philadelphia|филадельфия|russian\\.?philly|telegram:philadelphia",
+    "scope": "city",
+    "city": "Philadelphia",
+    "region": "Philadelphia County",
+    "county_geoid": "42101",
+    "state_code": "US-PA",
+    "hub_id": null
+  },
+  {
+    "id": "atlanta",
+    "chat_ids": [],
+    "match": "atlanta|атланта|russian\\.?atlanta|telegram:atlanta",
+    "scope": "city",
+    "city": "Atlanta",
+    "region": "Fulton County",
+    "county_geoid": "13121",
+    "state_code": "US-GA",
+    "hub_id": null
+  },
+  {
+    "id": "las_vegas",
+    "chat_ids": [],
+    "match": "las\\s*vegas|vegas|лас[\\s-]?вегас|russian\\.?vegas|telegram:las_vegas",
+    "scope": "city",
+    "city": "Las Vegas",
+    "region": "Clark County",
+    "county_geoid": "32003",
+    "state_code": "US-NV",
+    "hub_id": null
+  },
+  {
+    "id": "phoenix",
+    "chat_ids": [],
+    "match": "phoenix|финикс|arizona\\s*russian|russian\\.?phoenix|telegram:phoenix",
+    "scope": "city",
+    "city": "Phoenix",
+    "region": "Maricopa County",
+    "county_geoid": "04013",
+    "state_code": "US-AZ",
+    "hub_id": null
+  }
+]

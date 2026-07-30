@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CommentRecommendationsPanel } from "@/components/admin/CommentRecommendationsPanel";
+import { LegacyMigrationBanner } from "@/components/admin/LegacyMigrationBanner";
+import { ScanRecommendationDuplicatesButton } from "@/components/admin/ScanRecommendationDuplicatesButton";
 import {
   countCommentRecommendationsByBucket,
   listCommentRecommendations,
@@ -98,6 +100,7 @@ export default async function AdminRecommendationsPage({
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
+      <LegacyMigrationBanner migrationId="recommendations" />
       <div>
         <p className="text-sm font-medium text-brand-blue-deep">Импорт</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900">
@@ -107,7 +110,7 @@ export default async function AdminRecommendationsPage({
           Специалисты, бизнесы и услуги из Facebook и Telegram. Переносим только
           карточки с якорем (пост или контакт). Без якоря остаются отдельно.
         </p>
-        <p className="mt-3 flex flex-wrap gap-4 text-sm">
+        <p className="mt-3 flex flex-wrap items-center gap-4 text-sm">
           <Link
             href="/admin/import-review"
             className="text-brand-blue hover:underline"
@@ -126,6 +129,7 @@ export default async function AdminRecommendationsPage({
           >
             События — верификация →
           </Link>
+          <ScanRecommendationDuplicatesButton />
         </p>
       </div>
 

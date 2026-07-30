@@ -79,6 +79,14 @@ Depends on:
 - Database
 - Integrations (websites, directories, geocoders, LLM)
 
+### Domain Events
+
+Depends on:
+
+- Database (event/outbox tables from stabilization)
+- Publish / Enrichment / other mutators that emit events
+- Consumer: `scripts/runtime/consume_domain_events.py`
+
 ### Duplicates
 
 Depends on:

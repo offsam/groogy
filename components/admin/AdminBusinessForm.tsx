@@ -7,10 +7,17 @@ import { adminUpsertBusinessAction } from "@/lib/admin/actions";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
 import { AddressFieldsEditor } from "@/components/business/AddressFieldsEditor";
+import { ContactLinksEditor } from "@/components/contacts/ContactLinksEditor";
 import {
   normalizeStructuredAddress,
   type StructuredAddress,
 } from "@/lib/address/normalize";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  parseContactLinks,
+  serializeContactLinks,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 
 type CategoryOption = { id: string; name: string; slug: string };
 
@@ -23,8 +30,11 @@ type AdminBusinessFormProps = {
     short_description: string | null;
     description: string | null;
     phone: string | null;
+    email?: string | null;
     website: string | null;
     instagram_url: string | null;
+    telegram_url?: string | null;
+    contact_links?: unknown;
     google_maps_url: string | null;
     google_rating: number | null;
     google_reviews_count: number;
@@ -64,6 +74,9 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
       postalCode: initial?.postal_code,
     }),
   );
+  const [links, setLinks] = useState<ContactLink[]>(() =>
+    parseContactLinks(initial?.contact_links),
+  );
 
   function onSubmit(formData: FormData) {
     setError(null);
@@ -82,7 +95,10 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
         region: address.region,
         stateCode: address.stateCode,
         postalCode: address.postalCode,
+        email: String(formData.get("email") ?? ""),
         instagramUrl: String(formData.get("instagramUrl") ?? ""),
+        telegramUrl: String(formData.get("telegramUrl") ?? ""),
+        contactLinks: serializeContactLinks(links),
         googleMapsUrl: String(formData.get("googleMapsUrl") ?? ""),
         googleRating: (() => {
           const raw = String(formData.get("googleRating") ?? "").trim();
@@ -184,6 +200,15 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
           />
         </label>
         <label className="block space-y-1 text-sm">
+          <span className="font-medium text-slate-700">Email</span>
+          <input
+            className="w-full rounded-lg border border-slate-200 px-3 py-2"
+            defaultValue={initial?.email ?? ""}
+            name="email"
+            type="email"
+          />
+        </label>
+        <label className="block space-y-1 text-sm">
           <span className="font-medium text-slate-700">Instagram URL</span>
           <input
             className="w-full rounded-lg border border-slate-200 px-3 py-2"
@@ -192,6 +217,24 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
             placeholder="https://instagram.com/…"
           />
         </label>
+        <label className="block space-y-1 text-sm">
+          <span className="font-medium text-slate-700">Telegram</span>
+          <input
+            className="w-full rounded-lg border border-slate-200 px-3 py-2"
+            defaultValue={initial?.telegram_url ?? ""}
+            name="telegramUrl"
+            placeholder="@username"
+          />
+        </label>
+        {CONTACT_LINKS_COLUMN_READY ? (
+          <div className="sm:col-span-2">
+            <ContactLinksEditor
+              exclude={["website", "instagram", "telegram", "google_maps"]}
+              value={links}
+              onChange={setLinks}
+            />
+          </div>
+        ) : null}
         <div className="space-y-2 sm:col-span-2">
           <p className="text-sm font-medium text-slate-700">Адрес</p>
           <p className="text-xs text-slate-500">

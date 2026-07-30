@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { signOutAction } from "@/lib/auth/actions";
-import { Button } from "@/components/ui/Button";
 import { KrugiPinIcon } from "@/components/brand/KrugiPinIcon";
 
 type HeaderAuthProps = {
@@ -12,25 +11,24 @@ export function HeaderAuth({ email, displayName }: HeaderAuthProps) {
   const label = displayName?.trim() || email || "Профиль";
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1.5 sm:gap-2">
       <Link
-        className="inline-flex max-w-[10rem] items-center gap-1.5 truncate rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 sm:max-w-[14rem]"
+        aria-label={label}
+        className="inline-flex shrink-0 transition hover:opacity-90"
         href="/profile"
         title={label}
       >
-        <KrugiPinIcon className="size-6 shrink-0" name="profile" />
-        <span className="truncate">{label}</span>
+        <KrugiPinIcon className="size-9 sm:size-10" name="profile" />
       </Link>
       <form action={signOutAction}>
-        <Button
+        <button
           aria-label="Выйти"
-          className="gap-1.5 px-3"
+          className="inline-flex shrink-0 transition hover:opacity-90"
+          title="Выйти"
           type="submit"
-          variant="secondary"
         >
-          <KrugiPinIcon className="size-5" name="logout" />
-          <span className="hidden sm:inline">Выйти</span>
-        </Button>
+          <KrugiPinIcon className="size-9 sm:size-10" name="logout" />
+        </button>
       </form>
     </div>
   );

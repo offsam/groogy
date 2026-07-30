@@ -1,10 +1,14 @@
 import type { Listing } from "@/types/listing";
-import type { ImportReviewPreviewFields } from "@/lib/import-review/to-business-preview";
+import {
+  resolvePreviewPaymentMethods,
+  type ImportReviewPreviewFields,
+} from "@/lib/import-review/to-business-preview";
 import {
   resolveImportDisplayName,
   importCategoryLabel,
 } from "@/lib/import-review/display-name";
 import type { ImportPreviewKind } from "@/lib/import-review/preview-section";
+import { narrativeWithContactPointer } from "@/lib/content/structure-business-profile";
 
 function first(values: string[] | null | undefined): string | null {
   const v = (values ?? []).map((s) => s.trim()).find(Boolean);
@@ -30,11 +34,13 @@ function baseListing(
   listingType: Listing["listingType"],
 ): Listing {
   const resolved = resolveImportDisplayName(item);
-  const description =
+  const rawDescription =
     item.description?.trim() ||
     item.source_text?.trim() ||
     (item.services ?? []).join(", ") ||
     "";
+  const description =
+    narrativeWithContactPointer(rawDescription).text || rawDescription;
   const phone = first(item.phone);
   const authorName =
     item.person_name?.trim() ||
@@ -62,6 +68,7 @@ function baseListing(
     contactPreference: phone ? "phone" : "any",
     publisherType: "profile",
     publisherBusinessId: null,
+    paymentMethods: resolvePreviewPaymentMethods(item),
     sourceUrl: item.source_url?.trim() || null,
     sourceKind: item.source_url?.trim()
       ? item.source?.toLowerCase().startsWith("facebook")

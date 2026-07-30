@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Eye } from "lucide-react";
+import { Eye, Globe } from "lucide-react";
 import { BrandMark } from "@/components/brand/BrandMark";
 import {
   FacebookIcon,
@@ -9,8 +9,10 @@ import {
 } from "@/components/brand/BrandIcons";
 import { QuickAuthModal } from "@/components/auth/QuickAuthModal";
 import {
+  isDirectorySourceUrl,
   isFacebookUrl,
-  isPlatformSource,
+  isPlatformOrigin,
+  isTelegramUrl,
   sourceContactLabel,
   type BusinessPresence,
 } from "@/lib/business/presence";
@@ -45,9 +47,25 @@ type SourceApiResponse = {
 const chipClass =
   "inline-flex size-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600";
 
+function SourceIcon({
+  kind,
+  url,
+}: {
+  kind: EntitySourceKind;
+  url: string | null;
+}) {
+  if (kind === "facebook" || (url && isFacebookUrl(url))) {
+    return <FacebookIcon className="size-3.5" />;
+  }
+  if (kind === "telegram" || (url && isTelegramUrl(url))) {
+    return <TelegramIcon className="size-3.5" />;
+  }
+  return <Globe className="size-3.5" aria-hidden />;
+}
+
 /**
- * Provenance block — original Telegram / Facebook post, or КРУГИ when
- * the entity was created on the platform.
+ * Provenance block — original Telegram / Facebook post, directory listing,
+ * or КРУГИ when the entity was created on the platform.
  */
 export function EntitySourceCard({
   anchorId = "entity-source",
@@ -70,8 +88,12 @@ export function EntitySourceCard({
   const [fetchedKind, setFetchedKind] = useState<EntitySourceKind>(null);
 
   const url = fetchedUrl ?? sourceUrl;
-  const kind = fetchedKind ?? sourceKind;
-  const platform = isPlatformSource(kind);
+  const kind =
+    fetchedKind ??
+    (sourceKind === null && url && isDirectorySourceUrl(url)
+      ? "directory"
+      : sourceKind);
+  const platform = isPlatformOrigin({ sourceKind: kind, sourceUrl: url });
   const show = hasSource || Boolean(url?.trim()) || platform || showEmpty;
 
   async function loadSource() {
@@ -140,12 +162,7 @@ export function EntitySourceCard({
   const label = resolvedUrl
     ? sourceContactLabel(kind, resolvedUrl)
     : "Источник";
-  const icon =
-    kind === "facebook" || (resolvedUrl && isFacebookUrl(resolvedUrl)) ? (
-      <FacebookIcon className="size-3.5" />
-    ) : (
-      <TelegramIcon className="size-3.5" />
-    );
+  const icon = <SourceIcon kind={kind} url={resolvedUrl} />;
 
   return (
     <section

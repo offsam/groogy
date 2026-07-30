@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -58,6 +59,20 @@ _MIN_REAL_DESCRIPTION_LEN = 40
 _MIN_REAL_DESCRIPTION_WORDS = 6
 
 
+_URL_SPAN_RE = re.compile(r"https?://[^\s<>\"']+|www\.[^\s<>\"']+", re.I)
+_SOCIAL_IN_DESC_RE = re.compile(
+    r"instagram\.com|instagr\.am|t\.me/|telegram\.(?:me|org)|facebook\.com/\S",
+    re.I,
+)
+# Telegram / group recommendation dump — not the specialist's own bio.
+_COMMENTISH_DESC_RE = re.compile(
+    r"(?i)^(?:девочки|девушки|ребята|кто\s+знает|подскажите|рекомендую|"
+    r"очень\s+советую|есть\s+кто|looking\s+for|does\s+anyone|"
+    r"please\s+recommend|hi\s+girls|good\s+morning)\b"
+    r"|^\s*@\w{3,}"
+)
+
+
 def _is_real_text(value: Any, *, min_len: int = _MIN_REAL_DESCRIPTION_LEN) -> bool:
     """True if value looks like real written content, not a stub/placeholder."""
     if not isinstance(value, str):
@@ -72,6 +87,37 @@ def _is_real_text(value: Any, *, min_len: int = _MIN_REAL_DESCRIPTION_LEN) -> bo
     if len(text.split()) < _MIN_REAL_DESCRIPTION_WORDS:
         return False
     return True
+
+
+def is_weak_description(value: Any) -> bool:
+    """True if description is empty, placeholder, link-dump, or a group comment.
+
+    Safe to overwrite when a website/og bio is available.
+    """
+    if not isinstance(value, str):
+        return True
+    text = value.strip()
+    if not text:
+        return True
+    if text.lower() in _PLACEHOLDER_DESCRIPTIONS:
+        return True
+    if _COMMENTISH_DESC_RE.search(text):
+        return True
+    if _SOCIAL_IN_DESC_RE.search(text):
+        stripped = _URL_SPAN_RE.sub(" ", text)
+        stripped = re.sub(r"\s+", " ", stripped).strip()
+        # Social URL(s) with little leftover prose → weak; keep long bios that
+        # merely mention Instagram once at the end.
+        if len(stripped) < 48:
+            return True
+        if len(stripped.split()) < 8:
+            return True
+    urls = _URL_SPAN_RE.findall(text)
+    if urls and sum(len(u) for u in urls) >= max(24, int(len(text) * 0.35)):
+        return True
+    if not _is_real_text(text):
+        return True
+    return False
 
 
 def _has(value: Any) -> bool:

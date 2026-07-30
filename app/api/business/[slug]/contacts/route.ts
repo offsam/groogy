@@ -17,6 +17,7 @@ import {
   resolveInstagramUrl,
   resolveSourceUrl,
   resolveTelegramUrl,
+  resolveTikTokUrl,
   resolveWebsiteUrl,
   resolveYelpUrl,
 } from "@/lib/business/presence";
@@ -92,9 +93,11 @@ export async function GET(request: Request, context: RouteContext) {
       telegramUrl: business.telegramUrl,
       sourceUrl: business.sourceUrl,
       sourceKind: business.sourceKind,
-      facebookUrl: extracted.extractedFacebookUrls[0] || null,
+      facebookUrl: business.facebookUrl || extracted.extractedFacebookUrls[0] || null,
+      tiktokUrl: business.tiktokUrl,
       yelpUrl: business.yelpUrl,
       googleMapsUrl: business.googleMapsUrl,
+      contactLinks: business.contactLinks,
       latitude: business.latitude,
       longitude: business.longitude,
     };
@@ -149,7 +152,9 @@ export async function GET(request: Request, context: RouteContext) {
       sourceUrl: resolveSourceUrl(presence),
       sourceKind: business.sourceKind,
       facebookUrl: resolveFacebookUrl(presence),
+      tiktokUrl: resolveTikTokUrl(presence),
       yelpUrl: resolveYelpUrl(presence),
+      contactLinks: business.contactLinks,
       googleMapsUrl: googleHref,
       routeUrl:
         routeHref && routeHref !== googleHref ? routeHref : null,

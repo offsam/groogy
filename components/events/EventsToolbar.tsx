@@ -3,6 +3,11 @@
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import {
+  EVENT_CATEGORIES,
+  EVENT_CATEGORY_LABELS_RU,
+  type EventCategory,
+} from "@/lib/events/categories";
+import {
   EVENT_REGIONS,
   type EventRegionId,
   type EventSort,
@@ -14,6 +19,9 @@ type Props = {
   selectedRegions: EventRegionId[];
   sort: EventSort;
   when: EventWhen;
+  category: EventCategory | null;
+  selectedDate: string | null;
+  month: string | null;
   cityCounts: Record<string, number>;
   resultCount: number;
 };
@@ -22,6 +30,9 @@ function buildHref(opts: {
   regions: EventRegionId[];
   sort: EventSort;
   when: EventWhen;
+  category: EventCategory | null;
+  date: string | null;
+  month: string | null;
 }): string {
   const params = new URLSearchParams();
   if (opts.regions.length > 0) {
@@ -29,6 +40,9 @@ function buildHref(opts: {
   }
   if (opts.sort !== "soon") params.set("sort", opts.sort);
   if (opts.when !== "all") params.set("when", opts.when);
+  if (opts.category) params.set("category", opts.category);
+  if (opts.date) params.set("date", opts.date);
+  if (opts.month) params.set("month", opts.month);
   const qs = params.toString();
   return qs ? `/events?${qs}` : "/events";
 }
@@ -37,6 +51,9 @@ export function EventsToolbar({
   selectedRegions,
   sort,
   when,
+  category,
+  selectedDate,
+  month,
   cityCounts,
   resultCount,
 }: Props) {
@@ -52,11 +69,15 @@ export function EventsToolbar({
     regions?: EventRegionId[];
     sort?: EventSort;
     when?: EventWhen;
+    category?: EventCategory | null;
   }) {
     const href = buildHref({
       regions: next.regions ?? selectedRegions,
       sort: next.sort ?? sort,
       when: next.when ?? when,
+      category: next.category !== undefined ? next.category : category,
+      date: selectedDate,
+      month,
     });
     startTransition(() => {
       router.push(href);
@@ -90,7 +111,7 @@ export function EventsToolbar({
             setRegionsOpen(false);
             navigate({ regions: [] });
           }}
-          className={`rounded-xl px-3 py-2 text-sm font-medium transition ${
+          className={`min-h-11 rounded-xl px-3 py-2 text-sm font-medium transition ${
             selectedRegions.length === 0
               ? "bg-brand-blue text-white"
               : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
@@ -101,7 +122,7 @@ export function EventsToolbar({
         <button
           type="button"
           onClick={() => setRegionsOpen((v) => !v)}
-          className={`rounded-xl px-3 py-2 text-sm font-medium transition ${
+          className={`min-h-11 rounded-xl px-3 py-2 text-sm font-medium transition ${
             selectedRegions.length > 0
               ? "bg-brand-blue text-white"
               : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
@@ -110,10 +131,10 @@ export function EventsToolbar({
           {selectedRegions.length > 0 ? regionLabel : "Выбрать регионы"}
         </button>
 
-        <label className="ml-auto flex items-center gap-2 text-sm text-slate-600">
+        <label className="ml-auto flex min-h-11 items-center gap-2 text-sm text-slate-600">
           <span className="sr-only sm:not-sr-only">Сортировка</span>
           <select
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
+            className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
             value={sort}
             onChange={(e) =>
               navigate({ sort: e.target.value as EventSort })
@@ -139,7 +160,7 @@ export function EventsToolbar({
                 key={region.id}
                 type="button"
                 onClick={() => toggleRegion(region.id)}
-                className={`rounded-lg px-3 py-1.5 text-sm font-medium transition ${
+                className={`min-h-11 rounded-lg px-3 py-1.5 text-sm font-medium transition ${
                   active
                     ? "bg-brand-blue/10 text-brand-blue-deep ring-1 ring-brand-blue/30"
                     : "bg-slate-50 text-slate-700 hover:bg-slate-100"
@@ -162,6 +183,36 @@ export function EventsToolbar({
         </div>
       ) : null}
 
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={() => navigate({ category: null })}
+          className={`min-h-11 rounded-lg px-2.5 py-1 text-xs font-medium transition ${
+            !category
+              ? "bg-slate-900 text-white"
+              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+          }`}
+        >
+          Все занятия
+        </button>
+        {EVENT_CATEGORIES.map((id) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() =>
+              navigate({ category: category === id ? null : id })
+            }
+            className={`min-h-11 rounded-lg px-2.5 py-1 text-xs font-medium transition ${
+              category === id
+                ? "bg-slate-900 text-white"
+                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+            }`}
+          >
+            {EVENT_CATEGORY_LABELS_RU[id]}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-wrap items-center gap-2">
         {(
           [
@@ -174,7 +225,7 @@ export function EventsToolbar({
             key={value}
             type="button"
             onClick={() => navigate({ when: value })}
-            className={`rounded-lg px-2.5 py-1 text-xs font-medium transition ${
+            className={`min-h-11 rounded-lg px-2.5 py-1 text-xs font-medium transition ${
               when === value
                 ? "bg-slate-900 text-white"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"

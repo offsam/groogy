@@ -82,6 +82,7 @@ export function PopularResourcesSection({
 
   useEffect(() => {
     // Keep SSR feed until the user changes region away from the SSR hub.
+    // Empty hubIdsParam = national / platform-wide (matches SSR when initialHubId is "").
     if (hubIdsParam === initialHubId) {
       setItems(initial);
       return;
@@ -90,10 +91,12 @@ export function PopularResourcesSection({
     let cancelled = false;
     async function load() {
       try {
-        const res = await fetch(
-          `/api/popular-resources?hub=${encodeURIComponent(hubIdsParam)}`,
-          { cache: "no-store" },
-        );
+        const qs = hubIdsParam
+          ? `hub=${encodeURIComponent(hubIdsParam)}`
+          : "hub=all";
+        const res = await fetch(`/api/popular-resources?${qs}`, {
+          cache: "no-store",
+        });
         if (!res.ok) return;
         const data = (await res.json()) as { items?: PopularHomeItem[] };
         if (!cancelled && Array.isArray(data.items)) {

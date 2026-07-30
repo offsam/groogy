@@ -7,9 +7,14 @@ import {
 } from "@/lib/professional/mappers";
 import {
   getRegionHubsByIds,
-  locationTextMatchesHub,
+  isUsaOverviewHub,
+  locationFieldsMatchHub,
   parseHubIds,
 } from "@/lib/regions/hubs";
+import {
+  countyGeoidMatchesPlaces,
+  parsePlaceTokens,
+} from "@/lib/geo/place-tokens";
 import type { Database } from "@/types/database";
 import type {
   Professional,
@@ -58,14 +63,36 @@ export async function listApprovedProfessionals(
   );
 
   if (options?.hubId?.trim()) {
-    const hubs = getRegionHubsByIds(parseHubIds(options.hubId));
+    const hubId = options.hubId;
+    const hubs = getRegionHubsByIds(parseHubIds(hubId));
     professionals = professionals.filter((p) => {
-      const loc = [p.city, p.region, p.serviceAreaText]
-        .filter(Boolean)
-        .join(" ");
-      // No location at all → show in every hub (nationwide / unset).
-      if (!loc.trim()) return true;
-      return hubs.some((hub) => locationTextMatchesHub(loc, hub));
+      const county =
+        (p as { countyGeoid?: string | null }).countyGeoid ??
+        (p as { county_geoid?: string | null }).county_geoid ??
+        null;
+      if (county) {
+        if (hubs.length === 1 && isUsaOverviewHub(hubs[0])) return true;
+        if (hubId.includes("county:") || hubId.includes("city:")) {
+          const match = countyGeoidMatchesPlaces(
+            county,
+            parsePlaceTokens(hubId),
+          );
+          if (match !== null) return match;
+        }
+        const allowed = hubs.flatMap((h) => [...h.countyGeoids]);
+        if (allowed.length > 0) return allowed.includes(county);
+      }
+      return hubs.some((hub) =>
+        locationFieldsMatchHub(
+          {
+            city: p.city,
+            region: p.region,
+            text: p.serviceAreaText,
+            countyGeoid: county,
+          },
+          hub,
+        ),
+      );
     });
   }
 
@@ -157,7 +184,17 @@ export async function getProfessionalBySlug(
   if (!data) return null;
 
   const publicRow = data as ProfessionalPublicRow;
-  const professional = mapProfessionalPublic(publicRow);
+  let professional = mapProfessionalPublic(publicRow);
+
+  // Always refresh employer company card fields from businesses when linked
+  // (city / Google rating) — works even before view migration.
+  if (publicRow.employer_business_id) {
+    professional = await enrichEmployerFromBusinessId(
+      client,
+      professional,
+      publicRow.employer_business_id,
+    );
+  }
 
   // Enrich provenance / telegram presence when the public view is behind
   // (pre-migration) — never leak contact URLs to guests here.
@@ -211,6 +248,53 @@ export async function getProfessionalBySlug(
   return professional;
 }
 
+async function enrichEmployerFromBusinessId(
+  client: Client,
+  professional: Professional,
+  employerBusinessId: string | null | undefined,
+): Promise<Professional> {
+  if (!employerBusinessId) return professional;
+  const { data } = await db(client)
+    .from("businesses")
+    .select(
+      "id, slug, name, image_url, status, city, postal_code, state_code, address_line, google_rating, google_reviews_count",
+    )
+    .eq("id", employerBusinessId)
+    .maybeSingle();
+  if (!data || (data as { status?: string }).status !== "approved") {
+    return professional;
+  }
+  const row = data as {
+    id: string;
+    slug: string;
+    name: string;
+    image_url: string | null;
+    city: string | null;
+    postal_code: string | null;
+    state_code: string | null;
+    address_line: string | null;
+    google_rating: number | null;
+    google_reviews_count: number | null;
+  };
+  return {
+    ...professional,
+    employerBusinessId: row.id,
+    employerBusinessSlug: row.slug,
+    employerBusinessName: row.name,
+    employerBusinessImageUrl: row.image_url,
+    employerBusinessCity: row.city?.trim() || null,
+    employerBusinessPostalCode: row.postal_code?.trim() || null,
+    employerBusinessStateCode: row.state_code?.trim() || null,
+    employerBusinessAddressLine: row.address_line?.trim() || null,
+    employerBusinessGoogleRating:
+      row.google_rating == null ? null : Number(row.google_rating),
+    employerBusinessGoogleReviewsCount:
+      row.google_reviews_count == null
+        ? null
+        : Number(row.google_reviews_count),
+  };
+}
+
 export async function getOwnedProfessionalBySlug(
   client: Client,
   slug: string,
@@ -223,7 +307,22 @@ export async function getOwnedProfessionalBySlug(
 
   if (error) throw error;
   if (!data) return null;
-  return mapProfessionalOwner(data as ProfessionalRow);
+  const row = data as ProfessionalRow & {
+    employer_name?: string | null;
+    employer_role?: string | null;
+    employer_business_id?: string | null;
+  };
+  const mapped = mapProfessionalOwner({
+    ...row,
+    employer_name: row.employer_name,
+    employer_role: row.employer_role,
+    employer_business_id: row.employer_business_id,
+  });
+  return enrichEmployerFromBusinessId(
+    client,
+    mapped,
+    row.employer_business_id,
+  );
 }
 
 export async function getMyProfessional(
@@ -238,7 +337,22 @@ export async function getMyProfessional(
 
   if (error) throw error;
   if (!data) return null;
-  return mapProfessionalOwner(data as ProfessionalRow);
+  const row = data as ProfessionalRow & {
+    employer_name?: string | null;
+    employer_role?: string | null;
+    employer_business_id?: string | null;
+  };
+  const mapped = mapProfessionalOwner({
+    ...row,
+    employer_name: row.employer_name,
+    employer_role: row.employer_role,
+    employer_business_id: row.employer_business_id,
+  });
+  return enrichEmployerFromBusinessId(
+    client,
+    mapped,
+    row.employer_business_id,
+  );
 }
 
 export async function userOwnsProfessional(
@@ -259,7 +373,7 @@ export async function getProfessionalServices(
   const { data, error } = await db(client)
     .from("professional_services")
     .select(
-      "id, title, description, price_mode, price_amount, price_min, price_max, currency, price_unit, sort_order",
+      "id, title, description, price_mode, price_amount, price_min, price_max, currency, price_unit, duration_minutes, sort_order",
     )
     .eq("professional_id", professionalId)
     .eq("is_active", true)

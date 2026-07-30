@@ -30,6 +30,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from channel_noise import load_noise  # noqa: E402
 from common import SupabaseRest, load_env  # noqa: E402
 from description_merge import merge_descriptions, similarity  # noqa: E402
 from eligibility import (  # noqa: E402
@@ -37,6 +38,7 @@ from eligibility import (  # noqa: E402
     normalize_phone,
     normalize_website,
 )
+from structure_event_from_text import event_day_keys  # noqa: E402
 
 OPEN_STATUSES = {"pending", "in_review", "ready_to_publish", "needs_more_info"}
 JUNK_TITLES = {
@@ -66,6 +68,8 @@ EMOJI_ONLY_RE = re.compile(
     re.UNICODE,
 )
 
+PROFILE_TYPES = {"business", "private_specialist", "organization"}
+
 ENTITY_TO_COLLECTION = {
     "business": "businesses",
     "private_specialist": "private_specialists",
@@ -74,7 +78,17 @@ ENTITY_TO_COLLECTION = {
     "real_estate": "real_estate",
     "event": "events",
     "organization": "organizations",
+    "lechu_listing": "lechu",
+    "transfer_listing": "transfers",
 }
+
+# Prefer canonical map when available.
+try:
+    from entity_routing import ENTITY_TO_COLLECTION as _CANON_MAP  # noqa: E402
+
+    ENTITY_TO_COLLECTION = dict(_CANON_MAP)
+except Exception:  # noqa: BLE001
+    pass
 
 
 def normalize_email(raw: str) -> str | None:
@@ -83,6 +97,9 @@ def normalize_email(raw: str) -> str | None:
         return None
     return value
 
+
+# Contacts the channel signs every post with — see channel_noise.py.
+CHANNEL_NOISE = load_noise()
 
 GENERIC_WEB_HOSTS = {
     "instagram.com",
@@ -129,6 +146,9 @@ def website_host_key(raw: str) -> str | None:
         )
     ):
         return None
+    base = ".".join(host.split(".")[-2:])
+    if host in CHANNEL_NOISE["domains"] or base in CHANNEL_NOISE["domains"]:
+        return None
     return host
 
 
@@ -163,7 +183,7 @@ def contact_keys(row: dict[str, Any]) -> set[str]:
             keys.add(f"phone:{n}")
     for ig in row.get("instagram") or []:
         n = normalize_instagram(str(ig))
-        if n:
+        if n and n.lower().lstrip("@") not in CHANNEL_NOISE["instagram"]:
             keys.add(f"ig:{n}")
     tg = (row.get("telegram_username") or "").strip().lstrip("@").lower()
     if tg and tg not in {"telegram", "whatsapp"}:
@@ -174,7 +194,8 @@ def contact_keys(row: dict[str, Any]) -> set[str]:
         host = website_host_key(str(w))
         if host:
             keys.add(f"web:{host}")
-    # Strong display-name key (alphabetical twin cards without shared phone yet)
+    # Weak display-name key: unions only when the ad body repeats (see build_clusters).
+    # A Telegram sender name is not a business identity on its own.
     title = display_title(row)
     if title and not is_junk_title(title):
         norm = re.sub(r"[^\w\s]+", " ", title.lower(), flags=re.UNICODE)
@@ -253,9 +274,17 @@ def pick_best_description(rows: list[dict[str, Any]], title: str | None = None) 
 
 
 def pick_entity_routing(rows: list[dict[str, Any]]) -> tuple[str | None, str | None]:
-    """business card vs specialist vs keep typed lanes (job/RE/mkt/event)."""
+    """business card vs specialist vs keep typed lanes (job/RE/mkt/event/lechu/transfer)."""
     types = [str(r.get("entity_type")) for r in rows if r.get("entity_type")]
-    for special in ("job", "real_estate", "marketplace_listing", "event", "organization"):
+    for special in (
+        "job",
+        "real_estate",
+        "marketplace_listing",
+        "event",
+        "organization",
+        "lechu_listing",
+        "transfer_listing",
+    ):
         if types.count(special) >= max(1, (len(types) + 1) // 2):
             return special, ENTITY_TO_COLLECTION.get(special)
 
@@ -276,7 +305,10 @@ def pick_entity_routing(rows: list[dict[str, Any]]) -> tuple[str | None, str | N
 
     if business_votes >= 2 or types.count("business") > types.count("private_specialist"):
         return "business", "businesses"
-    return "private_specialist", "private_specialists"
+    if types.count("private_specialist") > 0:
+        return "private_specialist", "private_specialists"
+    # No typed majority and no specialist votes → leave for human (G2).
+    return None, None
 
 
 def titles_compatible(a: dict[str, Any], b: dict[str, Any]) -> bool:
@@ -323,6 +355,33 @@ def titles_compatible(a: dict[str, Any], b: dict[str, Any]) -> bool:
     if similarity(desc_a, desc_b) >= 0.45:
         return True
     return False
+
+
+def _family(row: dict[str, Any]) -> str:
+    kind = str(row.get("entity_type") or "").strip().lower()
+    if not kind:
+        return "unknown"
+    return "profile" if kind in PROFILE_TYPES else kind
+
+
+def _families_compatible(a: dict[str, Any], b: dict[str, Any]) -> bool:
+    """One author may run a shop and throw parties — those stay separate cards."""
+    fa, fb = _family(a), _family(b)
+    if "unknown" in (fa, fb):
+        return True
+    return fa == fb
+
+
+def _event_dates_compatible(a: dict[str, Any], b: dict[str, Any]) -> bool:
+    """Same organizer, different date → different event. Never merge those."""
+    if "event" not in {a.get("entity_type"), b.get("entity_type")}:
+        return True
+    days_a = set(event_day_keys(a.get("source_text") or a.get("description")))
+    days_b = set(event_day_keys(b.get("source_text") or b.get("description")))
+    if days_a and days_b:
+        return bool(days_a & days_b)
+    # Date unreadable on one side: only a repeat of the very same ad may merge.
+    return _same_recurring_ad(a, b)
 
 
 def _same_recurring_ad(a: dict[str, Any], b: dict[str, Any]) -> bool:
@@ -425,13 +484,23 @@ def build_clusters(rows: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
         usable_keys[key] = ids
 
     for _key, ids in usable_keys.items():
+        weak_key = _key.startswith("name:")
         for i, left in enumerate(ids):
             for right in ids[i + 1 :]:
-                if titles_compatible(id_to_row[left], id_to_row[right]):
+                row_left, row_right = id_to_row[left], id_to_row[right]
+                if not _families_compatible(row_left, row_right):
+                    continue
+                if not _event_dates_compatible(row_left, row_right):
+                    continue
+                if weak_key:
+                    # Shared name without a shared contact: merge only a repeat
+                    # of the same ad, never two different publications.
+                    if _same_recurring_ad(row_left, row_right):
+                        union(left, right)
+                    continue
+                if titles_compatible(row_left, row_right):
                     union(left, right)
-                elif _key.startswith("phone:") and _same_recurring_ad(
-                    id_to_row[left], id_to_row[right]
-                ):
+                elif _key.startswith("phone:") and _same_recurring_ad(row_left, row_right):
                     # Same phone + near-identical body → one profile even if
                     # titles are junk («Звоните») / slightly different.
                     union(left, right)
@@ -488,7 +557,7 @@ def fetch_open_items(client: SupabaseRest, source_key: str | None) -> list[dict[
                 "id,title,business_name,person_name,description,category,entity_type,"
                 "target_collection,phone,whatsapp,instagram,website,email,telegram_username,"
                 "photos_count,occurrence_count,source,source_posted_at,source_message_ids,"
-                "review_status,duplicate_status,city,state,services,review_notes"
+                "review_status,duplicate_status,city,state,services,review_notes,source_text"
             ),
             "review_status": f"in.({','.join(sorted(OPEN_STATUSES))})",
             "published_entity_id": "is.null",

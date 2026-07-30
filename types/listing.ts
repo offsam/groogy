@@ -181,6 +181,8 @@ export type Listing = {
   authorVisibility: AuthorVisibility;
   title: string;
   description: string;
+  /** Source-language text; shown behind «Показать оригинал». */
+  descriptionOriginal?: string | null;
   priceAmount: number | null;
   priceCurrency: string;
   isNegotiable: boolean;
@@ -193,9 +195,11 @@ export type Listing = {
   contactPreference: ListingContactPreference;
   publisherType: PublisherType;
   publisherBusinessId: string | null;
+  /** Accepted payment methods discovered from public copy/resources. */
+  paymentMethods?: string[];
   /** Original post URL — null on guest SSR; load via source API after auth. */
   sourceUrl: string | null;
-  sourceKind: "telegram" | "facebook" | "platform" | null;
+  sourceKind: "telegram" | "facebook" | "directory" | "platform" | null;
   /** Safe flag for locked chip without exposing URL. */
   hasSource: boolean;
   publishedAt: string | null;

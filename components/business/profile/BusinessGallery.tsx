@@ -6,10 +6,47 @@ import { cn } from "@/lib/utils";
 type BusinessGalleryProps = {
   name: string;
   images: string[];
+  /** Business logo URL when available; otherwise shows «Лого». */
+  logoUrl?: string | null;
+  /** Drop horizontal inset (admin preview on phone). */
+  flush?: boolean;
   className?: string;
 };
 
-export function BusinessGallery({ name, images, className }: BusinessGalleryProps) {
+function GalleryLogoBadge({
+  logoUrl,
+  className,
+}: {
+  logoUrl?: string | null;
+  className?: string;
+}) {
+  return (
+    <div
+      aria-hidden="true"
+      className={cn(
+        "pointer-events-none absolute left-2.5 top-2.5 z-[1] flex size-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-[0_2px_12px_rgba(15,23,42,0.2)] ring-1 ring-black/[0.06] sm:left-3 sm:top-3 sm:size-16",
+        className,
+      )}
+    >
+      {logoUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img alt="" className="h-full w-full object-cover" src={logoUrl} />
+      ) : (
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400 sm:text-xs">
+          Лого
+        </span>
+      )}
+    </div>
+  );
+}
+
+export function BusinessGallery({
+  name,
+  images,
+  logoUrl = null,
+  flush = false,
+  className,
+}: BusinessGalleryProps) {
   const photos = images.filter((url) => hasRealBusinessPhoto(url));
   const main = photos[0] ?? null;
   const side = photos.slice(1, 4);
@@ -19,10 +56,11 @@ export function BusinessGallery({ name, images, className }: BusinessGalleryProp
     return (
       <div
         className={cn(
-          "flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 text-sm text-slate-300 sm:aspect-[21/9] sm:rounded-2xl",
+          "relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 text-sm text-slate-300 sm:aspect-[21/9] sm:rounded-2xl",
           className,
         )}
       >
+        <GalleryLogoBadge logoUrl={logoUrl} />
         Нет фото
       </div>
     );
@@ -32,7 +70,12 @@ export function BusinessGallery({ name, images, className }: BusinessGalleryProp
     <div className={cn("relative", className)}>
       {/* Mobile: hero + thumb strip */}
       <div className="sm:hidden">
-        <div className="relative mx-4 aspect-[16/11] overflow-hidden rounded-xl bg-slate-100">
+        <div
+          className={cn(
+            "relative aspect-[16/11] overflow-hidden rounded-xl bg-slate-100",
+            flush ? "mx-0" : "mx-4",
+          )}
+        >
           <Image
             alt={name}
             className="object-cover"
@@ -42,9 +85,15 @@ export function BusinessGallery({ name, images, className }: BusinessGalleryProp
             src={main}
             unoptimized
           />
+          <GalleryLogoBadge logoUrl={logoUrl} />
         </div>
         {side.length > 0 ? (
-          <div className="mt-1.5 grid grid-cols-3 gap-1.5 px-4">
+          <div
+            className={cn(
+              "mt-1.5 grid grid-cols-3 gap-1.5",
+              flush ? "px-0" : "px-4",
+            )}
+          >
             {side.map((url, i) => (
               <div
                 key={`${url}-${i}`}
@@ -81,6 +130,7 @@ export function BusinessGallery({ name, images, className }: BusinessGalleryProp
             src={main}
             unoptimized
           />
+          <GalleryLogoBadge logoUrl={logoUrl} />
         </div>
         <div
           className={cn(

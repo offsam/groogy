@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
 import { BusinessCardContactIcons } from "@/components/business/BusinessCardContactIcons";
+import { CommunityRecommendationBadge } from "@/components/shared/CommunityRecommendationCount";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import { businessCardBlurb } from "@/lib/business/card-blurb";
 import { normalizeUsZip } from "@/lib/brand";
 import { cn } from "@/lib/utils";
@@ -47,6 +49,9 @@ export function BusinessCard({
 
   const className = cn(
     "flex gap-3 rounded-xl border bg-white p-3 transition-all sm:gap-4 sm:p-4",
+    // Admin preview on phone: stack so the card fits the viewport width
+    preview &&
+      "max-sm:w-full max-sm:max-w-full max-sm:min-w-0 max-sm:flex-col max-sm:gap-2 max-sm:overflow-hidden",
     !preview && "cursor-pointer",
     selected
       ? "border-slate-900 shadow-md ring-1 ring-slate-900"
@@ -55,7 +60,13 @@ export function BusinessCard({
 
   const body = (
     <>
-      <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-slate-100 sm:size-28">
+      <div
+        className={cn(
+          "relative size-20 shrink-0 overflow-hidden rounded-lg bg-slate-100 sm:size-28",
+          preview &&
+            "max-sm:aspect-[16/10] max-sm:h-auto max-sm:w-full max-sm:max-w-none",
+        )}
+      >
         {isPlaceholder ? (
           <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 px-2 text-center text-[10px] font-semibold uppercase leading-tight tracking-wide text-white">
             {business.categoryName ?? "Бизнес"}
@@ -72,9 +83,16 @@ export function BusinessCard({
         )}
       </div>
 
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex-1 overflow-hidden">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="truncate font-semibold text-slate-900">{business.name}</h3>
+          <h3
+            className={cn(
+              "font-semibold text-slate-900",
+              preview ? "max-sm:line-clamp-2 sm:truncate" : "truncate",
+            )}
+          >
+            {business.name}
+          </h3>
           {business.reviewsCount > 0 && (
             <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-amber-50 px-1.5 py-0.5 text-sm font-semibold text-amber-700">
               <Star aria-hidden="true" className="size-3.5 fill-amber-500 text-amber-500" />
@@ -88,6 +106,15 @@ export function BusinessCard({
           {business.reviewsCount > 0 && ` · ${business.reviewsCount} отзывов`}
         </p>
 
+        {(business.thirdPartyMentionCount ?? 0) > 0 ? (
+          <div className="mt-1.5">
+            <CommunityRecommendationBadge
+              compact
+              count={Number(business.thirdPartyMentionCount)}
+            />
+          </div>
+        ) : null}
+
         {blurb ? (
           <p className="mt-1.5 line-clamp-2 text-sm text-slate-600">{blurb}</p>
         ) : null}
@@ -100,6 +127,7 @@ export function BusinessCard({
         ) : null}
 
         <BusinessCardContactIcons
+          className={preview ? "max-sm:mt-2" : undefined}
           flags={business.presenceFlags}
           googleRating={business.googleRating}
           googleReviewsCount={business.googleReviewsCount}
@@ -108,6 +136,13 @@ export function BusinessCard({
           yelpRating={business.yelpRating}
           yelpReviewsCount={business.yelpReviewsCount}
         />
+        {business.paymentMethods?.length ? (
+          <PaymentMethodIcons
+            className="mt-2 w-full justify-end"
+            methods={business.paymentMethods}
+            size="sm"
+          />
+        ) : null}
       </div>
     </>
   );

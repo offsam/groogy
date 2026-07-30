@@ -8,7 +8,10 @@ import { BusinessCard } from "@/components/business/BusinessCard";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
 import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
 import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
+import { EventCard } from "@/components/events/EventCard";
+import { EventProfileView } from "@/components/events/EventProfileView";
 import { ServiceCard } from "@/components/services/ServiceCard";
+import { ServiceProfileView } from "@/components/services/ServiceProfileView";
 import { Button } from "@/components/ui/Button";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import type { CompletenessReport } from "@/lib/import-review/preview-completeness";
@@ -23,6 +26,7 @@ import {
 } from "@/lib/import-review/recommendation-actions";
 import { recommendationCategoryLabel } from "@/lib/import-review/recommendation-category";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
+import { recommendationToEventPreview } from "@/lib/events/from-recommendation";
 import {
   yellowPagesEntityKind,
   yellowPagesToBusinessPreview,
@@ -86,13 +90,15 @@ function CompletenessPanel({ report }: { report: CompletenessReport }) {
   );
 }
 
-function kindLabel(kind: YellowPagesPreviewKind): string {
+function kindLabel(kind: YellowPagesPreviewKind | "event"): string {
+  if (kind === "event") return "Событие";
   if (kind === "professional") return "Профи";
   if (kind === "service") return "Услуга";
   return "Бизнес";
 }
 
-function kindDestination(kind: YellowPagesPreviewKind): string {
+function kindDestination(kind: YellowPagesPreviewKind | "event"): string {
+  if (kind === "event") return "раздел событий";
   if (kind === "professional") return "каталог специалистов";
   if (kind === "service") return "раздел услуг";
   return "каталог бизнесов";
@@ -104,7 +110,9 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [publicPath, setPublicPath] = useState<string | null>(null);
 
-  const kind = yellowPagesEntityKind(item);
+  const isEvent = item.kind === "event";
+  const event = isEvent ? recommendationToEventPreview(item) : null;
+  const kind = isEvent ? ("event" as const) : yellowPagesEntityKind(item);
   const business =
     kind === "business" ? yellowPagesToBusinessPreview(item) : null;
   const professional =
@@ -113,20 +121,55 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
   const locked = item.status === "approved" || item.status === "rejected";
 
   const completeness =
-    kind === "professional" && professional
-      ? professionalPreviewCompleteness(professional)
-      : kind === "service" && service
-        ? listingPreviewCompleteness({
-            title: service.title,
-            description: service.description,
-            city: service.city,
-            phone: item.phones[0] ?? null,
-            imageUrl: service.media?.[0]?.publicUrl ?? null,
-            priceAmount: service.priceAmount,
-          })
-        : businessPreviewCompleteness(
-            business ?? yellowPagesToBusinessPreview(item),
-          );
+    isEvent && event
+      ? (() => {
+          const fields: CompletenessReport["fields"] = [
+            { key: "title", label: "Название", ok: Boolean(event.title) },
+            {
+              key: "when",
+              label: "Дата",
+              ok: Boolean(event.starts_at || event.event_at_label),
+              hint: "Дата события",
+            },
+            {
+              key: "where",
+              label: "Место",
+              ok: Boolean(event.city || event.address_line),
+              hint: "Город или адрес",
+            },
+            {
+              key: "cover",
+              label: "Афиша",
+              ok: Boolean(event.cover_image_url),
+              hint: "Обложка",
+            },
+            {
+              key: "body",
+              label: "Описание",
+              ok: Boolean(event.description || event.source_body),
+            },
+          ];
+          return {
+            fields,
+            readyCount: fields.filter((f) => f.ok).length,
+            total: fields.length,
+            missing: fields.filter((f) => !f.ok),
+          } satisfies CompletenessReport;
+        })()
+      : kind === "professional" && professional
+        ? professionalPreviewCompleteness(professional)
+        : kind === "service" && service
+          ? listingPreviewCompleteness({
+              title: service.title,
+              description: service.description,
+              city: service.city,
+              phone: item.phones[0] ?? null,
+              imageUrl: service.media?.[0]?.publicUrl ?? null,
+              priceAmount: service.priceAmount,
+            })
+          : businessPreviewCompleteness(
+              business ?? yellowPagesToBusinessPreview(item),
+            );
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -213,7 +256,9 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
         <div className="overflow-y-auto px-3 py-4 sm:px-5">
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
             <div className="pointer-events-none select-none rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 sm:p-4">
-              {kind === "business" && business ? (
+              {isEvent && event ? (
+                <EventProfileView event={event} preview />
+              ) : kind === "business" && business ? (
                 <BusinessProfileView
                   autoClaim={false}
                   business={business}
@@ -236,19 +281,7 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
                   services={[]}
                 />
               ) : service ? (
-                <div className="mx-auto max-w-md space-y-3">
-                  <ServiceCard listing={service} preview />
-                  {service.description ? (
-                    <div className="rounded-xl border border-slate-100 bg-white p-4">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                        Описание
-                      </p>
-                      <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">
-                        {service.description}
-                      </p>
-                    </div>
-                  ) : null}
-                </div>
+                <ServiceProfileView listing={service} preview />
               ) : null}
             </div>
 
@@ -257,7 +290,9 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
                 <p className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-400">
                   Карточка в выдаче
                 </p>
-                {kind === "professional" && professional ? (
+                {isEvent && event ? (
+                  <EventCard event={event} preview />
+                ) : kind === "professional" && professional ? (
                   <ProfessionalCard professional={professional} preview />
                 ) : kind === "service" && service ? (
                   <ServiceCard listing={service} preview />

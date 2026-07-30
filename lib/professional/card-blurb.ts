@@ -9,6 +9,8 @@
  *   «Фотосъёмка беременности и newborn от $100»
  */
 
+import { serviceTitleForDisplay } from "@/lib/professional/service-title-ru";
+
 export type ProfessionalCardBlurbInput = {
   headline?: string | null;
   shortDescription?: string | null;
@@ -376,7 +378,7 @@ export function professionalCardBlurb(
 
   // Service titles that look like real offerings
   const titles = (input.servicePreviewTitles ?? [])
-    .map((t) => t.trim())
+    .map((t) => serviceTitleForDisplay(t).title.trim())
     .filter((t) => t.length >= 3 && t.length <= 48 && !STUB_RE.test(t));
   if (titles.length > 0) {
     let pitch = joinLabels(

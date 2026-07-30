@@ -67,10 +67,28 @@ export type ImportReviewItem = {
   person_name: string | null;
   description: string | null;
   services: string[];
+  payment_methods?: string[];
+  /** Extracted акции before publish — same shape as entity_promotions rows. */
+  promotions?: import("@/types/promotion").QueuePromotion[];
+  /** Extracted новости before publish — same shape as entity_updates rows. */
+  updates?: import("@/types/update").QueueUpdate[];
   price: number | null;
   currency: string | null;
   city: string | null;
   state: string | null;
+  /** Street / suite from website or post (shared workplace OK). */
+  address_line?: string | null;
+  postal_code?: string | null;
+  /** Census county FIPS — required for publish (USA Location Canon). */
+  county_geoid?: string | null;
+  location_source?:
+    | "zip"
+    | "city"
+    | "coordinates"
+    | "source_group"
+    | "manual"
+    | null;
+  location_confidence?: "exact" | "inferred" | null;
   phone: string[];
   whatsapp: string[];
   telegram_username: string | null;

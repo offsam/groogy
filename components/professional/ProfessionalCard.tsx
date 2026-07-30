@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
 import { ProfessionalOriginBadges } from "@/components/professional/ProfessionalOriginBadges";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import { normalizeUsZip } from "@/lib/brand";
 import { resolvePublicCityPostal } from "@/lib/address/normalize";
 import { professionalCardBlurb } from "@/lib/professional/card-blurb";
@@ -95,6 +96,13 @@ export function ProfessionalCard({
           ) : null}
         </div>
         <ProfessionalOriginBadges compact professional={professional} />
+        {professional.paymentMethods?.length ? (
+          <PaymentMethodIcons
+            className="mt-1.5 w-full justify-end"
+            methods={professional.paymentMethods}
+            size="sm"
+          />
+        ) : null}
       </div>
     </>
   );

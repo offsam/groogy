@@ -1,32 +1,56 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { ENTITY_DESCRIPTION_ORIGINAL_READY } from "@/lib/content/description-original";
 import { mapJob } from "@/lib/jobs/mappers";
 import {
   getRegionHubsByIds,
-  locationTextMatchesHub,
+  isUsaOverviewHub,
+  locationFieldsMatchHub,
   parseHubIds,
 } from "@/lib/regions/hubs";
+import {
+  countyGeoidMatchesPlaces,
+  parsePlaceTokens,
+} from "@/lib/geo/place-tokens";
 import type { Database } from "@/types/database";
 import type { Job, JobRow } from "@/types/job";
 
 type Client = SupabaseClient<Database>;
 
 function db(client: Client) {
-  return client as unknown as SupabaseClient;
+  return client as unknown as import("@supabase/supabase-js").SupabaseClient<any>;
 }
 
-const JOB_SELECT =
-  "id, slug, title, description, city, state_code, postal_code, status, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)";
+const JOB_SELECT = ENTITY_DESCRIPTION_ORIGINAL_READY
+  ? "id, slug, title, description, description_original, city, state_code, postal_code, county_geoid, status, payment_methods, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)"
+  : "id, slug, title, description, city, state_code, postal_code, county_geoid, status, payment_methods, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)";
 
 /** Empty city = nationwide / no regional binding → visible in every hub. */
 export function jobMatchesHubFilter(
-  job: Pick<JobRow, "city">,
+  job: Pick<JobRow, "city"> & { county_geoid?: string | null },
   hubId: string | null | undefined,
 ): boolean {
   if (!hubId?.trim()) return true;
+  const hubs = getRegionHubsByIds(parseHubIds(hubId));
+  if (hubs.length === 1 && isUsaOverviewHub(hubs[0])) return true;
+  if (job.county_geoid) {
+    if (hubId.includes("county:") || hubId.includes("city:")) {
+      const match = countyGeoidMatchesPlaces(
+        job.county_geoid,
+        parsePlaceTokens(hubId),
+      );
+      if (match !== null) return match;
+    }
+    const allowed = hubs.flatMap((h) => [...h.countyGeoids]);
+    if (allowed.length > 0) return allowed.includes(job.county_geoid);
+  }
   const city = job.city?.trim();
   if (!city) return true;
-  const hubs = getRegionHubsByIds(parseHubIds(hubId));
-  return hubs.some((hub) => locationTextMatchesHub(city, hub));
+  return hubs.some((hub) =>
+    locationFieldsMatchHub(
+      { city, countyGeoid: job.county_geoid },
+      hub,
+    ),
+  );
 }
 
 export async function listPublishedJobs(
@@ -38,7 +62,8 @@ export async function listPublishedJobs(
 
   const { data, error } = await db(client)
     .from("jobs")
-    .select(JOB_SELECT)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- select string + join blows TS depth
+    .select(JOB_SELECT as any)
     .eq("status", "published")
     .eq("visibility", "public")
     .order("published_at", { ascending: false, nullsFirst: false })
@@ -61,7 +86,7 @@ export async function listJobsForBusiness(
 ): Promise<Job[]> {
   let q = db(client)
     .from("jobs")
-    .select(JOB_SELECT)
+    .select(JOB_SELECT as any)
     .eq("business_id", businessId)
     .order("created_at", { ascending: false });
 
@@ -82,7 +107,7 @@ export async function getJobBySlug(
 ): Promise<Job | null> {
   const { data, error } = await db(client)
     .from("jobs")
-    .select(JOB_SELECT)
+    .select(JOB_SELECT as any)
     .eq("slug", slug)
     .maybeSingle();
   if (error) throw error;

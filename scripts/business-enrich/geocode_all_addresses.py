@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Geocode every approved business/professional that has an address but no lat/lng.
+"""Close the geo debt: geocode every approved card that has an address but no pin.
 
 Usage:
   python3 scripts/business-enrich/geocode_all_addresses.py --dry-run
   python3 scripts/business-enrich/geocode_all_addresses.py --apply
+  python3 scripts/business-enrich/geocode_all_addresses.py --only professionals --apply
+  python3 scripts/business-enrich/geocode_all_addresses.py --apply --limit 50
+
+Geocoding rules live in `address_geo.resolve_address_geo` — same step the
+enrichment pipelines run. On a miss the lying `location_precision = 'street'`
+is cleared so the card falls back to a city map instead of showing nothing.
 """
 
 from __future__ import annotations
@@ -12,101 +18,116 @@ import argparse
 import json
 import os
 import sys
-import time
-import urllib.parse
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
+sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
+from address_geo import resolve_address_geo  # noqa: E402
 from common import SupabaseRest, load_env  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "data" / "geocode_all_addresses"
 OUT.mkdir(parents=True, exist_ok=True)
-UA = "KrugiGeocodeAll/1.0 (catalog; contact@krugi.app)"
+
+BUSINESS_SELECT = (
+    "id,slug,name,address_line,city,region,state_code,"
+    "postal_code,latitude,longitude,location_precision,google_maps_url"
+)
+PROFESSIONAL_SELECT = (
+    "id,slug,display_name,private_address_line,city,region,state_code,"
+    "postal_code,latitude,longitude,location_precision"
+)
+# professionals has no google_maps_url column — strip it from the geo patch.
 
 
-def geocode(query: str) -> tuple[float, float, str] | None:
-    q = urllib.parse.urlencode(
-        {"q": query, "format": "json", "limit": "1", "countrycodes": "us"}
-    )
-    req = urllib.request.Request(
-        f"https://nominatim.openstreetmap.org/search?{q}",
-        headers={"User-Agent": UA},
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-        if not data:
-            return None
-        lat = float(data[0]["lat"])
-        lon = float(data[0]["lon"])
-        precision = "street" if any(ch.isdigit() for ch in query) else "city"
-        return lat, lon, precision
-    except Exception:  # noqa: BLE001
-        return None
-
-
-def build_query(address: str, city: str | None, region: str | None) -> str:
-    parts = [address.strip()]
-    blob = address.lower()
-    if city and city.lower() not in blob:
-        parts.append(city.strip())
-    if region and region.lower() not in blob and "california" not in blob:
-        parts.append(region.strip())
-    if "ca" not in blob and "california" not in blob:
-        parts.append("California, USA")
-    else:
-        parts.append("USA")
-    return ", ".join(parts)
-
-
-def fetch_need_businesses(client: SupabaseRest) -> list[dict[str, Any]]:
+def fetch_rows(
+    client: SupabaseRest, table: str, select: str, address_column: str, limit: int
+) -> list[dict[str, Any]]:
     rows = (
         client._request(
             "GET",
-            "/businesses",
+            f"/{table}",
             params={
-                "select": "id,slug,name,address_line,city,region,latitude,longitude",
+                "select": select,
                 "status": "eq.approved",
-                "address_line": "not.is.null",
+                address_column: "not.is.null",
                 "or": "(latitude.is.null,longitude.is.null)",
-                "limit": "2000",
+                "limit": str(limit),
             },
         )
         or []
     )
-    return [r for r in rows if (r.get("address_line") or "").strip()]
+    return [r for r in rows if (r.get(address_column) or "").strip()]
 
 
-def fetch_need_professionals(client: SupabaseRest) -> list[dict[str, Any]]:
-    rows = (
-        client._request(
-            "GET",
-            "/professionals",
-            params={
-                "select": (
-                    "id,slug,display_name,private_address_line,city,region,"
-                    "latitude,longitude"
-                ),
-                "status": "eq.approved",
-                "private_address_line": "not.is.null",
-                "or": "(latitude.is.null,longitude.is.null)",
-                "limit": "2000",
-            },
+def process(
+    client: SupabaseRest,
+    rows: list[dict[str, Any]],
+    *,
+    table: str,
+    address_column: str,
+    name_column: str,
+    apply: bool,
+) -> list[dict[str, Any]]:
+    results: list[dict[str, Any]] = []
+    label = "biz" if table == "businesses" else "pro"
+    for i, row in enumerate(rows, 1):
+        address = (row.get(address_column) or "").strip()
+        geo = resolve_address_geo(
+            address,
+            row.get("city"),
+            row.get("state_code"),
+            row.get("postal_code"),
         )
-        or []
-    )
-    return [r for r in rows if (r.get("private_address_line") or "").strip()]
+        patch = dict(geo.patch)
+        if table == "professionals":
+            patch.pop("google_maps_url", None)
+        elif patch.get("google_maps_url") and row.get("google_maps_url"):
+            patch.pop("google_maps_url")
+        if not geo.ok and row.get("location_precision") != "street":
+            # Nothing to correct — no coords and no false street claim.
+            patch.pop("location_precision", None)
+
+        item: dict[str, Any] = {
+            "entity": table,
+            "id": row["id"],
+            "slug": row.get("slug"),
+            "name": row.get(name_column),
+            "address": address,
+            "query": geo.query,
+            "status": "ok" if geo.ok else geo.reason,
+            "patch": patch,
+        }
+        if patch and apply:
+            try:
+                client.patch(table, {"id": f"eq.{row['id']}"}, patch)
+            except Exception as exc:  # noqa: BLE001
+                item["error"] = str(exc)[:240]
+        print(
+            f"[{label} {i}/{len(rows)}] {item['status']} {row.get(name_column)} "
+            f"→ {patch or 'no-op'}",
+            flush=True,
+        )
+        results.append(item)
+    return results
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--only",
+        choices=("all", "businesses", "professionals"),
+        default="all",
+        help="Limit the run to one entity type.",
+    )
+    parser.add_argument("--limit", type=int, default=2000)
     args = parser.parse_args()
     apply = bool(args.apply)
+    only = args.only
 
     load_env()
     url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
@@ -116,98 +137,66 @@ def main() -> int:
         return 1
     client = SupabaseRest(url, key)
 
-    businesses = fetch_need_businesses(client)
-    professionals = fetch_need_professionals(client)
-    results: list[dict[str, Any]] = []
+    businesses = (
+        fetch_rows(client, "businesses", BUSINESS_SELECT, "address_line", args.limit)
+        if only in ("all", "businesses")
+        else []
+    )
+    professionals = (
+        fetch_rows(
+            client,
+            "professionals",
+            PROFESSIONAL_SELECT,
+            "private_address_line",
+            args.limit,
+        )
+        if only in ("all", "professionals")
+        else []
+    )
 
     print(f"businesses to geocode: {len(businesses)}")
     print(f"professionals to geocode: {len(professionals)}")
 
-    for i, row in enumerate(businesses, 1):
-        addr = (row.get("address_line") or "").strip()
-        query = build_query(addr, row.get("city"), row.get("region"))
-        item: dict[str, Any] = {
-            "entity": "business",
-            "id": row["id"],
-            "slug": row.get("slug"),
-            "name": row.get("name"),
-            "address": addr,
-            "query": query,
-        }
-        geo = geocode(query)
-        time.sleep(1.1)
-        if not geo:
-            item["status"] = "miss"
-            print(f"[biz {i}/{len(businesses)}] miss {row.get('name')}")
-        else:
-            lat, lon, precision = geo
-            item["status"] = "ok"
-            item["lat"] = lat
-            item["lon"] = lon
-            item["precision"] = precision
-            if apply:
-                client.patch(
-                    "businesses",
-                    {"id": f"eq.{row['id']}"},
-                    {
-                        "latitude": lat,
-                        "longitude": lon,
-                        "location_precision": precision,
-                    },
-                )
-            print(f"[biz {i}/{len(businesses)}] {item['status']} {row.get('name')} → {lat},{lon}")
-        results.append(item)
-
-    for i, row in enumerate(professionals, 1):
-        addr = (row.get("private_address_line") or "").strip()
-        query = build_query(addr, row.get("city"), row.get("region"))
-        item = {
-            "entity": "professional",
-            "id": row["id"],
-            "slug": row.get("slug"),
-            "name": row.get("display_name"),
-            "address": addr,
-            "query": query,
-        }
-        geo = geocode(query)
-        time.sleep(1.1)
-        if not geo:
-            item["status"] = "miss"
-            print(f"[pro {i}/{len(professionals)}] miss {row.get('display_name')}")
-        else:
-            lat, lon, precision = geo
-            item["status"] = "ok"
-            item["lat"] = lat
-            item["lon"] = lon
-            item["precision"] = precision
-            if apply:
-                client.patch(
-                    "professionals",
-                    {"id": f"eq.{row['id']}"},
-                    {
-                        "latitude": lat,
-                        "longitude": lon,
-                        "location_precision": precision if precision in {"street", "city"} else "city",
-                    },
-                )
-            print(
-                f"[pro {i}/{len(professionals)}] {item['status']} "
-                f"{row.get('display_name')} → {lat},{lon}"
-            )
-        results.append(item)
+    results = process(
+        client,
+        businesses,
+        table="businesses",
+        address_column="address_line",
+        name_column="name",
+        apply=apply,
+    )
+    results += process(
+        client,
+        professionals,
+        table="professionals",
+        address_column="private_address_line",
+        name_column="display_name",
+        apply=apply,
+    )
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     report = {
         "mode": "apply" if apply else "dry-run",
+        "only": only,
         "businesses": len(businesses),
         "professionals": len(professionals),
         "ok": sum(1 for r in results if r.get("status") == "ok"),
-        "miss": sum(1 for r in results if r.get("status") == "miss"),
+        "geocode_miss": sum(1 for r in results if r.get("status") == "geocode_miss"),
+        "not_street": sum(1 for r in results if r.get("status") == "not_street"),
+        "precision_reset": sum(
+            1
+            for r in results
+            if r.get("patch", {}).get("location_precision", "keep") is None
+        ),
+        "errors": sum(1 for r in results if r.get("error")),
         "results": results,
     }
     path = OUT / f"{'apply' if apply else 'dry_run'}_{stamp}.json"
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"report={path} ok={report['ok']} miss={report['miss']}")
+    print(
+        f"report={path} ok={report['ok']} miss={report['geocode_miss']} "
+        f"not_street={report['not_street']} reset={report['precision_reset']}"
+    )
     return 0
 
 

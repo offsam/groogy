@@ -62,6 +62,15 @@ export default async function AdminReviewsPage({ searchParams }: PageProps) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-6">
+      <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+        Legacy URL. Канонический путь IA V2:{" "}
+        <a
+          href="/admin/community/reviews"
+          className="font-medium underline hover:no-underline"
+        >
+          Community · Reviews
+        </a>
+      </div>
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-slate-900">
           Модерация отзывов

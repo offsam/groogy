@@ -5,7 +5,9 @@ import { SyncHubCookie } from "@/components/layout/SyncHubCookie";
 import { getPublicOffersForBusiness } from "@/lib/business-offers/queries";
 import { listPublishedCommunityMentionsForBusiness } from "@/lib/community-mentions/queries";
 import { listPublishedBusinessLocations } from "@/lib/business/locations";
+import { getCityCenter } from "@/lib/geo/city-center";
 import { listJobsForBusiness } from "@/lib/jobs/queries";
+import { listPublishedEventsForBusiness } from "@/lib/events/queries";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { resolveRequestHubs } from "@/lib/regions/request-hub";
 import { serializeHubIds } from "@/lib/regions/hubs";
@@ -13,6 +15,11 @@ import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { formatAddress, stripBusinessContacts } from "@/lib/supabase/mappers";
 import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
+import { listOwnerPromotions } from "@/lib/promotions/queries";
+import {
+  isFollowingOwner,
+  listOwnerUpdates,
+} from "@/lib/updates/queries";
 import {
   getActiveCategories,
   getApprovedBusinesses,
@@ -87,7 +94,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, isAdmin, similarPool, communityMentions, locations, categories] =
+  const [offers, published, owns, isAdmin, similarPool, communityMentions, locations, categories, promotions, updates, following, events] =
     await Promise.all([
     getPublicOffersForBusiness(client, fullBusiness.id, {
       businessSlug: fullBusiness.slug,
@@ -104,6 +111,14 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     ),
     listPublishedBusinessLocations(catalog, fullBusiness.id).catch(() => []),
     getActiveCategories(catalog).catch(() => [] as Category[]),
+    listOwnerPromotions(catalog, "business", fullBusiness.id).catch(() => []),
+    listOwnerUpdates(catalog, "business", fullBusiness.id).catch(() => []),
+    user
+      ? isFollowingOwner(client, user.id, "business", fullBusiness.id).catch(
+          () => false,
+        )
+      : Promise.resolve(false),
+    listPublishedEventsForBusiness(catalog, fullBusiness.id).catch(() => []),
   ]);
 
   const canManageEarly = owns || isAdmin;
@@ -131,6 +146,15 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
   // Outside edit mode everyone gets stripped contacts — reveal loads via API.
   const business = editMode ? fullBusiness : stripBusinessContacts(fullBusiness);
   const publicAddress = formatAddress(fullBusiness);
+  const primaryLocation =
+    locations.find((location) => location.isPrimary) ?? locations[0] ?? null;
+  const cityForMap =
+    primaryLocation?.city?.trim() || fullBusiness.city?.trim() || null;
+  const stateForMap =
+    primaryLocation?.stateCode?.trim() || fullBusiness.stateCode?.trim() || null;
+  const cityMapCenter = await getCityCenter(cityForMap, stateForMap).catch(
+    () => null,
+  );
 
   return (
     <>
@@ -140,6 +164,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         activeHubs={activeHubs}
         autoClaim={autoClaim}
         business={business}
+        cityMapCenter={cityMapCenter}
         businessSlug={slug}
         currentUserId={user?.id ?? null}
         editMode={editMode}
@@ -150,6 +175,10 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         mySession={mySession}
         offers={offers}
         jobs={jobs}
+        events={events}
+        promotions={promotions}
+        updates={updates}
+        initialFollowing={following}
         reviews={reviews}
         communityMentions={communityMentions}
         locations={locations}

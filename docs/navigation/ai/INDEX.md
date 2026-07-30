@@ -76,4 +76,8 @@ Collector LLM:
 ## AI pipelines (documented flows)
 
 - Lifecycle mermaid + stages: [`PLATFORM_LIFECYCLE_V1.md`](../../architecture/runtime/PLATFORM_LIFECYCLE_V1.md)
+- Card processing: [`CARD_PROCESSING_ARCHITECTURE_V1.md`](../../architecture/runtime/CARD_PROCESSING_ARCHITECTURE_V1.md)
+- Extraction/classification contract: [`EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md)
+- Pipeline index: [`../pipeline/INDEX.md`](../pipeline/INDEX.md)
 - Pipeline audit: [`../../audits/PIPELINE_AUDIT_V1.md`](../../audits/PIPELINE_AUDIT_V1.md)
+- CI drift tests: [`.github/workflows/ci.yml`](../../../.github/workflows/ci.yml) → `test_extraction_contract.py`, `test_review_tags.py`

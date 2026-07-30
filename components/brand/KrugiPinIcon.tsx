@@ -1,28 +1,7 @@
-import {
-  ArrowLeftRight,
-  BadgeCheck,
-  BriefcaseBusiness,
-  Building2,
-  CalendarDays,
-  Car,
-  CircleHelp,
-  Heart,
-  Home,
-  LogOut,
-  Megaphone,
-  MessageCircle,
-  Newspaper,
-  Plane,
-  Settings,
-  ShoppingBag,
-  Star,
-  Trophy,
-  Users,
-  UserRound,
-  UtensilsCrossed,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
+"use client";
+
+import { useId, type ReactNode } from "react";
+import { KRUGI_PIN_PATHS, type PinPathNode } from "@/components/brand/krugi-pin-paths";
 import { cn } from "@/lib/utils";
 
 /** Brand pin marks — hub set under the map + legacy sheet pins. */
@@ -54,130 +33,16 @@ export const KRUGI_PIN_NAMES = [
 
 export type KrugiPinName = (typeof KRUGI_PIN_NAMES)[number];
 
-const PIN_ICONS: Record<KrugiPinName, LucideIcon> = {
-  businesses: Building2,
-  professionals: UserRound,
-  services: Wrench,
-  reviews: Star,
-  listings: ShoppingBag,
-  jobs: BriefcaseBusiness,
-  real_estate: Home,
-  auto: Car,
-  food: UtensilsCrossed,
-  lechu: Plane,
-  transfers: ArrowLeftRight,
-  messages: MessageCircle,
-  community: Users,
-  favorites: Heart,
-  events: CalendarDays,
-  promos: Megaphone,
-  news: Newspaper,
-  profile: UserRound,
-  verification: BadgeCheck,
-  reputation: Trophy,
-  help: CircleHelp,
-  settings: Settings,
-  logout: LogOut,
-};
+/** Fully filled logo-color disk (no K) — shared camouflage field. */
+const LOGO_DISK_SRC = "/brand/krugi-logo-disk.png";
 
-/** Soft disc + brand accent — replaces soft AI PNG pins. */
-const PIN_STYLE: Record<
-  KrugiPinName,
-  { disc: string; ink: string }
-> = {
-  businesses: {
-    disc: "bg-gradient-to-br from-sky-50 to-brand-blue/15 ring-1 ring-brand-blue/20",
-    ink: "text-brand-blue-deep",
-  },
-  professionals: {
-    disc: "bg-gradient-to-br from-emerald-50 to-brand-green/20 ring-1 ring-brand-green/25",
-    ink: "text-brand-green-deep",
-  },
-  services: {
-    disc: "bg-gradient-to-br from-emerald-50 to-brand-green/20 ring-1 ring-brand-green/25",
-    ink: "text-brand-green-deep",
-  },
-  reviews: {
-    disc: "bg-gradient-to-br from-amber-50 to-brand-yellow/30 ring-1 ring-brand-orange/20",
-    ink: "text-brand-orange",
-  },
-  listings: {
-    disc: "bg-gradient-to-br from-orange-50 to-brand-orange/20 ring-1 ring-brand-orange/25",
-    ink: "text-brand-orange",
-  },
-  jobs: {
-    disc: "bg-gradient-to-br from-slate-50 to-slate-200/80 ring-1 ring-slate-300/60",
-    ink: "text-slate-700",
-  },
-  real_estate: {
-    disc: "bg-gradient-to-br from-sky-50 to-brand-blue/10 ring-1 ring-brand-blue/20",
-    ink: "text-brand-blue-deep",
-  },
-  auto: {
-    disc: "bg-gradient-to-br from-slate-50 to-slate-200/70 ring-1 ring-slate-300/50",
-    ink: "text-slate-800",
-  },
-  food: {
-    disc: "bg-gradient-to-br from-red-50 to-brand-red/15 ring-1 ring-brand-red/20",
-    ink: "text-brand-red",
-  },
-  lechu: {
-    disc: "bg-gradient-to-br from-sky-50 to-sky-200/50 ring-1 ring-sky-300/50",
-    ink: "text-sky-700",
-  },
-  transfers: {
-    disc: "bg-gradient-to-br from-emerald-50 to-teal-100/80 ring-1 ring-teal-300/40",
-    ink: "text-teal-700",
-  },
-  messages: {
-    disc: "bg-gradient-to-br from-sky-50 to-brand-blue/15 ring-1 ring-brand-blue/20",
-    ink: "text-brand-blue-deep",
-  },
-  community: {
-    disc: "bg-gradient-to-br from-violet-50 to-fuchsia-100/60 ring-1 ring-fuchsia-200/60",
-    ink: "text-fuchsia-700",
-  },
-  favorites: {
-    disc: "bg-gradient-to-br from-rose-50 to-brand-red/15 ring-1 ring-brand-red/20",
-    ink: "text-brand-red",
-  },
-  events: {
-    disc: "bg-gradient-to-br from-amber-50 to-brand-yellow/25 ring-1 ring-brand-orange/20",
-    ink: "text-brand-orange",
-  },
-  promos: {
-    disc: "bg-gradient-to-br from-orange-50 to-brand-orange/20 ring-1 ring-brand-orange/25",
-    ink: "text-brand-orange",
-  },
-  news: {
-    disc: "bg-gradient-to-br from-slate-50 to-slate-200/70 ring-1 ring-slate-300/50",
-    ink: "text-slate-700",
-  },
-  profile: {
-    disc: "bg-gradient-to-br from-sky-50 to-brand-blue/15 ring-1 ring-brand-blue/20",
-    ink: "text-brand-blue-deep",
-  },
-  verification: {
-    disc: "bg-gradient-to-br from-emerald-50 to-brand-green/20 ring-1 ring-brand-green/25",
-    ink: "text-brand-green-deep",
-  },
-  reputation: {
-    disc: "bg-gradient-to-br from-amber-50 to-brand-yellow/30 ring-1 ring-brand-orange/20",
-    ink: "text-brand-orange",
-  },
-  help: {
-    disc: "bg-gradient-to-br from-sky-50 to-sky-100 ring-1 ring-sky-200/70",
-    ink: "text-sky-700",
-  },
-  settings: {
-    disc: "bg-gradient-to-br from-slate-50 to-slate-200/80 ring-1 ring-slate-300/60",
-    ink: "text-slate-700",
-  },
-  logout: {
-    disc: "bg-gradient-to-br from-slate-50 to-slate-200/80 ring-1 ring-slate-300/60",
-    ink: "text-slate-600",
-  },
-};
+const GLYPH_TRANSFORM = "translate(21 21) scale(2.41667)";
+
+/** Per-pin disk orientation so colors land differently on each glyph. */
+function diskRotationDeg(name: KrugiPinName): number {
+  const i = KRUGI_PIN_NAMES.indexOf(name);
+  return Math.round(((i < 0 ? 0 : i) * 137.508) % 360);
+}
 
 type KrugiPinIconProps = {
   name: KrugiPinName;
@@ -185,25 +50,110 @@ type KrugiPinIconProps = {
   alt?: string;
 };
 
+function renderMaskNodes(nodes: PinPathNode[]): ReactNode {
+  return (
+    <g
+      fill="none"
+      stroke="white"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2.45}
+      transform={GLYPH_TRANSFORM}
+    >
+      {nodes.map((node, i) => {
+        const { tag, ...attrs } = node;
+        if (tag === "path") {
+          return <path d={String(attrs.d ?? "")} key={i} />;
+        }
+        if (tag === "circle") {
+          return (
+            <circle cx={attrs.cx} cy={attrs.cy} key={i} r={attrs.r} />
+          );
+        }
+        if (tag === "rect") {
+          return (
+            <rect
+              height={attrs.height}
+              key={i}
+              rx={attrs.rx}
+              ry={attrs.ry}
+              width={attrs.width}
+              x={attrs.x}
+              y={attrs.y}
+            />
+          );
+        }
+        if (tag === "line") {
+          return (
+            <line
+              key={i}
+              x1={attrs.x1}
+              x2={attrs.x2}
+              y1={attrs.y1}
+              y2={attrs.y2}
+            />
+          );
+        }
+        if (tag === "polyline" || tag === "polygon") {
+          const Poly = tag;
+          return <Poly key={i} points={String(attrs.points ?? "")} />;
+        }
+        return null;
+      })}
+    </g>
+  );
+}
+
+/**
+ * Glass bubble. Logo-disk colors show through a fixed upright glyph mask.
+ * Disk rotation changes color placement only — never the icon shape.
+ */
 export function KrugiPinIcon({ name, className, alt = "" }: KrugiPinIconProps) {
-  const Icon = PIN_ICONS[name];
-  const style = PIN_STYLE[name];
+  const uid = useId().replace(/:/g, "");
+  const maskId = `krugi-mask-${uid}`;
+  const nodes = KRUGI_PIN_PATHS[name];
+  const rot = diskRotationDeg(name);
 
   return (
     <span
       aria-hidden={alt ? undefined : true}
       aria-label={alt || undefined}
       className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-full shadow-[0_6px_16px_rgba(15,23,42,0.08)]",
-        style.disc,
+        "krugi-glass-bubble relative inline-flex shrink-0 items-center justify-center",
         className,
       )}
       role={alt ? "img" : undefined}
     >
-      <Icon
+      <span aria-hidden className="krugi-glass-bubble__shine" />
+      <span aria-hidden className="krugi-glass-bubble__spec" />
+
+      <svg
         aria-hidden
-        className={cn("size-[48%] stroke-[1.75]", style.ink)}
-      />
+        className="relative z-[1] size-full"
+        viewBox="0 0 100 100"
+      >
+        <defs>
+          <mask
+            id={maskId}
+            maskContentUnits="userSpaceOnUse"
+            maskUnits="userSpaceOnUse"
+          >
+            <rect fill="black" height="100" width="100" />
+            {renderMaskNodes(nodes)}
+          </mask>
+        </defs>
+
+        {/* Mask on the group: glyph stays upright; only the disk spins */}
+        <g mask={`url(#${maskId})`}>
+          <image
+            height="100"
+            href={LOGO_DISK_SRC}
+            preserveAspectRatio="xMidYMid slice"
+            transform={`rotate(${rot} 50 50)`}
+            width="100"
+          />
+        </g>
+      </svg>
     </span>
   );
 }

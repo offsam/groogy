@@ -35,6 +35,30 @@ const DEFAULT_CHEAP_PAID_MODELS = [
 /** Direct OpenAI fallback when OPENAI_API_KEY is set (no OpenRouter markup). */
 const OPENAI_DIRECT_MODELS = ["gpt-4.1-nano", "gpt-4o-mini"] as const;
 
+/**
+ * Vision-capable models for reading text off an uploaded photo (admin OCR).
+ * Cheapest multimodal first; callers pass an image, never a model id.
+ */
+const DEFAULT_VISION_MODELS = [
+  "google/gemini-2.5-flash-lite",
+  "openai/gpt-4.1-nano",
+  "openai/gpt-4o-mini",
+] as const;
+
+/** Free multimodal fallback — admin OCR tolerates a slow queue, unlike search. */
+const DEFAULT_FREE_VISION_MODELS = [
+  "google/gemma-4-31b-it:free",
+  "google/gemma-4-26b-a4b-it:free",
+  "nvidia/nemotron-nano-12b-v2-vl:free",
+] as const;
+
+const VISION_ALLOWLIST = new Set<string>([
+  ...DEFAULT_VISION_MODELS,
+  ...DEFAULT_FREE_VISION_MODELS,
+  "google/gemini-2.0-flash-001",
+  "qwen/qwen2.5-vl-7b-instruct",
+]);
+
 /** Direct Anthropic fallback — Haiku only (cheapest that handles JSON intent). */
 const ANTHROPIC_DIRECT_MODELS = ["claude-haiku-4-5-20251001"] as const;
 
@@ -86,6 +110,11 @@ export function isAllowedSearchModel(model: string): boolean {
   return isAllowedFreeModel(model) || isAllowedCheapPaidModel(model);
 }
 
+export function isAllowedVisionModel(model: string): boolean {
+  const id = model.trim();
+  return VISION_ALLOWLIST.has(id) && !id.includes(" ") && id.length < 120;
+}
+
 function parseCsvModels(raw: string | undefined): string[] {
   if (!raw?.trim()) return [];
   return raw
@@ -117,6 +146,15 @@ export function getFreeModelChain(): string[] {
     isAllowedFreeModel,
   );
   return fromEnv.length > 0 ? fromEnv : [...DEFAULT_FREE_MODELS];
+}
+
+/** Paid multimodal first, then free — so OCR still works without credits. */
+export function getVisionModelChain(): string[] {
+  const fromEnv = parseCsvModels(process.env.OPENROUTER_VISION_MODELS).filter(
+    isAllowedVisionModel,
+  );
+  if (fromEnv.length > 0) return fromEnv;
+  return [...DEFAULT_VISION_MODELS, ...DEFAULT_FREE_VISION_MODELS];
 }
 
 export function getCheapPaidModelChain(): string[] {
@@ -247,6 +285,131 @@ async function completeOpenRouter(
   } finally {
     clearTimeout(timer);
   }
+}
+
+async function completeVisionOpenRouter(
+  model: string,
+  prompt: string,
+  imageDataUrl: string,
+  timeoutMs: number,
+): Promise<string> {
+  if (!isAllowedVisionModel(model)) {
+    throw new OpenRouterError(`Model not allowlisted: ${model}`, 403, false);
+  }
+  const apiKey = getOpenRouterKey();
+  if (!apiKey) {
+    throw new OpenRouterError("OPENROUTER_API_KEY is not configured");
+  }
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(OPENROUTER_URL, {
+      method: "POST",
+      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": siteReferer(),
+        "X-Title": "Krugi",
+      },
+      body: JSON.stringify({
+        model,
+        temperature: 0,
+        messages: [
+          {
+            role: "user",
+            content: [
+              { type: "text", text: prompt },
+              { type: "image_url", image_url: { url: imageDataUrl } },
+            ],
+          },
+        ],
+      }),
+    });
+
+    const text = await res.text();
+    if (!res.ok) {
+      if (res.status === 404) unavailableModels.add(model);
+      const retryable =
+        res.status === 429 ||
+        res.status === 402 ||
+        res.status === 404 ||
+        (res.status >= 500 && res.status <= 599);
+      throw new OpenRouterError(
+        `HTTP ${res.status}: ${redactSecrets(text.slice(0, 200))}`,
+        res.status,
+        retryable,
+      );
+    }
+
+    let body: Parameters<typeof extractMessageContent>[0];
+    try {
+      body = JSON.parse(text) as typeof body;
+    } catch {
+      throw new OpenRouterError("Invalid JSON from OpenRouter", res.status, true);
+    }
+
+    const content = extractMessageContent(body);
+    if (!content) {
+      throw new OpenRouterError("Empty model response", res.status, true);
+    }
+    return content;
+  } catch (err) {
+    if (err instanceof OpenRouterError) throw err;
+    if (err instanceof Error && err.name === "AbortError") {
+      throw new OpenRouterError("timeout", null, true);
+    }
+    throw new OpenRouterError(
+      err instanceof Error ? redactSecrets(err.message) : "request failed",
+      null,
+      true,
+    );
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Read an image with a vision model. The image must already be a data URL —
+ * callers never choose the model, so no client can point us at an arbitrary one.
+ */
+export async function completeVisionWithFailover(
+  prompt: string,
+  imageDataUrl: string,
+  options?: { timeoutMs?: number },
+): Promise<OpenRouterCompletion> {
+  const timeoutMs = options?.timeoutMs ?? 25_000;
+  if (!getOpenRouterKey()) {
+    throw new OpenRouterError("OPENROUTER_API_KEY is not configured");
+  }
+
+  const errors: string[] = [];
+  const models = getVisionModelChain().filter(
+    (model) => !unavailableModels.has(model),
+  );
+  for (const model of models) {
+    try {
+      const content = await completeVisionOpenRouter(
+        model,
+        prompt,
+        imageDataUrl,
+        timeoutMs,
+      );
+      return { content, modelUsed: model };
+    } catch (err) {
+      errors.push(
+        `${model}: ${err instanceof OpenRouterError ? err.message : "failed"}`,
+      );
+    }
+  }
+
+  throw new OpenRouterError(
+    `All vision models failed: ${errors.join(" | ") || "no models available"}`,
+    null,
+    false,
+  );
 }
 
 async function completeOpenAiDirect(

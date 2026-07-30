@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Map as MapIcon } from "lucide-react";
 import type { RegionHub } from "@/lib/regions/hubs";
 import {
   isLatLngInHubBounds,
@@ -16,6 +17,8 @@ import { cn } from "@/lib/utils";
 type HomeActivityMapProps = {
   hub: RegionHub;
   hubs?: RegionHub[];
+  /** Guest without region/geo — show continental USA camera + all hub pins. */
+  nationalOverview?: boolean;
   pins?: HomeMapPin[];
 };
 
@@ -40,6 +43,7 @@ function inSelectedHubs(pin: HomeMapPin, hubs: readonly RegionHub[]): boolean {
 export function HomeActivityMap({
   hub,
   hubs,
+  nationalOverview = false,
   pins = [],
 }: HomeActivityMapProps) {
   const [selectedPin, setSelectedPin] = useState<HomeMapPin | null>(null);
@@ -47,19 +51,39 @@ export function HomeActivityMap({
     left: number;
     top: number;
   } | null>(null);
+  const [nationalPins, setNationalPins] = useState<HomeMapPin[] | null>(null);
   const selectedHubs = hubs && hubs.length > 0 ? hubs : [hub];
-  const hubsKey = selectedHubs.map((h) => h.id).join(",");
-  const multiRegion = selectedHubs.length >= 2;
-  const wideRegion = selectedHubs.length >= 3;
+  const hubsKey = nationalOverview
+    ? "usa-overview"
+    : selectedHubs.map((h) => h.id).join(",");
+  const multiRegion = !nationalOverview && selectedHubs.length >= 2;
+  const wideRegion = !nationalOverview && selectedHubs.length >= 3;
+
+  // SSR ships only launch-hub pins; the USA view needs every published card.
+  useEffect(() => {
+    if (!nationalOverview || nationalPins) return;
+    let cancelled = false;
+    fetch("/api/home-map-pins")
+      .then((res) => (res.ok ? res.json() : { pins: [] }))
+      .then((data: { pins?: HomeMapPin[] }) => {
+        if (!cancelled) setNationalPins(data.pins ?? []);
+      })
+      .catch(() => {
+        if (!cancelled) setNationalPins([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [nationalOverview, nationalPins]);
 
   const mergedHub = useMemo(
-    () => mergeHubsForMap(selectedHubs),
+    () => (nationalOverview ? hub : mergeHubsForMap(selectedHubs)),
     // eslint-disable-next-line react-hooks/exhaustive-deps -- hubsKey captures selection
-    [hubsKey],
+    [hubsKey, nationalOverview],
   );
 
   const mapHub = useMemo(() => {
-    if (selectedHubs.length < 2) return mergedHub;
+    if (nationalOverview || selectedHubs.length < 2) return mergedHub;
     const mapZoom = zoomToFitBounds(
       mergedHub.mapBounds,
       { width: 1200, height: 640 },
@@ -67,13 +91,19 @@ export function HomeActivityMap({
     );
     if (Math.abs(mapZoom - mergedHub.mapZoom) < 0.05) return mergedHub;
     return { ...mergedHub, mapZoom };
-  }, [mergedHub, selectedHubs.length]);
+  }, [mergedHub, nationalOverview, selectedHubs.length]);
 
-  const hubPins = useMemo(
-    () => pins.filter((p) => inSelectedHubs(p, selectedHubs)),
-    [pins, selectedHubs],
-  );
-
+  const hubPins = useMemo(() => {
+    if (!nationalOverview) {
+      return pins.filter((p) => inSelectedHubs(p, selectedHubs));
+    }
+    if (!nationalPins?.length) return pins;
+    const byKey = new Map<string, HomeMapPin>();
+    for (const pin of [...pins, ...nationalPins]) {
+      byKey.set(`${pin.kind}:${pin.id}`, pin);
+    }
+    return [...byKey.values()];
+  }, [nationalOverview, nationalPins, pins, selectedHubs]);
   const selectedInHub =
     selectedPin && hubPins.some((p) => p.id === selectedPin.id)
       ? selectedPin
@@ -85,7 +115,7 @@ export function HomeActivityMap({
   }, []);
 
   return (
-    <section className="relative w-full overflow-x-hidden pb-0 pt-0">
+    <section className="home-map-from-hero relative z-10 w-full overflow-x-hidden pb-0 pt-0">
       <div className="relative mx-auto w-full max-w-[1600px] px-0">
         <div
           className={cn(
@@ -97,7 +127,7 @@ export function HomeActivityMap({
                 : "pb-[50%] sm:pb-[40.909%]",
           )}
         >
-          <div className="absolute inset-0 overflow-hidden">
+          <div className="home-map-from-hero__frame absolute inset-0 overflow-hidden">
             <HomeActivityMapCanvas
               key={hubsKey}
               cardPoint={selectedInHub ? cardPoint : null}
@@ -113,41 +143,59 @@ export function HomeActivityMap({
               className="pointer-events-none absolute inset-0 z-[400]"
               style={{
                 background: `
-                  linear-gradient(to bottom, var(--background) 0%, transparent 1.25rem),
-                  linear-gradient(to right, var(--background) 0%, transparent 1.5%, transparent 98.5%, var(--background) 100%),
-                  linear-gradient(to bottom, transparent 90%, var(--background) 100%)
+                  linear-gradient(to right, var(--background) 0%, transparent 1.5%, transparent 98.5%, var(--background) 100%)
                 `,
               }}
             />
 
-            {hubPins.length === 0 ? (
-              <div className="pointer-events-none absolute inset-x-4 bottom-6 z-[500] rounded-lg bg-white/95 px-3 py-2 text-center text-sm text-slate-600 shadow-sm">
+            {/* Soft blend into page background — map doesn't cut off hard */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-[450] h-14 sm:h-16"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--background) 55%, transparent) 50%, var(--background) 100%)",
+              }}
+            />
+
+            <MapAttribution
+              className={cn(
+                "pointer-events-auto absolute right-2.5 top-2.5 z-[500] max-w-[min(100%,12rem)]",
+                "text-right text-[9px] leading-tight text-slate-600/70 sm:right-3.5 sm:top-3.5 sm:text-[10px]",
+                "drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]",
+                "[&_a]:text-slate-600/70 [&_a]:no-underline [&_a:hover]:text-slate-800 [&_a:hover]:underline",
+              )}
+            />
+
+            <Link
+              aria-label="Открыть карту США"
+              className={cn(
+                "pointer-events-auto absolute bottom-2 left-1/2 z-[500] -translate-x-1/2",
+                "inline-flex items-center gap-1.5 rounded-full",
+                "border border-white/70 bg-white/65 px-2.5 py-1.5",
+                "shadow-[0_6px_18px_rgba(15,23,42,0.10)] backdrop-blur-md",
+                "transition hover:-translate-y-0.5 hover:bg-white/80",
+                "sm:bottom-2.5",
+              )}
+              href="/map"
+            >
+              <MapIcon
+                aria-hidden
+                className="size-4 text-brand-blue"
+                strokeWidth={1.75}
+              />
+              <span className="text-[11px] font-semibold tracking-tight text-slate-700 sm:text-xs">
+                США
+              </span>
+            </Link>
+
+            {hubPins.length === 0 && !nationalOverview ? (
+              <div className="pointer-events-none absolute inset-x-4 bottom-10 z-[500] rounded-lg bg-white/95 px-3 py-2 text-center text-sm text-slate-600 shadow-sm sm:bottom-8 sm:left-auto sm:right-4 sm:max-w-xs">
                 В этом регионе пока нет адресов на карте
               </div>
             ) : null}
           </div>
         </div>
-      </div>
-
-      <div className="pointer-events-none absolute inset-0 z-20 hidden sm:block">
-        <div className="mx-auto flex h-full max-w-[1600px] items-center justify-start px-6 lg:px-10">
-          <Link
-            className="pointer-events-auto rounded-full border border-white/70 bg-white/80 px-6 py-3 text-base font-semibold text-slate-800 shadow-[0_10px_28px_rgba(15,23,42,0.14)] backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[0_14px_32px_rgba(15,23,42,0.18)]"
-            href="/map"
-          >
-            Смотреть всю карту
-          </Link>
-        </div>
-      </div>
-
-      <div className="relative z-20 mx-auto flex max-w-[1600px] flex-col items-center gap-2 px-4 pb-3 pt-1 sm:px-6 lg:px-10">
-        <Link
-          className="inline-flex rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 sm:hidden"
-          href="/map"
-        >
-          Смотреть всю карту
-        </Link>
-        <MapAttribution className="pointer-events-auto w-full text-center text-[10px] text-slate-400 sm:text-right" />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Bookmark, CalendarCheck, MessageCircle, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -9,6 +9,7 @@ type BusinessHeaderActionsProps = {
   email?: string | null;
   /** Public online booking URL (Book Now). */
   bookingUrl?: string | null;
+  followAction?: ReactNode;
   className?: string;
 };
 
@@ -19,6 +20,7 @@ export function BusinessHeaderActions({
   businessName,
   email = null,
   bookingUrl = null,
+  followAction = null,
   className,
 }: BusinessHeaderActionsProps) {
   const trimmed = email?.trim() || null;
@@ -77,6 +79,7 @@ export function BusinessHeaderActions({
         Задать вопрос
       </button>
       <div className="flex items-center gap-1.5">
+        {followAction}
         <button
           aria-label={copied ? "Ссылка скопирована" : "Поделиться"}
           className={iconBtn}

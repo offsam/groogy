@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { BusinessList } from "@/components/business/BusinessList";
 import { OfferSearchResults } from "@/components/search/OfferSearchResults";
-import { CategoryFilter } from "@/components/search/CategoryFilter";
-import { SearchBar } from "@/components/search/SearchBar";
+import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
+import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
 import { getActiveCategories } from "@/lib/supabase/queries";
@@ -38,6 +38,8 @@ type SearchResultsProps = {
   initialCategory: string | null;
   initialCity: string | null;
   initialHubId: string;
+  /** `all` = alphabetical full list; otherwise overview when no category */
+  initialView: "overview" | "all";
 };
 
 function intentHintLabel(
@@ -77,7 +79,6 @@ function readCachedCoords(): UserCoords | null {
     const lng = Number(parsed.lng);
     const at = Number(parsed.at);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-    // Cache for 30 minutes
     if (Number.isFinite(at) && Date.now() - at > 30 * 60_000) return null;
     return { lat, lng };
   } catch {
@@ -96,14 +97,31 @@ function writeCachedCoords(coords: UserCoords) {
   }
 }
 
+function sortAlphabetical(list: Business[]): Business[] {
+  return [...list].sort((a, b) =>
+    a.name.localeCompare(b.name, "ru", { sensitivity: "base" }),
+  );
+}
+
+function overviewHref(hubId: string): string {
+  const q = new URLSearchParams();
+  if (hubId) q.set("hub", hubId);
+  const s = q.toString();
+  return s ? `/search?${s}` : "/search";
+}
+
 export function SearchResults({
   initialQuery,
   initialCategory,
   initialCity,
   initialHubId,
+  initialView,
 }: SearchResultsProps) {
-  const router = useRouter();
-  const [category, setCategory] = useState<string | null>(initialCategory);
+  const hasQuery = Boolean(initialQuery.trim());
+  const isOverview = !hasQuery && !initialCategory && initialView !== "all";
+  const isAllView = !hasQuery && !initialCategory && initialView === "all";
+  const isCategoryView = !hasQuery && Boolean(initialCategory);
+
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [results, setResults] = useState<Business[]>([]);
@@ -115,16 +133,8 @@ export function SearchResults({
   const [spellHint, setSpellHint] = useState<string | null>(null);
 
   useEffect(() => {
-    setCategory(initialCategory);
-  }, [initialCategory]);
-
-  // Soft geolocation: use cache, then request if permission already granted / available.
-  useEffect(() => {
     const cached = readCachedCoords();
-    if (cached) {
-      setUserCoords(cached);
-    }
-
+    if (cached) setUserCoords(cached);
     if (!navigator.geolocation) return;
 
     let cancelled = false;
@@ -138,27 +148,13 @@ export function SearchResults({
         writeCachedCoords(next);
         setUserCoords(next);
       },
-      () => {
-        // Denied / unavailable — keep catalog order.
-      },
+      () => {},
       { enableHighAccuracy: false, timeout: 10_000, maximumAge: 600_000 },
     );
-
     return () => {
       cancelled = true;
     };
   }, []);
-
-  function handleCategoryChange(slug: string | null) {
-    setCategory(slug);
-    const params = new URLSearchParams();
-    if (initialQuery.trim()) params.set("q", initialQuery.trim());
-    if (slug) params.set("category", slug);
-    if (initialCity) params.set("city", initialCity);
-    if (initialHubId) params.set("hub", initialHubId);
-    const qs = params.toString();
-    router.replace(qs ? `/search?${qs}` : "/search", { scroll: false });
-  }
 
   useEffect(() => {
     let cancelled = false;
@@ -178,7 +174,7 @@ export function SearchResults({
           ? { lat: userCoords.lat, lng: userCoords.lng }
           : null;
 
-        if (initialQuery.trim()) {
+        if (hasQuery) {
           const [cats, aiRes] = await Promise.all([
             catsPromise,
             fetch("/api/search/ai", {
@@ -186,7 +182,7 @@ export function SearchResults({
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 q: initialQuery,
-                categorySlug: category,
+                categorySlug: initialCategory,
                 city: initialCity,
                 hubId: initialHubId,
                 ...(near ? { lat: near.lat, lng: near.lng } : {}),
@@ -195,10 +191,7 @@ export function SearchResults({
           ]);
 
           if (cancelled) return;
-
-          if (!aiRes.ok) {
-            throw new Error(`AI search failed (${aiRes.status})`);
-          }
+          if (!aiRes.ok) throw new Error(`AI search failed (${aiRes.status})`);
 
           const data = (await aiRes.json()) as AiSearchResponse;
           setCategories(cats);
@@ -214,17 +207,17 @@ export function SearchResults({
               .slice(0, 3)
               .map((c) => `«${c.from}» → «${c.to}»`);
             setSpellHint(`Исправили опечатку: ${bits.join(", ")}`);
-          } else {
-            setSpellHint(null);
           }
           return;
         }
 
+        // Overview / Все / category: fetch hub catalog (no category filter on overview & all)
         const params = new URLSearchParams();
-        if (category) params.set("category", category);
+        if (initialCategory) params.set("category", initialCategory);
         if (initialCity) params.set("city", initialCity);
         if (initialHubId) params.set("hub", initialHubId);
-        if (near) {
+        // Distance sort only for search query flows; list screens stay A–Z
+        if (hasQuery && near) {
           params.set("lat", String(near.lat));
           params.set("lng", String(near.lng));
         }
@@ -235,10 +228,7 @@ export function SearchResults({
         ]);
 
         if (cancelled) return;
-
-        if (!searchRes.ok) {
-          throw new Error(`Search failed (${searchRes.status})`);
-        }
+        if (!searchRes.ok) throw new Error(`Search failed (${searchRes.status})`);
 
         const data = (await searchRes.json()) as {
           businesses?: Business[];
@@ -246,7 +236,7 @@ export function SearchResults({
         };
         setCategories(cats);
         setResults(data.businesses ?? []);
-        setSortedByDistance(Boolean(data.sortedByDistance && near));
+        setSortedByDistance(false);
       } catch (err) {
         if (cancelled) return;
         setResults([]);
@@ -260,70 +250,142 @@ export function SearchResults({
     return () => {
       cancelled = true;
     };
-  }, [initialQuery, category, initialCity, initialHubId, userCoords]);
+  }, [
+    initialQuery,
+    initialCategory,
+    initialCity,
+    initialHubId,
+    userCoords,
+    hasQuery,
+  ]);
+
+  const listResults = useMemo(() => {
+    if (hasQuery) return results;
+    // Category view: API already filtered. Uncategorized never appear here.
+    // Все: everything including uncategorized, A–Z.
+    // Overview uses popular carousel from full results.
+    if (isAllView || isCategoryView) return sortAlphabetical(results);
+    return results;
+  }, [hasQuery, isAllView, isCategoryView, results]);
+
+  const categoryLabel =
+    categories.find((c) => c.slug === initialCategory)?.name ||
+    initialCategory;
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const business of results) {
+      if (!business.categoryId) continue;
+      counts[business.categoryId] = (counts[business.categoryId] ?? 0) + 1;
+    }
+    return counts;
+  }, [results]);
 
   return (
-    <div className="space-y-4 sm:space-y-5">
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+    <div className="search-page space-y-4 sm:space-y-5">
+      <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
         Бизнесы
       </h1>
 
-      <div className="max-w-2xl">
-        <SearchBar initialQuery={initialQuery} variant="hero" />
-      </div>
-
-      <CategoryFilter
-        categories={categories}
-        onChange={handleCategoryChange}
-        selected={category}
-      />
-
-      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-slate-500">
-          {loading ? (
-            "Загрузка…"
-          ) : (
-            <>
-              Найдено: <span className="font-semibold text-slate-900">{results.length}</span>
-              {initialQuery && (
-                <>
-                  {" "}
-                  по запросу «
-                  <span className="font-medium text-slate-900">{initialQuery}</span>»
-                </>
-              )}
-              {sortedByDistance && (
-                <>
-                  {" "}
-                  · <span className="text-slate-600">сначала ближайшие</span>
-                </>
-              )}
-            </>
-          )}
-        </p>
-        {!loading && spellHint && (
-          <p className="text-xs text-brand-orange">{spellHint}</p>
-        )}
-        {!loading && aiHint && (
-          <p className="text-xs text-slate-400">AI понял: {aiHint}</p>
-        )}
-      </div>
-
-      {error ? (
-        <ErrorState detail={error} message="Не удалось загрузить результаты поиска" />
-      ) : loading ? (
-        <LoadingState label={initialQuery ? "AI ищет компании…" : "Ищем компании…"} />
-      ) : (
+      {isOverview ? (
         <>
-          <OfferSearchResults city={initialCity} query={initialQuery} />
-
-          <BusinessList
-            businesses={results}
-            onSelect={setSelectedId}
-            selectedId={selectedId}
+          {error ? (
+            <ErrorState
+              detail={error}
+              message="Не удалось загрузить бизнесы"
+            />
+          ) : loading ? (
+            <LoadingState label="Загружаем популярное…" />
+          ) : (
+            <PopularMiniCarousel businesses={results} />
+          )}
+          <BusinessCategoryTabs
+            categoryCounts={categoryCounts}
+            categories={categories}
+            hubParam={initialHubId || null}
+            totalCount={results.length}
           />
         </>
-      )}
+      ) : null}
+
+      {(isAllView || isCategoryView) && !hasQuery ? (
+        <div className="flex items-center justify-between gap-3">
+          <Link
+            href={overviewHref(initialHubId)}
+            className="text-sm font-medium text-brand-blue hover:underline"
+          >
+            ← Назад
+          </Link>
+          <p className="text-sm text-slate-500">
+            {isAllView ? "Все · А–Я" : `${categoryLabel} · А–Я`}
+            {!loading ? (
+              <>
+                {" "}
+                ·{" "}
+                <span className="font-semibold text-slate-900">
+                  {listResults.length}
+                </span>
+              </>
+            ) : null}
+          </p>
+        </div>
+      ) : null}
+
+      {hasQuery ? (
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-slate-500">
+            {loading ? (
+              "Загрузка…"
+            ) : (
+              <>
+                Найдено:{" "}
+                <span className="font-semibold text-slate-900">
+                  {results.length}
+                </span>
+                {" "}
+                по запросу «
+                <span className="font-medium text-slate-900">{initialQuery}</span>
+                »
+                {sortedByDistance ? (
+                  <>
+                    {" "}
+                    · <span className="text-slate-600">сначала ближайшие</span>
+                  </>
+                ) : null}
+              </>
+            )}
+          </p>
+          {!loading && spellHint ? (
+            <p className="text-xs text-brand-orange">{spellHint}</p>
+          ) : null}
+          {!loading && aiHint ? (
+            <p className="text-xs text-slate-400">AI понял: {aiHint}</p>
+          ) : null}
+        </div>
+      ) : null}
+
+      {!isOverview ? (
+        error ? (
+          <ErrorState
+            detail={error}
+            message="Не удалось загрузить результаты поиска"
+          />
+        ) : loading ? (
+          <LoadingState
+            label={hasQuery ? "AI ищет компании…" : "Загружаем компании…"}
+          />
+        ) : (
+          <>
+            {hasQuery ? (
+              <OfferSearchResults city={initialCity} query={initialQuery} />
+            ) : null}
+            <BusinessList
+              businesses={listResults}
+              onSelect={setSelectedId}
+              selectedId={selectedId}
+            />
+          </>
+        )
+      ) : null}
     </div>
   );
 }

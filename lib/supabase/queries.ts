@@ -16,6 +16,8 @@ import {
   type RegionHub,
   type RegionMapBounds,
 } from "@/lib/regions/hubs";
+import { ENTITY_DESCRIPTION_ORIGINAL_READY } from "@/lib/content/description-original";
+import { CONTACT_LINKS_COLUMN_READY } from "@/lib/contacts/channels";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
 import { distanceKm } from "@/lib/geo/distance";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
@@ -23,7 +25,7 @@ import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 type Client = SupabaseClient<Database>;
 
 /** Full row — owners, profile detail, contacts API. */
-const BUSINESS_DETAIL_SELECT = `
+const BUSINESS_DETAIL_SELECT_BASE: string = `
   id,
   slug,
   category_id,
@@ -50,6 +52,7 @@ const BUSINESS_DETAIL_SELECT = `
   google_rating,
   google_reviews_count,
   booking_url,
+  payment_methods,
   image_url,
   address_line,
   city,
@@ -63,13 +66,22 @@ const BUSINESS_DETAIL_SELECT = `
   opening_hours,
   created_at,
   updated_at,
+  third_party_mention_count,
+  self_ad_mention_count,
   categories (
     id,
     slug,
     name,
     icon
   )
-` as const;
+`;
+
+const BUSINESS_DETAIL_SELECT = (() => {
+  const parts: string[] = [BUSINESS_DETAIL_SELECT_BASE];
+  if (CONTACT_LINKS_COLUMN_READY) parts.push("contact_links");
+  if (ENTITY_DESCRIPTION_ORIGINAL_READY) parts.push("description_original");
+  return parts.join(",\n  ");
+})();
 
 /**
  * List select still reads contact columns on the server so we can compute
@@ -185,7 +197,7 @@ export async function getApprovedBusinesses(
     .limit(limit);
 
   if (error) throw error;
-  return ((data ?? []) as BusinessWithCategory[]).map(mapBusinessList);
+  return ((data ?? []) as unknown as BusinessWithCategory[]).map(mapBusinessList);
 }
 
 /** Newest + popular businesses with coordinates for the home activity map. */
@@ -197,6 +209,8 @@ export type HomeMapPin = {
   slug: string;
   href: string;
   city: string | null;
+  /** ISO 3166-2, e.g. US-CA — used for state cluster circles. */
+  stateCode: string | null;
   postalCode: string | null;
   latitude: number;
   longitude: number;
@@ -217,16 +231,17 @@ export type HomeMapPin = {
 };
 
 const HOME_MAP_BUSINESS_SELECT =
-  "id, slug, name, city, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, google_maps_url, categories(name)" as const;
+  "id, slug, name, city, state_code, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, google_maps_url, categories(name)" as const;
 
 const HOME_MAP_PROFESSIONAL_SELECT =
-  "id, slug, display_name, city, latitude, longitude, private_address_line, created_at, image_url, headline, short_description, rating_avg, reviews_count, phone, email, website, instagram_url, categories(name)" as const;
+  "id, slug, display_name, city, state_code, latitude, longitude, private_address_line, created_at, image_url, headline, short_description, rating_avg, reviews_count, phone, email, website, instagram_url, categories(name)" as const;
 
 type HomeMapBusinessRow = {
   id: string;
   slug: string;
   name: string;
   city: string | null;
+  state_code: string | null;
   postal_code: string | null;
   latitude: number | null;
   longitude: number | null;
@@ -259,6 +274,7 @@ type HomeMapProfessionalRow = {
   slug: string;
   display_name: string;
   city: string | null;
+  state_code: string | null;
   latitude: number | null;
   longitude: number | null;
   private_address_line: string | null;
@@ -275,7 +291,15 @@ type HomeMapProfessionalRow = {
   categories: { name: string } | { name: string }[] | null;
 };
 
+/** Pin cards clamp the blurb to two lines — no need to ship whole descriptions. */
+function pinBlurb(value: string | null | undefined): string | null {
+  const text = (value ?? "").trim();
+  if (!text) return null;
+  return text.length > 120 ? `${text.slice(0, 120)}…` : text;
+}
+
 function mapBusinessHomePin(row: HomeMapBusinessRow): HomeMapPin | null {
+  const shortDescription = pinBlurb(row.short_description);
   const lat = row.latitude;
   const lng = row.longitude;
   if (typeof lat !== "number" || typeof lng !== "number") return null;
@@ -300,14 +324,15 @@ function mapBusinessHomePin(row: HomeMapBusinessRow): HomeMapPin | null {
     slug: row.slug,
     href: `/business/${row.slug}`,
     city,
+    stateCode: row.state_code?.trim() || null,
     postalCode,
     latitude: lat,
     longitude: lng,
     createdAt: row.created_at ?? null,
     imageUrl: row.image_url ?? null,
     categoryName,
-    shortDescription: row.short_description ?? null,
-    description: row.description ?? null,
+    shortDescription,
+    description: shortDescription ? null : pinBlurb(row.description),
     ratingAvg: Number(row.rating_avg ?? 0),
     reviewsCount: Number(row.reviews_count ?? 0),
     googleRating: row.google_rating == null ? null : Number(row.google_rating),
@@ -344,13 +369,14 @@ function mapProfessionalHomePin(row: HomeMapProfessionalRow): HomeMapPin | null 
     slug: row.slug,
     href: `/professional/${row.slug}`,
     city,
+    stateCode: row.state_code?.trim() || null,
     postalCode,
     latitude: lat,
     longitude: lng,
     createdAt: row.created_at ?? null,
     imageUrl: row.image_url ?? null,
     categoryName,
-    shortDescription: row.short_description || row.headline || null,
+    shortDescription: pinBlurb(row.short_description || row.headline),
     description: null,
     ratingAvg: Number(row.rating_avg ?? 0),
     reviewsCount: Number(row.reviews_count ?? 0),
@@ -370,20 +396,43 @@ function mapProfessionalHomePin(row: HomeMapProfessionalRow): HomeMapPin | null 
   };
 }
 
-async function fetchHomeMapPinsSlice(
+async function fetchBusinessMapRows(
   client: Client,
   limit: number,
+  offset: number,
   bounds?: RegionMapBounds,
-): Promise<HomeMapPin[]> {
-  const untyped = client as unknown as SupabaseClient;
-  let bizRequest = client
+): Promise<HomeMapBusinessRow[]> {
+  let request = client
     .from("businesses")
     .select(HOME_MAP_BUSINESS_SELECT)
     .eq("status", "approved")
     .not("address_line", "is", null)
     .not("latitude", "is", null)
     .not("longitude", "is", null);
-  let proRequest = untyped
+
+  if (bounds) {
+    request = request
+      .gte("latitude", bounds.south)
+      .lte("latitude", bounds.north)
+      .gte("longitude", bounds.west)
+      .lte("longitude", bounds.east);
+  }
+
+  const { data, error } = await request
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) throw error;
+  return (data ?? []) as HomeMapBusinessRow[];
+}
+
+async function fetchProfessionalMapRows(
+  client: Client,
+  limit: number,
+  offset: number,
+  bounds?: RegionMapBounds,
+): Promise<HomeMapProfessionalRow[]> {
+  const untyped = client as unknown as SupabaseClient;
+  let request = untyped
     .from("professionals")
     .select(HOME_MAP_PROFESSIONAL_SELECT)
     .eq("status", "approved")
@@ -392,36 +441,55 @@ async function fetchHomeMapPinsSlice(
     .not("longitude", "is", null);
 
   if (bounds) {
-    bizRequest = bizRequest
-      .gte("latitude", bounds.south)
-      .lte("latitude", bounds.north)
-      .gte("longitude", bounds.west)
-      .lte("longitude", bounds.east);
-    proRequest = proRequest
+    request = request
       .gte("latitude", bounds.south)
       .lte("latitude", bounds.north)
       .gte("longitude", bounds.west)
       .lte("longitude", bounds.east);
   }
 
-  const [bizRes, proRes] = await Promise.all([
-    bizRequest.order("created_at", { ascending: false }).limit(limit),
-    proRequest.order("created_at", { ascending: false }).limit(limit),
+  const { data, error } = await request
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) throw error;
+  return (data ?? []) as HomeMapProfessionalRow[];
+}
+
+async function fetchHomeMapPinsSlice(
+  client: Client,
+  limit: number,
+  bounds?: RegionMapBounds,
+): Promise<HomeMapPin[]> {
+  const [bizRows, proRows] = await Promise.all([
+    fetchBusinessMapRows(client, limit, 0, bounds),
+    fetchProfessionalMapRows(client, limit, 0, bounds),
   ]);
 
-  if (bizRes.error) throw bizRes.error;
-  if (proRes.error) throw proRes.error;
-
   const pins: HomeMapPin[] = [];
-  for (const row of (bizRes.data ?? []) as HomeMapBusinessRow[]) {
+  for (const row of bizRows) {
     const pin = mapBusinessHomePin(row);
     if (pin) pins.push(pin);
   }
-  for (const row of (proRes.data ?? []) as HomeMapProfessionalRow[]) {
+  for (const row of proRows) {
     const pin = mapProfessionalHomePin(row);
     if (pin) pins.push(pin);
   }
   return pins;
+}
+
+/** PostgREST caps a single response; page through it to cover the whole country. */
+async function fetchAllRows<Row>(
+  fetchPage: (limit: number, offset: number) => Promise<Row[]>,
+  pageSize: number,
+  maxRows: number,
+): Promise<Row[]> {
+  const rows: Row[] = [];
+  for (let offset = 0; offset < maxRows; offset += pageSize) {
+    const page = await fetchPage(Math.min(pageSize, maxRows - offset), offset);
+    rows.push(...page);
+    if (page.length < pageSize) break;
+  }
+  return rows;
 }
 
 export type GetHomeMapPinsOptions = {
@@ -470,6 +538,48 @@ export async function getHomeMapPins(
   return fetchHomeMapPinsSlice(client, options.limit ?? 800);
 }
 
+export type GetAllHomeMapPinsOptions = {
+  pageSize?: number;
+  maxPerKind?: number;
+};
+
+/**
+ * Every approved business/professional with coordinates, nationwide.
+ * Used by the USA overview map, where hub bounding boxes would hide
+ * everything outside the California launch markets.
+ */
+export async function getAllHomeMapPins(
+  client: Client,
+  options: GetAllHomeMapPinsOptions = {},
+): Promise<HomeMapPin[]> {
+  const pageSize = options.pageSize ?? 1000;
+  const maxPerKind = options.maxPerKind ?? 8000;
+
+  const [bizRows, proRows] = await Promise.all([
+    fetchAllRows(
+      (limit, offset) => fetchBusinessMapRows(client, limit, offset),
+      pageSize,
+      maxPerKind,
+    ),
+    fetchAllRows(
+      (limit, offset) => fetchProfessionalMapRows(client, limit, offset),
+      pageSize,
+      maxPerKind,
+    ),
+  ]);
+
+  const pins: HomeMapPin[] = [];
+  for (const row of bizRows) {
+    const pin = mapBusinessHomePin(row);
+    if (pin) pins.push(pin);
+  }
+  for (const row of proRows) {
+    const pin = mapProfessionalHomePin(row);
+    if (pin) pins.push(pin);
+  }
+  return pins;
+}
+
 /** @deprecated prefer getHomeMapPins */
 export async function getHomeMapBusinesses(
   client: Client,
@@ -486,7 +596,7 @@ export async function getHomeMapBusinesses(
     .limit(limit);
 
   if (error) throw error;
-  return ((data ?? []) as BusinessWithCategory[]).map(mapBusinessList);
+  return ((data ?? []) as unknown as BusinessWithCategory[]).map(mapBusinessList);
 }
 
 /** @deprecated use getHomeMapPins */
@@ -510,7 +620,7 @@ export async function getBusinessBySlug(
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapBusinessDetail(data as BusinessWithCategory) : null;
+  return data ? mapBusinessDetail(data as unknown as BusinessWithCategory) : null;
 }
 
 /** Owner/admin read — any status (RLS-gated). */
@@ -525,7 +635,7 @@ export async function getBusinessBySlugForOwner(
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapBusinessDetail(data as BusinessWithCategory) : null;
+  return data ? mapBusinessDetail(data as unknown as BusinessWithCategory) : null;
 }
 
 export async function getBusinessById(
@@ -540,7 +650,7 @@ export async function getBusinessById(
     .maybeSingle();
 
   if (error) throw error;
-  return data ? mapBusinessDetail(data as BusinessWithCategory) : null;
+  return data ? mapBusinessDetail(data as unknown as BusinessWithCategory) : null;
 }
 
 export async function searchBusinesses(
@@ -599,7 +709,7 @@ export async function searchBusinesses(
 
   if (error) throw error;
 
-  let results = ((data ?? []) as BusinessWithCategory[]).map(mapBusinessList);
+  let results = ((data ?? []) as unknown as BusinessWithCategory[]).map(mapBusinessList);
 
   // Match category name against free-text query (not covered by column `.or`).
   // Synonyms: "маникюр" also matches "manicure" / "nails".
@@ -625,20 +735,27 @@ export async function searchBusinesses(
 
   if (params.hubId) {
     const hubs = getRegionHubsByIds(parseHubIds(params.hubId));
-    results = results.filter((business) =>
-      hubs.some((hub) =>
-        locationFieldsMatchHub(
-          {
-            city: business.city,
-            region: business.region,
-            text: business.shortDescription,
-            latitude: business.latitude,
-            longitude: business.longitude,
-          },
-          hub,
+    const national = hubs.some((h) => h.id === "usa-overview");
+    if (!national) {
+      results = results.filter((business) =>
+        hubs.some((hub) =>
+          locationFieldsMatchHub(
+            {
+              city: business.city,
+              region: business.region,
+              text: business.shortDescription,
+              latitude: business.latitude,
+              longitude: business.longitude,
+              countyGeoid:
+                (business as { countyGeoid?: string | null }).countyGeoid ??
+                (business as { county_geoid?: string | null }).county_geoid ??
+                null,
+            },
+            hub,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 
   const nearLat = params.nearLat;
@@ -695,7 +812,7 @@ export async function getAllMappableBusinesses(
 
   if (error) throw error;
 
-  return ((data ?? []) as BusinessWithCategory[])
+  return ((data ?? []) as unknown as BusinessWithCategory[])
     .filter((row) => {
       const address = row.address_line?.trim() ?? "";
       if (!address) return false;

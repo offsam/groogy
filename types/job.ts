@@ -11,10 +11,13 @@ export type Job = {
   slug: string;
   title: string;
   description: string | null;
+  /** Source-language text; shown behind «Показать оригинал». */
+  descriptionOriginal?: string | null;
   city: string | null;
   stateCode: string | null;
   postalCode: string | null;
   status: JobStatus;
+  paymentMethods?: string[];
   businessId: string | null;
   businessSlug: string | null;
   businessName: string | null;
@@ -32,10 +35,12 @@ export type JobRow = {
   slug: string;
   title: string;
   description: string | null;
+  description_original?: string | null;
   city: string | null;
   state_code: string | null;
   postal_code: string | null;
   status: JobStatus;
+  payment_methods?: string[] | null;
   business_id: string | null;
   published_at: string | null;
   created_at: string | null;

@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import {
   BarChart3,
   BookMarked,
+  Briefcase,
   Building2,
+  CalendarDays,
   ClipboardList,
   Database,
+  FolderInput,
   Inbox,
+  LayoutGrid,
   MessageSquareWarning,
   Shield,
+  UserRound,
   Users,
 } from "lucide-react";
+import { DashboardAssignedToMe } from "@/components/admin/DashboardAssignedToMe";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import {
@@ -20,121 +27,77 @@ import {
 } from "@/lib/admin/queries";
 
 export const metadata: Metadata = {
-  title: "Панель управления — КРУГИ",
+  title: "Dashboard — Admin — КРУГИ",
 };
 
 export const dynamic = "force-dynamic";
 
-type LinkItem = {
+function formatCount(n: number): string {
+  return new Intl.NumberFormat("ru-RU").format(n);
+}
+
+type Kpi = {
+  label: string;
+  value: string;
+  href: string;
+  hint: string;
+};
+
+type NavCard = {
   href: string;
   title: string;
   description: string;
   icon: typeof Inbox;
-  countKey: keyof AdminDashboardCounts | null;
-  countLabel: string;
+  count?: number | null;
+  countLabel?: string;
 };
 
-const LINKS: LinkItem[] = [
+type QuickAction =
+  | { kind: "link"; href: string; label: string }
+  | { kind: "soon"; label: string };
+
+const QUICK_ACTIONS: QuickAction[] = [
+  { kind: "link", href: "/admin/review/inbox", label: "Open Inbox" },
   {
-    href: "/admin/analytics",
-    title: "Аналитика",
-    description: "Посещения сайта, пользователи, рост каталога",
-    icon: BarChart3,
-    countKey: "pageViewsToday",
-    countLabel: "просмотров сегодня",
+    kind: "link",
+    href: "/admin/review/inbox?view=high_confidence",
+    label: "High Confidence",
   },
   {
-    href: "/admin/claims",
-    title: "Заявки на владение",
-    description: "Одобрить или отклонить «Это мой бизнес»",
-    icon: Shield,
-    countKey: "claimsPending",
-    countLabel: "в очереди",
+    kind: "link",
+    href: "/admin/review/inbox?view=claims",
+    label: "Claims",
   },
   {
-    href: "/admin/import-review",
-    title: "Импорт → Требуют проверки",
-    description: "Очередь Telegram AI Reviewer перед публикацией",
-    icon: Inbox,
-    countKey: "importReviewPending",
-    countLabel: "в очереди",
+    kind: "link",
+    href: "/admin/review/inbox?view=events",
+    label: "Events",
   },
   {
-    href: "/admin/events",
-    title: "События — верификация",
-    description: "Эфиры и митапы из FB → публикация на /events",
-    icon: Inbox,
-    countKey: "eventsPending",
-    countLabel: "в очереди",
+    kind: "link",
+    href: "/admin/review/inbox?view=recommendations",
+    label: "Recommendations",
   },
   {
-    href: "/admin/recommendations",
-    title: "Рекомендации из комментариев",
-    description: "FB: «подскажите мастера» → контакты из комментариев",
-    icon: MessageSquareWarning,
-    countKey: "recommendationsPending",
-    countLabel: "в очереди",
+    kind: "link",
+    href: "/admin/catalog/businesses",
+    label: "Catalog · Businesses",
   },
   {
-    href: "/admin/directories",
-    title: "Справочники",
-    description: "Внешние Yellow Pages / каталоги — по источникам",
-    icon: BookMarked,
-    countKey: "yellowPagesPending",
-    countLabel: "карточек",
+    kind: "link",
+    href: "/admin/imports/telegram",
+    label: "Imports · Telegram",
   },
-  {
-    href: "/admin/telegram-groups",
-    title: "Telegram-группы",
-    description: "Sacramento / SF / San Diego и др. — отдельный блок на группу",
-    icon: MessageSquareWarning,
-    countKey: "telegramPending",
-    countLabel: "карточек",
-  },
-  {
-    href: "/admin/businesses",
-    title: "Бизнесы",
-    description: "Одобрить, редактировать, удалить, смержить дубликаты",
-    icon: Building2,
-    countKey: "businessesPending",
-    countLabel: "на проверке",
-  },
-  {
-    href: "/admin/listings",
-    title: "Объявления",
-    description: "Модерация marketplace и жалоб",
-    icon: ClipboardList,
-    countKey: "listingReportsPending",
-    countLabel: "жалоб",
-  },
-  {
-    href: "/admin/reviews",
-    title: "Отзывы",
-    description: "Очередь модерации и верификации",
-    icon: MessageSquareWarning,
-    countKey: "reviewsPending",
-    countLabel: "в очереди",
-  },
-  {
-    href: "/admin/users",
-    title: "Админы и пользователи",
-    description: "Назначить или снять администраторов",
-    icon: Users,
-    countKey: "usersTotal",
-    countLabel: "пользователей",
-  },
-  {
-    href: "/admin/master-data",
-    title: "Master Data",
-    description: "Категории, языки, география",
-    icon: Database,
-    countKey: null,
-    countLabel: "",
-  },
+  { kind: "soon", label: "Add business" },
+  { kind: "soon", label: "Settings" },
 ];
 
-function formatCount(n: number): string {
-  return new Intl.NumberFormat("ru-RU").format(n);
+function SectionTitle({ children }: { children: ReactNode }) {
+  return (
+    <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+      {children}
+    </h2>
+  );
 }
 
 export default async function AdminPage() {
@@ -170,78 +133,408 @@ export default async function AdminPage() {
   try {
     counts = await getAdminDashboardCounts(supabase);
   } catch {
-    // Panel still usable if some counts fail
+    // Dashboard still usable if some counts fail
   }
 
+  const pendingTasks =
+    counts.importReviewPending +
+    counts.claimsPending +
+    counts.eventsPending +
+    counts.recommendationsPending;
+
+  const kpis: Kpi[] = [
+    {
+      label: "Pending Tasks",
+      value: formatCount(pendingTasks),
+      href: "/admin/review/inbox",
+      hint: "Import + Claims + Events + Recommendations",
+    },
+    {
+      label: "Import Review",
+      value: formatCount(counts.importReviewPending),
+      href: "/admin/review/inbox",
+      hint: "Inbox · All",
+    },
+    {
+      label: "Claims",
+      value: formatCount(counts.claimsPending),
+      href: "/admin/review/inbox?view=claims",
+      hint: "Inbox · Claims",
+    },
+    {
+      label: "Events",
+      value: formatCount(counts.eventsPending),
+      href: "/admin/review/inbox?view=events",
+      hint: "Inbox · Events",
+    },
+    {
+      label: "Recommendations",
+      value: formatCount(counts.recommendationsPending),
+      href: "/admin/review/inbox?view=recommendations",
+      hint: "Inbox · Recommendations",
+    },
+    {
+      label: "Page views today",
+      value: formatCount(counts.pageViewsToday),
+      href: "/admin/analytics",
+      hint: "Analytics",
+    },
+  ];
+
+  const reviewCards: NavCard[] = [
+    {
+      href: "/admin/review/inbox",
+      title: "Inbox",
+      description: "Единая очередь модерации → Workspace",
+      icon: Inbox,
+      count: pendingTasks,
+      countLabel: "pending",
+    },
+    {
+      href: "/admin/review/views",
+      title: "Saved Views",
+      description: "Пресеты фильтров Inbox",
+      icon: LayoutGrid,
+    },
+  ];
+
+  const catalogCards: NavCard[] = [
+    {
+      href: "/admin/catalog/businesses",
+      title: "Businesses",
+      description: "Опубликованные бизнесы",
+      icon: Building2,
+      count: counts.businessesPending,
+      countLabel: "на проверке",
+    },
+    {
+      href: "/admin/catalog/professionals",
+      title: "Professionals",
+      description: "Каталог специалистов",
+      icon: UserRound,
+    },
+    {
+      href: "/admin/catalog/marketplace",
+      title: "Marketplace",
+      description: "Объявления marketplace",
+      icon: ClipboardList,
+      count: counts.listingReportsPending,
+      countLabel: "жалоб (KPI)",
+    },
+    {
+      href: "/admin/catalog/jobs",
+      title: "Jobs",
+      description: "Вакансии",
+      icon: Briefcase,
+    },
+    {
+      href: "/admin/catalog/events",
+      title: "Events",
+      description: "Опубликованные события",
+      icon: CalendarDays,
+    },
+  ];
+
+  const importCards: NavCard[] = [
+    {
+      href: "/admin/imports/telegram",
+      title: "Telegram",
+      description: "История и диагностика групп",
+      icon: MessageSquareWarning,
+      count: counts.telegramPending,
+      countLabel: "in review",
+    },
+    {
+      href: "/admin/imports/directories",
+      title: "Directories",
+      description: "Справочники / Yellow Pages",
+      icon: BookMarked,
+      count: counts.yellowPagesPending,
+      countLabel: "in review",
+    },
+    {
+      href: "/admin/imports/facebook",
+      title: "Facebook",
+      description: "История источников Facebook",
+      icon: FolderInput,
+    },
+    {
+      href: "/admin/imports/csv",
+      title: "CSV",
+      description: "CSV / one-off импорты",
+      icon: FolderInput,
+    },
+  ];
+
+  const otherCards: NavCard[] = [
+    {
+      href: "/admin/community/reviews",
+      title: "Community · Reviews",
+      description: "Модерация отзывов",
+      icon: MessageSquareWarning,
+      count: counts.reviewsPending,
+      countLabel: "в очереди",
+    },
+    {
+      href: "/admin/community/reports",
+      title: "Community · Reports",
+      description: "Жалобы и репорты",
+      icon: ClipboardList,
+    },
+    {
+      href: "/admin/users",
+      title: "Users",
+      description: "Пользователи и роли",
+      icon: Users,
+      count: counts.usersTotal,
+      countLabel: "пользователей",
+    },
+    {
+      href: "/admin/analytics",
+      title: "Analytics",
+      description: "Посещения и рост каталога",
+      icon: BarChart3,
+      count: counts.pageViewsToday,
+      countLabel: "сегодня",
+    },
+    {
+      href: "/admin/system/taxonomy",
+      title: "System · Taxonomy",
+      description: "Категории, языки, география",
+      icon: Database,
+    },
+  ];
+
   return (
-    <div className="space-y-8">
-      <div className="flex flex-wrap items-start justify-between gap-4">
+    <div className="space-y-5 sm:space-y-8">
+      <div className="flex flex-wrap items-start justify-between gap-3 sm:gap-4">
         <div>
-          <p className="inline-flex items-center gap-2 text-sm font-medium text-brand-blue-deep">
-            <Shield className="size-4" />
-            Панель управления
+          <p className="inline-flex items-center gap-2 text-xs font-medium text-brand-blue-deep sm:text-sm">
+            <Shield className="size-3.5 sm:size-4" />
+            Dashboard
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
-            Админ-панель
+          <h1 className="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:mt-2 sm:text-3xl">
+            Admin Panel
           </h1>
-          <p className="mt-2 max-w-2xl text-slate-600">
-            Публичный сайт остаётся как есть. Здесь — отдельные инструменты:
-            проверка карточек, объявления, отзывы, аналитика и управление
-            админами.
+          <p className="mt-1 max-w-2xl text-sm text-slate-600 sm:mt-2 sm:text-base">
+            Точка входа IA V2. Модерация — только через Inbox → Workspace.
+            Legacy-очереди с Dashboard недоступны.
           </p>
         </div>
         <Link
-          className="inline-flex rounded-lg border border-slate-900 bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800"
-          href="/admin/businesses/new"
+          className="inline-flex rounded-lg bg-brand-blue px-3 py-2 text-sm font-medium text-white hover:bg-brand-blue-deep sm:px-4 sm:py-2.5"
+          href="/admin/review/inbox"
         >
-          + Добавить бизнес
+          Open Inbox
         </Link>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {LINKS.map((item) => {
-          const Icon = item.icon;
-          const raw =
-            item.countKey != null ? counts[item.countKey] : null;
-          const count = typeof raw === "number" ? raw : null;
-          const hasQueue = count != null;
-          const busy = hasQueue && count > 0;
+      {/* KPI */}
+      <section className="space-y-2 sm:space-y-3">
+        <SectionTitle>KPI</SectionTitle>
+        <div className="grid grid-cols-2 gap-1.5 sm:gap-2 lg:grid-cols-3 xl:grid-cols-6">
+          {kpis.map((kpi) => (
+            <Link
+              key={kpi.label}
+              href={kpi.href}
+              className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 transition hover:border-slate-400 sm:rounded-xl sm:px-3 sm:py-3"
+            >
+              <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-[11px]">
+                {kpi.label}
+              </p>
+              <p className="mt-0.5 text-lg font-semibold tabular-nums text-slate-900 sm:mt-1 sm:text-2xl">
+                {kpi.value}
+              </p>
+              <p className="mt-0.5 truncate text-[10px] text-slate-400 sm:mt-1 sm:text-xs">
+                {kpi.hint}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
+      {/* Quick Actions */}
+      <section className="space-y-2 sm:space-y-3">
+        <SectionTitle>Quick Actions</SectionTitle>
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          {QUICK_ACTIONS.map((action) =>
+            action.kind === "link" ? (
+              <Link
+                key={action.label}
+                href={action.href}
+                className="rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-800 hover:bg-slate-50 sm:rounded-lg sm:px-3 sm:py-2 sm:text-sm"
+              >
+                {action.label}
+              </Link>
+            ) : (
+              <button
+                key={action.label}
+                type="button"
+                disabled
+                title="Coming Soon"
+                className="cursor-not-allowed rounded-md border border-dashed border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-medium text-slate-400 sm:rounded-lg sm:px-3 sm:py-2 sm:text-sm"
+              >
+                {action.label}
+                <span className="ml-1.5 text-[10px] uppercase tracking-wide">
+                  Soon
+                </span>
+              </button>
+            ),
+          )}
+        </div>
+      </section>
+
+      {/* Widgets */}
+      <section className="space-y-2 sm:space-y-3">
+        <SectionTitle>Widgets</SectionTitle>
+        <div className="grid grid-cols-2 gap-1.5 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Link
+            href="/admin/review/inbox"
+            className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 transition hover:border-slate-400 sm:rounded-xl sm:px-4 sm:py-3"
+          >
+            <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-[11px]">
+              Pending Tasks
+            </p>
+            <p className="mt-0.5 text-lg font-semibold tabular-nums text-slate-900 sm:mt-1 sm:text-2xl">
+              {formatCount(pendingTasks)}
+            </p>
+            <p className="mt-0.5 text-[10px] text-slate-500 sm:mt-1 sm:text-xs">
+              Working · → Inbox
+            </p>
+          </Link>
+
+          <Link
+            href="/admin/review/inbox?view=high_confidence"
+            className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 transition hover:border-slate-400 sm:rounded-xl sm:px-4 sm:py-3"
+          >
+            <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-[11px]">
+              High Priority / Confidence
+            </p>
+            <p className="mt-0.5 text-lg font-semibold text-slate-900 sm:mt-1 sm:text-2xl">
+              Open
+            </p>
+            <p className="mt-0.5 text-[10px] text-slate-500 sm:mt-1 sm:text-xs">
+              Working · Inbox view (счётчик в Inbox)
+            </p>
+          </Link>
+
+          <DashboardAssignedToMe userId={user.id} />
+
+          <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-2.5 py-2 sm:rounded-xl sm:px-4 sm:py-3">
+            <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-[11px]">
+              Recent Imports
+            </p>
+            <p className="mt-0.5 text-xs font-medium text-slate-700 sm:mt-1 sm:text-sm">
+              Placeholder
+            </p>
+            <p className="mt-0.5 text-[10px] text-slate-500 sm:mt-1 sm:text-xs">
+              Нет отдельного feed API · смотрите{" "}
+              <Link
+                href="/admin/imports"
+                className="text-brand-blue hover:underline"
+              >
+                Imports
+              </Link>
+            </p>
+          </div>
+
+          <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-2.5 py-2 sm:rounded-xl sm:px-4 sm:py-3">
+            <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-[11px]">
+              Recent Reviews
+            </p>
+            <p className="mt-0.5 text-xs font-medium text-slate-700 sm:mt-1 sm:text-sm">
+              Placeholder
+            </p>
+            <p className="mt-0.5 text-[10px] text-slate-500 sm:mt-1 sm:text-xs">
+              KPI отзывов:{" "}
+              <Link
+                href="/admin/community/reviews"
+                className="text-brand-blue hover:underline"
+              >
+                Community · Reviews
+              </Link>{" "}
+              ({formatCount(counts.reviewsPending)} pending)
+            </p>
+          </div>
+
+          <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-2.5 py-2 sm:rounded-xl sm:px-4 sm:py-3">
+            <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-[11px]">
+              System Health
+            </p>
+            <p className="mt-0.5 text-xs font-medium text-slate-700 sm:mt-1 sm:text-sm">
+              Coming Soon
+            </p>
+            <p className="mt-0.5 text-[10px] text-slate-500 sm:mt-1 sm:text-xs">
+              Нет health-сервиса · без нового backend
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation sections */}
+      <DashboardCardGrid title="Review Center" cards={reviewCards} />
+      <DashboardCardGrid title="Catalog" cards={catalogCards} />
+      <DashboardCardGrid title="Imports" cards={importCards} />
+      <DashboardCardGrid title="More" cards={otherCards} />
+    </div>
+  );
+}
+
+function DashboardCardGrid({
+  title,
+  cards,
+}: {
+  title: string;
+  cards: NavCard[];
+}) {
+  return (
+    <section className="space-y-2 sm:space-y-3">
+      <SectionTitle>{title}</SectionTitle>
+      <div className="grid grid-cols-2 gap-1.5 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {cards.map((item) => {
+          const Icon = item.icon;
+          const count = item.count;
+          const hasQueue = typeof count === "number";
+          const busy = hasQueue && count > 0;
           return (
             <Link
-              key={item.href}
-              className="group rounded-xl border border-slate-200 bg-white p-5 transition-colors hover:border-slate-400"
+              key={item.href + item.title}
+              className="group rounded-lg border border-slate-200 bg-white p-2.5 transition-colors hover:border-slate-400 sm:rounded-xl sm:p-5"
               href={item.href}
             >
-              <div className="flex items-start justify-between gap-3">
-                <span className="inline-flex rounded-lg bg-slate-100 p-2 text-slate-700 group-hover:bg-slate-900 group-hover:text-white">
-                  <Icon className="size-5" />
+              <div className="flex items-start justify-between gap-2 sm:gap-3">
+                <span className="inline-flex rounded-md bg-slate-100 p-1.5 text-slate-700 group-hover:bg-slate-900 group-hover:text-white sm:rounded-lg sm:p-2">
+                  <Icon className="size-3.5 sm:size-5" />
                 </span>
                 {hasQueue ? (
                   <span
-                    className={`rounded-md px-2.5 py-1 text-right ${
+                    className={`rounded px-1.5 py-0.5 text-right sm:rounded-md sm:px-2.5 sm:py-1 ${
                       busy
                         ? "bg-brand-orange/15 text-orange-900"
                         : "bg-slate-100 text-slate-500"
                     }`}
                   >
-                    <span className="block text-lg font-bold leading-none tabular-nums">
+                    <span className="block text-sm font-bold leading-none tabular-nums sm:text-lg">
                       {formatCount(count)}
                     </span>
-                    <span className="mt-0.5 block text-[10px] font-medium uppercase tracking-wide opacity-80">
-                      {item.countLabel}
-                    </span>
+                    {item.countLabel ? (
+                      <span className="mt-0.5 block text-[9px] font-medium uppercase tracking-wide opacity-80 sm:text-[10px]">
+                        {item.countLabel}
+                      </span>
+                    ) : null}
                   </span>
                 ) : null}
               </div>
-              <h2 className="mt-4 text-lg font-semibold text-slate-900">
+              <h3 className="mt-2 text-sm font-semibold text-slate-900 sm:mt-4 sm:text-lg">
                 {item.title}
-              </h2>
-              <p className="mt-1 text-sm text-slate-500">{item.description}</p>
+              </h3>
+              <p className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-slate-500 sm:mt-1 sm:text-sm sm:leading-normal">
+                {item.description}
+              </p>
             </Link>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

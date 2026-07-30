@@ -32,7 +32,7 @@ export function BusinessProfileTabs({
               key={tab.id}
               aria-current={isActive ? "page" : undefined}
               className={cn(
-                "shrink-0 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "inline-flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 isActive
                   ? "bg-slate-900 text-white"
                   : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
@@ -42,6 +42,16 @@ export function BusinessProfileTabs({
               style={isActive ? { color: "#ffffff" } : undefined}
             >
               {tab.label}
+              {typeof tab.count === "number" ? (
+                <span
+                  className={cn(
+                    "tabular-nums",
+                    isActive ? "text-white/70" : "text-slate-400",
+                  )}
+                >
+                  {tab.count}
+                </span>
+              ) : null}
             </Link>
           );
         })}

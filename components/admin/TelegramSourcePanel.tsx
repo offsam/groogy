@@ -1,187 +1,109 @@
 "use client";
 
-import { useState } from "react";
-import { BusinessCard } from "@/components/business/BusinessCard";
-import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
-import { ServiceCard } from "@/components/services/ServiceCard";
-import { RecommendationPreviewModal } from "@/components/admin/RecommendationPreviewModal";
-import {
-  filterRecommendations,
-  RecommendationQueueFilters,
-} from "@/components/admin/RecommendationQueueFilters";
+import Link from "next/link";
 import type { TelegramSourceMeta } from "@/lib/import-review/telegram-sources";
-import type { RecommendationEntityFilter } from "@/lib/import-review/recommendation-category";
-import { recommendationCategoryLabel } from "@/lib/import-review/recommendation-category";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
+import { recommendationCategoryLabel } from "@/lib/import-review/recommendation-category";
+import { yellowPagesEntityKind } from "@/lib/import-review/yellow-pages-preview";
+import { reviewWorkspacePath } from "@/lib/admin/review-workspace/task-id";
+import type { ImportSourceStats } from "@/lib/admin/imports/types";
 import {
-  yellowPagesEntityKind,
-  yellowPagesToBusinessPreview,
-  yellowPagesToProfessionalPreview,
-  yellowPagesToServicePreview,
-} from "@/lib/import-review/yellow-pages-preview";
+  formatImportPulledAt,
+  isRecentlyImported,
+} from "@/lib/admin/imports/recent-import";
+import { ImportSourceStatsCard } from "@/components/admin/ImportSourceStatsCard";
+import { telegramSourceInboxHref } from "@/lib/admin/imports/inbox-href";
 
 type Props = {
   source: TelegramSourceMeta;
   items: CommentRecommendation[];
   total: number;
-  status: string;
-  entity: RecommendationEntityFilter;
-  category: string;
+  stats: ImportSourceStats;
 };
-
-function formatPhone(phone: string): string {
-  const digits = phone.replace(/\D/g, "");
-  if (digits.length === 11 && digits.startsWith("1")) {
-    return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
-  }
-  return phone;
-}
-
-function buildHref(
-  source: TelegramSourceMeta,
-  next: {
-    status: string;
-    entity: RecommendationEntityFilter;
-    category: string;
-  },
-) {
-  const q = new URLSearchParams();
-  if (next.status && next.status !== "pending") q.set("status", next.status);
-  if (next.entity && next.entity !== "all") q.set("entity", next.entity);
-  if (next.category && next.category !== "all") q.set("category", next.category);
-  const qs = q.toString();
-  const path = `/admin/telegram-groups/${source.slug}`;
-  return qs ? `${path}?${qs}` : path;
-}
 
 export function TelegramSourcePanel({
   source,
   items,
   total,
-  status,
-  entity,
-  category,
+  stats,
 }: Props) {
-  const [previewId, setPreviewId] = useState<string | null>(null);
-  const filtered = filterRecommendations(items, { entity, category });
-  const previewItem = previewId
-    ? (filtered.find((i) => i.id === previewId) ??
-      items.find((i) => i.id === previewId) ??
-      null)
-    : null;
+  const inboxHref = telegramSourceInboxHref(source.id);
 
   return (
     <div className="space-y-5">
-      <RecommendationQueueFilters
-        category={category}
-        entity={entity}
-        hrefFor={({ entity: e, category: c }) =>
-          buildHref(source, { status, entity: e, category: c })
-        }
-        items={items}
-        status={status}
-        statusAllHref={buildHref(source, {
-          status: "all",
-          entity,
-          category,
-        })}
-        statusPendingHref={buildHref(source, {
-          status: "pending",
-          entity,
-          category,
-        })}
-      />
+      <ImportSourceStatsCard stats={stats} />
+
+      <div className="flex flex-wrap items-center gap-3">
+        <Link
+          href={inboxHref}
+          className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+        >
+          Open in Inbox
+        </Link>
+        <p className="text-sm text-slate-500">
+          Модерация только в Review Center. Здесь — история и диагностика
+          источника.
+        </p>
+      </div>
 
       <p className="text-sm text-slate-500">
-        Показано {filtered.length} из {total} · {source.regionHint}
+        Недавние записи: {items.length}
+        {total > items.length ? ` (из ${total})` : ""} · {source.regionHint}
       </p>
 
-      {filtered.length === 0 ? (
+      {items.length === 0 ? (
         <div className="rounded-xl border border-slate-200 bg-white px-4 py-10 text-center text-sm text-slate-500">
-          Нет карточек по выбранным фильтрам в {source.shortTitle}.
+          Нет импортированных записей для {source.shortTitle}.
         </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((item) => {
+        <ul className="divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          {items.map((item) => {
             const kind = yellowPagesEntityKind(item);
-            const phones = (item.phones || []).slice(0, 2);
-            const ig = (item.instagram || []).slice(0, 2);
+            const title =
+              item.display_name?.trim() ||
+              item.comment_texts?.[0]?.trim()?.slice(0, 80) ||
+              "Без названия";
+            const isNew = isRecentlyImported(item.created_at);
+            const pulledAt = formatImportPulledAt(item.created_at);
             return (
-              <div key={item.id} className="space-y-2">
-                <div className="flex flex-wrap items-center gap-2 px-0.5">
-                  <span className="rounded-md bg-brand-blue/10 px-2 py-0.5 text-[11px] font-semibold text-brand-blue">
-                    {kind === "professional"
-                      ? "профи"
-                      : kind === "service"
-                        ? "услуга"
-                        : "бизнес"}
-                  </span>
-                  <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                    {recommendationCategoryLabel(item.category_guess)}
-                  </span>
-                  {item.city ? (
-                    <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                      {item.city}
+              <li
+                key={item.id}
+                className="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div className="min-w-0 space-y-1">
+                  <p className="truncate font-medium text-slate-900">{title}</p>
+                  <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
+                    <span>
+                      {kind === "professional"
+                        ? "Professional"
+                        : kind === "service"
+                          ? "Service"
+                          : "Business"}
                     </span>
-                  ) : null}
-                  {item.mention_count > 1 ? (
-                    <span className="rounded-md bg-brand-green/15 px-2 py-0.5 text-[11px] font-medium text-emerald-800">
-                      ×{item.mention_count}
+                    <span>{recommendationCategoryLabel(item.category_guess)}</span>
+                    <span className="uppercase tracking-wide">{item.status}</span>
+                    {item.city ? <span>{item.city}</span> : null}
+                    {isNew ? (
+                      <span className="rounded bg-brand-green/15 px-1.5 py-0.5 font-medium text-brand-green">
+                        Новое
+                      </span>
+                    ) : null}
+                    <span title="Дата выгрузки в админку">
+                      Выгружено {pulledAt}
                     </span>
-                  ) : null}
+                  </p>
                 </div>
-
-                <button
-                  className="w-full rounded-2xl text-left transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
-                  type="button"
-                  onClick={() => setPreviewId(item.id)}
+                <Link
+                  href={reviewWorkspacePath("recommendation", item.id)}
+                  className="shrink-0 text-sm font-medium text-brand-blue hover:underline"
                 >
-                  {kind === "professional" ? (
-                    <ProfessionalCard
-                      professional={yellowPagesToProfessionalPreview(item)}
-                      preview
-                    />
-                  ) : kind === "service" ? (
-                    <ServiceCard
-                      listing={yellowPagesToServicePreview(item)}
-                      preview
-                    />
-                  ) : (
-                    <BusinessCard
-                      business={yellowPagesToBusinessPreview(item)}
-                      preview
-                    />
-                  )}
-                </button>
-
-                <div className="space-y-1 px-0.5 text-xs text-slate-600">
-                  {phones.map((p) => (
-                    <div key={p}>{formatPhone(p)}</div>
-                  ))}
-                  {ig.map((h) => (
-                    <div key={h}>@{h}</div>
-                  ))}
-                </div>
-
-                <button
-                  className="text-xs font-medium text-brand-blue hover:underline"
-                  type="button"
-                  onClick={() => setPreviewId(item.id)}
-                >
-                  Открыть · одобрить / отклонить →
-                </button>
-              </div>
+                  Open in Review Center →
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
-
-      {previewItem ? (
-        <RecommendationPreviewModal
-          item={previewItem}
-          onClose={() => setPreviewId(null)}
-        />
-      ) : null}
     </div>
   );
 }

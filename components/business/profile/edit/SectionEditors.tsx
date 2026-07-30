@@ -10,8 +10,14 @@ import {
   openingHoursRows,
 } from "@/lib/business/opening-hours";
 import { AddressFieldsEditor } from "@/components/business/AddressFieldsEditor";
+import { ContactLinksEditor } from "@/components/contacts/ContactLinksEditor";
 import { SectionEditDialog } from "@/components/business/profile/edit/SectionEditDialog";
 import { normalizeStructuredAddress } from "@/lib/address/normalize";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  serializeContactLinks,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 
 type BaseProps = {
   businessId: string;
@@ -220,6 +226,7 @@ export function EditContactsDialog({
   instagramUrl,
   yelpUrl,
   googleMapsUrl,
+  contactLinks = [],
 }: BaseProps & {
   phone: string | null;
   email: string | null;
@@ -228,6 +235,7 @@ export function EditContactsDialog({
   yelpUrl: string | null;
   googleMapsUrl: string | null;
   facebookUrl?: string | null;
+  contactLinks?: ContactLink[];
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -238,6 +246,7 @@ export function EditContactsDialog({
   const [igVal, setIgVal] = useState(instagramUrl ?? "");
   const [yelpVal, setYelpVal] = useState(yelpUrl ?? "");
   const [mapsVal, setMapsVal] = useState(googleMapsUrl ?? "");
+  const [links, setLinks] = useState<ContactLink[]>(contactLinks);
 
   return (
     <SectionEditDialog
@@ -259,6 +268,7 @@ export function EditContactsDialog({
               instagramUrl: igVal,
               yelpUrl: yelpVal,
               googleMapsUrl: mapsVal,
+              contactLinks: serializeContactLinks(links),
             },
           });
           if (!result.ok) {
@@ -289,6 +299,13 @@ export function EditContactsDialog({
         <Field label="Google Maps URL">
           <input className={inputClass} value={mapsVal} onChange={(e) => setMapsVal(e.target.value)} />
         </Field>
+        {CONTACT_LINKS_COLUMN_READY ? (
+          <ContactLinksEditor
+            exclude={["website", "instagram", "yelp", "google_maps"]}
+            value={links}
+            onChange={setLinks}
+          />
+        ) : null}
       </div>
     </SectionEditDialog>
   );

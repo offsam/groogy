@@ -1,15 +1,23 @@
 import {
   isLatLngInHubBounds,
+  isUsaOverviewHub,
   locationTextMatchesHub,
   type RegionHub,
 } from "@/lib/regions/hubs";
 import type { BusinessLocation } from "@/types/business-location";
 
-/** Does this location belong to the active hub (coords or city aliases)? */
+/** Does this location belong to the active hub (county first, then coords/text)? */
 export function businessLocationMatchesHub(
-  location: BusinessLocation,
+  location: BusinessLocation & { countyGeoid?: string | null },
   hub: RegionHub,
 ): boolean {
+  // National filter = every office is in scope.
+  if (isUsaOverviewHub(hub)) return true;
+
+  const county = location.countyGeoid ?? null;
+  if (county && hub.countyGeoids.length > 0) {
+    return hub.countyGeoids.includes(county);
+  }
   if (
     typeof location.latitude === "number" &&
     Number.isFinite(location.latitude) &&
@@ -34,9 +42,11 @@ export function businessLocationMatchesHub(
 }
 
 /**
- * Sidebar / map: only locations in the visitor's hub filter.
- * Single-location businesses always show that one location.
- * Multi-location with no hub match → empty (office cities are named in the description).
+ * Sidebar / map: locations that belong to the visitor's hub filter.
+ * - One location → always show it.
+ * - США (usa-overview) or no hub → show every office.
+ * - Specific metro → only offices in that hub; empty when none match
+ *   (office cities stay named in the description via formatOfficesDescriptionLine).
  */
 export function pickBusinessLocationsForHubs(
   locations: BusinessLocation[],
@@ -44,15 +54,13 @@ export function pickBusinessLocationsForHubs(
 ): BusinessLocation[] {
   if (locations.length === 0) return [];
   if (locations.length === 1) return locations;
-  if (hubs.length === 0) {
-    const primary = locations.find((l) => l.isPrimary);
-    return primary ? [primary] : locations.slice(0, 1);
+  if (hubs.length === 0 || hubs.some((hub) => isUsaOverviewHub(hub))) {
+    return locations;
   }
 
-  const matched = locations.filter((loc) =>
+  return locations.filter((loc) =>
     hubs.some((hub) => businessLocationMatchesHub(loc, hub)),
   );
-  return matched;
 }
 
 export function formatNetworkCitiesLine(

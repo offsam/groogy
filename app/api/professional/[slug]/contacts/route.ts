@@ -1,10 +1,16 @@
 import { NextResponse } from "next/server";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { assertAiSearchRequestAllowed } from "@/lib/security/ai-search-guard";
 import {
   clientIpFromRequest,
   consumeRateLimit,
 } from "@/lib/security/rate-limit";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  parseContactLinks,
+} from "@/lib/contacts/channels";
 
 export const runtime = "nodejs";
 
@@ -81,12 +87,26 @@ export async function GET(request: Request, context: RouteContext) {
       return NextResponse.json({ error: "not_found" }, { status: 404 });
     }
 
+    // Extra channels are not part of the contacts RPC — read them separately.
+    const linkRow = CONTACT_LINKS_COLUMN_READY
+      ? (
+          await (createServiceRoleClient() as unknown as SupabaseClient)
+            .from("professionals")
+            .select("contact_links")
+            .eq("slug", slug.trim())
+            .maybeSingle()
+        ).data
+      : null;
+
     return NextResponse.json({
       phone: row.phone,
       email: row.email,
       website: row.website,
       instagramUrl: row.instagram_url,
       telegramUrl: row.telegram_url ?? null,
+      contactLinks: parseContactLinks(
+        (linkRow as { contact_links?: unknown } | null)?.contact_links,
+      ),
     });
   } catch {
     return NextResponse.json({ error: "contacts_failed" }, { status: 500 });

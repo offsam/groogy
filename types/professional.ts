@@ -6,6 +6,8 @@ export type ProfessionalStatus =
   | "archived"
   | "deferred";
 
+import type { ContactChannelId, ContactLink } from "@/lib/contacts/channels";
+
 export type ProfessionalPresenceFlags = {
   hasPhone: boolean;
   hasEmail: boolean;
@@ -13,9 +15,17 @@ export type ProfessionalPresenceFlags = {
   hasInstagram: boolean;
   hasTelegram: boolean;
   hasSource: boolean;
+  hasBooking?: boolean;
+  /** Channels stored in `contact_links`. */
+  extraChannels?: ContactChannelId[];
 };
 
-export type ProfessionalSourceKind = "telegram" | "facebook" | "platform" | null;
+export type ProfessionalSourceKind =
+  | "telegram"
+  | "facebook"
+  | "platform"
+  | "directory"
+  | null;
 
 /** Public / list payload — contacts null until contacts API. */
 export type Professional = {
@@ -25,6 +35,8 @@ export type Professional = {
   headline: string | null;
   shortDescription: string | null;
   description: string | null;
+  /** Source-language about text; shown behind «Показать оригинал». */
+  descriptionOriginal?: string | null;
   /** Listing-card pitch (synthesized / LLM) — prefer over raw post. */
   cardSummary?: string | null;
   imageUrl: string | null;
@@ -38,8 +50,12 @@ export type Professional = {
   region: string | null;
   stateCode: string | null;
   postalCode: string | null;
+  /** Workplace / clinic street — shown publicly when set (directory imports). */
+  addressLine?: string | null;
   latitude: number | null;
   longitude: number | null;
+  /** street → exact pin; city / county / approx → area map only. */
+  locationPrecision?: "street" | "city" | "county" | "approx" | null;
   serviceAreaText: string | null;
   publishedAt: string | null;
   createdAt: string | null;
@@ -50,10 +66,29 @@ export type Professional = {
   phone: string | null;
   email: string | null;
   website: string | null;
+  /** Public Book / Записаться CTA (GlossGenius, Calendly, …). */
+  bookingUrl?: string | null;
+  /** Accepted payment methods discovered from public copy/resources. */
+  paymentMethods?: string[];
   instagramUrl: string | null;
   telegramUrl: string | null;
+  /** Channels without a dedicated column — gated like other contacts. */
+  contactLinks: ContactLink[];
   sourceUrl: string | null;
   sourceKind: ProfessionalSourceKind;
+  /** Company they work at (not necessarily own). */
+  employerName?: string | null;
+  employerRole?: string | null;
+  employerBusinessId?: string | null;
+  employerBusinessSlug?: string | null;
+  employerBusinessName?: string | null;
+  employerBusinessImageUrl?: string | null;
+  employerBusinessCity?: string | null;
+  employerBusinessPostalCode?: string | null;
+  employerBusinessStateCode?: string | null;
+  employerBusinessAddressLine?: string | null;
+  employerBusinessGoogleRating?: number | null;
+  employerBusinessGoogleReviewsCount?: number | null;
   /** List-card preview — filled when batch-loaded with services. */
   serviceCount?: number;
   servicePreviewTitles?: string[];
@@ -72,6 +107,8 @@ export type ProfessionalService = {
   priceMax: number | null;
   currency: string;
   priceUnit: string | null;
+  /** Typical appointment length in minutes, when known from booking site. */
+  durationMinutes: number | null;
   sortOrder: number;
 };
 
@@ -82,6 +119,7 @@ export type ProfessionalPublicRow = {
   headline: string | null;
   short_description: string | null;
   description: string | null;
+  description_original?: string | null;
   card_summary?: string | null;
   image_url: string | null;
   status: ProfessionalStatus;
@@ -94,8 +132,11 @@ export type ProfessionalPublicRow = {
   region: string | null;
   state_code: string | null;
   postal_code?: string | null;
+  /** Public workplace street when exposed via professionals_public.address_line. */
+  address_line?: string | null;
   latitude: number | null;
   longitude: number | null;
+  location_precision?: "street" | "city" | "county" | "approx" | null;
   service_area_text: string | null;
   published_at: string | null;
   created_at: string | null;
@@ -108,7 +149,23 @@ export type ProfessionalPublicRow = {
   has_instagram: boolean;
   has_telegram?: boolean;
   has_source?: boolean;
+  has_booking?: boolean;
+  booking_url?: string | null;
+  contact_links?: unknown;
+  payment_methods?: string[] | null;
   source_kind?: ProfessionalSourceKind;
+  employer_name?: string | null;
+  employer_role?: string | null;
+  employer_business_id?: string | null;
+  employer_business_slug?: string | null;
+  employer_business_name?: string | null;
+  employer_business_image_url?: string | null;
+  employer_business_city?: string | null;
+  employer_business_postal_code?: string | null;
+  employer_business_state_code?: string | null;
+  employer_business_address_line?: string | null;
+  employer_business_google_rating?: number | null;
+  employer_business_google_reviews_count?: number | null;
   third_party_mention_count?: number | null;
   self_ad_mention_count?: number | null;
 };
@@ -118,9 +175,11 @@ export type ProfessionalRow = ProfessionalPublicRow & {
   phone: string | null;
   email: string | null;
   website: string | null;
+  booking_url?: string | null;
   instagram_url: string | null;
   telegram_url?: string | null;
   visibility: string;
   source_type?: string | null;
   source_url?: string | null;
+  private_address_line?: string | null;
 };

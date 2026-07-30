@@ -1,107 +1,136 @@
-"""Map Telegram/Facebook group names → city/region when the post has no location."""
+"""Map Telegram/Facebook group names → city/region when the post has no location.
+
+Group matching: source_location_groups (USA catalog).
+Text mentions: Orange County, Irvine, Denver, …
+"""
 
 from __future__ import annotations
 
 import re
 from typing import Any
 
-# (pattern, city, region) — city OR region filled; never invent street addresses.
-_GROUP_RULES: list[tuple[re.Pattern[str], str | None, str | None]] = [
+from resolve_entity_location import merge_city_with_group as _merge_base
+from source_location_groups import location_from_group
+
+_TEXT_PLACE_RULES: list[tuple[re.Pattern[str], str | None, str | None, str | None]] = [
+    (
+        re.compile(r"\b(orange\s*county|оранж(?:\s*каунти)?|\boc\b)\b", re.I),
+        None,
+        "Orange County",
+        "CA",
+    ),
+    (
+        re.compile(r"\b(sacramento|сакраменто)\b", re.I),
+        "Sacramento",
+        "Sacramento County",
+        "CA",
+    ),
+    (
+        re.compile(r"\b(san\s*diego|сан[-\s]?диего)\b", re.I),
+        "San Diego",
+        "San Diego County",
+        "CA",
+    ),
     (
         re.compile(
-            r"la[_\s-]?orange\s*county|orange\s*county|orangecounty|\boc\b|fun\s*for\s*mom",
+            r"\b(san\s*francisco|\bsf\b|bay\s*area|сан[-\s]?франциско)\b",
+            re.I,
+        ),
+        "San Francisco",
+        "San Francisco County",
+        "CA",
+    ),
+    (
+        re.compile(r"\b(los\s*angeles|\bla\b|лос[-\s]?анджелес\w*)\b", re.I),
+        "Los Angeles",
+        "Los Angeles County",
+        "CA",
+    ),
+    (re.compile(r"\b(denver|денвер)\b", re.I), "Denver", "Denver County", "CO"),
+    (re.compile(r"\b(seattle|сиэтл|сиэттл)\b", re.I), "Seattle", "King County", "WA"),
+    (
+        re.compile(
+            r"\b(irvine|айрвин|anaheim|santa\s*ana|tustin|"
+            r"costa\s*mesa|newport\s*beach|huntington\s*beach|"
+            r"fullerton|buena\s*park|garden\s*grove|orange)\b",
             re.I,
         ),
         None,
         "Orange County",
-    ),
-    (
-        re.compile(r"los\s*angeles|\bla\b|russian\.?la|full_group|glendale", re.I),
-        "Los Angeles",
-        "Los Angeles County",
-    ),
-    (
-        re.compile(r"sacramento|russian\.?sacramento|сакраменто", re.I),
-        "Sacramento",
-        "Sacramento County",
-    ),
-    (
-        re.compile(r"san\s*diego|sandiego", re.I),
-        "San Diego",
-        "San Diego County",
-    ),
-    (
-        re.compile(r"san\s*francisco|\bsf\b|bay\s*area|russiansf|сан[\s-]?франциско", re.I),
-        "San Francisco",
-        "San Francisco County",
+        "CA",
     ),
 ]
 
-_COUNTY_AS_CITY = re.compile(
-    r"^(orange\s+county|oc|оранж\s*каунти|los\s+angeles\s+county|san\s+diego\s+county)$",
-    re.I,
-)
+_OC_CITY_CANON = {
+    "irvine": "Irvine",
+    "айрвин": "Irvine",
+    "anaheim": "Anaheim",
+    "santa ana": "Santa Ana",
+    "tustin": "Tustin",
+    "costa mesa": "Costa Mesa",
+    "newport beach": "Newport Beach",
+    "huntington beach": "Huntington Beach",
+    "fullerton": "Fullerton",
+    "buena park": "Buena Park",
+    "garden grove": "Garden Grove",
+    "orange": "Orange",
+}
 
 
-def location_from_group(*parts: str | None) -> dict[str, str | None] | None:
-    blob = " ".join(p for p in parts if p).strip()
+def location_from_text(text: str | None) -> dict[str, str | None] | None:
+    blob = (text or "").strip()
     if not blob:
         return None
-    for pattern, city, region in _GROUP_RULES:
-        if pattern.search(blob):
-            return {"city": city, "region": region, "state": "CA"}
+    sample = blob[:2500]
+    for pattern, city, region, state in _TEXT_PLACE_RULES:
+        m = pattern.search(sample)
+        if not m:
+            continue
+        raw = re.sub(r"\s+", " ", m.group(0)).strip().lower()
+        if region == "Orange County" and city is None:
+            canon = _OC_CITY_CANON.get(raw)
+            if canon:
+                return {"city": canon, "region": region, "state": state}
+            return {"city": None, "region": "Orange County", "state": state}
+        return {"city": city, "region": region, "state": state}
+
+    try:
+        import sys
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[2]
+        fb = str(root / "scripts" / "facebook-collector")
+        if fb not in sys.path:
+            sys.path.insert(0, fb)
+        from geo_price_enrichment import extract_city_from_text  # type: ignore
+
+        hit = extract_city_from_text(sample)
+        if hit:
+            if hit.lower() == "orange county":
+                return {"city": None, "region": "Orange County", "state": "CA"}
+            return {"city": hit, "region": None, "state": "CA"}
+    except Exception:  # noqa: BLE001
+        pass
     return None
 
 
-def merge_city_with_group(
-    *,
-    city: str | None,
-    state: str | None = None,
-    source_group: str | None = None,
-    source: str | None = None,
-    chat_title: str | None = None,
-    address_line: str | None = None,
-) -> dict[str, Any]:
-    """Fill missing city/region from the source group.
+def merge_city_with_group(**kwargs: Any) -> dict[str, Any]:
+    """Fill city/region/county from text mention, then source group."""
+    text = kwargs.get("text")
+    base = _merge_base(**kwargs)
+    from_text = location_from_text(text) if text else None
+    if from_text:
+        if not base.get("city") and from_text.get("city"):
+            base["city"] = from_text["city"]
+        if not base.get("region") and from_text.get("region"):
+            base["region"] = from_text["region"]
+        if not base.get("state") and from_text.get("state"):
+            base["state"] = from_text["state"]
+    return base
 
-    When the post has a street but no city, the group metro wins
-    (Russian.Sacramento → Sacramento) so geocoders don't pick Buena Park.
-    Never invents a street address.
-    """
-    city_out = (city or "").strip() or None
-    state_out = (state or "").strip() or None
-    region_out: str | None = None
 
-    # County typed as city → region
-    if city_out and _COUNTY_AS_CITY.match(city_out):
-        region_out = (
-            "Orange County"
-            if re.match(r"^(oc|orange|оранж)", city_out, re.I)
-            else city_out
-        )
-        city_out = None
-
-    from_group = location_from_group(source_group, source, chat_title)
-
-    street_only = bool((address_line or "").strip()) and not city_out
-    if (not city_out and not region_out) or street_only:
-        if from_group:
-            if not city_out:
-                city_out = from_group.get("city")
-            if not region_out:
-                region_out = from_group.get("region")
-            if not state_out:
-                state_out = from_group.get("state")
-    elif not region_out and from_group and from_group.get("region"):
-        region_out = from_group.get("region")
-        if not state_out:
-            state_out = from_group.get("state")
-
-    if region_out and not state_out:
-        state_out = region_out
-
-    return {
-        "city": city_out,
-        "state": region_out or state_out,
-        "region": region_out,
-    }
+__all__ = [
+    "location_from_group",
+    "location_from_text",
+    "merge_city_with_group",
+]

@@ -34,6 +34,13 @@ IG_URL_RE = re.compile(
 FB_URL_RE = re.compile(
     r"(?:https?://)?(?:www\.)?(?:facebook|fb)\.com/[A-Za-z0-9._/\-?=]+", re.I
 )
+YELP_URL_RE = re.compile(
+    r"(?:https?://)?(?:www\.)?yelp\.com/[A-Za-z0-9._/\-?=]+", re.I
+)
+TIKTOK_URL_RE = re.compile(
+    r"(?:https?://)?(?:www\.)?(?:tiktok\.com|vm\.tiktok\.com)/[A-Za-z0-9._/@\-?=]+",
+    re.I,
+)
 HOURS_HINT_RE = re.compile(
     r"(hours|открыт|работаем|пн|вт|ср|чт|пт|сб|вс|mon|tue|wed|thu|fri|sat|sun|"
     r"\d{1,2}:\d{2}\s*[-–—]\s*\d{1,2}:\d{2})",
@@ -66,6 +73,9 @@ ADDRESS_LINE_RE = re.compile(
 )
 CONTACT_PATHS = (
     "",
+    "/payment",
+    "/payments",
+    "/tickets",
     "/contact",
     "/contact-us",
     "/contactus",
@@ -75,7 +85,57 @@ CONTACT_PATHS = (
     "/location",
     "/locations",
     "/visit",
+    "/services",
+    "/our-services",
+    "/menu",
+    "/pricing",
+    "/prices",
+    "/book",
+    "/booking",
+    "/gallery",
+    "/portfolio",
+    "/team",
+    "/faq",
 )
+
+# Same-host paths we never enqueue during deep crawl.
+_SKIP_INTERNAL_PATH_RE = re.compile(
+    r"(?i)/(?:wp-admin|wp-login|cart|checkout|account|login|signup|cdn-cgi|"
+    r"privacy|terms|cookie|wp-json|feed|xmlrpc)(?:/|$)"
+    r"|\.(?:pdf|jpe?g|png|gif|webp|svg|css|js|zip|mp4|ico)(?:\?|$)"
+)
+
+_PRIORITY_PATH_RE = re.compile(
+    r"(?i)/(?:service|services|about|contact|book|booking|price|pricing|"
+    r"payment|payments|ticket|tickets|menu|gallery|portfolio|team|faq|hours|location)",
+)
+
+PAYMENT_METHOD_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (re.compile(r"\bpay\s*pal\b|\bpaypal\b|пейпал", re.I), "PayPal"),
+    (re.compile(r"\bvenmo\b|\bveneno\b|в[еэ]нмо|вемо", re.I), "Venmo"),
+    (re.compile(r"\bzell(?:e)?\b|з[еэ]лл", re.I), "Zelle"),
+    (re.compile(r"\bcash\s*(?:app|up)\b|\bcashapp\b", re.I), "Cash App"),
+    (re.compile(r"\bapple\s*pay\b", re.I), "Apple Pay"),
+    (re.compile(r"\bgoogle\s*pay\b|\bg\s*pay\b", re.I), "Google Pay"),
+]
+PAYMENT_CONTEXT_RE = re.compile(
+    r"\b(?:payment|payments|pay\s+with|accepted|checkout|оплат\w*|способ\w*\s+оплат\w*)\b",
+    re.I,
+)
+PAYMENT_CONTEXT_METHOD_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"\b(?:credit\s*)?cards?\b|\bvisa\b|\bmastercard\b|карт(?:а|ой|ы|у)", re.I),
+        "Карта",
+    ),
+        (
+            re.compile(
+                r"\bcash\b(?!\s*(?:app|up))|наличн\w*|\bк[еэ]ш\b",
+                re.I,
+            ),
+            "Cash",
+        ),
+    (re.compile(r"\bcheck\b|\bcheque\b|\bчек\b", re.I), "Check"),
+]
 
 
 class _HomeParser(HTMLParser):
@@ -234,6 +294,29 @@ def _visible_text(html: str) -> str:
     return text
 
 
+def extract_payment_methods(text_or_html: str) -> list[str]:
+    """Extract canonical payment methods from visible resource content."""
+    text = _visible_text(text_or_html) if "<" in text_or_html else text_or_html
+    compact = re.sub(r"\s+", " ", text)
+    found: list[str] = []
+    for pattern, label in PAYMENT_METHOD_PATTERNS:
+        if pattern.search(compact):
+            found.append(label)
+
+    # Generic Cash/Card/Check need nearby payment language to avoid treating
+    # unrelated page copy as an accepted payment method.
+    context_chunks = [
+        compact[max(0, m.start() - 120) : min(len(compact), m.end() + 240)]
+        for m in PAYMENT_CONTEXT_RE.finditer(compact)
+    ]
+    context = "\n".join(context_chunks)
+    if context:
+        for pattern, label in PAYMENT_CONTEXT_METHOD_PATTERNS:
+            if pattern.search(context) and label not in found:
+                found.append(label)
+    return found
+
+
 _DAY_ONLY_RE = re.compile(
     r"^(mon|monday|tue|tuesday|wed|wednesday|thu|thursday|fri|friday|sat|saturday|sun|sunday)\.?:?$",
     re.I,
@@ -350,33 +433,44 @@ def extract_website_profile(url: str) -> dict[str, Any]:
     address: str | None = None
     hours: str | None = None
     social: list[str] = []
+    service_offers: list[dict[str, Any]] = []
 
-    # JSON-LD LocalBusiness / Organization
-    for block in parser._json_ld:
-        if not isinstance(block, dict):
-            continue
-        types = block.get("@type")
+    def _walk_json_ld(node: Any) -> None:
+        if isinstance(node, list):
+            for it in node:
+                _walk_json_ld(it)
+            return
+        if not isinstance(node, dict):
+            return
+        # Always mine Service/Offer catalogs (ItemList on booking sites, etc.)
+        service_offers.extend(_service_offers_from_json_ld(node))
+        if isinstance(node.get("@graph"), list):
+            for it in node["@graph"]:
+                _walk_json_ld(it)
+
+        types = node.get("@type")
         type_l = (
             " ".join(types) if isinstance(types, list) else str(types or "")
         ).lower()
+        nonlocal name, description, address, hours
         if not any(
             t in type_l
             for t in ("localbusiness", "organization", "store", "professional")
-        ) and not block.get("telephone"):
+        ) and not node.get("telephone"):
             # still allow generic Organization-like
-            if not block.get("name") and not block.get("email"):
-                continue
-        if not name and block.get("name"):
-            name = str(block["name"]).strip()
-        if not description and block.get("description"):
-            description = str(block["description"]).strip()
-        tel = block.get("telephone") or block.get("phone")
+            if not node.get("name") and not node.get("email"):
+                return
+        if not name and node.get("name"):
+            name = str(node["name"]).strip()
+        if not description and node.get("description"):
+            description = str(node["description"]).strip()
+        tel = node.get("telephone") or node.get("phone")
         if tel:
             phones.extend(_as_list(tel))
-        em = block.get("email")
+        em = node.get("email")
         if em:
             emails.extend(_as_list(em))
-        addr = block.get("address")
+        addr = node.get("address")
         if isinstance(addr, dict):
             parts = [
                 addr.get("streetAddress"),
@@ -389,12 +483,15 @@ def extract_website_profile(url: str) -> dict[str, Any]:
                 address = joined
         elif isinstance(addr, str) and addr.strip():
             address = addr.strip()
-        oh = block.get("openingHours") or block.get("openingHoursSpecification")
+        oh = node.get("openingHours") or node.get("openingHoursSpecification")
         if isinstance(oh, str):
             hours = oh
         elif isinstance(oh, list) and oh:
             hours = "; ".join(str(x) for x in oh[:8])
 
+    # JSON-LD LocalBusiness / Organization + any Service ItemLists
+    for block in parser._json_ld:
+        _walk_json_ld(block)
     # Regex fallbacks on visible HTML (mailto / tel / plain)
     for m in re.finditer(r"mailto:([^\"'\s>]+)", html, re.I):
         emails.append(urllib.parse.unquote(m.group(1)))
@@ -427,11 +524,20 @@ def extract_website_profile(url: str) -> dict[str, Any]:
             social.append(abs_u.split("?")[0])
         if FB_URL_RE.search(abs_u) and "/groups/" not in abs_u.lower():
             social.append(abs_u.split("?")[0])
+        if YELP_URL_RE.search(abs_u):
+            social.append(abs_u.split("?")[0])
+        if TIKTOK_URL_RE.search(abs_u):
+            social.append(abs_u.split("?")[0])
 
     # Hours snippet from meta
     for key, val in parser.meta.items():
         if "hour" in key and val and not hours:
             hours = val
+
+    internal = _same_host_internal_links(norm, parser.links)
+    related = _related_external_websites(norm, parser.links)
+    offers = _merge_service_offers(service_offers)[:20]
+    payment_methods = extract_payment_methods(html)
 
     out.update(
         {
@@ -443,55 +549,294 @@ def extract_website_profile(url: str) -> dict[str, Any]:
             "address": address,
             "hours": hours,
             "logo": logo,
-            "social_links": _uniq(social)[:10],
+            "social_links": _uniq(social)[:15],
+            "services": [o["title"] for o in offers if o.get("title")],
+            "service_offers": offers,
+            "payment_methods": payment_methods,
+            "internal_links": internal[:40],
+            "related_websites": related[:15],
         }
     )
     return out
 
 
-def extract_website_profile_deep(
-    url: str, *, max_pages: int = 4
-) -> dict[str, Any]:
-    """Fetch the homepage plus a few contact-ish subpages until hours,
-    address, and phone are all found (or pages run out).
+def _same_host_internal_links(base: str, hrefs: list[str]) -> list[str]:
+    """Same-host HTML pages worth enqueueing for deep crawl (BFS)."""
+    parsed_base = urllib.parse.urlparse(base)
+    host = (parsed_base.hostname or "").lower().removeprefix("www.")
+    if not host:
+        return []
+    out: list[str] = []
+    seen: set[str] = set()
+    for href in hrefs:
+        abs_u = _abs(base, href)
+        if not abs_u:
+            continue
+        abs_u = abs_u.split("#")[0].split("?")[0]
+        try:
+            p = urllib.parse.urlparse(abs_u)
+        except Exception:
+            continue
+        h = (p.hostname or "").lower().removeprefix("www.")
+        if h != host:
+            continue
+        path = p.path or "/"
+        if _SKIP_INTERNAL_PATH_RE.search(path):
+            continue
+        key = abs_u.rstrip("/").lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(abs_u)
+    # Prefer contact/services-ish paths first
+    out.sort(key=lambda u: (0 if _PRIORITY_PATH_RE.search(u) else 1, u))
+    return out
 
-    Hours/address are frequently on a dedicated /contact or /hours page,
-    not the homepage — the single-page extract_website_profile() never had
-    a chance to find them there. This tries CONTACT_PATHS in order and
-    merges into the homepage result via merge_website_profiles(), stopping
-    early once nothing is left to find.
+
+_RELATED_SITE_SKIP_HOSTS = (
+    "instagram.com",
+    "instagr.am",
+    "facebook.com",
+    "fb.com",
+    "fb.me",
+    "tiktok.com",
+    "youtube.com",
+    "youtu.be",
+    "twitter.com",
+    "x.com",
+    "linkedin.com",
+    "pinterest.com",
+    "pin.it",
+    "wa.me",
+    "whatsapp.com",
+    "t.me",
+    "telegram.me",
+    "telegram.org",
+    "schema.org",
+    "w3.org",
+    "google.com",
+    "googleapis.com",
+    "gstatic.com",
+    "googletagmanager.com",
+    "cookiebot.com",
+    "cdn.",
+    "static.",
+    "fonts.",
+    "glossgenius.com",  # booking chrome — follow artist subdomain separately
+    "squareup.com",
+    "square.site",
+    "calendly.com",
+    "booksy.com",
+    "vagaro.com",
+    "gumroad.com",
+)
+
+
+def _related_external_websites(base: str, hrefs: list[str]) -> list[str]:
+    """Other sites linked from the page (e.g. Framer from GlossGenius)."""
+    parsed_base = urllib.parse.urlparse(base)
+    base_host = (parsed_base.hostname or "").lower().removeprefix("www.")
+    # Parent platform host (vitaliia.glossgenius.com → glossgenius.com)
+    parent = ".".join(base_host.split(".")[-2:]) if base_host.count(".") >= 1 else base_host
+    out: list[str] = []
+    seen: set[str] = set()
+    for href in hrefs:
+        abs_u = _abs(base, href)
+        if not abs_u or not abs_u.startswith("http"):
+            continue
+        abs_u = abs_u.split("#")[0].split("?")[0]
+        try:
+            p = urllib.parse.urlparse(abs_u)
+        except Exception:
+            continue
+        h = (p.hostname or "").lower().removeprefix("www.")
+        if not h or h == base_host:
+            continue
+        if h == parent or h.endswith("." + parent):
+            continue
+        if any(s in h for s in _RELATED_SITE_SKIP_HOSTS):
+            continue
+        if _SKIP_INTERNAL_PATH_RE.search(p.path or "/"):
+            continue
+        key = abs_u.rstrip("/").lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(abs_u)
+    # Prefer personal-site TLDs / builders first
+    def _prio(u: str) -> int:
+        low = u.lower()
+        if any(x in low for x in ("framer.website", "wixsite.com", "webflow.io", "carrd.co")):
+            return 0
+        return 1
+
+    out.sort(key=_prio)
+    return out
+
+
+def website_profile_gaps(profile: dict[str, Any] | None) -> list[str]:
+    """Fields still missing from a merged website profile (stop when empty)."""
+    if not profile or profile.get("status") != "ok":
+        return ["fetch"]
+    gaps: list[str] = []
+    if not profile.get("phone"):
+        gaps.append("phone")
+    if not profile.get("email"):
+        gaps.append("email")
+    if not profile.get("address"):
+        gaps.append("address")
+    if not profile.get("hours"):
+        gaps.append("hours")
+    if not profile.get("services"):
+        gaps.append("services")
+    if not profile.get("payment_methods"):
+        gaps.append("payment_methods")
+    desc = (profile.get("description") or "").strip()
+    if len(desc) < 40:
+        gaps.append("description")
+    if not (profile.get("logo") or "").strip():
+        gaps.append("logo")
+    social = " ".join(str(s).lower() for s in (profile.get("social_links") or []))
+    if "instagram.com" not in social and "instagr.am" not in social:
+        gaps.append("instagram")
+    return gaps
+
+
+def extract_website_profile_deep(
+    url: str,
+    *,
+    max_pages: int = 10,
+    on_page: Any | None = None,
+) -> dict[str, Any]:
+    """BFS crawl of same-host pages until card gaps are filled or budget ends.
+
+    Seeds: the given URL, common contact/services paths, then internal links
+    discovered on each fetched page. Does **not** stop early just because
+    phone+address+hours appeared — keeps going while services / description /
+    email / logo / social are still missing and pages remain.
+
+    on_page(event) optional: live progress for admin enrich UI
+      {url, status: running|done|error, outcome?: ok|empty|error, fields?, error?}
     """
+    from collections import deque
+
+    def _emit_page(payload: dict[str, Any]) -> None:
+        if not on_page:
+            return
+        try:
+            on_page(payload)
+        except Exception:
+            pass
+
     base = _normalize_website(url)
     if not base:
         return {"source": SOURCE_WEBSITE, "url": url, "status": "unavailable", "error": "bad_url"}
     parsed = urllib.parse.urlparse(base)
     root = f"{parsed.scheme}://{parsed.netloc}"
+    host = (parsed.hostname or "").lower().removeprefix("www.")
 
-    candidates: list[str] = []
+    queue: deque[str] = deque()
     seen_keys: set[str] = set()
-    for path in ("",) + CONTACT_PATHS:
-        u = base if path == "" and not candidates else (
-            urllib.parse.urljoin(root + "/", path.lstrip("/")) if path else root + "/"
-        )
+
+    def enqueue(raw: str | None) -> None:
+        if not raw:
+            return
+        u = _normalize_website(raw) or str(raw).strip()
+        if not u.startswith("http"):
+            u = urllib.parse.urljoin(root + "/", str(raw).lstrip("/"))
+        try:
+            p = urllib.parse.urlparse(u)
+        except Exception:
+            return
+        h = (p.hostname or "").lower().removeprefix("www.")
+        if h != host:
+            return
+        path = p.path or "/"
+        if _SKIP_INTERNAL_PATH_RE.search(path):
+            return
         key = u.rstrip("/").lower()
         if key in seen_keys:
-            continue
+            return
         seen_keys.add(key)
-        candidates.append(u)
+        queue.append(u.split("#")[0].split("?")[0])
+
+    enqueue(base)
+    enqueue(root + "/")
+    for path in CONTACT_PATHS:
+        if path:
+            enqueue(urllib.parse.urljoin(root + "/", path.lstrip("/")))
 
     merged: dict[str, Any] | None = None
     pages_tried: list[dict[str, Any]] = []
-    for page_url in candidates[:max_pages]:
+    while queue and len(pages_tried) < max(1, max_pages):
+        page_url = queue.popleft()
+        _emit_page({"url": page_url, "status": "running", "kind": "website"})
         profile = extract_website_profile(page_url)
-        pages_tried.append({"url": page_url, "status": profile.get("status")})
+        useful = []
+        for kk in (
+            "phone",
+            "email",
+            "description",
+            "address",
+            "hours",
+            "services",
+            "service_offers",
+            "payment_methods",
+            "logo",
+            "social_links",
+        ):
+            vv = profile.get(kk)
+            if vv not in (None, "", [], {}):
+                useful.append(kk if kk != "logo" else "image_url")
+        page_status = profile.get("status")
+        if page_status == "ok" and useful:
+            outcome = "ok"
+            err = None
+        elif page_status == "ok":
+            outcome = "empty"
+            err = "ничего не извлечено"
+        else:
+            outcome = "error"
+            err = str(profile.get("error") or page_status or "error")
+        pages_tried.append(
+            {
+                "url": page_url,
+                "status": page_status,
+                "outcome": outcome,
+                "fields": useful,
+                "error": err,
+                "gaps_after": None,
+            }
+        )
+        _emit_page(
+            {
+                "url": page_url,
+                "kind": "website",
+                "status": "error" if outcome == "error" else "done",
+                "outcome": outcome,
+                "fields": useful,
+                "error": err,
+            }
+        )
         if profile.get("status") == "ok":
             merged = merge_website_profiles(merged, profile)
-            if merged and merged.get("hours") and merged.get("address") and merged.get("phone"):
+            for link in profile.get("internal_links") or []:
+                enqueue(link)
+            gaps = website_profile_gaps(merged)
+            pages_tried[-1]["gaps_after"] = gaps
+            if not gaps:
                 break
+            # Still missing fields — keep BFS; do not bail on contacts alone.
 
     if merged is None:
-        merged = {"source": SOURCE_WEBSITE, "url": base, "status": "unavailable", "error": "fetch_failed"}
+        merged = {
+            "source": SOURCE_WEBSITE,
+            "url": base,
+            "status": "unavailable",
+            "error": "fetch_failed",
+        }
     merged["pages_tried"] = pages_tried
+    merged["gaps_remaining"] = website_profile_gaps(merged)
     return merged
 
 
@@ -630,6 +975,327 @@ def _as_list(value: Any) -> list[str]:
     return [str(value).strip()] if str(value).strip() else []
 
 
+def _services_from_json_ld(block: dict[str, Any]) -> list[str]:
+    """Pull service / offer names from LocalBusiness JSON-LD."""
+    return [o["title"] for o in _service_offers_from_json_ld(block) if o.get("title")]
+
+
+def _merge_service_offers(offers: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Dedupe by title; keep the richest offer (price/duration/description)."""
+    by_title: dict[str, dict[str, Any]] = {}
+    order: list[str] = []
+    for raw in offers:
+        if not isinstance(raw, dict):
+            continue
+        title = str(raw.get("title") or "").strip()[:120]
+        if not title:
+            continue
+        key = title.lower()
+        entry = dict(raw)
+        entry["title"] = title
+        prev = by_title.get(key)
+        if not prev:
+            by_title[key] = entry
+            order.append(key)
+            continue
+        merged = dict(prev)
+        for k, v in entry.items():
+            if v in (None, "", [], {}):
+                continue
+            if merged.get(k) in (None, "", [], {}):
+                merged[k] = v
+            elif k == "price" and prev.get("price") is None:
+                merged[k] = v
+        by_title[key] = merged
+    return [by_title[k] for k in order]
+
+
+def _duration_minutes(raw: Any) -> int | None:
+    """Parse schema.org QuantitativeValue / ISO8601 duration → minutes."""
+    if raw is None:
+        return None
+    if isinstance(raw, (int, float)) and raw > 0:
+        return int(raw)
+    if isinstance(raw, dict):
+        unit = str(raw.get("unitCode") or raw.get("unitText") or "").upper()
+        try:
+            val = float(raw.get("value") or raw.get("maxValue") or 0)
+        except (TypeError, ValueError):
+            val = 0
+        if val <= 0:
+            return None
+        if unit in ("HUR", "H", "HR", "HOUR", "HOURS"):
+            return int(val * 60)
+        return int(val)  # MIN / minutes default
+    s = str(raw).strip()
+    if not s:
+        return None
+    # PT2H / PT120M
+    m = re.match(r"^PT(?:(\d+)H)?(?:(\d+)M)?$", s, re.I)
+    if m:
+        hours = int(m.group(1) or 0)
+        mins = int(m.group(2) or 0)
+        total = hours * 60 + mins
+        return total or None
+    m2 = re.search(r"(\d+)\s*(h|hr|hrs|hour|hours|час|часа|часов)", s, re.I)
+    m3 = re.search(r"(\d+)\s*(m|min|mins|minute|minutes|мин)", s, re.I)
+    total = 0
+    if m2:
+        total += int(m2.group(1)) * 60
+    if m3:
+        total += int(m3.group(1))
+    return total or None
+
+
+def _offer_price(offers: Any) -> tuple[float | None, str | None]:
+    if isinstance(offers, list) and offers:
+        offers = offers[0]
+    if not isinstance(offers, dict):
+        return None, None
+    cur = str(offers.get("priceCurrency") or "USD").upper()[:3] or "USD"
+    raw = offers.get("price")
+    if raw is None:
+        return None, cur
+    try:
+        price = float(str(raw).replace(",", "").replace("$", "").strip())
+    except (TypeError, ValueError):
+        return None, cur
+    if price < 0:
+        return None, cur
+    return price, cur
+
+
+# Site chrome / countdown / vendor footers that look like "services" in JSON-LD.
+SERVICE_TITLE_STOP = {
+    "home",
+    "homepage",
+    "контакт",
+    "контакты",
+    "contact",
+    "contact us",
+    "contacts",
+    "about",
+    "about us",
+    "company",
+    "companies",
+    "privacy",
+    "privacy policy",
+    "terms",
+    "terms of use",
+    "terms of service",
+    "careers",
+    "jobs",
+    "blog",
+    "news",
+    "login",
+    "sign in",
+    "sign up",
+    "register",
+    "menu",
+    "sitemap",
+    "search",
+    "hours",
+    "location",
+    "locations",
+    "directions",
+    "faq",
+    "faqs",
+    "gallery",
+    "inventory",
+    "specials",
+    "offers",
+    "promo",
+    "promotions",
+    "minutes",
+    "seconds",
+    "hours",
+    "days",
+    "видео",
+    "video",
+    "directory",
+    "wellness",
+}
+SERVICE_VENDOR_RE = re.compile(
+    r"\b(?:dealer\.com|wordpress|wix|squarespace|shopify|godaddy|weebly|"
+    r"vagaro|glossgenius|booksy|schedulicity|mangomint|fresha)\b",
+    re.I,
+)
+SERVICE_MARKETING_RE = re.compile(
+    r"(?:awe-inspiring|get it all in the|intuitive\.?\s*electric|"
+    r"digital marketing solutions|operations tools)",
+    re.I,
+)
+
+# Header / footer strings: a phone, an address or a URL is never a service.
+SERVICE_CONTACT_RE = re.compile(
+    r"^\+?\(?\d[\d\s().\-]{7,}\d$|"
+    r"[\w.+-]+@[\w-]+\.[a-z]{2,}|"
+    r"https?://|www\.[a-z]|"
+    r"^\d{1,6}\s+[\w.'\-]+(?:\s+[\w.'\-]+){0,6}\s+"
+    r"(?:ave|avenue|st|street|blvd|boulevard|rd|road|dr|drive|way|ln|lane|"
+    r"ct|court|pl|place|hwy|highway|pkwy|parkway|ste|suite|unit)\b\.?,?$|"
+    r"^[A-Za-zА-Яа-яЁё .'\-]+,\s*[A-Z]{2}\s*\d{5}(?:-\d{4})?$",
+    re.I,
+)
+
+# Buttons and nav labels — the CTA of a page, not something the card sells.
+SERVICE_CTA_RE = re.compile(
+    r"^(?:toggle\s+\w+|skip\s+to\s+\w+|back\s+to\s+top|close\s+menu|"
+    r"read\s+more|learn\s+more|see\s+more|view\s+(?:more|menu|menus|all)|"
+    r"order\s+(?:online|now|here|ahead)?|online\s+order(?:ing)?|"
+    r"book\s+(?:now|online)|call\s+(?:now|us)|get\s+directions|"
+    r"subscribe|newsletter|follow\s+us|"
+    r"заказать(?:\s+(?:онлайн|сейчас|доставку|еду))?|"
+    r"сделать\s+заказ|оформить\s+заказ|"
+    r"записаться|запись\s+онлайн|подробнее|наверх)$",
+    re.I,
+)
+
+
+def is_plausible_service_title(
+    title: str,
+    *,
+    has_price: bool = False,
+    has_duration: bool = False,
+    typed_service: bool = False,
+) -> bool:
+    """Reject nav chrome, countdown labels, and vendor marketing slogans."""
+    raw = re.sub(r"\s+", " ", (title or "").strip())
+    if len(raw) < 3 or len(raw) > 120:
+        return False
+    key = raw.lower().strip(" .|-")
+    if not key or key in SERVICE_TITLE_STOP:
+        return False
+    if re.fullmatch(r"\d+", key):
+        return False
+    if SERVICE_VENDOR_RE.search(raw) or SERVICE_MARKETING_RE.search(raw):
+        return False
+    if SERVICE_CONTACT_RE.search(raw) or SERVICE_CTA_RE.match(raw.strip(" .|-")):
+        return False
+    # Bare knowsAbout / ItemList strings need a real offer signal.
+    if not typed_service and not has_price and not has_duration:
+        if " " not in key and len(key) <= 12:
+            return False
+        if re.search(r"[.!?]$", raw) and len(raw.split()) >= 4:
+            # Marketing sentence, not a service name.
+            return False
+    return True
+
+
+def _service_offers_from_json_ld(block: dict[str, Any]) -> list[dict[str, Any]]:
+    """Structured services: title, price, currency, duration_minutes, description."""
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
+    def add_service(node: Any, *, from_loose_list: bool = False) -> None:
+        if not isinstance(node, dict):
+            if isinstance(node, str) and node.strip():
+                title = node.strip()[:120]
+                if not is_plausible_service_title(title, typed_service=False):
+                    return
+                key = title.lower()
+                if key not in seen:
+                    seen.add(key)
+                    out.append({"title": title})
+            return
+        types = node.get("@type")
+        type_l = (
+            " ".join(types) if isinstance(types, list) else str(types or "")
+        ).lower()
+        # Unwrap ListItem
+        if "listitem" in type_l and isinstance(node.get("item"), dict):
+            add_service(node["item"], from_loose_list=from_loose_list)
+            return
+        name = node.get("name")
+        if isinstance(name, dict):
+            name = name.get("name")
+        # Offer wrapping a service
+        if not name and node.get("itemOffered"):
+            io = node["itemOffered"]
+            if isinstance(io, dict):
+                name = io.get("name")
+                node = {**io, "offers": node.get("offers") or node}
+                types = node.get("@type")
+                type_l = (
+                    " ".join(types) if isinstance(types, list) else str(types or "")
+                ).lower()
+        title = str(name or "").strip()[:120]
+        if not title:
+            return
+        key = title.lower()
+        offers = node.get("offers")
+        price, currency = _offer_price(offers)
+        duration = None
+        if isinstance(offers, dict):
+            duration = _duration_minutes(offers.get("eligibleDuration"))
+        if duration is None:
+            duration = _duration_minutes(node.get("eligibleDuration"))
+        if duration is None:
+            duration = _duration_minutes(node.get("duration"))
+        typed = "service" in type_l or "product" in type_l or "offer" in type_l
+        if from_loose_list and not typed and price is None and duration is None:
+            # knowsAbout / bare ItemList often holds slogans and nav labels.
+            if not is_plausible_service_title(
+                title, has_price=False, has_duration=False, typed_service=False
+            ):
+                return
+        elif not is_plausible_service_title(
+            title,
+            has_price=price is not None,
+            has_duration=bool(duration),
+            typed_service=typed,
+        ):
+            return
+        desc = node.get("description")
+        desc_s = str(desc).strip()[:800] if desc else None
+        entry: dict[str, Any] = {"title": title}
+        if price is not None:
+            entry["price"] = price
+            entry["currency"] = currency or "USD"
+        if duration:
+            entry["duration_minutes"] = duration
+        if desc_s:
+            entry["description"] = desc_s
+        if key in seen:
+            # Prefer richer offer (with price) over bare title
+            for i, prev in enumerate(out):
+                if str(prev.get("title") or "").lower() == key:
+                    if entry.get("price") is not None and prev.get("price") is None:
+                        out[i] = {**prev, **entry}
+                    elif entry.get("duration_minutes") and not prev.get("duration_minutes"):
+                        out[i] = {**prev, **entry}
+                    break
+            return
+        seen.add(key)
+        out.append(entry)
+
+    # Direct Service / Product nodes
+    types = block.get("@type")
+    type_l = (" ".join(types) if isinstance(types, list) else str(types or "")).lower()
+    if "service" in type_l or "product" in type_l:
+        add_service(block)
+
+    for key in ("makesOffer", "hasOfferCatalog", "knowsAbout", "itemListElement", "@graph"):
+        val = block.get(key)
+        if val is None:
+            continue
+        loose = key in {"knowsAbout", "itemListElement"}
+        if isinstance(val, dict) and key == "hasOfferCatalog":
+            items = val.get("itemListElement") or val.get("itemOffered") or []
+            if isinstance(items, list):
+                for it in items:
+                    add_service(it)
+            else:
+                add_service(items)
+            continue
+        if isinstance(val, list):
+            for it in val:
+                add_service(it, from_loose_list=loose)
+        else:
+            add_service(val, from_loose_list=loose)
+    return out
+
+
 def _uniq(values: list[str]) -> list[str]:
     return list(dict.fromkeys(v for v in values if v))
 
@@ -688,19 +1354,42 @@ def website_fetch_candidates(url: str) -> list[str]:
 def merge_website_profiles(
     primary: dict[str, Any] | None, secondary: dict[str, Any] | None
 ) -> dict[str, Any] | None:
-    """Union contact fields; prefer primary scalars when present."""
+    """Union contact fields; prefer primary scalars when present.
+
+    For description/name: keep the longer useful text when primary is short.
+    """
     if not primary or primary.get("status") != "ok":
         return secondary if secondary and secondary.get("status") == "ok" else primary
     if not secondary or secondary.get("status") != "ok":
         return primary
     merged = dict(primary)
     for key in ("name", "description", "address", "hours", "logo"):
-        if not merged.get(key) and secondary.get(key):
-            merged[key] = secondary[key]
-    for key in ("phone", "email", "social_links"):
+        cur = merged.get(key)
+        alt = secondary.get(key)
+        if not cur and alt:
+            merged[key] = alt
+        elif key in ("description", "name") and cur and alt:
+            if len(str(alt).strip()) > len(str(cur).strip()) + 20:
+                merged[key] = alt
+    for key in (
+        "phone",
+        "email",
+        "social_links",
+        "services",
+        "related_websites",
+        "payment_methods",
+    ):
         a = list(merged.get(key) or [])
         b = list(secondary.get(key) or [])
-        merged[key] = _uniq(a + b)[:10]
+        merged[key] = _uniq(a + b)[:20]
+    merged["service_offers"] = _merge_service_offers(
+        list(merged.get("service_offers") or [])
+        + list(secondary.get("service_offers") or [])
+    )[:20]
+    if merged.get("service_offers") and not merged.get("services"):
+        merged["services"] = [
+            o["title"] for o in merged["service_offers"] if o.get("title")
+        ]
     # Prefer origin URL when secondary is origin and primary was a deep path
     if secondary.get("url") and site_origin(str(primary.get("url") or "")) == secondary.get(
         "url"

@@ -6,6 +6,7 @@ import {
   resolvePublicCityPostal,
 } from "@/lib/address/normalize";
 import { parseOpeningHours } from "@/lib/business/opening-hours";
+import { parseContactLinks } from "@/lib/contacts/channels";
 import {
   computePresenceFlags,
   type BusinessPresenceFlags,
@@ -58,9 +59,12 @@ function baseBusiness(
   | "telegramUrl"
   | "sourceUrl"
   | "sourceKind"
+  | "facebookUrl"
+  | "tiktokUrl"
   | "yelpUrl"
   | "googleMapsUrl"
   | "addressLine"
+  | "contactLinks"
 > {
   const { city, postalCode } = publicCityPostal(row);
   return {
@@ -72,6 +76,10 @@ function baseBusiness(
     categoryName: row.categories?.name ?? null,
     shortDescription: row.short_description,
     description: sanitizePublicDescription(row.description),
+    descriptionOriginal: redactContactsFromPublicText(
+      (row as { description_original?: string | null }).description_original ??
+        null,
+    ),
     ratingAvg: Number(row.rating_avg),
     reviewsCount: row.reviews_count,
     aiVerifiedReviewsCount: Number(row.ai_verified_reviews_count ?? 0),
@@ -88,6 +96,14 @@ function baseBusiness(
         ? null
         : Number(row.instagram_followers_count),
     bookingUrl: row.booking_url?.trim() || null,
+    paymentMethods: Array.isArray(
+      (row as BusinessWithCategory & { payment_methods?: string[] | null })
+        .payment_methods,
+    )
+      ? (
+          row as BusinessWithCategory & { payment_methods?: string[] | null }
+        ).payment_methods!.filter(Boolean)
+      : [],
     imageUrl: row.image_url || PLACEHOLDER_IMAGE,
     city,
     region: row.region,
@@ -99,6 +115,22 @@ function baseBusiness(
     openingHours: parseOpeningHours(row.opening_hours),
     createdAt: row.created_at ?? null,
     presenceFlags: flags,
+    thirdPartyMentionCount:
+      (row as { third_party_mention_count?: number | null })
+        .third_party_mention_count == null
+        ? null
+        : Number(
+            (row as { third_party_mention_count?: number | null })
+              .third_party_mention_count,
+          ),
+    selfAdMentionCount:
+      (row as { self_ad_mention_count?: number | null }).self_ad_mention_count ==
+      null
+        ? null
+        : Number(
+            (row as { self_ad_mention_count?: number | null })
+              .self_ad_mention_count,
+          ),
   };
 }
 
@@ -114,9 +146,14 @@ export function mapBusinessDetail(row: BusinessWithCategory): Business {
     telegramUrl: row.telegram_url ?? null,
     sourceUrl: row.source_url ?? null,
     sourceKind: row.source_kind ?? null,
+    facebookUrl: null,
+    tiktokUrl: null,
     yelpUrl: row.yelp_url ?? null,
     googleMapsUrl: row.google_maps_url ?? null,
     addressLine: row.address_line,
+    contactLinks: parseContactLinks(
+      (row as { contact_links?: unknown }).contact_links,
+    ),
   };
 }
 
@@ -132,6 +169,9 @@ export function mapBusinessList(row: BusinessWithCategory): Business {
     // Listings: never ship raw contact strings in copy or contact fields.
     shortDescription: redactContactsFromPublicText(base.shortDescription),
     description: redactContactsFromPublicText(base.description),
+    descriptionOriginal: redactContactsFromPublicText(
+      base.descriptionOriginal ?? null,
+    ),
     phone: null,
     email: null,
     website: null,
@@ -139,9 +179,12 @@ export function mapBusinessList(row: BusinessWithCategory): Business {
     telegramUrl: null,
     sourceUrl: null,
     sourceKind: row.source_kind === "platform" ? "platform" : null,
+    facebookUrl: null,
+    tiktokUrl: null,
     yelpUrl: null,
     googleMapsUrl: null,
     addressLine: null,
+    contactLinks: [],
   };
 }
 
@@ -166,11 +209,13 @@ export function stripBusinessContacts(business: Business): Business {
       sourceKind: business.sourceKind,
       yelpUrl: business.yelpUrl,
       googleMapsUrl: business.googleMapsUrl,
+      contactLinks: business.contactLinks,
       latitude: business.latitude,
       longitude: business.longitude,
     });
   return {
     ...business,
+    contactLinks: [],
     phone: null,
     email: null,
     website: null,
@@ -179,6 +224,8 @@ export function stripBusinessContacts(business: Business): Business {
     sourceUrl: null,
     // Platform provenance is public (КРУГИ).
     sourceKind: business.sourceKind === "platform" ? "platform" : null,
+    facebookUrl: null,
+    tiktokUrl: null,
     yelpUrl: null,
     googleMapsUrl: null,
     // addressLine kept — public profile shows full address above the map.

@@ -1,6 +1,11 @@
 # Admin Index
 
-Admin App Router pages + panels. Design doc: [`ADMIN_REVIEW_CENTER_V1.md`](../../architecture/entity-model-v1/ADMIN_REVIEW_CENTER_V1.md) (live UI may be transitional — see freeze).
+Admin App Router pages + panels.
+
+**Target IA (Admin Panel V2):** [`../../architecture/ADMIN_PANEL_IA_V2.md`](../../architecture/ADMIN_PANEL_IA_V2.md)  
+**Phase 1 shell (live):** [`../../architecture/ADMIN_PANEL_PHASE1_SHELL_V1.md`](../../architecture/ADMIN_PANEL_PHASE1_SHELL_V1.md)  
+Review workspace UX detail: [`ADMIN_REVIEW_CENTER_V1.md`](../../architecture/entity-model-v1/ADMIN_REVIEW_CENTER_V1.md)  
+Live panel audit: [`../../audits/ADMIN_PANEL_IA_AUDIT_V1.md`](../../audits/ADMIN_PANEL_IA_AUDIT_V1.md)
 
 ---
 
@@ -10,6 +15,7 @@ Admin App Router pages + panels. Design doc: [`ADMIN_REVIEW_CENTER_V1.md`](../..
 |---|---|
 | Home | [`../../../app/admin/page.tsx`](../../../app/admin/page.tsx) |
 | Import Review | [`../../../app/admin/import-review/page.tsx`](../../../app/admin/import-review/page.tsx), [`[id]/page.tsx`](../../../app/admin/import-review/[id]/page.tsx) |
+| Review Center / wrong section | [`../../../app/admin/review/wrong-section/page.tsx`](../../../app/admin/review/wrong-section/page.tsx) — section routing audit |
 | Recommendations | [`../../../app/admin/recommendations/page.tsx`](../../../app/admin/recommendations/page.tsx) |
 | Businesses | [`../../../app/admin/businesses/page.tsx`](../../../app/admin/businesses/page.tsx), [`new`](../../../app/admin/businesses/new/page.tsx), [`[id]/edit`](../../../app/admin/businesses/[id]/edit/page.tsx) |
 | Listings | [`../../../app/admin/listings/page.tsx`](../../../app/admin/listings/page.tsx) |

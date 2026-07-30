@@ -38,6 +38,7 @@ from eligibility import (
     has_direct_contact,
     normalize_phone,
 )
+from source_kind import resolve_source_kind
 
 ROOT = Path(__file__).resolve().parents[2]
 AUTO_NOTE = "Автоматическая публикация: accepted + прямой контакт"
@@ -161,14 +162,8 @@ def append_contact_footer(description: str, contacts: dict[str, Any]) -> str:
     return "\n".join(lines).strip()
 
 
-def source_kind_from_row(row: dict[str, Any]) -> str:
-    raw = str(row.get("source") or "").split(":", 1)[0].strip().lower()
-    if raw in {"telegram", "facebook"}:
-        return raw
-    url = str(row.get("source_url") or "").lower()
-    if "facebook.com" in url or "fb.com" in url:
-        return "facebook"
-    return "telegram"
+def source_kind_from_row(row: dict[str, Any]) -> str | None:
+    return resolve_source_kind(row.get("source_url"), row.get("source"))
 
 
 def apply_entity_source(
@@ -731,11 +726,7 @@ def publish_one(
             "region": row.get("state") or "CA",
             "category_id": cat_match.get("category_id"),
             "source_url": (row.get("source_url") or "").strip() or None,
-            "source_kind": (
-                source_kind_from_row(row)
-                if (row.get("source_url") or "").strip()
-                else "platform"
-            ),
+            "source_kind": source_kind_from_row(row),
         }
         created = client.insert_many("businesses", [payload])
         entity_id = created[0]["id"]

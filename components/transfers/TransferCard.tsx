@@ -3,8 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowLeftRight, ArrowRight, MapPin } from "lucide-react";
+import {
+  CategoryAccentBar,
+  CategoryChip,
+  CategoryMediaFallback,
+} from "@/components/platform/CategoryCardChrome";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import type { Listing } from "@/types/listing";
 import {
   LISTING_STATUS_LABELS,
@@ -66,6 +72,26 @@ function MaybeLink({
   );
 }
 
+function RouteLine({
+  from,
+  to,
+  className = "",
+}: {
+  from: string;
+  to: string;
+  className?: string;
+}) {
+  return (
+    <p
+      className={`flex flex-wrap items-center justify-center gap-1.5 text-center text-sm font-semibold text-sky-900 ${className}`}
+    >
+      <span className="line-clamp-1 max-w-[40%]">{from}</span>
+      <ArrowRight aria-hidden="true" className="size-3.5 shrink-0 text-sky-600" />
+      <span className="line-clamp-1 max-w-[40%]">{to}</span>
+    </p>
+  );
+}
+
 export function TransferCard({
   listing,
   showFavorite = false,
@@ -83,9 +109,11 @@ export function TransferCard({
       ? `/business/${listing.publisher.slug}`
       : listing.author?.profilePath;
   const href = `/transfers/${listing.id}`;
+  const hasRoute = Boolean(transfer?.fromCountry && transfer?.toCountry);
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+      <CategoryAccentBar theme="transfers" />
       <MaybeLink
         className="block"
         href={href}
@@ -103,14 +131,22 @@ export function TransferCard({
               unoptimized
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-sm text-slate-400">
-              Нет фото
-            </div>
+            <CategoryMediaFallback icon={ArrowLeftRight} theme="transfers">
+              {hasRoute ? (
+                <RouteLine
+                  from={transfer!.fromCountry}
+                  to={transfer!.toCountry}
+                  className="mt-1 px-1"
+                />
+              ) : null}
+            </CategoryMediaFallback>
           )}
         </div>
       </MaybeLink>
 
       <div className="space-y-2 p-4">
+        <CategoryChip theme="transfers" />
+
         <div className="flex items-start justify-between gap-2">
           <MaybeLink
             className="line-clamp-2 font-semibold text-slate-900 hover:underline"
@@ -131,26 +167,30 @@ export function TransferCard({
           ) : null}
         </div>
 
-        {transfer && (
+        {hasRoute && cover ? (
           <p className="flex flex-wrap items-center gap-1.5 text-sm font-medium text-slate-800">
-            <span>{transfer.fromCountry}</span>
+            <span>{transfer!.fromCountry}</span>
             <ArrowRight aria-hidden="true" className="size-3.5 text-slate-400" />
-            <span>{transfer.toCountry}</span>
+            <span>{transfer!.toCountry}</span>
           </p>
-        )}
+        ) : null}
 
         <p className="text-lg font-bold text-slate-900">{formatFee(listing)}</p>
+        {listing.paymentMethods?.length ? (
+          <PaymentMethodIcons methods={listing.paymentMethods} size="sm" />
+        ) : null}
 
-        <div className="flex flex-wrap gap-x-2 gap-y-1 text-xs text-slate-500">
-          {transfer?.transferMethod && (
-            <span>{TRANSFER_METHOD_LABELS[transfer.transferMethod]}</span>
-          )}
-          {transfer?.category && (
-            <>
-              <span>·</span>
-              <span>{transfer.category.nameRu}</span>
-            </>
-          )}
+        <div className="flex flex-wrap gap-1.5">
+          {transfer?.transferMethod ? (
+            <span className="rounded-md bg-brand-blue/10 px-2 py-0.5 text-xs text-blue-900">
+              {TRANSFER_METHOD_LABELS[transfer.transferMethod]}
+            </span>
+          ) : null}
+          {transfer?.category ? (
+            <span className="rounded-md bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
+              {transfer.category.nameRu}
+            </span>
+          ) : null}
         </div>
 
         {location && (

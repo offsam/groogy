@@ -64,19 +64,33 @@ const BARE_HANDLE_RE = /(?:^|[\s(,])@[A-Za-z0-9._]{3,30}\b/g;
 const BARE_URL_LINE_RE = /^https?:\/\/\S+$/i;
 
 const URL_LINE_RE =
-  /^(?:сайт|website|web|url|facebook)\s*[:：]?\s*\S+$/i;
+  /^(?:сайт|website|web|url|facebook|форма|form)\s*[:：]?\s*\S+$/i;
 
 const CONTACT_LINE_RE =
-  /^(?:тел(?:ефон)?|phone|call|звон(?:и|ить)?|whatsapp|telegram|тг|email|e-mail|почта|instagram|инстаграм|facebook|fb|контакт)\s*[:：]/i;
+  /^(?:📩|📞|📱|✉️)?\s*(?:наш\s+)?(?:тел(?:ефон)?|phone|call|звон(?:и|ить)?|whatsapp|telegram|тг|email|e-mail|почта|instagram|инстаграм|facebook|fb|контакт(?:ы)?|contacts?|форма|form|регистрац|registration|сайт|website|web|url)(?:\s+для\s+\p{L}+)?\s*[:：]?\s*/iu;
+
+const ADDRESS_LINE_RE =
+  /^(?:наш\s+)?(?:адрес|address|где|where|локаци[яи]|location|venue|место\s+проведен)\s*[:：]/i;
+
+const CTA_CONTACT_ONLY_RE =
+  /^(?:📩|📞|📱|✉️)?\s*(?:пишите|напишите|звоните|call\s+me|dm\s+me|в\s+личные|личные\s+сообщения|write\s+(?:us|me)|text\s+(?:us|me)|contact\s+(?:us|me)).{0,80}$/i;
+
+/** US street + optional city / state / ZIP tail. */
+const STREET_ADDRESS_WITH_TAIL_RE =
+  /\b\d{1,5}\s+[A-Za-z0-9][A-Za-z0-9 .#'-]{2,40}\s(?:street|st|avenue|ave|boulevard|blvd|road|rd|drive|dr|lane|ln|court|ct|place|pl|highway|hwy|parkway|pkwy|suite|ste|unit|apt|room|#)\.?(?:\s*,\s*[A-Za-z][A-Za-z .'-]{1,40})?(?:\s*,?\s*(?:CA|California))?(?:\s*\d{5}(?:-\d{4})?)?/gi;
+
+const STREET_ADDRESS_RE =
+  /\b\d{1,5}\s+[A-Za-z0-9][A-Za-z0-9 .#'-]{2,40}\s(?:street|st|avenue|ave|boulevard|blvd|road|rd|drive|dr|lane|ln|court|ct|place|pl|highway|hwy|parkway|pkwy|suite|ste|unit|apt|room|#)\b/i;
+
+/** Prefer CA ZIP / «City, CA 92630» — avoid bare 5-digit false positives. */
+const ZIP_CITY_TAIL_RE =
+  /\b[A-Za-z][A-Za-z .'-]{1,40},\s*(?:CA|California)\s*\d{5}(?:-\d{4})?\b|\b(?:CA|California)\s*\d{5}(?:-\d{4})?\b/gi;
 
 const JOB_RE =
   /(?:ваканси|recruitment|hiring|now\s+hiring|we(?:'re|\s+are)?\s+hiring|job\s*listing|open\s+position|looking\s+for|seeking\s+(?:a\s+)?(?:tech|specialist|master|employee)|в\s+поисках|поиск\s+специалист|ищ(?:у|ем|ут)\s+(?:опытн\w*\s+)?(?:мастер|сотрудник|работник|специалист|парикмахер|маникюр|техник|декоратор|педагог|помощник|helper)|требуется\s+(?:мастер|сотрудник|специалист)|нуж(?:ен|ны)\s+(?:мастер|специалист|сотрудник)|приглашаем\s+(?:мастер|специалист|эксперт|педагог|сотрудник)|на\s+работу|compensation\s+package|требования\s*:|requirements\s*:|доход\s+от\s*\$|position\s*:)/i;
 
 const PROMO_RE =
   /(?:скидк|акци[яи]|promo|discount|%\s*off|\$\s*\d+\s*off|для\s+новых\s+клиент|first[- ]time\s+client)/i;
-
-const CTA_CONTACT_ONLY_RE =
-  /^(?:📩|📞|📱|✉️)?\s*(?:пишите|напишите|звоните|call\s+me|dm\s+me|в\s+личные|личные\s+сообщения).{0,80}$/i;
 
 /** Labeled social handles — must NOT match inside https://www.instagram.com/... */
 const LABELED_SOCIAL_RE =
@@ -157,29 +171,239 @@ function stripInlineContacts(text: string): string {
     .replace(HTTP_URL_RE, " ")
     .replace(WWW_URL_RE, " ")
     .replace(BARE_HANDLE_RE, " ")
+    .replace(STREET_ADDRESS_WITH_TAIL_RE, " ")
+    .replace(STREET_ADDRESS_RE, " ")
+    .replace(ZIP_CITY_TAIL_RE, " ")
     .replace(/(?:^|[\s])по\s+ссылке\s*:?\s*$/gi, " ")
+    .replace(
+      /(?:^|[.!?]\s+|,\s*)(?:пишите|напишите|звоните|call|text|dm|contact\s+us|write\s+(?:us|me))(?:\s+в)?(?:\s+\w+)?\s*[.,:;!?…]*$/gi,
+      "",
+    )
+    .replace(/\b(?:whatsapp|telegram|instagram|инстаграм)\b/gi, " ")
+    .replace(
+      /(?:^|[^\p{L}\p{N}])(?:тел(?:ефон)?|phone|call|email|e-?mail|почта|контакт(?:ы)?|contacts?)(?![\p{L}\p{N}])\s*[:：]?\s*/giu,
+      " ",
+    )
+    .replace(/\b(?:located\s+at|по\s+адресу)\b/gi, " ")
+    .replace(/\bat\s*,/gi, " ")
+    .replace(/\bat\s*$/i, " ")
     .replace(/\s{2,}/g, " ")
-    .replace(/\s+([,.;:!?)])/g, "$1")
+    .replace(/\s+([,.;:?)])/g, "$1")
+    .replace(/^[,\s:;]+|[,\s:;]+$/g, "")
+    .replace(/\.\s*\./g, ".")
     .trim();
 }
 
 /**
  * Public surfaces (cards, guest profile, search): narrative only.
- * Phones, emails, socials, websites belong exclusively in the gated contacts block.
+ * Phones, emails, socials, websites, street addresses belong in dedicated
+ * contacts / location blocks — never in «Описание» / «О нас».
  */
 export function redactContactsFromPublicText(
   text: string | null | undefined,
 ): string | null {
   if (text == null) return null;
-  const lines = text
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .filter((line) => !isContactOnlyLine(line))
-    .map((line) => stripInlineContacts(line))
-    .filter((line) => line.length >= 3);
-  const out = lines.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  const outLines: string[] = [];
+  for (const raw of text.split("\n")) {
+    const line = raw.trim();
+    if (!line) {
+      if (outLines.length && outLines[outLines.length - 1] !== "") {
+        outLines.push("");
+      }
+      continue;
+    }
+    if (isContactOnlyLine(line) || isAddressOnlyLine(line)) continue;
+    const cleaned = stripInlineContacts(line);
+    if (cleaned.length < 3) continue;
+    if (isContactOnlyLine(cleaned) || isAddressOnlyLine(cleaned)) continue;
+    outLines.push(cleaned);
+  }
+  const out = outLines
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
   return out.length > 0 ? out : null;
+}
+
+/** Alias — same strict narrative cleaner for every public entity card. */
+export const publicNarrativeText = redactContactsFromPublicText;
+
+/** Channels we strip from narrative — used for the pointer line and fill-empty. */
+export type NarrativeContactChannel =
+  | "phone"
+  | "email"
+  | "instagram"
+  | "telegram"
+  | "whatsapp"
+  | "website"
+  | "address";
+
+export type NarrativeWithContactPointer = {
+  /** Clean story, optionally ending with one «… в блоке «Контакты»» line. */
+  text: string | null;
+  /** Which contact kinds were present in the raw text and removed. */
+  removedChannels: NarrativeContactChannel[];
+};
+
+const CHANNEL_LABEL_RU: Record<NarrativeContactChannel, string> = {
+  phone: "телефон",
+  email: "почта",
+  instagram: "Instagram",
+  telegram: "Telegram",
+  whatsapp: "WhatsApp",
+  website: "сайт",
+  address: "адрес",
+};
+
+function detectRemovedChannels(
+  raw: string,
+): NarrativeContactChannel[] {
+  const found: NarrativeContactChannel[] = [];
+  if (raw.match(PHONE_GLOBAL_RE)) found.push("phone");
+  if (raw.match(EMAIL_GLOBAL_RE)) found.push("email");
+  if (
+    raw.match(INSTAGRAM_GLOBAL_RE) ||
+    /(?:instagram|инстаграм)\s*[:：]?\s*@?/i.test(raw) ||
+    /(?:^|[\s(,])@[A-Za-z0-9._]{3,30}\b/.test(raw)
+  ) {
+    found.push("instagram");
+  }
+  if (
+    /https?:\/\/(?:t\.me|telegram\.me|telegram\.org)\//i.test(raw) ||
+    /(?:telegram|телеграм|тг)\s*[:：]?\s*@?/i.test(raw)
+  ) {
+    found.push("telegram");
+  }
+  if (
+    /https?:\/\/(?:wa\.me|api\.whatsapp\.com)\//i.test(raw) ||
+    /\bwhatsapp\b/i.test(raw)
+  ) {
+    found.push("whatsapp");
+  }
+  if (
+    /https?:\/\//i.test(raw) ||
+    /\bwww\./i.test(raw) ||
+    /(?:сайт|website|web|url)\s*[:：]/i.test(raw)
+  ) {
+    const withoutSocial = raw
+      .replace(INSTAGRAM_GLOBAL_RE, " ")
+      .replace(FACEBOOK_GLOBAL_RE, " ")
+      .replace(/https?:\/\/(?:t\.me|telegram\.me|telegram\.org|wa\.me|api\.whatsapp\.com)\/[^\s<>"']+/gi, " ");
+    if (/https?:\/\//i.test(withoutSocial) || /\bwww\./i.test(withoutSocial)) {
+      found.push("website");
+    }
+  }
+  if (
+    /(?:адрес|address|где|where|локаци[яи]|location|venue|наш\s+адрес|located\s+at|по\s+адресу)\s*[:：]/i.test(
+      raw,
+    ) ||
+    STREET_ADDRESS_RE.test(raw)
+  ) {
+    found.push("address");
+  }
+  return found;
+}
+
+function contactPointerLine(channels: NarrativeContactChannel[]): string | null {
+  const contactChannels = channels.filter((c) => c !== "address");
+  const hasAddress = channels.includes("address");
+  if (!contactChannels.length && !hasAddress) return null;
+
+  if (contactChannels.length && hasAddress) {
+    const labels = contactChannels.map((c) => CHANNEL_LABEL_RU[c]);
+    const contactPart =
+      labels.length === 1
+        ? labels[0]
+        : labels.length === 2
+          ? `${labels[0]} и ${labels[1]}`
+          : `${labels.slice(0, -1).join(", ")} и ${labels[labels.length - 1]}`;
+    return `${contactPart[0]!.toUpperCase()}${contactPart.slice(1)} и адрес — в блоках «Контакты» и «Адрес»`;
+  }
+  if (hasAddress) {
+    return "Адрес — в блоке «Адрес»";
+  }
+  const labels = contactChannels.map((c) => CHANNEL_LABEL_RU[c]);
+  const contactPart =
+    labels.length === 1
+      ? labels[0]
+      : labels.length === 2
+        ? `${labels[0]} и ${labels[1]}`
+        : `${labels.slice(0, -1).join(", ")} и ${labels[labels.length - 1]}`;
+  return `${contactPart![0]!.toUpperCase()}${contactPart!.slice(1)} — в блоке «Контакты»`;
+}
+
+/**
+ * Strip contacts/addresses from narrative and append one pointer line that
+ * sends the reader to the dedicated contacts / address blocks.
+ * Used for every public entity card type (business, professional, event, …).
+ */
+export function narrativeWithContactPointer(
+  text: string | null | undefined,
+): NarrativeWithContactPointer {
+  if (text == null || !String(text).trim()) {
+    return { text: null, removedChannels: [] };
+  }
+  const raw = String(text);
+  const removedChannels = detectRemovedChannels(raw);
+  const cleaned = redactContactsFromPublicText(raw);
+  if (!cleaned) {
+    return { text: null, removedChannels };
+  }
+  const pointer = contactPointerLine(removedChannels);
+  if (!pointer) {
+    return { text: cleaned, removedChannels };
+  }
+  // Avoid duplicating the pointer if we already cleaned this text once.
+  if (/в блоке «Контакты»|в блоках «Контакты»/i.test(cleaned)) {
+    return { text: cleaned, removedChannels };
+  }
+  return {
+    text: `${cleaned}\n\n${pointer}`,
+    removedChannels,
+  };
+}
+
+const GREETING_OPEN_RE =
+  /^(?:всем\s+)?(?:здравствуйте|здравствуй|привет(?:ствую)?|добрый\s+день|добрый\s+вечер|доброе\s+утро|доброго\s+времени(?:\s+суток)?|друзья[,\s!.]*приветствую|hello|hi|hey|welcome)[\s,!.:;—–-]*/iu;
+
+/**
+ * First meaningful line of a cleaned narrative — no greeting, no promo opener.
+ * Used for short_description / card blurbs.
+ */
+export function shortNarrativeTeaser(
+  text: string | null | undefined,
+  maxChars = 160,
+): string | null {
+  const cleaned = redactContactsFromPublicText(text);
+  if (!cleaned) return null;
+  for (const rawLine of cleaned.split(/\n+/)) {
+    let line = rawLine.trim().replace(GREETING_OPEN_RE, "").trim();
+    line = line.replace(/^[^\p{L}\p{N}]+/u, "").trim();
+    if (line.length < 12) continue;
+    // Skip promo openers for the teaser — they belong in «Акции».
+    if (PROMO_RE.test(line)) continue;
+    if (line.length > maxChars) {
+      line = line
+        .slice(0, maxChars)
+        .replace(/\s+\S*$/, "")
+        .replace(/[\s,.;:!?—–-]+$/, "");
+    }
+    return line || null;
+  }
+  return null;
+}
+
+function isAddressOnlyLine(line: string): boolean {
+  const t = line.trim();
+  if (!t) return true;
+  if (ADDRESS_LINE_RE.test(t)) return true;
+  if (!STREET_ADDRESS_RE.test(t)) return false;
+  const without = stripInlineContacts(t)
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  // Street-heavy line with almost no narrative left after stripping the address.
+  return without.length < 12 || without.split(/\s+/).filter(Boolean).length <= 2;
 }
 
 function isContactOnlyLine(line: string): boolean {
@@ -219,15 +443,27 @@ function isContactOnlyLine(line: string): boolean {
   }
 
   // "949-701-7980 Валентина" / name after phone only
-  if (PHONE_RE.test(t) && withoutContacts.split(/\s+/).length <= 3) {
+  if (
+    PHONE_RE.test(t) &&
+    withoutContacts.length < 12 &&
+    withoutContacts.split(/\s+/).filter(Boolean).length <= 2
+  ) {
     return true;
   }
 
-  if (FACEBOOK_RE.test(t) && withoutContacts.split(/\s+/).length <= 3) {
+  if (
+    FACEBOOK_RE.test(t) &&
+    withoutContacts.length < 12 &&
+    withoutContacts.split(/\s+/).filter(Boolean).length <= 2
+  ) {
     return true;
   }
 
-  if (INSTAGRAM_RE.test(t) && withoutContacts.split(/\s+/).length <= 3) {
+  if (
+    INSTAGRAM_RE.test(t) &&
+    withoutContacts.length < 12 &&
+    withoutContacts.split(/\s+/).filter(Boolean).length <= 2
+  ) {
     return true;
   }
 
@@ -347,9 +583,10 @@ export function structureBusinessProfileCopy(
     const jobLines: string[] = [];
 
     for (const line of lines) {
-      if (isContactOnlyLine(line)) continue;
+      if (isContactOnlyLine(line) || isAddressOnlyLine(line)) continue;
       const cleaned = stripInlineContacts(line);
       if (!cleaned || cleaned.length < 3) continue;
+      if (isContactOnlyLine(cleaned) || isAddressOnlyLine(cleaned)) continue;
       if (/^[-–—•*]+\s*$/.test(cleaned)) continue;
       if (JOB_RE.test(cleaned) || /^recruitment\b/i.test(cleaned)) {
         jobLines.push(cleaned);

@@ -38,8 +38,32 @@ sys.path.insert(0, str(ROOT / "scripts" / "telegram-collector"))
 sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
 
 from common import SupabaseRest, load_env  # noqa: E402
+from source_kind import resolve_source_kind  # noqa: E402
 from contacts import normalize_phone  # noqa: E402
 from backfill_professional_categories import infer_slug as infer_pro_slug  # noqa: E402
+from promotions_from_text import (  # noqa: E402
+    add_missing_entity_promotions,
+    promotions_from_ad_text,
+    strip_promotion_blocks,
+)
+from recommendation_subject import (  # noqa: E402
+    clean_public_description,
+    extract_employer,
+    is_corporate_instagram,
+    personal_website_or_none,
+    resolve_professional_display_name,
+    short_teaser,
+    strip_recommender_voice,
+)
+
+
+def public_narrative(rec: dict[str, Any], text: str | None) -> str | None:
+    """Third-party opinion stays in «Рекомендации сообщества», not in the card."""
+    if not text:
+        return None
+    if int(rec.get("third_party_mention_count") or 0) > 0:
+        return strip_recommender_voice(text)
+    return text
 
 OUT = Path(__file__).resolve().parent / "data" / "recommendation_catalog_publish"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -392,7 +416,8 @@ def create_professional(
     category_id: str | None,
     dry_run: bool,
 ) -> str:
-    name = (rec.get("display_name") or "Специалист").strip()[:120]
+    name = resolve_professional_display_name(rec) or (rec.get("display_name") or "Специалист").strip()
+    name = name[:120]
     base = slugify(name, prefix="pro")
     slug = unique_slug(client, "professionals", base) if not dry_run else base
     channel = (rec.get("source_channel") or "").lower()
@@ -404,12 +429,25 @@ def create_professional(
             break
     ig = None
     for x in rec.get("instagram") or []:
+        if is_corporate_instagram(str(x)):
+            continue
         h = ig_handle(x)
         if h:
             ig = f"https://www.instagram.com/{h}"
             break
     desc_parts = [t for t in (rec.get("comment_texts") or [])[:3] if t]
-    description = "\n\n".join(desc_parts)[:4000] or None
+    raw_description = "\n\n".join(desc_parts)[:4000] or None
+    promotions = promotions_from_ad_text(raw_description)
+    narrative = strip_promotion_blocks(raw_description, promotions) or raw_description
+    narrative = public_narrative(rec, narrative)
+    description = clean_public_description(narrative)
+    short = short_teaser(description or narrative)
+    employer = extract_employer(raw_description or "")
+    employer_name = (employer or {}).get("employer_name")
+    employer_role = (employer or {}).get("employer_role")
+    website = personal_website_or_none(
+        rec.get("websites") or [], employer_name=employer_name
+    )
     now = datetime.now(timezone.utc).isoformat()
     body = {
         "owner_profile_id": None,
@@ -421,8 +459,8 @@ def create_professional(
         "import_batch_id": BATCH,
         "display_name": name,
         "slug": slug,
-        "headline": (rec.get("category_guess") or "")[:160] or None,
-        "short_description": (description or "")[:280] or None,
+        "headline": (short or rec.get("category_guess") or "")[:160] or None,
+        "short_description": short,
         "description": description,
         "image_url": rec.get("cover_image_url") if not empty_image(rec.get("cover_image_url")) else None,
         "status": "approved",
@@ -434,13 +472,23 @@ def create_professional(
         "location_precision": "city" if rec.get("city") else None,
         "public_exact_address": False,
         "phone": phone,
-        "website": plain_website(rec.get("websites") or []),
+        "website": website,
         "instagram_url": ig,
         "telegram_url": tg_url_from_websites(rec.get("websites") or []),
+        "employer_name": employer_name,
+        "employer_role": employer_role,
+        "employer_business_id": None,
         "third_party_mention_count": int(rec.get("third_party_mention_count") or 0),
         "self_ad_mention_count": int(rec.get("self_ad_mention_count") or 0),
         "published_at": now,
     }
+    # Only link a catalog business when the employer itself is Russian/diaspora.
+    if employer and employer.get("is_russian_catalog") and employer_name and not dry_run:
+        biz_id = find_or_create_russian_employer_business(
+            client, employer_name=employer_name, rec=rec
+        )
+        if biz_id:
+            body["employer_business_id"] = biz_id
     if dry_run:
         return f"dry-{slug}"
     rows = client._request(
@@ -450,8 +498,83 @@ def create_professional(
         prefer="return=representation",
     )
     if isinstance(rows, list) and rows:
-        return rows[0]["id"]
+        pro_id = rows[0]["id"]
+        add_missing_entity_promotions(
+            client,
+            owner_type="professional",
+            owner_id=pro_id,
+            promotions=promotions,
+            category_id=category_id,
+        )
+        return pro_id
     raise RuntimeError(f"professional insert failed for {name}")
+
+
+def find_or_create_russian_employer_business(
+    client: SupabaseRest,
+    *,
+    employer_name: str,
+    rec: dict[str, Any],
+) -> str | None:
+    """Attach only Russian/diaspora employers to the public business catalog."""
+    name = employer_name.strip()[:120]
+    if not name:
+        return None
+    existing = (
+        client._request(
+            "GET",
+            "/businesses",
+            params={
+                "select": "id,name,status",
+                "name": f"ilike.{name}",
+                "status": "eq.approved",
+                "limit": "3",
+            },
+        )
+        or []
+    )
+    for row in existing:
+        if names_match_local(row.get("name"), name):
+            return row["id"]
+    website = plain_website(rec.get("websites") or [])
+    phone = None
+    for p in rec.get("phones") or []:
+        phone = plausible_phone(p)
+        if phone:
+            break
+    now = datetime.now(timezone.utc).isoformat()
+    base = slugify(name, prefix="biz")
+    slug = unique_slug(client, "businesses", base)
+    rows = client._request(
+        "POST",
+        "/businesses",
+        body={
+            "name": name,
+            "slug": slug,
+            "status": "approved",
+            "website": website,
+            "phone": phone,
+            "city": rec.get("city"),
+            "state_code": "US-CA",
+            "source_url": (rec.get("source_post_urls") or [None])[0],
+            "source_kind": resolve_source_kind(
+                (rec.get("source_post_urls") or [None])[0],
+                rec.get("directory_source") or rec.get("source_channel"),
+            ),
+            "created_at": now,
+            "updated_at": now,
+        },
+        prefer="return=representation",
+    )
+    if isinstance(rows, list) and rows:
+        return rows[0]["id"]
+    return None
+
+
+def names_match_local(a: Any, b: Any) -> bool:
+    na = re.sub(r"[^a-z0-9а-яё]+", "", str(a or "").lower())
+    nb = re.sub(r"[^a-z0-9а-яё]+", "", str(b or "").lower())
+    return bool(na and nb and (na == nb or na in nb or nb in na))
 
 
 def create_business(
@@ -471,10 +594,16 @@ def create_business(
             break
     website = plain_website(rec.get("websites") or [])
     desc_parts = [t for t in (rec.get("comment_texts") or [])[:3] if t]
-    description = "\n\n".join(desc_parts)[:4000] or None
+    raw_description = "\n\n".join(desc_parts)[:4000] or None
+    promotions = promotions_from_ad_text(raw_description)
+    narrative = strip_promotion_blocks(raw_description, promotions) or raw_description
+    narrative = public_narrative(rec, narrative)
+    description = clean_public_description(narrative)
     channel = (rec.get("source_channel") or "").lower()
     ig = None
     for x in rec.get("instagram") or []:
+        if is_corporate_instagram(str(x)):
+            continue
         h = ig_handle(x)
         if h:
             ig = f"https://www.instagram.com/{h}"
@@ -483,7 +612,7 @@ def create_business(
     body = {
         "name": name,
         "slug": slug,
-        "short_description": (description or "")[:240] or None,
+        "short_description": short_teaser(description or narrative),
         "description": description,
         "phone": phone,
         "website": website,
@@ -497,11 +626,10 @@ def create_business(
         "instagram_url": ig,
         "telegram_url": tg_url_from_websites(rec.get("websites") or []),
         "source_url": (rec.get("source_post_urls") or [None])[0],
-        "source_kind": "telegram"
-        if channel == "telegram"
-        else "facebook"
-        if channel == "facebook"
-        else "platform",
+        "source_kind": resolve_source_kind(
+            (rec.get("source_post_urls") or [None])[0],
+            rec.get("directory_source") or channel,
+        ),
         "created_at": now,
         "updated_at": now,
     }
@@ -514,7 +642,15 @@ def create_business(
         prefer="return=representation",
     )
     if isinstance(rows, list) and rows:
-        return rows[0]["id"]
+        biz_id = rows[0]["id"]
+        add_missing_entity_promotions(
+            client,
+            owner_type="business",
+            owner_id=biz_id,
+            promotions=promotions,
+            category_id=category_id,
+        )
+        return biz_id
     raise RuntimeError(f"business insert failed for {name}")
 
 

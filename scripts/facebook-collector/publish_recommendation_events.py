@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-"""Enrich + publish Facebook recommendation events → public.events.
+"""Enrich Facebook recommendation events in the pending queue (NO auto-publish).
+
+Affiche Phase 1: candidates stay in import_comment_recommendations until
+Admin Inbox → Events → Approve.
 
 Usage:
   python3 scripts/facebook-collector/publish_recommendation_events.py
   python3 scripts/facebook-collector/publish_recommendation_events.py --apply
+      # enrich covers / reject junk on pending rows only
+
+  python3 scripts/facebook-collector/publish_recommendation_events.py --force-publish --apply
+      # LEGACY emergency: write directly to public.events (discouraged)
 """
 
 from __future__ import annotations
@@ -475,6 +482,7 @@ def publish_one(
     post_images: dict[str, str],
     *,
     apply: bool,
+    force_publish: bool,
 ) -> dict[str, Any]:
     title = clean_title(item.get("display_name") or "Событие")
     if is_junk(item) or not is_publishable_event(item):
@@ -502,9 +510,7 @@ def publish_one(
     registration = websites[0] if websites else None
     source = (item.get("source_post_urls") or [None])[0]
     city = item.get("city")
-    # Prefer FB post time from last_posted_at when present
     posted = item.get("last_posted_at")
-    # Enrich from post index later in backfill; here use recommendation field
     starts_at = parse_starts_at(item.get("event_at"), posted)
     fmt = guess_format(
         f"{title} {description or ''}",
@@ -522,12 +528,37 @@ def publish_one(
     if not apply:
         return result
 
-    # Pre-create id so storage path is stable
+    # Default path: enrich pending row only (no public.events insert).
+    if not force_publish:
+        cover_url = None
+        if cover_src and not item.get("cover_image_url"):
+            cover_url = upload_cover(storage, str(item["id"]), cover_src)
+        patch: dict[str, Any] = {
+            "external_source": item.get("external_source") or "facebook",
+            "source_language": item.get("source_language") or "ru",
+        }
+        if starts_at:
+            patch["starts_at"] = starts_at
+        if registration:
+            patch["registration_url"] = registration
+        if cover_url or cover_src:
+            patch["cover_image_url"] = cover_url or cover_src
+        client._request(
+            "PATCH",
+            "/import_comment_recommendations",
+            params={"id": f"eq.{item['id']}"},
+            body=patch,
+            prefer="return=minimal",
+        )
+        result["action"] = "enriched_pending"
+        result["cover"] = bool(cover_url or cover_src or item.get("cover_image_url"))
+        return result
+
+    # LEGACY --force-publish: write directly to public.events
     event_id = str(__import__("uuid").uuid4())
     cover_url = None
     if cover_src:
         cover_url = upload_cover(storage, event_id, cover_src)
-        # also persist on recommendation for admin preview
         client._request(
             "PATCH",
             "/import_comment_recommendations",
@@ -537,7 +568,6 @@ def publish_one(
         )
 
     slug = slugify(title)
-    # ensure unique
     existing = client._request(
         "GET",
         "/events",
@@ -569,6 +599,8 @@ def publish_one(
         "source_body": body_text,
         "source_channel": item.get("source_channel") or "facebook",
         "format": fmt,
+        "external_source": "facebook",
+        "source_language": "ru",
     }
     client._request(
         "POST",
@@ -596,9 +628,25 @@ def publish_one(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--apply", action="store_true")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--apply",
+        action="store_true",
+        help="Write changes (default enrich pending only)",
+    )
+    parser.add_argument(
+        "--force-publish",
+        action="store_true",
+        help="LEGACY: insert into public.events (prefer Admin Approve)",
+    )
     args = parser.parse_args()
+
+    if args.force_publish:
+        print(
+            "WARNING: --force-publish bypasses Admin Inbox. "
+            "Prefer Approve in Review Center → Events.",
+            file=sys.stderr,
+        )
 
     load_env()
     url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
@@ -615,10 +663,25 @@ def main() -> int:
     storage = MediaSupabase(url, key)
     items = fetch_pending_events(client)
     print(f"pending event recommendations: {len(items)}")
+    if not args.force_publish:
+        print("Mode: enrich pending only (no auto-publish).")
 
-    stats = {"published": 0, "skip_junk": 0, "dry_run": 0, "with_cover": 0}
+    stats = {
+        "published": 0,
+        "skip_junk": 0,
+        "dry_run": 0,
+        "enriched_pending": 0,
+        "with_cover": 0,
+    }
     for item in items:
-        res = publish_one(client, storage, item, post_images, apply=args.apply)
+        res = publish_one(
+            client,
+            storage,
+            item,
+            post_images,
+            apply=args.apply,
+            force_publish=args.force_publish,
+        )
         action = res["action"]
         stats[action] = stats.get(action, 0) + 1
         if res.get("cover") or (action == "dry_run" and res.get("cover_src")):
@@ -631,6 +694,11 @@ def main() -> int:
     print("stats:", json.dumps(stats, ensure_ascii=False))
     if not args.apply:
         print("dry-run only; pass --apply to write DB + storage")
+    if not args.force_publish:
+        print(
+            "Review pending in Admin → Inbox → Events — ждут выкладки.",
+            flush=True,
+        )
     return 0
 
 

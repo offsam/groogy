@@ -109,3 +109,21 @@ export function YelpIcon({ className, ...props }: BrandIconProps) {
     </svg>
   );
 }
+
+/** Compact TikTok mark for contact chips. */
+export function TikTokIcon({ className, ...props }: BrandIconProps) {
+  return (
+    <svg
+      aria-hidden
+      className={cn("shrink-0", className)}
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <rect fill="#111" height="24" rx="6" width="24" />
+      <path
+        d="M14.2 6.2c.55 1.35 1.7 2.35 3.15 2.7v2.05a5.3 5.3 0 0 1-3.15-1.05v4.7c0 2.45-1.95 4.4-4.4 4.4S5.4 17.05 5.4 14.6s1.95-4.4 4.4-4.4c.25 0 .5.02.75.07v2.2a2.25 2.25 0 0 0-.75-.12c-1.25 0-2.25 1-2.25 2.25s1 2.25 2.25 2.25 2.25-1 2.25-2.25V6.2h2.15z"
+        fill="#fff"
+      />
+    </svg>
+  );
+}

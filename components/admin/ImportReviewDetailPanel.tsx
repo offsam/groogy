@@ -32,6 +32,11 @@ import {
 } from "@/lib/import-review/preview-section";
 import { structureBusinessProfileCopy } from "@/lib/content/structure-business-profile";
 import { importReviewToBusinessPreview } from "@/lib/import-review/to-business-preview";
+import {
+  CLEANUP_PROBLEM_LABELS,
+  isProfessionalCleanupSource,
+  parseProfessionalCleanupPayload,
+} from "@/lib/import-review/professional-cleanup";
 
 function daysSince(iso: string | null): number | null {
   if (!iso) return null;
@@ -66,6 +71,9 @@ type Props = {
   categories: Array<{ id: string; slug: string; name: string; domain: string }>;
   filterQuery: string;
   nextPendingId?: string | null;
+  /** When set (e.g. Review Workspace), back/next stay off legacy queue chrome. */
+  returnHref?: string;
+  listHref?: string;
 };
 
 export function ImportReviewDetailPanel({
@@ -73,6 +81,8 @@ export function ImportReviewDetailPanel({
   categories,
   filterQuery,
   nextPendingId = null,
+  returnHref,
+  listHref,
 }: Props) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -181,6 +191,11 @@ export function ImportReviewDetailPanel({
   }
 
   function goNextOrList(flash?: string) {
+    if (returnHref) {
+      router.push(returnHref);
+      router.refresh();
+      return;
+    }
     const q = new URLSearchParams(filterQuery);
     if (flash) q.set("flash", flash);
     if (nextPendingId) {
@@ -262,24 +277,119 @@ export function ImportReviewDetailPanel({
     };
   }
 
+  const cleanup = useMemo(
+    () => parseProfessionalCleanupPayload(item.raw_payload),
+    [item.raw_payload],
+  );
+  const isCleanup = Boolean(cleanup) || isProfessionalCleanupSource(item.source);
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
-          href={`/admin/import-review?${filterQuery}`}
+          href={listHref ?? `/admin/import-review?${filterQuery}`}
           className="text-sm text-brand-blue-deep hover:underline"
         >
-          ← К очереди
+          ← {listHref ? "К Workspace" : "К очереди"}
         </Link>
-        <div
-          className={`rounded-lg border px-3 py-1.5 text-sm font-semibold ${STATUS_STYLES[status]}`}
-        >
-          {IMPORT_REVIEW_STATUS_LABELS[status]}
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href={`/admin/review/${encodeURIComponent(`import_review:${item.id}`)}`}
+            className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-800 hover:bg-slate-50"
+          >
+            Open in Review Workspace
+          </Link>
+          <div
+            className={`rounded-lg border px-3 py-1.5 text-sm font-semibold ${STATUS_STYLES[status]}`}
+          >
+            {IMPORT_REVIEW_STATUS_LABELS[status]}
+          </div>
         </div>
       </div>
 
       {error && <AuthAlert tone="error">{error}</AuthAlert>}
       {message && <AuthAlert tone="success">{message}</AuthAlert>}
+
+      {isCleanup ? (
+        <section className="rounded-xl border border-brand-orange/30 bg-orange-50/80 px-4 py-3 text-sm text-slate-800">
+          <p className="font-semibold text-slate-900">
+            Professional Cleanup → Admin Review
+          </p>
+          <p className="mt-1 text-slate-700">
+            Связанный Professional уже в каталоге
+            {cleanup?.existing_professional_slug
+              ? ` (${cleanup.existing_professional_slug})`
+              : ""}
+            . Автопубликация отключена.
+          </p>
+          <dl className="mt-2 grid gap-1 text-xs sm:grid-cols-2">
+            <div>
+              <dt className="text-slate-500">Причина Review</dt>
+              <dd className="font-medium">
+                {cleanup?.cleanup_reason || item.subcategory || "—"}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Предполагаемый тип</dt>
+              <dd className="font-medium">
+                {cleanup?.suggested_entity_type || item.entity_type || "—"}
+                {cleanup?.confidence != null
+                  ? ` · confidence ${cleanup.confidence}`
+                  : item.ai_confidence != null
+                    ? ` · confidence ${item.ai_confidence}`
+                    : ""}
+              </dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-slate-500">Проблемы</dt>
+              <dd className="mt-0.5 flex flex-wrap gap-1">
+                {(cleanup?.problems?.length
+                  ? cleanup.problems
+                  : ["low_confidence"]
+                ).map((p) => (
+                  <span
+                    key={p}
+                    className="rounded border border-orange-200 bg-white px-2 py-0.5 text-[11px]"
+                  >
+                    {CLEANUP_PROBLEM_LABELS[p] || p}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          </dl>
+          <ul className="mt-2 list-disc space-y-0.5 pl-5 text-xs text-slate-600">
+            <li>
+              <strong>Одобрить</strong> с target «Специалисты» = Publish as
+              Professional (без дубликата).
+            </li>
+            <li>
+              Смените target_collection → Business / Marketplace / Job / Event и
+              одобрите = Publish as that type (Professional архивируется).
+            </li>
+            <li>
+              <strong>Отклонить</strong> = Archive linked Professional.
+            </li>
+            <li>
+              <strong>Дубликат</strong> = Merge/mark duplicate + Archive linked
+              Professional.
+            </li>
+            <li>
+              <strong>Сохранить</strong> = Edit before publish.
+            </li>
+          </ul>
+          {cleanup?.existing_professional_slug ? (
+            <p className="mt-2">
+              <Link
+                href={`/professional/${cleanup.existing_professional_slug}`}
+                className="text-brand-blue-deep underline"
+                target="_blank"
+              >
+                Открыть live Professional
+              </Link>
+            </p>
+          ) : null}
+        </section>
+      ) : null}
 
       <section className="rounded-xl border border-brand-blue/20 bg-white p-4 shadow-sm">
         <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
@@ -859,6 +969,19 @@ export function ImportReviewDetailPanel({
               }
             >
               Одобрить
+              {isCleanup
+                ? form.target_collection === "private_specialists"
+                  ? " как Professional"
+                  : form.target_collection === "businesses"
+                    ? " как Business"
+                    : form.target_collection === "marketplace"
+                      ? " как Marketplace"
+                      : form.target_collection === "jobs"
+                        ? " как Job"
+                        : form.target_collection === "events"
+                          ? " как Event"
+                          : ""
+                : ""}
             </Button>
             <div className="flex flex-wrap items-center gap-2">
               <select
@@ -894,7 +1017,7 @@ export function ImportReviewDetailPanel({
                   )
                 }
               >
-                {busy ? "Отклоняем…" : "Отклонить"}
+                {busy ? "Отклоняем…" : isCleanup ? "Archive" : "Отклонить"}
               </Button>
             </div>
             <div className="flex flex-wrap items-center gap-2">

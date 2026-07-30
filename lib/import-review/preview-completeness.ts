@@ -24,6 +24,12 @@ function report(fields: CompletenessField[]): CompletenessReport {
   };
 }
 
+/** 0–100 from checklist ready/total. */
+export function completenessPercent(report: CompletenessReport): number {
+  if (report.total <= 0) return 0;
+  return Math.round((report.readyCount / report.total) * 100);
+}
+
 export function businessPreviewCompleteness(input: {
   name?: string | null;
   categoryName?: string | null;
@@ -57,8 +63,9 @@ export function businessPreviewCompleteness(input: {
     },
     {
       key: "city",
-      label: "Город",
+      label: "Город / район",
       ok: Boolean((input.city || "").trim()),
+      hint: "из поста или из группы-источника",
     },
     {
       key: "contact",
@@ -125,6 +132,7 @@ export function professionalPreviewCompleteness(input: {
       key: "city",
       label: "Город / район",
       ok: Boolean((input.city || "").trim()),
+      hint: "из поста или из группы-источника",
     },
     {
       key: "contact",

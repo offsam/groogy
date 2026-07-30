@@ -114,7 +114,7 @@ export async function listImportReviewItems(
   filters: ImportReviewListFilters = {},
 ): Promise<{ items: ImportReviewListItem[]; total: number }> {
   const page = Math.max(1, filters.page ?? 1);
-  const pageSize = Math.min(100, Math.max(1, filters.pageSize ?? 25));
+  const pageSize = Math.min(300, Math.max(1, filters.pageSize ?? 25));
   const offset = (page - 1) * pageSize;
   const sort = filters.sort ?? "priority";
 

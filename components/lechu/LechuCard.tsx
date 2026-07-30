@@ -3,8 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Plane } from "lucide-react";
+import {
+  CategoryAccentBar,
+  CategoryChip,
+  CategoryMediaFallback,
+} from "@/components/platform/CategoryCardChrome";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
+import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import type { Listing } from "@/types/listing";
 import {
   LECHU_CARRY_TYPE_LABELS,
@@ -48,6 +54,26 @@ function MaybeLink({
   );
 }
 
+function RouteLine({
+  from,
+  to,
+  className = "",
+}: {
+  from: string;
+  to: string;
+  className?: string;
+}) {
+  return (
+    <p
+      className={`flex flex-wrap items-center justify-center gap-1.5 text-center text-sm font-semibold text-teal-900 ${className}`}
+    >
+      <span className="line-clamp-1 max-w-[40%]">{from}</span>
+      <ArrowRight aria-hidden="true" className="size-3.5 shrink-0 text-teal-600" />
+      <span className="line-clamp-1 max-w-[40%]">{to}</span>
+    </p>
+  );
+}
+
 export function LechuCard({
   listing,
   showFavorite = false,
@@ -72,9 +98,11 @@ export function LechuCard({
         LECHU_CARRY_TYPE_LABELS[t as keyof typeof LECHU_CARRY_TYPE_LABELS] ?? t,
     );
   const href = `/lechu/${listing.id}`;
+  const hasRoute = Boolean(lechu?.departureCountry && lechu?.destinationCountry);
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+      <CategoryAccentBar theme="lechu" />
       <MaybeLink
         className="block"
         href={href}
@@ -92,14 +120,22 @@ export function LechuCard({
               unoptimized
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-sm text-slate-400">
-              Нет фото
-            </div>
+            <CategoryMediaFallback icon={Plane} theme="lechu">
+              {hasRoute ? (
+                <RouteLine
+                  from={lechu!.departureCountry}
+                  to={lechu!.destinationCountry}
+                  className="mt-1 px-1"
+                />
+              ) : null}
+            </CategoryMediaFallback>
           )}
         </div>
       </MaybeLink>
 
       <div className="space-y-2 p-4">
+        <CategoryChip theme="lechu" />
+
         <div className="flex items-start justify-between gap-2">
           <MaybeLink
             className="line-clamp-2 font-semibold text-slate-900 hover:underline"
@@ -118,30 +154,41 @@ export function LechuCard({
           ) : null}
         </div>
 
-        {lechu && (
+        {hasRoute && cover ? (
           <p className="flex flex-wrap items-center gap-1.5 text-sm font-medium text-slate-800">
-            <span>{lechu.departureCountry}</span>
+            <span>{lechu!.departureCountry}</span>
             <ArrowRight aria-hidden="true" className="size-3.5 text-slate-400" />
-            <span>{lechu.destinationCountry}</span>
+            <span>{lechu!.destinationCountry}</span>
           </p>
-        )}
+        ) : null}
 
-        <p className="text-lg font-bold text-slate-900">
+        <p className="text-base font-semibold text-slate-800">
           {lechu?.rewardType
             ? LECHU_REWARD_LABELS[lechu.rewardType]
             : "Условия не указаны"}
         </p>
+        {listing.paymentMethods?.length ? (
+          <PaymentMethodIcons methods={listing.paymentMethods} size="sm" />
+        ) : null}
 
-        <div className="flex flex-wrap gap-x-2 gap-y-1 text-xs text-slate-500">
-          {departureLabel && <span>Вылет: {departureLabel}</span>}
-          {lechu?.category && (
-            <>
-              {departureLabel && <span>·</span>}
-              <span>{lechu.category.nameRu}</span>
-            </>
-          )}
+        <div className="flex flex-wrap gap-1.5">
+          {departureLabel ? (
+            <span className="rounded-md bg-teal-50 px-2 py-0.5 text-xs text-teal-800">
+              Вылет: {departureLabel}
+            </span>
+          ) : null}
+          {lechu?.category ? (
+            <span className="rounded-md bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
+              {lechu.category.nameRu}
+            </span>
+          ) : null}
           {carryPreview.map((label) => (
-            <span key={label}>· {label}</span>
+            <span
+              key={label}
+              className="rounded-md bg-slate-100 px-2 py-0.5 text-xs text-slate-600"
+            >
+              {label}
+            </span>
           ))}
         </div>
 

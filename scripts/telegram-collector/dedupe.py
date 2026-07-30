@@ -3,10 +3,61 @@
 from __future__ import annotations
 
 import re
+import sys
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
 from contacts import similarity_ratio, text_fingerprint
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "import-review"))
+
+from channel_noise import load_noise  # noqa: E402
+from structure_event_from_text import event_day_keys  # noqa: E402
+
+# Contacts the channel puts on every post it publishes — see channel_noise.py.
+CHANNEL_NOISE = load_noise()
+
+# One contact key can front several primaries (recurring event series by date).
+MAX_PRIMARIES_PER_KEY = 12
+
+# A person can run a shop and throw parties: same author is not same card.
+PROFILE_TYPES = {"business", "private_specialist", "organization"}
+# «other» is the dumping ground of the classifier — it proves nothing.
+GENERIC_CATEGORIES = {"", "other", "другое", "прочее", "unknown", "none"}
+# Identity lives in the path on these hosts, not in the domain.
+SHARED_WEB_HOSTS = {
+    "instagram.com",
+    "facebook.com",
+    "fb.watch",
+    "m.facebook.com",
+    "t.me",
+    "telegram.me",
+    "wa.me",
+    "wa.link",
+    "api.whatsapp.com",
+    "youtube.com",
+    "youtu.be",
+    "tiktok.com",
+    "linktr.ee",
+    "bit.ly",
+    "t.co",
+    "goo.gl",
+    "google.com",
+    "maps.google.com",
+    "maps.app.goo.gl",
+    "docs.google.com",
+    "forms.gle",
+    "eventbrite.com",
+    "booksy.com",
+    "square.site",
+    "squareup.com",
+    "book.squareup.com",
+    "yelp.com",
+    "craigslist.org",
+    "airbnb.com",
+    "zillow.com",
+}
 
 
 def _domain(url: str) -> str | None:
@@ -18,21 +69,86 @@ def _domain(url: str) -> str | None:
         return None
 
 
+def _identity_domain(url: str) -> str | None:
+    """Domain that identifies one advertiser (skip social / directory hosts)."""
+    host = _domain(url)
+    if not host or host in SHARED_WEB_HOSTS:
+        return None
+    if any(host.endswith("." + shared) for shared in SHARED_WEB_HOSTS):
+        return None
+    base = ".".join(host.split(".")[-2:])
+    if host in CHANNEL_NOISE["domains"] or base in CHANNEL_NOISE["domains"]:
+        return None
+    return host
+
+
 def _norm_name(value: str | None) -> str | None:
     if not value:
         return None
     return re.sub(r"\s+", " ", value.strip().lower())
 
 
+def _post_text(post: dict[str, Any]) -> str:
+    return str(post.get("merged_text") or post.get("text") or "")
+
+
+def _is_event(post: dict[str, Any]) -> bool:
+    entity = post.get("extracted_entity") or {}
+    return entity.get("entity_type") == "event"
+
+
+def _family(post: dict[str, Any]) -> str:
+    entity = post.get("extracted_entity") or {}
+    kind = str(entity.get("entity_type") or "").strip().lower()
+    if not kind:
+        return "unknown"
+    return "profile" if kind in PROFILE_TYPES else kind
+
+
+def _families_compatible(a: dict[str, Any], b: dict[str, Any]) -> bool:
+    """A flower shop ad and a party invite never belong to one card."""
+    fa, fb = _family(a), _family(b)
+    if "unknown" in (fa, fb):
+        return True
+    return fa == fb
+
+
+def _near_identical(a: dict[str, Any], b: dict[str, Any]) -> bool:
+    fa = text_fingerprint(_post_text(a))
+    fb = text_fingerprint(_post_text(b))
+    if len(fa) < 40 or len(fb) < 40:
+        return False
+    return similarity_ratio(fa, fb) >= 0.9
+
+
+def _event_dates_compatible(a: dict[str, Any], b: dict[str, Any]) -> bool:
+    """Events on different dates are different events, even from one organizer."""
+    if not (_is_event(a) or _is_event(b)):
+        return True
+    days_a = set(event_day_keys(_post_text(a)))
+    days_b = set(event_day_keys(_post_text(b)))
+    if days_a and days_b:
+        return bool(days_a & days_b)
+    # Date unreadable on one side: only a repeat of the very same ad may merge.
+    return _near_identical(a, b)
+
+
 def apply_deduplication(posts: list[dict[str, Any]]) -> None:
     """Mutate analyzed posts with duplicate_* fields. First occurrence is primary."""
-    index_phone: dict[str, int] = {}
-    index_ig: dict[str, int] = {}
-    index_tg: dict[str, int] = {}
-    index_web: dict[str, int] = {}
-    index_name_cat: dict[str, int] = {}
+    # Lists, not single ids: an event ad on a new date becomes its own primary,
+    # so one contact key can hold several primaries (one per date).
+    index_phone: dict[str, list[int]] = {}
+    index_ig: dict[str, list[int]] = {}
+    index_tg: dict[str, list[int]] = {}
+    index_web: dict[str, list[int]] = {}
+    index_name_cat: dict[str, list[int]] = {}
     fingerprints: list[tuple[int, str]] = []
     occurrence: dict[int, int] = {}
+
+    def remember(index: dict[str, list[int]], key: str, idx: int) -> None:
+        bucket = index.setdefault(key, [])
+        if idx not in bucket and len(bucket) < MAX_PRIMARIES_PER_KEY:
+            bucket.append(idx)
 
     for i, post in enumerate(posts):
         entity = post.get("extracted_entity") or {}
@@ -47,38 +163,45 @@ def apply_deduplication(posts: list[dict[str, Any]]) -> None:
         score = 0.0
         primary_idx: int | None = None
 
-        def hit(idx: int, reason: str, sc: float) -> None:
+        def hit(idx: int, reason: str, sc: float) -> bool:
             nonlocal primary_idx, score
+            if not _families_compatible(post, posts[idx]):
+                return False
+            if not _event_dates_compatible(post, posts[idx]):
+                return False
             if primary_idx is None:
                 primary_idx = idx
             reasons.append(reason)
             score = max(score, sc)
+            return True
+
+        def hit_first(candidates: list[int], reason: str, sc: float) -> None:
+            for idx in candidates:
+                if hit(idx, reason, sc):
+                    return
 
         for phone in entity.get("phone") or []:
-            if phone in index_phone:
-                hit(index_phone[phone], "same_phone", 0.98)
+            hit_first(index_phone.get(phone, []), "same_phone", 0.98)
 
         for ig in entity.get("instagram") or []:
-            key = ig.lower().lstrip("@")
-            if key in index_ig:
-                hit(index_ig[key], "same_instagram", 0.96)
+            handle = ig.lower().lstrip("@")
+            if handle in CHANNEL_NOISE["instagram"]:
+                continue
+            hit_first(index_ig.get(handle, []), "same_instagram", 0.96)
 
         for tg in entity.get("telegram") or []:
-            key = tg.lower().lstrip("@")
-            if key in index_tg:
-                hit(index_tg[key], "same_telegram", 0.96)
+            hit_first(index_tg.get(tg.lower().lstrip("@"), []), "same_telegram", 0.96)
 
         for web in entity.get("website") or []:
-            host = _domain(web)
-            if host and host in index_web:
-                hit(index_web[host], "same_website_domain", 0.94)
+            host = _identity_domain(web)
+            if host:
+                hit_first(index_web.get(host, []), "same_website_domain", 0.94)
 
         name = _norm_name(entity.get("person_name") or entity.get("business_name"))
-        cat = entity.get("category") or "other"
-        if name and cat:
-            key = f"{name}|{cat}"
-            if key in index_name_cat:
-                hit(index_name_cat[key], "same_name_category", 0.88)
+        cat = str(entity.get("category") or "").strip().lower()
+        name_cat_key = f"{name}|{cat}" if name and cat not in GENERIC_CATEGORIES else None
+        if name_cat_key:
+            hit_first(index_name_cat.get(name_cat_key, []), "same_name_category", 0.88)
 
         fp = text_fingerprint(post.get("merged_text") or post.get("text") or "")
         if fp and len(fp) >= 40:
@@ -122,17 +245,20 @@ def apply_deduplication(posts: list[dict[str, Any]]) -> None:
         # Index current as primary candidate only if unique-ish
         if post.get("duplicate_status") == "unique":
             for phone in entity.get("phone") or []:
-                index_phone.setdefault(phone, i)
+                remember(index_phone, phone, i)
             for ig in entity.get("instagram") or []:
-                index_ig.setdefault(ig.lower().lstrip("@"), i)
+                handle = ig.lower().lstrip("@")
+                if handle in CHANNEL_NOISE["instagram"]:
+                    continue
+                remember(index_ig, handle, i)
             for tg in entity.get("telegram") or []:
-                index_tg.setdefault(tg.lower().lstrip("@"), i)
+                remember(index_tg, tg.lower().lstrip("@"), i)
             for web in entity.get("website") or []:
-                host = _domain(web)
+                host = _identity_domain(web)
                 if host:
-                    index_web.setdefault(host, i)
-            if name and cat:
-                index_name_cat.setdefault(f"{name}|{cat}", i)
+                    remember(index_web, host, i)
+            if name_cat_key:
+                remember(index_name_cat, name_cat_key, i)
             if fp:
                 fingerprints.append((i, fp))
         else:

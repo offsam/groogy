@@ -24,6 +24,28 @@ export type AddressValidationIssue = {
 const ZIP_RE = /\b(\d{5})(?:-\d{4})?\b/;
 const STATE_ABBR_RE = /\b(A[LKZR]|C[AOT]|D[EC]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEHINOST]|N[CDEHJMVY]|O[HKR]|P[AWR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])\b/i;
 
+/**
+ * Real cities whose name matches their own state — keep them as city
+ * («New York, US-NY» is NYC, not a stray state value).
+ */
+const CITY_NAMED_LIKE_STATE: Record<string, string[]> = {
+  "new york": ["US-NY"],
+  washington: ["US-DC"],
+};
+
+/**
+ * City field carrying a state instead of a city («California»). Only true when
+ * it duplicates the card's own state — «Washington, US-IL» is a real city.
+ */
+function cityIsMislabeledState(
+  city: string,
+  stateCode: string | null,
+): boolean {
+  const asState = STATE_NAMES[city.toLowerCase()];
+  if (!asState) return false;
+  return !stateCode || asState === stateCode;
+}
+
 const STATE_NAMES: Record<string, string> = {
   california: "US-CA",
   калифорния: "US-CA",
@@ -452,7 +474,10 @@ export function normalizeStructuredAddress(input: {
     if (cityIsCounty) {
       if (!region) region = normalizeCountyLabel(city);
       city = null;
-    } else if (/^california$/i.test(city) || STATE_NAMES[city.toLowerCase()]) {
+    } else if (
+      cityIsMislabeledState(city, stateCode) &&
+      !CITY_NAMED_LIKE_STATE[city.toLowerCase()]?.includes(stateCode ?? "")
+    ) {
       if (!stateCode) stateCode = stateCodeFromText(city);
       city = null;
     } else {

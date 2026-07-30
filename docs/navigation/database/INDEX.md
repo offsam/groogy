@@ -64,3 +64,6 @@ No separate views catalog document found.
 
 - Master data admin: [`../admin/INDEX.md`](../admin/INDEX.md)
 - Entity tables map: [`../entities/INDEX.md`](../entities/INDEX.md)
+- Types ritual: [`../../architecture/runtime/DB_TYPES_RITUAL_V1.md`](../../architecture/runtime/DB_TYPES_RITUAL_V1.md)
+- Domain events: [`../runtime/DOMAIN_EVENTS.md`](../runtime/DOMAIN_EVENTS.md)
+- CI: [`.github/workflows/ci.yml`](../../../.github/workflows/ci.yml)

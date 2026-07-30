@@ -3,11 +3,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-  DEFAULT_REGION_HUB,
   GUEST_REGION_STORAGE_KEY,
+  USA_OVERVIEW_HUB,
   formatHubsInLabel,
   getRegionHubById,
   getRegionHubsByIds,
+  isUsaOverviewHub,
   parseHubIds,
   persistGuestHubIds,
   serializeHubIds,
@@ -40,7 +41,8 @@ function readStoredHubIds(): string[] | null {
   try {
     const raw = localStorage.getItem(GUEST_REGION_STORAGE_KEY);
     if (!raw) return null;
-    return parseHubIds(raw);
+    const ids = parseHubIds(raw);
+    return ids.length > 0 ? ids : null;
   } catch {
     return null;
   }
@@ -50,7 +52,7 @@ function stateFromHubs(
   hubs: RegionHub[],
   source: HomeRegionState["source"],
 ): HomeRegionState {
-  const list = hubs.length > 0 ? hubs : [DEFAULT_REGION_HUB];
+  const list = hubs.length > 0 ? hubs : [USA_OVERVIEW_HUB];
   return {
     hubs: list,
     hub: list[0],
@@ -68,7 +70,14 @@ export function useHomeRegion(options: {
 }) {
   const router = useRouter();
   const [region, setRegion] = useState<HomeRegionState>(() =>
-    stateFromHubs([options.initialHub], options.lockedFromProfile ? "profile" : "default"),
+    stateFromHubs(
+      [options.initialHub],
+      options.lockedFromProfile
+        ? "profile"
+        : isUsaOverviewHub(options.initialHub)
+          ? "default"
+          : "storage",
+    ),
   );
   const [geoStatus, setGeoStatus] = useState<
     "idle" | "prompt" | "loading" | "denied" | "done"
@@ -77,12 +86,7 @@ export function useHomeRegion(options: {
   useEffect(() => {
     if (options.lockedFromProfile) {
       persistGuestHubIds([options.initialHub.id]);
-      setRegion(
-        stateFromHubs(
-          [options.initialHub],
-          "profile",
-        ),
-      );
+      setRegion(stateFromHubs([options.initialHub], "profile"));
       return;
     }
 
@@ -95,6 +99,8 @@ export function useHomeRegion(options: {
       return;
     }
 
+    // No saved region / no profile → USA overview until guest picks or allows geo.
+    setRegion(stateFromHubs([USA_OVERVIEW_HUB], "default"));
     setGeoStatus("prompt");
   }, [options.lockedFromProfile, options.initialHub]);
 
@@ -103,7 +109,7 @@ export function useHomeRegion(options: {
       const hub = data.hubId
         ? getRegionHubById(data.hubId)
         : {
-            ...DEFAULT_REGION_HUB,
+            ...USA_OVERVIEW_HUB,
             inLabel: data.inLabel,
             panoramaUrl: data.panoramaUrl,
             mapCenter: data.mapCenter,
@@ -162,8 +168,13 @@ export function useHomeRegion(options: {
   const setHubs = useCallback(
     (nextIds: string[]) => {
       const hubs = getRegionHubsByIds(nextIds);
-      persistGuestHubIds(hubs.map((h) => h.id));
-      setRegion(stateFromHubs(hubs, "manual"));
+      const metros = hubs.filter((h) => !isUsaOverviewHub(h));
+      const list =
+        metros.length > 0
+          ? metros
+          : [USA_OVERVIEW_HUB];
+      persistGuestHubIds(list.map((h) => h.id));
+      setRegion(stateFromHubs(list, "manual"));
       setGeoStatus("done");
       router.refresh();
     },
@@ -174,12 +185,18 @@ export function useHomeRegion(options: {
   const toggleHub = useCallback(
     (hubId: string) => {
       const id = getRegionHubById(hubId).id;
-      const current = region.hubs.map((h) => h.id);
+      if (id === "usa-overview") {
+        setHubs(["usa-overview"]);
+        return;
+      }
+      const current = region.hubs
+        .map((h) => h.id)
+        .filter((x) => x !== "usa-overview");
       const exists = current.includes(id);
       let next: string[];
       if (exists) {
         next = current.filter((x) => x !== id);
-        if (next.length === 0) next = [id];
+        if (next.length === 0) next = ["usa-overview"];
       } else {
         next = [...current, id];
       }
@@ -196,14 +213,20 @@ export function useHomeRegion(options: {
     [setHubs],
   );
 
-  const hubIdsParam = useMemo(
-    () => serializeHubIds(region.hubs.map((h) => h.id)),
-    [region.hubs],
-  );
+  const hubIdsParam = useMemo(() => {
+    if (isUsaOverviewHub(region.hub) || region.source === "default") {
+      return "";
+    }
+    return serializeHubIds(region.hubs.map((h) => h.id));
+  }, [region.hub, region.hubs, region.source]);
+
+  const nationalOverview =
+    region.source === "default" || isUsaOverviewHub(region.hub);
 
   return {
     region,
     hubIdsParam,
+    nationalOverview,
     geoStatus,
     requestGeolocation,
     dismissGeoPrompt,

@@ -3,7 +3,7 @@
 import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
 import {
   hasProvenanceSource,
-  isPlatformSource,
+  isPlatformOrigin,
   resolveSourceUrl,
   type BusinessPresence,
 } from "@/lib/business/presence";
@@ -29,7 +29,7 @@ export function BusinessSourceCard({
   editMode = false,
 }: BusinessSourceCardProps) {
   const sourceUrl = resolveSourceUrl(presence);
-  const platform = isPlatformSource(presence.sourceKind);
+  const platform = isPlatformOrigin(presence);
   const hasSource =
     hasProvenanceSource(presence) ||
     Boolean(presenceFlags?.hasSource) ||

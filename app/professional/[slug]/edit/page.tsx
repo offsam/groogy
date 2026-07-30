@@ -58,6 +58,10 @@ export default async function EditProfessionalPage({ params }: PageProps) {
             website: professional.website ?? "",
             instagramUrl: professional.instagramUrl ?? "",
             telegramUrl: professional.telegramUrl ?? "",
+            contactLinks: professional.contactLinks,
+            employerName: professional.employerName ?? "",
+            employerRole: professional.employerRole ?? "",
+            employerBusinessSlug: professional.employerBusinessSlug ?? "",
           }}
           mode="edit"
           slug={professional.slug}

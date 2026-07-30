@@ -4,6 +4,7 @@ import { Literata, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobilePreview } from "@/components/layout/MobilePreview";
+import { ErrorReportButton } from "@/components/error-report/ErrorReportButton";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
 import { BRAND_NAME } from "@/lib/brand";
 import "leaflet/dist/leaflet.css";
@@ -59,6 +60,9 @@ export default function RootLayout({
           <Footer />
         </div>
         <MobilePreview />
+        <Suspense fallback={null}>
+          <ErrorReportButton />
+        </Suspense>
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>

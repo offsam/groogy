@@ -28,6 +28,12 @@ export type Json =
 
 export type UserRole = "user" | "business_owner" | "moderator" | "admin";
 
+export type PlatformErrorReportStatus =
+  | "open"
+  | "reviewed"
+  | "resolved"
+  | "dismissed";
+
 export type ReviewModerationStatus =
   | "verification_pending"
   | "verification_in_progress"
@@ -1386,6 +1392,38 @@ export type Database = {
         };
         Update: Partial<
           Database["public"]["Tables"]["platform_events"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      platform_error_reports: {
+        Row: {
+          id: string;
+          message: string;
+          page_path: string;
+          page_url: string | null;
+          user_id: string | null;
+          user_agent: string | null;
+          status: PlatformErrorReportStatus;
+          admin_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          message: string;
+          page_path: string;
+          page_url?: string | null;
+          user_id?: string | null;
+          user_agent?: string | null;
+          status?: PlatformErrorReportStatus;
+          admin_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["platform_error_reports"]["Insert"]
         >;
         Relationships: [];
       };

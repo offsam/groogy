@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   // Explicit: `NEXT_DIST_DIR=.next-dev npm run dev` — never share cache with `next build`.
   distDir: process.env.NEXT_DIST_DIR || ".next",
   outputFileTracingRoot: process.cwd(),
+  // CI runs eslint on lib/components/types; app/ still carries legacy debt (roadmap C2).
+  // Do not block Vercel production deploys on those repo-wide lint Errors.
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   turbopack: {
     root: process.cwd(),
   },

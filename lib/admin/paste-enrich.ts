@@ -3,6 +3,9 @@
  * Fill-empty only — mirrors Python step_source_text (no LLM).
  */
 
+import type { OpeningHours, OpeningHoursDay } from "@/lib/business/opening-hours";
+import { dayLabelRu } from "@/lib/business/opening-hours";
+
 export type PasteEnrichExisting = {
   /** Company name — only the import queue fills this. */
   name?: string | null;
@@ -12,12 +15,16 @@ export type PasteEnrichExisting = {
   /** Handle, URL, or list — normalized for emptiness check. */
   instagram?: string | string[] | null;
   telegram?: string | null;
+  facebook?: string | null;
+  whatsapp?: string | string[] | null;
+  googleMaps?: string | null;
   city?: string | null;
   state?: string | null;
   addressLine?: string | null;
   postalCode?: string | null;
   description?: string | null;
   imageUrl?: string | null;
+  openingHours?: OpeningHours | null;
 };
 
 export type PasteEnrichExtracted = {
@@ -28,11 +35,15 @@ export type PasteEnrichExtracted = {
   website: string[];
   instagram: string[];
   telegram: string | null;
+  facebook: string | null;
+  whatsapp: string | null;
+  googleMaps: string | null;
   city: string | null;
   state: string | null;
   addressLine: string | null;
   postalCode: string | null;
   description: string | null;
+  openingHours: OpeningHours | null;
 };
 
 export type PasteEnrichFieldKey =
@@ -42,11 +53,15 @@ export type PasteEnrichFieldKey =
   | "website"
   | "instagram"
   | "telegram"
+  | "facebook"
+  | "whatsapp"
+  | "googleMaps"
   | "city"
   | "state"
   | "address"
   | "postal"
   | "description"
+  | "openingHours"
   | "image";
 
 export type PasteEnrichPreviewItem = {
@@ -122,10 +137,36 @@ const SOCIAL_HOST_MARKERS = [
   "telegram.me",
   "wa.me/",
   "whatsapp.com",
+  "wtsp.cc",
+  "maps.app.goo.gl",
+  "goo.gl/maps",
+  "maps.google.",
+  "google.com/maps",
   "tiktok.com",
   "youtube.com",
   "youtu.be",
 ];
+
+/** Incomplete short-host matches from BARE_WEBSITE_RE (maps.app ⊂ maps.app.goo.gl). */
+const WEBSITE_HOST_BLOCKLIST = new Set([
+  "maps.app",
+  "wtsp.cc",
+  "wa.me",
+  "facebook.com",
+  "fb.com",
+  "fb.me",
+  "instagram.com",
+  "instagr.am",
+  "t.me",
+  "telegram.me",
+]);
+
+const FACEBOOK_URL_RE =
+  /(?:https?:\/\/)?(?:www\.)?(?:facebook\.com|fb\.com|fb\.me)\/[A-Za-z0-9._\-/]+/gi;
+const WHATSAPP_URL_RE =
+  /(?:https?:\/\/)?(?:(?:wa\.me|api\.whatsapp\.com)\/[^\s<>"']+|wtsp\.cc\/\d{7,15})/gi;
+const GOOGLE_MAPS_URL_RE =
+  /(?:https?:\/\/)?(?:maps\.app\.goo\.gl\/[A-Za-z0-9_-]+(?:\?[^\s<>"']*)?|goo\.gl\/maps\/[A-Za-z0-9_-]+|(?:www\.)?(?:google\.com\/maps|maps\.google\.[a-z.]+)[^\s<>"']*)/gi;
 
 const WEAK_DESCRIPTION_RE =
   /fast\.?\s*secure\.?\s*powerful|instagram\.com|instagr\.am|t\.me\/|telegram\.org/i;
@@ -147,9 +188,9 @@ const PLACE_RULES: { re: RegExp; city: string | null; state: string }[] = [
   { re: /\borange\s*county\b|\boc\b/i, city: "Orange County", state: "CA" },
 ];
 
-/** US street + city + state + ZIP (e.g. Instagram bio footer). */
+/** US street + city + state, ZIP optional (e.g. «18062 Irvine Blvd, Tustin, CA»). */
 const US_STREET_ADDRESS_RE =
-  /((?<![\d\-])\d{1,6}[ \t]+[A-Za-z0-9.'\-]+(?:[ \t]+[A-Za-z0-9.'\-]+){0,6}[ \t]+(?:Ave|Avenue|St|Street|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Ln|Lane|Ct|Court|Pl|Place|Hwy|Highway)\.?)\s*,\s*([A-Za-z][A-Za-z.\s]+?)\s*,\s*(?:([A-Z]{2})|California|CA|Washington|WA|New\s*York|NY|Florida|FL|Oregon|OR|Texas|TX)\s+(\d{5})(?:-\d{4})?/i;
+  /((?<![\d\-])\d{1,6}[ \t]+[A-Za-z0-9.'\-]+(?:[ \t]+[A-Za-z0-9.'\-]+){0,6}[ \t]+(?:Ave|Avenue|St|Street|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Ln|Lane|Ct|Court|Pl|Place|Hwy|Highway)\.?)\s*,\s*([A-Za-z][A-Za-z.\s]+?)\s*,\s*(?:([A-Z]{2})|California|CA|Washington|WA|New\s*York|NY|Florida|FL|Oregon|OR|Texas|TX)(?:\s+(\d{5})(?:-\d{4})?)?/i;
 
 const IG_STATS_LINE_RE =
   /^\s*\d[\d\s,.]*\s*(?:публикаци[йяе]|подписчик(?:ов)?|подписок|followers?|following|posts?).*$/gim;
@@ -161,13 +202,205 @@ const FIELD_LABELS: Record<PasteEnrichFieldKey, string> = {
   website: "Сайт",
   instagram: "Instagram",
   telegram: "Telegram",
+  facebook: "Facebook",
+  whatsapp: "WhatsApp",
+  googleMaps: "Google Maps",
   city: "Город",
   state: "Штат",
   address: "Адрес",
   postal: "ZIP",
   description: "Описание",
+  openingHours: "Часы работы",
   image: "Фото",
 };
+
+const DAY_NAME_TO_JS: Record<string, OpeningHoursDay["day"]> = {
+  sunday: 0,
+  sun: 0,
+  воскресенье: 0,
+  вс: 0,
+  monday: 1,
+  mon: 1,
+  понедельник: 1,
+  пн: 1,
+  tuesday: 2,
+  tue: 2,
+  tues: 2,
+  вторник: 2,
+  вт: 2,
+  wednesday: 3,
+  wed: 3,
+  среда: 3,
+  ср: 3,
+  thursday: 4,
+  thu: 4,
+  thur: 4,
+  thurs: 4,
+  четверг: 4,
+  чт: 4,
+  friday: 5,
+  fri: 5,
+  пятница: 5,
+  пт: 5,
+  saturday: 6,
+  sat: 6,
+  суббота: 6,
+  сб: 6,
+};
+
+/** Google Maps / Apple Maps UI dump — not a real «О нас». */
+const MAPS_CHROME_RE =
+  /\b(?:directions|overview|reviews|about|nearby|send to phone|suggest new hours|open now|save|share|services)\b/gi;
+
+function mapsChromeHitCount(text: string): number {
+  return [...text.matchAll(MAPS_CHROME_RE)].length;
+}
+
+function emptyOpeningHours(
+  value: OpeningHours | null | undefined,
+): boolean {
+  if (!value || !Array.isArray(value.weekly) || value.weekly.length === 0) {
+    return true;
+  }
+  return !value.weekly.some(
+    (d) => !d.closed && Boolean(d.open?.trim()) && Boolean(d.close?.trim()),
+  );
+}
+
+function to24h(hourRaw: string, minuteRaw: string | undefined, ampm: string): string | null {
+  let hour = Number(hourRaw);
+  const minute = minuteRaw ? Number(minuteRaw) : 0;
+  if (!Number.isFinite(hour) || hour < 0 || hour > 23) return null;
+  if (!Number.isFinite(minute) || minute < 0 || minute > 59) return null;
+  const ap = ampm.toLowerCase();
+  if (ap === "pm" && hour < 12) hour += 12;
+  if (ap === "am" && hour === 12) hour = 0;
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+}
+
+const CLOCK_RE =
+  /(\d{1,2})(?::(\d{2}))?\s*(AM|PM|am|pm)/;
+
+const HOURS_RANGE_RE =
+  /(\d{1,2})(?::(\d{2}))?\s*(AM|PM|am|pm)\s*[–—−-]\s*(\d{1,2})(?::(\d{2}))?\s*(AM|PM|am|pm)/i;
+
+const DAY_LINE_RE =
+  /^(sunday|sun|monday|mon|tuesday|tue|tues|wednesday|wed|thursday|thu|thur|thurs|friday|fri|saturday|sat|воскресенье|вс|понедельник|пн|вторник|вт|среда|ср|четверг|чт|пятница|пт|суббота|сб)\b/i;
+
+function parseHoursRange(
+  raw: string,
+): { open: string; close: string } | null {
+  const m = HOURS_RANGE_RE.exec(raw);
+  if (!m) return null;
+  const open = to24h(m[1]!, m[2], m[3]!);
+  const close = to24h(m[4]!, m[5], m[6]!);
+  if (!open || !close) return null;
+  return { open, close };
+}
+
+/**
+ * Google Maps “Hours” block (day on one line, range on the next) or
+ * «Friday 10 AM–6 PM» on one line.
+ */
+export function extractOpeningHoursFromText(
+  text: string,
+): OpeningHours | null {
+  const normalized = demathAlnum(text || "")
+    .replace(/[\u202f\u00a0\u2007\u2060]/g, " ")
+    .replace(/\r\n?/g, "\n");
+  if (!CLOCK_RE.test(normalized) && !/\bclosed\b/i.test(normalized)) {
+    return null;
+  }
+
+  const weekly = new Map<OpeningHoursDay["day"], OpeningHoursDay>();
+  const lines = normalized
+    .split(/\n+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i]!;
+    const dayMatch = DAY_LINE_RE.exec(line);
+    if (!dayMatch) continue;
+    const dayKey = dayMatch[1]!.toLowerCase();
+    const day = DAY_NAME_TO_JS[dayKey];
+    if (day == null) continue;
+
+    const rest = line.slice(dayMatch[0].length).trim();
+    const next = lines[i + 1] || "";
+    const closed =
+      /\bclosed\b/i.test(rest) ||
+      /\bзакрыт/i.test(rest) ||
+      (!HOURS_RANGE_RE.test(rest) &&
+        (/\bclosed\b/i.test(next) || /\bзакрыт/i.test(next)));
+
+    if (closed) {
+      weekly.set(day, { day, closed: true });
+      continue;
+    }
+
+    const range =
+      parseHoursRange(rest) ||
+      (!DAY_LINE_RE.test(next) ? parseHoursRange(next) : null);
+    if (!range) continue;
+    weekly.set(day, {
+      day,
+      closed: false,
+      open: range.open,
+      close: range.close,
+    });
+  }
+
+  // Same-line fallbacks scattered in a paragraph (rare).
+  if (weekly.size === 0) {
+    const re =
+      /\b(sunday|monday|tuesday|wednesday|thursday|friday|saturday|sun|mon|tue|wed|thu|fri|sat)\b[^.\n]{0,40}?(\d{1,2}(?::\d{2})?\s*(?:AM|PM)\s*[–—−-]\s*\d{1,2}(?::\d{2})?\s*(?:AM|PM)|closed)/gi;
+    for (const match of normalized.matchAll(re)) {
+      const day = DAY_NAME_TO_JS[match[1]!.toLowerCase()];
+      if (day == null || weekly.has(day)) continue;
+      if (/\bclosed\b/i.test(match[2] || "")) {
+        weekly.set(day, { day, closed: true });
+        continue;
+      }
+      const range = parseHoursRange(match[2] || "");
+      if (!range) continue;
+      weekly.set(day, {
+        day,
+        closed: false,
+        open: range.open,
+        close: range.close,
+      });
+    }
+  }
+
+  const openDays = [...weekly.values()].filter(
+    (d) => !d.closed && d.open && d.close,
+  );
+  if (openDays.length < 1) return null;
+
+  const full: OpeningHoursDay[] = ([0, 1, 2, 3, 4, 5, 6] as const).map(
+    (day) => weekly.get(day) ?? { day, closed: true },
+  );
+  return { timezone: "America/Los_Angeles", weekly: full };
+}
+
+export function formatOpeningHoursPreview(hours: OpeningHours): string {
+  const open = hours.weekly.filter((d) => !d.closed && d.open && d.close);
+  if (open.length === 0) return "закрыто";
+  const first = open[0]!;
+  const allSame =
+    open.length >= 5 &&
+    open.every((d) => d.open === first.open && d.close === first.close);
+  if (allSame && open.length === 7) {
+    return `ежедневно ${first.open}–${first.close}`;
+  }
+  if (allSame) {
+    return `${open.map((d) => dayLabelRu(d.day).slice(0, 2)).join(", ")} ${first.open}–${first.close}`;
+  }
+  return open
+    .map((d) => `${dayLabelRu(d.day).slice(0, 2)} ${d.open}–${d.close}`)
+    .join("; ");
+}
 
 function emptyScalar(value: string | null | undefined): boolean {
   return !(value || "").trim();
@@ -197,21 +430,98 @@ function normalizeUrl(url: string): string {
 
 function isSocialUrl(url: string): boolean {
   const lower = url.toLowerCase();
-  return SOCIAL_HOST_MARKERS.some((m) => lower.includes(m));
+  if (SOCIAL_HOST_MARKERS.some((m) => lower.includes(m))) return true;
+  try {
+    const host = new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+    if (WEBSITE_HOST_BLOCKLIST.has(host)) return true;
+  } catch {
+    /* ignore */
+  }
+  return false;
 }
 
 function maskUrls(text: string): string {
   return text.replace(URL_SPAN_RE, (m) => " ".repeat(m.length));
 }
 
+/** UUID / truncated UUID fragments look like phones (3037-4158 → +14303741588). */
+const UUID_SPAN_RE =
+  /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}(?:-[0-9a-f]{0,12})?\b/gi;
+
+function maskUuidSpans(text: string): string {
+  return text.replace(UUID_SPAN_RE, (m) => " ".repeat(m.length));
+}
+
 function maskTelegramIds(text: string): string {
   return text.replace(TELEGRAM_ID_SPAN_RE, (m) => " ".repeat(m.length));
+}
+
+export function extractFacebookFromText(text: string): string | null {
+  for (const match of (text || "").matchAll(FACEBOOK_URL_RE)) {
+    const url = normalizeUrl(match[0] || "");
+    if (!url) continue;
+    try {
+      const u = new URL(url);
+      const host = u.hostname.toLowerCase().replace(/^www\./, "");
+      if (!["facebook.com", "fb.com", "fb.me"].includes(host)) continue;
+      const path = u.pathname.replace(/\/+$/, "");
+      if (!path || path === "/") continue;
+      return `https://www.facebook.com${path}`;
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
+export function extractWhatsAppFromText(text: string): string | null {
+  for (const match of (text || "").matchAll(WHATSAPP_URL_RE)) {
+    const raw = (match[0] || "").trim();
+    if (!raw) continue;
+    const digits = raw.replace(/\D/g, "");
+    if (/wtsp\.cc/i.test(raw) && digits.length >= 10) {
+      return `https://wa.me/${digits}`;
+    }
+    const url = normalizeUrl(raw);
+    if (!url) continue;
+    try {
+      const u = new URL(url);
+      const host = u.hostname.toLowerCase().replace(/^www\./, "");
+      if (host === "wa.me") {
+        const pathDigits = u.pathname.replace(/\D/g, "");
+        if (pathDigits.length >= 10) return `https://wa.me/${pathDigits}`;
+      }
+      if (host.includes("whatsapp.com")) return url;
+    } catch {
+      continue;
+    }
+  }
+  // Labeled block: WHATSAPP\n+1 949…
+  const labeled = (text || "").match(
+    /whatsapp\s*[:：]?\s*(?:\n|\s)*(\+?\d[\d\-\s().]{8,}\d)/i,
+  );
+  if (labeled?.[1]) {
+    const phone = normalizePhone(labeled[1]);
+    if (phone) return `https://wa.me/${phone.replace(/\D/g, "")}`;
+  }
+  return null;
+}
+
+export function extractGoogleMapsFromText(text: string): string | null {
+  for (const match of (text || "").matchAll(GOOGLE_MAPS_URL_RE)) {
+    const url = normalizeUrl(match[0] || "");
+    if (!url) continue;
+    // Reject truncated maps.app without goo.gl
+    if (/^https?:\/\/maps\.app\/?$/i.test(url.replace(/\/$/, ""))) continue;
+    return url;
+  }
+  return null;
 }
 
 export function extractPhonesFromText(text: string): string[] {
   const found: string[] = [];
   const seen = new Set<string>();
-  const scrubbed = maskTelegramIds(maskUrls(text || ""));
+  const scrubbed = maskTelegramIds(maskUuidSpans(maskUrls(text || "")));
   for (const match of scrubbed.matchAll(PHONE_RE)) {
     const phone = normalizePhone(match[0] || "");
     if (phone && !seen.has(phone)) {
@@ -302,6 +612,7 @@ export function extractWebsitesFromText(text: string): string[] {
     }
     // Skip email-like false positives
     if (!host.includes(".")) return;
+    if (WEBSITE_HOST_BLOCKLIST.has(host)) return;
     const key = url.toLowerCase().replace(/\/$/, "");
     if (seen.has(key) || seen.has(host)) return;
     seen.add(key);
@@ -480,6 +791,16 @@ export function demathAlnum(text: string): string {
 export function extractDescriptionFromText(text: string): string | null {
   let cleaned = demathAlnum(text || "").trim();
   if (!cleaned) return null;
+  // Google Maps / Apple Maps UI dump — not narrative.
+  const chromeHits = mapsChromeHitCount(cleaned);
+  if (chromeHits >= 2) return null;
+  if (
+    DAY_LINE_RE.test(cleaned) &&
+    HOURS_RANGE_RE.test(cleaned) &&
+    chromeHits >= 1
+  ) {
+    return null;
+  }
   cleaned = cleaned.replace(IG_STATS_LINE_RE, " ");
   cleaned = cleaned.replace(URL_SPAN_RE, " ");
   cleaned = cleaned.replace(BARE_WEBSITE_RE, " ");
@@ -495,8 +816,10 @@ export function extractDescriptionFromText(text: string): string | null {
     .map((line) => line.trim())
     .filter((line) => {
       if (!line) return false;
+      if (DAY_LINE_RE.test(line)) return false;
+      if (HOURS_RANGE_RE.test(line) && line.length < 40) return false;
       if (
-        /^(blogger|creator|artist|personal\s*blog|book\s*now|my\s*website|website|facebook|instagram|links?)$/i.test(
+        /^(blogger|creator|artist|personal\s*blog|book\s*now|my\s*website|website|facebook|instagram|links?|open\s*now|directions|overview|reviews|about|suggest\s*new\s*hours)$/i.test(
           line,
         )
       ) {
@@ -528,12 +851,24 @@ export function parsePasteEnrichText(text: string): PasteEnrichExtracted {
   const normalized = demathAlnum(text || "");
   const phones = extractPhonesFromText(normalized);
   const emails = extractEmailsFromText(normalized);
+  const facebook = extractFacebookFromText(normalized);
+  const whatsapp = extractWhatsAppFromText(normalized);
+  const googleMaps = extractGoogleMapsFromText(normalized);
   const websites = extractWebsitesFromText(normalized);
   const instagram = extractInstagramFromText(normalized);
   const tgs = extractTelegramFromText(normalized);
   const street = extractUsStreetAddress(normalized);
   const place = extractPlaceFromText(normalized);
   const description = extractDescriptionFromText(text);
+  const openingHours = extractOpeningHoursFromText(text);
+  // Phone from WhatsApp short link when no other phone was found.
+  if (whatsapp && phones.length === 0) {
+    const digits = whatsapp.replace(/\D/g, "");
+    if (digits.length >= 10) {
+      const phone = normalizePhone(digits);
+      if (phone) phones.push(phone);
+    }
+  }
   return {
     name: null,
     phone: phones.slice(0, 3),
@@ -541,11 +876,15 @@ export function parsePasteEnrichText(text: string): PasteEnrichExtracted {
     website: websites.slice(0, 3),
     instagram: instagram.slice(0, 3),
     telegram: tgs[0] ?? null,
+    facebook,
+    whatsapp,
+    googleMaps,
     city: street.city || place.city,
     state: street.state || place.state,
     addressLine: street.addressLine,
     postalCode: street.postalCode,
     description,
+    openingHours,
   };
 }
 
@@ -604,6 +943,33 @@ export function buildPasteEnrichPreview(
     });
   }
 
+  if (extracted.facebook) {
+    rows.push({
+      key: "facebook",
+      label: FIELD_LABELS.facebook,
+      value: extracted.facebook,
+      action: emptyScalar(existing.facebook) ? "add" : "skip",
+    });
+  }
+
+  if (extracted.whatsapp) {
+    rows.push({
+      key: "whatsapp",
+      label: FIELD_LABELS.whatsapp,
+      value: extracted.whatsapp,
+      action: emptyList(existing.whatsapp) ? "add" : "skip",
+    });
+  }
+
+  if (extracted.googleMaps) {
+    rows.push({
+      key: "googleMaps",
+      label: FIELD_LABELS.googleMaps,
+      value: extracted.googleMaps,
+      action: emptyScalar(existing.googleMaps) ? "add" : "skip",
+    });
+  }
+
   if (extracted.city) {
     rows.push({
       key: "city",
@@ -637,6 +1003,15 @@ export function buildPasteEnrichPreview(
       label: FIELD_LABELS.postal,
       value: extracted.postalCode,
       action: emptyScalar(existing.postalCode) ? "add" : "skip",
+    });
+  }
+
+  if (extracted.openingHours) {
+    rows.push({
+      key: "openingHours",
+      label: FIELD_LABELS.openingHours,
+      value: formatOpeningHoursPreview(extracted.openingHours),
+      action: emptyOpeningHours(existing.openingHours) ? "add" : "skip",
     });
   }
 
@@ -704,6 +1079,15 @@ export function pasteEnrichFillEmptyPatch(
   if (emptyScalar(existing.telegram) && extracted.telegram) {
     patch.telegram = extracted.telegram;
   }
+  if (emptyScalar(existing.facebook) && extracted.facebook) {
+    patch.facebook = extracted.facebook;
+  }
+  if (emptyList(existing.whatsapp) && extracted.whatsapp) {
+    patch.whatsapp = extracted.whatsapp;
+  }
+  if (emptyScalar(existing.googleMaps) && extracted.googleMaps) {
+    patch.googleMaps = extracted.googleMaps;
+  }
   if (emptyScalar(existing.city) && extracted.city) {
     patch.city = extracted.city;
   }
@@ -715,6 +1099,9 @@ export function pasteEnrichFillEmptyPatch(
   }
   if (emptyScalar(existing.postalCode) && extracted.postalCode) {
     patch.postalCode = extracted.postalCode;
+  }
+  if (emptyOpeningHours(existing.openingHours) && extracted.openingHours) {
+    patch.openingHours = extracted.openingHours;
   }
   if (isWeakDescription(existing.description)) {
     if (extracted.description) {

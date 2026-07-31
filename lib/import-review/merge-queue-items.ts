@@ -9,7 +9,11 @@
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { isJunkImportTitle } from "@/lib/import-review/display-name";
+import { isJunkImportTitle, isPersonLikeImportName } from "@/lib/import-review/display-name";
+import {
+  preferRicherIdentityName,
+  realImageUrl,
+} from "@/lib/import-review/field-richness";
 import type { QueuePromotion } from "@/types/promotion";
 import type { QueueUpdate } from "@/types/update";
 import type { Database } from "@/types/database";
@@ -48,6 +52,8 @@ export type MergeableQueueItem = {
   email: string[] | null;
   telegram_username: string | null;
   telegram_user_id: string | null;
+  /** Telegram / FB author shown on the post — often the real person name. */
+  source_author_display_name?: string | null;
   city: string | null;
   state: string | null;
   address_line: string | null;
@@ -64,6 +70,8 @@ export type MergeableQueueItem = {
   last_seen: string | null;
   recurring_cluster_id: string | null;
   review_notes: string | null;
+  published_entity_type?: string | null;
+  published_entity_id?: string | null;
 };
 
 /**
@@ -109,7 +117,7 @@ export function queueItemStrength(item: MergeableQueueItem): number {
   score += item.county_geoid ? 2 : 0;
   score += Math.min(list(item.services).length, 5);
   score += Math.min(Math.floor(textLength(item.description) / 200), 3);
-  score += item.preview_image_url ? 1 : 0;
+  score += realImageUrl(item.preview_image_url) ? 2 : 0;
   score += (item.photos_count ?? 0) > 0 ? 1 : 0;
   // Copies of one ad often carry different names, from a real brand to
   // «Связаться». The card that keeps a usable name should win.
@@ -157,6 +165,56 @@ function uniqueByKey<T>(rows: T[][], key: (row: T) => string): T[] {
   return out;
 }
 
+function authorDisplayName(item: MergeableQueueItem): string | null {
+  const a = String(item.source_author_display_name ?? "").trim();
+  if (!a || isJunkImportTitle(a)) return null;
+  return a;
+}
+
+/**
+ * Prefer the Telegram/FB author when copies disagree on the brand name.
+ * A repost titled «Ruzilya» must not overwrite «Айгерим Бимолдина» just
+ * because the junk title «Запись» needed a filler.
+ */
+function pickBestIdentityName(all: MergeableQueueItem[]): string | null {
+  const authors = all
+    .map(authorDisplayName)
+    .filter((v): v is string => Boolean(v));
+  if (authors.length) {
+    // Longest author label usually has name + surname.
+    return authors.reduce((a, b) => (b.length > a.length ? b : a));
+  }
+
+  const candidates = all.flatMap((item) => [
+    item.person_name,
+    item.business_name,
+    item.title,
+  ]);
+  const personLike = candidates
+    .map((v) => String(v ?? "").trim())
+    .filter((v) => v && !isJunkImportTitle(v) && isPersonLikeImportName(v));
+  if (personLike.length) {
+    return personLike.reduce((a, b) => (b.length > a.length ? b : a));
+  }
+
+  const any = candidates
+    .map((v) => String(v ?? "").trim())
+    .filter((v) => v && !isJunkImportTitle(v));
+  return any.length
+    ? any.reduce((a, b) => (b.length > a.length ? b : a))
+    : null;
+}
+
+const STREET_ADDRESS_RE =
+  /\b\d{1,5}\s+[A-Za-z0-9][A-Za-z0-9 .#'-]{2,40}\s(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct|Place|Pl|Highway|Hwy|Parkway|Pkwy|Way)\.?/i;
+
+function extractStreetAddress(text: string | null | undefined): string | null {
+  if (!text) return null;
+  const match = text.match(STREET_ADDRESS_RE);
+  if (!match?.[0]) return null;
+  return match[0].replace(/\s+/g, " ").replace(/\.$/, "").trim();
+}
+
 function earliest(values: (string | null)[]): string | null {
   const times = values.filter(Boolean) as string[];
   return times.length
@@ -200,7 +258,6 @@ export function buildMergePatch(
     "location_confidence",
     "telegram_username",
     "telegram_user_id",
-    "preview_image_url",
     "currency",
   ];
   for (const field of fillIfEmpty) {
@@ -209,23 +266,51 @@ export function buildMergePatch(
     if (donor) patch[field] = donor[field];
   }
 
+  // Photos: category SVGs / placeholders do not count — take a real photo.
+  {
+    const current = realImageUrl(strong.preview_image_url);
+    if (!current) {
+      const donor = all
+        .map((item) => realImageUrl(item.preview_image_url))
+        .find(Boolean);
+      if (donor) patch.preview_image_url = donor;
+    }
+  }
+
   if (strong.price == null) {
     const donor = weak.find((item) => item.price != null);
     if (donor) patch.price = donor.price;
   }
 
-  // «Связаться» is not a name: take a real one from a copy if there is one.
-  for (const field of ["business_name", "title"] as const) {
-    if (!isJunkImportTitle(String(patch[field] ?? strong[field] ?? ""))) continue;
-    const donor = weak.find((item) => !isJunkImportTitle(item[field]));
-    if (donor) patch[field] = donor[field];
+  // Identity: prefer Telegram/FB author, then fuller person names — never keep
+  // role words («мастер») or a bare first name when a full name is available.
+  const bestName = pickBestIdentityName(all);
+  for (const field of ["business_name", "title", "person_name"] as const) {
+    const current = String(patch[field] ?? strong[field] ?? "").trim();
+    const richer = preferRicherIdentityName(current, bestName);
+    if (richer && richer !== current) patch[field] = richer;
   }
 
+  // Street often sits only in the ad text; copies rarely have address_line filled.
+  if (!String(patch.address_line ?? strong.address_line ?? "").trim()) {
+    const fromText = all
+      .map((item) =>
+        extractStreetAddress(item.source_text) ||
+        extractStreetAddress(item.description),
+      )
+      .find(Boolean);
+    if (fromText) patch.address_line = fromText;
+  }
+
+  // Text is only ever extended, never swapped: an empty field takes a copy's
+  // text, and a filled one moves only to a version that contains it in full.
   for (const field of ["description", "source_text"] as const) {
     const fullest = all.reduce((best, item) =>
       textLength(item[field]) > textLength(best[field]) ? item : best,
     );
-    if (textLength(fullest[field]) > textLength(strong[field])) {
+    if (textLength(fullest[field]) <= textLength(strong[field])) continue;
+    const mine = (strong[field] || "").trim();
+    if (!mine || (fullest[field] || "").includes(mine)) {
       patch[field] = fullest[field];
     }
   }
@@ -318,9 +403,18 @@ export type MergeResult = {
   changed: string[];
 };
 
+/** A row already turned into a live card is merged through the entity, not here. */
+function isPublished(row: MergeableQueueItem): boolean {
+  return Boolean(String(row.published_entity_id ?? "").trim());
+}
+
 /**
  * Fold `ids` into their strongest row. Weak rows close as duplicates of the
  * survivor, so nothing is deleted and the merge stays reversible.
+ *
+ * The survivor is always an open, unpublished row — a card closed earlier as
+ * approved/rejected may still donate its fields, but it must never absorb an
+ * open card, otherwise a moderator loses the filled one to an empty leftover.
  */
 export async function mergeQueueItems(
   client: Client,
@@ -338,10 +432,17 @@ export async function mergeQueueItems(
     if (error) throw new Error(error.message);
     rows.push(...((data ?? []) as unknown as MergeableQueueItem[]));
   }
-  const open = rows.filter((row) => OPEN_STATUSES.includes(row.review_status));
-  if (open.length < 2) return null;
+  if (rows.length < 2) return null;
 
-  const [strong, ...weak] = sortByStrength(open);
+  const candidates = rows.filter(
+    (row) => OPEN_STATUSES.includes(row.review_status) && !isPublished(row),
+  );
+  if (!candidates.length) return null;
+
+  const [strong] = sortByStrength(candidates);
+  const weak = rows.filter((row) => row.id !== strong.id && !isPublished(row));
+  if (!weak.length) return null;
+
   const { patch, changed } = buildMergePatch(strong, weak);
 
   const { error: updateError } = await untyped(client)
@@ -350,7 +451,8 @@ export async function mergeQueueItems(
     .eq("id", strong.id);
   if (updateError) throw new Error(updateError.message);
 
-  for (const batch of chunk(weak.map((item) => item.id))) {
+  const weakOpen = weak.filter((row) => OPEN_STATUSES.includes(row.review_status));
+  for (const batch of chunk(weakOpen.map((item) => item.id))) {
     const { error: closeError } = await untyped(client)
       .from("import_review_items")
       .update({
@@ -363,9 +465,32 @@ export async function mergeQueueItems(
     if (closeError) throw new Error(closeError.message);
   }
 
+  // Already closed donors keep their verdict; they only get a link to the card
+  // that now carries their data.
+  const donorsClosed = weak.filter(
+    (row) => !OPEN_STATUSES.includes(row.review_status),
+  );
+  for (const batch of chunk(donorsClosed.map((item) => item.id))) {
+    await untyped(client)
+      .from("import_review_items")
+      .update({
+        duplicate_of_item_id: strong.id,
+        updated_at: new Date().toISOString(),
+      })
+      .in("id", batch);
+  }
+
+  const titleAfter =
+    (typeof patch.business_name === "string" && patch.business_name) ||
+    (typeof patch.title === "string" && patch.title) ||
+    (typeof patch.person_name === "string" && patch.person_name) ||
+    strong.business_name ||
+    strong.title ||
+    strong.person_name;
+
   return {
     survivorId: strong.id,
-    survivorTitle: strong.business_name || strong.title || strong.person_name,
+    survivorTitle: titleAfter,
     mergedCount: weak.length,
     changed,
   };

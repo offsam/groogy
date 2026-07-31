@@ -53,6 +53,7 @@ import { structureBusinessProfileCopy } from "@/lib/content/structure-business-p
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { formatOfferPrice, offerCoverUrl } from "@/lib/business-offers/mappers";
 import { formatAddress } from "@/lib/supabase/mappers";
+import { looksLikeStreetAddress } from "@/lib/business/location-precision";
 import { BusinessJobsPanel } from "@/components/business/profile/BusinessJobsPanel";
 import type { Job } from "@/types/job";
 import type { Business, Category } from "@/types/business";
@@ -93,6 +94,8 @@ type BusinessProfileViewProps = {
   similar: Business[];
   isOwner: boolean;
   isAdmin?: boolean;
+  /** Confirmed owner exists — nested offers cannot be claimed separately. */
+  businessAlreadyClaimed?: boolean;
   /** Active business categories — only needed for admin category picker. */
   categories?: Category[];
   autoClaim: boolean;
@@ -159,6 +162,7 @@ export function BusinessProfileView({
   similar,
   isOwner,
   isAdmin = false,
+  businessAlreadyClaimed = false,
   categories = [],
   autoClaim,
   currentUserId,
@@ -172,7 +176,6 @@ export function BusinessProfileView({
   initialFollowing = false,
 }: BusinessProfileViewProps) {
   const [editSection, setEditSection] = useState<EditSection>(null);
-  const [aboutExpanded, setAboutExpanded] = useState(false);
   const canInlineEdit = isOwner && editMode && !preview;
   const sidebarLocations = canInlineEdit
     ? locations
@@ -219,12 +222,18 @@ export function BusinessProfileView({
     Number.isFinite(locationLat) &&
     typeof locationLng === "number" &&
     Number.isFinite(locationLng);
-  // A pin needs real coordinates: a street-looking address string alone can be
-  // an address that never geocoded, and a fake pin is worse than a city map.
+  // Pin only with real coords. Prefer location_precision=street; also accept
+  // street-looking address + coords when precision was never stamped.
+  const mapAddressLine =
+    hubLocation?.addressLine?.trim() || business.addressLine?.trim() || "";
+  const locationPrecision =
+    hubLocation?.locationPrecision ?? business.locationPrecision;
   const preciseAddress =
     hasLocationCoords &&
-    Boolean(hubLocation?.addressLine?.trim() || business.addressLine?.trim()) &&
-    (hubLocation?.locationPrecision ?? business.locationPrecision) === "street";
+    Boolean(mapAddressLine) &&
+    (locationPrecision === "street" ||
+      (locationPrecision !== "county" &&
+        looksLikeStreetAddress(mapAddressLine)));
   const mapLat = preciseAddress
     ? locationLat
     : (cityMapCenter?.lat ?? locationLat);
@@ -542,15 +551,11 @@ export function BusinessProfileView({
                 {aboutPreviewText || canInlineEdit ? (
                   <div>
                     <div className="flex items-start justify-between gap-2">
-                      {aboutPreviewText || aboutText ? (
+                      {aboutText ? (
                         <DescriptionWithOriginal
                           className="min-w-0 flex-1"
                           original={business.descriptionOriginal}
-                          text={
-                            aboutExpanded && aboutText
-                              ? aboutText
-                              : (aboutPreviewText ?? aboutText)!
-                          }
+                          text={aboutText}
                           textClassName="text-sm leading-relaxed text-slate-600"
                         />
                       ) : (
@@ -567,15 +572,6 @@ export function BusinessProfileView({
                         ) : null}
                       </div>
                     </div>
-                    {aboutText && aboutText !== aboutPreviewText ? (
-                      <button
-                        className="mt-1.5 text-sm font-medium text-brand-blue hover:underline"
-                        type="button"
-                        onClick={() => setAboutExpanded((v) => !v)}
-                      >
-                        {aboutExpanded ? "Скрыть" : "Подробнее"}
-                      </button>
-                    ) : null}
                   </div>
                 ) : null}
 
@@ -821,6 +817,7 @@ export function BusinessProfileView({
                 ) : null}
                 {offers.length > 0 ? (
                   <BusinessOffersSection
+                    businessAlreadyClaimed={businessAlreadyClaimed || isOwner}
                     businessSlug={businessSlug}
                     offers={offers}
                     presence={presenceForReveal}

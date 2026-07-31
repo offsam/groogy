@@ -247,9 +247,10 @@ export async function resolveEntityLocation(
   if (city && !isCountyOrMetroLabel(city)) {
     const hit = await lookupCity(client, city, stateCode);
     if (hit?.countyGeoid) {
+      // City's county wins over a stale default (e.g. Sacramento + «Orange County»).
       return {
         city: hit.city,
-        region: region || hit.region,
+        region: hit.region || region,
         stateCode: hit.stateCode || stateCode,
         postalCode,
         countyGeoid: hit.countyGeoid,
@@ -293,7 +294,8 @@ export async function resolveEntityLocation(
   if (fromGroup) {
     return {
       city: city || fromGroup.city,
-      region: region || fromGroup.region,
+      // Source-group county beats a leftover hub default on the row.
+      region: fromGroup.region || region,
       stateCode: stateCode || fromGroup.stateCode,
       postalCode,
       countyGeoid: fromGroup.countyGeoid,

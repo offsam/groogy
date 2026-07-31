@@ -54,6 +54,7 @@ from review_tags import (  # noqa: E402
     merge_enrich_tags,
 )
 from entity_title_from_text import apply_title_to_queue  # noqa: E402
+from telegram_profile_avatar import TelegramQueueAvatarEnricher  # noqa: E402
 from structure_event_from_text import (  # noqa: E402
     apply_structured_event_to_queue,
     parse_payment_methods,
@@ -73,6 +74,8 @@ SELECT = (
     "id,entity_type,review_status,review_notes,title,business_name,person_name,"
     "category,description,source_text,source_url,source,source_group,city,state,price,currency,"
     "address_line,postal_code,"
+    "source_chat_id,source_message_ids,source_author_id,source_author_username,"
+    "source_author_display_name,"
     "payment_methods,"
     "phone,whatsapp,email,website,instagram,telegram_username,telegram_user_id,"
     "services,preview_image_url,photos_count,ai_decision,ai_confidence,ai_reason,"
@@ -137,6 +140,7 @@ def run_one(
     apply: bool,
     promote: bool,
     client: SupabaseRest,
+    avatar_enricher: TelegramQueueAvatarEnricher,
     ndjson: bool = False,
 ) -> dict[str, Any]:
     item_id = item["id"]
@@ -529,6 +533,49 @@ def run_one(
     )
 
     progress(
+        "telegram_avatar",
+        "running",
+        detail="Проверяем аватар автора саморекламы в Telegram…",
+    )
+    avatar_url, avatar_outcome, avatar_error = avatar_enricher.enrich(
+        {**item, **patch},
+        apply=apply,
+    )
+    f_avatar: list[str] = []
+    if avatar_url:
+        patch["preview_image_url"] = avatar_url
+        f_avatar = ["preview_image_url"]
+        progress(
+            "telegram_avatar",
+            "done",
+            detail="Аватар Telegram добавлен как фото карточки",
+            found=f_avatar,
+        )
+    elif avatar_error:
+        progress(
+            "telegram_avatar",
+            "error",
+            detail=f"Аватар Telegram недоступен: {avatar_error}",
+            found=[],
+        )
+    else:
+        detail_by_outcome = {
+            "not_telegram": "Источник не Telegram — шаг не нужен",
+            "image_exists": "На карточке уже есть фото",
+            "self_promo_not_confirmed": "Самореклама не подтверждена — аватар автора не используем",
+            "no_author_reference": "Нет ссылки на профиль автора Telegram",
+        }
+        progress(
+            "telegram_avatar",
+            "skipped",
+            detail=detail_by_outcome.get(
+                avatar_outcome,
+                "Аватар Telegram не найден",
+            ),
+            found=[],
+        )
+
+    progress(
         "ai_signals",
         "running",
         detail="Проверяем уже сохранённые AI-сигналы (без вызова LLM)…",
@@ -552,7 +599,7 @@ def run_one(
         extra={"score_before": score_before, "score_after": score_after},
     )
 
-    any_step = bool(f1 or f1b or f2 or f3 or f_event or f_title)
+    any_step = bool(f1 or f1b or f2 or f3 or f_event or f_title or f_avatar)
     if website_error and not any_step:
         p5a_tag = TAG_ENRICH_P5A_PARTIAL
         p5a_state = "partial"
@@ -595,6 +642,7 @@ def run_one(
             "group_location": f1b,
             "website": f2,
             "directories": f3,
+            "telegram_avatar": f_avatar,
         },
         "resources": resource_log,
         "resources_ok": sum(1 for r in resource_log if r.get("outcome") == "ok"),
@@ -717,6 +765,7 @@ def main() -> int:
         print("Missing NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY", file=sys.stderr)
         return 1
     client = SupabaseRest(url, key)
+    avatar_enricher = TelegramQueueAvatarEnricher(url, key)
 
     items = fetch_by_ids(client, ids) if ids else fetch_limited(client, args.entity, args.limit)
     if ids and len(items) != len(ids):
@@ -740,32 +789,36 @@ def main() -> int:
         )
 
     results: list[dict[str, Any]] = []
-    for item in items:
-        r = run_one(
-            item,
-            by_phone=by_phone,
-            by_name=by_name,
-            no_website=args.no_website,
-            website_pages=args.website_pages,
-            apply=args.apply,
-            promote=args.promote_in_review,
-            client=client,
-            ndjson=args.ndjson,
-        )
-        results.append(r)
-        if args.ndjson:
-            continue
-        label = r.get("label") or r["id"]
-        if r.get("skipped"):
-            print(f"  skip  {label}: {r.get('reason')}")
-            continue
-        patch_keys = ",".join((r.get("patch") or {}).keys()) or "—"
-        print(
-            f"  {'APPLIED' if args.apply else 'would'}  {label}: "
-            f"p5a={r.get('p5a')} p5b={r.get('p5b')} "
-            f"score {r.get('score_before')}→{r.get('score_after')} "
-            f"fields={patch_keys}"
-        )
+    try:
+        for item in items:
+            r = run_one(
+                item,
+                by_phone=by_phone,
+                by_name=by_name,
+                no_website=args.no_website,
+                website_pages=args.website_pages,
+                apply=args.apply,
+                promote=args.promote_in_review,
+                client=client,
+                avatar_enricher=avatar_enricher,
+                ndjson=args.ndjson,
+            )
+            results.append(r)
+            if args.ndjson:
+                continue
+            label = r.get("label") or r["id"]
+            if r.get("skipped"):
+                print(f"  skip  {label}: {r.get('reason')}")
+                continue
+            patch_keys = ",".join((r.get("patch") or {}).keys()) or "—"
+            print(
+                f"  {'APPLIED' if args.apply else 'would'}  {label}: "
+                f"p5a={r.get('p5a')} p5b={r.get('p5b')} "
+                f"score {r.get('score_before')}→{r.get('score_after')} "
+                f"fields={patch_keys}"
+            )
+    finally:
+        avatar_enricher.close()
 
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

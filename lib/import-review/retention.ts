@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { isPlaceholderBusinessImage } from "@/lib/business/media";
 
 const BUCKET = "business-images";
 const IMPORT_REVIEW_RE =
@@ -15,6 +16,13 @@ function parseImportReviewObjectPath(url: string | null | undefined): string | n
 function publicObjectUrl(supabaseUrl: string, objectPath: string): string {
   const base = supabaseUrl.replace(/\/$/, "");
   return `${base}/storage/v1/object/public/${BUCKET}/${objectPath}`;
+}
+
+function needsImagePromotion(url: string | null | undefined): boolean {
+  const trimmed = String(url || "").trim();
+  if (!trimmed) return true;
+  if (isPlaceholderBusinessImage(trimmed)) return true;
+  return Boolean(parseImportReviewObjectPath(trimmed));
 }
 
 /**
@@ -34,10 +42,11 @@ export async function promoteImportReviewImageToEntity(
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   if (!supabaseUrl) return { ok: false, error: "missing NEXT_PUBLIC_SUPABASE_URL" };
 
-  // Never overwrite a healthy non-import-review image.
+  // Never overwrite a healthy real photo. Category SVGs / placeholders and
+  // staging import-review URLs may be replaced.
   if (
     opts.currentImageUrl?.trim() &&
-    !parseImportReviewObjectPath(opts.currentImageUrl)
+    !needsImagePromotion(opts.currentImageUrl)
   ) {
     return { ok: true, url: opts.currentImageUrl.trim(), promoted: false };
   }
@@ -50,7 +59,23 @@ export async function promoteImportReviewImageToEntity(
       ? opts.fallbackPreviewUrl
       : null);
 
+  const table = opts.entityType === "business" ? "businesses" : "professionals";
+
+  // Real photo already on the queue card (any public URL): replace placeholder.
   if (!sourceUrl) {
+    const realFallback = (() => {
+      const u = String(opts.fallbackPreviewUrl || "").trim();
+      if (!u || isPlaceholderBusinessImage(u)) return null;
+      return u;
+    })();
+    if (realFallback) {
+      const { error: updError } = await supabase
+        .from(table)
+        .update({ image_url: realFallback })
+        .eq("id", opts.entityId);
+      if (updError) return { ok: false, error: updError.message };
+      return { ok: true, url: realFallback, promoted: true };
+    }
     return { ok: false, error: "no import-review image to promote" };
   }
 
@@ -83,7 +108,6 @@ export async function promoteImportReviewImageToEntity(
   });
   if (upError) return { ok: false, error: upError.message };
 
-  const table = opts.entityType === "business" ? "businesses" : "professionals";
   const { error: updError } = await supabase
     .from(table)
     .update({ image_url: destUrl })
@@ -179,16 +203,20 @@ export async function afterImportReviewSettledRetention(
         .eq("id", opts.publishedEntityId)
         .maybeSingle();
       if (row) {
-        const needsPromote =
-          !row.image_url?.trim() ||
-          Boolean(parseImportReviewObjectPath(row.image_url));
-        if (needsPromote) {
-          await promoteImportReviewImageToEntity(supabase, {
+        let promotedOk = !needsImagePromotion(row.image_url);
+        if (!promotedOk) {
+          const result = await promoteImportReviewImageToEntity(supabase, {
             entityType,
             entityId: row.id,
             currentImageUrl: row.image_url,
             fallbackPreviewUrl: opts.previewImageUrl,
           });
+          promotedOk = result.ok;
+        }
+        // Keep staging files when the live card still has no real photo —
+        // otherwise merge deletes the only copy under a category SVG.
+        if (!promotedOk && opts.previewImageUrl?.trim()) {
+          return;
         }
       }
     }

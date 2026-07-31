@@ -1,7 +1,5 @@
 /**
  * `description_original` for businesses / professionals / jobs / listings
- * ships in migration 20260730190000. Events already have the column.
- * Flip to `true` after applying that migration — until then, reads skip
- * the column so cards don't 500 the way contact_links did.
+ * ships in migration 20260730190000 (+ queue/view 20260731162142).
  */
-export const ENTITY_DESCRIPTION_ORIGINAL_READY = false;
+export const ENTITY_DESCRIPTION_ORIGINAL_READY = true;

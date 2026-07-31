@@ -6,30 +6,163 @@ import { useRouter } from "next/navigation";
 import { Check, ExternalLink, X } from "lucide-react";
 import {
   adminReviewBusinessClaimAction,
+  adminReviewEventClaimAction,
+  adminReviewJobClaimAction,
+  adminReviewListingClaimAction,
+  adminReviewProfessionalClaimAction,
   type PendingBusinessClaim,
+  type PendingEventClaim,
+  type PendingJobClaim,
+  type PendingListingClaim,
+  type PendingProfessionalClaim,
 } from "@/lib/admin/claim-actions";
+import { listingKindFromType } from "@/lib/claims/shared";
 import { Button } from "@/components/ui/Button";
+import type { ListingType } from "@/types/listing";
 
 type AdminClaimsPanelProps = {
-  claims: PendingBusinessClaim[];
+  businessClaims: PendingBusinessClaim[];
+  professionalClaims: PendingProfessionalClaim[];
+  listingClaims: PendingListingClaim[];
+  eventClaims: PendingEventClaim[];
+  jobClaims: PendingJobClaim[];
 };
 
-export function AdminClaimsPanel({ claims }: AdminClaimsPanelProps) {
+type ClaimKind =
+  | "business"
+  | "professional"
+  | "listing"
+  | "event"
+  | "job";
+
+type UnifiedClaim = {
+  id: string;
+  kind: ClaimKind;
+  kindLabel: string;
+  entityHref: string;
+  entityName: string;
+  applicantDisplayName: string | null;
+  applicantEmail: string | null;
+  verificationDetails: string | null;
+  applicantMessage: string | null;
+  createdAt: string;
+};
+
+function listingHref(claim: PendingListingClaim) {
+  const kind = listingKindFromType(
+    (claim.listingType || "marketplace_item") as ListingType,
+  );
+  return `/${kind}/${claim.listingId}`;
+}
+
+function listingKindLabel(claim: PendingListingClaim) {
+  const kind = listingKindFromType(
+    (claim.listingType || "marketplace_item") as ListingType,
+  );
+  if (kind === "services") return "Услуга";
+  if (kind === "transfers") return "Перевод";
+  if (kind === "lechu") return "Лечу";
+  return "Объявление";
+}
+
+export function AdminClaimsPanel({
+  businessClaims,
+  professionalClaims,
+  listingClaims,
+  eventClaims,
+  jobClaims,
+}: AdminClaimsPanelProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [busyId, setBusyId] = useState<string | null>(null);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
 
-  function review(claimId: string, decision: "approved" | "rejected") {
+  const claims: UnifiedClaim[] = [
+    ...businessClaims.map((claim) => ({
+      id: claim.id,
+      kind: "business" as const,
+      kindLabel: "Бизнес",
+      entityHref: `/business/${claim.businessSlug}`,
+      entityName: claim.businessName,
+      applicantDisplayName: claim.applicantDisplayName,
+      applicantEmail: claim.applicantEmail,
+      verificationDetails: claim.verificationDetails,
+      applicantMessage: claim.applicantMessage,
+      createdAt: claim.createdAt,
+    })),
+    ...professionalClaims.map((claim) => ({
+      id: claim.id,
+      kind: "professional" as const,
+      kindLabel: "Специалист",
+      entityHref: `/professional/${claim.professionalSlug}`,
+      entityName: claim.professionalName,
+      applicantDisplayName: claim.applicantDisplayName,
+      applicantEmail: claim.applicantEmail,
+      verificationDetails: claim.verificationDetails,
+      applicantMessage: claim.applicantMessage,
+      createdAt: claim.createdAt,
+    })),
+    ...listingClaims.map((claim) => ({
+      id: claim.id,
+      kind: "listing" as const,
+      kindLabel: listingKindLabel(claim),
+      entityHref: listingHref(claim),
+      entityName: claim.listingTitle,
+      applicantDisplayName: claim.applicantDisplayName,
+      applicantEmail: claim.applicantEmail,
+      verificationDetails: claim.verificationDetails,
+      applicantMessage: claim.applicantMessage,
+      createdAt: claim.createdAt,
+    })),
+    ...eventClaims.map((claim) => ({
+      id: claim.id,
+      kind: "event" as const,
+      kindLabel: "Событие",
+      entityHref: `/events/${claim.eventSlug}`,
+      entityName: claim.eventTitle,
+      applicantDisplayName: claim.applicantDisplayName,
+      applicantEmail: claim.applicantEmail,
+      verificationDetails: claim.verificationDetails,
+      applicantMessage: claim.applicantMessage,
+      createdAt: claim.createdAt,
+    })),
+    ...jobClaims.map((claim) => ({
+      id: claim.id,
+      kind: "job" as const,
+      kindLabel: "Вакансия",
+      entityHref: `/jobs/${claim.jobSlug}`,
+      entityName: claim.jobTitle,
+      applicantDisplayName: claim.applicantDisplayName,
+      applicantEmail: claim.applicantEmail,
+      verificationDetails: claim.verificationDetails,
+      applicantMessage: claim.applicantMessage,
+      createdAt: claim.createdAt,
+    })),
+  ].sort(
+    (a, b) =>
+      new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+  );
+
+  function review(claim: UnifiedClaim, decision: "approved" | "rejected") {
     setError(null);
-    setBusyId(claimId);
+    setBusyId(claim.id);
     startTransition(async () => {
-      const result = await adminReviewBusinessClaimAction({
-        claimId,
+      const payload = {
+        claimId: claim.id,
         decision,
-        moderatorNote: notes[claimId] ?? null,
-      });
+        moderatorNote: notes[claim.id] ?? null,
+      };
+      const result =
+        claim.kind === "business"
+          ? await adminReviewBusinessClaimAction(payload)
+          : claim.kind === "professional"
+            ? await adminReviewProfessionalClaimAction(payload)
+            : claim.kind === "listing"
+              ? await adminReviewListingClaimAction(payload)
+              : claim.kind === "event"
+                ? await adminReviewEventClaimAction(payload)
+                : await adminReviewJobClaimAction(payload);
       setBusyId(null);
       if (!result.ok) {
         setError(result.message);
@@ -57,17 +190,20 @@ export function AdminClaimsPanel({ claims }: AdminClaimsPanelProps) {
       <ul className="space-y-4">
         {claims.map((claim) => (
           <li
-            key={claim.id}
+            key={`${claim.kind}-${claim.id}`}
             className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5"
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0 space-y-1">
+                <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+                  {claim.kindLabel}
+                </p>
                 <Link
                   className="text-base font-semibold text-slate-900 hover:text-brand-blue"
-                  href={`/business/${claim.businessSlug}`}
+                  href={claim.entityHref}
                   target="_blank"
                 >
-                  {claim.businessName}
+                  {claim.entityName}
                   <ExternalLink
                     aria-hidden="true"
                     className="ml-1.5 inline size-3.5 align-middle text-slate-400"
@@ -86,7 +222,7 @@ export function AdminClaimsPanel({ claims }: AdminClaimsPanelProps) {
                   disabled={pending && busyId === claim.id}
                   type="button"
                   variant="secondary"
-                  onClick={() => review(claim.id, "rejected")}
+                  onClick={() => review(claim, "rejected")}
                 >
                   <X aria-hidden="true" className="size-3.5" />
                   Отклонить
@@ -94,7 +230,7 @@ export function AdminClaimsPanel({ claims }: AdminClaimsPanelProps) {
                 <Button
                   disabled={pending && busyId === claim.id}
                   type="button"
-                  onClick={() => review(claim.id, "approved")}
+                  onClick={() => review(claim, "approved")}
                 >
                   <Check aria-hidden="true" className="size-3.5" />
                   Одобрить

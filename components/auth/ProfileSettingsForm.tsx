@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState, useMemo, useState } from "react";
+import { useActionState, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import {
   updateProfileSettingsAction,
@@ -30,6 +31,7 @@ export function ProfileSettingsForm({
   profile,
   usStates = [],
 }: ProfileSettingsFormProps) {
+  const router = useRouter();
   const [state, formAction, pending] = useActionState(
     updateProfileSettingsAction,
     initialState,
@@ -44,6 +46,14 @@ export function ProfileSettingsForm({
     usStates.find((s) => s.code === stateCode)?.abbreviation ??
     profile.state ??
     "";
+
+  useEffect(() => {
+    if (!state?.ok || !state.username) return;
+    if (state.username !== profile.username) {
+      router.replace(`/u/${state.username}`);
+    }
+    router.refresh();
+  }, [state, profile.username, router]);
 
   return (
     <form action={formAction} className="space-y-6">
@@ -82,7 +92,8 @@ export function ProfileSettingsForm({
             type="text"
           />
           <p className="text-xs text-slate-500">
-            Публичная страница: /u/username
+            Публичная страница: /u/{profile.username || "username"}. Меняйте
+            осторожно — ссылка изменится.
           </p>
         </label>
 

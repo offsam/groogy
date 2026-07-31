@@ -252,6 +252,12 @@ export async function finalizePublishedEnrich(
     businessName: kind === "business" ? currentName : null,
     personName: kind === "professional" ? currentName : null,
     hasContact: Boolean(card.phone || card.email || card.instagram_url),
+    addressLine:
+      typeof (card as { address_line?: string | null }).address_line === "string"
+        ? (card as { address_line?: string | null }).address_line
+        : typeof (card as { address?: string | null }).address === "string"
+          ? (card as { address?: string | null }).address
+          : null,
   });
   const expected = kind === "business" ? "businesses" : "private_specialists";
   const sectionMismatch =

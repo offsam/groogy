@@ -30,6 +30,7 @@ export type ImportReviewPreviewFields = {
   business_name?: string | null;
   person_name?: string | null;
   description?: string | null;
+  description_original?: string | null;
   category?: string | null;
   city?: string | null;
   state?: string | null;
@@ -182,6 +183,7 @@ export function importReviewToBusinessPreview(
     categoryName: categoryLabel,
     shortDescription: shortFrom(description, services),
     description,
+    descriptionOriginal: item.description_original?.trim() || null,
     ratingAvg: 0,
     reviewsCount: 0,
     aiVerifiedReviewsCount: 0,
@@ -249,6 +251,7 @@ export function importReviewToProfessionalPreview(
     headline: categoryLabel || shortFrom(description, services),
     shortDescription: shortFrom(description, services),
     description,
+    descriptionOriginal: item.description_original?.trim() || null,
     imageUrl,
     status: "pending",
     experienceYears: null,
@@ -258,10 +261,20 @@ export function importReviewToProfessionalPreview(
     reviewsCount: 0,
     city: item.city?.trim() || null,
     region: item.state?.trim() || null,
-    stateCode: item.state?.trim() || null,
-    postalCode: null,
+    stateCode:
+      item.state?.trim() &&
+      !/county|оранж/i.test(item.state.trim())
+        ? item.state.trim()
+        : "CA",
+    postalCode: item.postal_code?.trim() || null,
     latitude: null,
     longitude: null,
+    addressLine: item.address_line?.trim() || null,
+    locationPrecision: item.address_line?.trim()
+      ? "street"
+      : item.city?.trim()
+        ? "city"
+        : null,
     serviceAreaText: [item.city, item.state].filter(Boolean).join(", ") || null,
     publishedAt: null,
     createdAt: null,
@@ -347,9 +360,16 @@ export function importReviewItemToPreviewFields(
     text: [item.description, item.source_text].filter(Boolean).join("\n"),
   });
   // City-scoped groups → city; county-scoped (Fun for Mom / OC) → region as place label.
+  // With a real street address, show City + CA — not «Irvine Orange County».
+  const hasStreet = Boolean(item.address_line?.trim());
   const place = loc.city || loc.region || item.city?.trim() || null;
-  const area =
-    loc.city && loc.region
+  const area = hasStreet && loc.city
+    ? item.state?.trim() && !/county|оранж/i.test(item.state)
+      ? item.state.trim()
+      : loc.stateCode === "US-CA" || loc.stateCode === "CA"
+        ? "CA"
+        : loc.stateCode?.replace(/^US-/, "") || "CA"
+    : loc.city && loc.region
       ? loc.region
       : loc.stateCode && loc.stateCode !== "US-CA"
         ? loc.stateCode
@@ -361,6 +381,7 @@ export function importReviewItemToPreviewFields(
     business_name: item.business_name,
     person_name: item.person_name,
     description: item.description || item.source_text,
+    description_original: item.description_original ?? null,
     category: item.category,
     city: place,
     state: area,
@@ -445,6 +466,7 @@ export function importReviewToEventPreview(
     description: cleanPreviewDescription(
       structured.description || fields.description || null,
     ),
+    description_original: fields.description_original?.trim() || null,
     status: "pending",
     starts_at: startsAt,
     ends_at: null,
@@ -486,6 +508,7 @@ export function importReviewToJobPreview(
     slug: `preview-${fields.id.slice(0, 8)}`,
     title,
     description: cleanPreviewDescription(fields.description),
+    descriptionOriginal: fields.description_original?.trim() || null,
     city: fields.city ?? null,
     stateCode: fields.state ?? null,
     postalCode: null,

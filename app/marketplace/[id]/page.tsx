@@ -9,6 +9,7 @@ import { createServerClient } from "@/lib/supabase/server";
 
 type PageProps = {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ claim?: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -60,8 +61,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-export default async function ListingDetailPage({ params }: PageProps) {
+export default async function ListingDetailPage({ params, searchParams }: PageProps) {
   const { id } = await params;
+  const { claim } = await searchParams;
   const supabase = await createServerClient();
   const {
     data: { user },
@@ -140,6 +142,7 @@ export default async function ListingDetailPage({ params }: PageProps) {
 
   return (
     <MarketplaceListingProfileView
+      autoClaim={claim === "1" && Boolean(user) && !isOwner}
       currentUserId={user?.id ?? null}
       isAuthenticated={Boolean(user)}
       isAdmin={isAdmin}

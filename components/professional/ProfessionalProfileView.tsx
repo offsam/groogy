@@ -9,6 +9,7 @@ import {
   type AdminLensViewAs,
 } from "@/components/admin/AdminLensBar";
 import { AddProfessionalServiceButton } from "@/components/professional/AddProfessionalServiceButton";
+import { ClaimProfessionalButton } from "@/components/professional/ClaimProfessionalButton";
 import { BusinessMiniMap } from "@/components/business/profile/BusinessMiniMap";
 import { formatProfessionalPrice, formatProfessionalDuration } from "@/lib/professional/mappers";
 import { serviceTitleForDisplay } from "@/lib/professional/service-title-ru";
@@ -21,6 +22,7 @@ import { DescriptionWithOriginal } from "@/components/shared/DescriptionWithOrig
 import { PromotionsSection } from "@/components/shared/PromotionCard";
 import { UpdatesSection } from "@/components/shared/UpdateCard";
 import { FollowEntityButton } from "@/components/shared/FollowEntityButton";
+import { looksLikeStreetAddress } from "@/lib/business/location-precision";
 import type { Category } from "@/types/business";
 import type { Professional, ProfessionalService } from "@/types/professional";
 import type { EntityPromotion } from "@/types/promotion";
@@ -36,6 +38,8 @@ type ProfessionalProfileViewProps = {
   categories?: Category[];
   /** Admin import preview: contacts visible, no owner chrome. */
   preview?: boolean;
+  /** Open claim form after login redirect (`?claim=1`). */
+  autoClaim?: boolean;
   /** Source URLs for third-party recommendations (public click). */
   communitySourceUrls?: string[];
   /** Active акции — section hidden when empty. */
@@ -44,6 +48,8 @@ type ProfessionalProfileViewProps = {
   updates?: EntityUpdate[];
   /** Whether the current user follows this profile. */
   initialFollowing?: boolean;
+  /** City-center fallback when there is no street pin (USA Location Canon). */
+  cityMapCenter?: { lat: number; lng: number } | null;
 };
 
 function initials(name: string) {
@@ -65,10 +71,12 @@ export function ProfessionalProfileView({
   isAdmin = false,
   categories = [],
   preview = false,
+  autoClaim = false,
   communitySourceUrls = [],
   promotions = [],
   updates = [],
   initialFollowing = false,
+  cityMapCenter = null,
 }: ProfessionalProfileViewProps) {
   const [viewAs, setViewAs] = useState<AdminLensViewAs>("owner");
 
@@ -80,20 +88,27 @@ export function ProfessionalProfileView({
     .filter(Boolean)
     .join(", ");
 
-  const mapLat =
+  const hasEntityCoords =
     typeof professional.latitude === "number" &&
-    Number.isFinite(professional.latitude)
-      ? professional.latitude
-      : null;
-  const mapLng =
+    Number.isFinite(professional.latitude) &&
     typeof professional.longitude === "number" &&
-    Number.isFinite(professional.longitude)
-      ? professional.longitude
-      : null;
-  // Street address → exact pin; city / county → area map without a fake pin.
+    Number.isFinite(professional.longitude);
+  // Street pin only with real street coords; otherwise city-center map, no fake pin.
+  const streetLine = professional.addressLine?.trim() || "";
   const exactPin =
-    professional.locationPrecision === "street" &&
-    Boolean(professional.addressLine?.trim());
+    hasEntityCoords &&
+    Boolean(streetLine) &&
+    (professional.locationPrecision === "street" ||
+      (professional.locationPrecision !== "county" &&
+        professional.locationPrecision !== "city" &&
+        looksLikeStreetAddress(streetLine)));
+  const mapLat = exactPin
+    ? professional.latitude
+    : (cityMapCenter?.lat ?? (hasEntityCoords ? professional.latitude : null));
+  const mapLng = exactPin
+    ? professional.longitude
+    : (cityMapCenter?.lng ?? (hasEntityCoords ? professional.longitude : null));
+  const mapZoom = exactPin ? 14 : 11;
   const about =
     professional.shortDescription ||
     (professional.description &&
@@ -154,6 +169,15 @@ export function ProfessionalProfileView({
             Редактировать
           </Link>
         </div>
+      ) : !preview ? (
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <ClaimProfessionalButton
+            autoSubmit={autoClaim}
+            checkStatus
+            professionalId={professional.id}
+            professionalSlug={professional.slug}
+          />
+        </div>
       ) : null}
 
       {preview ? (
@@ -193,11 +217,28 @@ export function ProfessionalProfileView({
           <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
             {professional.displayName}
           </h1>
-          {professional.categoryName || professional.headline ? (
-            <p className="text-sm text-slate-500">
-              {professional.categoryName || professional.headline}
-            </p>
-          ) : null}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+            {professional.ratingAvg > 0 ? (
+              <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
+                <Star
+                  aria-hidden="true"
+                  className="size-3.5 fill-amber-500 text-amber-500"
+                />
+                {professional.ratingAvg.toFixed(1)}
+                <span className="font-normal text-slate-500">
+                  ({professional.reviewsCount})
+                </span>
+              </span>
+            ) : (
+              <span>Пока нет отзывов</span>
+            )}
+            {professional.createdAt ? (
+              <span className="text-xs text-slate-400">
+                На платформе с{" "}
+                {new Date(professional.createdAt).getFullYear()}
+              </span>
+            ) : null}
+          </div>
           {bookHref ? (
             <a
               className="mt-1 inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl bg-brand-blue px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90"
@@ -220,23 +261,6 @@ export function ProfessionalProfileView({
               />
             </div>
           ) : null}
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
-            {professional.ratingAvg > 0 ? (
-              <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
-                <Star
-                  aria-hidden="true"
-                  className="size-3.5 fill-amber-500 text-amber-500"
-                />
-                {professional.ratingAvg.toFixed(1)}
-                <span className="font-normal text-slate-500">
-                  ({professional.reviewsCount})
-                </span>
-              </span>
-            ) : null}
-            {professional.experienceYears != null ? (
-              <span>Опыт: {professional.experienceYears} лет</span>
-            ) : null}
-          </div>
           <ProfessionalOriginBadges
             professional={professional}
             sourceUrls={communitySourceUrls}
@@ -313,12 +337,9 @@ export function ProfessionalProfileView({
         <div className="order-2 space-y-4 lg:order-1">
           {about || longAbout ? (
             <section className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
-              <h2 className="text-base font-semibold text-slate-900">
-                О специалисте
-              </h2>
               {professional.shortDescription ? (
                 <DescriptionWithOriginal
-                  className="mt-3"
+                  heading="О специалисте"
                   original={
                     longAbout ? null : professional.descriptionOriginal
                   }
@@ -328,7 +349,10 @@ export function ProfessionalProfileView({
               ) : null}
               {longAbout ? (
                 <DescriptionWithOriginal
-                  className="mt-3"
+                  className={professional.shortDescription ? "mt-3" : undefined}
+                  heading={
+                    professional.shortDescription ? undefined : "О специалисте"
+                  }
                   original={professional.descriptionOriginal}
                   text={longAbout}
                   textClassName="text-sm leading-relaxed text-slate-600"

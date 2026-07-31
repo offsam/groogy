@@ -74,6 +74,17 @@ VOCATIVE_RE = re.compile(
     re.I,
 )
 
+# Affiche CTAs («Пишите «+»…», «ПРИСОЕДИНЯЙТЕСЬ…») — never an event name.
+CTA_OPENER_RE = re.compile(
+    r"^(?:пишите|пиши(?:те)?|напишите|присоединяйтесь|подписывайтесь|"
+    r"жмите|ставьте\s*[«\"]?\+|оставьте\s+комментар\w*|"
+    r"пишите\s+[«\"]?\+|"
+    r"write\s+[«\"]?\+|join\s+(?:us|our)|click\s+(?:here|the\s+link)|"
+    r"comment\s+[«\"]?\+|leave\s+a\s+comment)"
+    r"[\s,!.:;—–«»\"'+]*",
+    re.I,
+)
+
 MAX_TITLE = 80
 
 
@@ -90,6 +101,10 @@ def is_junk_title(value: Any) -> bool:
     if low in JUNK_EXACT:
         return True
     if META_ONLY_RE.match(text) or META_PREFIX_RE.match(text):
+        return True
+    if CTA_OPENER_RE.match(text):
+        return True
+    if GREETING_RE.match(text) and _letters(GREETING_RE.sub("", text, count=1)) < 12:
         return True
     if "@" in text:
         return True
@@ -112,6 +127,7 @@ def clean_candidate(raw: str | None) -> str:
     for _ in range(3):
         stripped = GREETING_RE.sub("", s, count=1)
         stripped = VOCATIVE_RE.sub("", stripped, count=1)
+        stripped = CTA_OPENER_RE.sub("", stripped, count=1)
         stripped = re.sub(r"^[^\w]+", "", stripped, flags=re.U).strip()
         if stripped == s:
             break
@@ -156,6 +172,8 @@ def derive_title_from_text(
             break
 
     for line in lines:
+        if CTA_OPENER_RE.match(line) or GREETING_RE.match(line):
+            continue
         for m in QUOTED_RE.finditer(line):
             candidate = clean_candidate(m.group(1))
             if _acceptable(candidate):
@@ -165,6 +183,8 @@ def derive_title_from_text(
         return None
 
     for line in lines:
+        if CTA_OPENER_RE.match(line) or GREETING_RE.match(line):
+            continue
         candidate = clean_candidate(_first_sentence(line))
         if _acceptable(candidate):
             return candidate
@@ -201,9 +221,30 @@ def apply_title_to_queue(
         for x in (item.get("description"), item.get("source_text"))
         if isinstance(x, str) and x.strip()
     )
-    derived = derive_title_from_text(
-        blob, allow_headline=(entity_key or "") in HEADLINE_ENTITIES
-    )
+    derived: str | None = None
+    # Multi-date affiches name each session on its date line — prefer that
+    # over the CTA / greeting that opens the post.
+    if (entity_key or "") == "event":
+        from structure_event_from_text import (  # noqa: WPS433
+            first_schedule_event_title,
+        )
+
+        derived = first_schedule_event_title(blob)
+    if not derived:
+        derived = derive_title_from_text(
+            blob, allow_headline=(entity_key or "") in HEADLINE_ENTITIES
+        )
+
+    # Ads often omit the person name in the body; the Telegram/FB author line
+    # still carries it («Диана Калифорнийская | Психолог…»).
+    if not derived:
+        author = str(item.get("source_author_display_name") or "").strip()
+        if author:
+            head = re.split(r"[|·•/—–\-]", author, maxsplit=1)[0].strip()
+            head = clean_candidate(head)
+            if _acceptable(head):
+                derived = head
+
     if not derived:
         return {}, []
 

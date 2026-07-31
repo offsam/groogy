@@ -209,6 +209,18 @@ export async function userOwnsBusiness(
   return Boolean(data);
 }
 
+/** True when at least one confirmed owner exists in business_owners. */
+export async function businessHasOwner(
+  client: Client,
+  businessId: string,
+): Promise<boolean> {
+  const { data, error } = await client.rpc("business_is_claimed", {
+    p_business_id: businessId,
+  });
+  if (error) return false;
+  return Boolean(data);
+}
+
 export async function userIsAdmin(client: Client): Promise<boolean> {
   const { data, error } = await client.rpc("is_admin");
   if (error) throw error;

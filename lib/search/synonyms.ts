@@ -1,11 +1,17 @@
 /**
  * Lightweight RU↔EN synonym expansion for directory search.
- * Used so "русский маникюр" also matches "Russian manicure".
+ * Used so "русский маникюр" also matches "Russian manicure",
+ * and service-need queries hit cards written in either language.
  */
 
 /** Each group: any token in the group can satisfy any other token in the group. */
 const SYNONYM_GROUPS: readonly (readonly string[])[] = [
+  // Language / community
   ["русский", "русская", "русское", "русские", "russian", "russians"],
+  ["украинский", "украинская", "украинское", "ukrainian"],
+  ["армянский", "армянская", "armenian"],
+
+  // Beauty
   [
     "маникюр",
     "маникюра",
@@ -18,26 +24,38 @@ const SYNONYM_GROUPS: readonly (readonly string[])[] = [
     "nail",
   ],
   ["педикюр", "педикюра", "pedicure", "pedicures"],
-  ["стоматолог", "стоматология", "dentist", "dental", "odontology"],
-  ["сантехник", "сантехника", "plumber", "plumbing"],
-  ["ресторан", "рестораны", "кафе", "restaurant", "restaurants", "cafe"],
-  ["автосервис", "авто", "mechanic", "auto", "car", "garage", "shop"],
   [
-    "масло",
-    "масла",
-    "маслу",
-    "oil",
-    "oils",
-    "lube",
-    "смазка",
+    "стрижка",
+    "стрижки",
+    "стрижку",
+    "парикмахер",
+    "парикмахерская",
+    "haircut",
+    "haircuts",
+    "hair",
+    "barber",
+    "salon",
   ],
-  ["шиномонтаж", "шины", "tire", "tires", "колёса", "колеса", "rim"],
-  ["юрист", "адвокат", "lawyer", "attorney", "legal"],
-  ["врач", "доктор", "клиника", "doctor", "clinic", "medical"],
-  ["репетитор", "учитель", "школа", "tutor", "teacher", "school"],
-  ["handyman", "хандимен", "мастер", "ремонт", "repair"],
-  // Typo forms (floring/floorin) live in spellcheck aliases, not here —
-  // otherwise "пол"/"tile" OR-expand from a typo and drown real flooring shops.
+  ["окрашивание", "покраска волос", "coloring", "highlights", "балаяж", "balayage"],
+  ["брови", "бровь", "brows", "eyebrows", "eyebrow"],
+  ["ресницы", "lash", "lashes", "eyelashes", "наращивание"],
+  ["массаж", "massage", "spa"],
+  ["косметолог", "косметология", "facial", "facials", "skincare"],
+  ["макияж", "makeup", "make-up"],
+
+  // Medical
+  ["стоматолог", "стоматология", "dentist", "dental", "odontology", "зубы", "зуб"],
+  ["врач", "доктор", "клиника", "doctor", "clinic", "medical", "медицина"],
+  ["педиатр", "детский врач", "pediatrician", "pediatrics"],
+  ["гинеколог", "gynecologist", "obgyn", "ob-gyn"],
+  ["терапевт", "primary care", "семейный врач", "family doctor"],
+  ["окулист", "офтальмолог", "optometrist", "ophthalmologist", "глаза"],
+  ["аптека", "pharmacy", "drugstore"],
+
+  // Home / trades
+  ["сантехник", "сантехника", "plumber", "plumbing"],
+  ["электрик", "электрика", "electrician", "electrical", "wiring"],
+  ["handyman", "хандимен", "мастер", "ремонт", "repair", "починить", "починка"],
   [
     "flooring",
     "floor",
@@ -50,6 +68,72 @@ const SYNONYM_GROUPS: readonly (readonly string[])[] = [
     "паркет",
     "полы",
   ],
+  ["крыша", "кровля", "roofing", "roof", "roofer"],
+  ["покраска", "маляр", "painting", "painter"],
+  ["уборка", "клининг", "cleaning", "cleaner", "housekeeping"],
+  ["переезд", "переезды", "moving", "movers", "грузчики"],
+  ["кондиционер", "hvac", "heating", "cooling", "отопление"],
+  ["забор", "fencing", "fence"],
+  ["бетон", "concrete"],
+  ["гипсокартон", "drywall"],
+  ["кухня", "kitchen", "remodel", "renovation", "ремонт дома"],
+  ["подрядчик", "contractor", "строительство", "стройка", "builder"],
+  ["ландшафт", "landscaping", "gardening", "lawn", "газон", "садовник"],
+
+  // Auto
+  [
+    "автосервис",
+    "авто",
+    "mechanic",
+    "auto",
+    "garage",
+    "машина",
+    "машины",
+    "автомобиль",
+  ],
+  [
+    "масло",
+    "масла",
+    "маслу",
+    "oil",
+    "oils",
+    "lube",
+    "смазка",
+  ],
+  ["шиномонтаж", "шины", "tire", "tires", "колёса", "колеса", "rim"],
+  ["эвакуатор", "tow", "towing", "буксировка"],
+  ["смог", "smog", "inspection"],
+  ["тормоза", "brakes", "brake"],
+  ["аккумулятор", "battery", "batteries"],
+  ["детейлинг", "detailing", "мойка"],
+
+  // Food / grocery
+  ["ресторан", "рестораны", "кафе", "restaurant", "restaurants", "cafe"],
+  ["пекарня", "выпечка", "bakery", "bakeries", "хлеб"],
+  ["продукты", "grocery", "groceries", "market", "супермаркет"],
+  ["суши", "sushi", "роллы"],
+  ["пицца", "pizza", "pizzeria"],
+  ["кейтеринг", "catering", "банкет"],
+
+  // Legal / finance / insurance / real estate
+  ["юрист", "адвокат", "lawyer", "attorney", "legal", "юридический"],
+  ["иммиграция", "immigration", "виза", "visa"],
+  ["нотариус", "notary", "notarial"],
+  ["бухгалтер", "бухгалтерия", "accounting", "accountant", "taxes", "налоги"],
+  ["страховка", "страхование", "insurance", "insurer"],
+  ["риелтор", "риэлтор", "realtor", "недвижимость"],
+
+  // Education / kids / fitness / pets
+  ["репетитор", "учитель", "tutor", "teacher", "tutoring"],
+  ["детский", "детский сад", "daycare", "childcare", "няня", "nanny"],
+  ["фитнес", "спортзал", "gym", "fitness", "тренировка", "yoga", "йога"],
+  ["ветеринар", "ветклиника", "vet", "veterinary", "груминг", "grooming"],
+
+  // Travel / events
+  ["путешествия", "турагентство", "travel"],
+  ["мероприятие", "мероприятия", "event", "events", "свадьба", "wedding"],
+
+  // Proximity
   ["рядом", "nearby", "near", "поблизости"],
 ];
 

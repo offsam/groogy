@@ -725,6 +725,146 @@ export type Database = {
           },
         ];
       };
+      professional_claims: {
+        Row: {
+          id: string;
+          professional_id: string;
+          user_id: string;
+          status: Database["public"]["Enums"]["business_claim_status"];
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          moderator_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          professional_id: string;
+          user_id: string;
+          status?: Database["public"]["Enums"]["business_claim_status"];
+          verification_method?: string | null;
+          verification_details?: string | null;
+          applicant_message?: string | null;
+          moderator_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["professional_claims"]["Insert"]
+        >;
+        Relationships: [
+          {
+            foreignKeyName: "professional_claims_professional_id_fkey";
+            columns: ["professional_id"];
+            isOneToOne: false;
+            referencedRelation: "professionals";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      listing_claims: {
+        Row: {
+          id: string;
+          listing_id: string;
+          user_id: string;
+          status: Database["public"]["Enums"]["business_claim_status"];
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          moderator_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          listing_id: string;
+          user_id: string;
+          status?: Database["public"]["Enums"]["business_claim_status"];
+          verification_method?: string | null;
+          verification_details?: string | null;
+          applicant_message?: string | null;
+          moderator_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["listing_claims"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      event_claims: {
+        Row: {
+          id: string;
+          event_id: string;
+          user_id: string;
+          status: Database["public"]["Enums"]["business_claim_status"];
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          moderator_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          event_id: string;
+          user_id: string;
+          status?: Database["public"]["Enums"]["business_claim_status"];
+          verification_method?: string | null;
+          verification_details?: string | null;
+          applicant_message?: string | null;
+          moderator_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["event_claims"]["Insert"]>;
+        Relationships: [];
+      };
+      job_claims: {
+        Row: {
+          id: string;
+          job_id: string;
+          user_id: string;
+          status: Database["public"]["Enums"]["business_claim_status"];
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          moderator_note: string | null;
+          reviewed_by: string | null;
+          reviewed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          job_id: string;
+          user_id: string;
+          status?: Database["public"]["Enums"]["business_claim_status"];
+          verification_method?: string | null;
+          verification_details?: string | null;
+          applicant_message?: string | null;
+          moderator_note?: string | null;
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["job_claims"]["Insert"]>;
+        Relationships: [];
+      };
       listing_categories: {
         Row: {
           id: string;
@@ -2312,6 +2452,106 @@ export type Database = {
           p_moderator_note?: string | null;
         };
         Returns: undefined;
+      };
+      admin_list_pending_professional_claims: {
+        Args: Record<string, never>;
+        Returns: {
+          id: string;
+          professional_id: string;
+          professional_slug: string;
+          professional_name: string;
+          user_id: string;
+          applicant_display_name: string | null;
+          applicant_email: string | null;
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          created_at: string;
+        }[];
+      };
+      admin_review_professional_claim: {
+        Args: {
+          p_claim_id: string;
+          p_decision: string;
+          p_moderator_note?: string | null;
+        };
+        Returns: undefined;
+      };
+      admin_list_pending_listing_claims: {
+        Args: Record<string, never>;
+        Returns: {
+          id: string;
+          listing_id: string;
+          listing_type: string;
+          listing_title: string;
+          user_id: string;
+          applicant_display_name: string | null;
+          applicant_email: string | null;
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          created_at: string;
+        }[];
+      };
+      admin_review_listing_claim: {
+        Args: {
+          p_claim_id: string;
+          p_decision: string;
+          p_moderator_note?: string | null;
+        };
+        Returns: undefined;
+      };
+      admin_list_pending_event_claims: {
+        Args: Record<string, never>;
+        Returns: {
+          id: string;
+          event_id: string;
+          event_slug: string;
+          event_title: string;
+          user_id: string;
+          applicant_display_name: string | null;
+          applicant_email: string | null;
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          created_at: string;
+        }[];
+      };
+      admin_review_event_claim: {
+        Args: {
+          p_claim_id: string;
+          p_decision: string;
+          p_moderator_note?: string | null;
+        };
+        Returns: undefined;
+      };
+      admin_list_pending_job_claims: {
+        Args: Record<string, never>;
+        Returns: {
+          id: string;
+          job_id: string;
+          job_slug: string;
+          job_title: string;
+          user_id: string;
+          applicant_display_name: string | null;
+          applicant_email: string | null;
+          verification_method: string | null;
+          verification_details: string | null;
+          applicant_message: string | null;
+          created_at: string;
+        }[];
+      };
+      admin_review_job_claim: {
+        Args: {
+          p_claim_id: string;
+          p_decision: string;
+          p_moderator_note?: string | null;
+        };
+        Returns: undefined;
+      };
+      business_is_claimed: {
+        Args: { p_business_id: string };
+        Returns: boolean;
       };
       admin_list_users: {
         Args: Record<string, never>;

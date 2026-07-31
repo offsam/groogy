@@ -207,17 +207,30 @@ def resolve_address_geo(
             ok=False, patch={"location_precision": None}, reason="not_street"
         )
 
-    # Attempt ladder: full line → without unit number → without city name
-    # (imports often carry a neighbourhood instead of the postal city).
+    # Attempt ladder: full line → without unit → without city (imports often
+    # poison the query with a typo / neighbourhood) → street + state only.
     bare = strip_unit(street)
     attempts = [build_query(street, city, state_code, postal_code)]
     if bare and bare != street:
         attempts.append(build_query(bare, city, state_code, postal_code))
     if str(postal_code or "").strip():
         attempts.append(build_query(bare or street, None, state_code, postal_code))
+    # Typo cities ("Metachen", "EL KAHON") break Nominatim — always try without city.
+    if str(city or "").strip():
+        attempts.append(build_query(bare or street, None, state_code, postal_code))
+        attempts.append(build_query(bare or street, None, state_code, None))
+
+    # De-dupe while preserving order.
+    seen: set[str] = set()
+    unique_attempts: list[str] = []
+    for attempt in attempts:
+        if attempt and attempt not in seen:
+            seen.add(attempt)
+            unique_attempts.append(attempt)
+    attempts = unique_attempts
 
     hit = None
-    query = attempts[0]
+    query = attempts[0] if attempts else ""
     for attempt in attempts:
         query = attempt
         hit = geocode(attempt, state_abbr(state_code))

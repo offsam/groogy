@@ -39,6 +39,7 @@ from eligibility import (
     normalize_phone,
 )
 from source_kind import resolve_source_kind
+from entity_routing import has_street_address
 
 ROOT = Path(__file__).resolve().parents[2]
 AUTO_NOTE = "Автоматическая публикация: accepted + прямой контакт"
@@ -53,7 +54,7 @@ QUEUE_SELECT = (
     "telegram_username,telegram_user_id,ai_confidence,ai_decision,source_posted_at,"
     "photos_count,review_status,duplicate_status,source_text,raw_payload,"
     "published_entity_id,preview_image_url,source_url,source,source_author_id,"
-    "source_author_username"
+    "source_author_username,address_line,postal_code"
 )
 
 
@@ -631,6 +632,16 @@ def publish_one(
             f"(AI: {row.get('category') or '—'})"
         )
 
+    if target in {"businesses", "organizations"} and not has_street_address(
+        row.get("address_line"),
+        postal_code=row.get("postal_code"),
+    ):
+        publish_note = (
+            f"{publish_note}. Нет улицы — опубликовано как специалист "
+            f"(private_specialists)"
+        )
+        target = "private_specialists"
+
     if target in SPECIALIST_AUTOPUBLISH_TARGETS:
         # Profi.ru / TaskRabbit style: самозанятый business + /services listing
         admins = client._request(
@@ -666,11 +677,11 @@ def publish_one(
                     else None
                 ),
                 "p_email": (contacts.get("email") or [None])[0],
-                "p_city": row.get("city") or "Orange County",
-                "p_state": row.get("state") or "CA",
+                "p_city": row.get("city") or None,
+                "p_state": row.get("state") or None,
                 "p_business_category_id": cat_match.get("category_id"),
                 "p_service_category_id": svc_match.get("category_id"),
-                "p_service_area": row.get("city") or "Orange County / LA",
+                "p_service_area": row.get("city") or None,
                 "p_published_at": source_posted,
             },
         )
@@ -700,6 +711,7 @@ def publish_one(
         website = (contacts.get("website") or [None])[0]
         if not website and contacts.get("facebook"):
             website = contacts["facebook"][0]
+        state = row.get("state") or None
         # Never put source post URL into website — it goes to source_url.
         payload = {
             "name": title,
@@ -720,10 +732,10 @@ def publish_one(
                 if contacts.get("instagram")
                 else None
             ),
-            "city": row.get("city") or "Orange County",
+            "city": row.get("city") or None,
             "status": "approved",
-            "state_code": "US-CA",
-            "region": row.get("state") or "CA",
+            "state_code": f"US-{state}" if state else None,
+            "region": state,
             "category_id": cat_match.get("category_id"),
             "source_url": (row.get("source_url") or "").strip() or None,
             "source_kind": source_kind_from_row(row),
@@ -751,8 +763,8 @@ def publish_one(
                 "p_description": market_desc,
                 "p_price_amount": row.get("price"),
                 "p_price_currency": row.get("currency") or "USD",
-                "p_city": row.get("city") or "Orange County",
-                "p_state": row.get("state") or "CA",
+                "p_city": row.get("city") or None,
+                "p_state": row.get("state") or None,
                 "p_published_at": source_posted,
                 "p_condition": "good",
                 "p_transaction_type": "sell",

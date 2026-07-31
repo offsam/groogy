@@ -14,7 +14,7 @@
  * takes the whole business card down — so reads, writes and the editor stay
  * off. Flip to `true` right after applying the migration.
  */
-export const CONTACT_LINKS_COLUMN_READY = false;
+export const CONTACT_LINKS_COLUMN_READY = true;
 
 export type ContactChannelId =
   | "phone"
@@ -123,7 +123,7 @@ export const CONTACT_CHANNELS: readonly ContactChannel[] = [
     label: "WhatsApp",
     group: "messengers",
     kind: "phone",
-    hosts: ["wa.me", "api.whatsapp.com", "whatsapp.com"],
+    hosts: ["wa.me", "api.whatsapp.com", "whatsapp.com", "wtsp.cc"],
     placeholder: "(714) 555-1212",
   },
   {

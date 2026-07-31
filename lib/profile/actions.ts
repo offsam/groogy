@@ -11,15 +11,15 @@ import {
 } from "@/lib/listings/validation";
 
 export type ProfileActionResult =
-  | { ok: true; message?: string }
+  | { ok: true; message?: string; username?: string }
   | { ok: false; message: string };
 
 function fail(message: string): ProfileActionResult {
   return { ok: false, message };
 }
 
-function ok(message?: string): ProfileActionResult {
-  return { ok: true, message };
+function ok(message?: string, username?: string): ProfileActionResult {
+  return username ? { ok: true, message, username } : { ok: true, message };
 }
 
 export async function updateProfileSettingsAction(
@@ -121,5 +121,6 @@ export async function updateProfileSettingsAction(
     countyGeoid
       ? "Профиль сохранён. Регион КРУГИ обновлён по ZIP."
       : "Профиль сохранён.",
+    input.username ?? undefined,
   );
 }

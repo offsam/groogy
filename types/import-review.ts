@@ -66,6 +66,9 @@ export type ImportReviewItem = {
   business_name: string | null;
   person_name: string | null;
   description: string | null;
+  /** Source-language description; public/admin `description` may be RU. */
+  description_original?: string | null;
+  source_language?: string | null;
   services: string[];
   payment_methods?: string[];
   /** Extracted акции before publish — same shape as entity_promotions rows. */

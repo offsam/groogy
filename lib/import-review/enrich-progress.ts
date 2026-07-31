@@ -9,6 +9,7 @@ export const ENRICH_STEP_ORDER = [
   "group_location",
   "website",
   "directories",
+  "telegram_avatar",
   "ai_signals",
   "score",
   "apply",
@@ -24,6 +25,7 @@ export const ENRICH_STEP_LABELS: Record<EnrichStepId, string> = {
   group_location: "Город из текста / группы",
   website: "Сайт",
   directories: "Справочники",
+  telegram_avatar: "Аватар Telegram",
   ai_signals: "AI-сигналы",
   score: "Полнота",
   apply: "Сохранение",
@@ -123,6 +125,7 @@ export type EnrichRunResult = {
     group_location?: string[];
     website?: string[];
     directories?: string[];
+    telegram_avatar?: string[];
     cleanup?: string[];
   };
   /** Snapshot of BFS / crawl resources for history. */
@@ -152,19 +155,11 @@ export type EnrichHistoryRow = {
   changed_fields: EnrichRunResult & Record<string, unknown>;
 };
 
+/** Derived from the step order so a new step can never miss its slot. */
 export function emptyEnrichSteps(): Record<EnrichStepId, EnrichStepState> {
-  return {
-    source_text: { status: "pending" },
-    title: { status: "pending" },
-    event_structure: { status: "pending" },
-    group_location: { status: "pending" },
-    website: { status: "pending" },
-    directories: { status: "pending" },
-    ai_signals: { status: "pending" },
-    score: { status: "pending" },
-    apply: { status: "pending" },
-    cleanup: { status: "pending" },
-  };
+  return Object.fromEntries(
+    ENRICH_STEP_ORDER.map((step) => [step, { status: "pending" }]),
+  ) as Record<EnrichStepId, EnrichStepState>;
 }
 
 export const RESOURCE_KIND_LABELS: Record<string, string> = {

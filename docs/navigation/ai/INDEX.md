@@ -10,7 +10,7 @@ Live overview: [`PLATFORM_LIFECYCLE_V1.md`](../../architecture/runtime/PLATFORM_
 
 | Source | Location | README |
 |---|---|---|
-| Telegram | [`../../../scripts/telegram-collector/`](../../../scripts/telegram-collector/) | [`README.md`](../../../scripts/telegram-collector/README.md) |
+| Telegram | [`../../../scripts/telegram-collector/`](../../../scripts/telegram-collector/) | [`README.md`](../../../scripts/telegram-collector/README.md); SoT collect fields: [`TELEGRAM_COLLECTION_CARD_RULES_V1.md`](../../architecture/pipeline/TELEGRAM_COLLECTION_CARD_RULES_V1.md) |
 | Facebook | [`../../../scripts/facebook-collector/`](../../../scripts/facebook-collector/) | [`README.md`](../../../scripts/facebook-collector/README.md) |
 | Directories / Yellow Pages scrapers | `scripts/business-enrich/scrape_*.py`, `import_yellow_pages_cards.py` | — |
 

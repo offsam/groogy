@@ -9,6 +9,7 @@ import { ReviewLocationUnresolvedBanner } from "@/components/admin/ReviewLocatio
 import { ReviewWorkspaceActions } from "@/components/admin/ReviewWorkspaceActions";
 import { ReviewWorkspaceCard } from "@/components/admin/ReviewWorkspaceCard";
 import { ReviewWorkspaceQueueNav } from "@/components/admin/ReviewWorkspaceQueueNav";
+import { RecommendationSourcePanel } from "@/components/admin/RecommendationSourcePanel";
 import type { ReviewWorkspaceTask } from "@/lib/admin/review-workspace/types";
 import {
   INBOX_ENTITY_LABELS,
@@ -108,7 +109,9 @@ export function ReviewWorkspace({ task, categories = [] }: Props) {
           ) : (
             <div className="min-w-0 overflow-hidden rounded-xl border border-dashed border-slate-300 bg-slate-50/60 p-3 sm:rounded-2xl sm:p-5">
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                Public card preview
+                {task.payload.kind === "recommendation"
+                  ? "Рекомендация · preview карточки"
+                  : "Public card preview"}
               </p>
               <div className="min-w-0 overflow-hidden">
                 <ReviewWorkspaceCard task={task} />
@@ -223,8 +226,16 @@ export function ReviewWorkspace({ task, categories = [] }: Props) {
             </section>
           ) : null}
 
-          {(task.payload.kind === "recommendation" ||
-            task.payload.kind === "event_verification") &&
+          {task.payload.kind === "recommendation" ? (
+            <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <h2 className="mb-3 text-sm font-semibold text-slate-900">
+                Содержимое рекомендации
+              </h2>
+              <RecommendationSourcePanel item={task.payload.item} />
+            </section>
+          ) : null}
+
+          {task.payload.kind === "event_verification" &&
           task.payload.item.comment_texts?.length ? (
             <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
               <h2 className="text-sm font-semibold text-slate-900">

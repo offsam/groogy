@@ -77,14 +77,52 @@ _OC_CITY_CANON = {
 }
 
 
+_STREET_SUFFIX_AFTER_RE = re.compile(
+    r"^\s*(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|"
+    r"Lane|Ln|Court|Ct|Place|Pl|Highway|Hwy|Parkway|Pkwy|Way)\b",
+    re.I,
+)
+
+_CITY_STATE_LOCALITY_RE = re.compile(
+    r"(?<![A-Za-z])(?P<city>[A-Za-z][A-Za-z .'\-]{1,40}?)\s*,\s*"
+    r"(?P<state>CA|California|WA|Washington|NY|New\s*York|FL|Florida|"
+    r"OR|Oregon|TX|Texas|CO|Colorado)\b",
+    re.I,
+)
+
+
 def location_from_text(text: str | None) -> dict[str, str | None] | None:
     blob = (text or "").strip()
     if not blob:
         return None
     sample = blob[:2500]
+
+    # Prefer explicit «City, ST» (Tustin, CA) over a city token inside a street
+    # name (Irvine in «18062 Irvine Blvd»).
+    for m in _CITY_STATE_LOCALITY_RE.finditer(sample):
+        city = re.sub(r"\s+", " ", m.group("city")).strip(" ,")
+        if not city or re.search(r"\bcounty\b", city, re.I):
+            continue
+        if _STREET_SUFFIX_AFTER_RE.search(sample[m.end(1) : m.end(1) + 12]):
+            continue
+        state_raw = m.group("state")
+        state = "CA" if re.match(r"ca|california", state_raw, re.I) else state_raw.upper()[:2]
+        region = None
+        low = city.lower()
+        if low in _OC_CITY_CANON or low.replace("  ", " ") in {
+            k.replace("  ", " ") for k in _OC_CITY_CANON
+        }:
+            region = "Orange County"
+            city = _OC_CITY_CANON.get(low, city)
+        return {"city": city, "region": region, "state": state}
+
     for pattern, city, region, state in _TEXT_PLACE_RULES:
         m = pattern.search(sample)
         if not m:
+            continue
+        # «Irvine Blvd» is a street, not the city of Irvine.
+        after = sample[m.end() : m.end() + 16]
+        if _STREET_SUFFIX_AFTER_RE.search(after):
             continue
         raw = re.sub(r"\s+", " ", m.group(0)).strip().lower()
         if region == "Orange County" and city is None:

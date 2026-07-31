@@ -3,6 +3,10 @@ import type { Listing } from "@/types/listing";
 import type { Professional } from "@/types/professional";
 import { computePresenceFlags } from "@/lib/business/presence-flags";
 import { normalizeCityLabel } from "@/lib/geo/city-aliases";
+import {
+  inferNameFromDescription,
+  isJunkImportTitle,
+} from "@/lib/import-review/display-name";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 
 function first(values: string[] | null | undefined): string | null {
@@ -134,7 +138,11 @@ function contactBits(item: CommentRecommendation) {
     first(item.request_snippets) ||
     first(item.comment_texts)?.slice(0, 220) ||
     null;
-  const description = first(item.comment_texts) || short;
+  // Prefer the longer narrative: snippets are usually the full ad.
+  const description =
+    [first(item.request_snippets), first(item.comment_texts)]
+      .filter(Boolean)
+      .sort((a, b) => (b?.length ?? 0) - (a?.length ?? 0))[0] || short;
   return {
     phone,
     email,
@@ -150,10 +158,28 @@ function contactBits(item: CommentRecommendation) {
   };
 }
 
+/**
+ * «Запись» / empty titles are junk left by extractors. Prefer a real name from
+ * the ad text so preview doesn't look blank.
+ */
+export function recommendationDisplayName(
+  item: CommentRecommendation,
+): string {
+  const raw = item.display_name?.trim() || "";
+  if (raw && !isJunkImportTitle(raw)) return raw;
+  const blob = [
+    ...(item.request_snippets || []),
+    ...(item.comment_texts || []),
+  ].join("\n");
+  const inferred = inferNameFromDescription(blob);
+  if (inferred && !isJunkImportTitle(inferred)) return inferred;
+  return raw || "Без названия";
+}
+
 export function yellowPagesToBusinessPreview(
   item: CommentRecommendation,
 ): Business {
-  const name = item.display_name?.trim() || "Без названия";
+  const name = recommendationDisplayName(item);
   const c = contactBits(item);
   const city = resolveYellowPagesCity(item);
   const presenceFlags = computePresenceFlags({
@@ -216,7 +242,7 @@ export function yellowPagesToBusinessPreview(
 export function yellowPagesToProfessionalPreview(
   item: CommentRecommendation,
 ): Professional {
-  const name = item.display_name?.trim() || "Без названия";
+  const name = recommendationDisplayName(item);
   const c = contactBits(item);
   const city = resolveYellowPagesCity(item);
   return {
@@ -270,7 +296,7 @@ export function yellowPagesToProfessionalPreview(
 export function yellowPagesToServicePreview(
   item: CommentRecommendation,
 ): Listing {
-  const name = item.display_name?.trim() || "Без названия";
+  const name = recommendationDisplayName(item);
   const c = contactBits(item);
   const city = resolveYellowPagesCity(item);
   const categoryLabel = item.category_guess?.trim() || null;

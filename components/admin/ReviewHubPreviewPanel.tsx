@@ -71,7 +71,23 @@ export function ReviewHubPreviewPanel({
               variant="button"
               disabled={locked}
             />
-            <ReviewImportDuplicatesPanel itemId={item.id} disabled={locked} />
+            {/* Scan stays available after approve: an already-published
+                card can still be a duplicate of another live one. */}
+            <ReviewImportDuplicatesPanel
+              itemId={item.id}
+              cardSignals={{
+                phones: item.phone,
+                telegramUsername: item.telegram_username,
+                telegramUserId: item.telegram_user_id,
+                instagram: item.instagram,
+                website: item.website,
+                names: [
+                  item.title,
+                  item.business_name,
+                  item.person_name,
+                ].filter((x): x is string => Boolean(x?.trim())),
+              }}
+            />
             <Button
               type="button"
               className="relative z-10 w-full shrink-0 sm:w-auto"

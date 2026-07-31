@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { createServiceRoleClient } from "@/lib/supabase/service";
+import {
+  catalogAggregateCacheControl,
+  CATALOG_CACHE_TTL,
+} from "@/lib/platform/catalog-cache";
 import { getPopularHomeResources } from "@/lib/platform/popular-resources";
-
-export const dynamic = "force-dynamic";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -15,7 +17,16 @@ export async function GET(request: Request) {
       hubId,
       limit: 6,
     });
-    return NextResponse.json({ items });
+    return NextResponse.json(
+      { items },
+      {
+        headers: {
+          "Cache-Control": catalogAggregateCacheControl(
+            CATALOG_CACHE_TTL.popularHome,
+          ),
+        },
+      },
+    );
   } catch {
     return NextResponse.json({ items: [] });
   }

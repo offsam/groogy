@@ -207,8 +207,12 @@ class TelegramPhotoClient:
         result = TelegramProfilePhotoResult(user_ref=ref)
         entity: Any = None
 
-        # Prefer resolving via the source message (users often aren't in global cache)
-        if chat_id is not None and message_id is not None and chat_id in ALLOWED_CHATS:
+        # Prefer resolving via the source message (users often aren't in global
+        # cache). Unlike post-media downloads, this is not limited to the two
+        # legacy chats: import_review already supplies the exact collected
+        # source message, and new collector groups must work without updating a
+        # hard-coded allowlist.
+        if chat_id is not None and message_id is not None:
             try:
                 msg = await self._client.get_messages(chat_id, ids=message_id)
                 if msg:

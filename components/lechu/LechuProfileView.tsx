@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import { ReportListingForm } from "@/components/marketplace/ReportListingForm";
+import { ClaimListingButton } from "@/components/claims/ClaimListingButton";
 import { LechuOwnerActions } from "@/components/lechu/LechuOwnerActions";
 import { ListingSourceCard } from "@/components/listings/ListingSourceCard";
 import { AdminLensBar } from "@/components/admin/AdminLensBar";
@@ -31,12 +32,14 @@ export function LechuProfileView({
   isAuthenticated = false,
   isOwner = false,
   isAdmin = false,
+  autoClaim = false,
 }: {
   listing: Listing;
   preview?: boolean;
   isAuthenticated?: boolean;
   isOwner?: boolean;
   isAdmin?: boolean;
+  autoClaim?: boolean;
   currentUserId?: string | null;
 }) {
   const isPublic =
@@ -82,6 +85,14 @@ export function LechuProfileView({
         </div>
 
         <div className="flex flex-wrap gap-2">
+          {!preview && !isOwner ? (
+            <ClaimListingButton
+              autoSubmit={autoClaim}
+              checkStatus
+              kind="lechu"
+              listingId={listing.id}
+            />
+          ) : null}
           {!preview && isAuthenticated && !isOwner && (
             <FavoriteButton
               favoritesCount={listing.favoritesCount}
@@ -198,9 +209,9 @@ export function LechuProfileView({
           </dl>
 
           <section className="rounded-2xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-semibold text-slate-900">Описание</h2>
             <DescriptionWithOriginal
-              className="mt-3"
+              heading="Описание"
+              headingClassName="text-lg font-semibold text-slate-900"
               original={listing.descriptionOriginal}
               text={listing.description}
               textClassName="text-slate-700"

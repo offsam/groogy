@@ -5,17 +5,23 @@ import { KrugiPinIcon } from "@/components/brand/KrugiPinIcon";
 type HeaderAuthProps = {
   email: string | null;
   displayName: string | null;
+  username: string | null;
 };
 
-export function HeaderAuth({ email, displayName }: HeaderAuthProps) {
+export function HeaderAuth({
+  email,
+  displayName,
+  username,
+}: HeaderAuthProps) {
   const label = displayName?.trim() || email || "Профиль";
+  const href = username ? `/u/${username}` : "/profile";
 
   return (
     <div className="flex items-center gap-1.5 sm:gap-2">
       <Link
         aria-label={label}
         className="inline-flex shrink-0 transition hover:opacity-90"
-        href="/profile"
+        href={href}
         title={label}
       >
         <KrugiPinIcon className="size-9 sm:size-10" name="profile" />

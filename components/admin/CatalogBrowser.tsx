@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTransition, type FormEvent, type ReactNode } from "react";
 import { AdminPublishedDuplicatesButton } from "@/components/admin/AdminPublishedDuplicatesButton";
+import { AdminEntitySourcesButton } from "@/components/admin/AdminEntitySourcesButton";
 import { AdminPublishedEnrichButton } from "@/components/admin/AdminPublishedEnrichButton";
 import { AdminPasteEnrichButton } from "@/components/admin/AdminPasteEnrichButton";
 import {
@@ -255,6 +256,13 @@ export function CatalogBrowser({
                       kind={meta.enrichKind}
                       slug={meta.slug}
                     />
+                    {(meta.enrichKind === "business" ||
+                      meta.enrichKind === "professional") && (
+                      <AdminEntitySourcesButton
+                        entityId={meta.id}
+                        kind={meta.enrichKind}
+                      />
+                    )}
                   </>
                 ) : null}
                 {meta.archiveAvailable && meta.onArchive ? (

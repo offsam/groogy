@@ -247,6 +247,50 @@ def event_occurrences(raw: str | None) -> list[dict[str, Any]]:
     return out
 
 
+_EMOJI_PREFIX_RE = re.compile(
+    r"^(?:[\U0001F300-\U0001FAFF\U00002700-\U000027BF\U0001F1E0-\U0001F1FF"
+    r"\U00002600-\U000026FF\U0000FE0F\U0000200D]+\s*)+",
+)
+_RU_DATE_PREFIX_RE = re.compile(
+    r"^\d{1,2}\s+(?:январ[ья]|феврал[ья]|марта?|апрел[ья]|ма[йя]|июн[ья]|июл[ья]|"
+    r"августа?|сентябр[ья]|октябр[ья]|ноябр[ья]|декабр[ья])\s*[-–—:：,]?\s*",
+    re.I,
+)
+_EN_DATE_PREFIX_RE = re.compile(
+    r"^(?:january|february|march|april|may|june|july|august|september|october|"
+    r"november|december)\s+\d{1,2}\s*[-–—:：,]?\s*",
+    re.I,
+)
+_NUMERIC_DATE_PREFIX_RE = re.compile(
+    r"^\d{1,2}/\d{1,2}(?:/\d{2,4})?\s*[-–—:：,]?\s*"
+)
+_LETTER_RE = re.compile(r"[^\W\d_]", re.U)
+
+
+def title_from_occurrence_label(label: str | None) -> str | None:
+    """«💻 31 июля - Speed Dating…» → «Speed Dating…» for the public event title."""
+    s = re.sub(r"\s+", " ", (label or "").strip())
+    if not s:
+        return None
+    s = _EMOJI_PREFIX_RE.sub("", s).strip()
+    s = _RU_DATE_PREFIX_RE.sub("", s)
+    s = _EN_DATE_PREFIX_RE.sub("", s)
+    s = _NUMERIC_DATE_PREFIX_RE.sub("", s)
+    s = s.lstrip("-–—:：, ").rstrip(":： ").strip()
+    if len(_LETTER_RE.findall(s)) < 6:
+        return None
+    return s[:120]
+
+
+def first_schedule_event_title(raw: str | None) -> str | None:
+    """First usable session name from a multi-date affiche schedule."""
+    for occ in event_occurrences(raw):
+        title = title_from_occurrence_label(occ.get("label"))
+        if title:
+            return title
+    return None
+
+
 def event_day_keys(raw: str | None) -> list[str]:
     """Day-level date keys (YYYY-MM-DD) of every session announced in the post."""
     keys = {occ["starts_at"][:10] for occ in event_occurrences(raw) if occ.get("starts_at")}
@@ -292,7 +336,52 @@ def _parse_price(raw: str) -> tuple[str, float | None]:
             return label, float(m.group(1).replace(",", "."))
         except ValueError:
             return label, None
+    if re.search(r"\bбесплатн\w*\b|\bfree\b|\bno\s+charge\b", label, re.I):
+        return "Бесплатно", 0.0
     return label, None
+
+
+_PRICE_DOLLAR_RE = re.compile(
+    r"(?:всего\s+за|за|от|стоимость|цена|билеты?|tickets?|price|cost|only)\s*"
+    r"\$\s*(\d+(?:[.,]\d{1,2})?)"
+    r"|"
+    r"\$\s*(\d+(?:[.,]\d{1,2})?)\s*(?:за|\/|за\s+кажд)",
+    re.I,
+)
+_FREE_EVENT_RE = re.compile(
+    r"\bбесплатн\w*\b|\bfree\s+(?:event|entry|admission|online|speed)\b|\bfree\b",
+    re.I,
+)
+
+
+def _infer_price(text: str, labeled_raw: str | None) -> tuple[str | None, float | None]:
+    """Labeled «Цена:» first; else free / `$20` in the body."""
+    if labeled_raw:
+        return _parse_price(labeled_raw)
+    # Schedule lines often say «Бесплатный Online Speed Dating» / «Бесплатно подай заявку».
+    if _FREE_EVENT_RE.search(text):
+        return "Бесплатно", 0.0
+    m = _PRICE_DOLLAR_RE.search(text)
+    if m:
+        amount_s = m.group(1) or m.group(2)
+        try:
+            amount = float(amount_s.replace(",", "."))
+        except ValueError:
+            return None, None
+        label = re.sub(r"\s+", " ", m.group(0)).strip()[:120]
+        return label, amount
+    return None, None
+
+
+# UUID / truncated UUID fragments look like phones (3037-4158 → +14303741588).
+_UUID_SPAN_RE = re.compile(
+    r"\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}(?:-[0-9a-f]{0,12})?\b",
+    re.I,
+)
+
+
+def _mask_uuid_spans(text: str) -> str:
+    return _UUID_SPAN_RE.sub(" ", text)
 
 
 def _parse_payment_methods(text: str) -> list[str]:
@@ -415,11 +504,12 @@ def structure_event_from_text(raw: str | None) -> dict[str, Any]:
     }
 
     price_raw = _labeled(text, ("Билеты", "Билет", "Tickets", "Ticket", "Цена", "Price", "Стоимость"))
-    price_label, price_amount = _parse_price(price_raw) if price_raw else (None, None)
+    price_label, price_amount = _infer_price(text, price_raw)
     payment_methods = _parse_payment_methods(text)
 
     phones: list[str] = []
-    for m in PHONE_RE.finditer(re.sub(URL_RE, " ", text)):
+    phone_hay = _mask_uuid_spans(re.sub(URL_RE, " ", text))
+    for m in PHONE_RE.finditer(phone_hay):
         p = _norm_phone(m.group(0))
         if p and p not in phones:
             phones.append(p)

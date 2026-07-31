@@ -135,6 +135,7 @@ export function ImportReviewDetailPanel({
       business_name: form.business_name,
       person_name: form.person_name,
       description: form.description || item.source_text,
+      description_original: item.description_original ?? null,
       category: form.category,
       city: form.city,
       state: form.state,

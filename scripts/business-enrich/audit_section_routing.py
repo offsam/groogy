@@ -66,6 +66,9 @@ def mismatch(
     text: str,
     person_name: str | None = None,
     business_name: str | None = None,
+    address_line: str | None = None,
+    postal_code: str | None = None,
+    location_precision: str | None = None,
 ) -> dict | None:
     expected = SECTION_ENTITY[section]
     result = route_card(
@@ -73,6 +76,9 @@ def mismatch(
         person_name=person_name,
         business_name=business_name,
         has_contact=True,
+        address_line=address_line,
+        postal_code=postal_code,
+        location_precision=location_precision,
     )
     if not result.ok or result.entity_type == expected:
         return None
@@ -151,7 +157,7 @@ def main() -> int:
     biz = fetch_all(
         client,
         "/businesses",
-        "id,slug,name,description,short_description,status",
+        "id,slug,name,description,short_description,status,address_line,postal_code,location_precision",
         {"status": "eq.approved"},
     )
     if args.limit:
@@ -174,6 +180,9 @@ def main() -> int:
             title=row.get("name") or "",
             text=text,
             business_name=row.get("name"),
+            address_line=row.get("address_line"),
+            postal_code=row.get("postal_code"),
+            location_precision=row.get("location_precision"),
         )
         if hit:
             findings.append(hit)

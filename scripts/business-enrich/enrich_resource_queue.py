@@ -37,6 +37,10 @@ from shared_hosts import (  # noqa: E402
     is_editorial_url,
     is_shared_non_identity_host,
 )
+from platform_saas_hosts import (  # noqa: E402
+    booking_url_from_maybe_saas,
+    is_platform_saas_host,
+)
 
 ResourceKind = str  # source | website | instagram | tiktok | facebook | yelp | other
 
@@ -56,6 +60,43 @@ JUNK_HOST_PARTS = (
     "facebook.com/sharer",
     "facebook.com/share.php",
     "facebook.com/dialog/",
+    # App stores / Apple / Huawei / RuStore — booking SaaS footers (Dikidi etc.)
+    "itunes.apple.com",
+    "apps.apple.com",
+    "apple.com",
+    "apple.co/",
+    "icloud.com",
+    "play.google.com",
+    "appgallery.huawei",
+    "rustore.ru",
+    "support.dikidi.app",
+)
+
+# Corporate socials of booking / directory platforms — never the card's own.
+PLATFORM_SOCIAL_HANDLES = (
+    "instagram.com/dikidi_business",
+    "instagram.com/dikidi",
+    "facebook.com/dikidibusiness",
+    "facebook.com/dikidi",
+    "vk.com/dikidi",
+    "vk.ru/dikidi",
+    "instagram.com/glossgenius",
+    "facebook.com/glossgenius",
+    "instagram.com/booksy",
+    "facebook.com/booksy",
+)
+
+# When the page we mine is itself a booking SaaS, do not chase its vendor chrome.
+BOOKING_PLATFORM_HOSTS = (
+    "dikidi.net",
+    "dikidi.app",
+    "glossgenius.com",
+    "booksy.com",
+    "vagaro.com",
+    "squareup.com",
+    "square.site",
+    "calendly.com",
+    "setmore.com",
 )
 
 DIRECTORY_HOSTS = (
@@ -120,7 +161,42 @@ def is_directory_social(url: str | None) -> bool:
     if not url:
         return False
     low = url.lower().split("?")[0]
-    return any(h in low for h in DIRECTORY_SOCIAL_HANDLES)
+    return any(h in low for h in DIRECTORY_SOCIAL_HANDLES) or any(
+        h in low for h in PLATFORM_SOCIAL_HANDLES
+    )
+
+
+def is_booking_platform_host(url: str | None) -> bool:
+    h = host_of(url)
+    if not h:
+        return False
+    return any(h == b or h.endswith(f".{b}") for b in BOOKING_PLATFORM_HOSTS)
+
+
+def is_booking_marketing_page(url: str | None) -> bool:
+    """True for SaaS landings (dikidi.net/), false for tenant pages (/1759630)."""
+    if not is_booking_platform_host(url):
+        return False
+    try:
+        from dikidi_extract import is_dikidi_company_page
+
+        if is_dikidi_company_page(url):
+            return False
+    except Exception:
+        pass
+    # Artist subdomains (vitaliia.glossgenius.com) are tenant pages.
+    h = host_of(url)
+    if h.count(".") >= 2 and not h.startswith("www."):
+        return False
+    path = ""
+    try:
+        path = (urlparse(url or "").path or "").strip("/")
+    except Exception:
+        path = ""
+    # Bare host or /en /pricing style chrome — marketing.
+    if not path or path.lower() in {"en", "ru", "pricing", "about", "blog", "help"}:
+        return True
+    return False
 
 
 def is_directory_host(url: str | None) -> bool:
@@ -138,9 +214,95 @@ def can_be_own_website(url: str | None) -> bool:
     n = normalize_http_url(url)
     if not n or is_junk_url(n) or is_directory_host(n):
         return False
-    if is_shared_non_identity_host(n) or is_editorial_url(n):
+    if is_shared_non_identity_host(n) or is_editorial_url(n) or is_platform_saas_host(n):
         return False
     return classify_resource(n) == "website"
+
+
+_JUNK_DIKIDI_SERVICE_RE = re.compile(r"(?:шутер|shooter|tactical|dikidi)", re.I)
+
+
+def _is_junk_dikidi_service_title(title: str) -> bool:
+    return bool(_JUNK_DIKIDI_SERVICE_RE.search(title or ""))
+
+
+def _set_website_or_booking(out: dict[str, Any], raw_url: str | None) -> None:
+    """Own marketing site → website; booking SaaS tenant page → booking_url."""
+    n = normalize_http_url(raw_url)
+    if not n:
+        return
+    if is_platform_saas_host(n):
+        try:
+            from dikidi_extract import (
+                booking_url_for_company,
+                dikidi_company_id,
+                is_dikidi_company_page,
+            )
+
+            if is_dikidi_company_page(n):
+                cid = dikidi_company_id(n)
+                if cid:
+                    out["booking_url"] = booking_url_for_company(cid)
+                    return
+        except Exception:
+            pass
+        book = booking_url_from_maybe_saas(n)
+        if book:
+            out.setdefault("booking_url", book.split("?")[0][:500])
+        return
+    out["website"] = n.split("?")[0][:300]
+
+
+def _sanitize_dikidi_company_extract(out: dict[str, Any], url: str) -> None:
+    """Strip Dikidi vendor chrome; never adopt dikidi.net as the card website."""
+    try:
+        from dikidi_extract import booking_url_for_company, dikidi_company_id
+    except Exception:
+        booking_url_for_company = None  # type: ignore
+        dikidi_company_id = lambda _u: None  # type: ignore
+
+    cid = dikidi_company_id(url)
+    if cid and booking_url_for_company:
+        out["booking_url"] = booking_url_for_company(cid)
+    out.pop("website", None)
+
+    email = out.get("email")
+    if email and "@dikidi." in str(email).lower():
+        out.pop("email", None)
+
+    for key in ("instagram_url", "facebook_url"):
+        val = out.get(key)
+        if val and is_directory_social(str(val)):
+            out.pop(key, None)
+
+    socials = [
+        s
+        for s in (out.get("social_links") or [])
+        if s and not is_directory_social(str(s))
+    ]
+    out["social_links"] = socials
+
+    if out.get("services"):
+        out["services"] = [
+            str(s).strip()
+            for s in out["services"]
+            if str(s).strip() and not _is_junk_dikidi_service_title(str(s))
+        ][:20]
+    for offers_key in ("service_offers", "offers"):
+        raw_offers = out.get(offers_key)
+        if not isinstance(raw_offers, list):
+            continue
+        filtered = [
+            o
+            for o in raw_offers
+            if isinstance(o, dict)
+            and str(o.get("title") or "").strip()
+            and not _is_junk_dikidi_service_title(str(o.get("title") or ""))
+        ]
+        if filtered:
+            out[offers_key] = filtered[:40]
+        else:
+            out.pop(offers_key, None)
 
 
 PHONE_IN_TEXT_RE = re.compile(
@@ -322,6 +484,11 @@ def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
                 continue
             if k == "image_url" and _junk_image(v):
                 continue
+            if k == "website" and is_platform_saas_host(str(v)):
+                book = booking_url_from_maybe_saas(str(v))
+                if book and not found.get("booking_url"):
+                    found["booking_url"] = book.split("?")[0][:500]
+                continue
             found[k] = v
         elif k == "description" and is_weak_description(cur) and not is_weak_description(v):
             found[k] = v
@@ -424,6 +591,23 @@ def mine_resource(
             h in host_of(url) for h in ("instagram.com", "facebook.com", "tiktok.com")
         ):
             return out
+        # Dikidi tenant company page — structured API, not generic HTML chrome.
+        try:
+            from dikidi_extract import extract_dikidi_company, is_dikidi_company_page
+
+            if kind == "website" and is_dikidi_company_page(url):
+                dikidi = extract_dikidi_company(url)
+                for k, v in dikidi.items():
+                    if k.startswith("_"):
+                        continue
+                    out[k] = v
+                out["_status"] = dikidi.get("_status") or "ok"
+                if dikidi.get("_error"):
+                    out["_error"] = dikidi["_error"]
+                _sanitize_dikidi_company_extract(out, url)
+                return out
+        except Exception as exc:  # pragma: no cover
+            out["_dikidi_error"] = str(exc)[:200]
         prof = extract_website_profile_deep(url, max_pages=website_pages)
         out["_status"] = prof.get("status")
         if prof.get("status") != "ok":
@@ -576,7 +760,11 @@ def mine_resource(
         related = [
             s
             for s in (prof.get("related_websites") or [])
-            if s and not is_junk_url(str(s)) and not is_directory_host(str(s))
+            if s
+            and not is_junk_url(str(s))
+            and not is_directory_host(str(s))
+            and not is_shared_non_identity_host(str(s))
+            and not is_editorial_url(str(s))
         ]
         if kind == "source" and is_directory_host(url):
             # From directory pages only follow the listed company's own links —
@@ -593,6 +781,29 @@ def mine_resource(
                     keep.append(str(link))
             socials = keep
             related = [r for r in related if can_be_own_website(str(r))]
+        if is_booking_marketing_page(url):
+            # Bare Dikidi / GlossGenius / Booksy landing = vendor chrome, not the salon.
+            # Tenant company pages (dikidi.net/1759630) are handled above.
+            socials = [
+                s
+                for s in socials
+                if not is_directory_social(str(s))
+                and classify_resource(str(s)) in ("instagram", "facebook", "tiktok", "yelp")
+                and "dikidi" not in str(s).lower()
+                and "glossgenius" not in str(s).lower()
+                and "booksy" not in str(s).lower()
+            ]
+            related = [r for r in related if can_be_own_website(str(r))]
+            for vendor_key in (
+                "phone",
+                "email",
+                "instagram_url",
+                "facebook_url",
+                "yelp_url",
+                "services",
+                "service_offers",
+            ):
+                out.pop(vendor_key, None)
         out["social_links"] = socials
         discovered = list(out.get("discovered_urls") or []) + list(socials) + list(related)
         # Dedupe preserving order
@@ -610,10 +821,10 @@ def mine_resource(
             # discover same-site contact pages already handled by deep; also keep external site
             for link in socials + related:
                 if can_be_own_website(link):
-                    out.setdefault("website", link)
+                    _set_website_or_booking(out, link)
                     out["discovered_urls"].append(link)
         elif kind == "website":
-            out["website"] = url.split("?")[0][:300]
+            _set_website_or_booking(out, url)
             # Booking platforms often link to the real marketing site
             for link in related:
                 if classify_resource(link) == "website":
@@ -643,6 +854,8 @@ _USEFUL_RESOURCE_FIELDS = frozenset(
         "marketing_website",
         "services",
         "service_offers",
+        "offers",
+        "opening_hours",
         "image_url",
         "address",
         "address_line",

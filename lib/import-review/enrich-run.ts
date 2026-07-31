@@ -1,6 +1,7 @@
 import "server-only";
 
 import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { createServerClient } from "@/lib/supabase/server";
 import type { EnrichRunResult } from "@/lib/import-review/enrich-progress";
@@ -48,8 +49,17 @@ export function spawnPrePublishEnrichNdjson(itemId: string): {
     "import-review",
     "run_pre_publish_enrich.py",
   );
+  const collectorPython = path.join(
+    root,
+    "scripts",
+    "telegram-collector",
+    ".venv",
+    "bin",
+    "python",
+  );
+  const python = existsSync(collectorPython) ? collectorPython : "python3";
   const child = spawn(
-    "python3",
+    python,
     [
       script,
       "--ids",

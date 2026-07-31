@@ -176,16 +176,58 @@ export async function getAdminDashboardCounts(
     telegramPending,
   ] = await Promise.all([
     getAdminAnalytics(client).catch(() => null),
-    Promise.resolve(
-      anyClient
-        .from("business_claims")
-        .select("id", { count: "exact", head: true })
-        .eq("status", "pending")
-        .then((r: { count: number | null; error: unknown }) => {
-          if (r.error) return 0;
-          return r.count ?? 0;
-        }),
-    ).catch(() => 0),
+    Promise.all([
+      Promise.resolve(
+        anyClient
+          .from("business_claims")
+          .select("id", { count: "exact", head: true })
+          .eq("status", "pending")
+          .then((r: { count: number | null; error: unknown }) => {
+            if (r.error) return 0;
+            return r.count ?? 0;
+          }),
+      ).catch(() => 0),
+      Promise.resolve(
+        anyClient
+          .from("professional_claims")
+          .select("id", { count: "exact", head: true })
+          .eq("status", "pending")
+          .then((r: { count: number | null; error: unknown }) => {
+            if (r.error) return 0;
+            return r.count ?? 0;
+          }),
+      ).catch(() => 0),
+      Promise.resolve(
+        anyClient
+          .from("listing_claims")
+          .select("id", { count: "exact", head: true })
+          .eq("status", "pending")
+          .then((r: { count: number | null; error: unknown }) => {
+            if (r.error) return 0;
+            return r.count ?? 0;
+          }),
+      ).catch(() => 0),
+      Promise.resolve(
+        anyClient
+          .from("event_claims")
+          .select("id", { count: "exact", head: true })
+          .eq("status", "pending")
+          .then((r: { count: number | null; error: unknown }) => {
+            if (r.error) return 0;
+            return r.count ?? 0;
+          }),
+      ).catch(() => 0),
+      Promise.resolve(
+        anyClient
+          .from("job_claims")
+          .select("id", { count: "exact", head: true })
+          .eq("status", "pending")
+          .then((r: { count: number | null; error: unknown }) => {
+            if (r.error) return 0;
+            return r.count ?? 0;
+          }),
+      ).catch(() => 0),
+    ]).then((counts) => counts.reduce((sum, n) => sum + n, 0)),
     Promise.resolve(
       anyClient
         .rpc("admin_import_review_counts")

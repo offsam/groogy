@@ -227,7 +227,8 @@ const CATEGORY_PITCH: Record<string, string> = {
   real_estate: "недвижимость",
   auto: "автоуслуги",
   pets: "услуги для животных",
-  events: "мероприятия",
+  events: "организация праздников",
+  celebrations: "организация праздников",
   travel: "путешествия и трансферы",
 };
 

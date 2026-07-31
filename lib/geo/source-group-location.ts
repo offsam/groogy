@@ -160,6 +160,15 @@ export function resolveLocationFromText(
   for (const rule of textRules) {
     const m = rule.match.exec(blob);
     if (!m) continue;
+    // «Irvine Blvd» is a street name, not the city of Irvine.
+    const after = blob.slice(m.index + m[0].length, m.index + m[0].length + 16);
+    if (
+      /^\s*(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct|Place|Pl|Way)\b/i.test(
+        after,
+      )
+    ) {
+      continue;
+    }
     const raw = m[0].replace(/\s+/g, " ").trim().toLowerCase();
     const loc = { ...rule.location };
     const ocCities: Record<string, string> = {

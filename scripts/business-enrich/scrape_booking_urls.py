@@ -75,6 +75,8 @@ BOOK_HOSTS = (
     "appointmentplus.com",
     "youcanbook.me",
     "picktime.com",
+    "dikidi.net",
+    "dikidi.app",
     "housecallpro.com",
     "jobber.com",
     "servicetitan.com",

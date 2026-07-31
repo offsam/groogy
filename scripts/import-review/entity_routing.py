@@ -8,8 +8,13 @@ Absorbs (does not rewrite) existing classifiers:
   - docs/audits/NULL_CLASSIFICATION_ALGORITHM_V1.md §3
 
 Returns an atomic (entity_type, target_collection) pair, or None +
-[needs_manual_type] when no rule fires. Never defaults to private_specialist
-or business.
+[needs_manual_type] when no rule fires.
+
+Import / our curation rule (map businesses):
+  - No precise street address → private_specialist (never businesses).
+  - Brand / «business name» alone is NOT proof of a map business —
+    pros may trade under a brand; owners claim and upgrade later.
+  - Street address alone does NOT force businesses either.
 
 TS mirror: lib/import-review/entity-routing.ts — keep both in sync.
 SoT: docs/architecture/pipeline/ENTITY_SECTION_ROUTING_V1.md
@@ -181,6 +186,72 @@ SERVICE_VERB_RE = re.compile(
     re.I,
 )
 
+STREET_SUFFIX_RE = re.compile(
+    r"\b(?:st|street|ave|avenue|blvd|boulevard|rd|road|dr|drive|ln|lane|"
+    r"way|ct|court|hwy|highway|pkwy|parkway|pl|place|cir|circle|"
+    r"ter|terrace|улиц\w*|проспект|бульвар|переулок|шоссе|набережн\w*)\b",
+    re.I,
+)
+SERVICE_AREA_RE = re.compile(
+    r"окрестн|nearby|and\s+around|service\s+area|выезд\s+по|и\s+район",
+    re.I,
+)
+
+DATE_SIGNAL_RE = re.compile(
+    r"(?:\d{1,2}[./]\d{1,2}(?:[./]\d{2,4})?)|"
+    r"(?:\d{1,2}\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|"
+    r"январ\w*|феврал\w*|март\w*|апрел\w*|ма[йя]\w*|июн\w*|июл\w*|"
+    r"август\w*|сентябр\w*|октябр\w*|ноябр\w*|декабр\w*)\w*)|"
+    r"starts_at",
+    re.I,
+)
+
+
+def has_date_signal(text: str | None) -> bool:
+    return bool(DATE_SIGNAL_RE.search(text or ""))
+
+
+def has_street_address(
+    address_line: str | None = None,
+    *,
+    postal_code: str | None = None,
+    location_precision: str | None = None,
+) -> bool:
+    """True only for a concrete street pin — not city / service-area blurbs."""
+    if (location_precision or "").strip().lower() == "street":
+        return True
+    line = (address_line or "").strip()
+    if not line or len(line) < 5:
+        return False
+    # «Studio City & nearby» / «выезд по Sacramento» are not map pins.
+    if SERVICE_AREA_RE.search(line) and not re.search(r"\d", line):
+        return False
+    if re.match(r"^\d{1,6}\s+\S", line):
+        return True
+    if re.search(r"\d", line) and STREET_SUFFIX_RE.search(line):
+        return True
+    if re.search(r"\d{1,6}\s+[A-Za-zА-Яа-яЁё]", line) and len(line) >= 10:
+        return True
+    # ZIP alone never counts; ZIP + empty line → false.
+    _ = postal_code
+    return False
+
+
+def _business_or_specialist_for_import(
+    *,
+    has_street: bool,
+    confidence: str,
+    reason: str,
+) -> RouteResult:
+    """Map businesses need a street pin; otherwise import cards stay specialists."""
+    if has_street:
+        return _hit("business", confidence, reason)
+    return _hit(
+        "private_specialist",
+        confidence,
+        f"{reason}+no_street→specialist",
+    )
+
 
 @dataclass(frozen=True)
 class RouteResult:
@@ -274,18 +345,45 @@ def route_card(
     classification: str | None = None,
     entity_type_hint: str | None = None,
     has_contact: bool = False,
+    address_line: str | None = None,
+    postal_code: str | None = None,
+    location_precision: str | None = None,
+    has_street: bool | None = None,
 ) -> RouteResult:
-    """Canonical P3 router. Atomic pair or needs_manual_type. No specialist fallback."""
+    """Canonical P3 router. Atomic pair or needs_manual_type."""
     cat = (category or "").strip()
     bn = (business_name or "").strip()
     pn = (person_name or "").strip()
     blob = text or ""
     classification = (classification or "").strip() or None
     hint = (entity_type_hint or "").strip() or None
+    street = (
+        bool(has_street)
+        if has_street is not None
+        else has_street_address(
+            address_line,
+            postal_code=postal_code,
+            location_precision=location_precision,
+        )
+    )
 
     # Gate 0 — explicit category / hard RE
+    # Sphere «Организация праздников» is celebrations — NOT the dated affiche.
+    # Legacy category=events still maps to affiche only when the copy carries a date.
+    if cat in ("celebrations", "party_planning"):
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence="high",
+            reason=f"gate0:category={cat}",
+        )
     if cat == "events":
-        return _hit("event", "high", "gate0:category=events")
+        if has_date_signal(blob):
+            return _hit("event", "high", "gate0:category=events+date")
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence="medium",
+            reason="gate0:category=events+no_date→business_or_specialist",
+        )
     if cat in REAL_ESTATE_CATEGORIES:
         return _hit("real_estate", "high", f"gate0:category={cat}")
     if REAL_ESTATE_OFFER_RE.search(blob):
@@ -314,15 +412,32 @@ def route_card(
     if classification == "event_ad" or hint == "event":
         return _hit("event", "high", "gate1b:classification=event")
     if classification == "direct_business_ad" or hint == "business":
-        return _hit("business", "high", "gate1b:classification=business")
+        conf = "high" if has_contact else "medium"
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence=conf,
+            reason="gate1b:classification=business",
+        )
     if classification in {"direct_specialist_ad", "self_promotion_without_contact"} or hint == "private_specialist":
         # Still block goods mis-routed as specialist ads.
         if detect_goods_sale(blob):
             return _hit("marketplace_listing", "medium", "gate1b:override_specialist_goods")
         return _hit("private_specialist", "high", "gate1b:classification=specialist")
     if hint == "organization":
-        return _hit("organization", "high", "gate1b:hint=organization")
+        if street:
+            return _hit("organization", "high", "gate1b:hint=organization")
+        return _hit(
+            "private_specialist",
+            "high",
+            "gate1b:hint=organization+no_street→specialist",
+        )
     if hint in ENTITY_TO_COLLECTION:
+        if hint == "business":
+            return _business_or_specialist_for_import(
+                has_street=street,
+                confidence="medium",
+                reason=f"gate1b:hint={hint}",
+            )
         return _hit(hint, "medium", f"gate1b:hint={hint}")
 
     # Gate 1c — event keyword with offer/contact signal
@@ -332,20 +447,33 @@ def route_card(
         return _hit("event", "medium", "gate1c:event_re")
 
     # Gate 2 — business vs private_specialist
-    # Company operations beat the name slots: the poster's name in `person_name`
-    # must not turn a delivery service into a private specialist.
+    # Company operations beat person-name slots, but without a street pin our
+    # import path still keeps the card as specialist (map businesses only).
     if COMPANY_OPERATIONS_RE.search(blob) and not SPECIALIST_SIGNAL_RE.search(blob):
         conf = "high" if (has_contact or bn) else "medium"
-        return _hit("business", conf, "gate2:company_operations_re")
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence=conf,
+            reason="gate2:company_operations_re",
+        )
+    # Brand / trade name alone is NOT a map business — pros use brands too.
     if bn and not pn:
         conf = "high" if has_contact else "medium"
-        return _hit("business", conf, "gate2:business_name_slot")
+        return _hit(
+            "private_specialist",
+            conf,
+            "gate2:brand_name_default_specialist",
+        )
     if pn and not bn:
         conf = "high" if has_contact else "medium"
         return _hit("private_specialist", conf, "gate2:person_name_slot")
     if BUSINESS_SIGNAL_RE.search(blob) and not SPECIALIST_SIGNAL_RE.search(blob):
         conf = "high" if has_contact else "medium"
-        return _hit("business", conf, "gate2:business_signal_re")
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence=conf,
+            reason="gate2:business_signal_re",
+        )
     if SPECIALIST_SIGNAL_RE.search(blob) and not BUSINESS_SIGNAL_RE.search(blob):
         conf = "high" if has_contact else "medium"
         return _hit("private_specialist", conf, "gate2:specialist_signal_re")
@@ -379,6 +507,9 @@ def route_from_row(row: dict[str, Any]) -> RouteResult:
         classification=row.get("ai_decision") or row.get("classification"),
         entity_type_hint=row.get("entity_type"),
         has_contact=has_contact,
+        address_line=row.get("address_line"),
+        postal_code=row.get("postal_code"),
+        location_precision=row.get("location_precision"),
     )
 
 
@@ -404,6 +535,9 @@ def route_from_post(post: dict[str, Any], entity: dict[str, Any] | None = None) 
         classification=post.get("classification"),
         entity_type_hint=entity.get("entity_type") or post.get("entity_type"),
         has_contact=contacts,
+        address_line=entity.get("address_line") or entity.get("address"),
+        postal_code=entity.get("postal_code") or entity.get("zip"),
+        location_precision=entity.get("location_precision"),
     )
 
 

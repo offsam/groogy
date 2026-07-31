@@ -1,19 +1,22 @@
-import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 import { normalizeSupabaseUrl } from "@/lib/supabase/env";
-import { searchBusinesses } from "@/lib/supabase/queries";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import {
-  searchLechuListings,
-  searchMarketplaceListings,
-  searchTransferListings,
-} from "@/lib/listings/queries";
-import { countApprovedProfessionals } from "@/lib/professional/queries";
+  CATALOG_CACHE_TAGS,
+  CATALOG_CACHE_TTL,
+} from "@/lib/platform/catalog-cache";
 import {
   emptyPlatformSectionCounts,
   PLATFORM_SECTIONS,
   type PlatformSectionCounts,
 } from "@/lib/platform/sections";
+import {
+  getRegionHubsByIds,
+  locationFieldsMatchHub,
+  parseHubIds,
+} from "@/lib/regions/hubs";
 
 /** @deprecated Use PlatformSectionCounts / PLATFORM_SECTIONS */
 export type HubCategoryCounts = PlatformSectionCounts;
@@ -21,29 +24,23 @@ export type HubCategoryCounts = PlatformSectionCounts;
 /** @deprecated Use PLATFORM_SECTIONS */
 export const HUB_CATEGORY_COUNT_ITEMS = PLATFORM_SECTIONS;
 
-async function countTable(
-  client: ReturnType<typeof createServiceRoleClient>,
+/** Untyped until Database types cover all catalog tables/views. */
+function db(client: unknown): SupabaseClient {
+  return client as SupabaseClient;
+}
+
+async function exactCount(
+  client: unknown,
   table: string,
-  status = "published",
+  status?: string,
 ): Promise<number> {
   try {
-    // Untyped until Database types include events/jobs/etc.
-    const { count, error } = await (client as unknown as {
-      from: (t: string) => {
-        select: (
-          c: string,
-          o: { count: "exact"; head: boolean },
-        ) => {
-          eq: (
-            a: string,
-            b: string,
-          ) => Promise<{ count: number | null; error: { message?: string } | null }>;
-        };
-      };
-    })
-      .from(table)
-      .select("id", { count: "exact", head: true })
-      .eq("status", status);
+    let query = db(client).from(table).select("id", {
+      count: "exact",
+      head: true,
+    });
+    if (status) query = query.eq("status", status);
+    const { count, error } = await query;
     if (error) return 0;
     return count ?? 0;
   } catch {
@@ -51,7 +48,112 @@ async function countTable(
   }
 }
 
-export async function getHubCategoryCounts(
+/** Same hub filter as search / listing pages (USA Location Canon). */
+function asCoord(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim()) {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : null;
+  }
+  return null;
+}
+
+function rowMatchesHub(
+  row: {
+    city?: string | null;
+    region?: string | null;
+    latitude?: number | null;
+    longitude?: number | null;
+    county_geoid?: string | null;
+  },
+  hubId: string,
+): boolean {
+  const hubs = getRegionHubsByIds(parseHubIds(hubId));
+  return hubs.some((hub) =>
+    locationFieldsMatchHub(
+      {
+        city: row.city,
+        region: row.region,
+        latitude: asCoord(row.latitude),
+        longitude: asCoord(row.longitude),
+        county_geoid: row.county_geoid,
+      },
+      hub,
+    ),
+  );
+}
+
+/** Count hub-scoped rows via light stamp select (no full entity payloads). */
+async function countHubScoped(
+  client: unknown,
+  table: string,
+  hubId: string,
+  status: string,
+): Promise<number> {
+  try {
+    const hubs = getRegionHubsByIds(parseHubIds(hubId));
+    const geoids = hubs.flatMap((h) => [...h.countyGeoids]);
+    const richGeo = table === "businesses" || table === "professionals";
+    const cols = richGeo
+      ? "id, city, region, latitude, longitude, county_geoid"
+      : "id, city, county_geoid";
+    const buildQuery = () => {
+      let query = db(client).from(table).select(cols).eq("status", status);
+      if (geoids.length > 0) {
+        query = query.or(
+          `county_geoid.in.(${geoids.join(",")}),county_geoid.is.null`,
+        );
+      }
+      return query.order("id", { ascending: true });
+    };
+
+    // PostgREST often caps one response at ~1000 — page so counts match search.
+    const pageSize = 1000;
+    const maxRows = 20_000;
+    type Stamp = {
+      city?: string | null;
+      region?: string | null;
+      latitude?: number | null;
+      longitude?: number | null;
+      county_geoid?: string | null;
+    };
+    const raw: Stamp[] = [];
+    for (let offset = 0; offset < maxRows; offset += pageSize) {
+      const { data, error } = await buildQuery().range(
+        offset,
+        offset + pageSize - 1,
+      );
+      if (error || !data) break;
+      const batch = data as Stamp[];
+      raw.push(...batch);
+      if (batch.length < pageSize) break;
+    }
+    return raw.filter((row) => rowMatchesHub(row, hubId)).length;
+  } catch {
+    return 0;
+  }
+}
+
+async function countListingCatalogHub(
+  client: unknown,
+  view: string,
+  hubId: string,
+): Promise<number> {
+  try {
+    const { data, error } = await db(client)
+      .from(view)
+      .select("id, city")
+      .limit(2000);
+    if (error || !data) return 0;
+    return (data as Array<{ city?: string | null }>).filter((row) =>
+      rowMatchesHub({ city: row.city }, hubId),
+    ).length;
+  } catch {
+    return 0;
+  }
+}
+
+async function computeHubCategoryCounts(
   hubId: string,
 ): Promise<PlatformSectionCounts> {
   const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
@@ -62,7 +164,7 @@ export async function getHubCategoryCounts(
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
-  let catalog = client;
+  let catalog: unknown = client;
   try {
     catalog = createServiceRoleClient();
   } catch {
@@ -80,21 +182,86 @@ export async function getHubCategoryCounts(
     lechu,
     transfers,
   ] = await Promise.all([
-    searchBusinesses(catalog, { hubId }).then((rows) => rows.length),
-    searchMarketplaceListings(client, { hubId, page: 1, pageSize: 1 }).then(
-      (r) => r.total,
-    ),
-    countApprovedProfessionals(catalog).catch(() => 0),
-    countTable(catalog, "jobs"),
-    countTable(catalog, "real_estate_listings"),
-    countTable(catalog, "events"),
-    countTable(catalog, "vehicles"),
-    searchLechuListings(client, { hubId, page: 1, pageSize: 1 }).then(
-      (r) => r.total,
-    ),
-    searchTransferListings(client, { hubId, page: 1, pageSize: 1 }).then(
-      (r) => r.total,
-    ),
+    countHubScoped(catalog, "businesses", hubId, "approved"),
+    countListingCatalogHub(client, "marketplace_catalog", hubId),
+    countHubScoped(catalog, "professionals", hubId, "approved").catch(() => 0),
+    countHubScoped(catalog, "jobs", hubId, "published"),
+    countHubScoped(catalog, "real_estate_listings", hubId, "published"),
+    countHubScoped(catalog, "events", hubId, "published"),
+    countHubScoped(catalog, "vehicles", hubId, "published"),
+    countListingCatalogHub(client, "lechu_catalog", hubId),
+    countListingCatalogHub(client, "transfers_catalog", hubId),
+  ]);
+
+  return {
+    businesses,
+    professionals,
+    marketplace,
+    jobs,
+    real_estate,
+    events,
+    vehicles,
+    lechu,
+    transfers,
+  };
+}
+
+export async function getHubCategoryCounts(
+  hubId: string,
+): Promise<PlatformSectionCounts> {
+  const key = hubId.trim() || "default";
+  return unstable_cache(
+    () => computeHubCategoryCounts(key),
+    // v5: bust stale hub counters after catalog migration (no-street → pros)
+    ["hub-category-counts-v5", key],
+    {
+      revalidate: CATALOG_CACHE_TTL.hubCategoryCounts,
+      tags: [CATALOG_CACHE_TAGS.hubCategoryCounts],
+    },
+  )();
+}
+
+export async function getHubCategoryCountsUncached(
+  hubId: string,
+): Promise<PlatformSectionCounts> {
+  return computeHubCategoryCounts(hubId);
+}
+
+/** National exact counts — used by admin health snapshot. */
+export async function getNationalSectionCounts(): Promise<PlatformSectionCounts> {
+  const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  if (!url || !anonKey) return emptyPlatformSectionCounts();
+
+  let catalog: unknown;
+  try {
+    catalog = createServiceRoleClient();
+  } catch {
+    catalog = createClient<Database>(url, anonKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+  }
+
+  const [
+    businesses,
+    professionals,
+    marketplace,
+    jobs,
+    real_estate,
+    events,
+    vehicles,
+    lechu,
+    transfers,
+  ] = await Promise.all([
+    exactCount(catalog, "businesses", "approved"),
+    exactCount(catalog, "professionals", "approved"),
+    exactCount(catalog, "marketplace_catalog"),
+    exactCount(catalog, "jobs", "published"),
+    exactCount(catalog, "real_estate_listings", "published"),
+    exactCount(catalog, "events", "published"),
+    exactCount(catalog, "vehicles", "published"),
+    exactCount(catalog, "lechu_catalog"),
+    exactCount(catalog, "transfers_catalog"),
   ]);
 
   return {

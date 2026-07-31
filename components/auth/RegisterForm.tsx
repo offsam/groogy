@@ -68,7 +68,7 @@ export function RegisterForm({ nextPath }: RegisterFormProps) {
         return;
       }
 
-      router.replace(safeRedirectPath(nextPath));
+      router.replace("/profile");
       router.refresh();
     } catch (err) {
       const unknownError =

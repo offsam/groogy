@@ -144,7 +144,8 @@ export function russianBlurbForCategorySlug(
     case "travel":
       return "Путешествия";
     case "events":
-      return "Мероприятия";
+    case "celebrations":
+      return "Организация праздников";
     case "services":
       return "Услуги и быт";
     default:

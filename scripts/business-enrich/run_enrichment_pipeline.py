@@ -4,8 +4,9 @@
 Takes queue records (pending / in_review / needs_more_info) for one entity
 type and fills EMPTY fields only, in this fixed order:
 
-  step 1  source_text  — extract phone/email/website/instagram/telegram
-                         from the record's own source_text + description
+  step 1  source_text  — extract phone/email/website/instagram/telegram/
+                         street address from the record's own source_text
+                         + description
   step 2  website      — if the record has (or step 1 found) a website,
                          fetch the site and fill still-empty phone/email/
                          instagram/facebook/yelp/tiktok/description/
@@ -277,6 +278,26 @@ def prefer_location_website(url: str) -> str | None:
     return site or None
 
 
+_STREET_CORE_RE = re.compile(
+    r"\b(?P<street>\d{1,6}\s+[A-Za-z0-9][A-Za-z0-9 .#'\-]{2,40}\s"
+    r"(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|"
+    r"Lane|Ln|Court|Ct|Place|Pl|Highway|Hwy|Parkway|Pkwy|Way)\.?)\b",
+    re.I,
+)
+
+_CITY_STATE_RE = re.compile(
+    r"(?<![A-Za-z])(?P<city>[A-Za-z][A-Za-z .'\-]{1,40}?)\s*,\s*"
+    r"(?P<state>CA|California|WA|Washington|NY|New\s*York|FL|Florida|"
+    r"OR|Oregon|TX|Texas|CO|Colorado|NV|Nevada|AZ|Arizona)"
+    r"(?:\s+(?P<zip>\d{5})(?:-\d{4})?)?\b",
+    re.I,
+)
+
+_STATE_ZIP_RE = re.compile(
+    r"\b(?P<state>[A-Z]{2})\s+(?P<zip>\d{5})(?:-\d{4})?\b"
+)
+
+
 def is_plausible_street_address(address: str | None) -> bool:
     a = (address or "").strip()
     if len(a) < 10:
@@ -290,8 +311,38 @@ def is_plausible_street_address(address: str | None) -> bool:
     return bool(re.search(r",\s*[A-Za-z .'\-]{2,40}\s*,\s*[A-Z]{2}\b", a))
 
 
+def _normalize_us_state(raw: str | None) -> str | None:
+    if not raw:
+        return None
+    key = re.sub(r"\s+", " ", raw.strip()).lower()
+    mapping = {
+        "ca": "CA",
+        "california": "CA",
+        "wa": "WA",
+        "washington": "WA",
+        "ny": "NY",
+        "new york": "NY",
+        "fl": "FL",
+        "florida": "FL",
+        "or": "OR",
+        "oregon": "OR",
+        "tx": "TX",
+        "texas": "TX",
+        "co": "CO",
+        "colorado": "CO",
+        "nv": "NV",
+        "nevada": "NV",
+        "az": "AZ",
+        "arizona": "AZ",
+    }
+    return mapping.get(key) or (raw.strip().upper()[:2] if len(raw.strip()) == 2 else None)
+
+
 def split_us_address(address: str | None) -> dict[str, str | None]:
-    """Split '1200 Irvine Blvd, Tustin, CA, 92780' → street / city / state / zip."""
+    """Split '1200 Irvine Blvd, Tustin, CA 92780' → street / city / state / zip.
+
+    Never treats the house number as a ZIP.
+    """
     out: dict[str, str | None] = {
         "address_line": None,
         "city": None,
@@ -323,21 +374,96 @@ def split_us_address(address: str | None) -> dict[str, str | None]:
         out["state"] = m2.group(3).upper()
         out["postal_code"] = m2.group(4)
         return out
-    cm = re.search(r",\s*([A-Za-z .'\-]{2,40})\s*,\s*([A-Z]{2})\b", text)
+    cm = re.search(
+        r"^(?P<street>.*?),\s*(?P<city>[A-Za-z .'\-]{2,40})\s*,\s*(?P<state>[A-Z]{2})\b",
+        text,
+    )
     if cm:
-        city = cm.group(1).strip(" ,")
-        state = cm.group(2).upper()
+        city = cm.group("city").strip(" ,")
+        state = cm.group("state").upper()
+        street = cm.group("street").strip(" ,")
         if city and city.lower() not in {"usa", "united states"}:
             out["city"] = city[:80]
             out["state"] = state
-            idx = text.lower().rfind(city.lower())
-            if idx > 5:
-                out["address_line"] = text[:idx].rstrip(" ,")[:160]
-    zm = re.search(r"\b(\d{5})(?:-\d{4})?\b", text)
+            if street and is_plausible_street_address(street):
+                out["address_line"] = street[:160]
+    # ZIP only after a state abbr — never the leading house number (18062 …).
+    zm = _STATE_ZIP_RE.search(text)
     if zm:
-        out["postal_code"] = zm.group(1)
+        out["postal_code"] = zm.group("zip")
+        if not out["state"]:
+            out["state"] = zm.group("state").upper()
     if not out["address_line"] and is_plausible_street_address(text):
-        out["address_line"] = text[:160]
+        # Strip trailing ", City, ST" if present so street stays clean.
+        street_only = re.sub(
+            r",\s*[A-Za-z .'\-]{2,40}\s*,\s*[A-Z]{2}(?:\s+\d{5}(?:-\d{4})?)?\s*$",
+            "",
+            text,
+        ).strip(" ,")
+        out["address_line"] = (street_only or text)[:160]
+    return out
+
+
+def extract_us_address_from_text(text: str | None) -> dict[str, str | None]:
+    """Pull street + City, ST from free text (incl. multiline «Адрес» blocks).
+
+    Example:
+      18062 Irvine Blvd,
+      Tustin, CA
+    → street=18062 Irvine Blvd, city=Tustin, state=CA
+    """
+    out: dict[str, str | None] = {
+        "address_line": None,
+        "city": None,
+        "state": None,
+        "postal_code": None,
+    }
+    blob = text or ""
+    if not blob.strip():
+        return out
+
+    street_m = _STREET_CORE_RE.search(blob)
+    if street_m:
+        street = re.sub(r"\s+", " ", street_m.group("street")).strip(" .")
+        if is_plausible_street_address(street):
+            out["address_line"] = street[:160]
+            # Prefer locality after the street (next ~120 chars / couple lines).
+            tail = blob[street_m.end() : street_m.end() + 160]
+            city_m = _CITY_STATE_RE.search(tail)
+            if city_m:
+                out["city"] = re.sub(r"\s+", " ", city_m.group("city")).strip(" ,")[:80]
+                out["state"] = _normalize_us_state(city_m.group("state"))
+                if city_m.group("zip"):
+                    out["postal_code"] = city_m.group("zip")
+            else:
+                # Same-line: "18062 Irvine Blvd, Tustin, CA"
+                window = blob[street_m.start() : street_m.end() + 80]
+                parts = split_us_address(re.sub(r"\s+", " ", window))
+                for key in ("city", "state", "postal_code"):
+                    if parts.get(key) and not out.get(key):
+                        out[key] = parts[key]
+
+    if not out["city"]:
+        # Labeled block or any clear "City, ST" that isn't a street fragment.
+        for city_m in _CITY_STATE_RE.finditer(blob):
+            city = re.sub(r"\s+", " ", city_m.group("city")).strip(" ,")
+            # Skip "Blvd, Tustin" false starts — city must not end with street suffix.
+            if _STREET_SUFFIX_RE.search(city):
+                continue
+            # Skip county labels used as city.
+            if re.search(r"\bcounty\b", city, re.I):
+                continue
+            out["city"] = city[:80]
+            out["state"] = _normalize_us_state(city_m.group("state"))
+            if city_m.group("zip"):
+                out["postal_code"] = city_m.group("zip")
+            break
+
+    if out["address_line"] and not out["city"]:
+        parts = split_us_address(out["address_line"])
+        for key in ("city", "state", "postal_code"):
+            if parts.get(key) and not out.get(key):
+                out[key] = parts[key]
     return out
 
 
@@ -345,6 +471,22 @@ def parse_city_state_from_address(address: str | None) -> tuple[str | None, str 
     """Best-effort US city/state from a free-form address string."""
     parts = split_us_address(address)
     return parts.get("city"), parts.get("state")
+
+
+def _city_is_street_token(city: str | None, street: str | None) -> bool:
+    """True when city looks stolen from the street name (Irvine ⊂ Irvine Blvd)."""
+    c = (city or "").strip().lower()
+    s = (street or "").strip().lower()
+    if not c or not s or c not in s:
+        return False
+    return bool(
+        re.search(
+            rf"\b{re.escape(c)}\b\s+(?:street|st|avenue|ave|boulevard|blvd|road|rd|"
+            rf"drive|dr|lane|ln|court|ct|place|pl|highway|hwy|parkway|pkwy|way)\b",
+            s,
+            re.I,
+        )
+    )
 
 
 def item_text(item: dict[str, Any]) -> str:
@@ -402,6 +544,59 @@ def step_source_text(item: dict[str, Any], patch: dict[str, Any]) -> list[str]:
                 patch["telegram_username"] = h
                 filled.append("telegram_username")
 
+    cur_street = (
+        patch.get("address_line")
+        if "address_line" in patch
+        else item.get("address_line")
+    )
+    cur_city = patch.get("city") if "city" in patch else item.get("city")
+    cur_state = patch.get("state") if "state" in patch else item.get("state")
+    cur_zip = (
+        patch.get("postal_code") if "postal_code" in patch else item.get("postal_code")
+    )
+    parsed = extract_us_address_from_text(text)
+    parsed_street = (parsed.get("address_line") or "").strip() or None
+    parsed_city = (parsed.get("city") or "").strip() or None
+    parsed_state = (parsed.get("state") or "").strip() or None
+    parsed_zip = (parsed.get("postal_code") or "").strip() or None
+
+    if empty_str(cur_street) and "address_line" not in patch and parsed_street:
+        patch["address_line"] = parsed_street[:160]
+        filled.append("address_line")
+        cur_street = parsed_street
+
+    # Fill city from the address block. Also repair when the current city was
+    # stolen from the street name (Irvine ⊂ «18062 Irvine Blvd»).
+    city_needs_fill = empty_str(cur_city) and "city" not in patch
+    city_needs_repair = (
+        parsed_city
+        and not empty_str(cur_city)
+        and parsed_city.lower() != str(cur_city).strip().lower()
+        and _city_is_street_token(str(cur_city), cur_street or parsed_street)
+    )
+    if parsed_city and (city_needs_fill or city_needs_repair):
+        patch["city"] = parsed_city[:80]
+        if "city" not in filled:
+            filled.append("city")
+        cur_city = parsed_city
+
+    if parsed_state and (
+        (empty_str(cur_state) and "state" not in patch)
+        or city_needs_repair
+        or (
+            cur_state
+            and re.search(r"county", str(cur_state), re.I)
+            and parsed_state
+        )
+    ):
+        patch["state"] = parsed_state
+        if "state" not in filled:
+            filled.append("state")
+
+    if parsed_zip and empty_str(cur_zip) and "postal_code" not in patch:
+        patch["postal_code"] = parsed_zip
+        filled.append("postal_code")
+
     return filled
 
 
@@ -415,24 +610,45 @@ def step_group_location(item: dict[str, Any], patch: dict[str, Any]) -> list[str
 
     cur_city = patch.get("city") if "city" in patch else item.get("city")
     cur_state = patch.get("state") if "state" in patch else item.get("state")
-    if not empty_str(cur_city):
+    cur_street = (
+        patch.get("address_line")
+        if "address_line" in patch
+        else item.get("address_line")
+    )
+    # Address block already gave a real city — don't invent from group / Irvine Blvd.
+    if not empty_str(cur_city) and not _city_is_street_token(cur_city, cur_street):
+        # Still normalize county-as-state when we already have a city.
+        if (
+            cur_state
+            and re.search(r"county", str(cur_state), re.I)
+            and "state" not in patch
+        ):
+            text = item_text(item)
+            parsed = extract_us_address_from_text(text)
+            if parsed.get("state"):
+                patch["state"] = parsed["state"]
+                return ["state"]
         return []
 
     text = item_text(item)
     merged = merge_city_with_group(
-        city=cur_city,
+        city=None if _city_is_street_token(cur_city, cur_street) else cur_city,
         state=cur_state,
         source_group=item.get("source_group"),
         source=item.get("source"),
         chat_title=item.get("source_group"),
         text=text,
+        address_line=cur_street,
     )
     filled: list[str] = []
     new_city = (merged.get("city") or "").strip() or None
     new_state = (merged.get("state") or "").strip() or None
+    # Prefer CA over county label when we resolved a real city.
+    if new_city and new_state and re.search(r"county", new_state, re.I):
+        new_state = "CA"
     # County-only (Orange County in description / Fun for Mom): use as place label.
     place = new_city or new_state
-    if place and empty_str(cur_city) and "city" not in patch:
+    if place and (empty_str(cur_city) or _city_is_street_token(cur_city, cur_street)) and "city" not in patch:
         patch["city"] = place
         filled.append("city")
     if (

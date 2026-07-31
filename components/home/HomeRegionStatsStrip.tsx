@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { HubResourceStats } from "@/lib/platform/hub-resource-stats";
 import type { PlatformSectionKey } from "@/lib/platform/sections";
 import { cn } from "@/lib/utils";
 
-/** Poll while the tab is open so +today updates if something is published mid-session. */
-const STATS_POLL_MS = 45_000;
+/** Refetch on tab focus only if last success was older than this. */
+const STATS_STALE_MS = 60_000;
 
 function formatDelta(n: number) {
   return `+${n.toLocaleString("ru-RU")}`;
@@ -47,19 +47,23 @@ export function useHubRegionStats(
   // Keep SSR stats visible immediately — don't blank the hero line while refetching
   // (guest hub from localStorage often differs from the SSR hub id).
   const [stats, setStats] = useState<HubResourceStats | null>(initial);
+  const lastFetchAtRef = useRef<number>(initial ? Date.now() : 0);
+  const hubIdRef = useRef(hubId);
+  hubIdRef.current = hubId;
 
   useEffect(() => {
     if (initial && ssrHubId && hubId === ssrHubId) {
       setStats(initial);
+      lastFetchAtRef.current = Date.now();
     }
   }, [initial, hubId, ssrHubId]);
 
   useEffect(() => {
     let cancelled = false;
-    let timer = 0;
 
     async function load() {
       try {
+        // Bypass CDN/browser cache — hub totals change after import/archive.
         const res = await fetch(
           `/api/hub-resource-stats?hub=${encodeURIComponent(hubId)}`,
           { cache: "no-store" },
@@ -68,36 +72,30 @@ export function useHubRegionStats(
         const data = (await res.json()) as HubResourceStats;
         if (!cancelled && Array.isArray(data.cards)) {
           setStats(data);
+          lastFetchAtRef.current = Date.now();
         }
       } catch {
         // keep last (including SSR)
       }
     }
 
-    const schedule = () => {
-      window.clearTimeout(timer);
-      if (document.visibilityState === "hidden") return;
-      timer = window.setTimeout(() => {
-        void load().finally(schedule);
-      }, STATS_POLL_MS);
-    };
+    // Always refresh on hub change / mount so SSR stale counts (e.g. 349)
+    // cannot stick after catalog migrations.
+    void load();
 
     const onVisibility = () => {
-      if (document.visibilityState === "visible") {
-        void load().finally(schedule);
-      } else {
-        window.clearTimeout(timer);
-      }
+      if (document.visibilityState !== "visible") return;
+      if (hubIdRef.current !== hubId) return;
+      if (Date.now() - lastFetchAtRef.current < STATS_STALE_MS) return;
+      void load();
     };
 
-    void load().finally(schedule);
     document.addEventListener("visibilitychange", onVisibility);
     return () => {
       cancelled = true;
-      window.clearTimeout(timer);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [hubId]);
+  }, [hubId, initial, ssrHubId]);
 
   return stats;
 }

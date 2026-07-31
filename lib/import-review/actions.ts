@@ -17,10 +17,16 @@ import {
 } from "@/lib/geo/geocode-street";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
 import {
-  resolveSourceKind,
-  sourceTypeFromKind,
-} from "@/lib/business/presence";
+  evaluateThinProfessionalPublish,
+  normalizePersonName,
+} from "@/lib/professional/thin-card-policy";
 import { resolveImportDisplayName } from "@/lib/import-review/display-name";
+import {
+  hasRealBusinessPhoto,
+  isWeakIdentityName,
+  preferRicherIdentityName,
+  preferRicherImage,
+} from "@/lib/import-review/field-richness";
 import {
   addMissingProfessionalServices,
   offersFromAdTexts,
@@ -32,6 +38,7 @@ import { addMissingEntityPromotions } from "@/lib/promotions/queries";
 import { promotionsFromAdText } from "@/lib/promotions/extract";
 import { addMissingEntityUpdates } from "@/lib/updates/queries";
 import { updatesFromAdText } from "@/lib/updates/extract";
+import { isNewsUpdateTitle } from "@/lib/updates/extract";
 import type { QueuePromotion } from "@/types/promotion";
 import type { QueueUpdate } from "@/types/update";
 import {
@@ -39,18 +46,24 @@ import {
   shortNarrativeTeaser,
 } from "@/lib/content/structure-business-profile";
 import { isSharedNonIdentityHost } from "@/lib/import-review/shared-hosts";
+import { isPlatformSaasHost } from "@/lib/import-review/platform-saas-hosts";
 import {
   parseProfessionalCleanupPayload,
   type ProfessionalCleanupPayload,
 } from "@/lib/import-review/professional-cleanup";
 import { afterImportReviewSettledRetention } from "@/lib/import-review/retention";
+import { liveEntityHref } from "@/lib/import-review/live-entity-href";
 import {
+  buildMergePatch,
   findQueueTwins,
   mergeQueueItems,
+  sortByStrength,
   MERGE_SELECT,
   type MergeableQueueItem,
 } from "@/lib/import-review/merge-queue-items";
-import { structureEventFromText } from "@/lib/events/structure-event-from-text";
+import { findMatchingRecommendations } from "@/lib/import-review/find-matching-recommendations";
+import { confirmRecommendationMergeAction } from "@/lib/import-review/recommendation-actions";
+import { structureEventFromText, titleFromOccurrenceLabel } from "@/lib/events/structure-event-from-text";
 import type {
   ImportReviewEntityType,
   ImportReviewItem,
@@ -167,18 +180,41 @@ export type ImportReviewActionResult =
       id?: string;
       publishedEntityType?: string;
       publishedEntityId?: string;
+      /** After merge into a live card — open the rich profile, not the poor queue row. */
+      liveHref?: string;
       duplicates?: DuplicateMatch[];
+      /** What «Объединить все» would do across queue copies + recommendations. */
+      mergeAllPreview?: MergeAllPreview;
     }
-  | { ok: false; message: string; duplicates?: DuplicateMatch[] };
+  | {
+      ok: false;
+      message: string;
+      duplicates?: DuplicateMatch[];
+      mergeAllPreview?: MergeAllPreview;
+    };
 
 export type DuplicateMatch = {
-  kind: "business" | "listing" | "import_item";
+  kind: "business" | "professional" | "listing" | "import_item" | "recommendation";
   id: string;
   title: string | null;
   reason: string;
   slug?: string | null;
-  /** Live business status when kind=business */
+  /** Live business/professional status when kind=business|professional */
   businessStatus?: string | null;
+  /**
+   * Open queue twin that «Объединить все» / «Свернуть копии» can fold.
+   * Approved historical imports stay import_item but are not queue copies.
+   */
+  queueOpen?: boolean;
+  /** When approved import already points at a live card. */
+  publishedEntityType?: string | null;
+  publishedEntityId?: string | null;
+  /** Recommendation mention counters (kind=recommendation). */
+  mentionCount?: number;
+  thirdPartyMentions?: number;
+  selfAdMentions?: number;
+  /** Short source text for recommendation matches. */
+  snippet?: string | null;
   /** What merge into this match would do (fill-empty preview). */
   mergePreview?: MergePreview;
 };
@@ -188,6 +224,13 @@ export type MergePreview = {
   willAdd: string[];
   willSkip: string[];
   queueEffect: string;
+};
+
+/** Counts shown under «Объединить все». */
+export type MergeAllPreview = MergePreview & {
+  queueCopies: number;
+  recommendations: number;
+  catalogHits: number;
 };
 
 function emptyStr(v: unknown): boolean {
@@ -217,6 +260,7 @@ function websiteFromQueue(websites: string[] | null | undefined): string | null 
       host = t.toLowerCase();
     }
     if (isSharedNonIdentityHost(host) || isSharedNonIdentityHost(t)) continue;
+    if (isPlatformSaasHost(host) || isPlatformSaasHost(t)) continue;
     return t;
   }
   return null;
@@ -237,7 +281,12 @@ function offersFromQueueItem(item: {
     seen.add(key);
     merged.push(offer);
   }
-  return merged;
+  // R13: news / office-move blurbs never become services.
+  return merged.filter(
+    (o) =>
+      !isNewsUpdateTitle(o.title) &&
+      !isNewsUpdateTitle(o.description || ""),
+  );
 }
 
 function promotionsFromQueueItem(item: {
@@ -292,7 +341,7 @@ async function buildBusinessMergePreview(
   const { data: item } = await supabase
     .from("import_review_items")
     .select(
-      "phone, email, website, instagram, city, state, description, source_text, preview_image_url, title, business_name, services",
+      "phone, email, website, instagram, city, state, description, source_text, preview_image_url, title, business_name, person_name, services",
     )
     .eq("id", itemId)
     .maybeSingle();
@@ -346,7 +395,27 @@ async function buildBusinessMergePreview(
   check("город", qCity, biz.city);
   check("штат", qState, biz.state_code);
   check("краткое описание", qShort, biz.short_description);
-  check("фото", qImage, biz.image_url);
+  // Category SVGs do not count as a real photo.
+  check(
+    "фото",
+    qImage,
+    hasRealBusinessPhoto(String(biz.image_url || "")) ? biz.image_url : null,
+  );
+
+  const qName =
+    preferRicherIdentityName(
+      null,
+      (item.business_name as string | null) ||
+        (item.person_name as string | null) ||
+        (item.title as string | null),
+    ) || null;
+  if (qName && isWeakIdentityName(String(biz.name || ""))) {
+    willAdd.push(`название: ${qName.slice(0, 80)}`);
+  } else if (qName && String(biz.name || "").trim()) {
+    willSkip.push("название уже есть");
+  } else {
+    check("название", qName, biz.name);
+  }
 
   if (qDesc) {
     if (emptyStr(biz.description)) {
@@ -392,7 +461,7 @@ async function buildBusinessMergePreview(
 
   const name = biz.name || "бизнес";
   if (archived) {
-    willAdd.unshift("статус: вернуть из архива → published");
+    willAdd.unshift("статус: из архива → pending (только админка, не в открытый доступ)");
   }
   const summary =
     willAdd.length > 0
@@ -404,7 +473,7 @@ async function buildBusinessMergePreview(
     willAdd,
     willSkip,
     queueEffect: archived
-      ? `Бизнес разархивируем и привяжем очередь к «${name}» (новая карточка не создаётся)`
+      ? `Бизнес вернём из архива как pending (не публикуем) и привяжем очередь к «${name}»`
       : `Очередь закроется как одобренная и привязанная к «${name}» (не создаст новую карточку)`,
   };
 }
@@ -491,6 +560,32 @@ async function buildImportItemMergePreview(
     };
   }
 
+  // Neither row is published: describe the fold — which card survives and what
+  // it gains. Nothing is overwritten, so «Не тронет» stays empty by design.
+  const { data: rowsRaw } = await untyped(supabase)
+    .from("import_review_items")
+    .select(MERGE_SELECT)
+    .in("id", [sourceItemId, targetItemId]);
+  const rows = (rowsRaw ?? []) as unknown as MergeableQueueItem[];
+  const mergeable = rows.filter((row) => !row.published_entity_id);
+  if (mergeable.length === 2) {
+    const [strong, ...weak] = sortByStrength(mergeable);
+    const { changed } = buildMergePatch(strong, weak);
+    const survivor =
+      strong.business_name || strong.title || strong.person_name || strong.id;
+    const stays = strong.id === sourceItemId;
+    return {
+      summary: `Копии свернём в «${survivor}»${stays ? " (эта карточка)" : " (карточка совпадения)"} — заполненное не перезаписываем`,
+      willAdd: changed.length
+        ? [`дополним поля: ${changed.join(", ")}`]
+        : ["новых данных нет — только счётчик повторов"],
+      willSkip: [],
+      queueEffect: stays
+        ? "Очередь: совпадение закроется как дубль этой карточки"
+        : "Очередь: эта карточка закроется как дубль совпадения, данные перенесём",
+    };
+  }
+
   return {
     summary: `Пометить текущую запись дубликатом уже одобренного импорта «${title || "item"}»`,
     willAdd: [],
@@ -506,7 +601,7 @@ async function attachMergePreviews(
   matches: DuplicateMatch[],
 ): Promise<DuplicateMatch[]> {
   const out: DuplicateMatch[] = [];
-  for (const m of matches.slice(0, 8)) {
+  for (const m of matches.slice(0, 24)) {
     if (m.kind === "business") {
       out.push({
         ...m,
@@ -521,6 +616,40 @@ async function attachMergePreviews(
           m.id,
           m.title,
         ),
+      });
+    } else if (m.kind === "professional") {
+      out.push({
+        ...m,
+        mergePreview: {
+          summary: `Влить в специалиста «${m.title || m.id}» (fill-empty, без авто-публикации)`,
+          willAdd: ["пустые контакты / описание / фото с очереди"],
+          willSkip: ["непустые поля специалиста не затираются"],
+          queueEffect:
+            "Очередь → approved + published_entity=professional; каталог не публикуется сам",
+        },
+      });
+    } else if (m.kind === "recommendation") {
+      const mentions = m.mentionCount ?? 1;
+      const parts = [
+        m.thirdPartyMentions
+          ? `чужие ×${m.thirdPartyMentions}`
+          : null,
+        m.selfAdMentions ? `сами ×${m.selfAdMentions}` : null,
+      ].filter(Boolean);
+      out.push({
+        ...m,
+        mergePreview: {
+          summary: `Привяжем рекомендацию «${m.title || m.id}» к опубликованной карточке этой записи`,
+          willAdd: [
+            `счётчик рекомендаций +${mentions}${
+              parts.length ? ` (${parts.join(", ")})` : ""
+            }`,
+            ...(m.snippet ? [`текст: ${m.snippet}`] : []),
+          ],
+          willSkip: [],
+          queueEffect:
+            "Рекомендация: status=merged → live business/professional",
+        },
       });
     } else {
       out.push({
@@ -537,11 +666,177 @@ async function attachMergePreviews(
   return out;
 }
 
+/** Preview for folding this card with every queue match + recommendations. */
+async function buildMergeAllPreview(
+  supabase: SupabaseClient,
+  itemId: string,
+  matches: DuplicateMatch[],
+): Promise<MergeAllPreview | undefined> {
+  const queueIds = matches
+    .filter((m) => m.kind === "import_item" && m.queueOpen)
+    .map((m) => m.id);
+  const businessMatches = matches.filter((m) => m.kind === "business");
+  const professionalMatches = matches.filter((m) => m.kind === "professional");
+  const approvedToBusiness = matches.filter(
+    (m) =>
+      m.kind === "import_item" &&
+      !m.queueOpen &&
+      m.publishedEntityType === "business" &&
+      m.publishedEntityId,
+  );
+  const approvedToProfessional = matches.filter(
+    (m) =>
+      m.kind === "import_item" &&
+      !m.queueOpen &&
+      m.publishedEntityType === "professional" &&
+      m.publishedEntityId,
+  );
+  const catalogBusinessCount = new Set([
+    ...businessMatches.map((m) => m.id),
+    ...approvedToBusiness.map((m) => m.publishedEntityId!),
+  ]).size;
+  const catalogProfessionalCount = new Set([
+    ...professionalMatches.map((m) => m.id),
+    ...approvedToProfessional.map((m) => m.publishedEntityId!),
+  ]).size;
+  const otherCatalogHits = matches.filter((m) => m.kind === "listing").length;
+  const recs = matches.filter((m) => m.kind === "recommendation");
+  const catalogHits =
+    catalogBusinessCount + catalogProfessionalCount + otherCatalogHits;
+  if (
+    queueIds.length +
+      recs.length +
+      catalogBusinessCount +
+      catalogProfessionalCount <
+    1
+  ) {
+    return undefined;
+  }
+
+  let queuePreview: MergePreview | null = null;
+  if (queueIds.length >= 1) {
+    const ids = Array.from(new Set([itemId, ...queueIds])).filter(Boolean);
+    if (ids.length >= 2) {
+      const { data: rowsRaw } = await untyped(supabase)
+        .from("import_review_items")
+        .select(MERGE_SELECT)
+        .in("id", ids);
+      const rows = ((rowsRaw ?? []) as unknown as MergeableQueueItem[]).filter(
+        (row) => !row.published_entity_id,
+      );
+      if (rows.length >= 2) {
+        const [strong, ...weak] = sortByStrength(rows);
+        const { changed } = buildMergePatch(strong, weak);
+        const survivor =
+          strong.business_name ||
+          strong.title ||
+          strong.person_name ||
+          strong.id;
+        const folded = weak
+          .map(
+            (row) =>
+              row.business_name ||
+              row.title ||
+              row.person_name ||
+              row.id.slice(0, 8),
+          )
+          .slice(0, 6);
+        queuePreview = {
+          summary: `Свернём ${weak.length} ${
+            weak.length === 1 ? "копию" : "копий"
+          } в «${survivor}» — заполненное не перезаписываем`,
+          willAdd: changed.length
+            ? [`дополним поля: ${changed.join(", ")}`]
+            : ["новых данных нет — только счётчик повторов"],
+          willSkip: [],
+          queueEffect: `Закроем как дубли: ${folded.join(", ")}${
+            weak.length > folded.length ? "…" : ""
+          }`,
+        };
+      }
+    }
+  }
+
+  const recMentions = recs.reduce(
+    (sum, r) => sum + Math.max(r.mentionCount ?? 1, 1),
+    0,
+  );
+  const primaryBiz =
+    businessMatches.find((m) => m.businessStatus === "archived") ||
+    businessMatches[0] ||
+    approvedToBusiness[0] ||
+    null;
+  const parts: string[] = [];
+  if (queueIds.length) parts.push(`копий в очереди: ${queueIds.length}`);
+  if (catalogBusinessCount) {
+    parts.push(
+      `в каталог: ${catalogBusinessCount}${
+        primaryBiz?.title ? ` («${primaryBiz.title}»)` : ""
+      }`,
+    );
+  }
+  if (recs.length) {
+    parts.push(
+      `рекомендаций: ${recs.length}${
+        recMentions > recs.length ? ` (упоминаний ~${recMentions})` : ""
+      }`,
+    );
+  }
+  if (otherCatalogHits) {
+    parts.push(`прочее вручную: ${otherCatalogHits}`);
+  }
+
+  const willAdd = [
+    ...(queuePreview?.willAdd ?? []),
+    ...(primaryBiz
+      ? [
+          `вольём в «${primaryBiz.title || primaryBiz.id}»${
+            primaryBiz.businessStatus === "archived"
+              ? " (из архива → pending, без публикации)"
+              : ""
+          }`,
+        ]
+      : []),
+    ...(recs.length
+      ? [
+          catalogBusinessCount || queueIds.length
+            ? `затем привяжем ${recs.length} ${
+                recs.length === 1 ? "рекомендацию" : "рекомендаций"
+              } → +${recMentions}`
+            : `привяжем ${recs.length} ${
+                recs.length === 1 ? "рекомендацию" : "рекомендаций"
+              } (нужна опубликованная карточка)`,
+        ]
+      : []),
+  ];
+
+  return {
+    summary:
+      parts.length > 0
+        ? `Объединить всё: ${parts.join(" · ")}`
+        : "Нечего объединять",
+    willAdd,
+    willSkip: otherCatalogHits
+      ? ["Листинги / импорты без live-бизнеса — по одному"]
+      : [],
+    queueEffect: primaryBiz
+      ? `Сначала каталог «${primaryBiz.title || primaryBiz.id}», потом рекомендации`
+      : queuePreview?.queueEffect ||
+        (recs.length
+          ? "Рекомендации привяжутся только после публикации карточки"
+          : ""),
+    queueCopies: queueIds.length,
+    recommendations: recs.length,
+    catalogHits,
+  };
+}
+
 function fail(
   message: string,
   duplicates?: DuplicateMatch[],
+  mergeAllPreview?: MergeAllPreview,
 ): ImportReviewActionResult {
-  return { ok: false, message, duplicates };
+  return { ok: false, message, duplicates, mergeAllPreview };
 }
 
 function ok(
@@ -550,6 +845,7 @@ function ok(
     id?: string;
     publishedEntityType?: string;
     publishedEntityId?: string;
+    liveHref?: string;
     duplicates?: DuplicateMatch[];
   },
 ): ImportReviewActionResult {
@@ -763,12 +1059,26 @@ export async function scanImportReviewDuplicatesAction(input: {
     item as unknown as MergeableQueueItem,
   );
   if (duplicates.length === 0) {
-    return ok("Совпадений не найдено.");
+    const linkedName =
+      item.published_entity_type && item.published_entity_id
+        ? ` Уже влита в ${item.published_entity_type} ${String(item.published_entity_id).slice(0, 8)}…`
+        : "";
+    return ok(
+      linkedName
+        ? `Новых двойников нет.${linkedName}`
+        : "Совпадений не найдено.",
+    );
   }
   const withPreview = await attachMergePreviews(supabase, input.id, duplicates);
+  const mergeAllPreview = await buildMergeAllPreview(
+    supabase,
+    input.id,
+    withPreview,
+  );
   return fail(
     `Найдено совпадений: ${withPreview.length}. Проверьте и объедините или одобрите как новую.`,
     withPreview,
+    mergeAllPreview,
   );
 }
 
@@ -820,6 +1130,348 @@ export async function mergeQueueDuplicatesAction(input: {
 }
 
 /**
+ * Fold the card together with every queue match the moderator sees, merge into
+ * a catalog business when present, then attach recommendations to the live card.
+ */
+export async function mergeQueueItemsAction(input: {
+  id: string;
+  matchIds: string[];
+  recommendationIds?: string[];
+  /** Catalog business ids from duplicate scan (phone / name hits). */
+  businessIds?: string[];
+  /** Catalog professional ids from duplicate scan. */
+  professionalIds?: string[];
+  /**
+   * Approved import rows that already point at a live business — used to
+   * resolve the same catalog target as the business list.
+   */
+  approvedImportIds?: string[];
+}): Promise<ImportReviewActionResult> {
+  const { supabase, error } = await requireAdmin();
+  if (error) return error;
+
+  const queueIds = Array.from(
+    new Set([input.id, ...input.matchIds.map((id) => (id || "").trim())]),
+  ).filter(Boolean);
+  const recommendationIds = Array.from(
+    new Set((input.recommendationIds ?? []).map((id) => (id || "").trim())),
+  ).filter(Boolean);
+  const businessIds = Array.from(
+    new Set((input.businessIds ?? []).map((id) => (id || "").trim())),
+  ).filter(Boolean);
+  const professionalIds = Array.from(
+    new Set((input.professionalIds ?? []).map((id) => (id || "").trim())),
+  ).filter(Boolean);
+  const approvedImportIds = Array.from(
+    new Set((input.approvedImportIds ?? []).map((id) => (id || "").trim())),
+  ).filter(Boolean);
+
+  if (
+    queueIds.length < 2 &&
+    recommendationIds.length === 0 &&
+    businessIds.length === 0 &&
+    professionalIds.length === 0 &&
+    approvedImportIds.length === 0
+  ) {
+    return fail("Нечего объединять.");
+  }
+
+  try {
+    let survivorId = input.id;
+    let survivorTitle: string | null = null;
+    let mergedCount = 0;
+    let changed: string[] = [];
+    let catalogMerged = false;
+    let catalogName: string | null = null;
+
+    if (queueIds.length >= 2) {
+      const merged = await mergeQueueItems(untyped(supabase), queueIds);
+      if (merged) {
+        survivorId = merged.survivorId;
+        survivorTitle = merged.survivorTitle;
+        mergedCount = merged.mergedCount;
+        changed = merged.changed;
+      }
+    }
+
+    // Resolve catalog business targets (direct hits + approved imports → business).
+    const catalogTargetIds = new Set(businessIds);
+    const catalogProfessionalIds = new Set(professionalIds);
+    if (approvedImportIds.length) {
+      const { data: approvedRows } = await untyped(supabase)
+        .from("import_review_items")
+        .select("id, published_entity_type, published_entity_id, title")
+        .in("id", approvedImportIds);
+      for (const row of approvedRows ?? []) {
+        if (
+          row.published_entity_type === "business" &&
+          row.published_entity_id
+        ) {
+          catalogTargetIds.add(String(row.published_entity_id));
+        }
+        if (
+          row.published_entity_type === "professional" &&
+          row.published_entity_id
+        ) {
+          catalogProfessionalIds.add(String(row.published_entity_id));
+        }
+      }
+    }
+
+    if (catalogTargetIds.size > 0) {
+      let catalog: ReturnType<typeof createServiceRoleClient>;
+      try {
+        catalog = createServiceRoleClient();
+      } catch (err) {
+        return fail(
+          err instanceof Error
+            ? err.message
+            : "Нет service role — объединение с каталогом недоступно.",
+        );
+      }
+      const { data: bizRows } = await untyped(catalog)
+        .from("businesses")
+        .select("id, name, slug, status, phone")
+        .in("id", [...catalogTargetIds]);
+      const businesses = (bizRows ?? []) as {
+        id: string;
+        name: string | null;
+        slug: string | null;
+        status: string;
+        phone: string | null;
+      }[];
+      if (businesses.length) {
+        // Prefer a live public card. Archived is last resort and stays pending
+        // after merge (no auto-publish to the open catalog).
+        const pick =
+          businesses.find((b) => b.status === "approved" && b.phone) ||
+          businesses.find((b) => b.status === "approved") ||
+          businesses.find((b) => b.status === "pending" && b.phone) ||
+          businesses.find((b) => b.status === "pending") ||
+          businesses.find((b) => b.status === "archived" && b.phone) ||
+          businesses.find((b) => b.status === "archived") ||
+          businesses[0]!;
+
+        const into = await mergeImportReviewIntoExistingAction({
+          id: survivorId,
+          matchKind: "business",
+          matchId: pick.id,
+          matchTitle: pick.name,
+          matchReason: "merge_all_catalog",
+          matchSlug: pick.slug,
+        });
+        if (!into.ok) {
+          return fail(
+            into.message ||
+              `Не удалось влить в каталог «${pick.name || pick.id}»`,
+          );
+        }
+        catalogMerged = true;
+        catalogName = pick.name;
+        survivorId = into.id || survivorId;
+        survivorTitle = pick.name || survivorTitle;
+      }
+    }
+
+    if (!catalogMerged && catalogProfessionalIds.size > 0) {
+      let catalog: ReturnType<typeof createServiceRoleClient>;
+      try {
+        catalog = createServiceRoleClient();
+      } catch (err) {
+        return fail(
+          err instanceof Error
+            ? err.message
+            : "Нет service role — объединение с каталогом недоступно.",
+        );
+      }
+      const { data: proRows } = await untyped(catalog)
+        .from("professionals")
+        .select("id, display_name, slug, status, phone")
+        .in("id", [...catalogProfessionalIds]);
+      const professionals = (proRows ?? []) as {
+        id: string;
+        display_name: string | null;
+        slug: string | null;
+        status: string;
+        phone: string | null;
+      }[];
+      if (professionals.length) {
+        const pick =
+          professionals.find((b) => b.status === "approved" && b.phone) ||
+          professionals.find((b) => b.status === "approved") ||
+          professionals.find((b) => b.status === "pending" && b.phone) ||
+          professionals.find((b) => b.status === "pending") ||
+          professionals.find((b) => b.status === "archived" && b.phone) ||
+          professionals.find((b) => b.status === "archived") ||
+          professionals[0]!;
+
+        const into = await mergeImportReviewIntoExistingAction({
+          id: survivorId,
+          matchKind: "professional",
+          matchId: pick.id,
+          matchTitle: pick.display_name,
+          matchReason: "merge_all_catalog",
+          matchSlug: pick.slug,
+        });
+        if (!into.ok) {
+          return fail(
+            into.message ||
+              `Не удалось влить в специалиста «${pick.display_name || pick.id}»`,
+          );
+        }
+        catalogMerged = true;
+        catalogName = pick.display_name;
+        survivorId = into.id || survivorId;
+        survivorTitle = pick.display_name || survivorTitle;
+      }
+    }
+
+    const { data: survivor } = await untyped(supabase)
+      .from("import_review_items")
+      .select(
+        "id, title, business_name, person_name, published_entity_type, published_entity_id",
+      )
+      .eq("id", survivorId)
+      .maybeSingle();
+    survivorTitle =
+      survivorTitle ||
+      survivor?.business_name ||
+      survivor?.title ||
+      survivor?.person_name ||
+      null;
+
+    let recAttached = 0;
+    let recSkipped = 0;
+    const pubType = survivor?.published_entity_type;
+    const pubId = survivor?.published_entity_id;
+    const canAttach =
+      (pubType === "business" || pubType === "professional") && pubId;
+
+    if (recommendationIds.length) {
+      if (!canAttach) {
+        recSkipped = recommendationIds.length;
+      } else {
+        for (const recId of recommendationIds) {
+          const res = await confirmRecommendationMergeAction({
+            id: recId,
+            entityType: pubType as "business" | "professional",
+            entityId: pubId as string,
+          });
+          if (res.ok) recAttached += 1;
+          else recSkipped += 1;
+        }
+      }
+    }
+
+    const didAnything =
+      mergedCount > 0 || catalogMerged || recAttached > 0 || changed.length > 0;
+
+    if (!didAnything) {
+      if (recSkipped > 0 && !canAttach) {
+        return fail(
+          "Ничего не объединилось. Рекомендацию нельзя привязать, пока карточка не влита в каталог — нажмите «Объединить» у Dance PROgression / бизнеса в списке, либо добавьте бизнес в «Объединить все».",
+        );
+      }
+      return fail(
+        "Ничего не объединилось: копий в очереди нет, в каталог не влили, рекомендации не привязались.",
+      );
+    }
+
+    revalidatePath("/admin/import-review");
+    revalidatePath("/admin/review/inbox");
+    revalidatePath(`/admin/review/workspace/import_review/${survivorId}`);
+    if (canAttach) {
+      revalidatePath(
+        pubType === "professional"
+          ? `/professional/${pubId}`
+          : `/business/${pubId}`,
+      );
+    }
+
+    const parts = [
+      mergedCount ? `копий свёрнуто: ${mergedCount}` : null,
+      catalogMerged
+        ? `влито в каталог «${catalogName || survivorTitle || survivorId}»`
+        : null,
+      recAttached ? `рекомендаций привязано: ${recAttached}` : null,
+      recSkipped
+        ? canAttach
+          ? `рекомендаций не привязалось: ${recSkipped}`
+          : `рекомендаций ждёт публикации: ${recSkipped}`
+        : null,
+      changed.length ? `дополнено: ${changed.join(", ")}` : null,
+    ].filter(Boolean);
+
+    const liveHref =
+      canAttach
+        ? await liveEntityHref(untyped(supabase), pubType, pubId)
+        : null;
+
+    return ok(
+      `Объединено. Осталась «${survivorTitle || survivorId}». ${parts.join(" · ")}.`,
+      {
+        id: survivorId,
+        publishedEntityType: pubType ?? undefined,
+        publishedEntityId: pubId ?? undefined,
+        liveHref: liveHref ?? undefined,
+      },
+    );
+  } catch (err) {
+    return fail(
+      err instanceof Error ? err.message : "Не удалось объединить копии",
+    );
+  }
+}
+
+/**
+ * After RPC fill-empty: push richer queue photo/name onto the live business.
+ * Category SVGs and snake handles must not block a real photo / person name.
+ */
+async function applyRicherQueueFieldsToBusiness(
+  catalog: SupabaseClient,
+  businessId: string,
+  queue: {
+    preview_image_url?: string | null;
+    person_name?: string | null;
+    business_name?: string | null;
+    title?: string | null;
+    source_author_display_name?: string | null;
+  },
+): Promise<string[]> {
+  const { data: biz } = await untyped(catalog)
+    .from("businesses")
+    .select("id, name, image_url")
+    .eq("id", businessId)
+    .maybeSingle();
+  if (!biz) return [];
+
+  const patch: Record<string, string> = {};
+  const richerImage = preferRicherImage(biz.image_url, queue.preview_image_url);
+  if (richerImage && richerImage !== String(biz.image_url || "").trim()) {
+    patch.image_url = richerImage;
+  }
+
+  const candidateName =
+    preferRicherIdentityName(null, queue.person_name) ||
+    preferRicherIdentityName(null, queue.business_name) ||
+    preferRicherIdentityName(null, queue.title) ||
+    preferRicherIdentityName(null, queue.source_author_display_name);
+  const richerName = preferRicherIdentityName(biz.name, candidateName);
+  if (richerName && richerName !== String(biz.name || "").trim()) {
+    patch.name = richerName;
+  }
+
+  if (!Object.keys(patch).length) return [];
+  patch.updated_at = new Date().toISOString();
+  const { error } = await untyped(catalog)
+    .from("businesses")
+    .update(patch)
+    .eq("id", businessId);
+  if (error) throw new Error(error.message);
+  return Object.keys(patch).filter((k) => k !== "updated_at");
+}
+
+/**
  * Merge queue item into an existing match (fill-empty for businesses via RPC;
  * import_item → mark duplicate of that item).
  * Flat args — надёжнее для server actions, чем вложенный объект.
@@ -866,18 +1518,20 @@ export async function mergeImportReviewIntoExistingAction(input: {
         status: string;
       };
 
-      // Enrich RPC rejects archived — restore to approved first.
-      if (biz.status === "archived") {
+      // Enrich RPC rejects archived. Restore only to pending (admin), never
+      // auto-approve — publishing to the public catalog stays an explicit step.
+      const wasArchived = biz.status === "archived";
+      if (wasArchived) {
         const { error: unarchiveErr } = await untyped(catalog)
           .from("businesses")
           .update({
-            status: "approved",
+            status: "pending",
             updated_at: new Date().toISOString(),
           })
           .eq("id", matchId);
         if (unarchiveErr) {
           return fail(
-            `Не удалось разархивировать бизнес: ${unarchiveErr.message}`,
+            `Не удалось вернуть бизнес в админку: ${unarchiveErr.message}`,
           );
         }
       }
@@ -888,7 +1542,7 @@ export async function mergeImportReviewIntoExistingAction(input: {
           p_item_id: input.id,
           p_business_id: matchId,
           p_note: `Merge из inbox: ${input.matchReason || "match"}${
-            biz.status === "archived" ? " (разархивирован)" : ""
+            wasArchived ? " (из архива → pending, без публикации)" : ""
           }`,
         },
       );
@@ -915,13 +1569,15 @@ export async function mergeImportReviewIntoExistingAction(input: {
       revalidatePath("/search");
       revalidatePath("/admin/catalog/businesses");
       const filled = Array.isArray(result.filled) ? result.filled : [];
-      const name = result.business_name || input.matchTitle || biz.name || matchId;
-      const restored =
-        biz.status === "archived" ? " Разархивирован." : "";
+      const restored = wasArchived
+        ? " Вернули из архива как pending (не в открытом доступе)."
+        : "";
 
       const { data: queueItemRaw } = await supabase
         .from("import_review_items")
-        .select("description, source_text, services, promotions, updates")
+        .select(
+          "description, source_text, services, promotions, updates, preview_image_url, person_name, business_name, title, source_author_display_name",
+        )
         .eq("id", input.id)
         .maybeSingle();
       const queueItem = (queueItemRaw ?? {}) as {
@@ -930,7 +1586,40 @@ export async function mergeImportReviewIntoExistingAction(input: {
         services?: string[] | null;
         promotions?: QueuePromotion[] | null;
         updates?: QueueUpdate[] | null;
+        preview_image_url?: string | null;
+        person_name?: string | null;
+        business_name?: string | null;
+        title?: string | null;
+        source_author_display_name?: string | null;
       };
+
+      let richerFilled: string[] = [];
+      try {
+        richerFilled = await applyRicherQueueFieldsToBusiness(
+          catalog,
+          matchId,
+          queueItem,
+        );
+      } catch (err) {
+        console.error(
+          "applyRicherQueueFieldsToBusiness failed",
+          err instanceof Error ? err.message : err,
+        );
+      }
+      const allFilled = Array.from(new Set([...filled, ...richerFilled]));
+
+      const { data: bizAfter } = await untyped(catalog)
+        .from("businesses")
+        .select("name")
+        .eq("id", matchId)
+        .maybeSingle();
+      const name =
+        bizAfter?.name ||
+        result.business_name ||
+        input.matchTitle ||
+        biz.name ||
+        matchId;
+
       const offersAdded = await addMissingBusinessOffers(
         catalog,
         matchId,
@@ -950,22 +1639,21 @@ export async function mergeImportReviewIntoExistingAction(input: {
         { source: "import" },
       );
 
-      const { data: settledPreview } = await supabase
-        .from("import_review_items")
-        .select("preview_image_url")
-        .eq("id", input.id)
-        .maybeSingle();
       await runSettledRetention({
         itemId: input.id,
-        previewImageUrl: settledPreview?.preview_image_url,
+        previewImageUrl: queueItem.preview_image_url,
         publishedEntityType: "business",
         publishedEntityId: matchId,
       });
 
+      const href =
+        (slug ? `/business/${slug}` : null) ||
+        (await liveEntityHref(catalog, "business", matchId));
+
       return ok(
         [
-          filled.length
-            ? `Объединено с «${name}»: добавлено ${filled.join(", ")}.`
+          allFilled.length
+            ? `Объединено с «${name}»: добавлено ${allFilled.join(", ")}.`
             : `Объединено с «${name}» (новых полей не было).`,
           offersAdded
             ? ` Услуг добавлено: ${offersAdded}.`
@@ -978,6 +1666,7 @@ export async function mergeImportReviewIntoExistingAction(input: {
           id: input.id,
           publishedEntityType: "business",
           publishedEntityId: matchId,
+          liveHref: href ?? undefined,
         },
       );
     } catch (err) {
@@ -985,6 +1674,182 @@ export async function mergeImportReviewIntoExistingAction(input: {
         err instanceof Error ? err.message : "Не удалось объединить с бизнесом",
       );
     }
+  }
+
+  if (matchKind === "professional") {
+    let catalog: ReturnType<typeof createServiceRoleClient>;
+    try {
+      catalog = createServiceRoleClient();
+    } catch (err) {
+      return fail(
+        err instanceof Error
+          ? err.message
+          : "Нет service role — объединение недоступно.",
+      );
+    }
+    const { data: proRow, error: proErr } = await untyped(catalog)
+      .from("professionals")
+      .select("id, display_name, slug, status")
+      .eq("id", matchId)
+      .maybeSingle();
+    if (proErr) return fail(proErr.message);
+    if (!proRow) return fail("Специалист не найден.");
+
+    // Restore archived only to pending — never auto-approve.
+    if (proRow.status === "archived") {
+      const { error: unarchiveErr } = await untyped(catalog)
+        .from("professionals")
+        .update({
+          status: "pending",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", matchId);
+      if (unarchiveErr) {
+        return fail(
+          `Не удалось вернуть специалиста в админку: ${unarchiveErr.message}`,
+        );
+      }
+    }
+
+    const { data: queueItemRaw } = await supabase
+      .from("import_review_items")
+      .select(
+        "description, source_text, services, promotions, updates, phone, email, website, instagram, preview_image_url, person_name, business_name, title",
+      )
+      .eq("id", input.id)
+      .maybeSingle();
+    const queueItem = (queueItemRaw ?? {}) as {
+      description?: string | null;
+      source_text?: string | null;
+      services?: string[] | null;
+      promotions?: QueuePromotion[] | null;
+      updates?: QueueUpdate[] | null;
+      phone?: string[] | null;
+      email?: string[] | null;
+      website?: string[] | null;
+      instagram?: string[] | null;
+      preview_image_url?: string | null;
+      person_name?: string | null;
+      business_name?: string | null;
+      title?: string | null;
+    };
+
+    const { data: keepPro } = await untyped(catalog)
+      .from("professionals")
+      .select(
+        "id, display_name, phone, email, website, instagram_url, description, image_url",
+      )
+      .eq("id", matchId)
+      .maybeSingle();
+    const patch: Record<string, unknown> = {
+      updated_at: new Date().toISOString(),
+    };
+    const filled: string[] = [];
+    const empty = (v: unknown) =>
+      v == null || (typeof v === "string" && !v.trim());
+    if (keepPro) {
+      if (empty(keepPro.phone) && queueItem.phone?.[0]) {
+        patch.phone = queueItem.phone[0];
+        filled.push("телефон");
+      }
+      if (empty(keepPro.email) && queueItem.email?.[0]) {
+        patch.email = queueItem.email[0];
+        filled.push("email");
+      }
+      if (empty(keepPro.website) && websiteFromQueue(queueItem.website)) {
+        patch.website = websiteFromQueue(queueItem.website);
+        filled.push("сайт");
+      }
+      if (empty(keepPro.instagram_url) && queueItem.instagram?.[0]) {
+        const handle = queueItem.instagram[0].replace(/^@/, "");
+        patch.instagram_url = `https://instagram.com/${handle}`;
+        filled.push("instagram");
+      }
+      if (
+        empty(keepPro.description) &&
+        (queueItem.description || queueItem.source_text)
+      ) {
+        patch.description =
+          queueItem.description || queueItem.source_text || null;
+        filled.push("описание");
+      }
+      const richerImage = preferRicherImage(
+        keepPro.image_url,
+        queueItem.preview_image_url,
+      );
+      if (
+        richerImage &&
+        richerImage !== String(keepPro.image_url || "").trim()
+      ) {
+        patch.image_url = richerImage;
+        filled.push("фото");
+      }
+    }
+    if (Object.keys(patch).length > 1) {
+      const { error: patchErr } = await untyped(catalog)
+        .from("professionals")
+        .update(patch)
+        .eq("id", matchId);
+      if (patchErr) return fail(patchErr.message);
+    }
+
+    const offersAdded = await addMissingProfessionalServices(
+      catalog,
+      matchId,
+      offersFromQueueItem(queueItem),
+    );
+    const promosAdded = await addMissingEntityPromotions(
+      catalog,
+      "professional",
+      matchId,
+      promotionsFromQueueItem(queueItem),
+    );
+    const updatesAdded = await addMissingEntityUpdates(
+      catalog,
+      "professional",
+      matchId,
+      updatesFromQueueItem(queueItem),
+      { source: "import" },
+    );
+
+    await untyped(supabase)
+      .from("import_review_items")
+      .update({
+        review_status: "approved",
+        published_entity_type: "professional",
+        published_entity_id: matchId,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", input.id);
+
+    const name = proRow.display_name || input.matchTitle || matchId;
+    const href = proRow.slug
+      ? `/professional/${proRow.slug}`
+      : await liveEntityHref(catalog, "professional", matchId);
+
+    revalidatePath("/admin/import-review");
+    revalidatePath("/admin/review/inbox");
+    if (href) revalidatePath(href);
+
+    return ok(
+      [
+        filled.length
+          ? `Объединено с «${name}»: добавлено ${filled.join(", ")}.`
+          : `Объединено с «${name}» (новых полей не было).`,
+        offersAdded ? ` Услуг добавлено: ${offersAdded}.` : "",
+        promosAdded ? ` Акций добавлено: ${promosAdded}.` : "",
+        updatesAdded ? ` Обновлений добавлено: ${updatesAdded}.` : "",
+        proRow.status === "archived"
+          ? " Специалист возвращён в pending (без авто-публикации)."
+          : "",
+      ].join(""),
+      {
+        id: input.id,
+        publishedEntityType: "professional",
+        publishedEntityId: matchId,
+        liveHref: href ?? undefined,
+      },
+    );
   }
 
   if (matchKind === "import_item") {
@@ -1010,77 +1875,19 @@ export async function mergeImportReviewIntoExistingAction(input: {
       target?.published_entity_type === "professional" &&
       target.published_entity_id
     ) {
-      let catalog: ReturnType<typeof createServiceRoleClient>;
-      try {
-        catalog = createServiceRoleClient();
-      } catch (err) {
-        return fail(
-          err instanceof Error
-            ? err.message
-            : "Нет service role — объединение недоступно.",
-        );
-      }
-      const { data: queueItemRaw } = await supabase
-        .from("import_review_items")
-        .select("description, source_text, services, promotions, updates")
-        .eq("id", input.id)
-        .maybeSingle();
-      const queueItem = (queueItemRaw ?? {}) as {
-        description?: string | null;
-        source_text?: string | null;
-        services?: string[] | null;
-        promotions?: QueuePromotion[] | null;
-        updates?: QueueUpdate[] | null;
-      };
-      const offersAdded = await addMissingProfessionalServices(
-        catalog,
-        target.published_entity_id,
-        offersFromQueueItem(queueItem),
-      );
-      const promosAdded = await addMissingEntityPromotions(
-        catalog,
-        "professional",
-        target.published_entity_id,
-        promotionsFromQueueItem(queueItem),
-      );
-      const updatesAdded = await addMissingEntityUpdates(
-        catalog,
-        "professional",
-        target.published_entity_id,
-        updatesFromQueueItem(queueItem),
-        { source: "import" },
-      );
-      const mark = await setImportReviewStatusAction({
-        id: input.id,
-        status: "approved",
-        notes: `Объединено с professional ${target.published_entity_id} через import item ${matchId}`,
+      return mergeImportReviewIntoExistingAction({
+        ...input,
+        matchKind: "professional",
+        matchId: target.published_entity_id,
+        matchTitle: target.title || input.matchTitle,
       });
-      if (!mark.ok) return mark;
-      // Link to published professional.
-      await untyped(supabase)
-        .from("import_review_items")
-        .update({
-          published_entity_type: "professional",
-          published_entity_id: target.published_entity_id,
-          review_status: "approved",
-          updated_at: new Date().toISOString(),
-        })
-        .eq("id", input.id);
-      revalidatePath("/admin/import-review");
-      revalidatePath(`/admin/import-review/${input.id}`);
-      revalidatePath("/admin/review/inbox");
-      return ok(
-        [
-          "Объединено со специалистом.",
-          offersAdded ? ` Услуг: +${offersAdded}.` : "",
-          promosAdded ? ` Акций: +${promosAdded}.` : "",
-          updatesAdded ? ` Обновлений: +${updatesAdded}.` : "",
-        ].join(""),
-        {
-          id: input.id,
-          publishedEntityType: "professional",
-          publishedEntityId: target.published_entity_id,
-        },
+    }
+
+    // Published as something we cannot fill from here (listing, event, job):
+    // closing this card would drop its services and contacts for nothing.
+    if (target?.published_entity_id) {
+      return fail(
+        `Совпадение уже опубликовано как ${target.published_entity_type}. Автоперенос данных для этого типа не сделан — карточка оставлена как есть.`,
       );
     }
 
@@ -1108,12 +1915,39 @@ export async function mergeImportReviewIntoExistingAction(input: {
       );
     }
 
-    return setImportReviewStatusAction({
-      id: input.id,
-      status: "duplicate",
-      duplicateOfItemId: matchId,
-      notes: `Дубликат import item: ${input.matchReason || ""}`,
+    // No merge happened — closing this card here would throw its fields away,
+    // so the moderator decides explicitly («Отклонить» рядом в списке).
+    return fail(
+      "Объединить нечего: совпадение уже закрыто или опубликовано. Карточка оставлена как есть.",
+    );
+  }
+
+  if (matchKind === "recommendation") {
+    const { data: source } = await untyped(supabase)
+      .from("import_review_items")
+      .select("id, published_entity_type, published_entity_id")
+      .eq("id", input.id)
+      .maybeSingle();
+    const pubType = source?.published_entity_type;
+    const pubId = source?.published_entity_id;
+    if (
+      (pubType !== "business" && pubType !== "professional") ||
+      !pubId
+    ) {
+      return fail(
+        "Рекомендацию привязать некуда: сначала опубликуйте эту карточку как бизнес или специалиста.",
+      );
+    }
+    const res = await confirmRecommendationMergeAction({
+      id: matchId,
+      entityType: pubType,
+      entityId: pubId,
     });
+    if (!res.ok) return fail(res.message || "Не удалось привязать рекомендацию");
+    revalidatePath("/admin/import-review");
+    revalidatePath(`/admin/import-review/${input.id}`);
+    revalidatePath("/admin/review/inbox");
+    return ok(res.message || "Рекомендация привязана.", { id: input.id });
   }
 
   return setImportReviewStatusAction({
@@ -1151,6 +1985,23 @@ async function findDuplicateMatches(
         businessStatus: row.status,
       });
     }
+
+    // R14: same phone on professionals (not only businesses).
+    const { data: pros } = await untyped(supabase)
+      .from("professionals")
+      .select("id, display_name, slug, phone, status")
+      .in("phone", phones)
+      .limit(8);
+    for (const row of pros ?? []) {
+      matches.push({
+        kind: "professional",
+        id: row.id,
+        title: row.display_name,
+        reason: `phone:${row.phone}`,
+        slug: row.slug,
+        businessStatus: row.status,
+      });
+    }
   }
 
   if (item.telegram_username) {
@@ -1171,6 +2022,9 @@ async function findDuplicateMatches(
         reason: row.published_entity_id
           ? `telegram:@${item.telegram_username} → ${row.published_entity_type}`
           : `telegram:@${item.telegram_username}`,
+        queueOpen: false,
+        publishedEntityType: row.published_entity_type,
+        publishedEntityId: row.published_entity_id,
       });
     }
   }
@@ -1191,6 +2045,9 @@ async function findDuplicateMatches(
         id: row.id,
         title: row.title,
         reason: `telegram_user_id:${item.telegram_user_id}`,
+        queueOpen: false,
+        publishedEntityType: row.published_entity_type,
+        publishedEntityId: row.published_entity_id,
       });
     }
   }
@@ -1206,7 +2063,23 @@ async function findDuplicateMatches(
         kind: "business",
         id: row.id,
         title: row.name,
-        reason: "normalized_name",
+        reason: `name:${row.name}`,
+        slug: row.slug,
+        businessStatus: row.status,
+      });
+    }
+
+    const { data: prosByName } = await untyped(supabase)
+      .from("professionals")
+      .select("id, display_name, slug, status")
+      .ilike("display_name", name)
+      .limit(8);
+    for (const row of prosByName ?? []) {
+      matches.push({
+        kind: "professional",
+        id: row.id,
+        title: row.display_name,
+        reason: `name:${row.display_name}`,
         slug: row.slug,
         businessStatus: row.status,
       });
@@ -1226,7 +2099,8 @@ async function findDuplicateMatches(
         kind: "import_item",
         id: row.id,
         title: row.title,
-        reason: "recurring_cluster",
+        reason: `recurring_cluster:${item.recurring_cluster_id}`,
+        queueOpen: false,
       });
     }
   }
@@ -1244,6 +2118,30 @@ async function findDuplicateMatches(
       id: twin.row.id,
       title: twin.row.business_name || twin.row.title,
       reason: `в очереди · ${twin.reason}`,
+      queueOpen: true,
+    });
+  }
+
+  // Community recommendations that look like the same advertiser.
+  const recHits = await findMatchingRecommendations(untyped(supabase), {
+    phones: item.phone ?? [],
+    instagram: item.instagram ?? [],
+    website: item.website ?? [],
+    telegram_username: item.telegram_username,
+    business_name: item.business_name,
+    title: item.title,
+    person_name: item.person_name,
+  });
+  for (const rec of recHits) {
+    matches.push({
+      kind: "recommendation",
+      id: rec.id,
+      title: rec.title,
+      reason: rec.reason,
+      mentionCount: rec.mentionCount,
+      thirdPartyMentions: rec.thirdParty,
+      selfAdMentions: rec.selfAd,
+      snippet: rec.snippet,
     });
   }
 
@@ -1255,12 +2153,46 @@ async function findDuplicateMatches(
     seen.add(key);
     return true;
   });
-  unique.sort((a, b) => {
-    const aArch = a.kind === "business" && a.businessStatus === "archived" ? 1 : 0;
-    const bArch = b.kind === "business" && b.businessStatus === "archived" ? 1 : 0;
-    return aArch - bArch;
+
+  // Already linked to a live card — don't resurface that same business / the
+  // approved import that points at it. Merge already happened.
+  const linkedIds = new Set(
+    [
+      item.published_entity_id,
+      (item as { duplicate_of_entity_id?: string | null }).duplicate_of_entity_id,
+    ]
+      .map((id) => String(id || "").trim())
+      .filter(Boolean),
+  );
+  const actionable = linkedIds.size
+    ? unique.filter((m) => {
+        if (
+          m.kind === "business" ||
+          m.kind === "professional" ||
+          m.kind === "listing"
+        ) {
+          return !linkedIds.has(m.id);
+        }
+        if (m.kind === "import_item" && m.publishedEntityId) {
+          return !linkedIds.has(m.publishedEntityId);
+        }
+        return true;
+      })
+    : unique;
+
+  actionable.sort((a, b) => {
+    const rank = (m: DuplicateMatch) => {
+      if (m.kind === "business" && m.businessStatus === "archived") return 4;
+      if (m.kind === "professional" && m.businessStatus === "archived") return 4;
+      if (m.kind === "business") return 0;
+      if (m.kind === "professional") return 0;
+      if (m.kind === "import_item") return 1;
+      if (m.kind === "recommendation") return 2;
+      return 5;
+    };
+    return rank(a) - rank(b);
   });
-  return unique;
+  return actionable;
 }
 
 export async function approveImportReviewItemAction(input: {
@@ -1327,6 +2259,28 @@ export async function approveImportReviewItemAction(input: {
     return fail("Укажите entity_type.");
   }
 
+  // Map businesses need a street pin. Import cards without one stay specialists;
+  // owners can claim a pro card and upgrade later.
+  if (
+    item.target_collection === "businesses" ||
+    item.target_collection === "organizations" ||
+    item.target_collection === "services"
+  ) {
+    const { hasStreetAddress } = await import(
+      "@/lib/import-review/entity-routing"
+    );
+    if (
+      !hasStreetAddress({
+        addressLine: item.address_line,
+        postalCode: item.postal_code,
+      })
+    ) {
+      return fail(
+        "Без точного уличного адреса карточка идёт в Специалисты (бизнес — на карте). Укажите адрес или смените тип на профи.",
+      );
+    }
+  }
+
   // Resolve county before gate (USA Location Canon).
   const resolved = await resolveAndPersistImportLocation(supabase, item);
   if (!resolved.ok) {
@@ -1373,9 +2327,15 @@ export async function approveImportReviewItemAction(input: {
       input.id,
       duplicates,
     );
+    const mergeAllPreview = await buildMergeAllPreview(
+      supabase,
+      input.id,
+      withPreview,
+    );
     return fail(
       "Найдены возможные дубликаты. Проверьте совпадения или повторите с подтверждением.",
       withPreview,
+      mergeAllPreview,
     );
   }
 
@@ -1400,6 +2360,50 @@ export async function approveImportReviewItemAction(input: {
       : null;
   const cleanup = parseProfessionalCleanupPayload(item.raw_payload);
 
+  const translateTitle =
+    collection === "events" ||
+    collection === "jobs" ||
+    collection === "marketplace" ||
+    collection === "lechu" ||
+    collection === "transfers" ||
+    collection === "real_estate";
+  const { resolvePublishNarrative } = await import(
+    "@/lib/content/translate-copy-to-ru"
+  );
+  const narrative = await resolvePublishNarrative({
+    title: String(title).trim(),
+    description: item.description ?? item.source_text ?? null,
+    descriptionOriginal: item.description_original ?? null,
+    sourceLanguage: item.source_language ?? null,
+    translateTitle,
+  });
+  const { redactContactsFromPublicText } = await import(
+    "@/lib/content/structure-business-profile"
+  );
+  // R12: contacts/address never stay in public description on approve.
+  const publishedDescription = redactContactsFromPublicText(
+    narrative.description,
+  );
+  const descriptionOriginal = narrative.descriptionOriginal
+    ? redactContactsFromPublicText(narrative.descriptionOriginal)
+    : null;
+  const publishedTitle = narrative.title;
+  // Persist RU + original back onto the queue row so admin preview stays in sync.
+  if (
+    publishedDescription !== (item.description || null) ||
+    descriptionOriginal !== (item.description_original || null)
+  ) {
+    await untyped(supabase)
+      .from("import_review_items")
+      .update({
+        description: publishedDescription,
+        description_original: descriptionOriginal,
+        source_language: narrative.sourceLanguage,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", input.id);
+  }
+
   // Professional Cleanup handoff: confirming as specialist keeps the existing
   // live Professional (no duplicate insert). Other targets create a new entity
   // and archive the linked Professional after success.
@@ -1409,8 +2413,9 @@ export async function approveImportReviewItemAction(input: {
     ).trim();
     const patch: Record<string, unknown> = {
       display_name: displayName.slice(0, 120),
-      short_description: (item.description ?? "").slice(0, 280) || null,
-      description: item.description ?? item.source_text ?? null,
+      short_description: (publishedDescription ?? "").slice(0, 280) || null,
+      description: publishedDescription,
+      description_original: descriptionOriginal,
       city: loc.city,
       region: loc.region,
       state_code: loc.stateCode || "US-CA",
@@ -1497,6 +2502,65 @@ export async function approveImportReviewItemAction(input: {
     } = await supabase.auth.getUser();
     if (!user) return fail("Нужно войти в аккаунт.");
 
+    const thinGate = evaluateThinProfessionalPublish({
+      displayName: String(
+        item.person_name?.trim() || title || "",
+      ),
+      phone: item.phone,
+      email: item.email,
+      website: item.website,
+      instagram: item.instagram,
+      whatsapp: item.whatsapp,
+    });
+    if (!thinGate.ok) return fail(thinGate.message);
+
+    // Exact visual twin: same weak/normalized name already approved.
+    const nameKey = normalizePersonName(
+      String(item.person_name?.trim() || title || ""),
+    );
+    if (nameKey.length >= 2) {
+      const { data: twinPros } = await untyped(supabase)
+        .from("professionals")
+        .select("id, display_name, slug, status")
+        .eq("status", "approved")
+        .ilike("display_name", nameKey)
+        .limit(5);
+      const twins = (twinPros ?? []).filter(
+        (row: { display_name?: string | null }) =>
+          normalizePersonName(row.display_name) === nameKey,
+      );
+      if (twins.length > 0 && !input.force) {
+        const t0 = twins[0] as { display_name?: string; slug?: string };
+        return fail(
+          `Уже есть специалист «${t0.display_name}» (${t0.slug || twins[0].id}). Объедините двойника, не публикуйте клон.`,
+        );
+      }
+    }
+
+    // R09: ban silent pro_other — require a real category on the queue row.
+    const categorySlug =
+      (typeof item.category === "string" && item.category.trim()) ||
+      (typeof (item as { category_slug?: string }).category_slug === "string" &&
+        (item as { category_slug?: string }).category_slug?.trim()) ||
+      null;
+    if (!categorySlug || categorySlug === "pro_other") {
+      return fail(
+        "Выберите категорию специалиста (не «Прочее») перед публикацией.",
+      );
+    }
+    const { data: catRow } = await supabase
+      .from("categories")
+      .select("id")
+      .eq("domain", "professional")
+      .eq("slug", categorySlug)
+      .eq("is_active", true)
+      .maybeSingle();
+    if (!catRow?.id) {
+      return fail(
+        `Категория «${categorySlug}» не найдена. Выберите категорию перед публикацией.`,
+      );
+    }
+
     const displayName = String(
       item.person_name?.trim() || title || "Специалист",
     ).trim();
@@ -1517,10 +2581,12 @@ export async function approveImportReviewItemAction(input: {
         import_batch_id: "import_review_approve",
         display_name: displayName.slice(0, 120),
         slug,
-        short_description: (item.description ?? "").slice(0, 280) || null,
-        description: item.description ?? item.source_text ?? null,
+        short_description: (publishedDescription ?? "").slice(0, 280) || null,
+        description: publishedDescription,
+        description_original: descriptionOriginal,
         status: "approved",
         visibility: "public",
+        category_id: catRow.id,
         city: loc.city,
         region: loc.region,
         state_code: loc.stateCode || "US-CA",
@@ -1584,8 +2650,8 @@ export async function approveImportReviewItemAction(input: {
         p_id: null,
         p_name: String(title).trim(),
         p_slug: slug,
-        p_short_description: (item.description ?? "").slice(0, 240) || null,
-        p_description: item.description ?? null,
+        p_short_description: (publishedDescription ?? "").slice(0, 240) || null,
+        p_description: publishedDescription,
         p_phone: phone,
         p_website: website,
         p_city: loc.city ?? "",
@@ -1622,6 +2688,7 @@ export async function approveImportReviewItemAction(input: {
       longitude?: number | null;
       google_maps_url?: string;
       payment_methods?: string[];
+      description_original?: string | null;
     } = {
       source_url: sourceUrl,
       source_kind: sourceKind,
@@ -1636,16 +2703,20 @@ export async function approveImportReviewItemAction(input: {
       latitude: null,
       longitude: null,
       payment_methods: item.payment_methods || [],
+      description_original: descriptionOriginal,
     };
     // Street address on the card → geocode now, so the published card opens
     // with a pin instead of waiting for a later enrich pass.
     if (streetAddress) {
-      const geo = await geocodeStreetAddress({
-        addressLine: streetAddress,
-        city: loc.city,
-        stateCode: loc.stateCode,
-        postalCode,
-      });
+      const geo = await geocodeStreetAddress(
+        {
+          addressLine: streetAddress,
+          city: loc.city,
+          stateCode: loc.stateCode,
+          postalCode,
+        },
+        { attempts: "ladder" },
+      );
       if (geo) {
         extras.latitude = geo.latitude;
         extras.longitude = geo.longitude;
@@ -1701,9 +2772,10 @@ export async function approveImportReviewItemAction(input: {
         // as creator/importer only (P-1, ARCHITECTURE_ALIGNMENT_ROADMAP).
         owner_profile_id: null,
         created_by_profile_id: user.id,
-        title: String(title).trim().slice(0, 200),
+        title: publishedTitle.slice(0, 200),
         slug: jobSlug,
-        description: item.description ?? item.source_text ?? null,
+        description: publishedDescription,
+        description_original: descriptionOriginal,
         city: loc.city ?? item.city,
         state_code: loc.stateCode ?? null,
         county_geoid: loc.countyGeoid,
@@ -1754,8 +2826,9 @@ export async function approveImportReviewItemAction(input: {
         listing_type: listingType,
         status: "draft",
         visibility: "unlisted",
-        title: String(title).trim(),
-        description: item.description ?? item.source_text ?? "",
+        title: publishedTitle.slice(0, 200),
+        description: publishedDescription ?? "",
+        description_original: descriptionOriginal,
         price_amount: item.price,
         price_currency: item.currency ?? "USD",
         city: loc.city ?? item.city,
@@ -1827,6 +2900,19 @@ export async function approveImportReviewItemAction(input: {
       .filter((x): x is string => Boolean(x?.trim()))
       .join("\n");
     const structured = structureEventFromText(blob);
+    const { hasDateSignal } = await import("@/lib/import-review/entity-routing");
+    // R07: multiple date signals but only one structured occurrence → block.
+    if (
+      hasDateSignal(blob) &&
+      structured.occurrences.length <= 1 &&
+      (blob.match(
+        /\b(?:\d{1,2}[./]\d{1,2}(?:[./]\d{2,4})?|\d{1,2}\s+(?:январ|феврал|март|апрел|ма[йя]|июн|июл|август|сентябр|октябр|ноябр|декабр|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec))/gi,
+      )?.length ?? 0) >= 2
+    ) {
+      return fail(
+        "В посте несколько дат, но структура нашла одну. Нажмите «Обогатить» или подтвердите даты, затем Approve.",
+      );
+    }
     const raw =
       item.raw_payload && typeof item.raw_payload === "object"
         ? (item.raw_payload as Record<string, unknown>)
@@ -1880,6 +2966,7 @@ export async function approveImportReviewItemAction(input: {
       item.phone?.[0]?.trim() || structured.phone || null;
     const description =
       structured.description ||
+      publishedDescription ||
       item.description ||
       null;
     const venueName =
@@ -1887,61 +2974,71 @@ export async function approveImportReviewItemAction(input: {
       null;
     const category =
       (typeof stored.category === "string" && stored.category.trim()) || null;
-    let sourceLanguage =
+    let eventSourceLanguage =
       (typeof stored.source_language === "string" &&
         stored.source_language.trim()) ||
+      narrative.sourceLanguage ||
       null;
     let titleOriginal =
       (typeof stored.title_original === "string" &&
         stored.title_original.trim()) ||
       null;
-    let descriptionOriginal =
+    let eventDescriptionOriginal =
       (typeof stored.description_original === "string" &&
         stored.description_original.trim()) ||
+      descriptionOriginal ||
       null;
 
-    let publishedTitle = eventTitle;
-    let publishedDescription = description;
+    let eventPublishedTitle = eventTitle;
+    let eventPublishedDescription = description;
 
     // English (or mostly-Latin) affiches → Russian copy for the public card;
     // keep the author's original behind «Показать оригинал».
     const alreadyHasOriginal =
-      Boolean(descriptionOriginal?.trim()) &&
-      descriptionOriginal!.trim() !== (publishedDescription || "").trim();
+      Boolean(eventDescriptionOriginal?.trim()) &&
+      eventDescriptionOriginal!.trim() !==
+        (eventPublishedDescription || "").trim();
     if (!alreadyHasOriginal) {
       try {
         const { translateEventCopyToRu } = await import(
           "@/lib/events/translate-event"
         );
         const translated = await translateEventCopyToRu({
-          title: publishedTitle,
-          description: publishedDescription,
+          title: eventPublishedTitle,
+          description: eventPublishedDescription,
         });
         if (translated.detectedLanguage !== "ru") {
-          publishedTitle = translated.titleRu;
-          publishedDescription = translated.descriptionRu;
+          eventPublishedTitle = translated.titleRu;
+          eventPublishedDescription = translated.descriptionRu;
           titleOriginal = translated.titleOriginal;
-          descriptionOriginal =
-            translated.descriptionOriginal || descriptionOriginal;
-          sourceLanguage = translated.detectedLanguage;
-        } else if (!sourceLanguage) {
-          sourceLanguage = "ru";
+          eventDescriptionOriginal =
+            translated.descriptionOriginal || eventDescriptionOriginal;
+          eventSourceLanguage = translated.detectedLanguage;
+        } else if (!eventSourceLanguage) {
+          eventSourceLanguage = "ru";
         }
       } catch {
         // Publish without translation if the LLM path fails — moderators can retry.
       }
     }
 
-    // One affiche can announce several dates — each date is its own event.
+    // One affiche can announce several dates — each date is its own event,
+    // with a title from that schedule line when the line names the session.
     const sessions = structured.occurrences.length
       ? structured.occurrences
       : [{ label: eventAtLabel ?? "", startsAt }];
 
-    const rows = sessions.map((session, index) => ({
+    const rows = sessions.map((session, index) => {
+      const fromLabel = titleFromOccurrenceLabel(session.label);
+      const sessionTitle = (fromLabel || eventPublishedTitle).slice(0, 200);
+      return {
       owner_profile_id: user.id,
-      title: publishedTitle.slice(0, 200),
-      slug: index === 0 ? slugify(publishedTitle) : `${slugify(publishedTitle)}-${index + 1}`,
-      description: publishedDescription,
+      title: sessionTitle,
+      slug:
+        index === 0
+          ? slugify(sessionTitle)
+          : `${slugify(sessionTitle)}-${index + 1}`,
+      description: eventPublishedDescription,
       status: "published",
       starts_at: session.startsAt ?? startsAt,
       event_at_label: session.label || eventAtLabel,
@@ -1957,9 +3054,9 @@ export async function approveImportReviewItemAction(input: {
       price_label: priceLabel,
       payment_methods: paymentMethods.length ? paymentMethods : [],
       category,
-      source_language: sourceLanguage,
+      source_language: eventSourceLanguage,
       title_original: titleOriginal,
-      description_original: descriptionOriginal,
+      description_original: eventDescriptionOriginal,
       registration_url: registrationUrl,
       source_url: item.source_url?.trim() || null,
       source_channel: resolveSourceKind(item.source_url, item.source),
@@ -1967,7 +3064,8 @@ export async function approveImportReviewItemAction(input: {
       external_source: item.source?.split(":")[0] || "telegram",
       source_body: item.source_text ?? item.description ?? null,
       format: "offline",
-    }));
+    };
+    });
 
     const { data: inserted, error: insertError } = await untyped(supabase)
       .from("events")
@@ -1978,6 +3076,21 @@ export async function approveImportReviewItemAction(input: {
     }
     publishedEntityType = "event";
     publishedEntityId = (inserted as { id: string }[])[0]!.id;
+    const allEventIds = (inserted as { id: string }[]).map((r) => r.id);
+    if (allEventIds.length > 1) {
+      await untyped(supabase)
+        .from("import_review_items")
+        .update({
+          review_notes: [
+            item.review_notes,
+            `[published_event_ids:${allEventIds.join(",")}]`,
+          ]
+            .filter(Boolean)
+            .join(" "),
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", input.id);
+    }
   } else {
     return fail(`Неизвестная коллекция: ${collection}`);
   }

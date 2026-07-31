@@ -18,6 +18,14 @@ import {
 } from "@/lib/admin/paste-enrich";
 import { parsePasteEnrichTextWithName } from "@/lib/admin/paste-enrich-name";
 import { readPasteEnrichImageText } from "@/lib/admin/paste-enrich-vision";
+import type { OpeningHours } from "@/lib/business/opening-hours";
+import { parseOpeningHours } from "@/lib/business/opening-hours";
+import {
+  CONTACT_LINKS_COLUMN_READY,
+  parseContactLinks,
+  serializeContactLinks,
+  type ContactLink,
+} from "@/lib/contacts/channels";
 
 export type PasteEnrichTargetKind =
   | "import_review"
@@ -149,6 +157,9 @@ function existingFromImportRow(row: Record<string, unknown>): PasteEnrichExistin
     website: asList(row.website),
     instagram: asList(row.instagram),
     telegram: (row.telegram_username as string | null) ?? null,
+    whatsapp: asList(row.whatsapp),
+    facebook: null,
+    googleMaps: null,
     city: (row.city as string | null) ?? null,
     state: (row.state as string | null) ?? null,
     addressLine: (row.address_line as string | null) ?? null,
@@ -156,6 +167,14 @@ function existingFromImportRow(row: Record<string, unknown>): PasteEnrichExistin
     description: (row.description as string | null) ?? null,
     imageUrl: (row.preview_image_url as string | null) ?? null,
   };
+}
+
+function contactLinkValue(
+  links: ContactLink[],
+  channel: ContactLink["channel"],
+): string | null {
+  const hit = links.find((l) => l.channel === channel);
+  return hit?.value?.trim() || null;
 }
 
 function existingFromLiveRow(
@@ -171,12 +190,18 @@ function existingFromLiveRow(
       : ((row.description as string | null) ||
           (row.short_description as string | null) ||
           null);
+  const links = parseContactLinks(row.contact_links);
   return {
     phone: row.phone as string | null,
     email: row.email as string | null,
     website: row.website as string | null,
     instagram: row.instagram_url as string | null,
     telegram: row.telegram_url as string | null,
+    facebook: contactLinkValue(links, "facebook"),
+    whatsapp: contactLinkValue(links, "whatsapp"),
+    googleMaps:
+      ((row.google_maps_url as string | null) ?? null) ||
+      contactLinkValue(links, "google_maps"),
     city: row.city as string | null,
     state: (row.state_code as string | null) || (row.state as string | null) || null,
     addressLine:
@@ -186,7 +211,33 @@ function existingFromLiveRow(
     postalCode: (row.postal_code as string | null) ?? null,
     description: desc,
     imageUrl: row.image_url as string | null,
+    openingHours: parseOpeningHours(row.opening_hours),
   };
+}
+
+function mergeContactLinksPatch(
+  existingRaw: unknown,
+  facebook: string | null | undefined,
+  whatsapp: string | null | undefined,
+  googleMaps?: string | null | undefined,
+): ContactLink[] | null {
+  if (!facebook && !whatsapp && !googleMaps) return null;
+  const links = parseContactLinks(existingRaw);
+  const byChannel = new Map(links.map((l) => [l.channel, l] as const));
+  if (facebook && !byChannel.has("facebook")) {
+    byChannel.set("facebook", { channel: "facebook", value: facebook, label: null });
+  }
+  if (whatsapp && !byChannel.has("whatsapp")) {
+    byChannel.set("whatsapp", { channel: "whatsapp", value: whatsapp, label: null });
+  }
+  if (googleMaps && !byChannel.has("google_maps")) {
+    byChannel.set("google_maps", {
+      channel: "google_maps",
+      value: googleMaps,
+      label: null,
+    });
+  }
+  return serializeContactLinks([...byChannel.values()]);
 }
 
 function liveDbPatch(
@@ -194,6 +245,7 @@ function liveDbPatch(
   extracted: PasteEnrichExtracted,
   imageUrl: string | null,
   kind: "business" | "professional",
+  existingContactLinks: unknown,
 ): Record<string, unknown> {
   const logical = pasteEnrichFillEmptyPatch(existing, extracted, imageUrl);
   const patch: Record<string, unknown> = {
@@ -209,7 +261,7 @@ function liveDbPatch(
   if (logical.website && Array.isArray(logical.website) && logical.website.length) {
     const preferred =
       logical.website.find(
-        (u) => !/gumroad\.com|pdf/i.test(String(u)),
+        (u) => !/gumroad\.com|pdf|maps\.app|wtsp\.cc|wa\.me/i.test(String(u)),
       ) || logical.website[0];
     if (preferred) patch.website = preferred;
   }
@@ -218,6 +270,11 @@ function liveDbPatch(
   }
   if (logical.telegram) {
     patch.telegram_url = tgUrl(String(logical.telegram));
+  }
+  if (logical.googleMaps) {
+    if (kind === "business") {
+      patch.google_maps_url = logical.googleMaps;
+    }
   }
   if (logical.city) patch.city = logical.city;
   if (logical.state) {
@@ -238,6 +295,21 @@ function liveDbPatch(
   }
   if (logical.imageUrl) {
     patch.image_url = logical.imageUrl;
+  }
+  if (logical.openingHours) {
+    patch.opening_hours = logical.openingHours as OpeningHours;
+  }
+
+  if (CONTACT_LINKS_COLUMN_READY) {
+    const merged = mergeContactLinksPatch(
+      existingContactLinks,
+      typeof logical.facebook === "string" ? logical.facebook : null,
+      typeof logical.whatsapp === "string" ? logical.whatsapp : null,
+      kind === "professional" && typeof logical.googleMaps === "string"
+        ? logical.googleMaps
+        : null,
+    );
+    if (merged) patch.contact_links = merged;
   }
 
   const keys = Object.keys(patch).filter((k) => k !== "updated_at");
@@ -260,6 +332,7 @@ function importDbPatch(
   if (logical.website) patch.website = logical.website;
   if (logical.instagram) patch.instagram = logical.instagram;
   if (logical.telegram) patch.telegram_username = logical.telegram;
+  if (logical.whatsapp) patch.whatsapp = [logical.whatsapp];
   if (logical.city) patch.city = logical.city;
   if (logical.state) patch.state = logical.state;
   if (logical.addressLine) patch.address_line = logical.addressLine;
@@ -282,6 +355,9 @@ function filledLabels(patch: Record<string, unknown>): string[] {
     instagram_url: "instagram",
     telegram_username: "telegram",
     telegram_url: "telegram",
+    whatsapp: "whatsapp",
+    contact_links: "Facebook / WhatsApp",
+    google_maps_url: "Google Maps",
     city: "город",
     state: "штат",
     state_code: "штат",
@@ -289,6 +365,7 @@ function filledLabels(patch: Record<string, unknown>): string[] {
     private_address_line: "адрес",
     postal_code: "ZIP",
     description: "описание",
+    opening_hours: "часы работы",
     preview_image_url: "фото",
     image_url: "фото",
   };
@@ -344,7 +421,7 @@ export async function applyPasteEnrichAction(
     const { data: row, error: loadErr } = await untyped(catalog)
       .from("import_review_items")
       .select(
-        "id, business_name, phone, email, website, instagram, telegram_username, city, state, address_line, postal_code, description, preview_image_url",
+        "id, business_name, phone, email, website, instagram, telegram_username, whatsapp, city, state, address_line, postal_code, description, preview_image_url",
       )
       .eq("id", id)
       .maybeSingle();
@@ -392,8 +469,8 @@ export async function applyPasteEnrichAction(
   const table = kind === "business" ? "businesses" : "professionals";
   const selectCols =
     kind === "business"
-      ? "id, slug, phone, email, website, instagram_url, telegram_url, city, state_code, address_line, postal_code, description, short_description, image_url"
-      : "id, slug, phone, email, website, instagram_url, telegram_url, city, state_code, private_address_line, postal_code, description, short_description, card_summary, image_url";
+      ? "id, slug, phone, email, website, instagram_url, telegram_url, google_maps_url, contact_links, city, state_code, address_line, postal_code, description, short_description, image_url, opening_hours"
+      : "id, slug, phone, email, website, instagram_url, telegram_url, contact_links, city, state_code, private_address_line, postal_code, description, short_description, card_summary, image_url, opening_hours";
 
   const { data: row, error: loadErr } = await untyped(catalog)
     .from(table)
@@ -420,7 +497,13 @@ export async function applyPasteEnrichAction(
     imageUrl = up.imageUrl;
   }
 
-  const patch = liveDbPatch(existing, extracted, imageUrl, kind);
+  const patch = liveDbPatch(
+    existing,
+    extracted,
+    imageUrl,
+    kind,
+    (row as { contact_links?: unknown }).contact_links,
+  );
   if (Object.keys(patch).length === 0) {
     return ok(
       "Новых полей нет — всё уже заполнено или в тексте ничего не нашлось.",
@@ -506,7 +589,7 @@ export async function loadPasteEnrichExistingAction(input: {
     const { data: row, error } = await untyped(catalog)
       .from("import_review_items")
       .select(
-        "business_name, phone, email, website, instagram, telegram_username, city, state, address_line, postal_code, description, preview_image_url",
+        "business_name, phone, email, website, instagram, telegram_username, whatsapp, city, state, address_line, postal_code, description, preview_image_url",
       )
       .eq("id", input.id)
       .maybeSingle();
@@ -521,8 +604,8 @@ export async function loadPasteEnrichExistingAction(input: {
   const table = input.kind === "business" ? "businesses" : "professionals";
   const selectCols =
     input.kind === "business"
-      ? "phone, email, website, instagram_url, telegram_url, city, state_code, address_line, postal_code, description, short_description, image_url"
-      : "phone, email, website, instagram_url, telegram_url, city, state_code, private_address_line, postal_code, description, short_description, card_summary, image_url";
+      ? "phone, email, website, instagram_url, telegram_url, google_maps_url, contact_links, city, state_code, address_line, postal_code, description, short_description, image_url, opening_hours"
+      : "phone, email, website, instagram_url, telegram_url, contact_links, city, state_code, private_address_line, postal_code, description, short_description, card_summary, image_url, opening_hours";
   const { data: row, error } = await untyped(catalog)
     .from(table)
     .select(selectCols)

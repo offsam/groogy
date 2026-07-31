@@ -92,11 +92,17 @@ export async function listCommentRecommendations(
     entity?: "all" | "professional" | "business" | "service";
     /** Exact category_guess values to include */
     categoryGuesses?: string[];
+    /** ISO timestamp — only rows with created_at >= this */
+    createdAfter?: string;
+    /** ISO timestamp — only rows with updated_at >= this */
+    updatedAfter?: string;
     /**
      * `inbox` = slim columns for Review Center list (no comment_texts etc.).
      * Default `full` keeps existing callers intact.
      */
     selectMode?: "full" | "inbox";
+    /** Override default mention_count sort */
+    orderBy?: "mention_count" | "created_at" | "updated_at";
   } = {},
 ): Promise<{ items: CommentRecommendation[]; total: number }> {
   const page = Math.max(1, opts.page ?? 1);
@@ -106,9 +112,16 @@ export async function listCommentRecommendations(
   const selectCols =
     opts.selectMode === "inbox" ? INBOX_RECOMMENDATION_SELECT : "*";
 
+  const primaryOrder =
+    opts.orderBy === "created_at"
+      ? "created_at"
+      : opts.orderBy === "updated_at"
+        ? "updated_at"
+        : "mention_count";
+
   let query = recommendationsTable(client)
     .select(selectCols, { count: "exact" })
-    .order("mention_count", { ascending: false })
+    .order(primaryOrder, { ascending: false })
     .order("updated_at", { ascending: false })
     .range(from, to);
 
@@ -135,6 +148,12 @@ export async function listCommentRecommendations(
   }
   if (opts.categoryGuesses?.length) {
     query = query.in("category_guess", opts.categoryGuesses);
+  }
+  if (opts.createdAfter) {
+    query = query.gte("created_at", opts.createdAfter);
+  }
+  if (opts.updatedAfter) {
+    query = query.gte("updated_at", opts.updatedAfter);
   }
 
   const { data, error, count } = await query;

@@ -28,12 +28,14 @@ import { recommendationCategoryLabel } from "@/lib/import-review/recommendation-
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 import { recommendationToEventPreview } from "@/lib/events/from-recommendation";
 import {
+  recommendationDisplayName,
   yellowPagesEntityKind,
   yellowPagesToBusinessPreview,
   yellowPagesToProfessionalPreview,
   yellowPagesToServicePreview,
   type YellowPagesPreviewKind,
 } from "@/lib/import-review/yellow-pages-preview";
+import { RecommendationSourcePanel } from "@/components/admin/RecommendationSourcePanel";
 
 type Props = {
   item: CommentRecommendation;
@@ -234,10 +236,10 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
           <div className="min-w-0">
             <p className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-400">
               <Eye className="size-3.5" />
-              {kindLabel(kind)} · как на сайте
+              Рекомендация · {kindLabel(kind)} · как на сайте
             </p>
             <p className="mt-0.5 truncate text-sm text-slate-600">
-              {item.display_name || "Без названия"} ·{" "}
+              {recommendationDisplayName(item)} ·{" "}
               {recommendationCategoryLabel(item.category_guess)} · после
               одобрения → {kindDestination(kind)}
               {item.city ? ` · ${item.city}` : ""}
@@ -277,6 +279,7 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
                 <ProfessionalProfileView
                   currentUserId={null}
                   isOwner={false}
+                  preview
                   professional={professional}
                   services={[]}
                 />
@@ -306,27 +309,9 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
 
               <CompletenessPanel report={completeness} />
 
-              {(item.comment_texts[0] || item.request_snippets[0]) && (
-                <div className="rounded-xl border border-slate-200 bg-white p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Исходный текст
-                  </p>
-                  <p className="mt-2 max-h-48 overflow-y-auto whitespace-pre-wrap text-sm text-slate-700">
-                    {item.comment_texts[0] || item.request_snippets[0]}
-                  </p>
-                </div>
-              )}
-
-              {item.source_post_urls[0] ? (
-                <a
-                  href={item.source_post_urls[0]}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex text-sm font-medium text-brand-blue hover:underline"
-                >
-                  Исходный пост →
-                </a>
-              ) : null}
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
+                <RecommendationSourcePanel item={item} />
+              </div>
             </div>
           </div>
         </div>

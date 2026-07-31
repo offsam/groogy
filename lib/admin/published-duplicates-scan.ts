@@ -88,11 +88,23 @@ function recommendationsTable(client: SupabaseClient) {
   return anyFrom(client, "import_comment_recommendations");
 }
 
+/** True for PostgREST/Postgres "missing column" noise (never show raw SQL). */
+function isMissingColumnError(message: string): boolean {
+  const msg = message.trim();
+  if (!msg) return false;
+  if (/does not exist/i.test(msg) && /column/i.test(msg)) return true;
+  if (/Could not find the ['"]?\w+['"]? column/i.test(msg)) return true;
+  if (/schema cache/i.test(msg) && /column/i.test(msg)) return true;
+  return false;
+}
+
 /** Push a query failure into scan notes; never leave a bare Postgres line. */
 function noteQueryError(scanNotes: string[], where: string, message: string) {
   const msg = (message || "").trim();
   if (!msg) return;
-  if (/column\s+\w+\.\w+\s+does not exist/i.test(msg)) {
+  if (isMissingColumnError(msg)) {
+    // Log the real signal so we can find broken SQL (e.g. k.author_id) in server logs.
+    console.warn(`[duplicates-scan] ${where}: ${msg}`);
     scanNotes.push(
       `${where}: схема БД не совпала (внутренний столбец) — этот сигнал пропущен`,
     );
@@ -104,18 +116,39 @@ function noteQueryError(scanNotes: string[], where: string, message: string) {
 function finalizeScanNotes(notes: string[]): string[] {
   const out: string[] = [];
   const seen = new Set<string>();
+  let sawSchemaNoise = false;
   for (const n of notes) {
-    let t = n.trim();
+    const t = n.trim();
     if (!t) continue;
-    if (/^column\s+\w+\.\w+\s+does not exist$/i.test(t)) {
-      t =
-        "Схема БД не совпала (внутренний столбец) — один сигнал пропущен";
+    // Drop raw SQL entirely — never show Postgres internals in the admin UI.
+    if (
+      isMissingColumnError(t) ||
+      /^column\b/i.test(t) ||
+      /\bauthor_id\b/i.test(t)
+    ) {
+      console.warn(`[duplicates-scan] dropped note: ${t}`);
+      sawSchemaNoise = true;
+      continue;
     }
     if (seen.has(t)) continue;
     seen.add(t);
     out.push(t);
   }
-  return out;
+  if (sawSchemaNoise) {
+    const soft =
+      "Один внутренний сигнал поиска пропущен (схема БД) — каталог выше всё равно полный";
+    if (!seen.has(soft)) {
+      seen.add(soft);
+      out.push(soft);
+    }
+  }
+  // Final strip — never return SQL fragments to the client.
+  return out.filter(
+    (n) =>
+      !/does not exist/i.test(n) &&
+      !/^column\b/i.test(n) &&
+      !/\bauthor_id\b/i.test(n),
+  );
 }
 
 function nonemptyCount(row: Record<string, unknown>, keys: string[]): number {
@@ -337,7 +370,13 @@ async function scanBizProDuplicates(
         (row.display_name as string) || (row.name as string) || row.slug || "—",
       );
       const slug = (row.slug as string) || null;
-      const keepSelf = selfFill >= fill;
+      // Prefer live business over professional when folding the same person.
+      const keepSelf =
+        input.entityType === "business" && entityType === "professional"
+          ? true
+          : input.entityType === "professional" && entityType === "business"
+            ? false
+            : selfFill >= fill;
       const hit: LiveDuplicateHit = {
         kind: "catalog",
         strength,
@@ -1044,33 +1083,219 @@ export async function rejectRecommendationFromLiveScanAction(input: {
 }
 
 /**
- * Merge two businesses: keep the stronger (or suggested keep).
- * Professionals: not supported via RPC yet — returns error.
+ * Merge two catalog cards from live duplicate scan.
+ * - business + business → admin_merge_businesses
+ * - professional folded into business (or two professionals) → fill-empty + archive drop
  */
 export async function mergeCatalogDuplicateFromLiveScanAction(input: {
-  entityType: LiveEntityKind;
+  /** Type of the card being kept. */
+  keepKind: "business" | "professional";
+  /** Type of the card being dropped. */
+  dropKind: "business" | "professional";
   keepId: string;
   dropId: string;
   keepSlug?: string | null;
   dropSlug?: string | null;
 }) {
-  if (input.entityType !== "business") {
+  const supabase = await createServerClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { ok: false as const, message: "Нужно войти." };
+  if (!(await userIsAdmin(supabase))) {
+    return { ok: false as const, message: "Только для администраторов." };
+  }
+  if (input.keepId === input.dropId) {
+    return { ok: false as const, message: "Нужны две разные карточки." };
+  }
+
+  if (input.keepKind === "business" && input.dropKind === "business") {
+    const res = await mergeBusinessesAction({
+      keepId: input.keepId,
+      dropId: input.dropId,
+      keepSlug: input.keepSlug,
+      dropSlug: input.dropSlug,
+    });
+    if (res.ok) revalidatePath("/search");
+    return res;
+  }
+
+  // Cross-type or professional↔professional: fill-empty keep, destroy drop.
+  let catalog: ReturnType<typeof createServiceRoleClient>;
+  try {
+    catalog = createServiceRoleClient();
+  } catch (err) {
     return {
       ok: false as const,
-      message:
-        input.entityType === "professional"
-          ? "Слияние специалистов из этой кнопки пока не подключено — откройте карточку вручную."
-          : "Слияние для этого типа пока не подключено — откройте карточку вручную.",
+      message: err instanceof Error ? err.message : "Нет service role.",
     };
   }
-  const res = await mergeBusinessesAction({
-    keepId: input.keepId,
-    dropId: input.dropId,
-    keepSlug: input.keepSlug,
-    dropSlug: input.dropSlug,
-  });
-  if (res.ok) {
-    revalidatePath("/search");
+
+  const keepTable =
+    input.keepKind === "business" ? "businesses" : "professionals";
+  const dropTable =
+    input.dropKind === "business" ? "businesses" : "professionals";
+
+  const { data: keepRow, error: keepErr } = await anyFrom(catalog, keepTable)
+    .select(
+      input.keepKind === "business"
+        ? "id, slug, name, phone, email, website, instagram_url, telegram_url, google_maps_url, city, state_code, address_line, postal_code, description, short_description, image_url, contact_links"
+        : "id, slug, display_name, phone, email, website, instagram_url, telegram_url, city, state_code, private_address_line, postal_code, description, short_description, image_url, contact_links",
+    )
+    .eq("id", input.keepId)
+    .maybeSingle();
+  if (keepErr || !keepRow) {
+    return {
+      ok: false as const,
+      message: keepErr?.message || "Карточка-якорь не найдена.",
+    };
   }
-  return res;
+
+  const { data: dropRow, error: dropErr } = await anyFrom(catalog, dropTable)
+    .select(
+      input.dropKind === "business"
+        ? "id, slug, name, phone, email, website, instagram_url, telegram_url, google_maps_url, city, state_code, address_line, postal_code, description, short_description, image_url, contact_links, status"
+        : "id, slug, display_name, phone, email, website, instagram_url, telegram_url, city, state_code, private_address_line, postal_code, description, short_description, image_url, contact_links, status",
+    )
+    .eq("id", input.dropId)
+    .maybeSingle();
+  if (dropErr || !dropRow) {
+    return {
+      ok: false as const,
+      message: dropErr?.message || "Карточка-дубль не найдена.",
+    };
+  }
+
+  const empty = (v: unknown) =>
+    v == null || (typeof v === "string" && !v.trim());
+
+  const keepPatch: Record<string, unknown> = {
+    updated_at: new Date().toISOString(),
+  };
+  const filled: string[] = [];
+
+  const copyIfEmpty = (
+    keepKey: string,
+    dropKey: string,
+    label: string,
+  ) => {
+    const cur = (keepRow as Record<string, unknown>)[keepKey];
+    const next = (dropRow as Record<string, unknown>)[dropKey];
+    if (empty(cur) && !empty(next)) {
+      keepPatch[keepKey] = next;
+      filled.push(label);
+    }
+  };
+
+  copyIfEmpty("phone", "phone", "телефон");
+  copyIfEmpty("email", "email", "email");
+  copyIfEmpty("website", "website", "сайт");
+  copyIfEmpty("instagram_url", "instagram_url", "instagram");
+  copyIfEmpty("telegram_url", "telegram_url", "telegram");
+  if (input.keepKind === "business") {
+    copyIfEmpty("google_maps_url", "google_maps_url", "карты");
+    copyIfEmpty("address_line", "address_line", "адрес");
+    if (
+      empty((keepRow as { address_line?: string }).address_line) &&
+      !empty((dropRow as { private_address_line?: string }).private_address_line)
+    ) {
+      keepPatch.address_line = (
+        dropRow as { private_address_line: string }
+      ).private_address_line;
+      filled.push("адрес");
+    }
+  } else {
+    copyIfEmpty("private_address_line", "private_address_line", "адрес");
+    if (
+      empty((keepRow as { private_address_line?: string }).private_address_line) &&
+      !empty((dropRow as { address_line?: string }).address_line)
+    ) {
+      keepPatch.private_address_line = (
+        dropRow as { address_line: string }
+      ).address_line;
+      filled.push("адрес");
+    }
+  }
+  copyIfEmpty("city", "city", "город");
+  copyIfEmpty(
+    input.keepKind === "business" ? "state_code" : "state_code",
+    "state_code",
+    "штат",
+  );
+  copyIfEmpty("postal_code", "postal_code", "ZIP");
+  copyIfEmpty("image_url", "image_url", "фото");
+  if (
+    empty((keepRow as { description?: string }).description) &&
+    !empty((dropRow as { description?: string }).description)
+  ) {
+    keepPatch.description = (dropRow as { description: string }).description;
+    filled.push("описание");
+  }
+
+  if (Object.keys(keepPatch).length > 1) {
+    const { error: patchErr } = await anyFrom(catalog, keepTable)
+      .update(keepPatch)
+      .eq("id", input.keepId);
+    if (patchErr) {
+      return { ok: false as const, message: patchErr.message };
+    }
+  }
+
+  // Retarget open recommendations that pointed at the dropped card.
+  await recommendationsTable(catalog)
+    .update({
+      published_entity_type: input.keepKind,
+      published_entity_id: input.keepId,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("published_entity_id", input.dropId)
+    .eq("published_entity_type", input.dropKind);
+
+  // R01: destroy donor after fill-empty (not leave archived ghosts).
+  const { error: delErr } = await anyFrom(catalog, dropTable)
+    .delete()
+    .eq("id", input.dropId);
+  if (delErr) {
+    // FK block → archive as last resort so merge still completes.
+    const { error: archErr } = await anyFrom(catalog, dropTable)
+      .update({
+        status: "archived",
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", input.dropId);
+    if (archErr) {
+      return { ok: false as const, message: archErr.message };
+    }
+  }
+
+  const keepSlug =
+    input.keepSlug ||
+    String((keepRow as { slug?: string }).slug || "");
+  const dropSlug =
+    input.dropSlug ||
+    String((dropRow as { slug?: string }).slug || "");
+  if (input.keepKind === "business" && keepSlug) {
+    revalidatePath(`/business/${keepSlug}`);
+  }
+  if (input.keepKind === "professional" && keepSlug) {
+    revalidatePath(`/professional/${keepSlug}`);
+  }
+  if (input.dropKind === "business" && dropSlug) {
+    revalidatePath(`/business/${dropSlug}`);
+  }
+  if (input.dropKind === "professional" && dropSlug) {
+    revalidatePath(`/professional/${dropSlug}`);
+  }
+  revalidatePath("/search");
+  revalidatePath("/admin/catalog/businesses");
+  revalidatePath("/admin/catalog/professionals");
+
+  const dropLabel =
+    input.dropKind === "business" ? "бизнес" : "специалист";
+  return {
+    ok: true as const,
+    message: filled.length
+      ? `Объединено: ${dropLabel} удалён, добавлено ${filled.join(", ")}.`
+      : `Объединено: ${dropLabel} удалён (новых полей не было).`,
+  };
 }

@@ -5,6 +5,11 @@
  * Used for admin hints only — does not write to the DB.
  * Preview fallback to "business" in resolveImportPreviewKind stays UI-only.
  *
+ * Import / our curation rule (map businesses):
+ *  - No precise street address → private_specialist (never businesses).
+ *  - Brand / «business name» alone is NOT proof of a map business.
+ *  - Street address alone does NOT force businesses either.
+ *
  * Keep in sync with the Python module.
  */
 
@@ -88,6 +93,18 @@ const GOODS_FULFILLMENT_RE =
 const SERVICE_VERB_RE =
   /(?:записыва|принимаю\s+(?:на|к)|сеанс|консультац|массаж|маникюр|педикюр|стрижк|окрашив|работаю\s+(?:как|по)|услуги|предоставляю|провожу)/i;
 
+const STREET_SUFFIX_RE =
+  /\b(?:st|street|ave|avenue|blvd|boulevard|rd|road|dr|drive|ln|lane|way|ct|court|hwy|highway|pkwy|parkway|pl|place|cir|circle|ter|terrace|улиц\w*|проспект|бульвар|переулок|шоссе|набережн\w*)\b/i;
+const SERVICE_AREA_RE =
+  /окрестн|nearby|and\s+around|service\s+area|выезд\s+по|и\s+район/i;
+
+const DATE_SIGNAL_RE =
+  /(?:\d{1,2}[./]\d{1,2}(?:[./]\d{2,4})?)|(?:\d{1,2}\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|январ\w*|феврал\w*|март\w*|апрел\w*|ма[йя]\w*|июн\w*|июл\w*|август\w*|сентябр\w*|октябр\w*|ноябр\w*|декабр\w*)\w*)|starts_at/i;
+
+export function hasDateSignal(text: string | null | undefined): boolean {
+  return DATE_SIGNAL_RE.test(text || "");
+}
+
 export type RouteResult = {
   entityType: ImportReviewEntityType | null;
   targetCollection: ImportReviewTargetCollection | null;
@@ -95,6 +112,24 @@ export type RouteResult = {
   reason: string;
   needsManualType: boolean;
 };
+
+/** True only for a concrete street pin — not city / service-area blurbs. */
+export function hasStreetAddress(input: {
+  addressLine?: string | null;
+  postalCode?: string | null;
+  locationPrecision?: string | null;
+}): boolean {
+  if ((input.locationPrecision || "").trim().toLowerCase() === "street") {
+    return true;
+  }
+  const line = (input.addressLine || "").trim();
+  if (!line || line.length < 5) return false;
+  if (SERVICE_AREA_RE.test(line) && !/\d/.test(line)) return false;
+  if (/^\d{1,6}\s+\S/.test(line)) return true;
+  if (/\d/.test(line) && STREET_SUFFIX_RE.test(line)) return true;
+  if (/\d{1,6}\s+[A-Za-zА-Яа-яЁё]/.test(line) && line.length >= 10) return true;
+  return false;
+}
 
 export function isValidPair(
   entityType: string | null | undefined,
@@ -144,6 +179,19 @@ function manual(reason: string): RouteResult {
   };
 }
 
+function businessOrSpecialistForImport(
+  hasStreet: boolean,
+  confidence: "high" | "medium",
+  reason: string,
+): RouteResult {
+  if (hasStreet) return hit("business", confidence, reason);
+  return hit(
+    "private_specialist",
+    confidence,
+    `${reason}+no_street→specialist`,
+  );
+}
+
 export function routeCard(input: {
   text?: string | null;
   category?: string | null;
@@ -152,6 +200,10 @@ export function routeCard(input: {
   classification?: string | null;
   entityTypeHint?: string | null;
   hasContact?: boolean;
+  addressLine?: string | null;
+  postalCode?: string | null;
+  locationPrecision?: string | null;
+  hasStreet?: boolean | null;
 }): RouteResult {
   const cat = (input.category || "").trim();
   const bn = (input.businessName || "").trim();
@@ -160,8 +212,34 @@ export function routeCard(input: {
   const classification = (input.classification || "").trim() || null;
   const hint = (input.entityTypeHint || "").trim() || null;
   const hasContact = Boolean(input.hasContact);
+  const street =
+    input.hasStreet != null
+      ? Boolean(input.hasStreet)
+      : hasStreetAddress({
+          addressLine: input.addressLine,
+          postalCode: input.postalCode,
+          locationPrecision: input.locationPrecision,
+        });
 
-  if (cat === "events") return hit("event", "high", "gate0:category=events");
+  // Sphere «Организация праздников» uses slug celebrations — not dated affiche.
+  // Legacy category=events maps to affiche only when the copy carries a date.
+  if (cat === "celebrations" || cat === "party_planning") {
+    return businessOrSpecialistForImport(
+      street,
+      "high",
+      `gate0:category=${cat}`,
+    );
+  }
+  if (cat === "events") {
+    if (hasDateSignal(blob)) {
+      return hit("event", "high", "gate0:category=events+date");
+    }
+    return businessOrSpecialistForImport(
+      street,
+      "medium",
+      "gate0:category=events+no_date→business_or_specialist",
+    );
+  }
   if (REAL_ESTATE_CATEGORIES.has(cat)) {
     return hit("real_estate", "high", `gate0:category=${cat}`);
   }
@@ -194,7 +272,11 @@ export function routeCard(input: {
     return hit("event", "high", "gate1b:classification=event");
   }
   if (classification === "direct_business_ad" || hint === "business") {
-    return hit("business", "high", "gate1b:classification=business");
+    return businessOrSpecialistForImport(
+      street,
+      hasContact ? "high" : "medium",
+      "gate1b:classification=business",
+    );
   }
   if (
     classification === "direct_specialist_ad" ||
@@ -207,9 +289,21 @@ export function routeCard(input: {
     return hit("private_specialist", "high", "gate1b:classification=specialist");
   }
   if (hint === "organization") {
-    return hit("organization", "high", "gate1b:hint=organization");
+    if (street) return hit("organization", "high", "gate1b:hint=organization");
+    return hit(
+      "private_specialist",
+      "high",
+      "gate1b:hint=organization+no_street→specialist",
+    );
   }
   if (hint && hint in ENTITY_TO_COLLECTION) {
+    if (hint === "business") {
+      return businessOrSpecialistForImport(
+        street,
+        "medium",
+        `gate1b:hint=${hint}`,
+      );
+    }
     return hit(
       hint as ImportReviewEntityType,
       "medium",
@@ -224,17 +318,20 @@ export function routeCard(input: {
     return hit("event", "medium", "gate1c:event_re");
   }
 
-  // Company operations beat the name slots: the poster's name in `person_name`
-  // must not turn a delivery service into a private specialist.
   if (COMPANY_OPERATIONS_RE.test(blob) && !SPECIALIST_SIGNAL_RE.test(blob)) {
-    return hit(
-      "business",
+    return businessOrSpecialistForImport(
+      street,
       hasContact || bn ? "high" : "medium",
       "gate2:company_operations_re",
     );
   }
+  // Brand / trade name alone is NOT a map business — pros use brands too.
   if (bn && !pn) {
-    return hit("business", hasContact ? "high" : "medium", "gate2:business_name_slot");
+    return hit(
+      "private_specialist",
+      hasContact ? "high" : "medium",
+      "gate2:brand_name_default_specialist",
+    );
   }
   if (pn && !bn) {
     return hit(
@@ -244,7 +341,11 @@ export function routeCard(input: {
     );
   }
   if (BUSINESS_SIGNAL_RE.test(blob) && !SPECIALIST_SIGNAL_RE.test(blob)) {
-    return hit("business", hasContact ? "high" : "medium", "gate2:business_signal_re");
+    return businessOrSpecialistForImport(
+      street,
+      hasContact ? "high" : "medium",
+      "gate2:business_signal_re",
+    );
   }
   if (SPECIALIST_SIGNAL_RE.test(blob) && !BUSINESS_SIGNAL_RE.test(blob)) {
     return hit(

@@ -3,6 +3,9 @@
 Подключение обычного Telegram-аккаунта через **Telethon** (MTProto), не Bot API.
 На этом этапе только авторизация и проверка доступа к группам/каналам.
 
+**Collection rules (Source of Truth):** [`docs/architecture/pipeline/TELEGRAM_COLLECTION_CARD_RULES_V1.md`](../../docs/architecture/pipeline/TELEGRAM_COLLECTION_CARD_RULES_V1.md)  
+— целимся в поля полной карточки; **без автоматической публикации**; только pending / needs_review.
+
 > **Private machine runbook** (gitignored): `.local/collectors/TELEGRAM_RUNBOOK.md`  
 > Wrappers: `.local/collectors/bin/tg-estimate.sh` / `tg-confirm-run.sh`
 
@@ -70,5 +73,6 @@ TELEGRAM_ANALYZER_MODE=llm python analyze_business_posts.py --prefix fun_for_mom
 - `llm` — OpenRouter / OpenAI / Anthropic (нужен ключ в `.env.local`)
 - `rule_based` — эвристики (временный режим)
 
-Результаты в `data/` (gitignored). В Supabase ничего не пишется.
+Результаты в `data/` (gitignored). В Supabase ничего не пишется на этапе collect/analyze.
 Рекомендации третьих лиц никогда не auto-accepted.
+Extract в очередь — только `pending` / `needs_review`; автопубликации нет (см. SoT выше).

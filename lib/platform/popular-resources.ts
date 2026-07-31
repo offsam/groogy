@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Business } from "@/types/business";
 import type { Database } from "@/types/database";
@@ -9,6 +10,10 @@ import {
   searchTransferListings,
 } from "@/lib/listings/queries";
 import {
+  CATALOG_CACHE_TAGS,
+  CATALOG_CACHE_TTL,
+} from "@/lib/platform/catalog-cache";
+import {
   isPopularResourceKind,
   type PopularResourceKind,
 } from "@/lib/platform/resource-kinds";
@@ -17,6 +22,7 @@ import {
   isLatLngInHubBounds,
   parseHubIds,
 } from "@/lib/regions/hubs";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import { searchBusinesses } from "@/lib/supabase/queries";
 import { hasCoordinates } from "@/types/business";
 
@@ -166,10 +172,10 @@ async function hydrateScored(
 }
 
 /**
- * Home «Популярное» feed.
+ * Home «Популярное» feed (uncached).
  * Prefers click-ranked entities; fills with a recent multi-catalog mix.
  */
-export async function getPopularHomeResources(
+export async function getPopularHomeResourcesUncached(
   client: Client,
   opts: { hubId?: string | null; limit?: number; days?: number } = {},
 ): Promise<PopularHomeItem[]> {
@@ -204,4 +210,33 @@ export async function getPopularHomeResources(
   }
 
   return out.slice(0, limit);
+}
+
+/**
+ * Cached home «Популярное» feed (300s).
+ * Creates its own service-role client inside the cache boundary.
+ */
+export async function getPopularHomeResources(
+  _client: Client | null,
+  opts: { hubId?: string | null; limit?: number; days?: number } = {},
+): Promise<PopularHomeItem[]> {
+  const limit = Math.max(1, Math.min(opts.limit ?? 6, 24));
+  const days = opts.days ?? 14;
+  const hubKey = opts.hubId?.trim() || "all";
+
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getPopularHomeResourcesUncached(catalog, {
+        hubId: opts.hubId ?? null,
+        limit,
+        days,
+      });
+    },
+    ["popular-home-v1", hubKey, String(limit), String(days)],
+    {
+      revalidate: CATALOG_CACHE_TTL.popularHome,
+      tags: [CATALOG_CACHE_TAGS.popularHome],
+    },
+  )();
 }

@@ -18,9 +18,14 @@ type ClaimBusinessButtonProps = {
   className?: string;
   autoSubmit?: boolean;
   checkStatus?: boolean;
+  /**
+   * For nested offers/services: when the parent business already has an owner,
+   * hide the claim CTA (ownership follows the business).
+   */
+  businessAlreadyClaimed?: boolean;
 };
 
-type UiState = "idle" | "owned" | "pending" | "created";
+type UiState = "idle" | "owned" | "pending" | "created" | "locked";
 
 const inputClass =
   "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brand-blue";
@@ -36,11 +41,14 @@ export function ClaimBusinessButton({
   className,
   autoSubmit = false,
   checkStatus = false,
+  businessAlreadyClaimed = false,
 }: ClaimBusinessButtonProps) {
   const router = useRouter();
   const titleId = useId();
   const [pending, startTransition] = useTransition();
-  const [uiState, setUiState] = useState<UiState>("idle");
+  const [uiState, setUiState] = useState<UiState>(
+    kind === "offer" && businessAlreadyClaimed ? "locked" : "idle",
+  );
   const [message, setMessage] = useState<string | null>(null);
   const [managePath, setManagePath] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
@@ -56,12 +64,18 @@ export function ClaimBusinessButton({
   useEffect(() => {
     if (!checkStatus) return;
     let cancelled = false;
-    void getBusinessClaimStateAction(businessId, businessSlug).then((result) => {
+    void getBusinessClaimStateAction(businessId, businessSlug, {
+      nestedOffer: kind === "offer",
+    }).then((result) => {
       if (cancelled) return;
       if (!result.ok) return;
       if (result.state === "owned") {
         setUiState("owned");
         setManagePath(result.managePath ?? `/business/${businessSlug}/manage`);
+        return;
+      }
+      if (result.state === "locked") {
+        setUiState("locked");
         return;
       }
       if (result.state === "pending") {
@@ -72,7 +86,7 @@ export function ClaimBusinessButton({
     return () => {
       cancelled = true;
     };
-  }, [businessId, businessSlug, checkStatus]);
+  }, [businessId, businessSlug, checkStatus, kind]);
 
   function openForm() {
     setFormError(null);
@@ -146,6 +160,11 @@ export function ClaimBusinessButton({
         Управление
       </Link>
     );
+  }
+
+  // Nested offer under an already-claimed business: no separate claim.
+  if (kind === "offer" && (businessAlreadyClaimed || uiState === "locked") && uiState !== "owned") {
+    return null;
   }
 
   const done = uiState === "pending" || uiState === "created";

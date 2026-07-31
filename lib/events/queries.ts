@@ -4,6 +4,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 import type { EventSort, EventWhen } from "@/lib/events/regions";
+import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 
 type Client = SupabaseClient<Database>;
 
@@ -55,7 +56,7 @@ export type PlatformEvent = {
 };
 
 const EVENT_SELECT =
-  "id, title, slug, description, status, starts_at, ends_at, event_at_label, city, state_code, venue_name, latitude, longitude, cover_image_url, registration_url, source_url, source_posted_at, source_body, format, price_label, payment_methods, category, tags, source_language, title_original, description_original, audience_label, external_source, external_id, created_at" as const;
+  "id, title, slug, description, status, starts_at, ends_at, event_at_label, city, state_code, venue_name, latitude, longitude, cover_image_url, registration_url, source_url, source_posted_at, source_body, format, payment_methods, category, tags, source_language, title_original, description_original, audience_label, external_source, external_id, created_at" as const;
 
 export async function listPendingEventRecommendations(
   client: Client,
@@ -278,9 +279,10 @@ export async function getPublishedEventBySlug(
   client: Client,
   slug: string,
 ): Promise<PlatformEvent | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await eventsTable(client)
     .select(EVENT_SELECT)
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .eq("status", "published")
     .maybeSingle();
   if (error) throw error;

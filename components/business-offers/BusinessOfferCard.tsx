@@ -10,12 +10,15 @@ type BusinessOfferCardProps = {
   offer: BusinessOffer;
   businessSlug: string;
   presence?: BusinessPresence | null;
+  /** Parent business already has a confirmed owner — nested claim hidden. */
+  businessAlreadyClaimed?: boolean;
 };
 
 export function BusinessOfferCard({
   offer,
   businessSlug,
   presence = null,
+  businessAlreadyClaimed = false,
 }: BusinessOfferCardProps) {
   const cover = offerCoverUrl(offer);
   const price = formatOfferPrice(offer);
@@ -73,8 +76,10 @@ export function BusinessOfferCard({
           </Link>
           {businessSlug ? (
             <ClaimBusinessButton
+              businessAlreadyClaimed={businessAlreadyClaimed}
               businessId={offer.businessId}
               businessSlug={businessSlug}
+              checkStatus
               kind="offer"
             />
           ) : null}

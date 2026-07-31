@@ -15,7 +15,7 @@ export function SearchBar({ variant = "compact", initialQuery = "" }: SearchBarP
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    const q = query.trim();
+    const q = query.trim().slice(0, 2000);
     router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search");
   }
 

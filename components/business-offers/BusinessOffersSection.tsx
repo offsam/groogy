@@ -12,6 +12,7 @@ type BusinessOffersSectionProps = {
   offers: BusinessOffer[];
   businessSlug: string;
   presence?: BusinessPresence | null;
+  businessAlreadyClaimed?: boolean;
 };
 
 const TYPE_ORDER: BusinessOfferType[] = [
@@ -28,6 +29,7 @@ export function BusinessOffersSection({
   offers,
   businessSlug,
   presence = null,
+  businessAlreadyClaimed = false,
 }: BusinessOffersSectionProps) {
   const groups = useMemo(() => groupOffersByType(offers), [offers]);
   const types = TYPE_ORDER.filter((t) => (groups[t]?.length ?? 0) > 0);
@@ -71,6 +73,7 @@ export function BusinessOffersSection({
         {visible.map((offer) => (
           <BusinessOfferCard
             key={offer.id}
+            businessAlreadyClaimed={businessAlreadyClaimed}
             businessSlug={businessSlug}
             offer={offer}
             presence={presence}

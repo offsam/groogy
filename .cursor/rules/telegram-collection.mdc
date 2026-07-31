@@ -1,0 +1,35 @@
+---
+description: Telegram group collect must target full-card fields; never auto-publish.
+globs: scripts/telegram-collector/**/*
+alwaysApply: false
+---
+
+# Telegram collection (КРУГИ)
+
+Source of Truth: [`docs/architecture/pipeline/TELEGRAM_COLLECTION_CARD_RULES_V1.md`](../../docs/architecture/pipeline/TELEGRAM_COLLECTION_CARD_RULES_V1.md).
+
+## Absolute
+
+- **No automatic publication.** Collect/analyze/extract may only write local JSON and/or **pending** queue/recommendation rows. Never approve, autopublish, or insert approved public entities as part of collect.
+- Third-party recommendations → `needs_review` only (never auto-accepted).
+- Require `--date-from` / `--date-to`; never full history.
+- Only allowlisted sources in `lib/import-review/telegram-sources.ts`.
+- Do not invent contacts, cities, addresses, names, or prices.
+
+## Extract toward full cards (priority)
+
+1. **P0:** name, ≥1 contact (phone|website|IG|TG), preview/cover image, city **or** service_area_text  
+2. **P1:** real category (avoid silent `other`), clean description + headline/card_summary (no contacts in narrative), keep `telegram_username` for publish mapping, separate `booking_url` from website  
+3. **P2:** address + precision, structured services/prices, workplace/employer hint  
+4. **P3:** payment_methods, email/WhatsApp as extras  
+
+## Must not
+
+- Fold booking links into `website`
+- Leave contacts/street inside description/summary
+- Wipe unrelated pending rows on incremental extract (use `--no-replace`)
+- Run Telegram collect unless the user explicitly asked to collect
+
+## When changing code
+
+Update the SoT doc in the same change if priorities or forbidden write paths change.

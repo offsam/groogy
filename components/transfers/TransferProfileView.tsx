@@ -4,6 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { AdminLensBar } from "@/components/admin/AdminLensBar";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import { ReportListingForm } from "@/components/marketplace/ReportListingForm";
+import { ClaimListingButton } from "@/components/claims/ClaimListingButton";
 import { TransferOwnerActions } from "@/components/transfers/TransferOwnerActions";
 import { ListingSourceCard } from "@/components/listings/ListingSourceCard";
 import { DescriptionWithOriginal } from "@/components/shared/DescriptionWithOriginal";
@@ -38,12 +39,14 @@ export function TransferProfileView({
   isAuthenticated = false,
   isOwner = false,
   isAdmin = false,
+  autoClaim = false,
 }: {
   listing: Listing;
   preview?: boolean;
   isAuthenticated?: boolean;
   isOwner?: boolean;
   isAdmin?: boolean;
+  autoClaim?: boolean;
   currentUserId?: string | null;
 }) {
   const isPublic =
@@ -95,6 +98,14 @@ export function TransferProfileView({
         </div>
 
         <div className="flex flex-wrap gap-2">
+          {!preview && !isOwner ? (
+            <ClaimListingButton
+              autoSubmit={autoClaim}
+              checkStatus
+              kind="transfers"
+              listingId={listing.id}
+            />
+          ) : null}
           {!preview && isAuthenticated && !isOwner && (
             <FavoriteButton
               favoritesCount={listing.favoritesCount}
@@ -204,9 +215,9 @@ export function TransferProfileView({
           </dl>
 
           <section className="rounded-2xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-semibold text-slate-900">Описание</h2>
             <DescriptionWithOriginal
-              className="mt-3"
+              heading="Описание"
+              headingClassName="text-lg font-semibold text-slate-900"
               original={listing.descriptionOriginal}
               text={listing.description}
               textClassName="text-slate-700"

@@ -6,6 +6,7 @@ import type {
 } from "@/types/business-offer";
 import { mapBusinessOffer } from "@/lib/business-offers/mappers";
 import { signOfferMediaUrls } from "@/lib/business-offers/media";
+import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 
 type Client = SupabaseClient<Database>;
 
@@ -111,10 +112,12 @@ export async function getPublicOfferBySlug(
   businessSlug: string,
   offerSlug: string,
 ): Promise<BusinessOffer | null> {
+  const normalizedBusinessSlug = normalizeRouteSlug(businessSlug);
+  const normalizedOfferSlug = normalizeRouteSlug(offerSlug);
   const { data: business, error: bizError } = await client
     .from("businesses")
     .select("id")
-    .eq("slug", businessSlug)
+    .eq("slug", normalizedBusinessSlug)
     .eq("status", "approved")
     .maybeSingle();
 
@@ -125,7 +128,7 @@ export async function getPublicOfferBySlug(
     .from("business_offers")
     .select(OFFER_SELECT)
     .eq("business_id", business.id)
-    .eq("slug", offerSlug)
+    .eq("slug", normalizedOfferSlug)
     .maybeSingle();
 
   if (error) throw error;
@@ -329,10 +332,11 @@ export async function getBusinessIdBySlugForOwner(
   client: Client,
   slug: string,
 ): Promise<string | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await client
     .from("businesses")
     .select("id, status")
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .maybeSingle();
 
   if (error) throw error;

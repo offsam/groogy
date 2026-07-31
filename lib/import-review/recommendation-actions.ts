@@ -5,6 +5,10 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
+import {
+  geocodeStreetAddress,
+  googleMapsUrlForAddress,
+} from "@/lib/geo/geocode-street";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
 import {
   resolveSourceKind,
@@ -419,6 +423,61 @@ function recommendationSourceChannel(
   if (item.source_channel === "telegram") return "telegram";
   if (item.directory_source) return "import";
   return "other";
+}
+
+/** Street pin only when geocode succeeds — never claim street without coords. */
+async function streetGeoFields(input: {
+  street: string | null | undefined;
+  city: string | null | undefined;
+  stateCode: string | null | undefined;
+  postalCode: string | null | undefined;
+  region?: string | null;
+}): Promise<{
+  location_precision: "street" | "county" | "city" | null;
+  latitude: number | null;
+  longitude: number | null;
+  google_maps_url?: string;
+}> {
+  const street = input.street?.trim() || null;
+  if (!street) {
+    const precision = inferLocationPrecision({
+      addressLine: null,
+      city: input.city,
+      region: input.region,
+    });
+    return {
+      location_precision: precision,
+      latitude: null,
+      longitude: null,
+    };
+  }
+  const geo = await geocodeStreetAddress(
+    {
+      addressLine: street,
+      city: input.city,
+      stateCode: input.stateCode,
+      postalCode: input.postalCode,
+    },
+    { attempts: "ladder" },
+  );
+  if (geo) {
+    return {
+      location_precision: "street",
+      latitude: geo.latitude,
+      longitude: geo.longitude,
+      google_maps_url: googleMapsUrlForAddress(
+        street,
+        input.city,
+        input.stateCode,
+      ),
+    };
+  }
+  // Address text kept; city/area map until a later enrich succeeds.
+  return {
+    location_precision: null,
+    latitude: null,
+    longitude: null,
+  };
 }
 
 function mentionSnippetFromRecommendation(item: CommentRecommendation): string {
@@ -890,6 +949,21 @@ export async function approveCommentRecommendationAction(input: {
     return fail("Нужен хотя бы один контакт или ссылка на пост.");
   }
 
+  // R05: third-party recommendation without self-offer → attach only, not new entity.
+  const third = Number(item.third_party_mention_count ?? 0);
+  const selfAd = Number(item.self_ad_mention_count ?? 0);
+  const looksThirdPartyOnly =
+    (item.target_bucket === "recommendation" || third > 0) &&
+    selfAd <= 0 &&
+    !phone &&
+    !website &&
+    !instagram;
+  if (looksThirdPartyOnly && !input.force) {
+    return fail(
+      "Это чужая рекомендация без self-offer. Привяжите к живой карточке (Поиск двойников → Объединить), а не создавайте новую.",
+    );
+  }
+
   const kind = yellowPagesEntityKind(item);
   const loc = resolveLocation(item);
   const description = descriptionFrom(item);
@@ -906,13 +980,31 @@ export async function approveCommentRecommendationAction(input: {
 
   if (kind === "professional") {
     const preview = yellowPagesToProfessionalPreview(item);
+    const catSlug = professionalSlugFromGuess(item.category_guess);
+    if (!catSlug) {
+      return fail(
+        "Выберите категорию специалиста (не «Прочее») перед публикацией.",
+      );
+    }
     const categoryId = await lookupCategoryId(
       supabase,
       "professional",
-      professionalSlugFromGuess(item.category_guess),
+      catSlug,
     );
+    if (!categoryId) {
+      return fail(
+        `Категория «${catSlug}» не найдена. Выберите категорию перед публикацией.`,
+      );
+    }
     const slug = slugify(preview.displayName);
     const street = notesParsed.address || preview.addressLine || null;
+    const geoFields = await streetGeoFields({
+      street,
+      city: loc.city || preview.city,
+      stateCode: loc.stateCode || "US-CA",
+      postalCode: notesParsed.zip,
+      region: loc.region || notesParsed.region,
+    });
     const { data: inserted, error: insertError } = await untyped(supabase)
       .from("professionals")
       .insert({
@@ -937,16 +1029,10 @@ export async function approveCommentRecommendationAction(input: {
         state_code: loc.stateCode || "US-CA",
         postal_code: notesParsed.zip,
         private_address_line: street,
-        location_precision: street
-          ? "street"
-          : loc.city
-            ? "city"
-            : loc.region
-              ? "county"
-              : null,
+        location_precision: geoFields.location_precision,
         public_exact_address: false,
-        latitude: null,
-        longitude: null,
+        latitude: geoFields.latitude,
+        longitude: geoFields.longitude,
         phone,
         email: notesParsed.email || preview.email,
         website: website || preview.website,
@@ -975,7 +1061,8 @@ export async function approveCommentRecommendationAction(input: {
     const { data: inserted, error: insertError } = await supabase
       .from("listings")
       .insert({
-        owner_id: user.id,
+        // Imported/approved from queue — vacant until claimed. Admin ≠ owner.
+        owner_id: null,
         listing_type: "service",
         status: "draft",
         visibility: "unlisted",
@@ -1046,6 +1133,13 @@ export async function approveCommentRecommendationAction(input: {
       city: loc.city || preview.city,
       region: loc.region,
     });
+    const geoFields = await streetGeoFields({
+      street,
+      city: loc.city || preview.city,
+      stateCode: loc.stateCode || "US-CA",
+      postalCode: notesParsed.zip,
+      region: loc.region,
+    });
     await supabase
       .from("businesses")
       .update({
@@ -1058,13 +1152,15 @@ export async function approveCommentRecommendationAction(input: {
         region: loc.region,
         state_code: loc.stateCode || "US-CA",
         postal_code: notesParsed.zip || undefined,
-        location_precision: street
-          ? "street"
-          : precision === "county"
-            ? "county"
-            : null,
-        latitude: null,
-        longitude: null,
+        location_precision: (geoFields.location_precision === "city"
+          ? null
+          : geoFields.location_precision) ??
+          (precision === "county" ? "county" : null),
+        latitude: geoFields.latitude,
+        longitude: geoFields.longitude,
+        ...(geoFields.google_maps_url
+          ? { google_maps_url: geoFields.google_maps_url }
+          : {}),
       })
       .eq("id", publishedEntityId);
 
@@ -1136,7 +1232,7 @@ export async function approveEventRecommendationAction(input: {
     });
   }
 
-  const { structureEventFromText } = await import(
+  const { structureEventFromText, titleFromOccurrenceLabel } = await import(
     "@/lib/events/structure-event-from-text"
   );
 
@@ -1223,13 +1319,16 @@ export async function approveEventRecommendationAction(input: {
     ? structured.occurrences
     : [{ label: eventAtLabel ?? "", startsAt }];
 
-  const rows = sessions.map((session, index) => ({
+  const rows = sessions.map((session, index) => {
+    const fromLabel = titleFromOccurrenceLabel(session.label);
+    const sessionTitle = (fromLabel || publishedTitle).slice(0, 200);
+    return {
     owner_profile_id: user.id,
-    title: publishedTitle.slice(0, 200),
+    title: sessionTitle,
     slug:
       index === 0
-        ? slugify(publishedTitle)
-        : `${slugify(publishedTitle)}-${index + 1}`,
+        ? slugify(sessionTitle)
+        : `${slugify(sessionTitle)}-${index + 1}`,
     description: publishedDescription,
     status: "published",
     starts_at: session.startsAt ?? startsAt,
@@ -1265,7 +1364,8 @@ export async function approveEventRecommendationAction(input: {
     source_body: publishedDescription,
     source_channel: item.source_channel || "facebook",
     format: "offline",
-  }));
+  };
+  });
 
   const { data: inserted, error: insertError } = await untyped(supabase)
     .from("events")
@@ -1363,8 +1463,54 @@ export async function structureEventRecommendationAction(input: {
     .eq("id", item.id);
   if (updError) return fail(updError.message || "Не удалось сохранить.");
 
+  // After structure, translate EN→RU so admin preview already shows Russian
+  // with «Посмотреть оригинал» (same card as public).
+  let translateNote = "";
+  try {
+    const refreshed = await loadRecommendation(supabase, item.id);
+    if (refreshed) {
+      const title = (refreshed.display_name || "").trim();
+      const description =
+        (refreshed.request_snippets || []).filter(Boolean).join("\n\n") ||
+        (refreshed.comment_texts || []).filter(Boolean).slice(0, 2).join("\n\n") ||
+        null;
+      if (title || description) {
+        const { translateEventCopyToRu } = await import(
+          "@/lib/events/translate-event"
+        );
+        const translated = await translateEventCopyToRu({
+          title: title || "Event",
+          description,
+        });
+        const translatePatch: Record<string, unknown> = {
+          display_name: translated.titleRu,
+          title_original: translated.titleOriginal,
+          description_original:
+            translated.descriptionOriginal ||
+            refreshed.description_original ||
+            null,
+          source_language: translated.detectedLanguage,
+        };
+        if (translated.descriptionRu) {
+          translatePatch.request_snippets = [translated.descriptionRu];
+        }
+        const { error: trErr } = await recommendationsTable(supabase)
+          .update(translatePatch)
+          .eq("id", item.id);
+        if (!trErr) {
+          translateNote =
+            translated.detectedLanguage === "ru"
+              ? " Уже на русском."
+              : ` Переведено (${translated.modelUsed}).`;
+        }
+      }
+    }
+  } catch {
+    translateNote = " Перевод не выполнен — нажмите «Translate EN→RU».";
+  }
+
   revalidateRecommendationPaths(item);
-  return ok("Структура обновлена.");
+  return ok(`Структура обновлена.${translateNote}`);
 }
 
 /** Translate pending event EN → RU; keep originals on the row. */

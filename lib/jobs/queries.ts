@@ -11,6 +11,7 @@ import {
   countyGeoidMatchesPlaces,
   parsePlaceTokens,
 } from "@/lib/geo/place-tokens";
+import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import type { Database } from "@/types/database";
 import type { Job, JobRow } from "@/types/job";
 
@@ -105,10 +106,11 @@ export async function getJobBySlug(
   client: Client,
   slug: string,
 ): Promise<Job | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await db(client)
     .from("jobs")
     .select(JOB_SELECT as any)
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .maybeSingle();
   if (error) throw error;
   if (!data) return null;

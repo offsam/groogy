@@ -343,7 +343,9 @@ export function EnrichProgressDrawer({
               {steps ? (
                 <ol className="space-y-2">
                   {stepOrder.map((step) => {
-                    const state = steps[step];
+                    const state: EnrichStepState = steps[step] ?? {
+                      status: "pending",
+                    };
                     return (
                       <li
                         key={step}

@@ -339,6 +339,8 @@ export function mapPublicProfile(
     reviewsAiVerifiedCount: Number(raw.reviews_ai_verified_count ?? 0),
     listingsActiveCount: Number(raw.listings_active_count ?? 0),
     listingsCompletedCount: Number(raw.listings_completed_count ?? 0),
+    servicesActiveCount: Number(raw.services_active_count ?? 0),
+    circlesCount: Number(raw.circles_count ?? 0),
     showReviews: Boolean(raw.show_reviews),
     showListings: Boolean(raw.show_listings),
   };

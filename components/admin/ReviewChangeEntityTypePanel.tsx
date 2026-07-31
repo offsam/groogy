@@ -61,6 +61,8 @@ export function ReviewChangeEntityTypePanel({ item }: Props) {
       classification: item.ai_decision,
       entityTypeHint: item.entity_type,
       hasContact,
+      addressLine: item.address_line,
+      postalCode: item.postal_code,
     });
   }, [item]);
 

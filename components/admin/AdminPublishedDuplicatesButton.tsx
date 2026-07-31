@@ -58,7 +58,14 @@ export function AdminPublishedDuplicatesButton({
         }
         setSelfName(res.selfName);
         setHits(res.hits);
-        setScanNotes(res.scanNotes ?? []);
+        setScanNotes(
+          (res.scanNotes ?? []).filter(
+            (n) =>
+              !/does not exist/i.test(n) &&
+              !/^column\b/i.test(n) &&
+              !/\bauthor_id\b/i.test(n),
+          ),
+        );
         setMessage(res.message);
       } catch (err) {
         setError(
@@ -115,12 +122,30 @@ export function AdminPublishedDuplicatesButton({
 
   function onMergeCatalog(hit: LiveDuplicateHit) {
     if (!hit.suggestedKeepId || !hit.suggestedDropId) return;
+    const hitKind =
+      hit.entityType === "professional" || hit.entityType === "business"
+        ? hit.entityType
+        : kind === "professional" || kind === "business"
+          ? kind
+          : null;
+    if (!hitKind || (kind !== "business" && kind !== "professional")) return;
+
+    const keepIsSelf = hit.suggestedKeepId === entityId;
+    const keepKind = keepIsSelf ? kind : hitKind;
+    const dropKind = keepIsSelf ? hitKind : kind;
+    if (
+      (keepKind !== "business" && keepKind !== "professional") ||
+      (dropKind !== "business" && dropKind !== "professional")
+    ) {
+      return;
+    }
+
     setActionId(hit.id);
     setError(null);
     startTransition(async () => {
-      const keepIsSelf = hit.suggestedKeepId === entityId;
       const res = await mergeCatalogDuplicateFromLiveScanAction({
-        entityType: hit.entityType || kind,
+        keepKind,
+        dropKind,
         keepId: hit.suggestedKeepId!,
         dropId: hit.suggestedDropId!,
         keepSlug: keepIsSelf ? slug : hit.slug,
@@ -134,9 +159,71 @@ export function AdminPublishedDuplicatesButton({
       setMessage(res.message || "Объединено");
       removeHit(hit.id, "catalog");
       router.refresh();
+      // Dropped the card we were on — go to the kept live profile.
       if (!keepIsSelf && hit.href) {
         window.location.href = hit.href;
       }
+    });
+  }
+
+  function onMergeAllCatalog() {
+    const mergeable = catalog.filter(
+      (h) =>
+        h.suggestedKeepId &&
+        h.suggestedDropId &&
+        (h.entityType === "business" ||
+          h.entityType === "professional" ||
+          kind === "business" ||
+          kind === "professional"),
+    );
+    if (!mergeable.length) return;
+    setError(null);
+    setMessage(null);
+    startTransition(async () => {
+      let done = 0;
+      for (const hit of mergeable) {
+        const hitKind =
+          hit.entityType === "professional" || hit.entityType === "business"
+            ? hit.entityType
+            : kind === "professional" || kind === "business"
+              ? kind
+              : null;
+        if (!hitKind || (kind !== "business" && kind !== "professional")) {
+          continue;
+        }
+        const keepIsSelf = hit.suggestedKeepId === entityId;
+        const keepKind = keepIsSelf ? kind : hitKind;
+        const dropKind = keepIsSelf ? hitKind : kind;
+        if (
+          (keepKind !== "business" && keepKind !== "professional") ||
+          (dropKind !== "business" && dropKind !== "professional")
+        ) {
+          continue;
+        }
+        setActionId(hit.id);
+        const res = await mergeCatalogDuplicateFromLiveScanAction({
+          keepKind,
+          dropKind,
+          keepId: hit.suggestedKeepId!,
+          dropId: hit.suggestedDropId!,
+          keepSlug: keepIsSelf ? slug : hit.slug,
+          dropSlug: keepIsSelf ? hit.slug : slug,
+        });
+        if (!res.ok) {
+          setActionId(null);
+          setError(res.message);
+          return;
+        }
+        removeHit(hit.id, "catalog");
+        done += 1;
+      }
+      setActionId(null);
+      setMessage(
+        done
+          ? `Объединено карточек: ${done}.`
+          : "Нечего объединять.",
+      );
+      router.refresh();
     });
   }
 
@@ -198,9 +285,16 @@ export function AdminPublishedDuplicatesButton({
               ) : null}
               {scanNotes.length > 0 ? (
                 <ul className="list-disc space-y-0.5 pl-4 text-[11px] text-slate-500">
-                  {scanNotes.map((n) => (
-                    <li key={n}>{n}</li>
-                  ))}
+                  {scanNotes
+                    .filter(
+                      (n) =>
+                        !/does not exist/i.test(n) &&
+                        !/^column\b/i.test(n) &&
+                        !/\bauthor_id\b/i.test(n),
+                    )
+                    .map((n) => (
+                      <li key={n}>{n}</li>
+                    ))}
                 </ul>
               ) : null}
               {error ? <p className="text-xs text-red-600">{error}</p> : null}
@@ -211,11 +305,38 @@ export function AdminPublishedDuplicatesButton({
 
               {catalog.length > 0 ? (
                 <section className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    В каталоге
-                  </h3>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      В каталоге
+                    </h3>
+                    {(kind === "business" || kind === "professional") &&
+                    catalog.length > 1 ? (
+                      <Button
+                        type="button"
+                        className="px-2.5 py-1 text-xs"
+                        disabled={pending}
+                        onClick={() => onMergeAllCatalog()}
+                      >
+                        {pending && actionId
+                          ? "Объединяю…"
+                          : "Объединить все"}
+                      </Button>
+                    ) : null}
+                  </div>
                   <ul className="space-y-2">
-                    {catalog.map((hit) => (
+                    {catalog.map((hit) => {
+                      const typeLabel =
+                        hit.entityType === "professional"
+                          ? "специалист"
+                          : hit.entityType === "business"
+                            ? "бизнес"
+                            : hit.entityType || "";
+                      const canMerge =
+                        (kind === "business" || kind === "professional") &&
+                        (hit.entityType === "business" ||
+                          hit.entityType === "professional" ||
+                          !hit.entityType);
+                      return (
                       <li
                         key={`c-${hit.id}`}
                         className="rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-2"
@@ -224,6 +345,11 @@ export function AdminPublishedDuplicatesButton({
                           <div className="min-w-0">
                             <p className="font-medium text-slate-900">
                               {hit.name}
+                              {typeLabel ? (
+                                <span className="ml-1.5 rounded bg-slate-200 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-slate-600">
+                                  {typeLabel}
+                                </span>
+                              ) : null}
                             </p>
                             <p className="mt-0.5 text-xs text-slate-500">
                               {hit.strength === "exact" ? "точное" : "слабое"} ·{" "}
@@ -243,7 +369,7 @@ export function AdminPublishedDuplicatesButton({
                             ) : null}
                           </div>
                           <div className="flex flex-wrap gap-1.5">
-                            {(hit.entityType || kind) === "business" ? (
+                            {canMerge ? (
                               <Button
                                 type="button"
                                 className="px-2.5 py-1 text-xs"
@@ -265,7 +391,8 @@ export function AdminPublishedDuplicatesButton({
                           </div>
                         </div>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 </section>
               ) : null}

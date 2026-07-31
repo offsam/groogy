@@ -53,7 +53,8 @@ export function ReviewEventPendingPanel({ item }: Props) {
           Событие — ждут выкладки
         </h2>
         <p className="mt-1 text-xs text-slate-500">
-          Structure → Translate EN→RU → Approve. На сайт не попадает без Approve.
+          Structure (разбор + перевод EN→RU) → Approve. На сайт не попадает без
+          Approve. Translate — если нужно перевести ещё раз.
         </p>
       </div>
 

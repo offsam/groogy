@@ -9,6 +9,7 @@ import {
   Check,
   ExternalLink,
   GitMerge,
+  Loader2,
   Pencil,
   X,
 } from "lucide-react";
@@ -33,8 +34,23 @@ import {
   rejectCommentRecommendationAction,
 } from "@/lib/import-review/recommendation-actions";
 import type { ReviewWorkspaceTask } from "@/lib/admin/review-workspace/types";
-import type { InboxReviewType } from "@/lib/admin/inbox/types";
 import { reviewWorkspacePath } from "@/lib/admin/review-workspace/task-id";
+import { DuplicateMatchReasonBadge } from "@/components/admin/DuplicateMatchReasonBadge";
+import type { CardMatchSignals } from "@/lib/import-review/duplicate-match-label";
+
+/** After Approve/Reject the workspace card must leave — back to Review inbox. */
+function inboxHrefForTask(
+  reviewType: ReviewWorkspaceTask["reviewType"],
+  flash?: "approved" | "rejected" | "duplicate",
+): string {
+  const q = new URLSearchParams();
+  if (reviewType === "ownership_claim") q.set("view", "claims");
+  else if (reviewType === "recommendation") q.set("view", "recommendations");
+  else if (reviewType === "event_verification") q.set("view", "events");
+  if (flash) q.set("flash", flash);
+  const qs = q.toString();
+  return qs ? `/admin/review/inbox?${qs}` : "/admin/review/inbox";
+}
 
 type ActionKey =
   | "approve"
@@ -148,6 +164,22 @@ export function ReviewWorkspaceActions({ task }: Props) {
   const [duplicateOfItemId, setDuplicateOfItemId] = useState("");
   const recommendationItem =
     task.payload.kind === "recommendation" ? task.payload.item : null;
+  const importItem =
+    task.payload.kind === "import_review" ? task.payload.item : null;
+  const importCardSignals: CardMatchSignals | null = importItem
+    ? {
+        phones: importItem.phone,
+        telegramUsername: importItem.telegram_username,
+        telegramUserId: importItem.telegram_user_id,
+        instagram: importItem.instagram,
+        website: importItem.website,
+        names: [
+          importItem.title,
+          importItem.business_name,
+          importItem.person_name,
+        ].filter((x): x is string => Boolean(x?.trim())),
+      }
+    : null;
   const [mergeKeepId, setMergeKeepId] = useState(
     recommendationItem?.duplicate_of_entity_id || "",
   );
@@ -168,6 +200,20 @@ export function ReviewWorkspaceActions({ task }: Props) {
   const isSuspected =
     recommendationItem?.status === "suspected_duplicate" ||
     Boolean(recommendationItem?.duplicate_of_entity_id);
+
+  function leaveToInbox(flash?: "approved" | "rejected" | "duplicate") {
+    if (flash === "rejected") {
+      setMessage("Отклонено — возвращаю в inbox…");
+    } else if (flash === "duplicate") {
+      setMessage("Дубль — возвращаю в inbox…");
+    } else if (flash === "approved") {
+      setMessage("Одобрено — возвращаю в inbox…");
+    } else {
+      setMessage("Возвращаю в inbox…");
+    }
+    router.push(inboxHrefForTask(task.reviewType, flash));
+    router.refresh();
+  }
 
   function run(action: ActionKey) {
     setError(null);
@@ -191,8 +237,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               return;
             }
             setImportDuplicates([]);
-            setMessage("Approved");
-            router.refresh();
+            leaveToInbox("approved");
             return;
           }
           if (action === "reject") {
@@ -206,8 +251,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               setError(res.message || "Reject failed");
               return;
             }
-            setMessage("Rejected");
-            router.refresh();
+            leaveToInbox("rejected");
             return;
           }
         }
@@ -223,11 +267,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               setError(res.message);
               return;
             }
-            setMessage(
-              action === "approve" ? "Claim approved" : "Claim rejected",
-            );
-            router.push("/admin/review/inbox?view=claims");
-            router.refresh();
+            leaveToInbox(action === "approve" ? "approved" : "rejected");
             return;
           }
           if (action === "archive") {
@@ -252,7 +292,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               return;
             }
             setMessage("Business archived");
-            router.refresh();
+            leaveToInbox();
             return;
           }
         }
@@ -272,10 +312,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               router.refresh();
               return;
             }
-            setMessage(
-              res.publicPath ? `Published: ${res.publicPath}` : "Approved",
-            );
-            router.refresh();
+            leaveToInbox("approved");
             return;
           }
           if (action === "reject") {
@@ -286,8 +323,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               setError(res.message || "Reject failed");
               return;
             }
-            setMessage("Rejected");
-            router.refresh();
+            leaveToInbox("rejected");
             return;
           }
         }
@@ -301,10 +337,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               setError(res.message || "Approve failed");
               return;
             }
-            setMessage(
-              res.publicPath ? `Published: ${res.publicPath}` : "Approved",
-            );
-            router.refresh();
+            leaveToInbox("approved");
             return;
           }
           if (action === "reject") {
@@ -315,8 +348,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
               setError(res.message || "Reject failed");
               return;
             }
-            setMessage("Rejected");
-            router.refresh();
+            leaveToInbox("rejected");
             return;
           }
         }
@@ -346,7 +378,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
           }
           setMessage(res.message || "Marked as duplicate");
           setShowMerge(false);
-          router.refresh();
+          leaveToInbox("duplicate");
           return;
         }
 
@@ -533,9 +565,15 @@ export function ReviewWorkspaceActions({ task }: Props) {
                   ? d.slug
                     ? `/business/${d.slug}`
                     : `/admin/catalog/businesses?q=${d.id}`
+                  : d.kind === "professional"
+                    ? d.slug
+                      ? `/professional/${d.slug}`
+                      : `/admin/catalog/professionals?q=${d.id}`
                   : d.kind === "import_item"
                     ? `/admin/review/workspace/import_review/${d.id}`
-                    : `/admin/catalog/marketplace?q=${d.id}`;
+                    : d.kind === "recommendation"
+                      ? `/admin/review/${encodeURIComponent(`recommendation:${d.id}`)}`
+                      : `/admin/catalog/marketplace?q=${d.id}`;
               const preview = d.mergePreview;
               return (
                 <li
@@ -552,12 +590,26 @@ export function ReviewWorkspaceActions({ task }: Props) {
                           </span>
                         ) : null}
                       </p>
-                      <p className="text-amber-900/70">
-                        {d.kind} · {d.reason}
+                      <p className="text-[11px] text-amber-900/70">
+                        {d.kind === "business"
+                          ? "бизнес"
+                          : d.kind === "professional"
+                            ? "специалист"
+                            : d.kind === "import_item"
+                              ? d.queueOpen
+                                ? "очередь"
+                                : "импорт"
+                              : d.kind === "recommendation"
+                                ? "рекомендация"
+                                : d.kind}
                         {d.businessStatus === "archived"
                           ? " · при объединении вернём из архива"
                           : ""}
                       </p>
+                      <DuplicateMatchReasonBadge
+                        reason={d.reason}
+                        card={importCardSignals}
+                      />
                       {preview ? (
                         <div className="mt-2 space-y-1 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5 text-[11px] text-slate-700">
                           <p className="font-medium text-slate-800">
@@ -665,7 +717,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
                               setMessage(
                                 res.message || "Отклонено как дубль",
                               );
-                              router.refresh();
+                              leaveToInbox("duplicate");
                             } catch (err) {
                               setError(
                                 err instanceof Error
@@ -705,8 +757,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
                     return;
                   }
                   setImportDuplicates([]);
-                  setMessage("Approved (force)");
-                  router.refresh();
+                  leaveToInbox("approved");
                 });
               }}
             >
@@ -805,8 +856,17 @@ export function ReviewWorkspaceActions({ task }: Props) {
                   : ""
               }`}
             >
-              {ICONS[action.key]}
-              {action.label}
+              {pending &&
+              (action.key === "approve" || action.key === "reject") ? (
+                <Loader2 className="size-3.5 animate-spin" />
+              ) : (
+                ICONS[action.key]
+              )}
+              {pending && action.key === "approve"
+                ? "Одобряю…"
+                : pending && action.key === "reject"
+                  ? "Отклоняю…"
+                  : action.label}
             </Button>
           );
         })}
@@ -921,7 +981,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
       ) : null}
 
       <p className="mt-3 text-[11px] text-slate-400">
-        Type: {task.reviewType as InboxReviewType}
+        Type: {task.reviewType}
       </p>
     </section>
   );

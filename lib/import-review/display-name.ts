@@ -21,6 +21,28 @@ const JUNK_TITLES = new Set(
     "none",
     "n/a",
     "без названия",
+    // Role / category words the extractor puts in title instead of a name.
+    "мастер",
+    "master",
+    "specialist",
+    "специалист",
+    "парикмахер",
+    "стилист",
+    "косметолог",
+    "визажист",
+    "няня",
+    "репетитор",
+    "врач",
+    "доктор",
+    "агент",
+    "риелтор",
+    "риэлтор",
+    "переводчик",
+    "водитель",
+    "повар",
+    "массажист",
+    "маникюр",
+    "педикюр",
   ].map((s) => s.toLowerCase()),
 );
 
@@ -32,6 +54,10 @@ const META_LABELS =
 
 const META_ONLY_RE = new RegExp(`^\\s*(?:${META_LABELS})\\s*[:：]?\\s*$`, "iu");
 const META_PREFIX_RE = new RegExp(`^\\s*(?:${META_LABELS})\\s*[:：]`, "iu");
+
+/** Affiche CTAs («Пишите «+»…») — never an event / entity name. */
+const CTA_OPENER_RE =
+  /^(?:пишите|пиши(?:те)?|напишите|присоединяйтесь|подписывайтесь|жмите|ставьте\s*[«"]?\+|оставьте\s+комментар\w*|write\s+[«"]?\+|join\s+(?:us|our)|click\s+(?:here|the\s+link)|comment\s+[«"]?\+|leave\s+a\s+comment)[\s,!.:;—–«»"'+]*/iu;
 
 const QUOTED_NAME_RE = /[«"“„]([^«»"“”„\n]{2,60})[»"”]/gu;
 
@@ -94,7 +120,8 @@ export const IMPORT_CATEGORY_LABELS: Record<string, string> = {
   childcare: "Дети / няни",
   cleaning: "Клининг",
   education: "Образование",
-  events: "Мероприятия",
+  events: "Организация праздников",
+  celebrations: "Организация праздников",
   fitness: "Фитнес",
   food: "Еда",
   health: "Здоровье",
@@ -121,6 +148,7 @@ export function isJunkImportTitle(raw: string | null | undefined): boolean {
   const lower = t.toLowerCase();
   if (JUNK_TITLES.has(lower)) return true;
   if (META_ONLY_RE.test(t) || META_PREFIX_RE.test(t)) return true;
+  if (CTA_OPENER_RE.test(t)) return true;
   if (letterCount(t) < 3) return true;
   if (EMAIL_DOMAIN_RE.test(lower)) return true;
   if (lower.includes("@")) return true;

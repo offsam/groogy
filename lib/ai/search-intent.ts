@@ -4,6 +4,14 @@ import {
   completeJsonWithFailover,
   OpenRouterError,
 } from "@/lib/ai/openrouter";
+import { SEARCH_CATALOG_PLAYBOOK } from "@/lib/ai/search-playbook";
+import { expandSearchToken } from "@/lib/search/synonyms";
+
+export type SearchQueryMode =
+  | "service_need"
+  | "business_name"
+  | "specialty"
+  | "browse";
 
 export type SearchIntent = {
   keywords: string[];
@@ -11,13 +19,15 @@ export type SearchIntent = {
   categorySlug: string | null;
   mustHints: string[];
   /**
-   * True for “I need a service” queries (oil change, plumber, manicure…).
+   * True for “I need a service” / category-browse queries.
    * Search then browses the category and ranks likely matches, instead of
    * requiring every keyword to appear in the card text.
    */
   preferCategory: boolean;
   /** User asked for nearby / “рядом со мной”. */
   nearMe: boolean;
+  /** How to interpret the query for ranking + DB strategy. */
+  queryMode: SearchQueryMode;
 };
 
 export type ParsedSearchIntent = {
@@ -88,6 +98,95 @@ function asBoolean(value: unknown, fallback = false): boolean {
   return fallback;
 }
 
+const QUERY_MODES = new Set<SearchQueryMode>([
+  "service_need",
+  "business_name",
+  "specialty",
+  "browse",
+]);
+
+function asQueryMode(
+  value: unknown,
+  preferCategory: boolean,
+): SearchQueryMode {
+  if (typeof value === "string") {
+    const v = value.trim().toLowerCase() as SearchQueryMode;
+    if (QUERY_MODES.has(v)) return v;
+  }
+  return preferCategory ? "service_need" : "specialty";
+}
+
+/**
+ * Expand tokens with RU↔EN synonym group members so Russian queries
+ * also rank English card text (and vice versa), even if the LLM omitted a language.
+ */
+export function enrichTokensBilingual(tokens: string[]): string[] {
+  const out: string[] = [];
+  const seen = new Set<string>();
+  const skip = new Set([
+    "near",
+    "shop",
+    "car",
+    "еда",
+    "сад",
+    "pet",
+  ]);
+  for (const token of tokens) {
+    const phrase = token.trim().toLowerCase().replace(/\s+/g, " ");
+    if (phrase.length < 2 || skip.has(phrase)) continue;
+    const candidates =
+      phrase.includes(" ")
+        ? [phrase, ...phrase.split(/\s+/).flatMap((t) => expandSearchToken(t))]
+        : expandSearchToken(phrase);
+    for (const c of candidates) {
+      const key = c.toLowerCase();
+      if (key.length < 3 || skip.has(key) || seen.has(key)) continue;
+      if (seen.size >= 28) break;
+      seen.add(key);
+      out.push(key);
+    }
+  }
+  return out.slice(0, 24);
+}
+
+export function enrichSearchIntent(intent: SearchIntent): SearchIntent {
+  const mustHints = enrichTokensBilingual([
+    ...intent.mustHints,
+    ...intent.keywords,
+  ]);
+  // Keep name/specialty keywords lean; still bilingual-expand them.
+  const keywords =
+    intent.queryMode === "business_name"
+      ? enrichTokensBilingual(intent.keywords).slice(0, 10)
+      : enrichTokensBilingual(intent.keywords).slice(0, 12);
+
+  let preferCategory = intent.preferCategory;
+  let queryMode = intent.queryMode;
+
+  if (queryMode === "service_need" || queryMode === "browse") {
+    preferCategory = true;
+  } else if (queryMode === "business_name") {
+    preferCategory = false;
+  }
+
+  // Named place search must not lock to a wrong category browse.
+  const categorySlug =
+    queryMode === "business_name" ? null : intent.categorySlug;
+
+  return {
+    ...intent,
+    keywords:
+      queryMode === "service_need" || queryMode === "browse" ? [] : keywords,
+    mustHints:
+      queryMode === "business_name"
+        ? enrichTokensBilingual([...intent.mustHints, ...intent.keywords])
+        : mustHints,
+    preferCategory,
+    queryMode,
+    categorySlug,
+  };
+}
+
 export function normalizeSearchIntent(
   raw: unknown,
   allowedSlugs: Set<string>,
@@ -98,15 +197,36 @@ export function normalizeSearchIntent(
   const keywords = asStringArray(obj.keywords);
   const mustHints = asHintArray(obj.mustHints);
   const city = asNullableString(obj.city);
-  const preferCategory = asBoolean(obj.preferCategory, false);
+  let preferCategory = asBoolean(obj.preferCategory, false);
   const nearMe = asBoolean(obj.nearMe, false);
+  let queryMode = asQueryMode(obj.queryMode, preferCategory);
+
+  // Align flags if model only set one of them.
+  if (queryMode === "service_need" || queryMode === "browse") {
+    preferCategory = true;
+  } else if (queryMode === "business_name") {
+    preferCategory = false;
+  } else if (preferCategory && queryMode === "specialty") {
+    queryMode = "service_need";
+  }
 
   let categorySlug = asNullableString(obj.categorySlug);
   if (categorySlug && !allowedSlugs.has(categorySlug)) {
     categorySlug = null;
   }
+  if (queryMode === "business_name") {
+    categorySlug = null;
+  }
 
-  return { keywords, city, categorySlug, mustHints, preferCategory, nearMe };
+  return enrichSearchIntent({
+    keywords,
+    city,
+    categorySlug,
+    mustHints,
+    preferCategory,
+    nearMe,
+    queryMode,
+  });
 }
 
 function buildSystemPrompt(categories: CategoryHint[]): string {
@@ -114,10 +234,11 @@ function buildSystemPrompt(categories: CategoryHint[]): string {
     .map((c) => `- ${c.slug}: ${c.name}`)
     .join("\n");
 
-  return `You are a search intent parser for КРУГИ — a Russian-speaking business directory in Southern California (Orange County and nearby).
+  return `You are the search intent parser for КРУГИ.
 
 Return ONLY a JSON object with this exact shape:
 {
+  "queryMode": "service_need" | "business_name" | "specialty" | "browse",
   "keywords": string[],
   "city": string | null,
   "categorySlug": string | null,
@@ -126,24 +247,50 @@ Return ONLY a JSON object with this exact shape:
   "nearMe": boolean
 }
 
-Rules:
-- Decide if the user wants a *service need* (do X for me) or a *named business type* search.
-- preferCategory=true when the user needs a service that a category of shops typically provides, even if cards may not list that exact phrase.
-  Examples that MUST set preferCategory=true:
-  - "поменять масло" / "oil change" → categorySlug "auto", mustHints ["масло","oil","oil change"], keywords []
-  - "нужен сантехник" → categorySlug "services", mustHints ["сантехник","plumber"], keywords []
-  - "починить машину" → categorySlug "auto", mustHints ["ремонт","repair"], keywords []
-- preferCategory=false when searching by specialty text that should appear on cards (e.g. "русский маникюр" → keywords ["маникюр"], mustHints ["русский"], category "beauty").
-- keywords: only hard text tokens that should match card text when preferCategory=false. Keep empty when preferCategory=true.
-- mustHints: specific service/need terms used for ranking likely matches higher (масло, oil change, страховка, детский…).
-- city: US city if named (Irvine, Anaheim). null for county/metro/"рядом". Prefer Latin spelling.
-- nearMe=true if user says рядом, near me, около меня, поблизости, nearby.
-- categorySlug: one of the allowed slugs, or null if unclear.
-- Drop filler words (нужен, найти, хочу, мне, со, мной).
-- If the query has an obvious English typo for a trade (floring→flooring, pluming→plumbing), use the corrected term in mustHints/keywords.
-- Output JSON only, no markdown.
+Critical bilingual rule:
+- For every service/need concept the user expressed, put BOTH Russian and English
+  forms into mustHints (e.g. ["масло","oil","oil change"] or ["маникюр","manicure","nails"]).
+- Never leave mustHints in only one language when a clear translation exists.
 
-Allowed categories:
+Quick mapping of preferCategory:
+- service_need / browse → preferCategory=true, keywords=[]
+- business_name / specialty → preferCategory=false
+- business_name → categorySlug=null
+
+Worked examples (follow the pattern):
+1) "поменять масло" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"auto","mustHints":["масло","oil","oil change"],"preferCategory":true,"nearMe":false}
+2) "oil change Irvine" →
+   {"queryMode":"service_need","keywords":[],"city":"Irvine","categorySlug":"auto","mustHints":["oil","oil change","масло"],"preferCategory":true,"nearMe":false}
+3) "нужен сантехник рядом" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"services","mustHints":["сантехник","plumber","plumbing"],"preferCategory":true,"nearMe":true}
+4) "русский маникюр" →
+   {"queryMode":"specialty","keywords":["маникюр","manicure"],"city":null,"categorySlug":"beauty","mustHints":["русский","russian","маникюр","manicure","nails"],"preferCategory":false,"nearMe":false}
+5) "Калинка" / "Kalinka" →
+   {"queryMode":"business_name","keywords":["калинка","kalinka"],"city":null,"categorySlug":null,"mustHints":["калинка","kalinka"],"preferCategory":false,"nearMe":false}
+6) "рестораны в Anaheim" →
+   {"queryMode":"browse","keywords":[],"city":"Anaheim","categorySlug":"restaurants","mustHints":[],"preferCategory":true,"nearMe":false}
+7) "где сделать стрижку" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"beauty","mustHints":["стрижка","haircut","hair"],"preferCategory":true,"nearMe":false}
+8) "flooring" / "полы" / "ламинат" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"services","mustHints":["flooring","полы","ламинат","laminate"],"preferCategory":true,"nearMe":false}
+9) "Подскажите где нормальный стоматолог в Айрвине???" →
+   {"queryMode":"service_need","keywords":[],"city":"Irvine","categorySlug":"medical","mustHints":["стоматолог","dentist","dental"],"preferCategory":true,"nearMe":false}
+10) "manikyur" / "santehnik" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"beauty","mustHints":["маникюр","manicure","nails"],"preferCategory":true,"nearMe":false}
+   (santehnik → services + plumber/сантехник)
+11) "@kalinka_oc" / "instagram.com/anna.beauty" →
+   {"queryMode":"business_name","keywords":["kalinka_oc"],"city":null,"categorySlug":null,"mustHints":["kalinka_oc"],"preferCategory":false,"nearMe":false}
+12) "СРОЧНО эвакуатор Huntington Beach" →
+   {"queryMode":"service_need","keywords":[],"city":"Huntington Beach","categorySlug":"auto","mustHints":["эвакуатор","tow","towing"],"preferCategory":true,"nearMe":false}
+13) "need сантехник ASAP near me" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"services","mustHints":["сантехник","plumber","plumbing"],"preferCategory":true,"nearMe":true}
+14) "муж на час / handyman Costa Mesa" →
+   {"queryMode":"service_need","keywords":[],"city":"Costa Mesa","categorySlug":"services","mustHints":["handyman","мастер","ремонт","repair"],"preferCategory":true,"nearMe":false}
+
+${SEARCH_CATALOG_PLAYBOOK}
+
+Allowed categories (pick categorySlug ONLY from this list):
 ${catalog || "(none)"}`;
 }
 
@@ -164,6 +311,7 @@ export async function parseSearchIntent(
         mustHints: [],
         preferCategory: false,
         nearMe: false,
+        queryMode: "specialty",
       },
       modelUsed: "none",
     };

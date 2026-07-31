@@ -5,6 +5,7 @@ Canonical import/extraction/classification contracts.
 | Doc | Role |
 |---|---|
 | [`EXTRACTION_CLASSIFICATION_CONTRACT_V1.md`](../../architecture/pipeline/EXTRACTION_CLASSIFICATION_CONTRACT_V1.md) | P2–P3 contract; CI drift-checked |
+| [`TELEGRAM_COLLECTION_CARD_RULES_V1.md`](../../architecture/pipeline/TELEGRAM_COLLECTION_CARD_RULES_V1.md) | Telegram collect field targets + **no autopublish** |
 | [`ENTITY_SECTION_ROUTING_V1.md`](../../architecture/pipeline/ENTITY_SECTION_ROUTING_V1.md) | P3 section router + live card move / redirects |
 | [`CARD_PROCESSING_ARCHITECTURE_V1.md`](../../architecture/runtime/CARD_PROCESSING_ARCHITECTURE_V1.md) | Normative card pipeline |
 | [`CARD_LIFECYCLE_ARCHITECTURE_V1.md`](../../architecture/card/CARD_LIFECYCLE_ARCHITECTURE_V1.md) | Actual card lifecycles |

@@ -467,6 +467,19 @@ def evaluate_eligibility(
         if HIRING_AD_RE.search(hire_blob):
             reasons.append("похоже на вакансию / набор сотрудников")
 
+    # Map businesses need a street pin — otherwise autopublish must not create them.
+    if target in {"businesses", "organizations", "services"}:
+        from entity_routing import has_street_address  # noqa: WPS433
+
+        if not has_street_address(
+            row.get("address_line"),
+            postal_code=row.get("postal_code"),
+            location_precision=row.get("location_precision"),
+        ):
+            reasons.append(
+                "нет точного адреса → бизнес на карте нельзя; нужен профи"
+            )
+
     if not row.get("category") or str(row.get("category")).strip().lower() in {"", "null"}:
         reasons.append("нет category")
 

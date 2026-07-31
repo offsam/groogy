@@ -23,6 +23,7 @@ import { userIsAdmin } from "@/lib/reviews/queries";
 export async function Header() {
   let email: string | null = null;
   let displayName: string | null = null;
+  let username: string | null = null;
   let isAuthenticated = false;
   let isAdmin = false;
   let hubs = [USA_OVERVIEW_HUB];
@@ -45,6 +46,7 @@ export async function Header() {
         userIsAdmin(client).catch(() => false),
       ]);
       displayName = profile?.display_name ?? null;
+      username = profile?.username ?? null;
       isAdmin = admin;
 
       // Profile location wins when no guest cookie override yet
@@ -99,7 +101,11 @@ export async function Header() {
             </Link>
           ) : null}
           {isAuthenticated ? (
-            <HeaderAuth displayName={displayName} email={email} />
+            <HeaderAuth
+              displayName={displayName}
+              email={email}
+              username={username}
+            />
           ) : (
             <HeaderGuestAuth />
           )}

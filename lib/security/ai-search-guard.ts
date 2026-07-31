@@ -1,7 +1,8 @@
 import "server-only";
 
 const MAX_QUERY_CHARS = 200;
-const MAX_BODY_BYTES = 4_096;
+/** Maps pastes can be long before server-side normalize; keep under abuse size. */
+const MAX_BODY_BYTES = 16_384;
 
 function normalizeOrigin(value: string): string {
   return value.trim().replace(/\/$/, "");

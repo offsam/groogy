@@ -53,7 +53,13 @@ def merge_city_with_group(
     location_source: str | None = None
     postal = (postal_code or "").strip() or None
     if not postal and text:
-        m = _ZIP_RE.search(text)
+        # Prefer ZIP after a state abbr; never the leading house number.
+        m = re.search(r"\b[A-Z]{2}\s+(\d{5})(?:-\d{4})?\b", text)
+        if not m:
+            m = re.search(
+                r",\s*[A-Za-z .'\-]{2,40}\s*,\s*[A-Z]{2}\s+(\d{5})(?:-\d{4})?\b",
+                text,
+            )
         if m:
             postal = m.group(1)
 

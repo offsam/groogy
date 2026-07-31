@@ -8,8 +8,27 @@ import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
 import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
-import { getActiveCategories } from "@/lib/supabase/queries";
 import type { Business, Category } from "@/types/business";
+
+async function fetchActiveBusinessCategories(
+  client: ReturnType<typeof createBrowserClient>,
+): Promise<Category[]> {
+  const { data, error } = await client
+    .from("categories")
+    .select("id, slug, name, icon, sort_order")
+    .eq("is_active", true)
+    .eq("domain", "business")
+    .order("sort_order", { ascending: true })
+    .order("name", { ascending: true });
+  if (error) throw error;
+  return (data ?? []).map((row) => ({
+    id: row.id,
+    slug: row.slug,
+    name: row.name,
+    icon: row.icon,
+    sortOrder: row.sort_order,
+  }));
+}
 
 type SearchIntentSummary = {
   keywords: string[];
@@ -18,6 +37,7 @@ type SearchIntentSummary = {
   mustHints: string[];
   preferCategory?: boolean;
   nearMe?: boolean;
+  queryMode?: string;
 };
 
 type AiSearchResponse = {
@@ -29,6 +49,7 @@ type AiSearchResponse = {
   preferCategory?: boolean;
   corrections?: Array<{ from: string; to: string }>;
   correctedQuery?: string | null;
+  message?: string | null;
 };
 
 type UserCoords = { lat: number; lng: number };
@@ -50,7 +71,9 @@ function intentHintLabel(
 ): string | null {
   if (fallback) return "обычный поиск (AI временно недоступен)";
   const parts: string[] = [];
-  if (intent.preferCategory && intent.categorySlug) {
+  if (intent.queryMode === "business_name") {
+    parts.push("по названию");
+  } else if (intent.preferCategory && intent.categorySlug) {
     const cat = categories.find((c) => c.slug === intent.categorySlug);
     parts.push(cat ? `подходящие: ${cat.name}` : "подходящая категория");
   } else if (intent.categorySlug) {
@@ -58,10 +81,17 @@ function intentHintLabel(
     parts.push(cat?.name ?? intent.categorySlug);
   }
   if (intent.city) parts.push(intent.city);
+  // Show at most two distinct hint stems (avoid dumping whole RU+EN expansion).
   if (intent.mustHints.length > 0) {
-    parts.push(intent.mustHints.slice(0, 2).join(", "));
+    const compact = intent.mustHints.filter((h) => !h.includes(" ")).slice(0, 2);
+    if (compact.length > 0) parts.push(compact.join(", "));
   }
-  if (!intent.preferCategory && intent.keywords.length > 0) {
+  if (
+    intent.queryMode !== "service_need" &&
+    intent.queryMode !== "browse" &&
+    !intent.preferCategory &&
+    intent.keywords.length > 0
+  ) {
     parts.push(intent.keywords.slice(0, 3).join(" · "));
   }
   if (options?.sortedByDistance || intent.nearMe) {
@@ -169,7 +199,7 @@ export function SearchResults({
 
       try {
         const client = createBrowserClient();
-        const catsPromise = getActiveCategories(client);
+        const catsPromise = fetchActiveBusinessCategories(client);
         const near = userCoords
           ? { lat: userCoords.lat, lng: userCoords.lng }
           : null;
@@ -181,7 +211,7 @@ export function SearchResults({
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                q: initialQuery,
+                q: initialQuery.trim().slice(0, 2000),
                 categorySlug: initialCategory,
                 city: initialCity,
                 hubId: initialHubId,
@@ -191,7 +221,16 @@ export function SearchResults({
           ]);
 
           if (cancelled) return;
-          if (!aiRes.ok) throw new Error(`AI search failed (${aiRes.status})`);
+          if (!aiRes.ok) {
+            const status = aiRes.status;
+            if (status === 429) {
+              throw new Error("Слишком много запросов — подождите немного");
+            }
+            if (status === 413) {
+              throw new Error("Слишком длинный запрос — вставьте адрес или название короче");
+            }
+            throw new Error("Не удалось выполнить поиск");
+          }
 
           const data = (await aiRes.json()) as AiSearchResponse;
           setCategories(cats);
@@ -207,6 +246,10 @@ export function SearchResults({
               .slice(0, 3)
               .map((c) => `«${c.from}» → «${c.to}»`);
             setSpellHint(`Исправили опечатку: ${bits.join(", ")}`);
+          } else if (data.message) {
+            setSpellHint(data.message);
+          } else if (data.correctedQuery) {
+            setSpellHint(`Ищем: ${data.correctedQuery}`);
           }
           return;
         }

@@ -1,12 +1,12 @@
 "use server";
 
 import { createServerClient } from "@/lib/supabase/server";
-import { userOwnsBusiness } from "@/lib/reviews/queries";
+import { businessHasOwner, userOwnsBusiness } from "@/lib/reviews/queries";
 
 export type ClaimStateResult =
   | {
       ok: true;
-      state: "owned" | "pending" | "available";
+      state: "owned" | "pending" | "available" | "locked";
       message?: string;
       managePath?: string;
     }
@@ -66,6 +66,7 @@ function buildVerificationDetails(proof: ClaimProofInput): string {
 export async function getBusinessClaimStateAction(
   businessId: string,
   businessSlug: string,
+  opts?: { nestedOffer?: boolean },
 ): Promise<ClaimStateResult> {
   const supabase = await createServerClient();
   const {
@@ -73,6 +74,18 @@ export async function getBusinessClaimStateAction(
   } = await supabase.auth.getUser();
 
   if (!user) {
+    if (opts?.nestedOffer) {
+      const claimed = await businessHasOwner(supabase, businessId).catch(
+        () => false,
+      );
+      if (claimed) {
+        return {
+          ok: true,
+          state: "locked",
+          message: "Услуги бизнеса с владельцем нельзя заявлять отдельно.",
+        };
+      }
+    }
     return {
       ok: false,
       state: "needs_auth",
@@ -89,6 +102,19 @@ export async function getBusinessClaimStateAction(
       message: "Вы уже управляете этим бизнесом.",
       managePath: managePathFor(businessSlug),
     };
+  }
+
+  if (opts?.nestedOffer) {
+    const claimed = await businessHasOwner(supabase, businessId).catch(
+      () => false,
+    );
+    if (claimed) {
+      return {
+        ok: true,
+        state: "locked",
+        message: "Услуги бизнеса с владельцем нельзя заявлять отдельно.",
+      };
+    }
   }
 
   const { data: pending, error } = await supabase

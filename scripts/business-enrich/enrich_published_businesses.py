@@ -45,8 +45,18 @@ from web_enrichment import (  # noqa: E402
     extract_website_profile_deep,
     is_plausible_service_title,
 )
-from enrich_resource_queue import run_resource_bfs, sanitize_street_line  # noqa: E402
+from enrich_resource_queue import (  # noqa: E402
+    is_booking_marketing_page,
+    is_booking_platform_host,
+    is_directory_social,
+    run_resource_bfs,
+    sanitize_street_line,
+)
 from shared_hosts import is_shared_non_identity_host  # noqa: E402
+from platform_saas_hosts import (  # noqa: E402
+    booking_url_from_maybe_saas,
+    is_platform_saas_host,
+)
 from source_record_urls import source_record_urls  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; KrugiBizEnrich/1.0; +https://krugi.app)"
@@ -193,6 +203,8 @@ def is_junk_email(email: str) -> bool:
     e = (email or "").lower().strip()
     if not e or "@" not in e:
         return True
+    if re.search(r"@(?:dikidi|glossgenius|fresha|vagaro|booksy)\.", e):
+        return True
     bad = (
         "godaddy.com",
         "example.com",
@@ -202,6 +214,15 @@ def is_junk_email(email: str) -> bool:
         "squarespace.com",
         "eyebytes.com",
         "ndiscovered.com",
+        # Booking / directory SaaS corporate inboxes — never the salon's.
+        "dikidi.net",
+        "dikidi.app",
+        "glossgenius.com",
+        "booksy.com",
+        "vagaro.com",
+        "squareup.com",
+        "calendly.com",
+        "fresha.com",
     )
     domain = e.split("@", 1)[-1]
     return any(domain == b or domain.endswith("." + b) for b in bad)
@@ -683,10 +704,12 @@ def enrich_one(
         ig = found.get("instagram_url")
         if not ig:
             for link in found.get("social_links") or []:
-                if "instagram.com" in str(link).lower():
+                if "instagram.com" in str(link).lower() and not is_directory_social(
+                    str(link)
+                ):
                     ig = link
                     break
-        if ig:
+        if ig and not is_directory_social(str(ig)):
             report["patch"]["instagram_url"] = str(ig).split("?")[0][:300]
             report["sources"]["instagram_url"] = "bfs"
     if found.get("yelp_url") and not biz.get("yelp_url"):
@@ -697,19 +720,29 @@ def enrich_one(
         and not is_shared_non_identity_host(website)
         and (not normalize_website(stored_website) or is_junk_website(stored_website))
     ):
-        report["patch"]["website"] = website
-        report["sources"]["website"] = "bfs"
+        if is_platform_saas_host(website):
+            book = booking_url_from_maybe_saas(website)
+            if book and not (biz.get("booking_url") or "").strip():
+                report["patch"]["booking_url"] = book.split("?")[0][:500]
+                report["sources"]["booking_url"] = "bfs"
+        else:
+            report["patch"]["website"] = website
+            report["sources"]["website"] = "bfs"
 
     if not (biz.get("booking_url") or "").strip():
         book = (found.get("booking_url") or "").strip() or None
         if not book:
             try:
                 from booking_extract import resolve_booking_url, is_booking_platform_url
+                from dikidi_extract import is_dikidi_company_page, booking_url_for_company, dikidi_company_id
 
                 seed = website or biz.get("website")
-                book = resolve_booking_url(seed) if seed else None
-                if not book and is_booking_platform_url(seed):
-                    book = normalize_website(seed)
+                if is_dikidi_company_page(seed):
+                    book = booking_url_for_company(dikidi_company_id(seed) or "")
+                else:
+                    book = resolve_booking_url(seed) if seed else None
+                    if not book and is_booking_platform_url(seed):
+                        book = normalize_website(seed)
             except Exception:
                 book = None
         if book:
@@ -732,7 +765,15 @@ def enrich_one(
 
     # Continue with website-deep offers / hours / yelp / geo using resolved website
     profile: dict[str, Any] = {"status": "skipped"}
-    if website:
+    try:
+        from dikidi_extract import is_dikidi_company_page as _is_dikidi_co
+    except Exception:  # pragma: no cover
+        def _is_dikidi_co(_u: str | None) -> bool:
+            return False
+
+    # Tenant Dikidi pages are fully mined in BFS — skip generic HTML crawl
+    # (it only pulls SaaS chrome and app-store «services»).
+    if website and not _is_dikidi_co(website):
         profile = extract_website_profile_deep(website)
         report["website_profile_status"] = profile.get("status")
         if profile.get("pages_tried"):
@@ -770,10 +811,13 @@ def enrich_one(
                     report["sources"]["short_description"] = "website"
 
             if "phone" not in report["patch"] and not biz.get("phone"):
-                phones = profile.get("phone") or []
-                if phones:
-                    report["patch"]["phone"] = phones[0][:40]
-                    report["sources"]["phone"] = "website"
+                # Marketing SaaS landings expose vendor support numbers, not the salon.
+                # Tenant Dikidi company pages already contributed phone via BFS.
+                if not is_booking_marketing_page(website):
+                    phones = profile.get("phone") or []
+                    if phones:
+                        report["patch"]["phone"] = phones[0][:40]
+                        report["sources"]["phone"] = "website"
             if "email" not in report["patch"] and not biz.get("email"):
                 emails = [e for e in (profile.get("email") or []) if not is_junk_email(e)]
                 if emails:
@@ -781,7 +825,7 @@ def enrich_one(
                     report["sources"]["email"] = "website"
             if "instagram_url" not in report["patch"] and not biz.get("instagram_url"):
                 for link in profile.get("social_links") or []:
-                    if "instagram.com" in link.lower():
+                    if "instagram.com" in link.lower() and not is_directory_social(link):
                         report["patch"]["instagram_url"] = link.split("?")[0][:300]
                         report["sources"]["instagram_url"] = "website"
                         break
@@ -818,37 +862,90 @@ def enrich_one(
                     report["patch"]["opening_hours"] = weekly
                     report["sources"]["opening_hours"] = "website"
 
-            # Offers from service pages
-            collected: list[dict[str, Any]] = []
-            for page in discover_service_pages(website):
-                html = http_get(page)
-                if not html:
-                    continue
-                for o in extract_services_from_html(html):
-                    key = o["title"].lower()
-                    if any(x["title"].lower() == key for x in collected):
+            # HTML heuristic offers for ordinary websites only.
+            if not is_booking_marketing_page(website):
+                collected_html: list[dict[str, Any]] = []
+                for page in discover_service_pages(website):
+                    html = http_get(page)
+                    if not html:
                         continue
-                    collected.append(o)
-                if len(collected) >= 20:
-                    break
-                time.sleep(0.15)
-            for title in profile.get("services") or found.get("services") or []:
-                t = str(title).strip()
-                if not is_plausible_service_title(t):
-                    continue
-                key = t.lower()
-                if any(x["title"].lower() == key for x in collected):
-                    continue
-                collected.append(
-                    {
-                        "title": t[:120],
-                        "price_mode": "contact",
-                        "currency": "USD",
-                    }
-                )
-            if collected:
-                report["offers"] = collected[:30]
-                report["sources"]["offers"] = f"website:{len(collected)}"
+                    for o in extract_services_from_html(html):
+                        key = o["title"].lower()
+                        if any(x["title"].lower() == key for x in collected_html):
+                            continue
+                        collected_html.append(o)
+                    if len(collected_html) >= 20:
+                        break
+                    time.sleep(0.15)
+                for title in profile.get("services") or []:
+                    t = str(title).strip()
+                    if not is_plausible_service_title(t):
+                        continue
+                    key = t.lower()
+                    if any(x["title"].lower() == key for x in collected_html):
+                        continue
+                    collected_html.append(
+                        {
+                            "title": t[:120],
+                            "price_mode": "contact",
+                            "currency": "USD",
+                        }
+                    )
+                if collected_html:
+                    report["offers"] = collected_html[:40]
+                    report["sources"]["offers"] = f"website:{len(collected_html)}"
+
+    # Structured offers from BFS (Dikidi company API, etc.) — even when the
+    # generic website crawl was skipped for the tenant booking page.
+    if not report.get("offers"):
+        collected: list[dict[str, Any]] = []
+        for raw_off in found.get("service_offers") or found.get("offers") or []:
+            if not isinstance(raw_off, dict):
+                continue
+            t = str(raw_off.get("title") or "").strip()
+            if not t or not is_plausible_service_title(
+                t,
+                has_price=raw_off.get("price_amount") is not None
+                or raw_off.get("price") is not None,
+                has_duration=bool(raw_off.get("duration_minutes")),
+                typed_service=True,
+            ):
+                continue
+            entry: dict[str, Any] = {
+                "title": t[:160],
+                "price_mode": raw_off.get("price_mode") or "contact",
+                "currency": raw_off.get("currency") or "USD",
+            }
+            if raw_off.get("price_amount") is not None:
+                entry["price_amount"] = raw_off["price_amount"]
+                entry["price_mode"] = raw_off.get("price_mode") or "fixed"
+            elif raw_off.get("price") is not None:
+                entry["price_amount"] = raw_off["price"]
+                entry["price_mode"] = "fixed"
+            if raw_off.get("price_min") is not None:
+                entry["price_min"] = raw_off["price_min"]
+                entry["price_mode"] = "range"
+            if raw_off.get("price_max") is not None:
+                entry["price_max"] = raw_off["price_max"]
+                entry["price_mode"] = "range"
+            if raw_off.get("duration_minutes"):
+                entry["duration_minutes"] = raw_off["duration_minutes"]
+            collected.append(entry)
+        if collected:
+            report["offers"] = collected[:40]
+            report["sources"]["offers"] = f"bfs:{len(collected)}"
+
+    if (
+        found.get("opening_hours")
+        and not biz.get("opening_hours")
+        and "opening_hours" not in report["patch"]
+    ):
+        report["patch"]["opening_hours"] = found["opening_hours"]
+        report["sources"]["opening_hours"] = "bfs"
+
+    if found.get("image_url") and not (biz.get("image_url") or "").strip():
+        report["patch"]["image_url"] = str(found["image_url"])[:500]
+        report["sources"]["image_url"] = "bfs"
 
     # Instagram enrich description if still empty
     ig = report["patch"].get("instagram_url") or biz.get("instagram_url")
@@ -882,6 +979,16 @@ def enrich_one(
         if geo.ok:
             report["sources"]["geo"] = "nominatim"
             report["sources"]["google_maps_url"] = "address_query"
+    elif (
+        street
+        and biz.get("latitude") is not None
+        and biz.get("longitude") is not None
+        and biz.get("location_precision") != "street"
+        and "location_precision" not in report["patch"]
+    ):
+        if sanitize_street_line(str(street)):
+            report["patch"]["location_precision"] = "street"
+            report["sources"]["location_precision"] = "street_coords_present"
 
     # Yelp
     if not biz.get("yelp_url") and "yelp_url" not in report["patch"]:
@@ -898,8 +1005,8 @@ def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None, 
     select = (
         "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
         "address_line,description,short_description,google_maps_url,google_rating,"
-        "google_reviews_count,yelp_url,latitude,longitude,opening_hours,image_url,"
-        "source_url,payment_methods,status"
+        "google_reviews_count,yelp_url,latitude,longitude,location_precision,"
+        "opening_hours,image_url,booking_url,source_url,payment_methods,status"
     )
     if id_ or slug:
         params: dict[str, str] = {"select": select, "limit": "1"}
@@ -1033,7 +1140,12 @@ def apply_report(client: SupabaseRest, report: dict[str, Any]) -> dict[str, Any]
             "price_min": off.get("price_min"),
             "price_max": off.get("price_max"),
             "currency": "USD",
-            "attributes": {},
+            "attributes": (
+                {"duration": f"{int(off['duration_minutes'])} мин"}
+                if off.get("duration_minutes")
+                else (off.get("attributes") if isinstance(off.get("attributes"), dict) else {})
+            )
+            or {},
             "is_available": True,
             "published_at": "now()",
         }

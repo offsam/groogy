@@ -299,6 +299,42 @@ export function parseEventOccurrences(text: string): EventOccurrence[] {
   return out;
 }
 
+const EMOJI_PREFIX_RE =
+  /^(?:[\u{1F300}-\u{1FAFF}\u{2700}-\u{27BF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{FE0F}\u{200D}]+\s*)+/u;
+const RU_DATE_PREFIX_RE =
+  /^\d{1,2}\s+(?:январ[ья]|феврал[ья]|марта?|апрел[ья]|ма[йя]|июн[ья]|июл[ья]|августа?|сентябр[ья]|октябр[ья]|ноябр[ья]|декабр[ья])\s*[-–—:：,]?\s*/iu;
+const EN_DATE_PREFIX_RE =
+  /^(?:january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2}\s*[-–—:：,]?\s*/i;
+const NUMERIC_DATE_PREFIX_RE = /^\d{1,2}\/\d{1,2}(?:\/\d{2,4})?\s*[-–—:：,]?\s*/;
+
+/** «💻 31 июля - Speed Dating…» → «Speed Dating…» for the public event title. */
+export function titleFromOccurrenceLabel(
+  label: string | null | undefined,
+): string | null {
+  let s = (label || "").replace(/\s+/g, " ").trim();
+  if (!s) return null;
+  s = s.replace(EMOJI_PREFIX_RE, "").trim();
+  s = s.replace(RU_DATE_PREFIX_RE, "");
+  s = s.replace(EN_DATE_PREFIX_RE, "");
+  s = s.replace(NUMERIC_DATE_PREFIX_RE, "");
+  s = s.replace(/^[-–—:：,\s]+/, "").replace(/[:：]\s*$/, "").trim();
+  const letters = (s.match(/\p{L}/gu) || []).length;
+  if (letters < 6) return null;
+  return s.slice(0, 120);
+}
+
+/** First usable session name from a multi-date affiche schedule. */
+export function firstScheduleEventTitle(
+  text: string | null | undefined,
+): string | null {
+  if (!text?.trim()) return null;
+  for (const occ of parseEventOccurrences(demathAlnum(text))) {
+    const title = titleFromOccurrenceLabel(occ.label);
+    if (title) return title;
+  }
+  return null;
+}
+
 /** Day-level date keys (YYYY-MM-DD) of every session in the post. */
 export function eventDayKeys(text: string | null | undefined): string[] {
   if (!text?.trim()) return [];
@@ -348,12 +384,40 @@ function parsePrice(raw: string): { label: string; amount: number | null } {
     const amount = Number(m[1]!.replace(",", "."));
     return { label, amount: Number.isFinite(amount) ? amount : null };
   }
+  if (/\bбесплатн|\bfree\b|\bno\s+charge\b/i.test(label)) {
+    return { label: "Бесплатно", amount: 0 };
+  }
   const rub = label.match(/(\d+(?:[.,]\d{1,2})?)\s*(?:usd|доллар)/i);
   if (rub) {
     const amount = Number(rub[1]!.replace(",", "."));
     return { label, amount: Number.isFinite(amount) ? amount : null };
   }
   return { label, amount: null };
+}
+
+const PRICE_DOLLAR_RE =
+  /(?:всего\s+за|за|от|стоимость|цена|билеты?|tickets?|price|cost|only)\s*\$\s*(\d+(?:[.,]\d{1,2})?)|\$\s*(\d+(?:[.,]\d{1,2})?)\s*(?:за|\/|за\s+кажд)/i;
+/** Cyrillic-safe: JS \w / \b are ASCII-only and miss «Бесплатный». */
+const FREE_EVENT_RE =
+  /бесплатн|free\s+(?:event|entry|admission|online|speed)|\bfree\b|no\s+charge/i;
+
+/** Labeled «Цена:» first; else free / `$20` in the body. */
+function inferPrice(
+  text: string,
+  labeledRaw: string | null,
+): { label: string; amount: number | null } | null {
+  if (labeledRaw) return parsePrice(labeledRaw);
+  if (FREE_EVENT_RE.test(text)) return { label: "Бесплатно", amount: 0 };
+  const m = text.match(PRICE_DOLLAR_RE);
+  if (m) {
+    const amount = Number((m[1] || m[2] || "").replace(",", "."));
+    if (!Number.isFinite(amount)) return null;
+    return {
+      label: m[0].replace(/\s+/g, " ").trim().slice(0, 120),
+      amount,
+    };
+  }
+  return null;
 }
 
 function preferRegistrationUrl(urls: string[]): string | null {
@@ -460,7 +524,7 @@ export function structureEventFromText(
     "Price",
     "Стоимость",
   ]);
-  const price = priceRaw ? parsePrice(priceRaw) : null;
+  const price = inferPrice(text, priceRaw);
   const paymentMethods = parsePaymentMethods(text);
 
   const phones = extractPhonesFromText(text);

@@ -25,6 +25,8 @@ import type { QueueUpdate } from "@/types/update";
 type QueueRow = {
   id: string;
   description: string | null;
+  description_original?: string | null;
+  source_language?: string | null;
   source_text: string | null;
   title: string | null;
   phone: string[] | null;
@@ -103,7 +105,7 @@ export async function finalizePrePublishEnrich(
   const { data: row, error } = await supabase
     .from("import_review_items")
     .select(
-      "id, description, source_text, title, phone, email, instagram, website, address_line, city, postal_code, services, promotions, updates, entity_type, target_collection",
+      "id, description, description_original, source_language, source_text, title, phone, email, instagram, website, address_line, city, postal_code, services, promotions, updates, entity_type, target_collection",
     )
     .eq("id", itemId)
     .maybeSingle();
@@ -157,13 +159,32 @@ export async function finalizePrePublishEnrich(
     }
   }
 
-  if (!(item.address_line || "").trim()) {
+  // Address from source text: fill empty, and repair city stolen from the
+  // street name («Irvine» ⊂ «18062 Irvine Blvd» while the post says Tustin, CA).
+  {
     const addr = extractUsStreetAddress(blob);
-    if (addr.addressLine) {
+    const curStreet = (item.address_line || "").trim();
+    const curCity = (item.city || "").trim();
+    if (!curStreet && addr.addressLine) {
       patch.address_line = addr.addressLine;
       found.push("address_line");
     }
-    if (!(item.city || "").trim() && addr.city) {
+    const streetForCheck = String(
+      patch.address_line || curStreet || addr.addressLine || "",
+    );
+    const cityIsStreetToken =
+      Boolean(curCity) &&
+      streetForCheck.toLowerCase().includes(curCity.toLowerCase()) &&
+      new RegExp(
+        `\\b${curCity.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}\\b\\s+(?:street|st|avenue|ave|boulevard|blvd|road|rd|drive|dr|lane|ln|court|ct|place|pl|way)\\b`,
+        "i",
+      ).test(streetForCheck);
+    if (
+      addr.city &&
+      (!curCity ||
+        (cityIsStreetToken &&
+          addr.city.toLowerCase() !== curCity.toLowerCase()))
+    ) {
       patch.city = addr.city;
       found.push("city");
     }
@@ -260,6 +281,48 @@ export async function finalizePrePublishEnrich(
     if (desc && desc !== (item.description || "").trim()) {
       patch.description = desc;
       if (!found.includes("description")) found.push("description");
+    }
+  }
+
+  // EN → RU so admin preview + approve already show Russian; EN behind «оригинал».
+  {
+    const descForTranslate = String(
+      patch.description ?? item.description ?? "",
+    ).trim();
+    const target = (item.target_collection || "").toLowerCase();
+    const translateTitle =
+      target === "events" ||
+      target === "jobs" ||
+      target === "marketplace" ||
+      target === "lechu" ||
+      target === "transfers" ||
+      target === "real_estate";
+    if (descForTranslate) {
+      const { resolvePublishNarrative } = await import(
+        "@/lib/content/translate-copy-to-ru"
+      );
+      const narrative = await resolvePublishNarrative({
+        title: (item.title || "").trim() || "—",
+        description: descForTranslate,
+        descriptionOriginal: item.description_original ?? null,
+        sourceLanguage: item.source_language ?? null,
+        translateTitle,
+      });
+      if (
+        narrative.description &&
+        narrative.description !== (item.description || "").trim()
+      ) {
+        patch.description = narrative.description;
+        if (!found.includes("description")) found.push("description");
+      }
+      if (narrative.descriptionOriginal) {
+        patch.description_original = narrative.descriptionOriginal;
+        found.push("description_original");
+      }
+      if (narrative.sourceLanguage) {
+        patch.source_language = narrative.sourceLanguage;
+        found.push("source_language");
+      }
     }
   }
 

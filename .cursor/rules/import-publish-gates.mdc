@@ -1,0 +1,40 @@
+# Import / publish / merge system rules (КРУГИ)
+
+Standing gates from the Jul 2026 backlog — do not re-introduce one-off workarounds.
+
+## Merge (R01)
+- Fill-empty / union only; never overwrite non-empty keep fields (including `image_url`).
+- Catalog donor is **destroyed** after merge (hard delete); archive only if FK blocks delete.
+- Merge never auto-publishes — archived → `pending` at most; Approve is separate.
+- Queue twins stay `status=duplicate`.
+
+## Enrich SaaS (R02 / R08)
+- `PLATFORM_SAAS_HOSTS` / `isPlatformSaasHost`: dikidi, glossgenius, fresha, vagaro, booksy, calendly, …
+- SaaS URL → `booking_url` only; never card `website` / platform phone / `@dikidi.` email / platform IG.
+- Keep TS (`lib/import-review/platform-saas-hosts.ts`) and Python (`scripts/business-enrich/platform_saas_hosts.py`) in sync.
+
+## Street + geo (R03 / R04)
+- No street → not `businesses` (specialist or skip). Enforce on approve **and** autopublish.
+- Never default `city` / service_area to `"Orange County"`.
+
+## Recommendations (R05)
+- Third-party reco without self-offer → attach/suspect only; do not create new approved entity.
+
+## Events (R06 / R07)
+- `purge_past_events(10, 30)` in `run_scheduled_maintenance`.
+- Multi-date posts: split to N events or block approve until structured.
+
+## Categories (R09 / R10)
+- Ban publish with `pro_other` / missing professional category.
+- `celebrations` / `party_planning` → business|specialist by street, never affiche `events` table.
+- `category=events` → affiche only with date signal.
+
+## Content (R12 / R13)
+- Approve runs `redactContactsFromPublicText` on description.
+- News / office-move → updates via `isNewsUpdateTitle`, never services.
+
+# Thin / visual pro clones (Ілля×2, Оля×2, Юля×2)
+- Weak first-name cards need phone|IG|website|email — Telegram post URL alone is not enough (`lib/professional/thin-card-policy.ts`).
+- Same normalized display_name already approved → block publish (merge instead).
+- Cleanup: `scripts/business-enrich/collapse_thin_professional_dups.py --region oc --apply`.
+

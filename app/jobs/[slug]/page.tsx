@@ -8,6 +8,7 @@ import { createServiceRoleClient } from "@/lib/supabase/service";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ claim?: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function JobDetailPage({ params }: PageProps) {
+export default async function JobDetailPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
+  const { claim } = await searchParams;
   const catalog = createServiceRoleClient();
   const job = await getJobBySlug(catalog, slug).catch(() => null);
   if (!job || job.status !== "published") notFound();
@@ -39,5 +41,23 @@ export default async function JobDetailPage({ params }: PageProps) {
   } = await session.auth.getUser();
   const isAdmin = user ? await userIsAdmin(session).catch(() => false) : false;
 
-  return <JobProfileView isAdmin={isAdmin} job={job} />;
+  let isOwner = false;
+  if (user) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data } = await (catalog as any)
+      .from("jobs")
+      .select("owner_profile_id")
+      .eq("id", job.id)
+      .maybeSingle();
+    isOwner = Boolean(data?.owner_profile_id && data.owner_profile_id === user.id);
+  }
+
+  return (
+    <JobProfileView
+      autoClaim={claim === "1" && Boolean(user) && !isOwner && !isAdmin}
+      isAdmin={isAdmin}
+      isOwner={isOwner || isAdmin}
+      job={job}
+    />
+  );
 }

@@ -629,6 +629,22 @@ _RELATED_SITE_SKIP_HOSTS = (
     "booksy.com",
     "vagaro.com",
     "gumroad.com",
+    # App stores / Apple / Huawei / RuStore / iCloud
+    "itunes.apple.com",
+    "apps.apple.com",
+    "apple.com",
+    "apple.co",
+    "icloud.com",
+    "play.google.com",
+    "appgallery.huawei.com",
+    "huawei.com",
+    "rustore.ru",
+    "support.dikidi.app",
+    "dikidi.app",
+    "vk.com",
+    "vk.ru",
+    "yandex.ru",
+    "ya.ru",
 )
 
 
@@ -1117,12 +1133,27 @@ SERVICE_TITLE_STOP = {
 }
 SERVICE_VENDOR_RE = re.compile(
     r"\b(?:dealer\.com|wordpress|wix|squarespace|shopify|godaddy|weebly|"
-    r"vagaro|glossgenius|booksy|schedulicity|mangomint|fresha)\b",
+    r"vagaro|glossgenius|booksy|schedulicity|mangomint|fresha|dikidi)\b",
     re.I,
 )
 SERVICE_MARKETING_RE = re.compile(
     r"(?:awe-inspiring|get it all in the|intuitive\.?\s*electric|"
     r"digital marketing solutions|operations tools)",
+    re.I,
+)
+# App-store / cross-promo chrome scraped from booking SaaS footers (RuStore, etc.).
+SERVICE_APP_STORE_RE = re.compile(
+    r"(?:шутер|рогалик|\brpg\b|war robots|arena breakout|armor attack|"
+    r"игры\s+(?:месяца|без\s+интернета)|"
+    r"яндекс\s+(?:браузер|телемост)|"
+    r"вконтакте|одноклассники|"
+    r"\bozon\b|dikidi\s+online|"
+    r"социальн(?:ые|ая)\s+сет|"
+    r"мамлайф|макс:\s*общение|"
+    r"ооо\s*[\"«']|"
+    r"объявления\s+и\s+услуги|"
+    r"кино,?\s*сериалы|"
+    r"товары,?\s*одежда,?\s*билеты)",
     re.I,
 )
 
@@ -1169,6 +1200,8 @@ def is_plausible_service_title(
     if re.fullmatch(r"\d+", key):
         return False
     if SERVICE_VENDOR_RE.search(raw) or SERVICE_MARKETING_RE.search(raw):
+        return False
+    if SERVICE_APP_STORE_RE.search(raw):
         return False
     if SERVICE_CONTACT_RE.search(raw) or SERVICE_CTA_RE.match(raw.strip(" .|-")):
         return False

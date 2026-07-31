@@ -1,20 +1,15 @@
+import { unstable_cache } from "next/cache";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
-import {
-  getActiveCategories,
-  searchBusinesses,
-} from "@/lib/supabase/queries";
+import { getActiveCategories } from "@/lib/supabase/queries";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import {
-  searchMarketplaceListings,
-  searchLechuListings,
-  searchTransferListings,
-} from "@/lib/listings/queries";
-import { listApprovedProfessionals } from "@/lib/professional/queries";
-import { listPublishedJobs } from "@/lib/jobs/queries";
+  CATALOG_CACHE_TAGS,
+  CATALOG_CACHE_TTL,
+} from "@/lib/platform/catalog-cache";
 import {
   getRegionHubsByIds,
-  locationTextMatchesHub,
+  locationFieldsMatchHub,
   parseHubIds,
 } from "@/lib/regions/hubs";
 
@@ -23,56 +18,237 @@ function db(client: unknown): SupabaseClient {
   return client as SupabaseClient;
 }
 
-type EntityStamp = { created: string | null; updated: string | null };
+type EntityStamp = {
+  id?: string;
+  created: string | null;
+  updated: string | null;
+  categorySlug?: string | null;
+};
 
 type HubScopedRow = {
+  id?: string;
   city: string | null;
+  region?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
   county_geoid?: string | null;
   created_at: string | null;
   updated_at: string | null;
   published_at?: string | null;
+  category_id?: string | null;
+  categories?: { slug?: string | null } | { slug?: string | null }[] | null;
+  category_slug?: string | null;
 };
 
-/** Empty city = nationwide / unset → visible in every hub (same as jobs/pros). */
-function rowMatchesHub(
-  row: { city?: string | null; county_geoid?: string | null },
-  hubId: string,
-): boolean {
-  const hubs = getRegionHubsByIds(parseHubIds(hubId));
-  if (row.county_geoid) {
-    const allowed = hubs.flatMap((h) => [...h.countyGeoids]);
-    if (allowed.length > 0) return allowed.includes(row.county_geoid);
+const STAMP_LIMIT = 5000;
+
+function asCoord(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim()) {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : null;
   }
-  const text = row.city?.trim();
-  if (!text) return true;
-  return hubs.some((hub) => locationTextMatchesHub(text, hub));
+  return null;
 }
 
-async function loadHubScopedPublished(
+/** Same hub filter as search / listing pages (USA Location Canon). */
+function rowMatchesHub(row: HubScopedRow, hubId: string): boolean {
+  const hubs = getRegionHubsByIds(parseHubIds(hubId));
+  return hubs.some((hub) =>
+    locationFieldsMatchHub(
+      {
+        city: row.city,
+        region: row.region,
+        latitude: asCoord(row.latitude),
+        longitude: asCoord(row.longitude),
+        county_geoid: row.county_geoid,
+      },
+      hub,
+    ),
+  );
+}
+
+function categorySlugFromRow(row: HubScopedRow): string | null {
+  const nested = row.categories;
+  if (Array.isArray(nested)) {
+    return nested[0]?.slug?.trim() || null;
+  }
+  if (nested && typeof nested === "object") {
+    return nested.slug?.trim() || null;
+  }
+  return row.category_slug?.trim() || null;
+}
+
+/**
+ * Lightweight stamp rows for day-buckets / hub filter.
+ * Never loads full entity payloads (name, description, contacts, …).
+ */
+async function loadStampRows(
   client: unknown,
   table: string,
   hubId: string | null,
-  opts?: { preferPublishedAt?: boolean },
+  opts?: {
+    status?: string;
+    preferPublishedAt?: boolean;
+    withCategory?: boolean;
+  },
 ): Promise<EntityStamp[]> {
   try {
-    const { data, error } = await db(client)
-      .from(table)
-      .select("city, county_geoid, created_at, updated_at, published_at")
-      .eq("status", "published")
-      .limit(5000);
-    if (error || !data) return [];
-    return (data as unknown as HubScopedRow[])
+    const status = opts?.status ?? "published";
+    // businesses/professionals: full geo for canon match. jobs/events: city + county only.
+    const richGeo = table === "businesses" || table === "professionals";
+    const geoCols = richGeo
+      ? "id, city, region, latitude, longitude, county_geoid, created_at, updated_at"
+      : "id, city, county_geoid, created_at, updated_at";
+    const baseCols = opts?.preferPublishedAt
+      ? `${geoCols}, published_at`
+      : geoCols;
+    const columns = opts?.withCategory
+      ? `${baseCols}, category_id, categories(slug)`
+      : baseCols;
+
+    const buildQuery = () => {
+      let query = db(client).from(table).select(columns).eq("status", status);
+      if (hubId) {
+        const hubs = getRegionHubsByIds(parseHubIds(hubId));
+        const geoids = hubs.flatMap((h) => [...h.countyGeoids]);
+        // Prefer county filter when possible; still over-fetch null county for text/coord fallback.
+        if (geoids.length > 0) {
+          query = query.or(
+            `county_geoid.in.(${geoids.join(",")}),county_geoid.is.null`,
+          );
+        }
+      }
+      return query.order("id", { ascending: true });
+    };
+
+    // PostgREST often caps one response at ~1000 — page so hub counts match the list.
+    const pageSize = 1000;
+    const maxRows = STAMP_LIMIT;
+    const raw: HubScopedRow[] = [];
+    for (let offset = 0; offset < maxRows; offset += pageSize) {
+      const { data, error } = await buildQuery().range(
+        offset,
+        offset + pageSize - 1,
+      );
+      if (error || !data) break;
+      const batch = data as unknown as HubScopedRow[];
+      raw.push(...batch);
+      if (batch.length < pageSize) break;
+    }
+
+    return raw
       .filter((row) => !hubId || rowMatchesHub(row, hubId))
       .map((row) => {
         const published = row.published_at ?? null;
         const created = row.created_at ?? null;
         return {
+          id: row.id,
           created: opts?.preferPublishedAt ? published || created : created,
           updated: row.updated_at ?? null,
+          categorySlug: opts?.withCategory ? categorySlugFromRow(row) : null,
         };
       });
   } catch {
     return [];
+  }
+}
+
+/** Professionals public view — stamp columns only. */
+async function loadProfessionalStamps(
+  client: unknown,
+  hubId: string | null,
+): Promise<EntityStamp[]> {
+  try {
+    const buildQuery = () => {
+      let query = db(client)
+        .from("professionals_public")
+        .select(
+          "id, city, region, latitude, longitude, county_geoid, created_at, published_at, category_slug",
+        );
+      if (hubId) {
+        const hubs = getRegionHubsByIds(parseHubIds(hubId));
+        const geoids = hubs.flatMap((h) => [...h.countyGeoids]);
+        if (geoids.length > 0) {
+          query = query.or(
+            `county_geoid.in.(${geoids.join(",")}),county_geoid.is.null`,
+          );
+        }
+      }
+      return query.order("id", { ascending: true });
+    };
+
+    const pageSize = 1000;
+    const maxRows = STAMP_LIMIT;
+    const raw: HubScopedRow[] = [];
+    for (let offset = 0; offset < maxRows; offset += pageSize) {
+      const { data, error } = await buildQuery().range(
+        offset,
+        offset + pageSize - 1,
+      );
+      if (error || !data) break;
+      const batch = data as unknown as HubScopedRow[];
+      raw.push(...batch);
+      if (batch.length < pageSize) break;
+    }
+
+    return raw
+      .filter((row) => !hubId || rowMatchesHub(row, hubId))
+      .map((row) => {
+        const published = row.published_at ?? null;
+        const created = row.created_at ?? null;
+        return {
+          id: row.id,
+          created: published || created,
+          updated: published || created,
+          categorySlug: row.category_slug?.trim() || null,
+        };
+      });
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Listing catalog views (marketplace/lechu/transfers): city + published_at only —
+ * no county_geoid on the view. Hub filter is city-text (empty city = all hubs).
+ */
+async function loadListingStamps(
+  client: unknown,
+  view: string,
+  hubId: string | null,
+): Promise<{ total: number; stamps: EntityStamp[] }> {
+  try {
+    const stampLimit = hubId ? 500 : STAMP_LIMIT;
+    const [{ count }, { data }] = await Promise.all([
+      db(client).from(view).select("id", { count: "exact", head: true }),
+      db(client)
+        .from(view)
+        .select("id, city, published_at, updated_at")
+        .limit(stampLimit),
+    ]);
+
+    type ListingStampRow = {
+      id?: string;
+      city?: string | null;
+      published_at?: string | null;
+      updated_at?: string | null;
+    };
+
+    const stamps = ((data ?? []) as ListingStampRow[])
+      .filter((row) => !hubId || rowMatchesHub({ city: row.city }, hubId))
+      .map((row) => ({
+        id: row.id,
+        created: row.published_at ?? row.updated_at ?? null,
+        updated: row.updated_at ?? null,
+      }));
+
+    return {
+      total: hubId ? stamps.length : (count ?? stamps.length),
+      stamps,
+    };
+  } catch {
+    return { total: 0, stamps: [] };
   }
 }
 
@@ -245,7 +421,7 @@ function shortUnit(n: number, one: string, few: string, many: string): string {
   return many;
 }
 
-export async function getHubResourceStats(
+async function computeHubResourceStats(
   hubId: string | null | undefined,
   options?: { since?: string | null },
 ): Promise<HubResourceStats> {
@@ -255,9 +431,10 @@ export async function getHubResourceStats(
     return emptyHubResourceStats();
   }
 
-  // null / "all" = same formula as a hub, but across the whole catalog.
   const rawHub = hubId?.trim() || "";
-  const scopedHub = rawHub && rawHub !== "all" ? rawHub : null;
+  // USA overview = whole catalog (same as hub=all), not a county-scoped metro.
+  const scopedHub =
+    rawHub && rawHub !== "all" && rawHub !== "usa-overview" ? rawHub : null;
 
   const sinceRaw = options?.since?.trim() || null;
   const sinceMs = sinceRaw ? Date.parse(sinceRaw) : Number.NaN;
@@ -274,64 +451,44 @@ export async function getHubResourceStats(
     // Local misconfig — keep anon (may return 0 after RLS harden).
   }
 
-  const hubOpts = scopedHub ? { hubId: scopedHub } : {};
+  const todayKey = laDateKey(new Date());
+  const yKey = yesterdayLaKey(todayKey);
 
   const [
-    businesses,
+    businessStamps,
     categories,
     marketplace,
-    professionals,
-    jobs,
+    professionalStamps,
+    jobStamps,
     realEstateStamps,
     eventStamps,
     vehicleStamps,
     lechu,
     transfers,
+    national,
   ] = await Promise.all([
-    searchBusinesses(catalog, hubOpts).catch(() => []),
+    loadStampRows(catalog, "businesses", scopedHub, {
+      status: "approved",
+      withCategory: true,
+    }),
     getActiveCategories(client).catch(() => []),
-    searchMarketplaceListings(client, {
-      ...hubOpts,
-      page: 1,
-      pageSize: scopedHub ? 200 : 500,
-    }).catch(() => ({ listings: [], total: 0, page: 1, pageSize: 200 })),
-    listApprovedProfessionals(catalog, {
-      ...hubOpts,
-      limit: scopedHub ? 2000 : 5000,
-    }).catch(() => []),
-    listPublishedJobs(catalog, {
-      ...hubOpts,
-      limit: scopedHub ? 500 : 2000,
-    }).catch(() => []),
-    loadHubScopedPublished(catalog, "real_estate_listings", scopedHub),
-    loadHubScopedPublished(catalog, "events", scopedHub),
-    loadHubScopedPublished(catalog, "vehicles", scopedHub),
-    searchLechuListings(client, {
-      ...hubOpts,
-      page: 1,
-      pageSize: scopedHub ? 100 : 500,
-    }).catch(() => ({ listings: [], total: 0, page: 1, pageSize: 100 })),
-    searchTransferListings(client, {
-      ...hubOpts,
-      page: 1,
-      pageSize: scopedHub ? 100 : 500,
-    }).catch(() => ({ listings: [], total: 0, page: 1, pageSize: 100 })),
+    loadListingStamps(client, "marketplace_catalog", scopedHub),
+    loadProfessionalStamps(catalog, scopedHub),
+    loadStampRows(catalog, "jobs", scopedHub, {
+      status: "published",
+      preferPublishedAt: true,
+    }),
+    loadStampRows(catalog, "real_estate_listings", scopedHub),
+    loadStampRows(catalog, "events", scopedHub),
+    loadStampRows(catalog, "vehicles", scopedHub),
+    loadListingStamps(client, "lechu_catalog", scopedHub),
+    loadListingStamps(client, "transfers_catalog", scopedHub),
+    scopedHub ? Promise.resolve(null) : loadNationalCounts(client, catalog),
   ]);
 
-  const national = scopedHub ? null : await loadNationalCounts(client, catalog);
-
-  const professionalStamps: EntityStamp[] = professionals.map((p) => ({
-    created: p.publishedAt ?? p.createdAt ?? null,
-    updated: p.publishedAt ?? p.createdAt ?? null,
-  }));
-  const jobStamps: EntityStamp[] = jobs.map((j) => ({
-    created: j.publishedAt ?? j.createdAt ?? null,
-    updated: j.publishedAt ?? j.createdAt ?? null,
-  }));
-
-  const businessIds = businesses.map((b) => b.id);
-  const todayKey = laDateKey(new Date());
-  const yKey = yesterdayLaKey(todayKey);
+  const businessIds = businessStamps
+    .map((b) => b.id)
+    .filter((id): id is string => Boolean(id));
 
   type Stamp = { created: string | null; updated: string | null };
   const stamps: Stamp[] = [];
@@ -341,88 +498,64 @@ export async function getHubResourceStats(
   let offersYesterday = 0;
   let offersSince = 0;
 
-  const bizCreatedById = new Map<string, string | null>();
   if (businessIds.length > 0) {
-    const [{ data: offerRows, count }, { data: meta }] = await Promise.all([
-      client
+    // Chunk .in() to avoid URL limits on large hubs.
+    const chunkSize = 200;
+    const offerChunks: Array<{
+      created_at: string | null;
+      updated_at: string | null;
+    }> = [];
+    let offerExact: number | null = null;
+
+    for (let i = 0; i < businessIds.length; i += chunkSize) {
+      const chunk = businessIds.slice(i, i + chunkSize);
+      const { data: offerRows, count } = await client
         .from("business_offers")
         .select("id, created_at, updated_at", { count: "exact" })
-        .in("business_id", businessIds)
+        .in("business_id", chunk)
         .eq("status", "active")
         .eq("visibility", "public")
         .eq("is_available", true)
-        .limit(2000),
-      client
-        .from("businesses")
-        .select("id, created_at, updated_at, category_id")
-        .in("id", businessIds)
-        .eq("status", "approved"),
-    ]);
+        .limit(2000);
+      offerExact = (offerExact ?? 0) + (count ?? offerRows?.length ?? 0);
+      for (const row of offerRows ?? []) {
+        offerChunks.push({
+          created_at: (row.created_at as string) ?? null,
+          updated_at: (row.updated_at as string) ?? null,
+        });
+      }
+    }
 
-    offerCount = count ?? offerRows?.length ?? 0;
-    for (const row of offerRows ?? []) {
-      const created = (row.created_at as string) ?? null;
-      const updated = (row.updated_at as string) ?? null;
+    offerCount = offerExact ?? offerChunks.length;
+    for (const row of offerChunks) {
+      const created = row.created_at;
+      const updated = row.updated_at;
       stamps.push({ created, updated });
       if (inLaDay(created, todayKey)) offersToday += 1;
       if (inLaDay(created, yKey)) offersYesterday += 1;
       if (createdSince(created, sinceOk)) offersSince += 1;
     }
-    for (const row of meta ?? []) {
-      const created = (row.created_at as string) ?? null;
-      const updated = (row.updated_at as string) ?? null;
-      bizCreatedById.set(row.id as string, created);
-      stamps.push({ created, updated });
-    }
-  } else {
-    for (const b of businesses) {
-      bizCreatedById.set(b.id, b.createdAt ?? null);
-      stamps.push({ created: b.createdAt ?? null, updated: b.createdAt ?? null });
-    }
   }
 
-  const bizCreatedAt = (id: string, fallback: string | null | undefined) =>
-    bizCreatedById.get(id) ?? fallback ?? null;
+  for (const b of businessStamps) {
+    stamps.push({ created: b.created, updated: b.updated });
+  }
 
-  const businessesToday = businesses.filter((b) =>
-    inLaDay(bizCreatedAt(b.id, b.createdAt), todayKey),
-  ).length;
-  const businessesYesterday = businesses.filter((b) =>
-    inLaDay(bizCreatedAt(b.id, b.createdAt), yKey),
-  ).length;
-  const businessesSince = businesses.filter((b) =>
-    createdSince(bizCreatedAt(b.id, b.createdAt), sinceOk),
-  ).length;
+  const businessesToday = countInDay(businessStamps, todayKey);
+  const businessesYesterday = countInDay(businessStamps, yKey);
+  const businessesSince = countSinceMs(businessStamps, sinceOk);
 
-  const listingsToday = marketplace.listings.filter((l) =>
-    inLaDay(l.createdAt ?? null, todayKey),
-  ).length;
-  const listingsYesterday = marketplace.listings.filter((l) =>
-    inLaDay(l.createdAt ?? null, yKey),
-  ).length;
-  const listingsSince = marketplace.listings.filter((l) =>
-    createdSince(l.createdAt ?? null, sinceOk),
-  ).length;
+  const listingsToday = countInDay(marketplace.stamps, todayKey);
+  const listingsYesterday = countInDay(marketplace.stamps, yKey);
+  const listingsSince = countSinceMs(marketplace.stamps, sinceOk);
 
-  const lechuToday = lechu.listings.filter((l) =>
-    inLaDay(l.createdAt ?? null, todayKey),
-  ).length;
-  const lechuYesterday = lechu.listings.filter((l) =>
-    inLaDay(l.createdAt ?? null, yKey),
-  ).length;
-  const lechuSince = lechu.listings.filter((l) =>
-    createdSince(l.createdAt ?? null, sinceOk),
-  ).length;
+  const lechuToday = countInDay(lechu.stamps, todayKey);
+  const lechuYesterday = countInDay(lechu.stamps, yKey);
+  const lechuSince = countSinceMs(lechu.stamps, sinceOk);
 
-  const transfersToday = transfers.listings.filter((l) =>
-    inLaDay(l.createdAt ?? null, todayKey),
-  ).length;
-  const transfersYesterday = transfers.listings.filter((l) =>
-    inLaDay(l.createdAt ?? null, yKey),
-  ).length;
-  const transfersSince = transfers.listings.filter((l) =>
-    createdSince(l.createdAt ?? null, sinceOk),
-  ).length;
+  const transfersToday = countInDay(transfers.stamps, todayKey);
+  const transfersYesterday = countInDay(transfers.stamps, yKey);
+  const transfersSince = countSinceMs(transfers.stamps, sinceOk);
 
   const professionalsToday = countInDay(professionalStamps, todayKey);
   const professionalsYesterday = countInDay(professionalStamps, yKey);
@@ -444,8 +577,10 @@ export async function getHubResourceStats(
   const vehiclesYesterday = countInDay(vehicleStamps, yKey);
   const vehiclesSince = countSinceMs(vehicleStamps, sinceOk);
 
-  const resolvedProfessionals = national?.professionals ?? professionals.length;
-  const resolvedJobs = national?.jobs ?? jobs.length;
+  const businessCount = national?.businesses ?? businessStamps.length;
+  const resolvedProfessionals =
+    national?.professionals ?? professionalStamps.length;
+  const resolvedJobs = national?.jobs ?? jobStamps.length;
   const resolvedRealEstate = national?.realEstate ?? realEstateStamps.length;
   const resolvedEvents = national?.events ?? eventStamps.length;
   const resolvedVehicles = national?.vehicles ?? vehicleStamps.length;
@@ -455,7 +590,6 @@ export async function getHubResourceStats(
   const resolvedServices = national?.services ?? 0;
   if (national?.offers != null) offerCount = national.offers;
 
-  // Hero line: same day buckets as section cards
   const addedToday =
     businessesToday +
     offersToday +
@@ -484,7 +618,6 @@ export async function getHubResourceStats(
 
   const cards: HubStatCard[] = [];
 
-  const businessCount = national?.businesses ?? businesses.length;
   cards.push({
     key: "businesses",
     kind: "resource",
@@ -616,16 +749,14 @@ export async function getHubResourceStats(
     addedSince: sinceOk != null ? transfersSince : transfersToday,
   });
 
-  // Category cards still returned for API consumers / search — not shown on home pins
   const bySlug = new Map<string, { total: number; today: number; since: number }>();
-  for (const b of businesses) {
+  for (const b of businessStamps) {
     const slug = b.categorySlug;
     if (!slug) continue;
-    const created = bizCreatedById.get(b.id) ?? b.createdAt;
     const cur = bySlug.get(slug) ?? { total: 0, today: 0, since: 0 };
     cur.total += 1;
-    if (inLaDay(created, todayKey)) cur.today += 1;
-    if (createdSince(created, sinceOk)) cur.since += 1;
+    if (inLaDay(b.created, todayKey)) cur.today += 1;
+    if (createdSince(b.created, sinceOk)) cur.since += 1;
     bySlug.set(slug, cur);
   }
 
@@ -677,4 +808,35 @@ export async function getHubResourceStats(
     members,
     since: sinceOk != null ? new Date(sinceOk).toISOString() : null,
   };
+}
+
+/**
+ * Hub / platform resource stats for the home hero.
+ * Cached 120s — day counters stay near real-time without hammering Supabase.
+ */
+export async function getHubResourceStats(
+  hubId: string | null | undefined,
+  options?: { since?: string | null },
+): Promise<HubResourceStats> {
+  const rawHub = hubId?.trim() || "";
+  const hubKey = rawHub && rawHub !== "all" ? rawHub : "all";
+  const sinceKey = options?.since?.trim() || "";
+
+  return unstable_cache(
+    () => computeHubResourceStats(hubId, options),
+    // v6: bust stale OC/LA counts after no-street business → pro migration
+    ["hub-resource-stats-v6", hubKey, sinceKey],
+    {
+      revalidate: CATALOG_CACHE_TTL.hubResourceStats,
+      tags: [CATALOG_CACHE_TAGS.hubResourceStats],
+    },
+  )();
+}
+
+/** Bypass Next cache — used by admin System · Health latency probes. */
+export async function getHubResourceStatsUncached(
+  hubId: string | null | undefined,
+  options?: { since?: string | null },
+): Promise<HubResourceStats> {
+  return computeHubResourceStats(hubId, options);
 }

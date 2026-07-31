@@ -22,6 +22,7 @@ const SHARED_HOSTS = [
   "wa.me",
   "whatsapp.com",
   "vk.com",
+  "vk.ru",
   "ok.ru",
   // Link-in-bio, shorteners, forms, shared Google surfaces
   "linktr.ee",
@@ -44,6 +45,21 @@ const SHARED_HOSTS = [
   "joomag.com",
   // Ticketing shared by many organizers
   "eventbrite.com",
+  // App stores / OS vendor chrome
+  "apps.apple.com",
+  "itunes.apple.com",
+  "apple.com",
+  "apple.com.cn",
+  "apple.co",
+  "icloud.com",
+  "play.google.com",
+  "appgallery.huawei.com",
+  "huawei.com",
+  "rustore.ru",
+  // Booking SaaS support / marketing
+  "support.dikidi.app",
+  "dikidi.app",
+  "dikidi.net",
   // Russian-speaking directories we import from
   "svoi.us",
   "russianorangepages.com",

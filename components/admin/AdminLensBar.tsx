@@ -9,6 +9,7 @@ import { AdminDeleteBusinessButton } from "@/components/business/AdminDeleteBusi
 import { AdminLiveSectionPreviewModal } from "@/components/admin/AdminLiveSectionPreviewModal";
 import { AdminPublishedEnrichButton } from "@/components/admin/AdminPublishedEnrichButton";
 import { AdminPublishedDuplicatesButton } from "@/components/admin/AdminPublishedDuplicatesButton";
+import { AdminEntitySourcesButton } from "@/components/admin/AdminEntitySourcesButton";
 import { AdminPasteEnrichButton } from "@/components/admin/AdminPasteEnrichButton";
 import type { MoveSectionKey } from "@/lib/admin/move-entity-section";
 import { cn } from "@/lib/utils";
@@ -180,6 +181,13 @@ export function AdminLensBar(props: Props) {
           kind={props.kind}
           slug={slug}
         />
+
+        {isCatalogEntity ? (
+          <AdminEntitySourcesButton
+            entityId={entityId}
+            kind={props.kind}
+          />
+        ) : null}
 
         {props.kind === "business" ? (
           <>

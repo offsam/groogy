@@ -64,7 +64,7 @@ export function ProfessionalCard({
             fill
             sizes="(max-width: 640px) 100vw, 33vw"
             src={photo}
-            unoptimized={preview}
+            unoptimized
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-gradient-to-br from-brand-blue/15 via-white to-brand-green/10">

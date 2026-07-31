@@ -52,7 +52,8 @@ def fetch_null_rows(client: SupabaseRest) -> list[dict]:
     offset = 0
     select = (
         "id,source,category,business_name,person_name,source_text,"
-        "phone,website,instagram,telegram_username,email,review_status,review_notes"
+        "phone,website,instagram,telegram_username,email,review_status,review_notes,"
+        "address_line,postal_code"
     )
     while True:
         batch = client._request(

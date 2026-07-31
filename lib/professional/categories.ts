@@ -18,7 +18,7 @@ export const PROFESSIONAL_CATEGORY_SLUGS = [
   "real_estate",
   "auto",
   "pets",
-  "events",
+  "celebrations",
   "travel",
   "pro_other",
 ] as const;
@@ -123,9 +123,9 @@ export const PROFESSIONAL_CATEGORY_RULES: Rule[] = [
       /грумер|ветеринар|dog.?walk|pet.?sit|pet.?board|животн|собак|кошк|\bzoo\b/i,
   },
   {
-    slug: "events",
+    slug: "celebrations",
     pattern:
-      /тамада|event.?plan|декоратор|организатор.?праздн|воздушн(ые|ых).?шар|party.?decor|аниматор|цветочн|flower.?boutique|\bbouquet\b|kids.?party|детск(ие|их).?праздник|букет(ы|ов)?\b|karaoke|караоке/i,
+      /тамада|event.?plan|декоратор|организатор.?праздн|воздушн(ые|ых).?шар|party.?decor|аниматор|цветочн|flower.?boutique|\bbouquet\b|kids.?party|детск(ие|их).?праздник|букет(ы|ов)?\b|karaoke|караоке|face.?paint|ведущ(ий|ая)|праздник/i,
   },
   {
     slug: "travel",

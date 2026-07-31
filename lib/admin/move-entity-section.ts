@@ -8,16 +8,23 @@
 
 import { revalidatePath } from "next/cache";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
+import { getPublicSupabaseEnv } from "@/lib/supabase/env";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
+import {
+  isResolvedLocation,
+  resolveEntityLocation,
+} from "@/lib/geo/resolve-entity-location";
 import {
   resolveSourceKind,
   sourceTypeFromKind,
   type SourceKind,
 } from "@/lib/business/presence";
 import type { PlatformSectionKey } from "@/lib/platform/sections";
+import type { Database } from "@/types/database";
 
 export type MoveSectionKey = Exclude<PlatformSectionKey, "vehicles"> | "services";
 
@@ -175,6 +182,68 @@ type SourceCard = {
   currency: string | null;
   reviewCount: number;
 };
+
+/** USA Location Canon — re-resolve on section move (never trust stale hub region). */
+async function resolveLocationForMove(source: SourceCard): Promise<{
+  city: string | null;
+  region: string | null;
+  stateCode: string | null;
+  postalCode: string | null;
+  countyGeoid: string | null;
+  locationPrecision: "street" | "city" | "county" | "approx" | null;
+}> {
+  const { url, anonKey } = getPublicSupabaseEnv();
+  const geoClient = createClient<Database>(url, anonKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  const result = await resolveEntityLocation(geoClient, {
+    city: source.city,
+    region: source.region,
+    stateCode: source.stateCode,
+    postalCode: source.postalCode,
+    source: source.sourceUrl,
+    text: [source.name, source.shortDescription, source.description]
+      .filter(Boolean)
+      .join("\n"),
+  });
+
+  if (isResolvedLocation(result)) {
+    const street = source.addressLine?.trim() || null;
+    return {
+      city: result.city,
+      region: result.region,
+      stateCode: result.stateCode,
+      postalCode: result.postalCode,
+      countyGeoid: result.countyGeoid,
+      locationPrecision: street
+        ? inferLocationPrecision({
+            addressLine: street,
+            city: result.city,
+            region: result.region,
+          })
+        : result.city
+          ? "city"
+          : result.region
+            ? "county"
+            : null,
+    };
+  }
+
+  return {
+    city: source.city,
+    region: source.region,
+    stateCode: source.stateCode,
+    postalCode: source.postalCode,
+    countyGeoid: null,
+    locationPrecision: source.addressLine
+      ? inferLocationPrecision({
+          addressLine: source.addressLine,
+          city: source.city,
+          region: source.region,
+        })
+      : null,
+  };
+}
 
 async function loadSource(
   catalog: Untyped,
@@ -522,6 +591,8 @@ export async function moveEntitySectionAction(input: {
       ? source.slug
       : slugify(name);
 
+  const loc = await resolveLocationForMove(source);
+
   let toId = "";
   let toSlug = "";
   let toPath = "";
@@ -547,12 +618,14 @@ export async function moveEntitySectionAction(input: {
           image_url: source.imageUrl,
           status: "approved",
           visibility: "public",
-          city: source.city,
-          region: source.region,
-          state_code: source.stateCode,
-          postal_code: source.postalCode,
+          city: loc.city,
+          region: loc.region,
+          state_code: loc.stateCode,
+          postal_code: loc.postalCode,
+          county_geoid: loc.countyGeoid,
           private_address_line: source.addressLine,
           public_exact_address: false,
+          location_precision: loc.locationPrecision,
           phone: source.phone,
           email: source.email,
           website: source.website,
@@ -581,7 +654,7 @@ export async function moveEntitySectionAction(input: {
           p_description: source.description,
           p_phone: source.phone,
           p_website: source.website,
-          p_city: source.city ?? "",
+          p_city: loc.city ?? "",
           p_address_line: source.addressLine,
           p_status: "approved",
           p_category_id: source.categoryId,
@@ -594,19 +667,17 @@ export async function moveEntitySectionAction(input: {
       await catalog
         .from("businesses")
         .update({
-          region: source.region,
-          state_code: source.stateCode,
-          postal_code: source.postalCode,
+          region: loc.region,
+          state_code: loc.stateCode,
+          postal_code: loc.postalCode,
+          county_geoid: loc.countyGeoid,
+          location_precision: loc.locationPrecision,
+          location_source: loc.countyGeoid ? "city" : null,
           image_url: source.imageUrl,
           instagram_url: source.instagramUrl,
           telegram_url: source.telegramUrl,
           source_url: source.sourceUrl,
           source_kind: source.sourceKind,
-          location_precision: inferLocationPrecision({
-            addressLine: source.addressLine,
-            city: source.city,
-            region: source.region,
-          }),
         })
         .eq("id", toId);
       toPath = `/business/${toSlug}`;
@@ -627,7 +698,8 @@ export async function moveEntitySectionAction(input: {
       const { data, error: insertError } = await catalog
         .from("listings")
         .insert({
-          owner_id: user.id,
+          // Section move of imported cards stays unowned until claimed.
+          owner_id: null,
           listing_type: listingType,
           status: "draft",
           visibility: "public",
@@ -635,9 +707,9 @@ export async function moveEntitySectionAction(input: {
           description: description.slice(0, 8000),
           price_amount: source.price,
           price_currency: (source.currency || "USD").toUpperCase(),
-          city: source.city,
-          state: source.region,
-          state_code: source.stateCode,
+          city: loc.city,
+          state: loc.region,
+          state_code: loc.stateCode,
           source_url: source.sourceUrl,
           source_kind: source.sourceKind,
           publisher_type: "profile",
@@ -669,9 +741,9 @@ export async function moveEntitySectionAction(input: {
           visibility: "public",
           source_type: sourceTypeFromKind(source.sourceKind),
           source_url: source.sourceUrl,
-          city: source.city,
-          state_code: source.stateCode,
-          postal_code: source.postalCode,
+          city: loc.city,
+          state_code: loc.stateCode,
+          postal_code: loc.postalCode,
           published_at: new Date().toISOString(),
         })
         .select("id, slug")
@@ -692,8 +764,8 @@ export async function moveEntitySectionAction(input: {
           slug: toSlug,
           description: source.description || source.shortDescription,
           status: "published",
-          city: source.city,
-          state_code: source.stateCode,
+          city: loc.city,
+          state_code: loc.stateCode,
           address_line: source.addressLine,
           cover_image_url: source.imageUrl,
           source_url: source.sourceUrl,

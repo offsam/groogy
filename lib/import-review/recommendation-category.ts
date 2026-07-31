@@ -176,7 +176,7 @@ export const GUESS_TO_PROFESSIONAL_SLUG: Record<string, string> = {
   сантехник: "home_services",
   электрик: "home_services",
   handyman: "home_services",
-  "кейтеринг / цветы": "home_food",
+  "кейтеринг / цветы": "celebrations",
   "фото / видео": "photo_video",
   "услуга / специалист": "pro_other",
 };
@@ -200,17 +200,24 @@ export const GUESS_TO_BUSINESS_SLUG: Record<string, string> = {
   сантехник: "services",
   электрик: "services",
   handyman: "services",
-  "кейтеринг / цветы": "events",
+  "кейтеринг / цветы": "celebrations",
   "фото / видео": "services",
   няня: "services",
   "услуга / специалист": "services",
 };
 
+/**
+ * category_guess → professional category slug.
+ * Unmapped → null (needs manual category) — never silent pro_other on publish.
+ */
 export function professionalSlugFromGuess(
   categoryGuess: string | null | undefined,
-): string {
+): string | null {
   const g = (categoryGuess || "").trim().toLowerCase();
-  return GUESS_TO_PROFESSIONAL_SLUG[g] ?? "pro_other";
+  if (!g) return null;
+  const mapped = GUESS_TO_PROFESSIONAL_SLUG[g];
+  if (!mapped || mapped === "pro_other") return null;
+  return mapped;
 }
 
 export function businessSlugFromGuess(

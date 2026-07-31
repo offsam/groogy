@@ -30,6 +30,7 @@ import {
   getMyReviewForBusiness,
   getPublishedReviewsForBusiness,
   getVerificationSessionForReview,
+  businessHasOwner,
   userIsAdmin,
   userOwnsBusiness,
 } from "@/lib/reviews/queries";
@@ -94,7 +95,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, isAdmin, similarPool, communityMentions, locations, categories, promotions, updates, following, events] =
+  const [offers, published, owns, isAdmin, alreadyClaimed, similarPool, communityMentions, locations, categories, promotions, updates, following, events] =
     await Promise.all([
     getPublicOffersForBusiness(client, fullBusiness.id, {
       businessSlug: fullBusiness.slug,
@@ -103,6 +104,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     getPublishedReviewsForBusiness(client, fullBusiness.id).catch(() => []),
     user ? userOwnsBusiness(client, fullBusiness.id) : Promise.resolve(false),
     user ? userIsAdmin(client).catch(() => false) : Promise.resolve(false),
+    businessHasOwner(client, fullBusiness.id).catch(() => false),
     fullBusiness.categoryId
       ? searchBusinesses(catalog, { categoryId: fullBusiness.categoryId })
       : getApprovedBusinesses(catalog, 12),
@@ -170,6 +172,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         editMode={editMode}
         isAdmin={isAdmin}
         isOwner={canManage}
+        businessAlreadyClaimed={alreadyClaimed || owns}
         categories={isAdmin ? categories : []}
         myReview={myReview}
         mySession={mySession}

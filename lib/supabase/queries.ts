@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { computePresenceFlags, type BusinessPresenceFlags } from "@/lib/business/presence-flags";
 import { resolvePublicCityPostal } from "@/lib/address/normalize";
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -10,6 +11,10 @@ import {
   mapCategory,
 } from "@/lib/supabase/mappers";
 import {
+  CATALOG_CACHE_TAGS,
+  CATALOG_CACHE_TTL,
+} from "@/lib/platform/catalog-cache";
+import {
   getRegionHubsByIds,
   locationFieldsMatchHub,
   parseHubIds,
@@ -21,6 +26,7 @@ import { CONTACT_LINKS_COLUMN_READY } from "@/lib/contacts/channels";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
 import { distanceKm } from "@/lib/geo/distance";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
+import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 
 type Client = SupabaseClient<Database>;
 
@@ -77,10 +83,17 @@ const BUSINESS_DETAIL_SELECT_BASE: string = `
 `;
 
 const BUSINESS_DETAIL_SELECT = (() => {
-  const parts: string[] = [BUSINESS_DETAIL_SELECT_BASE];
-  if (CONTACT_LINKS_COLUMN_READY) parts.push("contact_links");
-  if (ENTITY_DESCRIPTION_ORIGINAL_READY) parts.push("description_original");
-  return parts.join(",\n  ");
+  const extras: string[] = [];
+  if (CONTACT_LINKS_COLUMN_READY) extras.push("contact_links");
+  if (ENTITY_DESCRIPTION_ORIGINAL_READY) extras.push("description_original");
+  if (extras.length === 0) return BUSINESS_DETAIL_SELECT_BASE;
+  // Insert before the nested `categories (...)` block.
+  const marker = "categories (";
+  const idx = BUSINESS_DETAIL_SELECT_BASE.lastIndexOf(marker);
+  if (idx < 0) {
+    return `${BUSINESS_DETAIL_SELECT_BASE},\n  ${extras.join(",\n  ")}`;
+  }
+  return `${BUSINESS_DETAIL_SELECT_BASE.slice(0, idx)}${extras.join(",\n  ")},\n  ${BUSINESS_DETAIL_SELECT_BASE.slice(idx)}`;
 })();
 
 /**
@@ -508,6 +521,8 @@ export type GetHomeMapPinsOptions = {
  * Approved catalog rows with address + coordinates for the home activity map.
  * Prefer passing launch hubs so LA/OC/etc. each get their own bounding-box slice
  * instead of fighting for spots in one national newest-800 list.
+ *
+ * When `hubs` is set, result is cached 300s (home SSR path).
  */
 export async function getHomeMapPins(
   client: Client,
@@ -521,21 +536,57 @@ export async function getHomeMapPins(
 
   if (hubs && hubs.length > 0) {
     const limitPerHub = options.limitPerHub ?? 500;
-    const batches = await Promise.all(
-      hubs.map((hub) =>
-        fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
-      ),
-    );
-    const byKey = new Map<string, HomeMapPin>();
-    for (const batch of batches) {
-      for (const pin of batch) {
-        byKey.set(`${pin.kind}:${pin.id}`, pin);
-      }
-    }
-    return [...byKey.values()];
+    const hubKey = hubs.map((h) => h.id).join(",");
+
+    return unstable_cache(
+      async () => {
+        // Caller should pass a catalog-capable client (service role on server pages).
+        const batches = await Promise.all(
+          hubs.map((hub) =>
+            fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+          ),
+        );
+        const byKey = new Map<string, HomeMapPin>();
+        for (const batch of batches) {
+          for (const pin of batch) {
+            byKey.set(`${pin.kind}:${pin.id}`, pin);
+          }
+        }
+        return [...byKey.values()];
+      },
+      ["home-map-pins-v1", hubKey, String(limitPerHub)],
+      {
+        revalidate: CATALOG_CACHE_TTL.homeMapPins,
+        tags: [CATALOG_CACHE_TAGS.homeMapPins],
+      },
+    )();
   }
 
   return fetchHomeMapPinsSlice(client, options.limit ?? 800);
+}
+
+/** Uncached per-hub map pins — admin health latency probe. */
+export async function getHomeMapPinsUncached(
+  client: Client,
+  options: GetHomeMapPinsOptions,
+): Promise<HomeMapPin[]> {
+  const hubs = options.hubs;
+  if (!hubs || hubs.length === 0) {
+    return fetchHomeMapPinsSlice(client, options.limit ?? 800);
+  }
+  const limitPerHub = options.limitPerHub ?? 500;
+  const batches = await Promise.all(
+    hubs.map((hub) =>
+      fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+    ),
+  );
+  const byKey = new Map<string, HomeMapPin>();
+  for (const batch of batches) {
+    for (const pin of batch) {
+      byKey.set(`${pin.kind}:${pin.id}`, pin);
+    }
+  }
+  return [...byKey.values()];
 }
 
 export type GetAllHomeMapPinsOptions = {
@@ -612,10 +663,11 @@ export async function getBusinessBySlug(
   client: Client,
   slug: string,
 ): Promise<Business | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await client
     .from("businesses")
     .select(BUSINESS_DETAIL_SELECT)
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .eq("status", "approved")
     .maybeSingle();
 
@@ -628,10 +680,11 @@ export async function getBusinessBySlugForOwner(
   client: Client,
   slug: string,
 ): Promise<Business | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await client
     .from("businesses")
     .select(BUSINESS_DETAIL_SELECT)
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .maybeSingle();
 
   if (error) throw error;
@@ -667,56 +720,98 @@ export async function searchBusinesses(
     categoryId = category.id;
   }
 
-  let request = client
-    .from("businesses")
-    .select(BUSINESS_LIST_SELECT)
-    .eq("status", "approved");
+  const hubs = params.hubId
+    ? getRegionHubsByIds(parseHubIds(params.hubId))
+    : [];
+  const nationalHub =
+    !params.hubId || hubs.some((h) => h.id === "usa-overview");
 
-  if (categoryId) {
-    request = request.eq("category_id", categoryId);
-  }
+  const buildPageQuery = () => {
+    let pageQuery = client
+      .from("businesses")
+      .select(BUSINESS_LIST_SELECT)
+      .eq("status", "approved");
 
-  if (city) {
-    request = request.ilike("city", escapeIlike(city));
-  }
-
-  if (query) {
-    // Broad DB filter: each token (+ synonyms) may match any text field; AND below.
-    const tokens = searchTokens(query);
-    const expanded = [...new Set(tokens.flatMap((t) => expandSearchToken(t)))];
-    const fields = [
-      "name",
-      "short_description",
-      "description",
-      "city",
-      "address_line",
-    ] as const;
-    const clauses = expanded.flatMap((token) => {
-      const pattern = `%${escapeIlike(token)}%`;
-      return fields.map((field) => `${field}.ilike.${pattern}`);
-    });
-    if (clauses.length > 0) {
-      request = request.or(clauses.join(","));
+    if (categoryId) {
+      pageQuery = pageQuery.eq("category_id", categoryId);
     }
+    if (city) {
+      pageQuery = pageQuery.ilike("city", escapeIlike(city));
+    }
+    if (query) {
+      const tokens = searchTokens(query);
+      const expanded = [
+        ...new Set(
+          tokens.flatMap((t) => {
+            const base = expandSearchToken(t);
+            if (/^\d{10}$/.test(t)) {
+              return [
+                ...base,
+                t.slice(0, 3),
+                t.slice(3, 6),
+                t.slice(6),
+                `${t.slice(0, 3)}-${t.slice(3, 6)}`,
+                `${t.slice(3, 6)}-${t.slice(6)}`,
+              ];
+            }
+            if (/^\d{7}$/.test(t)) {
+              return [
+                ...base,
+                t.slice(0, 3),
+                t.slice(3),
+                `${t.slice(0, 3)}-${t.slice(3)}`,
+              ];
+            }
+            return base;
+          }),
+        ),
+      ];
+      const fields = [
+        "name",
+        "short_description",
+        "description",
+        "city",
+        "address_line",
+        "phone",
+      ] as const;
+      const clauses = expanded.flatMap((token) => {
+        const pattern = `%${escapeIlike(token)}%`;
+        return fields.map((field) => `${field}.ilike.${pattern}`);
+      });
+      if (clauses.length > 0) {
+        pageQuery = pageQuery.or(clauses.join(","));
+      }
+    }
+    return pageQuery
+      .order("rating_avg", { ascending: false })
+      .order("name", { ascending: true });
+  };
+
+  // PostgREST often caps a single response at ~1000 rows. Hub filter is in
+  // memory — page through the catalog so OC/LA list matches the home counter.
+  const pageSize = 1000;
+  const maxRows = nationalHub ? (query ? 400 : 800) : 20_000;
+  const rawRows: BusinessWithCategory[] = [];
+  for (let offset = 0; offset < maxRows; offset += pageSize) {
+    const end = Math.min(offset + pageSize, maxRows) - 1;
+    const { data, error } = await buildPageQuery().range(offset, end);
+    if (error) throw error;
+    const batch = (data ?? []) as unknown as BusinessWithCategory[];
+    rawRows.push(...batch);
+    if (batch.length < pageSize) break;
+    if (nationalHub) break;
   }
 
-  const { data, error } = await request
-    .order("rating_avg", { ascending: false })
-    .order("name", { ascending: true })
-    // Hub filter is applied in memory; pull a wide slice so regional counts
-    // aren't capped by the national top-N (was showing ~18 for OC).
-    .limit(params.hubId ? 5000 : query ? 400 : 800);
-
-  if (error) throw error;
-
-  let results = ((data ?? []) as unknown as BusinessWithCategory[]).map(mapBusinessList);
+  let results = rawRows.map(mapBusinessList);
 
   // Match category name against free-text query (not covered by column `.or`).
   // Synonyms: "маникюр" also matches "manicure" / "nails".
+  // Phone digits: "(949) 555-0121" must match query "9495550121".
   if (query) {
     const words = searchTokens(query).map((w) => w.toLowerCase());
     if (words.length > 0) {
       results = results.filter((business) => {
+        const phoneDigits = (business.phone ?? "").replace(/\D/g, "");
         const haystack = [
           business.name,
           business.shortDescription,
@@ -724,19 +819,23 @@ export async function searchBusinesses(
           business.city,
           business.addressLine,
           business.categoryName,
+          business.phone,
+          phoneDigits,
         ]
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
-        return words.every((word) => haystackMatchesToken(haystack, word));
+        return words.every((word) => {
+          const w = word.toLowerCase();
+          if (/^\d{7,10}$/.test(w) && phoneDigits.includes(w)) return true;
+          return haystackMatchesToken(haystack, word);
+        });
       });
     }
   }
 
   if (params.hubId) {
-    const hubs = getRegionHubsByIds(parseHubIds(params.hubId));
-    const national = hubs.some((h) => h.id === "usa-overview");
-    if (!national) {
+    if (!nationalHub) {
       results = results.filter((business) =>
         hubs.some((hub) =>
           locationFieldsMatchHub(

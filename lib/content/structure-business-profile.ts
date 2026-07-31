@@ -70,7 +70,11 @@ const CONTACT_LINE_RE =
   /^(?:📩|📞|📱|✉️)?\s*(?:наш\s+)?(?:тел(?:ефон)?|phone|call|звон(?:и|ить)?|whatsapp|telegram|тг|email|e-mail|почта|instagram|инстаграм|facebook|fb|контакт(?:ы)?|contacts?|форма|form|регистрац|registration|сайт|website|web|url)(?:\s+для\s+\p{L}+)?\s*[:：]?\s*/iu;
 
 const ADDRESS_LINE_RE =
-  /^(?:наш\s+)?(?:адрес|address|где|where|локаци[яи]|location|venue|место\s+проведен)\s*[:：]/i;
+  /^(?:[📍🏠🗺]\s*)?(?:наш\s+)?(?:адрес|address|где|where|локаци[яи]|location|venue|место\s+проведен)\s*[:：]?$/iu;
+
+/** Bare locality left after the street was moved to the address block. */
+const CITY_STATE_ONLY_RE =
+  /^(?:[📍🏠🗺]\s*)?[A-Za-z][A-Za-z .'-]{1,40},\s*(?:CA|California|WA|Washington|NY|New\s*York|FL|Florida|OR|Oregon|TX|Texas|CO|Colorado)\s*$/iu;
 
 const CTA_CONTACT_ONLY_RE =
   /^(?:📩|📞|📱|✉️)?\s*(?:пишите|напишите|звоните|call\s+me|dm\s+me|в\s+личные|личные\s+сообщения|write\s+(?:us|me)|text\s+(?:us|me)|contact\s+(?:us|me)).{0,80}$/i;
@@ -397,6 +401,7 @@ function isAddressOnlyLine(line: string): boolean {
   const t = line.trim();
   if (!t) return true;
   if (ADDRESS_LINE_RE.test(t)) return true;
+  if (CITY_STATE_ONLY_RE.test(t)) return true;
   if (!STREET_ADDRESS_RE.test(t)) return false;
   const without = stripInlineContacts(t)
     .replace(/[^\p{L}\p{N}\s]/gu, " ")

@@ -13,7 +13,7 @@ type RegisterPageProps = {
 
 export default async function RegisterPage({ searchParams }: RegisterPageProps) {
   const params = await searchParams;
-  const nextPath = safeRedirectPath(params.next);
+  const nextPath = safeRedirectPath(params.next ?? "/profile");
 
   return (
     <AuthShell

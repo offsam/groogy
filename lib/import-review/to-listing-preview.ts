@@ -56,6 +56,7 @@ function baseListing(
     authorVisibility: "public",
     title: resolved.name,
     description,
+    descriptionOriginal: item.description_original?.trim() || null,
     priceAmount: item.price ?? null,
     priceCurrency: (item.currency || "USD").toUpperCase(),
     isNegotiable: item.price == null,

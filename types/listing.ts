@@ -238,6 +238,8 @@ export type PublicProfileCard = {
   reviewsAiVerifiedCount: number;
   listingsActiveCount: number;
   listingsCompletedCount: number;
+  servicesActiveCount: number;
+  circlesCount: number;
   showReviews: boolean;
   showListings: boolean;
 };

@@ -16,6 +16,7 @@ import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { getBusinessBySlug } from "@/lib/supabase/queries";
 import { formatAddress, stripBusinessContacts } from "@/lib/supabase/mappers";
+import { businessHasOwner } from "@/lib/reviews/queries";
 import { OFFER_TYPE_SINGULAR } from "@/types/business-offer";
 
 type OfferPageProps = {
@@ -65,6 +66,9 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
 
   if (!fullBusiness || !offer) notFound();
 
+  const alreadyClaimed = await businessHasOwner(client, fullBusiness.id).catch(
+    () => false,
+  );
   const business = stripBusinessContacts(fullBusiness);
   const similar = await getSimilarOffers(client, offer);
   const price = formatOfferPrice(offer);
@@ -98,6 +102,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
         </h1>
         <p className="text-2xl font-semibold text-slate-900">{price}</p>
         <ClaimBusinessButton
+          businessAlreadyClaimed={alreadyClaimed}
           businessId={business.id}
           businessSlug={slug}
           checkStatus
@@ -160,6 +165,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
             {similar.map((item) => (
               <BusinessOfferCard
                 key={item.id}
+                businessAlreadyClaimed={alreadyClaimed}
                 businessSlug={slug}
                 offer={item}
                 presence={{

@@ -17,6 +17,7 @@ import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import { EntitySourceCard } from "@/components/shared/EntitySourceCard";
 import { DescriptionWithOriginal } from "@/components/shared/DescriptionWithOriginal";
 import { TelegramIcon } from "@/components/brand/BrandIcons";
+import { ClaimEventButton } from "@/components/claims/ClaimEventButton";
 import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import type { PlatformEvent } from "@/lib/events/queries";
 import { structureEventFromText } from "@/lib/events/structure-event-from-text";
@@ -208,11 +209,15 @@ export function EventProfileView({
   event,
   isAdmin = false,
   preview = false,
+  isOwner = false,
+  autoClaim = false,
 }: {
   event: PlatformEvent;
   isAdmin?: boolean;
   /** Admin moderation: no public back-link / navigation chrome. */
   preview?: boolean;
+  isOwner?: boolean;
+  autoClaim?: boolean;
 }) {
   const timing = eventTimingLabel(event.starts_at);
   const calendarWhen =
@@ -259,6 +264,17 @@ export function EventProfileView({
 
       {isAdmin && !preview ? (
         <AdminLensBar entityId={event.id} kind="event" slug={event.slug} />
+      ) : null}
+
+      {!preview && !isOwner ? (
+        <div className="flex justify-end">
+          <ClaimEventButton
+            autoSubmit={autoClaim}
+            checkStatus
+            eventId={event.id}
+            eventSlug={event.slug}
+          />
+        </div>
       ) : null}
 
       {/* Poster */}
@@ -386,18 +402,21 @@ export function EventProfileView({
             aria-label="Описание"
             className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5"
           >
-            <h2 className="text-base font-semibold text-slate-900">Описание</h2>
             {body ? (
-              <div className="mt-3">
-                <DescriptionWithOriginal
-                  text={body}
-                  original={originalBody}
-                />
-              </div>
+              <DescriptionWithOriginal
+                heading="Описание"
+                text={body}
+                original={originalBody}
+              />
             ) : (
-              <p className="mt-3 text-sm text-slate-500">
-                Описание пока не добавлено.
-              </p>
+              <>
+                <h2 className="text-base font-semibold text-slate-900">
+                  Описание
+                </h2>
+                <p className="mt-3 text-sm text-slate-500">
+                  Описание пока не добавлено.
+                </p>
+              </>
             )}
           </section>
 

@@ -104,6 +104,13 @@ export const ADMIN_NAV: AdminNavSection[] = [
         description: "История и диагностика Telegram-групп",
       },
       {
+        id: "imports-telegram-new",
+        label: "Telegram · новое",
+        href: "/admin/imports/telegram/new",
+        description:
+          "Свежие выгрузки Telegram (pending) по правилам полной карточки",
+      },
+      {
         id: "imports-facebook",
         label: "Facebook",
         href: "/admin/imports/facebook",
@@ -202,8 +209,7 @@ export const ADMIN_NAV: AdminNavSection[] = [
         id: "system-health",
         label: "Health",
         href: "/admin/system/health",
-        comingSoon: true,
-        description: "Состояние сервисов",
+        description: "Кэш агрегатов и latency каталога",
       },
       {
         id: "system-jobs",

@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { AdminClaimsPanel } from "@/components/admin/AdminClaimsPanel";
 import { LegacyMigrationBanner } from "@/components/admin/LegacyMigrationBanner";
-import { getPendingBusinessClaims } from "@/lib/admin/claim-actions";
+import {
+  getPendingBusinessClaims,
+  getPendingEventClaims,
+  getPendingJobClaims,
+  getPendingListingClaims,
+  getPendingProfessionalClaims,
+} from "@/lib/admin/claim-actions";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 
@@ -19,20 +25,39 @@ export default async function AdminClaimsPage() {
   const isAdmin = await userIsAdmin(supabase).catch(() => false);
   if (!isAdmin) redirect("/");
 
-  const claims = await getPendingBusinessClaims();
+  const [
+    businessClaims,
+    professionalClaims,
+    listingClaims,
+    eventClaims,
+    jobClaims,
+  ] = await Promise.all([
+    getPendingBusinessClaims(),
+    getPendingProfessionalClaims(),
+    getPendingListingClaims(),
+    getPendingEventClaims(),
+    getPendingJobClaims(),
+  ]);
 
   return (
     <div className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-0">
       <LegacyMigrationBanner migrationId="claims" />
       <header className="space-y-1">
         <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-          Заявки «Это мой бизнес»
+          Заявки на владение
         </h1>
         <p className="text-sm text-slate-600">
-          Проверьте доказательства и одобрите владельца карточки.
+          Проверьте доказательства и одобрите владельца карточки: бизнес,
+          специалист, объявление, событие или вакансия.
         </p>
       </header>
-      <AdminClaimsPanel claims={claims} />
+      <AdminClaimsPanel
+        businessClaims={businessClaims}
+        eventClaims={eventClaims}
+        jobClaims={jobClaims}
+        listingClaims={listingClaims}
+        professionalClaims={professionalClaims}
+      />
     </div>
   );
 }

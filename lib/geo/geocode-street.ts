@@ -176,9 +176,17 @@ export async function geocodeStreetAddress(
     if (postalCode) {
       queries.push(buildQuery(bare || street, null, stateCode, postalCode));
     }
+    // Typo cities break Nominatim — always retry without city.
+    if (city) {
+      queries.push(buildQuery(bare || street, null, stateCode, postalCode));
+      queries.push(buildQuery(bare || street, null, stateCode, null));
+    }
   }
 
+  const seen = new Set<string>();
   for (const query of queries) {
+    if (!query || seen.has(query)) continue;
+    seen.add(query);
     const hit = await lookup(query, expectState);
     if (hit) return hit;
   }

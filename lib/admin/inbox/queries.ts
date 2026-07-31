@@ -39,7 +39,7 @@ type Client = SupabaseClient<Database>;
  * Working set per queue source. Moderators review the top of the priority
  * stack; full queue totals come from separate count queries.
  */
-export const INBOX_PER_SOURCE_CAP = 300;
+export const INBOX_PER_SOURCE_CAP = 1000;
 
 /**
  * Pluggable source registry. Add a new queue by appending a fetcher —

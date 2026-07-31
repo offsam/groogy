@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
+import {
+  catalogAggregateCacheControl,
+  CATALOG_CACHE_TTL,
+  CATALOG_CDN_SWR_COUNTS,
+} from "@/lib/platform/catalog-cache";
 import { getHubResourceStats } from "@/lib/platform/hub-resource-stats";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function GET(request: Request) {
   try {
@@ -17,7 +19,12 @@ export async function GET(request: Request) {
       since,
     });
     return NextResponse.json(stats, {
-      headers: { "Cache-Control": "no-store, max-age=0" },
+      headers: {
+        "Cache-Control": catalogAggregateCacheControl(
+          CATALOG_CACHE_TTL.hubResourceStats,
+          CATALOG_CDN_SWR_COUNTS,
+        ),
+      },
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "failed";

@@ -205,11 +205,11 @@ RULES: list[tuple[str, re.Pattern[str]]] = [
         ),
     ),
     (
-        "events",
+        "celebrations",
         re.compile(
             r"тамада|event.?plan|декоратор|организатор.?праздн|воздушн(ые|ых).?шар|party.?decor|" +
             r"аниматор|цветочн|flower.?boutique|\bbouquet\b|kids.?party|детск(ие|их).?праздник|" +
-            r"букет(ы|ов)?\b|karaoke|караоке",
+            r"букет(ы|ов)?\b|karaoke|караоке|face.?paint|ведущ(ий|ая)|праздник",
             re.I,
         ),
     ),

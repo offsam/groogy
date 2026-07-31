@@ -116,13 +116,17 @@ export async function mergeBusinessesAction(input: {
     offers_moved?: number;
     reviews_moved?: number;
     owners_moved?: number;
+    mentions_moved?: number;
   };
   const parts = [
     `офферов: ${stats.offers_moved ?? 0}`,
     `отзывов: ${stats.reviews_moved ?? 0}`,
     `владельцев: ${stats.owners_moved ?? 0}`,
+    `рекомендаций: ${stats.mentions_moved ?? 0}`,
   ];
 
   revalidateBusinessAdmin(input.keepSlug, input.dropSlug);
-  return ok(`Смержено. Перенесено — ${parts.join(", ")}. Дубликат в архиве.`);
+  return ok(
+    `Смержено. Перенесено — ${parts.join(", ")}. Дубликат уничтожен (не публикуется).`,
+  );
 }

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
 import { listPublishedCommunityMentionsForProfessional } from "@/lib/community-mentions/queries";
 import { thirdPartySourceUrlsFromMentions } from "@/lib/community-mentions/source-urls";
+import { getCityCenter } from "@/lib/geo/city-center";
 import {
   getOwnedProfessionalBySlug,
   getProfessionalBySlug,
@@ -22,6 +23,7 @@ import type { Category } from "@/types/business";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ claim?: string }>;
 };
 
 const SITE_URL =
@@ -42,8 +44,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ProfessionalPage({ params }: PageProps) {
+export default async function ProfessionalPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
+  const { claim } = await searchParams;
   const client = await createServerClient();
   const catalog = createServiceRoleClient();
   const {
@@ -51,7 +54,7 @@ export default async function ProfessionalPage({ params }: PageProps) {
   } = await client.auth.getUser();
 
   let professional = await getProfessionalBySlug(catalog, slug);
-  let isOwner = false;
+  let ownsProfessional = false;
   let isAdmin = false;
 
   if (user) {
@@ -61,22 +64,23 @@ export default async function ProfessionalPage({ params }: PageProps) {
       const owned = await getOwnedProfessionalBySlug(client, slug).catch(() => null);
       if (owned) {
         professional = owned;
-        isOwner = true;
+        ownsProfessional = true;
       }
     } else {
-      isOwner =
-        (await userOwnsProfessional(client, professional.id).catch(() => false)) ||
-        isAdmin;
-      if (isOwner) {
+      ownsProfessional = await userOwnsProfessional(client, professional.id).catch(
+        () => false,
+      );
+      if (ownsProfessional || isAdmin) {
         const owned = await getOwnedProfessionalBySlug(client, slug).catch(() => null);
         if (owned) professional = owned;
       }
     }
-
-    if (professional && isAdmin) isOwner = true;
   }
 
   if (!professional) notFound();
+
+  const isOwner = ownsProfessional || isAdmin;
+  const autoClaim = claim === "1" && Boolean(user) && !ownsProfessional && !isAdmin;
 
   const [services, categories, communityMentions, promotions, updates, following] =
     await Promise.all([
@@ -103,9 +107,25 @@ export default async function ProfessionalPage({ params }: PageProps) {
     })),
   );
 
+  const hasStreetCoords =
+    typeof professional.latitude === "number" &&
+    typeof professional.longitude === "number" &&
+    Number.isFinite(professional.latitude) &&
+    Number.isFinite(professional.longitude) &&
+    professional.locationPrecision === "street" &&
+    Boolean(professional.addressLine?.trim());
+
+  const cityMapCenter = !hasStreetCoords
+    ? await getCityCenter(professional.city, professional.stateCode).catch(
+        () => null,
+      )
+    : null;
+
   return (
     <ProfessionalProfileView
+      autoClaim={autoClaim}
       categories={categories}
+      cityMapCenter={cityMapCenter}
       communitySourceUrls={communitySourceUrls}
       currentUserId={user?.id ?? null}
       initialFollowing={following}

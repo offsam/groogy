@@ -15,6 +15,7 @@ import {
   countyGeoidMatchesPlaces,
   parsePlaceTokens,
 } from "@/lib/geo/place-tokens";
+import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import type { Database } from "@/types/database";
 import type {
   Professional,
@@ -174,10 +175,11 @@ export async function getProfessionalBySlug(
   client: Client,
   slug: string,
 ): Promise<Professional | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await db(client)
     .from("professionals_public")
     .select("*")
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .maybeSingle();
 
   if (error) throw error;
@@ -208,7 +210,7 @@ export async function getProfessionalBySlug(
     const { data: src } = await db(client)
       .from("professionals")
       .select("source_type, source_url, telegram_url, instagram_url, website")
-      .eq("slug", slug)
+      .eq("slug", normalized)
       .maybeSingle();
     if (src) {
       const row = src as {
@@ -299,10 +301,11 @@ export async function getOwnedProfessionalBySlug(
   client: Client,
   slug: string,
 ): Promise<Professional | null> {
+  const normalized = normalizeRouteSlug(slug);
   const { data, error } = await db(client)
     .from("professionals")
     .select("*")
-    .eq("slug", slug)
+    .eq("slug", normalized)
     .maybeSingle();
 
   if (error) throw error;

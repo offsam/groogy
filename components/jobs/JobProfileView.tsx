@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Briefcase, MapPin } from "lucide-react";
 import { AdminLensBar } from "@/components/admin/AdminLensBar";
+import { ClaimJobButton } from "@/components/claims/ClaimJobButton";
 import { DescriptionWithOriginal } from "@/components/shared/DescriptionWithOriginal";
 import { PaymentMethodsCard } from "@/components/shared/PaymentMethodsCard";
 import { formatJobCardLocation } from "@/lib/jobs/mappers";
@@ -9,6 +10,8 @@ import type { Job } from "@/types/job";
 type Props = {
   job: Job;
   isAdmin?: boolean;
+  isOwner?: boolean;
+  autoClaim?: boolean;
   /** Admin moderation: hide back-link and owner-only chrome. */
   preview?: boolean;
 };
@@ -17,6 +20,8 @@ type Props = {
 export function JobProfileView({
   job,
   isAdmin = false,
+  isOwner = false,
+  autoClaim = false,
   preview = false,
 }: Props) {
   const location = formatJobCardLocation(job);
@@ -31,6 +36,16 @@ export function JobProfileView({
     >
       {isAdmin && !preview ? (
         <AdminLensBar entityId={job.id} kind="job" slug={job.slug} />
+      ) : null}
+      {!preview && !isOwner && !job.businessId ? (
+        <div className="flex justify-end">
+          <ClaimJobButton
+            autoSubmit={autoClaim}
+            checkStatus
+            jobId={job.id}
+            jobSlug={job.slug}
+          />
+        </div>
       ) : null}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
         <div className="flex aspect-[16/9] flex-col items-center justify-center gap-3 bg-gradient-to-br from-amber-50 via-white to-brand-orange/10">
@@ -63,9 +78,9 @@ export function JobProfileView({
 
           {job.description ? (
             <div className="border-t border-slate-100 pt-4">
-              <h2 className="text-sm font-semibold text-slate-800">Описание</h2>
               <DescriptionWithOriginal
-                className="mt-2"
+                heading="Описание"
+                headingClassName="text-sm font-semibold text-slate-800"
                 original={job.descriptionOriginal}
                 text={job.description}
                 textClassName="text-sm leading-relaxed text-slate-700"

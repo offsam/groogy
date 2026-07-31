@@ -33,6 +33,7 @@ SHARED_HOSTS: tuple[str, ...] = (
     "wa.me",
     "whatsapp.com",
     "vk.com",
+    "vk.ru",
     "ok.ru",
     # Link-in-bio, shorteners, forms, shared Google surfaces
     "linktr.ee",
@@ -57,10 +58,29 @@ SHARED_HOSTS: tuple[str, ...] = (
     "eventbrite.com",
     "meetup.com",
     "eventful.com",
-    # App stores / vendor chrome
+    # App stores / OS vendor chrome (footer of booking SaaS like Dikidi)
     "apps.apple.com",
+    "itunes.apple.com",
+    "apple.com",
+    "apple.com.cn",
+    "apple.co",
+    "icloud.com",
     "play.google.com",
+    "appgallery.huawei.com",
+    "huawei.com",
+    "rustore.ru",
     "bendingspoons.com",
+    # Booking SaaS support / marketing (not the salon’s own site)
+    "support.dikidi.app",
+    "dikidi.app",
+    "dikidi.net",
+    "glossgenius.com",
+    "fresha.com",
+    "vagaro.com",
+    "booksy.com",
+    "calendly.com",
+    "mindbodyonline.com",
+    "mindbody.io",
     # Russian-speaking directories we import from
     "svoi.us",
     "russianorangepages.com",
@@ -86,7 +106,8 @@ SHARED_HOST_PATTERNS: tuple[re.Pattern[str], ...] = (
 )
 
 _EDITORIAL_PATH_RE = re.compile(
-    r"/(?:blog|news|article|articles|posts?|stories|stati|novosti|press)(?:/|$)",
+    r"/(?:blog|news|article|articles|posts?|stories|stati|novosti|press|"
+    r"legal|privacy|confidential|terms|policy|cookies?|tos|eula)(?:/|$)",
     re.I,
 )
 

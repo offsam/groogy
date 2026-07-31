@@ -649,7 +649,7 @@ export function scrubWeakDescription(
 ): string | null {
   const t = (value || "").trim();
   if (!t) return null;
-  let cleaned = t
+  const cleaned = t
     .replace(URL_SPAN_RE, " ")
     .replace(BARE_WEBSITE_RE, " ")
     .replace(/(?:instagram\.com\/|instagr\.am\/)[A-Za-z0-9._/]+/gi, " ")

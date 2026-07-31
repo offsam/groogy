@@ -109,6 +109,7 @@ function slugify(text: string): string {
 }
 
 type Untyped = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- dynamic table client
   from: (table: string) => any;
   rpc: (fn: string, args: Record<string, unknown>) => Promise<{
     data: unknown;

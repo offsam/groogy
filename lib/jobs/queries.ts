@@ -18,6 +18,7 @@ import type { Job, JobRow } from "@/types/job";
 type Client = SupabaseClient<Database>;
 
 function db(client: Client) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- jobs table typing lag
   return client as unknown as import("@supabase/supabase-js").SupabaseClient<any>;
 }
 
@@ -87,6 +88,7 @@ export async function listJobsForBusiness(
 ): Promise<Job[]> {
   let q = db(client)
     .from("jobs")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(JOB_SELECT as any)
     .eq("business_id", businessId)
     .order("created_at", { ascending: false });
@@ -109,6 +111,7 @@ export async function getJobBySlug(
   const normalized = normalizeRouteSlug(slug);
   const { data, error } = await db(client)
     .from("jobs")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(JOB_SELECT as any)
     .eq("slug", normalized)
     .maybeSingle();

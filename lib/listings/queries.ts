@@ -40,6 +40,7 @@ import {
 type Client = SupabaseClient<Database>;
 
 function untyped(client: Client) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- listings typing lag
   return client as unknown as import("@supabase/supabase-js").SupabaseClient<any>;
 }
 
@@ -817,6 +818,7 @@ export async function getListingById(
 ): Promise<Listing | null> {
   const { data, error } = await untyped(client)
     .from("listings")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(listingSelectFor(userId) as any)
     .eq("id", id)
     .maybeSingle();
@@ -842,6 +844,7 @@ export async function getMyListings(
 ): Promise<Listing[]> {
   let query = untyped(client)
     .from("listings")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(LISTING_SELECT as any)
     .eq("owner_id", userId)
     .eq("listing_type", listingType)
@@ -875,6 +878,7 @@ export async function getPublicProfileListings(
 
   const { data: full, error: fullError } = await untyped(client)
     .from("listings")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(LISTING_SELECT_PUBLIC as any)
     .in("id", ids);
   if (fullError) throw fullError;
@@ -906,6 +910,7 @@ export async function getPublicProfileServiceListings(
 
   const { data: full, error: fullError } = await untyped(client)
     .from("listings")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(LISTING_SELECT_PUBLIC as any)
     .in("id", ids);
   if (fullError) throw fullError;
@@ -929,6 +934,7 @@ export async function getBusinessPublicServiceListings(
 ): Promise<Listing[]> {
   const { data, error } = await untyped(client)
     .from("listings")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(LISTING_SELECT_PUBLIC as any)
     .eq("listing_type", "service")
     .eq("publisher_type", "business")

@@ -236,7 +236,18 @@ async function loadListingStamps(
     };
 
     const stamps = ((data ?? []) as ListingStampRow[])
-      .filter((row) => !hubId || rowMatchesHub({ city: row.city }, hubId))
+      .filter(
+        (row) =>
+          !hubId ||
+          rowMatchesHub(
+            {
+              city: row.city ?? null,
+              created_at: row.published_at ?? null,
+              updated_at: row.updated_at ?? null,
+            },
+            hubId,
+          ),
+      )
       .map((row) => ({
         id: row.id,
         created: row.published_at ?? row.updated_at ?? null,

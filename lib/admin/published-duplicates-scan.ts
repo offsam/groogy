@@ -831,7 +831,7 @@ async function scanOtherKindDuplicates(
       ? ["phone", "registration_url", "source_url", "description", "city", "cover_image_url"]
       : ["source_url", "description", "city"];
 
-  let selfQuery = anyFrom(catalog, table).select(select).eq("id", input.entityId);
+  const selfQuery = anyFrom(catalog, table).select(select).eq("id", input.entityId);
   const { data: selfRaw, error: selfErr } = await selfQuery.maybeSingle();
   if (selfErr) return { ok: false, message: selfErr.message };
   if (!selfRaw) return { ok: false, message: "Карточка не найдена" };

@@ -17,6 +17,10 @@ import {
 } from "@/lib/geo/geocode-street";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
 import {
+  resolveSourceKind,
+  sourceTypeFromKind,
+} from "@/lib/business/presence";
+import {
   evaluateThinProfessionalPublish,
   normalizePersonName,
 } from "@/lib/professional/thin-card-policy";
@@ -72,7 +76,9 @@ import type {
 } from "@/types/import-review";
 
 /** Untyped access until generated Database types include professionals/events. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- dynamic PostgREST tables
 function untyped(client: SupabaseClient) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return client as unknown as SupabaseClient<any>;
 }
 

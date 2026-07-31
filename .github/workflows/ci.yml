@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install test deps
+        run: pip install python-dotenv
       - name: Compile all pipeline scripts
         run: |
           find scripts -name '*.py' -not -path '*/.venv/*' -print0 \

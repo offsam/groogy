@@ -161,7 +161,7 @@ export function enrichSearchIntent(intent: SearchIntent): SearchIntent {
       : enrichTokensBilingual(intent.keywords).slice(0, 12);
 
   let preferCategory = intent.preferCategory;
-  let queryMode = intent.queryMode;
+  const queryMode = intent.queryMode;
 
   if (queryMode === "service_need" || queryMode === "browse") {
     preferCategory = true;

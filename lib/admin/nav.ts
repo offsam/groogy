@@ -233,6 +233,12 @@ export const ADMIN_NAV: AdminNavSection[] = [
         comingSoon: true,
         description: "Диагностика платформы",
       },
+      {
+        id: "system-error-reports",
+        label: "Error Reports",
+        href: "/admin/system/error-reports",
+        description: "Сообщения об ошибках с сайта",
+      },
     ],
   },
 ];

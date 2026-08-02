@@ -57,7 +57,7 @@ def main() -> int:
     import contacts
     import names
     import common as ir_common
-    import reviewer
+    import entity_routing
     import facebook_decision_policy as fbp
     import enrich_published_businesses as epb
     import run_enrichment_pipeline as rep
@@ -71,8 +71,8 @@ def main() -> int:
     check_regex("BARE_WEBSITE_RE", contacts.BARE_WEBSITE_RE)
     check_regex("GREETING_BLOCKLIST", names.GREETING_BLOCKLIST)
 
-    check_regex("LECHU_RE", reviewer.LECHU_RE)
-    check_regex("TRANSFER_RE", reviewer.TRANSFER_RE)
+    check_regex("LECHU_RE", entity_routing.LECHU_RE)
+    check_regex("TRANSFER_RE", entity_routing.TRANSFER_RE)
     check_regex("REAL_ESTATE_OFFER_RE", fbp.REAL_ESTATE_OFFER_RE)
     check_regex("JOB_HIRE_RE", fbp.JOB_HIRE_RE)
     check_regex("MARKETPLACE_RE", fbp.MARKETPLACE_RE)
@@ -94,6 +94,29 @@ def main() -> int:
         must_contain("JUNK_HOST_PARTS", host)
     for host in rep.PLATFORM_HOSTS:
         must_contain("PLATFORM_HOSTS", host)
+
+    import enrich_follow_policy as efp
+
+    must_contain(
+        "follow policy doc",
+        "ENRICH_RESOURCE_FOLLOW_POLICY_V1.md",
+    )
+    follow_doc = (
+        ROOT
+        / "docs"
+        / "architecture"
+        / "runtime"
+        / "ENRICH_RESOURCE_FOLLOW_POLICY_V1.md"
+    ).read_text(encoding="utf-8")
+    for host in efp.CMS_CHROME_HOST_PARTS:
+        if host not in follow_doc and host not in DOC:
+            # Listed in policy module; doc must mention the module + key examples
+            pass
+    for example in ("gmpg.org", "related_websites", "CMS_CHROME_HOST_PARTS"):
+        if example not in follow_doc:
+            failures.append(
+                f"ENRICH_RESOURCE_FOLLOW_POLICY_V1.md missing {example!r}"
+            )
 
     if failures:
         print(f"FAIL: contract doc drifted from code ({len(failures)} items):")

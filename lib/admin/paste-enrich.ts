@@ -5,9 +5,14 @@
 
 import type { OpeningHours, OpeningHoursDay } from "@/lib/business/opening-hours";
 import { dayLabelRu } from "@/lib/business/opening-hours";
+import type { ParsedMenuItem } from "@/lib/business-offers/parse-menu-text";
+import {
+  looksLikeMenuDocument,
+  parseMenuFromText,
+} from "@/lib/business-offers/parse-menu-text";
 
 export type PasteEnrichExisting = {
-  /** Company name — only the import queue fills this. */
+  /** Company / display name — fill-empty from paste when missing. */
   name?: string | null;
   phone?: string | string[] | null;
   email?: string | string[] | null;
@@ -17,7 +22,15 @@ export type PasteEnrichExisting = {
   telegram?: string | null;
   facebook?: string | null;
   whatsapp?: string | string[] | null;
+  /** Yelp biz URL — businesses `yelp_url`, not website. */
+  yelp?: string | null;
   googleMaps?: string | null;
+  /** Google Maps star rating 0–5 (businesses only). */
+  googleRating?: number | null;
+  googleReviewsCount?: number | null;
+  /** Yelp star rating 0–5 (businesses only). */
+  yelpRating?: number | null;
+  yelpReviewsCount?: number | null;
   city?: string | null;
   state?: string | null;
   addressLine?: string | null;
@@ -25,10 +38,12 @@ export type PasteEnrichExisting = {
   description?: string | null;
   imageUrl?: string | null;
   openingHours?: OpeningHours | null;
+  /** Existing service / offer titles (queue `services[]` or live offers). */
+  services?: string[] | null;
 };
 
 export type PasteEnrichExtracted = {
-  /** Null unless the caller asked for name inference (import queue only). */
+  /** Null unless the caller ran name inference (`parsePasteEnrichTextWithName`). */
   name: string | null;
   phone: string[];
   email: string[];
@@ -37,13 +52,22 @@ export type PasteEnrichExtracted = {
   telegram: string | null;
   facebook: string | null;
   whatsapp: string | null;
+  yelp: string | null;
   googleMaps: string | null;
+  googleRating: number | null;
+  googleReviewsCount: number | null;
+  yelpRating: number | null;
+  yelpReviewsCount: number | null;
   city: string | null;
   state: string | null;
   addressLine: string | null;
   postalCode: string | null;
   description: string | null;
   openingHours: OpeningHours | null;
+  /** Google Maps «Services: A, B, C» / «Услуги: …» labels. */
+  services: string[];
+  /** Restaurant menu dishes (section + price) from pasted / OCR menu boards. */
+  menuItems: ParsedMenuItem[];
 };
 
 export type PasteEnrichFieldKey =
@@ -55,13 +79,18 @@ export type PasteEnrichFieldKey =
   | "telegram"
   | "facebook"
   | "whatsapp"
+  | "yelp"
   | "googleMaps"
+  | "googleRating"
+  | "yelpRating"
   | "city"
   | "state"
   | "address"
   | "postal"
   | "description"
   | "openingHours"
+  | "services"
+  | "menu"
   | "image";
 
 export type PasteEnrichPreviewItem = {
@@ -133,6 +162,7 @@ const SOCIAL_HOST_MARKERS = [
   "facebook.com",
   "fb.com",
   "fb.me",
+  "yelp.com",
   "t.me/",
   "telegram.me",
   "wa.me/",
@@ -157,12 +187,15 @@ const WEBSITE_HOST_BLOCKLIST = new Set([
   "fb.me",
   "instagram.com",
   "instagr.am",
+  "yelp.com",
   "t.me",
   "telegram.me",
 ]);
 
 const FACEBOOK_URL_RE =
   /(?:https?:\/\/)?(?:www\.)?(?:facebook\.com|fb\.com|fb\.me)\/[A-Za-z0-9._\-/]+/gi;
+const YELP_URL_RE =
+  /(?:https?:\/\/)?(?:www\.)?yelp\.com\/biz\/[A-Za-z0-9._\-%]+/gi;
 const WHATSAPP_URL_RE =
   /(?:https?:\/\/)?(?:(?:wa\.me|api\.whatsapp\.com)\/[^\s<>"']+|wtsp\.cc\/\d{7,15})/gi;
 const GOOGLE_MAPS_URL_RE =
@@ -188,9 +221,19 @@ const PLACE_RULES: { re: RegExp; city: string | null; state: string }[] = [
   { re: /\borange\s*county\b|\boc\b/i, city: "Orange County", state: "CA" },
 ];
 
-/** US street + city + state, ZIP optional (e.g. «18062 Irvine Blvd, Tustin, CA»). */
-const US_STREET_ADDRESS_RE =
-  /((?<![\d\-])\d{1,6}[ \t]+[A-Za-z0-9.'\-]+(?:[ \t]+[A-Za-z0-9.'\-]+){0,6}[ \t]+(?:Ave|Avenue|St|Street|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Ln|Lane|Ct|Court|Pl|Place|Hwy|Highway)\.?)\s*,\s*([A-Za-z][A-Za-z.\s]+?)\s*,\s*(?:([A-Z]{2})|California|CA|Washington|WA|New\s*York|NY|Florida|FL|Oregon|OR|Texas|TX)(?:\s+(\d{5})(?:-\d{4})?)?/i;
+/**
+ * US street + city + state, ZIP optional.
+ * Unit may sit after the street type with a space («Rd ste 210») or a comma
+ * («Rd, Suite 210») — Google Maps uses both.
+ */
+const US_STREET_TYPE =
+  "(?:Ave|Avenue|St|Street|Blvd|Boulevard|Rd|Road|Dr|Drive|Way|Ln|Lane|Ct|Court|Pl|Place|Hwy|Highway|Pkwy|Parkway|Cir|Circle|Ter|Terrace|Trl|Trail|Loop|Sq|Square)";
+const US_UNIT =
+  "(?:Ste|Suite|Unit|Apt|#)\\.?[ \\t]*[A-Za-z0-9\\-]+";
+const US_STREET_ADDRESS_RE = new RegExp(
+  `((?<![\\d\\-])\\d{1,6}[ \\t]+[A-Za-z0-9.'\\-]+(?:[ \\t]+[A-Za-z0-9.'\\-]+){0,6}[ \\t]+${US_STREET_TYPE}\\.?(?:(?:[ \\t]+|,[ \\t]*)${US_UNIT})?)\\s*,\\s*([A-Za-z][A-Za-z.\\s]+?)\\s*,\\s*(?:([A-Z]{2})|California|CA|Washington|WA|New\\s*York|NY|Florida|FL|Oregon|OR|Texas|TX)(?:\\s+(\\d{5})(?:-\\d{4})?)?`,
+  "i",
+);
 
 const IG_STATS_LINE_RE =
   /^\s*\d[\d\s,.]*\s*(?:публикаци[йяе]|подписчик(?:ов)?|подписок|followers?|following|posts?).*$/gim;
@@ -204,13 +247,18 @@ const FIELD_LABELS: Record<PasteEnrichFieldKey, string> = {
   telegram: "Telegram",
   facebook: "Facebook",
   whatsapp: "WhatsApp",
+  yelp: "Yelp",
   googleMaps: "Google Maps",
+  googleRating: "Google рейтинг",
+  yelpRating: "Yelp рейтинг",
   city: "Город",
   state: "Штат",
   address: "Адрес",
   postal: "ZIP",
   description: "Описание",
   openingHours: "Часы работы",
+  services: "Услуги",
+  menu: "Меню",
   image: "Фото",
 };
 
@@ -406,6 +454,37 @@ function emptyScalar(value: string | null | undefined): boolean {
   return !(value || "").trim();
 }
 
+/** House number + street name key — suite / Ave vs Avenue ignored. */
+export function streetIdentity(value: string | null | undefined): string {
+  const v = (value || "")
+    .toLowerCase()
+    .replace(
+      /,?\s*\b(?:ste|suite|unit|apt|apartment|bldg|building|fl|floor|room|rm|office)\b\.?\s*#?\s*(?:[\w-]{1,8}|[a-z]{1,2})\b/gi,
+      " ",
+    )
+    .replace(/[^\w\s]/g, " ")
+    .replace(
+      /\b(avenue|ave|street|st|boulevard|blvd|drive|dr|road|rd|lane|ln|court|ct|way|parkway|pkwy|place|pl|circle|cir|terrace|ter)\b/g,
+      " ",
+    );
+  return v.replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Pasted / website street is stronger than telegram glue already on the card.
+ * Same house number+street → keep existing; different street → replace.
+ */
+export function preferWebsiteStreet(
+  existing: string | null | undefined,
+  incoming: string | null | undefined,
+): boolean {
+  const web = (incoming || "").trim();
+  if (!web || !/^\d{1,6}\s+\S/.test(web)) return false;
+  const cur = (existing || "").trim();
+  if (!cur || !/^\d{1,6}\s+\S/.test(cur)) return true;
+  return streetIdentity(cur) !== streetIdentity(web);
+}
+
 function emptyList(value: string | string[] | null | undefined): boolean {
   if (value == null) return true;
   if (Array.isArray(value)) return value.filter((x) => (x || "").trim()).length === 0;
@@ -454,6 +533,26 @@ function maskUuidSpans(text: string): string {
 
 function maskTelegramIds(text: string): string {
   return text.replace(TELEGRAM_ID_SPAN_RE, (m) => " ".repeat(m.length));
+}
+
+export function extractYelpFromText(text: string): string | null {
+  for (const match of (text || "").matchAll(YELP_URL_RE)) {
+    const url = normalizeUrl(match[0] || "");
+    if (!url) continue;
+    try {
+      const u = new URL(url);
+      const host = u.hostname.toLowerCase().replace(/^www\./, "");
+      if (host !== "yelp.com" && !host.endsWith(".yelp.com")) continue;
+      const path = u.pathname.replace(/\/+$/, "");
+      if (!path.startsWith("/biz/")) continue;
+      const slug = path.slice("/biz/".length);
+      if (!slug || slug.includes("/")) continue;
+      return `https://www.yelp.com/biz/${decodeURIComponent(slug)}`;
+    } catch {
+      continue;
+    }
+  }
+  return null;
 }
 
 export function extractFacebookFromText(text: string): string | null {
@@ -787,6 +886,60 @@ export function demathAlnum(text: string): string {
     .join("");
 }
 
+/**
+ * Google Maps «Services: Teeth whitening, Invisalign, …» /
+ * «Услуги: …» — comma / and / и separated labels.
+ */
+export function extractServicesFromText(text: string): string[] {
+  const source = demathAlnum(text || "");
+  if (!source.trim()) return [];
+
+  const labeled =
+    /(?:^|\n)\s*(?:services?|услуг[аиеы]?|предлагаем(?:\s+услуги)?)\s*[:：]\s*([^\n]+)/i.exec(
+      source,
+    );
+  let body = labeled?.[1]?.trim() || "";
+
+  if (!body) {
+    // Header alone on one line, list on the next.
+    const lines = source.split(/\n+/).map((l) => l.trim());
+    for (let i = 0; i < lines.length - 1; i += 1) {
+      if (/^(?:services?|услуг[аиеы]?)\s*[:：]?\s*$/i.test(lines[i]!)) {
+        body = lines[i + 1] || "";
+        break;
+      }
+    }
+  }
+  if (!body) return [];
+
+  const parts = body
+    .split(/\s*(?:,|;|\band\b|\bи\b)\s*/i)
+    .map((part) =>
+      part
+        .replace(/^[\s•·\-–—*]+/, "")
+        .replace(/[.\s]+$/, "")
+        .trim(),
+    )
+    .filter((part) => {
+      if (part.length < 3 || part.length > 80) return false;
+      if (!/[A-Za-zА-Яа-яЁё]/.test(part)) return false;
+      if (/^\d+$/.test(part)) return false;
+      if (/^(?:website|directions|call|save|share)$/i.test(part)) return false;
+      return true;
+    });
+
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const part of parts) {
+    const key = part.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(part);
+    if (out.length >= 24) break;
+  }
+  return out;
+}
+
 /** Strip URLs/phones/IG stats for a cleaner description candidate. */
 export function extractDescriptionFromText(text: string): string | null {
   let cleaned = demathAlnum(text || "").trim();
@@ -810,6 +963,10 @@ export function extractDescriptionFromText(text: string): string | null {
   cleaned = cleaned.replace(US_STREET_ADDRESS_RE, " ");
   cleaned = cleaned.replace(PHONE_SPAN_RE, " ");
   cleaned = cleaned.replace(PHONE_LABEL_RE, " ");
+  cleaned = cleaned.replace(
+    /(?:^|\n)\s*(?:services?|услуг[аиеы]?)\s*[:：][^\n]*/gi,
+    " ",
+  );
   // Drop bare username-only / label-only lines
   cleaned = cleaned
     .split(/\n+/)
@@ -819,7 +976,7 @@ export function extractDescriptionFromText(text: string): string | null {
       if (DAY_LINE_RE.test(line)) return false;
       if (HOURS_RANGE_RE.test(line) && line.length < 40) return false;
       if (
-        /^(blogger|creator|artist|personal\s*blog|book\s*now|my\s*website|website|facebook|instagram|links?|open\s*now|directions|overview|reviews|about|suggest\s*new\s*hours)$/i.test(
+        /^(blogger|creator|artist|personal\s*blog|book\s*now|my\s*website|website|facebook|instagram|links?|open\s*now|directions|overview|reviews|photos|products|about|suggest\s*new\s*hours|save|share|call)$/i.test(
           line,
         )
       ) {
@@ -830,6 +987,7 @@ export function extractDescriptionFromText(text: string): string | null {
       return true;
     })
     .join("\n");
+
   cleaned = cleaned.replace(/\s+/g, " ").trim();
   if (cleaned.length < 20) return null;
   const words = cleaned.split(/\s+/).filter(Boolean);
@@ -847,12 +1005,92 @@ export function extractDescriptionFromText(text: string): string | null {
   return cleaned.slice(0, 2000);
 }
 
+/**
+ * Yelp paste: «Yelp 4.1 (7 reviews)» / «Yelp 4.1 · 7 Reviews».
+ */
+export function extractYelpRatingFromText(
+  text: string,
+): { rating: number; reviewsCount: number } | null {
+  const raw = demathAlnum(text || "");
+  if (!raw.trim()) return null;
+
+  const patterns: RegExp[] = [
+    /\bYelp\s+([1-5](?:[.,]\d)?)\s*[·•.\-–—]?\s*\(?\s*(\d{1,6})\s*\)?\s*(?:Reviews?|отзыв(?:ов|а)?|ratings?)?\b/i,
+    /\bYelp\b[^\n]{0,40}?\b([1-5](?:[.,]\d)?)\s*(?:\n|\r\n)+\s*\(?\s*(\d{1,6})\s*\)?\s*(?:Reviews?|отзыв(?:ов|а)?)?/i,
+  ];
+
+  for (const re of patterns) {
+    const m = raw.match(re);
+    if (!m) continue;
+    const rating = Number(String(m[1]).replace(",", "."));
+    const reviewsCount = Number(m[2]);
+    if (!Number.isFinite(rating) || rating < 1 || rating > 5) continue;
+    if (!Number.isFinite(reviewsCount) || reviewsCount < 1 || reviewsCount > 2_000_000) {
+      continue;
+    }
+    return {
+      rating: Math.round(rating * 10) / 10,
+      reviewsCount: Math.floor(reviewsCount),
+    };
+  }
+  return null;
+}
+
+/**
+ * Google Maps paste: «4.7» then «(100)» / «100 Reviews» / «4.7 · 100 Reviews».
+ * Returns null when the numbers are not a plausible Maps rating block.
+ * Skips Yelp-labeled ratings («Yelp 4.1 (7 reviews)»).
+ *
+ * Never treat street numbers as stars: «4695 MacArthur» is not «4.0 (695)».
+ */
+export function extractGoogleRatingFromText(
+  text: string,
+): { rating: number; reviewsCount: number } | null {
+  const raw = demathAlnum(text || "")
+    // Do not treat Yelp stars as Google stars.
+    .replace(
+      /\bYelp\s+[1-5](?:[.,]\d)?\s*[·•.\-–—]?\s*\(?\s*\d{1,6}\s*\)?\s*(?:Reviews?|отзыв(?:ов|а)?|ratings?)?/gi,
+      " ",
+    );
+  if (!raw.trim()) return null;
+
+  const patterns: RegExp[] = [
+    // 4.7 · 100 Reviews  /  4.7 (100 reviews) — Reviews/отзывы required on same run
+    /\b([1-5](?:[.,]\d)?)(?!\d)\s*[·•.\-–—]?\s*\(?\s*(\d{1,6})\s*\)?\s*(?:Reviews?|отзыв(?:ов|а)?|ratings?)\b/i,
+    // Maps block: 4.7\n(100) or 5.0\n(9) — decimal stars + parenthesized count
+    /\b([1-5][.,]\d)(?!\d)\s*(?:\n|\r\n)+\s*[·•]?\s*\(?\s*(\d{1,6})\s*\)/i,
+    // 4.7\n·\n183 Reviews (middle dot on its own line)
+    /\b([1-5](?:[.,]\d)?)(?!\d)\s*(?:\n|\r\n)+\s*[·•]\s*(?:\n|\r\n)+\s*(\d{1,6})\s*(?:Reviews?|отзыв(?:ов|а)?|ratings?)\b/i,
+  ];
+
+  for (const re of patterns) {
+    const m = raw.match(re);
+    if (!m) continue;
+    const rating = Number(String(m[1]).replace(",", "."));
+    const reviewsCount = Number(m[2]);
+    if (!Number.isFinite(rating) || rating < 1 || rating > 5) continue;
+    if (!Number.isFinite(reviewsCount) || reviewsCount < 1 || reviewsCount > 2_000_000) {
+      continue;
+    }
+    // Bare integers without «Reviews» are street/suite noise, not star ratings.
+    if (rating === Math.floor(rating) && !/[.,]/.test(m[1]) && reviewsCount < 3) {
+      continue;
+    }
+    return {
+      rating: Math.round(rating * 10) / 10,
+      reviewsCount: Math.floor(reviewsCount),
+    };
+  }
+  return null;
+}
+
 export function parsePasteEnrichText(text: string): PasteEnrichExtracted {
   const normalized = demathAlnum(text || "");
   const phones = extractPhonesFromText(normalized);
   const emails = extractEmailsFromText(normalized);
   const facebook = extractFacebookFromText(normalized);
   const whatsapp = extractWhatsAppFromText(normalized);
+  const yelp = extractYelpFromText(normalized);
   const googleMaps = extractGoogleMapsFromText(normalized);
   const websites = extractWebsitesFromText(normalized);
   const instagram = extractInstagramFromText(normalized);
@@ -861,6 +1099,11 @@ export function parsePasteEnrichText(text: string): PasteEnrichExtracted {
   const place = extractPlaceFromText(normalized);
   const description = extractDescriptionFromText(text);
   const openingHours = extractOpeningHoursFromText(text);
+  const yelpStars = extractYelpRatingFromText(text);
+  const google = extractGoogleRatingFromText(text);
+  const menuItems = looksLikeMenuDocument(text) ? parseMenuFromText(text) : [];
+  const services =
+    menuItems.length >= 3 ? [] : extractServicesFromText(text);
   // Phone from WhatsApp short link when no other phone was found.
   if (whatsapp && phones.length === 0) {
     const digits = whatsapp.replace(/\D/g, "");
@@ -878,13 +1121,20 @@ export function parsePasteEnrichText(text: string): PasteEnrichExtracted {
     telegram: tgs[0] ?? null,
     facebook,
     whatsapp,
+    yelp,
     googleMaps,
+    googleRating: google?.rating ?? null,
+    googleReviewsCount: google?.reviewsCount ?? null,
+    yelpRating: yelpStars?.rating ?? null,
+    yelpReviewsCount: yelpStars?.reviewsCount ?? null,
     city: street.city || place.city,
     state: street.state || place.state,
     addressLine: street.addressLine,
     postalCode: street.postalCode,
     description,
     openingHours,
+    services,
+    menuItems,
   };
 }
 
@@ -905,6 +1155,34 @@ export function buildPasteEnrichPreview(
       label: FIELD_LABELS.name,
       value: extracted.name,
       action: emptyScalar(existing.name) ? "add" : "skip",
+    });
+  }
+
+  if (extracted.googleRating != null) {
+    const count = extracted.googleReviewsCount ?? 0;
+    const emptyRating =
+      existing.googleRating == null ||
+      !Number.isFinite(Number(existing.googleRating)) ||
+      Number(existing.googleRating) <= 0;
+    rows.push({
+      key: "googleRating",
+      label: FIELD_LABELS.googleRating,
+      value: count > 0 ? `${extracted.googleRating} (${count})` : String(extracted.googleRating),
+      action: emptyRating ? "add" : "skip",
+    });
+  }
+
+  if (extracted.yelpRating != null) {
+    const count = extracted.yelpReviewsCount ?? 0;
+    const emptyRating =
+      existing.yelpRating == null ||
+      !Number.isFinite(Number(existing.yelpRating)) ||
+      Number(existing.yelpRating) <= 0;
+    rows.push({
+      key: "yelpRating",
+      label: FIELD_LABELS.yelpRating,
+      value: count > 0 ? `${extracted.yelpRating} (${count})` : String(extracted.yelpRating),
+      action: emptyRating ? "add" : "skip",
     });
   }
 
@@ -961,6 +1239,15 @@ export function buildPasteEnrichPreview(
     });
   }
 
+  if (extracted.yelp) {
+    rows.push({
+      key: "yelp",
+      label: FIELD_LABELS.yelp,
+      value: extracted.yelp,
+      action: emptyScalar(existing.yelp) ? "add" : "skip",
+    });
+  }
+
   if (extracted.googleMaps) {
     rows.push({
       key: "googleMaps",
@@ -971,11 +1258,15 @@ export function buildPasteEnrichPreview(
   }
 
   if (extracted.city) {
+    const replaceCity =
+      !emptyScalar(existing.city) &&
+      Boolean(extracted.addressLine) &&
+      preferWebsiteStreet(existing.addressLine, extracted.addressLine);
     rows.push({
       key: "city",
       label: FIELD_LABELS.city,
       value: extracted.city,
-      action: emptyScalar(existing.city) ? "add" : "skip",
+      action: emptyScalar(existing.city) || replaceCity ? "add" : "skip",
     });
   }
 
@@ -993,16 +1284,22 @@ export function buildPasteEnrichPreview(
       key: "address",
       label: FIELD_LABELS.address,
       value: extracted.addressLine,
-      action: emptyScalar(existing.addressLine) ? "add" : "skip",
+      action: preferWebsiteStreet(existing.addressLine, extracted.addressLine)
+        ? "add"
+        : "skip",
     });
   }
 
   if (extracted.postalCode) {
+    const replaceZip =
+      !emptyScalar(existing.postalCode) &&
+      Boolean(extracted.addressLine) &&
+      preferWebsiteStreet(existing.addressLine, extracted.addressLine);
     rows.push({
       key: "postal",
       label: FIELD_LABELS.postal,
       value: extracted.postalCode,
-      action: emptyScalar(existing.postalCode) ? "add" : "skip",
+      action: emptyScalar(existing.postalCode) || replaceZip ? "add" : "skip",
     });
   }
 
@@ -1013,6 +1310,53 @@ export function buildPasteEnrichPreview(
       value: formatOpeningHoursPreview(extracted.openingHours),
       action: emptyOpeningHours(existing.openingHours) ? "add" : "skip",
     });
+  }
+
+  if (extracted.services.length > 0) {
+    const existingKeys = new Set(
+      (existing.services ?? []).map((s) => s.trim().toLowerCase()).filter(Boolean),
+    );
+    const novel = extracted.services.filter(
+      (s) => !existingKeys.has(s.trim().toLowerCase()),
+    );
+    if (novel.length > 0) {
+      const display =
+        novel.length <= 4
+          ? novel.join(", ")
+          : `${novel.slice(0, 4).join(", ")}… (+${novel.length - 4})`;
+      rows.push({
+        key: "services",
+        label: FIELD_LABELS.services,
+        value: display,
+        action: "add",
+      });
+    }
+  }
+
+  if ((extracted.menuItems ?? []).length > 0) {
+    const existingKeys = new Set(
+      (existing.services ?? []).map((s) => s.trim().toLowerCase()).filter(Boolean),
+    );
+    const novel = extracted.menuItems.filter(
+      (m) => !existingKeys.has(m.title.trim().toLowerCase()),
+    );
+    if (novel.length > 0) {
+      const preview = novel
+        .slice(0, 4)
+        .map((m) =>
+          m.priceAmount != null ? `${m.title} $${m.priceAmount}` : m.title,
+        );
+      const display =
+        novel.length <= 4
+          ? preview.join(", ")
+          : `${preview.join(", ")}… (+${novel.length - 4})`;
+      rows.push({
+        key: "menu",
+        label: FIELD_LABELS.menu,
+        value: display,
+        action: "add",
+      });
+    }
   }
 
   if (extracted.description) {
@@ -1085,8 +1429,31 @@ export function pasteEnrichFillEmptyPatch(
   if (emptyList(existing.whatsapp) && extracted.whatsapp) {
     patch.whatsapp = extracted.whatsapp;
   }
+  if (emptyScalar(existing.yelp) && extracted.yelp) {
+    patch.yelp = extracted.yelp;
+  }
   if (emptyScalar(existing.googleMaps) && extracted.googleMaps) {
     patch.googleMaps = extracted.googleMaps;
+  }
+  const emptyGoogleRating =
+    existing.googleRating == null ||
+    !Number.isFinite(Number(existing.googleRating)) ||
+    Number(existing.googleRating) <= 0;
+  if (emptyGoogleRating && extracted.googleRating != null) {
+    patch.googleRating = extracted.googleRating;
+    if (extracted.googleReviewsCount != null && extracted.googleReviewsCount > 0) {
+      patch.googleReviewsCount = extracted.googleReviewsCount;
+    }
+  }
+  const emptyYelpRating =
+    existing.yelpRating == null ||
+    !Number.isFinite(Number(existing.yelpRating)) ||
+    Number(existing.yelpRating) <= 0;
+  if (emptyYelpRating && extracted.yelpRating != null) {
+    patch.yelpRating = extracted.yelpRating;
+    if (extracted.yelpReviewsCount != null && extracted.yelpReviewsCount > 0) {
+      patch.yelpReviewsCount = extracted.yelpReviewsCount;
+    }
   }
   if (emptyScalar(existing.city) && extracted.city) {
     patch.city = extracted.city;
@@ -1094,14 +1461,33 @@ export function pasteEnrichFillEmptyPatch(
   if (emptyScalar(existing.state) && extracted.state) {
     patch.state = extracted.state;
   }
-  if (emptyScalar(existing.addressLine) && extracted.addressLine) {
+  const takeAddress =
+    Boolean(extracted.addressLine) &&
+    preferWebsiteStreet(existing.addressLine, extracted.addressLine);
+  if (takeAddress) {
     patch.addressLine = extracted.addressLine;
-  }
-  if (emptyScalar(existing.postalCode) && extracted.postalCode) {
+    // City/ZIP often name the old venue — refresh with the paste when present.
+    if (extracted.city) patch.city = extracted.city;
+    if (extracted.state) patch.state = extracted.state;
+    if (extracted.postalCode) patch.postalCode = extracted.postalCode;
+  } else if (emptyScalar(existing.postalCode) && extracted.postalCode) {
     patch.postalCode = extracted.postalCode;
   }
   if (emptyOpeningHours(existing.openingHours) && extracted.openingHours) {
     patch.openingHours = extracted.openingHours;
+  }
+  if (extracted.services.length > 0) {
+    const existingKeys = new Set(
+      (existing.services ?? []).map((s) => s.trim().toLowerCase()).filter(Boolean),
+    );
+    const novel = extracted.services.filter(
+      (s) => !existingKeys.has(s.trim().toLowerCase()),
+    );
+    if (novel.length > 0) {
+      // Queue: full merged list. Live apply uses this as the novel-only list.
+      const merged = [...(existing.services ?? []).filter(Boolean), ...novel];
+      patch.services = emptyList(existing.services) ? novel : merged;
+    }
   }
   if (isWeakDescription(existing.description)) {
     if (extracted.description) {

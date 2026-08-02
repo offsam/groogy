@@ -11,8 +11,7 @@ import {
 import { AddProfessionalServiceButton } from "@/components/professional/AddProfessionalServiceButton";
 import { ClaimProfessionalButton } from "@/components/professional/ClaimProfessionalButton";
 import { BusinessMiniMap } from "@/components/business/profile/BusinessMiniMap";
-import { formatProfessionalPrice } from "@/lib/professional/mappers";
-import { ServiceListRow, ServiceTileRow } from "@/components/shared/ServiceListRow";
+import { formatProfessionalPrice, formatProfessionalDuration } from "@/lib/professional/mappers";
 import { serviceTitleForDisplay } from "@/lib/professional/service-title-ru";
 import { ProfessionalContactsCard } from "@/components/professional/ProfessionalContactsCard";
 import { ProfessionalOriginBadges } from "@/components/professional/ProfessionalOriginBadges";
@@ -22,14 +21,8 @@ import { PaymentMethodsCard } from "@/components/shared/PaymentMethodsCard";
 import { DescriptionWithOriginal } from "@/components/shared/DescriptionWithOriginal";
 import { PromotionsSection } from "@/components/shared/PromotionCard";
 import { UpdatesSection } from "@/components/shared/UpdateCard";
-import {
-  ExternalRatingChips,
-  businessExternalRatingItems,
-} from "@/components/shared/ExternalRatingsSection";
 import { FollowEntityButton } from "@/components/shared/FollowEntityButton";
-import { formatStructuredAddressLine } from "@/lib/address/normalize";
 import { looksLikeStreetAddress } from "@/lib/business/location-precision";
-import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import type { Category } from "@/types/business";
 import type { Professional, ProfessionalService } from "@/types/professional";
 import type { EntityPromotion } from "@/types/promotion";
@@ -85,15 +78,15 @@ export function ProfessionalProfileView({
   initialFollowing = false,
   cityMapCenter = null,
 }: ProfessionalProfileViewProps) {
-  const [viewAs, setViewAs] = useState<AdminLensViewAs>("visitor");
+  const [viewAs, setViewAs] = useState<AdminLensViewAs>("owner");
 
-  const location = formatStructuredAddressLine({
-    addressLine: professional.addressLine ?? null,
-    city: professional.city,
-    region: professional.region,
-    stateCode: professional.stateCode,
-    postalCode: professional.postalCode,
-  });
+  const location = [
+    professional.addressLine,
+    professional.city,
+    professional.region || professional.stateCode,
+  ]
+    .filter(Boolean)
+    .join(", ");
 
   const hasEntityCoords =
     typeof professional.latitude === "number" &&
@@ -116,30 +109,17 @@ export function ProfessionalProfileView({
     ? professional.longitude
     : (cityMapCenter?.lng ?? (hasEntityCoords ? professional.longitude : null));
   const mapZoom = exactPin ? 14 : 11;
-  // Always redact narrative on the public profile — even for admin/owner
-  // payloads (mapProfessionalOwner keeps raw copy for the edit form).
-  const shortAbout = redactContactsFromPublicText(
-    professional.shortDescription,
-  );
-  const fullAbout = redactContactsFromPublicText(professional.description);
-  const aboutOriginal = redactContactsFromPublicText(
-    professional.descriptionOriginal,
-  );
   const about =
-    shortAbout ||
-    (fullAbout && fullAbout !== shortAbout ? fullAbout : null);
+    professional.shortDescription ||
+    (professional.description &&
+    professional.description !== professional.shortDescription
+      ? professional.description
+      : null);
   const longAbout =
-    fullAbout && fullAbout !== shortAbout ? fullAbout : null;
-
-  // Admin: raw DB copy still has contacts that guests never see.
-  const dbNarrativeHidesContacts =
-    Boolean(isAdmin) &&
-    !preview &&
-    [professional.shortDescription, professional.description].some((raw) => {
-      const t = (raw || "").trim();
-      if (!t) return false;
-      return (redactContactsFromPublicText(t) || "").trim() !== t;
-    });
+    professional.description &&
+    professional.description !== professional.shortDescription
+      ? professional.description
+      : null;
 
   const showOwnerChrome =
     !preview &&
@@ -175,22 +155,6 @@ export function ProfessionalProfileView({
           viewAs={viewAs}
           onViewAsChange={setViewAs}
         />
-      ) : null}
-
-      {dbNarrativeHidesContacts ? (
-        <div className="rounded-xl border border-amber-300 bg-amber-50 px-3 py-2.5 text-sm text-amber-950">
-          <p>
-            В описании в базе ещё лежат контакты — пользователь их здесь не
-            видит (только в «Контактах»). Чтобы убрать мусор из текста, откройте
-            редактирование.
-          </p>
-          <Link
-            className="mt-1 inline-flex min-h-11 items-center font-semibold text-brand-blue hover:underline"
-            href={`/professional/${professional.slug}/edit`}
-          >
-            Редактировать описание
-          </Link>
-        </div>
       ) : null}
 
       {showOwnerChrome ? (
@@ -253,35 +217,27 @@ export function ProfessionalProfileView({
           <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
             {professional.displayName}
           </h1>
-          <div className="space-y-1 text-sm text-slate-500">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              {professional.ratingAvg > 0 ? (
-                <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
-                  <Star
-                    aria-hidden="true"
-                    className="size-3.5 fill-amber-500 text-amber-500"
-                  />
-                  {professional.ratingAvg.toFixed(1)}
-                  <span className="font-normal text-slate-500">
-                    ({professional.reviewsCount})
-                  </span>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+            {professional.ratingAvg > 0 ? (
+              <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
+                <Star
+                  aria-hidden="true"
+                  className="size-3.5 fill-amber-500 text-amber-500"
+                />
+                {professional.ratingAvg.toFixed(1)}
+                <span className="font-normal text-slate-500">
+                  ({professional.reviewsCount})
                 </span>
-              ) : (
-                <span>Пока нет отзывов</span>
-              )}
-              {professional.createdAt ? (
-                <span className="text-xs text-slate-400">
-                  На платформе с {new Date(professional.createdAt).getFullYear()}
-                </span>
-              ) : null}
-            </div>
-            <ExternalRatingChips
-              items={businessExternalRatingItems({
-                googleRating: professional.employerBusinessGoogleRating,
-                googleReviewsCount:
-                  professional.employerBusinessGoogleReviewsCount,
-              })}
-            />
+              </span>
+            ) : (
+              <span>Пока нет отзывов</span>
+            )}
+            {professional.createdAt ? (
+              <span className="text-xs text-slate-400">
+                На платформе с{" "}
+                {new Date(professional.createdAt).getFullYear()}
+              </span>
+            ) : null}
           </div>
           {bookHref ? (
             <a
@@ -315,39 +271,8 @@ export function ProfessionalProfileView({
       <ProfessionalWorkplaceCard professional={professional} />
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        {/* Same as business sidebar: map/location first, then contacts. */}
+        {/* Phone: contacts under identity; lg+: contacts in right column */}
         <aside className="order-1 space-y-3 lg:order-2 lg:sticky lg:top-24">
-          {location || professional.serviceAreaText || (mapLat != null && mapLng != null) ? (
-            <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-              {mapLat != null && mapLng != null ? (
-                <BusinessMiniMap
-                  lat={mapLat}
-                  lng={mapLng}
-                  showMarker={exactPin}
-                  zoom={exactPin ? 14 : 11}
-                />
-              ) : null}
-              {location || professional.serviceAreaText ? (
-                <div className="p-3">
-                  {location ? (
-                    <p className="flex items-start gap-1.5 text-sm text-slate-700">
-                      <MapPin
-                        aria-hidden
-                        className="mt-0.5 size-3.5 shrink-0 text-brand-blue"
-                      />
-                      <span>{location}</span>
-                    </p>
-                  ) : null}
-                  {professional.serviceAreaText ? (
-                    <p className="mt-1.5 text-xs text-slate-500">
-                      Зона: {professional.serviceAreaText}
-                    </p>
-                  ) : null}
-                </div>
-              ) : null}
-            </section>
-          ) : null}
-
           <ProfessionalContactsCard
             initiallyRevealed={Boolean(
               showOwnerChrome ||
@@ -364,6 +289,36 @@ export function ProfessionalProfileView({
             professional={publicProfessional}
           />
           <PaymentMethodsCard methods={professional.paymentMethods} />
+
+          {location || professional.serviceAreaText ? (
+            <section className="rounded-2xl border border-slate-200 bg-white p-4">
+              <h2 className="text-sm font-semibold text-slate-900">Локация</h2>
+              {location ? (
+                <p className="mt-2 flex items-start gap-1.5 text-sm text-slate-700">
+                  <MapPin
+                    aria-hidden
+                    className="mt-0.5 size-3.5 shrink-0 text-slate-400"
+                  />
+                  <span>{location}</span>
+                </p>
+              ) : null}
+              {professional.serviceAreaText ? (
+                <p className="mt-1.5 text-xs text-slate-500">
+                  Зона: {professional.serviceAreaText}
+                </p>
+              ) : null}
+              {mapLat != null && mapLng != null ? (
+                <div className="mt-3 overflow-hidden rounded-xl border border-slate-200">
+                  <BusinessMiniMap
+                    lat={mapLat}
+                    lng={mapLng}
+                    showMarker={exactPin}
+                    zoom={exactPin ? 14 : 11}
+                  />
+                </div>
+              ) : null}
+            </section>
+          ) : null}
 
           <ProfessionalSourceCard
             initiallyRevealed={Boolean(
@@ -382,19 +337,23 @@ export function ProfessionalProfileView({
         <div className="order-2 space-y-4 lg:order-1">
           {about || longAbout ? (
             <section className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
-              {shortAbout ? (
+              {professional.shortDescription ? (
                 <DescriptionWithOriginal
                   heading="О специалисте"
-                  original={longAbout ? null : aboutOriginal}
-                  text={shortAbout}
+                  original={
+                    longAbout ? null : professional.descriptionOriginal
+                  }
+                  text={professional.shortDescription}
                   textClassName="text-base leading-relaxed text-slate-800"
                 />
               ) : null}
               {longAbout ? (
                 <DescriptionWithOriginal
-                  className={shortAbout ? "mt-3" : undefined}
-                  heading={shortAbout ? undefined : "О специалисте"}
-                  original={aboutOriginal}
+                  className={professional.shortDescription ? "mt-3" : undefined}
+                  heading={
+                    professional.shortDescription ? undefined : "О специалисте"
+                  }
+                  original={professional.descriptionOriginal}
                   text={longAbout}
                   textClassName="text-sm leading-relaxed text-slate-600"
                 />
@@ -431,7 +390,6 @@ export function ProfessionalProfileView({
             </section>
           ) : null}
 
-          {services.length > 0 || showOwnerChrome ? (
           <section className="space-y-3" aria-label="Услуги">
             <div className="flex items-center justify-between gap-2">
               <h2 className="text-base font-semibold text-slate-900">Услуги</h2>
@@ -445,33 +403,56 @@ export function ProfessionalProfileView({
             </div>
 
             {services.length > 0 ? (
-              <ServiceTileRow>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {services.map((s) => {
                   const title = serviceTitleForDisplay(s.title);
+                  const durationLabel = formatProfessionalDuration(
+                    s.durationMinutes,
+                  );
                   return (
-                    <ServiceListRow
-                      key={s.id}
-                      price={formatProfessionalPrice(s)}
-                      subtitle={title.originalEn || null}
-                      title={title.title}
-                    />
+                  <article
+                    key={s.id}
+                    className="flex flex-col rounded-2xl border border-slate-200 bg-white p-4 transition-shadow hover:shadow-sm"
+                  >
+                    <p className="font-semibold leading-snug text-slate-900">
+                      {title.title}
+                    </p>
+                    {title.originalEn ? (
+                      <p className="mt-0.5 text-xs text-slate-400">
+                        {title.originalEn}
+                      </p>
+                    ) : null}
+                    {s.description ? (
+                      <p className="mt-1.5 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600">
+                        {s.description}
+                      </p>
+                    ) : (
+                      <div className="flex-1" />
+                    )}
+                    <p className="mt-3 text-sm font-semibold tabular-nums text-slate-900">
+                      {durationLabel
+                        ? `${formatProfessionalPrice(s)} · ${durationLabel}`
+                        : formatProfessionalPrice(s)}
+                    </p>
+                  </article>
                   );
                 })}
-              </ServiceTileRow>
-            ) : showOwnerChrome ? (
+              </div>
+            ) : (
               <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 p-4 text-sm text-slate-500">
                 Услуги пока не указаны
-                <span className="mt-2 block">
-                  <AddProfessionalServiceButton
-                    professionalId={professional.id}
-                    slug={professional.slug}
-                    variant="chip"
-                  />
-                </span>
+                {showOwnerChrome ? (
+                  <span className="mt-2 block">
+                    <AddProfessionalServiceButton
+                      professionalId={professional.id}
+                      slug={professional.slug}
+                      variant="chip"
+                    />
+                  </span>
+                ) : null}
               </div>
-            ) : null}
+            )}
           </section>
-          ) : null}
         </div>
       </div>
     </div>

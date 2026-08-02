@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(ROOT / "scripts" / "telegram-collector"))
 
 from common import SupabaseRest, load_env  # noqa: E402
-from entity_routing import LECHU_RE, TRANSFER_RE, TRANSLATOR_NOISE_RE  # noqa: E402
+from reviewer import LECHU_RE, TRANSFER_RE, TRANSLATOR_NOISE_RE  # noqa: E402
 
 OPEN = ("pending", "in_review", "needs_more_info", "ready_to_publish")
 

@@ -78,7 +78,7 @@ export async function GET(request: Request) {
 
   // search_platform_cities may not return primary_county_geoid — look up.
   const cityGeoids = cityRows.map((c) => c.geoid);
-  let countyByCity = new Map<string, string | null>();
+  const countyByCity = new Map<string, string | null>();
   if (cityGeoids.length > 0) {
     const { data: cityMeta } = await (
       supabase as unknown as {

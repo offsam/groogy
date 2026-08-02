@@ -17,8 +17,16 @@ jobs:
       - run: npm ci
       - name: Typecheck (whole repo)
         run: npx tsc --noEmit
-      - name: Lint (error-clean dirs only — app/ carries legacy debt, see roadmap C2)
-        run: npx eslint lib components types --quiet
+      - name: Merge contract (R15/R16)
+        run: npx tsx lib/import-review/merge-contract.test.ts
+      - name: Paste-enrich contract (name on live + Google Maps)
+        run: npx tsx lib/admin/paste-enrich-contract.test.ts
+      - name: Display-name person→brand contract
+        run: npx tsx lib/import-review/display-name-contract.test.ts
+      - name: Professional categories contract
+        run: npx tsx lib/professional/categories-contract.test.ts
+      - name: Lint
+        run: npx eslint . --quiet
 
   python:
     runs-on: ubuntu-latest
@@ -41,3 +49,6 @@ jobs:
         run: |
           python3 scripts/import-review/test_category_map.py
           python3 scripts/import-review/test_eligibility.py
+          python3 scripts/business-enrich/test_enrich_follow_policy.py
+          python3 scripts/business-enrich/test_person_brand_name.py
+          python3 scripts/facebook-collector/test_web_enrichment.py

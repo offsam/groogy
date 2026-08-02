@@ -8,7 +8,7 @@ import {
   spawnPublishedEnrich,
   type PublishedEnrichKind,
 } from "@/lib/admin/published-enrich-run";
-import { writePublishedEnrichHistory } from "@/lib/admin/published-enrich-history";
+import { writePublishedEnrichHistory, attachEnrichBeforeSnapshot, restoreEntityEnrichSnapshot } from "@/lib/admin/published-enrich-history";
 import {
   finalizePublishedEnrich,
   isFinalizableKind,
@@ -21,6 +21,7 @@ import type {
 
 /** Dynamic table names are not in the hand Database union yet. */
 function untyped(client: SupabaseClient) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return client as unknown as SupabaseClient<any>;
 }
 
@@ -160,6 +161,29 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Нужен slug или id" }, { status: 400 });
   }
 
+  const tableByKind: Record<string, string> = {
+    business: "businesses",
+    professional: "professionals",
+    event: "events",
+    job: "jobs",
+    service: "listings",
+    transfer: "listings",
+    marketplace: "listings",
+    lechu: "listings",
+  };
+  let beforeSnapshot: Record<string, unknown> | null = null;
+  if (id && tableByKind[kind as string]) {
+    const catalog = untyped(createServiceRoleClient());
+    const { data: snap } = await catalog
+      .from(tableByKind[kind as string])
+      .select("*")
+      .eq("id", id)
+      .maybeSingle();
+    if (snap && typeof snap === "object") {
+      beforeSnapshot = snap as Record<string, unknown>;
+    }
+  }
+
   const encoder = new TextEncoder();
   let child: ReturnType<typeof spawnPublishedEnrich>["child"];
   try {
@@ -183,11 +207,18 @@ export async function POST(request: Request) {
   let stdoutBuf = "";
   let finishedResult: EnrichRunResult | null = null;
   let sawNdjson = false;
+  let aborted = false;
+  const entityTable = tableByKind[kind as string] || "";
 
   const stream = new ReadableStream<Uint8Array>({
     start(controller) {
       const push = (obj: Record<string, unknown>) => {
-        controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
+        if (aborted) return;
+        try {
+          controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
+        } catch {
+          // Controller already closed (client aborted).
+        }
       };
 
       const labels: Record<string, string> = {
@@ -199,6 +230,19 @@ export async function POST(request: Request) {
         transfer: `Обогащение перевода`,
         marketplace: `Обогащение объявления`,
         lechu: `Обогащение поездки`,
+      };
+
+      const rollbackAbort = async () => {
+        if (!id || !entityTable || !beforeSnapshot) return;
+        try {
+          await restoreEntityEnrichSnapshot({
+            table: entityTable,
+            entityId: id,
+            snapshot: beforeSnapshot,
+          });
+        } catch (err) {
+          console.error("enrich abort rollback failed", err);
+        }
       };
 
       if (!supportsNdjson) {
@@ -218,7 +262,9 @@ export async function POST(request: Request) {
           if (event.type === "finished") {
             finishedResult = event.result;
           }
-          controller.enqueue(encoder.encode(`${trimmed}\n`));
+          if (!aborted) {
+            controller.enqueue(encoder.encode(`${trimmed}\n`));
+          }
         } catch {
           // non-json human log — ignore for UI when ndjson mode
         }
@@ -228,7 +274,7 @@ export async function POST(request: Request) {
       child.stdout?.on("data", (chunk: Buffer) => {
         const text = chunk.toString("utf8");
         stdoutBuf += text;
-        if (!supportsNdjson) return;
+        if (!supportsNdjson || aborted) return;
         lineBuf += text;
         const parts = lineBuf.split("\n");
         lineBuf = parts.pop() ?? "";
@@ -239,15 +285,43 @@ export async function POST(request: Request) {
       });
 
       child.on("error", (err) => {
+        if (aborted) {
+          void rollbackAbort().finally(() => {
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
+          });
+          return;
+        }
         const message = err.message.includes("ENOENT")
           ? "python3 не найден — обогащение из UI работает на машине с Python и .env"
           : err.message;
         push({ type: "error", message });
-        controller.close();
+        try {
+          controller.close();
+        } catch {
+          /* closed */
+        }
       });
 
       child.on("close", (code) => {
         void (async () => {
+          if (aborted) {
+            await rollbackAbort();
+            push({
+              type: "error",
+              message: "Остановлено — изменения отменены",
+            });
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
+            return;
+          }
+
           if (supportsNdjson && lineBuf.trim()) {
             pushLine(lineBuf);
             lineBuf = "";
@@ -259,7 +333,21 @@ export async function POST(request: Request) {
               combined.slice(0, 500) ||
               `Скрипт завершился с кодом ${code ?? "?"}`;
             push({ type: "error", message });
-            controller.close();
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
+            return;
+          }
+
+          if (aborted) {
+            await rollbackAbort();
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
             return;
           }
 
@@ -294,6 +382,16 @@ export async function POST(request: Request) {
             }
           }
 
+          if (aborted) {
+            await rollbackAbort();
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
+            return;
+          }
+
           // Resource crawl is done; now parse the card copy into услуги /
           // акции / обновления and leave «О нас» as narrative.
           if (id && isFinalizableKind(kind)) {
@@ -311,6 +409,15 @@ export async function POST(request: Request) {
                 id,
                 finishedResult,
               );
+              if (aborted) {
+                await rollbackAbort();
+                try {
+                  controller.close();
+                } catch {
+                  /* closed */
+                }
+                return;
+              }
               finishedResult = finalized.result;
               const sectionNote = finalized.sectionMismatch
                 ? `похоже на другой раздел: ${SECTION_TITLES[finalized.sectionMismatch] ?? finalized.sectionMismatch} — перенос в «Не тот раздел»`
@@ -327,6 +434,15 @@ export async function POST(request: Request) {
               });
               push({ type: "finished", result: finishedResult });
             } catch (err) {
+              if (aborted) {
+                await rollbackAbort();
+                try {
+                  controller.close();
+                } catch {
+                  /* closed */
+                }
+                return;
+              }
               push({
                 type: "step",
                 step: "cleanup",
@@ -336,8 +452,22 @@ export async function POST(request: Request) {
             }
           }
 
+          if (aborted) {
+            await rollbackAbort();
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
+            return;
+          }
+
           if (finishedResult && id) {
             try {
+              finishedResult = attachEnrichBeforeSnapshot(
+                finishedResult,
+                beforeSnapshot,
+              );
               await writePublishedEnrichHistory({
                 kind: kind as PublishedEnrichKind,
                 entityId: id,
@@ -368,13 +498,26 @@ export async function POST(request: Request) {
             revalidatePath(`/marketplace/${id}`);
           } else if (kind === "lechu") {
             revalidatePath(`/lechu/${id}`);
+          } else if (kind === "church") {
+            if (slug) revalidatePath(`/churches/${slug}`);
+            revalidatePath("/churches");
+            revalidatePath("/admin/catalog/churches");
           }
-          controller.close();
+          try {
+            controller.close();
+          } catch {
+            /* closed */
+          }
         })();
       });
     },
     cancel() {
-      child.kill("SIGTERM");
+      aborted = true;
+      try {
+        child.kill("SIGTERM");
+      } catch {
+        /* already dead */
+      }
     },
   });
 

@@ -218,10 +218,12 @@ export function isDirectorySourceUrl(url: string | null | undefined): boolean {
     return (
       host === "svoi.us" ||
       host.endsWith(".svoi.us") ||
-      /(orange.?pages|yellow.?pages|to4ka|echoru|zerkalo)/i.test(host)
+      /(orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|bazar\.club|russian-bazaar)/i.test(
+        host,
+      )
     );
   } catch {
-    return /svoi\.us|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo/i.test(
+    return /svoi\.us|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|bazar\.club|russian-bazaar/i.test(
       url,
     );
   }
@@ -276,7 +278,7 @@ export function hasProvenanceSource(presence: {
 
 /** Textual source hints that mean a directory / yellow-pages import. */
 const DIRECTORY_SOURCE_HINT =
-  /(directory|svoi|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|ruspages|slavic.?seattle|russian.?seattle|boston.?pages|our.?texas)/i;
+  /(directory|svoi|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|ruspages|slavic.?seattle|russian.?seattle|boston.?pages|our.?texas|bazar.?club|russian.?bazaar)/i;
 
 /** Textual source hints that mean the card was really created on КРУГИ. */
 const PLATFORM_SOURCE_HINT = /^(platform|krugi|user|owner|admin|manual)$/i;

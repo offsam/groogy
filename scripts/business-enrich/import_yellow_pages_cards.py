@@ -44,6 +44,12 @@ def card_to_row(card: dict[str, Any]) -> dict[str, Any]:
         or ("slavic_seattle" if str(card.get("cluster_key") or "").startswith("sls-") else None)
         or ("our_texas" if str(card.get("cluster_key") or "").startswith("otx-") else None)
         or ("echoru" if str(card.get("cluster_key") or "").startswith("ech-") else None)
+        or ("bazar_club" if str(card.get("cluster_key") or "").startswith("bzc-") else None)
+        or (
+            "russian_bazaar"
+            if str(card.get("cluster_key") or "").startswith("rbz-")
+            else None
+        )
         or "orange_pages"
     )
     notes_parts = [
@@ -86,6 +92,10 @@ def card_to_row(card: dict[str, Any]) -> dict[str, Any]:
             source_groups = ["Our Texas"]
         elif directory_source == "echoru":
             source_groups = ["EchoRU"]
+        elif directory_source == "bazar_club":
+            source_groups = ["BAZAR.club"]
+        elif directory_source == "russian_bazaar":
+            source_groups = ["Русский базар"]
         elif directory_source == "russian_miami":
             source_groups = ["Russian Miami"]
         elif directory_source == "russian_chicago":

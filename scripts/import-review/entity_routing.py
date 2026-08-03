@@ -91,11 +91,14 @@ REAL_ESTATE_CATEGORIES = {
 # Regexes — absorbed from reviewer + facebook_decision_policy
 # ---------------------------------------------------------------------------
 
+# Mid-sentence «Лечу LA–Москва» is common; do not require start-of-line.
 LECHU_RE = re.compile(
-    r"(?:^|\n|#)\s*лечу\b|#лечу\b|летим\b|летит\b|"
+    r"\bлечу\b|#лечу\b|\bлетим\b|\bлетит\b|\bпопутчик(?:и|ов)?\b|"
     r"возьму\s+(?:посыл|документ|чемодан|вещи)|"
     r"заберу\s+и\s+привезу|"
-    r"передам\s+(?:посыл|документ)|"
+    r"переда(?:м|ть)\s+(?:посыл|документ|вещи)|"
+    r"если\s+нужно\s+передать|"
+    r"передать\s+(?:посыл|документ)|"
     r"flying\s+to|take\s+packages?\b",
     re.I,
 )
@@ -103,12 +106,16 @@ TRANSFER_RE = re.compile(
     r"(?:денежн\w*\s+)?перевод(?:ы|ов)?\s+(?:в|из|на)\s+(?:росси|сша|украин|европ|карт)|"
     r"money\s+transfer|wire\s+transfer|remittance|swift\b|"
     r"крипто\s*(?:в|→|->|to)\s*фиат|фиат\s*(?:в|→|->|to)\s*крипто|"
-    r"обмен\s+валют|меняю\s+(?:руб|доллар|\$)|"
+    r"обмен\s+валют|"
+    # «Поменяю свои рубли на ваши доллары» / «меняю доллары»
+    r"(?:по)?меняю\s+.{0,48}(?:руб|доллар|\$|usd|eur)|"
     r"куплю\s+руб|продам\s+руб|куплю\s+доллар|продам\s+доллар|"
-    r"рубл\w*\s+на\s+(?:карт|доллар)|доллар\w*\s+на\s+руб|"
+    r"рубл\w*.{0,28}(?:доллар|usd|\$)|(?:доллар|usd|\$)\w*.{0,28}рубл|"
     r"переведу\s+(?:деньги|доллар|руб)|"
     r"оплачу\s+(?:вашу|ваш[уые]?).{0,40}рубл|"
-    r"комисси[яи]\s*\d+\s*%\s*(?:за\s+)?перевод",
+    r"комисси[яи]\s*\d+\s*%\s*(?:за\s+)?перевод|"
+    # Offer to sell/buy crypto (not bare «нужен USDT»)
+    r"(?:обмен|меняю|продам|куплю)\s+.{0,24}(?:usdt|юсдт|btc|eth)\b",
     re.I,
 )
 TRANSLATOR_NOISE_RE = re.compile(
@@ -139,6 +146,16 @@ BUSINESS_SIGNAL_RE = re.compile(
     r"\b(inc|llc|corp|company|компани[яи]|студия|салон|агентство|"
     r"insurance|страхован)\b",
     re.I,
+)
+
+# Retail storefront / shop brand — outranks a Telegram person-name slot
+# (e.g. «Maksim Degtyar» posting for L'amour Toujours Flower Boutique).
+RETAIL_STOREFRONT_RE = re.compile(
+    r"flower\s+boutique|flower\s+shop|\bflorist\b|\bboutique\b|"
+    r"цветочн\w*|магазин\s+цвет|бутик\s+цвет|"
+    r"\b(?:gift|wine|jewelry|jewellery)\s+shop\b|"
+    r"\b(?:grocery|gourmet)\s+(?:store|market|shop)\b",
+    re.I | re.U,
 )
 
 SPECIALIST_SIGNAL_RE = re.compile(
@@ -211,6 +228,33 @@ def has_date_signal(text: str | None) -> bool:
     return bool(DATE_SIGNAL_RE.search(text or ""))
 
 
+# Scraper / CMS garbage that must never count as a street pin (additive R03).
+GARBAGE_STREET_RE = re.compile(
+    r"wp-theme|wp-child|single-format|woocommerce|elementor|"
+    r"""class=["']|</?[a-z]{1,12}\b""",
+    re.I,
+)
+
+
+def is_garbage_street_line(address_line: str | None) -> bool:
+    """True when address_line is HTML/CSS/theme junk, not a human street."""
+    line = (address_line or "").strip()
+    if not line:
+        return False
+    if GARBAGE_STREET_RE.search(line):
+        return True
+    words = line.split()
+    if (
+        len(words) >= 6
+        and not STREET_SUFFIX_RE.search(line)
+        and not re.match(r"^\d{1,6}\s+\S", line)
+    ):
+        weird = sum(1 for w in words if "-" in w or "_" in w or w.lower().startswith("wp-"))
+        if weird >= 3:
+            return True
+    return False
+
+
 def has_street_address(
     address_line: str | None = None,
     *,
@@ -219,9 +263,13 @@ def has_street_address(
 ) -> bool:
     """True only for a concrete street pin — not city / service-area blurbs."""
     if (location_precision or "").strip().lower() == "street":
+        if is_garbage_street_line(address_line):
+            return False
         return True
     line = (address_line or "").strip()
     if not line or len(line) < 5:
+        return False
+    if is_garbage_street_line(line):
         return False
     # «Studio City & nearby» / «выезд по Sacramento» are not map pins.
     if SERVICE_AREA_RE.search(line) and not re.search(r"\d", line):
@@ -242,8 +290,25 @@ def _business_or_specialist_for_import(
     has_street: bool,
     confidence: str,
     reason: str,
+    person_name: str = "",
 ) -> RouteResult:
-    """Map businesses need a street pin; otherwise import cards stay specialists."""
+    """Map businesses need a street pin; otherwise import cards stay specialists.
+
+    Guard (added after the "Ida Seidova" incident, 2026-08-03): a street
+    address alone does not prove the post is ABOUT the business itself. When
+    a named individual (`person_name`) is attached to a post that also has a
+    street pin, this could be an employee/specialist posting the employer's
+    own ad copy (map to `professionals` + `employer_name`, see precedent
+    "Vladimir Kaye, MD" / California Spine and Sports) rather than the
+    business being the subject. That distinction needs a human to read the
+    actual text — never auto-decide it here. Park for manual review instead
+    of silently publishing as a plain business.
+    """
+    if has_street and person_name.strip():
+        return _manual(
+            f"{reason}+person_name_present→needs_manual "
+            "(possible employee-at-business, verify business vs specialist+employer_name)"
+        )
     if has_street:
         return _hit("business", confidence, reason)
     return _hit(
@@ -375,6 +440,7 @@ def route_card(
             has_street=street,
             confidence="high",
             reason=f"gate0:category={cat}",
+            person_name=pn,
         )
     if cat == "events":
         if has_date_signal(blob):
@@ -383,6 +449,7 @@ def route_card(
             has_street=street,
             confidence="medium",
             reason="gate0:category=events+no_date→business_or_specialist",
+            person_name=pn,
         )
     if cat in REAL_ESTATE_CATEGORIES:
         return _hit("real_estate", "high", f"gate0:category={cat}")
@@ -417,6 +484,7 @@ def route_card(
             has_street=street,
             confidence=conf,
             reason="gate1b:classification=business",
+            person_name=pn,
         )
     if classification in {"direct_specialist_ad", "self_promotion_without_contact"} or hint == "private_specialist":
         # Still block goods mis-routed as specialist ads.
@@ -437,6 +505,7 @@ def route_card(
                 has_street=street,
                 confidence="medium",
                 reason=f"gate1b:hint={hint}",
+                person_name=pn,
             )
         return _hit(hint, "medium", f"gate1b:hint={hint}")
 
@@ -455,6 +524,15 @@ def route_card(
             has_street=street,
             confidence=conf,
             reason="gate2:company_operations_re",
+            person_name=pn,
+        )
+    if RETAIL_STOREFRONT_RE.search(blob) and not SPECIALIST_SIGNAL_RE.search(blob):
+        conf = "high" if (has_contact or bn) else "medium"
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence=conf,
+            reason="gate2:retail_storefront_re",
+            person_name=pn,
         )
     # Brand / trade name alone is NOT a map business — pros use brands too.
     if bn and not pn:
@@ -473,6 +551,7 @@ def route_card(
             has_street=street,
             confidence=conf,
             reason="gate2:business_signal_re",
+            person_name=pn,
         )
     if SPECIALIST_SIGNAL_RE.search(blob) and not BUSINESS_SIGNAL_RE.search(blob):
         conf = "high" if has_contact else "medium"

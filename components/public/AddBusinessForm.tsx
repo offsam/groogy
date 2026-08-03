@@ -151,8 +151,8 @@ export function AddBusinessForm() {
         Эти два поля — только для связи с вами при проверке, на карточке не публикуются.
       </p>
 
-      <Button className="w-full" loading={pending} type="submit">
-        Отправить на проверку
+      <Button className="w-full" disabled={pending} type="submit">
+        {pending ? "Отправка…" : "Отправить на проверку"}
       </Button>
     </form>
   );

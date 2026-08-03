@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { MobilePreview } from "@/components/layout/MobilePreview";
 import { ErrorReportButton } from "@/components/error-report/ErrorReportButton";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
+import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { BRAND_NAME } from "@/lib/brand";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
@@ -50,6 +51,7 @@ export default function RootLayout({
       lang="ru"
     >
       <body className="overflow-x-hidden font-[family-name:var(--font-sans)]">
+        <MicrosoftClarity />
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-[1001]">
             <Header />

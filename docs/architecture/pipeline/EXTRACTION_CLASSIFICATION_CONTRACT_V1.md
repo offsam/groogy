@@ -142,15 +142,17 @@ plus the exact-string set `BANNED_NAME_EXACT` (same file) — short greetings/ad
 ## 3. Classification patterns
 
 These are the regexes the decision tree in `NULL_CLASSIFICATION_ALGORITHM_V1.md` §3
-refers to by name. Source: `scripts/telegram-collector/reviewer.py` (lechu/transfer),
+refers to by name. Source: `scripts/import-review/entity_routing.py` (lechu/transfer),
 `scripts/facebook-collector/facebook_decision_policy.py` (the rest).
 
 ```python
 LECHU_RE = re.compile(
-    r"(?:^|\n|#)\s*лечу\b|#лечу\b|летим\b|летит\b|"
+    r"\bлечу\b|#лечу\b|\bлетим\b|\bлетит\b|\bпопутчик(?:и|ов)?\b|"
     r"возьму\s+(?:посыл|документ|чемодан|вещи)|"
     r"заберу\s+и\s+привезу|"
-    r"передам\s+(?:посыл|документ)|"
+    r"переда(?:м|ть)\s+(?:посыл|документ|вещи)|"
+    r"если\s+нужно\s+передать|"
+    r"передать\s+(?:посыл|документ)|"
     r"flying\s+to|take\s+packages?\b",
     re.I,
 ```
@@ -160,12 +162,16 @@ TRANSFER_RE = re.compile(
     r"(?:денежн\w*\s+)?перевод(?:ы|ов)?\s+(?:в|из|на)\s+(?:росси|сша|украин|европ|карт)|"
     r"money\s+transfer|wire\s+transfer|remittance|swift\b|"
     r"крипто\s*(?:в|→|->|to)\s*фиат|фиат\s*(?:в|→|->|to)\s*крипто|"
-    r"обмен\s+валют|меняю\s+(?:руб|доллар|\$)|"
+    r"обмен\s+валют|"
+    # «Поменяю свои рубли на ваши доллары» / «меняю доллары»
+    r"(?:по)?меняю\s+.{0,48}(?:руб|доллар|\$|usd|eur)|"
     r"куплю\s+руб|продам\s+руб|куплю\s+доллар|продам\s+доллар|"
-    r"рубл\w*\s+на\s+(?:карт|доллар)|доллар\w*\s+на\s+руб|"
+    r"рубл\w*.{0,28}(?:доллар|usd|\$)|(?:доллар|usd|\$)\w*.{0,28}рубл|"
     r"переведу\s+(?:деньги|доллар|руб)|"
     r"оплачу\s+(?:вашу|ваш[уые]?).{0,40}рубл|"
-    r"комисси[яи]\s*\d+\s*%\s*(?:за\s+)?перевод",
+    r"комисси[яи]\s*\d+\s*%\s*(?:за\s+)?перевод|"
+    # Offer to sell/buy crypto — not bare «нужен USDT»
+    r"(?:обмен|меняю|продам|куплю)\s+.{0,24}(?:usdt|юсдт|btc|eth)\b",
     re.I,
 ```
 

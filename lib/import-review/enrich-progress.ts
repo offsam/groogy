@@ -118,6 +118,8 @@ export type EnrichRunResult = {
   score_before?: number | null;
   score_after?: number | null;
   patch?: Record<string, unknown>;
+  /** Pre-enrich field values for patched keys (admin undo / abort). */
+  before?: Record<string, unknown>;
   steps?: {
     source_text?: string[];
     title?: string[];

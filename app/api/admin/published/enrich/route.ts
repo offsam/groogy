@@ -464,7 +464,7 @@ export async function POST(request: Request) {
 
           if (finishedResult && id) {
             try {
-              finishedResult = attachEnrichBeforeSnapshot(
+              const historyResult = attachEnrichBeforeSnapshot(
                 finishedResult,
                 beforeSnapshot,
               );
@@ -472,7 +472,7 @@ export async function POST(request: Request) {
                 kind: kind as PublishedEnrichKind,
                 entityId: id,
                 adminId: user.id,
-                result: finishedResult,
+                result: historyResult,
               });
             } catch (err) {
               console.error("enrich history write failed", err);

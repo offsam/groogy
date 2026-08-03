@@ -57,7 +57,7 @@ def main() -> int:
     import contacts
     import names
     import common as ir_common
-    import reviewer
+    import entity_routing
     import facebook_decision_policy as fbp
     import enrich_published_businesses as epb
     import run_enrichment_pipeline as rep
@@ -71,8 +71,8 @@ def main() -> int:
     check_regex("BARE_WEBSITE_RE", contacts.BARE_WEBSITE_RE)
     check_regex("GREETING_BLOCKLIST", names.GREETING_BLOCKLIST)
 
-    check_regex("LECHU_RE", reviewer.LECHU_RE)
-    check_regex("TRANSFER_RE", reviewer.TRANSFER_RE)
+    check_regex("LECHU_RE", entity_routing.LECHU_RE)
+    check_regex("TRANSFER_RE", entity_routing.TRANSFER_RE)
     check_regex("REAL_ESTATE_OFFER_RE", fbp.REAL_ESTATE_OFFER_RE)
     check_regex("JOB_HIRE_RE", fbp.JOB_HIRE_RE)
     check_regex("MARKETPLACE_RE", fbp.MARKETPLACE_RE)

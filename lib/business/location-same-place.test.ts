@@ -2,7 +2,7 @@
  * Unit tests for near-duplicate street place matching (no DB).
  */
 import assert from "node:assert/strict";
-import { isSamePhysicalStreetPlace } from "./location-same-place.ts";
+import { isSamePhysicalStreetPlace } from "./location-same-place";
 
 assert.equal(
   isSamePhysicalStreetPlace(

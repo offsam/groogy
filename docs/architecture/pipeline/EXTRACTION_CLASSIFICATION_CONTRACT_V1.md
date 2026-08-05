@@ -258,7 +258,8 @@ digitalcookie., maps.apple, maps.app.goo.gl, goo.gl/, instagram.com, facebook.co
 fb.com, t.me/, wa.me/, linktr.ee, eventbrite.com, vagaro.com/upgradepilates/deals,
 mercedesbenz, showingnew.com, threadssequins, youtube.com, youtu.be, tiktok.com,
 mama-print.ru, alter.tax, dreem-world.ai, openai.com, book.squareup.com,
-legalshieldassociate.com, skinovationcleaning.com.
+legalshieldassociate.com, skinovationcleaning.com, bazar.club, apteka03.online,
+apteka03.com, madbid.com.
 
 `PLATFORM_HOSTS` (`scripts/business-enrich/run_enrichment_pipeline.py`) — platforms
 whose contact pages describe the platform, not the card's business (website-fetch is

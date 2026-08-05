@@ -36,6 +36,9 @@ yarn-error.log*
 # Python virtualenvs (Agent-Reach / enrich scripts)
 .venv/
 **/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
 
 # TypeScript
 *.tsbuildinfo

@@ -68,7 +68,7 @@ export async function GET(request: Request, context: RouteContext) {
       .maybeSingle();
 
     if (error) throw error;
-    if (!data) {
+    if (!data || data.status !== "active" || data.visibility !== "public") {
       return NextResponse.json({ error: "not_found" }, { status: 404 });
     }
 

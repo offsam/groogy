@@ -107,14 +107,18 @@ export async function listJobsForBusiness(
 export async function getJobBySlug(
   client: Client,
   slug: string,
+  options?: { includeUnpublished?: boolean },
 ): Promise<Job | null> {
   const normalized = normalizeRouteSlug(slug);
-  const { data, error } = await db(client)
+  let q = db(client)
     .from("jobs")
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .select(JOB_SELECT as any)
-    .eq("slug", normalized)
-    .maybeSingle();
+    .eq("slug", normalized);
+  if (!options?.includeUnpublished) {
+    q = q.eq("status", "published").eq("visibility", "public");
+  }
+  const { data, error } = await q.maybeSingle();
   if (error) throw error;
   if (!data) return null;
   return mapJob(data as unknown as JobRow);

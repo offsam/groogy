@@ -87,6 +87,12 @@ export const ADMIN_NAV: AdminNavSection[] = [
         href: "/admin/review/wrong-section",
         description: "Опубликованные карточки не в своём разделе",
       },
+      {
+        id: "queue-business-to-professional",
+        label: "Бизнесы → Специалисты",
+        href: "/admin/review/business-to-professional",
+        description: "Бизнесы, названные как человек — кандидаты на перенос",
+      },
     ],
   },
   {
@@ -276,6 +282,7 @@ export function matchAdminNavHref(
       pathname.startsWith("/admin/review/") &&
       pathname !== "/admin/review/views" &&
       !pathname.startsWith("/admin/review/wrong-section") &&
+      !pathname.startsWith("/admin/review/business-to-professional") &&
       pathname !== "/admin/review/inbox"
     ) {
       return true;

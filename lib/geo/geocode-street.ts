@@ -431,8 +431,8 @@ export async function cleanAdminStreetAddress(
   });
 
   let addressLine = norm.addressLine;
-  let city = norm.city;
-  let stateCode = norm.stateCode;
+  const city = norm.city;
+  const stateCode = norm.stateCode;
   let postalCode = norm.postalCode;
   let latitude: number | null = null;
   let longitude: number | null = null;

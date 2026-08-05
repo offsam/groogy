@@ -227,7 +227,7 @@ async function searchViaDuckDuckGo(query: string): Promise<SearchHit[]> {
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) && hits.length < 8) {
     const raw = m[1] || m[2] || "";
-    let link = decodeURIComponent(raw);
+    const link = decodeURIComponent(raw);
     if (!link.startsWith("http")) continue;
     if (isJunkUrl(link) || link.includes("duckduckgo.com") || seen.has(link)) {
       continue;
@@ -459,7 +459,7 @@ export async function enrichBusinessWithAgentReach(
       return as - bs;
     });
 
-    let mergedFound: AgentReachBusinessPatch = {};
+    const mergedFound: AgentReachBusinessPatch = {};
     const pagesRead: string[] = [];
 
     for (const hit of ranked.slice(0, 3)) {

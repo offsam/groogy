@@ -269,7 +269,7 @@ export async function POST(request: Request) {
                 ? "id, slug, title, source_url, description, city, status"
                 : "id, title, source_url, description, city, status, listing_type";
 
-          let selfQ = anyFrom(catalog, table).select(select).eq("id", id);
+          const selfQ = anyFrom(catalog, table).select(select).eq("id", id);
           const { data: selfRaw, error: selfErr } = await selfQ.maybeSingle();
           if (selfErr || !selfRaw) {
             push({

@@ -511,7 +511,7 @@ export async function listTo4kaSuspectedDuplicatesAction(): Promise<
     if (!matchKind || !row.duplicate_of_entity_id) continue;
 
     const archivedKind = asBizPro(row.published_entity_type);
-    let archivedId = row.published_entity_id;
+    const archivedId = row.published_entity_id;
     let archivedSlug: string | null = null;
     let archivedFill = 0;
     let matchFill = 0;

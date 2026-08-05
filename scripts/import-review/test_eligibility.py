@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import unittest
+from datetime import datetime, timedelta, timezone
 
 from eligibility import (
     evaluate_eligibility,
@@ -14,6 +15,10 @@ from eligibility import (
     normalize_telegram_username,
     normalize_website,
 )
+
+
+def _days_ago(days: int) -> str:
+    return (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
 
 
 class NormalizeTests(unittest.TestCase):
@@ -67,7 +72,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "whatsapp": [],
             "telegram_username": None,
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         contacts = extract_direct_contacts(row)
         self.assertTrue(has_direct_contact(contacts))
@@ -101,7 +106,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "whatsapp": [],
             "telegram_username": None,
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         contacts = extract_direct_contacts(row)
         self.assertTrue(has_direct_contact(contacts))
@@ -125,7 +130,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "whatsapp": [],
             "telegram_username": None,
             "duplicate_status": "unique",
-            "source_posted_at": "2026-06-20T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
             "city": None,
         }
         result = evaluate_eligibility(row)
@@ -143,7 +148,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "category": "events",
             "phone": ["+16264813333"],
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         result = evaluate_eligibility(row)
         self.assertFalse(result["eligible"])
@@ -219,7 +224,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "phone": ["+19495551212"],
             "city": None,
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         strict = evaluate_eligibility(row, mode="accepted")
         self.assertFalse(strict["eligible"])
@@ -241,7 +246,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "instagram": ["maria_psy"],
             "phone": [],
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         result = evaluate_eligibility(row, mode="complete_card")
         self.assertTrue(result["eligible"], result["reasons"])
@@ -267,7 +272,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "telegram_user_id": None,
             "source_url": None,
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         result = evaluate_eligibility(row, mode="complete_card")
         self.assertFalse(result["eligible"])
@@ -284,7 +289,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "category": "other",
             "phone": ["+16572040434"],
             "duplicate_status": "unique",
-            "source_posted_at": "2026-07-01T00:00:00+00:00",
+            "source_posted_at": _days_ago(5),
         }
         result = evaluate_eligibility(row, mode="complete_card")
         self.assertFalse(result["eligible"])

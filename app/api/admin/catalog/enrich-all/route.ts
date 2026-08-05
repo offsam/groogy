@@ -15,8 +15,8 @@ import type { EnrichRunResult } from "@/lib/import-review/enrich-progress";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-/** Long batch — local admin / generous hosts. */
-export const maxDuration = 800;
+/** Long batch — Hobby Vercel max is 300s (Pro can go higher). */
+export const maxDuration = 300;
 
 function anyFrom(client: SupabaseClient, table: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

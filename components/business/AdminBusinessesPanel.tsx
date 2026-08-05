@@ -3,16 +3,7 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  Check,
-  Clock3,
-  Loader2,
-  MapPin,
-  Pause,
-  Phone,
-  X,
-  XCircle,
-} from "lucide-react";
+import { Check, Clock3, MapPin, Pause, Phone, X, XCircle } from "lucide-react";
 import {
   adminSetBusinessStatusAction,
   mergeBusinessesAction,
@@ -35,6 +26,7 @@ import { BusinessCard } from "@/components/business/BusinessCard";
 import { Button } from "@/components/ui/Button";
 import { formatAddress } from "@/lib/supabase/mappers";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const STATUS_LABELS: Record<AdminBusinessRow["status"], string> = {
   draft: "Черновик",
@@ -273,7 +265,7 @@ function BusinessPreviewModal({
               onClick={onApprove}
             >
               {pending ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <BrandPinLoader size="sm" className="mr-2" />
               ) : (
                 <Check className="mr-2 h-4 w-4" />
               )}
@@ -610,7 +602,7 @@ export function AdminBusinessesPanel({
                     }
                   >
                     {pending ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <BrandPinLoader size="sm" className="mr-2" />
                     ) : null}
                     Смержить → оставить «{pair.a.name.slice(0, 28)}
                     {pair.a.name.length > 28 ? "…" : ""}»

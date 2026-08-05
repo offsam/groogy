@@ -75,12 +75,14 @@ function recommendationsTable(client: Client) {
 
 /** Columns enough for Inbox list adapters — skips heavy arrays / geo / originals. */
 const INBOX_RECOMMENDATION_SELECT =
-  "id, kind, display_name, mention_count, source_channel, source_groups, directory_source, target_bucket, category_guess, notes, status, created_at, updated_at, event_at, starts_at, ends_at";
+  "id, kind, display_name, mention_count, third_party_mention_count, self_ad_mention_count, phones, instagram, websites, source_channel, source_groups, directory_source, target_bucket, category_guess, notes, city, cover_image_url, status, created_at, updated_at, event_at, starts_at, ends_at, duplicate_of_entity_id, duplicate_of_entity_type, request_snippets, comment_texts";
 
 export async function listCommentRecommendations(
   client: Client,
   opts: {
     status?: string;
+    /** Prefer over `status` when several queue statuses are needed. */
+    statuses?: string[];
     page?: number;
     pageSize?: number;
     kind?: "profi" | "event" | "all";
@@ -125,7 +127,9 @@ export async function listCommentRecommendations(
     .order("updated_at", { ascending: false })
     .range(from, to);
 
-  if (opts.status && opts.status !== "all") {
+  if (opts.statuses?.length) {
+    query = query.in("status", opts.statuses);
+  } else if (opts.status && opts.status !== "all") {
     query = query.eq("status", opts.status);
   }
   if (opts.kind && opts.kind !== "all") {

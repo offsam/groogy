@@ -2,7 +2,7 @@
 
 import { useTransition, useState } from "react";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
+
 import {
   adminSetListingReportStatusAction,
   adminSetListingStatusAction,
@@ -16,6 +16,7 @@ import {
   REPORT_REASON_LABELS,
   type ListingReportReason,
 } from "@/types/listing";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const FILTERS = [
   { id: "all", label: "Все" },
@@ -249,7 +250,7 @@ export function AdminListingsPanel({
                       }
                       type="button"
                     >
-                      {pending && <Loader2 className="size-4 animate-spin" />}
+                      {pending && <BrandPinLoader size="sm" />}
                       Восстановить
                     </Button>
                   )}

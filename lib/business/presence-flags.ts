@@ -20,6 +20,7 @@ export type BusinessPresenceFlags = {
   hasInstagram: boolean;
   hasTelegram: boolean;
   hasYelp: boolean;
+  hasTrustpilot: boolean;
   hasFacebook: boolean;
   hasGoogleMaps: boolean;
   hasSource: boolean;
@@ -35,6 +36,7 @@ export const EMPTY_PRESENCE_FLAGS: BusinessPresenceFlags = {
   hasInstagram: false,
   hasTelegram: false,
   hasYelp: false,
+  hasTrustpilot: false,
   hasFacebook: false,
   hasGoogleMaps: false,
   hasSource: false,
@@ -57,6 +59,8 @@ type ContactSource = {
   facebookUrl?: string | null;
   yelp_url?: string | null;
   yelpUrl?: string | null;
+  trustpilot_url?: string | null;
+  trustpilotUrl?: string | null;
   google_maps_url?: string | null;
   googleMapsUrl?: string | null;
   booking_url?: string | null;
@@ -66,6 +70,11 @@ type ContactSource = {
   contactLinks?: unknown;
   latitude?: number | null;
   longitude?: number | null;
+  facebook_recommend_pct?: number | null;
+  facebookRecommendPct?: number | null;
+  facebook_reviews_count?: number | null;
+  facebookReviewsCount?: number | null;
+  has_facebook?: boolean | null;
 };
 
 function trimmed(value: string | null | undefined): string | null {
@@ -82,6 +91,7 @@ export function computePresenceFlags(source: ContactSource): BusinessPresenceFla
   const sourceUrl = trimmed(source.source_url ?? source.sourceUrl);
   const sourceKind = trimmed(source.source_kind ?? source.sourceKind);
   const yelp = trimmed(source.yelp_url ?? source.yelpUrl);
+  const trustpilot = trimmed(source.trustpilot_url ?? source.trustpilotUrl);
   const facebook = trimmed(source.facebook_url ?? source.facebookUrl);
   const googleMaps = trimmed(source.google_maps_url ?? source.googleMapsUrl);
   const booking = trimmed(source.booking_url ?? source.bookingUrl);
@@ -119,8 +129,19 @@ export function computePresenceFlags(source: ContactSource): BusinessPresenceFla
     hasInstagram: Boolean(instagram) || websiteIsIg,
     hasTelegram: Boolean(telegram),
     hasYelp: Boolean(yelp) || websiteIsYelp,
+    hasTrustpilot:
+      Boolean(trustpilot) || extraChannels.includes("trustpilot"),
     hasFacebook:
-      Boolean(facebook) || websiteIsFb || extraChannels.includes("facebook"),
+      Boolean(facebook) ||
+      websiteIsFb ||
+      extraChannels.includes("facebook") ||
+      Boolean(source.has_facebook) ||
+      (source.facebook_recommend_pct != null &&
+        Number.isFinite(Number(source.facebook_recommend_pct))) ||
+      (source.facebookRecommendPct != null &&
+        Number.isFinite(Number(source.facebookRecommendPct))) ||
+      Number(source.facebook_reviews_count ?? source.facebookReviewsCount ?? 0) >
+        0,
     hasGoogleMaps: hasGoogleMapsPresence(presence),
     hasSource,
     hasBooking:
@@ -139,6 +160,7 @@ export function hasAnyPresenceFlag(flags: BusinessPresenceFlags): boolean {
     flags.hasInstagram ||
     flags.hasTelegram ||
     flags.hasYelp ||
+    flags.hasTrustpilot ||
     flags.hasFacebook ||
     flags.hasGoogleMaps ||
     flags.hasSource ||

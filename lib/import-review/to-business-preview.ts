@@ -12,9 +12,9 @@ import {
 import { computePresenceFlags } from "@/lib/business/presence-flags";
 import {
   isFacebookUrl,
-  isInstagramUrl,
   isTikTokUrl,
-  isYelpUrl,
+  pickPrimaryWebsiteFromList,
+  pickYelpUrlFromList,
 } from "@/lib/business/presence";
 import {
   importCategoryLabel,
@@ -56,6 +56,8 @@ export type ImportReviewPreviewFields = {
   source?: string | null;
   source_group?: string | null;
   payment_methods?: string[] | null;
+  latitude?: number | null;
+  longitude?: number | null;
 };
 
 function first(values: string[] | null | undefined): string | null {
@@ -71,21 +73,6 @@ function asHttpUrl(raw: string | null | undefined): string | null {
   if (t.startsWith("@")) return `https://www.instagram.com/${t.slice(1)}`;
   if (/instagram\.com/i.test(t)) return t.startsWith("http") ? t : `https://${t}`;
   return `https://${t}`;
-}
-
-function isSocialWebsiteUrl(url: string): boolean {
-  return (
-    isFacebookUrl(url) ||
-    isInstagramUrl(url) ||
-    isYelpUrl(url) ||
-    isTikTokUrl(url)
-  );
-}
-
-function pickWebsiteUrl(urls: string[] | null | undefined): string | null {
-  return asHttpUrl(
-    first((urls ?? []).filter((w) => w.trim() && !isSocialWebsiteUrl(w))),
-  );
 }
 
 function pickSocialUrl(
@@ -144,17 +131,23 @@ export function importReviewToBusinessPreview(
   const name = resolved.name;
   const description = cleanPreviewDescription(item.description);
   const services = item.services ?? [];
-  const website = pickWebsiteUrl(item.website);
+  const website = pickPrimaryWebsiteFromList(item.website);
   const facebookUrl = pickSocialUrl(item.website, isFacebookUrl);
-  const yelpUrl = pickSocialUrl(item.website, isYelpUrl);
+  const yelpUrl = pickYelpUrlFromList(item.website);
   const tiktokUrl = pickSocialUrl(item.website, isTikTokUrl);
+  const youtubeUrl = pickSocialUrl(item.website, (u) =>
+    /youtube\.com|youtu\.be/i.test(u),
+  );
+  const trustpilotUrl = pickSocialUrl(item.website, (u) =>
+    /trustpilot\.com/i.test(u),
+  );
   const igHandle = sanitizeInstagramHandles(item.instagram)[0] ?? null;
   const instagram = asHttpUrl(igHandle);
   const phone = first(item.phone);
   const email = first(item.email);
   const telegramUrl = item.telegram_username?.trim()
     ? `https://t.me/${item.telegram_username.replace(/^@/, "")}`
-    : null;
+    : pickSocialUrl(item.website, (u) => /t\.me|telegram\.me/i.test(u));
   const categoryLabel = importCategoryLabel(item.category);
   const imageUrl = item.preview_image_url?.trim() || null;
   const presenceFlags = computePresenceFlags({
@@ -173,6 +166,14 @@ export function importReviewToBusinessPreview(
     yelpUrl,
     googleMapsUrl: null,
   });
+  const lat =
+    typeof item.latitude === "number" && Number.isFinite(item.latitude)
+      ? item.latitude
+      : null;
+  const lng =
+    typeof item.longitude === "number" && Number.isFinite(item.longitude)
+      ? item.longitude
+      : null;
 
   return {
     id: item.id,
@@ -181,7 +182,7 @@ export function importReviewToBusinessPreview(
     categoryId: null,
     categorySlug: item.category?.trim() || null,
     categoryName: categoryLabel,
-    shortDescription: shortFrom(description, services),
+    shortDescription: null,
     description,
     descriptionOriginal: item.description_original?.trim() || null,
     ratingAvg: 0,
@@ -204,19 +205,41 @@ export function importReviewToBusinessPreview(
     yelpUrl,
     yelpRating: null,
     yelpReviewsCount: 0,
+    trustpilotUrl,
+    trustpilotRating: null,
+    trustpilotReviewsCount: 0,
+    facebookRecommendPct: null,
+    facebookReviewsCount: 0,
     instagramFollowersCount: null,
     googleMapsUrl: null,
     googleRating: null,
     googleReviewsCount: 0,
     bookingUrl: null,
-    contactLinks: [],
+    contactLinks: [
+      ...(youtubeUrl
+        ? [{ channel: "youtube" as const, value: youtubeUrl, label: null }]
+        : []),
+      ...(trustpilotUrl
+        ? [
+            {
+              channel: "trustpilot" as const,
+              value: trustpilotUrl,
+              label: null,
+            },
+          ]
+        : []),
+    ],
     imageUrl,
     addressLine: item.address_line?.trim() || null,
     city: item.city?.trim() || null,
     region: item.state?.trim() || null,
-    latitude: null,
-    longitude: null,
-    locationPrecision: item.address_line?.trim() ? "street" : null,
+    latitude: lat,
+    longitude: lng,
+    locationPrecision: item.address_line?.trim()
+      ? "street"
+      : lat != null
+        ? "street"
+        : null,
     openingHours: null,
     createdAt: null,
     presenceFlags,
@@ -232,7 +255,7 @@ export function importReviewToProfessionalPreview(
   const name = resolved.name;
   const description = cleanPreviewDescription(item.description);
   const services = item.services ?? [];
-  const website = pickWebsiteUrl(item.website);
+  const website = pickPrimaryWebsiteFromList(item.website);
   const igHandle = sanitizeInstagramHandles(item.instagram)[0] ?? null;
   const instagram = asHttpUrl(igHandle);
   const phone = first(item.phone);
@@ -249,7 +272,7 @@ export function importReviewToProfessionalPreview(
     slug: `preview-${item.id.slice(0, 8)}`,
     displayName: name,
     headline: categoryLabel || shortFrom(description, services),
-    shortDescription: shortFrom(description, services),
+    shortDescription: null,
     description,
     descriptionOriginal: item.description_original?.trim() || null,
     imageUrl,
@@ -265,7 +288,7 @@ export function importReviewToProfessionalPreview(
       item.state?.trim() &&
       !/county|оранж/i.test(item.state.trim())
         ? item.state.trim()
-        : "CA",
+        : null,
     postalCode: item.postal_code?.trim() || null,
     latitude: null,
     longitude: null,
@@ -366,14 +389,12 @@ export function importReviewItemToPreviewFields(
   const area = hasStreet && loc.city
     ? item.state?.trim() && !/county|оранж/i.test(item.state)
       ? item.state.trim()
-      : loc.stateCode === "US-CA" || loc.stateCode === "CA"
-        ? "CA"
-        : loc.stateCode?.replace(/^US-/, "") || "CA"
+      : loc.stateCode?.replace(/^US-/, "") || null
     : loc.city && loc.region
       ? loc.region
-      : loc.stateCode && loc.stateCode !== "US-CA"
-        ? loc.stateCode
-        : item.state?.trim() || loc.stateCode || null;
+      : loc.stateCode
+        ? loc.stateCode.replace(/^US-/, "")
+        : item.state?.trim() || null;
 
   return {
     id: item.id,
@@ -407,6 +428,14 @@ export function importReviewItemToPreviewFields(
     source: item.source,
     source_group: item.source_group,
     payment_methods: item.payment_methods ?? null,
+    latitude: (() => {
+      const v = item.raw_payload?.latitude;
+      return typeof v === "number" && Number.isFinite(v) ? v : null;
+    })(),
+    longitude: (() => {
+      const v = item.raw_payload?.longitude;
+      return typeof v === "number" && Number.isFinite(v) ? v : null;
+    })(),
   };
 }
 
@@ -478,7 +507,7 @@ export function importReviewToEventPreview(
     longitude: null,
     cover_image_url: fields.preview_image_url ?? null,
     registration_url:
-      pickWebsiteUrl(fields.website) || structured.registrationUrl || null,
+      pickPrimaryWebsiteFromList(fields.website) || structured.registrationUrl || null,
     source_url: fields.source_url ?? null,
     source_posted_at: null,
     source_body: fields.source_text ?? null,

@@ -188,38 +188,38 @@ class RuleBasedAnalyzer:
         elif REJECT_JOB.search(text):
             raw = {
                 "classification": "job_post",
-                "decision": "rejected",
+                "decision": "needs_review",
                 "confidence": 0.88,
-                "decision_reason": "Вакансия или поиск работы.",
+                "decision_reason": "Вакансия / поиск работы → очередь Jobs.",
                 "advertiser_relationship": "unknown",
                 "extracted_entity": entity,
                 "evidence": evidence,
                 "missing_fields": missing,
-                "warnings": warnings,
+                "warnings": warnings + ["typed_job_post"],
             }
         elif REJECT_HOUSING.search(text):
             raw = {
                 "classification": "real_estate_listing",
-                "decision": "rejected",
+                "decision": "needs_review",
                 "confidence": 0.84,
-                "decision_reason": "Единичное объявление недвижимости.",
+                "decision_reason": "Объявление недвижимости → очередь Real estate.",
                 "advertiser_relationship": "unknown",
                 "extracted_entity": entity,
                 "evidence": evidence,
                 "missing_fields": missing,
-                "warnings": warnings,
+                "warnings": warnings + ["typed_real_estate"],
             }
         elif REJECT_MARKETPLACE.search(text) and not (self_offer and category != "other"):
             raw = {
                 "classification": "marketplace_item",
-                "decision": "rejected",
+                "decision": "needs_review",
                 "confidence": 0.8,
-                "decision_reason": "Разовая продажа личной вещи.",
+                "decision_reason": "Продажа вещи → очередь Marketplace.",
                 "advertiser_relationship": "unknown",
                 "extracted_entity": entity,
                 "evidence": evidence,
                 "missing_fields": missing,
-                "warnings": warnings,
+                "warnings": warnings + ["typed_marketplace"],
             }
         elif third_party:
             raw = {
@@ -337,6 +337,9 @@ Rules:
 - Use only evidence present in the post text.
 - If the author offers their own services with Instagram/phone/website/Telegram, use classification=direct_specialist_ad (or direct_business_ad for a named business), advertiser_relationship=self.
 - Third-party recommendations are NEVER accepted; use classification=third_party_recommendation and decision=needs_review.
+- Travel-carry ads («Лечу …», take packages/documents on a flight, попутчик) → classification=unclear, decision=needs_review, warning typed_lechu (system routes to Lechu).
+- Money transfer / currency exchange offers (рубли↔доллары, перевод денег, обмен валют) → classification=unclear, decision=needs_review, warning typed_transfer (system routes to Transfers). Do NOT use marketplace_item for FX.
+- Pure «ищу / посоветуйте / looking for» with no offered contact → classification=recommendation_request, decision=needs_review (seeking hold — not rejected).
 - If unsure about category, use other and add a warning.
 - Contact fields must be arrays.
 - extracted_name_source must be one of: explicit_text, business_brand, instagram, sender_profile, unknown.

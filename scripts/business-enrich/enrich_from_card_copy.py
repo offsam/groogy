@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Enrich businesses FROM their own card copy (description / short_description).
+"""DEPRECATED — prefer migrate_contacts_from_copy.py (+ address_geo / geocode_all).
 
-This is the gap the user hit: source posts and free-text descriptions already
-contain phones, Instagram, addresses — but structured columns stay empty.
+Enrich businesses FROM their own card copy (description / short_description).
+
+Contacts: use migrate_contacts_from_copy.py (fills empty fields AND strips
+contacts from public narrative). Geo: address_geo.resolve_address_geo /
+geocode_all_addresses.py. This script still mines addresses from copy when
+needed, but should not be the default ops path.
 
 Rules:
   - Only fill EMPTY fields (never overwrite)
@@ -10,6 +14,7 @@ Rules:
   - Optionally geocode when address_line is newly set and lat/lng missing
 
 Usage:
+  python3 scripts/business-enrich/migrate_contacts_from_copy.py --apply
   python3 scripts/business-enrich/enrich_from_card_copy.py --dry-run --limit 30
   python3 scripts/business-enrich/enrich_from_card_copy.py --apply
   python3 scripts/business-enrich/enrich_from_card_copy.py --apply --geocode
@@ -461,6 +466,12 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=500)
     parser.add_argument("--offset", type=int, default=0)
     args = parser.parse_args()
+
+    print(
+        "DEPRECATED: prefer migrate_contacts_from_copy.py for contacts; "
+        "address_geo / geocode_all_addresses.py for pins.",
+        file=sys.stderr,
+    )
 
     load_env()
     import os

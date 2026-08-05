@@ -41,8 +41,18 @@ from platform_saas_hosts import (  # noqa: E402
     booking_url_from_maybe_saas,
     is_platform_saas_host,
 )
+from enrich_follow_policy import (  # noqa: E402
+    BOOKING_PLATFORM_HOSTS,
+    CMS_CHROME_HOST_PARTS,
+    DIRECTORY_HOSTS,
+    filter_related_websites_for_queue,
+    is_booking_platform_host,
+    is_cms_chrome_url,
+    is_directory_host,
+    is_directory_sidebar_host,
+)
 
-ResourceKind = str  # source | website | instagram | tiktok | facebook | yelp | other
+ResourceKind = str  # source | website | instagram | tiktok | facebook | yelp | telegram | youtube | trustpilot | other
 
 JUNK_HOST_PARTS = (
     "etsy.com",
@@ -53,8 +63,6 @@ JUNK_HOST_PARTS = (
     "fonts.googleapis.com",
     "bit.ly",
     "wa.me/",
-    "youtube.com",
-    "youtu.be",
     "linktr.ee",
     "eventbrite.com/e/",  # allow eventbrite as source sometimes — filtered below for website kind
     "facebook.com/sharer",
@@ -70,6 +78,32 @@ JUNK_HOST_PARTS = (
     "appgallery.huawei",
     "rustore.ru",
     "support.dikidi.app",
+    "bazar.club",
+    "apteka03.online",
+    "apteka03.com",
+    "madbid.com",
+) + CMS_CHROME_HOST_PARTS
+
+#: Social / review profiles — contact only, never deep-crawl as a website.
+SOCIAL_CONTACT_KINDS = frozenset(
+    {
+        "instagram",
+        "tiktok",
+        "facebook",
+        "yelp",
+        "telegram",
+        "youtube",
+        "trustpilot",
+    }
+)
+
+#: Telegram product chrome (faq/blog/css/favicons) — not a business channel.
+_TELEGRAM_CHROME_PATH_RE = re.compile(
+    r"^/(?:img|css|js|s|faq|apps|safety|blog|a|share|proxy|socks|"
+    r"setlanguage|iv|privacy|tos|jobs|stickers|themes?|gif|"
+    r"addstickers|addtheme|bg|login|account|"
+    r"contact(?:-us)?|payments?|tickets?)(?:/|$)",
+    re.I,
 )
 
 # Corporate socials of booking / directory platforms — never the card's own.
@@ -86,31 +120,24 @@ PLATFORM_SOCIAL_HANDLES = (
     "facebook.com/booksy",
 )
 
-# When the page we mine is itself a booking SaaS, do not chase its vendor chrome.
-BOOKING_PLATFORM_HOSTS = (
-    "dikidi.net",
-    "dikidi.app",
-    "glossgenius.com",
-    "booksy.com",
-    "vagaro.com",
-    "squareup.com",
-    "square.site",
-    "calendly.com",
-    "setmore.com",
-)
-
-DIRECTORY_HOSTS = (
-    "svoi.us",
-    "russianorangepages.com",
-    "orange-pages",
-    "yellowpages",
-)
-
 # Directory brand socials — never attach these to a card as its Instagram/FB.
 DIRECTORY_SOCIAL_HANDLES = (
     "instagram.com/svoi.us",
     "instagram.com/svoi",
     "facebook.com/svoi",
+    "facebook.com/rusocnews",
+    "facebook.com/russianorangepages",
+    "instagram.com/russianorangepages",
+    "instagram.com/rusoc",
+    # to4ka page chrome / Bazar Club ad unit
+    "instagram.com/bazarclub.us",
+    "instagram.com/bazar.club",
+    "facebook.com/bazarclub.us",
+    "facebook.com/bazar.club",
+    "tiktok.com/@bazar.club",
+    "t.me/bazar_club",
+    "t.me/bazar_club_customer_suport_bot",
+    "youtube.com/channel/uce8l2obpla632xamrkozww",
 )
 
 SKIP_MINE_AS_WEBSITE = DIRECTORY_HOSTS + (
@@ -153,8 +180,69 @@ def host_of(url: str | None) -> str:
 def is_junk_url(url: str | None) -> bool:
     if not url:
         return True
+    if is_cms_chrome_url(url):
+        return True
+    if is_telegram_chrome_url(url):
+        return True
     low = url.lower()
     return any(p in low for p in JUNK_HOST_PARTS)
+
+
+def is_telegram_chrome_url(url: str | None) -> bool:
+    """True for t.me/faq, /img/favicon, /css/… — not @channel contacts."""
+    h = host_of(url)
+    if h not in ("t.me", "telegram.me", "telegram.dog", "telegram.org"):
+        return False
+    if h == "telegram.org":
+        return True
+    try:
+        path = (urlparse(url or "").path or "/").rstrip("/") or "/"
+    except Exception:
+        return True
+    if path == "/":
+        return True
+    # Private/supergroup posts are source URLs, not chrome — and not contacts.
+    if path.startswith("/c/"):
+        return False
+    # /s/… is Telegram web preview chrome (also CONTACT_PATHS noise on t.me).
+    if path.startswith("/s/"):
+        return True
+    if _TELEGRAM_CHROME_PATH_RE.match(path + "/"):
+        return True
+    # Bare @username: /startcdl or /startcdl/
+    if re.fullmatch(r"/[A-Za-z][A-Za-z0-9_]{3,31}", path):
+        return False
+    # Message deep-links /joinchat/+… — not a public channel contact for enrich.
+    if path.startswith("/joinchat") or path.startswith("/+"):
+        return True
+    return True
+
+
+def classify_resource(url: str) -> ResourceKind:
+    h = host_of(url)
+    low = url.lower()
+    if "instagram.com" in h:
+        return "instagram"
+    if "tiktok.com" in h:
+        return "tiktok"
+    if "facebook.com" in h or h == "fb.com" or h.endswith(".fb.com"):
+        return "facebook"
+    if "yelp.com" in h:
+        return "yelp"
+    if "youtube.com" in h or "youtu.be" in h:
+        return "youtube"
+    if "trustpilot.com" in h:
+        return "trustpilot"
+    # Channel contact vs post vs product chrome.
+    if h in ("t.me", "telegram.me", "telegram.dog"):
+        if "/c/" in low or is_directory_host(url):
+            return "source"
+        if is_telegram_chrome_url(url):
+            return "other"
+        return "telegram"
+    if is_directory_host(url) or "facebook.com/groups/" in low:
+        return "source"
+    return "website"
 
 
 def is_directory_social(url: str | None) -> bool:
@@ -164,13 +252,6 @@ def is_directory_social(url: str | None) -> bool:
     return any(h in low for h in DIRECTORY_SOCIAL_HANDLES) or any(
         h in low for h in PLATFORM_SOCIAL_HANDLES
     )
-
-
-def is_booking_platform_host(url: str | None) -> bool:
-    h = host_of(url)
-    if not h:
-        return False
-    return any(h == b or h.endswith(f".{b}") for b in BOOKING_PLATFORM_HOSTS)
 
 
 def is_booking_marketing_page(url: str | None) -> bool:
@@ -199,11 +280,6 @@ def is_booking_marketing_page(url: str | None) -> bool:
     return False
 
 
-def is_directory_host(url: str | None) -> bool:
-    h = host_of(url)
-    return any(d in h for d in DIRECTORY_HOSTS)
-
-
 def can_be_own_website(url: str | None) -> bool:
     """A link may stand for *this* card only if it is not platform chrome.
 
@@ -213,6 +289,8 @@ def can_be_own_website(url: str | None) -> bool:
     """
     n = normalize_http_url(url)
     if not n or is_junk_url(n) or is_directory_host(n):
+        return False
+    if is_directory_sidebar_host(n):
         return False
     if is_shared_non_identity_host(n) or is_editorial_url(n) or is_platform_saas_host(n):
         return False
@@ -323,6 +401,12 @@ def sanitize_street_line(raw: str | None) -> str | None:
     value = (raw or "").replace("\xa0", " ").strip()
     if not value:
         return None
+    # Marketing «7213 truck driver vacancies» must never become a street.
+    if re.search(
+        r"(?i)\b(?:vacanc(?:y|ies)|hiring|jobs?\s+per\s+day|truck\s+driver)\b",
+        value,
+    ):
+        return None
     value = URL_IN_TEXT_RE.sub(" ", value)
     value = EMAIL_IN_TEXT_RE.sub(" ", value)
     value = PHONE_IN_TEXT_RE.sub(" ", value)
@@ -335,27 +419,17 @@ def sanitize_street_line(raw: str | None) -> str | None:
     if not head:
         return None
     value = value[head.start() :].strip(" ,;|·—–-")
+    # «Drive, Ste.» with the unit number on the next HTML node — drop the
+    # dangling suite label so we don't treat «Ste.» as a city later.
+    value = re.sub(
+        r",?\s*(?:Ste\.?|Suite|Unit|#)\s*$",
+        "",
+        value,
+        flags=re.I,
+    ).strip(" ,;|·—–-")
     if len(value) < 6:
         return None
     return value[:300]
-
-
-def classify_resource(url: str) -> ResourceKind:
-    h = host_of(url)
-    low = url.lower()
-    if "instagram.com" in h:
-        return "instagram"
-    if "tiktok.com" in h:
-        return "tiktok"
-    if "facebook.com" in h or h == "fb.com" or h.endswith(".fb.com"):
-        return "facebook"
-    if "yelp.com" in h:
-        return "yelp"
-    if "t.me" in h or "telegram.me" in h:
-        return "other"
-    if is_directory_host(url) or "facebook.com/groups/" in low or "t.me/c/" in low:
-        return "source"
-    return "website"
 
 
 def url_key(url: str) -> str:
@@ -373,6 +447,7 @@ def build_initial_queue(
     source_url: str | None,
     card_urls: list[str | None],
     sequential: bool = True,
+    preferred_website: str | None = None,
 ) -> tuple[deque[str], list[str]]:
     """Build BFS queue.
 
@@ -381,14 +456,26 @@ def build_initial_queue(
       - card_urls returned as deferred — enqueue after source + description pass
     sequential=False:
       - legacy: source first, then all card_urls immediately
+
+    preferred_website: the card's own website field. When set, *only* that host
+    may enter the seed list as a website — origin rows often still hold the
+    whole ROP sidebar (bike911, homeopathy, …) and must not be mined.
     """
     q: deque[str] = deque()
     seen: set[str] = set()
+    pref_host = host_of(preferred_website)
 
     def add(raw: str | None, *, into: deque[str] | list[str]) -> None:
         n = normalize_http_url(raw)
-        if not n or is_junk_url(n):
+        if not n or is_junk_url(n) or is_directory_social(n):
             return
+        kind = classify_resource(n)
+        if kind == "website":
+            # Hard rule: one card → one marketing site seed (the field on the card).
+            if pref_host and host_of(n) != pref_host:
+                return
+            if is_directory_sidebar_host(n) and host_of(n) != pref_host:
+                return
         k = url_key(n)
         if k in seen:
             return
@@ -425,6 +512,41 @@ def enqueue_discovered(
         # Platform chrome and articles never describe this card — mining them
         # only imports someone else's phone / e-mail / address.
         if kind == "website" and (
+            is_shared_non_identity_host(n)
+            or is_editorial_url(n)
+            or is_directory_sidebar_host(n)
+        ):
+            continue
+        k = url_key(n)
+        if k in visited or k in queued:
+            continue
+        queued.add(k)
+        queue.append(n)
+        added.append(n)
+    return added
+
+
+def enqueue_seed_urls(
+    queue: deque[str],
+    visited: set[str],
+    queued: set[str],
+    urls: list[str | None],
+) -> list[str]:
+    """Enqueue card-seed URLs (website / IG / …) after the source step.
+
+    Unlike enqueue_discovered, sidebar-advertiser hosts are allowed — the admin
+    (or card field) explicitly named this URL as *this* card's resource.
+    """
+    added: list[str] = []
+    for raw in urls:
+        n = normalize_http_url(raw)
+        if not n or is_junk_url(n) or is_directory_social(n):
+            continue
+        kind = classify_resource(n)
+        if kind == "website" and is_directory_host(n):
+            continue
+        # Still never seed true platform chrome as a marketing site.
+        if kind == "website" and (
             is_shared_non_identity_host(n) or is_editorial_url(n)
         ):
             continue
@@ -453,15 +575,29 @@ def _first_str(vals: Any) -> str | None:
 def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
     # Local import — completeness_score lives next to this module in business-enrich/
     try:
-        from completeness_score import is_weak_description
+        from completeness_score import (
+            description_is_richer,
+            is_weak_description,
+        )
     except Exception:  # pragma: no cover
         def is_weak_description(value: Any) -> bool:  # type: ignore
             return not (isinstance(value, str) and len(value.strip()) >= 40)
 
+        def description_is_richer(  # type: ignore
+            new: Any,
+            current: Any,
+            *,
+            new_source: str | None = None,
+            current_source: str | None = None,
+        ) -> bool:
+            return is_weak_description(current) and not is_weak_description(new)
+
     def _junk_image(url: Any) -> bool:
         if not isinstance(url, str) or not url.strip():
             return True
-        low = url.lower()
+        low = url.lower().split("?")[0]
+        if low.endswith((".ico", ".svg")):
+            return True
         return any(
             x in low
             for x in (
@@ -471,18 +607,81 @@ def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
                 "1x1",
                 "pixel.gif",
                 "spacer.",
+                "favicon",
+                "default-favicon",
+                "assets.squarespace.com/universal/",
+                "/static/images/wix",
             )
         )
+
+    def _junk_email(value: Any) -> bool:
+        try:
+            from enrich_published_businesses import is_junk_email
+
+            return is_junk_email(str(value or ""))
+        except Exception:  # pragma: no cover
+            e = str(value or "").lower().strip()
+            if not e or "@" not in e:
+                return True
+            local, _, domain = e.partition("@")
+            if local in {"user", "test", "email", "name", "example"}:
+                return True
+            return domain in {"domain.com", "example.com", "email.com"}
+
+    new_desc_source = str(
+        patch.get("_description_source")
+        or patch.get("_kind")
+        or patch.get("_url_kind")
+        or "other"
+    ).strip().lower() or "other"
 
     for k, v in patch.items():
         if k.startswith("_") or v in (None, "", [], {}):
             continue
         cur = found.get(k)
+        if k == "description":
+            if not isinstance(v, str) or not v.strip():
+                continue
+            if is_weak_description(v):
+                continue
+            cur_source = str(found.get("_description_source") or "other").strip().lower()
+            if cur in (None, "", [], {}) or description_is_richer(
+                v,
+                cur,
+                new_source=new_desc_source,
+                current_source=cur_source,
+            ):
+                found[k] = v.strip()[:4000]
+                found["_description_source"] = new_desc_source
+            continue
+        if k in ("address", "address_line"):
+            # Own website street beats an earlier telegram / source glue line.
+            cand = str(v).strip()
+            if not cand:
+                continue
+            try:
+                from address_geo import prefer_own_website_street
+            except Exception:  # pragma: no cover
+
+                def prefer_own_website_street(existing: Any, website: Any) -> bool:  # type: ignore
+                    return not (existing and str(existing).strip())
+
+            cur_s = str(cur).strip() if cur not in (None, "", [], {}) else ""
+            kind = new_desc_source
+            take = False
+            if not cur_s:
+                take = True
+            elif kind == "website" and prefer_own_website_street(cur_s, cand):
+                take = True
+            if take:
+                found[k] = cand[:160] if k == "address_line" else cand[:200]
+                found["_address_source"] = kind
+            continue
         if cur in (None, "", [], {}):
             # Never seed found with junk chrome from t.me / telegram.org
-            if k == "description" and is_weak_description(v):
-                continue
             if k == "image_url" and _junk_image(v):
+                continue
+            if k == "email" and _junk_email(v):
                 continue
             if k == "website" and is_platform_saas_host(str(v)):
                 book = booking_url_from_maybe_saas(str(v))
@@ -490,7 +689,7 @@ def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
                     found["booking_url"] = book.split("?")[0][:500]
                 continue
             found[k] = v
-        elif k == "description" and is_weak_description(cur) and not is_weak_description(v):
+        elif k == "email" and _junk_email(cur) and not _junk_email(v):
             found[k] = v
         elif k == "image_url" and _junk_image(cur) and not _junk_image(v):
             found[k] = v
@@ -534,6 +733,165 @@ def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
                     seen.add(t.lower())
 
 
+def _mine_directory_listing(url: str) -> dict[str, Any] | None:
+    """Article-body parsers for Svoi / Russian Orange Pages — never page chrome.
+
+    Whole-page scrapes of these WordPress directories pull sidebar advertisers
+    (fchconstruction.org, liveattheshell.org, …) into the BFS as «own website».
+    Returns None when this URL is not a known directory listing.
+    """
+    if not is_directory_host(url):
+        return None
+    host = host_of(url)
+    out: dict[str, Any] = {
+        "_url": url,
+        "_kind": "source",
+        "discovered_urls": [],
+    }
+    try:
+        from enrich_svoi_directory import (
+            enrich_orange_pages_detail,
+            enrich_svoi_page,
+            is_orange_pages_junk_website,
+        )
+    except Exception as exc:  # pragma: no cover
+        out["_status"] = "error"
+        out["_error"] = f"directory_import:{exc}"[:200]
+        return out
+
+    if "russianorangepages" in host or ("orange" in host and "pages" in host):
+        detail = enrich_orange_pages_detail({"source_post_urls": [url]})
+    elif "svoi.us" in host:
+        detail = enrich_svoi_page({"source_post_urls": [url], "phones": [], "websites": []})
+    elif "to4ka.us" in host or "api.to4ka" in host:
+        try:
+            from enrich_to4ka_directory import (
+                enrich_to4ka_listing,
+                is_to4ka_junk_website,
+            )
+        except Exception as exc:  # pragma: no cover
+            out["_status"] = "error"
+            out["_error"] = f"to4ka_import:{exc}"[:200]
+            return out
+        detail = enrich_to4ka_listing(url)
+        # Reuse the svoi/ROP packing path below; junk website filter is to4ka-specific.
+        err = detail.get("_svoi_error")
+        if err:
+            out["_status"] = "fetch_failed"
+            out["_error"] = str(err)[:200]
+            return out
+        out["_status"] = "ok"
+        phones = detail.get("phones") or []
+        if phones:
+            out["phone"] = str(phones[0])[:40]
+        if detail.get("description"):
+            out["description"] = str(detail["description"])[:4000]
+        if detail.get("address_line"):
+            out["address"] = str(detail["address_line"])[:200]
+            out["address_line"] = str(detail["address_line"])[:160]
+        if detail.get("city"):
+            out["city"] = str(detail["city"])[:80]
+        if detail.get("postal_code"):
+            out["postal_code"] = str(detail["postal_code"])[:16]
+        for raw in detail.get("websites") or []:
+            w = str(raw).strip()
+            if not w or is_to4ka_junk_website(w):
+                continue
+            if can_be_own_website(w):
+                _set_website_or_booking(out, w)
+                out["discovered_urls"].append(w)
+        # Never enqueue related sites from to4ka chrome.
+        out["social_links"] = []
+        out["discovered_urls"] = list(out.get("discovered_urls") or [])
+        return out
+    else:
+        return None
+
+    err = detail.get("_svoi_error")
+    if err:
+        out["_status"] = "fetch_failed"
+        out["_error"] = str(err)[:200]
+        return out
+
+    out["_status"] = "ok"
+    phones = detail.get("phones") or []
+    if phones:
+        out["phone"] = str(phones[0])[:40]
+    emails = detail.get("emails") or []
+    if emails:
+        out["email"] = str(emails[0])[:120]
+    if detail.get("description"):
+        out["description"] = str(detail["description"])[:4000]
+    if detail.get("address_line"):
+        out["address"] = str(detail["address_line"])[:200]
+        out["address_line"] = str(detail["address_line"])[:160]
+    if detail.get("city"):
+        out["city"] = str(detail["city"])[:80]
+    if detail.get("postal_code"):
+        out["postal_code"] = str(detail["postal_code"])[:16]
+    if detail.get("cover_image_url"):
+        out["image_url"] = str(detail["cover_image_url"])[:500]
+
+    socials: list[str] = []
+    for handle in detail.get("instagram") or []:
+        h = str(handle).strip().lstrip("@")
+        if h:
+            ig = f"https://www.instagram.com/{h}"
+            out["instagram_url"] = ig
+            socials.append(ig)
+            break
+    if detail.get("instagram_url"):
+        ig = str(detail["instagram_url"]).split("?")[0][:300]
+        out["instagram_url"] = ig
+        if ig not in socials:
+            socials.append(ig)
+    if detail.get("facebook_url"):
+        fb = str(detail["facebook_url"]).split("?")[0][:300]
+        out["facebook_url"] = fb
+        socials.append(fb)
+    if detail.get("yelp_url"):
+        yp = str(detail["yelp_url"]).split("?")[0][:300]
+        out["yelp_url"] = yp
+        socials.append(yp)
+
+    for raw in detail.get("websites") or []:
+        w = str(raw).strip()
+        if not w:
+            continue
+        if "russianorangepages" in host and is_orange_pages_junk_website(w):
+            continue
+        ck = classify_resource(w)
+        if ck in ("instagram", "facebook", "yelp", "tiktok"):
+            if not is_directory_social(w):
+                socials.append(w)
+                key = {
+                    "instagram": "instagram_url",
+                    "facebook": "facebook_url",
+                    "yelp": "yelp_url",
+                    "tiktok": "tiktok_url",
+                }[ck]
+                out.setdefault(key, w.split("?")[0][:300])
+            continue
+        if can_be_own_website(w):
+            _set_website_or_booking(out, w)
+            out["discovered_urls"].append(w)
+
+    # Dedupe socials / discovered
+    seen: set[str] = set()
+    uniq_socials: list[str] = []
+    for s in socials:
+        k = s.strip().lower().rstrip("/")
+        if not k or k in seen:
+            continue
+        seen.add(k)
+        uniq_socials.append(s)
+    out["social_links"] = uniq_socials
+    for s in uniq_socials:
+        if s not in out["discovered_urls"]:
+            out["discovered_urls"].append(s)
+    return out
+
+
 def mine_resource(
     url: str,
     *,
@@ -568,22 +926,86 @@ def mine_resource(
             out["social_links"] = [out["instagram_url"]]
         return out
 
-    if kind in ("tiktok", "facebook", "yelp"):
-        # Lightweight: keep URL as social link; deep scrapers not wired for all.
+    if kind in ("tiktok", "facebook", "telegram", "youtube"):
+        # Contact / profile URL only — never deep-crawl Telegram product chrome
+        # (faq/blog/css) or YouTube shells as if they were the shop site.
         out["_status"] = "link_only"
         key = {
             "tiktok": "tiktok_url",
             "facebook": "facebook_url",
-            "yelp": "yelp_url",
+            "telegram": "telegram_url",
+            "youtube": "youtube_url",
         }[kind]
-        out[key] = url.split("?")[0][:300]
-        out["social_links"] = [url]
+        clean = url.split("?")[0][:300]
+        if key:
+            out[key] = clean
+        out["social_links"] = [clean]
         return out
+
+    if kind == "trustpilot":
+        # Light TrustScore fetch only — never BFS into Trustpilot chrome.
+        try:
+            from trustpilot_extract import extract_trustpilot_profile
+
+            tp = extract_trustpilot_profile(url)
+            for k, v in tp.items():
+                if k.startswith("_") and k not in ("_status", "_error", "_url", "_kind"):
+                    continue
+                out[k] = v
+            out["_status"] = tp.get("_status") or out.get("_status")
+            if tp.get("_error"):
+                out["_error"] = tp["_error"]
+            out["trustpilot_url"] = tp.get("trustpilot_url") or url.split("?")[0][:300]
+            out["social_links"] = list(
+                tp.get("social_links") or [out["trustpilot_url"]]
+            )
+            out["discovered_urls"] = []
+            return out
+        except Exception as exc:  # pragma: no cover
+            out["_status"] = "error"
+            out["_error"] = f"trustpilot:{exc}"[:200]
+            out["trustpilot_url"] = url.split("?")[0][:300]
+            out["social_links"] = [out["trustpilot_url"]]
+            out["discovered_urls"] = []
+            return out
+
+    if kind == "yelp":
+        try:
+            from yelp_extract import extract_yelp_biz_profile
+
+            yelp = extract_yelp_biz_profile(url)
+            for k, v in yelp.items():
+                if k.startswith("_") and k not in ("_status", "_error", "_url", "_kind"):
+                    continue
+                out[k] = v
+            out["_status"] = yelp.get("_status") or out.get("_status")
+            if yelp.get("_error"):
+                out["_error"] = yelp["_error"]
+            # Always keep the biz URL even when Yelp blocks the body.
+            out["yelp_url"] = yelp.get("yelp_url") or url.split("?")[0][:300]
+            out["social_links"] = list(yelp.get("social_links") or [out["yelp_url"]])
+            if yelp.get("website") and can_be_own_website(str(yelp["website"])):
+                out.setdefault("discovered_urls", [])
+                if yelp["website"] not in out["discovered_urls"]:
+                    out["discovered_urls"].append(str(yelp["website"]))
+            return out
+        except Exception as exc:  # pragma: no cover
+            out["_status"] = "error"
+            out["_error"] = f"yelp:{exc}"[:200]
+            out["yelp_url"] = url.split("?")[0][:300]
+            out["social_links"] = [out["yelp_url"]]
+            return out
 
     if kind == "source":
         # Treat as HTML page (directory / post) — shallow deep fetch still helps
         # discover website links via profile social + JSON-LD.
         pass
+
+    # Directory listings: article body only (never WordPress sidebar blogroll).
+    if kind == "source" and is_directory_host(url):
+        directory = _mine_directory_listing(url)
+        if directory is not None:
+            return directory
 
     # website + source HTML pages
     if kind == "website" or kind == "source" or kind == "other":
@@ -618,7 +1040,14 @@ def mine_resource(
         if phone:
             out["phone"] = phone
         if email:
-            out["email"] = email
+            try:
+                from enrich_published_businesses import is_junk_email as _junk_em
+            except Exception:  # pragma: no cover
+                def _junk_em(value: str) -> bool:
+                    return False
+
+            if not _junk_em(email):
+                out["email"] = email
         try:
             from completeness_score import is_weak_description as _weak_desc
         except Exception:  # pragma: no cover
@@ -630,12 +1059,35 @@ def mine_resource(
             out["description"] = desc[:4000]
         if prof.get("logo"):
             logo = str(prof["logo"]).strip()[:500]
-            if logo and "telegram.org/img" not in logo.lower():
+            low = logo.lower()
+            if (
+                logo
+                and "telegram.org/img" not in low
+                and "favicon" not in low
+                and "default-favicon" not in low
+                and not low.endswith((".ico", ".svg"))
+                and "assets.squarespace.com/universal/" not in low
+            ):
                 out["image_url"] = logo
         street = sanitize_street_line(prof.get("address"))
         if street:
             out["address"] = street
             out["address_line"] = street
+        multi = []
+        for raw_addr in list(prof.get("addresses") or []):
+            cleaned = sanitize_street_line(raw_addr)
+            if cleaned and cleaned not in multi:
+                multi.append(cleaned)
+        if street and street not in multi:
+            multi.insert(0, street)
+        if multi:
+            out["addresses"] = multi[:8]
+            if not out.get("address_line"):
+                out["address"] = multi[0]
+                out["address_line"] = multi[0]
+        book = (prof.get("booking_url") or "").strip()
+        if book and book.startswith("http"):
+            out["booking_url"] = book[:500]
         if prof.get("hours"):
             out["hours"] = prof["hours"]
         if prof.get("payment_methods"):
@@ -757,7 +1209,7 @@ def mine_resource(
             for s in (prof.get("social_links") or [])
             if s and not is_junk_url(str(s)) and not is_directory_social(str(s))
         ]
-        related = [
+        related_raw = [
             s
             for s in (prof.get("related_websites") or [])
             if s
@@ -766,21 +1218,25 @@ def mine_resource(
             and not is_shared_non_identity_host(str(s))
             and not is_editorial_url(str(s))
         ]
+        # Single policy SoT — never chase blogroll/XFN from the card's own site.
+        related = filter_related_websites_for_queue(
+            [str(r) for r in related_raw],
+            kind=kind,
+            page_url=url,
+            can_be_own_website=can_be_own_website,
+        )
         if kind == "source" and is_directory_host(url):
-            # From directory pages only follow the listed company's own links —
-            # never the portal's meetup / blogroll / news chrome.
+            # Belt-and-suspenders: directory related_websites must never enter BFS
+            # (policy already returns []; specialized parser handles ROP/Svoi).
+            related = []
             keep: list[str] = []
             for link in socials:
                 ck = classify_resource(str(link))
-                if ck == "website":
-                    if can_be_own_website(str(link)):
-                        keep.append(str(link))
-                elif ck in ("instagram", "tiktok", "facebook", "yelp") and not is_directory_social(
+                if ck in SOCIAL_CONTACT_KINDS and not is_directory_social(
                     str(link)
                 ):
                     keep.append(str(link))
             socials = keep
-            related = [r for r in related if can_be_own_website(str(r))]
         if is_booking_marketing_page(url):
             # Bare Dikidi / GlossGenius / Booksy landing = vendor chrome, not the salon.
             # Tenant company pages (dikidi.net/1759630) are handled above.
@@ -788,7 +1244,7 @@ def mine_resource(
                 s
                 for s in socials
                 if not is_directory_social(str(s))
-                and classify_resource(str(s)) in ("instagram", "facebook", "tiktok", "yelp")
+                and classify_resource(str(s)) in SOCIAL_CONTACT_KINDS
                 and "dikidi" not in str(s).lower()
                 and "glossgenius" not in str(s).lower()
                 and "booksy" not in str(s).lower()
@@ -806,6 +1262,21 @@ def mine_resource(
                 out.pop(vendor_key, None)
         out["social_links"] = socials
         discovered = list(out.get("discovered_urls") or []) + list(socials) + list(related)
+        # Own marketing site: never enqueue foreign websites (sidebar / blogroll).
+        # Keep socials, booking CTAs, and same-host pages only.
+        if kind == "website" and not is_booking_platform_host(url):
+            own_host = host_of(url)
+            keep_disc: list[str] = []
+            for d in discovered:
+                ck = classify_resource(str(d))
+                if ck in SOCIAL_CONTACT_KINDS:
+                    keep_disc.append(str(d))
+                    continue
+                if ck == "website" and (
+                    host_of(str(d)) == own_host or is_booking_platform_host(str(d))
+                ):
+                    keep_disc.append(str(d))
+            discovered = keep_disc
         # Dedupe preserving order
         seen_d: set[str] = set()
         uniq_d: list[str] = []
@@ -864,6 +1335,11 @@ _USEFUL_RESOURCE_FIELDS = frozenset(
         "telegram_url",
         "facebook_url",
         "yelp_url",
+        "yelp_rating",
+        "yelp_reviews_count",
+        "trustpilot_url",
+        "trustpilot_rating",
+        "trustpilot_reviews_count",
         "tiktok_url",
         "social_links",
         "city",
@@ -921,6 +1397,7 @@ def run_resource_bfs(
     sequential: bool = True,
     after_resource: Callable[[dict[str, Any], dict[str, Any]], list[str] | None]
     | None = None,
+    preferred_website: str | None = None,
 ) -> dict[str, Any]:
     """Run BFS over resources. Returns found fields + steps debug.
 
@@ -936,12 +1413,19 @@ def run_resource_bfs(
 
     after_resource(found, layer) may return extra URLs to enqueue (e.g. after
     re-mining an updated description).
+
+    preferred_website: card.website — only this sidebar-advertiser host may be
+    seeded (not Live at the Shell / Art-A-Fair glue alongside FCH).
     """
     mine = mine_fn or mine_resource
     queue, deferred = build_initial_queue(
         source_url=source_url,
         card_urls=card_urls,
         sequential=sequential,
+        preferred_website=preferred_website or next(
+            (u for u in card_urls if u and classify_resource(u) == "website"),
+            None,
+        ),
     )
     visited: set[str] = set()
     queued: set[str] = {url_key(u) for u in queue}
@@ -962,8 +1446,13 @@ def run_resource_bfs(
         if deferred_released:
             return []
         deferred_released = True
-        added = enqueue_discovered(queue, visited, queued, list(deferred))
+        # Prefer the card's own website first when the source died — don't waste
+        # the resource budget on secondary socials before the marketing site.
+        ordered = list(deferred)
         deferred.clear()
+        websites = [u for u in ordered if classify_resource(u) == "website"]
+        rest = [u for u in ordered if classify_resource(u) != "website"]
+        added = enqueue_seed_urls(queue, visited, queued, websites + rest)
         for nu in added:
             nk = classify_resource(nu)
             emit(
@@ -990,6 +1479,21 @@ def run_resource_bfs(
                 "status": "queued",
             }
         )
+
+    # Show deferred card URLs in the admin UI up front (website / IG / …),
+    # so a failed source does not look like «we never looked at the site».
+    if sequential and deferred:
+        for u in list(deferred):
+            nk = classify_resource(u)
+            emit(
+                {
+                    "type": "resource",
+                    "url": u,
+                    "kind": _resource_kind_label(u, nk),
+                    "status": "queued",
+                    "detail": "после источника",
+                }
+            )
 
     # No source → description/contacts phase first via after_resource(None), then deferred
     if sequential and not queue:
@@ -1036,14 +1540,14 @@ def run_resource_bfs(
         for s in layer.get("social_links") or []:
             discovered.append(s)
         added = enqueue_discovered(queue, visited, queued, discovered)
-        _merge_fill_empty(
-            found,
-            {
-                kk: vv
-                for kk, vv in layer.items()
-                if not kk.startswith("_") and kk != "discovered_urls"
-            },
-        )
+        merge_patch = {
+            kk: vv
+            for kk, vv in layer.items()
+            if not kk.startswith("_") and kk != "discovered_urls"
+        }
+        # Keep kind for description richness tie-break (website > source > …).
+        merge_patch["_kind"] = kind_label if kind_label != "booking" else kind
+        _merge_fill_empty(found, merge_patch)
         fields = _useful_fields(layer)
         outcome, err_reason = _resource_outcome(layer, fields)
         step = {
@@ -1098,9 +1602,17 @@ def run_resource_bfs(
                         }
                     )
             release_deferred(
-                reason="после источника и описания"
-                if just_did_source
-                else "после описания"
+                reason=(
+                    "источник недоступен — сайт карточки"
+                    if just_did_source
+                    and str(layer.get("_status") or "")
+                    in ("fetch_failed", "unavailable", "error", "parse_failed")
+                    else (
+                        "после источника и описания"
+                        if just_did_source
+                        else "после описания"
+                    )
+                )
             )
         elif after_resource:
             # Later resources may refresh description → new links
@@ -1156,14 +1668,13 @@ def run_resource_bfs(
             for s in layer.get("social_links") or []:
                 discovered.append(s)
             added = enqueue_discovered(queue, visited, queued, discovered)
-            _merge_fill_empty(
-                found,
-                {
-                    kk: vv
-                    for kk, vv in layer.items()
-                    if not kk.startswith("_") and kk != "discovered_urls"
-                },
-            )
+            merge_patch = {
+                kk: vv
+                for kk, vv in layer.items()
+                if not kk.startswith("_") and kk != "discovered_urls"
+            }
+            merge_patch["_kind"] = kind_label if kind_label != "booking" else kind
+            _merge_fill_empty(found, merge_patch)
             fields = _useful_fields(layer)
             outcome, err_reason = _resource_outcome(layer, fields)
             steps.append(

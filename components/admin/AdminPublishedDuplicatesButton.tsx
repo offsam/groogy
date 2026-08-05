@@ -3,23 +3,33 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Copy, Loader2, X } from "lucide-react";
+import { Copy, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
   attachRecommendationFromLiveScanAction,
+  dismissCatalogDuplicatePairAction,
   mergeCatalogDuplicateFromLiveScanAction,
   rejectRecommendationFromLiveScanAction,
   scanLiveEntityDuplicatesAction,
   type LiveDuplicateHit,
   type LiveEntityKind,
 } from "@/lib/admin/published-duplicates-scan";
+import { confirmRecommendationMergeAction } from "@/lib/import-review/recommendation-actions";
+import { mergeImportReviewIntoExistingAction } from "@/lib/import-review/actions";
+import { CatalogJobProgressBar } from "@/components/admin/CatalogJobProgressBar";
+import { suggestEmployeeAttach } from "@/lib/admin/person-vs-firm";
 import { cn } from "@/lib/utils";
+import type { AdminEnrichQueueTarget } from "@/components/admin/AdminPublishedEnrichButton";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   kind: LiveEntityKind;
   entityId: string;
   slug?: string | null;
   className?: string;
+  disabled?: boolean;
+  /** Review/queue preview: same chip, scan from queue signals. */
+  queue?: AdminEnrichQueueTarget;
 };
 
 export function AdminPublishedDuplicatesButton({
@@ -27,6 +37,8 @@ export function AdminPublishedDuplicatesButton({
   entityId,
   slug,
   className,
+  disabled,
+  queue,
 }: Props) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -37,36 +49,125 @@ export function AdminPublishedDuplicatesButton({
   const [selfName, setSelfName] = useState<string | null>(null);
   const [hits, setHits] = useState<LiveDuplicateHit[]>([]);
   const [scanNotes, setScanNotes] = useState<string[]>([]);
-  const canAttachRec = kind === "business" || kind === "professional";
+  const [scanProgress, setScanProgress] = useState<{
+    done: number;
+    total: number;
+    percent: number;
+  } | null>(null);
+  const [scanning, setScanning] = useState(false);
+  const canAttachRec =
+    !queue && (kind === "business" || kind === "professional");
+  const canMergeQueueIntoLive =
+    Boolean(queue) && (kind === "business" || kind === "professional");
+
+  async function runCatalogStreamScan() {
+    setScanning(true);
+    setScanProgress({ done: 0, total: 0, percent: 0 });
+    try {
+      const res = await fetch("/api/admin/catalog/duplicates/scan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind, id: entityId }),
+      });
+      if (!res.ok || !res.body) {
+        const data = (await res.json().catch(() => null)) as {
+          message?: string;
+        } | null;
+        throw new Error(data?.message || `Ошибка ${res.status}`);
+      }
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split("\n");
+        buf = lines.pop() ?? "";
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed) continue;
+          let ev: {
+            type?: string;
+            message?: string;
+            selfName?: string;
+            hits?: LiveDuplicateHit[];
+            done?: number;
+            total?: number;
+            percent?: number;
+          };
+          try {
+            ev = JSON.parse(trimmed);
+          } catch {
+            continue;
+          }
+          if (ev.type === "started") {
+            setSelfName(ev.selfName || null);
+            setScanProgress({
+              done: 0,
+              total: ev.total ?? 0,
+              percent: 0,
+            });
+          } else if (ev.type === "progress") {
+            setScanProgress({
+              done: ev.done ?? 0,
+              total: ev.total ?? 0,
+              percent: ev.percent ?? 0,
+            });
+          } else if (ev.type === "error") {
+            setError(ev.message || "Ошибка скана");
+          } else if (ev.type === "finished") {
+            setSelfName(ev.selfName || null);
+            setHits(ev.hits ?? []);
+            setMessage(ev.message || null);
+            setScanProgress({
+              done: ev.total ?? ev.done ?? 0,
+              total: ev.total ?? 0,
+              percent: 100,
+            });
+          }
+        }
+      }
+    } finally {
+      setScanning(false);
+    }
+  }
 
   function runScan() {
+    if (disabled) return;
     setOpen(true);
     setError(null);
     setMessage(null);
     setHits([]);
     setScanNotes([]);
     setSelfName(null);
+    setScanProgress(null);
     startTransition(async () => {
       try {
-        const res = await scanLiveEntityDuplicatesAction({
-          entityType: kind,
-          entityId,
-        });
-        if (!res.ok) {
-          setError(res.message);
+        if (queue) {
+          const res = await scanLiveEntityDuplicatesAction({
+            entityType: kind,
+            entityId: queue.id,
+            queue,
+          });
+          if (!res.ok) {
+            setError(res.message);
+            return;
+          }
+          setSelfName(res.selfName);
+          setHits(res.hits);
+          setScanNotes(
+            (res.scanNotes ?? []).filter(
+              (n) =>
+                !/does not exist/i.test(n) &&
+                !/^column\b/i.test(n) &&
+                !/\bauthor_id\b/i.test(n),
+            ),
+          );
+          setMessage(res.message);
           return;
         }
-        setSelfName(res.selfName);
-        setHits(res.hits);
-        setScanNotes(
-          (res.scanNotes ?? []).filter(
-            (n) =>
-              !/does not exist/i.test(n) &&
-              !/^column\b/i.test(n) &&
-              !/\bauthor_id\b/i.test(n),
-          ),
-        );
-        setMessage(res.message);
+        await runCatalogStreamScan();
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Не удалось выполнить поиск",
@@ -79,6 +180,47 @@ export function AdminPublishedDuplicatesButton({
     setHits((prev) =>
       prev.filter((h) => !(h.id === id && h.kind === hitKind)),
     );
+  }
+
+  function onMergeQueueIntoLive(hit: LiveDuplicateHit) {
+    if (!queue || !canMergeQueueIntoLive) return;
+    const hitKind =
+      hit.entityType === "professional" || hit.entityType === "business"
+        ? hit.entityType
+        : kind === "professional" || kind === "business"
+          ? kind
+          : null;
+    if (!hitKind) return;
+    setActionId(hit.id);
+    setError(null);
+    startTransition(async () => {
+      const res =
+        queue.source === "recommendation"
+          ? await confirmRecommendationMergeAction({
+              id: queue.id,
+              entityType: hitKind,
+              entityId: hit.id,
+            })
+          : await mergeImportReviewIntoExistingAction({
+              id: queue.id,
+              matchKind: hitKind,
+              matchId: hit.id,
+              matchTitle: hit.name,
+              matchSlug: hit.slug,
+              matchReason: hit.reason,
+            });
+      setActionId(null);
+      if (!res.ok) {
+        setError(res.message);
+        return;
+      }
+      setMessage(res.message || "Привязано к карточке на платформе");
+      removeHit(hit.id, "catalog");
+      router.refresh();
+      if (hit.href) {
+        window.location.href = hit.href;
+      }
+    });
   }
 
   function onAttach(hit: LiveDuplicateHit) {
@@ -120,7 +262,51 @@ export function AdminPublishedDuplicatesButton({
     });
   }
 
-  function onMergeCatalog(hit: LiveDuplicateHit) {
+  function onMergeCatalog(
+    hit: LiveDuplicateHit,
+    mode: "merge" | "attach_employee" = "merge",
+  ) {
+    if (mode === "attach_employee") {
+      const selfLabel = selfName || slug || "эта карточка";
+      const attach = suggestEmployeeAttach(
+        { id: entityId, name: selfLabel, kind },
+        {
+          id: hit.id,
+          name: hit.name,
+          kind: hit.entityType || kind,
+        },
+      );
+      if (!attach) {
+        setError("Не похоже на пару «фирма + сотрудник».");
+        return;
+      }
+      setActionId(`${hit.id}-attach`);
+      setError(null);
+      startTransition(async () => {
+        const res = await mergeCatalogDuplicateFromLiveScanAction({
+          keepKind: "business",
+          dropKind: attach.personKind,
+          keepId: attach.firmId,
+          dropId: attach.personId,
+          keepSlug: attach.firmId === entityId ? slug : hit.slug,
+          dropSlug: attach.personId === entityId ? slug : hit.slug,
+          mode: "attach_employee",
+        });
+        setActionId(null);
+        if (!res.ok) {
+          setError(res.message);
+          return;
+        }
+        setMessage(res.message || "Привязано как сотрудник");
+        removeHit(hit.id, "catalog");
+        router.refresh();
+        if (attach.personId === entityId && hit.href) {
+          window.location.href = hit.href;
+        }
+      });
+      return;
+    }
+
     if (!hit.suggestedKeepId || !hit.suggestedDropId) return;
     const hitKind =
       hit.entityType === "professional" || hit.entityType === "business"
@@ -150,6 +336,7 @@ export function AdminPublishedDuplicatesButton({
         dropId: hit.suggestedDropId!,
         keepSlug: keepIsSelf ? slug : hit.slug,
         dropSlug: keepIsSelf ? hit.slug : slug,
+        mode: "merge",
       });
       setActionId(null);
       if (!res.ok) {
@@ -237,12 +424,12 @@ export function AdminPublishedDuplicatesButton({
           "inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50 disabled:opacity-60",
           className,
         )}
-        disabled={pending && !open}
+        disabled={disabled || (pending && !open)}
         type="button"
         onClick={() => runScan()}
       >
         {pending && !hits.length && open ? (
-          <Loader2 aria-hidden className="size-3.5 animate-spin" />
+          <BrandPinLoader size="sm" />
         ) : (
           <Copy aria-hidden className="size-3.5" />
         )}
@@ -265,7 +452,7 @@ export function AdminPublishedDuplicatesButton({
                 aria-label="Закрыть"
                 className="inline-flex size-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-50"
                 type="button"
-                disabled={pending}
+                disabled={pending || scanning}
                 onClick={() => setOpen(false)}
               >
                 <X className="size-4" />
@@ -273,9 +460,19 @@ export function AdminPublishedDuplicatesButton({
             </div>
 
             <div className="min-h-0 flex-1 space-y-4 overflow-y-auto px-4 py-4 text-sm">
-              {pending && !hits.length && !error ? (
+              {scanProgress && (scanning || pending) ? (
+                <CatalogJobProgressBar
+                  done={scanProgress.done}
+                  total={scanProgress.total}
+                  percent={scanProgress.percent}
+                  running={scanning || pending}
+                  label="Сканирую каталог…"
+                />
+              ) : null}
+
+              {pending && !hits.length && !error && !scanProgress ? (
                 <p className="inline-flex items-center gap-2 text-slate-600">
-                  <Loader2 className="size-4 animate-spin text-brand-blue" />
+                  <BrandPinLoader size="sm" />
                   Сканирую каталог и рекомендации…
                 </p>
               ) : null}
@@ -299,7 +496,7 @@ export function AdminPublishedDuplicatesButton({
               ) : null}
               {error ? <p className="text-xs text-red-600">{error}</p> : null}
 
-              {!pending && hits.length === 0 && !error ? (
+              {!pending && !scanning && hits.length === 0 && !error ? (
                 <p className="text-slate-600">Совпадений не найдено.</p>
               ) : null}
 
@@ -370,23 +567,105 @@ export function AdminPublishedDuplicatesButton({
                           </div>
                           <div className="flex flex-wrap gap-1.5">
                             {canMerge ? (
-                              <Button
-                                type="button"
-                                className="px-2.5 py-1 text-xs"
-                                disabled={pending}
-                                onClick={() => onMergeCatalog(hit)}
-                              >
-                                {actionId === hit.id ? "…" : "Объединить"}
-                              </Button>
+                              <>
+                                {(() => {
+                                  if (queue) return null;
+                                  const selfLabel =
+                                    selfName || slug || "эта карточка";
+                                  const attach = suggestEmployeeAttach(
+                                    {
+                                      id: entityId,
+                                      name: selfLabel,
+                                      kind,
+                                    },
+                                    {
+                                      id: hit.id,
+                                      name: hit.name,
+                                      kind: hit.entityType || kind,
+                                    },
+                                  );
+                                  if (!attach) return null;
+                                  return (
+                                    <Button
+                                      type="button"
+                                      className="px-2.5 py-1 text-xs"
+                                      disabled={pending}
+                                      onClick={() =>
+                                        onMergeCatalog(hit, "attach_employee")
+                                      }
+                                    >
+                                      {actionId === `${hit.id}-attach` ? (<><BrandPinLoader size="sm" className="mr-1 inline" />Как сотрудника</>) : "Как сотрудника"}
+                                    </Button>
+                                  );
+                                })()}
+                                <Button
+                                  type="button"
+                                  className="px-2.5 py-1 text-xs"
+                                  variant={
+                                    queue
+                                      ? undefined
+                                      : suggestEmployeeAttach(
+                                            {
+                                              id: entityId,
+                                              name:
+                                                selfName ||
+                                                slug ||
+                                                "эта карточка",
+                                              kind,
+                                            },
+                                            {
+                                              id: hit.id,
+                                              name: hit.name,
+                                              kind: hit.entityType || kind,
+                                            },
+                                          )
+                                        ? "secondary"
+                                        : undefined
+                                  }
+                                  disabled={pending}
+                                  onClick={() =>
+                                    queue
+                                      ? onMergeQueueIntoLive(hit)
+                                      : onMergeCatalog(hit, "merge")
+                                  }
+                                >
+                                  {actionId === hit.id ? (<><BrandPinLoader size="sm" className="mr-1 inline" />{queue ? "Привязать" : "Склеить"}</>) : queue ? "Привязать" : "Склеить"}
+                                </Button>
+                              </>
                             ) : null}
                             <Button
                               type="button"
                               className="px-2.5 py-1 text-xs"
                               variant="secondary"
                               disabled={pending}
-                              onClick={() => removeHit(hit.id, "catalog")}
+                              onClick={() => {
+                                if (queue) {
+                                  removeHit(hit.id, "catalog");
+                                  return;
+                                }
+                                setActionId(`${hit.id}-dismiss`);
+                                setError(null);
+                                startTransition(async () => {
+                                  const res =
+                                    await dismissCatalogDuplicatePairAction({
+                                      aKind: kind,
+                                      aId: entityId,
+                                      bKind: hit.entityType || kind,
+                                      bId: hit.id,
+                                    });
+                                  setActionId(null);
+                                  if (!res.ok) {
+                                    setError(res.message);
+                                    return;
+                                  }
+                                  setMessage(
+                                    res.message || "Больше не предлагаем",
+                                  );
+                                  removeHit(hit.id, "catalog");
+                                });
+                              }}
                             >
-                              Не дубль
+                              {actionId === `${hit.id}-dismiss` ? (<><BrandPinLoader size="sm" className="mr-1 inline" />Не двойник</>) : "Не двойник"}
                             </Button>
                           </div>
                         </div>
@@ -436,7 +715,14 @@ export function AdminPublishedDuplicatesButton({
                                 disabled={pending}
                                 onClick={() => onAttach(hit)}
                               >
-                                {actionId === hit.id ? "…" : "Прикрепить"}
+                                {actionId === hit.id ? (
+                                  <>
+                                    <BrandPinLoader size="sm" className="mr-1 inline" />
+                                    Прикрепить
+                                  </>
+                                ) : (
+                                  "Прикрепить"
+                                )}
                               </Button>
                             ) : null}
                             <Button

@@ -224,6 +224,7 @@ export function EditContactsDialog({
   email,
   website,
   instagramUrl,
+  telegramUrl,
   yelpUrl,
   googleMapsUrl,
   contactLinks = [],
@@ -232,6 +233,7 @@ export function EditContactsDialog({
   email: string | null;
   website: string | null;
   instagramUrl: string | null;
+  telegramUrl: string | null;
   yelpUrl: string | null;
   googleMapsUrl: string | null;
   facebookUrl?: string | null;
@@ -244,6 +246,7 @@ export function EditContactsDialog({
   const [emailVal, setEmailVal] = useState(email ?? "");
   const [websiteVal, setWebsiteVal] = useState(website ?? "");
   const [igVal, setIgVal] = useState(instagramUrl ?? "");
+  const [telegramVal, setTelegramVal] = useState(telegramUrl ?? "");
   const [yelpVal, setYelpVal] = useState(yelpUrl ?? "");
   const [mapsVal, setMapsVal] = useState(googleMapsUrl ?? "");
   const [links, setLinks] = useState<ContactLink[]>(contactLinks);
@@ -266,6 +269,7 @@ export function EditContactsDialog({
               email: emailVal,
               website: websiteVal,
               instagramUrl: igVal,
+              telegramUrl: telegramVal,
               yelpUrl: yelpVal,
               googleMapsUrl: mapsVal,
               contactLinks: serializeContactLinks(links),
@@ -293,6 +297,14 @@ export function EditContactsDialog({
         <Field label="Instagram URL">
           <input className={inputClass} value={igVal} onChange={(e) => setIgVal(e.target.value)} />
         </Field>
+        <Field label="Telegram">
+          <input
+            className={inputClass}
+            placeholder="@username или оставьте пустым"
+            value={telegramVal}
+            onChange={(e) => setTelegramVal(e.target.value)}
+          />
+        </Field>
         <Field label="Yelp URL">
           <input className={inputClass} value={yelpVal} onChange={(e) => setYelpVal(e.target.value)} />
         </Field>
@@ -301,7 +313,7 @@ export function EditContactsDialog({
         </Field>
         {CONTACT_LINKS_COLUMN_READY ? (
           <ContactLinksEditor
-            exclude={["website", "instagram", "yelp", "google_maps"]}
+            exclude={["website", "instagram", "telegram", "yelp", "google_maps"]}
             value={links}
             onChange={setLinks}
           />
@@ -320,13 +332,11 @@ export function EditCopyDialog({
   about,
   jobs,
   promotions,
-  shortDescription,
 }: BaseProps & {
   mode: "about" | "jobs" | "promotions";
   about: string;
   jobs: string;
   promotions: string;
-  shortDescription: string;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -334,7 +344,6 @@ export function EditCopyDialog({
   const [aboutVal, setAboutVal] = useState(about);
   const [jobsVal, setJobsVal] = useState(jobs);
   const [promosVal, setPromosVal] = useState(promotions);
-  const [shortVal, setShortVal] = useState(shortDescription);
 
   const title =
     mode === "about" ? "О компании" : mode === "jobs" ? "Вакансии" : "Предложения";
@@ -359,7 +368,8 @@ export function EditCopyDialog({
             businessSlug,
             patch: {
               description,
-              shortDescription: mode === "about" ? shortVal : shortDescription,
+              // Single description field — clear legacy short teaser.
+              ...(mode === "about" ? { shortDescription: "" } : {}),
             },
           });
           if (!result.ok) {
@@ -372,22 +382,13 @@ export function EditCopyDialog({
       }}
     >
       {mode === "about" ? (
-        <div className="space-y-3">
-          <Field label="Кратко">
-            <textarea
-              className={`${inputClass} min-h-[4rem]`}
-              value={shortVal}
-              onChange={(e) => setShortVal(e.target.value)}
-            />
-          </Field>
-          <Field label="Полное описание">
-            <textarea
-              className={`${inputClass} min-h-[10rem]`}
-              value={aboutVal}
-              onChange={(e) => setAboutVal(e.target.value)}
-            />
-          </Field>
-        </div>
+        <Field label="Описание">
+          <textarea
+            className={`${inputClass} min-h-[12rem]`}
+            value={aboutVal}
+            onChange={(e) => setAboutVal(e.target.value)}
+          />
+        </Field>
       ) : null}
       {mode === "jobs" ? (
         <Field label="Текст вакансии">

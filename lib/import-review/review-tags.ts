@@ -16,6 +16,39 @@ export const TAG_ENRICH_P5B_FAILED = "[enrich_p5b_failed]";
 export const TAG_ENRICH_P5C_DONE = "[enrich_p5c_done]";
 export const TAG_READY_FOR_MODERATOR = "[ready_for_moderator]";
 
+/** Demand / «я ищу» holding — no public category yet. */
+export const TAG_SEEKING = "[seeking]";
+/** Soft quarantine («помойка») — reclaim or destroy, not hard reject. */
+export const TAG_QUARANTINE = "[quarantine]";
+
+export function notesHasTag(
+  notes: string | null | undefined,
+  tag: string,
+): boolean {
+  return Boolean(notes && notes.includes(tag));
+}
+
+export function appendReviewTag(
+  notes: string | null | undefined,
+  tag: string,
+): string {
+  const base = (notes || "").trim();
+  if (base.includes(tag)) return base;
+  return base ? `${base}\n${tag}` : tag;
+}
+
+export function removeReviewTag(
+  notes: string | null | undefined,
+  tag: string,
+): string {
+  if (!notes) return "";
+  return notes
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line && line !== tag)
+    .join("\n");
+}
+
 export const ENRICH_STAGE_TAGS = [
   TAG_ENRICH_P5A_DONE,
   TAG_ENRICH_P5A_PARTIAL,
@@ -31,5 +64,7 @@ export const ALL_REVIEW_TAGS = [
   TAG_NEEDS_MANUAL_TYPE,
   TAG_HUMAN_CONFIRMED,
   TAG_EVENT_DATE_CONFIRMED,
+  TAG_SEEKING,
+  TAG_QUARANTINE,
   ...ENRICH_STAGE_TAGS,
 ] as const;

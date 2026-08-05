@@ -5,7 +5,8 @@ export type ImportReviewStatus =
   | "rejected"
   | "duplicate"
   | "needs_more_info"
-  | "ready_to_publish";
+  | "ready_to_publish"
+  | "quarantine";
 
 export type ImportReviewTargetCollection =
   | "businesses"
@@ -134,6 +135,7 @@ export const IMPORT_REVIEW_STATUS_LABELS: Record<ImportReviewStatus, string> = {
   duplicate: "Дубликаты",
   needs_more_info: "Требуют информации",
   ready_to_publish: "Готовы к публикации",
+  quarantine: "Помойка (карантин)",
 };
 
 export const IMPORT_TARGET_COLLECTION_LABELS: Record<

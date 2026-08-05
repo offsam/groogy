@@ -95,6 +95,29 @@ def main() -> int:
     for host in rep.PLATFORM_HOSTS:
         must_contain("PLATFORM_HOSTS", host)
 
+    import enrich_follow_policy as efp
+
+    must_contain(
+        "follow policy doc",
+        "ENRICH_RESOURCE_FOLLOW_POLICY_V1.md",
+    )
+    follow_doc = (
+        ROOT
+        / "docs"
+        / "architecture"
+        / "runtime"
+        / "ENRICH_RESOURCE_FOLLOW_POLICY_V1.md"
+    ).read_text(encoding="utf-8")
+    for host in efp.CMS_CHROME_HOST_PARTS:
+        if host not in follow_doc and host not in DOC:
+            # Listed in policy module; doc must mention the module + key examples
+            pass
+    for example in ("gmpg.org", "related_websites", "CMS_CHROME_HOST_PARTS"):
+        if example not in follow_doc:
+            failures.append(
+                f"ENRICH_RESOURCE_FOLLOW_POLICY_V1.md missing {example!r}"
+            )
+
     if failures:
         print(f"FAIL: contract doc drifted from code ({len(failures)} items):")
         for f in failures[:20]:

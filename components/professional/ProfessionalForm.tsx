@@ -26,10 +26,11 @@ export function ProfessionalForm({ mode, slug, initial }: ProfessionalFormProps)
   const [error, setError] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState(initial?.displayName ?? "");
   const [headline, setHeadline] = useState(initial?.headline ?? "");
-  const [shortDescription, setShortDescription] = useState(
-    initial?.shortDescription ?? "",
+  const [description, setDescription] = useState(
+    initial?.description?.trim() ||
+      initial?.shortDescription?.trim() ||
+      "",
   );
-  const [description, setDescription] = useState(initial?.description ?? "");
   const [city, setCity] = useState(initial?.city ?? "");
   const [region, setRegion] = useState(initial?.region ?? "");
   const [phone, setPhone] = useState(initial?.phone ?? "");
@@ -51,7 +52,7 @@ export function ProfessionalForm({ mode, slug, initial }: ProfessionalFormProps)
     const payload: CreateProfessionalInput = {
       displayName,
       headline,
-      shortDescription,
+      shortDescription: "",
       description,
       city,
       region,
@@ -114,17 +115,7 @@ export function ProfessionalForm({ mode, slug, initial }: ProfessionalFormProps)
       </label>
 
       <label className="block text-sm font-medium text-slate-700">
-        Коротко о себе
-        <textarea
-          className={field}
-          rows={2}
-          value={shortDescription}
-          onChange={(e) => setShortDescription(e.target.value)}
-        />
-      </label>
-
-      <label className="block text-sm font-medium text-slate-700">
-        Подробнее
+        О себе
         <textarea
           className={field}
           rows={5}

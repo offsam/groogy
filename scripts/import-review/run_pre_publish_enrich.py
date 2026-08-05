@@ -635,6 +635,11 @@ def run_one(
         "score_before": score_before,
         "score_after": score_after,
         "patch": {k: v for k, v in patch.items() if not str(k).startswith("_")},
+        "before": {
+            k: item.get(k)
+            for k in patch
+            if not str(k).startswith("_")
+        },
         "steps": {
             "source_text": f1,
             "title": f_title,

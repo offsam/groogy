@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
   moveEntitySectionAction,
@@ -10,6 +10,7 @@ import {
 } from "@/lib/admin/move-entity-section";
 import { PLATFORM_SECTIONS } from "@/lib/platform/sections";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const FROZEN: Partial<Record<string, string>> = {
   real_estate: "Таблица недвижимости заморожена (Phase 3).",
@@ -178,7 +179,7 @@ export function AdminLiveSectionPreviewModal({
         >
           {pending ? (
             <>
-              <Loader2 className="size-4 animate-spin" />
+              <BrandPinLoader size="sm" />
               Переносим…
             </>
           ) : (

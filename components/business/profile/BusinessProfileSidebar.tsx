@@ -1,6 +1,5 @@
 "use client";
 
-import { Star } from "lucide-react";
 import { BusinessHoursCard } from "@/components/business/profile/BusinessHoursCard";
 import { BusinessSourceCard } from "@/components/business/profile/BusinessSourceCard";
 import { EditPencil } from "@/components/business/profile/edit/EditPencil";
@@ -60,23 +59,6 @@ export function BusinessProfileSidebar({
         presence={presence}
         presenceFlags={business.presenceFlags}
       />
-
-      {(business.googleRating != null || business.googleReviewsCount > 0) && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-4">
-          <h2 className="text-sm font-semibold text-slate-900">Google</h2>
-          <div className="mt-2 flex items-center gap-2 text-sm text-slate-700">
-            <Star aria-hidden="true" className="size-4 fill-amber-500 text-amber-500" />
-            {business.googleRating != null ? (
-              <span className="font-semibold">{business.googleRating.toFixed(1)}</span>
-            ) : null}
-            {business.googleReviewsCount > 0 ? (
-              <span className="text-slate-500">
-                · {business.googleReviewsCount} отзывов
-              </span>
-            ) : null}
-          </div>
-        </section>
-      )}
     </div>
   );
 }

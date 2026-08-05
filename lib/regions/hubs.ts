@@ -1,28 +1,132 @@
-/** Regional hubs for КРУГИ — county → metro area + panorama. Easy to extend (NY, Oregon, …). */
+import {
+  DIASPORA_STATE_GROUPS,
+  DIASPORA_STATE_HUBS,
+} from "@/lib/regions/diaspora-states";
+
+/** Regional hubs for КРУГИ — diaspora metros + whole-state filters. */
 
 export type RegionHubId =
   | "orange-county"
   | "los-angeles"
+  | "inland-empire"
   | "san-diego"
   | "sacramento"
   | "san-francisco"
-  | "seattle"
+  | "chicago"
+  | "south-florida"
   | "new-york"
+  | "new-jersey"
+  | "philadelphia"
+  | "boston"
+  | "seattle"
+  | "portland"
+  /** @deprecated legacy cookie id → portland */
   | "oregon"
+  | "houston"
+  | "dallas"
+  | "austin"
+  | "san-antonio"
+  | "minneapolis"
+  | "baltimore"
+  | "atlanta"
+  | "cleveland"
+  | "phoenix"
+  | "denver"
+  | "las-vegas"
+  | "state-ak"
+  | "state-az"
+  | "state-wa"
+  | "state-ga"
+  | "state-il"
+  | "state-ca"
+  | "state-co"
+  | "state-ma"
+  | "state-mn"
+  | "state-md"
+  | "state-nv"
+  | "state-nj"
+  | "state-ny"
+  | "state-oh"
+  | "state-or"
+  | "state-pa"
+  | "state-tx"
+  | "state-fl"
   | "usa-overview"
   | "default";
 
-/** California hubs shown in the home / header region picker. */
-export const CALIFORNIA_LAUNCH_HUB_IDS = [
+/** Active hub keys stored in REGION_HUBS (excludes legacy oregon alias). */
+export type ActiveRegionHubId = Exclude<
+  RegionHubId,
+  "default" | "usa-overview" | "oregon"
+>;
+
+/** California diaspora circles (template for other states). */
+export const CALIFORNIA_HUB_IDS = [
   "orange-county",
   "los-angeles",
+  "inland-empire",
   "san-diego",
   "sacramento",
   "san-francisco",
-] as const satisfies readonly Exclude<RegionHubId, "default" | "usa-overview">[];
+] as const satisfies readonly ActiveRegionHubId[];
 
-/** @deprecated Use CALIFORNIA_LAUNCH_HUB_IDS */
-export const SOCAL_LAUNCH_HUB_IDS = CALIFORNIA_LAUNCH_HUB_IDS;
+/** @deprecated Use CALIFORNIA_HUB_IDS / SELECTABLE_HUB_IDS */
+export const CALIFORNIA_LAUNCH_HUB_IDS = CALIFORNIA_HUB_IDS;
+
+/** @deprecated Use CALIFORNIA_HUB_IDS */
+export const SOCAL_LAUNCH_HUB_IDS = CALIFORNIA_HUB_IDS;
+
+/** Metro / city diaspora circles (not whole-state filters). */
+export const METRO_HUB_IDS = [
+  "atlanta",
+  "austin",
+  "baltimore",
+  "boston",
+  "chicago",
+  "cleveland",
+  "dallas",
+  "denver",
+  "houston",
+  "inland-empire",
+  "las-vegas",
+  "los-angeles",
+  "minneapolis",
+  "new-jersey",
+  "new-york",
+  "orange-county",
+  "philadelphia",
+  "phoenix",
+  "portland",
+  "sacramento",
+  "san-antonio",
+  "san-diego",
+  "san-francisco",
+  "seattle",
+  "south-florida",
+] as const satisfies readonly ActiveRegionHubId[];
+
+/** @deprecated Use METRO_HUB_IDS + state hubs */
+export const SELECTABLE_HUB_IDS = METRO_HUB_IDS;
+
+export type RegionHubGroup = {
+  label: string;
+  hubIds: readonly ActiveRegionHubId[];
+};
+
+/** Sort hub labels with Russian locale (А…Я). */
+export function compareHubLabelsRu(a: string, b: string): number {
+  return a.localeCompare(b, "ru", { sensitivity: "base" });
+}
+
+export function normalizeStateCode(
+  raw: string | null | undefined,
+): string | null {
+  if (!raw) return null;
+  const s = raw.trim().toUpperCase();
+  if (s.startsWith("US-")) return s.slice(3) || null;
+  if (/^[A-Z]{2}$/.test(s)) return s;
+  return null;
+}
 
 /** Inclusive lat/lng box for home map pins (keep hubs from leaking into each other). */
 export type RegionMapBounds = {
@@ -38,6 +142,10 @@ export type RegionHub = {
   inLabel: string;
   /** Short label for UI chips */
   shortLabel: string;
+  /** metro = diaspora city/county; state = whole US state */
+  scope?: "metro" | "state";
+  /** For state hubs: US-CA / CA */
+  stateCodes?: readonly string[];
   /** Census county GEOIDs that map into this hub */
   countyGeoids: readonly string[];
   /** Full-bleed hero panorama (Unsplash / CDN). Swap for local assets anytime. */
@@ -55,18 +163,19 @@ export type RegionHub = {
   cityAliases?: readonly string[];
 };
 
+export function isStateHub(hub: RegionHub | null | undefined): boolean {
+  return hub?.scope === "state" || Boolean(hub?.stateCodes?.length);
+}
+
 /**
  * Active hubs. Add a hub here + county GEOIDs — ZIP/geo will pick it up automatically.
  * County FIPS: https://www.census.gov/library/reference/code-lists/ansi.html
  */
-export const REGION_HUBS: Record<
-  Exclude<RegionHubId, "default" | "usa-overview">,
-  RegionHub
-> = {
+const METRO_REGION_HUBS = {
   "orange-county": {
     id: "orange-county",
     inLabel: "Оранж Каунти",
-    shortLabel: "Orange County",
+    shortLabel: "Оранж Каунти",
     countyGeoids: ["06059"],
     panoramaUrl:
       "https://images.unsplash.com/photo-1580655653885-65763b2597d0?auto=format&fit=crop&w=2400&q=80",
@@ -127,7 +236,7 @@ export const REGION_HUBS: Record<
   "los-angeles": {
     id: "los-angeles",
     inLabel: "Лос-Анджелесе",
-    shortLabel: "Los Angeles",
+    shortLabel: "Лос-Анджелес",
     countyGeoids: ["06037"],
     panoramaUrl:
       "https://images.unsplash.com/photo-1515896769750-31548aa180ed?auto=format&fit=crop&w=2400&q=80",
@@ -171,10 +280,55 @@ export const REGION_HUBS: Record<
       "pacific palisades",
     ],
   },
+  "inland-empire": {
+    id: "inland-empire",
+    inLabel: "Инленд-Эмпайре",
+    shortLabel: "Инленд-Эмпайр",
+    countyGeoids: [
+      "06065", // Riverside
+      "06071", // San Bernardino
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Горы Inland Empire",
+    mapCenter: { lat: 34.05, lng: -117.3 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 34.35,
+      south: 33.75,
+      west: -117.7,
+      east: -116.9,
+    },
+    exampleQueries: [
+      "русский магазин Riverside",
+      "стоматолог Rancho Cucamonga",
+      "автосервис Ontario",
+    ],
+    cityAliases: [
+      "inland empire",
+      "riverside",
+      "san bernardino",
+      "ontario",
+      "rancho cucamonga",
+      "corona",
+      "fontana",
+      "moreno valley",
+      "redlands",
+      "upland",
+      "chino",
+      "chino hills",
+      "temecula",
+      "murrieta",
+      "hemet",
+      "perris",
+      "victorville",
+      "rialto",
+    ],
+  },
   "san-diego": {
     id: "san-diego",
     inLabel: "Сан-Диего",
-    shortLabel: "San Diego",
+    shortLabel: "Сан-Диего",
     countyGeoids: ["06073"],
     panoramaUrl:
       "https://images.unsplash.com/photo-1568849676085-51415703900f?auto=format&fit=crop&w=2400&q=80",
@@ -212,7 +366,7 @@ export const REGION_HUBS: Record<
   sacramento: {
     id: "sacramento",
     inLabel: "Сакраменто",
-    shortLabel: "Sacramento",
+    shortLabel: "Сакраменто",
     countyGeoids: ["06067"], // Sacramento County
     panoramaUrl:
       "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=2400&q=80",
@@ -248,7 +402,7 @@ export const REGION_HUBS: Record<
   "san-francisco": {
     id: "san-francisco",
     inLabel: "Сан-Франциско",
-    shortLabel: "San Francisco",
+    shortLabel: "Сан-Франциско",
     // SF city/county + close Bay cities often tagged as SF in listings
     countyGeoids: [
       "06075", // San Francisco
@@ -288,7 +442,7 @@ export const REGION_HUBS: Record<
   seattle: {
     id: "seattle",
     inLabel: "Сиэтле",
-    shortLabel: "Seattle",
+    shortLabel: "Сиэтл",
     // King + nearby Snohomish / Pierce for Eastside / Tacoma spillover
     countyGeoids: [
       "53033", // King
@@ -299,12 +453,13 @@ export const REGION_HUBS: Record<
       "https://images.unsplash.com/photo-1502175353174-a7a70e73b362?auto=format&fit=crop&w=2400&q=80",
     panoramaAlt: "Сиэтл и Space Needle",
     mapCenter: { lat: 47.6062, lng: -122.3321 },
-    mapZoom: 11,
+    mapZoom: 10,
+    // King + Pierce + Snohomish — keep in sync with countyGeoids above
     mapBounds: {
-      north: 47.85,
-      south: 47.35,
-      west: -122.55,
-      east: -121.95,
+      north: 48.1,
+      south: 47.05,
+      west: -122.65,
+      east: -121.7,
     },
     exampleQueries: [
       "русский магазин Seattle",
@@ -335,7 +490,7 @@ export const REGION_HUBS: Record<
   "new-york": {
     id: "new-york",
     inLabel: "Нью-Йорке",
-    shortLabel: "New York",
+    shortLabel: "Нью-Йорк",
     // NYC five boroughs + nearby common landing counties
     countyGeoids: [
       "36061", // New York (Manhattan)
@@ -363,34 +518,684 @@ export const REGION_HUBS: Record<
       "юрист Manhattan",
     ],
   },
-  oregon: {
-    id: "oregon",
-    inLabel: "Орегоне",
-    shortLabel: "Oregon",
+  portland: {
+    id: "portland",
+    inLabel: "Портленде",
+    shortLabel: "Портленд",
+    // Portland OR + Vancouver WA (same diaspora circle)
     countyGeoids: [
-      "41051", // Multnomah (Portland)
-      "41067", // Washington
+      "41051", // Multnomah
+      "41067", // Washington (OR)
       "41005", // Clackamas
-      "41039", // Lane (Eugene)
+      "53011", // Clark (Vancouver WA)
     ],
     panoramaUrl:
       "https://images.unsplash.com/photo-1565193298345-2d7890632db2?auto=format&fit=crop&w=2400&q=80",
-    panoramaAlt: "Пейзаж Орегона",
-    mapCenter: { lat: 45.5152, lng: -122.6784 },
+    panoramaAlt: "Портленд и мост",
+    mapCenter: { lat: 45.52, lng: -122.55 },
     mapZoom: 10,
     mapBounds: {
-      north: 45.75,
+      north: 45.85,
       south: 45.25,
       west: -123.05,
-      east: -122.35,
+      east: -122.25,
     },
     exampleQueries: [
       "русский магазин Portland",
-      "репетитор Portland",
-      "автосервис Beaverton",
+      "репетитор Beaverton",
+      "автосервис Vancouver",
+    ],
+    cityAliases: [
+      "portland",
+      "портленд",
+      "beaverton",
+      "hillsboro",
+      "gresham",
+      "lake oswego",
+      "tigard",
+      "happy valley",
+      "troutdale",
+      "oregon city",
+      "vancouver",
+      "battle ground",
+      "camas",
+      "washougal",
     ],
   },
-};
+  chicago: {
+    id: "chicago",
+    inLabel: "Чикаго",
+    shortLabel: "Чикаго",
+    countyGeoids: [
+      "17031", // Cook
+      "17097", // Lake IL
+      "17043", // DuPage
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1477959858617-67f85b34b5df?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Чикаго skyline",
+    mapCenter: { lat: 41.95, lng: -87.75 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 42.35,
+      south: 41.6,
+      west: -88.15,
+      east: -87.45,
+    },
+    exampleQueries: [
+      "русский магазин Chicago",
+      "стоматолог Skokie",
+      "адвокат Buffalo Grove",
+    ],
+    cityAliases: [
+      "chicago",
+      "чикаго",
+      "skokie",
+      "скоки",
+      "wheeling",
+      "buffalo grove",
+      "northbrook",
+      "glenview",
+      "niles",
+      "arlington heights",
+      "evanston",
+      "des plaines",
+      "palatine",
+      "highland park",
+      "rogers park",
+      "lincolnwood",
+      "morton grove",
+      "vernon hills",
+      "deerfield",
+    ],
+  },
+  "south-florida": {
+    id: "south-florida",
+    inLabel: "Южной Флориде",
+    shortLabel: "Южная Флорида",
+    countyGeoids: [
+      "12086", // Miami-Dade
+      "12011", // Broward
+      "12099", // Palm Beach
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Побережье South Florida",
+    mapCenter: { lat: 26.05, lng: -80.2 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 26.55,
+      south: 25.7,
+      west: -80.45,
+      east: -80.05,
+    },
+    exampleQueries: [
+      "русский магазин Sunny Isles",
+      "риэлтор Aventura",
+      "ресторан Hallandale",
+    ],
+    cityAliases: [
+      "south florida",
+      "sunny isles",
+      "sunny isles beach",
+      "miami",
+      "майами",
+      "miami beach",
+      "aventura",
+      "hallandale",
+      "hallandale beach",
+      "hollywood",
+      "boca raton",
+      "fort lauderdale",
+      "hollywood beach",
+      "north miami",
+      "north miami beach",
+      "pompano beach",
+      "coral gables",
+      "bal harbour",
+    ],
+  },
+  philadelphia: {
+    id: "philadelphia",
+    inLabel: "Филадельфии",
+    shortLabel: "Филадельфия",
+    countyGeoids: [
+      "42101", // Philadelphia
+      "42017", // Bucks
+      "42091", // Montgomery
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1569761371960-3cdb40141b43?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Филадельфия",
+    mapCenter: { lat: 40.1, lng: -75.05 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 40.35,
+      south: 39.85,
+      west: -75.35,
+      east: -74.85,
+    },
+    exampleQueries: [
+      "русский магазин Philadelphia",
+      "стоматолог Bustleton",
+      "адвокат Southampton",
+    ],
+    cityAliases: [
+      "philadelphia",
+      "филадельфия",
+      "philly",
+      "bustleton",
+      "somerton",
+      "southampton",
+      "feasterville",
+      "feasterville-trevose",
+      "northeast philadelphia",
+      "warminster",
+      "newtown",
+      "browns mills",
+    ],
+  },
+  boston: {
+    id: "boston",
+    inLabel: "Бостоне",
+    shortLabel: "Бостон",
+    countyGeoids: [
+      "25025", // Suffolk
+      "25017", // Middlesex
+      "25021", // Norfolk
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1501979376754-2ff867a4f659?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Бостон",
+    mapCenter: { lat: 42.36, lng: -71.2 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 42.55,
+      south: 42.15,
+      west: -71.55,
+      east: -70.9,
+    },
+    exampleQueries: [
+      "русский магазин Boston",
+      "репетитор Newton",
+      "стоматолог Framingham",
+    ],
+    cityAliases: [
+      "boston",
+      "бостон",
+      "newton",
+      "framingham",
+      "brookline",
+      "cambridge",
+      "somerville",
+      "lynn",
+      "swampscott",
+      "natick",
+      "lexington",
+      "needham",
+      "allston",
+      "brighton",
+      "waltham",
+      "malden",
+    ],
+  },
+  houston: {
+    id: "houston",
+    inLabel: "Хьюстоне",
+    shortLabel: "Хьюстон",
+    countyGeoids: [
+      "48201", // Harris
+      "48157", // Fort Bend
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1530089711124-9ca31fb9e317?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Хьюстон",
+    mapCenter: { lat: 29.76, lng: -95.37 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 30.05,
+      south: 29.5,
+      west: -95.75,
+      east: -95.05,
+    },
+    exampleQueries: [
+      "русский магазин Houston",
+      "адвокат Sugar Land",
+      "стоматолог The Woodlands",
+    ],
+    cityAliases: [
+      "houston",
+      "хьюстон",
+      "sugar land",
+      "the woodlands",
+      "pearland",
+      "katy",
+      "pasadena",
+      "missouri city",
+    ],
+  },
+  dallas: {
+    id: "dallas",
+    inLabel: "Далласе",
+    shortLabel: "Даллас",
+    countyGeoids: [
+      "48113", // Dallas
+      "48085", // Collin
+      "48121", // Denton
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1545193544-312983719507?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Даллас",
+    mapCenter: { lat: 32.95, lng: -96.8 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 33.25,
+      south: 32.65,
+      west: -97.15,
+      east: -96.5,
+    },
+    exampleQueries: [
+      "русский магазин Dallas",
+      "риэлтор Plano",
+      "стоматолог Richardson",
+    ],
+    cityAliases: [
+      "dallas",
+      "даллас",
+      "plano",
+      "richardson",
+      "frisco",
+      "allen",
+      "carrollton",
+      "farmers branch",
+      "irving",
+      "garland",
+      "mckinney",
+    ],
+  },
+  minneapolis: {
+    id: "minneapolis",
+    inLabel: "Миннеаполисе",
+    shortLabel: "Миннеаполис",
+    countyGeoids: [
+      "27053", // Hennepin
+      "27123", // Ramsey
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Миннеаполис",
+    mapCenter: { lat: 44.95, lng: -93.3 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 45.15,
+      south: 44.75,
+      west: -93.55,
+      east: -93.05,
+    },
+    exampleQueries: [
+      "русский магазин Minneapolis",
+      "адвокат St Paul",
+      "стоматолог Plymouth",
+    ],
+    cityAliases: [
+      "minneapolis",
+      "миннеаполис",
+      "st paul",
+      "saint paul",
+      "plymouth",
+      "burnsville",
+      "golden valley",
+      "st louis park",
+      "bloomington",
+      "eden prairie",
+      "minnetonka",
+      "maple grove",
+      "minnesota",
+    ],
+  },
+  baltimore: {
+    id: "baltimore",
+    inLabel: "Балтиморе",
+    shortLabel: "Балтимор",
+    // Pikesville / Reisterstown Russian-speaking circle
+    countyGeoids: [
+      "24510", // Baltimore city
+      "24005", // Baltimore County
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1617581629397-a72507c3de9e?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Балтимор",
+    mapCenter: { lat: 39.35, lng: -76.7 },
+    mapZoom: 11,
+    mapBounds: {
+      north: 39.55,
+      south: 39.2,
+      west: -76.9,
+      east: -76.5,
+    },
+    exampleQueries: [
+      "русский магазин Pikesville",
+      "стоматолог Reisterstown",
+      "адвокат Baltimore",
+    ],
+    cityAliases: [
+      "baltimore",
+      "балтимор",
+      "pikesville",
+      "reisterstown",
+      "owings mills",
+      "towson",
+      "randallstown",
+      "glyndon",
+    ],
+  },
+  atlanta: {
+    id: "atlanta",
+    inLabel: "Атланте",
+    shortLabel: "Атланта",
+    countyGeoids: [
+      "13121", // Fulton
+      "13135", // Gwinnett
+      "13089", // DeKalb
+      "13067", // Cobb
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1575936123452-b67c3203c355?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Атланта",
+    mapCenter: { lat: 33.9, lng: -84.3 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 34.15,
+      south: 33.65,
+      west: -84.55,
+      east: -84.05,
+    },
+    exampleQueries: [
+      "русский магазин Atlanta",
+      "стоматолог Alpharetta",
+      "риэлтор Roswell",
+    ],
+    cityAliases: [
+      "atlanta",
+      "атланта",
+      "roswell",
+      "alpharetta",
+      "marietta",
+      "sandy springs",
+      "norcross",
+      "duluth",
+      "johns creek",
+      "peachtree corners",
+      "lawrenceville",
+      "doraville",
+      "lilburn",
+    ],
+  },
+  austin: {
+    id: "austin",
+    inLabel: "Остине",
+    shortLabel: "Остин",
+    countyGeoids: [
+      "48453", // Travis
+      "48491", // Williamson
+      "48021", // Bastrop
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1531218150217-54595bc2b934?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Остин",
+    mapCenter: { lat: 30.27, lng: -97.74 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 30.55,
+      south: 30.05,
+      west: -98.0,
+      east: -97.45,
+    },
+    exampleQueries: [
+      "русский магазин Austin",
+      "репетитор Round Rock",
+      "стоматолог Cedar Park",
+    ],
+    cityAliases: [
+      "austin",
+      "остин",
+      "round rock",
+      "cedar park",
+      "pflugerville",
+      "georgetown",
+      "leander",
+      "kyle",
+      "bee cave",
+    ],
+  },
+  "san-antonio": {
+    id: "san-antonio",
+    inLabel: "Сан-Антонио",
+    shortLabel: "Сан-Антонио",
+    countyGeoids: [
+      "48029", // Bexar
+      "48091", // Comal
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Сан-Антонио",
+    mapCenter: { lat: 29.42, lng: -98.49 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 29.65,
+      south: 29.25,
+      west: -98.7,
+      east: -98.25,
+    },
+    exampleQueries: [
+      "русский магазин San Antonio",
+      "адвокат San Antonio",
+      "стоматолог New Braunfels",
+    ],
+    cityAliases: [
+      "san antonio",
+      "сан-антонио",
+      "сан антонио",
+      "new braunfels",
+      "schertz",
+      "universal city",
+    ],
+  },
+  cleveland: {
+    id: "cleveland",
+    inLabel: "Кливленде",
+    shortLabel: "Кливленд",
+    // Parma / Mayfield — classic Cleveland Russian circle; RusRek Cleveland
+    countyGeoids: [
+      "39035", // Cuyahoga
+      "39085", // Lake OH
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Кливленд",
+    mapCenter: { lat: 41.45, lng: -81.65 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 41.65,
+      south: 41.25,
+      west: -81.9,
+      east: -81.35,
+    },
+    exampleQueries: [
+      "русский магазин Parma",
+      "стоматолог Mayfield",
+      "адвокат Cleveland",
+    ],
+    cityAliases: [
+      "cleveland",
+      "кливленд",
+      "parma",
+      "mayfield",
+      "mayfield heights",
+      "willoughby",
+      "lyndhurst",
+      "woodmere",
+      "beachwood",
+      "solon",
+    ],
+  },
+  phoenix: {
+    id: "phoenix",
+    inLabel: "Финиксе",
+    shortLabel: "Финикс",
+    countyGeoids: ["04013"], // Maricopa
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Финикс",
+    mapCenter: { lat: 33.45, lng: -112.07 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 33.75,
+      south: 33.2,
+      west: -112.4,
+      east: -111.75,
+    },
+    exampleQueries: [
+      "русский магазин Phoenix",
+      "риэлтор Scottsdale",
+      "стоматолог Chandler",
+    ],
+    cityAliases: [
+      "phoenix",
+      "финикс",
+      "scottsdale",
+      "chandler",
+      "mesa",
+      "tempe",
+      "glendale az",
+      "surprise",
+      "peoria",
+      "gilbert",
+    ],
+  },
+  denver: {
+    id: "denver",
+    inLabel: "Денвере",
+    shortLabel: "Денвер",
+    countyGeoids: [
+      "08031", // Denver
+      "08005", // Arapahoe
+      "08059", // Jefferson
+      "08001", // Adams
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1546156929-a4c0ac411f47?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Денвер",
+    mapCenter: { lat: 39.74, lng: -104.99 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 39.95,
+      south: 39.55,
+      west: -105.25,
+      east: -104.7,
+    },
+    exampleQueries: [
+      "русский магазин Denver",
+      "стоматолог Aurora",
+      "риэлтор Lakewood",
+    ],
+    cityAliases: [
+      "denver",
+      "денвер",
+      "aurora",
+      "lakewood",
+      "littleton",
+      "englewood",
+      "centennial",
+      "westminster",
+      "arvada",
+      "boulder",
+    ],
+  },
+  "las-vegas": {
+    id: "las-vegas",
+    inLabel: "Лас-Вегасе",
+    shortLabel: "Лас-Вегас",
+    countyGeoids: ["32003"], // Clark
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Лас-Вегас",
+    mapCenter: { lat: 36.17, lng: -115.14 },
+    mapZoom: 10,
+    mapBounds: {
+      north: 36.35,
+      south: 35.95,
+      west: -115.35,
+      east: -114.95,
+    },
+    exampleQueries: [
+      "русский магазин Las Vegas",
+      "риэлтор Henderson",
+      "стоматолог Summerlin",
+    ],
+    cityAliases: [
+      "las vegas",
+      "лас-вегас",
+      "vegas",
+      "henderson",
+      "summerlin",
+      "north las vegas",
+      "paradise",
+      "enterprise",
+    ],
+  },
+  "new-jersey": {
+    id: "new-jersey",
+    inLabel: "Фэр-Лоуне",
+    shortLabel: "Фэр-Лоун",
+    // Fair Lawn / Bergen + Central Jersey Russian circles (separate from NYC)
+    countyGeoids: [
+      "34003", // Bergen
+      "34023", // Middlesex
+      "34025", // Monmouth
+      "34013", // Essex
+      "34027", // Morris
+      "34039", // Union
+    ],
+    panoramaUrl:
+      "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?auto=format&fit=crop&w=2400&q=80",
+    panoramaAlt: "Нью-Джерси",
+    mapCenter: { lat: 40.7, lng: -74.25 },
+    mapZoom: 9,
+    mapBounds: {
+      north: 41.05,
+      south: 40.25,
+      west: -74.7,
+      east: -73.95,
+    },
+    exampleQueries: [
+      "русский магазин Fair Lawn",
+      "стоматолог East Brunswick",
+      "риэлтор Fort Lee",
+    ],
+    cityAliases: [
+      "new jersey",
+      "нью-джерси",
+      "fair lawn",
+      "fairlawn",
+      "fort lee",
+      "east brunswick",
+      "marlboro",
+      "livingston",
+      "paramus",
+      "teaneck",
+      "englewood",
+      "edison",
+      "freehold",
+      "wayne",
+    ],
+  },
+} as const satisfies Record<(typeof METRO_HUB_IDS)[number], RegionHub>;
+
+export const REGION_HUBS: Record<ActiveRegionHubId, RegionHub> = {
+  ...METRO_REGION_HUBS,
+  ...(DIASPORA_STATE_HUBS as Record<string, RegionHub>),
+} as unknown as Record<ActiveRegionHubId, RegionHub>;
 
 /** Default when ZIP/geo unknown — SoCal launch market (after guest picks a region). */
 export const DEFAULT_REGION_HUB: RegionHub = REGION_HUBS["orange-county"];
@@ -426,18 +1231,48 @@ export function isUsaOverviewHub(hub: RegionHub | null | undefined): boolean {
   return hub?.id === "usa-overview";
 }
 
-/** Ordered list for the home / header region picker (США + California launch). */
+export type RegionPickerStateGroup = {
+  label: string;
+  stateHub: RegionHub;
+  cityHubs: RegionHub[];
+};
+
+/** States A→Я with «Весь штат» + diaspora cities (sorted). */
+export function getRegionPickerGroups(): RegionPickerStateGroup[] {
+  return DIASPORA_STATE_GROUPS.map((group) => ({
+    label: group.label,
+    stateHub: REGION_HUBS[group.stateHubId as ActiveRegionHubId],
+    cityHubs: [...group.cityHubIds]
+      .map((id) => REGION_HUBS[id as ActiveRegionHubId])
+      .sort((a, b) => compareHubLabelsRu(a.shortLabel, b.shortLabel)),
+  }));
+}
+
+/** @deprecated Prefer getRegionPickerGroups — flat list of metros A→Я. */
 export function getSelectableRegionHubs(): RegionHub[] {
+  const local = METRO_HUB_IDS.map((id) => REGION_HUBS[id]).sort((a, b) =>
+    compareHubLabelsRu(a.shortLabel, b.shortLabel),
+  );
+  return [USA_OVERVIEW_HUB, ...local];
+}
+
+/** Hubs used to load home map pins (metros + state frames). */
+export function getMapPinRegionHubs(): RegionHub[] {
   return [
-    USA_OVERVIEW_HUB,
-    ...CALIFORNIA_LAUNCH_HUB_IDS.map((id) => REGION_HUBS[id]),
+    ...METRO_HUB_IDS.map((id) => REGION_HUBS[id]),
+    ...DIASPORA_STATE_GROUPS.map(
+      (g) => REGION_HUBS[g.stateHubId as ActiveRegionHubId],
+    ),
   ];
 }
 
-/** Hubs used to load home map pins (local markets only — not the USA overview frame). */
-export function getMapPinRegionHubs(): RegionHub[] {
-  return CALIFORNIA_LAUNCH_HUB_IDS.map((id) => REGION_HUBS[id]);
-}
+/** @deprecated */
+export const REGION_HUB_GROUPS: RegionHubGroup[] = DIASPORA_STATE_GROUPS.map(
+  (g) => ({
+    label: g.label,
+    hubIds: [g.stateHubId as ActiveRegionHubId, ...(g.cityHubIds as ActiveRegionHubId[])],
+  }),
+);
 
 const COUNTY_TO_HUB = new Map<string, RegionHub>();
 for (const hub of Object.values(REGION_HUBS)) {
@@ -449,7 +1284,9 @@ for (const hub of Object.values(REGION_HUBS)) {
 export function getRegionHubById(id: string | null | undefined): RegionHub {
   if (!id || id === "default") return DEFAULT_REGION_HUB;
   if (id === "usa-overview") return USA_OVERVIEW_HUB;
-  return REGION_HUBS[id as Exclude<RegionHubId, "default" | "usa-overview">] ?? DEFAULT_REGION_HUB;
+  // Legacy cookie / URL id from when Portland was labeled «Oregon»
+  if (id === "oregon") return REGION_HUBS.portland;
+  return REGION_HUBS[id as ActiveRegionHubId] ?? DEFAULT_REGION_HUB;
 }
 
 export function getRegionHubByCountyGeoid(
@@ -528,11 +1365,36 @@ export function locationFieldsMatchHub(
     longitude?: number | null;
     countyGeoid?: string | null;
     county_geoid?: string | null;
+    stateCode?: string | null;
+    state_code?: string | null;
   },
   hub: RegionHub,
 ): boolean {
   // National overview = whole catalog for this filter.
   if (isUsaOverviewHub(hub)) return true;
+
+  const rowState = normalizeStateCode(
+    fields.stateCode ?? fields.state_code ?? null,
+  );
+
+  // Whole-state hub: match by state_code, else lat/lng in state box.
+  if (isStateHub(hub) && hub.stateCodes?.length) {
+    const hubStates = new Set(
+      hub.stateCodes.map((c) => normalizeStateCode(c)).filter(Boolean),
+    );
+    if (rowState && hubStates.has(rowState)) return true;
+    const lat = fields.latitude;
+    const lng = fields.longitude;
+    if (
+      typeof lat === "number" &&
+      Number.isFinite(lat) &&
+      typeof lng === "number" &&
+      Number.isFinite(lng)
+    ) {
+      return isLatLngInHubBounds(lat, lng, hub);
+    }
+    return false;
+  }
 
   const countyGeoid = fields.countyGeoid ?? fields.county_geoid ?? null;
   if (countyGeoid && hub.countyGeoids.length > 0) {
@@ -552,8 +1414,8 @@ export function locationFieldsMatchHub(
 
   const city = (fields.city ?? "").trim();
   if (city) {
-    const byCity = getSelectableRegionHubs().filter(
-      (h) => !isUsaOverviewHub(h) && locationTextMatchesHub(city, h),
+    const byCity = METRO_HUB_IDS.map((id) => REGION_HUBS[id]).filter((h) =>
+      locationTextMatchesHub(city, h),
     );
     if (byCity.length > 0) {
       return byCity.some((h) => h.id === hub.id);

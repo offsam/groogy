@@ -1,3 +1,4 @@
+import { normalizeStructuredAddress } from "@/lib/address/normalize";
 import {
   isDirectorySourceUrl,
   isFacebookUrl,
@@ -64,6 +65,14 @@ export function mapProfessionalPublic(row: ProfessionalPublicRow): Professional 
     null;
   const hasBooking = Boolean(row.has_booking) || Boolean(bookingUrl);
   const contactLinks = parseContactLinks(row.contact_links);
+  const address = normalizeStructuredAddress({
+    addressLine: row.address_line,
+    city: row.city,
+    region: row.region,
+    stateCode: row.state_code,
+    postalCode: row.postal_code,
+    businessName: row.display_name,
+  });
 
   return {
     id: row.id,
@@ -84,11 +93,24 @@ export function mapProfessionalPublic(row: ProfessionalPublicRow): Professional 
     availabilityText: row.availability_text,
     ratingAvg: Number(row.rating_avg) || 0,
     reviewsCount: row.reviews_count ?? 0,
-    city: row.city,
-    region: row.region,
-    stateCode: row.state_code,
-    postalCode: row.postal_code ?? null,
-    addressLine: row.address_line?.trim() || null,
+    googleRating:
+      row.google_rating == null ? null : Number(row.google_rating),
+    googleReviewsCount: Number(row.google_reviews_count ?? 0),
+    yelpRating: row.yelp_rating == null ? null : Number(row.yelp_rating),
+    yelpReviewsCount: Number(row.yelp_reviews_count ?? 0),
+    trustpilotRating:
+      row.trustpilot_rating == null ? null : Number(row.trustpilot_rating),
+    trustpilotReviewsCount: Number(row.trustpilot_reviews_count ?? 0),
+    facebookRecommendPct:
+      row.facebook_recommend_pct == null
+        ? null
+        : Number(row.facebook_recommend_pct),
+    facebookReviewsCount: Number(row.facebook_reviews_count ?? 0),
+    city: address.city,
+    region: address.region ?? row.region,
+    stateCode: address.stateCode,
+    postalCode: address.postalCode,
+    addressLine: address.addressLine,
     latitude: row.latitude,
     longitude: row.longitude,
     locationPrecision: row.location_precision ?? null,
@@ -191,11 +213,9 @@ export function mapProfessionalOwner(row: ProfessionalRow): Professional {
     sourceUrl:
       sourceKind === "platform" ? null : row.source_url?.trim() || null,
     sourceKind,
-    addressLine:
-      row.address_line?.trim() ||
-      row.private_address_line?.trim() ||
-      base.addressLine ||
-      null,
+    // Keep street-only from mapProfessionalPublic — do not re-inject a
+    // "Street, City, ST ZIP" dump from private_address_line.
+    addressLine: base.addressLine,
   };
 }
 
@@ -243,18 +263,22 @@ export function formatProfessionalPrice(service: ProfessionalService): string {
     case "free":
       return "Бесплатно";
     case "contact":
-      return "Цену уточняйте";
+      return "$уточняйте";
     case "from":
-      return service.priceAmount != null ? `от ${fmt(service.priceAmount)}` : "от …";
+      return service.priceAmount != null
+        ? `от ${fmt(service.priceAmount)}`
+        : "$уточняйте";
     case "range":
       if (service.priceMin != null && service.priceMax != null) {
-        return `${fmt(service.priceMin)} – ${fmt(service.priceMax)}`;
+        return `${fmt(service.priceMin)}–${fmt(service.priceMax)}`;
       }
-      return "Диапазон";
+      return "$уточняйте";
     case "fixed":
-      return service.priceAmount != null ? fmt(service.priceAmount) : "Фикс";
+      return service.priceAmount != null
+        ? fmt(service.priceAmount)
+        : "$уточняйте";
     default:
-      return "Цену уточняйте";
+      return "$уточняйте";
   }
 }
 

@@ -67,7 +67,7 @@ const ALLOWED_ATTRS: Record<BusinessOfferType, string[]> = {
     "availability_note",
     "capacity",
   ],
-  menu_item: ["ingredients", "dietary_tags", "portion", "spice_level"],
+  menu_item: ["ingredients", "dietary_tags", "portion", "spice_level", "menu_section"],
   other: [],
 };
 

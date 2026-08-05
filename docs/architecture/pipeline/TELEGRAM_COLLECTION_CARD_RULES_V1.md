@@ -14,7 +14,7 @@ Entity copy separation: [`.cursor/rules/entity-content-structure.mdc`](../../../
 ## 0. Hard product rules
 
 1. **No automatic publication.** Collect + analyze + extract may only write local artifacts and/or **pending** queue / recommendation rows. Never call approve/autopublish/publish RPCs or scripts as part of a Telegram collect run.
-2. **Human moderation required** before any public `professionals` / `businesses` / listings row is created or status-raised from this pipeline.
+2. **Human moderation required** before any public entity row (`professionals`, `businesses`, `jobs`, `events`, marketplace/transfer/lechu listings, etc.) is created or status-raised from this pipeline.
 3. **Third-party recommendations never auto-accepted** — `decision=needs_review` only (existing analyzer/schema rule).
 4. **Explicit date window only** — `--date-from` / `--date-to` required; `--allow-full-history` forbidden.
 5. **Allowlisted sources only** — chats in [`lib/import-review/telegram-sources.ts`](../../../lib/import-review/telegram-sources.ts); do not scrape arbitrary dialogs by default.
@@ -24,9 +24,24 @@ Entity copy separation: [`.cursor/rules/entity-content-structure.mdc`](../../../
 
 ## 1. Goal of collection
 
-Telegram collect must aim at the same field set that **full published cards** already show — not a thin contact stub. Enrichment (website/card-first) is a **second pass**; the collector should maximize structured fields from the post itself.
+Telegram collect must cover **all public catalog entity kinds** the platform has — not only specialists/businesses. Enrichment is a **second pass**; collect must classify correctly and land each post in the right pending queue with typed fields.
 
-Target entity shapes: Professional and Business public cards (see quality rules). Marketplace/job/event/transfer/lechu follow existing classification rejects/routing; this doc prioritizes service/specialist/business ads and recommendations.
+**In scope (must not be discarded as junk):**
+
+| Classification / signal | Target pending track |
+|---|---|
+| Specialist / business ad, third-party recommendation | Professional / Business (recommendations or import-review) |
+| `job_post` (вакансия / hiring / ищу работу) | **Jobs** |
+| `event_ad` | **Events** |
+| `marketplace_item` | **Marketplace** |
+| Money transfer / перевод денег | **Transfers** |
+| Flight / попутчик / лечу / carry | **Lechu** (transport_carry) |
+| Housing / real estate listing | **Real estate** (or dedicated listing type — not professional) |
+
+**Still reject only true noise:** `discussion`, `irrelevant`, empty spam.  
+Pure `recommendation_request` («ищу / посоветуйте» without an offered entity) → **needs_review** into admin lane **«Я ищу»** (`[seeking]` on notes) — not a public category card, not rejected.
+
+No autopublish — every type stays **pending / needs_review** until a human approves.
 
 ---
 
@@ -37,7 +52,7 @@ When implementing or changing collector/analyzer/extract, prefer filling these *
 | Pri | Target (logical → DB-ish) | Why (from full cards / publish gate) | Collector duty |
 |---|---|---|---|
 | P0 | `display_name` / business `name` | Gate | From person/business name evidence only |
-| P0 | ≥1 contact: `phone` \| `website` \| `instagram` \| `telegram_username` | Gate | Normalize per extraction contract; keep channels separate |
+| P0 | ≥1 contact: `phone` \| `website` \| `instagram` \| `telegram_username` | Gate | Normalize per extraction contract; keep channels separate. **Exception:** lechu/transfer self-ads may use Telegram `sender_id` as contact key when the post has no phone/IG (author is reachable in-chat). |
 | P0 | `preview_image_url` / `cover_image_url` | Gate / full cards almost always have `image_url` | Persist Telegram photo/media preview or sender avatar URL when available; do not skip media metadata forever |
 | P0 | `city` **or** `service_area_text` (+ `state` when known) | Gate | Prefer post text; fall back to group `directory_source` region hint; never invent a street city |
 | P1 | `category` (controlled vocab) — avoid dumping to `other` | Gate dislikes `pro_other` | If unsure → top candidates + `needs_review`, not silent `other` |
@@ -54,13 +69,21 @@ When implementing or changing collector/analyzer/extract, prefer filling these *
 
 ## 3. Routing (collect-time intent)
 
-| Signal | Route intent |
-|---|---|
-| Named storefront + street address | `business` / direct_business_ad |
-| Person offers service, no street / mobile service | `private_specialist` / direct_specialist_ad |
-| Third-party «посоветуйте / рекомендую» + contact | recommendation track; **needs_review** |
-| Job / marketplace / housing regex hits | reject or dedicated types per existing hard guards — not professional |
-| Product-only ad with no service offer | not a professional card |
+| Signal | Route intent | Decision |
+|---|---|---|
+| Named storefront + street address | `business` | accepted / needs_review |
+| Person offers service, no street / mobile | `private_specialist` | accepted / needs_review |
+| Third-party «рекомендую» + contact | recommendation → pro/business | **needs_review** only |
+| Job / hiring / «вакансия» / «ищу работу» (offer) | **Jobs** | needs_review (never trash) |
+| Pure «ищу / посоветуйте» (no offer) | Admin **«Я ищу»** (`[seeking]`) | needs_review — not a public card |
+| Event / афиша / дата встречи | **Events** | needs_review |
+| Sell/buy personal goods | **Marketplace** | needs_review |
+| Перевод денег / transfer fees | **Transfers** | needs_review |
+| Лечу / попутчик / carry luggage | **Lechu** | needs_review |
+| Аренда/продажа жилья | Real estate listing | needs_review (not professional) |
+| Pure chat, memes, off-topic | — | rejected |
+
+**Known gap (code today):** `analyzers.py` / `schema.py` still force `job_post`, `marketplace_item`, `real_estate_listing` → `rejected`, and extract only pulls specialist/business recommendation classes. That contradicts this SoT — fix in a follow-up implementation; do not treat current reject as product law.
 
 Final publish still requires human approve. Collect only sets classification + pending rows.
 

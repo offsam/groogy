@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
+
 import { createBrowserClient } from "@/lib/supabase/client";
 import {
   authMessage,
@@ -12,6 +12,7 @@ import {
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { FacebookIcon, GoogleIcon } from "@/components/brand/BrandIcons";
 import { Button } from "@/components/ui/Button";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type OAuthButtonsProps = {
   nextPath?: string;
@@ -58,7 +59,7 @@ export function OAuthButtons({ nextPath = "/profile" }: OAuthButtonsProps) {
           variant="secondary"
         >
           {loading === "google" ? (
-            <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+            <BrandPinLoader size="sm" />
           ) : (
             <GoogleIcon className="size-4" />
           )}
@@ -72,7 +73,7 @@ export function OAuthButtons({ nextPath = "/profile" }: OAuthButtonsProps) {
           variant="secondary"
         >
           {loading === "facebook" ? (
-            <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+            <BrandPinLoader size="sm" />
           ) : (
             <FacebookIcon className="size-4" />
           )}

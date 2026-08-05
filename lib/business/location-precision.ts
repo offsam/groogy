@@ -2,7 +2,8 @@
 
 export type LocationPrecision = "street" | "county";
 
-const STREET_NUMBER_RE = /(^|\s)\d{1,6}\s+[A-Za-zА-Яа-я]/u;
+const STREET_NUMBER_RE =
+  /(^|\s)\d{1,6}\s+(?:\d{1,3}(?:st|nd|rd|th)\b|[A-Za-zА-Яа-я])/iu;
 
 export function looksLikeStreetAddress(
   address: string | null | undefined,

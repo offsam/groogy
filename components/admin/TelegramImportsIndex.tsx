@@ -106,47 +106,29 @@ export async function TelegramImportsIndex({
           Telegram
         </h1>
         <p className="mt-2 max-w-2xl text-slate-500">
-          Provenance и диагностика групп. Модерация — только в Review Center
-          Inbox.
+          История групп. Модерация — в Очереди.
         </p>
         <p className="mt-3 flex flex-wrap gap-4 text-sm">
           <Link
-            href={`${basePath}/new`}
+            href={importsInboxHref({
+              view: "recently_imported",
+              source: "telegram",
+            })}
             className="font-medium text-brand-green hover:underline"
           >
-            Telegram · новое →
+            Свежие в Inbox →
           </Link>
           <Link
             href={importsInboxHref({ view: "telegram", source: "telegram" })}
             className="font-medium text-brand-blue hover:underline"
           >
-            Open all Telegram in Inbox →
+            Все Telegram в Inbox →
           </Link>
           <Link href="/admin/imports" className="text-brand-blue hover:underline">
             ← Imports
           </Link>
         </p>
       </div>
-
-      <section className="rounded-2xl border border-brand-green/25 bg-brand-green/5 p-5">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900">
-              Telegram · новое
-            </h2>
-            <p className="mt-1 max-w-xl text-sm text-slate-600">
-              Свежие pending-выгрузки по дате загрузки. Смотри пробелы полей
-              полной карточки до модерации — без автопубликации.
-            </p>
-          </div>
-          <Link
-            href={`${basePath}/new`}
-            className="rounded-lg bg-brand-green px-4 py-2 text-sm font-medium text-white hover:opacity-90"
-          >
-            Открыть выборку
-          </Link>
-        </div>
-      </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-semibold text-slate-900">

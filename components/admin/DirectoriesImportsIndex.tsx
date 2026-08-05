@@ -93,6 +93,14 @@ export async function DirectoriesImportsIndex({
                     >
                       История
                     </Link>
+                    {source.id === "to4ka" ? (
+                      <Link
+                        href="/admin/to4ka-enrich"
+                        className="font-medium text-brand-blue hover:underline"
+                      >
+                        Прогресс обогащения →
+                      </Link>
+                    ) : null}
                     <Link
                       href={directorySourceInboxHref(source.id)}
                       className="font-medium text-brand-blue hover:underline"

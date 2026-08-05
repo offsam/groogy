@@ -468,7 +468,7 @@ def create_professional(
         "category_id": category_id,
         "city": rec.get("city"),
         "region": None,
-        "state_code": "US-CA",
+        "state_code": rec.get("state_code") or None,
         "location_precision": "city" if rec.get("city") else None,
         "public_exact_address": False,
         "phone": phone,
@@ -555,7 +555,7 @@ def find_or_create_russian_employer_business(
             "website": website,
             "phone": phone,
             "city": rec.get("city"),
-            "state_code": "US-CA",
+            "state_code": rec.get("state_code") or None,
             "source_url": (rec.get("source_post_urls") or [None])[0],
             "source_kind": resolve_source_kind(
                 (rec.get("source_post_urls") or [None])[0],
@@ -617,7 +617,7 @@ def create_business(
         "phone": phone,
         "website": website,
         "city": rec.get("city"),
-        "state_code": "US-CA",
+        "state_code": rec.get("state_code") or None,
         "status": "approved",
         "category_id": category_id,
         "image_url": rec.get("cover_image_url")

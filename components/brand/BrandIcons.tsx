@@ -127,3 +127,33 @@ export function TikTokIcon({ className, ...props }: BrandIconProps) {
     </svg>
   );
 }
+
+/** YouTube mark (Simple Icons) for contact chips. */
+export function YouTubeIcon({ className, ...props }: BrandIconProps) {
+  return (
+    <svg
+      aria-hidden
+      className={cn("shrink-0", className)}
+      fill="#FF0000"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
+
+/** Trustpilot mark (Simple Icons) for contact chips. */
+export function TrustpilotIcon({ className, ...props }: BrandIconProps) {
+  return (
+    <svg
+      aria-hidden
+      className={cn("shrink-0", className)}
+      fill="#00B67A"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M12.017 0 9.046 9.148H0l7.446 5.42-2.85 8.766 7.421-5.405 7.422 5.405-2.85-8.766L24 9.148h-9.046z" />
+    </svg>
+  );
+}

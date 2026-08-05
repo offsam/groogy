@@ -75,7 +75,10 @@ export async function listPublishedCommunityMentionsForBusiness(
     .limit(limit);
 
   if (error) throw error;
-  return ((data ?? []) as MentionRow[]).map(mapCommunityMention);
+  return ((data ?? []) as MentionRow[])
+    .filter((row) => !String(row.source_record_id || "").startsWith("merged-source:"))
+    .filter((row) => row.author_label !== "merge")
+    .map(mapCommunityMention);
 }
 
 export { thirdPartySourceUrlsFromMentions } from "@/lib/community-mentions/source-urls";
@@ -105,7 +108,9 @@ export async function listPublishedCommunityMentionsForProfessional(
     status: string;
     published_at: string | null;
     created_at: string;
-  }>).map((row) => ({
+  }>)
+    .filter((row) => !String(row.source_record_id || "").startsWith("merged-source:"))
+    .map((row) => ({
     id: row.id,
     professionalId: row.professional_id,
     kind: row.kind,

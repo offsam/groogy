@@ -39,7 +39,12 @@ export function HomeMapPinCard({
     categoryName: pin.categoryName,
   });
   const isPlaceholder = isPlaceholderBusinessImage(pin.imageUrl);
-  const kindLabel = pin.kind === "professional" ? "Специалист" : "Бизнес";
+  const kindLabel =
+    pin.kind === "professional"
+      ? "Специалист"
+      : pin.kind === "church"
+        ? "Церковь"
+        : "Бизнес";
 
   return (
     <div
@@ -134,6 +139,8 @@ export function HomeMapPinCard({
             instagramFollowersCount={pin.instagramFollowersCount}
             maxVisible={6}
             slug={pin.slug}
+            trustpilotRating={pin.trustpilotRating}
+            trustpilotReviewsCount={pin.trustpilotReviewsCount}
             yelpRating={pin.yelpRating}
             yelpReviewsCount={pin.yelpReviewsCount}
           />

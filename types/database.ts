@@ -159,6 +159,11 @@ export type Database = {
           yelp_url: string | null;
           yelp_rating: number | null;
           yelp_reviews_count: number;
+          trustpilot_url: string | null;
+          trustpilot_rating: number | null;
+          trustpilot_reviews_count: number;
+          facebook_recommend_pct: number | null;
+          facebook_reviews_count: number;
           instagram_followers_count: number | null;
           google_maps_url: string | null;
           google_rating: number | null;
@@ -207,6 +212,11 @@ export type Database = {
           yelp_url?: string | null;
           yelp_rating?: number | null;
           yelp_reviews_count?: number;
+          trustpilot_url?: string | null;
+          trustpilot_rating?: number | null;
+          trustpilot_reviews_count?: number;
+          facebook_recommend_pct?: number | null;
+          facebook_reviews_count?: number;
           instagram_followers_count?: number | null;
           google_maps_url?: string | null;
           google_rating?: number | null;
@@ -1877,6 +1887,10 @@ export type Database = {
           google_reviews_count: number;
           yelp_rating: number | null;
           yelp_reviews_count: number;
+          trustpilot_rating: number | null;
+          trustpilot_reviews_count: number;
+          facebook_recommend_pct: number | null;
+          facebook_reviews_count: number;
           instagram_followers_count: number | null;
           image_url: string | null;
           city: string | null;
@@ -1895,6 +1909,7 @@ export type Database = {
           has_instagram: boolean;
           has_telegram: boolean;
           has_yelp: boolean;
+          has_trustpilot: boolean;
           has_facebook: boolean;
           has_google_maps: boolean;
           has_source: boolean;

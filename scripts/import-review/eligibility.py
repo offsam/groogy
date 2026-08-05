@@ -446,6 +446,56 @@ def evaluate_eligibility(
         reasons.append(f"неподдерживаемый тип: {target}")
 
     title = row.get("title") or row.get("business_name") or row.get("person_name")
+
+    # R17: high-confidence router mismatch blocks autopublish (same as Approve).
+    if target and entity_type:
+        try:
+            from entity_routing import route_card  # noqa: WPS433
+
+            hire_blob_fw = (
+                f"{title or ''}\n{row.get('description') or ''}\n"
+                f"{row.get('source_text') or ''}"
+            )
+            routed = route_card(
+                text=hire_blob_fw,
+                person_name=row.get("person_name"),
+                business_name=row.get("business_name"),
+                category=row.get("category"),
+                has_contact=True,
+                address_line=row.get("address_line"),
+                postal_code=row.get("postal_code"),
+                location_precision=row.get("location_precision"),
+            )
+            expected = {
+                "businesses": "business",
+                "organizations": "organization",
+                "services": "business",
+                "private_specialists": "private_specialist",
+                "marketplace": "marketplace_listing",
+                "transfers": "transfer_listing",
+                "lechu": "lechu_listing",
+                "jobs": "job",
+                "events": "event",
+                "real_estate": "real_estate",
+            }.get(str(target))
+            if (
+                routed.confidence == "high"
+                and routed.entity_type
+                and expected
+                and routed.entity_type != expected
+            ):
+                reasons.append(
+                    f"firewall: раздел {target} ≠ текст ({routed.reason})"
+                )
+            if (
+                str(target) == "private_specialists"
+                and str(row.get("category") or "").strip().lower()
+                in {"", "pro_other", "null"}
+            ):
+                reasons.append("firewall: нужен category ≠ pro_other")
+        except Exception as exc:  # noqa: BLE001
+            reasons.append(f"firewall check failed: {exc}")
+
     if not title_ok(title):
         reasons.append("нет title")
     elif title and JUNK_CONTACT_TITLE_RE.match(str(title).strip()):
@@ -469,9 +519,16 @@ def evaluate_eligibility(
 
     # Map businesses need a street pin — otherwise autopublish must not create them.
     if target in {"businesses", "organizations", "services"}:
-        from entity_routing import has_street_address  # noqa: WPS433
+        from entity_routing import (  # noqa: WPS433
+            has_street_address,
+            is_garbage_street_line,
+        )
 
-        if not has_street_address(
+        if is_garbage_street_line(row.get("address_line")):
+            reasons.append(
+                "firewall: адрес — HTML/мусор с сайта, не улица"
+            )
+        elif not has_street_address(
             row.get("address_line"),
             postal_code=row.get("postal_code"),
             location_precision=row.get("location_precision"),

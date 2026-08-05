@@ -7,8 +7,12 @@ import {
   normalizeStructuredAddress,
   validateStructuredAddress,
 } from "@/lib/address/normalize";
-import { inferLocationPrecision } from "@/lib/business/location-precision";
-import { normalizeTelegramInput } from "@/lib/business/presence";
+import {
+  isYelpUrl,
+  normalizeTelegramInput,
+  normalizeYelpBizUrl,
+} from "@/lib/business/presence";
+import { resolveStreetGeoFields } from "@/lib/geo/geocode-street";
 import {
   CONTACT_LINKS_COLUMN_READY,
   serializeContactLinks,
@@ -125,6 +129,7 @@ export async function adminUpsertBusinessAction(input: {
   googleReviewsCount?: number | null;
   email?: string;
   telegramUrl?: string;
+  yelpUrl?: string;
   contactLinks?: ContactLink[];
 }): Promise<AdminActionResult> {
   const { supabase, error } = await requireAdmin();
@@ -145,6 +150,13 @@ export async function adminUpsertBusinessAction(input: {
     return fail(issues[0]!.message);
   }
 
+  const rawWebsite = (input.website ?? "").trim();
+  const websiteIsYelp = Boolean(rawWebsite && isYelpUrl(rawWebsite));
+  const website = websiteIsYelp ? "" : rawWebsite;
+  const yelpUrl =
+    normalizeYelpBizUrl(input.yelpUrl) ||
+    (websiteIsYelp ? normalizeYelpBizUrl(rawWebsite) : null);
+
   const { data, error: rpcError } = await supabase.rpc("admin_upsert_business", {
     p_id: input.id ?? null,
     p_name: input.name,
@@ -152,7 +164,7 @@ export async function adminUpsertBusinessAction(input: {
     p_short_description: input.shortDescription ?? "",
     p_description: input.description ?? "",
     p_phone: input.phone ?? "",
-    p_website: input.website ?? "",
+    p_website: website,
     p_city: normalized.city ?? "",
     p_address_line: normalized.addressLine ?? "",
     p_status: input.status ?? "pending",
@@ -166,22 +178,33 @@ export async function adminUpsertBusinessAction(input: {
 
   const businessId = typeof data === "string" ? data : input.id;
   if (businessId) {
+    const geo = await resolveStreetGeoFields({
+      addressLine: normalized.addressLine,
+      city: normalized.city,
+      stateCode: normalized.stateCode,
+      postalCode: normalized.postalCode,
+      region: normalized.region,
+    });
     await supabase
       .from("businesses")
       .update({
         region: normalized.region,
         state_code: normalized.stateCode,
-        postal_code: normalized.postalCode,
-        location_precision: inferLocationPrecision({
-          addressLine: normalized.addressLine,
-          city: normalized.city,
-          region: normalized.region,
-        }),
+        postal_code: normalized.postalCode || geo.postalCode || null,
+        location_precision: geo.location_precision,
+        latitude: geo.latitude,
+        longitude: geo.longitude,
+        ...(geo.google_maps_url
+          ? { google_maps_url: geo.google_maps_url }
+          : {}),
         ...(input.email !== undefined
           ? { email: input.email.trim() || null }
           : {}),
         ...(input.telegramUrl !== undefined
           ? { telegram_url: normalizeTelegramInput(input.telegramUrl) }
+          : {}),
+        ...(input.yelpUrl !== undefined || websiteIsYelp
+          ? { yelp_url: yelpUrl }
           : {}),
         ...(CONTACT_LINKS_COLUMN_READY && input.contactLinks !== undefined
           ? { contact_links: serializeContactLinks(input.contactLinks) }

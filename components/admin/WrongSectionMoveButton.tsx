@@ -2,13 +2,14 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+
 import { Button } from "@/components/ui/Button";
 import {
   moveEntitySectionAction,
   type MoveSectionKey,
 } from "@/lib/admin/move-entity-section";
 import { suggestedSectionForType } from "@/lib/admin/section-routing-audit-client";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   fromSection: MoveSectionKey;
@@ -63,7 +64,7 @@ export function WrongSectionMoveButton({
       >
         {pending ? (
           <>
-            <Loader2 className="size-3.5 animate-spin" />
+            <BrandPinLoader size="sm" />
             Перенос…
           </>
         ) : (

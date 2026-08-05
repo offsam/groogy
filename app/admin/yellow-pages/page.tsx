@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-/** Legacy URL — directories are split per source under /admin/directories. */
+/** Legacy Yellow Pages alias → Imports / Directories. */
 export default function AdminYellowPagesRedirect() {
-  redirect("/admin/directories");
+  redirect("/admin/imports/directories");
 }

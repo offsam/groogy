@@ -4,11 +4,10 @@ import {
   clientIpFromRequest,
   consumeRateLimit,
 } from "@/lib/security/rate-limit";
-import {
-  deriveProfessionalSourceKind,
-} from "@/lib/professional/mappers";
+import { deriveProfessionalSourceKind } from "@/lib/professional/mappers";
 import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
+import { listEntityProvenanceSources } from "@/lib/content/entity-provenance-sources";
 
 export const runtime = "nodejs";
 
@@ -20,7 +19,7 @@ type RouteContext = {
 };
 
 /**
- * Authenticated professional provenance reveal — original Telegram/Facebook post.
+ * Authenticated professional provenance reveal — plus secondary merge sources.
  */
 export async function GET(request: Request, context: RouteContext) {
   const originGate = assertAiSearchRequestAllowed(request);
@@ -103,6 +102,13 @@ export async function GET(request: Request, context: RouteContext) {
     const sourceUrl =
       sourceKind === "platform" ? null : data.source_url?.trim() || null;
 
+    const sources = await listEntityProvenanceSources(catalog, {
+      entityType: "professional",
+      entityId: data.id,
+      primaryUrl: sourceUrl,
+      primaryKind: sourceKind,
+    });
+
     try {
       await sessionClient.from("platform_events").insert({
         event_type: "contact_reveal",
@@ -113,6 +119,7 @@ export async function GET(request: Request, context: RouteContext) {
           professional_id: data.id,
           surface: "professional_source",
           via: "professional_source_api",
+          source_count: sources.length,
         },
       });
     } catch {
@@ -121,8 +128,9 @@ export async function GET(request: Request, context: RouteContext) {
 
     return NextResponse.json({
       professionalId: data.id,
-      sourceUrl,
-      sourceKind,
+      sourceUrl: sources[0]?.url ?? sourceUrl,
+      sourceKind: sources[0]?.kind ?? sourceKind,
+      sources,
     });
   } catch (err) {
     console.error("[professional/source]", err);

@@ -2,7 +2,7 @@
 
 import { useTransition, useState } from "react";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
+
 import {
   adminSetReportStatusAction,
   adminSetReviewModerationAction,
@@ -19,6 +19,7 @@ import {
   MODERATION_STATUS_LABELS,
   REVIEW_REPORT_REASON_LABELS,
 } from "@/types/review";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const FILTERS: Array<{ id: ReviewModerationStatus | "reported"; label: string }> = [
   { id: "manual_review", label: "Manual review" },
@@ -156,7 +157,7 @@ export function AdminReviewsPanel({
                         }
                         type="button"
                       >
-                        {pendingTx && <Loader2 className="size-4 animate-spin" />}
+                        {pendingTx && <BrandPinLoader size="sm" />}
                         Publish as AI-verified
                       </Button>
                       <Button

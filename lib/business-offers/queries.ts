@@ -92,6 +92,7 @@ export async function getPublicOffersForBusiness(
     .from("business_offers")
     .select(OFFER_SELECT)
     .eq("business_id", businessId)
+    .eq("status", "active")
     .order("sort_order", { ascending: true })
     .order("title", { ascending: true });
 

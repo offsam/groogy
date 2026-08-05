@@ -2,11 +2,12 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, Shield, ShieldOff } from "lucide-react";
+import { Shield, ShieldOff } from "lucide-react";
 import { adminSetUserRoleAction } from "@/lib/admin/actions";
 import type { AdminUserRow } from "@/lib/admin/queries";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const ROLE_LABELS: Record<AdminUserRow["role"], string> = {
   user: "Пользователь",
@@ -84,7 +85,7 @@ export function AdminUsersPanel({ users, currentUserId }: AdminUsersPanelProps) 
                           variant="primary"
                         >
                           {pending ? (
-                            <Loader2 className="size-4 animate-spin" />
+                            <BrandPinLoader size="sm" />
                           ) : (
                             <Shield className="size-4" />
                           )}
@@ -99,7 +100,7 @@ export function AdminUsersPanel({ users, currentUserId }: AdminUsersPanelProps) 
                           variant="secondary"
                         >
                           {pending ? (
-                            <Loader2 className="size-4 animate-spin" />
+                            <BrandPinLoader size="sm" />
                           ) : (
                             <ShieldOff className="size-4" />
                           )}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, useTransition } from "react";
-import { Loader2 } from "lucide-react";
+
 import {
   adminSetLanguageActiveAction,
   adminSetLanguageSortAction,
@@ -25,6 +25,7 @@ import type {
   PlatformLanguage,
   UsStateOption,
 } from "@/types/master-data";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const TABS = [
   { id: "categories", label: "Категории" },
@@ -93,7 +94,7 @@ export function AdminMasterDataPanel({
       {message && <AuthAlert tone="success">{message}</AuthAlert>}
       {pending && (
         <p className="flex items-center gap-2 text-sm text-slate-500">
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <BrandPinLoader size="sm" />
           Сохранение…
         </p>
       )}

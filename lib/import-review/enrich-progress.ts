@@ -16,7 +16,12 @@ export const ENRICH_STEP_ORDER = [
   "cleanup",
 ] as const;
 
-export type EnrichStepId = (typeof ENRICH_STEP_ORDER)[number];
+/** Extra steps used by published-card enrich UI (not queue pre-publish). */
+export const PUBLISHED_ENRICH_STEP_ORDER = ["resources", "cleanup"] as const;
+
+export type EnrichStepId =
+  | (typeof ENRICH_STEP_ORDER)[number]
+  | (typeof PUBLISHED_ENRICH_STEP_ORDER)[number];
 
 export const ENRICH_STEP_LABELS: Record<EnrichStepId, string> = {
   source_text: "Текст источника",
@@ -30,6 +35,7 @@ export const ENRICH_STEP_LABELS: Record<EnrichStepId, string> = {
   score: "Полнота",
   apply: "Сохранение",
   cleanup: "Разбор описания (услуги / акции / чистка)",
+  resources: "Обход ресурсов",
 };
 
 export type EnrichStepStatus =
@@ -118,8 +124,44 @@ export type EnrichRunResult = {
   score_before?: number | null;
   score_after?: number | null;
   patch?: Record<string, unknown>;
+  /** Visible text from website /menu (food venues) for finalize → menu_item. */
+  menu_text?: string | null;
+  /** Extra office streets from SPA/JSON-LD (beyond primary address_line). */
+  extra_addresses?: string[];
+  /**
+   * Dry-run vacancy drafts (agency business → separate jobs with worksite).
+   * Admin Save with key `jobs` inserts these.
+   */
+  pending_jobs?: Array<{
+    title: string;
+    description?: string;
+    address_line?: string | null;
+    city?: string | null;
+    state_code?: string | null;
+    postal_code?: string | null;
+    latitude?: number | null;
+    longitude?: number | null;
+    location_precision?: string | null;
+  }>;
+  /**
+   * Dry-run preview: patch/conflicts not written yet — admin must Save selected.
+   */
+  pending_review?: boolean;
+  /**
+   * Values found on resources that differ from the card and were not applied
+   * (fill-empty). Admin may confirm replace.
+   */
+  field_conflicts?: Array<{
+    key: string;
+    current: string;
+    found: string;
+  }>;
   /** Pre-enrich field values for patched keys (admin undo / abort). */
   before?: Record<string, unknown>;
+  /** When set, this run was undone and must not be undone again. */
+  reverted_at?: string | null;
+  /** Keys already rolled back from this run (partial undo). */
+  reverted_fields?: string[];
   steps?: {
     source_text?: string[];
     title?: string[];
@@ -147,6 +189,38 @@ export type EnrichRunResult = {
   previous_status?: string | null;
   new_status?: string | null;
 };
+
+/** Admin choice for a fill-empty conflict (leave is client-only dismiss). */
+export type EnrichConflictMode = "replace" | "add";
+
+export type EnrichConflictAction = {
+  key: string;
+  mode: EnrichConflictMode;
+};
+
+/** Keys that can be stored as a second value (not only replace). */
+export const ENRICH_CONFLICT_ADDABLE = new Set([
+  "phone",
+  "email",
+  "website",
+  "instagram_url",
+  "telegram_url",
+  "address_line",
+]);
+
+export function enrichConflictCanAdd(
+  key: string,
+  kind?: string | null,
+): boolean {
+  if (!ENRICH_CONFLICT_ADDABLE.has(key)) return false;
+  // Multi-office pins only on published businesses.
+  if (key === "address_line") return kind === "business";
+  // Queue rows: append into array fields (no contact_links / locations API).
+  if (kind === "queue") {
+    return key === "phone" || key === "email" || key === "website";
+  }
+  return kind === "business" || kind === "professional" || kind === "church";
+}
 
 export type EnrichHistoryRow = {
   id: string;
@@ -204,18 +278,24 @@ export function fieldLabel(key: string): string {
     address_line: "адрес",
     address_multi: "несколько адресов — оставлены в тексте",
     locations: "пункты / адреса",
+    geo: "карта",
     headline: "заголовок",
     hours: "часы",
     services: "услуги",
     service_offers: "цены услуг",
+    menu: "меню",
+    menu_text: "меню",
     promotions: "акции",
     updates: "обновления",
+    events: "события",
+    jobs: "вакансии",
     payment_methods: "оплата",
     payment: "оплата",
     price: "цена",
     price_label: "цена",
     city: "город / район",
     state: "штат / регион",
+    state_code: "штат",
     postal_code: "индекс",
     preview_image_url: "фото",
     review_notes: "теги",

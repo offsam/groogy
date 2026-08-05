@@ -1,5 +1,7 @@
 /** Map recommendation category_guess → catalog filter labels + DB category slugs. */
 
+import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
+
 export type RecommendationEntityFilter =
   | "all"
   | "professional"
@@ -208,6 +210,7 @@ export const GUESS_TO_BUSINESS_SLUG: Record<string, string> = {
 
 /**
  * category_guess → professional category slug.
+ * Accepts Russian guess labels and already-canonical slugs (picker / filter id).
  * Unmapped → null (needs manual category) — never silent pro_other on publish.
  */
 export function professionalSlugFromGuess(
@@ -215,6 +218,13 @@ export function professionalSlugFromGuess(
 ): string | null {
   const g = (categoryGuess || "").trim().toLowerCase();
   if (!g) return null;
+  // Picker / filter already stored a catalog slug (e.g. «legal»).
+  if (
+    (PROFESSIONAL_CATEGORY_SLUGS as readonly string[]).includes(g) &&
+    g !== "pro_other"
+  ) {
+    return g;
+  }
   const mapped = GUESS_TO_PROFESSIONAL_SLUG[g];
   if (!mapped || mapped === "pro_other") return null;
   return mapped;

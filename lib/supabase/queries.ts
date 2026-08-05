@@ -27,6 +27,7 @@ import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
 import { distanceKm } from "@/lib/geo/distance";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
+import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
 
 type Client = SupabaseClient<Database>;
 
@@ -53,6 +54,11 @@ const BUSINESS_DETAIL_SELECT_BASE: string = `
   yelp_url,
   yelp_rating,
   yelp_reviews_count,
+  trustpilot_url,
+  trustpilot_rating,
+  trustpilot_reviews_count,
+  facebook_recommend_pct,
+  facebook_reviews_count,
   instagram_followers_count,
   google_maps_url,
   google_rating,
@@ -181,7 +187,7 @@ export async function getActiveCategories(client: Client): Promise<Category[]> {
   return (data ?? []).map(mapCategory);
 }
 
-/** Categories used on /professionals (shared business leaves + pro-only). */
+/** Categories used on /professionals — only professional sphere slugs (not business «Рестораны» etc.). */
 export async function getProfessionalCategories(
   client: Client,
 ): Promise<Category[]> {
@@ -189,7 +195,7 @@ export async function getProfessionalCategories(
     .from("categories")
     .select("*")
     .eq("is_active", true)
-    .or("domain.eq.professional,domain.eq.business")
+    .in("slug", [...PROFESSIONAL_CATEGORY_SLUGS])
     .order("sort_order", { ascending: true })
     .order("name", { ascending: true });
 
@@ -217,7 +223,7 @@ export async function getApprovedBusinesses(
 /** Home map pin — business or professional with an address + coordinates. */
 export type HomeMapPin = {
   id: string;
-  kind: "business" | "professional";
+  kind: "business" | "professional" | "church";
   name: string;
   slug: string;
   href: string;
@@ -239,15 +245,37 @@ export type HomeMapPin = {
   googleReviewsCount: number;
   yelpRating: number | null;
   yelpReviewsCount: number;
+  trustpilotRating: number | null;
+  trustpilotReviewsCount: number;
+  facebookRecommendPct: number | null;
+  facebookReviewsCount: number;
   instagramFollowersCount: number | null;
   presenceFlags: BusinessPresenceFlags;
 };
 
 const HOME_MAP_BUSINESS_SELECT =
-  "id, slug, name, city, state_code, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, google_maps_url, categories(name)" as const;
+  "id, slug, name, city, state_code, postal_code, latitude, longitude, address_line, created_at, image_url, short_description, description, rating_avg, reviews_count, google_rating, google_reviews_count, yelp_rating, yelp_reviews_count, trustpilot_rating, trustpilot_reviews_count, facebook_recommend_pct, facebook_reviews_count, instagram_followers_count, phone, email, website, instagram_url, telegram_url, source_url, source_kind, yelp_url, trustpilot_url, google_maps_url, categories(name)" as const;
 
 const HOME_MAP_PROFESSIONAL_SELECT =
   "id, slug, display_name, city, state_code, latitude, longitude, private_address_line, created_at, image_url, headline, short_description, rating_avg, reviews_count, phone, email, website, instagram_url, categories(name)" as const;
+
+const HOME_MAP_CHURCH_SELECT =
+  "id, slug, name, city, state_code, postal_code, latitude, longitude, address_line, created_at, image_url, description" as const;
+
+type HomeMapChurchRow = {
+  id: string;
+  slug: string;
+  name: string;
+  city: string | null;
+  state_code: string | null;
+  postal_code: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  address_line: string | null;
+  created_at: string | null;
+  image_url: string | null;
+  description: string | null;
+};
 
 type HomeMapBusinessRow = {
   id: string;
@@ -352,6 +380,28 @@ function mapBusinessHomePin(row: HomeMapBusinessRow): HomeMapPin | null {
     googleReviewsCount: Number(row.google_reviews_count ?? 0),
     yelpRating: row.yelp_rating == null ? null : Number(row.yelp_rating),
     yelpReviewsCount: Number(row.yelp_reviews_count ?? 0),
+    trustpilotRating:
+      (row as { trustpilot_rating?: number | null }).trustpilot_rating == null
+        ? null
+        : Number(
+            (row as { trustpilot_rating?: number | null }).trustpilot_rating,
+          ),
+    trustpilotReviewsCount: Number(
+      (row as { trustpilot_reviews_count?: number | null })
+        .trustpilot_reviews_count ?? 0,
+    ),
+    facebookRecommendPct:
+      (row as { facebook_recommend_pct?: number | null })
+        .facebook_recommend_pct == null
+        ? null
+        : Number(
+            (row as { facebook_recommend_pct?: number | null })
+              .facebook_recommend_pct,
+          ),
+    facebookReviewsCount: Number(
+      (row as { facebook_reviews_count?: number | null })
+        .facebook_reviews_count ?? 0,
+    ),
     instagramFollowersCount:
       row.instagram_followers_count == null
         ? null
@@ -397,6 +447,10 @@ function mapProfessionalHomePin(row: HomeMapProfessionalRow): HomeMapPin | null 
     googleReviewsCount: 0,
     yelpRating: null,
     yelpReviewsCount: 0,
+    trustpilotRating: null,
+    trustpilotReviewsCount: 0,
+    facebookRecommendPct: null,
+    facebookReviewsCount: 0,
     instagramFollowersCount: null,
     presenceFlags: computePresenceFlags({
       phone: row.phone,
@@ -468,14 +522,91 @@ async function fetchProfessionalMapRows(
   return (data ?? []) as HomeMapProfessionalRow[];
 }
 
+function mapChurchHomePin(row: HomeMapChurchRow): HomeMapPin | null {
+  const lat = row.latitude;
+  const lng = row.longitude;
+  if (typeof lat !== "number" || typeof lng !== "number") return null;
+  if (!(row.address_line ?? "").trim()) return null;
+  const { city, postalCode } = resolvePublicCityPostal({
+    addressLine: row.address_line,
+    city: row.city,
+    postalCode: row.postal_code,
+    shortDescription: row.description,
+    businessName: row.name,
+  });
+  return {
+    id: row.id,
+    kind: "church",
+    name: row.name,
+    slug: row.slug,
+    href: `/churches/${row.slug}`,
+    city,
+    stateCode: row.state_code?.trim() || null,
+    postalCode,
+    latitude: lat,
+    longitude: lng,
+    createdAt: row.created_at ?? null,
+    imageUrl: row.image_url ?? null,
+    categoryName: "Церковь",
+    shortDescription: pinBlurb(row.description),
+    description: null,
+    ratingAvg: 0,
+    reviewsCount: 0,
+    googleRating: null,
+    googleReviewsCount: 0,
+    yelpRating: null,
+    yelpReviewsCount: 0,
+    trustpilotRating: null,
+    trustpilotReviewsCount: 0,
+    facebookRecommendPct: null,
+    facebookReviewsCount: 0,
+    instagramFollowersCount: null,
+    presenceFlags: computePresenceFlags({
+      latitude: lat,
+      longitude: lng,
+    }),
+  };
+}
+
+async function fetchChurchMapRows(
+  client: Client,
+  limit: number,
+  offset: number,
+  bounds?: RegionMapBounds,
+): Promise<HomeMapChurchRow[]> {
+  const untyped = client as unknown as SupabaseClient;
+  let request = untyped
+    .from("churches")
+    .select(HOME_MAP_CHURCH_SELECT)
+    .eq("status", "approved")
+    .not("address_line", "is", null)
+    .not("latitude", "is", null)
+    .not("longitude", "is", null);
+
+  if (bounds) {
+    request = request
+      .gte("latitude", bounds.south)
+      .lte("latitude", bounds.north)
+      .gte("longitude", bounds.west)
+      .lte("longitude", bounds.east);
+  }
+
+  const { data, error } = await request
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) throw error;
+  return (data ?? []) as HomeMapChurchRow[];
+}
+
 async function fetchHomeMapPinsSlice(
   client: Client,
   limit: number,
   bounds?: RegionMapBounds,
 ): Promise<HomeMapPin[]> {
-  const [bizRows, proRows] = await Promise.all([
+  const [bizRows, proRows, churchRows] = await Promise.all([
     fetchBusinessMapRows(client, limit, 0, bounds),
     fetchProfessionalMapRows(client, limit, 0, bounds),
+    fetchChurchMapRows(client, limit, 0, bounds),
   ]);
 
   const pins: HomeMapPin[] = [];
@@ -485,6 +616,10 @@ async function fetchHomeMapPinsSlice(
   }
   for (const row of proRows) {
     const pin = mapProfessionalHomePin(row);
+    if (pin) pins.push(pin);
+  }
+  for (const row of churchRows) {
+    const pin = mapChurchHomePin(row);
     if (pin) pins.push(pin);
   }
   return pins;
@@ -606,7 +741,7 @@ export async function getAllHomeMapPins(
   const pageSize = options.pageSize ?? 1000;
   const maxPerKind = options.maxPerKind ?? 8000;
 
-  const [bizRows, proRows] = await Promise.all([
+  const [bizRows, proRows, churchRows] = await Promise.all([
     fetchAllRows(
       (limit, offset) => fetchBusinessMapRows(client, limit, offset),
       pageSize,
@@ -614,6 +749,11 @@ export async function getAllHomeMapPins(
     ),
     fetchAllRows(
       (limit, offset) => fetchProfessionalMapRows(client, limit, offset),
+      pageSize,
+      maxPerKind,
+    ),
+    fetchAllRows(
+      (limit, offset) => fetchChurchMapRows(client, limit, offset),
       pageSize,
       maxPerKind,
     ),
@@ -626,6 +766,10 @@ export async function getAllHomeMapPins(
   }
   for (const row of proRows) {
     const pin = mapProfessionalHomePin(row);
+    if (pin) pins.push(pin);
+  }
+  for (const row of churchRows) {
+    const pin = mapChurchHomePin(row);
     if (pin) pins.push(pin);
   }
   return pins;
@@ -768,6 +912,7 @@ export async function searchBusinesses(
       ];
       const fields = [
         "name",
+        "slug",
         "short_description",
         "description",
         "city",
@@ -814,6 +959,7 @@ export async function searchBusinesses(
         const phoneDigits = (business.phone ?? "").replace(/\D/g, "");
         const haystack = [
           business.name,
+          business.slug,
           business.shortDescription,
           business.description,
           business.city,

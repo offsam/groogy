@@ -262,10 +262,10 @@ function StateClusterMarker({
           <span className="mt-0.5 block text-xs font-normal text-slate-500">
             {cluster.count}{" "}
             {cluster.count === 1
-              ? "карточка"
+              ? "точка на карте"
               : cluster.count < 5
-                ? "карточки"
-                : "карточек"}
+                ? "точки на карте"
+                : "точек на карте"}
           </span>
         </span>
       </Tooltip>

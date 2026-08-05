@@ -43,8 +43,9 @@ const SHARED_HOSTS = [
   "issuu.com",
   "calameo.com",
   "joomag.com",
-  // Ticketing shared by many organizers
+  // Ticketing / event platforms shared by many organizers
   "eventbrite.com",
+  "loveoverse.com",
   // App stores / OS vendor chrome
   "apps.apple.com",
   "itunes.apple.com",
@@ -65,6 +66,19 @@ const SHARED_HOSTS = [
   "russianorangepages.com",
   "bostonrussianpages.com",
   "yellowpages.com",
+  "to4ka.us",
+  "api.to4ka.us",
+  // Civic / park portals from ROP chrome — never a card's own site.
+  // Real businesses that leaked from the same sidebar (fchconstruction.org,
+  // liveattheshell.org, art-a-fair.com) are NOT listed here: when an admin
+  // sets one as the card website, enrich must mine it. Directory BFS still
+  // refuses related links from ROP/Svoi.
+  "ocparks.com",
+  "themuck.org",
+  // to4ka catalog ads / stuffed listing.url
+  "bazar.club",
+  "apteka03.online",
+  "madbid.com",
 ];
 
 /** Shops here get a personal subdomain, so only the bare host is shared. */

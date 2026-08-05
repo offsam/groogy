@@ -226,17 +226,44 @@ export async function resolveEntityLocation(
     };
   }
 
-  // 1) ZIP
+  // 1) ZIP — concrete postal beats a hub-stamped city in another county
+  // (e.g. Svoi LA hub left city=Los Angeles while ZIP 92683 is Westminster/OC).
   if (postalCode) {
     const zip = await resolveUsZipLocation(client, postalCode);
     if (zip?.countyGeoid) {
+      let nextCity = city;
+      let nextRegion = region || zip.countyName;
+      let cityGeoid = zip.cityGeoid;
+
+      if (zip.city) {
+        const sameCity =
+          !!city &&
+          normalizePlaceName(city) === normalizePlaceName(zip.city);
+        if (!city || sameCity) {
+          nextCity = zip.city;
+        } else {
+          const cityHit = await lookupCity(client, city, stateCode || zip.stateCode);
+          const cityCounty = cityHit?.countyGeoid ?? null;
+          if (cityCounty && cityCounty !== zip.countyGeoid) {
+            // Hub/default city contradicts ZIP county → trust ZIP.
+            nextCity = zip.city;
+            nextRegion = zip.countyName || nextRegion;
+            cityGeoid = zip.cityGeoid;
+          } else if (!cityCounty) {
+            // Unknown city label + known ZIP → prefer ZIP place name.
+            nextCity = zip.city;
+            nextRegion = zip.countyName || nextRegion;
+          }
+        }
+      }
+
       return {
-        city: city || zip.city,
-        region: region || zip.countyName,
+        city: nextCity,
+        region: nextRegion,
         stateCode: stateCode || zip.stateCode,
         postalCode: zip.postalCode,
         countyGeoid: zip.countyGeoid,
-        cityGeoid: zip.cityGeoid,
+        cityGeoid,
         locationSource: "zip",
         locationConfidence: "exact",
       };

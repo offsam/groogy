@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import { Eye, Loader2, X } from "lucide-react";
+import { Eye, X } from "lucide-react";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
 import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
 import { EventProfileView } from "@/components/events/EventProfileView";
@@ -22,9 +22,12 @@ import {
   type RealEstateCardItem,
 } from "@/components/real-estate/RealEstateCard";
 import { Button } from "@/components/ui/Button";
-import { ReviewPreviewEnrichPanel } from "@/components/admin/ReviewPreviewEnrichPanel";
-import { AdminPasteEnrichButton } from "@/components/admin/AdminPasteEnrichButton";
-import { saveImportReviewItemAction } from "@/lib/import-review/actions";
+import { AdminLensBar } from "@/components/admin/AdminLensBar";
+import { AdminQueueCategoryButton } from "@/components/admin/AdminQueueCategoryButton";
+import { useAdminPreviewMapCenter } from "@/components/admin/useAdminPreviewMapCenter";
+import { saveImportReviewItemAction, approveImportReviewItemAction } from "@/lib/import-review/actions";
+import { saveCommentRecommendationFieldsAction } from "@/lib/import-review/recommendation-actions";
+import { cn } from "@/lib/utils";
 import {
   REVIEW_HUB_OPTIONS,
   hubPreviewLabel,
@@ -54,12 +57,30 @@ import {
 import type { PlatformSectionKey } from "@/lib/platform/sections";
 import type { ImportReviewItem } from "@/types/import-review";
 import type { Listing } from "@/types/listing";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   item: ImportReviewItem;
   open: boolean;
   onClose: () => void;
   categories?: ReviewCategoryOption[];
+  /**
+   * Synthetic / recommendation preview: hub switching is visual only —
+   * no save to import_review_items, no import enrich/paste.
+   */
+  readOnlyHub?: boolean;
+  /** Queue publish (recommendation or custom). When set, amber Админ bar shows it. */
+  onPublish?: () =>
+    | void
+    | Promise<void | { ok: boolean; message?: string }>;
+  publishPending?: boolean;
+  publishDisabled?: boolean;
+  publishLabel?: string;
+  /**
+   * Where enrich/paste write. Defaults: recommendation when readOnlyHub,
+   * else import_review.
+   */
+  queueSource?: "import_review" | "recommendation";
 };
 
 function initialHub(item: ImportReviewItem): PlatformSectionKey {
@@ -129,21 +150,35 @@ function FeedTeaser({
 function ListingHubFullPagePreview({
   item,
   hub,
+  adminChrome = null,
 }: {
   item: ImportReviewItem;
   hub: PlatformSectionKey;
+  adminChrome?: ReactNode;
 }) {
   const fields = importReviewItemToPreviewFields(item);
   const kind = hubToPreviewKind(hub);
   const listing = importReviewToListingPreview(fields, kind);
 
   let profile = (
-    <MarketplaceListingProfileView listing={listing} preview />
+    <MarketplaceListingProfileView
+      adminChrome={adminChrome}
+      listing={listing}
+      preview
+    />
   );
   if (hub === "lechu") {
-    profile = <LechuProfileView listing={listing} preview />;
+    profile = (
+      <LechuProfileView adminChrome={adminChrome} listing={listing} preview />
+    );
   } else if (hub === "transfers") {
-    profile = <TransferProfileView listing={listing} preview />;
+    profile = (
+      <TransferProfileView
+        adminChrome={adminChrome}
+        listing={listing}
+        preview
+      />
+    );
   }
 
   return (
@@ -159,12 +194,18 @@ function ListingHubFullPagePreview({
   );
 }
 
-function EventFullPagePreview({ item }: { item: ImportReviewItem }) {
+function EventFullPagePreview({
+  item,
+  adminChrome = null,
+}: {
+  item: ImportReviewItem;
+  adminChrome?: ReactNode;
+}) {
   const fields = importReviewItemToPreviewFields(item);
   const event = importReviewToEventPreview(fields);
   return (
     <div className="space-y-6">
-      <EventProfileView event={event} preview />
+      <EventProfileView adminChrome={adminChrome} event={event} preview />
       <div className="mx-auto max-w-sm">
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
           Карточка в ленте
@@ -175,12 +216,18 @@ function EventFullPagePreview({ item }: { item: ImportReviewItem }) {
   );
 }
 
-function JobFullPagePreview({ item }: { item: ImportReviewItem }) {
+function JobFullPagePreview({
+  item,
+  adminChrome = null,
+}: {
+  item: ImportReviewItem;
+  adminChrome?: ReactNode;
+}) {
   const fields = importReviewItemToPreviewFields(item);
   const job = importReviewToJobPreview(fields);
   return (
     <div className="space-y-6">
-      <JobProfileView job={job} preview />
+      <JobProfileView adminChrome={adminChrome} job={job} preview />
       <div className="mx-auto max-w-sm">
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
           Карточка в ленте
@@ -191,12 +238,18 @@ function JobFullPagePreview({ item }: { item: ImportReviewItem }) {
   );
 }
 
-export function ServiceFullPagePreview({ item }: { item: ImportReviewItem }) {
+export function ServiceFullPagePreview({
+  item,
+  adminChrome = null,
+}: {
+  item: ImportReviewItem;
+  adminChrome?: ReactNode;
+}) {
   const fields = importReviewItemToPreviewFields(item);
   const listing = importReviewToListingPreview(fields, "services");
   return (
     <div className="space-y-6">
-      <ServiceProfileView listing={listing} preview />
+      <ServiceProfileView adminChrome={adminChrome} listing={listing} preview />
       <div className="mx-auto max-w-sm">
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
           Карточка в ленте
@@ -212,6 +265,12 @@ export function ReviewFullPagePreviewModal({
   open,
   onClose,
   categories = [],
+  readOnlyHub = false,
+  onPublish,
+  publishPending = false,
+  publishDisabled = false,
+  publishLabel = "Опубликовать",
+  queueSource,
 }: Props) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -219,6 +278,7 @@ export function ReviewFullPagePreviewModal({
   const [message, setMessage] = useState<string | null>(null);
   const [hub, setHub] = useState<PlatformSectionKey>(() => initialHub(item));
   const [category, setCategory] = useState(item.category ?? "");
+  const [publishing, setPublishing] = useState(false);
 
   useEffect(() => {
     if (!open) return;
@@ -288,6 +348,10 @@ export function ReviewFullPagePreviewModal({
   }, [fields, category, categoryName]);
   const offers = useMemo(() => importReviewToOfferPreviews(fields), [fields]);
   const previewKind = resolveImportPreviewKind(previewItem);
+  const cityMapCenter = useAdminPreviewMapCenter(
+    business.city || professional.city || fields.city,
+    business.stateCode || professional.stateCode || fields.state || null,
+  );
 
   const typeDirty =
     Boolean(draftTypes) &&
@@ -295,24 +359,193 @@ export function ReviewFullPagePreviewModal({
       draftTypes?.target_collection !== item.target_collection);
   const categoryDirty =
     (category.trim() || null) !== (item.category?.trim() || null);
-  const dirty = typeDirty || categoryDirty;
+  const dirty = !readOnlyHub && (typeDirty || categoryDirty);
 
   const locked =
+    readOnlyHub ||
     item.review_status === "approved" ||
     item.review_status === "rejected" ||
     item.review_status === "duplicate";
 
+  const canPublishImport =
+    !readOnlyHub &&
+    item.review_status !== "approved" &&
+    item.review_status !== "rejected" &&
+    item.review_status !== "duplicate";
+
+  function runPublish() {
+    if (onPublish) {
+      if (publishing || pending || publishPending) return;
+      setError(null);
+      setMessage(null);
+      setPublishing(true);
+      startTransition(async () => {
+        try {
+          const res = await onPublish();
+          if (res && typeof res === "object" && res.ok === false) {
+            setError(res.message || "Не удалось опубликовать");
+            return;
+          }
+          if (res && typeof res === "object" && res.ok === true) {
+            setMessage(res.message || "Опубликовано");
+            router.refresh();
+            onClose();
+          }
+        } finally {
+          setPublishing(false);
+        }
+      });
+      return;
+    }
+    if (!canPublishImport || publishing || pending) return;
+    setError(null);
+    setMessage(null);
+    setPublishing(true);
+    startTransition(async () => {
+      try {
+        const res = await approveImportReviewItemAction({ id: item.id });
+        if (!res.ok) {
+          setError(res.message || "Не удалось опубликовать");
+          return;
+        }
+        setMessage(res.message || "Опубликовано");
+        router.refresh();
+        onClose();
+      } finally {
+        setPublishing(false);
+      }
+    });
+  }
+
+  const resolvedQueueSource =
+    queueSource ?? (readOnlyHub ? "recommendation" : "import_review");
+
+  const showQueueBar = true;
+
+  const hubTabsRef = useRef<HTMLDivElement | null>(null);
+
+  const categorySlot =
+    showCategoryPicker && (hub === "businesses" || hub === "professionals") ? (
+      <AdminQueueCategoryButton
+        categories={categoryOptions}
+        currentSlug={category.trim() || null}
+        disabled={locked && !onPublish}
+        onSave={async (slug) => {
+          setCategory(slug || "");
+          if (resolvedQueueSource === "recommendation") {
+            const res = await saveCommentRecommendationFieldsAction({
+              id: item.id,
+              category: slug,
+              categoryGuess: slug,
+            });
+            if (res.ok) {
+              setMessage(res.message || "Категория сохранена");
+              router.refresh();
+            }
+            return res;
+          }
+          const res = await saveImportReviewItemAction({
+            id: item.id,
+            fields: { category: slug },
+          });
+          if (res.ok) {
+            setMessage(res.message || "Категория сохранена");
+            router.refresh();
+          }
+          return res;
+        }}
+      />
+    ) : null;
+
+  const draftCommon = showQueueBar
+    ? {
+        onPublish: runPublish,
+        publishLabel,
+        publishPending: publishPending || publishing,
+        publishDisabled:
+          Boolean(publishDisabled) ||
+          (locked && !onPublish) ||
+          (!canPublishImport && !onPublish),
+        queue: {
+          source: resolvedQueueSource,
+          id: item.id,
+        } as const,
+        categorySlot: categorySlot ?? undefined,
+        onEnriched: () => {
+          router.refresh();
+        },
+        onSectionClick: () => {
+          hubTabsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        },
+      }
+    : null;
+
+  const queueBar = draftCommon ? (
+    hub === "businesses" ? (
+      <AdminLensBar
+        business={business}
+        draft={draftCommon}
+        kind="business"
+        showDelete={false}
+      />
+    ) : hub === "professionals" ? (
+      <AdminLensBar
+        draft={draftCommon}
+        kind="professional"
+        professional={professional}
+      />
+    ) : hub === "events" ? (
+      <AdminLensBar
+        draft={draftCommon}
+        entityId={item.id}
+        kind="event"
+        title={fields.title || "Событие"}
+      />
+    ) : hub === "jobs" ? (
+      <AdminLensBar
+        draft={draftCommon}
+        entityId={item.id}
+        kind="job"
+        title={fields.title || "Вакансия"}
+      />
+    ) : hub === "lechu" ? (
+      <AdminLensBar
+        draft={draftCommon}
+        entityId={item.id}
+        kind="lechu"
+        title={fields.title || "Лечу"}
+      />
+    ) : hub === "transfers" ? (
+      <AdminLensBar
+        draft={draftCommon}
+        entityId={item.id}
+        kind="transfer"
+        title={fields.title || "Перевод"}
+      />
+    ) : (
+      <AdminLensBar
+        draft={draftCommon}
+        entityId={item.id}
+        kind="marketplace"
+        title={fields.title || "Объявление"}
+      />
+    )
+  ) : null;
+
   if (!open) return null;
 
   function onPick(option: ReviewHubOption) {
-    if (!option.selectable || locked) return;
+    // Hub tabs stay selectable in readOnlyHub so admins can preview other
+    // sections; only persist/enrich are locked.
+    if (!option.selectable) return;
+    if (locked && !readOnlyHub) return;
     setHub(option.key);
     setError(null);
     setMessage(null);
   }
 
   function onSave() {
-    if (locked) return;
+    if (readOnlyHub || locked) return;
     if (!dirty) return;
     setError(null);
     setMessage(null);
@@ -346,9 +579,11 @@ export function ReviewFullPagePreviewModal({
   if (hub === "businesses") {
     page = (
       <BusinessProfileView
+        adminChrome={queueBar}
         autoClaim={false}
         business={business}
         businessSlug={business.slug}
+        cityMapCenter={cityMapCenter}
         currentUserId={null}
         isAdmin={false}
         isOwner={false}
@@ -364,6 +599,8 @@ export function ReviewFullPagePreviewModal({
   } else if (hub === "professionals") {
     page = (
       <ProfessionalProfileView
+        adminChrome={queueBar}
+        cityMapCenter={cityMapCenter}
         currentUserId={null}
         isOwner={false}
         preview
@@ -390,16 +627,22 @@ export function ReviewFullPagePreviewModal({
       />
     );
   } else if (hub === "events") {
-    page = <EventFullPagePreview item={previewItem} />;
+    page = <EventFullPagePreview adminChrome={queueBar} item={previewItem} />;
   } else if (hub === "jobs") {
-    page = <JobFullPagePreview item={previewItem} />;
+    page = <JobFullPagePreview adminChrome={queueBar} item={previewItem} />;
   } else if (
     hub === "marketplace" ||
     hub === "real_estate" ||
     hub === "lechu" ||
     hub === "transfers"
   ) {
-    page = <ListingHubFullPagePreview hub={hub} item={previewItem} />;
+    page = (
+      <ListingHubFullPagePreview
+        adminChrome={queueBar}
+        hub={hub}
+        item={previewItem}
+      />
+    );
   } else {
     page = (
       <p className="text-sm text-slate-500">
@@ -419,9 +662,9 @@ export function ReviewFullPagePreviewModal({
           <div className="min-w-0">
             <p className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-slate-400 sm:text-[11px]">
               <Eye className="size-3.5" />
-              <span className="sm:hidden">Превью</span>
+              <span className="sm:hidden">Как на сайте</span>
               <span className="hidden sm:inline">
-                Предварительный просмотр · как у пользователя
+                Как на платформе · ещё не опубликовано
               </span>
             </p>
             <p className="mt-0.5 truncate text-xs text-slate-600 sm:text-sm">
@@ -438,14 +681,18 @@ export function ReviewFullPagePreviewModal({
           </button>
         </div>
 
-        <div className="border-t border-slate-100 bg-white px-3 py-2 sm:px-5 sm:py-2.5">
+        <div
+          ref={hubTabsRef}
+          className="border-t border-slate-100 bg-white px-3 py-2 sm:px-5 sm:py-2.5"
+        >
           <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:mb-2 sm:text-[11px]">
             Посмотреть как
           </p>
           <div className="-mx-3 flex gap-1.5 overflow-x-auto px-3 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:gap-2 sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
             {REVIEW_HUB_OPTIONS.map((option) => {
               const active = hub === option.key;
-              const disabled = !option.selectable || locked;
+              const disabled =
+                !option.selectable || (locked && !readOnlyHub);
               return (
                 <button
                   key={option.key}
@@ -465,7 +712,7 @@ export function ReviewFullPagePreviewModal({
             })}
           </div>
 
-          {showCategoryPicker ? (
+          {showCategoryPicker && !readOnlyHub ? (
             <div className="mt-2 w-full sm:mt-3 sm:max-w-md">
               <label className="block">
                 <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
@@ -498,8 +745,26 @@ export function ReviewFullPagePreviewModal({
         </div>
       </header>
 
-      <div className="flex-1 overflow-y-auto overflow-x-hidden bg-white">
-        <div className="mx-auto w-full max-w-6xl px-3 py-4 sm:px-4 sm:py-10">
+      <div className="relative flex-1 overflow-y-auto overflow-x-hidden bg-white">
+        {publishing || publishPending ? (
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-3 pt-3 sm:pt-4"
+            role="status"
+            aria-live="polite"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-white/95 px-3.5 py-2 text-sm font-medium text-brand-blue shadow-sm backdrop-blur-sm">
+              <BrandPinLoader size="sm" />
+              Публикую карточку…
+            </div>
+          </div>
+        ) : null}
+        <div
+          className={cn(
+            "mx-auto w-full max-w-6xl px-3 py-4 transition-[opacity,filter] duration-200 sm:px-4 sm:py-10",
+            (publishing || publishPending) &&
+              "pointer-events-none opacity-55 saturate-75",
+          )}
+        >
           {page}
         </div>
       </div>
@@ -507,62 +772,35 @@ export function ReviewFullPagePreviewModal({
       <footer className="sticky bottom-0 border-t border-slate-200 bg-white px-3 py-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom))] sm:px-5 sm:py-3">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
           <div className="flex w-full gap-2 sm:w-auto">
-            <Button
-              type="button"
-              className="min-h-11 flex-1 sm:min-h-0 sm:flex-none"
-              disabled={pending || locked || !dirty}
-              onClick={onSave}
-            >
-              {pending ? (
-                <>
-                  <Loader2 className="mr-2 size-4 animate-spin" />
-                  <span className="sm:hidden">…</span>
-                  <span className="hidden sm:inline">Сохранение…</span>
-                </>
-              ) : (
-                "Сохранить"
-              )}
-            </Button>
+            {readOnlyHub ? null : (
+              <Button
+                type="button"
+                className="min-h-11 flex-1 sm:min-h-0 sm:flex-none"
+                disabled={pending || locked || !dirty || publishing}
+                onClick={onSave}
+              >
+                {pending ? (
+                  <>
+                    <BrandPinLoader size="sm" className="mr-2" />
+                    <span className="sm:hidden">…</span>
+                    <span className="hidden sm:inline">Сохранение…</span>
+                  </>
+                ) : (
+                  "Сохранить"
+                )}
+              </Button>
+            )}
             <Button
               type="button"
               variant="secondary"
               className="min-h-11 flex-1 sm:min-h-0 sm:flex-none"
+              disabled={publishing || publishPending}
               onClick={onClose}
             >
               Закрыть
             </Button>
           </div>
 
-          <div className="flex w-full gap-2 overflow-x-auto [scrollbar-width:none] sm:w-auto sm:overflow-visible [&::-webkit-scrollbar]:hidden">
-            <ReviewPreviewEnrichPanel itemId={item.id} disabled={locked} />
-            {!locked ? (
-              <AdminPasteEnrichButton
-                kind="import_review"
-                entityId={item.id}
-                variant="button"
-              />
-            ) : null}
-          </div>
-
-          {dirty ? (
-            <span className="text-[11px] leading-snug text-amber-700 sm:text-xs">
-              {typeDirty && categoryDirty
-                ? "Тип и категория изменены — сохраните"
-                : typeDirty
-                  ? "Тип изменён — сохраните, чтобы Approve шёл в этот раздел"
-                  : "Категория изменена — сохраните"}
-            </span>
-          ) : (
-            <span className="hidden text-xs text-slate-500 sm:inline">
-              Показан тип: {IMPORT_PREVIEW_KIND_LABELS[previewKind]}
-              {showCategoryPicker && category
-                ? ` · ${
-                    categoryOptions.find((c) => c.slug === category)?.name ||
-                    category
-                  }`
-                : ""}
-            </span>
-          )}
           {error ? (
             <span className="text-sm text-red-700" role="alert">
               {error}
@@ -571,6 +809,43 @@ export function ReviewFullPagePreviewModal({
           {message ? (
             <span className="text-sm text-emerald-700">{message}</span>
           ) : null}
+          {publishing || publishPending ? (
+            <span
+              className="inline-flex items-center gap-1.5 text-sm text-brand-blue"
+              role="status"
+            >
+              <BrandPinLoader size="sm" />
+              Публикую…
+            </span>
+          ) : null}
+
+          {readOnlyHub ? (
+            <span className="hidden text-xs text-slate-500 sm:inline">
+              Показан тип: {IMPORT_PREVIEW_KIND_LABELS[previewKind]}
+            </span>
+          ) : (
+            <>
+              {dirty ? (
+                <span className="text-[11px] leading-snug text-amber-700 sm:text-xs">
+                  {typeDirty && categoryDirty
+                    ? "Тип и категория изменены — сохраните"
+                    : typeDirty
+                      ? "Тип изменён — сохраните, чтобы Approve шёл в этот раздел"
+                      : "Категория изменена — сохраните"}
+                </span>
+              ) : (
+                <span className="hidden text-xs text-slate-500 sm:inline">
+                  Показан тип: {IMPORT_PREVIEW_KIND_LABELS[previewKind]}
+                  {showCategoryPicker && category
+                    ? ` · ${
+                        categoryOptions.find((c) => c.slug === category)
+                          ?.name || category
+                      }`
+                    : ""}
+                </span>
+              )}
+            </>
+          )}
         </div>
       </footer>
     </div>

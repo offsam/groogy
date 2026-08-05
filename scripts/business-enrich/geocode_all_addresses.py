@@ -4,6 +4,7 @@
 Usage:
   python3 scripts/business-enrich/geocode_all_addresses.py --dry-run
   python3 scripts/business-enrich/geocode_all_addresses.py --apply
+  python3 scripts/business-enrich/geocode_all_addresses.py --only churches --apply
   python3 scripts/business-enrich/geocode_all_addresses.py --only professionals --apply
   python3 scripts/business-enrich/geocode_all_addresses.py --apply --limit 50
 
@@ -25,7 +26,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
 sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
-from address_geo import resolve_address_geo  # noqa: E402
+from address_geo import resolve_address_geo, scrub_directory_glue  # noqa: E402
 from common import SupabaseRest, load_env  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "data" / "geocode_all_addresses"
@@ -39,7 +40,17 @@ PROFESSIONAL_SELECT = (
     "id,slug,display_name,private_address_line,city,region,state_code,"
     "postal_code,latitude,longitude,location_precision"
 )
+CHURCH_SELECT = (
+    "id,slug,name,address_line,city,region,state_code,"
+    "postal_code,latitude,longitude,location_precision,google_maps_url"
+)
 # professionals has no google_maps_url column — strip it from the geo patch.
+
+ENTITY_LABEL = {
+    "businesses": "biz",
+    "professionals": "pro",
+    "churches": "church",
+}
 
 
 def fetch_rows(
@@ -72,16 +83,20 @@ def process(
     apply: bool,
 ) -> list[dict[str, Any]]:
     results: list[dict[str, Any]] = []
-    label = "biz" if table == "businesses" else "pro"
+    label = ENTITY_LABEL.get(table, table[:6])
     for i, row in enumerate(rows, 1):
         address = (row.get(address_column) or "").strip()
+        cleaned = scrub_directory_glue(address)
         geo = resolve_address_geo(
-            address,
+            cleaned,
             row.get("city"),
             row.get("state_code"),
             row.get("postal_code"),
         )
         patch = dict(geo.patch)
+        # Persist scrubbed street when directory glue was stripped.
+        if cleaned and cleaned != address and geo.ok:
+            patch[address_column] = cleaned
         if table == "professionals":
             patch.pop("google_maps_url", None)
         elif patch.get("google_maps_url") and row.get("google_maps_url"):
@@ -120,7 +135,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument(
         "--only",
-        choices=("all", "businesses", "professionals"),
+        choices=("all", "businesses", "professionals", "churches"),
         default="all",
         help="Limit the run to one entity type.",
     )
@@ -153,9 +168,15 @@ def main() -> int:
         if only in ("all", "professionals")
         else []
     )
+    churches = (
+        fetch_rows(client, "churches", CHURCH_SELECT, "address_line", args.limit)
+        if only in ("all", "churches")
+        else []
+    )
 
     print(f"businesses to geocode: {len(businesses)}")
     print(f"professionals to geocode: {len(professionals)}")
+    print(f"churches to geocode: {len(churches)}")
 
     results = process(
         client,
@@ -173,6 +194,14 @@ def main() -> int:
         name_column="display_name",
         apply=apply,
     )
+    results += process(
+        client,
+        churches,
+        table="churches",
+        address_column="address_line",
+        name_column="name",
+        apply=apply,
+    )
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     report = {
@@ -180,6 +209,7 @@ def main() -> int:
         "only": only,
         "businesses": len(businesses),
         "professionals": len(professionals),
+        "churches": len(churches),
         "ok": sum(1 for r in results if r.get("status") == "ok"),
         "geocode_miss": sum(1 for r in results if r.get("status") == "geocode_miss"),
         "not_street": sum(1 for r in results if r.get("status") == "not_street"),

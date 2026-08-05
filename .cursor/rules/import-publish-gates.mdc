@@ -7,6 +7,19 @@ Standing gates from the Jul 2026 backlog — do not re-introduce one-off workaro
 - Catalog donor is **destroyed** after merge (hard delete); archive only if FK blocks delete.
 - Merge never auto-publishes — archived → `pending` at most; Approve is separate.
 - Queue twins stay `status=duplicate`.
+- Shared phone / ad-account cluster (Оксана / Katia / Viktor on one number): **one keeper**, donors only fill-empty contacts/copy/media — do not mint parallel profiles.
+
+## Catalog target pick (R15) — merge-all
+- Source of truth: `pickBestCatalogMergeTarget` in `lib/import-review/merge-contract.ts`.
+- Score: approved(+phone) ≫ approved ≫ pending ≫ archived across **both** businesses and professionals.
+- Never prefer archived business over approved professional (same phone) — that caused public `/business/…` 404 while live specialist existed.
+- Same score → prefer `professional`.
+- Duplicate list order uses `duplicateMatchListRank` (approved first, archived last).
+
+## Public href after merge (R16)
+- `liveEntityHref` returns `/business|/professional` **only** when `status=approved`.
+- Pending/archived → `null` (no redirect into public 404).
+- Source: `isPubliclyListedStatus` + `lib/import-review/live-entity-href.ts`.
 
 ## Enrich SaaS (R02 / R08)
 - `PLATFORM_SAAS_HOSTS` / `isPlatformSaasHost`: dikidi, glossgenius, fresha, vagaro, booksy, calendly, …
@@ -33,8 +46,15 @@ Standing gates from the Jul 2026 backlog — do not re-introduce one-off workaro
 - Approve runs `redactContactsFromPublicText` on description.
 - News / office-move → updates via `isNewsUpdateTitle`, never services.
 
-# Thin / visual pro clones (Ілля×2, Оля×2, Юля×2)
-- Weak first-name cards need phone|IG|website|email — Telegram post URL alone is not enough (`lib/professional/thin-card-policy.ts`).
-- Same normalized display_name already approved → block publish (merge instead).
-- Cleanup: `scripts/business-enrich/collapse_thin_professional_dups.py --region oc --apply`.
+## Hard publish firewall (R17)
+- Source: `lib/import-review/publish-firewall.ts` (`assertPublishAllowed`).
+- **Additive only** — existing enrich/merge/approve paths stay; firewall only blocks bad publishes.
+- Runs on Approve (and must stay on autopublish). LLM may suggest; firewall decides.
+- Money transfer / lechu / goods / jobs — cannot publish into wrong section (router high-confidence mismatch → block + rewrite hint).
+- Strong hiring / CDL ads → `jobs`, not specialist/business.
+- No street / **HTML-CMS garbage street** (`isGarbageStreetLine`) → not `businesses`.
+- Specialist: ban `pro_other` / empty category; repair text cannot sit in `legal`.
+- Biz→pro category remap: `lib/import-review/category-slug-map.ts` (does not delete categories).
+- Shared-phone ad clusters → one keeper (see R01/R15), donors fill-empty only.
+- Catalog backfill (additive, separate from queue Enrich): `scripts/business-enrich/run_catalog_backfill_enrich.py` wraps existing published enrich scripts; does not change `run_pre_publish_enrich.py`.
 

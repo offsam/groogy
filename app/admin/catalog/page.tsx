@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ADMIN_NAV } from "@/lib/admin/nav";
 
 export const metadata: Metadata = {
-  title: "Catalog — Admin",
+  title: "Каталог — Admin",
 };
 
 export default function AdminCatalogIndexPage() {
@@ -12,11 +12,11 @@ export default function AdminCatalogIndexPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-          Catalog
+          Каталог
         </h1>
         <p className="mt-2 max-w-2xl text-sm text-slate-600">
-          Опубликованные сущности платформы. Модерация кандидатов — в Review
-          Center; здесь — управление живым каталогом.
+          Уже опубликованные карточки — по штату, округу и категории. Новые из
+          импорта — в Очереди.
         </p>
       </div>
       <ul className="grid gap-3 sm:grid-cols-2">

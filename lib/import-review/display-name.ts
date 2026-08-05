@@ -43,6 +43,16 @@ const JUNK_TITLES = new Set(
     "массажист",
     "маникюр",
     "педикюр",
+    // Font stacks scraped from truncated CSS (to4ka / Bootstrap).
+    "segoe ui",
+    "roboto",
+    "helvetica",
+    "helvetica neue",
+    "arial",
+    "noto sans",
+    "system-ui",
+    "times new roman",
+    "liberation sans",
   ].map((s) => s.toLowerCase()),
 );
 
@@ -68,7 +78,7 @@ function letterCount(value: string): number {
 }
 
 const BRAND_TOKEN_RE =
-  /\b(clinic|studio|salon|center|centre|school|camp|spa|dental|dentistry|recovery|group|company|llc|inc|house|beauty|preschool|restaurant|cafe|café|kitchen|market|shop|store|halal|gym|academy|institute|lab|labs|therapy|massage|services|service|registration|kids|club|truck|trailer|repair|motors|jewelry|cargo|express|logistics|delivery|movers|transport|клиник|студи|салон|центр|школ|лагер|спа|ресторан|кафе|садик|садок|магазин|агентств|мастерск|сервис|карго|доставка)\b/i;
+  /\b(clinic|studio|salon|center|centre|school|camp|spa|dental|dentistry|recovery|group|company|llc|inc|pc|llp|pllc|law|firm|attorney|attorneys|legal|lawyers?|house|beauty|preschool|restaurant|cafe|café|kitchen|market|shop|store|halal|gym|academy|institute|lab|labs|therapy|massage|services|service|registration|kids|club|truck|trailer|repair|motors|jewelry|cargo|express|logistics|delivery|movers|transport|delights?|gourmet|foods?|bakery|deli|grocer(?:y|ies)|bistro|grill|pharmacy|boutique|florist|flowers?|gallery|клиник|студи|салон|центр|школ|лагер|спа|ресторан|кафе|садик|садок|магазин|бутик|агентств|мастерск|сервис|карго|доставка|юридическ\w*|адвокат\w*|фирма|офис)\b/i;
 
 const CATEGORY_DOT_NAME_RE =
   /^[A-Za-zА-Яа-яЁё0-9]{1,20}\s*[·•]\s*[a-z][a-z0-9_]{1,40}$/;
@@ -111,6 +121,36 @@ const NON_NAME_TOKENS = new Set([
   "office",
   "service",
   "services",
+  "delights",
+  "delight",
+  "gourmet",
+  "foods",
+  "bakery",
+  "deli",
+  "grocery",
+  "groceries",
+  "kitchen",
+  "bistro",
+  "grill",
+  "pizza",
+  "sushi",
+  "pharmacy",
+  "boutique",
+  "florist",
+  "flower",
+  "flowers",
+  "gallery",
+  "fitness",
+  "yoga",
+  "repair",
+  "motors",
+  "cargo",
+  "express",
+  "logistics",
+  "delivery",
+  "transport",
+  "center",
+  "centre",
 ]);
 
 /** Russian labels for AI category slugs shown in admin queue. */
@@ -142,6 +182,12 @@ export function importCategoryLabel(slug: string | null | undefined): string {
   return IMPORT_CATEGORY_LABELS[key] || key;
 }
 
+/** HTML / CSS / data-URI crumbs mistaken for a card title («src=», base64). */
+const HTML_ATTR_TITLE_RE =
+  /^(?:src|href|alt|class|id|style|content|poster|data-[\w-]+)\s*=/i;
+const DATA_URI_OR_BASE64_RE =
+  /(?:^data:image\/|base64,|iVBORw0KGgo|AAAA[A-Za-z0-9+/]{12,})/i;
+
 export function isJunkImportTitle(raw: string | null | undefined): boolean {
   const t = (raw || "").trim();
   if (!t) return true;
@@ -152,6 +198,12 @@ export function isJunkImportTitle(raw: string | null | undefined): boolean {
   if (letterCount(t) < 3) return true;
   if (EMAIL_DOMAIN_RE.test(lower)) return true;
   if (lower.includes("@")) return true;
+  if (HTML_ATTR_TITLE_RE.test(t) || /=\s*["']?$/.test(t) || /^[a-z]{2,12}=$/i.test(t)) {
+    return true;
+  }
+  if (DATA_URI_OR_BASE64_RE.test(t) || /<\/?[a-z][\w-]*>/i.test(t)) {
+    return true;
+  }
   if (CATEGORY_DOT_NAME_RE.test(t)) return true;
   if (REDDIT_USER_NAME_RE.test(t)) return true;
   if (SNAKE_OR_HANDLE_RE.test(t) && t.length >= 4 && !BRAND_TOKEN_RE.test(t.replaceAll("_", " "))) {
@@ -391,14 +443,9 @@ function quotedNameFromText(raw: string): string | null {
     const t = line.trim();
     if (!t || META_ONLY_RE.test(t) || META_PREFIX_RE.test(t)) continue;
     for (const m of t.matchAll(QUOTED_NAME_RE)) {
-      const candidate = cleanBrand(m[1] || "");
-      if (
-        candidate.length >= 3 &&
-        letterCount(candidate) >= 3 &&
-        !isJunkImportTitle(candidate)
-      ) {
-        return candidate;
-      }
+      // acceptBrand rejects HTML crumbs («src=») that cleanBrand alone keeps.
+      const accepted = acceptBrand(m[1] || "");
+      if (accepted) return accepted;
     }
   }
   return null;
@@ -420,11 +467,17 @@ export function inferNameFromDescription(description: string | null | undefined)
     /^[\s\W]*([A-Z][A-Z0-9 &']{3,50}(?:REPAIR|SERVICES|STUDIO|CLINIC|SALON|CENTER|CAMP|SCHOOL|CAFE|GROUP|MOTORS|ACADEMY))\s*[—–\-|!]/m,
     /^[\s\W]*([A-Z][A-Za-z0-9&'’\-]{2,40})\s+is\s+a\s+(?:small\s+)?(?:family\s+)?(?:business|studio|salon|clinic|company|shop)\b/m,
     /(?:в|у)\s+(?:ресторане|кафе|студии|салоне|клинике|центре|школе|лагере|магазине|агентстве)\s+[«"“]?([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})/iu,
+    // «вже в European Delights» / «в European Delights» — Latin Title Case after в|у
+    /(?:^|[\s,.!?…])(?:вже\s+)?(?:в|у)\s+([A-Z][A-Za-z0-9&'’\-]*(?:\s+[A-Z][A-Za-z0-9&'’\-]*){0,4})\b/,
+    // Pin / location marker lines: 📍 European Delights
+    /(?:📍|📌)\s*([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9&'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9&'’\-]*){0,4})/u,
     /([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})\s*[—–-]\s*(?:это|студия|салон|клиника|лагерь|центр)\b/iu,
     /^[\s\W]*([A-Z][A-Za-z0-9&'’. \-]{2,55}?)\s+offers\b/im,
     /\b((?:Dr\.?|Doctor)\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+offers\b/,
     /(?:порекомендовать|рекомендую|recommend(?:ing)?)\s+([A-Z][A-Za-z0-9&'’\-]*(?:\s+[A-Z][A-Za-z0-9&'’\-]*){1,5})/,
-    /\b([A-Z][A-Za-z0-9&'’-]+(?:\s+[A-Z][A-Za-z0-9&'’-]+){0,4}\s+(?:Clinic|Studio|Salon|Center|Centre|School|Camp|Spa|Dental|Dentistry|Recovery(?:\s+Clinic)?|Group|Company|Preschool|Restaurant|Cafe|Kitchen|Services|Kids\s+Club|House\s+of\s+Beauty))\b/,
+    /\b([A-Z][A-Za-z0-9&'’-]+(?:\s+[A-Z][A-Za-z0-9&'’-]+){0,4}\s+(?:Clinic|Studio|Salon|Center|Centre|School|Camp|Spa|Dental|Dentistry|Recovery(?:\s+Clinic)?|Group|Company|Preschool|Restaurant|Cafe|Kitchen|Services|Kids\s+Club|House\s+of\s+Beauty|Delights|Gourmet|Bakery|Deli|Market|Grocery|Foods|Boutique|Florist|Shop|Store|Gallery|Pharmacy))\b/,
+    // «у самых лучших L'amour Toujours Flower Boutique»
+    /(?:у\s+самых\s+лучших|only\s+(?:at|from)|заказывайте\s+(?:цветы\s+)?(?:только\s+)?у)\s+([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9&'’\-]*(?:\s+[A-ZА-ЯЁa-zа-яё][A-Za-zА-Яа-яЁё0-9&'’\-]*){0,5})/iu,
     /(?:название|компани[яи]|бизнес)\s*[:：]\s*[«"]?([A-ZА-ЯЁ][^"\n«»]{2,50})/iu,
     /(?:добро\s+пожаловать\s+в\s+|welcome\s+to\s+)[«"“]?([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})/iu,
     /([A-ZА-ЯЁ][\wА-Яа-яЁё.&'’-]{1,40}(?:\s+[A-ZА-ЯЁa-zа-яё][\wА-Яа-яЁё.&'’-]{0,40}){0,4})\s+(?:предоставляет|поможет|предлагает|offers|provides|специализир)/iu,

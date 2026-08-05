@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Check, Eye, GitMerge, Loader2, Pause, X, XCircle } from "lucide-react";
+import { Check, Eye, GitMerge, Pause, X, XCircle } from "lucide-react";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
 import { ProfessionalProfileView } from "@/components/professional/ProfessionalProfileView";
@@ -14,9 +14,13 @@ import { LechuProfileView } from "@/components/lechu/LechuProfileView";
 import { TransferProfileView } from "@/components/transfers/TransferProfileView";
 import { ServiceProfileView } from "@/components/services/ServiceProfileView";
 import { Button } from "@/components/ui/Button";
+import { AdminLensBar } from "@/components/admin/AdminLensBar";
+import { AdminQueueCategoryButton } from "@/components/admin/AdminQueueCategoryButton";
+import { useAdminPreviewMapCenter } from "@/components/admin/useAdminPreviewMapCenter";
 import {
   approveImportReviewItemAction,
   mergeImportReviewIntoExistingAction,
+  saveImportReviewItemAction,
   setImportReviewStatusAction,
   type DuplicateMatch,
   type ImportReviewActionResult,
@@ -42,12 +46,17 @@ import {
 } from "@/lib/import-review/preview-section";
 import type { ImportReviewItem } from "@/types/import-review";
 import { IMPORT_REVIEW_STATUS_LABELS } from "@/types/import-review";
+import type { ReviewCategoryOption } from "@/lib/import-review/category-options";
+import { categoriesForPreviewHub } from "@/lib/import-review/category-options";
+import { importTypesToHub } from "@/lib/import-review/hub-preview";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   item: ImportReviewItem;
   filterQuery?: string;
   onClose: () => void;
   onDone?: (flash?: "approved" | "rejected" | "deferred") => void;
+  categories?: ReviewCategoryOption[];
 };
 
 export function ImportReviewPreviewModal({
@@ -55,6 +64,7 @@ export function ImportReviewPreviewModal({
   filterQuery = "",
   onClose,
   onDone,
+  categories = [],
 }: Props) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -91,6 +101,11 @@ export function ImportReviewPreviewModal({
     item.review_status === "approved" ||
     item.review_status === "rejected" ||
     item.review_status === "duplicate";
+
+  const cityMapCenter = useAdminPreviewMapCenter(
+    business.city || professional.city || fields.city,
+    business.stateCode || professional.stateCode || fields.state || null,
+  );
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -135,6 +150,98 @@ export function ImportReviewPreviewModal({
     });
   }
 
+  const hub = importTypesToHub(item.target_collection, item.entity_type);
+  const categoryOptions = categoriesForPreviewHub(
+    categories,
+    hub ?? "businesses",
+  );
+
+  const draft = {
+    onPublish: () =>
+      run(() => approveImportReviewItemAction({ id: item.id }), "approved"),
+    publishDisabled: locked,
+    publishPending: pending,
+    queue: {
+      source: "import_review" as const,
+      id: item.id,
+    },
+    onEnriched: () => router.refresh(),
+    categorySlot:
+      kind === "business" || kind === "professional" ? (
+        <AdminQueueCategoryButton
+          categories={categoryOptions}
+          currentSlug={item.category}
+          disabled={locked}
+          onSave={async (slug) => {
+            const res = await saveImportReviewItemAction({
+              id: item.id,
+              fields: { category: slug },
+            });
+            if (res.ok) router.refresh();
+            return res;
+          }}
+        />
+      ) : undefined,
+  };
+
+  const queueChrome =
+    kind === "business" ? (
+      <AdminLensBar
+        business={business}
+        draft={draft}
+        kind="business"
+        showDelete={false}
+      />
+    ) : kind === "professional" ? (
+      <AdminLensBar
+        draft={draft}
+        kind="professional"
+        professional={professional}
+      />
+    ) : kind === "events" ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="event"
+        title={fields.title || "Событие"}
+      />
+    ) : kind === "jobs" ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="job"
+        title={fields.title || "Вакансия"}
+      />
+    ) : kind === "lechu" ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="lechu"
+        title={fields.title || "Лечу"}
+      />
+    ) : kind === "transfers" ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="transfer"
+        title={fields.title || "Перевод"}
+      />
+    ) : kind === "services" ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="service"
+        title={fields.title || "Услуга"}
+      />
+    ) : (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="marketplace"
+        title={fields.title || "Объявление"}
+      />
+    );
+
   return (
     <div
       aria-modal="true"
@@ -150,9 +257,10 @@ export function ImportReviewPreviewModal({
           <div className="min-w-0">
             <p className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-slate-400 sm:text-[11px]">
               <Eye className="size-3.5" />
-              <span className="sm:hidden">Превью</span>
+              <span className="sm:hidden">Как на сайте</span>
               <span className="hidden sm:inline">
-                {IMPORT_PREVIEW_KIND_LABELS[kind]} · превью раздела
+                {IMPORT_PREVIEW_KIND_LABELS[kind]} · как на платформе · не
+                опубликовано
               </span>
             </p>
             <p className="mt-0.5 truncate text-xs text-slate-600 sm:text-sm">
@@ -175,9 +283,11 @@ export function ImportReviewPreviewModal({
             <div className="min-w-0 overflow-x-hidden rounded-xl border border-slate-200 bg-white p-2.5 sm:rounded-2xl sm:p-4">
               {kind === "business" ? (
                 <BusinessProfileView
+                  adminChrome={queueChrome}
                   autoClaim={false}
                   business={business}
                   businessSlug={business.slug}
+                  cityMapCenter={cityMapCenter}
                   currentUserId={null}
                   isAdmin={false}
                   isOwner={false}
@@ -191,6 +301,8 @@ export function ImportReviewPreviewModal({
                 />
               ) : kind === "professional" ? (
                 <ProfessionalProfileView
+                  adminChrome={queueChrome}
+                  cityMapCenter={cityMapCenter}
                   currentUserId={null}
                   isOwner={false}
                   preview
@@ -218,31 +330,37 @@ export function ImportReviewPreviewModal({
                 />
               ) : kind === "events" ? (
                 <EventProfileView
+                  adminChrome={queueChrome}
                   event={importReviewToEventPreview(fields)}
                   preview
                 />
               ) : kind === "jobs" ? (
                 <JobProfileView
+                  adminChrome={queueChrome}
                   job={importReviewToJobPreview(fields)}
                   preview
                 />
               ) : kind === "lechu" ? (
                 <LechuProfileView
+                  adminChrome={queueChrome}
                   listing={importReviewToListingPreview(fields, kind)}
                   preview
                 />
               ) : kind === "transfers" ? (
                 <TransferProfileView
+                  adminChrome={queueChrome}
                   listing={importReviewToListingPreview(fields, kind)}
                   preview
                 />
               ) : kind === "services" ? (
                 <ServiceProfileView
+                  adminChrome={queueChrome}
                   listing={importReviewToListingPreview(fields, kind)}
                   preview
                 />
               ) : (
                 <MarketplaceListingProfileView
+                  adminChrome={queueChrome}
                   listing={importReviewToListingPreview(fields, kind)}
                   preview
                 />
@@ -371,7 +489,7 @@ export function ImportReviewPreviewModal({
                 }
               >
                 {pending ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <BrandPinLoader size="sm" className="mr-2" />
                 ) : (
                   <Check className="mr-2 h-4 w-4" />
                 )}
@@ -391,7 +509,7 @@ export function ImportReviewPreviewModal({
               }
             >
               {pending ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <BrandPinLoader size="sm" className="mr-2" />
               ) : (
                 <Check className="mr-2 h-4 w-4" />
               )}

@@ -97,8 +97,11 @@ BRAND_TOKEN = re.compile(
     r"restaurant|cafe|café|kitchen|market|shop|store|halal|gym|"
     r"academy|institute|lab|labs|therapy|massage|services|service|"
     r"registration|kids|club|truck|trailer|repair|motors|jewelry|"
+    r"cargo|express|logistics|delivery|movers|transport|"
+    r"delights?|gourmet|foods?|bakery|deli|grocer(?:y|ies)|bistro|grill|"
+    r"pharmacy|boutique|gallery|"
     r"клиник|студи|салон|центр|школ|лагер|спа|ресторан|кафе|"
-    r"садик|садок|детск|магазин|агентств|мастерск|сервис)\b",
+    r"садик|садок|детск|магазин|агентств|мастерск|сервис|карго|доставка)\b",
     re.I,
 )
 
@@ -162,6 +165,32 @@ NON_NAME_TOKENS = {
     "early",
     "learning",
     "westcliff",
+    "delights",
+    "delight",
+    "gourmet",
+    "foods",
+    "bakery",
+    "deli",
+    "grocery",
+    "groceries",
+    "kitchen",
+    "bistro",
+    "grill",
+    "pizza",
+    "sushi",
+    "pharmacy",
+    "boutique",
+    "gallery",
+    "fitness",
+    "yoga",
+    "motors",
+    "cargo",
+    "express",
+    "logistics",
+    "delivery",
+    "transport",
+    "center",
+    "centre",
 }
 
 
@@ -276,6 +305,19 @@ def brand_from_description(desc: str | None, *, current: str = "") -> str | None
             r"лагере|магазине|агентстве)\s+[«\"“]?"
             r"([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*"
             r"(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9'’\-]*){0,4})",
+            1,
+        ),
+        # «вже в European Delights» / Latin Title Case after в|у
+        (
+            r"(?:^|[\s,.!?…])(?:вже\s+)?(?:в|у)\s+"
+            r"([A-Z][A-Za-z0-9&'’\-]*(?:\s+[A-Z][A-Za-z0-9&'’\-]*){0,4})\b",
+            1,
+        ),
+        # Pin marker: 📍 European Delights
+        (
+            r"(?:📍|📌)\s*"
+            r"([A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9&'’\-]*"
+            r"(?:\s+[A-ZА-ЯЁ][A-Za-zА-Яа-яЁё0-9&'’\-]*){0,4})",
             1,
         ),
         (

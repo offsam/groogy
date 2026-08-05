@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { Loader2 } from "lucide-react";
+
 import {
   createLechuDraftAction,
   publishLechuAction,
@@ -33,6 +33,7 @@ import {
   LECHU_REWARD_LABELS,
 } from "@/types/listing";
 import type { UsStateOption } from "@/types/master-data";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const CARRY_TYPE_OPTIONS = (
   Object.entries(LECHU_CARRY_TYPE_LABELS) as [string, string][]
@@ -534,7 +535,7 @@ export function LechuForm({
           type="button"
           variant="secondary"
         >
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Сохранить черновик
         </Button>
         <Button
@@ -543,7 +544,7 @@ export function LechuForm({
           onClick={() => publish()}
           type="button"
         >
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Опубликовать
         </Button>
       </div>

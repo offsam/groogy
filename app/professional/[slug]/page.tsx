@@ -116,9 +116,10 @@ export default async function ProfessionalPage({ params, searchParams }: PagePro
     Boolean(professional.addressLine?.trim());
 
   const cityMapCenter = !hasStreetCoords
-    ? await getCityCenter(professional.city, professional.stateCode).catch(
-        () => null,
-      )
+    ? await getCityCenter(professional.city, professional.stateCode, {
+        postalCode: professional.postalCode,
+        region: professional.region,
+      }).catch(() => null)
     : null;
 
   return (

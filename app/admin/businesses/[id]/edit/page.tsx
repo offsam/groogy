@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 type PageProps = { params: Promise<{ id: string }> };
 
 const BUSINESS_EDIT_SELECT_BASE =
-  "id, name, slug, short_description, description, phone, email, website, instagram_url, telegram_url, google_maps_url, google_rating, google_reviews_count, city, address_line, region, state_code, postal_code, status, category_id" as const;
+  "id, name, slug, short_description, description, phone, email, website, instagram_url, telegram_url, yelp_url, google_maps_url, google_rating, google_reviews_count, city, address_line, region, state_code, postal_code, status, category_id" as const;
 
 const BUSINESS_EDIT_SELECT = (
   CONTACT_LINKS_COLUMN_READY
@@ -93,6 +93,7 @@ export default async function AdminEditBusinessPage({ params }: PageProps) {
           website: business.website,
           instagram_url: business.instagram_url,
           telegram_url: business.telegram_url,
+          yelp_url: (business as { yelp_url?: string | null }).yelp_url ?? null,
           contact_links: (business as { contact_links?: unknown }).contact_links,
           google_maps_url: business.google_maps_url,
           google_rating: business.google_rating,

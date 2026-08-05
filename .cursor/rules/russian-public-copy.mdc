@@ -1,0 +1,39 @@
+---
+description: Public card copy must be Russian (КРУГИ audience)
+alwaysApply: true
+---
+
+# Russian public copy (КРУГИ)
+
+КРУГИ is a **Russian-speaking** California community platform. Public cards are shown in Russian — not English — regardless of source language (Google Maps, websites, Telegram, paste OCR).
+
+## Hard rule
+
+Any path that **writes** public-facing copy must leave Russian on the card:
+
+- Descriptions («О нас» / «О специалисте»)
+- Offer / service / menu titles and blurbs
+- Jobs, events, promotions, updates titles and bodies
+
+English (or other Latin-heavy) source stays in `description_original` / `title_original` when those columns exist — for «Показать оригинал» — **not** as the primary public field.
+
+## Implementation (do not invent a parallel translator)
+
+Use the shared gate in [`lib/content/translate-copy-to-ru.ts`](lib/content/translate-copy-to-ru.ts):
+
+- `needsTranslationToRu` — detect Latin-heavy copy (including short titles like «Latte»)
+- `resolvePublishNarrative` — entity description on publish / enrich
+- `ensureOffersCopyRu` — business offers / professional services / menu items (batch)
+- `ensureTitleBodyRu` — jobs, events, promotions, updates
+
+Call these **inside** insert helpers (`addMissingBusinessOffers`, `addMissingProfessionalServices`, `addMissingJobsFromAd`, `addMissingBusinessEvents`, `addMissingEntityPromotions`, `addMissingEntityUpdates`) — not only in one admin UI screen.
+
+## Must not
+
+- Insert English menu/service lines onto a live card «as scraped»
+- Skip translation because the source was a photo, Maps, or `/menu` HTML
+- Put contacts/addresses into narrative while translating — still run public text through the entity content structure rules
+
+## Brand / person names
+
+Do **not** translate business or person display names (`translateTitle: false` on `resolvePublishNarrative`). Translate descriptions and catalog lines only.

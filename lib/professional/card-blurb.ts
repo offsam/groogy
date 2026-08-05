@@ -218,7 +218,7 @@ const CATEGORY_PITCH: Record<string, string> = {
   childcare: "уход за детьми",
   photo_video: "фото и видео",
   home_services: "дом и ремонт",
-  home_food: "домашняя еда",
+  home_food: "готовим",
   creative: "дизайн и handmade",
   digital: "IT и сайты",
   legal: "юридические услуги",

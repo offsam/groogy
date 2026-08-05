@@ -4,6 +4,11 @@
 Example: street «5800 Madison Ave» without city → Buena Park, but
 source is facebook.com/groups/Russian.Sacramento → Sacramento.
 
+Trust ladder (must not fight ZIP repair):
+  1. ZIP county / hub wins over source-group hub
+  2. Existing city that matches ZIP wins over source hub
+  3. Only then re-geocode into the source hub via address_geo
+
 Usage:
   python3 scripts/business-enrich/fix_source_hub_locations.py --dry-run
   python3 scripts/business-enrich/fix_source_hub_locations.py --apply
@@ -16,15 +21,14 @@ import json
 import os
 import re
 import sys
-import time
-import urllib.parse
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
+sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
+from address_geo import resolve_address_geo  # noqa: E402
 from common import SupabaseRest, load_env  # noqa: E402
 from group_location import location_from_group  # noqa: E402
 
@@ -68,6 +72,38 @@ HUB_META: dict[str, dict[str, str | None]] = {
     },
 }
 
+# ZIP3 → hub (CA SoCal / Sac). Mixed Bay Area ZIP3s return None.
+ZIP3_TO_HUB: dict[str, str] = {
+    "900": "los-angeles",
+    "901": "los-angeles",
+    "902": "los-angeles",
+    "903": "los-angeles",
+    "904": "los-angeles",
+    "905": "los-angeles",
+    "907": "los-angeles",
+    "908": "los-angeles",
+    "910": "los-angeles",
+    "911": "los-angeles",
+    "912": "los-angeles",
+    "913": "los-angeles",
+    "914": "los-angeles",
+    "915": "los-angeles",
+    "916": "los-angeles",
+    "917": "los-angeles",
+    "918": "los-angeles",
+    # 906 is mixed LA/OC — leave unset; city/coord decide
+    "926": "orange-county",
+    "927": "orange-county",
+    "928": "orange-county",
+    "919": "san-diego",
+    "920": "san-diego",
+    "921": "san-diego",
+    "942": "sacramento",
+    "956": "sacramento",
+    "957": "sacramento",
+    "958": "sacramento",
+}
+
 CITY_TO_HUB = {
     "sacramento": "sacramento",
     "roseville": "sacramento",
@@ -89,10 +125,13 @@ CITY_TO_HUB = {
     "fullerton": "orange-county",
     "santa ana": "orange-county",
     "garden grove": "orange-county",
+    "westminster": "orange-county",
+    "yorba linda": "orange-county",
+    "lake forest": "orange-county",
     "los angeles": "los-angeles",
     "glendale": "los-angeles",
     "encino": "los-angeles",
-    "hollywood hills": "los-angeles",
+    "beverly hills": "los-angeles",
     "west hollywood": "los-angeles",
     "long beach": "los-angeles",
     "san diego": "san-diego",
@@ -108,7 +147,6 @@ def hub_from_source(url: str | None) -> str | None:
         return None
     loc = location_from_group(url)
     if not loc:
-        # location_from_group returns city/region; map to hub id
         return None
     city = (loc.get("city") or "").lower()
     region = (loc.get("region") or "").lower()
@@ -161,125 +199,98 @@ def hub_from_city(city: str | None) -> str | None:
     return CITY_TO_HUB.get(city.strip().lower())
 
 
-def nominatim_search(query: str) -> dict[str, Any] | None:
-    qs = urllib.parse.urlencode(
-        {
-            "q": query,
-            "format": "jsonv2",
-            "limit": 1,
-            "addressdetails": 1,
-            "countrycodes": "us",
-        }
-    )
-    req = urllib.request.Request(
-        f"https://nominatim.openstreetmap.org/search?{qs}",
-        headers={
-            "User-Agent": "KrugiBusinessDirectory/1.0 (source-hub fix)",
-            "Accept": "application/json",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except Exception:
+def hub_from_postal(postal: str | None) -> str | None:
+    z = re.sub(r"\D", "", postal or "")[:5]
+    if len(z) != 5:
         return None
-    return data[0] if data else None
+    return ZIP3_TO_HUB.get(z[:3])
 
 
-def normalize_street_for_geocode(address: str) -> list[str]:
-    """Return address variants Nominatim is more likely to resolve."""
-    raw = address.strip()
-    variants = [raw]
-    # third Ave → 3rd Ave (common FB post style)
-    ordinals = {
-        "first": "1st",
-        "second": "2nd",
-        "third": "3rd",
-        "fourth": "4th",
-        "fifth": "5th",
-        "sixth": "6th",
-        "seventh": "7th",
-        "eighth": "8th",
-        "ninth": "9th",
-        "tenth": "10th",
-    }
-    lowered = raw
-    for word, num in ordinals.items():
-        pat = re.compile(rf"\b{word}\b", re.I)
-        if pat.search(lowered):
-            variants.append(pat.sub(num, raw))
-            break
-    # Ave → Avenue
-    if re.search(r"\bAve\.?\b", raw, re.I) and "Avenue" not in raw:
-        variants.append(re.sub(r"\bAve\.?\b", "Avenue", raw, flags=re.I))
-    # dedupe preserve order
-    seen: set[str] = set()
-    out: list[str] = []
-    for v in variants:
-        key = v.lower()
-        if key not in seen:
-            seen.add(key)
-            out.append(v)
-    return out
-
-
-def geocode_in_hub(address: str, hub_id: str) -> dict[str, Any] | None:
+def geocode_in_hub(
+    address: str,
+    hub_id: str,
+    *,
+    postal_code: str | None = None,
+    prefer_city: str | None = None,
+) -> dict[str, Any] | None:
+    """Geocode via address_geo; keep only hits that land in hub_id."""
     meta = HUB_META[hub_id]
-    city = meta.get("city")
-    region = meta.get("region")
-    # Prefer city bias; for OC use region name
-    bias = city or region or "California"
-    house = re.match(r"^(\d+)", address.strip())
-    house_num = house.group(1) if house else None
-    fallback: dict[str, Any] | None = None
+    bias_city = prefer_city or meta.get("city")
+    # OC has no single city — use region name only as query bias text via city slot
+    if not bias_city and hub_id == "orange-county":
+        bias_city = None
 
-    for addr_variant in normalize_street_for_geocode(address):
-        queries = [
-            f"{addr_variant}, {bias}, CA, USA",
-            f"{addr_variant}, {bias}, California",
-        ]
-        for q in queries:
-            hit = nominatim_search(q)
-            time.sleep(1.1)
-            if not hit:
-                continue
-            lat = float(hit["lat"])
-            lng = float(hit["lon"])
-            addr = hit.get("address") or {}
-            place_city = (
-                addr.get("city")
-                or addr.get("town")
-                or addr.get("village")
-                or addr.get("hamlet")
+    geo = resolve_address_geo(
+        address,
+        city=bias_city,
+        state_code=meta.get("state_code") or "US-CA",
+        postal_code=postal_code,
+        throttle=True,
+        with_maps_url=True,
+    )
+    if not geo.ok:
+        # Retry with hub primary city when prefer_city failed, or OC with no city
+        if prefer_city and prefer_city != meta.get("city"):
+            geo = resolve_address_geo(
+                address,
+                city=meta.get("city"),
+                state_code=meta.get("state_code") or "US-CA",
+                postal_code=postal_code,
+                throttle=True,
+                with_maps_url=True,
             )
-            coord_ok = hub_from_coords(lat, lng) == hub_id
-            city_ok = hub_from_city(place_city) == hub_id
-            if not coord_ok and not city_ok:
-                continue
-            if not coord_ok and hub_from_coords(lat, lng) and hub_from_coords(lat, lng) != hub_id:
-                continue
+        elif hub_id == "orange-county" and not prefer_city:
+            # Bias with county label as free-text city for Nominatim
+            geo = resolve_address_geo(
+                address,
+                city="Orange County",
+                state_code="US-CA",
+                postal_code=postal_code,
+                throttle=True,
+                with_maps_url=True,
+            )
 
-            postcode = str(addr.get("postcode") or "")
-            zm = re.match(r"^(\d{5})", postcode)
-            result = {
-                "latitude": lat,
-                "longitude": lng,
-                "postal_code": zm.group(1) if zm else None,
-                "city": place_city or city,
-                "display": hit.get("display_name"),
-                "has_house": bool(
-                    house_num
-                    and (
-                        str(addr.get("house_number") or "") == house_num
-                        or house_num in str(hit.get("display_name") or "")
-                    )
-                ),
-            }
-            if result["has_house"]:
-                return result
-            if fallback is None:
-                fallback = result
-    return fallback
+    if not geo.ok:
+        return None
+
+    lat = geo.patch.get("latitude")
+    lng = geo.patch.get("longitude")
+    coord_hub = hub_from_coords(
+        float(lat) if lat is not None else None,
+        float(lng) if lng is not None else None,
+    )
+    if coord_hub and coord_hub != hub_id:
+        return None
+
+    return {
+        "latitude": lat,
+        "longitude": lng,
+        "postal_code": geo.patch.get("postal_code"),
+        "location_precision": geo.patch.get("location_precision"),
+        "google_maps_url": geo.patch.get("google_maps_url"),
+        "query": geo.query,
+    }
+
+
+def fetch_all(client: SupabaseRest, path: str, params: dict[str, str]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    offset = 0
+    while True:
+        batch = (
+            client._request(
+                "GET",
+                path,
+                params={**params, "limit": "1000", "offset": str(offset)},
+            )
+            or []
+        )
+        rows.extend(batch)
+        if len(batch) < 1000:
+            break
+        offset += 1000
+    return rows
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
@@ -297,18 +308,16 @@ def main() -> int:
         return 1
     sb = SupabaseRest(url, key)
 
-    rows = (
-        sb._request(
-            "GET",
-            "/businesses",
-            params={
-                "select": "id,slug,name,city,region,postal_code,address_line,latitude,longitude,source_url,source_kind,status",
-                "status": "in.(approved,pending,deferred)",
-                "limit": "3000",
-            },
-        )
-        or []
+    rows = fetch_all(
+        sb,
+        "/businesses",
+        {
+            "select": "id,slug,name,city,region,postal_code,address_line,latitude,longitude,source_url,source_kind,status",
+            "status": "in.(approved,pending,deferred)",
+            "order": "id.asc",
+        },
     )
+    print(f"loaded businesses: {len(rows)}")
 
     report: dict[str, Any] = {
         "mode": "apply" if apply else "dry_run",
@@ -320,16 +329,64 @@ def main() -> int:
         src_hub = hub_from_url_direct(r.get("source_url"))
         if not src_hub:
             continue
+
+        postal = (r.get("postal_code") or "").strip() or None
+        zip_hub = hub_from_postal(postal)
         coord_hub = hub_from_coords(r.get("latitude"), r.get("longitude"))
         city_hub = hub_from_city(r.get("city"))
+        addr = (r.get("address_line") or "").strip()
+        city = (r.get("city") or "").strip()
+
+        # ZIP already places the card in another metro → never force source hub.
+        if zip_hub and zip_hub != src_hub:
+            report["skipped"].append(
+                {
+                    "slug": r["slug"],
+                    "reason": "zip_hub_wins",
+                    "src_hub": src_hub,
+                    "zip_hub": zip_hub,
+                    "postal_code": postal,
+                }
+            )
+            continue
+
+        # City + ZIP agree against source hub → keep (do not stamp group city).
+        if city_hub and zip_hub and city_hub == zip_hub and city_hub != src_hub:
+            report["skipped"].append(
+                {
+                    "slug": r["slug"],
+                    "reason": "city_zip_agree_over_source",
+                    "src_hub": src_hub,
+                    "city_hub": city_hub,
+                    "zip_hub": zip_hub,
+                }
+            )
+            continue
+
+        # Coords already match ZIP in a different hub than source → keep.
+        if (
+            coord_hub
+            and coord_hub != src_hub
+            and zip_hub
+            and zip_hub == coord_hub
+        ):
+            report["skipped"].append(
+                {
+                    "slug": r["slug"],
+                    "reason": "coords_match_zip_over_source",
+                    "src_hub": src_hub,
+                    "coord_hub": coord_hub,
+                    "zip_hub": zip_hub,
+                }
+            )
+            continue
+
         conflict = False
         if coord_hub and coord_hub != src_hub:
             conflict = True
         if city_hub and city_hub != src_hub:
             conflict = True
-        # Street present, city missing, source has city hub → still fill
-        addr = (r.get("address_line") or "").strip()
-        city = (r.get("city") or "").strip()
+
         needs_fill = bool(addr) and not city and src_hub in (
             "sacramento",
             "los-angeles",
@@ -345,42 +402,45 @@ def main() -> int:
             continue
 
         meta = HUB_META[src_hub]
-        geo = geocode_in_hub(addr, src_hub)
+        prefer = city if city_hub == src_hub else None
+        geo = geocode_in_hub(
+            addr, src_hub, postal_code=postal, prefer_city=prefer
+        )
+
         patch: dict[str, Any] = {
             "region": meta["region"],
             "state_code": meta["state_code"],
         }
-        if meta.get("city"):
-            patch["city"] = meta["city"]
-        elif geo and geo.get("city"):
-            patch["city"] = geo["city"]
 
         if geo:
             patch["latitude"] = geo["latitude"]
             patch["longitude"] = geo["longitude"]
-            # Exact house → street; street centroid only → county (coords still useful)
-            patch["location_precision"] = (
-                "street" if geo.get("has_house") else "county"
-            )
-            if geo.get("postal_code"):
+            if geo.get("location_precision"):
+                patch["location_precision"] = geo["location_precision"]
+            if geo.get("google_maps_url"):
+                patch["google_maps_url"] = geo["google_maps_url"]
+            if geo.get("postal_code") and not postal:
                 patch["postal_code"] = geo["postal_code"]
-            # Prefer geocoder city when hub is OC (no single city)
-            if src_hub == "orange-county" and geo.get("city"):
-                patch["city"] = geo["city"]
-            elif geo.get("city") and src_hub != "orange-county":
-                # Keep hub primary city for Sacramento etc., unless geocoder
-                # found a suburb in the same hub (Roseville, etc.)
-                ghub = hub_from_city(geo["city"])
-                if ghub == src_hub:
-                    patch["city"] = geo["city"]
+            # City: keep existing if already in hub; else hub primary or leave
+            if city_hub == src_hub and city:
+                patch["city"] = city
+            elif meta.get("city"):
+                patch["city"] = meta["city"]
+            # OC: do not invent a city when geocode did not fill one
         else:
-            # At least snap city/region to source; clear wrong coords outside hub.
-            # businesses.location_precision only allows street|county|null.
+            # Snap region to source hub; clear coords only when they are outside hub.
             if coord_hub and coord_hub != src_hub:
                 patch["latitude"] = None
                 patch["longitude"] = None
-                patch["postal_code"] = None
-                patch["location_precision"] = "county"
+                patch["location_precision"] = None
+                # Keep ZIP — clearing it made ZIP repair harder
+            if city_hub == src_hub and city:
+                patch["city"] = city
+            elif meta.get("city") and not postal:
+                # Only stamp hub city when there is no ZIP that already placed us
+                patch["city"] = meta["city"]
+            elif meta.get("city") and zip_hub == src_hub and not city:
+                patch["city"] = meta["city"]
 
         item = {
             "slug": r["slug"],
@@ -393,15 +453,16 @@ def main() -> int:
                 "latitude": r.get("latitude"),
                 "longitude": r.get("longitude"),
                 "coord_hub": coord_hub,
+                "zip_hub": zip_hub,
             },
             "patch": patch,
-            "geo_display": (geo or {}).get("display"),
+            "geo_query": (geo or {}).get("query"),
             "source_url": r.get("source_url"),
         }
         report["fixes"].append(item)
         print(
             f"FIX {r['slug'][:40]:40} {coord_hub or city_hub} → {src_hub} "
-            f"city={patch.get('city')} zip={patch.get('postal_code')} "
+            f"city={patch.get('city')} zip={patch.get('postal_code') or postal} "
             f"lat={patch.get('latitude')}"
         )
         if apply:

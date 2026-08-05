@@ -2,13 +2,14 @@
 
 import { useState, useTransition } from "react";
 import Link from "next/link";
-import { Bell, BellOff, Loader2 } from "lucide-react";
+import { Bell, BellOff } from "lucide-react";
 import {
   followEntityAction,
   unfollowEntityAction,
 } from "@/lib/updates/actions";
 import type { UpdateOwnerType } from "@/types/update";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type FollowEntityButtonProps = {
   ownerType: UpdateOwnerType;
@@ -82,7 +83,7 @@ export function FollowEntityButton({
       type="button"
     >
       {pending ? (
-        <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+        <BrandPinLoader size="sm" />
       ) : following ? (
         <BellOff aria-hidden="true" className="size-4" />
       ) : (

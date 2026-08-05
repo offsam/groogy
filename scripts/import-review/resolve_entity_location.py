@@ -73,6 +73,45 @@ def merge_city_with_group(
 
     from_group = location_from_group(chat_id, source_group, source, chat_title)
 
+    def _hub_for_city(label: str | None) -> str | None:
+        c = (label or "").strip().lower()
+        if not c:
+            return None
+        if re.search(
+            r"los\s*angeles|glendale|burbank|pasadena|west\s*hollywood|beverly|"
+            r"long\s*beach",
+            c,
+        ):
+            return "los-angeles"
+        if re.search(
+            r"irvine|anaheim|santa\s*ana|costa\s*mesa|huntington|newport|"
+            r"fullerton|garden\s*grove|westminster|tustin|laguna|"
+            r"mission\s*viejo|buena\s*park|orange\s*county|^oc$",
+            c,
+        ):
+            return "orange-county"
+        if re.search(r"sacramento|roseville|elk\s*grove|folsom", c):
+            return "sacramento"
+        if re.search(r"san\s*francisco|oakland|berkeley|bay\s*area", c):
+            return "san-francisco"
+        if re.search(r"san\s*diego|chula\s*vista", c):
+            return "san-diego"
+        return None
+
+    def _hub_for_region(label: str | None) -> str | None:
+        r = (label or "").strip().lower()
+        if re.search(r"orange\s*county|^oc$", r):
+            return "orange-county"
+        if "los angeles" in r:
+            return "los-angeles"
+        if "sacramento" in r:
+            return "sacramento"
+        if "san francisco" in r or "bay area" in r:
+            return "san-francisco"
+        if "san diego" in r:
+            return "san-diego"
+        return None
+
     street_only = bool((address_line or "").strip()) and not city_out
     if (not city_out and not region_out) or street_only:
         if from_group:
@@ -85,7 +124,14 @@ def merge_city_with_group(
             if not state_out:
                 state_out = from_group.get("state") or from_group.get("state_code")
     else:
-        if not region_out and from_group:
+        # Never stamp a group region that conflicts with an explicit city
+        # (e.g. city=Westminster + LA hub group → keep OC, do not write LA County).
+        city_hub = _hub_for_city(city_out)
+        group_hub = _hub_for_region(from_group.get("region") if from_group else None) or (
+            _hub_for_city(from_group.get("city") if from_group else None)
+        )
+        hub_conflict = bool(city_hub and group_hub and city_hub != group_hub)
+        if not region_out and from_group and not hub_conflict:
             region_out = from_group.get("region")
             if not county_geoid:
                 county_geoid = from_group.get("county_geoid")

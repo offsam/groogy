@@ -30,7 +30,7 @@ import {
 import { safeErrorMessage } from "@/lib/security/redact";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { createServerClient } from "@/lib/supabase/server";
-import { getActiveCategories, searchBusinesses } from "@/lib/supabase/queries";
+import { getActiveCategories, getBusinessBySlug, searchBusinesses } from "@/lib/supabase/queries";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { hasCoordinates, type Business } from "@/types/business";
 
@@ -64,6 +64,7 @@ function hintScore(business: Business, hints: string[]): number {
   const phoneDigits = (business.phone ?? "").replace(/\D/g, "");
   const haystack = [
     business.name,
+    business.slug,
     business.shortDescription,
     business.description,
     business.categoryName,
@@ -76,10 +77,27 @@ function hintScore(business: Business, hints: string[]): number {
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
+
+  // Generic words that match almost any "X Studio" — never score these alone.
+  const WEAK = new Set([
+    "studio",
+    "студия",
+    "студии",
+    "school",
+    "школа",
+    "center",
+    "centre",
+    "club",
+    "salon",
+    "салон",
+  ]);
+
   return hints.reduce((sum, hint) => {
-    const lower = hint.toLowerCase();
+    const lower = hint.toLowerCase().trim();
+    if (lower.length < 2 || WEAK.has(lower)) return sum;
     // Exact phrase in name beats weak synonym hits elsewhere (пол/tile).
     if (name.includes(lower)) return sum + 6;
+    if ((business.slug ?? "").toLowerCase().includes(lower)) return sum + 6;
     // Street / city match is what address pastes need.
     if (address.includes(lower)) return sum + 5;
     if (/^\d{7,10}$/.test(lower) && phoneDigits.includes(lower)) return sum + 8;
@@ -87,6 +105,111 @@ function hintScore(business: Business, hints: string[]): number {
     if (haystackMatchesToken(haystack, hint)) return sum + 1;
     return sum;
   }, 0);
+}
+
+/** Dance/ballet query must not surface nail/beauty "studios". */
+const DANCE_TOPIC_HINTS = new Set([
+  "балет",
+  "балета",
+  "балетный",
+  "ballet",
+  "танцы",
+  "танцев",
+  "танец",
+  "dance",
+  "dancing",
+  "ballroom",
+  "хореограф",
+]);
+
+const TRANSLATOR_TOPIC_HINTS = new Set([
+  "переводчик",
+  "переводчика",
+  "переводчики",
+  "перевод",
+  "translator",
+  "translators",
+  "interpreter",
+  "interpreters",
+  "interpreting",
+]);
+
+const BEAUTY_OFFTOPIC_RE =
+  /\b(nail|nails|manicure|pedicure|маникюр\w*|педикюр\w*|ногт\w*|брови|lash(?:es)?|ресниц\w*|косметолог\w*)\b/iu;
+
+/** Categories that are noise for a court/Zoom translator request. */
+const TRANSLATOR_OFFTOPIC_CATEGORIES = new Set([
+  "medical",
+  "beauty",
+  "fitness",
+  "auto",
+  "insurance",
+  "real_estate",
+  "groceries",
+  "restaurants",
+  "pets",
+  "travel",
+  "events",
+  "education",
+]);
+
+function isOffTopicForHints(business: Business, hints: string[]): boolean {
+  const wantsDance = hints.some((h) => DANCE_TOPIC_HINTS.has(h.toLowerCase()));
+  const wantsTranslator = hints.some((h) =>
+    TRANSLATOR_TOPIC_HINTS.has(h.toLowerCase()),
+  );
+
+  const hay = [
+    business.name,
+    business.slug,
+    business.shortDescription,
+    business.description,
+    business.categoryName,
+    business.categorySlug,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  if (wantsDance) {
+    const danceHints = hints.filter((h) => DANCE_TOPIC_HINTS.has(h.toLowerCase()));
+    const danceScore = hintScore(business, danceHints);
+    if (danceScore < 3) {
+      if (business.categorySlug === "beauty") return true;
+      if (BEAUTY_OFFTOPIC_RE.test(hay)) return true;
+    }
+  }
+
+  if (wantsTranslator) {
+    const tHints = hints.filter((h) =>
+      TRANSLATOR_TOPIC_HINTS.has(h.toLowerCase()),
+    );
+    const tScore = hintScore(business, tHints);
+    // Keep real translator cards in any category.
+    if (tScore >= 3) return false;
+    // Lawyers without translator signal are weak but tolerable; drop unrelated hubs.
+    if (
+      business.categorySlug &&
+      TRANSLATOR_OFFTOPIC_CATEGORIES.has(business.categorySlug)
+    ) {
+      return true;
+    }
+    // Generic services that only matched via soft noise (flooring/daycare).
+    if (
+      /\b(flooring|plumbing|daycare|страхован|insurance|аренд\w*\s+машин|rent\s*a\s*car|фитнес|gym|клиник\w*|clinic)\b/iu.test(
+        hay,
+      )
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function filterOnTopic(businesses: Business[], hints: string[]): Business[] {
+  if (hints.length === 0) return businesses;
+  return businesses.filter((b) => !isOffTopicForHints(b, hints));
 }
 
 /** Nearest-first when coords present; then soft hint boost; then completeness. */
@@ -168,6 +291,7 @@ function buildSearchQueryFromIntent(
   intent: SearchIntent,
   qForLlm: string,
   fallback: boolean,
+  options?: { slugPaste?: boolean },
 ): string {
   if (fallback) return qForLlm;
 
@@ -179,6 +303,11 @@ function buildSearchQueryFromIntent(
           .filter((t) => t.length >= 2 && !t.includes(" ")),
       ),
     ];
+    // Slug parts: prefer distinctive tokens, avoid AND-ing "studio"+"code"+everything.
+    if (options?.slugPaste) {
+      const ranked = [...nameTerms].sort((a, b) => b.length - a.length);
+      return ranked[0] || qForLlm;
+    }
     // Person / brand: "Максим Дегтярь" → AND both tokens (not just "максим").
     const letterNames = nameTerms.filter((t) => /^\p{L}+$/u.test(t));
     if (letterNames.length >= 2 && letterNames.length <= 4) {
@@ -337,7 +466,9 @@ export async function POST(request: Request) {
     !isAddressPaste &&
     (preparse.kind === "phone" ||
       preparse.kind === "social_handle" ||
-      preparse.kind === "website");
+      preparse.kind === "website" ||
+      preparse.kind === "slug");
+  const isSlugPaste = !isAddressPaste && preparse.kind === "slug";
 
   // Deterministic typo fix (floring → flooring) before/alongside LLM.
   // Skip spellcheck on address/maps/identity pastes.
@@ -495,7 +626,9 @@ export async function POST(request: Request) {
     intent = enrichSearchIntent(intent);
   }
 
-  let searchQuery = buildSearchQueryFromIntent(intent, qForLlm, fallback);
+  let searchQuery = buildSearchQueryFromIntent(intent, qForLlm, fallback, {
+    slugPaste: isSlugPaste,
+  });
   if (isAddressPaste) {
     const terms = normalized.addressSearchTerms.filter(
       (t) => !/^\d{5}(?:-\d{4})?$/.test(t),
@@ -554,6 +687,21 @@ export async function POST(request: Request) {
     ...searchParams,
     query: searchQuery,
   });
+
+  // Exact catalog slug lookup (ballroom-studio-dance-code → /business/…).
+  if (isSlugPaste && preparse.identityToken) {
+    try {
+      const bySlug = await getBusinessBySlug(catalog, preparse.identityToken);
+      if (bySlug) {
+        businesses = [
+          bySlug,
+          ...businesses.filter((b) => b.id !== bySlug.id),
+        ];
+      }
+    } catch (err) {
+      console.warn("[ai-search] slug lookup failed:", safeErrorMessage(err));
+    }
+  }
 
   // Address miss with city filter → retry street without city (city spelling mismatch).
   if (
@@ -686,27 +834,141 @@ export async function POST(request: Request) {
 
   const softHints = [
     ...intent.mustHints,
-    ...corrections.map((c) => c.to),
+    // Only keep meaningful spell fixes (floring→flooring). Never short junk (по→пол).
+    ...corrections.map((c) => c.to).filter((t) => t.length >= 5),
     ...normalized.addressSearchTerms,
     ...intent.keywords.filter((k) =>
       ["русский", "russian", "украинский", "ukrainian"].includes(k.toLowerCase()),
     ),
   ];
 
-  let ranked = rankBusinesses(businesses, softHints, near);
+  let ranked = filterOnTopic(
+    rankBusinesses(businesses, softHints, near),
+    softHints,
+  );
+  let matchKind: "exact" | "similar" | "empty" = ranked.length > 0 ? "exact" : "empty";
+  let matchMessage: string | null = null;
 
   // When we have trade/service hints and some cards match them, drop unrelated noise.
-  // For address/identity pastes, keep anything that matched the structured query.
+  // If NOTHING matches the hints, clear noise instead of showing random "студия" hits.
   if (softHints.length > 0 && !isAddressPaste && !isIdentityPaste) {
     const withScores = ranked.map((b) => ({ b, s: hintScore(b, softHints) }));
     const strong = withScores.filter((x) => x.s >= 3).map((x) => x.b);
     const any = withScores.filter((x) => x.s > 0).map((x) => x.b);
-    if (strong.length > 0) ranked = strong;
-    else if (any.length > 0) ranked = any;
+    if (strong.length > 0) {
+      ranked = strong;
+      matchKind = "exact";
+    } else if (any.length > 0) {
+      ranked = any;
+      matchKind = "similar";
+      matchMessage =
+        "Точного совпадения нет — вот похожие варианты по смыслу запроса.";
+    } else {
+      ranked = [];
+      matchKind = "empty";
+    }
   } else if (softHints.length > 0 && (isAddressPaste || isIdentityPaste)) {
     const withScores = ranked.map((b) => ({ b, s: hintScore(b, softHints) }));
+    const strong = withScores.filter((x) => x.s >= 3).map((x) => x.b);
     const any = withScores.filter((x) => x.s > 0).map((x) => x.b);
-    if (any.length > 0) ranked = any;
+    if (strong.length > 0) {
+      ranked = strong;
+      matchKind = "exact";
+    } else if (any.length > 0) {
+      ranked = any;
+      matchKind = isSlugPaste ? "similar" : "exact";
+      if (isSlugPaste) {
+        matchMessage =
+          "Такого slug в каталоге нет — похожие по словам из названия.";
+      }
+    } else if (isSlugPaste) {
+      ranked = [];
+      matchKind = "empty";
+    }
+  }
+
+  // Similar fallback: category browse ranked by hints when exact search failed.
+  if (ranked.length === 0) {
+    const similarCategory =
+      categoryOverride ??
+      intent.categorySlug ??
+      (isSlugPaste ? preparse.categorySlug : null) ??
+      (softHints.some((h) => DANCE_TOPIC_HINTS.has(h.toLowerCase()))
+        ? "fitness"
+        : null);
+
+    if (similarCategory || softHints.length > 0) {
+      // Prefer a distinctive topic term — never search bare "studio"/"студия".
+      const topicHints = softHints.filter(
+        (h) =>
+          ![
+            "studio",
+            "студия",
+            "студии",
+            "school",
+            "школа",
+            "salon",
+            "салон",
+          ].includes(h.toLowerCase()),
+      );
+      const similarQuery =
+        topicHints.length > 0
+          ? pickPrimarySearchTerm(topicHints)
+          : softHints.length > 0
+            ? pickPrimarySearchTerm(softHints)
+            : undefined;
+
+      const similarPool = filterOnTopic(
+        await safeSearchBusinesses(catalog, {
+          categorySlug: similarCategory,
+          city: cityForFilter,
+          hubId,
+          nearLat,
+          nearLng,
+          query: similarQuery,
+        }),
+        softHints,
+      );
+      let similar =
+        softHints.length > 0
+          ? rankBusinesses(similarPool, softHints, near).filter(
+              (b) => hintScore(b, softHints) >= 3,
+            )
+          : similarPool;
+
+      // Still empty → category browse, but only cards that match topic hints.
+      if (similar.length === 0 && similarCategory && softHints.length > 0) {
+        const browse = filterOnTopic(
+          await safeSearchBusinesses(catalog, {
+            categorySlug: similarCategory,
+            city: cityForFilter,
+            hubId,
+            nearLat,
+            nearLng,
+          }),
+          softHints,
+        );
+        similar = rankBusinesses(browse, softHints, near)
+          .filter((b) => hintScore(b, softHints) >= 3)
+          .slice(0, 12);
+      }
+
+      if (similar.length > 0) {
+        ranked = similar.slice(0, 24);
+        matchKind = "similar";
+        matchMessage =
+          matchMessage ??
+          "Точного совпадения не нашли — могу предложить похожие варианты.";
+      } else {
+        matchKind = "empty";
+        matchMessage =
+          "Ничего похожего в каталоге не нашли. Попробуйте другие слова или категорию.";
+      }
+    } else {
+      matchKind = "empty";
+      matchMessage =
+        "Ничего не нашли по этому запросу. Попробуйте название услуги или категории.";
+    }
   }
 
   // Deduplicate corrections for UI
@@ -741,5 +1003,7 @@ export async function POST(request: Request) {
         : uniqueCorrections.length > 0
           ? qForLlm
           : null,
+    matchKind,
+    message: matchMessage,
   });
 }

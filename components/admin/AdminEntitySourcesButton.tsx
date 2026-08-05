@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Link from "next/link";
-import { Layers, Loader2, X } from "lucide-react";
+import { Layers, X } from "lucide-react";
 import {
   listEntityMergeSourcesAction,
   type EntitySourceHit,
@@ -10,6 +10,7 @@ import {
 } from "@/lib/admin/entity-merge-sources";
 import type { LiveEntityKind } from "@/lib/admin/published-duplicates-scan";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const chip =
   "inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50";
@@ -82,7 +83,7 @@ export function AdminEntitySourcesButton({
     <div className={cn("relative", className)}>
       <button type="button" className={chip} onClick={run} disabled={pending}>
         {pending && open ? (
-          <Loader2 className="size-3.5 animate-spin" />
+          <BrandPinLoader size="sm" />
         ) : (
           <Layers className="size-3.5" />
         )}

@@ -66,8 +66,8 @@ insert into public.categories (
   (
     'b1000001-0000-4000-8000-000000000006',
     'home_food',
-    'Домашняя еда и выпечка',
-    'Home food & baking',
+    'Готовим',
+    'Home cooking',
     'home_food',
     260,
     true,

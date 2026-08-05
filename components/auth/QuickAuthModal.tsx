@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState, type FormEvent } from "react";
-import { Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import { createBrowserClient } from "@/lib/supabase/client";
 import {
   authMessage,
@@ -14,6 +14,7 @@ import {
 import { AuthAlert, AuthField } from "@/components/auth/AuthShell";
 import { OAuthButtons } from "@/components/auth/OAuthButtons";
 import { Button } from "@/components/ui/Button";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type QuickAuthModalProps = {
   open: boolean;
@@ -218,7 +219,7 @@ export function QuickAuthModal({
               />
               <Button className="w-full" disabled={loading} type="submit">
                 {loading ? (
-                  <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+                  <BrandPinLoader size="sm" />
                 ) : null}
                 Войти
               </Button>
@@ -257,7 +258,7 @@ export function QuickAuthModal({
               />
               <Button className="w-full" disabled={loading} type="submit">
                 {loading ? (
-                  <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+                  <BrandPinLoader size="sm" />
                 ) : null}
                 Создать аккаунт
               </Button>

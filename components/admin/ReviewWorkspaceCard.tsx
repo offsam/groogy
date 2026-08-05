@@ -1,19 +1,10 @@
 "use client";
 
 import { BusinessCard } from "@/components/business/BusinessCard";
-import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
-import { ServiceCard } from "@/components/services/ServiceCard";
 import { EventCard } from "@/components/events/EventCard";
 import { EventProfileView } from "@/components/events/EventProfileView";
 import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
-import { PreviewSectionBadge } from "@/components/admin/PreviewSectionBadge";
-import { recommendationToEventPreview } from "@/lib/events/from-recommendation";
-import {
-  yellowPagesEntityKind,
-  yellowPagesToBusinessPreview,
-  yellowPagesToProfessionalPreview,
-  yellowPagesToServicePreview,
-} from "@/lib/import-review/yellow-pages-preview";
+import { recommendationToImportPreviewFields } from "@/lib/import-review/yellow-pages-preview";
 import type { ReviewWorkspaceTask } from "@/lib/admin/review-workspace/types";
 import type { PlatformEvent } from "@/lib/events/queries";
 
@@ -35,7 +26,7 @@ function EventAffichePreview({ event }: { event: PlatformEvent }) {
   );
 }
 
-/** Renders the public card for the task — no admin-only card design. */
+/** Renders the public card for the task — same chrome as the publish queue. */
 export function ReviewWorkspaceCard({ task }: Props) {
   if (task.payload.kind === "import_review") {
     return (
@@ -69,40 +60,12 @@ export function ReviewWorkspaceCard({ task }: Props) {
   }
 
   if (task.payload.kind === "recommendation") {
-    const item = task.payload.item;
-    if (item.kind === "event") {
-      return (
-        <>
-          <PreviewSectionBadge kind="events" />
-          <EventAffichePreview event={recommendationToEventPreview(item)} />
-        </>
-      );
-    }
-    const kind = yellowPagesEntityKind(item);
-    if (kind === "professional") {
-      return (
-        <>
-          <PreviewSectionBadge kind="professional" />
-          <ProfessionalCard
-            professional={yellowPagesToProfessionalPreview(item)}
-            preview
-          />
-        </>
-      );
-    }
-    if (kind === "service") {
-      return (
-        <>
-          <PreviewSectionBadge kind="services" />
-          <ServiceCard listing={yellowPagesToServicePreview(item)} preview />
-        </>
-      );
-    }
     return (
-      <>
-        <PreviewSectionBadge kind="business" />
-        <BusinessCard business={yellowPagesToBusinessPreview(item)} preview />
-      </>
+      <ImportReviewTypedCard
+        item={recommendationToImportPreviewFields(task.payload.item)}
+        showSectionBadge
+        className="max-w-xl"
+      />
     );
   }
 

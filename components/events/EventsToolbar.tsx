@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
+import { signalAppNavigation } from "@/components/layout/NavigationProgress";
 import {
   EVENT_CATEGORIES,
   EVENT_CATEGORY_LABELS_RU,
@@ -80,6 +81,7 @@ export function EventsToolbar({
       month,
     });
     startTransition(() => {
+      signalAppNavigation();
       router.push(href);
     });
   }

@@ -105,6 +105,15 @@ def resolve_booking_url(
             cand = str(hit["url"]).strip()
             if cand and not _PLATFORM_CHROME_RE.search(cand):
                 return cand[:500]
+        # CRA/Vite: Calendly etc. only in /static/js — scan same-origin bundles.
+        try:
+            from web_enrichment import _spa_booking_url_from_page  # type: ignore
+
+            spa = _spa_booking_url_from_page(body, base)
+            if spa and not _PLATFORM_CHROME_RE.search(spa):
+                return spa[:500]
+        except Exception:
+            pass
 
     if is_booking_platform_url(base):
         return base.rstrip("/")[:500]

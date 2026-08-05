@@ -1,6 +1,8 @@
 import "server-only";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { serviceEligibleAdBlocks } from "@/lib/admin/ad-block-classifier";
+import { ensureOffersCopyRu } from "@/lib/content/translate-copy-to-ru";
 import { isJunkImportTitle } from "@/lib/import-review/display-name";
 import { isNewsUpdateTitle } from "@/lib/updates/extract";
 
@@ -11,6 +13,12 @@ export type ImportedOffer = {
   priceAmount?: number | null;
   /** `from` for «от 50$» wording, `fixed` for a plain price. */
   priceMode?: "fixed" | "from" | "contact";
+  /** When set, business offers use this type (default service). */
+  offerType?: "service" | "menu_item";
+  /** Menu section header for `menu_item` (Breakfast, Salads, …). */
+  menuSection?: string | null;
+  /** e.g. labor rate «per hour». */
+  priceUnit?: "hour" | "session" | "day" | string | null;
 };
 
 const MAX_TITLE = 80;
@@ -99,10 +107,6 @@ const CALL_TO_ACTION_RE =
 /** «И эта сделка получилась особенной» — a continuation of the story above. */
 const CONTINUATION_RE =
   /^(?:и|а|но|зато|поэтому|потому|также|тоже|ещё|еще|тогда|кстати|после|перед|если|когда|пока|чтобы|поскольку|несмотря)\s/iu;
-
-/** A hiring post sells a job, not a service — its perks are not our offers. */
-const VACANCY_TEXT_RE =
-  /(?:ваканси\p{L}*|резюме|now\s+hiring|we\s+are\s+hiring|join\s+our\s+team|приглашаем\s+на\s+работу|мы\s+нанимаем|(?:требу[ею]тся?|ищ[еу]м?|нужны?|набира\p{L}+)[^\n]{0,40}?(?:мастер\p{L}*|сотрудник\p{L}*|специалист\p{L}*|работник\p{L}*|водител\p{L}*|повар\p{L}*|официант\p{L}*|помощник\p{L}*|нян[юяи]|бариста|парикмахер\p{L}*|команду|персонал\p{L}*))/iu;
 
 function dedupeOffers(offers: ImportedOffer[]): ImportedOffer[] {
   const seen = new Map<string, number>();
@@ -318,27 +322,15 @@ function namedServiceOffersFromText(body: string): ImportedOffer[] {
   return offers;
 }
 
-/**
- * Free-text self-ads: services come from the named list and the price list.
- * An ad without either states no services — guessing one from the opening
- * line put «Группа привет» and «Пишите в личку» on live cards.
- */
 export function offersFromAdTexts(
   texts: (string | null | undefined)[] | null | undefined,
 ): ImportedOffer[] {
   const offers: ImportedOffer[] = [];
-  // The card copy and the source post are the same ad: if either one says
-  // «вакансия», the whole thing is a hiring post and sells no services.
-  if (VACANCY_TEXT_RE.test((texts ?? []).join("\n"))) return [];
-
-  for (const raw of texts ?? []) {
-    const body = String(raw || "").trim();
-    if (!body) continue;
-    // Greeting + news posts without a price list are updates, not services.
-    if (isNewsUpdateTitle(body) || isNewsUpdateTitle(firstSentence(body))) {
-      continue;
-    }
-    offers.push(...namedServiceOffersFromText(body), ...priceOffersFromText(body));
+  for (const block of serviceEligibleAdBlocks(texts)) {
+    offers.push(
+      ...namedServiceOffersFromText(block),
+      ...priceOffersFromText(block),
+    );
   }
   return dedupeOffers(offers);
 }
@@ -370,6 +362,7 @@ export async function addMissingProfessionalServices(
   offers: ImportedOffer[],
 ): Promise<number> {
   if (!offers.length) return 0;
+  const localized = await ensureOffersCopyRu(offers);
   const db = client as unknown as SupabaseClient;
 
   const { data: existingRows } = await db
@@ -387,7 +380,7 @@ export async function addMissingProfessionalServices(
     0,
   );
 
-  const rows = offers
+  const rows = localized
     .filter((offer) => {
       const key = serviceTitleKey(offer.title);
       if (!key || taken.has(key)) return false;

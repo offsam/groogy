@@ -19,6 +19,7 @@ import {
 import { promotionsFromAdText } from "@/lib/promotions/extract";
 import { updatesFromAdText } from "@/lib/updates/extract";
 import type { EnrichRunResult } from "@/lib/import-review/enrich-progress";
+import { cleanAdminStreetAddress } from "@/lib/geo/geocode-street";
 import type { QueuePromotion } from "@/types/promotion";
 import type { QueueUpdate } from "@/types/update";
 
@@ -35,6 +36,7 @@ type QueueRow = {
   website: string[] | null;
   address_line: string | null;
   city: string | null;
+  state: string | null;
   postal_code: string | null;
   services: string[] | null;
   promotions: QueuePromotion[] | null;
@@ -105,7 +107,7 @@ export async function finalizePrePublishEnrich(
   const { data: row, error } = await supabase
     .from("import_review_items")
     .select(
-      "id, description, description_original, source_language, source_text, title, phone, email, instagram, website, address_line, city, postal_code, services, promotions, updates, entity_type, target_collection",
+      "id, description, description_original, source_language, source_text, title, phone, email, instagram, website, address_line, city, state, postal_code, services, promotions, updates, entity_type, target_collection",
     )
     .eq("id", itemId)
     .maybeSingle();
@@ -191,6 +193,51 @@ export async function finalizePrePublishEnrich(
     if (!(item.postal_code || "").trim() && addr.postalCode) {
       patch.postal_code = addr.postalCode;
       found.push("postal_code");
+    }
+  }
+
+  // Scrub directory glue + peel City/ST/ZIP so Approve geocode gets a clean street.
+  // Queue table has no lat/lng — geo itself runs on publish.
+  {
+    const street =
+      (typeof patch.address_line === "string"
+        ? patch.address_line
+        : item.address_line) || null;
+    if (street?.trim()) {
+      const cleaned = await cleanAdminStreetAddress({
+        addressLine: street,
+        city:
+          (typeof patch.city === "string" ? patch.city : item.city) || null,
+        stateCode: item.state ?? null,
+        postalCode:
+          (typeof patch.postal_code === "string"
+            ? patch.postal_code
+            : item.postal_code) || null,
+      });
+      if (cleaned.changed) {
+        if (cleaned.addressLine && cleaned.addressLine !== street.trim()) {
+          patch.address_line = cleaned.addressLine;
+          if (!found.includes("address_line")) found.push("address_line");
+        }
+        if (cleaned.city && cleaned.city !== (item.city || "").trim()) {
+          patch.city = cleaned.city;
+          if (!found.includes("city")) found.push("city");
+        }
+        if (
+          cleaned.postalCode &&
+          cleaned.postalCode !== (item.postal_code || "").trim()
+        ) {
+          patch.postal_code = cleaned.postalCode;
+          if (!found.includes("postal_code")) found.push("postal_code");
+        }
+        if (
+          cleaned.stateCode &&
+          cleaned.stateCode !== (item.state || "").trim()
+        ) {
+          patch.state = cleaned.stateCode;
+          found.push("state");
+        }
+      }
     }
   }
 

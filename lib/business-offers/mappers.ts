@@ -118,29 +118,28 @@ export function formatOfferPrice(
     case "fixed":
       return offer.priceAmount != null
         ? `${fmt(offer.priceAmount)}${unitSuffix}`
-        : "Цена не указана";
+        : "$уточняйте";
     case "from":
       return offer.priceAmount != null
-        ? `От ${fmt(offer.priceAmount)}${unitSuffix}`
+        ? `от ${fmt(offer.priceAmount)}${unitSuffix}`
         : offer.priceMin != null
-          ? `От ${fmt(offer.priceMin)}${unitSuffix}`
-          : "От …";
+          ? `от ${fmt(offer.priceMin)}${unitSuffix}`
+          : "$уточняйте";
     case "range": {
       const lo = offer.priceMin ?? offer.priceAmount;
       const hi = offer.priceMax;
       if (lo != null && hi != null) {
         return `${fmt(lo)}–${fmt(hi)}${unitSuffix}`;
       }
-      return "Диапазон не указан";
+      return "$уточняйте";
     }
     case "on_request":
-      return "Цена по запросу";
+    case "contact":
+      return "$уточняйте";
     case "free":
       return "Бесплатно";
-    case "contact":
-      return "Связаться для уточнения";
     default:
-      return "Цена не указана";
+      return "$уточняйте";
   }
 }
 

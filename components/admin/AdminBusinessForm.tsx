@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+
 import { adminUpsertBusinessAction } from "@/lib/admin/actions";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
@@ -18,6 +18,11 @@ import {
   serializeContactLinks,
   type ContactLink,
 } from "@/lib/contacts/channels";
+import {
+  isYelpUrl,
+  normalizeYelpBizUrl,
+} from "@/lib/business/presence";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type CategoryOption = { id: string; name: string; slug: string };
 
@@ -34,6 +39,7 @@ type AdminBusinessFormProps = {
     website: string | null;
     instagram_url: string | null;
     telegram_url?: string | null;
+    yelp_url?: string | null;
     contact_links?: unknown;
     google_maps_url: string | null;
     google_rating: number | null;
@@ -82,6 +88,14 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
     setError(null);
     setMessage(null);
     startTransition(async () => {
+      const rawWebsite = String(formData.get("website") ?? "").trim();
+      const rawYelp = String(formData.get("yelpUrl") ?? "").trim();
+      const websiteIsYelp = Boolean(rawWebsite && isYelpUrl(rawWebsite));
+      const website = websiteIsYelp ? "" : rawWebsite;
+      const yelpUrl =
+        normalizeYelpBizUrl(rawYelp) ||
+        (websiteIsYelp ? normalizeYelpBizUrl(rawWebsite) : null) ||
+        "";
       const result = await adminUpsertBusinessAction({
         id: initial?.id,
         name: String(formData.get("name") ?? ""),
@@ -89,7 +103,7 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
         shortDescription: String(formData.get("shortDescription") ?? ""),
         description: String(formData.get("description") ?? ""),
         phone: String(formData.get("phone") ?? ""),
-        website: String(formData.get("website") ?? ""),
+        website,
         city: address.city ?? "",
         addressLine: address.addressLine ?? "",
         region: address.region,
@@ -98,6 +112,7 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
         email: String(formData.get("email") ?? ""),
         instagramUrl: String(formData.get("instagramUrl") ?? ""),
         telegramUrl: String(formData.get("telegramUrl") ?? ""),
+        yelpUrl,
         contactLinks: serializeContactLinks(links),
         googleMapsUrl: String(formData.get("googleMapsUrl") ?? ""),
         googleRating: (() => {
@@ -165,22 +180,18 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
       </label>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-700">Краткое описание</span>
-        <input
-          className="w-full rounded-lg border border-slate-200 px-3 py-2"
-          defaultValue={initial?.short_description ?? ""}
-          name="shortDescription"
-        />
-      </label>
-
-      <label className="block space-y-1 text-sm">
         <span className="font-medium text-slate-700">Описание</span>
         <textarea
           className="min-h-32 w-full rounded-lg border border-slate-200 px-3 py-2"
-          defaultValue={initial?.description ?? ""}
+          defaultValue={
+            initial?.description?.trim() ||
+            initial?.short_description?.trim() ||
+            ""
+          }
           name="description"
         />
       </label>
+      <input name="shortDescription" type="hidden" value="" />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block space-y-1 text-sm">
@@ -223,13 +234,22 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
             className="w-full rounded-lg border border-slate-200 px-3 py-2"
             defaultValue={initial?.telegram_url ?? ""}
             name="telegramUrl"
-            placeholder="@username"
+            placeholder="@username (пусто = убрать)"
+          />
+        </label>
+        <label className="block space-y-1 text-sm">
+          <span className="font-medium text-slate-700">Yelp URL</span>
+          <input
+            className="w-full rounded-lg border border-slate-200 px-3 py-2"
+            defaultValue={initial?.yelp_url ?? ""}
+            name="yelpUrl"
+            placeholder="https://www.yelp.com/biz/…"
           />
         </label>
         {CONTACT_LINKS_COLUMN_READY ? (
           <div className="sm:col-span-2">
             <ContactLinksEditor
-              exclude={["website", "instagram", "telegram", "google_maps"]}
+              exclude={["website", "instagram", "telegram", "yelp", "google_maps"]}
               value={links}
               onChange={setLinks}
             />
@@ -314,7 +334,7 @@ export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProp
       </div>
 
       <Button className="gap-2" disabled={pending} type="submit" variant="primary">
-        {pending ? <Loader2 className="size-4 animate-spin" /> : null}
+        {pending ? <BrandPinLoader size="sm" /> : null}
         {initial ? "Сохранить" : "Создать бизнес"}
       </Button>
     </form>

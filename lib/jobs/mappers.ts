@@ -38,6 +38,10 @@ export function mapJob(row: JobRow): Job {
     city: row.city,
     stateCode: row.state_code,
     postalCode: row.postal_code,
+    addressLine: row.address_line ?? null,
+    latitude: row.latitude ?? null,
+    longitude: row.longitude ?? null,
+    locationPrecision: row.location_precision ?? null,
     status: row.status,
     paymentMethods: (row.payment_methods ?? []).filter(Boolean),
     businessId: row.business_id,
@@ -69,10 +73,30 @@ function zipFromText(value: string | null | undefined): string | null {
 
 /**
  * Location line for job cards:
- * - business: company area / address (city, ZIP, or county)
+ * - worksite on the vacancy wins (staffing agency HQ stays on the business)
+ * - else business: company area / address (city, ZIP, or county)
  * - private: ZIP or county/city where they hire
  */
 export function formatJobCardLocation(job: Job): string | null {
+  const worksiteStreet =
+    job.locationPrecision === "street"
+      ? job.addressLine?.trim() || null
+      : job.addressLine?.trim() || null;
+  const worksiteCity = job.city?.trim() || null;
+  const worksiteZip =
+    zipFromText(job.postalCode) || zipFromText(job.addressLine) || null;
+  if (worksiteStreet || worksiteCity || worksiteZip) {
+    if (worksiteStreet && worksiteCity) {
+      return [worksiteStreet, worksiteCity, worksiteZip]
+        .filter(Boolean)
+        .join(", ");
+    }
+    if (worksiteCity && worksiteZip) return `${worksiteCity}, ${worksiteZip}`;
+    if (worksiteCity) return worksiteCity;
+    if (worksiteStreet) return worksiteStreet;
+    if (worksiteZip) return worksiteZip;
+  }
+
   if (job.businessId) {
     if (job.businessLocationPrecision === "county") {
       return (

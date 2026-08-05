@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+
 import {
   updateProfileSettingsAction,
   type ProfileActionResult,
@@ -13,6 +13,7 @@ import { StateSelect } from "@/components/master-data/StateSelect";
 import { Button } from "@/components/ui/Button";
 import type { ProfileRow } from "@/types/database";
 import type { UsStateOption } from "@/types/master-data";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const initialState: ProfileActionResult | null = null;
 
@@ -260,7 +261,7 @@ export function ProfileSettingsForm({
       </section>
 
       <Button className="gap-2 disabled:opacity-60" disabled={pending} type="submit">
-        {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+        {pending && <BrandPinLoader size="sm" />}
         Сохранить профиль
       </Button>
     </form>

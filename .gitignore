@@ -33,6 +33,10 @@ yarn-error.log*
 # system
 .DS_Store
 
+# Python virtualenvs (Agent-Reach / enrich scripts)
+.venv/
+**/.venv/
+
 # TypeScript
 *.tsbuildinfo
 

@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Check, Eye, Loader2, X, XCircle } from "lucide-react";
+import { Check, Eye, X, XCircle } from "lucide-react";
 import Link from "next/link";
 import { BusinessCard } from "@/components/business/BusinessCard";
 import { BusinessProfileView } from "@/components/business/profile/BusinessProfileView";
@@ -29,18 +29,28 @@ import type { CommentRecommendation } from "@/lib/import-review/recommendation-q
 import { recommendationToEventPreview } from "@/lib/events/from-recommendation";
 import {
   recommendationDisplayName,
+  recommendationToImportPreviewFields,
   yellowPagesEntityKind,
   yellowPagesToBusinessPreview,
   yellowPagesToProfessionalPreview,
   yellowPagesToServicePreview,
   type YellowPagesPreviewKind,
 } from "@/lib/import-review/yellow-pages-preview";
+import { importReviewToOfferPreviews } from "@/lib/import-review/to-business-preview";
 import { RecommendationSourcePanel } from "@/components/admin/RecommendationSourcePanel";
+import { AdminLensBar } from "@/components/admin/AdminLensBar";
+import { AdminQueueCategoryButton } from "@/components/admin/AdminQueueCategoryButton";
+import { saveCommentRecommendationFieldsAction } from "@/lib/import-review/recommendation-actions";
+import type { ReviewCategoryOption } from "@/lib/import-review/category-options";
+import { categoriesForPreviewHub } from "@/lib/import-review/category-options";
+import { useAdminPreviewMapCenter } from "@/components/admin/useAdminPreviewMapCenter";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   item: CommentRecommendation;
   onClose: () => void;
   onDone?: () => void;
+  categories?: ReviewCategoryOption[];
 };
 
 function CompletenessPanel({ report }: { report: CompletenessReport }) {
@@ -106,7 +116,12 @@ function kindDestination(kind: YellowPagesPreviewKind | "event"): string {
   return "каталог бизнесов";
 }
 
-export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
+export function RecommendationPreviewModal({
+  item,
+  onClose,
+  onDone,
+  categories = [],
+}: Props) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -121,6 +136,19 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
     kind === "professional" ? yellowPagesToProfessionalPreview(item) : null;
   const service = kind === "service" ? yellowPagesToServicePreview(item) : null;
   const locked = item.status === "approved" || item.status === "rejected";
+  const previewOffers = useMemo(() => {
+    const fields = recommendationToImportPreviewFields(item);
+    return importReviewToOfferPreviews(fields);
+  }, [item]);
+  const mapCity =
+    business?.city || professional?.city || service?.city || event?.city || null;
+  const mapState =
+    business?.stateCode ||
+    professional?.stateCode ||
+    service?.stateCode ||
+    item.state_code ||
+    null;
+  const cityMapCenter = useAdminPreviewMapCenter(mapCity, mapState);
 
   const completeness =
     isEvent && event
@@ -165,26 +193,13 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
               title: service.title,
               description: service.description,
               city: service.city,
-              phone: item.phones[0] ?? null,
+              phone: null,
               imageUrl: service.media?.[0]?.publicUrl ?? null,
               priceAmount: service.priceAmount,
             })
           : businessPreviewCompleteness(
               business ?? yellowPagesToBusinessPreview(item),
             );
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
-    }
-    window.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
 
   function run(
     action: () => Promise<{
@@ -221,6 +236,80 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
     });
   }
 
+  const hub =
+    kind === "professional"
+      ? "professionals"
+      : kind === "service"
+        ? "services"
+        : "businesses";
+  const categoryOptions = categoriesForPreviewHub(categories, hub);
+
+  const draft = {
+    onPublish: () =>
+      run(() => approveCommentRecommendationAction({ id: item.id })),
+    publishDisabled: locked,
+    publishPending: pending,
+    queue: {
+      source: "recommendation" as const,
+      id: item.id,
+    },
+    onEnriched: () => router.refresh(),
+    categorySlot:
+      kind === "business" || kind === "professional" ? (
+        <AdminQueueCategoryButton
+          categories={categoryOptions}
+          currentSlug={item.category_guess || item.category || null}
+          disabled={locked || pending}
+          onSave={async (slug) => {
+            const res = await saveCommentRecommendationFieldsAction({
+              id: item.id,
+              category: slug,
+              categoryGuess: slug,
+            });
+            if (res.ok) router.refresh();
+            return res;
+          }}
+        />
+      ) : undefined,
+  };
+
+  const queueChrome =
+    kind === "business" && business ? (
+      <AdminLensBar
+        business={business}
+        draft={draft}
+        kind="business"
+        showDelete={false}
+      />
+    ) : kind === "professional" && professional ? (
+      <AdminLensBar
+        draft={draft}
+        kind="professional"
+        professional={professional}
+      />
+    ) : isEvent && event ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="event"
+        title={event.title || "Событие"}
+      />
+    ) : service ? (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="service"
+        title={service.title || "Услуга"}
+      />
+    ) : (
+      <AdminLensBar
+        draft={draft}
+        entityId={item.id}
+        kind="marketplace"
+        title={recommendationDisplayName(item)}
+      />
+    );
+
   return (
     <div
       aria-modal="true"
@@ -236,7 +325,8 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
           <div className="min-w-0">
             <p className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-400">
               <Eye className="size-3.5" />
-              Рекомендация · {kindLabel(kind)} · как на сайте
+              Рекомендация · {kindLabel(kind)} · как на платформе · не
+              опубликовано
             </p>
             <p className="mt-0.5 truncate text-sm text-slate-600">
               {recommendationDisplayName(item)} ·{" "}
@@ -257,34 +347,62 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
 
         <div className="overflow-y-auto px-3 py-4 sm:px-5">
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
-            <div className="pointer-events-none select-none rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 sm:p-4">
+            <div className="select-none rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 sm:p-4">
               {isEvent && event ? (
-                <EventProfileView event={event} preview />
+                <EventProfileView adminChrome={queueChrome} event={event} preview />
               ) : kind === "business" && business ? (
                 <BusinessProfileView
+                  adminChrome={queueChrome}
                   autoClaim={false}
                   business={business}
                   businessSlug={business.slug}
+                  cityMapCenter={cityMapCenter}
                   currentUserId={null}
                   isAdmin={false}
                   isOwner={false}
                   jobs={[]}
                   myReview={null}
                   mySession={null}
-                  offers={[]}
+                  offers={previewOffers}
+                  preview
                   reviews={[]}
                   similar={[]}
                 />
               ) : kind === "professional" && professional ? (
                 <ProfessionalProfileView
+                  adminChrome={queueChrome}
+                  cityMapCenter={cityMapCenter}
                   currentUserId={null}
                   isOwner={false}
                   preview
                   professional={professional}
-                  services={[]}
+                  services={previewOffers.map((o, index) => ({
+                    id: o.id,
+                    title: o.title,
+                    description: o.description,
+                    priceMode:
+                      o.priceMode === "fixed" ||
+                      o.priceMode === "from" ||
+                      o.priceMode === "range" ||
+                      o.priceMode === "free"
+                        ? o.priceMode
+                        : "contact",
+                    priceAmount: o.priceAmount,
+                    priceMin: o.priceMin,
+                    priceMax: o.priceMax,
+                    priceUnit: null,
+                    currency: o.currency,
+                    durationMinutes: null,
+                    sortOrder: index * 10,
+                    isFeatured: index === 0,
+                  }))}
                 />
               ) : service ? (
-                <ServiceProfileView listing={service} preview />
+                <ServiceProfileView
+                  adminChrome={queueChrome}
+                  listing={service}
+                  preview
+                />
               ) : null}
             </div>
 
@@ -337,7 +455,7 @@ export function RecommendationPreviewModal({ item, onClose, onDone }: Props) {
               }
             >
               {pending ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <BrandPinLoader size="sm" className="mr-2" />
               ) : (
                 <Check className="mr-2 h-4 w-4" />
               )}

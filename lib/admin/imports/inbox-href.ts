@@ -28,14 +28,13 @@ export function telegramSourceInboxHref(sourceId: string): string {
     view: "telegram",
     source: "telegram",
     sourceRef: sourceId,
-    reviewType: "recommendation",
   });
 }
 
 export function directorySourceInboxHref(sourceId: string): string {
   return importsInboxHref({
+    view: "directories",
     source: "directories",
     sourceRef: sourceId,
-    reviewType: "recommendation",
   });
 }

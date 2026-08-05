@@ -117,6 +117,18 @@ const SYNONYM_GROUPS: readonly (readonly string[])[] = [
 
   // Legal / finance / insurance / real estate
   ["юрист", "адвокат", "lawyer", "attorney", "legal", "юридический"],
+  [
+    "переводчик",
+    "переводчика",
+    "переводчики",
+    "перевод",
+    "translator",
+    "translators",
+    "interpreter",
+    "interpreters",
+    "interpreting",
+    "устный перевод",
+  ],
   ["иммиграция", "immigration", "виза", "visa"],
   ["нотариус", "notary", "notarial"],
   ["бухгалтер", "бухгалтерия", "accounting", "accountant", "taxes", "налоги"],
@@ -128,6 +140,21 @@ const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ["детский", "детский сад", "daycare", "childcare", "няня", "nanny"],
   ["фитнес", "спортзал", "gym", "fitness", "тренировка", "yoga", "йога"],
   ["ветеринар", "ветклиника", "vet", "veterinary", "груминг", "grooming"],
+
+  // Dance / ballet / ballroom
+  [
+    "балет",
+    "балета",
+    "балетный",
+    "ballet",
+    "танцы",
+    "танцев",
+    "танец",
+    "dance",
+    "dancing",
+    "ballroom",
+  ],
+  ["хореограф", "choreographer", "choreography"],
 
   // Travel / events
   ["путешествия", "турагентство", "travel"],

@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Layers, Loader2 } from "lucide-react";
+import { Layers } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { saveImportReviewItemAction } from "@/lib/import-review/actions";
 import {
@@ -16,6 +16,7 @@ import type {
   ImportReviewTargetCollection,
 } from "@/types/import-review";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const TYPE_OPTIONS: {
   entityType: ImportReviewEntityType;
@@ -189,7 +190,7 @@ export function ReviewChangeEntityTypePanel({ item }: Props) {
             >
               {pending ? (
                 <>
-                  <Loader2 className="size-3.5 animate-spin" />
+                  <BrandPinLoader size="sm" />
                   Сохраняем…
                 </>
               ) : (

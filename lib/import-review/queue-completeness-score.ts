@@ -38,6 +38,7 @@ const BUSINESS_WEIGHTS = {
   google_rating: 5,
   google_reviews_count_gt_10: 3,
   yelp_rating: 3,
+  trustpilot_rating: 2,
   offers_count_ge_3: 5,
   offers_with_price_ge_1: 5,
   promotions: 3,
@@ -131,6 +132,7 @@ function scoreBusinessRow(row: Record<string, unknown>): number {
     score += w.google_reviews_count_gt_10;
   }
   if (hasValue(row.yelp_rating)) score += w.yelp_rating;
+  if (hasValue(row.trustpilot_rating)) score += w.trustpilot_rating;
   if (Number(row.offers_count ?? 0) >= 3) score += w.offers_count_ge_3;
   if (Number(row.offers_with_price_count ?? 0) >= 1) {
     score += w.offers_with_price_ge_1;
@@ -251,8 +253,9 @@ export function scoreImportReviewQueueItem(
       ...row,
       title: row.title,
       business_name: row.business_name,
+      // Structured copy only — raw telegram dump is not a filled listing.
       description: row.description,
-      source_text: row.source_text,
+      source_text: null,
       preview_image_url: row.preview_image_url,
       photos_count: row.photos_count,
       city: row.city,
@@ -268,6 +271,8 @@ export function scoreImportReviewQueueItem(
   }
 
   // Match Python score_queue_item mapping exactly (floor — no hours/offers/geo).
+  // Queue UX: do NOT treat raw source_text dump as a filled description —
+  // that made empty shells look ~70% complete.
   const mapped: Record<string, unknown> = {
     city: row.city,
     phone: firstOf(row.phone),
@@ -275,7 +280,8 @@ export function scoreImportReviewQueueItem(
     email: firstOf(row.email),
     instagram_url: firstOf(row.instagram),
     telegram_url: row.telegram_username,
-    description: row.description || row.source_text,
+    description: row.description,
+    short_description: row.short_description,
     image_url: row.preview_image_url,
     source_url: row.source_url,
     category_id: row.category,

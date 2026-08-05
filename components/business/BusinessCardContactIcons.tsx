@@ -17,6 +17,7 @@ import {
   GoogleIcon,
   InstagramIcon,
   TelegramIcon,
+  TrustpilotIcon,
   YelpIcon,
 } from "@/components/brand/BrandIcons";
 import {
@@ -44,6 +45,10 @@ type BusinessCardContactIconsProps = {
   googleReviewsCount?: number;
   yelpRating?: number | null;
   yelpReviewsCount?: number;
+  trustpilotRating?: number | null;
+  trustpilotReviewsCount?: number;
+  facebookRecommendPct?: number | null;
+  facebookReviewsCount?: number;
   instagramFollowersCount?: number | null;
   /** Hard cap — usually 5–6 so the row stays one line on the card plaque. */
   maxVisible?: number;
@@ -94,6 +99,10 @@ export function BusinessCardContactIcons({
   googleReviewsCount = 0,
   yelpRating = null,
   yelpReviewsCount = 0,
+  trustpilotRating = null,
+  trustpilotReviewsCount = 0,
+  facebookRecommendPct = null,
+  facebookReviewsCount = 0,
   instagramFollowersCount = null,
   maxVisible = 7,
   className,
@@ -105,6 +114,7 @@ export function BusinessCardContactIcons({
 
   const googleStars = normalizeRating(googleRating);
   const yelpStars = normalizeRating(yelpRating);
+  const trustpilotStars = normalizeRating(trustpilotRating);
   const igFollowers =
     instagramFollowersCount != null &&
     Number.isFinite(instagramFollowersCount) &&
@@ -162,6 +172,23 @@ export function BusinessCardContactIcons({
       priority: yelpStars != null,
     });
   }
+  if (resolved.hasTrustpilot || trustpilotStars != null) {
+    chips.push({
+      key: "trustpilot",
+      title:
+        trustpilotStars != null
+          ? `Trustpilot ${formatRating(trustpilotStars)}${
+              trustpilotReviewsCount > 0
+                ? ` · ${trustpilotReviewsCount.toLocaleString("ru-RU")} отзывов`
+                : ""
+            }`
+          : "Trustpilot — на странице бизнеса",
+      icon: <TrustpilotIcon className="size-3.5" />,
+      metric:
+        trustpilotStars != null ? formatRating(trustpilotStars) : undefined,
+      priority: trustpilotStars != null,
+    });
+  }
   if (resolved.hasPhone) {
     chips.push({
       key: "phone",
@@ -199,11 +226,29 @@ export function BusinessCardContactIcons({
       icon: <Mail aria-hidden="true" className="size-3.5" />,
     });
   }
-  if (resolved.hasFacebook) {
+  if (resolved.hasFacebook || facebookRecommendPct != null) {
+    const pct =
+      facebookRecommendPct != null &&
+      Number.isFinite(facebookRecommendPct) &&
+      facebookRecommendPct >= 0 &&
+      facebookRecommendPct <= 100
+        ? Math.round(facebookRecommendPct)
+        : null;
+    const reviews =
+      facebookReviewsCount > 0 ? Math.round(facebookReviewsCount) : 0;
     chips.push({
       key: "facebook",
-      title: "Facebook — на странице бизнеса",
+      title:
+        pct != null
+          ? `Facebook: ${pct}% рекомендуют${
+              reviews > 0
+                ? ` (${reviews.toLocaleString("ru-RU")} отзывов)`
+                : ""
+            }`
+          : "Facebook — на странице бизнеса",
       icon: <FacebookIcon className="size-3.5" />,
+      metric: pct != null ? `${pct}%` : undefined,
+      priority: pct != null,
     });
   }
 

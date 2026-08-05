@@ -15,7 +15,17 @@ COLLECTOR_DIR = Path(__file__).resolve().parents[1] / "telegram-collector"
 if str(COLLECTOR_DIR) not in sys.path:
     sys.path.insert(0, str(COLLECTOR_DIR))
 
-ALLOWED_CHATS = {-1001333533747, -1001955320601}  # Fun for Mom, LA Orange County
+ALLOWED_CHATS = {
+    -1001333533747,  # Fun for Mom
+    -1001955320601,  # LA Orange County
+    -1001733592780,  # Sacramento adaptation
+    -1001677357732,  # Sacramento RusRek
+    -1001573930932,  # SF RusRek
+    -1001252383425,  # SF general
+    -1001877641731,  # SD RusRek
+    -1001261966562,  # SD general
+    -1001880131921,  # Irvine Friends
+}
 
 
 @dataclass

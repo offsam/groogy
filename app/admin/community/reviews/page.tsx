@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminReviewsPanel } from "@/components/reviews/AdminReviewsPanel";
 import { createServerClient } from "@/lib/supabase/server";
@@ -75,11 +74,6 @@ export default async function AdminCommunityReviewsPage({
         <p className="mt-2 text-slate-500">
           Ручная проверка, публикация и жалобы. Score и summary видны только
           здесь.
-        </p>
-        <p className="mt-3 text-sm">
-          <Link href="/admin/community" className="text-brand-blue hover:underline">
-            ← Community
-          </Link>
         </p>
       </div>
 

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CatalogBrowser } from "@/components/admin/CatalogBrowser";
-import { ProfessionalCard } from "@/components/professional/ProfessionalCard";
 import { listCatalogProfessionals } from "@/lib/admin/catalog/queries";
 import type {
   CatalogSort,
@@ -47,6 +46,16 @@ function parseSort(raw: string | undefined): CatalogSort {
   return "newest";
 }
 
+function locationLine(p: {
+  city: string | null;
+  region: string | null;
+  stateCode: string | null;
+}): string {
+  const parts = [p.city, p.stateCode].filter(Boolean);
+  if (parts.length) return parts.join(", ");
+  return p.region?.trim() || "Без локации";
+}
+
 export default async function AdminCatalogProfessionalsPage({
   searchParams,
 }: PageProps) {
@@ -88,6 +97,7 @@ export default async function AdminCatalogProfessionalsPage({
       title="Professionals"
       description="Опубликованные и архивные профили специалистов. Модерация кандидатов — в Review Center."
       basePath="/admin/catalog/professionals"
+      layout="list"
       total={result.total}
       page={result.page}
       pageSize={result.pageSize}
@@ -96,11 +106,16 @@ export default async function AdminCatalogProfessionalsPage({
       sort={sort}
       legacyHref="/admin/review/inbox?view=professionals"
       legacyLabel="Professionals in Inbox"
+      sectionEnrichKind="professional"
       error={loadError}
       items={result.items.map((p) => ({
         meta: {
           id: p.id,
+          title: p.displayName,
           statusLabel: STATUS_LABELS[p.status] ?? p.status,
+          locationLine: locationLine(p),
+          categoryLabel: p.categoryName,
+          createdAt: p.createdAt,
           publicHref:
             p.status === "approved" ? `/professional/${p.slug}` : null,
           editHref: `/professional/${p.slug}/edit`,
@@ -108,7 +123,6 @@ export default async function AdminCatalogProfessionalsPage({
           enrichKind: "professional" as const,
           slug: p.slug,
         },
-        card: <ProfessionalCard professional={p} preview />,
       }))}
     />
   );

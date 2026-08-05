@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminUsersPanel } from "@/components/admin/AdminUsersPanel";
 import { getAdminUsers } from "@/lib/admin/queries";
@@ -36,13 +35,7 @@ export default async function AdminUsersPage() {
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
-        <Link
-          className="text-sm text-slate-500 hover:text-slate-900"
-          href="/admin"
-        >
-          ← Панель управления
-        </Link>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900">
           Админы и пользователи
         </h1>
         <p className="mt-2 text-slate-500">

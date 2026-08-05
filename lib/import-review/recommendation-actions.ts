@@ -3,17 +3,19 @@
 import { revalidatePath } from "next/cache";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
-import {
-  geocodeStreetAddress,
-  googleMapsUrlForAddress,
-} from "@/lib/geo/geocode-street";
-import { inferLocationPrecision } from "@/lib/business/location-precision";
+import { resolveStreetGeoFields } from "@/lib/geo/geocode-street";
 import {
   resolveSourceKind,
   sourceTypeFromKind,
 } from "@/lib/business/presence";
+import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
+import {
+  normalizeStructuredAddress,
+  stateCodeFromText,
+} from "@/lib/address/normalize";
 import {
   businessSlugFromGuess,
   professionalSlugFromGuess,
@@ -30,6 +32,7 @@ import {
   offersFromAdTexts,
   type ImportedOffer,
 } from "@/lib/professional/import-services";
+import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
 import {
   yellowPagesEntityKind,
   yellowPagesToBusinessPreview,
@@ -144,10 +147,18 @@ function tgUrl(websites: string[]): string | null {
 }
 
 function descriptionFrom(item: CommentRecommendation): string | null {
-  const parts = (item.comment_texts || []).filter(Boolean).slice(0, 3);
-  if (parts.length) return parts.join("\n\n").slice(0, 4000);
-  const snip = (item.request_snippets || []).find(Boolean);
-  return snip?.slice(0, 4000) || null;
+  const candidates = [
+    ...(item.comment_texts || []),
+    ...(item.request_snippets || []),
+  ]
+    .map((t) => t.trim())
+    .filter((t) => t.length >= 8);
+  if (!candidates.length) return null;
+  // One narrative only — comment_texts often holds a short + long copy of the
+  // same ad; joining them produced double «О специалисте» on publish.
+  const best = [...candidates].sort((a, b) => b.length - a.length)[0]!;
+  const cleaned = redactContactsFromPublicText(best);
+  return (cleaned || best).slice(0, 4000);
 }
 
 async function lookupCategoryId(
@@ -155,6 +166,29 @@ async function lookupCategoryId(
   domain: "professional" | "business",
   slug: string,
 ): Promise<string | null> {
+  if (domain === "professional") {
+    // Pro-only leaves (massage_wellness, …) live as domain=professional.
+    const { data: proOnly } = await supabase
+      .from("categories")
+      .select("id")
+      .eq("domain", "professional")
+      .eq("slug", slug)
+      .eq("is_active", true)
+      .maybeSingle();
+    if (proOnly?.id) return proOnly.id;
+    // Shared spheres (legal, beauty, …) stay as business rows; pros FK them.
+    if (!(PROFESSIONAL_CATEGORY_SLUGS as readonly string[]).includes(slug)) {
+      return null;
+    }
+    const { data: shared } = await supabase
+      .from("categories")
+      .select("id")
+      .eq("slug", slug)
+      .eq("is_active", true)
+      .maybeSingle();
+    return shared?.id ?? null;
+  }
+
   const { data } = await supabase
     .from("categories")
     .select("id")
@@ -171,9 +205,23 @@ function resolveLocation(item: CommentRecommendation) {
     item.directory_source ||
     item.source_channel;
   const inferredCity = resolveYellowPagesCity(item);
-  return mergeLocationWithGroupFallback({
+  const notes = parseRecommendationNotes(item.notes);
+  // notes.region is often a state abbr ("IL") from directory import.
+  const notesState =
+    stateCodeFromText(notes.region) ||
+    (notes.region && /^[A-Z]{2}$/i.test(notes.region.trim())
+      ? `US-${notes.region.trim().toUpperCase()}`
+      : null);
+  const peeled = normalizeStructuredAddress({
+    addressLine: notes.address,
     city: inferredCity || item.city,
-    region: null,
+    stateCode: notesState || item.state_code || null,
+    postalCode: notes.zip,
+  });
+  return mergeLocationWithGroupFallback({
+    city: peeled.city || inferredCity || item.city,
+    region: peeled.region,
+    stateCode: peeled.stateCode || notesState || item.state_code || null,
     sourceGroup: group,
     source: item.source_channel,
   });
@@ -421,6 +469,8 @@ function recommendationSourceChannel(
 ): "facebook" | "telegram" | "import" | "other" {
   if (item.source_channel === "facebook") return "facebook";
   if (item.source_channel === "telegram") return "telegram";
+  if (item.source_channel === "loveoverse") return "import";
+  if (item.source_channel === "eventbrite") return "import";
   if (item.directory_source) return "import";
   return "other";
 }
@@ -433,50 +483,56 @@ async function streetGeoFields(input: {
   postalCode: string | null | undefined;
   region?: string | null;
 }): Promise<{
-  location_precision: "street" | "county" | "city" | null;
+  location_precision: "street" | "county" | null;
   latitude: number | null;
   longitude: number | null;
   google_maps_url?: string;
 }> {
-  const street = input.street?.trim() || null;
-  if (!street) {
-    const precision = inferLocationPrecision({
-      addressLine: null,
-      city: input.city,
-      region: input.region,
-    });
-    return {
-      location_precision: precision,
-      latitude: null,
-      longitude: null,
-    };
-  }
-  const geo = await geocodeStreetAddress(
-    {
-      addressLine: street,
-      city: input.city,
-      stateCode: input.stateCode,
-      postalCode: input.postalCode,
-    },
-    { attempts: "ladder" },
-  );
-  if (geo) {
-    return {
-      location_precision: "street",
-      latitude: geo.latitude,
-      longitude: geo.longitude,
-      google_maps_url: googleMapsUrlForAddress(
-        street,
-        input.city,
-        input.stateCode,
-      ),
-    };
-  }
-  // Address text kept; city/area map until a later enrich succeeds.
+  const geo = await resolveStreetGeoFields({
+    addressLine: input.street,
+    city: input.city,
+    stateCode: input.stateCode,
+    postalCode: input.postalCode,
+    region: input.region,
+  });
   return {
-    location_precision: null,
-    latitude: null,
-    longitude: null,
+    location_precision: geo.location_precision,
+    latitude: geo.latitude,
+    longitude: geo.longitude,
+    ...(geo.google_maps_url ? { google_maps_url: geo.google_maps_url } : {}),
+  };
+}
+
+/** Street-only + geo from directory dump (often "Street, City, ST, USA"). */
+async function peeledStreetGeo(input: {
+  street: string | null | undefined;
+  city: string | null | undefined;
+  stateCode: string | null | undefined;
+  postalCode: string | null | undefined;
+  region?: string | null;
+}) {
+  const peeled = normalizeStructuredAddress({
+    addressLine: input.street,
+    city: input.city,
+    stateCode: input.stateCode,
+    postalCode: input.postalCode,
+    region: input.region,
+  });
+  const stateCode = peeled.stateCode || input.stateCode || null;
+  const geo = await streetGeoFields({
+    street: peeled.addressLine || input.street,
+    city: peeled.city || input.city,
+    stateCode,
+    postalCode: peeled.postalCode || input.postalCode,
+    region: peeled.region || input.region,
+  });
+  return {
+    addressLine: peeled.addressLine || null,
+    city: peeled.city || input.city || null,
+    region: peeled.region || input.region || null,
+    stateCode,
+    postalCode: peeled.postalCode || input.postalCode || null,
+    ...geo,
   };
 }
 
@@ -952,15 +1008,18 @@ export async function approveCommentRecommendationAction(input: {
   // R05: third-party recommendation without self-offer → attach only, not new entity.
   const third = Number(item.third_party_mention_count ?? 0);
   const selfAd = Number(item.self_ad_mention_count ?? 0);
-  const looksThirdPartyOnly =
-    (item.target_bucket === "recommendation" || third > 0) &&
-    selfAd <= 0 &&
-    !phone &&
-    !website &&
-    !instagram;
+  const looksThirdPartyOnly = third > 0 && selfAd <= 0;
   if (looksThirdPartyOnly && !input.force) {
+    const exact = await findRecommendationExactDuplicate(supabase, item);
+    if (exact) {
+      return confirmRecommendationMergeAction({
+        id: input.id,
+        entityType: exact.entityType,
+        entityId: exact.entityId,
+      });
+    }
     return fail(
-      "Это чужая рекомендация без self-offer. Привяжите к живой карточке (Поиск двойников → Объединить), а не создавайте новую.",
+      "Это чужая рекомендация без self-offer. Привяжите к живой карточке (Скан «Прикрепить» / Поиск двойников), а не создавайте новую.",
     );
   }
 
@@ -998,12 +1057,12 @@ export async function approveCommentRecommendationAction(input: {
     }
     const slug = slugify(preview.displayName);
     const street = notesParsed.address || preview.addressLine || null;
-    const geoFields = await streetGeoFields({
+    const geoFields = await peeledStreetGeo({
       street,
       city: loc.city || preview.city,
-      stateCode: loc.stateCode || "US-CA",
+      stateCode: loc.stateCode,
       postalCode: notesParsed.zip,
-      region: loc.region || notesParsed.region,
+      region: loc.region,
     });
     const { data: inserted, error: insertError } = await untyped(supabase)
       .from("professionals")
@@ -1018,17 +1077,17 @@ export async function approveCommentRecommendationAction(input: {
         display_name: preview.displayName.slice(0, 120),
         slug,
         headline: preview.headline,
-        short_description: preview.shortDescription?.slice(0, 280) || null,
+        short_description: null,
         description: description || preview.description,
         image_url: preview.imageUrl,
         status: "approved",
         visibility: "public",
         category_id: categoryId,
-        city: loc.city || preview.city,
-        region: loc.region || notesParsed.region,
-        state_code: loc.stateCode || "US-CA",
-        postal_code: notesParsed.zip,
-        private_address_line: street,
+        city: geoFields.city || loc.city || preview.city,
+        region: geoFields.region || loc.region,
+        state_code: geoFields.stateCode || loc.stateCode || null,
+        postal_code: geoFields.postalCode || notesParsed.zip,
+        private_address_line: geoFields.addressLine || street,
         location_precision: geoFields.location_precision,
         public_exact_address: false,
         latitude: geoFields.latitude,
@@ -1108,18 +1167,25 @@ export async function approveCommentRecommendationAction(input: {
     );
     const slug = slugify(preview.name);
     const street = notesParsed.address || preview.addressLine || null;
+    const geoFields = await peeledStreetGeo({
+      street,
+      city: loc.city || preview.city,
+      stateCode: loc.stateCode,
+      postalCode: notesParsed.zip,
+      region: loc.region,
+    });
     const { data: businessId, error: upsertError } = await supabase.rpc(
       "admin_upsert_business",
       {
         p_id: null,
         p_name: preview.name.trim(),
         p_slug: slug,
-        p_short_description: preview.shortDescription?.slice(0, 240) || null,
+        p_short_description: null,
         p_description: description || preview.description,
         p_phone: phone,
         p_website: website || preview.website,
-        p_city: loc.city || preview.city || "",
-        p_address_line: street,
+        p_city: geoFields.city || loc.city || preview.city || "",
+        p_address_line: geoFields.addressLine || street,
         p_status: "approved",
         p_category_id: categoryId,
       },
@@ -1128,19 +1194,17 @@ export async function approveCommentRecommendationAction(input: {
     publishedEntityType = "business";
     publishedEntityId = businessId as string;
 
-    const precision = inferLocationPrecision({
-      addressLine: street,
-      city: loc.city || preview.city,
-      region: loc.region,
-    });
-    const geoFields = await streetGeoFields({
-      street,
-      city: loc.city || preview.city,
-      stateCode: loc.stateCode || "US-CA",
-      postalCode: notesParsed.zip,
-      region: loc.region,
-    });
-    await supabase
+    // source_url / source_kind are not on the authenticated column-UPDATE
+    // grant list for businesses — write via service role or provenance is lost.
+    let catalog: ReturnType<typeof createServiceRoleClient>;
+    try {
+      catalog = createServiceRoleClient();
+    } catch {
+      return fail(
+        "Карточка создана, но источник не записался (нет service role). Проверьте SUPABASE_SERVICE_ROLE_KEY.",
+      );
+    }
+    const { error: extrasError } = await untyped(catalog)
       .from("businesses")
       .update({
         source_url: sourceUrl,
@@ -1148,14 +1212,12 @@ export async function approveCommentRecommendationAction(input: {
         instagram_url: instagram || preview.instagramUrl,
         telegram_url: telegram,
         image_url: preview.imageUrl,
-        city: loc.city || preview.city,
-        region: loc.region,
-        state_code: loc.stateCode || "US-CA",
-        postal_code: notesParsed.zip || undefined,
-        location_precision: (geoFields.location_precision === "city"
-          ? null
-          : geoFields.location_precision) ??
-          (precision === "county" ? "county" : null),
+        city: geoFields.city || loc.city || preview.city,
+        region: geoFields.region || loc.region,
+        state_code: geoFields.stateCode || loc.stateCode || null,
+        postal_code: geoFields.postalCode || notesParsed.zip || undefined,
+        address_line: geoFields.addressLine || street,
+        location_precision: geoFields.location_precision,
         latitude: geoFields.latitude,
         longitude: geoFields.longitude,
         ...(geoFields.google_maps_url
@@ -1163,6 +1225,11 @@ export async function approveCommentRecommendationAction(input: {
           : {}),
       })
       .eq("id", publishedEntityId);
+    if (extrasError) {
+      return fail(
+        `Карточка создана, но источник не записался: ${extrasError.message}`,
+      );
+    }
 
     const { data: biz } = await supabase
       .from("businesses")
@@ -1335,7 +1402,7 @@ export async function approveEventRecommendationAction(input: {
     ends_at: item.ends_at || null,
     event_at_label: session.label || eventAtLabel,
     city,
-    state_code: item.state_code || "US-CA",
+    state_code: item.state_code || null,
     address_line: addressLine,
     venue_name: item.venue_name || null,
     latitude: item.latitude ?? null,
@@ -1585,6 +1652,7 @@ export async function saveCommentRecommendationFieldsAction(input: {
   venueName?: string | null;
   priceLabel?: string | null;
   category?: string | null;
+  categoryGuess?: string | null;
   registrationUrl?: string | null;
 }): Promise<ActionResult> {
   const { supabase, error } = await requireAdmin();
@@ -1621,6 +1689,9 @@ export async function saveCommentRecommendationFieldsAction(input: {
   if (input.category !== undefined) {
     patch.category = input.category?.trim() || null;
   }
+  if (input.categoryGuess !== undefined) {
+    patch.category_guess = input.categoryGuess?.trim() || null;
+  }
   if (input.registrationUrl !== undefined) {
     patch.registration_url = input.registrationUrl?.trim() || null;
   }
@@ -1638,4 +1709,231 @@ export async function saveCommentRecommendationFieldsAction(input: {
   return ok("Сохранено.");
 }
 
+/**
+ * Fill-empty enrich for a recommendation card: mine texts, lift email→website
+ * (e.g. contact@avagyanlaw.com → https://avagyanlaw.com), clean city, etc.
+ */
+export async function enrichCommentRecommendationAction(input: {
+  id: string;
+}): Promise<
+  | {
+      ok: true;
+      message: string;
+      filled: string[];
+      discoveredWebsite: string | null;
+      resources: import("@/lib/import-review/enrich-progress").EnrichResourceState[];
+    }
+  | { ok: false; message: string }
+> {
+  const { supabase, error } = await requireAdmin();
+  if (error) return { ok: false, message: error.message || "Нет доступа" };
+
+  const item = await loadRecommendation(supabase, input.id);
+  if (!item) return { ok: false, message: "Запись не найдена." };
+  if (item.status === "approved" || item.status === "rejected") {
+    return {
+      ok: false,
+      message: "Карточка уже обработана — обогащение недоступно.",
+    };
+  }
+
+  const { buildRecommendationEnrichPatch } = await import(
+    "@/lib/import-review/recommendation-enrich"
+  );
+  const result = await buildRecommendationEnrichPatch(item);
+  if (Object.keys(result.patch).length === 0) {
+    return {
+      ok: true,
+      message:
+        result.resources.some((r) => r.outcome === "error")
+          ? "Сайт не открылся — новых полей нет."
+          : "Новых полей нет — контакты и фото уже есть, или сайт ничего не добавил.",
+      filled: [],
+      discoveredWebsite: result.discovered.website,
+      resources: result.resources,
+    };
+  }
+
+  const { error: updError } = await recommendationsTable(supabase)
+    .update({ ...result.patch, updated_at: new Date().toISOString() })
+    .eq("id", input.id);
+  if (updError) {
+    return { ok: false, message: updError.message || "Не удалось сохранить." };
+  }
+
+  revalidateRecommendationPaths(item);
+  const siteNote = result.discovered.website
+    ? ` Сайт: ${result.discovered.website}.`
+    : "";
+  return {
+    ok: true,
+    message: result.filled.length
+      ? `Добавлено: ${result.filled.join(", ")}.${siteNote}`
+      : `Обновлено.${siteNote}`,
+    filled: result.filled,
+    discoveredWebsite: result.discovered.website,
+    resources: result.resources,
+  };
+}
+
 export type RecommendationActionResult = ActionResult;
+
+export async function pasteRecommendationThreadAction(input: {
+  text: string;
+}): Promise<
+  | {
+      ok: true;
+      message: string;
+      created: number;
+      updated: number;
+      clusters: number;
+      skippedNoise: number;
+      requestPreview: string | null;
+    }
+  | { ok: false; message: string }
+> {
+  const { supabase, error } = await requireAdmin();
+  if (error) return { ok: false, message: error.message || "Нет доступа" };
+
+  const raw = (input.text || "").trim();
+  if (raw.length < 40) {
+    return { ok: false, message: "Вставьте текст треда (пост + комментарии)." };
+  }
+
+  const { parseRecommendationThread } = await import(
+    "@/lib/import-review/parse-recommendation-thread"
+  );
+  const parsed = parseRecommendationThread(raw);
+  if (!parsed.clusters.length) {
+    return {
+      ok: false,
+      message: `Рекомендаций не нашлось (шум: ${parsed.skippedNoise}). Нужны имена шопов, телефоны, FB/IG/Maps-ссылки.`,
+    };
+  }
+
+  let created = 0;
+  let updated = 0;
+  const table = recommendationsTable(supabase);
+
+  for (const cluster of parsed.clusters) {
+    const { data: existing, error: findError } = await table
+      .select(
+        "id, status, mention_count, third_party_mention_count, phones, instagram, websites, comment_texts, request_snippets, recommender_names, display_name, city, category_guess",
+      )
+      .eq("source_channel", "other")
+      .eq("cluster_key", cluster.cluster_key)
+      .maybeSingle();
+    if (findError) {
+      return { ok: false, message: findError.message };
+    }
+
+    if (existing) {
+      const row = existing as {
+        id: string;
+        status: string;
+        mention_count: number;
+        third_party_mention_count: number | null;
+        phones: string[] | null;
+        instagram: string[] | null;
+        websites: string[] | null;
+        comment_texts: string[] | null;
+        request_snippets: string[] | null;
+        recommender_names: string[] | null;
+        display_name: string | null;
+        city: string | null;
+        category_guess: string | null;
+      };
+      const mergeUnique = (a: string[] | null | undefined, b: string[]) => {
+        const out = [...(a || [])];
+        for (const x of b) {
+          if (x && !out.includes(x)) out.push(x);
+        }
+        return out.slice(0, 40);
+      };
+      const patch: Record<string, unknown> = {
+        mention_count: Number(row.mention_count || 0) + cluster.mention_count,
+        third_party_mention_count:
+          Number(row.third_party_mention_count || 0) +
+          cluster.third_party_mention_count,
+        phones: mergeUnique(row.phones, cluster.phones),
+        instagram: mergeUnique(row.instagram, cluster.instagram),
+        websites: mergeUnique(row.websites, cluster.websites),
+        comment_texts: mergeUnique(row.comment_texts, cluster.comment_texts),
+        request_snippets: mergeUnique(
+          row.request_snippets,
+          cluster.request_snippets,
+        ),
+        recommender_names: mergeUnique(
+          row.recommender_names,
+          cluster.recommender_names,
+        ),
+        updated_at: new Date().toISOString(),
+      };
+      if (!row.display_name && cluster.display_name) {
+        patch.display_name = cluster.display_name;
+      }
+      if (!row.city && cluster.city) patch.city = cluster.city;
+      if (!row.category_guess && cluster.category_guess) {
+        patch.category_guess = cluster.category_guess;
+      }
+      // Auto shops from this thread → business bucket when still unclassified
+      if (
+        cluster.category_guess === "автосервис" ||
+        cluster.category_guess === "авто / страхование"
+      ) {
+        patch.target_bucket = "business";
+      }
+      const { error: updError } = await table.update(patch).eq("id", row.id);
+      if (updError) return { ok: false, message: updError.message };
+      updated += 1;
+      continue;
+    }
+
+    const insertRow: Record<string, unknown> = {
+      cluster_key: cluster.cluster_key,
+      kind: "profi",
+      display_name: cluster.display_name,
+      phones: cluster.phones,
+      instagram: cluster.instagram,
+      websites: cluster.websites,
+      mention_count: cluster.mention_count,
+      third_party_mention_count: cluster.third_party_mention_count,
+      self_ad_mention_count: cluster.self_ad_mention_count,
+      comment_texts: cluster.comment_texts,
+      request_snippets: cluster.request_snippets,
+      source_post_urls: [],
+      source_groups: ["paste_thread"],
+      category_guess: cluster.category_guess,
+      recommender_names: cluster.recommender_names,
+      city: cluster.city,
+      source_channel: "other",
+      status: "pending",
+      target_bucket:
+        cluster.category_guess === "автосервис" ||
+        cluster.category_guess === "авто / страхование"
+          ? "business"
+          : "unclassified",
+    };
+    const { error: insError } = await table.insert(insertRow);
+    if (insError) return { ok: false, message: insError.message };
+    created += 1;
+  }
+
+  revalidatePath("/admin/community/recommendations");
+  revalidatePath("/admin/recommendations");
+  revalidatePath("/admin/review/inbox");
+  revalidatePath("/admin/queue");
+
+  return {
+    ok: true,
+    created,
+    updated,
+    clusters: parsed.clusters.length,
+    skippedNoise: parsed.skippedNoise,
+    requestPreview: parsed.requestText
+      ? parsed.requestText.slice(0, 160)
+      : null,
+    message: `Тред разобран: +${created} новых, ${updated} обновлено, всего кластеров ${parsed.clusters.length}.`,
+  };
+}
+

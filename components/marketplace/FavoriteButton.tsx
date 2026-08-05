@@ -1,12 +1,13 @@
 "use client";
 
 import { useTransition, useState } from "react";
-import { Heart, Loader2 } from "lucide-react";
+import { Heart } from "lucide-react";
 import {
   addListingFavoriteAction,
   removeListingFavoriteAction,
 } from "@/lib/listings/actions";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type FavoriteButtonProps = {
   listingId: string;
@@ -51,7 +52,7 @@ export function FavoriteButton({
       type="button"
     >
       {pending ? (
-        <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+        <BrandPinLoader size="sm" />
       ) : (
         <Heart
           aria-hidden="true"

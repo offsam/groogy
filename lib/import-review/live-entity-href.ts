@@ -1,9 +1,11 @@
 import "server-only";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { isPubliclyListedStatus } from "@/lib/import-review/merge-contract";
 
 /**
- * Public profile URL for a live catalog entity (admin lens / sources land here).
+ * Public profile URL for a live catalog entity (R16).
+ * Pending/archived are admin-only — never return a public path (404 trap).
  */
 export async function liveEntityHref(
   client: SupabaseClient,
@@ -18,20 +20,22 @@ export async function liveEntityHref(
   if (type === "business" || type === "organization" || type === "service") {
     const { data } = await db
       .from("businesses")
-      .select("slug")
+      .select("slug, status")
       .eq("id", id)
       .maybeSingle();
-    const slug = (data as { slug?: string } | null)?.slug;
-    return slug ? `/business/${slug}` : null;
+    const row = data as { slug?: string; status?: string } | null;
+    if (!row?.slug || !isPubliclyListedStatus(row.status)) return null;
+    return `/business/${row.slug}`;
   }
   if (type === "professional" || type === "private_specialist") {
     const { data } = await db
       .from("professionals")
-      .select("slug")
+      .select("slug, status")
       .eq("id", id)
       .maybeSingle();
-    const slug = (data as { slug?: string } | null)?.slug;
-    return slug ? `/professional/${slug}` : null;
+    const row = data as { slug?: string; status?: string } | null;
+    if (!row?.slug || !isPubliclyListedStatus(row.status)) return null;
+    return `/professional/${row.slug}`;
   }
   return null;
 }

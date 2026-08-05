@@ -154,7 +154,7 @@ def normalize_post(post: dict[str, Any]) -> dict[str, Any] | None:
         "last_posted_at": posted,
         "event_at": str(event_at).strip() if event_at else None,
         "city": city,
-        "state_code": "US-CA",
+        "state_code": None,
         "directory_source": source if source.startswith("telegram") else f"telegram:{source}",
         "target_bucket": "other",
         "source_channel": "telegram",

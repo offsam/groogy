@@ -27,6 +27,7 @@ type Props = {
   total: number;
   days: number;
   createdAfter: string;
+  categories?: import("@/lib/import-review/category-options").ReviewCategoryOption[];
 };
 
 function telegramSourceTitle(directorySource: string | null): string {
@@ -63,6 +64,7 @@ export function TelegramNewImportsPanel({
   total,
   days,
   createdAfter,
+  categories = [],
 }: Props) {
   const [previewId, setPreviewId] = useState<string | null>(null);
   const previewItem = items.find((i) => i.id === previewId) ?? null;
@@ -188,6 +190,7 @@ export function TelegramNewImportsPanel({
 
       {previewItem ? (
         <RecommendationPreviewModal
+          categories={categories}
           item={previewItem}
           onClose={() => setPreviewId(null)}
           onDone={() => setPreviewId(null)}

@@ -52,14 +52,85 @@ AD_HINT_RE = re.compile(
     re.I,
 )
 PHONE_RE = re.compile(
-    r"(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|\+\d{10,15}"
+    r"(?:\+?1[-.\s]*)?\(?\d{3}\)?[-.\s]*\d{3}[-.\s]*\d{4}|\+\d{10,15}"
 )
 URL_RE = re.compile(
     r"https?://[^\s<>\"']+|www\.[^\s<>\"']+|t\.me/[^\s<>\"']+|instagram\.com/[^\s<>\"']+",
     re.I,
 )
 IG_HANDLE_RE = re.compile(r"(?<!\w)@([A-Za-z0-9._]{3,30})")
-JUNK_HANDLES = {"everyone", "here", "channel", "admin", "facebook"}
+TG_HANDLE_RE = re.compile(r"(?<!\w)@([A-Za-z][A-Za-z0-9_]{3,32})\b")
+JUNK_HANDLES = {"everyone", "here", "channel", "admin", "facebook", "reply", "edited"}
+
+# Facebook page / profile vanity (not groups / permalinks / photos).
+FB_URL_RE = re.compile(
+    r"(?:https?://)?(?:www\.)?(?:facebook|fb)\.com/"
+    r"(?:pages/[^/\s?]+/)?"
+    r"([A-Za-z0-9.][A-Za-z0-9._-]{1,80})"
+    r"(?:[/?#]|\s|$)",
+    re.I,
+)
+FB_SKIP_SEGMENTS = {
+    "groups",
+    "share",
+    "story.php",
+    "photo",
+    "photos",
+    "reel",
+    "reels",
+    "watch",
+    "login",
+    "marketplace",
+    "events",
+    "permalink.php",
+    "profile.php",
+    "people",
+    "hashtag",
+    "posts",
+    "videos",
+    "live",
+    "stories",
+}
+
+# Google Maps short + place URLs.
+MAPS_URL_RE = re.compile(
+    r"https?://(?:maps\.app\.goo\.gl/[A-Za-z0-9_-]+|"
+    r"goo\.gl/maps/[A-Za-z0-9_-]+|"
+    r"(?:www\.)?google\.(?:com|[a-z]{2})/maps/[^\s<>\"']+)",
+    re.I,
+)
+MAPS_PLACE_RE = re.compile(
+    r"google\.(?:com|[a-z]{2})/maps/place/([^/?#]+)",
+    re.I,
+)
+
+# «Euroman» / “only Euroman” / "Vitalii Butakov рекомендую"
+QUOTED_NAME_RE = re.compile(
+    r"[«\"“„]\s*([A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё0-9 .&'-]{1,48})\s*[»\"”]",
+)
+NAME_RECOMMEND_RE = re.compile(
+    r"(?:^|\b)(?:рекоменд\w*|советую|только|есть)\s+"
+    r"[«\"“]?([A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё0-9 .&'-]{1,40})[»\"”]?",
+    re.I,
+)
+NAME_BEFORE_RECOMMEND_RE = re.compile(
+    r"^([A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё0-9 .&'-]{1,40})\s+рекоменд\w*",
+    re.I,
+)
+PLACE_DOT_CITY_RE = re.compile(
+    r"^([A-Za-zА-Яа-яЁё0-9][A-Za-zА-Яа-яЁё0-9 .&'-]{1,50})\s*[·•|]\s*"
+    r"([A-Za-zА-Яа-яЁё .'-]{2,40})(?:,|\s|$)",
+)
+
+NOISE_COMMENT_RE = re.compile(
+    r"(какая\s+у\s+вас\s+машин|"
+    r"смешанн\w*\s+брак|"
+    r"лиц\w*\s+славян|"
+    r"такое\s+сочетание\s+невозможно|"
+    r"^reply$|^edited$|"
+    r"^no\s+photo\s+description)",
+    re.I,
+)
 
 CATEGORY_HINTS: list[tuple[re.Pattern[str], str]] = [
     # Real estate before "лечу" — ads often say "лечу на конференцию" without parcels.
@@ -112,7 +183,15 @@ CATEGORY_HINTS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"плаван|swim", re.I), "плавание"),
     (re.compile(r"catering|доставк\w*\s+ед|кейтеринг|букет", re.I), "кейтеринг / цветы"),
     (re.compile(r"wrap|тониров|переклеит\w*\s+авто", re.I), "авто / детейлинг"),
-    (re.compile(r"маляр|покраск\w*\s+авто|автосервис|механик", re.I), "автосервис"),
+    (
+        re.compile(
+            r"маляр|покраск\w*\s+авто|автосервис|механик|автомастер|"
+            r"ходов(ая|ой|ую)|collision|garage|авто\s*сервис|"
+            r"кузовн|подвеск",
+            re.I,
+        ),
+        "автосервис",
+    ),
     (re.compile(r"юрист|адвокат|immigration", re.I), "юрист"),
     (re.compile(r"бухгалтер|tax\b|налог|notary|нотариус", re.I), "бухгалтерия / нотариус"),
     (re.compile(r"репетитор|tutor|учитель", re.I), "репетитор"),
@@ -292,6 +371,15 @@ CITY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
     (
         re.compile(r"\b(Orange\s*County|Irvine|Айрвин|OC\b|Орендж)\b", re.I),
+        "Orange County",
+    ),
+    (
+        re.compile(
+            r"\b(Huntington\s*Beach|Costa\s*Mesa|Garden\s*Grove|Laguna\s*Niguel|"
+            r"Newport\s*Beach|Anaheim|Santa\s*Ana|Fullerton|Alhambra|"
+            r"Хантингтон|Коста\s*Меса|Гарден\s*Гроув)\b",
+            re.I,
+        ),
         "Orange County",
     ),
     (re.compile(r"\b(San\s*Diego|Сан[-\s]?Диего)\b", re.I), "Сан-Диего"),
@@ -475,22 +563,139 @@ def guess_category(request_text: str) -> str | None:
     return None
 
 
+def strip_invisible(text: str) -> str:
+    """Drop FB spam combining marks / zero-width junk from pasted or scraped text."""
+    if not text:
+        return ""
+    t = text.replace("\u00a0", " ")
+    t = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufe0e\ufe0f\ufeff]", "", t)
+    # Combining marks used to obfuscate (r͏t͏S͏…)
+    t = re.sub(r"[\u0300-\u036f\u0483-\u0489\u1ab0-\u1aff\u1dc0-\u1dff]", "", t)
+    return t
+
+
+def facebook_page_slug(href: str) -> str | None:
+    low = (href or "").lower()
+    if "facebook.com" not in low and "fb.com" not in low:
+        return None
+    m = FB_URL_RE.search(href)
+    if not m:
+        return None
+    slug = m.group(1).strip(".")
+    if not slug or slug.lower() in FB_SKIP_SEGMENTS:
+        return None
+    if slug.lower() in {"home", "watch", "gaming", "marketplace"}:
+        return None
+    return slug
+
+
+def maps_cluster_token(href: str) -> str | None:
+    low = (href or "").lower()
+    if not any(
+        x in low
+        for x in ("maps.app.goo.gl", "goo.gl/maps", "google.com/maps", "google.ru/maps")
+    ):
+        return None
+    place = MAPS_PLACE_RE.search(href)
+    if place:
+        raw = place.group(1)
+        try:
+            from urllib.parse import unquote
+
+            name = unquote(raw).replace("+", " ").strip()
+        except Exception:  # noqa: BLE001
+            name = raw.replace("+", " ").strip()
+        name = re.sub(r"\s+", " ", name)
+        if len(name) >= 3:
+            return f"place:{name.lower()[:60]}"
+    # short link path
+    m = re.search(r"(?:maps\.app\.goo\.gl|goo\.gl/maps)/([A-Za-z0-9_-]+)", href, re.I)
+    if m:
+        return f"short:{m.group(1).lower()}"
+    return f"url:{hash(href.split('?')[0]) & 0xFFFFFFFF:x}"
+
+
+def guess_business_name(text: str) -> str | None:
+    """Name from quoted / recommend phrasing / «Place · City» lines."""
+    raw = strip_invisible(text or "").strip()
+    if not raw or NOISE_COMMENT_RE.search(raw):
+        return None
+    for pattern in (QUOTED_NAME_RE, NAME_BEFORE_RECOMMEND_RE, NAME_RECOMMEND_RE):
+        m = pattern.search(raw)
+        if m:
+            candidate = clean_display_name(m.group(1))
+            if candidate and len(candidate) >= 2:
+                return candidate
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line or line.lower() in {"reply", "edited", "facebook", "google.com"}:
+            continue
+        m = PLACE_DOT_CITY_RE.match(line)
+        if m:
+            candidate = clean_display_name(m.group(1))
+            if candidate:
+                return candidate
+        # FB page title lines often repeat brand without punctuation
+        if (
+            3 <= len(line) <= 60
+            and not URL_RE.search(line)
+            and not PHONE_RE.search(line)
+            and re.search(r"[A-Za-zА-Яа-яЁё]", line)
+            and not NOISE_COMMENT_RE.search(line)
+            and (
+                re.search(r"\b(collision|garage|auto|llc|inc|center|studio|shop)\b", line, re.I)
+                or re.search(r"[A-ZА-ЯЁ][a-zа-яё]+(?:\s+[A-ZА-ЯЁ][a-zа-яё]+){0,4}", line)
+            )
+        ):
+            # Prefer lines that look like brand titles (few lowercase filler words)
+            words = line.split()
+            if 1 <= len(words) <= 6:
+                candidate = clean_display_name(line)
+                if candidate:
+                    return candidate
+    return None
+
+
 def extract_contacts_from_comment(text: str) -> dict[str, Any]:
+    text = strip_invisible(text or "")
     phones: list[str] = []
-    for raw in PHONE_RE.findall(text or ""):
+    for raw in PHONE_RE.findall(text):
         n = normalize_phone(raw)
         if n and n not in phones:
             phones.append(n)
     ig: list[str] = []
     websites: list[str] = []
-    for raw in URL_RE.findall(text or ""):
+    facebook_pages: list[str] = []
+    maps_urls: list[str] = []
+    telegram: list[str] = []
+
+    for raw in MAPS_URL_RE.findall(text):
+        href = raw.rstrip(").,;\"'")
+        if href not in maps_urls:
+            maps_urls.append(href.split("?")[0][:300])
+            if href not in websites:
+                websites.append(href.split("?")[0][:300])
+
+    for raw in URL_RE.findall(text):
         href = raw if raw.lower().startswith("http") else f"https://{raw}"
+        href = href.rstrip(").,;\"'")
         handle = normalize_instagram(href)
         if handle and handle.lower() not in JUNK_HANDLES and handle not in ig:
             ig.append(handle)
             continue
         low = href.lower()
         if "instagram.com" in low:
+            continue
+        fb_slug = facebook_page_slug(href)
+        if fb_slug:
+            if fb_slug.lower() not in {x.lower() for x in facebook_pages}:
+                facebook_pages.append(fb_slug)
+            # Keep as website so admin sees the link
+            clean_fb = f"https://www.facebook.com/{fb_slug}"
+            if clean_fb not in websites:
+                websites.append(clean_fb)
+            continue
+        if any(x in low for x in ("maps.app.goo.gl", "goo.gl/maps", "/maps/")):
             continue
         try:
             host = (urlparse(href).hostname or "").lower()
@@ -499,27 +704,45 @@ def extract_contacts_from_comment(text: str) -> dict[str, Any]:
         if host and host not in {"t.me", "www.t.me", "wa.me"} and href not in websites:
             if website_root_host(href):
                 websites.append(href.split("?")[0][:200])
-    for m in IG_HANDLE_RE.findall(text or ""):
+            elif "t.me/" in low or "telegram.me/" in low:
+                m = re.search(r"(?:t\.me|telegram\.me)/([A-Za-z0-9_]+)", href, re.I)
+                if m and m.group(1).lower() not in JUNK_HANDLES:
+                    tg = m.group(1)
+                    if tg not in telegram:
+                        telegram.append(tg)
+
+    for m in IG_HANDLE_RE.findall(text):
         handle = normalize_instagram(m)
         if handle and handle.lower() not in JUNK_HANDLES and handle not in ig:
+            # @boldcarsshop may be telegram — keep as ig if looks like ig, else telegram
+            if handle.lower().startswith("bold") or "car" in handle.lower():
+                if handle not in telegram:
+                    telegram.append(handle)
             ig.append(handle)
-    # Name guess: strip contacts from text
-    name = text or ""
-    for p in PHONE_RE.findall(name):
-        name = name.replace(p, " ")
-    for u in URL_RE.findall(name):
-        name = name.replace(u, " ")
-    name = IG_HANDLE_RE.sub(" ", name)
-    name = re.sub(r"[^\w\s\-'.а-яА-ЯёЁ]", " ", name, flags=re.UNICODE)
-    name = re.sub(r"\s+", " ", name).strip(" -'")
-    if len(name) < 2 or len(name) > 80:
-        name = None
-    if name and name.lower() in JUNK_HANDLES:
-        name = None
+
+    name = guess_business_name(text)
+    if not name:
+        # Fallback: strip contacts from short comments
+        cleaned = text
+        for p in PHONE_RE.findall(cleaned):
+            cleaned = cleaned.replace(p, " ")
+        for u in URL_RE.findall(cleaned):
+            cleaned = cleaned.replace(u, " ")
+        for u in MAPS_URL_RE.findall(cleaned):
+            cleaned = cleaned.replace(u, " ")
+        cleaned = IG_HANDLE_RE.sub(" ", cleaned)
+        cleaned = re.sub(r"[^\w\s\-'.а-яА-ЯёЁ]", " ", cleaned, flags=re.UNICODE)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip(" -'")
+        if 2 <= len(cleaned) <= 80 and cleaned.lower() not in JUNK_HANDLES:
+            name = clean_display_name(cleaned)
+
     return {
         "phones": phones,
         "instagram": ig,
         "websites": websites,
+        "facebook_pages": facebook_pages,
+        "maps_urls": maps_urls,
+        "telegram": telegram,
         "name": name,
     }
 
@@ -531,7 +754,7 @@ def website_root_host(href: str) -> str | None:
         return None
     if not host or "." not in host:
         return None
-    # Skip social / video hosts as primary business contact
+    # Skip social / video hosts as *marketing website* (FB/maps handled separately)
     if any(
         host == h or host.endswith("." + h)
         for h in (
@@ -541,9 +764,13 @@ def website_root_host(href: str) -> str | None:
             "youtube.com",
             "youtu.be",
             "t.me",
+            "telegram.me",
             "wa.me",
             "tiktok.com",
             "google.com",
+            "google.ru",
+            "maps.app.goo.gl",
+            "goo.gl",
             "bit.ly",
             "linktr.ee",
         )
@@ -561,12 +788,41 @@ def cluster_key(contacts: dict[str, Any]) -> str | None:
         return f"phone:{contacts['phones'][0]}"
     if contacts.get("instagram"):
         return f"ig:{contacts['instagram'][0].lower()}"
+    if contacts.get("facebook_pages"):
+        return f"fb:{contacts['facebook_pages'][0].lower()}"
+    if contacts.get("maps_urls"):
+        tok = maps_cluster_token(contacts["maps_urls"][0])
+        if tok:
+            return f"maps:{tok}"
     if contacts.get("websites"):
         for w in contacts["websites"]:
             host = website_root_host(w)
             if host:
                 return f"web:{host}"
+            fb = facebook_page_slug(w)
+            if fb:
+                return f"fb:{fb.lower()}"
+            tok = maps_cluster_token(w)
+            if tok:
+                return f"maps:{tok}"
+    name = (contacts.get("name") or "").strip()
+    if name and len(name) >= 3 and not NOISE_COMMENT_RE.search(name):
+        # Name-only recommendations (Euroman, Vitalii Butakov)
+        norm = re.sub(r"[^a-z0-9а-яё]+", "", name.lower(), flags=re.I)
+        if len(norm) >= 4:
+            return f"name:{norm[:48]}"
     return None
+
+
+def is_noise_comment(text: str) -> bool:
+    t = strip_invisible(text or "").strip()
+    if not t or len(t) < 2:
+        return True
+    if NOISE_COMMENT_RE.search(t):
+        return True
+    if t.lower() in {"reply", "edited", "facebook", "google.com"}:
+        return True
+    return False
 
 
 def is_request_post(text: str) -> bool:
@@ -600,8 +856,8 @@ def build_clusters() -> dict[str, Any]:
         cat = guess_category(text)
 
         for c in comments:
-            ctext = (c.get("text") or "").strip()
-            if not ctext or len(ctext) < 3:
+            ctext = strip_invisible((c.get("text") or "").strip())
+            if is_noise_comment(ctext):
                 continue
             contacts = extract_contacts_from_comment(ctext)
             key = cluster_key(contacts)

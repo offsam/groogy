@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CatalogBrowser } from "@/components/admin/CatalogBrowser";
-import { ListingCard } from "@/components/marketplace/ListingCard";
 import { getAdminListings } from "@/lib/listings/queries";
 import type {
   CatalogSort,
@@ -9,6 +8,13 @@ import type {
 } from "@/lib/admin/catalog/types";
 import { CATALOG_PAGE_SIZE } from "@/lib/admin/catalog/types";
 import { LISTING_STATUS_LABELS } from "@/types/listing";
+
+const TYPE_LABELS: Record<string, string> = {
+  marketplace_item: "Маркетплейс",
+  service: "Услуга",
+  transfer: "Трансфер",
+  transport_carry: "Лечу",
+};
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 
@@ -112,6 +118,7 @@ export default async function AdminCatalogMarketplacePage({
       title="Marketplace"
       description="Объявления marketplace. Жалобы и расширенная модерация — в legacy Listings."
       basePath="/admin/catalog/marketplace"
+      layout="list"
       total={total}
       page={page}
       pageSize={pageSize}
@@ -120,21 +127,29 @@ export default async function AdminCatalogMarketplacePage({
       sort={sort}
       legacyHref="/admin/listings?domain=marketplace"
       legacyLabel="Listings moderation"
+      sectionEnrichKind="marketplace"
       error={loadError}
       items={slice.map((row) => ({
         meta: {
           id: row.id,
+          title: row.title,
           statusLabel:
             LISTING_STATUS_LABELS[
               row.status as keyof typeof LISTING_STATUS_LABELS
             ] ?? row.status,
+          locationLine: row.city?.trim() || "Без локации",
+          categoryLabel:
+            TYPE_LABELS[row.listingType] ||
+            row.marketplace?.category?.nameRu ||
+            row.service?.category?.nameRu ||
+            null,
+          createdAt: row.createdAt,
           publicHref:
             row.status === "active" ? publicHrefFor(row) : null,
           editHref: `/marketplace/${row.id}/edit`,
           archiveAvailable: false,
           enrichKind: enrichKindFor(row.listingType),
         },
-        card: <ListingCard listing={row} preview showStatus />,
       }))}
     />
   );

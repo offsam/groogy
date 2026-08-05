@@ -47,8 +47,20 @@ export default async function AdminImportsTelegramNewPage({
     },
   );
 
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("id, slug, name, domain")
+    .eq("is_active", true)
+    .order("sort_order", { ascending: true });
+
   return (
     <TelegramNewImportsPanel
+      categories={(categories ?? []).map((c) => ({
+        id: c.id,
+        slug: c.slug,
+        name: c.name,
+        domain: c.domain,
+      }))}
       items={items}
       total={total}
       days={days}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Briefcase, MapPin } from "lucide-react";
 import { AdminLensBar } from "@/components/admin/AdminLensBar";
 import { ClaimJobButton } from "@/components/claims/ClaimJobButton";
@@ -14,6 +15,7 @@ type Props = {
   autoClaim?: boolean;
   /** Admin moderation: hide back-link and owner-only chrome. */
   preview?: boolean;
+  adminChrome?: ReactNode;
 };
 
 /** Public job detail — same component for site + admin preview. */
@@ -23,6 +25,7 @@ export function JobProfileView({
   isOwner = false,
   autoClaim = false,
   preview = false,
+  adminChrome = null,
 }: Props) {
   const location = formatJobCardLocation(job);
 
@@ -34,7 +37,9 @@ export function JobProfileView({
           : "mx-auto max-w-2xl space-y-6 px-3 py-6 sm:px-6 sm:py-8"
       }
     >
-      {isAdmin && !preview ? (
+      {adminChrome ? (
+        adminChrome
+      ) : isAdmin && !preview ? (
         <AdminLensBar entityId={job.id} kind="job" slug={job.slug} />
       ) : null}
       {!preview && !isOwner && !job.businessId ? (

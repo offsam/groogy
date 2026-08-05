@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { ensureTitleBodyRu } from "@/lib/content/translate-copy-to-ru";
 import type {
   EntityPromotion,
   PromotionOwnerType,
@@ -220,7 +221,11 @@ export async function addMissingEntityPromotions(
   let added = 0;
   let sort = 0;
   for (const promo of promotions) {
-    const title = (promo.title || "").trim().slice(0, 160);
+    const localized = await ensureTitleBodyRu({
+      title: (promo.title || "").trim(),
+      body: promo.body,
+    });
+    const title = localized.title.slice(0, 160);
     if (!title) continue;
     const key = title.toLowerCase();
     if (taken.has(key)) continue;
@@ -237,7 +242,7 @@ export async function addMissingEntityPromotions(
       owner_type: ownerType,
       owner_id: ownerId,
       title,
-      body: promo.body?.trim().slice(0, 4000) || null,
+      body: localized.body?.trim().slice(0, 4000) || null,
       discount_label: promo.discount_label ?? null,
       discount_percent: promo.discount_percent ?? null,
       category_id: categoryId ?? null,

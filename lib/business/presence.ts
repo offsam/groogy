@@ -89,6 +89,64 @@ export function isYelpUrl(url: string | null | undefined): boolean {
   }
 }
 
+/** Canonical `https://www.yelp.com/biz/{slug}` without query/hash. */
+export function normalizeYelpBizUrl(
+  url: string | null | undefined,
+): string | null {
+  if (!url?.trim() || !isYelpUrl(url)) return null;
+  try {
+    const u = new URL(normalizeHttpUrl(url.trim()));
+    const path = u.pathname.replace(/\/+$/, "");
+    if (!path.startsWith("/biz/")) return null;
+    const slug = decodeURIComponent(path.slice("/biz/".length));
+    if (!slug || slug.includes("/")) return null;
+    return `https://www.yelp.com/biz/${slug}`;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * True when a URL belongs in a social/platform column, not `website`.
+ * Used when splitting import `website[]` lists and when saving forms.
+ */
+export function isSocialOrDirectoryListingUrl(
+  url: string | null | undefined,
+): boolean {
+  if (!url?.trim()) return false;
+  return (
+    isInstagramUrl(url) ||
+    isFacebookUrl(url) ||
+    isYelpUrl(url) ||
+    isTikTokUrl(url) ||
+    isTelegramUrl(url) ||
+    /wa\.me\/|whatsapp\.com|wtsp\.cc/i.test(url)
+  );
+}
+
+/** First real business website from a mixed import URL list. */
+export function pickPrimaryWebsiteFromList(
+  urls: string[] | null | undefined,
+): string | null {
+  for (const raw of urls ?? []) {
+    const t = raw?.trim();
+    if (!t || isSocialOrDirectoryListingUrl(t)) continue;
+    return normalizeHttpUrl(t);
+  }
+  return null;
+}
+
+/** First Yelp biz URL from a mixed import URL list. */
+export function pickYelpUrlFromList(
+  urls: string[] | null | undefined,
+): string | null {
+  for (const raw of urls ?? []) {
+    const yelp = normalizeYelpBizUrl(raw);
+    if (yelp) return yelp;
+  }
+  return null;
+}
+
 export function isTikTokUrl(url: string | null | undefined): boolean {
   if (!url) return false;
   try {

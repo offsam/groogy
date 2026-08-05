@@ -1,9 +1,10 @@
-import { AlertCircle, Loader2, SearchX } from "lucide-react";
+import { AlertCircle, SearchX } from "lucide-react";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 export function LoadingState({ label = "Загрузка…" }: { label?: string }) {
   return (
     <div className="flex flex-col items-center gap-3 rounded-xl border border-slate-200 bg-white px-6 py-16 text-center">
-      <Loader2 aria-hidden="true" className="size-8 animate-spin text-slate-300" />
+      <BrandPinLoader size="lg" />
       <p className="text-sm text-slate-500">{label}</p>
     </div>
   );

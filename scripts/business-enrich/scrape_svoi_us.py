@@ -381,17 +381,29 @@ def enrich_from_detail(card: dict[str, Any]) -> None:
     if og_img:
         card["cover_image_url"] = og_img.group(1)
 
-    # Better description
-    og_desc = re.search(
-        r'property="og:description"\s+content="([^"]+)"',
-        html,
-        re.I,
-    )
-    if og_desc:
-        d = clean(og_desc.group(1))
-        if d and len(d) > len(card.get("description") or ""):
-            card["description"] = d[:4000]
-            card["short_description"] = d[:280]
+    # Better description — never replace with Svoi SEO og:description
+    # («…по приемлемым ценам. Телефон: …»). Prefer body after H1.
+    from svoi_parse import extract_svoi_body_description, is_svoi_seo_blurb  # noqa: E402
+
+    body = extract_svoi_body_description(html)
+    if body:
+        card["description"] = body
+        card["short_description"] = body[:280]
+    else:
+        og_desc = re.search(
+            r'property="og:description"\s+content="([^"]+)"',
+            html,
+            re.I,
+        )
+        if og_desc:
+            d = clean(og_desc.group(1))
+            if (
+                d
+                and not is_svoi_seo_blurb(d)
+                and len(d) > len(card.get("description") or "")
+            ):
+                card["description"] = d[:4000]
+                card["short_description"] = d[:280]
 
     # phones / emails if missing
     phones = list(card.get("phones") or [])

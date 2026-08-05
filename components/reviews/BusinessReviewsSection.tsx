@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useTransition } from "react";
 import Link from "next/link";
-import { BadgeCheck, Flag, Loader2, Sparkles, Star } from "lucide-react";
+import { BadgeCheck, Flag, Sparkles, Star } from "lucide-react";
 import {
   hideOwnReviewAction,
   reportReviewAction,
@@ -24,6 +24,7 @@ import {
   type ReviewReportReason,
   type ReviewVerificationSession,
 } from "@/types/review";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 function Stars({
   value,
@@ -241,7 +242,7 @@ function ReviewCard({
             />
           </label>
           <Button className="gap-2 disabled:opacity-60" disabled={pending} type="submit">
-            {pending && <Loader2 className="size-4 animate-spin" />}
+            {pending && <BrandPinLoader size="sm" />}
             Отправить жалобу
           </Button>
         </form>
@@ -276,7 +277,7 @@ function ReviewCard({
             value={replyBody}
           />
           <Button className="gap-2 disabled:opacity-60" disabled={pending} type="submit">
-            {pending && <Loader2 className="size-4 animate-spin" />}
+            {pending && <BrandPinLoader size="sm" />}
             Сохранить ответ
           </Button>
         </form>
@@ -408,7 +409,7 @@ function VerificationChat({
           />
           {error && <AuthAlert>{error}</AuthAlert>}
           <Button className="gap-2 disabled:opacity-60" disabled={pending} type="submit">
-            {pending && <Loader2 className="size-4 animate-spin" />}
+            {pending && <BrandPinLoader size="sm" />}
             Отправить ответ
           </Button>
         </form>
@@ -615,7 +616,7 @@ function ReviewComposer({
       </p>
       {error && <AuthAlert>{error}</AuthAlert>}
       <Button className="gap-2 disabled:opacity-60" disabled={pending} type="submit">
-        {pending && <Loader2 className="size-4 animate-spin" />}
+        {pending && <BrandPinLoader size="sm" />}
         Продолжить проверку
       </Button>
     </form>

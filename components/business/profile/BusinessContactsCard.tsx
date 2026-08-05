@@ -258,15 +258,17 @@ function buildItems(input: {
       external: true,
     });
   }
-  // Channels without a dedicated column — Facebook/TikTok already rendered above.
-  const rendered = new Set(items.map((item) => item.key));
+  // Extra links (incl. several custom phones/emails). Dedupe by href, not channel.
+  const renderedHrefs = new Set(
+    items.map((item) => item.href.toLowerCase()),
+  );
   (input.presence.contactLinks ?? []).forEach((link, index) => {
     const channel = getContactChannel(link.channel);
     if (!channel) return;
-    if (rendered.has(channel.id)) return;
     const href = contactHref(channel.id, link.value);
     if (!href) return;
-    rendered.add(channel.id);
+    if (renderedHrefs.has(href.toLowerCase())) return;
+    renderedHrefs.add(href.toLowerCase());
     items.push({
       key: `${channel.id}-${index}`,
       title: channel.needsLabel

@@ -494,15 +494,38 @@ function previewFromAbout(about: string | null, maxChars = 420): string | null {
 }
 
 /**
+ * Pick a single narrative source. Prefer full description; never concatenate
+ * short+long (that duplicated blurbs when short was a truncated copy).
+ */
+function pickNarrativeSource(
+  description: string | null | undefined,
+  shortDescription?: string | null,
+): string {
+  const long = (description || "").trim();
+  const short = (shortDescription || "").trim();
+  if (!long) return short;
+  if (!short) return long;
+  const nLong = long.replace(/\s+/g, " ").toLowerCase();
+  const nShort = short.replace(/\s+/g, " ").toLowerCase();
+  if (
+    nLong === nShort ||
+    nLong.includes(nShort) ||
+    nShort.includes(nLong)
+  ) {
+    return long.length >= short.length ? long : short;
+  }
+  // Distinct short was a card teaser — profile shows the full description only.
+  return long;
+}
+
+/**
  * Parse free-text business description into categorized profile sections.
  */
 export function structureBusinessProfileCopy(
   description: string | null | undefined,
   shortDescription?: string | null,
 ): BusinessProfileSections {
-  const raw = [description, shortDescription]
-    .filter((v): v is string => Boolean(v && v.trim()))
-    .join("\n\n");
+  const raw = pickNarrativeSource(description, shortDescription);
 
   if (!raw.trim()) {
     return {

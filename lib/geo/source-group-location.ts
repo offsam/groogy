@@ -6,6 +6,7 @@
  */
 
 import { resolveFromSourceGroupCatalog } from "@/lib/geo/source-location-groups";
+import { stateCodeFromKnownCity } from "@/lib/geo/city-aliases";
 
 export type SourceGroupLocation = {
   /** City name when the group is city-scoped (Sacramento, LA). */
@@ -15,16 +16,7 @@ export type SourceGroupLocation = {
   stateCode: string;
   countyGeoid?: string | null;
   /** Hub id for filters when known. */
-  hubId:
-    | "orange-county"
-    | "los-angeles"
-    | "san-diego"
-    | "sacramento"
-    | "san-francisco"
-    | "seattle"
-    | "new-york"
-    | "oregon"
-    | null;
+  hubId: string | null;
 };
 
 /**
@@ -234,18 +226,69 @@ export function mergeLocationWithGroupFallback(input: {
   const filler = fromText || fromGroup;
   if (filler) {
     if (!city && filler.city) city = filler.city;
-    if (!city && !region && filler.region) region = filler.region;
-    if (!region && filler.region) region = filler.region;
+    // Never stamp a metro/county region that conflicts with an explicit city.
+    // Example: city=Los Angeles + description mentions Irvine → do not write Orange County.
+    const cityHub = city ? hubIdForCityLabel(city) : null;
+    const fillerHub =
+      filler.hubId ||
+      (filler.region ? hubIdForRegionLabel(filler.region) : null) ||
+      (filler.city ? hubIdForCityLabel(filler.city) : null);
+    const hubConflict =
+      Boolean(cityHub && fillerHub && cityHub !== fillerHub);
+
+    if (!hubConflict) {
+      if (!city && !region && filler.region) region = filler.region;
+      if (!region && filler.region) region = filler.region;
+      if (filler.countyGeoid) countyGeoid = filler.countyGeoid;
+    }
     if (!stateCode) stateCode = filler.stateCode;
-    if (filler.countyGeoid) countyGeoid = filler.countyGeoid;
   }
 
   return {
     city,
     region,
-    stateCode: stateCode || (city || region ? "US-CA" : null),
+    // Never invent California — unknown state stays null until ZIP/city/group proves it.
+    stateCode: stateCode || stateCodeFromKnownCity(city) || null,
     countyGeoid,
   };
+}
+
+function hubIdForCityLabel(city: string): string | null {
+  const c = city.trim().toLowerCase();
+  if (
+    /los\s*angeles|glendale|burbank|pasadena|santa\s*monica|west\s*hollywood|beverly\s*hills|hollywood|van\s*nuys|northridge|woodland\s*hills|long\s*beach/.test(
+      c,
+    )
+  ) {
+    return "los-angeles";
+  }
+  if (
+    /irvine|anaheim|santa\s*ana|costa\s*mesa|huntington\s*beach|newport|fullerton|garden\s*grove|westminster|tustin|laguna|mission\s*viejo|orange\s*county|^oc$/.test(
+      c,
+    )
+  ) {
+    return "orange-county";
+  }
+  if (/sacramento|roseville|elk\s*grove|citrus\s*heights|folsom/.test(c)) {
+    return "sacramento";
+  }
+  if (/san\s*francisco|oakland|berkeley|san\s*jose|palo\s*alto|bay\s*area/.test(c)) {
+    return "san-francisco";
+  }
+  if (/san\s*diego|chula\s*vista|la\s*jolla|carlsbad/.test(c)) {
+    return "san-diego";
+  }
+  return null;
+}
+
+function hubIdForRegionLabel(region: string): string | null {
+  const r = region.trim().toLowerCase();
+  if (/orange\s*county|^oc$/.test(r)) return "orange-county";
+  if (/los\s*angeles/.test(r)) return "los-angeles";
+  if (/sacramento/.test(r)) return "sacramento";
+  if (/san\s*francisco|bay\s*area/.test(r)) return "san-francisco";
+  if (/san\s*diego/.test(r)) return "san-diego";
+  return null;
 }
 
 /**

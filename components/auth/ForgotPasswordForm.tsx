@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Loader2 } from "lucide-react";
+
 import { createBrowserClient } from "@/lib/supabase/client";
 import { authMessage, getSiteOrigin, mapAuthError } from "@/lib/auth/messages";
 import { AuthAlert, AuthField } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 export function ForgotPasswordForm() {
   const [error, setError] = useState<string | null>(null);
@@ -65,7 +66,7 @@ export function ForgotPasswordForm() {
         disabled={loading}
         type="submit"
       >
-        {loading && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+        {loading && <BrandPinLoader size="sm" />}
         Отправить ссылку
       </Button>
     </form>

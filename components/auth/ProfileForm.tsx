@@ -1,13 +1,14 @@
 "use client";
 
 import { useActionState } from "react";
-import { Loader2 } from "lucide-react";
+
 import {
   updateDisplayNameAction,
   type ActionResult,
 } from "@/lib/auth/actions";
 import { AuthAlert, AuthField } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const initialState: ActionResult | null = null;
 
@@ -40,7 +41,7 @@ export function ProfileForm({ displayName }: ProfileFormProps) {
         disabled={pending}
         type="submit"
       >
-        {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+        {pending && <BrandPinLoader size="sm" />}
         Сохранить
       </Button>
     </form>

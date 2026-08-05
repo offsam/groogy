@@ -10,6 +10,7 @@ import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { getBusinessBySlug } from "@/lib/supabase/queries";
 import { resolveSourceUrl } from "@/lib/business/presence";
+import { listEntityProvenanceSources } from "@/lib/content/entity-provenance-sources";
 
 export const runtime = "nodejs";
 
@@ -21,7 +22,8 @@ type RouteContext = {
 };
 
 /**
- * Authenticated business provenance reveal — original Telegram/Facebook post.
+ * Authenticated business provenance reveal — original Telegram/Facebook post
+ * plus secondary sources preserved from merges.
  */
 export async function GET(request: Request, context: RouteContext) {
   const originGate = assertAiSearchRequestAllowed(request);
@@ -73,6 +75,13 @@ export async function GET(request: Request, context: RouteContext) {
       sourceKind: business.sourceKind,
     });
 
+    const sources = await listEntityProvenanceSources(catalog, {
+      entityType: "business",
+      entityId: business.id,
+      primaryUrl: sourceUrl,
+      primaryKind: business.sourceKind,
+    });
+
     try {
       await sessionClient.from("platform_events").insert({
         event_type: "contact_reveal",
@@ -83,6 +92,7 @@ export async function GET(request: Request, context: RouteContext) {
           business_id: business.id,
           surface: "business_source",
           via: "business_source_api",
+          source_count: sources.length,
         },
       });
     } catch {
@@ -91,8 +101,9 @@ export async function GET(request: Request, context: RouteContext) {
 
     return NextResponse.json({
       businessId: business.id,
-      sourceUrl,
-      sourceKind: business.sourceKind,
+      sourceUrl: sources[0]?.url ?? sourceUrl,
+      sourceKind: sources[0]?.kind ?? business.sourceKind,
+      sources,
     });
   } catch (err) {
     console.error("[business/source]", err);

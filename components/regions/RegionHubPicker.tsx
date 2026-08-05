@@ -9,7 +9,8 @@ import {
 } from "react";
 import { Check, Plus } from "lucide-react";
 import {
-  getSelectableRegionHubs,
+  getRegionPickerGroups,
+  USA_OVERVIEW_HUB,
   type RegionHub,
   type RegionHubId,
 } from "@/lib/regions/hubs";
@@ -63,7 +64,7 @@ export function RegionHubPicker({
   className,
   trigger,
 }: RegionHubPickerProps) {
-  const options = getSelectableRegionHubs();
+  const stateGroups = getRegionPickerGroups();
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<RegionHubId[]>(() => idsOf(selected));
   const [query, setQuery] = useState("");
@@ -194,6 +195,78 @@ export function RegionHubPicker({
   const draftSet = new Set(draft);
   const multiDraft = draft.filter((id) => id !== "usa-overview");
 
+  function renderRow(option: RegionHub, opts?: { indent?: boolean; wholeState?: boolean }) {
+    const checked = draftSet.has(option.id);
+    const isUsa = option.id === "usa-overview";
+    const label = opts?.wholeState ? "Весь штат" : option.shortLabel;
+    return (
+      <li key={option.id}>
+        <div
+          className={cn(
+            "flex w-full items-center gap-1 px-1.5 py-0.5",
+            opts?.indent && "pl-3",
+            checked && (dark ? "bg-white/10" : "bg-slate-50"),
+          )}
+        >
+          <button
+            aria-selected={checked}
+            className={cn(
+              "min-w-0 flex-1 rounded-lg px-2 py-2 text-left text-sm transition",
+              dark
+                ? "text-white/90 hover:bg-white/10"
+                : "text-slate-800 hover:bg-slate-100",
+              checked && (dark ? "text-white" : "font-medium text-slate-950"),
+            )}
+            onClick={() => selectOnly(option.id)}
+            role="option"
+            type="button"
+          >
+            {label}
+          </button>
+          {isUsa ? (
+            <span className="flex size-8 shrink-0 items-center justify-center">
+              {checked ? (
+                <Check
+                  aria-hidden
+                  className={cn(
+                    "size-3.5",
+                    dark ? "text-brand-yellow" : "text-slate-900",
+                  )}
+                  strokeWidth={2.5}
+                />
+              ) : null}
+            </span>
+          ) : (
+            <button
+              aria-label={
+                checked ? `Убрать ${label}` : `Добавить ${label}`
+              }
+              aria-pressed={checked}
+              className={cn(
+                "flex size-8 shrink-0 items-center justify-center rounded-lg transition",
+                checked
+                  ? dark
+                    ? "bg-brand-yellow text-slate-950"
+                    : "bg-slate-900 text-white"
+                  : dark
+                    ? "text-white/55 hover:bg-white/10 hover:text-white"
+                    : "text-slate-400 hover:bg-slate-100 hover:text-slate-700",
+              )}
+              onClick={(e) => toggleExtra(option.id, e)}
+              type="button"
+            >
+              {checked ? (
+                <Check aria-hidden className="size-3.5" strokeWidth={2.5} />
+              ) : (
+                <Plus aria-hidden className="size-3.5" strokeWidth={2.5} />
+              )}
+            </button>
+          )}
+        </div>
+      </li>
+    );
+  }
+
   return (
     <div className={cn("relative", className)} ref={rootRef}>
       {trigger({
@@ -212,7 +285,7 @@ export function RegionHubPicker({
           aria-label="Выбор регионов"
           aria-multiselectable
           className={cn(
-            "absolute left-0 top-full z-[1100] mt-2 min-w-[280px] overflow-hidden rounded-xl shadow-xl",
+            "absolute left-0 top-full z-[1100] mt-2 min-w-[300px] overflow-hidden rounded-xl shadow-xl",
             dark
               ? "border border-white/15 bg-slate-950/95 backdrop-blur-md"
               : "border border-slate-200 bg-white",
@@ -295,89 +368,31 @@ export function RegionHubPicker({
                 : "border-slate-100 text-slate-500",
             )}
           >
-            США — вся страна. Быстрый выбор — районы CA. «+» — добавить ещё.
+            Штаты по алфавиту. Можно выбрать весь штат или город с диаспорой.
           </p>
-          <ul className="py-1">
-            {options.map((option) => {
-              const checked = draftSet.has(option.id);
-              const isUsa = option.id === "usa-overview";
-              return (
-                <li key={option.id}>
-                  <div
-                    className={cn(
-                      "flex w-full items-center gap-1 px-1.5 py-0.5",
-                      checked && (dark ? "bg-white/10" : "bg-slate-50"),
-                    )}
-                  >
-                    <button
-                      aria-selected={checked}
-                      className={cn(
-                        "min-w-0 flex-1 rounded-lg px-2 py-2 text-left text-sm transition",
-                        dark
-                          ? "text-white/90 hover:bg-white/10"
-                          : "text-slate-800 hover:bg-slate-100",
-                        checked &&
-                          (dark ? "text-white" : "font-medium text-slate-950"),
-                      )}
-                      onClick={() => selectOnly(option.id)}
-                      role="option"
-                      type="button"
-                    >
-                      {option.shortLabel}
-                    </button>
-                    {isUsa ? (
-                      <span className="flex size-8 shrink-0 items-center justify-center">
-                        {checked ? (
-                          <Check
-                            aria-hidden
-                            className={cn(
-                              "size-3.5",
-                              dark ? "text-brand-yellow" : "text-slate-900",
-                            )}
-                            strokeWidth={2.5}
-                          />
-                        ) : null}
-                      </span>
-                    ) : (
-                      <button
-                        aria-label={
-                          checked
-                            ? `Убрать ${option.shortLabel}`
-                            : `Добавить ${option.shortLabel}`
-                        }
-                        aria-pressed={checked}
-                        className={cn(
-                          "flex size-8 shrink-0 items-center justify-center rounded-lg transition",
-                          checked
-                            ? dark
-                              ? "bg-brand-yellow text-slate-950"
-                              : "bg-slate-900 text-white"
-                            : dark
-                              ? "text-white/55 hover:bg-white/10 hover:text-white"
-                              : "text-slate-400 hover:bg-slate-100 hover:text-slate-700",
-                        )}
-                        onClick={(e) => toggleExtra(option.id, e)}
-                        type="button"
-                      >
-                        {checked ? (
-                          <Check
-                            aria-hidden
-                            className="size-3.5"
-                            strokeWidth={2.5}
-                          />
-                        ) : (
-                          <Plus
-                            aria-hidden
-                            className="size-3.5"
-                            strokeWidth={2.5}
-                          />
-                        )}
-                      </button>
-                    )}
-                  </div>
-                </li>
-              );
-            })}
+          <ul className="max-h-[min(70vh,480px)] overflow-y-auto py-1">
+            {renderRow(USA_OVERVIEW_HUB)}
+            {stateGroups.map((group) => (
+              <li key={group.label} className="list-none">
+                <p
+                  className={cn(
+                    "px-3 pb-0.5 pt-2.5 text-[11px] font-semibold tracking-wide",
+                    dark ? "text-white/45" : "text-slate-500",
+                  )}
+                >
+                  {group.label}
+                </p>
+                <ul>
+                  {renderRow(group.stateHub, {
+                    indent: true,
+                    wholeState: true,
+                  })}
+                  {group.cityHubs.map((city) =>
+                    renderRow(city, { indent: true }),
+                  )}
+                </ul>
+              </li>
+            ))}
           </ul>
           {multiDraft.length > 1 ? (
             <div

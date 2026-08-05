@@ -26,6 +26,10 @@ const CITY_ALIASES: Record<string, CityAlias> = {
   майами: { city: "Miami", stateCode: "US-FL" },
   орландо: { city: "Orlando", stateCode: "US-FL" },
   тампа: { city: "Tampa", stateCode: "US-FL" },
+  "санни айлс": { city: "Sunny Isles Beach", stateCode: "US-FL" },
+  "санни айлендс": { city: "Sunny Isles Beach", stateCode: "US-FL" },
+  "sunny isles": { city: "Sunny Isles Beach", stateCode: "US-FL" },
+  "sunny isles beach": { city: "Sunny Isles Beach", stateCode: "US-FL" },
   филадельфия: { city: "Philadelphia", stateCode: "US-PA" },
   сиэтл: { city: "Seattle", stateCode: "US-WA" },
   сиэттл: { city: "Seattle", stateCode: "US-WA" },
@@ -40,6 +44,11 @@ const CITY_ALIASES: Record<string, CityAlias> = {
   финикс: { city: "Phoenix", stateCode: "US-AZ" },
   миннеаполис: { city: "Minneapolis", stateCode: "US-MN" },
   балтимор: { city: "Baltimore", stateCode: "US-MD" },
+  потомак: { city: "Potomac", stateCode: "US-MD" },
+  potomac: { city: "Potomac", stateCode: "US-MD" },
+  роквилл: { city: "Rockville", stateCode: "US-MD" },
+  // Rockville MD is the RU-diaspora default; Rockville CA is rare in our catalog.
+  rockville: { city: "Rockville", stateCode: "US-MD" },
   шарлотт: { city: "Charlotte", stateCode: "US-NC" },
   нэшвилл: { city: "Nashville", stateCode: "US-TN" },
   детройт: { city: "Detroit", stateCode: "US-MI" },
@@ -73,13 +82,26 @@ export function isNonCityLabel(raw: string | null | undefined): boolean {
   return false;
 }
 
-/** Known label → canonical city + state. Latin names pass through unmapped. */
-export function cityAliasFromLabel(
+/** Known catalog city (any language / Latin) → `US-XX`. */
+export function stateCodeFromKnownCity(
   raw: string | null | undefined,
-): CityAlias | null {
+): string | null {
   const v = (raw ?? "").trim();
   if (!v || isNonCityLabel(v)) return null;
-  return CITY_ALIASES[aliasKey(v)] ?? null;
+  const byLabel = CITY_ALIASES[aliasKey(v)];
+  if (byLabel) return byLabel.stateCode;
+  const key = aliasKey(v);
+  for (const alias of Object.values(CITY_ALIASES)) {
+    if (aliasKey(alias.city) === key) return alias.stateCode;
+  }
+  // «Sunny Isles Beach, FL» already peeled — match city prefix.
+  for (const alias of Object.values(CITY_ALIASES)) {
+    const cityKey = aliasKey(alias.city);
+    if (key.startsWith(cityKey) || cityKey.startsWith(key)) {
+      if (Math.abs(key.length - cityKey.length) <= 8) return alias.stateCode;
+    }
+  }
+  return null;
 }
 
 /** Catalog spelling for a city label; null when the label is not a city. */

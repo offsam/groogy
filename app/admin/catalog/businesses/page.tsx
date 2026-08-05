@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CatalogBrowser } from "@/components/admin/CatalogBrowser";
-import { BusinessCard } from "@/components/business/BusinessCard";
 import {
-  adminBusinessToPreview,
-  getAdminBusinesses,
-} from "@/lib/business/admin-queries";
-import type {
-  CatalogSort,
-  CatalogStatusFilter,
+  listCatalogBusinessCategoryOptions,
+  listCatalogBusinessCountyOptions,
+  listCatalogBusinesses,
+  listCatalogBusinessStateOptions,
+} from "@/lib/admin/catalog/business-queries";
+import {
+  CATALOG_FILTER_NONE,
+  CATALOG_PAGE_SIZE,
+  type CatalogSort,
+  type CatalogStatusFilter,
 } from "@/lib/admin/catalog/types";
-import { CATALOG_PAGE_SIZE } from "@/lib/admin/catalog/types";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 
 export const metadata: Metadata = {
-  title: "Businesses — Catalog — Admin",
+  title: "Бизнесы — Каталог — Admin",
 };
 
 export const dynamic = "force-dynamic";
@@ -25,22 +27,13 @@ type PageProps = {
 };
 
 const STATUS_LABELS: Record<string, string> = {
-  draft: "Draft",
-  pending: "Pending",
-  approved: "Published",
-  rejected: "Rejected",
-  archived: "Archived",
-  deferred: "Deferred",
+  draft: "Черновик",
+  pending: "На проверке",
+  approved: "Опубликован",
+  rejected: "Отклонён",
+  archived: "Архив",
+  deferred: "Отложен",
 };
-
-function bucket(status: string): CatalogStatusFilter {
-  if (status === "approved") return "published";
-  if (status === "draft" || status === "pending" || status === "deferred") {
-    return "draft";
-  }
-  if (status === "archived") return "archived";
-  return "other";
-}
 
 function parseStatus(raw: string | undefined): CatalogStatusFilter {
   const allowed = new Set([
@@ -60,6 +53,30 @@ function parseSort(raw: string | undefined): CatalogSort {
   return "newest";
 }
 
+function parseFilterToken(raw: string | undefined): string {
+  const v = (raw ?? "").trim();
+  if (!v) return "";
+  if (v === CATALOG_FILTER_NONE) return CATALOG_FILTER_NONE;
+  return v;
+}
+
+function locationLine(row: {
+  city: string | null;
+  county_name: string | null;
+  state_code: string | null;
+  region: string | null;
+}): string {
+  const parts = [
+    row.city,
+    row.county_name
+      ? row.county_name.replace(/\s+County$/i, "") + " County"
+      : null,
+    row.state_code,
+  ].filter(Boolean);
+  if (parts.length) return parts.join(", ");
+  return row.region?.trim() || "Без локации";
+}
+
 export default async function AdminCatalogBusinessesPage({
   searchParams,
 }: PageProps) {
@@ -71,64 +88,88 @@ export default async function AdminCatalogBusinessesPage({
   if (!(await userIsAdmin(supabase))) redirect("/");
 
   const params = await searchParams;
-  const q = (params.q ?? "").trim().toLowerCase();
+  const q = (params.q ?? "").trim();
   const status = parseStatus(params.status);
   const sort = parseSort(params.sort);
   const page = Math.max(1, Number(params.page || "1") || 1);
+  const state = parseFilterToken(params.state);
+  const countyRaw = parseFilterToken(params.county);
+  // County only applies when a concrete state is selected.
+  const county =
+    state && state !== CATALOG_FILTER_NONE ? countyRaw : "";
+  const category = parseFilterToken(params.category);
 
   let loadError: string | null = null;
-  let rows: Awaited<ReturnType<typeof getAdminBusinesses>> = [];
+  let total = 0;
+  let items: Awaited<ReturnType<typeof listCatalogBusinesses>>["items"] = [];
+  let stateOptions: Awaited<
+    ReturnType<typeof listCatalogBusinessStateOptions>
+  > = [];
+  let countyOptions: Awaited<
+    ReturnType<typeof listCatalogBusinessCountyOptions>
+  > = [];
+  let categoryOptions: Awaited<
+    ReturnType<typeof listCatalogBusinessCategoryOptions>
+  > = [];
 
   try {
-    rows = await getAdminBusinesses(supabase);
+    const [list, states, categories, counties] = await Promise.all([
+      listCatalogBusinesses(supabase, {
+        status,
+        state: state || null,
+        county: county || null,
+        category: category || null,
+        q,
+        page,
+        pageSize: CATALOG_PAGE_SIZE,
+        sort,
+      }),
+      listCatalogBusinessStateOptions(supabase, status),
+      listCatalogBusinessCategoryOptions(supabase, status),
+      state && state !== CATALOG_FILTER_NONE
+        ? listCatalogBusinessCountyOptions(supabase, state)
+        : Promise.resolve([]),
+    ]);
+    items = list.items;
+    total = list.total;
+    stateOptions = states;
+    categoryOptions = categories;
+    countyOptions = counties;
   } catch (err) {
     loadError =
       err instanceof Error ? err.message : "Не удалось загрузить бизнесы";
   }
 
-  let filtered = rows;
-  if (status !== "all") {
-    filtered = filtered.filter((r) => bucket(r.status) === status);
-  }
-  if (q) {
-    filtered = filtered.filter((r) => {
-      const hay = [r.name, r.city, r.slug, r.phone]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return hay.includes(q);
-    });
-  }
-
-  filtered = [...filtered].sort((a, b) => {
-    if (sort === "title") return a.name.localeCompare(b.name, "ru");
-    const ta = Date.parse(a.created_at) || 0;
-    const tb = Date.parse(b.created_at) || 0;
-    return sort === "oldest" ? ta - tb : tb - ta;
-  });
-
-  const total = filtered.length;
-  const pageSize = CATALOG_PAGE_SIZE;
-  const slice = filtered.slice((page - 1) * pageSize, page * pageSize);
-
   return (
     <CatalogBrowser
-      title="Businesses"
-      description="Каталог бизнесов. Merge дубликатов и расширенная модерация — в legacy-инструменте."
+      title="Бизнесы"
+      description="Опубликованные бизнесы — фильтр по штату, округу и категории. Найди компанию и открой Edit."
       basePath="/admin/catalog/businesses"
+      layout="list"
       total={total}
       page={page}
-      pageSize={pageSize}
-      q={params.q ?? ""}
+      pageSize={CATALOG_PAGE_SIZE}
+      q={q}
       status={status}
       sort={sort}
+      state={state}
+      county={county}
+      category={category}
+      stateOptions={stateOptions}
+      countyOptions={countyOptions}
+      categoryOptions={categoryOptions}
+      sectionEnrichKind="business"
       legacyHref="/admin/businesses"
       legacyLabel="Merge / полная модерация"
       error={loadError}
-      items={slice.map((row) => ({
+      items={items.map((row) => ({
         meta: {
           id: row.id,
+          title: row.name,
           statusLabel: STATUS_LABELS[row.status] ?? row.status,
+          locationLine: locationLine(row),
+          categoryLabel: row.categories?.name ?? null,
+          createdAt: row.created_at,
           publicHref:
             row.status === "approved" ? `/business/${row.slug}` : null,
           editHref: `/admin/businesses/${row.id}/edit`,
@@ -136,9 +177,6 @@ export default async function AdminCatalogBusinessesPage({
           enrichKind: "business" as const,
           slug: row.slug,
         },
-        card: (
-          <BusinessCard business={adminBusinessToPreview(row)} preview />
-        ),
       }))}
     />
   );

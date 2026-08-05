@@ -5,8 +5,8 @@ import { Eye } from "lucide-react";
 import { ImportReviewTypedCard } from "@/components/admin/ImportReviewTypedCard";
 import { ReviewCardMetrics } from "@/components/admin/ReviewCardMetrics";
 import { ReviewFullPagePreviewModal } from "@/components/admin/ReviewFullPagePreviewModal";
-import { ReviewPreviewEnrichPanel } from "@/components/admin/ReviewPreviewEnrichPanel";
-import { ReviewImportDuplicatesPanel } from "@/components/admin/ReviewImportDuplicatesPanel";
+import { AdminPublishedEnrichButton } from "@/components/admin/AdminPublishedEnrichButton";
+import { AdminPublishedDuplicatesButton } from "@/components/admin/AdminPublishedDuplicatesButton";
 import { AdminPasteEnrichButton } from "@/components/admin/AdminPasteEnrichButton";
 import { Button } from "@/components/ui/Button";
 import type { ReviewCategoryOption } from "@/lib/import-review/category-options";
@@ -42,6 +42,22 @@ export function ReviewHubPreviewPanel({
     item.review_status === "approved" ||
     item.review_status === "rejected" ||
     item.review_status === "duplicate";
+  const lensKind =
+    kind === "professional"
+      ? ("professional" as const)
+      : kind === "events"
+        ? ("event" as const)
+        : kind === "jobs"
+          ? ("job" as const)
+          : kind === "services"
+            ? ("service" as const)
+            : kind === "transfers"
+              ? ("transfer" as const)
+              : kind === "lechu"
+                ? ("lechu" as const)
+                : kind === "marketplace"
+                  ? ("marketplace" as const)
+                  : ("business" as const);
 
   return (
     <>
@@ -64,29 +80,23 @@ export function ReviewHubPreviewPanel({
             />
           </div>
           <div className="relative z-10 flex w-full min-w-0 flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
-            <ReviewPreviewEnrichPanel itemId={item.id} disabled={locked} />
+            <AdminPublishedEnrichButton
+              disabled={locked}
+              entityId={item.id}
+              kind={lensKind}
+              queue={{ source: "import_review", id: item.id }}
+            />
+            <AdminPublishedDuplicatesButton
+              disabled={locked}
+              entityId={item.id}
+              kind={lensKind}
+              queue={{ source: "import_review", id: item.id }}
+            />
             <AdminPasteEnrichButton
               kind="import_review"
               entityId={item.id}
               variant="button"
               disabled={locked}
-            />
-            {/* Scan stays available after approve: an already-published
-                card can still be a duplicate of another live one. */}
-            <ReviewImportDuplicatesPanel
-              itemId={item.id}
-              cardSignals={{
-                phones: item.phone,
-                telegramUsername: item.telegram_username,
-                telegramUserId: item.telegram_user_id,
-                instagram: item.instagram,
-                website: item.website,
-                names: [
-                  item.title,
-                  item.business_name,
-                  item.person_name,
-                ].filter((x): x is string => Boolean(x?.trim())),
-              }}
             />
             <Button
               type="button"

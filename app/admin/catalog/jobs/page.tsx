@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CatalogBrowser } from "@/components/admin/CatalogBrowser";
-import { JobCard } from "@/components/jobs/JobCard";
 import { listCatalogJobs } from "@/lib/admin/catalog/queries";
 import type {
   CatalogSort,
@@ -47,6 +46,14 @@ function parseSort(raw: string | undefined): CatalogSort {
   return "newest";
 }
 
+function locationLine(job: {
+  city: string | null;
+  stateCode: string | null;
+}): string {
+  const parts = [job.city, job.stateCode].filter(Boolean);
+  return parts.length ? parts.join(", ") : "Без локации";
+}
+
 export default async function AdminCatalogJobsPage({
   searchParams,
 }: PageProps) {
@@ -83,6 +90,7 @@ export default async function AdminCatalogJobsPage({
       title="Jobs"
       description="Опубликованные вакансии каталога. Кандидаты из импорта — в Review Center."
       basePath="/admin/catalog/jobs"
+      layout="list"
       total={result.total}
       page={result.page}
       pageSize={result.pageSize}
@@ -91,11 +99,16 @@ export default async function AdminCatalogJobsPage({
       sort={sort}
       legacyHref="/admin/import-review?collection=jobs"
       legacyLabel="Jobs in Import Review"
+      sectionEnrichKind="job"
       error={loadError}
       items={result.items.map((job) => ({
         meta: {
           id: job.id,
+          title: job.title,
           statusLabel: STATUS_LABELS[job.status] ?? job.status,
+          locationLine: locationLine(job),
+          categoryLabel: job.businessName,
+          createdAt: job.createdAt,
           publicHref:
             job.status === "published" ? `/jobs/${job.slug}` : null,
           editHref: job.businessSlug
@@ -105,7 +118,6 @@ export default async function AdminCatalogJobsPage({
           enrichKind: "job" as const,
           slug: job.slug,
         },
-        card: <JobCard job={job} preview />,
       }))}
     />
   );

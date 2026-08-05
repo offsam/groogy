@@ -7,7 +7,7 @@
 -- Повторный запуск безопасен за счёт ON CONFLICT.
 
 insert into categories (id, slug, name, icon, sort_order, is_active) values
-  ('a1000001-0000-4000-8000-000000000001', 'restaurants',  'Рестораны',               'restaurants',  10, true),
+  ('a1000001-0000-4000-8000-000000000001', 'restaurants',  'Рестораны кафе',         'restaurants',  10, true),
   ('a1000001-0000-4000-8000-000000000002', 'groceries',    'Продукты',                 'groceries',    20, true),
   ('a1000001-0000-4000-8000-000000000003', 'beauty',       'Красота',                  'beauty',       30, true),
   ('a1000001-0000-4000-8000-000000000004', 'auto',         'Автосервис',               'auto',         40, true),

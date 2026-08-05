@@ -23,6 +23,7 @@ const SECTION_STAT_KEY: Record<PlatformSectionKey, string> = {
   vehicles: "vehicles",
   lechu: "lechu",
   transfers: "transfers",
+  churches: "churches",
 };
 
 export function sectionStatFromHub(

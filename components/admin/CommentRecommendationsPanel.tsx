@@ -18,6 +18,7 @@ import type {
   CommentRecommendation,
   RecommendationTargetBucket,
 } from "@/lib/import-review/recommendation-queries";
+import type { ReviewCategoryOption } from "@/lib/import-review/category-options";
 import {
   yellowPagesEntityKind,
   yellowPagesToBusinessPreview,
@@ -36,6 +37,7 @@ type Props = {
   category: string;
   /** List URL for filters/pagination (IA or legacy). */
   listBasePath?: string;
+  categories?: ReviewCategoryOption[];
 };
 
 const BUCKET_TABS: {
@@ -205,6 +207,7 @@ export function CommentRecommendationsPanel({
   status,
   category,
   listBasePath = "/admin/recommendations",
+  categories = [],
 }: Props) {
   const [previewId, setPreviewId] = useState<string | null>(null);
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
@@ -431,6 +434,7 @@ export function CommentRecommendationsPanel({
 
       {previewItem ? (
         <RecommendationPreviewModal
+          categories={categories}
           item={previewItem}
           onClose={() => setPreviewId(null)}
         />

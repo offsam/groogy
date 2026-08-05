@@ -376,25 +376,49 @@ def ground_and_guard(result: dict[str, Any]) -> dict[str, Any]:
                 result["decision"] = "needs_review"
                 result["warnings"] = list(result.get("warnings") or []) + ["greeting_name_removed"]
 
-    if job.search(text):
+    # Lechu / transfers first — beat marketplace (FX) and generic specialist.
+    from entity_routing import detect_lechu_or_transfer  # type: ignore
+
+    travel = detect_lechu_or_transfer(text)
+    if travel == "lechu_listing":
+        result["classification"] = "unclear"
+        result["decision"] = "needs_review"
+        result["decision_reason"] = "Лечу / попутчик → Lechu."
+        entity["entity_type"] = "lechu_listing"
+        entity["target_collection"] = "lechu"
+        result["warnings"] = list(result.get("warnings") or []) + ["typed_lechu"]
+    elif travel == "transfer_listing":
+        result["classification"] = "unclear"
+        result["decision"] = "needs_review"
+        result["decision_reason"] = "Перевод денег → Transfers."
+        entity["entity_type"] = "transfer_listing"
+        entity["target_collection"] = "transfers"
+        result["warnings"] = list(result.get("warnings") or []) + ["typed_transfer"]
+    elif job.search(text):
         result["classification"] = "job_post"
-        result["decision"] = "rejected"
-        result["decision_reason"] = "Вакансия / поиск работы."
-    elif PERSONAL_GOODS_RE.search(text) and result.get("decision") == "accepted":
+        result["decision"] = "needs_review"
+        result["decision_reason"] = "Вакансия / поиск работы → Jobs."
+        entity["entity_type"] = "job"
+        entity["target_collection"] = "jobs"
+    elif PERSONAL_GOODS_RE.search(text):
         result["classification"] = "marketplace_item"
-        result["decision"] = "rejected"
-        result["decision_reason"] = "Личная продажа вещи."
+        result["decision"] = "needs_review"
+        result["decision_reason"] = "Личная продажа вещи → Marketplace."
+        entity["entity_type"] = "marketplace_listing"
+        entity["target_collection"] = "marketplace"
     elif detect_goods_sale(text):
         result["classification"] = "marketplace_item"
         entity["entity_type"] = "marketplace_listing"
         entity["target_collection"] = "marketplace"
-        if result.get("decision") == "accepted":
-            result["decision"] = "needs_review"
+        result["decision"] = "needs_review"
         result["decision_reason"] = "Продажа товара → marketplace."
-    elif housing.search(text) and result.get("decision") == "accepted":
+    elif housing.search(text):
         result["classification"] = "real_estate_listing"
-        result["decision"] = "rejected"
-        result["decision_reason"] = "Единичная недвижимость."
+        result["decision"] = "needs_review"
+        result["decision_reason"] = "Недвижимость → Real estate."
+        entity["entity_type"] = "real_estate"
+        entity["target_collection"] = "real_estate"
+
     if result.get("classification") == "third_party_recommendation":
         result["decision"] = "needs_review"
         result["advertiser_relationship"] = "third_party_recommendation"

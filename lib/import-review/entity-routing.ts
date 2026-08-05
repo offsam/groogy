@@ -74,6 +74,14 @@ const BUSINESS_SIGNAL_RE =
   /\b(inc|llc|corp|company|компани[яи]|студия|салон|агентство|insurance|страхован)\b/i;
 
 /**
+ * Retail storefront / shop brand in the copy. Outranks a Telegram person-name
+ * slot the same way cargo ops do — «Maksim Degtyar» posting for a flower
+ * boutique is still a shop card, not a private specialist.
+ */
+export const RETAIL_STOREFRONT_RE =
+  /flower\s+boutique|flower\s+shop|\bflorist\b|\bboutique\b|цветочн\p{L}*|магазин\s+цвет|бутик\s+цвет|\b(?:gift|wine|jewelry|jewellery)\s+shop\b|\b(?:grocery|gourmet)\s+(?:store|market|shop)\b/iu;
+
+/**
  * Copy only an operating company writes: pickup points, tariff tables, courier
  * services, cargo / logistics wording. Strong enough to outrank a person-name
  * slot, which importers fill with the poster's own name.
@@ -98,6 +106,32 @@ const STREET_SUFFIX_RE =
 const SERVICE_AREA_RE =
   /окрестн|nearby|and\s+around|service\s+area|выезд\s+по|и\s+район/i;
 
+/** Scraper / CMS garbage that must never count as a street pin (additive R03). */
+const GARBAGE_STREET_RE =
+  /wp-theme|wp-child|single-format|woocommerce|elementor|class=["']|<\/?[a-z]{1,12}\b/i;
+
+/**
+ * True when address_line is HTML/CSS/theme junk, not a human street.
+ * Additive guard — does not change valid streets.
+ */
+export function isGarbageStreetLine(
+  addressLine: string | null | undefined,
+): boolean {
+  const line = (addressLine || "").trim();
+  if (!line) return false;
+  if (GARBAGE_STREET_RE.test(line)) return true;
+  const words = line.split(/\s+/);
+  if (
+    words.length >= 6 &&
+    !STREET_SUFFIX_RE.test(line) &&
+    !/^\d{1,6}\s+\S/.test(line)
+  ) {
+    const weird = words.filter((w) => /[-_]/.test(w) || /^wp-/i.test(w)).length;
+    if (weird >= 3) return true;
+  }
+  return false;
+}
+
 const DATE_SIGNAL_RE =
   /(?:\d{1,2}[./]\d{1,2}(?:[./]\d{2,4})?)|(?:\d{1,2}\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|январ\w*|феврал\w*|март\w*|апрел\w*|ма[йя]\w*|июн\w*|июл\w*|август\w*|сентябр\w*|октябр\w*|ноябр\w*|декабр\w*)\w*)|starts_at/i;
 
@@ -120,10 +154,12 @@ export function hasStreetAddress(input: {
   locationPrecision?: string | null;
 }): boolean {
   if ((input.locationPrecision || "").trim().toLowerCase() === "street") {
+    if (isGarbageStreetLine(input.addressLine)) return false;
     return true;
   }
   const line = (input.addressLine || "").trim();
   if (!line || line.length < 5) return false;
+  if (isGarbageStreetLine(line)) return false;
   if (SERVICE_AREA_RE.test(line) && !/\d/.test(line)) return false;
   if (/^\d{1,6}\s+\S/.test(line)) return true;
   if (/\d/.test(line) && STREET_SUFFIX_RE.test(line)) return true;
@@ -323,6 +359,13 @@ export function routeCard(input: {
       street,
       hasContact || bn ? "high" : "medium",
       "gate2:company_operations_re",
+    );
+  }
+  if (RETAIL_STOREFRONT_RE.test(blob) && !SPECIALIST_SIGNAL_RE.test(blob)) {
+    return businessOrSpecialistForImport(
+      street,
+      hasContact || bn ? "high" : "medium",
+      "gate2:retail_storefront_re",
     );
   }
   // Brand / trade name alone is NOT a map business — pros use brands too.

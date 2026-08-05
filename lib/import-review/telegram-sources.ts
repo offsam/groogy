@@ -6,7 +6,8 @@ export type TelegramSourceId =
   | "tg_sd_rusrek"
   | "tg_sd_general"
   | "tg_fun_for_mom"
-  | "tg_la_orange_county";
+  | "tg_la_orange_county"
+  | "tg_irvine_friends";
 
 export type TelegramSourceMeta = {
   id: TelegramSourceId;
@@ -125,12 +126,26 @@ export const TELEGRAM_SOURCES: Record<TelegramSourceId, TelegramSourceMeta> = {
     title: "LA / Orange County",
     shortTitle: "LA / OC",
     description: "Русскоязычный чат LA и Orange County",
-    username: null,
-    homepage: "https://t.me/",
+    username: "LA_OrangeCounty",
+    homepage: "https://t.me/LA_OrangeCounty",
     regionHint: "Los Angeles / OC",
     prefix: "la_orange_county",
     chatId: -1001955320601,
     groupLabel: "LA_OrangeCounty",
+  },
+  tg_irvine_friends: {
+    id: "tg_irvine_friends",
+    slug: "irvine-friends",
+    title: "Ирвайн Друзья",
+    shortTitle: "OC · Irvine Friends",
+    description:
+      "Русскоязычный чат Irvine / Orange County: услуги, рекомендации, объявления",
+    username: "irvinefriends",
+    homepage: "https://t.me/irvinefriends",
+    regionHint: "Orange County",
+    prefix: "irvine_friends",
+    chatId: -1001880131921,
+    groupLabel: "Irvine_Friends",
   },
 };
 
@@ -142,6 +157,7 @@ export const TELEGRAM_CA_CITY_SOURCE_IDS: TelegramSourceId[] = [
   "tg_sf_general",
   "tg_sd_rusrek",
   "tg_sd_general",
+  "tg_irvine_friends",
 ];
 
 export const TELEGRAM_SOURCE_LIST = Object.values(TELEGRAM_SOURCES);

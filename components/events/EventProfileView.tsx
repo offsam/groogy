@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import {
   Calendar,
   ExternalLink,
@@ -211,6 +212,7 @@ export function EventProfileView({
   preview = false,
   isOwner = false,
   autoClaim = false,
+  adminChrome = null,
 }: {
   event: PlatformEvent;
   isAdmin?: boolean;
@@ -218,6 +220,8 @@ export function EventProfileView({
   preview?: boolean;
   isOwner?: boolean;
   autoClaim?: boolean;
+  /** Queue preview: amber bar (Опубликовать) in place of live AdminLensBar. */
+  adminChrome?: ReactNode;
 }) {
   const timing = eventTimingLabel(event.starts_at);
   const calendarWhen =
@@ -262,7 +266,9 @@ export function EventProfileView({
         </p>
       ) : null}
 
-      {isAdmin && !preview ? (
+      {adminChrome ? (
+        adminChrome
+      ) : isAdmin && !preview ? (
         <AdminLensBar entityId={event.id} kind="event" slug={event.slug} />
       ) : null}
 

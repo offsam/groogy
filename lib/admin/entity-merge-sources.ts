@@ -253,12 +253,20 @@ export async function listEntityMergeSourcesAction(input: {
     .order("created_at", { ascending: false })
     .limit(100);
   for (const row of (mentions ?? []) as Array<Record<string, unknown>>) {
+    const rid = String(row.source_record_id || "");
+    const isMergeSource = rid.startsWith("merged-source:");
     sources.push({
       kind: "mention",
       id: String(row.id),
-      title: String(row.source_label || row.kind || "упоминание"),
+      title: String(
+        row.source_label ||
+          (isMergeSource ? "источник при слиянии" : row.kind) ||
+          "упоминание",
+      ),
       status: String(row.status || ""),
-      reason: String(row.kind || "community_mention"),
+      reason: isMergeSource
+        ? "источник · перенесён при склейке"
+        : String(row.kind || "community_mention"),
       sourceUrl: (row.source_url as string) || null,
       createdAt: (row.created_at as string) || null,
     });

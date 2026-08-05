@@ -80,8 +80,9 @@ const COUNTY_ALIASES: Record<string, string> = {
 const TRAILING_META_RE =
   /(?:,\s*)?(?:orange\s+county|los\s+angeles\s+county|san\s+diego\s+county|\boc\b|california|калифорния|,?\s*CA\s*\d{5}(?:-\d{4})?|,?\s*CA\b|,?\s*USA\b|,?\s*United\s+States\b|\d{5}(?:-\d{4})?)\s*$/gi;
 
+/** Trailing ", City, ST [ZIP][, USA]" — ZIP and country optional. */
 const CITY_STATE_ZIP_TAIL_RE =
-  /,\s*([A-Za-zА-Яа-яЁё .'-]+)\s*,\s*(CA|California|калифорния|[A-Z]{2})\s*(\d{5}(?:-\d{4})?)?\s*$/i;
+  /,\s*([A-Za-zА-Яа-яЁё .'-]+)\s*,\s*(CA|California|калифорния|[A-Z]{2})\s*(\d{5}(?:-\d{4})?)?(?:\s*,?\s*(?:USA|U\.S\.A\.|United\s+States(?:\s+of\s+America)?))?\s*$/i;
 
 const CITY_ZIP_TAIL_RE =
   /,\s*([A-Za-zА-Яа-яЁё .'-]+)\s+(\d{5}(?:-\d{4})?)\s*$/i;
@@ -351,24 +352,31 @@ export function stripStreetMeta(raw: string | null | undefined): string | null {
   if (!raw?.trim()) return null;
   let line = cleanWhitespace(raw);
 
-  // Full "Street, City, ST ZIP" tail
-  const cityState = line.match(CITY_STATE_ZIP_TAIL_RE);
-  if (cityState) {
-    line = cleanWhitespace(line.slice(0, cityState.index));
-  }
+  const peelCityStateZip = () => {
+    const cityState = line.match(CITY_STATE_ZIP_TAIL_RE);
+    if (cityState) {
+      line = cleanWhitespace(line.slice(0, cityState.index));
+      return true;
+    }
+    const cityZip = line.match(CITY_ZIP_TAIL_RE);
+    if (cityZip) {
+      line = cleanWhitespace(line.slice(0, cityZip.index));
+      return true;
+    }
+    return false;
+  };
 
-  // "Street, City 92618"
-  const cityZip = line.match(CITY_ZIP_TAIL_RE);
-  if (cityZip) {
-    line = cleanWhitespace(line.slice(0, cityZip.index));
-  }
+  // Full "Street, City, ST ZIP[, USA]" tail
+  peelCityStateZip();
 
-  // Repeated trailing meta tokens
+  // Repeated trailing meta tokens (USA / CA / ZIP) — then peel again
+  // so ", Palatine, IL, USA" still yields a clean street after USA drops.
   for (let i = 0; i < 4; i += 1) {
     const next = line.replace(TRAILING_META_RE, "").trim();
     if (next === line) break;
     line = cleanWhitespace(next);
   }
+  peelCityStateZip();
 
   // Remove trailing ", Irvine" only when it looks like a city (no street suffix after comma)
   line = line.replace(
@@ -385,12 +393,15 @@ export function stripStreetMeta(raw: string | null | undefined): string | null {
 }
 
 function looksLikeCountyLabel(value: string): boolean {
-  return Boolean(normalizeCountyLabel(value));
+  if (normalizeCountyLabel(value)) return true;
+  // Non-CA counties (Cook, King, …) are still counties — keep the label.
+  return /\bcounty\b/i.test(value.trim());
 }
 
 /**
  * Parse messy free-text / split fields into structured address.
- * Prefers explicit field values; pulls missing pieces out of addressLine.
+ * When addressLine contains a full "Street, City, ST ZIP" dump, that tail
+ * wins over conflicting city/state/ZIP fields (directory metro defaults).
  * Pass businessName so venue/brand text is stripped from the street field.
  */
 export function normalizeStructuredAddress(input: {
@@ -428,16 +439,23 @@ export function normalizeStructuredAddress(input: {
 
     const full = addressLine.match(CITY_STATE_ZIP_TAIL_RE);
     if (full) {
-      if (!city) city = cleanWhitespace(full[1]);
-      if (!stateCode) stateCode = stateCodeFromText(full[2]);
-      if (!postalCode && full[3]) {
-        postalCode = extractZip(full[3]) ?? full[3].slice(0, 5);
-      }
+      // Full "Street, City, ST ZIP" pasted into the street field is authoritative.
+      // Directory defaults often leave a wrong metro city/ZIP (LA vs Sherman Oaks).
+      const streetCity = cleanWhitespace(full[1]);
+      const streetState = stateCodeFromText(full[2]);
+      const streetZip = full[3]
+        ? extractZip(full[3]) ?? full[3].slice(0, 5)
+        : null;
+      if (streetCity) city = streetCity;
+      if (streetState) stateCode = streetState;
+      if (streetZip) postalCode = streetZip;
     } else {
       const cz = addressLine.match(CITY_ZIP_TAIL_RE);
       if (cz) {
-        if (!city) city = cleanWhitespace(cz[1]);
-        if (!postalCode) postalCode = extractZip(cz[2]);
+        const streetCity = cleanWhitespace(cz[1]);
+        const streetZip = extractZip(cz[2]);
+        if (streetCity) city = streetCity;
+        if (streetZip) postalCode = streetZip;
       }
     }
   }
@@ -452,8 +470,17 @@ export function normalizeStructuredAddress(input: {
       const regionZip = extractZip(region);
       if (regionZip && !postalCode) postalCode = regionZip;
       if (!stateCode) stateCode = stateCodeFromText(region);
+      // Keep any "* County" label — aliases cover CA hubs, but Cook/King/etc.
+      // must not be wiped to null.
       const county = normalizeCountyLabel(region);
-      region = county;
+      if (county) {
+        region = county;
+      } else if (looksLikeCountyLabel(region)) {
+        region = cleanWhitespace(region);
+      } else if (stateCodeFromText(region)) {
+        // notes sometimes store "IL" in region — that is a state, not a county.
+        region = null;
+      }
     }
   }
 

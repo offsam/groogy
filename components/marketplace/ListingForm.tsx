@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
-import { Loader2, Trash2, Upload } from "lucide-react";
+import { Trash2, Upload } from "lucide-react";
 import {
   addListingMediaAction,
   createListingDraftAction,
@@ -37,6 +37,7 @@ import type {
   PublisherType,
 } from "@/types/listing";
 import type { UsStateOption } from "@/types/master-data";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type ListingFormProps = {
   mode: "create" | "edit";
@@ -633,7 +634,7 @@ export function ListingForm({
           )}
           {uploading && (
             <p className="flex items-center gap-2 text-sm text-slate-500">
-              <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+              <BrandPinLoader size="sm" />
               Загрузка…
             </p>
           )}
@@ -648,7 +649,7 @@ export function ListingForm({
           type="button"
           variant="secondary"
         >
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Сохранить черновик
         </Button>
         <Button
@@ -657,7 +658,7 @@ export function ListingForm({
           onClick={() => publish()}
           type="button"
         >
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Опубликовать
         </Button>
       </div>

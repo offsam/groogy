@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { Eye, Layers, UserRound } from "lucide-react";
 import { AdminChangeCategoryButton } from "@/components/business/AdminChangeCategoryButton";
 import { AdminChangeProfessionalCategoryButton } from "@/components/admin/AdminChangeProfessionalCategoryButton";
 import { AdminDeleteBusinessButton } from "@/components/business/AdminDeleteBusinessButton";
 import { AdminLiveSectionPreviewModal } from "@/components/admin/AdminLiveSectionPreviewModal";
-import { AdminPublishedEnrichButton } from "@/components/admin/AdminPublishedEnrichButton";
+import {
+  AdminPublishedEnrichButton,
+  type AdminEnrichQueueTarget,
+} from "@/components/admin/AdminPublishedEnrichButton";
 import { AdminPublishedDuplicatesButton } from "@/components/admin/AdminPublishedDuplicatesButton";
 import { AdminEntitySourcesButton } from "@/components/admin/AdminEntitySourcesButton";
 import { AdminPasteEnrichButton } from "@/components/admin/AdminPasteEnrichButton";
@@ -15,6 +18,7 @@ import type { MoveSectionKey } from "@/lib/admin/move-entity-section";
 import { cn } from "@/lib/utils";
 import type { Business, Category } from "@/types/business";
 import type { Professional } from "@/types/professional";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const chip =
   "inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50";
@@ -27,7 +31,27 @@ export type AdminLensSimpleKind =
   | "service"
   | "transfer"
   | "marketplace"
-  | "lechu";
+  | "lechu"
+  | "church";
+
+/**
+ * Queue / Review preview: identical live AdminLensBar + Publish only.
+ * Enrich / duplicates / paste use the same live components + scripts.
+ */
+export type AdminLensDraft = {
+  onPublish: () => void;
+  publishLabel?: string;
+  publishPending?: boolean;
+  publishDisabled?: boolean;
+  statusLabel?: string;
+  /** Where enrich / paste / duplicates write before publish. */
+  queue: AdminEnrichQueueTarget;
+  /** Same «Категория» chip dialog as live (queue slug write). */
+  categorySlot?: ReactNode;
+  /** «Раздел» opens parent hub switcher instead of live move modal. */
+  onSectionClick?: () => void;
+  onEnriched?: () => void;
+};
 
 const SIMPLE_TO_SECTION: Record<AdminLensSimpleKind, MoveSectionKey> = {
   event: "events",
@@ -36,36 +60,58 @@ const SIMPLE_TO_SECTION: Record<AdminLensSimpleKind, MoveSectionKey> = {
   transfer: "transfers",
   marketplace: "marketplace",
   lechu: "lechu",
+  church: "churches",
 };
 
-type Props =
-  | {
-      kind: "business";
-      business: Business;
-      categories: Category[];
-      showDelete?: boolean;
-    }
-  | {
-      kind: "professional";
-      professional: Professional;
-      categories: Category[];
-      viewAs?: AdminLensViewAs;
-      onViewAsChange?: (view: AdminLensViewAs) => void;
-    }
-  | {
-      kind: AdminLensSimpleKind;
-      entityId: string;
-      slug?: string;
-      title?: string;
-    };
+type BaseProps = {
+  draft?: AdminLensDraft;
+};
+
+type Props = BaseProps &
+  (
+    | {
+        kind: "business";
+        business: Business;
+        /** Live only — draft uses `draft.categorySlot`. */
+        categories?: Category[];
+        showDelete?: boolean;
+      }
+    | {
+        kind: "professional";
+        professional: Professional;
+        /** Live only — draft uses `draft.categorySlot`. */
+        categories?: Category[];
+        viewAs?: AdminLensViewAs;
+        onViewAsChange?: (view: AdminLensViewAs) => void;
+      }
+    | {
+        kind: "church";
+        entityId: string;
+        slug: string;
+        title: string;
+        viewAs?: AdminLensViewAs;
+        onViewAsChange?: (view: AdminLensViewAs) => void;
+      }
+    | {
+        kind: Exclude<AdminLensSimpleKind, "church">;
+        entityId: string;
+        slug?: string;
+        title?: string;
+      }
+  );
 
 /**
  * Admin-only control strip on live public cards.
- * Section switcher available for every platform section.
+ * Pass `draft` for Review/queue preview — same chrome + Опубликовать.
  */
 export function AdminLensBar(props: Props) {
   const [sectionOpen, setSectionOpen] = useState(false);
-  const viewAs = props.kind === "professional" ? props.viewAs ?? "owner" : null;
+  const draft = props.draft;
+  const isDraft = Boolean(draft);
+  const viewAs =
+    props.kind === "professional" || props.kind === "church"
+      ? props.viewAs ?? "visitor"
+      : null;
 
   const entityId =
     props.kind === "business"
@@ -91,8 +137,29 @@ export function AdminLensBar(props: Props) {
       : props.kind === "professional"
         ? "professionals"
         : SIMPLE_TO_SECTION[props.kind];
-  const isCatalogEntity =
-    props.kind === "business" || props.kind === "professional";
+  const supportsPaste =
+    props.kind === "business" ||
+    props.kind === "professional" ||
+    props.kind === "church";
+  const supportsAutoEnrich =
+    props.kind === "business" ||
+    props.kind === "professional" ||
+    props.kind === "church" ||
+    props.kind === "event" ||
+    props.kind === "job" ||
+    props.kind === "service" ||
+    props.kind === "transfer" ||
+    props.kind === "marketplace" ||
+    props.kind === "lechu";
+  const supportsDuplicates =
+    props.kind === "business" ||
+    props.kind === "professional" ||
+    props.kind === "event" ||
+    props.kind === "job" ||
+    props.kind === "service" ||
+    props.kind === "transfer" ||
+    props.kind === "marketplace" ||
+    props.kind === "lechu";
 
   return (
     <>
@@ -104,7 +171,39 @@ export function AdminLensBar(props: Props) {
           Админ
         </span>
 
-        {props.kind === "professional" && props.onViewAsChange ? (
+        {isDraft ? (
+          <span className="rounded-full border border-amber-300/80 bg-amber-100/80 px-2.5 py-1 text-[11px] font-medium text-amber-950">
+            {draft?.statusLabel || "Не опубликовано"}
+          </span>
+        ) : null}
+
+        {isDraft && draft ? (
+          <button
+            aria-busy={draft.publishPending || undefined}
+            className={cn(
+              chip,
+              "border-brand-blue/40 bg-brand-blue text-white hover:bg-brand-blue/90 hover:text-white disabled:opacity-80",
+              draft.publishPending &&
+                "pointer-events-none ring-2 ring-brand-blue/35 ring-offset-1 ring-offset-amber-50",
+            )}
+            disabled={draft.publishDisabled || draft.publishPending}
+            type="button"
+            onClick={draft.onPublish}
+          >
+            {draft.publishPending ? (
+              <>
+                <BrandPinLoader size="sm" />
+                Публикую…
+              </>
+            ) : (
+              draft.publishLabel || "Опубликовать"
+            )}
+          </button>
+        ) : null}
+
+        {(props.kind === "professional" || props.kind === "church") &&
+        props.onViewAsChange &&
+        !isDraft ? (
           <div className="flex overflow-hidden rounded-full border border-slate-200 bg-white">
             <button
               className={cn(
@@ -138,58 +237,83 @@ export function AdminLensBar(props: Props) {
         <button
           className={chip}
           type="button"
-          onClick={() => setSectionOpen(true)}
+          onClick={() => {
+            if (draft?.onSectionClick) {
+              draft.onSectionClick();
+              return;
+            }
+            if (!isDraft) setSectionOpen(true);
+          }}
         >
           <Layers aria-hidden className="size-3.5" />
           Раздел
         </button>
 
-        {isCatalogEntity ? (
-          props.kind === "business" ? (
-            <AdminChangeCategoryButton
-              businessId={props.business.id}
-              businessSlug={props.business.slug}
-              categories={props.categories}
-              currentCategoryId={props.business.categoryId}
-            />
-          ) : (
-            <AdminChangeProfessionalCategoryButton
-              categories={props.categories}
-              currentCategoryId={props.professional.categoryId}
-              professionalId={props.professional.id}
-              professionalSlug={props.professional.slug}
-            />
-          )
+        {isDraft && draft?.categorySlot
+          ? draft.categorySlot
+          : !isDraft && props.kind === "business" ? (
+              <AdminChangeCategoryButton
+                businessId={props.business.id}
+                businessSlug={props.business.slug}
+                categories={props.categories ?? []}
+                currentCategoryId={props.business.categoryId}
+              />
+            ) : null}
+        {!isDraft && props.kind === "professional" ? (
+          <AdminChangeProfessionalCategoryButton
+            categories={props.categories ?? []}
+            currentCategoryId={props.professional.categoryId}
+            professionalId={props.professional.id}
+            professionalSlug={props.professional.slug}
+          />
         ) : null}
 
-        <AdminPublishedEnrichButton
-          entityId={entityId}
-          kind={props.kind}
-          slug={slug}
-        />
+        {supportsAutoEnrich ? (
+          <AdminPublishedEnrichButton
+            disabled={draft?.publishDisabled}
+            entityId={isDraft && draft ? draft.queue.id : entityId}
+            kind={props.kind}
+            onEnriched={draft?.onEnriched}
+            queue={isDraft && draft ? draft.queue : undefined}
+            slug={slug}
+          />
+        ) : null}
 
-        {isCatalogEntity ? (
+        {isDraft && draft ? (
+          <AdminPasteEnrichButton
+            disabled={draft.publishDisabled}
+            entityId={draft.queue.id}
+            kind={
+              draft.queue.source === "import_review"
+                ? "import_review"
+                : "recommendation"
+            }
+            variant="chip"
+          />
+        ) : supportsPaste ? (
           <AdminPasteEnrichButton
             entityId={entityId}
-            kind={props.kind}
+            kind={props.kind === "church" ? "church" : props.kind}
             slug={slug || ""}
           />
         ) : null}
 
-        <AdminPublishedDuplicatesButton
-          entityId={entityId}
-          kind={props.kind}
-          slug={slug}
-        />
-
-        {isCatalogEntity ? (
-          <AdminEntitySourcesButton
-            entityId={entityId}
+        {supportsDuplicates ? (
+          <AdminPublishedDuplicatesButton
+            disabled={draft?.publishDisabled}
+            entityId={isDraft && draft ? draft.queue.id : entityId}
             kind={props.kind}
+            queue={isDraft && draft ? draft.queue : undefined}
+            slug={slug}
           />
         ) : null}
 
-        {props.kind === "business" ? (
+        {!isDraft &&
+        (props.kind === "business" || props.kind === "professional") ? (
+          <AdminEntitySourcesButton entityId={entityId} kind={props.kind} />
+        ) : null}
+
+        {!isDraft && props.kind === "business" ? (
           <>
             <Link
               className={chip}
@@ -206,15 +330,26 @@ export function AdminLensBar(props: Props) {
             ) : null}
           </>
         ) : null}
+
+        {!isDraft && props.kind === "church" ? (
+          <Link
+            className={chip}
+            href={`/admin/catalog/churches/${props.entityId}/edit`}
+          >
+            Редактировать
+          </Link>
+        ) : null}
       </div>
 
-      <AdminLiveSectionPreviewModal
-        entityId={entityId}
-        fromSection={fromSection}
-        open={sectionOpen}
-        title={title}
-        onClose={() => setSectionOpen(false)}
-      />
+      {!isDraft ? (
+        <AdminLiveSectionPreviewModal
+          entityId={entityId}
+          fromSection={fromSection}
+          open={sectionOpen}
+          title={title}
+          onClose={() => setSectionOpen(false)}
+        />
+      ) : null}
     </>
   );
 }

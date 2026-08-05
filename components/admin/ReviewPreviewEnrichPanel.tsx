@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { History, Loader2, Sparkles } from "lucide-react";
+import { History, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { EnrichProgressDrawer } from "@/components/admin/EnrichProgressDrawer";
-import { listPrePublishEnrichHistoryAction } from "@/lib/import-review/enrich-actions";
+import { listPrePublishEnrichHistoryAction, revertPrePublishEnrichFieldsAction } from "@/lib/import-review/enrich-actions";
 import {
   ENRICH_STEP_LABELS,
   applyResourceEvent,
@@ -18,13 +18,20 @@ import {
   type EnrichStepState,
   type EnrichStreamEvent,
 } from "@/lib/import-review/enrich-progress";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   itemId: string;
   disabled?: boolean;
+  /** `lens` = same chips as live AdminPublishedEnrichButton (for AdminLensBar). */
+  variant?: "default" | "lens";
 };
 
-export function ReviewPreviewEnrichPanel({ itemId, disabled }: Props) {
+export function ReviewPreviewEnrichPanel({
+  itemId,
+  disabled,
+  variant = "default",
+}: Props) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState<"run" | "history">("run");
@@ -40,6 +47,8 @@ export function ReviewPreviewEnrichPanel({ itemId, disabled }: Props) {
   const [selectedHistory, setSelectedHistory] =
     useState<EnrichHistoryRow | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [revertPending, setRevertPending] = useState(false);
+  const [revertMessage, setRevertMessage] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -159,7 +168,30 @@ export function ReviewPreviewEnrichPanel({ itemId, disabled }: Props) {
     setOpen(true);
     setTab("history");
     setSelectedHistory(null);
+    setRevertMessage(null);
     void loadHistory();
+  }
+
+  async function revertFields(runId: string, fields: string[]) {
+    if (revertPending || running || !fields.length) return;
+    setRevertPending(true);
+    setRevertMessage(null);
+    const res = await revertPrePublishEnrichFieldsAction(itemId, runId, fields);
+    setRevertPending(false);
+    if (!res.ok) {
+      setRevertMessage(res.message);
+      return;
+    }
+    setRevertMessage(res.message);
+    const refreshed = await listPrePublishEnrichHistoryAction(itemId);
+    if (refreshed.ok) {
+      setHistory(refreshed.rows);
+      setSelectedHistory(refreshed.rows.find((r) => r.id === runId) ?? null);
+    } else {
+      await loadHistory();
+      setSelectedHistory(null);
+    }
+    router.refresh();
   }
 
   function closePanel() {
@@ -169,37 +201,63 @@ export function ReviewPreviewEnrichPanel({ itemId, disabled }: Props) {
 
   return (
     <>
-      <div className="relative z-10 flex w-full min-w-0 flex-wrap gap-2 sm:w-auto">
-        <Button
-          type="button"
-          disabled={disabled || running}
-          variant="secondary"
-          className="min-h-10 w-full max-sm:flex-1 sm:min-h-0 sm:w-auto sm:flex-none"
-          onClick={() => void startEnrich()}
-        >
-          {running ? (
-            <>
-              <Loader2 className="mr-2 size-4 animate-spin" />
-              <span className="sm:hidden">…</span>
-              <span className="hidden sm:inline">Обогащение…</span>
-            </>
-          ) : (
-            <>
-              <Sparkles className="mr-2 size-4" />
-              Обогатить
-            </>
-          )}
-        </Button>
-        <Button
-          type="button"
-          variant="secondary"
-          className="min-h-10 w-full max-sm:flex-1 sm:min-h-0 sm:w-auto sm:flex-none"
-          onClick={openHistory}
-        >
-          <History className="mr-1.5 size-4" />
-          История
-        </Button>
-      </div>
+      {variant === "lens" ? (
+        <div className="inline-flex flex-wrap items-center gap-1.5">
+          <button
+            className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50 disabled:opacity-60"
+            disabled={disabled || running}
+            type="button"
+            onClick={() => void startEnrich()}
+          >
+            {running ? (
+              <BrandPinLoader size="sm" />
+            ) : (
+              <Sparkles aria-hidden className="size-3.5" />
+            )}
+            {running ? "Обогащение…" : "Обогатить"}
+          </button>
+          <button
+            className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
+            type="button"
+            onClick={openHistory}
+          >
+            <History aria-hidden className="size-3.5" />
+            История
+          </button>
+        </div>
+      ) : (
+        <div className="relative z-10 flex w-full min-w-0 flex-wrap gap-2 sm:w-auto">
+          <Button
+            type="button"
+            disabled={disabled || running}
+            variant="secondary"
+            className="min-h-10 w-full max-sm:flex-1 sm:min-h-0 sm:w-auto sm:flex-none"
+            onClick={() => void startEnrich()}
+          >
+            {running ? (
+              <>
+                <BrandPinLoader size="sm" className="mr-2" />
+                <span className="sm:hidden">…</span>
+                <span className="hidden sm:inline">Обогащение…</span>
+              </>
+            ) : (
+              <>
+                <Sparkles className="mr-2 size-4" />
+                Обогатить
+              </>
+            )}
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            className="min-h-10 w-full max-sm:flex-1 sm:min-h-0 sm:w-auto sm:flex-none"
+            onClick={openHistory}
+          >
+            <History className="mr-1.5 size-4" />
+            История
+          </Button>
+        </div>
+      )}
       <EnrichProgressDrawer
         open={open}
         mounted={mounted}
@@ -222,6 +280,9 @@ export function ReviewPreviewEnrichPanel({ itemId, disabled }: Props) {
         onStart={() => void startEnrich()}
         onClose={closePanel}
         startDisabled={disabled}
+        onRevertFields={(runId, fields) => void revertFields(runId, fields)}
+        revertFieldsPending={revertPending}
+        revertFieldsMessage={revertMessage}
       />
     </>
   );

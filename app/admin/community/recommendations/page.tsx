@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CommentRecommendationsPanel } from "@/components/admin/CommentRecommendationsPanel";
 import { ScanRecommendationDuplicatesButton } from "@/components/admin/ScanRecommendationDuplicatesButton";
+import { PasteRecommendationThreadButton } from "@/components/admin/PasteRecommendationThreadButton";
 import {
   countCommentRecommendationsByBucket,
   listCommentRecommendations,
@@ -94,6 +95,12 @@ export default async function AdminCommunityRecommendationsPage({
     loadError = message?.trim() || "Не удалось загрузить рекомендации";
   }
 
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("id, slug, name, domain")
+    .eq("is_active", true)
+    .order("sort_order", { ascending: true });
+
   return (
     <div className="mx-auto max-w-6xl space-y-6">
       <div>
@@ -122,6 +129,7 @@ export default async function AdminCommunityRecommendationsPage({
             Imports · Directories
           </Link>
           <ScanRecommendationDuplicatesButton />
+          <PasteRecommendationThreadButton />
         </p>
       </div>
 
@@ -133,6 +141,12 @@ export default async function AdminCommunityRecommendationsPage({
         <CommentRecommendationsPanel
           bucket={bucket}
           bucketCounts={bucketCounts}
+          categories={(categories ?? []).map((c) => ({
+            id: c.id,
+            slug: c.slug,
+            name: c.name,
+            domain: c.domain,
+          }))}
           category={category}
           items={items}
           listBasePath="/admin/community/recommendations"

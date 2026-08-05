@@ -7,11 +7,29 @@ import { scoreImportReviewQueueItem } from "@/lib/import-review/queue-completene
 import { importReviewCompleteness } from "@/lib/import-review/pre-publish-enrich";
 import { yellowPagesEntityKind } from "@/lib/import-review/yellow-pages-preview";
 import { structureEventFromText } from "@/lib/events/structure-event-from-text";
+import { telegramSourceByGroupLabel } from "@/lib/import-review/telegram-sources";
 import type {
   InboxEntityType,
   InboxItem,
   InboxSourceKey,
 } from "@/lib/admin/inbox/types";
+
+/** How “full” a recommendation card is — drives Inbox sort (ready first). */
+export function scoreRecommendationReadiness(
+  item: CommentRecommendation,
+): number {
+  let score = 0;
+  if (item.display_name?.trim()) score += 25;
+  if ((item.phones?.length ?? 0) > 0) score += 25;
+  if ((item.instagram?.length ?? 0) > 0) score += 15;
+  if ((item.websites?.length ?? 0) > 0) score += 15;
+  if (item.category_guess?.trim()) score += 8;
+  if (item.city?.trim()) score += 5;
+  if (item.cover_image_url?.trim()) score += 4;
+  if (item.notes?.trim()) score += 3;
+  score += Math.min(5, Number(item.mention_count ?? 0));
+  return Math.max(0, Math.min(100, score));
+}
 
 function compositeId(reviewType: InboxItem["reviewType"], sourceId: string) {
   return `${reviewType}:${sourceId}`;
@@ -87,7 +105,8 @@ export function normalizeInboxSource(
   const s = (raw ?? "").toLowerCase().trim();
   if (!s) return "other";
   if (s === "claims" || s === "ownership_claim") return "claims";
-  if (s.includes("eventbrite")) return "import";
+  if (s.includes("loveoverse")) return "loveoverse";
+  if (s.includes("eventbrite")) return "eventbrite";
   if (s.includes("telegram") || s.startsWith("tg_")) return "telegram";
   if (s.includes("facebook") || s.includes("fb_")) return "facebook";
   if (
@@ -128,6 +147,10 @@ export function fromImportReviewItem(item: ImportReviewListItem): InboxItem {
     item.source_group?.trim() ||
     item.source?.trim() ||
     "Import Review";
+  const tgMeta = telegramSourceByGroupLabel(item.source_group?.trim() || "");
+  const sourceRef =
+    tgMeta?.id ??
+    (item.source_group?.trim() || item.source?.trim() || null);
 
   const checklist = importReviewCompleteness(item);
   const entityType = mapImportEntityType(item.entity_type);
@@ -162,8 +185,9 @@ export function fromImportReviewItem(item: ImportReviewListItem): InboxItem {
     title,
     source,
     sourceName,
-    sourceRef: item.source?.trim() || item.source_group?.trim() || null,
+    sourceRef,
     status: item.review_status,
+    reviewNotes: item.review_notes ?? null,
     aiConfidence:
       typeof item.ai_confidence === "number" ? item.ai_confidence : null,
     // Enrich weighted score (same as history 65→73), not checklist %.
@@ -224,8 +248,9 @@ export function fromEventRecommendation(
       "Events",
     sourceRef: item.directory_source?.trim() || null,
     status: item.status,
+    reviewNotes: item.notes ?? null,
     aiConfidence: null,
-    completenessPercent: null,
+    completenessPercent: scoreRecommendationReadiness(item),
     checklistReady: null,
     checklistTotal: null,
     createdAt: item.created_at,
@@ -265,8 +290,9 @@ export function fromCommentRecommendation(
       "Recommendations",
     sourceRef: item.directory_source?.trim() || null,
     status: item.status,
+    reviewNotes: item.notes ?? null,
     aiConfidence: null,
-    completenessPercent: null,
+    completenessPercent: scoreRecommendationReadiness(item),
     checklistReady: null,
     checklistTotal: null,
     createdAt: item.created_at,

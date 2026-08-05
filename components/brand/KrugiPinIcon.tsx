@@ -19,6 +19,7 @@ export const KRUGI_PIN_NAMES = [
   "transfers",
   "messages",
   "community",
+  "churches",
   "favorites",
   "events",
   "promos",

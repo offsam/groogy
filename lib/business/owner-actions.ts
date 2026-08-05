@@ -3,7 +3,6 @@
 import { revalidatePath } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
 import type { OpeningHours } from "@/lib/business/opening-hours";
-import { inferLocationPrecision } from "@/lib/business/location-precision";
 import {
   normalizeStructuredAddress,
   validateStructuredAddress,
@@ -13,6 +12,8 @@ import {
   serializeContactLinks,
   type ContactLink,
 } from "@/lib/contacts/channels";
+import { normalizeTelegramInput, isYelpUrl, normalizeYelpBizUrl } from "@/lib/business/presence";
+import { resolveStreetGeoFields } from "@/lib/geo/geocode-street";
 import { userIsAdmin, userOwnsBusiness } from "@/lib/reviews/queries";
 
 export type OwnerActionResult =
@@ -61,6 +62,7 @@ export async function patchBusinessProfileAction(input: {
     email?: string | null;
     website?: string | null;
     instagramUrl?: string | null;
+    telegramUrl?: string | null;
     yelpUrl?: string | null;
     googleMapsUrl?: string | null;
     contactLinks?: ContactLink[];
@@ -87,6 +89,7 @@ export async function patchBusinessProfileAction(input: {
     email?: string | null;
     website?: string | null;
     instagram_url?: string | null;
+    telegram_url?: string | null;
     yelp_url?: string | null;
     google_maps_url?: string | null;
     contact_links?: ContactLink[];
@@ -114,11 +117,26 @@ export async function patchBusinessProfileAction(input: {
   }
   if (p.phone !== undefined) row.phone = emptyToNull(p.phone);
   if (p.email !== undefined) row.email = emptyToNull(p.email);
-  if (p.website !== undefined) row.website = emptyToNull(p.website);
+  if (p.website !== undefined) {
+    const w = emptyToNull(p.website);
+    if (w && isYelpUrl(w)) {
+      row.website = null;
+      if (p.yelpUrl === undefined) {
+        row.yelp_url = normalizeYelpBizUrl(w);
+      }
+    } else {
+      row.website = w;
+    }
+  }
   if (p.instagramUrl !== undefined) {
     row.instagram_url = emptyToNull(p.instagramUrl);
   }
-  if (p.yelpUrl !== undefined) row.yelp_url = emptyToNull(p.yelpUrl);
+  if (p.telegramUrl !== undefined) {
+    row.telegram_url = normalizeTelegramInput(p.telegramUrl);
+  }
+  if (p.yelpUrl !== undefined) {
+    row.yelp_url = normalizeYelpBizUrl(p.yelpUrl) ?? emptyToNull(p.yelpUrl);
+  }
   if (p.googleMapsUrl !== undefined) {
     row.google_maps_url = emptyToNull(p.googleMapsUrl);
   }
@@ -159,11 +177,22 @@ export async function patchBusinessProfileAction(input: {
     row.region = normalized.region;
     row.state_code = normalized.stateCode;
     row.postal_code = normalized.postalCode;
-    row.location_precision = inferLocationPrecision({
+
+    const geo = await resolveStreetGeoFields({
       addressLine: normalized.addressLine,
       city: normalized.city,
+      stateCode: normalized.stateCode,
+      postalCode: normalized.postalCode,
       region: normalized.region,
     });
+    row.address_line = geo.addressLine || normalized.addressLine;
+    row.latitude = geo.latitude;
+    row.longitude = geo.longitude;
+    row.location_precision = geo.location_precision;
+    if (geo.google_maps_url) row.google_maps_url = geo.google_maps_url;
+    if (!normalized.postalCode && geo.postalCode) {
+      row.postal_code = geo.postalCode;
+    }
   }
 
   if (p.latitude !== undefined) row.latitude = p.latitude;

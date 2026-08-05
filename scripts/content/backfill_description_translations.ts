@@ -279,103 +279,116 @@ async function processTable(
               ? "id, title, description, description_original, status, listing_type"
               : "id, slug, title, description, description_original, status";
 
-  let q = sb.from(table).select(selectCols).limit(opts.limit);
-  if (opts.id) {
-    q = q.eq("id", opts.id);
-  } else if (table === "import_review_items") {
-    q = q.in("review_status", [
-      "pending",
-      "in_review",
-      "needs_more_info",
-      "ready_to_publish",
-    ]);
-  } else if (table === "professionals" || table === "businesses") {
-    q = q.eq("status", "approved");
-  } else if (table === "events" || table === "jobs") {
-    q = q.eq("status", "published");
-  } else if (table === "listings") {
-    q = q.eq("status", "active");
-  }
-
-  const { data, error } = await q;
-  if (error) throw new Error(`${table}: ${error.message}`);
-
   let done = 0;
   let skipped = 0;
-  for (const row of (data ?? []) as Record<string, unknown>[]) {
-    const desc = String(row.description || "").trim();
-    const orig = String(row.description_original || "").trim();
-    if (orig && orig !== desc && !needsTranslationToRu(desc)) {
-      skipped += 1;
-      continue;
-    }
-    if (!desc || !needsTranslationToRu(desc)) {
-      skipped += 1;
-      continue;
+  const pageSize = Math.min(200, Math.max(opts.limit, 50));
+  let offset = 0;
+
+  while (done < opts.limit) {
+    let q = sb.from(table).select(selectCols).range(offset, offset + pageSize - 1);
+    if (opts.id) {
+      q = sb.from(table).select(selectCols).eq("id", opts.id);
+    } else if (table === "import_review_items") {
+      q = q.in("review_status", [
+        "pending",
+        "in_review",
+        "needs_more_info",
+        "ready_to_publish",
+      ]);
+    } else if (table === "professionals" || table === "businesses") {
+      q = q.eq("status", "approved").order("updated_at", { ascending: false });
+    } else if (table === "events" || table === "jobs") {
+      q = q.eq("status", "published").order("updated_at", { ascending: false });
+    } else if (table === "listings") {
+      q = q.eq("status", "active").order("updated_at", { ascending: false });
     }
 
-    const title = titleOf(row, table);
-    console.log(
-      `[${table}] translate`,
-      opts.id || row.slug || row.id,
-      title.slice(0, 40),
-    );
+    const { data, error } = await q;
+    if (error) throw new Error(`${table}: ${error.message}`);
+    const rows = (data ?? []) as Record<string, unknown>[];
+    if (rows.length === 0) break;
 
-    const t = await translateCopyToRu({ title, description: desc });
-    const outDesc = (t.descriptionRu || desc).trim();
-    // Don't trust model "ru" alone — Latin input that still needs work must apply.
-    if (
-      t.detectedLanguage === "ru" &&
-      looksMostlyCyrillic(desc) &&
-      looksMostlyCyrillic(outDesc)
-    ) {
-      console.log("  skip: already ru");
-      skipped += 1;
-      continue;
-    }
-    if (!outDesc || outDesc === desc) {
-      console.log("  skip: translator returned same text");
-      skipped += 1;
-      continue;
-    }
+    for (const row of rows) {
+      if (done >= opts.limit) break;
 
-    const patch: Record<string, unknown> = {
-      description: outDesc,
-      description_original: t.descriptionOriginal || desc,
-    };
-    if (table === "import_review_items") {
-      patch.source_language =
-        t.detectedLanguage === "unknown" ? "en" : t.detectedLanguage;
-    }
-    if (table === "events" && translateTitleFor(table)) {
-      patch.title = t.titleRu || title;
-      patch.title_original = t.titleOriginal || title;
-      patch.source_language =
-        t.detectedLanguage === "unknown" ? "en" : t.detectedLanguage;
-    }
-    if ((table === "jobs" || table === "listings") && translateTitleFor(table)) {
-      patch.title = t.titleRu || title;
-    }
-    if (table === "professionals" || table === "businesses") {
-      const ru = String(t.descriptionRu || desc);
-      patch.short_description = ru.slice(0, table === "businesses" ? 240 : 280);
-    }
+      const desc = String(row.description || "").trim();
+      const orig = String(row.description_original || "").trim();
+      if (orig && orig !== desc && !needsTranslationToRu(desc)) {
+        skipped += 1;
+        continue;
+      }
+      if (!desc || !needsTranslationToRu(desc)) {
+        skipped += 1;
+        continue;
+      }
 
-    if (!opts.apply) {
-      console.log("  dry-run", t.detectedLanguage, t.modelUsed);
-      console.log("  ru preview:", String(t.descriptionRu || "").slice(0, 120));
+      const title = titleOf(row, table);
+      console.log(
+        `[${table}] translate`,
+        opts.id || row.slug || row.id,
+        title.slice(0, 40),
+      );
+
+      const t = await translateCopyToRu({ title, description: desc });
+      const outDesc = (t.descriptionRu || desc).trim();
+      if (
+        t.detectedLanguage === "ru" &&
+        looksMostlyCyrillic(desc) &&
+        looksMostlyCyrillic(outDesc)
+      ) {
+        console.log("  skip: already ru");
+        skipped += 1;
+        continue;
+      }
+      if (!outDesc || outDesc === desc) {
+        console.log("  skip: translator returned same text");
+        skipped += 1;
+        continue;
+      }
+
+      const patch: Record<string, unknown> = {
+        description: outDesc,
+        description_original: t.descriptionOriginal || desc,
+      };
+      if (table === "import_review_items") {
+        patch.source_language =
+          t.detectedLanguage === "unknown" ? "en" : t.detectedLanguage;
+      }
+      if (table === "events" && translateTitleFor(table)) {
+        patch.title = t.titleRu || title;
+        patch.title_original = t.titleOriginal || title;
+        patch.source_language =
+          t.detectedLanguage === "unknown" ? "en" : t.detectedLanguage;
+      }
+      if ((table === "jobs" || table === "listings") && translateTitleFor(table)) {
+        patch.title = t.titleRu || title;
+      }
+      if (table === "professionals" || table === "businesses") {
+        const ru = String(t.descriptionRu || desc);
+        patch.short_description = ru.slice(0, table === "businesses" ? 240 : 280);
+      }
+
+      if (!opts.apply) {
+        console.log("  dry-run", t.detectedLanguage, t.modelUsed);
+        console.log("  ru preview:", String(t.descriptionRu || "").slice(0, 120));
+        done += 1;
+        continue;
+      }
+
+      const { error: upErr } = await sb.from(table).update(patch).eq("id", row.id);
+      if (upErr) {
+        console.error("  fail", upErr.message);
+        continue;
+      }
       done += 1;
-      continue;
+      console.log("  ok", t.detectedLanguage, t.modelUsed);
     }
 
-    const { error: upErr } = await sb.from(table).update(patch).eq("id", row.id);
-    if (upErr) {
-      console.error("  fail", upErr.message);
-      continue;
-    }
-    done += 1;
-    console.log("  ok", t.detectedLanguage, t.modelUsed);
+    if (opts.id) break;
+    offset += pageSize;
+    if (rows.length < pageSize) break;
   }
+
   console.log(`[${table}] done=${done} skipped=${skipped}`);
   return { done, skipped };
 }

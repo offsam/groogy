@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { Check, ChevronDown, Copy, GitMerge, Loader2, X } from "lucide-react";
+import { Check, ChevronDown, Copy, GitMerge, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
   approveImportReviewItemAction,
@@ -20,6 +20,7 @@ import { DuplicateMatchReasonBadge } from "@/components/admin/DuplicateMatchReas
 import { reviewWorkspacePath } from "@/lib/admin/review-workspace/task-id";
 import type { CardMatchSignals } from "@/lib/import-review/duplicate-match-label";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   itemId: string;
@@ -119,7 +120,7 @@ export function ReviewImportDuplicatesPanel({
     removedIds: string[] = [],
     liveHref?: string | null,
   ) {
-    // Linked to a catalog card — open it (pending stays admin-only on the public site).
+    // Linked to an approved public card — open it (R16: pending/archived → no href).
     if (liveHref) {
       setDuplicates([]);
       setMergeAllPreview(null);
@@ -235,7 +236,7 @@ export function ReviewImportDuplicatesPanel({
           onClick={runScan}
         >
           {busy && busyLabel?.startsWith("Ищу") ? (
-            <Loader2 className="size-4 animate-spin" />
+            <BrandPinLoader size="sm" />
           ) : (
             <Copy className="size-4" />
           )}
@@ -249,7 +250,7 @@ export function ReviewImportDuplicatesPanel({
           onClick={collapseCopies}
         >
           {busy && busyLabel?.includes("Сворачиваю") ? (
-            <Loader2 className="size-4 animate-spin" />
+            <BrandPinLoader size="sm" />
           ) : (
             <GitMerge className="size-4" />
           )}
@@ -265,7 +266,7 @@ export function ReviewImportDuplicatesPanel({
           role="status"
           aria-live="polite"
         >
-          <Loader2 className="size-4 shrink-0 animate-spin text-brand-blue" />
+          <BrandPinLoader size="sm" className="shrink-0" />
           <span>{busyLabel}</span>
         </div>
       ) : null}
@@ -291,7 +292,7 @@ export function ReviewImportDuplicatesPanel({
           {busy ? (
             <div className="absolute inset-0 z-20 flex items-center justify-center rounded-xl bg-white/55 backdrop-blur-[1px]">
               <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-800 shadow-sm">
-                <Loader2 className="size-4 animate-spin text-brand-blue" />
+                <BrandPinLoader size="sm" />
                 {busyLabel || "Работаю…"}
               </div>
             </div>
@@ -334,7 +335,7 @@ export function ReviewImportDuplicatesPanel({
                 onClick={mergeAllMatches}
               >
                 {busy && busyLabel?.includes("Объединяю все") ? (
-                  <Loader2 className="size-3.5 animate-spin" />
+                  <BrandPinLoader size="sm" />
                 ) : (
                   <GitMerge className="size-3.5" />
                 )}
@@ -484,7 +485,7 @@ export function ReviewImportDuplicatesPanel({
                         }}
                       >
                         {busy ? (
-                          <Loader2 className="size-3.5 animate-spin" />
+                          <BrandPinLoader size="sm" />
                         ) : (
                           <GitMerge className="size-3.5" />
                         )}

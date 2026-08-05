@@ -88,6 +88,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
                 "Доставка по Bay Area, заказ за 3–5 дней."
             ),
             "category": "food",
+            "address_line": "123 Main St",
             "source": "facebook:russiansf",
             "source_url": "https://www.facebook.com/groups/russiansf/posts/123",
             "source_author_username": "baker.studio.la",
@@ -175,6 +176,7 @@ class ContactAndEligibilityTests(unittest.TestCase):
             "title": "Кафе Круги",
             "description": "Семейное кафе с детской зоной и завтраками",
             "category": "food",
+            "address_line": "100 Beach Blvd",
             "phone": ["+16264813333"],
             "address_line": "456 Sunset Blvd",
             "city": "Los Angeles",

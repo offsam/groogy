@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ReviewEnrichmentPanel } from "@/components/admin/ReviewEnrichmentPanel";
 import { ReviewEventPendingPanel } from "@/components/admin/ReviewEventPendingPanel";
 import { ReviewHubPreviewPanel } from "@/components/admin/ReviewHubPreviewPanel";
+import { ReviewRecommendationPreviewPanel } from "@/components/admin/ReviewRecommendationPreviewPanel";
 import { ReviewChangeEntityTypePanel } from "@/components/admin/ReviewChangeEntityTypePanel";
 import { ReviewLocationUnresolvedBanner } from "@/components/admin/ReviewLocationUnresolvedBanner";
 import { ReviewWorkspaceActions } from "@/components/admin/ReviewWorkspaceActions";
@@ -64,18 +65,18 @@ export function ReviewWorkspace({ task, categories = [] }: Props) {
             href="/admin/review/inbox"
             className="text-brand-blue hover:underline"
           >
-            ← Inbox
+            ← К списку
           </Link>
           <Link
-            href={task.originalUrl}
-            className="hidden text-slate-500 hover:underline sm:inline"
+            href="/admin/queue"
+            className="text-slate-500 hover:underline"
           >
-            Legacy (compat)
+            На обработку
           </Link>
         </div>
         <div>
           <p className="text-xs font-medium text-brand-blue-deep sm:text-sm">
-            Review Center · Workspace
+            Очередь · карточка
           </p>
           <h1 className="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             {meta.title}
@@ -106,12 +107,15 @@ export function ReviewWorkspace({ task, categories = [] }: Props) {
               inboxPriority={meta.priority}
               item={importItem}
             />
+          ) : task.payload.kind === "recommendation" ? (
+            <ReviewRecommendationPreviewPanel
+              categories={categories}
+              task={task}
+            />
           ) : (
             <div className="min-w-0 overflow-hidden rounded-xl border border-dashed border-slate-300 bg-slate-50/60 p-3 sm:rounded-2xl sm:p-5">
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                {task.payload.kind === "recommendation"
-                  ? "Рекомендация · preview карточки"
-                  : "Public card preview"}
+                Public card preview
               </p>
               <div className="min-w-0 overflow-hidden">
                 <ReviewWorkspaceCard task={task} />

@@ -9,7 +9,7 @@ import {
 import { getNationalSectionCounts } from "@/lib/platform/hub-category-counts";
 import { getHubResourceStatsUncached } from "@/lib/platform/hub-resource-stats";
 import { getPopularHomeResourcesUncached } from "@/lib/platform/popular-resources";
-import { CALIFORNIA_LAUNCH_HUB_IDS, getMapPinRegionHubs } from "@/lib/regions/hubs";
+import { SELECTABLE_HUB_IDS, getMapPinRegionHubs } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { getHomeMapPinsUncached } from "@/lib/supabase/queries";
@@ -114,7 +114,7 @@ export async function probeCatalogHealthAction(): Promise<
     };
   }
 
-  const sampleHub = CALIFORNIA_LAUNCH_HUB_IDS[0] ?? "los-angeles";
+  const sampleHub = SELECTABLE_HUB_IDS[0] ?? "los-angeles";
 
   const [counts, ...probes] = await Promise.all([
     getNationalSectionCounts().catch(() => ({
@@ -127,6 +127,7 @@ export async function probeCatalogHealthAction(): Promise<
       vehicles: 0,
       lechu: 0,
       transfers: 0,
+      churches: 0,
     })),
     timeProbe("hub-stats-all", "Hub stats (all)", async () => {
       const stats = await getHubResourceStatsUncached(null);

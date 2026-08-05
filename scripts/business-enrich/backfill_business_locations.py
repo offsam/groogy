@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Backfill multi-location street addresses for franchise businesses.
+"""ARCHIVE one-off — hardcoded 5 Star Appliance offices only.
 
+Not a general business-locations backfill despite the filename.
 Seeds 5 Star Appliance Repair from public /contact-us/ page:
   street + city + ZIP per office. Phones stay on businesses / contacts only.
 

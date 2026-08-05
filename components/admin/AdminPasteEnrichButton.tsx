@@ -2,18 +2,18 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { ClipboardPaste, Loader2, X } from "lucide-react";
+import { ClipboardPaste, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import {
   applyPasteEnrichAction,
+  evaluatePasteAddressGeoAction,
   loadPasteEnrichExistingAction,
   readPasteEnrichImageAction,
   type PasteEnrichTargetKind,
 } from "@/lib/admin/paste-enrich-actions";
 import {
   buildPasteEnrichPreview,
-  parsePasteEnrichTextNormalized,
   type PasteEnrichExisting,
   type PasteEnrichPreviewItem,
 } from "@/lib/admin/paste-enrich";
@@ -22,6 +22,7 @@ import {
   compressBusinessImage,
   formatBytes,
 } from "@/lib/business/compress-image";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   kind: PasteEnrichTargetKind;
@@ -47,6 +48,8 @@ export function AdminPasteEnrichButton({
   const [file, setFile] = useState<File | null>(null);
   const [existing, setExisting] = useState<PasteEnrichExisting | null>(null);
   const [preview, setPreview] = useState<PasteEnrichPreviewItem[] | null>(null);
+  /** Which «replace» rows the admin confirmed (address/city/…). */
+  const [replaceKeys, setReplaceKeys] = useState<Set<string>>(new Set());
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
@@ -63,6 +66,7 @@ export function AdminPasteEnrichButton({
     setError(null);
     setMessage(null);
     setPreview(null);
+    setReplaceKeys(new Set());
     setPhotoText("");
     setCompressHint(null);
     preparedRef.current = null;
@@ -118,17 +122,47 @@ export function AdminPasteEnrichButton({
       .map((part) => part.trim())
       .filter(Boolean)
       .join("\n");
-    const extracted =
-      kind === "import_review"
-        ? parsePasteEnrichTextWithName(combined)
-        : parsePasteEnrichTextNormalized(combined);
-    const rows = buildPasteEnrichPreview(existing ?? {}, extracted, Boolean(file));
+    const extracted = parsePasteEnrichTextWithName(combined);
+    let addressGeo = null;
+    if (extracted.addressLine) {
+      setReading(true);
+      try {
+        const geoRes = await evaluatePasteAddressGeoAction({
+          existing: existing ?? {},
+          addressLine: extracted.addressLine,
+          city: extracted.city,
+          state: extracted.state,
+          postalCode: extracted.postalCode,
+        });
+        if (geoRes.ok) addressGeo = geoRes.gate;
+      } finally {
+        setReading(false);
+      }
+    }
+    const rows = buildPasteEnrichPreview(
+      existing ?? {},
+      extracted,
+      Boolean(file),
+      addressGeo,
+    );
     if (rows.length === 0) {
       setError("В тексте ничего не распознано.");
       setPreview([]);
+      setReplaceKeys(new Set());
       return;
     }
     setPreview(rows);
+    // Never auto-check replaces — admin must tick «обновить».
+    setReplaceKeys(new Set());
+  }
+
+  function toggleReplace(key: string) {
+    setReplaceKeys((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
   }
 
   /** Compress once — the same file is reused for OCR and for upload. */
@@ -171,6 +205,11 @@ export function AdminPasteEnrichButton({
       if (slug) fd.set("slug", slug);
       fd.set("text", text);
       fd.set("photoText", photoText);
+      for (const key of replaceKeys) {
+        fd.append("applyReplaceKeys", key);
+      }
+      // Explicit empty list = no replaces (fill-empty only).
+      if (replaceKeys.size === 0) fd.set("applyReplaceKeys", "");
       if (uploadFile) fd.set("file", uploadFile);
       const res = await applyPasteEnrichAction(fd);
       if (!res.ok) {
@@ -179,6 +218,7 @@ export function AdminPasteEnrichButton({
       }
       setMessage(res.message);
       setPreview(null);
+      setReplaceKeys(new Set());
       setText("");
       setFile(null);
       setPhotoText("");
@@ -251,12 +291,13 @@ export function AdminPasteEnrichButton({
             <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-3">
               <textarea
                 className="min-h-[9rem] w-full resize-y rounded-xl border border-slate-200 bg-slate-50/50 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
-                placeholder="Вставь bio, контакты, город — чем есть…"
+                  placeholder="Google Maps, Yelp («Yelp 4.1 (7 reviews)»), bio, контакты…"
                 value={text}
                 disabled={pending}
                 onChange={(e) => {
                   setText(e.target.value);
                   setPreview(null);
+                  setReplaceKeys(new Set());
                 }}
               />
 
@@ -272,6 +313,7 @@ export function AdminPasteEnrichButton({
                   onChange={(e) => {
                     setFile(e.target.files?.[0] ?? null);
                     setPreview(null);
+                    setReplaceKeys(new Set());
                     setCompressHint(null);
                     setPhotoText("");
                     preparedRef.current = null;
@@ -288,7 +330,7 @@ export function AdminPasteEnrichButton({
 
               {reading ? (
                 <p className="inline-flex items-center gap-2 text-xs text-slate-500">
-                  <Loader2 className="size-3.5 animate-spin" />
+                  <BrandPinLoader size="sm" />
                   Читаю текст с фото…
                 </p>
               ) : null}
@@ -306,35 +348,62 @@ export function AdminPasteEnrichButton({
 
               {loadingExisting ? (
                 <p className="inline-flex items-center gap-2 text-xs text-slate-500">
-                  <Loader2 className="size-3.5 animate-spin" />
+                  <BrandPinLoader size="sm" />
                   Загрузка карточки…
                 </p>
               ) : null}
 
               {preview && preview.length > 0 ? (
                 <ul className="space-y-1.5 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-sm">
-                  {preview.map((row) => (
-                    <li
-                      key={`${row.key}-${row.action}`}
-                      className="flex items-start justify-between gap-2"
-                    >
-                      <span className="min-w-0 text-slate-700">
-                        <span className="font-medium">{row.label}</span>
-                        <span className="mt-0.5 block truncate text-xs text-slate-500">
-                          {row.value}
-                        </span>
-                      </span>
-                      <span
-                        className={
-                          row.action === "add"
-                            ? "shrink-0 text-xs font-medium text-emerald-700"
-                            : "shrink-0 text-xs text-slate-400"
-                        }
+                  {preview.map((row) => {
+                    const willReplace =
+                      row.action === "replace" && replaceKeys.has(row.key);
+                    return (
+                      <li
+                        key={`${row.key}-${row.action}`}
+                        className="flex items-start justify-between gap-2"
                       >
-                        {row.action === "add" ? "добавим" : "уже есть"}
-                      </span>
-                    </li>
-                  ))}
+                        <span className="min-w-0 text-slate-700">
+                          <span className="font-medium">{row.label}</span>
+                          <span className="mt-0.5 block truncate text-xs text-slate-500">
+                            {row.value}
+                          </span>
+                          {row.hint ? (
+                            <span className="mt-0.5 block text-xs text-amber-700/90">
+                              {row.hint}
+                            </span>
+                          ) : null}
+                          {row.action === "replace" && row.currentValue ? (
+                            <span className="mt-0.5 block truncate text-xs text-amber-700/90">
+                              сейчас: {row.currentValue}
+                            </span>
+                          ) : null}
+                        </span>
+                        {row.action === "replace" ? (
+                          <label className="flex shrink-0 cursor-pointer items-center gap-1.5 pt-0.5 text-xs font-medium text-amber-800">
+                            <input
+                              type="checkbox"
+                              className="size-3.5 rounded border-slate-300"
+                              checked={willReplace}
+                              disabled={pending}
+                              onChange={() => toggleReplace(row.key)}
+                            />
+                            обновить
+                          </label>
+                        ) : (
+                          <span
+                            className={
+                              row.action === "add"
+                                ? "shrink-0 text-xs font-medium text-emerald-700"
+                                : "shrink-0 text-xs text-slate-400"
+                            }
+                          >
+                            {row.action === "add" ? "добавим" : "уже есть"}
+                          </span>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               ) : null}
 
@@ -371,7 +440,11 @@ export function AdminPasteEnrichButton({
                   loadingExisting ||
                   reading ||
                   !preview ||
-                  !preview.some((r) => r.action === "add")
+                  !preview.some(
+                    (r) =>
+                      r.action === "add" ||
+                      (r.action === "replace" && replaceKeys.has(r.key)),
+                  )
                 }
                 onClick={runApply}
               >

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+
 import { createBrowserClient } from "@/lib/supabase/client";
 import {
   authMessage,
@@ -14,6 +14,7 @@ import {
 import { AuthAlert, AuthField } from "@/components/auth/AuthShell";
 import { OAuthButtons } from "@/components/auth/OAuthButtons";
 import { Button } from "@/components/ui/Button";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type RegisterFormProps = {
   nextPath: string;
@@ -119,7 +120,7 @@ export function RegisterForm({ nextPath }: RegisterFormProps) {
           disabled={loading}
           type="submit"
         >
-          {loading && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {loading && <BrandPinLoader size="sm" />}
           Зарегистрироваться
         </Button>
       </form>

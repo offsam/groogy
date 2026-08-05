@@ -45,6 +45,14 @@ export type Business = {
   /** Public listing metric — Yelp stars when known. */
   yelpRating: number | null;
   yelpReviewsCount: number;
+  /** Trustpilot review page URL when known. */
+  trustpilotUrl: string | null;
+  /** Public listing metric — Trustpilot TrustScore when known. */
+  trustpilotRating: number | null;
+  trustpilotReviewsCount: number;
+  /** Facebook «X% recommend» when known (0–100). */
+  facebookRecommendPct: number | null;
+  facebookReviewsCount: number;
   /** Public listing metric — IG followers when known. */
   instagramFollowersCount: number | null;
   googleMapsUrl: string | null;

@@ -16,6 +16,10 @@ export type Job = {
   city: string | null;
   stateCode: string | null;
   postalCode: string | null;
+  addressLine?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  locationPrecision?: "street" | "county" | "city" | "approx" | null;
   status: JobStatus;
   paymentMethods?: string[];
   businessId: string | null;
@@ -39,6 +43,10 @@ export type JobRow = {
   city: string | null;
   state_code: string | null;
   postal_code: string | null;
+  address_line?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  location_precision?: "street" | "county" | "city" | "approx" | null;
   status: JobStatus;
   payment_methods?: string[] | null;
   business_id: string | null;

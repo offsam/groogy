@@ -85,7 +85,7 @@
     "region": "Multnomah County",
     "county_geoid": "41051",
     "state_code": "US-OR",
-    "hub_id": "oregon"
+    "hub_id": "portland"
   },
   {
     "id": "denver",
@@ -96,7 +96,7 @@
     "region": "Denver County",
     "county_geoid": "08031",
     "state_code": "US-CO",
-    "hub_id": null
+    "hub_id": "denver"
   },
   {
     "id": "new_york",
@@ -112,35 +112,35 @@
   {
     "id": "chicago",
     "chat_ids": [],
-    "match": "chicago|чикаго|russian\\.?chicago|telegram:chicago",
+    "match": "chicago|чикаго|russian\\.?chicago|telegram:chicago|skokie|buffalo\\s*grove|wheeling",
     "scope": "city",
     "city": "Chicago",
     "region": "Cook County",
     "county_geoid": "17031",
     "state_code": "US-IL",
-    "hub_id": null
+    "hub_id": "chicago"
   },
   {
     "id": "miami",
     "chat_ids": [],
-    "match": "miami|майами|russian\\.?miami|telegram:miami",
-    "scope": "city",
+    "match": "miami|майами|russian\\.?miami|sunny\\s*isles|aventura|hallandale|south\\s*florida|telegram:miami",
+    "scope": "metro",
     "city": "Miami",
     "region": "Miami-Dade County",
     "county_geoid": "12086",
     "state_code": "US-FL",
-    "hub_id": null
+    "hub_id": "south-florida"
   },
   {
     "id": "houston",
     "chat_ids": [],
-    "match": "houston|хьюстон|russian\\.?houston|our\\s*texas|telegram:houston",
+    "match": "houston|хьюстон|russian\\.?houston|telegram:houston",
     "scope": "city",
     "city": "Houston",
     "region": "Harris County",
     "county_geoid": "48201",
     "state_code": "US-TX",
-    "hub_id": null
+    "hub_id": "houston"
   },
   {
     "id": "dallas",
@@ -151,7 +151,7 @@
     "region": "Dallas County",
     "county_geoid": "48113",
     "state_code": "US-TX",
-    "hub_id": null
+    "hub_id": "dallas"
   },
   {
     "id": "boston",
@@ -162,7 +162,7 @@
     "region": "Suffolk County",
     "county_geoid": "25025",
     "state_code": "US-MA",
-    "hub_id": null
+    "hub_id": "boston"
   },
   {
     "id": "minneapolis",
@@ -173,18 +173,18 @@
     "region": "Hennepin County",
     "county_geoid": "27053",
     "state_code": "US-MN",
-    "hub_id": null
+    "hub_id": "minneapolis"
   },
   {
     "id": "philadelphia",
     "chat_ids": [],
-    "match": "philadelphia|филадельфия|russian\\.?philly|telegram:philadelphia",
+    "match": "philadelphia|филадельфия|russian\\.?philly|bustleton|somerton|telegram:philadelphia",
     "scope": "city",
     "city": "Philadelphia",
     "region": "Philadelphia County",
     "county_geoid": "42101",
     "state_code": "US-PA",
-    "hub_id": null
+    "hub_id": "philadelphia"
   },
   {
     "id": "atlanta",
@@ -195,7 +195,18 @@
     "region": "Fulton County",
     "county_geoid": "13121",
     "state_code": "US-GA",
-    "hub_id": null
+    "hub_id": "atlanta"
+  },
+  {
+    "id": "baltimore",
+    "chat_ids": [],
+    "match": "baltimore|балтимор|pikesville|reisterstown|russian\\.?baltimore|telegram:baltimore",
+    "scope": "city",
+    "city": "Pikesville",
+    "region": "Baltimore County",
+    "county_geoid": "24005",
+    "state_code": "US-MD",
+    "hub_id": "baltimore"
   },
   {
     "id": "las_vegas",
@@ -206,7 +217,7 @@
     "region": "Clark County",
     "county_geoid": "32003",
     "state_code": "US-NV",
-    "hub_id": null
+    "hub_id": "las-vegas"
   },
   {
     "id": "phoenix",
@@ -217,6 +228,50 @@
     "region": "Maricopa County",
     "county_geoid": "04013",
     "state_code": "US-AZ",
-    "hub_id": null
+    "hub_id": "phoenix"
+  },
+  {
+    "id": "austin",
+    "chat_ids": [],
+    "match": "austin|остин|russian\\.?austin|telegram:austin",
+    "scope": "city",
+    "city": "Austin",
+    "region": "Travis County",
+    "county_geoid": "48453",
+    "state_code": "US-TX",
+    "hub_id": "austin"
+  },
+  {
+    "id": "san_antonio",
+    "chat_ids": [],
+    "match": "san\\s*antonio|сан[\\s-]?антонио|russian\\.?san\\s*antonio|telegram:san_antonio",
+    "scope": "city",
+    "city": "San Antonio",
+    "region": "Bexar County",
+    "county_geoid": "48029",
+    "state_code": "US-TX",
+    "hub_id": "san-antonio"
+  },
+  {
+    "id": "cleveland",
+    "chat_ids": [],
+    "match": "cleveland|кливленд|parma|russian\\.?cleveland|telegram:cleveland",
+    "scope": "city",
+    "city": "Cleveland",
+    "region": "Cuyahoga County",
+    "county_geoid": "39035",
+    "state_code": "US-OH",
+    "hub_id": "cleveland"
+  },
+  {
+    "id": "new_jersey",
+    "chat_ids": [],
+    "match": "new\\s*jersey|нью[\\s-]?джерси|fair\\s*lawn|bergen|russian\\.?nj|telegram:new_jersey",
+    "scope": "metro",
+    "city": "Fair Lawn",
+    "region": "Bergen County",
+    "county_geoid": "34003",
+    "state_code": "US-NJ",
+    "hub_id": "new-jersey"
   }
 ]

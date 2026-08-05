@@ -9,6 +9,8 @@ import { reviewWorkspacePath } from "@/lib/admin/review-workspace/task-id";
 import type { ImportSourceStats } from "@/lib/admin/imports/types";
 import { ImportSourceStatsCard } from "@/components/admin/ImportSourceStatsCard";
 import { directorySourceInboxHref } from "@/lib/admin/imports/inbox-href";
+import { To4kaPipelinePanel } from "@/components/admin/To4kaPipelinePanel";
+import { To4kaEnrichLiveStatus } from "@/components/admin/To4kaEnrichLiveStatus";
 
 type Props = {
   source: DirectorySourceMeta;
@@ -28,6 +30,13 @@ export function DirectorySourcePanel({
   return (
     <div className="space-y-5">
       <ImportSourceStatsCard stats={stats} />
+
+      {source.id === "to4ka" ? (
+        <>
+          <To4kaEnrichLiveStatus />
+          <To4kaPipelinePanel />
+        </>
+      ) : null}
 
       <div className="flex flex-wrap items-center gap-3">
         <Link

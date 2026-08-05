@@ -14,6 +14,8 @@ import { createServiceRoleClient } from "@/lib/supabase/service";
 import { getPublicSupabaseEnv } from "@/lib/supabase/env";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
+import { normalizeStructuredAddress } from "@/lib/address/normalize";
+import { resolveStreetGeoFields } from "@/lib/geo/geocode-street";
 import {
   isResolvedLocation,
   resolveEntityLocation,
@@ -37,7 +39,8 @@ type PublishedKind =
   | "professional"
   | "listing"
   | "job"
-  | "event";
+  | "event"
+  | "church";
 
 const SECTION_META: Record<
   MoveSectionKey,
@@ -83,6 +86,11 @@ const SECTION_META: Record<
     publishedKind: "listing",
     frozen: true,
     freezeReason: "Таблица недвижимости заморожена (Phase 3).",
+  },
+  churches: {
+    title: "Церкви",
+    pathPrefix: "/churches",
+    publishedKind: "church",
   },
 };
 
@@ -176,12 +184,16 @@ type SourceCard = {
   stateCode: string | null;
   postalCode: string | null;
   addressLine: string | null;
+  latitude: number | null;
+  longitude: number | null;
   sourceUrl: string | null;
   sourceKind: SourceKind;
   categoryId: string | null;
   price: number | null;
   currency: string | null;
   reviewCount: number;
+  googleMapsUrl?: string | null;
+  contactLinks?: unknown;
 };
 
 /** USA Location Canon — re-resolve on section move (never trust stale hub region). */
@@ -256,7 +268,7 @@ async function loadSource(
     const { data, error } = await catalog
       .from("businesses")
       .select(
-        "id, name, slug, short_description, description, image_url, phone, email, website, city, region, state_code, postal_code, address_line, instagram_url, telegram_url, source_url, source_kind, category_id, status, reviews_count",
+        "id, name, slug, short_description, description, image_url, phone, email, website, city, region, state_code, postal_code, address_line, latitude, longitude, instagram_url, telegram_url, source_url, source_kind, category_id, status, reviews_count, google_maps_url, contact_links",
       )
       .eq("id", fromId)
       .maybeSingle();
@@ -282,12 +294,18 @@ async function loadSource(
       stateCode: data.state_code,
       postalCode: data.postal_code,
       addressLine: data.address_line,
+      latitude:
+        typeof data.latitude === "number" ? data.latitude : null,
+      longitude:
+        typeof data.longitude === "number" ? data.longitude : null,
       sourceUrl: data.source_url,
       sourceKind: resolveSourceKind(data.source_url, data.source_kind),
       categoryId: data.category_id,
       price: null,
       currency: null,
       reviewCount: Number(data.reviews_count ?? 0),
+      googleMapsUrl: data.google_maps_url ?? null,
+      contactLinks: data.contact_links ?? [],
     };
   }
 
@@ -295,7 +313,7 @@ async function loadSource(
     const { data, error } = await catalog
       .from("professionals")
       .select(
-        "id, display_name, slug, short_description, description, headline, image_url, phone, email, website, city, region, state_code, postal_code, private_address_line, instagram_url, telegram_url, source_url, source_type, category_id, status",
+        "id, display_name, slug, short_description, description, headline, image_url, phone, email, website, city, region, state_code, postal_code, private_address_line, latitude, longitude, instagram_url, telegram_url, source_url, source_type, category_id, status",
       )
       .eq("id", fromId)
       .maybeSingle();
@@ -321,12 +339,61 @@ async function loadSource(
       stateCode: data.state_code,
       postalCode: data.postal_code,
       addressLine: data.private_address_line,
+      latitude:
+        typeof data.latitude === "number" ? data.latitude : null,
+      longitude:
+        typeof data.longitude === "number" ? data.longitude : null,
       sourceUrl: data.source_url,
       sourceKind: resolveSourceKind(data.source_url, data.source_type),
       categoryId: data.category_id,
       price: null,
       currency: null,
       reviewCount: 0,
+    };
+  }
+
+  if (meta.publishedKind === "church") {
+    const { data, error } = await catalog
+      .from("churches")
+      .select(
+        "id, name, slug, description, image_url, phone, email, website, city, region, state_code, postal_code, address_line, latitude, longitude, instagram_url, telegram_url, source_url, source_kind, status, google_maps_url, contact_links",
+      )
+      .eq("id", fromId)
+      .maybeSingle();
+    if (error) return { error: error.message };
+    if (!data) return { error: "Церковь не найдена." };
+    if (data.status === "archived") return { error: "Карточка уже в архиве." };
+    return {
+      kind: "church",
+      id: data.id,
+      slug: data.slug,
+      path: `/churches/${data.slug}`,
+      name: data.name,
+      description: data.description,
+      shortDescription: (data.description || "").slice(0, 280),
+      imageUrl: data.image_url,
+      phone: data.phone,
+      email: data.email,
+      website: data.website,
+      instagramUrl: data.instagram_url,
+      telegramUrl: data.telegram_url,
+      city: data.city,
+      region: data.region,
+      stateCode: data.state_code,
+      postalCode: data.postal_code,
+      addressLine: data.address_line,
+      latitude:
+        typeof data.latitude === "number" ? data.latitude : null,
+      longitude:
+        typeof data.longitude === "number" ? data.longitude : null,
+      sourceUrl: data.source_url,
+      sourceKind: resolveSourceKind(data.source_url, data.source_kind),
+      categoryId: null,
+      price: null,
+      currency: null,
+      reviewCount: 0,
+      googleMapsUrl: data.google_maps_url ?? null,
+      contactLinks: data.contact_links ?? [],
     };
   }
 
@@ -368,6 +435,8 @@ async function loadSource(
       stateCode: data.state_code,
       postalCode: null,
       addressLine: null,
+      latitude: null,
+      longitude: null,
       sourceUrl: data.source_url,
       sourceKind: resolveSourceKind(data.source_url, data.source_kind),
       categoryId: null,
@@ -407,6 +476,8 @@ async function loadSource(
       stateCode: data.state_code,
       postalCode: data.postal_code,
       addressLine: null,
+      latitude: null,
+      longitude: null,
       sourceUrl: data.source_url,
       sourceKind: resolveSourceKind(data.source_url, data.source_type),
       categoryId: null,
@@ -420,7 +491,7 @@ async function loadSource(
   const { data, error } = await catalog
     .from("events")
     .select(
-      "id, title, slug, description, status, city, state_code, address_line, cover_image_url, source_url, source_channel, phone, telegram_url, price_label",
+      "id, title, slug, description, status, city, state_code, address_line, cover_image_url, source_url, source_channel, phone, telegram_url, price_label, latitude, longitude",
     )
     .eq("id", fromId)
     .maybeSingle();
@@ -446,6 +517,10 @@ async function loadSource(
     stateCode: data.state_code,
     postalCode: null,
     addressLine: data.address_line,
+    latitude:
+      typeof data.latitude === "number" ? data.latitude : null,
+    longitude:
+      typeof data.longitude === "number" ? data.longitude : null,
     sourceUrl: data.source_url,
     sourceKind: resolveSourceKind(data.source_url, data.source_channel),
     categoryId: null,
@@ -538,6 +613,13 @@ async function archiveSource(
       .eq("id", source.id);
     return error?.message ?? null;
   }
+  if (source.kind === "church") {
+    const { error } = await catalog
+      .from("churches")
+      .update({ status: "archived", updated_at: new Date().toISOString() })
+      .eq("id", source.id);
+    return error?.message ?? null;
+  }
   const { error } = await catalog
     .from("events")
     .update({ status: "archived", updated_at: new Date().toISOString() })
@@ -573,6 +655,32 @@ export async function moveEntitySectionAction(input: {
   const source = await loadSource(catalog, input.fromSection, input.fromId);
   if ("error" in source) return fail(source.error);
 
+  // If the live row lost provenance (common: business approve can't UPDATE
+  // source_url under authenticated column grants), recover from the linked
+  // recommendation before copying into the target section.
+  if (!source.sourceUrl?.trim()) {
+    try {
+      const { data: rec } = await catalog
+        .from("import_comment_recommendations")
+        .select("source_post_urls, directory_source, source_channel")
+        .eq("published_entity_id", source.id)
+        .limit(1)
+        .maybeSingle();
+      const recovered = Array.isArray(rec?.source_post_urls)
+        ? String(rec.source_post_urls[0] || "").trim()
+        : "";
+      if (recovered) {
+        source.sourceUrl = recovered;
+        source.sourceKind = resolveSourceKind(
+          recovered,
+          rec?.directory_source || rec?.source_channel,
+        );
+      }
+    } catch {
+      /* recommendations table may be absent */
+    }
+  }
+
   // Reviews only attach to businesses — block silent loss.
   if (
     source.kind === "business" &&
@@ -593,6 +701,34 @@ export async function moveEntitySectionAction(input: {
       : slugify(name);
 
   const loc = await resolveLocationForMove(source);
+  const peeled = normalizeStructuredAddress({
+    addressLine: source.addressLine,
+    city: loc.city || source.city,
+    region: loc.region || source.region,
+    stateCode: loc.stateCode || source.stateCode,
+    postalCode: loc.postalCode || source.postalCode,
+    businessName: source.name,
+  });
+  const streetForPin = peeled.addressLine || source.addressLine;
+  const geo = await resolveStreetGeoFields({
+    addressLine: streetForPin,
+    city: peeled.city || loc.city,
+    stateCode: peeled.stateCode || loc.stateCode,
+    postalCode: peeled.postalCode || loc.postalCode,
+    region: peeled.region || loc.region,
+  });
+  const moveCity = peeled.city || loc.city;
+  const moveRegion = peeled.region || loc.region;
+  const moveState = peeled.stateCode || loc.stateCode;
+  const moveZip = peeled.postalCode || loc.postalCode || geo.postalCode || null;
+  const moveStreet = geo.addressLine || peeled.addressLine || source.addressLine;
+  const moveLat = geo.latitude ?? source.latitude;
+  const moveLng = geo.longitude ?? source.longitude;
+  const movePrecision =
+    geo.location_precision ||
+    (moveLat != null && moveLng != null && moveStreet
+      ? "street"
+      : loc.locationPrecision);
 
   let toId = "";
   let toSlug = "";
@@ -613,20 +749,22 @@ export async function moveEntitySectionAction(input: {
           import_batch_id: "admin_section_move_v1",
           display_name: name.slice(0, 120),
           slug: toSlug,
-          headline: (source.shortDescription || "").slice(0, 160) || null,
-          short_description: (source.shortDescription || "").slice(0, 280) || null,
+          headline: null,
+          short_description: null,
           description: source.description,
           image_url: source.imageUrl,
           status: "approved",
           visibility: "public",
-          city: loc.city,
-          region: loc.region,
-          state_code: loc.stateCode,
-          postal_code: loc.postalCode,
+          city: moveCity,
+          region: moveRegion,
+          state_code: moveState,
+          postal_code: moveZip,
           county_geoid: loc.countyGeoid,
-          private_address_line: source.addressLine,
+          private_address_line: moveStreet,
           public_exact_address: false,
-          location_precision: loc.locationPrecision,
+          location_precision: movePrecision,
+          latitude: moveLat,
+          longitude: moveLng,
           phone: source.phone,
           email: source.email,
           website: source.website,
@@ -651,12 +789,12 @@ export async function moveEntitySectionAction(input: {
           p_id: null,
           p_name: name,
           p_slug: toSlug,
-          p_short_description: (source.shortDescription || "").slice(0, 240) || null,
+          p_short_description: null,
           p_description: source.description,
           p_phone: source.phone,
           p_website: source.website,
-          p_city: loc.city ?? "",
-          p_address_line: source.addressLine,
+          p_city: moveCity ?? "",
+          p_address_line: moveStreet,
           p_status: "approved",
           p_category_id: source.categoryId,
         },
@@ -668,17 +806,23 @@ export async function moveEntitySectionAction(input: {
       await catalog
         .from("businesses")
         .update({
-          region: loc.region,
-          state_code: loc.stateCode,
-          postal_code: loc.postalCode,
+          region: moveRegion,
+          state_code: moveState,
+          postal_code: moveZip,
           county_geoid: loc.countyGeoid,
-          location_precision: loc.locationPrecision,
+          location_precision: movePrecision,
           location_source: loc.countyGeoid ? "city" : null,
+          address_line: moveStreet,
+          latitude: moveLat,
+          longitude: moveLng,
           image_url: source.imageUrl,
           instagram_url: source.instagramUrl,
           telegram_url: source.telegramUrl,
           source_url: source.sourceUrl,
           source_kind: source.sourceKind,
+          ...(geo.google_maps_url
+            ? { google_maps_url: geo.google_maps_url }
+            : {}),
         })
         .eq("id", toId);
       toPath = `/business/${toSlug}`;
@@ -755,6 +899,53 @@ export async function moveEntitySectionAction(input: {
       toId = data.id;
       toSlug = data.slug;
       toPath = `/jobs/${toSlug}`;
+    } else if (toMeta.publishedKind === "church") {
+      toSlug = await uniqueSlug("churches", baseSlug, catalog);
+      const churchSourceKind =
+        source.sourceKind === "telegram" ||
+        source.sourceKind === "facebook" ||
+        source.sourceKind === "directory" ||
+        source.sourceKind === "platform"
+          ? source.sourceKind
+          : source.sourceUrl
+            ? "directory"
+            : "platform";
+      const { data, error: insertError } = await catalog
+        .from("churches")
+        .insert({
+          name: name.slice(0, 200),
+          slug: toSlug,
+          description: source.description || source.shortDescription,
+          image_url: source.imageUrl,
+          status: "approved",
+          address_line: source.addressLine,
+          city: loc.city,
+          state_code: loc.stateCode,
+          postal_code: loc.postalCode,
+          region: loc.region,
+          county_geoid: loc.countyGeoid,
+          latitude: source.latitude,
+          longitude: source.longitude,
+          location_precision: loc.locationPrecision,
+          phone: source.phone,
+          email: source.email,
+          website: source.website,
+          instagram_url: source.instagramUrl,
+          telegram_url: source.telegramUrl,
+          google_maps_url: source.googleMapsUrl ?? null,
+          contact_links: source.contactLinks ?? [],
+          source_url: source.sourceUrl,
+          source_kind: churchSourceKind,
+          published_at: new Date().toISOString(),
+        })
+        .select("id, slug")
+        .single();
+      if (insertError || !data) {
+        return fail(insertError?.message || "Не удалось создать церковь.");
+      }
+      toId = data.id;
+      toSlug = data.slug;
+      toPath = `/churches/${toSlug}`;
     } else {
       // event
       toSlug = await uniqueSlug("events", baseSlug, catalog);
@@ -842,6 +1033,8 @@ export async function moveEntitySectionAction(input: {
   revalidatePath("/events");
   revalidatePath("/lechu");
   revalidatePath("/transfers");
+  revalidatePath("/churches");
+  revalidatePath("/admin/catalog/churches");
 
   return {
     ok: true,

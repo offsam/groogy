@@ -15,6 +15,10 @@ type and fills EMPTY fields only, in this fixed order:
                          (data/yellow_pages/*_latest.json: svoi, rop,
                          boston, echoru) by phone or exact name; fill
                          phone/email/instagram/city/preview image
+  step 4  agent-reach — optional (--agent-reach): web search + page read
+                         via Agent-Reach upstream stack (Exa/mcporter or
+                         Jina search + Jina Reader). Fill-empty only.
+                         Business entity only. Not Google Places API.
 
 After each record the completeness score is recomputed (before → after) so
 the effect of the run is visible per record and in totals.
@@ -38,6 +42,9 @@ Usage (run these exactly; nothing else is required):
 
   # offline mode (skip the website-fetch step)
   python3 scripts/business-enrich/run_enrichment_pipeline.py --entity business --no-website --limit 5
+
+  # optional Agent-Reach web enrich (after local steps; fill-empty)
+  python3 scripts/business-enrich/run_enrichment_pipeline.py --entity business --agent-reach --limit 5
 
 Needs NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env
 (load_env() picks them up automatically, same as the other scripts here).
@@ -72,6 +79,7 @@ from contacts import (  # noqa: E402
     normalize_phone,
 )
 from completeness_score import calculate_completeness_score  # noqa: E402
+from agent_reach_enrich import step_agent_reach  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "data" / "enrichment_pipeline"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -217,7 +225,10 @@ def fetchable_sites(item: dict[str, Any], patch: dict[str, Any]) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
     for raw in websites_of(item, patch):
-        site = prefer_location_website(raw) or norm_website(raw)
+        try:
+            site = prefer_location_website(raw) or norm_website(raw)
+        except ValueError:
+            continue
         if not site or not is_fetchable_business_site(site):
             continue
         key = site.lower().rstrip("/")
@@ -261,7 +272,10 @@ def prefer_location_website(url: str) -> str | None:
     site = norm_website(url)
     if not site:
         return None
-    parsed = urllib.parse.urlparse(site)
+    try:
+        parsed = urllib.parse.urlparse(site)
+    except ValueError:
+        return None
     path = parsed.path or "/"
     if _BOOKING_LEAF_RE.search(path):
         parent = re.sub(
@@ -765,7 +779,11 @@ def step_website(
 
     # Always log why card URLs were skipped — empty history is confusing.
     for raw in cur_websites:
-        reason = fetch_skip_reason(prefer_location_website(raw) or norm_website(raw) or raw)
+        try:
+            candidate = prefer_location_website(raw) or norm_website(raw) or raw
+            reason = fetch_skip_reason(candidate)
+        except ValueError:
+            reason = "invalid_url"
         if reason:
             _emit_resource(
                 {
@@ -1227,6 +1245,11 @@ def main() -> int:
     parser.add_argument("--batch-size", type=int, default=50)
     parser.add_argument("--no-website", action="store_true", help="skip the website-fetch step (offline)")
     parser.add_argument(
+        "--agent-reach",
+        action="store_true",
+        help="optional web enrich via Agent-Reach stack (Jina/Exa); business only; fill-empty",
+    )
+    parser.add_argument(
         "--website-pages",
         type=int,
         default=10,
@@ -1248,7 +1271,7 @@ def main() -> int:
     print(f"directory index: {len(by_phone)} phones, {len(by_name)} names")
 
     results: list[dict[str, Any]] = []
-    step_hits = {"source_text": 0, "website": 0, "directories": 0}
+    step_hits = {"source_text": 0, "website": 0, "directories": 0, "agent_reach": 0}
     field_hits: dict[str, int] = {}
     processed = updated = 0
     offset = 0
@@ -1269,15 +1292,27 @@ def main() -> int:
         for item in batch:
             processed += 1
             patch: dict[str, Any] = {}
-            score_before = score_queue_item(args.entity, item, {})
-
-            f1 = step_source_text(item, patch)
-            f1b = step_group_location(item, patch)
-            f2 = [] if args.no_website else step_website(item, patch, args.website_pages)
-            f3, match_kind = step_directories(item, patch, by_phone, by_name)
-
-            score_after = score_queue_item(args.entity, item, patch)
             label = (item.get("business_name") or item.get("person_name") or item.get("title") or item["id"])[:60]
+            try:
+                score_before = score_queue_item(args.entity, item, {})
+
+                f1 = step_source_text(item, patch)
+                f1b = step_group_location(item, patch)
+                f2 = [] if args.no_website else step_website(item, patch, args.website_pages)
+                f3, match_kind = step_directories(item, patch, by_phone, by_name)
+                f4: list[str] = []
+                if args.agent_reach and args.entity == "business":
+                    try:
+                        f4 = step_agent_reach(item, patch)
+                    except Exception as exc:  # noqa: BLE001
+                        print(f"  agent-reach skip {item.get('id')}: {exc}", file=sys.stderr)
+                elif not args.agent_reach:
+                    f4 = []
+
+                score_after = score_queue_item(args.entity, item, patch)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  SKIP {label}: {exc}", file=sys.stderr)
+                continue
 
             if patch:
                 updated += 1
@@ -1286,9 +1321,10 @@ def main() -> int:
                     ("group_location", f1b),
                     ("website", f2),
                     ("directories", f3),
+                    ("agent_reach", f4),
                 ):
                     if fields:
-                        step_hits[step_name] += 1
+                        step_hits[step_name] = step_hits.get(step_name, 0) + 1
                 for k in patch:
                     field_hits[k] = field_hits.get(k, 0) + 1
                 if args.apply:
@@ -1298,7 +1334,14 @@ def main() -> int:
                         {**patch, "updated_at": datetime.now(timezone.utc).isoformat()},
                     )
                 steps_str = " ".join(
-                    f"{n}({','.join(f)})" for n, f in (("source_text", f1), ("website", f2), ("directories", f3)) if f
+                    f"{n}({','.join(f)})"
+                    for n, f in (
+                        ("source_text", f1),
+                        ("website", f2),
+                        ("directories", f3),
+                        ("agent_reach", f4),
+                    )
+                    if f
                 )
                 if match_kind:
                     steps_str += f" [dir match: {match_kind}]"
@@ -1313,7 +1356,12 @@ def main() -> int:
                     "score_before": score_before,
                     "score_after": score_after,
                     "patch": patch,
-                    "steps": {"source_text": f1, "website": f2, "directories": f3},
+                    "steps": {
+                        "source_text": f1,
+                        "website": f2,
+                        "directories": f3,
+                        "agent_reach": f4,
+                    },
                     "directory_match": match_kind,
                 }
             )

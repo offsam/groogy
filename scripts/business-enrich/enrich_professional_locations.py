@@ -216,8 +216,6 @@ def patch_from_text(pro: dict[str, Any]) -> dict[str, Any]:
                 patch["location_precision"] = "street"
     if "city" in patch and empty(pro.get("location_precision")) and "location_precision" not in patch:
         patch["location_precision"] = "city"
-    if "postal_code" in patch and empty(pro.get("state_code")):
-        patch["state_code"] = "US-CA"
     return patch
 
 
@@ -280,8 +278,6 @@ def patch_from_item(pro: dict[str, Any], item: dict[str, Any]) -> dict[str, Any]
         street = extract_street(text)
         if street:
             patch["private_address_line"] = street
-    if patch.get("postal_code") and empty(pro.get("state_code")):
-        patch["state_code"] = "US-CA"
     if (patch.get("city") or patch.get("region")) and empty(pro.get("location_precision")):
         patch["location_precision"] = (
             "street"

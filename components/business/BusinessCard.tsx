@@ -133,6 +133,10 @@ export function BusinessCard({
           googleReviewsCount={business.googleReviewsCount}
           instagramFollowersCount={business.instagramFollowersCount}
           slug={business.slug}
+          trustpilotRating={business.trustpilotRating}
+          trustpilotReviewsCount={business.trustpilotReviewsCount}
+          facebookRecommendPct={business.facebookRecommendPct}
+          facebookReviewsCount={business.facebookReviewsCount}
           yelpRating={business.yelpRating}
           yelpReviewsCount={business.yelpReviewsCount}
         />

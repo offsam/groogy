@@ -9,11 +9,22 @@ from __future__ import annotations
 import html as html_lib
 import json
 import re
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
 from html.parser import HTMLParser
+from pathlib import Path
 from typing import Any
+
+_BE = Path(__file__).resolve().parents[1] / "business-enrich"
+if str(_BE) not in sys.path:
+    sys.path.insert(0, str(_BE))
+
+from enrich_follow_policy import (  # noqa: E402
+    CMS_CHROME_HOST_PARTS,
+    is_cms_chrome_url,
+)
 
 SOURCE_WEBSITE = "website"
 SOURCE_INSTAGRAM = "instagram"
@@ -65,11 +76,31 @@ HOURS_SECTION_HEADING_RE = re.compile(
 # match "Dr" and stop mid-word inside "Drive".
 ADDRESS_LINE_RE = re.compile(
     r"\b\d{1,6}\s+[A-Za-z0-9.'\-]+(?:\s+[A-Za-z0-9.'\-]+){0,4}\s+"
-    r"(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|Lane|Ln|Way|"
-    r"Parkway|Pkwy|Court|Ct|Place|Pl|Highway|Hwy|Circle|Cir|Terrace|Ter)\.?"
-    r"(?:\s*,?\s*(?:Suite|Ste|Unit|#)\s*[A-Za-z0-9\-]+)?"
-    r"(?:,\s*[A-Za-z .'\-]+)?(?:,\s*[A-Z]{2})?(?:\s*\d{5}(?:-\d{4})?)?",
+    # Str. = Street (common in RU/UA English footers); must precede bare St.
+    r"(?:Street|Str|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Drive|Dr|Lane|Ln|Way|"
+    r"Parkway|Pkwy|Court|Ct|Place|Pl|Highway|Hwy|Circle|Cir|Terrace|Ter)\b\.?"
+    # Suite may arrive as «Ste.» alone when HTML splits the unit number.
+    r"(?:\s*,?\s*(?:Suite|Ste\.?|Unit|#)(?:\s*[A-Za-z0-9\-]+)?)?"
+    r"(?:,?\s+[A-Za-z][A-Za-z .'\-]{1,40})?"
+    r"(?:,\s*[A-Z]{2})?(?:\s*\d{5}(?:-\d{4})?)?",
     re.I,
+)
+YOUTUBE_URL_RE = re.compile(
+    r"(?:https?://)?(?:www\.)?(?:youtube\.com|youtu\.be)/[A-Za-z0-9._/@\-?=]+",
+    re.I,
+)
+TELEGRAM_URL_RE = re.compile(
+    r"(?:https?://)?(?:t\.me|telegram\.me)/[A-Za-z0-9_+/]+",
+    re.I,
+)
+TRUSTPILOT_URL_RE = re.compile(
+    r"(?:https?://)?(?:www\.)?trustpilot\.com/[A-Za-z0-9._/\-?=]+",
+    re.I,
+)
+# Marketing copy that looks like a street only because «Drive» ⊂ «driver».
+_FAKE_ADDRESS_RE = re.compile(
+    r"(?i)\bvacancies?\b|\bjobs?\s+per\s+day\b|\bopenings?\b|\bhiring\b|"
+    r"\btruck\s+driver\b|\bdriver\s+vacancies?\b"
 )
 CONTACT_PATHS = (
     "",
@@ -79,6 +110,8 @@ CONTACT_PATHS = (
     "/contact",
     "/contact-us",
     "/contactus",
+    "/kontakty",
+    "/kontakti",
     "/hours",
     "/about",
     "/about-us",
@@ -223,23 +256,252 @@ class _HomeParser(HTMLParser):
         return None
 
 
-def _http_get_text(url: str) -> str | None:
+def _http_get_raw(url: str, *, max_bytes: int | None = None) -> str | None:
+    """Fetch HTML/JS without stripping <script> (needed for SPA / JSON-LD)."""
     try:
         req = urllib.request.Request(
             url,
             headers={
                 "User-Agent": USER_AGENT,
-                "Accept": "text/html,application/xhtml+xml",
+                "Accept": "text/html,application/xhtml+xml,*/*",
             },
             method="GET",
         )
+        limit = max_bytes if max_bytes is not None else (MAX_HTML * 4 + 1)
         with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-            raw = resp.read(MAX_HTML + 1)
-            if len(raw) > MAX_HTML:
-                raw = raw[:MAX_HTML]
+            raw = resp.read(limit)
             return raw.decode("utf-8", errors="ignore")
     except Exception:
         return None
+
+
+def _extract_spa_postal_address_lines(blob: str) -> list[str]:
+    """PostalAddress streetAddress blobs from JSON-LD or CRA/Vite bundles."""
+    out: list[str] = []
+    seen: set[str] = set()
+    for m in re.finditer(
+        r'streetAddress["\']?\s*:\s*["\']([^"\']{5,120})["\']',
+        blob,
+        re.I,
+    ):
+        street = (m.group(1) or "").strip()
+        if not street:
+            continue
+        window = blob[m.start() : m.start() + 480]
+        city_m = re.search(
+            r'addressLocality["\']?\s*:\s*["\']([^"\']{2,80})["\']',
+            window,
+            re.I,
+        )
+        region_m = re.search(
+            r'addressRegion["\']?\s*:\s*["\']([^"\']{2,40})["\']',
+            window,
+            re.I,
+        )
+        zip_m = re.search(
+            r'postalCode["\']?\s*:\s*["\']([^"\']{3,20})["\']',
+            window,
+            re.I,
+        )
+        parts = [
+            street,
+            city_m.group(1) if city_m else None,
+            region_m.group(1) if region_m else None,
+            zip_m.group(1) if zip_m else None,
+        ]
+        line = ", ".join(p for p in parts if p)
+        key = line.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(line)
+        if len(out) >= 8:
+            break
+    return out
+
+
+def _spa_booking_urls_from_blob(blob: str) -> list[str]:
+    """Calendly / Square / … URLs embedded in HTML or CRA/Vite bundles."""
+    out: list[str] = []
+    seen: set[str] = set()
+    # Same provider list as scrape_booking_urls.PROVIDER_URL_RE (subset + calendly).
+    for m in re.finditer(
+        r"https?://(?:www\.)?(?:"
+        r"calendly\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"cal\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"book\.squareup\.com/appointments/[A-Za-z0-9_\-/]+|"
+        r"vagaro\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"fresha\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"booksy\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"styleseat\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"glossgenius\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"acuityscheduling\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"setmore\.com/[A-Za-z0-9_\-/?=&%.]+|"
+        r"simplybook\.me/[A-Za-z0-9_\-/?=&%.]+"
+        r")",
+        blob,
+        re.I,
+    ):
+        url = m.group(0).rstrip(".,);]'\"")[:500]
+        key = url.lower().rstrip("/")
+        if key in seen:
+            continue
+        if re.search(r"(?i)/help|/pricing|/blog|/about|/careers|how-buynow", url):
+            continue
+        seen.add(key)
+        out.append(url)
+        if len(out) >= 5:
+            break
+    return out
+
+
+def _spa_booking_url_from_page(raw_html: str, page_url: str) -> str | None:
+    found = _spa_booking_urls_from_blob(raw_html)
+    if found:
+        return found[0]
+    # Reuse script discovery from address miner.
+    try:
+        base = urllib.parse.urlparse(page_url)
+        host = (base.hostname or "").lower().removeprefix("www.")
+    except Exception:
+        return None
+    if not host:
+        return None
+    script_urls: list[str] = []
+    for m in re.finditer(
+        r'<script[^>]+src=["\']([^"\']+)["\']',
+        raw_html,
+        re.I,
+    ):
+        src = (m.group(1) or "").strip()
+        if not src or src.startswith("data:"):
+            continue
+        abs_u = urllib.parse.urljoin(page_url, src)
+        try:
+            p = urllib.parse.urlparse(abs_u)
+        except Exception:
+            continue
+        h = (p.hostname or "").lower().removeprefix("www.")
+        if h != host:
+            continue
+        if not re.search(r"\.js(?:$|\?)", p.path or "", re.I):
+            continue
+        if re.search(
+            r"googletagmanager|google-analytics|gtag/|facebook\.net|hotjar|clarity",
+            abs_u,
+            re.I,
+        ):
+            continue
+        script_urls.append(abs_u.split("#")[0])
+        if len(script_urls) >= 3:
+            break
+    for js_url in script_urls:
+        js = _http_get_raw(js_url, max_bytes=1_500_000)
+        if not js:
+            continue
+        hits = _spa_booking_urls_from_blob(js)
+        if hits:
+            return hits[0]
+    return None
+
+
+def _spa_postal_addresses_from_page(raw_html: str, page_url: str) -> list[str]:
+    """Pull office streets from JSON-LD + same-origin app JS bundles."""
+    found = _extract_spa_postal_address_lines(raw_html)
+    if len(found) >= 2:
+        return found
+    try:
+        base = urllib.parse.urlparse(page_url)
+        host = (base.hostname or "").lower().removeprefix("www.")
+    except Exception:
+        return found
+    if not host:
+        return found
+    script_urls: list[str] = []
+    for m in re.finditer(
+        r'<script[^>]+src=["\']([^"\']+)["\']',
+        raw_html,
+        re.I,
+    ):
+        src = (m.group(1) or "").strip()
+        if not src or src.startswith("data:"):
+            continue
+        abs_u = urllib.parse.urljoin(page_url, src)
+        try:
+            p = urllib.parse.urlparse(abs_u)
+        except Exception:
+            continue
+        h = (p.hostname or "").lower().removeprefix("www.")
+        if h != host:
+            continue
+        path = p.path or ""
+        if not re.search(r"\.js(?:$|\?)", path, re.I):
+            continue
+        if re.search(
+            r"googletagmanager|google-analytics|gtag/|facebook\.net|hotjar|clarity",
+            abs_u,
+            re.I,
+        ):
+            continue
+        script_urls.append(abs_u.split("#")[0])
+        if len(script_urls) >= 3:
+            break
+    for js_url in script_urls:
+        js = _http_get_raw(js_url, max_bytes=1_500_000)
+        if not js:
+            continue
+        for line in _extract_spa_postal_address_lines(js):
+            if line not in found:
+                found.append(line)
+        if len(found) >= 2:
+            break
+    return found[:8]
+
+
+def _http_get_text(url: str) -> str | None:
+    try:
+        text = _http_get_raw(url)
+        if text is None:
+            return None
+        text = _strip_complete_style_script(text)
+        if len(text) > MAX_HTML:
+            text = _seal_truncated_html(text[:MAX_HTML])
+        return text
+    except Exception:
+        return None
+
+
+def _strip_complete_style_script(html: str) -> str:
+    """Remove finished <style>/<script> blocks before length capping.
+
+    Keep application/ld+json so LocalBusiness / LegalService addresses survive.
+    """
+    out = re.sub(r"(?is)<style\b[^>]*>[\s\S]*?</style>", " ", html)
+    out = re.sub(
+        r"(?is)<script\b(?![^>]*application/ld\+json)[^>]*>[\s\S]*?</script>",
+        " ",
+        out,
+    )
+    return out
+
+
+def _seal_truncated_html(html: str) -> str:
+    """Drop a trailing unclosed <style>/<script> so CSS/JS never become «О нас».
+
+    MAX_HTML cuts mid-Bootstrap stylesheet on large directories (to4ka); without
+    this, ``</style>`` is missing and ``_visible_text`` leaks ``--bs-*`` / Segoe UI.
+    """
+    out = html
+    lower = out.lower()
+    for tag in ("style", "script"):
+        open_t = f"<{tag}"
+        close_t = f"</{tag}>"
+        last_open = lower.rfind(open_t)
+        last_close = lower.rfind(close_t)
+        if last_open > last_close:
+            out = out[:last_open]
+            lower = out.lower()
+    return out
 
 
 def _abs(base: str, href: str | None) -> str | None:
@@ -292,6 +554,118 @@ def _visible_text(html: str) -> str:
     text = re.sub(r"<[^>]+>", "\n", text)
     text = re.sub(r"[ \t]+", " ", text)
     return text
+
+
+_ABOUT_SECTION_RE = re.compile(
+    r"(?is)(?:our\s+story|about\s+(?:us|me|the\s+firm|our\s+firm)|"
+    r"who\s+we\s+are|welcome\s+to\s+[^\n.]{0,40})"
+    r"\s*(.{80,1600}?)"
+    r"(?=\b(?:reviews?|testimonials?|contact\s+us|hours?\b|better\s+yet|"
+    r"drop\s+us|get\s+directions|subscribe|copyright|©|schedule\s+a)\b|$)"
+)
+_BODY_DESC_NOISE_RE = re.compile(
+    r"(?i)^(home|menu|skip|cookie|sign\s+up|subscribe|follow|cart|login)\b"
+    r"|copyright\s*©|powered\s+by|this\s+site\s+is\s+protected"
+)
+
+# Truncated Bootstrap / Vue CSS that leaked past </style> into «visible» text.
+_CSS_DUMP_RE = re.compile(
+    r"(?i)(?:/\*:root|:root\s*,\s*\[data-bs-|--bs-[a-z0-9-]+\s*:|"
+    r"font-sans-serif\s*:|\{--[a-z]|@charset\s*[\"']UTF-8)"
+)
+# Broken HTML / base64 crumbs mistaken for «О нас».
+_HTML_JUNK_DESC_RE = re.compile(
+    r"(?i)(?:data:image/|base64,|src\s*=\s*[\"']|iVBORw0KGgo|"
+    r"AAAA[A-Za-z0-9+/]{20,}|display\"\s*src=)"
+)
+
+
+def _is_junk_page_description(text: str | None) -> bool:
+    if not isinstance(text, str):
+        return True
+    t = text.strip()
+    if len(t) < 40:
+        return True
+    if _CSS_DUMP_RE.search(t) or _HTML_JUNK_DESC_RE.search(t):
+        return True
+    return False
+
+
+_NARRATIVE_ABOUT_HINT_RE = re.compile(
+    r"(?i)\b(?:since\s+\d{4}|we\s+offer|our\s+(?:school|team|mission|program)|"
+    r"helped\s+over|step-by-step|training\s+covers|complete\s+\w+\s+training|"
+    r"hands-on\s+practice|whether\s+you.?re\s+starting|"
+    r"мы\s+(?:предлагаем|работаем)|с\s+\d{4}\s+год)\b"
+)
+_JOB_SLOGAN_RE = re.compile(
+    r"(?i)\b(?:earn\s+\$|get\s+hired|vacancies?|tired\s+of\s+low\s+pay|"
+    r"looking\s+for\s+a\s+real\s+job|jobs?\s+per\s+day|"
+    r"\$\s?\d[\d,]+\s*(?:\+|–|-|—)?\s*(?:/?\s*week|per\s+week))\b"
+)
+
+
+def _body_about_blurb(html: str) -> str | None:
+    """Longer about / story prose from the page body when meta is a stub."""
+    flat = re.sub(r"[ \t]+", " ", _visible_text(html))
+    flat = re.sub(r"\n{2,}", "\n", flat)
+    m = _ABOUT_SECTION_RE.search(flat)
+    if m:
+        chunk = re.sub(r"\s+", " ", m.group(1)).strip(" \n\t&nbsp;")
+        chunk = html_lib.unescape(chunk)
+        if len(chunk) >= 80 and not _JOB_SLOGAN_RE.search(chunk):
+            return chunk[:2000]
+    # Stitch consecutive narrative paragraphs (CDL schools etc. split About
+    # across «Since 2015…», «We offer…», «Whether you’re starting…»).
+    narrative: list[str] = []
+    best = ""
+    for line in re.split(r"\n+", flat):
+        s = re.sub(r"\s+", " ", line).strip()
+        if len(s) < 90:
+            continue
+        if _BODY_DESC_NOISE_RE.search(s):
+            continue
+        if _CSS_DUMP_RE.search(s):
+            continue
+        if _HTML_JUNK_DESC_RE.search(s):
+            continue
+        if _JOB_SLOGAN_RE.search(s) or _FAKE_ADDRESS_RE.search(s):
+            continue
+        # Nav chrome often repeats the phone many times.
+        if len(re.findall(r"\d{3}[-.\s]?\d{3}[-.\s]?\d{4}", s)) > 2:
+            continue
+        if s.lower().count("assanti law") > 4:
+            continue
+        if len(s) > len(best):
+            best = s
+        if _NARRATIVE_ABOUT_HINT_RE.search(s) or len(s) >= 140:
+            if s not in narrative:
+                narrative.append(s)
+    if len(narrative) >= 2:
+        stitched = " ".join(narrative[:4]).strip()
+        if len(stitched) >= 160:
+            return stitched[:2000]
+    if narrative and len(narrative[0]) >= 120:
+        return narrative[0][:2000]
+    return best[:2000] if len(best) >= 120 else None
+
+
+def _best_page_description(html: str, *meta_candidates: str | None) -> str | None:
+    """Prefer body about-blurb; else the longest useful meta description."""
+    metas = [
+        html_lib.unescape(str(m).strip())
+        for m in meta_candidates
+        if isinstance(m, str)
+        and m.strip()
+        and not _CSS_DUMP_RE.search(m)
+        and not _is_junk_page_description(m)
+    ]
+    meta_best = max(metas, key=len) if metas else None
+    body = _body_about_blurb(html)
+    if body and _is_junk_page_description(body):
+        body = None
+    if body and (not meta_best or len(body) >= len(meta_best) + 40):
+        return body
+    return meta_best
 
 
 def extract_payment_methods(text_or_html: str) -> list[str]:
@@ -378,16 +752,102 @@ def extract_hours_text(html: str) -> str | None:
     return None
 
 
+_CITY_STATE_ZIP_TAIL_RE = re.compile(
+    r"^\s*,?\s*([A-Za-z][A-Za-z .'\-]{1,40}),\s*([A-Z]{2})\s+(\d{5}(?:-\d{4})?)\b",
+    re.I,
+)
+
+
 def extract_address_text(html: str, address_tag_text: str | None) -> str | None:
-    """Find a street address in visible text when JSON-LD has none."""
-    if address_tag_text and ADDRESS_LINE_RE.search(address_tag_text):
-        return address_tag_text[:200]
+    """Find a street address in visible text when JSON-LD has none.
+
+    Also peeks at the next line for «City, ST ZIP» when the street match is
+    truncated across HTML nodes (common WordPress contact blocks).
+    Prefers a Google Maps embed ``!2s…`` place when the footer uses odd
+    abbreviations (e.g. «15 Str.» instead of «15th St»).
+    """
+    maps_hit = _address_from_google_maps_embed(html)
     lines = [ln.strip() for ln in _visible_text(html).splitlines() if ln.strip()]
+    candidates: list[str] = []
+    if maps_hit:
+        candidates.append(maps_hit)
+    if address_tag_text:
+        candidates.append(address_tag_text)
+    # Prefer explicit school/office location blocks and Google Maps link text.
     for ln in lines:
-        m = ADDRESS_LINE_RE.search(ln)
-        if m:
-            return m.group(0).strip()[:200]
-    return None
+        low = ln.lower()
+        if (
+            "school location" in low
+            or "office location" in low
+            or "наш адрес" in low
+            or "maps.app.goo.gl" in low
+            or "google.com/maps" in low
+        ):
+            candidates.insert(0, ln)
+    candidates.extend(lines)
+
+    best_stub: str | None = None
+    for i, ln in enumerate(candidates):
+        if _FAKE_ADDRESS_RE.search(ln):
+            continue
+        normalized = _normalize_street_abbrev(ln)
+        m = ADDRESS_LINE_RE.search(normalized)
+        if not m:
+            continue
+        street = m.group(0).strip()
+        # Fix common OCR/typo from CDL school footers.
+        street = re.sub(r"(?i)\bIndusrtial\b", "Industrial", street)
+        street = _normalize_street_abbrev(street)
+        if _FAKE_ADDRESS_RE.search(street):
+            continue
+        rest = normalized[m.end() :]
+        tail = _CITY_STATE_ZIP_TAIL_RE.match(rest)
+        if not tail and i + 1 < len(candidates):
+            tail = _CITY_STATE_ZIP_TAIL_RE.match(
+                _normalize_street_abbrev(candidates[i + 1])
+            )
+        if not tail and i + 2 < len(candidates):
+            # Street / suite / city often split across three nodes.
+            joined = f"{candidates[i + 1]} {candidates[i + 2]}"
+            tail = _CITY_STATE_ZIP_TAIL_RE.match(_normalize_street_abbrev(joined))
+            if not tail:
+                tail = _CITY_STATE_ZIP_TAIL_RE.match(
+                    _normalize_street_abbrev(
+                        f", {candidates[i + 1]}, {candidates[i + 2]}"
+                    )
+                )
+        if tail:
+            city, st, z = tail.group(1).strip(), tail.group(2).upper(), tail.group(3)
+            return f"{street}, {city}, {st} {z}"[:240]
+        if best_stub is None:
+            best_stub = street[:200]
+    return best_stub or maps_hit
+
+
+def _normalize_street_abbrev(value: str) -> str:
+    """«Str.» / «str» → Street so parsers and geocoders agree."""
+    return re.sub(r"(?i)\bStr\.?\b(?!\w)", "Street", value or "")
+
+
+def _address_from_google_maps_embed(html: str) -> str | None:
+    """Decode ``!2s1718+E+15th+St%2C+Brooklyn%2C+NY+11229`` from iframe embeds."""
+    if not html:
+        return None
+    best: str | None = None
+    for m in re.finditer(r"!2s([^!\"'<>]+)", html):
+        raw = urllib.parse.unquote(m.group(1).replace("+", " ")).strip()
+        raw = re.sub(r",\s*USA\s*$", "", raw, flags=re.I).strip(" ,")
+        if len(raw) < 10 or not re.search(r"\d{5}", raw):
+            continue
+        normalized = _normalize_street_abbrev(raw)
+        if ADDRESS_LINE_RE.search(normalized) or re.search(
+            r"\b\d{1,6}\s+\S+.+\b(?:NY|CA|FL|NJ|TX|IL|WA|MA|PA)\b\s+\d{5}\b",
+            normalized,
+            re.I,
+        ):
+            if best is None or len(normalized) > len(best):
+                best = normalized[:240]
+    return best
 
 
 def extract_website_profile(url: str) -> dict[str, Any]:
@@ -398,10 +858,15 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         out["error"] = "bad_url"
         return out
     out["url"] = norm
-    html = _http_get_text(norm)
-    if not html:
+    raw_html = _http_get_raw(norm)
+    if not raw_html:
         out["error"] = "fetch_failed"
         return out
+    spa_from_bundles = _spa_postal_addresses_from_page(raw_html, norm)
+    spa_booking = _spa_booking_url_from_page(raw_html, norm)
+    html = _strip_complete_style_script(raw_html)
+    if len(html) > MAX_HTML:
+        html = _seal_truncated_html(html[:MAX_HTML])
 
     parser = _HomeParser()
     try:
@@ -410,16 +875,17 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         out["error"] = "parse_failed"
         return out
 
-    # Meta / title
+    # Meta / title — prefer longest meta, then upgrade from body «Our Story».
     name = (
         parser.meta.get("og:site_name")
         or parser.meta.get("og:title")
         or parser.title
     )
-    description = (
-        parser.meta.get("og:description")
-        or parser.meta.get("description")
-        or parser.meta.get("twitter:description")
+    description = _best_page_description(
+        html,
+        parser.meta.get("og:description"),
+        parser.meta.get("description"),
+        parser.meta.get("twitter:description"),
     )
     logo = _abs(
         norm,
@@ -431,6 +897,7 @@ def extract_website_profile(url: str) -> dict[str, Any]:
     phones: list[str] = []
     emails: list[str] = []
     address: str | None = None
+    addresses: list[str] = []
     hours: str | None = None
     social: list[str] = []
     service_offers: list[dict[str, Any]] = []
@@ -452,10 +919,20 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         type_l = (
             " ".join(types) if isinstance(types, list) else str(types or "")
         ).lower()
-        nonlocal name, description, address, hours
+        nonlocal name, description, address, addresses, hours
         if not any(
             t in type_l
-            for t in ("localbusiness", "organization", "store", "professional")
+            for t in (
+                "localbusiness",
+                "organization",
+                "store",
+                "professional",
+                "legalservice",
+                "attorney",
+                "medicalbusiness",
+                "dentist",
+                "physician",
+            )
         ) and not node.get("telephone"):
             # still allow generic Organization-like
             if not node.get("name") and not node.get("email"):
@@ -471,18 +948,26 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         if em:
             emails.extend(_as_list(em))
         addr = node.get("address")
-        if isinstance(addr, dict):
-            parts = [
-                addr.get("streetAddress"),
-                addr.get("addressLocality"),
-                addr.get("addressRegion"),
-                addr.get("postalCode"),
-            ]
-            joined = ", ".join(str(p) for p in parts if p)
-            if joined:
-                address = joined
-        elif isinstance(addr, str) and addr.strip():
-            address = addr.strip()
+        addr_list = addr if isinstance(addr, list) else ([addr] if addr else [])
+        for one in addr_list:
+            if isinstance(one, dict):
+                parts = [
+                    one.get("streetAddress"),
+                    one.get("addressLocality"),
+                    one.get("addressRegion"),
+                    one.get("postalCode"),
+                ]
+                joined = ", ".join(str(p) for p in parts if p)
+                if joined:
+                    if not address:
+                        address = joined
+                    if joined not in addresses:
+                        addresses.append(joined)
+            elif isinstance(one, str) and one.strip():
+                if not address:
+                    address = one.strip()
+                if one.strip() not in addresses:
+                    addresses.append(one.strip())
         oh = node.get("openingHours") or node.get("openingHoursSpecification")
         if isinstance(oh, str):
             hours = oh
@@ -517,6 +1002,25 @@ def extract_website_profile(url: str) -> dict[str, Any]:
     # a plain-text street-address pattern anywhere on the page.
     if not address:
         address = extract_address_text(html, parser.address_tag_text)
+        if address and address not in addresses:
+            addresses.append(address)
+
+    # React / CRA sites often put PostalAddress only in /static/js bundles.
+    for spa_line in spa_from_bundles:
+        if spa_line not in addresses:
+            addresses.append(spa_line)
+        if not address:
+            address = spa_line
+
+    # Prefer house-number streets over city-only JSON-LD («Glendale, CA»).
+    streetish = [
+        a
+        for a in addresses
+        if re.match(r"^\d{1,6}\s+\S+", str(a).strip())
+    ]
+    if streetish:
+        address = streetish[0]
+        addresses = streetish
 
     for href in parser.links:
         abs_u = _abs(norm, href) or href
@@ -528,6 +1032,12 @@ def extract_website_profile(url: str) -> dict[str, Any]:
             social.append(abs_u.split("?")[0])
         if TIKTOK_URL_RE.search(abs_u):
             social.append(abs_u.split("?")[0])
+        if YOUTUBE_URL_RE.search(abs_u):
+            social.append(abs_u.split("?")[0])
+        if TELEGRAM_URL_RE.search(abs_u):
+            social.append(abs_u.split("?")[0])
+        if TRUSTPILOT_URL_RE.search(abs_u):
+            social.append(abs_u.split("?")[0])
 
     # Hours snippet from meta
     for key, val in parser.meta.items():
@@ -537,16 +1047,32 @@ def extract_website_profile(url: str) -> dict[str, Any]:
     internal = _same_host_internal_links(norm, parser.links)
     related = _related_external_websites(norm, parser.links)
     offers = _merge_service_offers(service_offers)[:20]
+    # Course/package titles without a $ on the same line (CDL schools, etc.).
+    for ln in _visible_text(html).splitlines():
+        t = re.sub(r"\s+", " ", ln).strip()
+        if not COURSE_SERVICE_TITLE_RE.match(t):
+            continue
+        title = t[:120]
+        if not is_plausible_service_title(title, typed_service=True):
+            continue
+        key = title.lower()
+        if any(str(o.get("title") or "").lower() == key for o in offers):
+            continue
+        offers.append({"title": title})
+        if len(offers) >= 20:
+            break
     payment_methods = extract_payment_methods(html)
 
     out.update(
         {
             "status": "ok",
             "name": _clean_title(name),
-            "description": (description or "").strip()[:800] or None,
+            "description": (description or "").strip()[:2500] or None,
             "phone": _uniq(_normalize_phones(phones))[:5],
             "email": _uniq([e.lower() for e in emails if "@" in e])[:5],
             "address": address,
+            "addresses": addresses[:8],
+            "booking_url": spa_booking,
             "hours": hours,
             "logo": logo,
             "social_links": _uniq(social)[:15],
@@ -645,7 +1171,7 @@ _RELATED_SITE_SKIP_HOSTS = (
     "vk.ru",
     "yandex.ru",
     "ya.ru",
-)
+) + CMS_CHROME_HOST_PARTS
 
 
 def _related_external_websites(base: str, hrefs: list[str]) -> list[str]:
@@ -672,7 +1198,10 @@ def _related_external_websites(base: str, hrefs: list[str]) -> list[str]:
             continue
         if any(s in h for s in _RELATED_SITE_SKIP_HOSTS):
             continue
-        if _SKIP_INTERNAL_PATH_RE.search(p.path or "/"):
+        if is_cms_chrome_url(abs_u):
+            continue
+        path = p.path or "/"
+        if _SKIP_INTERNAL_PATH_RE.search(path):
             continue
         key = abs_u.rstrip("/").lower()
         if key in seen:
@@ -980,6 +1509,15 @@ def _clean_title(value: str | None) -> str | None:
     if not value:
         return None
     t = re.split(r"\s*[|\-–—]\s*", value.strip())[0].strip()
+    if not t:
+        return None
+    # Font stacks / CSS chrome must never become the card name.
+    if _CSS_DUMP_RE.search(t) or re.fullmatch(
+        r"(?i)segoe\s+ui|roboto|helvetica(?:\s+neue)?|arial|noto\s+sans|"
+        r"system-ui|times\s+new\s+roman|liberation\s+sans|sf\s*mono",
+        t,
+    ):
+        return None
     return t[:120] or None
 
 
@@ -1126,10 +1664,22 @@ SERVICE_TITLE_STOP = {
     "seconds",
     "hours",
     "days",
+    "final exam fee",
+    "3rd attempt",
+    "2nd attempt",
+    "1st attempt",
     "видео",
     "video",
     "directory",
     "wellness",
+    # Google Maps field labels — never services
+    "адрес",
+    "address",
+    "телефон",
+    "phone",
+    "часы",
+    "часы работы",
+    "hours of operation",
 }
 SERVICE_VENDOR_RE = re.compile(
     r"\b(?:dealer\.com|wordpress|wix|squarespace|shopify|godaddy|weebly|"
@@ -1140,6 +1690,24 @@ SERVICE_MARKETING_RE = re.compile(
     r"(?:awe-inspiring|get it all in the|intuitive\.?\s*electric|"
     r"digital marketing solutions|operations tools)",
     re.I,
+)
+# Hiring / vacancy banners and pay slogans must not become «услуги».
+SERVICE_JOB_MARKETING_RE = re.compile(
+    r"(?i)\b(?:vacanc(?:y|ies)|hiring|now\s+hiring|get\s+hired|"
+    r"earn\s+\$|tired\s+of\s+low\s+pay|looking\s+for\s+a\s+real\s+job|"
+    r"jobs?\s+per\s+day|truck\s+driver\s+vacancies?|"
+    r"\$\s?\d[\d,]+\s*(?:\+|–|-|—)?\s*(?:/?\s*week|per\s+week)|"
+    r"ваканси\w*|ищем\s+сотрудник|требу(?:ется|ются))\b"
+)
+# Training packages / courses — keep even without a $ on the same line.
+COURSE_SERVICE_TITLE_RE = re.compile(
+    r"(?i)^\s*(?:"
+    r"(?:experienced\s+driver\s+course|guaranteed\s+(?:training\s+)?course|"
+    r"\d{2,3}\s*hour\s+course(?:\s+with\s+certificate)?)\s+class\s+[ab]"
+    r"|eldt\s+online\s+course(?:\s+for\s+cdl\s+class\s+[ab])?"
+    r"|cdl\s+class\s+[ab](?:\s+package|\s+training)?"
+    r"|class\s+[ab]\s+(?:package|training|course)"
+    r")\s*$"
 )
 # App-store / cross-promo chrome scraped from booking SaaS footers (RuStore, etc.).
 SERVICE_APP_STORE_RE = re.compile(
@@ -1182,6 +1750,14 @@ SERVICE_CTA_RE = re.compile(
     re.I,
 )
 
+# Nav chrome that sneaks in as "Contact Us - Firm Name"
+SERVICE_NAV_PREFIX_RE = re.compile(
+    r"^(?:contact(?:\s+us)?|contacts|call\s+us|get\s+in\s+touch|"
+    r"свяжитесь(?:\s+с\s+нами)?|написать\s+нам|"
+    r"home|about(?:\s+us)?|privacy|terms|login|sign\s+in)\b",
+    re.I,
+)
+
 
 def is_plausible_service_title(
     title: str,
@@ -1197,14 +1773,30 @@ def is_plausible_service_title(
     key = raw.lower().strip(" .|-")
     if not key or key in SERVICE_TITLE_STOP:
         return False
+    if SERVICE_NAV_PREFIX_RE.match(key):
+        return False
     if re.fullmatch(r"\d+", key):
         return False
     if SERVICE_VENDOR_RE.search(raw) or SERVICE_MARKETING_RE.search(raw):
+        return False
+    if SERVICE_JOB_MARKETING_RE.search(raw):
         return False
     if SERVICE_APP_STORE_RE.search(raw):
         return False
     if SERVICE_CONTACT_RE.search(raw) or SERVICE_CTA_RE.match(raw.strip(" .|-")):
         return False
+    # Maps chrome / rating lines (typed Offer nodes still sneak these in).
+    if re.search(
+        r"(?i)^(?:адрес|address|телефон\w*|phone|часы(?:\s+работы)?|"
+        r"подтверждено\s+этим\s+бизнесом|confirmed\s+by\s+this\s+business|"
+        r"предложить\s+новые\s+часы|suggest\s+new\s+hours|"
+        r"\d+(?:[.,]\d+)?\s*(?:отзыв\w*|reviews?)\b|"
+        r".*\bотзыв\w*\s+google\b)",
+        raw,
+    ):
+        return False
+    if COURSE_SERVICE_TITLE_RE.match(raw):
+        return True
     # Bare knowsAbout / ItemList strings need a real offer signal.
     if not typed_service and not has_price and not has_duration:
         if " " not in key and len(key) <= 12:
@@ -1404,6 +1996,13 @@ def merge_website_profiles(
         elif key in ("description", "name") and cur and alt:
             if len(str(alt).strip()) > len(str(cur).strip()) + 20:
                 merged[key] = alt
+    addr_a = [str(x).strip() for x in (merged.get("addresses") or []) if str(x).strip()]
+    addr_b = [str(x).strip() for x in (secondary.get("addresses") or []) if str(x).strip()]
+    if merged.get("address"):
+        addr_a = [str(merged["address"]).strip()] + addr_a
+    if secondary.get("address"):
+        addr_b = [str(secondary["address"]).strip()] + addr_b
+    merged["addresses"] = _uniq(addr_a + addr_b)[:8]
     for key in (
         "phone",
         "email",

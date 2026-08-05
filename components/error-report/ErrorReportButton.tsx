@@ -9,11 +9,12 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { ChevronLeft, Loader2, X } from "lucide-react";
+import { ChevronLeft, X } from "lucide-react";
 import { submitErrorReportAction } from "@/lib/error-reports/actions";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 const STORAGE_KEY = "krugi-error-report-tucked";
 const FRAME_PARAM = "mobileFrame";
@@ -247,7 +248,7 @@ export function ErrorReportButton() {
                   type="submit"
                 >
                   {pending ? (
-                    <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+                    <BrandPinLoader size="sm" />
                   ) : null}
                   Отправить
                 </Button>

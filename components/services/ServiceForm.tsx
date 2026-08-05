@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { Loader2, Trash2, Upload } from "lucide-react";
+import { Trash2, Upload } from "lucide-react";
 import {
   addListingMediaAction,
   createServiceDraftAction,
@@ -39,6 +39,7 @@ import type {
   ServicePricingType,
 } from "@/types/listing";
 import type { LanguageOption, UsStateOption } from "@/types/master-data";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type ServiceFormProps = {
   mode: "create" | "edit";
@@ -810,7 +811,7 @@ export function ServiceForm({
           )}
           {uploading && (
             <p className="flex items-center gap-2 text-sm text-slate-500">
-              <Loader2 aria-hidden="true" className="size-4 animate-spin" />
+              <BrandPinLoader size="sm" />
               Загрузка…
             </p>
           )}
@@ -825,7 +826,7 @@ export function ServiceForm({
           type="button"
           variant="secondary"
         >
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Сохранить черновик
         </Button>
         <Button
@@ -834,7 +835,7 @@ export function ServiceForm({
           onClick={() => publish()}
           type="button"
         >
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Опубликовать
         </Button>
       </div>

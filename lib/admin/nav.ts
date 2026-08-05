@@ -1,17 +1,13 @@
 /**
- * Admin Panel IA V2 — Phase 1 navigation shell.
- * Source of Truth: docs/architecture/ADMIN_PANEL_IA_V2.md
- *
- * Phase 1: nav + routes only. No queue/catalog logic migration.
+ * Admin navigation — only live, needed sections.
+ * Queue = cards waiting for publish; sources = filters over that queue.
  */
 
 export type AdminNavItem = {
   id: string;
   label: string;
   href: string;
-  /** If set, page is a placeholder */
   comingSoon?: boolean;
-  /** Legacy URL that remains the real implementation */
   legacyHref?: string;
   description?: string;
 };
@@ -19,323 +15,236 @@ export type AdminNavItem = {
 export type AdminNavSection = {
   id: string;
   label: string;
-  /** Section landing (optional) */
   href?: string;
   comingSoon?: boolean;
   children?: AdminNavItem[];
 };
 
-/** Sidebar tree — Phase 1 */
+/** Sidebar — practical sections only */
 export const ADMIN_NAV: AdminNavSection[] = [
   {
     id: "dashboard",
-    label: "Dashboard",
+    label: "Главная",
     href: "/admin",
   },
   {
-    id: "review",
-    label: "Review Center",
-    href: "/admin/review",
+    id: "queue",
+    label: "Очередь",
+    href: "/admin/review/inbox",
     children: [
       {
-        id: "review-inbox",
-        label: "Inbox",
+        id: "queue-feed",
+        label: "Вся лента",
         href: "/admin/review/inbox",
-        legacyHref: "/admin/import-review",
-        description: "Единая очередь задач (агрегатор)",
+        description:
+          "Полосы разбора → каталог: прикрепить, разложить, готово, я ищу, помойка",
       },
       {
-        id: "review-views",
-        label: "Saved Views",
-        href: "/admin/review/views",
-        description: "Пресеты фильтров Inbox",
+        id: "queue-ready",
+        label: "Готово → OK",
+        href: "/admin/review/inbox?view=lane_ready",
+        description: "Можно выкладывать одним кликом",
+      },
+      {
+        id: "queue-attach",
+        label: "Прикрепить",
+        href: "/admin/review/inbox?view=lane_attach",
+        description: "Рекомендации к живым карточкам",
+      },
+      {
+        id: "queue-quarantine",
+        label: "Помойка",
+        href: "/admin/review/inbox?view=lane_quarantine",
+        description: "Карантин: вернуть или уничтожить",
+      },
+      {
+        id: "queue-telegram",
+        label: "Telegram",
+        href: "/admin/review/inbox?view=telegram&source=telegram",
+        description: "Очередь только из Telegram",
+      },
+      {
+        id: "queue-facebook",
+        label: "Facebook",
+        href: "/admin/review/inbox?view=facebook&source=facebook",
+        description: "Очередь только из Facebook",
+      },
+      {
+        id: "queue-directories",
+        label: "Справочники",
+        href: "/admin/review/inbox?view=directories&source=directories",
+        description: "Yellow Pages и другие справочники",
+      },
+      {
+        id: "queue-loveoverse",
+        label: "Loveoverse",
+        href: "/admin/review/inbox?view=loveoverse&source=loveoverse",
+        description: "Афиша loveoverse.com (события LA)",
+      },
+      {
+        id: "queue-wrong-section",
+        label: "Не тот раздел",
+        href: "/admin/review/wrong-section",
+        description: "Опубликованные карточки не в своём разделе",
       },
     ],
   },
   {
+    id: "users",
+    label: "Пользователи",
+    href: "/admin/users",
+  },
+  {
+    id: "errors",
+    label: "Ошибки",
+    href: "/admin/system/error-reports",
+  },
+  {
+    id: "claims",
+    label: "Верификация",
+    href: "/admin/claims",
+  },
+  {
     id: "catalog",
-    label: "Catalog",
+    label: "Каталог",
     href: "/admin/catalog",
     children: [
       {
         id: "catalog-businesses",
-        label: "Businesses",
+        label: "Бизнесы",
         href: "/admin/catalog/businesses",
         legacyHref: "/admin/businesses",
-        description: "Каталог бизнесов",
+        description: "Штат · округ · категория · Edit",
       },
       {
         id: "catalog-professionals",
-        label: "Professionals",
+        label: "Специалисты",
         href: "/admin/catalog/professionals",
-        description: "Каталог специалистов",
       },
       {
         id: "catalog-marketplace",
         label: "Marketplace",
         href: "/admin/catalog/marketplace",
         legacyHref: "/admin/listings?domain=marketplace",
-        description: "Каталог объявлений marketplace",
       },
       {
         id: "catalog-jobs",
-        label: "Jobs",
+        label: "Вакансии",
         href: "/admin/catalog/jobs",
-        description: "Каталог вакансий",
       },
       {
         id: "catalog-events",
-        label: "Events",
+        label: "События",
         href: "/admin/catalog/events",
-        description: "Каталог опубликованных событий",
+      },
+      {
+        id: "catalog-churches",
+        label: "Церкви",
+        href: "/admin/catalog/churches",
+        description: "Церкви и приходы",
       },
     ],
   },
   {
-    id: "imports",
-    label: "Imports",
-    href: "/admin/imports",
-    children: [
-      {
-        id: "imports-telegram",
-        label: "Telegram",
-        href: "/admin/imports/telegram",
-        legacyHref: "/admin/telegram-groups",
-        description: "История и диагностика Telegram-групп",
-      },
-      {
-        id: "imports-telegram-new",
-        label: "Telegram · новое",
-        href: "/admin/imports/telegram/new",
-        description:
-          "Свежие выгрузки Telegram (pending) по правилам полной карточки",
-      },
-      {
-        id: "imports-facebook",
-        label: "Facebook",
-        href: "/admin/imports/facebook",
-        comingSoon: true,
-        description: "История источников Facebook",
-      },
-      {
-        id: "imports-directories",
-        label: "Directories",
-        href: "/admin/imports/directories",
-        legacyHref: "/admin/directories",
-        description: "История справочников / Yellow Pages",
-      },
-      {
-        id: "imports-csv",
-        label: "CSV",
-        href: "/admin/imports/csv",
-        comingSoon: true,
-        description: "История CSV / one-off импортов",
-      },
-    ],
+    id: "reviews",
+    label: "Отзывы",
+    href: "/admin/community/reviews",
   },
   {
-    id: "community",
-    label: "Community",
-    href: "/admin/community",
-    children: [
-      {
-        id: "community-reviews",
-        label: "Reviews",
-        href: "/admin/community/reviews",
-        legacyHref: "/admin/reviews",
-        description: "Модерация отзывов",
-      },
-      {
-        id: "community-recommendations",
-        label: "Recommendations",
-        href: "/admin/community/recommendations",
-        legacyHref: "/admin/recommendations",
-        description: "Рекомендации из комментариев",
-      },
-      {
-        id: "community-reports",
-        label: "Reports",
-        href: "/admin/community/reports",
-        comingSoon: true,
-        description: "Жалобы и репорты",
-      },
-    ],
-  },
-  {
-    id: "users",
-    label: "Users",
-    href: "/admin/users",
-    children: [
-      {
-        id: "users-all",
-        label: "Users",
-        href: "/admin/users",
-        description: "Все пользователи и роли",
-      },
-      {
-        id: "users-admins",
-        label: "Admins",
-        href: "/admin/users/admins",
-        comingSoon: true,
-        description: "Список администраторов",
-      },
-      {
-        id: "users-roles",
-        label: "Roles",
-        href: "/admin/users/roles",
-        comingSoon: true,
-        description: "Роли и права",
-      },
-    ],
-  },
-  {
-    id: "analytics",
-    label: "Analytics",
-    href: "/admin/analytics",
-  },
-  {
-    id: "system",
-    label: "System",
-    href: "/admin/system",
-    children: [
-      {
-        id: "system-taxonomy",
-        label: "Taxonomy",
-        href: "/admin/system/taxonomy",
-        legacyHref: "/admin/master-data",
-        description: "Категории, языки, география",
-      },
-      {
-        id: "system-health",
-        label: "Health",
-        href: "/admin/system/health",
-        description: "Кэш агрегатов и latency каталога",
-      },
-      {
-        id: "system-jobs",
-        label: "Jobs",
-        href: "/admin/system/jobs",
-        comingSoon: true,
-        description: "Фоновые job-ы",
-      },
-      {
-        id: "system-tasks",
-        label: "Background Tasks",
-        href: "/admin/system/tasks",
-        comingSoon: true,
-        description: "Очереди задач",
-      },
-      {
-        id: "system-logs",
-        label: "Logs",
-        href: "/admin/system/logs",
-        comingSoon: true,
-        description: "Логи админ-операций",
-      },
-      {
-        id: "system-diagnostics",
-        label: "Diagnostics",
-        href: "/admin/system/diagnostics",
-        comingSoon: true,
-        description: "Диагностика платформы",
-      },
-      {
-        id: "system-error-reports",
-        label: "Error Reports",
-        href: "/admin/system/error-reports",
-        description: "Сообщения об ошибках с сайта",
-      },
-    ],
+    id: "taxonomy",
+    label: "Категории",
+    href: "/admin/system/taxonomy",
   },
 ];
 
-/**
- * Legacy URL → new IA home (documentation + redirects from new → legacy).
- * Old URLs keep working unchanged.
- */
+/** Legacy URL → current home (docs / redirects). */
 export const ADMIN_LEGACY_MAPPING: Array<{
   legacy: string;
   ia: string;
   note: string;
 }> = [
-  {
-    legacy: "/admin",
-    ia: "/admin",
-    note: "Dashboard",
-  },
+  { legacy: "/admin", ia: "/admin", note: "Главная" },
   {
     legacy: "/admin/import-review",
     ia: "/admin/review/inbox",
-    note: "Import Review → Review Center / Inbox",
+    note: "→ Очередь",
   },
   {
     legacy: "/admin/import-review/[id]",
-    ia: "/admin/review/inbox (detail stays on legacy URL)",
-    note: "Detail workspace unchanged in Phase 1",
+    ia: "/admin/review/[taskId]",
+    note: "→ Карточка в очереди",
   },
-  {
-    legacy: "/admin/claims",
-    ia: "/admin/review/inbox",
-    note: "Claims remain at legacy URL; Inbox View later",
-  },
+  { legacy: "/admin/claims", ia: "/admin/claims", note: "Верификация" },
   {
     legacy: "/admin/events",
-    ia: "/admin/review/inbox",
-    note: "Events verification → Review (Catalog Events coming soon)",
+    ia: "/admin/review/inbox?view=events",
+    note: "→ Очередь · события",
   },
   {
     legacy: "/admin/businesses",
     ia: "/admin/catalog/businesses",
-    note: "Businesses → Catalog / Businesses",
+    note: "→ Каталог",
   },
   {
     legacy: "/admin/listings",
     ia: "/admin/catalog/marketplace",
-    note: "Listings → Catalog / Marketplace",
+    note: "→ Каталог",
   },
   {
     legacy: "/admin/telegram-groups",
-    ia: "/admin/imports/telegram",
-    note: "Telegram Groups → Imports / Telegram",
+    ia: "/admin/review/inbox?view=telegram&source=telegram",
+    note: "→ Очередь · Telegram",
   },
   {
     legacy: "/admin/directories",
-    ia: "/admin/imports/directories",
-    note: "Directories / Yellow Pages → Imports / Directories",
+    ia: "/admin/review/inbox?view=directories&source=directories",
+    note: "→ Очередь · Справочники",
   },
   {
     legacy: "/admin/yellow-pages",
-    ia: "/admin/imports/directories",
-    note: "Legacy alias → directories → Imports",
+    ia: "/admin/review/inbox?view=directories&source=directories",
+    note: "→ Очередь · Справочники",
   },
   {
     legacy: "/admin/recommendations",
-    ia: "/admin/community/recommendations",
-    note: "Recommendations → Community",
+    ia: "/admin/review/inbox",
+    note: "→ Очередь",
   },
   {
     legacy: "/admin/reviews",
     ia: "/admin/community/reviews",
-    note: "Reviews → Community",
+    note: "→ Отзывы",
   },
-  {
-    legacy: "/admin/users",
-    ia: "/admin/users",
-    note: "Users",
-  },
-  {
-    legacy: "/admin/analytics",
-    ia: "/admin/analytics",
-    note: "Analytics",
-  },
+  { legacy: "/admin/users", ia: "/admin/users", note: "Пользователи" },
   {
     legacy: "/admin/master-data",
     ia: "/admin/system/taxonomy",
-    note: "Master Data → System / Taxonomy",
+    note: "→ Категории",
+  },
+  {
+    legacy: "/admin/system/error-reports",
+    ia: "/admin/system/error-reports",
+    note: "Ошибки",
   },
 ];
 
-/** Paths that should highlight a nav item (prefix match) */
+function searchHasSourceFilter(search: string): boolean {
+  const have = new URLSearchParams(search);
+  const view = have.get("view");
+  const source = have.get("source");
+  if (source && source !== "all") return true;
+  if (
+    view &&
+    view !== "all" &&
+    view !== "high_confidence" &&
+    view !== "recently_imported"
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/** Paths that should highlight a nav item (prefix / query match) */
 export function matchAdminNavHref(
   pathname: string,
   search: string,
@@ -351,16 +260,37 @@ export function matchAdminNavHref(
     }
     return true;
   }
-  if (pathname === href) return true;
+
+  if (pathname === href) {
+    if (href === "/admin/review/inbox") {
+      return !searchHasSourceFilter(search);
+    }
+    return true;
+  }
+
+  if (href === "/admin" && pathname === "/admin") return true;
+
+  if (href === "/admin/review/inbox") {
+    if (pathname.startsWith("/admin/import-review")) return true;
+    if (
+      pathname.startsWith("/admin/review/") &&
+      pathname !== "/admin/review/views" &&
+      !pathname.startsWith("/admin/review/wrong-section") &&
+      pathname !== "/admin/review/inbox"
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   if (href !== "/admin" && pathname.startsWith(href + "/")) return true;
-  // Legacy pages highlight IA targets
-  if (href === "/admin/review/inbox" && pathname.startsWith("/admin/import-review")) {
+
+  if (href === "/admin/claims" && pathname.startsWith("/admin/claims")) {
     return true;
   }
   if (
-    href === "/admin/review/inbox" &&
-    pathname.startsWith("/admin/review/") &&
-    pathname !== "/admin/review/views"
+    href === "/admin/system/error-reports" &&
+    pathname.startsWith("/admin/system/error-reports")
   ) {
     return true;
   }
@@ -374,34 +304,18 @@ export function matchAdminNavHref(
     return true;
   }
   if (
-    href === "/admin/imports/telegram" &&
-    pathname.startsWith("/admin/telegram-groups")
+    href === "/admin/community/reviews" &&
+    pathname.startsWith("/admin/reviews")
   ) {
     return true;
   }
   if (
-    href === "/admin/imports/directories" &&
-    (pathname.startsWith("/admin/directories") ||
-      pathname.startsWith("/admin/yellow-pages"))
+    href === "/admin/system/taxonomy" &&
+    pathname.startsWith("/admin/master-data")
   ) {
     return true;
   }
-  if (href === "/admin/community/reviews" && pathname.startsWith("/admin/reviews")) {
-    return true;
-  }
-  if (
-    href === "/admin/community/recommendations" &&
-    pathname.startsWith("/admin/recommendations")
-  ) {
-    return true;
-  }
-  if (href === "/admin/system/taxonomy" && pathname.startsWith("/admin/master-data")) {
-    return true;
-  }
-  if (href === "/admin/users" && pathname === "/admin/users") {
-    return true;
-  }
-  if (href === "/admin/analytics" && pathname.startsWith("/admin/analytics")) {
+  if (href === "/admin/users" && pathname.startsWith("/admin/users")) {
     return true;
   }
   return false;

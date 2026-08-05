@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Briefcase, Building2, MapPin, Star } from "lucide-react";
-import { GoogleIcon } from "@/components/brand/BrandIcons";
+import { Briefcase, Building2, MapPin } from "lucide-react";
 import { normalizeUsZip } from "@/lib/brand";
 import type { Professional } from "@/types/professional";
 
@@ -58,18 +57,6 @@ export function ProfessionalWorkplaceCard({ professional }: Props) {
       ? professional.employerBusinessImageUrl
       : null;
   const location = employerLocationLabel(professional);
-  const googleRating =
-    professional.employerBusinessGoogleRating != null
-      ? Number(professional.employerBusinessGoogleRating)
-      : null;
-  const googleReviews =
-    professional.employerBusinessGoogleReviewsCount != null
-      ? Number(professional.employerBusinessGoogleReviewsCount)
-      : 0;
-  const showGoogle =
-    googleRating != null &&
-    Number.isFinite(googleRating) &&
-    googleRating > 0;
 
   const body = (
     <div className="flex gap-3.5 sm:gap-4">
@@ -126,25 +113,6 @@ export function ProfessionalWorkplaceCard({ professional }: Props) {
               className="mt-0.5 size-3.5 shrink-0 text-brand-green"
             />
             <span>{location}</span>
-          </p>
-        ) : null}
-        {showGoogle ? (
-          <p className="inline-flex flex-wrap items-center gap-1.5 rounded-lg bg-white/80 px-2 py-1 text-sm font-semibold text-slate-800 ring-1 ring-black/5">
-            <GoogleIcon className="size-3.5 shrink-0" />
-            <span className="inline-flex items-center gap-1">
-              <Star
-                aria-hidden
-                className="size-3.5 fill-amber-400 text-amber-400"
-              />
-              {googleRating!.toFixed(1)}
-            </span>
-            {googleReviews > 0 ? (
-              <span className="font-normal text-slate-500">
-                · {googleReviews} на Google
-              </span>
-            ) : (
-              <span className="font-normal text-slate-500">Google</span>
-            )}
           </p>
         ) : null}
       </div>

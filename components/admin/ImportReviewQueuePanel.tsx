@@ -80,6 +80,7 @@ type Props = {
   counts: ImportReviewCounts;
   page: number;
   pageSize: number;
+  categories?: import("@/lib/import-review/category-options").ReviewCategoryOption[];
 };
 
 export function ImportReviewQueuePanel({
@@ -88,6 +89,7 @@ export function ImportReviewQueuePanel({
   counts,
   page,
   pageSize,
+  categories = [],
 }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -138,6 +140,7 @@ export function ImportReviewQueuePanel({
     <div className={`space-y-6 ${pending ? "opacity-70" : ""}`}>
       {previewItem ? (
         <ImportReviewPreviewModal
+          categories={categories}
           filterQuery={searchParams.toString()}
           item={previewItem}
           onClose={() => setPreviewId(null)}

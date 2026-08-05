@@ -71,6 +71,132 @@ _COMMENTISH_DESC_RE = re.compile(
     r"please\s+recommend|hi\s+girls|good\s+morning)\b"
     r"|^\s*@\w{3,}"
 )
+# Telegram live / stream paste mistaken for the entity's «О нас».
+_TELEGRAM_STREAM_DESC_RE = re.compile(
+    r"(?i)"
+    r"(?:как\s+и\s+обещали|выкладываем\s+запись|запись\s+эфира|"
+    r"разобрали\s+темы|смотрите\s+(?:эфир|запись)|"
+    r"запись\s+прямого\s+эфира|прямой\s+эфир\s+с|"
+    r"выложили\s+запись|смотрите\s+полностью|"
+    r"live\s+stream\s+recording|we\s+posted\s+the\s+(?:live|recording)|"
+    # Telegram.org / t.me product chrome scraped as entity bio.
+    r"telegram\s+communities|"
+    r"introducing\s+a\s+rich\s+text\s+editor|"
+    r"ephemeral\s+(?:messages|timers)|"
+    r"a\s+new\s+era\s+of\s+messaging)"
+)
+# Binary / HTML attribute dump (OCR paste, broken short_description).
+_BINARY_OR_HTML_DUMP_RE = re.compile(
+    r"(?i)"
+    r"(?:data:image/|base64,|src\s*=\s*[\"']|</?(?:img|div|span|html|body)\b|"
+    r"iVBORw0KGgo|AAAA[A-Za-z0-9+/]{20,}|"
+    r"aria-haspopup|data-state\s*=|role\s*=\s*[\"']combobox|"
+    r"svg\]:px|overlay\"\s+id=)"
+)
+# ROP / directory listing chrome mistaken for the card's own about text.
+_DIRECTORY_LISTING_GLUE_RE = re.compile(
+    r"(?i)"
+    r"почта и сайт\s*[—\-–]\s*в блоке|"
+    r"website:\s*www\.|"
+    r"\b(?:january|february|march|april|may|june|july|august|september|"
+    r"october|november|december)\s+\d{1,2},\s*\d{4}\b|"
+    r"(?:^|\n)\s*[A-Za-zА-Яа-яЁё][^.\n]{2,60}\s*\(\d+\)\s*(?:\n|$)|"
+    r"(?:^|\n)\s*\d{3,5}\s*(?:\n|$)"
+)
+# to4ka similarListings / catalog ads glued into «О нас».
+_TO4KA_AD_GLUE_RE = re.compile(
+    r"(?i)"
+    r"здесь\s+продвигают\s+бизнес|"
+    r"www\.apteka03|"
+    r"apteka03\.online|"
+    r"траковая\s+компания\s+в\s+чикаго|"
+    r"owner\s+operators\s+for\s+step\s+deck|"
+    r"приглашаем\s+(?:работников|монтажников)\s+на\s+работ|"
+    r"более\s+десяти\s+лет\s+мы\s+осуществляем\s+доставку\s+нашей\s+продукции"
+)
+# Truncated stylesheet dumped into description (to4ka / Bootstrap).
+_CSS_DUMP_DESC_RE = re.compile(
+    r"(?i)(?:/\*:root|:root\s*,\s*\[data-bs-|--bs-[a-z0-9-]+\s*:|"
+    r"font-sans-serif\s*:|\{--[a-z]|@charset\s*[\"']UTF-8)"
+)
+# Squarespace / builder portfolio chrome glued onto the about text.
+_BUILDER_CHROME_DESC_RE = re.compile(
+    r"(?i)"
+    r"текущая\s+страница\s*:|"
+    r"current\s+page\s*:|"
+    r"клиентские\s+проекты|"
+    r"client\s+projects|"
+    r"свяжитесь\s+со\s+мной\s*:?\s*$|"
+    r"contact\s+me\s*:?\s*$"
+)
+
+
+def clean_enrich_description(value: Any) -> str | None:
+    """Strip builder chrome and duplicated truncated paragraphs from «О нас»."""
+    if not isinstance(value, str):
+        return None
+    text = value.replace("\xa0", " ").strip()
+    if not text:
+        return None
+
+    # Drop trailing builder CTA / nav crumbs on their own lines.
+    lines: list[str] = []
+    chrome_tail = re.compile(
+        r"(?i)\s*(?:"
+        r"ПОРТРЕТЫ\s+ДЛЯ\s+МИРА|"
+        r"Клиентские\s+проекты|"
+        r"Красота\s+Мода\s+Портреты|"
+        r"Текущая\s+страница\s*:.*|"
+        r"Current\s+page\s*:.*|"
+        r"Свяжитесь\s+со\s+мной\s*:?|"
+        r"Contact\s+me\s*:?"
+        r")\s*$"
+    )
+    for line in text.splitlines():
+        s = line.strip()
+        if not s:
+            lines.append("")
+            continue
+        if _BUILDER_CHROME_DESC_RE.search(s) and len(s) < 80:
+            continue
+        # Strip chrome glued at the end of a long paragraph (may stack).
+        prev = None
+        while prev != s:
+            prev = s
+            s = chrome_tail.sub("", s).strip()
+        if s:
+            lines.append(s)
+    text = re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+    if not text:
+        return None
+
+    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    if len(paras) >= 2:
+        kept: list[str] = []
+        for i, para in enumerate(paras):
+            stem = re.sub(r"[…\.]+$", "", para).strip()
+            # Truncated short blurb that is a prefix of a later fuller paragraph.
+            covered = False
+            for other in paras[i + 1 :]:
+                other_stem = re.sub(r"[…\.]+$", "", other).strip()
+                if len(stem) >= 40 and other_stem.startswith(stem[: min(len(stem), 120)]):
+                    covered = True
+                    break
+                if len(stem) >= 40 and stem[:80] in other_stem:
+                    covered = True
+                    break
+            if covered:
+                continue
+            if any(
+                kept_p.startswith(stem[:80]) or stem[:80] in kept_p
+                for kept_p in kept
+                if len(stem) >= 40
+            ):
+                continue
+            kept.append(para)
+        text = "\n\n".join(kept).strip() if kept else text
+
+    return text or None
 
 
 def _is_real_text(value: Any, *, min_len: int = _MIN_REAL_DESCRIPTION_LEN) -> bool:
@@ -101,7 +227,19 @@ def is_weak_description(value: Any) -> bool:
         return True
     if text.lower() in _PLACEHOLDER_DESCRIPTIONS:
         return True
+    if _BINARY_OR_HTML_DUMP_RE.search(text):
+        return True
+    if _TELEGRAM_STREAM_DESC_RE.search(text):
+        return True
     if _COMMENTISH_DESC_RE.search(text):
+        return True
+    if _DIRECTORY_LISTING_GLUE_RE.search(text):
+        return True
+    if _TO4KA_AD_GLUE_RE.search(text):
+        return True
+    if _CSS_DUMP_DESC_RE.search(text):
+        return True
+    if _BUILDER_CHROME_DESC_RE.search(text) and len(text) < 220:
         return True
     if _SOCIAL_IN_DESC_RE.search(text):
         stripped = _URL_SPAN_RE.sub(" ", text)
@@ -118,6 +256,119 @@ def is_weak_description(value: Any) -> bool:
     if not _is_real_text(text):
         return True
     return False
+
+
+# Prefer marketing site / directory body over social blurbs when scores tie.
+_DESCRIPTION_SOURCE_RANK: dict[str, int] = {
+    "website": 80,
+    "source": 30,
+    "bfs": 25,
+    "yelp": 15,
+    "instagram": 10,
+    "existing": 0,
+    "other": 0,
+}
+
+_PHONE_SPAN_RE = re.compile(r"(?:\+?\d[\d\-\s().]{8,}\d)")
+_HANDLE_SPAN_RE = re.compile(r"(?:^|[\s(,])@[A-Za-z0-9._]{3,30}\b")
+# Street / yard address buried in «О нас» — belongs in location, not narrative.
+_STREET_IN_DESC_RE = re.compile(
+    r"(?i)"
+    r"\b\d{1,6}\s+[A-Za-zА-Яа-яЁё0-9.'\-]+\s+"
+    r"(?:st|street|ave|avenue|blvd|boulevard|rd|road|dr|drive|ln|lane|way|"
+    r"ct|court|hwy|highway|pkwy|parkway|ул\.?|проспект|пер\.?)\b"
+    r"|\bрасположен\w*\s+(?:тренировоч|площадк|по\s+адресу)"
+)
+# Telegram/directory CTA that points off-card instead of telling the story.
+_SITE_CTA_IN_DESC_RE = re.compile(
+    r"(?i)"
+    r"подробност\w*\s+на\s+сайте|"
+    r"детал\w*\s+на\s+сайте|"
+    r"смотри(?:те)?\s+на\s+сайте|"
+    r"details?\s+on\s+(?:the\s+)?(?:web)?site|"
+    r"more\s+(?:info|details)\s+on\s+(?:our\s+)?(?:web)?site|"
+    r"visit\s+(?:our\s+)?(?:web)?site\s+for\s+details"
+)
+# Cap so a 4k SEO dump does not always beat a solid 600-char about.
+_RICHNESS_LEN_CAP = 900
+_RICHNESS_WORD_CAP = 140
+
+
+def richness_score(text: Any, *, source: str | None = None) -> float:
+    """How substantial a description candidate is. Weak → negative."""
+    if is_weak_description(text):
+        return -1.0
+    raw = str(text).strip()
+    words = [w for w in re.split(r"\s+", raw) if w]
+    char_n = min(len(raw), _RICHNESS_LEN_CAP)
+    word_n = min(len(words), _RICHNESS_WORD_CAP)
+    score = float(char_n) + word_n * 2.5
+
+    urls = _URL_SPAN_RE.findall(raw)
+    url_chars = sum(len(u) for u in urls)
+    if raw:
+        score -= min(220.0, url_chars * 0.9)
+    phones = _PHONE_SPAN_RE.findall(raw)
+    score -= min(80.0, len(phones) * 25.0)
+    handles = _HANDLE_SPAN_RE.findall(raw)
+    score -= min(60.0, len(handles) * 12.0)
+    # Address / «подробности на сайте» in narrative → prefer the shop's own about.
+    if _STREET_IN_DESC_RE.search(raw):
+        score -= 90.0
+    if _SITE_CTA_IN_DESC_RE.search(raw):
+        score -= 50.0
+
+    rank = _DESCRIPTION_SOURCE_RANK.get((source or "other").strip().lower(), 0)
+    score += rank
+    return score
+
+
+def pick_richest_description(
+    candidates: list[tuple[str | None, str | None]] | list[str | None],
+) -> tuple[str | None, str | None]:
+    """Pick one richest non-weak description.
+
+    ``candidates`` is either plain strings or ``(text, source)`` pairs.
+    Returns ``(text, source)`` — source may be None.
+    """
+    best_text: str | None = None
+    best_source: str | None = None
+    best_score = -1.0
+    for item in candidates:
+        if isinstance(item, tuple):
+            text, source = item[0], (item[1] if len(item) > 1 else None)
+        else:
+            text, source = item, None
+        if not isinstance(text, str) or not text.strip():
+            continue
+        cleaned = text.strip()
+        score = richness_score(cleaned, source=source)
+        if score < 0:
+            continue
+        if score > best_score or (
+            score == best_score
+            and best_text is not None
+            and len(cleaned) > len(best_text)
+        ):
+            best_score = score
+            best_text = cleaned
+            best_source = source
+    if best_text is None:
+        return None, None
+    return best_text[:4000], best_source
+
+
+def description_is_richer(
+    new: Any,
+    current: Any,
+    *,
+    new_source: str | None = None,
+    current_source: str | None = None,
+) -> bool:
+    """True when ``new`` should replace ``current`` as the enrich description."""
+    return richness_score(new, source=new_source) > richness_score(
+        current, source=current_source
+    )
 
 
 def _has(value: Any) -> bool:
@@ -164,6 +415,7 @@ BUSINESS_WEIGHTS: dict[str, int] = {
     "google_rating": 5,
     "google_reviews_count_gt_10": 3,
     "yelp_rating": 3,
+    "trustpilot_rating": 2,
     "offers_count_ge_3": 5,
     "offers_with_price_ge_1": 5,
     "promotions": 3,      # proxy: offers_featured_count >= 1 — no dedicated promotions table exists
@@ -208,6 +460,9 @@ def calculate_business_completeness_score(row: dict[str, Any]) -> dict[str, Any]
         w["google_reviews_count_gt_10"] if (row.get("google_reviews_count") or 0) > 10 else 0
     )
     breakdown["yelp_rating"] = w["yelp_rating"] if _has(row.get("yelp_rating")) else 0
+    breakdown["trustpilot_rating"] = (
+        w["trustpilot_rating"] if _has(row.get("trustpilot_rating")) else 0
+    )
     breakdown["offers_count_ge_3"] = (
         w["offers_count_ge_3"] if (row.get("offers_count") or 0) >= 3 else 0
     )

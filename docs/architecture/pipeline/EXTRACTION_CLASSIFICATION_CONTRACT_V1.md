@@ -247,6 +247,11 @@ The `*_MAX_AGE_DAYS` values are the staleness windows the Gate-3 disposition rul
 
 A recommended third-party site must never donate its own contacts to a card.
 
+**Enrich BFS follow policy (normative):**  
+[`../runtime/ENRICH_RESOURCE_FOLLOW_POLICY_V1.md`](../runtime/ENRICH_RESOURCE_FOLLOW_POLICY_V1.md) —
+own website / socials must not enqueue `related_websites`; CMS chrome hosts live in
+`CMS_CHROME_HOST_PARTS` (`scripts/business-enrich/enrich_follow_policy.py`).
+
 `JUNK_HOST_PARTS` (`scripts/business-enrich/enrich_published_businesses.py`) — hosts
 that are never a business's own website: etsy.com, turo.com, girlscouts.org,
 digitalcookie., maps.apple, maps.app.goo.gl, goo.gl/, instagram.com, facebook.com,

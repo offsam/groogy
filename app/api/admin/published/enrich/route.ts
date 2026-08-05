@@ -7,12 +7,15 @@ import { userIsAdmin } from "@/lib/reviews/queries";
 import {
   spawnPublishedEnrich,
   type PublishedEnrichKind,
+  type PublishedEnrichQueueTarget,
 } from "@/lib/admin/published-enrich-run";
-import { writePublishedEnrichHistory, attachEnrichBeforeSnapshot, restoreEntityEnrichSnapshot } from "@/lib/admin/published-enrich-history";
+import { attachEnrichBeforeSnapshot, restoreEntityEnrichSnapshot } from "@/lib/admin/published-enrich-history";
 import {
   finalizePublishedEnrich,
   isFinalizableKind,
 } from "@/lib/admin/published-finalize-enrich";
+import { finalizePrePublishEnrich } from "@/lib/import-review/finalize-enrich";
+import { peelRecommendationQueueAddress } from "@/lib/import-review/recommendation-enrich";
 import { fieldLabel } from "@/lib/import-review/enrich-progress";
 import type {
   EnrichRunResult,
@@ -33,6 +36,7 @@ type Body = {
   kind?: PublishedEnrichKind;
   id?: string;
   slug?: string;
+  queue?: PublishedEnrichQueueTarget;
 };
 
 const SECTION_TITLES: Record<string, string> = {
@@ -94,71 +98,90 @@ export async function POST(request: Request) {
     );
   }
 
+  const queue = body.queue;
+  if (
+    queue &&
+    (queue.source !== "import_review" && queue.source !== "recommendation")
+  ) {
+    return NextResponse.json(
+      { message: "queue.source: import_review | recommendation" },
+      { status: 400 },
+    );
+  }
+  if (queue && (!queue.id || !isUuid(queue.id))) {
+    return NextResponse.json({ message: "Нужен queue.id" }, { status: 400 });
+  }
+
   let slug = (body.slug || "").trim();
   let id = (body.id || "").trim();
   const listingKind = ["service", "transfer", "marketplace", "lechu"].includes(
     kind,
   );
 
-  if (listingKind) {
-    if (!id || !isUuid(id)) {
-      return NextResponse.json(
-        { message: "Для объявления нужен id" },
-        { status: 400 },
-      );
+  if (!queue) {
+    if (listingKind) {
+      if (!id || !isUuid(id)) {
+        return NextResponse.json(
+          { message: "Для объявления нужен id" },
+          { status: 400 },
+        );
+      }
+    } else if (!id && slug) {
+      const catalog = untyped(createServiceRoleClient());
+      const table =
+        kind === "business"
+          ? "businesses"
+          : kind === "professional"
+            ? "professionals"
+            : kind === "event"
+              ? "events"
+              : "jobs";
+      const { data, error } = await catalog
+        .from(table)
+        .select("id, slug")
+        .eq("slug", slug)
+        .maybeSingle();
+      if (error) {
+        return NextResponse.json({ message: error.message }, { status: 500 });
+      }
+      if (!data?.id) {
+        return NextResponse.json({ message: "Карточка не найдена" }, { status: 404 });
+      }
+      id = String((data as { id: string }).id);
+      slug = String((data as { slug?: string }).slug || slug);
+    } else if (id && !slug) {
+      if (!isUuid(id)) {
+        return NextResponse.json({ message: "Некорректный id" }, { status: 400 });
+      }
+      const catalog = untyped(createServiceRoleClient());
+      const table =
+        kind === "business"
+          ? "businesses"
+          : kind === "professional"
+            ? "professionals"
+            : kind === "event"
+              ? "events"
+              : "jobs";
+      const { data, error } = await catalog
+        .from(table)
+        .select("id, slug")
+        .eq("id", id)
+        .maybeSingle();
+      if (error) {
+        return NextResponse.json({ message: error.message }, { status: 500 });
+      }
+      if (!data) {
+        return NextResponse.json({ message: "Карточка не найдена" }, { status: 404 });
+      }
+      slug = String((data as { slug?: string }).slug || "");
     }
-  } else if (!id && slug) {
-    const catalog = untyped(createServiceRoleClient());
-    const table =
-      kind === "business"
-        ? "businesses"
-        : kind === "professional"
-          ? "professionals"
-          : kind === "event"
-            ? "events"
-            : "jobs";
-    const { data, error } = await catalog
-      .from(table)
-      .select("id, slug")
-      .eq("slug", slug)
-      .maybeSingle();
-    if (error) {
-      return NextResponse.json({ message: error.message }, { status: 500 });
-    }
-    if (!data?.id) {
-      return NextResponse.json({ message: "Карточка не найдена" }, { status: 404 });
-    }
-    id = String((data as { id: string }).id);
-    slug = String((data as { slug?: string }).slug || slug);
-  } else if (id && !slug) {
-    if (!isUuid(id)) {
-      return NextResponse.json({ message: "Некорректный id" }, { status: 400 });
-    }
-    const catalog = untyped(createServiceRoleClient());
-    const table =
-      kind === "business"
-        ? "businesses"
-        : kind === "professional"
-          ? "professionals"
-          : kind === "event"
-            ? "events"
-            : "jobs";
-    const { data, error } = await catalog
-      .from(table)
-      .select("id, slug")
-      .eq("id", id)
-      .maybeSingle();
-    if (error) {
-      return NextResponse.json({ message: error.message }, { status: 500 });
-    }
-    if (!data) {
-      return NextResponse.json({ message: "Карточка не найдена" }, { status: 404 });
-    }
-    slug = String((data as { slug?: string }).slug || "");
-  }
 
-  if (!id && !slug) {
-    return NextResponse.json({ message: "Нужен slug или id" }, { status: 400 });
+    if (!id && !slug) {
+      return NextResponse.json({ message: "Нужен slug или id" }, { status: 400 });
+    }
+  } else {
+    id = queue.id;
+    slug = slug || queue.id;
   }
 
   const tableByKind: Record<string, string> = {
@@ -172,7 +195,7 @@ export async function POST(request: Request) {
     lechu: "listings",
   };
   let beforeSnapshot: Record<string, unknown> | null = null;
-  if (id && tableByKind[kind as string]) {
+  if (!queue && id && tableByKind[kind as string]) {
     const catalog = untyped(createServiceRoleClient());
     const { data: snap } = await catalog
       .from(tableByKind[kind as string])
@@ -191,6 +214,8 @@ export async function POST(request: Request) {
       kind: kind as PublishedEnrichKind,
       slug: slug || undefined,
       id: id || undefined,
+      queue: queue || undefined,
+      mode: queue ? "apply" : "dry-run",
     }).child;
   } catch (err) {
     return NextResponse.json(
@@ -208,7 +233,7 @@ export async function POST(request: Request) {
   let finishedResult: EnrichRunResult | null = null;
   let sawNdjson = false;
   let aborted = false;
-  const entityTable = tableByKind[kind as string] || "";
+  const entityTable = queue ? "" : tableByKind[kind as string] || "";
 
   const stream = new ReadableStream<Uint8Array>({
     start(controller) {
@@ -245,13 +270,37 @@ export async function POST(request: Request) {
         }
       };
 
-      if (!supportsNdjson) {
-        push({
-          type: "started",
-          label: labels[kind] || `Обогащение «${slug || id}»`,
-        });
-        push({ type: "step", step: "bfs", status: "running", detail: "Обход ресурсов…" });
-      }
+      let lastPushAt = Date.now();
+      const markPushed = () => {
+        lastPushAt = Date.now();
+      };
+      const pushTracked = (obj: Record<string, unknown>) => {
+        push(obj);
+        markPushed();
+      };
+
+      // Always ack immediately (ndjson mode previously stayed silent until Python spoke).
+      pushTracked({
+        type: "started",
+        label: labels[kind] || `Обогащение «${slug || id}»`,
+      });
+      pushTracked({
+        type: "step",
+        step: "bfs",
+        status: "running",
+        detail: "Обход ресурсов… обычно 30–90 сек",
+      });
+
+      const keepAlive = setInterval(() => {
+        if (aborted) return;
+        if (Date.now() - lastPushAt < 12_000) return;
+        try {
+          controller.enqueue(encoder.encode("\n"));
+          markPushed();
+        } catch {
+          /* closed */
+        }
+      }, 8_000);
 
       const pushLine = (line: string) => {
         const trimmed = line.trim();
@@ -264,6 +313,7 @@ export async function POST(request: Request) {
           }
           if (!aborted) {
             controller.enqueue(encoder.encode(`${trimmed}\n`));
+            markPushed();
           }
         } catch {
           // non-json human log — ignore for UI when ndjson mode
@@ -285,6 +335,7 @@ export async function POST(request: Request) {
       });
 
       child.on("error", (err) => {
+        clearInterval(keepAlive);
         if (aborted) {
           void rollbackAbort().finally(() => {
             try {
@@ -307,6 +358,7 @@ export async function POST(request: Request) {
       });
 
       child.on("close", (code) => {
+        clearInterval(keepAlive);
         void (async () => {
           if (aborted) {
             await rollbackAbort();
@@ -394,7 +446,9 @@ export async function POST(request: Request) {
 
           // Resource crawl is done; now parse the card copy into услуги /
           // акции / обновления and leave «О нас» as narrative.
-          if (id && isFinalizableKind(kind)) {
+          // Queue cards already wrote fill-empty via enrich_queue_card.py —
+          // skip live finalize (that targets businesses/professionals tables).
+          if (!queue && id && isFinalizableKind(kind)) {
             push({
               type: "step",
               step: "cleanup",
@@ -408,6 +462,7 @@ export async function POST(request: Request) {
                 kind,
                 id,
                 finishedResult,
+                { dryRun: true },
               );
               if (aborted) {
                 await rollbackAbort();
@@ -450,6 +505,64 @@ export async function POST(request: Request) {
                 detail: err instanceof Error ? err.message : "Ошибка разбора",
               });
             }
+          } else if (queue) {
+            // Same peel (+ geo for recommendations) as live finalize — Python
+            // crawl alone leaves directory dumps crooked and without a pin.
+            push({
+              type: "step",
+              step: "cleanup",
+              status: "running",
+              detail: "Адрес и разбор…",
+            });
+            try {
+              const catalog = createServiceRoleClient();
+              let found = Object.keys(finishedResult?.patch || {});
+              if (queue.source === "import_review") {
+                const fin = await finalizePrePublishEnrich(
+                  catalog,
+                  queue.id,
+                  finishedResult,
+                );
+                finishedResult = fin.result;
+                found = [...new Set([...found, ...fin.found])];
+              } else {
+                const addrFound = await peelRecommendationQueueAddress(
+                  catalog,
+                  queue.id,
+                );
+                found = [...new Set([...found, ...addrFound])];
+                if (finishedResult && addrFound.length) {
+                  finishedResult = {
+                    ...finishedResult,
+                    patch: {
+                      ...(finishedResult.patch || {}),
+                      ...Object.fromEntries(
+                        addrFound.map((k) => [k, true] as const),
+                      ),
+                    },
+                  };
+                }
+              }
+              push({
+                type: "step",
+                step: "cleanup",
+                status: "done",
+                detail: found.length
+                  ? found.map(fieldLabel).join(", ")
+                  : finishedResult?.patch
+                    ? "Очередь обновлена"
+                    : "Новых полей нет",
+                found,
+              });
+            } catch (err) {
+              push({
+                type: "step",
+                step: "cleanup",
+                status: "error",
+                detail:
+                  err instanceof Error ? err.message : "Ошибка разбора адреса",
+              });
+            }
           }
 
           if (aborted) {
@@ -462,47 +575,30 @@ export async function POST(request: Request) {
             return;
           }
 
-          if (finishedResult && id) {
+          if (!queue && finishedResult && id) {
             try {
               const historyResult = attachEnrichBeforeSnapshot(
                 finishedResult,
                 beforeSnapshot,
               );
-              await writePublishedEnrichHistory({
-                kind: kind as PublishedEnrichKind,
-                entityId: id,
-                adminId: user.id,
-                result: historyResult,
-              });
+              Object.assign(finishedResult, historyResult);
+              finishedResult.pending_review = true;
+              // History is written when admin Saves selected fields — not on dry-run.
             } catch (err) {
-              console.error("enrich history write failed", err);
+              console.error("enrich before snapshot failed", err);
             }
           }
 
-          if (kind === "business") {
-            if (slug) revalidatePath(`/business/${slug}`);
-            revalidatePath("/search");
-          } else if (kind === "professional") {
-            if (slug) revalidatePath(`/professional/${slug}`);
-            revalidatePath("/professionals");
-          } else if (kind === "event") {
-            if (slug) revalidatePath(`/events/${slug}`);
-            revalidatePath("/events");
-          } else if (kind === "job") {
-            if (slug) revalidatePath(`/jobs/${slug}`);
-          } else if (kind === "transfer") {
-            revalidatePath(`/transfers/${id}`);
-          } else if (kind === "service") {
-            revalidatePath(`/services/${id}`);
-          } else if (kind === "marketplace") {
-            revalidatePath(`/marketplace/${id}`);
-          } else if (kind === "lechu") {
-            revalidatePath(`/lechu/${id}`);
-          } else if (kind === "church") {
-            if (slug) revalidatePath(`/churches/${slug}`);
-            revalidatePath("/churches");
-            revalidatePath("/admin/catalog/churches");
+          if (queue) {
+            revalidatePath("/admin/review");
+            revalidatePath(
+              `/admin/review/${encodeURIComponent(
+                `${queue.source === "recommendation" ? "recommendation" : "import_review"}:${queue.id}`,
+              )}`,
+            );
+            revalidatePath("/admin/community/recommendations");
           }
+          // Published dry-run: no revalidate until Save applies the patch.
           try {
             controller.close();
           } catch {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import { OwnerListingActions } from "@/components/marketplace/OwnerListingActions";
@@ -32,6 +33,7 @@ export function MarketplaceListingProfileView({
   isOwner = false,
   isAdmin = false,
   autoClaim = false,
+  adminChrome = null,
 }: {
   listing: Listing;
   preview?: boolean;
@@ -40,6 +42,7 @@ export function MarketplaceListingProfileView({
   isAdmin?: boolean;
   autoClaim?: boolean;
   currentUserId?: string | null;
+  adminChrome?: ReactNode;
 }) {
   const isPublic =
     listing.status === "active" &&
@@ -53,7 +56,9 @@ export function MarketplaceListingProfileView({
 
   return (
     <div className="mx-auto max-w-4xl space-y-8">
-      {isAdmin && !preview ? (
+      {adminChrome ? (
+        adminChrome
+      ) : isAdmin && !preview ? (
         <AdminLensBar entityId={listing.id} kind="marketplace" />
       ) : null}
       <div className="flex flex-wrap items-start justify-between gap-4">

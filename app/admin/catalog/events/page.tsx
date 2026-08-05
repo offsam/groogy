@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CatalogBrowser } from "@/components/admin/CatalogBrowser";
-import { EventCard } from "@/components/events/EventCard";
 import { listCatalogEvents } from "@/lib/admin/catalog/queries";
 import type {
   CatalogSort,
@@ -82,6 +81,7 @@ export default async function AdminCatalogEventsPage({
       title="Events"
       description="Опубликованные события. Очередь верификации кандидатов — в Review Center / legacy Events."
       basePath="/admin/catalog/events"
+      layout="list"
       total={result.total}
       page={result.page}
       pageSize={result.pageSize}
@@ -90,11 +90,16 @@ export default async function AdminCatalogEventsPage({
       sort={sort}
       legacyHref="/admin/review/inbox?view=events"
       legacyLabel="Events in Inbox"
+      sectionEnrichKind="event"
       error={loadError}
       items={result.items.map((event) => ({
         meta: {
           id: event.id,
+          title: event.title,
           statusLabel: STATUS_LABELS[event.status] ?? event.status,
+          locationLine: event.city?.trim() || "Без локации",
+          categoryLabel: event.format,
+          createdAt: event.created_at,
           publicHref:
             event.status === "published" ? `/events/${event.slug}` : null,
           editHref: null,
@@ -102,7 +107,6 @@ export default async function AdminCatalogEventsPage({
           enrichKind: "event" as const,
           slug: event.slug,
         },
-        card: <EventCard event={event} preview />,
       }))}
     />
   );

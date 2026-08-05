@@ -30,6 +30,20 @@ export default async function AdminWrongSectionPage() {
         <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900">
           Карточка не в своём разделе
         </h1>
+        <p className="mt-2 max-w-2xl text-sm text-slate-600">
+          Повторяемый hygiene-pass по live каталогу. Очередь разбора —{" "}
+          <Link className="text-brand-blue hover:underline" href="/admin/review/inbox">
+            полосы
+          </Link>
+          , рекомендации —{" "}
+          <Link
+            className="text-brand-blue hover:underline"
+            href="/admin/community/recommendations"
+          >
+            сюда
+          </Link>
+          .
+        </p>
         <p className="mt-2 text-slate-500">
           Расхождения между текущим разделом и подсказкой маршрутизатора. Автопереезда
           нет — только по подтверждению.{" "}

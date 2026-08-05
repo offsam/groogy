@@ -46,6 +46,7 @@ export type ContactChannelId =
   | "google_maps"
   | "nextdoor"
   | "tripadvisor"
+  | "trustpilot"
   | "booking"
   | "opentable"
   | "zillow"
@@ -342,6 +343,14 @@ export const CONTACT_CHANNELS: readonly ContactChannel[] = [
     placeholder: "tripadvisor.com/…",
   },
   {
+    id: "trustpilot",
+    label: "Trustpilot",
+    group: "platforms",
+    kind: "url",
+    hosts: ["trustpilot.com"],
+    placeholder: "trustpilot.com/review/…",
+  },
+  {
     id: "booking",
     label: "Онлайн-запись",
     group: "platforms",
@@ -460,6 +469,18 @@ export function contactHref(
       return /^https?:\/\//i.test(value)
         ? value
         : `skype:${stripHandle(value)}?chat`;
+    case "custom": {
+      if (/^https?:\/\//i.test(value)) return value;
+      // Second phone / email stored as custom «Телефон» / «Email».
+      if (value.includes("@") && !/\s/.test(value) && !value.includes("/")) {
+        return `mailto:${value}`;
+      }
+      const tel = phoneHref(value);
+      if (tel && !/[a-zа-яё]/i.test(value.replace(/[xх]/gi, ""))) {
+        return tel;
+      }
+      return httpUrl(value);
+    }
     default:
       break;
   }

@@ -29,6 +29,7 @@ type HubScopedRow = {
   id?: string;
   city: string | null;
   region?: string | null;
+  state_code?: string | null;
   latitude?: number | null;
   longitude?: number | null;
   county_geoid?: string | null;
@@ -59,6 +60,7 @@ function rowMatchesHub(row: HubScopedRow, hubId: string): boolean {
       {
         city: row.city,
         region: row.region,
+        state_code: row.state_code,
         latitude: asCoord(row.latitude),
         longitude: asCoord(row.longitude),
         county_geoid: row.county_geoid,
@@ -95,11 +97,14 @@ async function loadStampRows(
 ): Promise<EntityStamp[]> {
   try {
     const status = opts?.status ?? "published";
-    // businesses/professionals: full geo for canon match. jobs/events: city + county only.
-    const richGeo = table === "businesses" || table === "professionals";
+    // businesses/professionals/churches: full geo for canon match. jobs/events: city + county only.
+    const richGeo =
+      table === "businesses" ||
+      table === "professionals" ||
+      table === "churches";
     const geoCols = richGeo
-      ? "id, city, region, latitude, longitude, county_geoid, created_at, updated_at"
-      : "id, city, county_geoid, created_at, updated_at";
+      ? "id, city, region, state_code, latitude, longitude, county_geoid, created_at, updated_at"
+      : "id, city, state_code, county_geoid, created_at, updated_at";
     const baseCols = opts?.preferPublishedAt
       ? `${geoCols}, published_at`
       : geoCols;
@@ -164,7 +169,7 @@ async function loadProfessionalStamps(
       let query = db(client)
         .from("professionals_public")
         .select(
-          "id, city, region, latitude, longitude, county_geoid, created_at, published_at, category_slug",
+          "id, city, region, state_code, latitude, longitude, county_geoid, created_at, published_at, category_slug",
         );
       if (hubId) {
         const hubs = getRegionHubsByIds(parseHubIds(hubId));
@@ -294,6 +299,7 @@ type NationalCounts = {
   services: number | null;
   lechu: number | null;
   transfers: number | null;
+  churches: number | null;
 };
 
 /**
@@ -317,6 +323,7 @@ async function loadNationalCounts(
     services,
     lechu,
     transfers,
+    churches,
   ] = await Promise.all([
     exactCount(catalog, "businesses", { status: "approved" }),
     exactCount(catalog, "professionals", { status: "approved" }),
@@ -333,6 +340,7 @@ async function loadNationalCounts(
     exactCount(anon, "services_catalog"),
     exactCount(anon, "lechu_catalog"),
     exactCount(anon, "transfers_catalog"),
+    exactCount(catalog, "churches", { status: "approved" }),
   ]);
 
   return {
@@ -347,6 +355,7 @@ async function loadNationalCounts(
     services,
     lechu,
     transfers,
+    churches,
   };
 }
 
@@ -476,6 +485,7 @@ async function computeHubResourceStats(
     vehicleStamps,
     lechu,
     transfers,
+    churchStamps,
     national,
   ] = await Promise.all([
     loadStampRows(catalog, "businesses", scopedHub, {
@@ -494,6 +504,10 @@ async function computeHubResourceStats(
     loadStampRows(catalog, "vehicles", scopedHub),
     loadListingStamps(client, "lechu_catalog", scopedHub),
     loadListingStamps(client, "transfers_catalog", scopedHub),
+    loadStampRows(catalog, "churches", scopedHub, {
+      status: "approved",
+      preferPublishedAt: true,
+    }).catch(() => [] as EntityStamp[]),
     scopedHub ? Promise.resolve(null) : loadNationalCounts(client, catalog),
   ]);
 
@@ -568,6 +582,10 @@ async function computeHubResourceStats(
   const transfersYesterday = countInDay(transfers.stamps, yKey);
   const transfersSince = countSinceMs(transfers.stamps, sinceOk);
 
+  const churchesToday = countInDay(churchStamps, todayKey);
+  const churchesYesterday = countInDay(churchStamps, yKey);
+  const churchesSince = countSinceMs(churchStamps, sinceOk);
+
   const professionalsToday = countInDay(professionalStamps, todayKey);
   const professionalsYesterday = countInDay(professionalStamps, yKey);
   const professionalsSince = countSinceMs(professionalStamps, sinceOk);
@@ -598,6 +616,7 @@ async function computeHubResourceStats(
   const resolvedMarketplace = national?.marketplace ?? marketplace.total;
   const resolvedLechu = national?.lechu ?? lechu.total;
   const resolvedTransfers = national?.transfers ?? transfers.total;
+  const resolvedChurches = national?.churches ?? churchStamps.length;
   const resolvedServices = national?.services ?? 0;
   if (national?.offers != null) offerCount = national.offers;
 
@@ -607,6 +626,7 @@ async function computeHubResourceStats(
     listingsToday +
     lechuToday +
     transfersToday +
+    churchesToday +
     professionalsToday +
     jobsToday +
     realEstateToday +
@@ -618,6 +638,7 @@ async function computeHubResourceStats(
     listingsYesterday +
     lechuYesterday +
     transfersYesterday +
+    churchesYesterday +
     professionalsYesterday +
     jobsYesterday +
     realEstateYesterday +
@@ -760,6 +781,17 @@ async function computeHubResourceStats(
     addedSince: sinceOk != null ? transfersSince : transfersToday,
   });
 
+  cards.push({
+    key: "churches",
+    kind: "resource",
+    label: "Церкви",
+    unit: shortUnit(resolvedChurches, "церковь", "церкви", "церквей"),
+    slug: null,
+    count: resolvedChurches,
+    addedToday: churchesToday,
+    addedSince: sinceOk != null ? churchesSince : churchesToday,
+  });
+
   const bySlug = new Map<string, { total: number; today: number; since: number }>();
   for (const b of businessStamps) {
     const slug = b.categorySlug;
@@ -785,9 +817,10 @@ async function computeHubResourceStats(
     });
   }
 
+  // Catalog cards only — not business_offers (those are nested under businesses
+  // and inflated «уже N карточек» vs map / section totals).
   const total =
     businessCount +
-    offerCount +
     resolvedMarketplace +
     resolvedServices +
     resolvedProfessionals +
@@ -796,7 +829,8 @@ async function computeHubResourceStats(
     resolvedEvents +
     resolvedVehicles +
     resolvedLechu +
-    resolvedTransfers;
+    resolvedTransfers +
+    resolvedChurches;
 
   let members = 0;
   if (!scopedHub) {
@@ -836,7 +870,7 @@ export async function getHubResourceStats(
   return unstable_cache(
     () => computeHubResourceStats(hubId, options),
     // v6: bust stale OC/LA counts after no-street business → pro migration
-    ["hub-resource-stats-v6", hubKey, sinceKey],
+    ["hub-resource-stats-v7", hubKey, sinceKey],
     {
       revalidate: CATALOG_CACHE_TTL.hubResourceStats,
       tags: [CATALOG_CACHE_TAGS.hubResourceStats],

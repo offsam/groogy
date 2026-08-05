@@ -35,7 +35,7 @@ with RU↔EN synonym expansion. Cards often mix languages: Russian name, English
 or vice versa. Therefore:
 - Always emit **both Russian and English** forms of every service/need term in mustHints.
 - Prefer short concrete tokens/phrases people actually write on cards (масло, oil, oil change,
-  manicure, маникюр, plumber, сантехник) — not long sentences.
+  manicure, маникюр, plumber, сантехник, балет, ballet, dance) — not long sentences.
 - Inflected Russian: prefer lemma-like stems that appear as substrings (маникюр covers маникюра;
   масло covers масла). Also add English equivalents.
 

@@ -54,6 +54,18 @@ Cookie / `?hub=` accepts:
 
 Filters prefer `county_geoid`. Legacy rows without it fall back to coordinates / city aliases.
 
+## Ops repair order (location scripts)
+
+When cleaning published cards, run in this order so scripts do not fight:
+
+1. **`repair_zip_city_county_conflicts.py`** — ZIP place name + county win over hub-stamped city (e.g. LA city + 92683 → Westminster / OC).
+2. **`geocode_all_addresses.py` / `address_geo.resolve_address_geo`** — street pins only via the shared geo step.
+3. **`fix_source_hub_locations.py`** — only when coords/city are outside the *source group* metro **and** ZIP does not already place the card elsewhere. Skips when ZIP hub ≠ source hub.
+4. Professionals: **`rebuild_professional_locations_from_groups.py`** (not `fill_professional_city_from_groups.py`).
+5. Contacts from copy: **`migrate_contacts_from_copy.py`** (not `enrich_from_card_copy.py` as the default).
+
+Canonical writers: TS `resolveEntityLocation` / `geocode-street.ts`; Python `address_geo.py` + import `merge_city_with_group` (ZIP/city beat conflicting group region).
+
 ## Address → geo step (pin contract)
 
 `location_precision = 'street'` is a **pin claim** and may only be written together with `latitude` / `longitude`. A street-looking string is just an address waiting to be geocoded — writing `street` without coordinates left cards with an address and no map.

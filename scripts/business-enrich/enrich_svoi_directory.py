@@ -45,6 +45,11 @@ from google_places import (  # noqa: E402
     place_to_fill_empty_patch,
 )
 from scrape_svoi_us import normalize_website  # noqa: E402
+from svoi_parse import (  # noqa: E402
+    extract_svoi_body_description,
+    is_svoi_seo_blurb,
+    streetish,
+)
 
 OUT = Path(__file__).resolve().parent / "data" / "svoi_enrich"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -316,7 +321,8 @@ def parse_maps_search_address(html: str) -> dict[str, Any]:
     parts = [p.strip() for p in raw.split(",") if p.strip()]
     if len(parts) >= 2:
         street = normalize_street_line(parts[0])
-        out["address_line"] = street[:160]
+        if streetish(street):
+            out["address_line"] = street[:160]
         city = parts[1]
         cm = re.match(r"^(.*?)\s+([A-Z]{2})(?:\s+(\d{5}(?:-\d{4})?))?$", city)
         if cm:
@@ -357,6 +363,8 @@ def looks_like_person_name(name: str | None) -> bool:
 
 
 # Sidebar / chrome hosts that leak into naive whole-page scrapes.
+from enrich_follow_policy import CMS_CHROME_HOST_PARTS  # noqa: E402
+
 ORANGE_PAGES_JUNK_HOSTS = (
     "russianorangepages.com",
     "fchconstruction.org",
@@ -364,14 +372,12 @@ ORANGE_PAGES_JUNK_HOSTS = (
     "ocparks.com",
     "art-a-fair.com",
     "fonts.googleapis.com",
-    "gmpg.org",
     "w.org",
-    "wordpress.org",
     "themuck.org",
     "facebook.com/sharer",
     "twitter.com",
     "pinterest.com",
-)
+) + CMS_CHROME_HOST_PARTS
 
 
 def is_orange_pages_junk_website(url: str | None) -> bool:
@@ -542,7 +548,6 @@ def enrich_svoi_page(rec: dict[str, Any]) -> dict[str, Any]:
         if e and e not in emails and "@" in e:
             emails.append(e)
     og_img = re.search(r'property="og:image"\s+content="([^"]+)"', html, re.I)
-    og_desc = re.search(r'property="og:description"\s+content="([^"]+)"', html, re.I)
     maps = parse_maps_search_address(html)
 
     if websites:
@@ -553,8 +558,10 @@ def enrich_svoi_page(rec: dict[str, Any]) -> dict[str, Any]:
         out["emails"] = emails[:4]
     if og_img:
         out["cover_image_url"] = og_img.group(1)
-    if og_desc:
-        out["description"] = re.sub(r"\s+", " ", og_desc.group(1)).strip()[:4000]
+    # Prefer real body copy — never Svoi SEO og:description («по приемлемым ценам»).
+    body = extract_svoi_body_description(html)
+    if body:
+        out["description"] = body
     out.update(maps)
     _ = card  # keep shape docs
     return out
@@ -622,24 +629,6 @@ def plain_website(websites: list[Any]) -> str | None:
         if nw:
             return nw.split("?")[0][:300]
     return None
-
-
-def streetish(address: str | None) -> bool:
-    if not address:
-        return False
-    a = address.strip()
-    if is_bad_city(a):
-        return False
-    # city-only Russian/English names usually lack digits or street tokens
-    if re.search(r"\d", a):
-        return True
-    if re.search(
-        r"\b(st|street|ave|avenue|blvd|road|rd|dr|drive|way|lane|ln|ct|court|pl|place|suite|ste|#)\b",
-        a,
-        re.I,
-    ):
-        return True
-    return False
 
 
 def needs_enrichment(rec: dict[str, Any], *, allow_enriched: bool = False) -> bool:
@@ -784,11 +773,15 @@ def publish_business(
     existing = find_biz_by_phone(client, phone)
     website = patch.get("website") or plain_website(rec.get("websites") or [])
     name = (rec.get("display_name") or "Business").strip()[:120]
-    desc_parts = [t for t in (rec.get("comment_texts") or [])[:3] if t]
+    desc_parts = [
+        t
+        for t in (rec.get("comment_texts") or [])[:3]
+        if t and not is_svoi_seo_blurb(str(t))
+    ]
     description = "\n\n".join(desc_parts)[:4000] or None
     now = datetime.now(timezone.utc).isoformat()
     region = note_field(rec.get("notes"), "region")
-    state = REGION_STATE.get(region or "", "US-CA")
+    state = REGION_STATE.get(region or "") or None
     city = patch.get("city") or english_city(rec.get("city")) or None
 
     body: dict[str, Any] = {
@@ -899,11 +892,15 @@ def publish_professional(
                 break
     name = (rec.get("display_name") or "Специалист").strip()[:120]
     website = patch.get("website") or plain_website(rec.get("websites") or [])
-    desc_parts = [t for t in (rec.get("comment_texts") or [])[:3] if t]
+    desc_parts = [
+        t
+        for t in (rec.get("comment_texts") or [])[:3]
+        if t and not is_svoi_seo_blurb(str(t))
+    ]
     description = "\n\n".join(desc_parts)[:4000] or None
     now = datetime.now(timezone.utc).isoformat()
     region = note_field(rec.get("notes"), "region")
-    state = patch.get("state_code") or REGION_STATE.get(region or "", "US-CA")
+    state = patch.get("state_code") or REGION_STATE.get(region or "") or None
     city = patch.get("city") or english_city(rec.get("city"))
     base = f"svoi-{slugify(name)}"
     slug = base if dry_run else unique_slug_table(client, "professionals", base)
@@ -1218,10 +1215,12 @@ def main() -> int:
                 phones.append(p)
         cover = svoi.get("cover_image_url") or rec.get("cover_image_url")
         emails = list(svoi.get("emails") or [])
-        if svoi.get("description"):
+        if svoi.get("description") and not is_svoi_seo_blurb(svoi["description"]):
             texts = list(rec.get("comment_texts") or [])
             if svoi["description"] not in texts:
-                texts = [svoi["description"]] + texts
+                texts = [svoi["description"]] + [
+                    t for t in texts if not is_svoi_seo_blurb(str(t))
+                ]
                 rec["comment_texts"] = texts[:5]
 
         city_hint = svoi.get("city") or english_city(rec.get("city"))

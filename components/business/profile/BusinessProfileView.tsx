@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -44,6 +44,10 @@ import { BusinessOffersSection } from "@/components/business-offers/BusinessOffe
 import { BusinessCommunityMentions } from "@/components/business/profile/BusinessCommunityMentions";
 import { BusinessReviewsSection } from "@/components/reviews/BusinessReviewsSection";
 import {
+  ExternalRatingChips,
+  businessExternalRatingItems,
+} from "@/components/shared/ExternalRatingsSection";
+import {
   formatOfficesDescriptionLine,
   pickBusinessLocationsForHubs,
 } from "@/lib/business/location-for-hub";
@@ -52,10 +56,14 @@ import type { RegionHub } from "@/lib/regions/hubs";
 import { structureBusinessProfileCopy } from "@/lib/content/structure-business-profile";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { formatOfferPrice, offerCoverUrl } from "@/lib/business-offers/mappers";
+import { isRestaurantsCategory } from "@/lib/business-offers/food-category";
+import { ServiceListRow, ServiceTileRow } from "@/components/shared/ServiceListRow";
 import { formatAddress } from "@/lib/supabase/mappers";
 import { looksLikeStreetAddress } from "@/lib/business/location-precision";
 import { BusinessJobsPanel } from "@/components/business/profile/BusinessJobsPanel";
+import { BusinessEmployeesSection } from "@/components/business/profile/BusinessEmployeesSection";
 import type { Job } from "@/types/job";
+import type { BusinessEmployeeTeaser } from "@/lib/business/employees";
 import type { Business, Category } from "@/types/business";
 import type { BusinessOffer } from "@/types/business-offer";
 import type { CommunityMention } from "@/types/community-mention";
@@ -84,6 +92,8 @@ type BusinessProfileViewProps = {
   businessSlug: string;
   offers: BusinessOffer[];
   jobs: Job[];
+  /** Professionals with employer_business_id → this business. */
+  employees?: BusinessEmployeeTeaser[];
   reviews: Review[];
   /** Events hosted / provided by this business. */
   events?: PlatformEvent[];
@@ -106,6 +116,11 @@ type BusinessProfileViewProps = {
   editMode?: boolean;
   /** Admin import preview: public layout, contacts visible, no claim/edit chrome. */
   preview?: boolean;
+  /**
+   * Queue/import preview: amber admin strip in the same place as live AdminLensBar
+   * (Опубликовать + enrich). When set, shown even while `preview` is true.
+   */
+  adminChrome?: ReactNode;
   /** Card-based акции; when present they replace the legacy text block. */
   promotions?: EntityPromotion[];
   /** Profile news — section hidden when empty. */
@@ -143,17 +158,13 @@ function platformSinceLabel(createdAt?: string | null) {
   return `На платформе с ${year}`;
 }
 
-function durationLabel(offer: BusinessOffer): string | null {
-  const attrs = offer.attributes as { duration?: string | null };
-  return attrs?.duration?.trim() || null;
-}
-
 export function BusinessProfileView({
   business,
   cityMapCenter = null,
   businessSlug,
   offers,
   jobs,
+  employees = [],
   reviews,
   events = [],
   communityMentions = [],
@@ -171,6 +182,7 @@ export function BusinessProfileView({
   activeTab: activeTabProp,
   editMode = false,
   preview = false,
+  adminChrome = null,
   promotions = [],
   updates = [],
   initialFollowing = false,
@@ -288,10 +300,28 @@ export function BusinessProfileView({
     promotions.length > 0 ? promotions.length : copy.promotions ? 1 : 0;
   const jobsCount = jobs.length > 0 ? jobs.length : copy.jobs ? 1 : 0;
   const reviewsCount = business.reviewsCount || reviews.length;
+  const externalRatings = businessExternalRatingItems({
+    googleRating: business.googleRating,
+    googleReviewsCount: business.googleReviewsCount,
+    googleMapsUrl: business.googleMapsUrl,
+    yelpRating: business.yelpRating,
+    yelpReviewsCount: business.yelpReviewsCount,
+    yelpUrl: business.yelpUrl,
+    trustpilotRating: business.trustpilotRating,
+    trustpilotReviewsCount: business.trustpilotReviewsCount,
+    trustpilotUrl: business.trustpilotUrl,
+  });
+
+  const offersTabLabel = isRestaurantsCategory(business.categorySlug)
+    ? "Меню"
+    : "Услуги";
 
   const tabs: ProfileTab[] = [
     { id: "overview", label: "Обзор" },
-    { id: "services", label: "Услуги", count: offers.length },
+    { id: "services", label: offersTabLabel, count: offers.length },
+    ...(employees.length > 0
+      ? [{ id: "team", label: "Сотрудники", count: employees.length }]
+      : []),
     { id: "jobs", label: "Вакансии", count: jobsCount },
     { id: "promotions", label: "Акции", count: promotionsCount },
     { id: "events", label: "События", count: events.length },
@@ -392,7 +422,9 @@ export function BusinessProfileView({
       </nav>
       ) : null}
 
-      {isAdmin && !preview ? (
+      {adminChrome ? (
+        <div className="px-4 sm:px-0">{adminChrome}</div>
+      ) : isAdmin && !preview ? (
         <div className="px-4 sm:px-0">
           <AdminLensBar
             business={business}
@@ -442,36 +474,39 @@ export function BusinessProfileView({
                 ) : null}
               </div>
 
-              <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                {business.reviewsCount > 0 ? (
-                  <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
-                    <Star
-                      aria-hidden="true"
-                      className="size-3.5 fill-amber-500 text-amber-500"
-                    />
-                    {business.ratingAvg.toFixed(1)}
-                    <span className="font-normal text-slate-500">
-                      ({business.reviewsCount})
+              <div className="mt-2 space-y-1 text-sm">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  {business.reviewsCount > 0 ? (
+                    <span className="inline-flex items-center gap-1 font-semibold text-slate-900">
+                      <Star
+                        aria-hidden="true"
+                        className="size-3.5 fill-amber-500 text-amber-500"
+                      />
+                      {business.ratingAvg.toFixed(1)}
+                      <span className="font-normal text-slate-500">
+                        ({business.reviewsCount})
+                      </span>
                     </span>
-                  </span>
-                ) : (
-                  <span className="text-slate-500">Пока нет отзывов</span>
-                )}
-                {since ? (
-                  <span className="text-xs text-slate-400">{since}</span>
-                ) : null}
-                {business.aiVerifiedReviewsCount > 0 ? (
-                  <span className="inline-flex items-center gap-1 text-slate-600">
-                    <Sparkles aria-hidden="true" className="size-3.5 text-sky-500" />
-                    {business.aiVerifiedReviewsCount} AI
-                  </span>
-                ) : null}
-                {business.transactionVerifiedReviewsCount > 0 ? (
-                  <span className="inline-flex items-center gap-1 text-slate-600">
-                    <BadgeCheck aria-hidden="true" className="size-3.5 text-emerald-600" />
-                    {business.transactionVerifiedReviewsCount} подтвержд.
-                  </span>
-                ) : null}
+                  ) : (
+                    <span className="text-slate-500">Пока нет отзывов</span>
+                  )}
+                  {since ? (
+                    <span className="text-xs text-slate-400">{since}</span>
+                  ) : null}
+                  {business.aiVerifiedReviewsCount > 0 ? (
+                    <span className="inline-flex items-center gap-1 text-slate-600">
+                      <Sparkles aria-hidden="true" className="size-3.5 text-sky-500" />
+                      {business.aiVerifiedReviewsCount} AI
+                    </span>
+                  ) : null}
+                  {business.transactionVerifiedReviewsCount > 0 ? (
+                    <span className="inline-flex items-center gap-1 text-slate-600">
+                      <BadgeCheck aria-hidden="true" className="size-3.5 text-emerald-600" />
+                      {business.transactionVerifiedReviewsCount} подтвержд.
+                    </span>
+                  ) : null}
+                </div>
+                <ExternalRatingChips items={externalRatings} />
               </div>
             </div>
             <BusinessHeaderActions
@@ -554,6 +589,7 @@ export function BusinessProfileView({
                       {aboutText ? (
                         <DescriptionWithOriginal
                           className="min-w-0 flex-1"
+                          heading="О нас"
                           original={business.descriptionOriginal}
                           text={aboutText}
                           textClassName="text-sm leading-relaxed text-slate-600"
@@ -575,11 +611,11 @@ export function BusinessProfileView({
                   </div>
                 ) : null}
 
-                {featuredOffers.length > 0 || canInlineEdit ? (
+                {featuredOffers.length > 0 ? (
                   <div className="space-y-3">
                     <div className="flex items-end justify-between gap-2 px-0.5">
                       <h2 className="text-base font-semibold text-slate-900">
-                        Услуги
+                        {offersTabLabel}
                       </h2>
                       <div className="flex items-center gap-2">
                         {canInlineEdit ? (
@@ -591,64 +627,25 @@ export function BusinessProfileView({
                             Добавить
                           </Link>
                         ) : null}
-                        {featuredOffers.length > 0 ? (
-                          <Link
-                            className="text-sm font-medium text-brand-blue hover:underline"
-                            href={`/business/${businessSlug}?tab=services`}
-                            scroll={false}
-                          >
-                            Все
-                          </Link>
-                        ) : null}
+                        <Link
+                          className="text-sm font-medium text-brand-blue hover:underline"
+                          href={`/business/${businessSlug}?tab=services`}
+                          scroll={false}
+                        >
+                          Все
+                        </Link>
                       </div>
                     </div>
-                    {featuredOffers.length > 0 ? (
-                      <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden">
-                        {featuredOffers.map((offer) => {
-                          const cover = offerCoverUrl(offer);
-                          const duration = durationLabel(offer);
-                          return (
-                            <Link
-                              key={offer.id}
-                              className="w-[9.5rem] shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md sm:w-40"
-                              href={`/business/${businessSlug}/offers/${offer.slug}`}
-                            >
-                              <div className="relative aspect-square bg-slate-100">
-                                {cover ? (
-                                  <Image
-                                    alt=""
-                                    className="object-cover"
-                                    fill
-                                    sizes="160px"
-                                    src={cover}
-                                    unoptimized
-                                  />
-                                ) : (
-                                  <div className="flex h-full items-center justify-center text-xs text-slate-400">
-                                    Нет фото
-                                  </div>
-                                )}
-                              </div>
-                              <div className="space-y-0.5 p-2.5">
-                                <p className="line-clamp-2 text-sm font-medium leading-snug text-slate-900">
-                                  {offer.title}
-                                </p>
-                                <p className="text-sm font-semibold text-slate-900">
-                                  {formatOfferPrice(offer)}
-                                </p>
-                                {duration ? (
-                                  <p className="text-xs text-slate-500">{duration}</p>
-                                ) : null}
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <p className="text-sm text-slate-500">
-                        Услуг пока нет — добавьте в управлении
-                      </p>
-                    )}
+                    <ServiceTileRow>
+                      {featuredOffers.map((offer) => (
+                        <ServiceListRow
+                          key={offer.id}
+                          href={`/business/${businessSlug}/offers/${offer.slug}`}
+                          price={formatOfferPrice(offer)}
+                          title={offer.title}
+                        />
+                      ))}
+                    </ServiceTileRow>
                   </div>
                 ) : null}
 
@@ -693,7 +690,7 @@ export function BusinessProfileView({
                     </div>
                     <PromotionCard promo={promotions[0]!} />
                   </div>
-                ) : copy.promotions || canInlineEdit ? (
+                ) : copy.promotions ? (
                   <div className="rounded-2xl border border-rose-200/80 bg-rose-50/50 p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-2">
                       <h2 className="inline-flex items-center gap-1.5 text-base font-semibold text-slate-900">
@@ -707,28 +704,26 @@ export function BusinessProfileView({
                             onClick={() => setEditSection("promotions")}
                           />
                         ) : null}
-                        {copy.promotions ? (
-                          <Link
-                            className="text-sm font-medium text-brand-blue hover:underline"
-                            href={`/business/${businessSlug}?tab=promotions`}
-                            scroll={false}
-                          >
-                            Все
-                          </Link>
-                        ) : null}
+                        <Link
+                          className="text-sm font-medium text-brand-blue hover:underline"
+                          href={`/business/${businessSlug}?tab=promotions`}
+                          scroll={false}
+                        >
+                          Все
+                        </Link>
                       </div>
                     </div>
-                    {copy.promotions ? (
-                      <p className="mt-2 line-clamp-3 whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
-                        {copy.promotions}
-                      </p>
-                    ) : (
-                      <p className="mt-2 text-sm text-slate-500">Акций пока нет</p>
-                    )}
+                    <p className="mt-2 line-clamp-3 whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
+                      {copy.promotions}
+                    </p>
                   </div>
                 ) : null}
 
                 <UpdatesSection updates={updates} />
+
+                {employees.length > 0 ? (
+                  <BusinessEmployeesSection employees={employees} />
+                ) : null}
 
                 {previewReview ? (
                   <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
@@ -803,7 +798,7 @@ export function BusinessProfileView({
             ) : null}
 
             {activeTab === "services" ? (
-              <section aria-label="Услуги" className="space-y-3">
+              <section aria-label={offersTabLabel} className="space-y-3">
                 {canInlineEdit ? (
                   <div className="flex justify-end">
                     <Link
@@ -811,7 +806,9 @@ export function BusinessProfileView({
                       href={`/business/${businessSlug}/manage`}
                     >
                       <Plus aria-hidden="true" className="size-3.5" />
-                      Управление услугами
+                      {offersTabLabel === "Меню"
+                        ? "Управление меню"
+                        : "Управление услугами"}
                     </Link>
                   </div>
                 ) : null}
@@ -819,14 +816,26 @@ export function BusinessProfileView({
                   <BusinessOffersSection
                     businessAlreadyClaimed={businessAlreadyClaimed || isOwner}
                     businessSlug={businessSlug}
+                    groupMenuBySection={offersTabLabel === "Меню"}
                     offers={offers}
                     presence={presenceForReveal}
+                    sectionLabel={
+                      offersTabLabel === "Меню" ? "Меню" : null
+                    }
                   />
                 ) : (
                   <p className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-500">
-                    Услуг пока нет.
+                    {offersTabLabel === "Меню"
+                      ? "Меню пока нет."
+                      : "Услуг пока нет."}
                   </p>
                 )}
+              </section>
+            ) : null}
+
+            {activeTab === "team" ? (
+              <section aria-label="Сотрудники" className="space-y-3">
+                <BusinessEmployeesSection employees={employees} />
               </section>
             ) : null}
 
@@ -984,8 +993,20 @@ export function BusinessProfileView({
 
           <aside className="order-2 space-y-3 lg:sticky lg:top-24">
             {/* Desktop/tablet right column: map on top, then contacts */}
-            {showBottomMap || locationLines.length > 0 ? (
-              <div className="hidden overflow-hidden rounded-2xl border border-slate-200 lg:block">
+            {showBottomMap || locationLines.length > 0 || canInlineEdit ? (
+              <div className="relative hidden overflow-hidden rounded-2xl border border-slate-200 lg:block">
+                {canInlineEdit ? (
+                  <div className="absolute right-3 top-3 z-10">
+                    <EditPencil
+                      label={
+                        locationLines.length > 0
+                          ? "Редактировать адрес"
+                          : "Добавить адрес"
+                      }
+                      onClick={() => setEditSection("address")}
+                    />
+                  </div>
+                ) : null}
                 {showBottomMap ? (
                   <BusinessMiniMap
                     lat={mapLat!}
@@ -1016,6 +1037,10 @@ export function BusinessProfileView({
                       </li>
                     ))}
                   </ul>
+                ) : canInlineEdit ? (
+                  <p className="px-3 py-3 pr-12 text-sm text-slate-500">
+                    Адрес ещё не указан
+                  </p>
                 ) : null}
               </div>
             ) : null}
@@ -1054,9 +1079,21 @@ export function BusinessProfileView({
           </aside>
         </div>
 
-        {showBottomMap || locationLines.length > 0 ? (
+        {showBottomMap || locationLines.length > 0 || canInlineEdit ? (
           <section aria-label="На карте" className="space-y-3 lg:hidden">
-            <h2 className="text-base font-semibold text-slate-900">На карте</h2>
+            <div className="flex items-center justify-between gap-2">
+              <h2 className="text-base font-semibold text-slate-900">На карте</h2>
+              {canInlineEdit ? (
+                <EditPencil
+                  label={
+                    locationLines.length > 0
+                      ? "Редактировать адрес"
+                      : "Добавить адрес"
+                  }
+                  onClick={() => setEditSection("address")}
+                />
+              ) : null}
+            </div>
             <div className="overflow-hidden rounded-2xl border border-slate-200">
               {showBottomMap ? (
                 <BusinessMiniMap
@@ -1088,6 +1125,10 @@ export function BusinessProfileView({
                     </li>
                   ))}
                 </ul>
+              ) : canInlineEdit ? (
+                <p className="px-3 py-3 text-sm text-slate-500">
+                  Адрес ещё не указан
+                </p>
               ) : null}
             </div>
           </section>
@@ -1124,7 +1165,7 @@ export function BusinessProfileView({
         onClose={() => setEditSection(null)}
       />
       <EditContactsDialog
-        key={`contacts-${business.phone}-${business.email}-${business.website}`}
+        key={`contacts-${business.phone}-${business.email}-${business.website}-${business.telegramUrl}-${business.yelpUrl}`}
         businessId={business.id}
         businessSlug={businessSlug}
         contactLinks={business.contactLinks}
@@ -1138,6 +1179,7 @@ export function BusinessProfileView({
         }
         open={editSection === "contacts"}
         phone={business.phone}
+        telegramUrl={business.telegramUrl}
         website={business.website || copy.extractedWebsiteUrls[0] || null}
         yelpUrl={business.yelpUrl}
         onClose={() => setEditSection(null)}
@@ -1152,7 +1194,6 @@ export function BusinessProfileView({
           mode="about"
           open
           promotions={copy.promotions ?? ""}
-          shortDescription={business.shortDescription ?? ""}
           onClose={() => setEditSection(null)}
         />
       ) : null}
@@ -1166,7 +1207,6 @@ export function BusinessProfileView({
           mode="jobs"
           open
           promotions={copy.promotions ?? ""}
-          shortDescription={business.shortDescription ?? ""}
           onClose={() => setEditSection(null)}
         />
       ) : null}
@@ -1180,7 +1220,6 @@ export function BusinessProfileView({
           mode="promotions"
           open
           promotions={copy.promotions ?? ""}
-          shortDescription={business.shortDescription ?? ""}
           onClose={() => setEditSection(null)}
         />
       ) : null}

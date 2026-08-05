@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminMasterDataPanel } from "@/components/master-data/AdminMasterDataPanel";
 import { ErrorState } from "@/components/ui/DataState";
@@ -77,11 +76,6 @@ export default async function AdminSystemTaxonomyPage() {
         </h1>
         <p className="mt-2 text-slate-500">
           Категории, фичи, языки и география платформы.
-        </p>
-        <p className="mt-3 text-sm">
-          <Link href="/admin/system" className="text-brand-blue hover:underline">
-            ← System
-          </Link>
         </p>
       </div>
 

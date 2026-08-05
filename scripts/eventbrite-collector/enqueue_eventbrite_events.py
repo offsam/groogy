@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -496,7 +497,15 @@ def main() -> int:
         return 0
 
     load_env()
-    client = SupabaseRest.from_env()
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or ""
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or ""
+    if not url or not key:
+        print(
+            "Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY",
+            file=sys.stderr,
+        )
+        return 2
+    client = SupabaseRest(url, key)
     stats = upsert_pending(client, all_rows)
     print(f"Done: {stats}", flush=True)
     print(

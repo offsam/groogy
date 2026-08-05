@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Loader2 } from "lucide-react";
+
 import { reportListingAction } from "@/lib/listings/actions";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
 import { REPORT_REASON_LABELS, MARKETPLACE_REPORT_REASONS, type ListingReportReason } from "@/types/listing";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type ReportListingFormProps = {
   listingId: string;
@@ -95,7 +96,7 @@ export function ReportListingForm({
 
       <div className="flex flex-wrap gap-2">
         <Button className="gap-2 disabled:opacity-60" disabled={pending} type="submit">
-          {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+          {pending && <BrandPinLoader size="sm" />}
           Отправить
         </Button>
         <Button

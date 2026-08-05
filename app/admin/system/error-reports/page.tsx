@@ -57,11 +57,6 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
           Сообщения с плавающей кнопки «Ошибка»: текст и страница, с которой
           отправили.
         </p>
-        <p className="mt-3 text-sm">
-          <Link href="/admin/system" className="text-brand-blue hover:underline">
-            ← System
-          </Link>
-        </p>
       </div>
 
       <div className="flex flex-wrap gap-2">

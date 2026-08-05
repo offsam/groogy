@@ -64,6 +64,7 @@ const STATUS_STYLES: Record<ImportReviewStatus, string> = {
   duplicate: "bg-slate-100 text-slate-800 border-slate-200",
   needs_more_info: "bg-orange-50 text-orange-900 border-orange-200",
   ready_to_publish: "bg-brand-blue/10 text-brand-blue-deep border-brand-blue/25",
+  quarantine: "bg-slate-200 text-slate-800 border-slate-300",
 };
 
 type Props = {

@@ -82,6 +82,11 @@ REVIEWER_PATHS = [
         ROOT
         / "scripts/telegram-collector/data/sd_general/full/sd_general_reviewer_v1.json",
     ),
+    (
+        "Irvine_Friends",
+        ROOT
+        / "scripts/telegram-collector/data/irvine_friends/full/irvine_friends_reviewer_v1.json",
+    ),
 ]
 RAW_BATCH_DIRS = [
     (
@@ -116,6 +121,10 @@ RAW_BATCH_DIRS = [
         "SD_General",
         ROOT / "scripts/telegram-collector/data/sd_general/full/batches",
     ),
+    (
+        "Irvine_Friends",
+        ROOT / "scripts/telegram-collector/data/irvine_friends/full/batches",
+    ),
 ]
 
 # Maps extract groupLabel → directory_source id for admin panels
@@ -128,6 +137,7 @@ GROUP_DIRECTORY_SOURCE: dict[str, str] = {
     "SF_General": "tg_sf_general",
     "SD_RusRek": "tg_sd_rusrek",
     "SD_General": "tg_sd_general",
+    "Irvine_Friends": "tg_irvine_friends",
 }
 OUT_JSON = (
     ROOT
@@ -139,6 +149,23 @@ INCLUDE_CLASSES = {
     "third_party_recommendation",
     "direct_specialist_ad",
     "direct_business_ad",
+    "event_ad",
+    "job_post",
+    "marketplace_item",
+    "real_estate_listing",
+    "recommendation_request",
+}
+
+# classification → (kind, target_bucket, category_guess fallback)
+CLASS_ROUTE: dict[str, tuple[str, str, str]] = {
+    "third_party_recommendation": ("profi", "professional", "услуга / специалист"),
+    "direct_specialist_ad": ("profi", "professional", "услуга / специалист"),
+    "direct_business_ad": ("profi", "business", "бизнес"),
+    "event_ad": ("event", "other", "событие"),
+    "job_post": ("profi", "other", "вакансия"),
+    "marketplace_item": ("profi", "other", "marketplace"),
+    "real_estate_listing": ("profi", "other", "недвижимость"),
+    "recommendation_request": ("profi", "other", "я ищу"),
 }
 
 REQUEST_RE = re.compile(
@@ -152,6 +179,13 @@ REC_SIGNAL_RE = re.compile(
     r"очень\s+хорош|классный\s+мастер|проверенн)",
     re.I,
 )
+DM_TO_AUTHOR_RE = re.compile(
+    r"(?:пишите|напишите|пиши|писать)\s+(?:пожалуйста\s+)?(?:мне\s+)?"
+    r"(?:в\s*)?(?:личк|лс)\b|"
+    r"\bв\s*личк[уеа]\b|\bв\s*лс\b|dm\s+me|pm\s+me",
+    re.I,
+)
+TME_C_RE = re.compile(r"(?:https?://)?t\.me/c/(\d+)/(\d+)", re.I)
 PHONE_RE = re.compile(
     r"(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|\+\d{10,15}"
 )
@@ -166,6 +200,34 @@ IG_LABEL_RE = re.compile(
     re.I,
 )
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
+SEEKING_TAG = "[seeking]"
+
+
+def redact_contacts_from_text(text: str) -> str:
+    """Strip phones / URLs / @handles / emails from narrative snippets."""
+    if not text:
+        return ""
+    out = PHONE_RE.sub(" ", text)
+    out = URL_RE.sub(" ", out)
+    out = EMAIL_RE.sub(" ", out)
+    out = IG_OR_TG_HANDLE_RE.sub(" ", out)
+    out = re.sub(r"\s+", " ", out).strip(" -–|,;:")
+    return out
+
+
+def parse_tme_c_link(url: str | None) -> tuple[int, int] | None:
+    """Return (chat_id, message_id) from https://t.me/c/<internal>/<msg>."""
+    if not url:
+        return None
+    m = TME_C_RE.search(url)
+    if not m:
+        return None
+    internal = m.group(1)
+    msg_id = int(m.group(2))
+    chat_id = int(f"-100{internal}")
+    return chat_id, msg_id
+
+
 JUNK_HANDLES = {
     "everyone",
     "here",
@@ -259,8 +321,8 @@ def guess_category(text: str, entity_category: str | None = None) -> str:
 
 
 def city_for_group(group: str) -> str:
-    if "Orange" in group or "LA_" in group:
-        return "Orange County / LA"
+    if "Irvine" in group or "Orange" in group or "LA_" in group:
+        return "Orange County / LA" if "LA_" in group else "Orange County"
     if "Fun for Mom" in group:
         return "Orange County"
     if "Sacramento" in group:
@@ -448,6 +510,10 @@ def cluster_key(contacts: dict[str, Any]) -> str | None:
         return f"ig:{contacts['instagram'][0].lower()}"
     if contacts.get("telegrams"):
         return f"tg:{contacts['telegrams'][0].lower()}"
+    if contacts.get("sender_ids"):
+        return f"tgid:{contacts['sender_ids'][0]}"
+    if contacts.get("seeking_keys"):
+        return f"seek:{contacts['seeking_keys'][0]}"
     if contacts.get("websites"):
         for w in contacts["websites"]:
             host = website_root_host(w)
@@ -495,6 +561,8 @@ def empty_row(key: str, contacts: dict[str, Any], *, kind: str = "profi") -> dic
         "phones": list(contacts.get("phones") or []),
         "instagram": list(contacts.get("instagram") or []),
         "websites": list(contacts.get("websites") or []),
+        "sender_ids": list(contacts.get("sender_ids") or []),
+        "seeking_keys": list(contacts.get("seeking_keys") or []),
         "mention_count": 0,
         "third_party_mention_count": 0,
         "self_ad_mention_count": 0,
@@ -510,7 +578,20 @@ def empty_row(key: str, contacts: dict[str, Any], *, kind: str = "profi") -> dic
         "directory_source": None,
         "target_bucket": "professional",
         "cover_image_url": None,
+        "_seeking": False,
     }
+
+
+def apply_class_route(row: dict[str, Any], classification: str) -> None:
+    kind, bucket, cat_fallback = CLASS_ROUTE.get(
+        classification, ("profi", "professional", "услуга / специалист")
+    )
+    row["kind"] = kind
+    row["target_bucket"] = bucket
+    if not row.get("category_guess"):
+        row["category_guess"] = cat_fallback
+    # Entity-type overrides from extracted_entity (lechu/transfers)
+    # handled by caller via ent target_collection when present.
 
 
 def merge_into(
@@ -524,21 +605,59 @@ def merge_into(
     posted: str | None,
     category: str | None,
     is_recommendation: bool,
+    classification: str = "direct_specialist_ad",
+    entity: dict[str, Any] | None = None,
+    is_seeking: bool = False,
 ) -> bool:
     key = cluster_key(contacts)
     if not key:
         return False
     row = clusters.get(key)
     if not row:
-        row = empty_row(key, contacts)
+        route = CLASS_ROUTE.get(classification)
+        kind = route[0] if route else "profi"
+        row = empty_row(key, contacts, kind=kind)
+        apply_class_route(row, classification)
         clusters[key] = row
+    else:
+        # Prefer more specific typed class over generic specialist if first was generic
+        if classification in {
+            "job_post",
+            "marketplace_item",
+            "real_estate_listing",
+            "event_ad",
+            "recommendation_request",
+        }:
+            apply_class_route(row, classification)
+
+    if is_seeking or classification == "recommendation_request":
+        row["_seeking"] = True
+        row["category_guess"] = "я ищу"
+        row["target_bucket"] = "other"
+
+    # Lechu / transfers from entity target_collection
+    ent = entity or {}
+    tc = str(ent.get("target_collection") or "").lower()
+    et = str(ent.get("entity_type") or "").lower()
+    if tc == "lechu" or et == "lechu_listing":
+        row["kind"] = "profi"
+        row["target_bucket"] = "other"
+        row["category_guess"] = "лечу / попутчик"
+    elif tc == "transfers" or et == "transfer_listing":
+        row["kind"] = "profi"
+        row["target_bucket"] = "other"
+        row["category_guess"] = "перевод денег"
     row["mention_count"] += 1
     if is_recommendation:
         row["third_party_mention_count"] = int(row.get("third_party_mention_count") or 0) + 1
     else:
         row["self_ad_mention_count"] = int(row.get("self_ad_mention_count") or 0) + 1
     nice = clean_display_name(contacts.get("name"), fallback=author if not is_recommendation else None)
-    if is_recommendation:
+    if is_seeking:
+        cleaned_req = redact_contacts_from_text(text) or re.sub(r"\s+", " ", text or "").strip()
+        if cleaned_req:
+            nice = clean_display_name(cleaned_req[:72]) or cleaned_req[:72]
+    elif is_recommendation:
         subject = recommended_subject_name(text)
         if subject:
             nice = clean_display_name(subject) or subject
@@ -568,6 +687,14 @@ def merge_into(
         for w in contacts.get("websites") or []:
             if w not in row["websites"] and len(row["websites"]) < 8:
                 row["websites"].append(w)
+        for sid in contacts.get("sender_ids") or []:
+            row.setdefault("sender_ids", [])
+            if sid not in row["sender_ids"]:
+                row["sender_ids"].append(sid)
+        for sk in contacts.get("seeking_keys") or []:
+            row.setdefault("seeking_keys", [])
+            if sk not in row["seeking_keys"]:
+                row["seeking_keys"].append(sk)
         for em in contacts.get("emails") or []:
             note = f"email:{em}"
             if note not in row.get("comment_texts", []) and len(row.get("comment_texts") or []) < 10:
@@ -587,8 +714,12 @@ def merge_into(
         for w in contacts.get("websites") or []:
             if w not in row["websites"] and len(row["websites"]) < 8:
                 row["websites"].append(w)
-    snippet = re.sub(r"\s+", " ", text or "").strip()[:220]
-    if is_recommendation:
+    raw_snip = re.sub(r"\s+", " ", text or "").strip()
+    snippet = (redact_contacts_from_text(raw_snip) or raw_snip)[:220]
+    if is_seeking:
+        if snippet and snippet not in row["request_snippets"] and len(row["request_snippets"]) < 6:
+            row["request_snippets"].append(snippet)
+    elif is_recommendation:
         if snippet and snippet not in row["comment_texts"] and len(row["comment_texts"]) < 8:
             row["comment_texts"].append(snippet)
     else:
@@ -652,24 +783,77 @@ def build_clusters() -> dict[str, Any]:
     stats["reviewer_posts"] = len(posts)
     for group, post in posts:
         classification = post.get("classification") or ""
-        if classification not in INCLUDE_CLASSES:
+        ent = post.get("extracted_entity") or {}
+        tc = str((ent or {}).get("target_collection") or "").lower() if isinstance(ent, dict) else ""
+        typed_extra = tc in {
+            "lechu",
+            "transfers",
+            "jobs",
+            "marketplace",
+            "events",
+            "real_estate",
+        }
+        if classification not in INCLUDE_CLASSES and not typed_extra:
             continue
+        if typed_extra and classification not in INCLUDE_CLASSES:
+            # Normalize synthetic class for routing
+            if tc == "lechu":
+                classification = "unclear"
+            elif tc == "transfers":
+                classification = "unclear"
+            elif tc == "jobs":
+                classification = "job_post"
+            elif tc == "marketplace":
+                classification = "marketplace_item"
+            elif tc == "events":
+                classification = "event_ad"
+            elif tc == "real_estate":
+                classification = "real_estate_listing"
         stats["reviewer_candidate_posts"] += 1
         text = post.get("merged_text") or post.get("text") or ""
-        ent = post.get("extracted_entity") or {}
         contacts = extract_contacts(text, entity=ent if isinstance(ent, dict) else None)
+        is_seeking = classification == "recommendation_request"
+        # Lechu / transfers: author is reachable in Telegram even without phone/IG.
+        if not cluster_key(contacts) and tc in {"lechu", "transfers"}:
+            sid = post.get("sender_id")
+            if sid is not None:
+                contacts["sender_ids"] = [int(sid)]
+        # Seeking demand: cluster by author or message id (no public category card).
+        if is_seeking and not cluster_key(contacts):
+            sid = post.get("sender_id")
+            if sid is not None:
+                contacts["sender_ids"] = [int(sid)]
+            else:
+                mid = post.get("primary_message_id") or post.get("message_id")
+                chat = post.get("source_chat_id") or post.get("chat_id")
+                if mid is not None and chat is not None:
+                    contacts["seeking_keys"] = [f"{chat}_{mid}"]
         if not cluster_key(contacts):
             stats["reviewer_skipped_no_contact"] += 1
             continue
-        is_rec = classification == "third_party_recommendation" or bool(
-            REC_SIGNAL_RE.search(text)
+        is_rec = (
+            classification == "third_party_recommendation"
+            or (not is_seeking and bool(REC_SIGNAL_RE.search(text)))
         )
         cat = guess_category(text, (ent or {}).get("category") if isinstance(ent, dict) else None)
+        if is_seeking:
+            cat = "я ищу"
+        elif tc == "lechu":
+            cat = cat or "лечу / попутчик"
+        elif tc == "transfers":
+            cat = cat or "перевод денег"
         author = post.get("sender_name")
         if is_bot_author(str(author) if author else None):
             stats["reviewer_skipped_bot"] += 1
             continue
         # For third-party: author is recommender; for self-ad: author is specialist name fallback
+        route_class = classification if classification in INCLUDE_CLASSES else (
+            "job_post" if tc == "jobs" else
+            "marketplace_item" if tc == "marketplace" else
+            "event_ad" if tc == "events" else
+            "real_estate_listing" if tc == "real_estate" else
+            "direct_specialist_ad"
+        )
         ok = merge_into(
             clusters,
             contacts=contacts,
@@ -680,6 +864,9 @@ def build_clusters() -> dict[str, Any]:
             posted=post.get("message_date") or post.get("latest_source_date"),
             category=cat,
             is_recommendation=is_rec,
+            classification=route_class,
+            entity=ent if isinstance(ent, dict) else None,
+            is_seeking=is_seeking,
         )
         if ok:
             stats["reviewer_merged"] += 1
@@ -726,7 +913,7 @@ def build_clusters() -> dict[str, Any]:
             # keep parent request snippet
             key = cluster_key(contacts)
             if key and key in clusters:
-                snip = re.sub(r"\s+", " ", ptext).strip()[:180]
+                snip = redact_contacts_from_text(re.sub(r"\s+", " ", ptext).strip())[:180]
                 row = clusters[key]
                 if snip and snip not in row["request_snippets"] and len(row["request_snippets"]) < 6:
                     row["request_snippets"].append(snip)
@@ -911,7 +1098,14 @@ def build_clusters() -> dict[str, Any]:
                 break
         if not item.get("request_snippets") and item.get("comment_texts"):
             item["request_snippets"] = list(item["comment_texts"][:2])
-        if not (item.get("phones") or item.get("instagram") or item.get("websites")):
+        if not (
+            item.get("phones")
+            or item.get("instagram")
+            or item.get("websites")
+            or item.get("sender_ids")
+            or item.get("seeking_keys")
+            or str(item.get("cluster_key") or "").startswith(("tgid:", "seek:"))
+        ):
             stats["dropped_no_contact"] += 1
             continue
         cleaned.append(item)
@@ -993,9 +1187,25 @@ def upsert_clusters(
             "source_channel": "telegram",
             "status": "pending",
             "notes": (
-                "emails: " + ", ".join((item.get("_emails") or [])[:2])
-                if item.get("_emails")
-                else None
+                "; ".join(
+                    p
+                    for p in (
+                        (SEEKING_TAG if item.get("_seeking") else None),
+                        (
+                            "emails: " + ", ".join((item.get("_emails") or [])[:2])
+                            if item.get("_emails")
+                            else None
+                        ),
+                        (
+                            "telegram_dm_author_ids: "
+                            + ", ".join(str(x) for x in (item.get("sender_ids") or [])[:3])
+                            if item.get("sender_ids")
+                            else None
+                        ),
+                    )
+                    if p
+                )
+                or None
             ),
             "updated_at": datetime.now(timezone.utc).isoformat(),
         }
@@ -1035,6 +1245,117 @@ def upsert_clusters(
     return n
 
 
+def attach_covers_from_telegram(
+    client: SupabaseRest,
+    items: list[dict[str, Any]],
+    *,
+    limit: int = 40,
+) -> int:
+    """Fill empty cover_image_url from first photo on source Telegram message.
+
+    Soft-fail: missing session / private chat / no media → skip.
+    Uses existing media-pipeline helpers (same as queue avatar enrich).
+    """
+    need = [
+        i
+        for i in items
+        if not i.get("cover_image_url")
+        and any(parse_tme_c_link(u) for u in (i.get("source_post_urls") or []))
+    ][:limit]
+    if not need:
+        return 0
+
+    media_dir = ROOT / "scripts" / "media-pipeline"
+    if str(media_dir) not in sys.path:
+        sys.path.insert(0, str(media_dir))
+
+    try:
+        from storage_client import MediaSupabase  # type: ignore
+        from telegram_photos import TelegramPhotoClient  # type: ignore
+        from validate import reencode_webp  # type: ignore
+    except Exception as exc:  # noqa: BLE001
+        print(f"  cover skip: media pipeline import failed ({exc})", flush=True)
+        return 0
+
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or ""
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or ""
+    if not url or not key:
+        print("  cover skip: missing supabase env", flush=True)
+        return 0
+
+    tg = TelegramPhotoClient()
+    try:
+        tg.connect()
+    except Exception as exc:  # noqa: BLE001
+        print(f"  cover skip: telegram connect ({exc})", flush=True)
+        return 0
+
+    storage = MediaSupabase(url, key)
+    filled = 0
+    try:
+        for item in need:
+            parsed = None
+            for u in item.get("source_post_urls") or []:
+                parsed = parse_tme_c_link(u)
+                if parsed:
+                    break
+            if not parsed:
+                continue
+            chat_id, msg_id = parsed
+            try:
+                result = tg.fetch_photos(chat_id, [msg_id], max_photos=1, dry_run=False)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  cover warn {item.get('cluster_key')}: {exc}", flush=True)
+                continue
+            raw = result.photos[0] if result.photos else None
+            if not raw or len(raw) < 800:
+                continue
+            try:
+                webp = reencode_webp(raw, max_edge=1200, quality=85)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  cover reencode warn: {exc}", flush=True)
+                continue
+            safe_key = re.sub(r"[^a-zA-Z0-9._-]+", "_", str(item.get("cluster_key") or "x"))[:80]
+            path = f"import-recommendations/{safe_key}/tg_{webp.sha256[:16]}.webp"
+            try:
+                storage.upload(
+                    "business-images",
+                    path,
+                    webp.data,
+                    content_type="image/webp",
+                    upsert=True,
+                )
+                public = storage.public_url("business-images", path)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  cover upload warn: {exc}", flush=True)
+                continue
+            if not public:
+                continue
+            try:
+                client._request(
+                    "PATCH",
+                    "/import_comment_recommendations",
+                    params={
+                        "source_channel": "eq.telegram",
+                        "cluster_key": f"eq.{item['cluster_key']}",
+                        "status": "eq.pending",
+                    },
+                    body={"cover_image_url": public},
+                    prefer="return=minimal",
+                )
+                item["cover_image_url"] = public
+                filled += 1
+            except Exception as exc:  # noqa: BLE001
+                print(f"  cover patch warn: {exc}", flush=True)
+    finally:
+        try:
+            tg.close()
+        except Exception:  # noqa: BLE001
+            pass
+    print(f"  covers attached: {filled}/{len(need)}", flush=True)
+    return filled
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
@@ -1056,6 +1377,11 @@ def main() -> int:
             "Upsert only — do not DELETE pending rows for directory_source first. "
             "Use for incremental windows so older pending backlog is kept."
         ),
+    )
+    parser.add_argument(
+        "--skip-photos",
+        action="store_true",
+        help="Do not download Telegram post photos into cover_image_url on --apply.",
     )
     args = parser.parse_args()
 
@@ -1139,6 +1465,10 @@ def main() -> int:
             replace_directory_sources=replace_ds,
         )
         print(f"applied {n} telegram recommendation rows")
+        if not args.skip_photos:
+            attach_covers_from_telegram(client, report["items"])
+        else:
+            print("covers skipped (--skip-photos)", flush=True)
     else:
         print("dry-run only; pass --apply to write to Supabase")
     return 0

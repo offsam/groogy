@@ -23,8 +23,8 @@ function db(client: Client) {
 }
 
 const JOB_SELECT = ENTITY_DESCRIPTION_ORIGINAL_READY
-  ? "id, slug, title, description, description_original, city, state_code, postal_code, county_geoid, status, payment_methods, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)"
-  : "id, slug, title, description, city, state_code, postal_code, county_geoid, status, payment_methods, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)";
+  ? "id, slug, title, description, description_original, city, state_code, postal_code, address_line, latitude, longitude, location_precision, county_geoid, status, payment_methods, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)"
+  : "id, slug, title, description, city, state_code, postal_code, address_line, latitude, longitude, location_precision, county_geoid, status, payment_methods, business_id, published_at, created_at, businesses(id, slug, name, image_url, city, region, address_line, location_precision)";
 
 /** Empty city = nationwide / no regional binding → visible in every hub. */
 export function jobMatchesHubFilter(

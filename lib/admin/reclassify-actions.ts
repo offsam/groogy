@@ -8,6 +8,7 @@
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
+import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
 import { revalidatePath } from "next/cache";
 
 export async function adminSetProfessionalCategoryAction(input: {
@@ -26,15 +27,19 @@ export async function adminSetProfessionalCategoryAction(input: {
 
   const catalog = createServiceRoleClient();
   if (input.categoryId) {
+    const allowed = new Set<string>(PROFESSIONAL_CATEGORY_SLUGS);
     const { data: cat, error: catError } = await catalog
       .from("categories")
-      .select("id")
+      .select("id, slug")
       .eq("id", input.categoryId)
       .eq("is_active", true)
       .maybeSingle();
     if (catError) return { ok: false, message: catError.message };
-    if (!cat) {
-      return { ok: false, message: "Категория не найдена или неактивна." };
+    if (!cat || !allowed.has(String((cat as { slug?: string }).slug ?? ""))) {
+      return {
+        ok: false,
+        message: "Категория не из сфер специалистов.",
+      };
     }
   }
 

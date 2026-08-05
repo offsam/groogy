@@ -81,7 +81,7 @@ export default async function AdminReviewWorkspaceEditPage({
     const { data: row } = await supabase
       .from("businesses")
       .select(
-        "id, name, slug, short_description, description, phone, website, instagram_url, google_maps_url, google_rating, google_reviews_count, city, address_line, region, state_code, postal_code, status, category_id",
+        "id, name, slug, short_description, description, phone, email, website, instagram_url, telegram_url, yelp_url, google_maps_url, google_rating, google_reviews_count, city, address_line, region, state_code, postal_code, status, category_id, contact_links",
       )
       .eq("id", businessId)
       .maybeSingle();
@@ -110,8 +110,12 @@ export default async function AdminReviewWorkspaceEditPage({
             short_description: row.short_description,
             description: row.description,
             phone: row.phone,
+            email: (row as { email?: string | null }).email ?? null,
             website: row.website,
             instagram_url: row.instagram_url,
+            telegram_url: (row as { telegram_url?: string | null }).telegram_url ?? null,
+            yelp_url: (row as { yelp_url?: string | null }).yelp_url ?? null,
+            contact_links: (row as { contact_links?: unknown }).contact_links,
             google_maps_url: row.google_maps_url,
             google_rating: row.google_rating,
             google_reviews_count: row.google_reviews_count,

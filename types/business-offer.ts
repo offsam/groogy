@@ -93,6 +93,8 @@ export type MenuItemOfferAttributes = {
   dietary_tags?: string[] | null;
   portion?: string | null;
   spice_level?: string | null;
+  /** Menu board section: Breakfast, Salads, Coffee, … */
+  menu_section?: string | null;
 };
 
 export type BusinessOfferAttributes =

@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { ensureTitleBodyRu } from "@/lib/content/translate-copy-to-ru";
 import type {
   EntityUpdate,
   QueueUpdate,
@@ -261,7 +262,11 @@ export async function addMissingEntityUpdates(
   );
   let added = 0;
   for (const update of updates) {
-    const title = (update.title || "").trim().slice(0, 160);
+    const localized = await ensureTitleBodyRu({
+      title: (update.title || "").trim(),
+      body: update.body,
+    });
+    const title = localized.title.slice(0, 160);
     if (!title) continue;
     const key = title.toLowerCase();
     if (taken.has(key)) continue;
@@ -270,7 +275,7 @@ export async function addMissingEntityUpdates(
       owner_type: ownerType,
       owner_id: ownerId,
       title,
-      body: update.body?.trim().slice(0, 4000) || null,
+      body: localized.body?.trim().slice(0, 4000) || null,
       status: "active",
       source: opts?.source ?? "import",
       source_url: update.source_url ?? opts?.sourceUrl ?? null,

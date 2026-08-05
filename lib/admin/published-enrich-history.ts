@@ -78,14 +78,18 @@ export async function writePublishedEnrichHistory(input: {
 }): Promise<void> {
   const supabase = await createServerClient();
   const patchKeys = Object.keys(input.result.patch ?? {});
+  const conflictCount = input.result.field_conflicts?.length ?? 0;
   const ok = input.result.resources_ok ?? 0;
   const failed = input.result.resources_failed ?? 0;
   const note = input.result.skipped
     ? `Пропуск: ${input.result.reason ?? "n/a"}`
     : patchKeys.length
-      ? `Заполнено: ${patchKeys.join(", ")} · ресурсы ${ok} ок / ${failed} нет`
-      : input.result.reason ||
-        `Без новых полей · ресурсы ${ok} ок / ${failed} нет`;
+      ? `Заполнено: ${patchKeys.join(", ")} · ресурсы ${ok} ок / ${failed} нет` +
+        (conflictCount ? ` · расхождений ${conflictCount}` : "")
+      : conflictCount
+        ? `Расхождения: ${conflictCount} · ресурсы ${ok} ок / ${failed} нет`
+        : input.result.reason ||
+          `Новых полей нет · ресурсы ${ok} ок / ${failed} нет`;
 
   const { error } = await supabase.from("entity_enrich_runs").insert({
     entity_kind: input.kind,

@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { INBOX_VIEWS, WRONG_SECTION_VIEW } from "@/lib/admin/inbox/views";
+import { INBOX_SYSTEM_VIEWS, WRONG_SECTION_VIEW } from "@/lib/admin/inbox/views";
 
 export const metadata: Metadata = {
-  title: "Saved Views — Admin",
+  title: "Очередь — источники — Admin",
 };
 
 export default function AdminReviewViewsPage() {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
-        <p className="text-sm font-medium text-brand-blue-deep">Review Center</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900">
-          Saved Views
+          Источники очереди
         </h1>
         <p className="mt-2 text-slate-500">
-          Системные пресеты фильтров над Inbox. Пользовательские Saved Views
-          подключаются через тот же реестр (`listInboxViews`).
+          Вся лента или один источник. По 20 карточек на странице.
         </p>
       </div>
 
       <ul className="divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-        {INBOX_VIEWS.map((view) => {
+        {INBOX_SYSTEM_VIEWS.map((view) => {
           const href =
             view.id === "all"
               ? "/admin/review/inbox"
-              : `/admin/review/inbox?view=${view.id}`;
+              : `/admin/review/inbox?view=${view.id}${
+                  view.filters.source ? `&source=${view.filters.source}` : ""
+                }`;
           return (
             <li key={view.id}>
               <Link
@@ -38,7 +38,7 @@ export default function AdminReviewViewsPage() {
                     {view.description}
                   </p>
                 </div>
-                <span className="shrink-0 text-sm text-brand-blue">Open →</span>
+                <span className="shrink-0 text-sm text-brand-blue">Открыть →</span>
               </Link>
             </li>
           );
@@ -56,7 +56,7 @@ export default function AdminReviewViewsPage() {
                 {WRONG_SECTION_VIEW.description}
               </p>
             </div>
-            <span className="shrink-0 text-sm text-brand-blue">Open →</span>
+            <span className="shrink-0 text-sm text-brand-blue">Открыть →</span>
           </Link>
         </li>
       </ul>

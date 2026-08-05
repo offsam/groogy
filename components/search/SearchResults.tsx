@@ -50,6 +50,7 @@ type AiSearchResponse = {
   corrections?: Array<{ from: string; to: string }>;
   correctedQuery?: string | null;
   message?: string | null;
+  matchKind?: "exact" | "similar" | "empty";
 };
 
 type UserCoords = { lat: number; lng: number };
@@ -161,6 +162,10 @@ export function SearchResults({
   const [userCoords, setUserCoords] = useState<UserCoords | null>(null);
   const [sortedByDistance, setSortedByDistance] = useState(false);
   const [spellHint, setSpellHint] = useState<string | null>(null);
+  const [matchMessage, setMatchMessage] = useState<string | null>(null);
+  const [matchKind, setMatchKind] = useState<"exact" | "similar" | "empty" | null>(
+    null,
+  );
 
   useEffect(() => {
     const cached = readCachedCoords();
@@ -196,6 +201,8 @@ export function SearchResults({
       setAiHint(null);
       setSortedByDistance(false);
       setSpellHint(null);
+      setMatchMessage(null);
+      setMatchKind(null);
 
       try {
         const client = createBrowserClient();
@@ -235,6 +242,8 @@ export function SearchResults({
           const data = (await aiRes.json()) as AiSearchResponse;
           setCategories(cats);
           setResults(data.businesses ?? []);
+          setMatchKind(data.matchKind ?? null);
+          setMatchMessage(data.message ?? null);
           setAiHint(
             intentHintLabel(data.intent, cats, data.fallback, {
               sortedByDistance: Boolean(data.sortedByDistance && near),
@@ -247,7 +256,8 @@ export function SearchResults({
               .map((c) => `«${c.from}» → «${c.to}»`);
             setSpellHint(`Исправили опечатку: ${bits.join(", ")}`);
           } else if (data.message) {
-            setSpellHint(data.message);
+            // Prefer match message over generic correctedQuery for empty/similar.
+            setSpellHint(null);
           } else if (data.correctedQuery) {
             setSpellHint(`Ищем: ${data.correctedQuery}`);
           }
@@ -378,6 +388,23 @@ export function SearchResults({
           <p className="text-sm text-slate-500">
             {loading ? (
               "Загрузка…"
+            ) : matchKind === "similar" ? (
+              <>
+                Похожие:{" "}
+                <span className="font-semibold text-slate-900">
+                  {results.length}
+                </span>
+                {" "}
+                к запросу «
+                <span className="font-medium text-slate-900">{initialQuery}</span>
+                »
+              </>
+            ) : matchKind === "empty" ? (
+              <>
+                По запросу «
+                <span className="font-medium text-slate-900">{initialQuery}</span>
+                » ничего не нашли
+              </>
             ) : (
               <>
                 Найдено:{" "}
@@ -404,6 +431,18 @@ export function SearchResults({
             <p className="text-xs text-slate-400">AI понял: {aiHint}</p>
           ) : null}
         </div>
+      ) : null}
+
+      {hasQuery && !loading && matchMessage ? (
+        <p
+          className={
+            matchKind === "empty"
+              ? "rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-700"
+              : "rounded-xl border border-brand-orange/30 bg-brand-orange/5 px-3 py-2.5 text-sm text-slate-800"
+          }
+        >
+          {matchMessage}
+        </p>
       ) : null}
 
       {!isOverview ? (

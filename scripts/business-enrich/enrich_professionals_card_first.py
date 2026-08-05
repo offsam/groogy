@@ -45,15 +45,25 @@ from web_enrichment import (  # noqa: E402
     extract_website_profile,
     is_plausible_service_title,
 )
-from enrich_resource_queue import run_resource_bfs  # noqa: E402
+from enrich_resource_queue import (  # noqa: E402
+    classify_resource,
+    host_of,
+    is_directory_social,
+    run_resource_bfs,
+)
 from source_record_urls import source_record_urls  # noqa: E402
-from completeness_score import is_weak_description, _is_real_text  # noqa: E402
+from completeness_score import is_weak_description  # noqa: E402
 from fill_missing_addresses import (  # noqa: E402
     CITY_CA_RE,
     clean_address,
     extract_address_from_text,
     extract_city,
     looks_like_street,
+)
+from address_geo import (  # noqa: E402
+    peel_street_city_state_zip,
+    prefer_own_website_street,
+    street_identity,
 )
 
 OUT = Path(__file__).resolve().parent / "data" / "professional_card_first"
@@ -87,11 +97,16 @@ JUNK_WEB_HOSTS = (
     "art-a-fair.com",
     "fonts.googleapis.com",
     "facebook.com/sharer",
+    "bazar.club",
+    "apteka03.online",
+    "madbid.com",
 )
 # Directory hosts: OK as source_url, not as the professional's own website to mine.
 DIRECTORY_HOSTS = (
     "russianorangepages.com",
     "svoi.us",
+    "to4ka.us",
+    "api.to4ka.us",
 )
 BOGUS_CITIES = {"orange", "orange county", "oc"}
 PLACEHOLDER_IMG = ("placeholder", "/images/categories/")
@@ -323,6 +338,11 @@ def normalize_fetch_url(url: str) -> str:
 
 
 def mine_website(url: str) -> dict[str, Any]:
+    """Deprecated local scraper — not called by enrich_one.
+
+    Live path: ``run_resource_bfs`` → ``mine_resource`` →
+    ``extract_website_profile_deep``. Kept only for ad-hoc CLI debugging.
+    """
     out: dict[str, Any] = {"_from": "website", "_url": url}
     fetch_url = normalize_fetch_url(url)
     out["_fetch_url"] = fetch_url
@@ -641,8 +661,67 @@ def merge_layers(*layers: dict[str, Any]) -> dict[str, Any]:
     return merged
 
 
-def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
+def note_field_conflict(
+    conflicts: list[dict[str, str]],
+    key: str,
+    current: Any,
+    candidate: Any,
+    *,
+    same: Any = None,
+) -> None:
+    """Record a found≠card value that fill-empty skipped — admin may replace."""
+    if candidate in (None, "", [], {}):
+        return
+    cur_s = (
+        str(current).strip() if current not in (None, "", [], {}) else ""
+    )
+    cand_s = str(candidate).strip()
+    if not cur_s or not cand_s:
+        return
+    if same is not None:
+        try:
+            if same(cur_s, cand_s):
+                return
+        except Exception:
+            pass
+    elif cur_s.lower() == cand_s.lower():
+        return
+    if any(isinstance(c, dict) and c.get("key") == key for c in conflicts):
+        return
+    conflicts.append(
+        {
+            "key": key,
+            "current": cur_s[:300],
+            "found": cand_s[:300],
+        }
+    )
+
+
+def _normalize_opening_hours(raw: Any) -> dict[str, Any] | None:
+    if isinstance(raw, dict) and raw:
+        return raw
+    if not isinstance(raw, str) or not raw.strip():
+        return None
+    try:
+        from enrich_published_businesses import (
+            parse_hours_spec_blob,
+            parse_hours_to_weekly,
+        )
+
+        weekly = parse_hours_spec_blob(raw) or parse_hours_to_weekly(raw)
+        if weekly:
+            return weekly
+    except Exception:
+        pass
+    return {"weekday_text": [raw.strip()[:200]]}
+
+
+def build_patch(
+    pro: dict[str, Any], found: dict[str, Any]
+) -> tuple[dict[str, Any], list[dict[str, str]]]:
+    """Fill-empty patch + field_conflicts for admin leave/replace UI."""
     patch: dict[str, Any] = {}
+    conflicts: list[dict[str, str]] = []
 
     payment_blob = "\n".join(
         str(x)
@@ -665,10 +744,62 @@ def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
 
     if found.get("address_line") and looks_like_street(found["address_line"]):
         cur = pro.get("private_address_line")
-        if empty(cur) or not looks_like_street(cur):
-            patch["private_address_line"] = found["address_line"][:160]
-            patch["location_precision"] = "street"
-            patch["public_exact_address"] = False
+        # Own website street replaces telegram / party glue on the card.
+        addr_src = str(found.get("_address_source") or "").strip().lower()
+        # Fill-empty / non-street glue only. A real street already on the card
+        # that disagrees with the site becomes a field_conflict (admin UI).
+        take = empty(cur) or not looks_like_street(cur)
+        if take:
+            # Peel "Street, City, ST ZIP" so city/ZIP fields stay authoritative
+            # and private_address_line is street-only.
+            peeled = peel_street_city_state_zip(
+                found["address_line"],
+                found.get("city") or pro.get("city"),
+                found.get("state_code") or pro.get("state_code"),
+                found.get("postal_code") or pro.get("postal_code"),
+            )
+            street = (peeled.get("address_line") or "").strip()
+            if street and looks_like_street(street):
+                patch["private_address_line"] = street[:160]
+                patch["location_precision"] = "street"
+                patch["public_exact_address"] = False
+                if peeled.get("city") and str(peeled["city"]).lower() not in BOGUS_CITIES:
+                    patch["city"] = str(peeled["city"]).strip()
+                if peeled.get("state_code"):
+                    patch["state_code"] = peeled["state_code"]
+                if peeled.get("postal_code"):
+                    patch["postal_code"] = peeled["postal_code"]
+            else:
+                patch["private_address_line"] = found["address_line"][:160]
+                patch["location_precision"] = "street"
+                patch["public_exact_address"] = False
+                if (
+                    cur
+                    and looks_like_street(cur)
+                    and prefer_own_website_street(cur, found["address_line"])
+                ):
+                    if found.get("city") and str(found["city"]).lower() not in BOGUS_CITIES:
+                        patch["city"] = str(found["city"]).strip()
+                    if found.get("postal_code"):
+                        z = re.sub(r"\D", "", str(found["postal_code"]))[:5]
+                        if len(z) == 5:
+                            patch["postal_code"] = z
+        elif cur and looks_like_street(cur):
+            # Different street already on card — surface for admin replace.
+            peeled = peel_street_city_state_zip(
+                found["address_line"],
+                found.get("city") or pro.get("city"),
+                found.get("state_code") or pro.get("state_code"),
+                found.get("postal_code") or pro.get("postal_code"),
+            )
+            cand_street = (peeled.get("address_line") or found["address_line"]).strip()
+            note_field_conflict(
+                conflicts,
+                "address_line",
+                cur,
+                cand_street,
+                same=lambda a, b: street_identity(a) == street_identity(b),
+            )
 
     if found.get("city") and str(found["city"]).lower() not in BOGUS_CITIES:
         if is_bogus_city(pro.get("city")):
@@ -676,7 +807,7 @@ def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
 
     if found.get("postal_code") and empty(pro.get("postal_code")):
         z = re.sub(r"\D", "", str(found["postal_code"]))[:5]
-        if len(z) == 5 and z.startswith("9"):
+        if len(z) == 5:
             patch["postal_code"] = z
 
     web = found.get("website")
@@ -688,6 +819,8 @@ def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
             or ("wix.com/" in cur.lower() and "wixsite.com" in web.lower())
         ):
             patch["website"] = web
+        elif cur and str(cur).strip().rstrip("/").lower() != str(web).strip().rstrip("/").lower():
+            note_field_conflict(conflicts, "website", cur, web)
     elif is_junk_website(pro.get("website")):
         patch["website"] = None
 
@@ -696,9 +829,15 @@ def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
         cur = plausible_phone(pro.get("phone"))
         if ph and (not cur or empty(pro.get("phone"))):
             patch["phone"] = ph
+        elif ph and cur and ph != cur:
+            note_field_conflict(conflicts, "phone", pro.get("phone"), found["phone"])
 
-    if found.get("email") and empty(pro.get("email")):
-        patch["email"] = str(found["email"]).strip().lower()[:200]
+    if found.get("email"):
+        em = str(found["email"]).strip().lower()[:200]
+        if empty(pro.get("email")):
+            patch["email"] = em
+        elif em and str(pro.get("email") or "").strip().lower() != em:
+            note_field_conflict(conflicts, "email", pro.get("email"), em)
 
     if found.get("instagram_url") and empty(pro.get("instagram_url")):
         ig = str(found["instagram_url"]).lower()
@@ -713,14 +852,29 @@ def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
         if img.startswith("http") and not is_placeholder_image(img):
             patch["image_url"] = img[:500]
 
-    # Website/og bio → description (was never written before). Overwrite weak
-    # junk (Instagram dumps, group recommendation comments) only.
+    # Website/og/BFS bio → description. Weak card copy is auto-replaced;
+    # stronger card copy vs different site bio → conflict.
     site_desc = (found.get("description") or "").strip()
-    if site_desc and _is_real_text(site_desc) and not is_weak_description(site_desc):
+    if site_desc and not is_weak_description(site_desc):
         if is_weak_description(pro.get("description")):
             patch["description"] = site_desc[:4000]
+        else:
+            note_field_conflict(
+                conflicts,
+                "description",
+                pro.get("description"),
+                site_desc,
+            )
         if is_weak_description(pro.get("short_description")):
             patch["short_description"] = site_desc[:280]
+
+    # Hours from BFS website profile (fill-empty; dicts are truthy when set).
+    if not pro.get("opening_hours"):
+        weekly = _normalize_opening_hours(
+            found.get("opening_hours") or found.get("hours")
+        )
+        if weekly:
+            patch["opening_hours"] = weekly
 
     # Booking CTA — fill-empty; replace platform chrome mistaken for booking.
     try:
@@ -754,7 +908,7 @@ def build_patch(pro: dict[str, Any], found: dict[str, Any]) -> dict[str, Any]:
         if marketing and (empty(cur_web) or is_booking_platform_url(cur_web)):
             patch["website"] = marketing[:500]
 
-    return patch
+    return patch, conflicts
 
 
 def resolve_category_id(client: SupabaseRest, slug: str) -> str | None:
@@ -787,7 +941,7 @@ def fetch_pros(
         "select": (
             "id,slug,display_name,description,short_description,website,booking_url,phone,email,"
             "city,postal_code,private_address_line,image_url,instagram_url,telegram_url,"
-            "source_url,region,state_code,payment_methods,category_id,status"
+            "source_url,region,state_code,payment_methods,opening_hours,category_id,status"
         ),
         "status": "eq.approved",
         "order": "updated_at.desc",
@@ -832,7 +986,17 @@ def enrich_one(
         pro.get("instagram_url"),
         pro.get("telegram_url"),
     ]
-    card_urls.extend(source_record_urls(client, pro.get("id")))
+    preferred = next((u for u in card_urls if u), None)
+    pref_host = host_of(preferred) if preferred else ""
+    for extra in source_record_urls(client, pro.get("id")):
+        kind = classify_resource(extra)
+        if kind == "website":
+            if pref_host and host_of(extra) == pref_host:
+                card_urls.append(extra)
+            continue
+        if kind in ("instagram", "tiktok", "facebook", "yelp"):
+            if not is_directory_social(extra):
+                card_urls.append(extra)
     # Existing card narrative — mined only AFTER source (or as pre_seed if no source)
     card_blob = "\n".join(
         str(x)
@@ -866,6 +1030,10 @@ def enrich_one(
         # Fill empty found keys from description
         for k in ("phone", "email", "instagram_url", "telegram_url", "website"):
             if from_text.get(k) and not found.get(k):
+                if k == "website" and pref_host and host_of(str(from_text[k])) != pref_host:
+                    continue
+                if k == "instagram_url" and is_directory_social(str(from_text[k])):
+                    continue
                 found[k] = from_text[k]
         if from_text.get("address_line") and not found.get("address_line"):
             found["address_line"] = from_text["address_line"]
@@ -883,8 +1051,14 @@ def enrich_one(
             "facebook_url",
             "yelp_url",
         ):
-            if from_text.get(key):
-                urls.append(str(from_text[key]))
+            if not from_text.get(key):
+                continue
+            raw = str(from_text[key])
+            if key == "website" and pref_host and host_of(raw) != pref_host:
+                continue
+            if key in ("instagram_url", "facebook_url") and is_directory_social(raw):
+                continue
+            urls.append(raw)
         return urls
 
     bfs = run_resource_bfs(
@@ -895,6 +1069,7 @@ def enrich_one(
         on_event=on_event,
         sequential=True,
         after_resource=after_resource,
+        preferred_website=preferred if preferred and not is_junk_website(preferred) else None,
     )
     found = dict(bfs.get("found") or {})
 
@@ -997,11 +1172,15 @@ def apply_professional_services(
         elif isinstance(s, str) and s.strip():
             offers.append({"title": s.strip()[:120]})
 
+    def _norm_title_key(title: str) -> str:
+        """Match DB unique index: lower(regexp_replace(btrim(title), whitespace, ' '))."""
+        return re.sub(r"\s+", " ", (title or "").strip()).lower()
+
     # Dedupe by title, prefer richer
     by_title: dict[str, dict[str, Any]] = {}
     order: list[str] = []
     for o in offers:
-        title = str(o.get("title") or "").strip()[:120]
+        title = re.sub(r"\s+", " ", str(o.get("title") or "").strip())[:120]
         if not title:
             continue
         if not is_plausible_service_title(
@@ -1011,7 +1190,7 @@ def apply_professional_services(
             typed_service=True,
         ):
             continue
-        key = title.lower()
+        key = _norm_title_key(title)
         prev = by_title.get(key)
         if not prev:
             by_title[key] = {"title": title, **{k: v for k, v in o.items() if k != "title"}}
@@ -1066,14 +1245,18 @@ def apply_professional_services(
         or []
     )
     existing_by_title = {
-        str(r.get("title") or "").strip().lower(): r for r in existing if r.get("title")
+        _norm_title_key(str(r.get("title") or "")): r
+        for r in existing
+        if r.get("title") and r.get("id")
     }
 
     def _find_row(title: str) -> dict[str, Any] | None:
-        key = title.lower()
+        key = _norm_title_key(title)
         if key in existing_by_title:
             return existing_by_title[key]
         for row in existing:
+            if not row.get("id"):
+                continue
             rt = str(row.get("title") or "").strip()
             if rt and _soft_title_match(title, rt):
                 return row
@@ -1112,12 +1295,10 @@ def apply_professional_services(
             price_amount = None
 
         row = _find_row(title)
-        if row:
+        if row and row.get("id"):
             patch: dict[str, Any] = {}
             cur_mode = str(row.get("price_mode") or "contact")
             cur_amt = row.get("price_amount")
-            # Only rename when exact soft stub → prefer offer title on EXACT
-            # case-insensitive match already handled; never rename on soft match
             # Fill empty price only (never overwrite a real price)
             if cur_mode in ("contact", "") and cur_amt is None and price is not None:
                 patch["price_mode"] = price_mode
@@ -1154,10 +1335,59 @@ def apply_professional_services(
             body["duration_minutes"] = duration_i
         if desc:
             body["description"] = desc
-        client._request("POST", "/professional_services", body=body)
-        inserted += 1
-        existing.append(body)
-        existing_by_title[title.lower()] = body
+        try:
+            created = (
+                client._request(
+                    "POST",
+                    "/professional_services",
+                    body=body,
+                    prefer="return=representation",
+                )
+                or []
+            )
+        except RuntimeError as exc:
+            # Unique title race / whitespace variant — treat as existing
+            if "23505" not in str(exc) and "duplicate key" not in str(exc).lower():
+                raise
+            created = []
+        if isinstance(created, list):
+            created = created[0] if created else None
+        if isinstance(created, dict) and created.get("id"):
+            inserted += 1
+            existing.append(created)
+            existing_by_title[_norm_title_key(title)] = created
+        else:
+            # 409 or empty representation — refresh lookup and skip insert count
+            again = _find_row(title)
+            if again and again.get("id"):
+                existing_by_title[_norm_title_key(title)] = again
+            else:
+                # Last resort: re-fetch titles from DB for this pro
+                refreshed = (
+                    client._request(
+                        "GET",
+                        "/professional_services",
+                        params={
+                            "select": (
+                                "id,title,description,price_mode,price_amount,"
+                                "currency,duration_minutes"
+                            ),
+                            "professional_id": f"eq.{professional_id}",
+                            "is_active": "eq.true",
+                            "limit": "50",
+                        },
+                    )
+                    or []
+                )
+                existing[:] = refreshed
+                existing_by_title.clear()
+                existing_by_title.update(
+                    {
+                        _norm_title_key(str(r.get("title") or "")): r
+                        for r in existing
+                        if r.get("title") and r.get("id")
+                    }
+                )
 
     # Deactivate contact-only stubs that soft-match a priced sibling
     deactivated = 0
@@ -1244,7 +1474,7 @@ def main() -> int:
         "id,slug,display_name,description,short_description,website,booking_url,"
         "phone,email,city,postal_code,private_address_line,image_url,"
         "instagram_url,telegram_url,source_url,region,state_code,payment_methods,"
-        "category_id,status"
+        "opening_hours,category_id,status"
     )
     if args.id or args.slug:
         params: dict[str, str] = {"select": select, "limit": "1"}
@@ -1295,7 +1525,7 @@ def main() -> int:
                 emit(ev)
 
         found, debug = enrich_one(pro, client=client, on_event=on_event)
-        patch = build_patch(pro, found)
+        patch, field_conflicts = build_patch(pro, found)
         services = list(found.get("services") or [])
         service_offers = [
             o
@@ -1315,6 +1545,7 @@ def main() -> int:
                 if not str(k).startswith("_")
             },
             "patch": patch,
+            "field_conflicts": field_conflicts,
             "services": services,
             "service_offers": service_offers,
             "resources_ok": ok_n,
@@ -1327,7 +1558,7 @@ def main() -> int:
                     f"  · {st.get('kind')}: {st.get('url')} → {st.get('fields')}",
                     flush=True,
                 )
-        if not patch and not services and not service_offers:
+        if not patch and not services and not service_offers and not field_conflicts:
             if not args.ndjson:
                 print("  → no patch", flush=True)
             if args.ndjson:
@@ -1339,10 +1570,11 @@ def main() -> int:
                             "label": label,
                             "skipped": False,
                             "patch": {},
+                            "field_conflicts": [],
                             "resources": steps,
                             "resources_ok": ok_n,
                             "resources_failed": fail_n,
-                            "reason": "Готово — новых полей не нашлось (fill-empty).",
+                            "reason": "Новых полей нет — карточка уже заполнена или сайт ничего не отдал.",
                         },
                     }
                 )
@@ -1350,6 +1582,7 @@ def main() -> int:
         if not args.ndjson:
             print(
                 f"  → {'APPLY' if args.apply else 'dry'} patch={patch} "
+                f"conflicts={len(field_conflicts)} "
                 f"services={len(services)} offers={len(service_offers)}",
                 flush=True,
             )
@@ -1377,6 +1610,12 @@ def main() -> int:
             entry["services_deactivated"] = svc_stats.get("deactivated", 0)
             updated += 1
         if args.ndjson:
+            reason = None
+            if not patch and field_conflicts:
+                reason = (
+                    f"Автозаполнения нет; есть расхождения ({len(field_conflicts)}) "
+                    "— выберите Оставить / Заменить."
+                )
             emit(
                 {
                     "type": "finished",
@@ -1385,12 +1624,13 @@ def main() -> int:
                         "label": label,
                         "skipped": False,
                         "patch": patch,
+                        "field_conflicts": field_conflicts,
                         "resources": steps,
                         "resources_ok": ok_n,
                         "resources_failed": fail_n,
                         "services_inserted": svc_stats.get("inserted", 0),
                         "services_updated": svc_stats.get("updated", 0),
-                        "reason": None,
+                        "reason": reason,
                     },
                 }
             )

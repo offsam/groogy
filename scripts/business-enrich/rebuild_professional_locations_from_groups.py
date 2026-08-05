@@ -195,11 +195,14 @@ def extract_zip(text: str) -> str | None:
 
 def state_code_from_region(region: str | None, state: str | None) -> str | None:
     blob = f"{region or ''} {state or ''}".upper()
-    if "CA" in blob or "CALIFORNIA" in blob or "COUNTY" in blob:
-        return "US-CA"
     if state and re.fullmatch(r"US-[A-Z]{2}", state.strip().upper()):
         return state.strip().upper()
-    return "US-CA" if (region or state) else None
+    if state and re.fullmatch(r"[A-Z]{2}", state.strip().upper()):
+        return f"US-{state.strip().upper()}"
+    if "CALIFORNIA" in blob or re.search(r"\bCA\b", blob):
+        # Explicit CA / California only — never invent from the word COUNTY.
+        return "US-CA"
+    return None
 
 
 def precision_for(city: str | None, region: str | None, has_street: bool) -> str | None:
@@ -280,7 +283,7 @@ def resolve_for_pro(
             )
             state_raw = "CA"
         if region and state_raw and state_raw == region:
-            state_code = "US-CA"
+            state_code = state_code_from_region(region, state_raw)
         else:
             state_code = state_code_from_region(region, state_raw)
 
@@ -289,7 +292,7 @@ def resolve_for_pro(
             if g:
                 city = g.get("city")
                 region = g.get("region")
-                state_code = "US-CA"
+                state_code = g.get("state_code") or g.get("stateCode") or None
     else:
         city = (pro.get("city") or "").strip() or None
         region = (pro.get("region") or "").strip() or None

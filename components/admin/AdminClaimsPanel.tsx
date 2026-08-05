@@ -75,6 +75,9 @@ export function AdminClaimsPanel({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [busyDecision, setBusyDecision] = useState<
+    "approved" | "rejected" | null
+  >(null);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
 
@@ -147,6 +150,7 @@ export function AdminClaimsPanel({
   function review(claim: UnifiedClaim, decision: "approved" | "rejected") {
     setError(null);
     setBusyId(claim.id);
+    setBusyDecision(decision);
     startTransition(async () => {
       const payload = {
         claimId: claim.id,
@@ -164,6 +168,7 @@ export function AdminClaimsPanel({
                 ? await adminReviewEventClaimAction(payload)
                 : await adminReviewJobClaimAction(payload);
       setBusyId(null);
+      setBusyDecision(null);
       if (!result.ok) {
         setError(result.message);
         return;
@@ -219,21 +224,47 @@ export function AdminClaimsPanel({
               </div>
               <div className="flex gap-2">
                 <Button
-                  disabled={pending && busyId === claim.id}
+                  loading={
+                    pending &&
+                    busyId === claim.id &&
+                    busyDecision === "rejected"
+                  }
+                  disabled={pending}
                   type="button"
                   variant="secondary"
                   onClick={() => review(claim, "rejected")}
                 >
-                  <X aria-hidden="true" className="size-3.5" />
-                  Отклонить
+                  {pending &&
+                  busyId === claim.id &&
+                  busyDecision === "rejected" ? null : (
+                    <X aria-hidden="true" className="size-3.5" />
+                  )}
+                  {pending &&
+                  busyId === claim.id &&
+                  busyDecision === "rejected"
+                    ? "Отклоняю…"
+                    : "Отклонить"}
                 </Button>
                 <Button
-                  disabled={pending && busyId === claim.id}
+                  loading={
+                    pending &&
+                    busyId === claim.id &&
+                    busyDecision === "approved"
+                  }
+                  disabled={pending}
                   type="button"
                   onClick={() => review(claim, "approved")}
                 >
-                  <Check aria-hidden="true" className="size-3.5" />
-                  Одобрить
+                  {pending &&
+                  busyId === claim.id &&
+                  busyDecision === "approved" ? null : (
+                    <Check aria-hidden="true" className="size-3.5" />
+                  )}
+                  {pending &&
+                  busyId === claim.id &&
+                  busyDecision === "approved"
+                    ? "Одобряю…"
+                    : "Одобрить"}
                 </Button>
               </div>
             </div>

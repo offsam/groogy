@@ -46,6 +46,15 @@ export type Professional = {
   availabilityText: string | null;
   ratingAvg: number;
   reviewsCount: number;
+  /** Own Google Maps rating when set (not employer). */
+  googleRating?: number | null;
+  googleReviewsCount?: number | null;
+  yelpRating?: number | null;
+  yelpReviewsCount?: number | null;
+  trustpilotRating?: number | null;
+  trustpilotReviewsCount?: number | null;
+  facebookRecommendPct?: number | null;
+  facebookReviewsCount?: number | null;
   city: string | null;
   region: string | null;
   stateCode: string | null;
@@ -128,6 +137,14 @@ export type ProfessionalPublicRow = {
   availability_text: string | null;
   rating_avg: number | string;
   reviews_count: number;
+  google_rating?: number | null;
+  google_reviews_count?: number | null;
+  yelp_rating?: number | null;
+  yelp_reviews_count?: number | null;
+  trustpilot_rating?: number | null;
+  trustpilot_reviews_count?: number | null;
+  facebook_recommend_pct?: number | null;
+  facebook_reviews_count?: number | null;
   city: string | null;
   region: string | null;
   state_code: string | null;

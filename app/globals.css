@@ -41,6 +41,72 @@ body {
   font-family: var(--font-sans), "Segoe UI", sans-serif;
 }
 
+@keyframes nav-progress-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.nav-progress-bar {
+  animation: nav-progress-slide 1.1s ease-in-out infinite;
+}
+
+/* Brand pin loader — smooth colour wave from center, then grey wave.
+   clip-path (not mask-image) so the radius actually interpolates. */
+.brand-pin-loader {
+  background: transparent;
+}
+
+.brand-pin-loader__base {
+  filter: grayscale(1) brightness(1.05);
+  opacity: 0.28;
+}
+
+.brand-pin-loader__color {
+  clip-path: circle(0% at 50% 38%);
+  -webkit-clip-path: circle(0% at 50% 38%);
+  animation: brand-pin-wave-color 1.85s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.brand-pin-loader__gray {
+  filter: grayscale(1) contrast(0.95) brightness(0.92);
+  clip-path: circle(0% at 50% 38%);
+  -webkit-clip-path: circle(0% at 50% 38%);
+  animation: brand-pin-wave-gray 1.85s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes brand-pin-wave-color {
+  0% {
+    clip-path: circle(0% at 50% 38%);
+    -webkit-clip-path: circle(0% at 50% 38%);
+  }
+  42% {
+    clip-path: circle(78% at 50% 38%);
+    -webkit-clip-path: circle(78% at 50% 38%);
+  }
+  50%,
+  100% {
+    clip-path: circle(130% at 50% 38%);
+    -webkit-clip-path: circle(130% at 50% 38%);
+  }
+}
+
+@keyframes brand-pin-wave-gray {
+  0%,
+  50% {
+    clip-path: circle(0% at 50% 38%);
+    -webkit-clip-path: circle(0% at 50% 38%);
+  }
+  92%,
+  100% {
+    clip-path: circle(130% at 50% 38%);
+    -webkit-clip-path: circle(130% at 50% 38%);
+  }
+}
+
 /* Apple-like liquid glass pin bubble (neutral — no brand fill) */
 .krugi-glass-bubble {
   overflow: hidden;

@@ -62,6 +62,7 @@ function baseBusiness(
   | "facebookUrl"
   | "tiktokUrl"
   | "yelpUrl"
+  | "trustpilotUrl"
   | "googleMapsUrl"
   | "addressLine"
   | "contactLinks"
@@ -91,6 +92,26 @@ function baseBusiness(
     googleReviewsCount: Number(row.google_reviews_count ?? 0),
     yelpRating: row.yelp_rating == null ? null : Number(row.yelp_rating),
     yelpReviewsCount: Number(row.yelp_reviews_count ?? 0),
+    trustpilotRating:
+      (row as { trustpilot_rating?: number | null }).trustpilot_rating == null
+        ? null
+        : Number((row as { trustpilot_rating?: number | null }).trustpilot_rating),
+    trustpilotReviewsCount: Number(
+      (row as { trustpilot_reviews_count?: number | null })
+        .trustpilot_reviews_count ?? 0,
+    ),
+    facebookRecommendPct:
+      (row as { facebook_recommend_pct?: number | null })
+        .facebook_recommend_pct == null
+        ? null
+        : Number(
+            (row as { facebook_recommend_pct?: number | null })
+              .facebook_recommend_pct,
+          ),
+    facebookReviewsCount: Number(
+      (row as { facebook_reviews_count?: number | null })
+        .facebook_reviews_count ?? 0,
+    ),
     instagramFollowersCount:
       row.instagram_followers_count == null
         ? null
@@ -137,6 +158,14 @@ function baseBusiness(
 /** Full business including contacts — owners, admins, contacts API. */
 export function mapBusinessDetail(row: BusinessWithCategory): Business {
   const flags = computePresenceFlags(row);
+  const address = normalizeStructuredAddress({
+    addressLine: row.address_line,
+    city: row.city,
+    region: row.region,
+    stateCode: row.state_code,
+    postalCode: row.postal_code,
+    businessName: row.name,
+  });
   return {
     ...baseBusiness(row, flags),
     phone: row.phone,
@@ -149,8 +178,11 @@ export function mapBusinessDetail(row: BusinessWithCategory): Business {
     facebookUrl: null,
     tiktokUrl: null,
     yelpUrl: row.yelp_url ?? null,
+    trustpilotUrl:
+      (row as { trustpilot_url?: string | null }).trustpilot_url ?? null,
     googleMapsUrl: row.google_maps_url ?? null,
-    addressLine: row.address_line,
+    // Street only — city/ZIP already on the card via publicCityPostal.
+    addressLine: address.addressLine,
     contactLinks: parseContactLinks(
       (row as { contact_links?: unknown }).contact_links,
     ),
@@ -182,6 +214,7 @@ export function mapBusinessList(row: BusinessWithCategory): Business {
     facebookUrl: null,
     tiktokUrl: null,
     yelpUrl: null,
+    trustpilotUrl: null,
     googleMapsUrl: null,
     addressLine: null,
     contactLinks: [],

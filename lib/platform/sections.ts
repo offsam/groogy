@@ -12,7 +12,8 @@ export type PlatformSectionKey =
   | "events"
   | "vehicles"
   | "lechu"
-  | "transfers";
+  | "transfers"
+  | "churches";
 
 export type PlatformSectionPin =
   | "businesses"
@@ -23,7 +24,8 @@ export type PlatformSectionPin =
   | "events"
   | "auto"
   | "lechu"
-  | "transfers";
+  | "transfers"
+  | "churches";
 
 export type PlatformSection = {
   key: PlatformSectionKey;
@@ -127,6 +129,16 @@ export const PLATFORM_SECTIONS: readonly PlatformSection[] = [
     unitFew: "предложения",
     unitMany: "предложений",
   },
+  {
+    key: "churches",
+    title: "Церкви",
+    href: "/churches",
+    pin: "churches",
+    hint: "приходы и общины",
+    unitOne: "церковь",
+    unitFew: "церкви",
+    unitMany: "церквей",
+  },
 ] as const;
 
 export type PlatformSectionCounts = Record<PlatformSectionKey, number>;
@@ -142,6 +154,7 @@ export function emptyPlatformSectionCounts(): PlatformSectionCounts {
     vehicles: 0,
     lechu: 0,
     transfers: 0,
+    churches: 0,
   };
 }
 

@@ -3,8 +3,10 @@ import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 import { mapProfessionalOwner } from "@/lib/professional/mappers";
+import { mapChurchOwner } from "@/lib/churches/mappers";
 import { mapJob } from "@/lib/jobs/mappers";
 import type { Professional, ProfessionalRow } from "@/types/professional";
+import type { Church, ChurchRow } from "@/types/church";
 import type { Job, JobRow } from "@/types/job";
 import type { PlatformEvent } from "@/lib/events/queries";
 import {
@@ -245,6 +247,73 @@ export async function listCatalogEvents(
   const from = (page - 1) * pageSize;
   return {
     items: sorted.slice(from, from + pageSize),
+    total,
+    page,
+    pageSize,
+  };
+}
+
+function churchStatusBucket(status: string): CatalogStatusFilter {
+  if (status === "approved") return "published";
+  if (status === "draft") return "draft";
+  if (status === "archived") return "archived";
+  return "other";
+}
+
+const CHURCH_SELECT =
+  "id, slug, name, description, description_original, image_url, status, address_line, city, state_code, postal_code, region, county_geoid, latitude, longitude, location_precision, phone, email, website, instagram_url, telegram_url, google_maps_url, contact_links, source_url, source_kind, opening_hours, schedule_text, ministries, published_at, created_at";
+
+export async function listCatalogChurches(
+  client: Client,
+  opts: {
+    status?: CatalogStatusFilter;
+    q?: string;
+    page?: number;
+    pageSize?: number;
+    sort?: CatalogSort;
+  } = {},
+): Promise<CatalogListResult<Church>> {
+  const page = Math.max(1, opts.page ?? 1);
+  const pageSize = Math.min(
+    100,
+    Math.max(1, opts.pageSize ?? CATALOG_PAGE_SIZE),
+  );
+  const sort = opts.sort ?? "newest";
+  const status = normalizeStatusFilter(opts.status);
+  const q = opts.q?.trim().toLowerCase() ?? "";
+
+  const { data, error } = await db(client)
+    .from("churches")
+    .select(CHURCH_SELECT)
+    .order("created_at", { ascending: false })
+    .limit(2000);
+
+  if (error) throw error;
+
+  let items = ((data ?? []) as ChurchRow[]).map(mapChurchOwner);
+
+  if (status !== "all") {
+    items = items.filter((c) => churchStatusBucket(c.status) === status);
+  }
+  if (q) {
+    items = items.filter((c) => {
+      const hay = [c.name, c.city, c.slug, c.region]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  items = applySort(
+    items.map((c) => ({ ...c, title: c.name })),
+    sort,
+    (c) => c.name,
+  );
+  const total = items.length;
+  const from = (page - 1) * pageSize;
+  return {
+    items: items.slice(from, from + pageSize),
     total,
     page,
     pageSize,

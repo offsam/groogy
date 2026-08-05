@@ -4,16 +4,9 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import {
-  Archive,
-  Check,
-  ExternalLink,
-  GitMerge,
-  Loader2,
-  Pencil,
-  X,
-} from "lucide-react";
+import { Archive, Check, ExternalLink, GitMerge, Pencil, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { signalAppNavigation } from "@/components/layout/NavigationProgress";
 import {
   approveImportReviewItemAction,
   mergeImportReviewIntoExistingAction,
@@ -37,6 +30,7 @@ import type { ReviewWorkspaceTask } from "@/lib/admin/review-workspace/types";
 import { reviewWorkspacePath } from "@/lib/admin/review-workspace/task-id";
 import { DuplicateMatchReasonBadge } from "@/components/admin/DuplicateMatchReasonBadge";
 import type { CardMatchSignals } from "@/lib/import-review/duplicate-match-label";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 /** After Approve/Reject the workspace card must leave — back to Review inbox. */
 function inboxHrefForTask(
@@ -150,9 +144,22 @@ type Props = {
   task: ReviewWorkspaceTask;
 };
 
+const BUSY_LABELS: Record<string, string> = {
+  approve: "Одобряю…",
+  reject: "Отклоняю…",
+  merge: "Объединяю…",
+  archive: "Архивирую…",
+  suspect: "Помечаю…",
+  clear_suspicion: "Снимаю…",
+  navigate: "Загрузка…",
+};
+
 export function ReviewWorkspaceActions({ task }: Props) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
+  /** Stays set through router.push so UI does not briefly look idle. */
+  const [busyAction, setBusyAction] = useState<string | null>(null);
+  const busy = pending || Boolean(busyAction);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [importDuplicates, setImportDuplicates] = useState<DuplicateMatch[]>(
@@ -202,6 +209,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
     Boolean(recommendationItem?.duplicate_of_entity_id);
 
   function leaveToInbox(flash?: "approved" | "rejected" | "duplicate") {
+    setBusyAction("navigate");
     if (flash === "rejected") {
       setMessage("Отклонено — возвращаю в inbox…");
     } else if (flash === "duplicate") {
@@ -211,6 +219,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
     } else {
       setMessage("Возвращаю в inbox…");
     }
+    signalAppNavigation();
     router.push(inboxHrefForTask(task.reviewType, flash));
     router.refresh();
   }
@@ -224,6 +233,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
       return;
     }
 
+    setBusyAction(action);
     startTransition(async () => {
       try {
         if (task.reviewType === "import_review") {
@@ -356,6 +366,8 @@ export function ReviewWorkspaceActions({ task }: Props) {
         setError("Action not available for this task type");
       } catch (err) {
         setError(err instanceof Error ? err.message : "Unexpected error");
+      } finally {
+        setBusyAction((cur) => (cur === action ? null : cur));
       }
     });
   }
@@ -363,6 +375,7 @@ export function ReviewWorkspaceActions({ task }: Props) {
   function runMerge() {
     setError(null);
     setMessage(null);
+    setBusyAction("merge");
     startTransition(async () => {
       try {
         if (task.reviewType === "import_review") {
@@ -427,6 +440,8 @@ export function ReviewWorkspaceActions({ task }: Props) {
         setError("Merge not available");
       } catch (err) {
         setError(err instanceof Error ? err.message : "Unexpected error");
+      } finally {
+        setBusyAction((cur) => (cur === "merge" ? null : cur));
       }
     });
   }
@@ -434,46 +449,58 @@ export function ReviewWorkspaceActions({ task }: Props) {
   function runSuspect() {
     setError(null);
     setMessage(null);
+    setBusyAction("suspect");
     startTransition(async () => {
-      const keep = mergeKeepId.trim();
-      const res = await markRecommendationSuspectedDuplicateAction({
-        id: task.sourceId,
-        entityType: keep ? mergeKeepType : undefined,
-        entityId: keep || undefined,
-        reason: moderatorNote.trim() || undefined,
-      });
-      if (!res.ok) {
-        setError(res.message || "Не удалось пометить");
-        return;
+      try {
+        const keep = mergeKeepId.trim();
+        const res = await markRecommendationSuspectedDuplicateAction({
+          id: task.sourceId,
+          entityType: keep ? mergeKeepType : undefined,
+          entityId: keep || undefined,
+          reason: moderatorNote.trim() || undefined,
+        });
+        if (!res.ok) {
+          setError(res.message || "Не удалось пометить");
+          return;
+        }
+        if (res.duplicateCandidate) {
+          setMergeKeepId(res.duplicateCandidate.entityId);
+          setMergeKeepType(res.duplicateCandidate.entityType);
+        } else if (res.publishedEntityId && res.publishedEntityType) {
+          setMergeKeepId(res.publishedEntityId);
+          setMergeKeepType(
+            res.publishedEntityType === "business"
+              ? "business"
+              : "professional",
+          );
+        }
+        setMessage(res.message || "Помечено как подозрение на дубликат");
+        setShowMerge(true);
+        router.refresh();
+      } finally {
+        setBusyAction((cur) => (cur === "suspect" ? null : cur));
       }
-      if (res.duplicateCandidate) {
-        setMergeKeepId(res.duplicateCandidate.entityId);
-        setMergeKeepType(res.duplicateCandidate.entityType);
-      } else if (res.publishedEntityId && res.publishedEntityType) {
-        setMergeKeepId(res.publishedEntityId);
-        setMergeKeepType(
-          res.publishedEntityType === "business" ? "business" : "professional",
-        );
-      }
-      setMessage(res.message || "Помечено как подозрение на дубликат");
-      setShowMerge(true);
-      router.refresh();
     });
   }
 
   function runClearSuspicion() {
     setError(null);
     setMessage(null);
+    setBusyAction("clear_suspicion");
     startTransition(async () => {
-      const res = await clearRecommendationDuplicateSuspicionAction({
-        id: task.sourceId,
-      });
-      if (!res.ok) {
-        setError(res.message || "Не удалось снять подозрение");
-        return;
+      try {
+        const res = await clearRecommendationDuplicateSuspicionAction({
+          id: task.sourceId,
+        });
+        if (!res.ok) {
+          setError(res.message || "Не удалось снять подозрение");
+          return;
+        }
+        setMessage(res.message || "Подозрение снято");
+        router.refresh();
+      } finally {
+        setBusyAction((cur) => (cur === "clear_suspicion" ? null : cur));
       }
-      setMessage(res.message || "Подозрение снято");
-      router.refresh();
     });
   }
 
@@ -548,6 +575,17 @@ export function ReviewWorkspaceActions({ task }: Props) {
       {error ? (
         <p className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
           {error}
+        </p>
+      ) : null}
+
+      {busy ? (
+        <p
+          className="mt-3 inline-flex items-center gap-2 rounded-lg border border-brand-blue/25 bg-brand-blue/5 px-3 py-2 text-sm text-brand-blue-deep"
+          role="status"
+          aria-live="polite"
+        >
+          <BrandPinLoader size="sm" />
+          {BUSY_LABELS[busyAction ?? ""] || message || "Обрабатываю…"}
         </p>
       ) : null}
 
@@ -648,11 +686,13 @@ export function ReviewWorkspaceActions({ task }: Props) {
                     <div className="flex shrink-0 flex-col gap-1.5">
                       <Button
                         type="button"
-                        className="gap-1 px-2.5 py-1 text-xs"
-                        disabled={pending}
+                        className="px-2.5 py-1 text-xs"
+                        loading={busy && busyAction === "merge"}
+                        disabled={busy}
                         onClick={() => {
                           setError(null);
                           setMessage(null);
+                          setBusyAction("merge");
                           startTransition(async () => {
                             try {
                               const res =
@@ -677,21 +717,31 @@ export function ReviewWorkspaceActions({ task }: Props) {
                                   ? err.message
                                   : "Не удалось объединить",
                               );
+                            } finally {
+                              setBusyAction((cur) =>
+                                cur === "merge" ? null : cur,
+                              );
                             }
                           });
                         }}
                       >
-                        <GitMerge className="size-3.5" />
-                        Объединить
+                        {busy && busyAction === "merge" ? null : (
+                          <GitMerge className="size-3.5" />
+                        )}
+                        {busy && busyAction === "merge"
+                          ? BUSY_LABELS.merge
+                          : "Объединить"}
                       </Button>
                       <Button
                         type="button"
                         variant="secondary"
-                        className="gap-1 px-2.5 py-1 text-xs"
-                        disabled={pending}
+                        className="px-2.5 py-1 text-xs"
+                        loading={busy && busyAction === "reject"}
+                        disabled={busy}
                         onClick={() => {
                           setError(null);
                           setMessage(null);
+                          setBusyAction("reject");
                           startTransition(async () => {
                             try {
                               const res =
@@ -724,12 +774,20 @@ export function ReviewWorkspaceActions({ task }: Props) {
                                   ? err.message
                                   : "Не удалось отклонить",
                               );
+                            } finally {
+                              setBusyAction((cur) =>
+                                cur === "reject" ? null : cur,
+                              );
                             }
                           });
                         }}
                       >
-                        <X className="size-3.5" />
-                        Отклонить
+                        {busy && busyAction === "reject" ? null : (
+                          <X className="size-3.5" />
+                        )}
+                        {busy && busyAction === "reject"
+                          ? BUSY_LABELS.reject
+                          : "Отклонить"}
                       </Button>
                     </div>
                   </div>
@@ -741,34 +799,44 @@ export function ReviewWorkspaceActions({ task }: Props) {
             <Button
               type="button"
               variant="secondary"
-              className="min-h-10 gap-1.5 text-xs sm:min-h-0"
-              disabled={pending}
+              className="min-h-10 text-xs sm:min-h-0"
+              loading={busy && busyAction === "approve"}
+              disabled={busy}
               onClick={() => {
                 setError(null);
                 setMessage(null);
+                setBusyAction("approve");
                 startTransition(async () => {
-                  const res = await approveImportReviewItemAction({
-                    id: task.sourceId,
-                    force: true,
-                  });
-                  if (!res.ok) {
-                    setError(res.message || "Approve failed");
-                    setImportDuplicates(res.duplicates ?? []);
-                    return;
+                  try {
+                    const res = await approveImportReviewItemAction({
+                      id: task.sourceId,
+                      force: true,
+                    });
+                    if (!res.ok) {
+                      setError(res.message || "Approve failed");
+                      setImportDuplicates(res.duplicates ?? []);
+                      return;
+                    }
+                    setImportDuplicates([]);
+                    leaveToInbox("approved");
+                  } finally {
+                    setBusyAction((cur) => (cur === "approve" ? null : cur));
                   }
-                  setImportDuplicates([]);
-                  leaveToInbox("approved");
                 });
               }}
             >
-              <Check className="size-3.5" />
-              Одобрить как новую
+              {busy && busyAction === "approve" ? null : (
+                <Check className="size-3.5" />
+              )}
+              {busy && busyAction === "approve"
+                ? BUSY_LABELS.approve
+                : "Одобрить как новую"}
             </Button>
             <Button
               type="button"
               variant="secondary"
               className="min-h-10 text-xs sm:min-h-0"
-              disabled={pending}
+              disabled={busy}
               onClick={() => setImportDuplicates([])}
             >
               Скрыть список
@@ -848,25 +916,21 @@ export function ReviewWorkspaceActions({ task }: Props) {
               key={action.key}
               type="button"
               variant={action.variant}
-              disabled={pending}
+              loading={busy && busyAction === action.key}
+              disabled={busy}
               onClick={() => run(action.key)}
-              className={`min-h-10 gap-1.5 max-sm:w-full sm:min-h-0 ${
+              className={`min-h-10 max-sm:w-full sm:min-h-0 ${
                 action.key === "reject"
                   ? "border-red-200 text-red-700 hover:bg-red-50"
                   : ""
               }`}
             >
-              {pending &&
-              (action.key === "approve" || action.key === "reject") ? (
-                <Loader2 className="size-3.5 animate-spin" />
-              ) : (
-                ICONS[action.key]
-              )}
-              {pending && action.key === "approve"
-                ? "Одобряю…"
-                : pending && action.key === "reject"
-                  ? "Отклоняю…"
-                  : action.label}
+              {busy && busyAction === action.key
+                ? null
+                : ICONS[action.key]}
+              {busy && busyAction === action.key
+                ? BUSY_LABELS[action.key] || action.label
+                : action.label}
             </Button>
           );
         })}
@@ -877,21 +941,27 @@ export function ReviewWorkspaceActions({ task }: Props) {
           <Button
             type="button"
             variant="secondary"
-            disabled={pending}
+            loading={busy && busyAction === "suspect"}
+            disabled={busy}
             onClick={runSuspect}
-            className="min-h-10 gap-1.5 text-amber-800"
+            className="min-h-10 text-amber-800"
           >
-            Подозрение на дубликат
+            {busy && busyAction === "suspect"
+              ? BUSY_LABELS.suspect
+              : "Подозрение на дубликат"}
           </Button>
           {isSuspected ? (
             <Button
               type="button"
               variant="secondary"
-              disabled={pending}
+              loading={busy && busyAction === "clear_suspicion"}
+              disabled={busy}
               onClick={runClearSuspicion}
-              className="min-h-10 gap-1.5"
+              className="min-h-10"
             >
-              Не дубликат
+              {busy && busyAction === "clear_suspicion"
+                ? BUSY_LABELS.clear_suspicion
+                : "Не дубликат"}
             </Button>
           ) : null}
         </div>
@@ -968,14 +1038,18 @@ export function ReviewWorkspaceActions({ task }: Props) {
           ) : null}
           <Button
             type="button"
-            disabled={pending}
+            loading={busy && busyAction === "merge"}
+            disabled={busy}
             onClick={runMerge}
-            className="gap-1.5"
           >
-            <GitMerge className="size-3.5" />
-            {task.reviewType === "recommendation"
-              ? "Это дубликат → смешать"
-              : "Confirm merge"}
+            {busy && busyAction === "merge" ? null : (
+              <GitMerge className="size-3.5" />
+            )}
+            {busy && busyAction === "merge"
+              ? BUSY_LABELS.merge
+              : task.reviewType === "recommendation"
+                ? "Это дубликат → смешать"
+                : "Confirm merge"}
           </Button>
         </div>
       ) : null}

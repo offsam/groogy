@@ -14,9 +14,12 @@ import {
 import {
   geocodeStreetAddress,
   googleMapsUrlForAddress,
+  scrubDirectoryGlue,
 } from "@/lib/geo/geocode-street";
 import { inferLocationPrecision } from "@/lib/business/location-precision";
 import {
+  pickPrimaryWebsiteFromList,
+  pickYelpUrlFromList,
   resolveSourceKind,
   sourceTypeFromKind,
 } from "@/lib/business/presence";
@@ -55,8 +58,14 @@ import {
   parseProfessionalCleanupPayload,
   type ProfessionalCleanupPayload,
 } from "@/lib/import-review/professional-cleanup";
+import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
 import { afterImportReviewSettledRetention } from "@/lib/import-review/retention";
 import { liveEntityHref } from "@/lib/import-review/live-entity-href";
+import {
+  pickBestCatalogMergeTarget,
+  duplicateMatchListRank,
+  type CatalogMergeCandidate,
+} from "@/lib/import-review/merge-contract";
 import {
   buildMergePatch,
   findQueueTwins,
@@ -767,17 +776,56 @@ async function buildMergeAllPreview(
     (sum, r) => sum + Math.max(r.mentionCount ?? 1, 1),
     0,
   );
-  const primaryBiz =
-    businessMatches.find((m) => m.businessStatus === "archived") ||
-    businessMatches[0] ||
-    approvedToBusiness[0] ||
-    null;
+  // Prefer a live approved catalog hit in the preview (R15 — not archived-first).
+  const catalogPreviewCandidates = [
+    ...professionalMatches.map((m) => ({
+      kind: "professional" as const,
+      id: m.id,
+      title: m.title,
+      slug: m.slug ?? null,
+      status: m.businessStatus || "approved",
+      phone: null as string | null,
+      match: m,
+    })),
+    ...businessMatches.map((m) => ({
+      kind: "business" as const,
+      id: m.id,
+      title: m.title,
+      slug: m.slug ?? null,
+      status: m.businessStatus || "approved",
+      phone: null as string | null,
+      match: m,
+    })),
+    ...approvedToProfessional.map((m) => ({
+      kind: "professional" as const,
+      id: m.publishedEntityId!,
+      title: m.title,
+      slug: m.slug ?? null,
+      status: "approved",
+      phone: null as string | null,
+      match: m,
+    })),
+    ...approvedToBusiness.map((m) => ({
+      kind: "business" as const,
+      id: m.publishedEntityId!,
+      title: m.title,
+      slug: m.slug ?? null,
+      status: "approved",
+      phone: null as string | null,
+      match: m,
+    })),
+  ];
+  const primaryPick = pickBestCatalogMergeTarget(catalogPreviewCandidates);
+  const primaryCatalog = primaryPick
+    ? catalogPreviewCandidates.find((c) => c.id === primaryPick.id)?.match ||
+      null
+    : null;
   const parts: string[] = [];
   if (queueIds.length) parts.push(`копий в очереди: ${queueIds.length}`);
-  if (catalogBusinessCount) {
+  if (catalogBusinessCount + catalogProfessionalCount) {
     parts.push(
-      `в каталог: ${catalogBusinessCount}${
-        primaryBiz?.title ? ` («${primaryBiz.title}»)` : ""
+      `в каталог: ${catalogBusinessCount + catalogProfessionalCount}${
+        primaryCatalog?.title ? ` («${primaryCatalog.title}»)` : ""
       }`,
     );
   }
@@ -794,18 +842,20 @@ async function buildMergeAllPreview(
 
   const willAdd = [
     ...(queuePreview?.willAdd ?? []),
-    ...(primaryBiz
+    ...(primaryCatalog
       ? [
-          `вольём в «${primaryBiz.title || primaryBiz.id}»${
-            primaryBiz.businessStatus === "archived"
+          `вольём в «${primaryCatalog.title || primaryCatalog.id}»${
+            primaryCatalog.businessStatus === "archived"
               ? " (из архива → pending, без публикации)"
-              : ""
+              : primaryCatalog.businessStatus === "approved"
+                ? " (live)"
+                : ""
           }`,
         ]
       : []),
     ...(recs.length
       ? [
-          catalogBusinessCount || queueIds.length
+          catalogBusinessCount + catalogProfessionalCount || queueIds.length
             ? `затем привяжем ${recs.length} ${
                 recs.length === 1 ? "рекомендацию" : "рекомендаций"
               } → +${recMentions}`
@@ -825,8 +875,8 @@ async function buildMergeAllPreview(
     willSkip: otherCatalogHits
       ? ["Листинги / импорты без live-бизнеса — по одному"]
       : [],
-    queueEffect: primaryBiz
-      ? `Сначала каталог «${primaryBiz.title || primaryBiz.id}», потом рекомендации`
+    queueEffect: primaryCatalog
+      ? `Сначала каталог «${primaryCatalog.title || primaryCatalog.id}», потом рекомендации`
       : queuePreview?.queueEffect ||
         (recs.length
           ? "Рекомендации привяжутся только после публикации карточки"
@@ -959,6 +1009,17 @@ export async function saveImportReviewItemAction(input: {
   );
   if (rpcError) return fail(mapDbError(rpcError));
 
+  try {
+    const { applyLaneClassifyToImportReview } = await import(
+      "@/lib/admin/lanes/apply-classify"
+    );
+    await applyLaneClassifyToImportReview(supabase, input.id, {
+      applyQuarantine: false,
+    });
+  } catch {
+    // lane classify is best-effort after save
+  }
+
   revalidatePath("/admin/import-review");
   revalidatePath(`/admin/import-review/${input.id}`);
   revalidatePath("/admin/review/inbox");
@@ -1041,6 +1102,7 @@ export async function setImportReviewStatusAction(input: {
       : "Помечено как дубликат.",
     needs_more_info: "Отмечено: нужна информация.",
     ready_to_publish: "Готова к публикации.",
+    quarantine: "В помойке (карантин).",
   };
   return ok(messages[input.status] ?? "Статус обновлён.");
 }
@@ -1224,7 +1286,9 @@ export async function mergeQueueItemsAction(input: {
       }
     }
 
-    if (catalogTargetIds.size > 0) {
+    // R15: one catalog target — approved live ≫ pending ≫ archived;
+    // never resurrect archived business over approved professional.
+    if (catalogTargetIds.size > 0 || catalogProfessionalIds.size > 0) {
       let catalog: ReturnType<typeof createServiceRoleClient>;
       try {
         catalog = createServiceRoleClient();
@@ -1235,100 +1299,73 @@ export async function mergeQueueItemsAction(input: {
             : "Нет service role — объединение с каталогом недоступно.",
         );
       }
-      const { data: bizRows } = await untyped(catalog)
-        .from("businesses")
-        .select("id, name, slug, status, phone")
-        .in("id", [...catalogTargetIds]);
-      const businesses = (bizRows ?? []) as {
-        id: string;
-        name: string | null;
-        slug: string | null;
-        status: string;
-        phone: string | null;
-      }[];
-      if (businesses.length) {
-        // Prefer a live public card. Archived is last resort and stays pending
-        // after merge (no auto-publish to the open catalog).
-        const pick =
-          businesses.find((b) => b.status === "approved" && b.phone) ||
-          businesses.find((b) => b.status === "approved") ||
-          businesses.find((b) => b.status === "pending" && b.phone) ||
-          businesses.find((b) => b.status === "pending") ||
-          businesses.find((b) => b.status === "archived" && b.phone) ||
-          businesses.find((b) => b.status === "archived") ||
-          businesses[0]!;
 
+      const candidates: CatalogMergeCandidate[] = [];
+      if (catalogTargetIds.size > 0) {
+        const { data: bizRows } = await untyped(catalog)
+          .from("businesses")
+          .select("id, name, slug, status, phone")
+          .in("id", [...catalogTargetIds]);
+        for (const b of (bizRows ?? []) as Array<{
+          id: string;
+          name: string | null;
+          slug: string | null;
+          status: string;
+          phone: string | null;
+        }>) {
+          candidates.push({
+            kind: "business",
+            id: b.id,
+            title: b.name,
+            slug: b.slug,
+            status: b.status,
+            phone: b.phone,
+          });
+        }
+      }
+      if (catalogProfessionalIds.size > 0) {
+        const { data: proRows } = await untyped(catalog)
+          .from("professionals")
+          .select("id, display_name, slug, status, phone")
+          .in("id", [...catalogProfessionalIds]);
+        for (const p of (proRows ?? []) as Array<{
+          id: string;
+          display_name: string | null;
+          slug: string | null;
+          status: string;
+          phone: string | null;
+        }>) {
+          candidates.push({
+            kind: "professional",
+            id: p.id,
+            title: p.display_name,
+            slug: p.slug,
+            status: p.status,
+            phone: p.phone,
+          });
+        }
+      }
+
+      const pick = pickBestCatalogMergeTarget(candidates);
+      if (pick) {
         const into = await mergeImportReviewIntoExistingAction({
           id: survivorId,
-          matchKind: "business",
+          matchKind: pick.kind,
           matchId: pick.id,
-          matchTitle: pick.name,
+          matchTitle: pick.title,
           matchReason: "merge_all_catalog",
           matchSlug: pick.slug,
         });
         if (!into.ok) {
           return fail(
             into.message ||
-              `Не удалось влить в каталог «${pick.name || pick.id}»`,
+              `Не удалось влить в каталог «${pick.title || pick.id}»`,
           );
         }
         catalogMerged = true;
-        catalogName = pick.name;
+        catalogName = pick.title;
         survivorId = into.id || survivorId;
-        survivorTitle = pick.name || survivorTitle;
-      }
-    }
-
-    if (!catalogMerged && catalogProfessionalIds.size > 0) {
-      let catalog: ReturnType<typeof createServiceRoleClient>;
-      try {
-        catalog = createServiceRoleClient();
-      } catch (err) {
-        return fail(
-          err instanceof Error
-            ? err.message
-            : "Нет service role — объединение с каталогом недоступно.",
-        );
-      }
-      const { data: proRows } = await untyped(catalog)
-        .from("professionals")
-        .select("id, display_name, slug, status, phone")
-        .in("id", [...catalogProfessionalIds]);
-      const professionals = (proRows ?? []) as {
-        id: string;
-        display_name: string | null;
-        slug: string | null;
-        status: string;
-        phone: string | null;
-      }[];
-      if (professionals.length) {
-        const pick =
-          professionals.find((b) => b.status === "approved" && b.phone) ||
-          professionals.find((b) => b.status === "approved") ||
-          professionals.find((b) => b.status === "pending" && b.phone) ||
-          professionals.find((b) => b.status === "pending") ||
-          professionals.find((b) => b.status === "archived" && b.phone) ||
-          professionals.find((b) => b.status === "archived") ||
-          professionals[0]!;
-
-        const into = await mergeImportReviewIntoExistingAction({
-          id: survivorId,
-          matchKind: "professional",
-          matchId: pick.id,
-          matchTitle: pick.display_name,
-          matchReason: "merge_all_catalog",
-          matchSlug: pick.slug,
-        });
-        if (!into.ok) {
-          return fail(
-            into.message ||
-              `Не удалось влить в специалиста «${pick.display_name || pick.id}»`,
-          );
-        }
-        catalogMerged = true;
-        catalogName = pick.display_name;
-        survivorId = into.id || survivorId;
-        survivorTitle = pick.display_name || survivorTitle;
+        survivorTitle = pick.title || survivorTitle;
       }
     }
 
@@ -2187,15 +2224,11 @@ async function findDuplicateMatches(
     : unique;
 
   actionable.sort((a, b) => {
-    const rank = (m: DuplicateMatch) => {
-      if (m.kind === "business" && m.businessStatus === "archived") return 4;
-      if (m.kind === "professional" && m.businessStatus === "archived") return 4;
-      if (m.kind === "business") return 0;
-      if (m.kind === "professional") return 0;
-      if (m.kind === "import_item") return 1;
-      if (m.kind === "recommendation") return 2;
-      return 5;
-    };
+    const rank = (m: DuplicateMatch) =>
+      duplicateMatchListRank({
+        kind: m.kind,
+        status: m.businessStatus,
+      });
     return rank(a) - rank(b);
   });
   return actionable;
@@ -2263,6 +2296,45 @@ export async function approveImportReviewItemAction(input: {
   }
   if (!item.entity_type) {
     return fail("Укажите entity_type.");
+  }
+
+  // R17: hard section/category firewall — cannot bypass with wrong collection.
+  {
+    const { assertPublishAllowed } = await import(
+      "@/lib/import-review/publish-firewall"
+    );
+    const fw = assertPublishAllowed({
+      targetCollection: item.target_collection,
+      categorySlug:
+        (typeof item.category === "string" && item.category) ||
+        (typeof (item as { category_slug?: string }).category_slug ===
+          "string" &&
+          (item as { category_slug?: string }).category_slug) ||
+        null,
+      text: [item.description, item.source_text, item.title]
+        .filter(Boolean)
+        .join("\n"),
+      personName: item.person_name,
+      businessName: item.business_name,
+      addressLine: item.address_line,
+      postalCode: item.postal_code,
+    });
+    if (!fw.ok) {
+      const hint = fw.rewrite?.targetCollection
+        ? ` → ${fw.rewrite.targetCollection}${
+            fw.rewrite.categorySlug ? ` / ${fw.rewrite.categorySlug}` : ""
+          }`
+        : "";
+      return fail(`${fw.message}${hint}`);
+    }
+    // Additive: apply biz→pro category remap from firewall when it differs.
+    if (
+      fw.categorySlug &&
+      typeof item.category === "string" &&
+      fw.categorySlug !== item.category
+    ) {
+      (item as { category?: string | null }).category = fw.categorySlug;
+    }
   }
 
   // Map businesses need a street pin. Import cards without one stay specialists;
@@ -2357,7 +2429,12 @@ export async function approveImportReviewItemAction(input: {
     locationConfidence: resolvedLoc.locationConfidence,
     postalCode: resolvedLoc.postalCode,
   };
-  const streetAddress = item.address_line?.trim() || null;
+  const streetRaw = item.address_line?.trim() || null;
+  const streetScrubbed = scrubDirectoryGlue(streetRaw) || null;
+  const streetAddress =
+    streetScrubbed && streetScrubbed !== streetRaw
+      ? streetScrubbed
+      : streetRaw;
   const postalCode = loc.postalCode?.trim() || item.postal_code?.trim() || null;
   const locationPrecision = streetAddress
     ? ("street" as const)
@@ -2424,7 +2501,7 @@ export async function approveImportReviewItemAction(input: {
       description_original: descriptionOriginal,
       city: loc.city,
       region: loc.region,
-      state_code: loc.stateCode || "US-CA",
+      state_code: loc.stateCode || null,
       county_geoid: loc.countyGeoid,
       location_source: loc.locationSource,
       location_confidence: loc.locationConfidence,
@@ -2434,7 +2511,7 @@ export async function approveImportReviewItemAction(input: {
       phone: item.phone?.[0] ?? null,
       payment_methods: item.payment_methods || [],
       email: item.email?.[0] ?? null,
-      website: item.website?.[0] ?? null,
+      website: pickPrimaryWebsiteFromList(item.website),
       instagram_url: item.instagram?.[0]
         ? `https://instagram.com/${item.instagram[0].replace(/^@/, "")}`
         : null,
@@ -2554,13 +2631,31 @@ export async function approveImportReviewItemAction(input: {
         "Выберите категорию специалиста (не «Прочее») перед публикацией.",
       );
     }
-    const { data: catRow } = await supabase
-      .from("categories")
-      .select("id")
-      .eq("domain", "professional")
-      .eq("slug", categorySlug)
-      .eq("is_active", true)
-      .maybeSingle();
+    // Pro-only leaves are domain=professional; shared spheres (legal, beauty)
+    // stay as business rows that professionals may FK.
+    let catRow: { id: string } | null = null;
+    {
+      const { data: proOnly } = await supabase
+        .from("categories")
+        .select("id")
+        .eq("domain", "professional")
+        .eq("slug", categorySlug)
+        .eq("is_active", true)
+        .maybeSingle();
+      if (proOnly?.id) {
+        catRow = proOnly;
+      } else if (
+        (PROFESSIONAL_CATEGORY_SLUGS as readonly string[]).includes(categorySlug)
+      ) {
+        const { data: shared } = await supabase
+          .from("categories")
+          .select("id")
+          .eq("slug", categorySlug)
+          .eq("is_active", true)
+          .maybeSingle();
+        catRow = shared;
+      }
+    }
     if (!catRow?.id) {
       return fail(
         `Категория «${categorySlug}» не найдена. Выберите категорию перед публикацией.`,
@@ -2595,7 +2690,7 @@ export async function approveImportReviewItemAction(input: {
         category_id: catRow.id,
         city: loc.city,
         region: loc.region,
-        state_code: loc.stateCode || "US-CA",
+        state_code: loc.stateCode || null,
         county_geoid: loc.countyGeoid,
         location_source: loc.locationSource,
         location_confidence: loc.locationConfidence,
@@ -2610,7 +2705,7 @@ export async function approveImportReviewItemAction(input: {
         phone: item.phone?.[0] ?? null,
         payment_methods: item.payment_methods || [],
         email: item.email?.[0] ?? null,
-        website: item.website?.[0] ?? null,
+        website: pickPrimaryWebsiteFromList(item.website),
         instagram_url: item.instagram?.[0]
           ? `https://instagram.com/${item.instagram[0].replace(/^@/, "")}`
           : null,
@@ -2648,7 +2743,8 @@ export async function approveImportReviewItemAction(input: {
     collection === "organizations"
   ) {
     const phone = item.phone?.[0] ?? null;
-    const website = item.website?.[0] ?? null;
+    const website = pickPrimaryWebsiteFromList(item.website);
+    const yelpUrl = pickYelpUrlFromList(item.website);
     const slug = slugify(String(title));
     const { data: businessId, error: upsertError } = await supabase.rpc(
       "admin_upsert_business",
@@ -2683,6 +2779,7 @@ export async function approveImportReviewItemAction(input: {
       source_kind: "telegram" | "facebook" | "directory" | "platform" | null;
       instagram_url?: string;
       telegram_url?: string | null;
+      yelp_url?: string;
       city?: string | null;
       region?: string | null;
       state_code?: string | null;
@@ -2700,7 +2797,7 @@ export async function approveImportReviewItemAction(input: {
       source_kind: sourceKind,
       city: loc.city,
       region: loc.region,
-      state_code: loc.stateCode || "US-CA",
+      state_code: loc.stateCode || null,
       county_geoid: loc.countyGeoid,
       location_source: loc.locationSource,
       location_confidence: loc.locationConfidence,
@@ -2740,7 +2837,28 @@ export async function approveImportReviewItemAction(input: {
     if (telegramUsername) {
       extras.telegram_url = `https://t.me/${telegramUsername}`;
     }
-    await untyped(supabase).from("businesses").update(extras).eq("id", publishedEntityId);
+    if (yelpUrl) {
+      extras.yelp_url = yelpUrl;
+    }
+    // source_url / source_kind (and several geo fields) need service role:
+    // authenticated only has a narrow column-UPDATE grant on businesses.
+    let catalog: ReturnType<typeof createServiceRoleClient>;
+    try {
+      catalog = createServiceRoleClient();
+    } catch {
+      return fail(
+        "Карточка создана, но источник не записался (нет service role). Проверьте SUPABASE_SERVICE_ROLE_KEY.",
+      );
+    }
+    const { error: extrasError } = await untyped(catalog)
+      .from("businesses")
+      .update(extras)
+      .eq("id", publishedEntityId);
+    if (extrasError) {
+      return fail(
+        `Карточка создана, но источник не записался: ${extrasError.message}`,
+      );
+    }
     await addMissingBusinessOffers(
       supabase,
       publishedEntityId,
@@ -3049,7 +3167,7 @@ export async function approveImportReviewItemAction(input: {
       starts_at: session.startsAt ?? startsAt,
       event_at_label: session.label || eventAtLabel,
       city: loc.city ?? city,
-      state_code: loc.stateCode || "US-CA",
+      state_code: loc.stateCode || null,
       county_geoid: loc.countyGeoid,
       location_source: loc.locationSource,
       location_confidence: loc.locationConfidence,

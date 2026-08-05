@@ -16,7 +16,7 @@ import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 
 export const metadata: Metadata = {
-  title: "Review Center — Inbox — Admin",
+  title: "Очередь — Admin",
 };
 
 export const dynamic = "force-dynamic";
@@ -40,6 +40,7 @@ function parseFilters(
     status: params.status,
     reviewType: params.reviewType as InboxReviewType | "all" | undefined,
     sourceRef: params.sourceRef,
+    lane: params.lane as import("@/lib/admin/lanes/types").AdminLaneId | "all" | undefined,
     q: params.q,
     minConfidence: params.minConfidence
       ? Number(params.minConfidence)
@@ -81,15 +82,12 @@ export default async function AdminReviewInboxPage({ searchParams }: PageProps) 
   return (
     <div className="mx-auto max-w-6xl space-y-3 sm:space-y-5">
       <div>
-        <p className="text-xs font-medium text-brand-blue-deep sm:text-sm">
-          Review Center
-        </p>
         <h1 className="mt-0.5 text-xl font-bold tracking-tight text-slate-900 sm:mt-1 sm:text-3xl">
-          Inbox
+          Очередь
         </h1>
-        <p className="mt-1 hidden max-w-3xl text-slate-500 sm:mt-2 sm:block">
-          Единая точка входа модератора: Saved Views, bulk-действия и Workspace
-          для каждой задачи.
+        <p className="mt-1 max-w-3xl text-sm text-slate-500 sm:mt-2 sm:text-base">
+          Постоянный разбор → каталог. Полосы: прикрепить, разложить, готово,
+          я ищу, помойка, разбор. По 20 на странице.
         </p>
         <div className="mt-3">
           <ScanRecommendationDuplicatesButton />
@@ -108,6 +106,7 @@ export default async function AdminReviewInboxPage({ searchParams }: PageProps) 
           totalFiltered={result.totalFiltered}
           loadedUnfiltered={result.loadedUnfiltered}
           byReviewType={result.byReviewType}
+          laneCounts={result.laneCounts}
           errors={result.errors}
           activeView={activeView}
           resolvedFilters={result.filters}

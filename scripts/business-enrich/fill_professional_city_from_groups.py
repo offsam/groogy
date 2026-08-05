@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Fill professionals.city ONLY where it is NULL, from:
+"""DEPRECATED — prefer rebuild_professional_locations_from_groups.py
+
+Fill professionals.city ONLY where it is NULL, from:
 
   1) the matched import_review_items row's extracted city (post text), else
   2) the source Telegram/FB group metro via group_location.location_from_group()
@@ -8,6 +10,10 @@
 Strictly fill-empty: never touches a non-null city/region/state_code,
 never writes lat/lng or street addresses.
 
+Kept as a safe fill-empty subset; new work should use the rebuild script
+(post text → group fallback, county labels out of `city`).
+
+  python3 scripts/business-enrich/rebuild_professional_locations_from_groups.py --dry-run
   python3 scripts/business-enrich/fill_professional_city_from_groups.py --dry-run
   python3 scripts/business-enrich/fill_professional_city_from_groups.py --apply
 """
@@ -59,6 +65,12 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
+    print(
+        "DEPRECATED: prefer rebuild_professional_locations_from_groups.py "
+        "(this script is fill-empty only).",
+        file=sys.stderr,
+    )
+
     load_env()
     client = SupabaseRest(
         os.environ["NEXT_PUBLIC_SUPABASE_URL"], os.environ["SUPABASE_SERVICE_ROLE_KEY"]
@@ -98,6 +110,7 @@ def main() -> None:
         item = items.get(p.get("source_record_id") or "")
         patch: dict[str, Any] = {}
         reason = None
+        loc = None
         if item and (item.get("city") or "").strip():
             patch["city"] = item["city"].strip()
             reason = "import_item_city"
@@ -122,7 +135,10 @@ def main() -> None:
             reasons["no_signal"] += 1
             continue
         if not p.get("state_code"):
-            patch["state_code"] = "US-CA"
+            # Prefer group catalog state; never invent California.
+            group_state = (loc or {}).get("state_code") or (loc or {}).get("stateCode")
+            if group_state:
+                patch["state_code"] = group_state
         reasons[reason] += 1
         planned.append({"id": p["id"], "slug": p["slug"], "patch": patch, "reason": reason})
 

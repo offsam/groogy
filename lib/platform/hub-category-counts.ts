@@ -62,6 +62,7 @@ function rowMatchesHub(
   row: {
     city?: string | null;
     region?: string | null;
+    state_code?: string | null;
     latitude?: number | null;
     longitude?: number | null;
     county_geoid?: string | null;
@@ -74,6 +75,7 @@ function rowMatchesHub(
       {
         city: row.city,
         region: row.region,
+        state_code: row.state_code,
         latitude: asCoord(row.latitude),
         longitude: asCoord(row.longitude),
         county_geoid: row.county_geoid,
@@ -93,10 +95,13 @@ async function countHubScoped(
   try {
     const hubs = getRegionHubsByIds(parseHubIds(hubId));
     const geoids = hubs.flatMap((h) => [...h.countyGeoids]);
-    const richGeo = table === "businesses" || table === "professionals";
+    const richGeo =
+      table === "businesses" ||
+      table === "professionals" ||
+      table === "churches";
     const cols = richGeo
-      ? "id, city, region, latitude, longitude, county_geoid"
-      : "id, city, county_geoid";
+      ? "id, city, region, state_code, latitude, longitude, county_geoid"
+      : "id, city, state_code, county_geoid";
     const buildQuery = () => {
       let query = db(client).from(table).select(cols).eq("status", status);
       if (geoids.length > 0) {
@@ -113,6 +118,7 @@ async function countHubScoped(
     type Stamp = {
       city?: string | null;
       region?: string | null;
+      state_code?: string | null;
       latitude?: number | null;
       longitude?: number | null;
       county_geoid?: string | null;
@@ -181,6 +187,7 @@ async function computeHubCategoryCounts(
     vehicles,
     lechu,
     transfers,
+    churches,
   ] = await Promise.all([
     countHubScoped(catalog, "businesses", hubId, "approved"),
     countListingCatalogHub(client, "marketplace_catalog", hubId),
@@ -191,6 +198,7 @@ async function computeHubCategoryCounts(
     countHubScoped(catalog, "vehicles", hubId, "published"),
     countListingCatalogHub(client, "lechu_catalog", hubId),
     countListingCatalogHub(client, "transfers_catalog", hubId),
+    countHubScoped(catalog, "churches", hubId, "approved").catch(() => 0),
   ]);
 
   return {
@@ -203,6 +211,7 @@ async function computeHubCategoryCounts(
     vehicles,
     lechu,
     transfers,
+    churches,
   };
 }
 
@@ -213,7 +222,7 @@ export async function getHubCategoryCounts(
   return unstable_cache(
     () => computeHubCategoryCounts(key),
     // v5: bust stale hub counters after catalog migration (no-street → pros)
-    ["hub-category-counts-v5", key],
+    ["hub-category-counts-v6", key],
     {
       revalidate: CATALOG_CACHE_TTL.hubCategoryCounts,
       tags: [CATALOG_CACHE_TAGS.hubCategoryCounts],
@@ -252,6 +261,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     vehicles,
     lechu,
     transfers,
+    churches,
   ] = await Promise.all([
     exactCount(catalog, "businesses", "approved"),
     exactCount(catalog, "professionals", "approved"),
@@ -262,6 +272,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     exactCount(catalog, "vehicles", "published"),
     exactCount(catalog, "lechu_catalog"),
     exactCount(catalog, "transfers_catalog"),
+    exactCount(catalog, "churches", "approved"),
   ]);
 
   return {
@@ -274,6 +285,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     vehicles,
     lechu,
     transfers,
+    churches,
   };
 }
 

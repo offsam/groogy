@@ -3,13 +3,14 @@
 import { useEffect, useId, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import {
   claimProfessionalAction,
   getProfessionalClaimStateAction,
 } from "@/lib/claims/professional-actions";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type ClaimProfessionalButtonProps = {
   professionalId: string;
@@ -178,7 +179,7 @@ export function ClaimProfessionalButton({
         }}
       >
         {pending ? (
-          <Loader2 aria-hidden="true" className="size-3.5 animate-spin" />
+          <BrandPinLoader size="sm" />
         ) : null}
         {done ? "Заявка отправлена" : "Это мой профиль"}
       </button>

@@ -156,13 +156,16 @@ function buildItems(input: {
       external: true,
     });
   }
-  const rendered = new Set(items.map((item) => item.key));
+  const renderedHrefs = new Set(
+    items.map((item) => item.href.toLowerCase()),
+  );
   (input.contactLinks ?? []).forEach((link, index) => {
     const channel = getContactChannel(link.channel);
-    if (!channel || rendered.has(channel.id)) return;
+    if (!channel) return;
     const href = contactHref(channel.id, link.value);
     if (!href) return;
-    rendered.add(channel.id);
+    if (renderedHrefs.has(href.toLowerCase())) return;
+    renderedHrefs.add(href.toLowerCase());
     items.push({
       key: `${channel.id}-${index}`,
       title: channel.needsLabel

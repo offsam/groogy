@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { Loader2 } from "lucide-react";
+
 import { searchCitiesAction } from "@/lib/master-data/actions";
 import {
   abbreviationFromStateCode,
@@ -9,6 +9,7 @@ import {
 } from "@/lib/master-data/location";
 import { cn } from "@/lib/utils";
 import type { CitySearchResult, UsStateOption } from "@/types/master-data";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type CityComboboxProps = {
   value: string;
@@ -117,7 +118,7 @@ export function CityCombobox({
           value={value}
         />
         {pending && (
-          <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-slate-400" />
+          <BrandPinLoader size="sm" className="absolute right-3 top-1/2 -translate-y-1/2" />
         )}
       </div>
 

@@ -117,11 +117,24 @@ def apply_decision_policy(result: dict[str, Any]) -> dict[str, Any]:
         result["warnings"] = warnings
         return result
 
+    # Typed catalog posts → needs_review (never trash). Only noise stays rejected.
     if classification in {
-        "recommendation_request",
         "job_post",
         "marketplace_item",
         "real_estate_listing",
+        "event_ad",
+    }:
+        result["decision"] = "needs_review"
+        return result
+
+    # «Ищу / посоветуйте» — admin lane seeking, not catalog junk.
+    if classification == "recommendation_request":
+        result["decision"] = "needs_review"
+        warnings.append("seeking_request_needs_review")
+        result["warnings"] = warnings
+        return result
+
+    if classification in {
         "discussion",
         "irrelevant",
     }:
@@ -132,7 +145,7 @@ def apply_decision_policy(result: dict[str, Any]) -> dict[str, Any]:
         result["decision"] = "needs_review"
         return result
 
-    if classification in {"direct_business_ad", "direct_specialist_ad", "event_ad"}:
+    if classification in {"direct_business_ad", "direct_specialist_ad"}:
         if (
             relationship in {"self", "authorized_business_post"}
             and (has_contact or has_brand)

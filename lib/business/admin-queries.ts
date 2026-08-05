@@ -247,13 +247,6 @@ export function findDuplicatePairs(rows: AdminBusinessRow[]): DuplicatePair[] {
 export async function getAdminBusinesses(
   supabase: SupabaseClient,
 ): Promise<AdminBusinessRow[]> {
-  const { data, error } = await supabase
-    .from("businesses")
-    .select(ADMIN_BUSINESS_SELECT)
-    .order("name", { ascending: true });
-
-  if (error) throw new Error(error.message);
-
   type RawRow = Omit<AdminBusinessRow, "offers_count" | "categories"> & {
     categories:
       | AdminBusinessRow["categories"]
@@ -261,7 +254,23 @@ export async function getAdminBusinesses(
       | null;
   };
 
-  const rawRows = (data ?? []) as unknown as RawRow[];
+  const pageSize = 1000;
+  const maxRows = 20_000;
+  const rawRows: RawRow[] = [];
+
+  for (let offset = 0; offset < maxRows; offset += pageSize) {
+    const end = Math.min(offset + pageSize, maxRows) - 1;
+    const { data, error } = await supabase
+      .from("businesses")
+      .select(ADMIN_BUSINESS_SELECT)
+      .order("name", { ascending: true })
+      .range(offset, end);
+    if (error) throw new Error(error.message);
+    const batch = (data ?? []) as unknown as RawRow[];
+    rawRows.push(...batch);
+    if (batch.length < pageSize) break;
+  }
+
   if (rawRows.length === 0) return [];
 
   const rows: Omit<AdminBusinessRow, "offers_count">[] = rawRows.map((row) => {
@@ -272,21 +281,69 @@ export async function getAdminBusinesses(
   });
 
   const ids = rows.map((r) => r.id);
-  const { data: offerRows, error: offerError } = await supabase
-    .from("business_offers")
-    .select("business_id")
-    .in("business_id", ids);
-
-  if (offerError) throw new Error(offerError.message);
-
   const counts = new Map<string, number>();
-  for (const row of offerRows ?? []) {
-    const id = row.business_id as string;
-    counts.set(id, (counts.get(id) ?? 0) + 1);
+  // PostgREST `.in()` blows up on huge id lists — chunk.
+  const chunkSize = 200;
+  for (let i = 0; i < ids.length; i += chunkSize) {
+    const chunk = ids.slice(i, i + chunkSize);
+    const { data: offerRows, error: offerError } = await supabase
+      .from("business_offers")
+      .select("business_id")
+      .in("business_id", chunk);
+    if (offerError) throw new Error(offerError.message);
+    for (const row of offerRows ?? []) {
+      const id = row.business_id as string;
+      counts.set(id, (counts.get(id) ?? 0) + 1);
+    }
   }
 
   return rows.map((row) => ({
     ...row,
     offers_count: counts.get(row.id) ?? 0,
   }));
+}
+
+/** Exact DB counts for admin business moderation tabs. */
+export async function getAdminBusinessStatusCounts(
+  supabase: SupabaseClient,
+): Promise<{
+  pending: number;
+  draft: number;
+  deferred: number;
+  rejected: number;
+  approved: number;
+  archived: number;
+  review: number;
+}> {
+  const statuses = [
+    "pending",
+    "draft",
+    "deferred",
+    "rejected",
+    "approved",
+    "archived",
+  ] as const;
+  const entries = await Promise.all(
+    statuses.map(async (status) => {
+      const { count, error } = await supabase
+        .from("businesses")
+        .select("id", { count: "exact", head: true })
+        .eq("status", status);
+      if (error) throw new Error(error.message);
+      return [status, count ?? 0] as const;
+    }),
+  );
+  const map = Object.fromEntries(entries) as Record<
+    (typeof statuses)[number],
+    number
+  >;
+  return {
+    pending: map.pending,
+    draft: map.draft,
+    deferred: map.deferred,
+    rejected: map.rejected,
+    approved: map.approved,
+    archived: map.archived,
+    review: map.pending + map.draft,
+  };
 }

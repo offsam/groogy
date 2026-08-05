@@ -6,7 +6,8 @@ import dynamic from "next/dynamic";
 import { Map as MapIcon } from "lucide-react";
 import type { RegionHub } from "@/lib/regions/hubs";
 import {
-  isLatLngInHubBounds,
+  isStateHub,
+  locationFieldsMatchHub,
   mergeHubsForMap,
   zoomToFitBounds,
 } from "@/lib/regions/hubs";
@@ -36,7 +37,15 @@ const HomeActivityMapCanvas = dynamic(
 
 function inSelectedHubs(pin: HomeMapPin, hubs: readonly RegionHub[]): boolean {
   return hubs.some((hub) =>
-    isLatLngInHubBounds(pin.latitude, pin.longitude, hub),
+    locationFieldsMatchHub(
+      {
+        city: pin.city,
+        latitude: pin.latitude,
+        longitude: pin.longitude,
+        state_code: pin.stateCode,
+      },
+      hub,
+    ),
   );
 }
 
@@ -59,9 +68,12 @@ export function HomeActivityMap({
   const multiRegion = !nationalOverview && selectedHubs.length >= 2;
   const wideRegion = !nationalOverview && selectedHubs.length >= 3;
 
-  // SSR ships only launch-hub pins; the USA view needs every published card.
+  const needsNationwidePins =
+    nationalOverview || selectedHubs.some((h) => isStateHub(h));
+
+  // SSR ships metro hub pins; USA / whole-state views need the full catalog.
   useEffect(() => {
-    if (!nationalOverview || nationalPins) return;
+    if (!needsNationwidePins || nationalPins) return;
     let cancelled = false;
     fetch("/api/home-map-pins")
       .then((res) => (res.ok ? res.json() : { pins: [] }))
@@ -74,7 +86,7 @@ export function HomeActivityMap({
     return () => {
       cancelled = true;
     };
-  }, [nationalOverview, nationalPins]);
+  }, [needsNationwidePins, nationalPins]);
 
   const mergedHub = useMemo(
     () => (nationalOverview ? hub : mergeHubsForMap(selectedHubs)),
@@ -94,16 +106,20 @@ export function HomeActivityMap({
   }, [mergedHub, nationalOverview, selectedHubs.length]);
 
   const hubPins = useMemo(() => {
-    if (!nationalOverview) {
+    if (!needsNationwidePins) {
       return pins.filter((p) => inSelectedHubs(p, selectedHubs));
     }
-    if (!nationalPins?.length) return pins;
+    // Wait for the full nationwide set — otherwise zoomed-out state circles
+    // only reflect the SSR metro slice and look like a broken total.
+    if (!nationalPins) return [];
     const byKey = new Map<string, HomeMapPin>();
     for (const pin of [...pins, ...nationalPins]) {
       byKey.set(`${pin.kind}:${pin.id}`, pin);
     }
-    return [...byKey.values()];
-  }, [nationalOverview, nationalPins, pins, selectedHubs]);
+    const merged = [...byKey.values()];
+    if (nationalOverview) return merged;
+    return merged.filter((p) => inSelectedHubs(p, selectedHubs));
+  }, [needsNationwidePins, nationalOverview, nationalPins, pins, selectedHubs]);
   const selectedInHub =
     selectedPin && hubPins.some((p) => p.id === selectedPin.id)
       ? selectedPin

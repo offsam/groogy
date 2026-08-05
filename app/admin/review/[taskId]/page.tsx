@@ -77,14 +77,39 @@ export default async function AdminReviewWorkspacePage({ params }: PageProps) {
     }
   }
 
-  const { data: categories } =
-    task.payload.kind === "import_review"
-      ? await supabase
-          .from("categories")
-          .select("id, slug, name, domain")
-          .eq("is_active", true)
-          .order("sort_order", { ascending: true })
-      : { data: [] as Array<{ id: string; slug: string; name: string; domain: string }> };
+  if (task.payload.kind === "recommendation") {
+    const item = task.payload.item;
+    if (item.status === "rejected") {
+      redirect("/admin/review/inbox");
+    }
+    if (item.status === "merged" || item.status === "approved") {
+      let catalog = supabase;
+      try {
+        catalog = createServiceRoleClient();
+      } catch {
+        /* use user client */
+      }
+      const href =
+        (await liveEntityHref(
+          catalog,
+          item.published_entity_type ?? null,
+          item.published_entity_id ?? null,
+        )) ||
+        (await liveEntityHref(
+          catalog,
+          item.duplicate_of_entity_type ?? null,
+          item.duplicate_of_entity_id ?? null,
+        ));
+      if (href) redirect(href);
+      redirect("/admin/review/inbox");
+    }
+  }
+
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("id, slug, name, domain")
+    .eq("is_active", true)
+    .order("sort_order", { ascending: true });
 
   return (
     <div className="mx-auto max-w-6xl">

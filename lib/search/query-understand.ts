@@ -10,7 +10,8 @@ export type PreparsedKind =
   | "social_handle"
   | "phone"
   | "website"
-  | "chatty";
+  | "chatty"
+  | "slug";
 
 export type PreparsedQuery = {
   /** Cleaned text for the LLM. */
@@ -248,6 +249,13 @@ const SERVICE_PATTERNS: ReadonlyArray<{
     hints: ["юрист", "lawyer", "attorney"],
   },
   {
+    re: rx(
+      "translator|translators|interpreter|interpreters|interpreting|переводчик\\p{L}*|устн\\p{L}*\\s+перевод|перевод\\s+для\\s+суд",
+    ),
+    categorySlug: "legal",
+    hints: ["переводчик", "translator", "interpreter"],
+  },
+  {
     re: rx("notary|нотариус\\p{L}*"),
     categorySlug: "legal",
     hints: ["нотариус", "notary"],
@@ -283,6 +291,13 @@ const SERVICE_PATTERNS: ReadonlyArray<{
     hints: ["фитнес", "gym", "fitness", "yoga"],
   },
   {
+    re: rx(
+      "ballet|балет\\p{L}*|ballroom|танц\\p{L}*|dance|dancing|хореограф\\p{L}*|студи\\p{L}*\\s+балет|студи\\p{L}*\\s+танц",
+    ),
+    categorySlug: "fitness",
+    hints: ["балет", "ballet", "dance", "танцы", "ballroom"],
+  },
+  {
     re: rx("vet|veterinary|ветеринар\\p{L}*|груминг|grooming"),
     categorySlug: "pets",
     hints: ["ветеринар", "vet", "grooming", "груминг"],
@@ -308,7 +323,7 @@ const SERVICE_PATTERNS: ReadonlyArray<{
 ];
 
 const FILLER_RE = new RegExp(
-  `^(?:ну\\s+)?(?:пожалуйста|please|подскажите|помогите|скажите|мне\\s+бы|ищу|looking\\s+for|need(?:\\s+a)?|want(?:\\s+a)?|где\\s+(?:можно|бы|тут)|кто\\s+(?:может|делает|знает)|есть\\s+ли|можно\\s+ли|нормальный|нормальную|хороший|хорошую)(?!\\p{L})[,:]?\\s*`,
+  `^(?:ну\\s+)?(?:пожалуйста|please|подскажите|помогите|скажите|мне\\s+(?:бы|нужен|нужна|нужно)|ищу|looking\\s+for|need(?:\\s+a)?|want(?:\\s+a)?|нужен|нужна|нужно|нужны|где\\s+(?:можно|бы|тут)|кто\\s+(?:может|делает|знает)|есть\\s+ли|можно\\s+ли|нормальный|нормальную|хороший|хорошую)(?!\\p{L})[,:]?\\s*`,
   "iu",
 );
 
@@ -374,6 +389,46 @@ function extractWebsiteIdentity(text: string): string | null {
     return null;
   }
   return host.replace(/-/g, " ");
+}
+
+/** URL/path slug: ballroom-studio-dance-code */
+const SLUG_STOP = new Set([
+  "code",
+  "the",
+  "and",
+  "for",
+  "with",
+  "from",
+  "inc",
+  "llc",
+  "www",
+  "http",
+  "https",
+]);
+
+/** Too generic for ranking — keep for search tokens, drop from mustHints. */
+const SLUG_WEAK = new Set([
+  "studio",
+  "school",
+  "center",
+  "centre",
+  "club",
+  "group",
+  "company",
+  "official",
+]);
+
+function parseKebabSlug(text: string): {
+  slug: string;
+  parts: string[];
+  distinctive: string[];
+} | null {
+  const raw = text.trim().toLowerCase();
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+){1,10}$/.test(raw)) return null;
+  const parts = raw.split("-").filter((p) => p.length >= 2);
+  if (parts.length < 2) return null;
+  const distinctive = parts.filter((p) => !SLUG_STOP.has(p) && p.length >= 3);
+  return { slug: raw, parts, distinctive: distinctive.length > 0 ? distinctive : parts };
 }
 
 function applyTranslit(text: string): { text: string; hints: string[] } {
@@ -488,6 +543,30 @@ export function preparseSearchQuery(raw: string): PreparsedQuery {
         notes,
       };
     }
+  }
+
+  // Catalog / URL slug paste: ballroom-studio-dance-code
+  const kebab = parseKebabSlug(text);
+  if (kebab) {
+    notes.push("slug");
+    const serviceFromSlug = matchServicePattern(kebab.distinctive.join(" "));
+    const rankHints = kebab.distinctive.filter((p) => !SLUG_WEAK.has(p));
+    return {
+      forLlm: kebab.distinctive.join(" "),
+      kind: "slug",
+      nearMe,
+      city: extractCity(raw),
+      categorySlug: serviceFromSlug?.categorySlug ?? null,
+      queryMode: "business_name",
+      keywords: kebab.distinctive,
+      mustHints: [
+        ...(rankHints.length > 0 ? rankHints : kebab.distinctive.slice(0, 2)),
+        ...(serviceFromSlug?.hints ?? []),
+      ].slice(0, 12),
+      preferCategory: false,
+      identityToken: kebab.slug,
+      notes,
+    };
   }
 
   const city = extractCity(text);
@@ -619,7 +698,8 @@ export function mergePreparseIntoIntent<
   if (
     pre.kind === "phone" ||
     pre.kind === "social_handle" ||
-    pre.kind === "website"
+    pre.kind === "website" ||
+    pre.kind === "slug"
   ) {
     return {
       ...intent,

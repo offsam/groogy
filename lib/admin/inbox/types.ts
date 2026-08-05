@@ -19,6 +19,8 @@ export type InboxSourceKey =
   | "telegram"
   | "facebook"
   | "directories"
+  | "loveoverse"
+  | "eventbrite"
   | "professional_cleanup"
   | "claims"
   | "recommendations"
@@ -42,6 +44,8 @@ export type InboxItem = {
   /** Provenance key for Imports → Inbox deep links (telegram/directory id) */
   sourceRef: string | null;
   status: string;
+  /** review_notes / recommendation notes — for lane classify (seeking/quarantine tags) */
+  reviewNotes?: string | null;
   aiConfidence: number | null;
   /** Enrich weighted score (same as Обогатить history); null for other review types. */
   completenessPercent: number | null;
@@ -75,8 +79,16 @@ export type InboxSystemViewId =
   | "telegram"
   | "facebook"
   | "directories"
+  | "loveoverse"
+  | "eventbrite"
   | "needs_review"
-  | "recently_imported";
+  | "recently_imported"
+  | "lane_attach"
+  | "lane_route"
+  | "lane_ready"
+  | "lane_seeking"
+  | "lane_quarantine"
+  | "lane_review";
 
 export type InboxViewId = InboxSystemViewId | (string & {});
 
@@ -94,6 +106,8 @@ export type InboxFilters = {
   maxAgeHours?: number | null;
   /** Statuses that count as “needs review” */
   needsReview?: boolean;
+  /** Admin order lane filter */
+  lane?: import("@/lib/admin/lanes/types").AdminLaneId | "all";
   /** Client-side quick search (title / source) */
   q?: string;
 };

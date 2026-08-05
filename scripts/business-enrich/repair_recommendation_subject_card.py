@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Repair lyubov-nikonova card using recommendation_subject rules.
+"""ARCHIVE one-off — do not reuse for new cards.
+
+Repair lyubov-nikonova card using recommendation_subject rules.
 
 Turns the broken "recommender as title" professional into Aiman Zeitun with
 Mercedes-Benz of Anaheim as an external workplace (no catalog business card).

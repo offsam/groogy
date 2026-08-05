@@ -13,6 +13,7 @@ import {
 } from "react";
 import { ExternalLink, Layers, Search, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { signalAppNavigation } from "@/components/layout/NavigationProgress";
 import {
   InboxMobileSlideDeck,
   writeInboxSlideQueue,
@@ -25,6 +26,16 @@ import {
   type InboxAssignmentMap,
 } from "@/lib/admin/inbox/assignment";
 import { runInboxBulkAction } from "@/lib/admin/inbox/bulk-actions";
+import {
+  runLaneBulkAction,
+  runAttachLaneScanAction,
+} from "@/lib/admin/lanes/actions";
+import {
+  ADMIN_LANE_IDS,
+  ADMIN_LANE_LABELS,
+  type AdminLaneId,
+} from "@/lib/admin/lanes/types";
+import type { AdminLaneCounts } from "@/lib/admin/lanes/counts";
 import { priorityBand } from "@/lib/admin/inbox/priority";
 import type {
   InboxFilters,
@@ -44,17 +55,20 @@ import {
 import type { ImportReviewStatus } from "@/types/import-review";
 import { isRecentlyImported } from "@/lib/admin/imports/recent-import";
 import { eventTimingLabel } from "@/lib/events/timing";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type Props = {
   items: InboxItem[];
   /** Unfiltered loaded set — for Assigned-to-me metric scope */
   allItems: InboxItem[];
-  /** Exact queue total across sources (DB counts) */
+  /** Exact queue total for current scope (DB) */
   totalUnfiltered: number;
   totalFiltered: number;
   /** Rows fetched into the working set (pre-filter) */
   loadedUnfiltered: number;
   byReviewType: Record<string, number>;
+  /** Same lane numbers as /admin/queue tiles */
+  laneCounts: AdminLaneCounts;
   errors: Array<{ source: string; message: string }>;
   activeView: string;
   resolvedFilters: InboxFilters;
@@ -62,7 +76,7 @@ type Props = {
   currentUser: { id: string; label: string };
 };
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 20;
 
 function formatConfidence(value: number | null): string {
   if (value == null || Number.isNaN(value)) return "—";
@@ -104,6 +118,7 @@ export function ReviewInboxPanel({
   totalFiltered,
   loadedUnfiltered,
   byReviewType,
+  laneCounts,
   errors,
   activeView,
   resolvedFilters,
@@ -123,6 +138,7 @@ export function ReviewInboxPanel({
   const [assignments, setAssignments] = useState<InboxAssignmentMap>({});
   const [bulkMessage, setBulkMessage] = useState<string | null>(null);
   const [bulkError, setBulkError] = useState<string | null>(null);
+  const [bulkAction, setBulkAction] = useState<string | null>(null);
   const [statusTarget, setStatusTarget] =
     useState<ImportReviewStatus>("in_review");
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -141,6 +157,8 @@ export function ReviewInboxPanel({
       q: deferredSearch.trim(),
     });
   }, [items, deferredSearch, resolvedFilters]);
+
+  const laneChipCounts = laneCounts;
 
   const pageCount = Math.max(1, Math.ceil(visibleItems.length / PAGE_SIZE));
   const safePage = Math.min(listPage, pageCount);
@@ -190,12 +208,17 @@ export function ReviewInboxPanel({
       INBOX_SYSTEM_VIEWS.find((v) => v.id === viewId) ?? INBOX_SYSTEM_VIEWS[0]!;
     const next = new URLSearchParams();
     if (preset.id !== "all") next.set("view", preset.id);
+    const src = preset.filters.source;
+    if (src && src !== "all") next.set("source", src);
+    const lane = preset.filters.lane;
+    if (lane && lane !== "all") next.set("lane", lane);
     const q = next.toString();
     return q ? `${pathname}?${q}` : pathname;
   }
 
   function onSelectChange(key: string, value: string) {
     const next: Record<string, string | null> = {
+      // Drop view chip; server rematches from concrete filters (incl. lane).
       view: null,
       entity:
         resolvedFilters.entityType && resolvedFilters.entityType !== "all"
@@ -217,6 +240,10 @@ export function ReviewInboxPanel({
         resolvedFilters.sourceRef && resolvedFilters.sourceRef !== "all"
           ? resolvedFilters.sourceRef
           : null,
+      lane:
+        resolvedFilters.lane && resolvedFilters.lane !== "all"
+          ? resolvedFilters.lane
+          : null,
       minConfidence:
         resolvedFilters.minConfidence != null
           ? String(resolvedFilters.minConfidence)
@@ -228,6 +255,11 @@ export function ReviewInboxPanel({
       needsReview: resolvedFilters.needsReview ? "1" : null,
     };
     next[key] = value === "all" ? null : value;
+    // Source chip/group no longer applies when channel changes.
+    if (key === "source") {
+      next.sourceRef = null;
+    }
+    signalAppNavigation();
     router.push(hrefWith(next));
   }
 
@@ -258,35 +290,113 @@ export function ReviewInboxPanel({
       if (selectedItems.length === 0) return;
       setBulkError(null);
       setBulkMessage(null);
+      setBulkAction(action);
       startTransition(async () => {
-        const res = await runInboxBulkAction({
-          action,
-          targets: selectedItems.map((i) => ({
-            id: i.id,
-            sourceId: i.sourceId,
-            reviewType: i.reviewType,
-          })),
-          status: action === "change_status" ? statusTarget : undefined,
-        });
-        if (res.failed > 0 || res.messages.length) {
-          setBulkError(
-            res.messages.join(" · ") ||
-              `Failed: ${res.failed}, skipped: ${res.skipped}`,
-          );
-        }
-        setBulkMessage(
-          `OK ${res.processed}` +
-            (res.skipped ? `, skip ${res.skipped}` : "") +
-            (res.failed ? `, fail ${res.failed}` : ""),
-        );
-        if (res.processed > 0) {
-          clearSelection();
-          router.refresh();
+        try {
+          const res = await runInboxBulkAction({
+            action,
+            targets: selectedItems.map((i) => ({
+              id: i.id,
+              sourceId: i.sourceId,
+              reviewType: i.reviewType,
+            })),
+            status: action === "change_status" ? statusTarget : undefined,
+          });
+          if (res.failed > 0 || res.messages.length) {
+            setBulkError(
+              res.messages.join(" · ") ||
+                `Ошибки: ${res.failed}, ok: ${res.processed}`,
+            );
+          } else {
+            setBulkMessage(
+              `Готово: ${res.processed}` +
+                (res.skipped ? `, пропущено ${res.skipped}` : ""),
+            );
+            clearSelection();
+            router.refresh();
+          }
+        } catch (err) {
+          setBulkError(err instanceof Error ? err.message : "Bulk failed");
+        } finally {
+          setBulkAction(null);
         }
       });
     },
     [selectedItems, statusTarget, router],
   );
+
+  const runLaneBulk = useCallback(
+    (
+      action:
+        | "quarantine"
+        | "reclaim"
+        | "destroy"
+        | "mark_seeking"
+        | "apply_route"
+        | "promote_ready"
+        | "approve_ready",
+    ) => {
+      if (selectedItems.length === 0) return;
+      if (
+        action === "destroy" &&
+        !window.confirm("Уничтожить выбранные из помойки навсегда?")
+      ) {
+        return;
+      }
+      setBulkError(null);
+      setBulkMessage(null);
+      setBulkAction(action);
+      startTransition(async () => {
+        try {
+          const res = await runLaneBulkAction({
+            action,
+            targets: selectedItems.map((i) => ({
+              sourceId: i.sourceId,
+              reviewType:
+                i.reviewType === "ownership_claim"
+                  ? "import_review"
+                  : i.reviewType,
+            })),
+          });
+          if (res.failed > 0 || res.messages.length) {
+            setBulkError(
+              res.messages.join(" · ") ||
+                `Ошибки: ${res.failed}, ok: ${res.processed}`,
+            );
+          } else {
+            setBulkMessage(`Полоса: ${res.processed}`);
+            clearSelection();
+            router.refresh();
+          }
+        } catch (err) {
+          setBulkError(err instanceof Error ? err.message : "Lane bulk failed");
+        } finally {
+          setBulkAction(null);
+        }
+      });
+    },
+    [selectedItems, router],
+  );
+
+  const runAttachScan = useCallback(() => {
+    setBulkError(null);
+    setBulkMessage(null);
+    setBulkAction("attach_scan");
+    startTransition(async () => {
+      try {
+        const res = await runAttachLaneScanAction();
+        if (!res.ok) setBulkError(res.message);
+        else {
+          setBulkMessage(res.message);
+          router.refresh();
+        }
+      } catch (err) {
+        setBulkError(err instanceof Error ? err.message : "Scan failed");
+      } finally {
+        setBulkAction(null);
+      }
+    });
+  }, [router]);
 
   function runAssign(toMe: boolean) {
     if (selectedItems.length === 0) return;
@@ -335,7 +445,10 @@ export function ReviewInboxPanel({
       }
       if (e.key === "Enter") {
         const item = pageItems[focusIndex];
-        if (item) router.push(item.targetUrl);
+        if (item) {
+          signalAppNavigation();
+          router.push(item.targetUrl);
+        }
         return;
       }
       if (e.key === "a" && (e.metaKey || e.ctrlKey)) {
@@ -366,14 +479,26 @@ export function ReviewInboxPanel({
   return (
     <div className="space-y-3 sm:space-y-4">
       {/* Metrics — compact 2-col on mobile */}
-      <div className="grid grid-cols-2 gap-1.5 sm:gap-2 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-1.5 sm:gap-2 lg:grid-cols-4">
         {[
-          { label: "Total", value: String(metrics.total) },
-          { label: "In Review", value: String(metrics.inReview) },
-          { label: "High Confidence", value: String(metrics.highConfidence) },
-          { label: "Assigned to Me", value: String(assignedToMe) },
           {
-            label: "Oldest Task",
+            label: "В очереди",
+            value: String(metrics.total),
+            title:
+              metrics.total !== totalUnfiltered &&
+              !(
+                resolvedFilters.lane &&
+                resolvedFilters.lane !== "all"
+              )
+                ? `По текущему фильтру. Всего без фильтра: ${totalUnfiltered}`
+                : loadedUnfiltered < metrics.total
+                  ? `В базе ${metrics.total}. В списке сверху самые готовые (${loadedUnfiltered}).`
+                  : "Сколько карточек в этой очереди (как на плашке)",
+          },
+          { label: "В списке", value: String(visibleItems.length) },
+          { label: "На мне", value: String(assignedToMe) },
+          {
+            label: "Самая старая",
             value: formatAge(metrics.oldestTaskAt),
             title: metrics.oldestTaskAt
               ? formatDate(metrics.oldestTaskAt)
@@ -397,22 +522,42 @@ export function ReviewInboxPanel({
 
       {/* Views + mobile tools (not sticky on mobile — frees scroll) */}
       <div className="space-y-2 sm:sticky sm:top-0 sm:z-20 sm:-mx-1 sm:space-y-3 sm:bg-slate-50/95 sm:px-1 sm:py-2 sm:backdrop-blur sm:supports-[backdrop-filter]:bg-slate-50/85">
-        <div className="flex items-center gap-2">
-          <div className="flex min-w-0 flex-1 gap-1.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex items-start gap-2">
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-1.5 sm:grid-cols-4 lg:grid-cols-7">
             {INBOX_SYSTEM_VIEWS.map((view) => {
               const active = activeView === view.id;
+              const laneId = view.id.startsWith("lane_")
+                ? (view.id.slice(5) as AdminLaneId)
+                : null;
+              const count =
+                laneId && ADMIN_LANE_IDS.includes(laneId)
+                  ? laneChipCounts[laneId]
+                  : view.id === "all"
+                    ? totalUnfiltered
+                    : null;
               return (
                 <Link
                   key={view.id}
                   href={viewHref(view.id)}
                   title={view.description}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[11px] font-medium transition sm:rounded-lg sm:px-2.5 sm:text-sm ${
+                  className={`flex min-h-[2.75rem] flex-col justify-center rounded-lg px-2 py-1.5 transition sm:min-h-[3.25rem] sm:px-2.5 ${
                     active
                       ? "bg-slate-900 text-white"
-                      : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                      : "border border-slate-200 bg-white text-slate-700 hover:border-brand-blue/40"
                   }`}
                 >
-                  {view.label}
+                  <span className="text-[11px] font-semibold leading-tight sm:text-xs">
+                    {view.label}
+                  </span>
+                  {typeof count === "number" ? (
+                    <span
+                      className={`mt-0.5 text-sm font-bold tabular-nums sm:text-base ${
+                        active ? "text-white/90" : "text-slate-900"
+                      }`}
+                    >
+                      {count.toLocaleString("ru-RU")}
+                    </span>
+                  ) : null}
                 </Link>
               );
             })}
@@ -444,7 +589,7 @@ export function ReviewInboxPanel({
         {sourceRef ? (
           <div className="flex flex-wrap items-center gap-3 rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-3 py-2 text-xs text-slate-700 sm:px-4 sm:py-2.5 sm:text-sm">
             <span>
-              Imports source:{" "}
+              Источник:{" "}
               <code className="rounded bg-white px-1.5 py-0.5 text-xs font-medium">
                 {sourceRef}
               </code>
@@ -551,24 +696,99 @@ export function ReviewInboxPanel({
           <Button
             type="button"
             variant="primary"
+            loading={pending && bulkAction === "approve"}
             disabled={pending || selected.size === 0}
             onClick={() => runBulk("approve")}
             className="shrink-0 text-xs"
           >
-            Approve
+            {pending && bulkAction === "approve" ? "Одобряю…" : "OK / Approve"}
+          </Button>
+          <Button
+            type="button"
+            variant="primary"
+            loading={pending && bulkAction === "approve_ready"}
+            disabled={pending || selected.size === 0}
+            onClick={() => runLaneBulk("approve_ready")}
+            className="shrink-0 text-xs"
+            title={ADMIN_LANE_LABELS.ready}
+          >
+            Готово → OK
           </Button>
           <Button
             type="button"
             variant="secondary"
+            loading={pending && bulkAction === "attach_scan"}
+            disabled={pending}
+            onClick={() => runAttachScan()}
+            className="shrink-0 text-xs"
+            title={ADMIN_LANE_LABELS.attach}
+          >
+            Скан «Прикрепить»
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            loading={pending && bulkAction === "apply_route"}
+            disabled={pending || selected.size === 0}
+            onClick={() => runLaneBulk("apply_route")}
+            className="shrink-0 text-xs"
+          >
+            Разложить
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            loading={pending && bulkAction === "mark_seeking"}
+            disabled={pending || selected.size === 0}
+            onClick={() => runLaneBulk("mark_seeking")}
+            className="shrink-0 text-xs"
+          >
+            Я ищу
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            loading={pending && bulkAction === "quarantine"}
+            disabled={pending || selected.size === 0}
+            onClick={() => runLaneBulk("quarantine")}
+            className="shrink-0 text-xs"
+          >
+            В помойку
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            loading={pending && bulkAction === "reclaim"}
+            disabled={pending || selected.size === 0}
+            onClick={() => runLaneBulk("reclaim")}
+            className="shrink-0 text-xs"
+          >
+            Вернуть
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            loading={pending && bulkAction === "destroy"}
+            disabled={pending || selected.size === 0}
+            onClick={() => runLaneBulk("destroy")}
+            className="shrink-0 text-xs"
+          >
+            Уничтожить
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            loading={pending && bulkAction === "reject"}
             disabled={pending || selected.size === 0}
             onClick={() => runBulk("reject")}
             className="shrink-0 text-xs"
           >
-            Reject
+            {pending && bulkAction === "reject" ? "Отклоняю…" : "Reject"}
           </Button>
           <Button
             type="button"
             variant="secondary"
+            loading={pending && bulkAction === "archive"}
             disabled={pending || selected.size === 0}
             onClick={() => runBulk("archive")}
             className="shrink-0 text-xs"
@@ -579,7 +799,7 @@ export function ReviewInboxPanel({
           <Button
             type="button"
             variant="secondary"
-            disabled={selected.size === 0}
+            disabled={pending || selected.size === 0}
             onClick={() => runAssign(true)}
             className="shrink-0 text-xs"
           >
@@ -588,7 +808,7 @@ export function ReviewInboxPanel({
           <Button
             type="button"
             variant="secondary"
-            disabled={selected.size === 0}
+            disabled={pending || selected.size === 0}
             onClick={() => runAssign(false)}
             className="shrink-0 text-xs"
           >
@@ -601,6 +821,7 @@ export function ReviewInboxPanel({
             }
             className="shrink-0 rounded-lg border border-slate-200 px-2 py-1.5 text-xs"
             title="Change Status (Import Review only)"
+            disabled={pending}
           >
             <option value="in_review">in_review</option>
             <option value="needs_more_info">needs_more_info</option>
@@ -610,11 +831,14 @@ export function ReviewInboxPanel({
           <Button
             type="button"
             variant="secondary"
+            loading={pending && bulkAction === "change_status"}
             disabled={pending || selected.size === 0}
             onClick={() => runBulk("change_status")}
             className="shrink-0 text-xs"
           >
-            Change Status
+            {pending && bulkAction === "change_status"
+              ? "Меняю…"
+              : "Change Status"}
           </Button>
           <span className="ml-auto hidden text-[11px] text-slate-400 sm:inline">
             j/k · x select · Enter open
@@ -624,14 +848,32 @@ export function ReviewInboxPanel({
 
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 sm:text-sm">
         <span>
-          Показано{" "}
+          Страница{" "}
           <strong className="text-slate-900">{pageRangeLabel}</strong>
-          {" из "}
+          {" · в списке "}
           <strong className="text-slate-900">{visibleItems.length}</strong>
-          {" загруженных"}
-          {loadedUnfiltered !== totalUnfiltered ? (
+          {visibleItems.length !== metrics.total ? (
             <>
-              {" · всего в очередях "}
+              {" · в очереди "}
+              <strong className="text-slate-900">{metrics.total}</strong>
+            </>
+          ) : null}
+          {loadedUnfiltered < metrics.total ? (
+            <>
+              {" · сверху самые готовые из "}
+              <strong className="text-slate-900">{metrics.total}</strong>
+            </>
+          ) : loadedUnfiltered < totalUnfiltered &&
+            !(
+              resolvedFilters.source &&
+              resolvedFilters.source !== "all"
+            ) &&
+            !(
+              resolvedFilters.sourceRef &&
+              resolvedFilters.sourceRef !== "all"
+            ) ? (
+            <>
+              {" · сверху самые готовые из "}
               <strong className="text-slate-900">{totalUnfiltered}</strong>
             </>
           ) : null}
@@ -648,6 +890,17 @@ export function ReviewInboxPanel({
           </span>
         ))}
       </div>
+
+      {pending ? (
+        <p
+          className="inline-flex items-center gap-2 rounded-lg border border-brand-blue/25 bg-brand-blue/5 px-3 py-2 text-sm text-brand-blue-deep"
+          role="status"
+          aria-live="polite"
+        >
+          <BrandPinLoader size="sm" />
+          Обрабатываю выбранные…
+        </p>
+      ) : null}
 
       {bulkError ? (
         <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
@@ -675,7 +928,9 @@ export function ReviewInboxPanel({
         <>
         <ul
           ref={listRef}
-          className="divide-y divide-slate-100 overflow-hidden rounded-xl border border-slate-200 bg-white sm:rounded-2xl"
+          className={`divide-y divide-slate-100 overflow-hidden rounded-xl border border-slate-200 bg-white sm:rounded-2xl ${
+            pending ? "pointer-events-none opacity-60" : ""
+          }`}
         >
           {pageItems.map((item, index) => {
             const band = priorityBand(item.priority);
@@ -909,6 +1164,7 @@ export function ReviewInboxPanel({
         onOpenTask={(item, index) => {
           writeInboxSlideQueue(pageItems, index);
           setSlidesOpen(false);
+          signalAppNavigation();
           router.push(item.targetUrl);
         }}
       />

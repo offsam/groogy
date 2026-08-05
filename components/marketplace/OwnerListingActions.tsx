@@ -2,7 +2,7 @@
 
 import { useTransition, useState } from "react";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
+
 import {
   archiveListingAction,
   completeListingAction,
@@ -12,6 +12,7 @@ import {
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
 import type { ListingStatus } from "@/types/listing";
+import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type OwnerListingActionsProps = {
   listingId: string;
@@ -62,7 +63,7 @@ export function OwnerListingActions({ listingId, status }: OwnerListingActionsPr
             onClick={() => run(() => reserveListingAction(listingId))}
             type="button"
           >
-            {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+            {pending && <BrandPinLoader size="sm" />}
             Зарезервировать
           </Button>
         )}
@@ -74,7 +75,7 @@ export function OwnerListingActions({ listingId, status }: OwnerListingActionsPr
             onClick={() => run(() => reactivateListingAction(listingId))}
             type="button"
           >
-            {pending && <Loader2 aria-hidden="true" className="size-4 animate-spin" />}
+            {pending && <BrandPinLoader size="sm" />}
             Вернуть в продажу
           </Button>
         )}

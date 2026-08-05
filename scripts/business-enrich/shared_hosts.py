@@ -56,6 +56,7 @@ SHARED_HOSTS: tuple[str, ...] = (
     "joomag.com",
     # Ticketing / events shared by many organizers
     "eventbrite.com",
+    "loveoverse.com",
     "meetup.com",
     "eventful.com",
     # App stores / OS vendor chrome (footer of booking SaaS like Dikidi)
@@ -86,6 +87,8 @@ SHARED_HOSTS: tuple[str, ...] = (
     "russianorangepages.com",
     "bostonrussianpages.com",
     "yellowpages.com",
+    "to4ka.us",
+    "api.to4ka.us",
     # Media / community portals linked from directory pages
     "forumdaily.com",
     "rus.ru",
@@ -97,6 +100,17 @@ SHARED_HOSTS: tuple[str, ...] = (
     "wordpress.com",
     "dzen.ru",
     "zen.yandex.ru",
+    # Civic / park portals that appear in ROP chrome — never a card's site.
+    # Real businesses that once leaked from the same sidebar (FCH Construction,
+    # Live at the Shell, Art-A-Fair) stay out of this list: if an admin sets
+    # them as the card website we must mine them. Directory BFS still refuses
+    # to follow related links from ROP/Svoi (enrich_follow_policy).
+    "ocparks.com",
+    "themuck.org",
+    # to4ka catalog ads stuffed into listing.url / page chrome
+    "bazar.club",
+    "apteka03.online",
+    "madbid.com",
 )
 
 SHARED_HOSTS_EXACT: tuple[str, ...] = ("etsy.com",)

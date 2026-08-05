@@ -20,7 +20,6 @@ const EXTRA_VOCAB: readonly string[] = [
   "ламинат",
   "паркет",
   "полы",
-  "пол",
   "roofing",
   "roof",
   "roofer",
@@ -86,10 +85,14 @@ const EXTRA_VOCAB: readonly string[] = [
   "fitness",
   "gym",
   "тренировка",
+  "ballet",
+  "балет",
+  "dance",
+  "танцы",
+  "ballroom",
   "tutoring",
   "daycare",
   "детский",
-  "сад",
   "school",
   "школа",
   "restaurant",
@@ -123,6 +126,9 @@ const EXTRA_VOCAB: readonly string[] = [
   "ремонт",
   "сантехник",
   "plumber",
+  "translator",
+  "переводчик",
+  "interpreter",
   "services",
   "услуги",
 ];
@@ -178,6 +184,66 @@ function buildVocabulary(): string[] {
 const VOCAB = buildVocabulary();
 const EXTRA_SET = new Set(VOCAB);
 
+/**
+ * Never Levenshtein-correct these — short function words / domain terms that
+ * collapse into trade vocab ("по"→"пол", "суд"→"сад").
+ */
+const NEVER_CORRECT = new Set([
+  "по",
+  "для",
+  "мне",
+  "нам",
+  "нужен",
+  "нужна",
+  "нужно",
+  "нужны",
+  "ищу",
+  "хочу",
+  "где",
+  "как",
+  "что",
+  "это",
+  "или",
+  "на",
+  "из",
+  "от",
+  "до",
+  "со",
+  "об",
+  "без",
+  "при",
+  "под",
+  "над",
+  "кто",
+  "есть",
+  "ли",
+  "бы",
+  "же",
+  "то",
+  "все",
+  "всё",
+  "еще",
+  "ещё",
+  "уже",
+  "тут",
+  "там",
+  "сюда",
+  "суд",
+  "суда",
+  "суде",
+  "суду",
+  "court",
+  "zoom",
+  "зуум",
+  "переводчик",
+  "переводчика",
+  "переводчику",
+  "перевод",
+  "translator",
+  "interpreter",
+  "interpreting",
+]);
+
 function preferredCanonicalFromGroup(token: string): string | null {
   if (EXTRA_SET.has(token)) return null;
   const group = expandSearchToken(token);
@@ -213,9 +279,9 @@ function levenshtein(a: string, b: string): number {
 }
 
 function maxDistanceFor(token: string): number {
-  if (token.length <= 3) return 1;
-  if (token.length <= 5) return 1;
-  if (token.length <= 8) return 2;
+  // Short tokens: Levenshtein is too aggressive (по→пол, суд→сад).
+  if (token.length <= 4) return 0;
+  if (token.length <= 8) return 1;
   return 2;
 }
 
@@ -252,6 +318,8 @@ export function correctSearchText(input: string): SpellcheckResult {
       return mapped;
     }
 
+    if (NEVER_CORRECT.has(lower)) return part;
+
     // Synonym-group alias that isn't a canonical EXTRA term → longest EXTRA member.
     const fromGroup = preferredCanonicalFromGroup(lower);
     if (fromGroup && fromGroup !== lower) {
@@ -261,11 +329,15 @@ export function correctSearchText(input: string): SpellcheckResult {
 
     if (EXTRA_SET.has(lower)) return part;
 
+    const maxDist = maxDistanceFor(lower);
+    if (maxDist <= 0) return part;
+
     let best: string | null = null;
     let bestDist = Number.POSITIVE_INFINITY;
-    const maxDist = maxDistanceFor(lower);
 
     for (const candidate of VOCAB) {
+      // Don't rewrite a short word into a much longer trade term.
+      if (candidate.length > lower.length + maxDist) continue;
       if (Math.abs(candidate.length - lower.length) > maxDist) continue;
       const dist = levenshtein(lower, candidate);
       if (dist < bestDist) {

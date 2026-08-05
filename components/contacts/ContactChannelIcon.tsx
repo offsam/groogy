@@ -15,7 +15,6 @@ import {
   Twitter,
   Users,
   Video,
-  Youtube,
 } from "lucide-react";
 import {
   FacebookIcon,
@@ -23,8 +22,10 @@ import {
   InstagramIcon,
   TelegramIcon,
   TikTokIcon,
+  TrustpilotIcon,
   WhatsAppIcon,
   YelpIcon,
+  YouTubeIcon,
 } from "@/components/brand/BrandIcons";
 import type { ContactChannelId } from "@/lib/contacts/channels";
 
@@ -46,7 +47,7 @@ const ICONS: Partial<Record<ContactChannelId, IconComponent>> = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
   tiktok: TikTokIcon,
-  youtube: Youtube,
+  youtube: YouTubeIcon,
   x: Twitter,
   threads: Users,
   linkedin: Linkedin,
@@ -60,6 +61,7 @@ const ICONS: Partial<Record<ContactChannelId, IconComponent>> = {
   google_maps: GoogleIcon,
   nextdoor: MapPin,
   tripadvisor: MapPin,
+  trustpilot: TrustpilotIcon,
   booking: Store,
   opentable: Store,
   zillow: Store,

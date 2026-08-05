@@ -7,6 +7,7 @@ import { listPublishedCommunityMentionsForBusiness } from "@/lib/community-menti
 import { listPublishedBusinessLocations } from "@/lib/business/locations";
 import { getCityCenter } from "@/lib/geo/city-center";
 import { listJobsForBusiness } from "@/lib/jobs/queries";
+import { listEmployeesForBusiness } from "@/lib/business/employees";
 import { listPublishedEventsForBusiness } from "@/lib/events/queries";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { resolveRequestHubs } from "@/lib/regions/request-hub";
@@ -127,6 +128,10 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
   const jobs = await listJobsForBusiness(catalog, fullBusiness.id, {
     includeDrafts: canManageEarly,
   }).catch(() => []);
+  const employees = await listEmployeesForBusiness(
+    catalog,
+    fullBusiness.id,
+  ).catch(() => []);
 
   let myReview = null;
   let mySession: ReviewVerificationSession | null = null;
@@ -154,9 +159,14 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     primaryLocation?.city?.trim() || fullBusiness.city?.trim() || null;
   const stateForMap =
     primaryLocation?.stateCode?.trim() || fullBusiness.stateCode?.trim() || null;
-  const cityMapCenter = await getCityCenter(cityForMap, stateForMap).catch(
-    () => null,
-  );
+  const cityMapCenter = await getCityCenter(cityForMap, stateForMap, {
+    postalCode:
+      primaryLocation?.postalCode?.trim() ||
+      fullBusiness.postalCode?.trim() ||
+      null,
+    region:
+      primaryLocation?.region?.trim() || fullBusiness.region?.trim() || null,
+  }).catch(() => null);
 
   return (
     <>
@@ -178,6 +188,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         mySession={mySession}
         offers={offers}
         jobs={jobs}
+        employees={employees}
         events={events}
         promotions={promotions}
         updates={updates}

@@ -48,6 +48,19 @@ function passThrough(request: NextRequest) {
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = passThrough(request);
 
+  const { pathname } = request.nextUrl;
+
+  // getUser() is a blocking network round-trip to Supabase Auth. Only
+  // protected paths and the auth pages (login/register/forgot-password)
+  // ever branch on its result — every other route (the vast majority of
+  // traffic, including all the background RSC prefetch requests Next.js
+  // fires for links in the viewport) doesn't need it. Skipping it here
+  // removes an unnecessary network call from the critical path of nearly
+  // every page load and prefetch on the site.
+  if (!isProtectedPath(pathname) && !AUTH_PAGES.has(pathname)) {
+    return supabaseResponse;
+  }
+
   const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
@@ -78,7 +91,7 @@ export async function updateSession(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const { pathname, searchParams } = request.nextUrl;
+    const { searchParams } = request.nextUrl;
 
     if (!user && isProtectedPath(pathname)) {
       const loginUrl = request.nextUrl.clone();

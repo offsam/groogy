@@ -1588,6 +1588,44 @@ export type Database = {
         >;
         Relationships: [];
       };
+      blogger_directory: {
+        Row: {
+          id: string;
+          name: string;
+          category: string;
+          location: string | null;
+          notes: string | null;
+          facebook_url: string | null;
+          instagram_url: string | null;
+          youtube_url: string | null;
+          tiktok_url: string | null;
+          telegram_url: string | null;
+          source: string | null;
+          created_by: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          category?: string;
+          location?: string | null;
+          notes?: string | null;
+          facebook_url?: string | null;
+          instagram_url?: string | null;
+          youtube_url?: string | null;
+          tiktok_url?: string | null;
+          telegram_url?: string | null;
+          source?: string | null;
+          created_by?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["blogger_directory"]["Insert"]
+        >;
+        Relationships: [];
+      };
       coupon_curators: {
         Row: {
           profile_id: string;

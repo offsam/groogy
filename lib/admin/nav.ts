@@ -106,6 +106,11 @@ export const ADMIN_NAV: AdminNavSection[] = [
     href: "/admin/system/error-reports",
   },
   {
+    id: "blogger-directory",
+    label: "Картотека блогеров",
+    href: "/admin/blogger-directory",
+  },
+  {
     id: "claims",
     label: "Верификация",
     href: "/admin/claims",

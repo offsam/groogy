@@ -34,13 +34,26 @@ export default async function HomePage() {
   try {
     const client = await createServerClient();
     const catalog = createServiceRoleClient();
+    const withTimeout = <T,>(promise: Promise<T>, ms: number, fallback: T): Promise<T> =>
+      Promise.race([
+        promise,
+        new Promise<T>((resolve) => setTimeout(() => resolve(fallback), ms)),
+      ]);
+
     const [userResult, pins] = await Promise.all([
       client.auth.getUser(),
       // Per-hub bounding boxes — national newest-800 left LA empty while counts showed ~300.
-      getHomeMapPins(catalog, {
-        hubs: getMapPinRegionHubs(),
-        limitPerHub: 500,
-      }).catch(() => [] as typeof mapPins),
+      // Capped at 150/hub (actual counts are ~300 nationally) to avoid the 15-way
+      // fan-out (5 hubs x 3 tables) spiking memory/timeout on cache-miss requests.
+      // Hard timeout so a slow Supabase response can't hang the whole homepage.
+      withTimeout(
+        getHomeMapPins(catalog, {
+          hubs: getMapPinRegionHubs(),
+          limitPerHub: 150,
+        }).catch(() => [] as typeof mapPins),
+        4000,
+        [] as typeof mapPins,
+      ),
     ]);
 
     mapPins = pins;

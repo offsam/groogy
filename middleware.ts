@@ -6,15 +6,20 @@ import { normalizeSupabaseUrl } from "@/lib/supabase/env";
 const CARD_PATH_RE =
   /^\/(business|professional|marketplace|jobs|events|lechu|transfers|services|real-estate)\/([^/]+)\/?$/;
 
+const ENTITY_MOVE_LOOKUP_TIMEOUT_MS = 2000;
+
 async function lookupEntityMoveRedirect(
   fromPath: string,
 ): Promise<string | null> {
   const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
   if (!url || !anonKey) return null;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), ENTITY_MOVE_LOOKUP_TIMEOUT_MS);
   try {
     const supabase = createClient(url, anonKey, {
       auth: { persistSession: false, autoRefreshToken: false },
+      global: { fetch: (input, init) => fetch(input, { ...init, signal: controller.signal }) },
     });
     const { data } = await supabase
       .from("entity_moves")
@@ -29,6 +34,8 @@ async function lookupEntityMoveRedirect(
     }
   } catch {
     return null;
+  } finally {
+    clearTimeout(timeout);
   }
   return null;
 }

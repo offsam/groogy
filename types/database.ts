@@ -32,7 +32,8 @@ export type PlatformErrorReportStatus =
   | "open"
   | "reviewed"
   | "resolved"
-  | "dismissed";
+  | "dismissed"
+  | "needs_attention";
 
 export type ReviewModerationStatus =
   | "verification_pending"
@@ -1561,6 +1562,8 @@ export type Database = {
           github_issue_url: string | null;
           autofix_requested_by: string | null;
           autofix_requested_at: string | null;
+          autofix_summary: string | null;
+          autofix_pr_url: string | null;
         };
         Insert: {
           id?: string;
@@ -1577,6 +1580,8 @@ export type Database = {
           github_issue_url?: string | null;
           autofix_requested_by?: string | null;
           autofix_requested_at?: string | null;
+          autofix_summary?: string | null;
+          autofix_pr_url?: string | null;
         };
         Update: Partial<
           Database["public"]["Tables"]["platform_error_reports"]["Insert"]

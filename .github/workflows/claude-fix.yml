@@ -5,6 +5,12 @@ name: Claude auto-fix (error reports)
 # follow-up comment mentioning @claude. This workflow picks that up, reads
 # the codebase, makes a minimal fix, and opens a PR for human review.
 # It never merges or deploys anything itself — see the system prompt below.
+#
+# After Claude finishes, a deterministic (non-LLM) step reads its
+# structured_output and reports the outcome back to the admin panel via
+# /api/webhooks/claude-fix, which flips the report's status to either
+# "resolved" (PR opened, ready for review) or "needs_attention" (Claude
+# judged it unsafe/impossible to fix blind and left the issue for a human).
 
 on:
   issue_comment:
@@ -42,4 +48,31 @@ jobs:
           claude_args: |
             --model claude-sonnet-5
             --max-turns 30
-            --system-prompt "This is a live production app (groogy.vercel.app) with real user data in Supabase. Investigate the bug reported in this issue, make the smallest safe fix, and open a Pull Request. Do NOT merge, do NOT push directly to main, do NOT deploy. If the fix touches RLS, auth, visibility/status filters, or payment/contact-reveal logic, stop and explain in the PR description instead of guessing. Match existing code conventions (see CLAUDE.md if present). Run `npx tsc --noEmit` before opening the PR and mention the result in the PR description."
+            --system-prompt "This is a live production app (groogy.vercel.app) with real user data in Supabase. Investigate the bug reported in this issue, make the smallest safe fix. Do NOT merge, do NOT push directly to main, do NOT deploy — only ever open a Pull Request (use `gh pr create`) for a human to review. If the fix touches RLS, auth, visibility/status filters, or payment/contact-reveal logic, or if you cannot reproduce/confirm the bug from the code alone, do NOT guess — leave a comment on the issue explaining what you found and why a human should look, and report outcome=needs_attention instead. Match existing code conventions (see CLAUDE.md if present). Run `npx tsc --noEmit` before opening the PR and mention the result in the PR description. At the very end, return the required structured JSON: outcome is 'pr_opened' only if you actually ran `gh pr create` and have a real PR URL, otherwise 'needs_attention'; summary is 2-3 short sentences in Russian describing what you found and did; pr_url is the PR URL if one was opened, else an empty string."
+            --json-schema '{"type":"object","properties":{"outcome":{"type":"string","enum":["pr_opened","needs_attention"]},"summary":{"type":"string"},"pr_url":{"type":"string"}},"required":["outcome","summary"]}'
+
+      - name: Report result back to admin panel
+        if: always() && steps.claude.outputs.structured_output != ''
+        env:
+          WEBHOOK_SECRET: ${{ secrets.CLAUDE_FIX_WEBHOOK_SECRET }}
+        run: |
+          set -e
+          OUTPUT='${{ steps.claude.outputs.structured_output }}'
+          OUTCOME=$(echo "$OUTPUT" | jq -r '.outcome // "needs_attention"')
+          SUMMARY=$(echo "$OUTPUT" | jq -r '.summary // "Claude не вернул summary."')
+          PR_URL=$(echo "$OUTPUT" | jq -r '.pr_url // empty')
+          REPORT_ID=$(printf '%s' "${{ github.event.issue.body }}" | grep -oE '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}' | head -1)
+          if [ -z "$REPORT_ID" ]; then
+            echo "No report id found in issue body — this issue wasn't filed by the admin panel, skipping webhook."
+            exit 0
+          fi
+          if [ -z "$WEBHOOK_SECRET" ]; then
+            echo "CLAUDE_FIX_WEBHOOK_SECRET not set — skipping webhook call."
+            exit 0
+          fi
+          PAYLOAD=$(jq -n --arg id "$REPORT_ID" --arg outcome "$OUTCOME" --arg summary "$SUMMARY" --arg prUrl "$PR_URL" \
+            '{reportId:$id, outcome:$outcome, summary:$summary, prUrl:$prUrl}')
+          curl -sf -X POST "https://groogy.vercel.app/api/webhooks/claude-fix" \
+            -H "Content-Type: application/json" \
+            -H "X-Webhook-Secret: $WEBHOOK_SECRET" \
+            -d "$PAYLOAD" || echo "Webhook call failed (non-fatal)."

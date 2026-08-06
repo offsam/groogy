@@ -18,6 +18,7 @@ const STATUS_LABELS: Record<PlatformErrorReportStatus, string> = {
   reviewed: "Просмотрена",
   resolved: "Решена",
   dismissed: "Отклонена",
+  needs_attention: "Требует внимания",
 };
 
 const STATUS_STYLES: Record<PlatformErrorReportStatus, string> = {
@@ -25,6 +26,7 @@ const STATUS_STYLES: Record<PlatformErrorReportStatus, string> = {
   reviewed: "bg-amber-50 text-amber-800 border-amber-200",
   resolved: "bg-emerald-50 text-emerald-800 border-emerald-200",
   dismissed: "bg-slate-100 text-slate-600 border-slate-200",
+  needs_attention: "bg-orange-50 text-orange-800 border-orange-200",
 };
 
 type AdminErrorReportsPanelProps = {
@@ -167,8 +169,19 @@ export function AdminErrorReportsPanel({
                 />
               </label>
 
+              {report.autofixSummary ? (
+                <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5">
+                  <p className="text-xs font-medium text-slate-500">
+                    Отчёт от Claude
+                  </p>
+                  <p className="mt-1 text-sm text-slate-700">
+                    {report.autofixSummary}
+                  </p>
+                </div>
+              ) : null}
+
               {report.githubIssueUrl ? (
-                <p className="mt-3 text-sm">
+                <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                   <Link
                     className="text-brand-blue hover:underline"
                     href={report.githubIssueUrl}
@@ -176,6 +189,15 @@ export function AdminErrorReportsPanel({
                   >
                     Issue на GitHub →
                   </Link>
+                  {report.autofixPrUrl ? (
+                    <Link
+                      className="text-brand-blue hover:underline"
+                      href={report.autofixPrUrl}
+                      target="_blank"
+                    >
+                      Pull Request →
+                    </Link>
+                  ) : null}
                 </p>
               ) : (
                 <div className="mt-3">

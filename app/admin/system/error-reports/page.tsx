@@ -17,6 +17,7 @@ export const dynamic = "force-dynamic";
 const FILTERS: Array<{ id: PlatformErrorReportStatus | "all"; label: string }> =
   [
     { id: "open", label: "Открытые" },
+    { id: "needs_attention", label: "Требуют внимания" },
     { id: "reviewed", label: "Просмотренные" },
     { id: "resolved", label: "Решённые" },
     { id: "dismissed", label: "Отклонённые" },
@@ -61,14 +62,21 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
           Кнопка «Почини» создаёт GitHub Issue с текстом репорта и упоминанием{" "}
           <code className="text-xs">@claude</code> — это запускает воркфлоу{" "}
           <code className="text-xs">.github/workflows/claude-fix.yml</code>,
-          который читает код, вносит правку и открывает Pull Request на
-          ревью. Ничего не мержится и не деплоится автоматически. Чтобы
-          кнопка заработала: 1) поставьте GitHub-приложение Claude на
-          репозиторий (github.com/apps/claude), 2) добавьте секрет{" "}
-          <code className="text-xs">ANTHROPIC_API_KEY</code> в GitHub Actions,
-          3) добавьте переменную{" "}
+          который читает код и вносит правку. Когда Claude заканчивает,
+          статус репорта меняется сам: «Решена» — если открыт Pull Request
+          на ревью (ничего не мержится и не деплоится автоматически), или
+          «Требует внимания» — если Claude решил, что чинить вслепую
+          небезопасно, и оставил объяснение в Issue. Под текстом репорта
+          появится короткий отчёт о том, что было сделано. Чтобы кнопка
+          заработала: 1) поставьте GitHub-приложение Claude на репозиторий
+          (github.com/apps/claude), 2) добавьте секрет с ключом/токеном
+          Claude в GitHub Actions, 3) добавьте переменную{" "}
           <code className="text-xs">GITHUB_ISSUES_TOKEN</code> (fine-grained
-          PAT с правом Issues: write на этот репозиторий) в Vercel.
+          PAT с правом Issues: write на этот репозиторий) в Vercel, 4)
+          добавьте одинаковый секрет{" "}
+          <code className="text-xs">CLAUDE_FIX_WEBHOOK_SECRET</code> и в
+          GitHub Actions, и в Vercel — им воркфлоу подтверждает Vercel, что
+          отчёт настоящий.
         </p>
       </div>
 

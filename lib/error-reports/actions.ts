@@ -25,6 +25,8 @@ export type PlatformErrorReportRow = {
   createdAt: string;
   githubIssueUrl: string | null;
   autofixRequestedAt: string | null;
+  autofixSummary: string | null;
+  autofixPrUrl: string | null;
 };
 
 /** owner/repo this app's source lives in — used only for the auto-fix issue. */
@@ -153,7 +155,7 @@ export async function listErrorReportsAction(input?: {
   let query = supabase
     .from("platform_error_reports")
     .select(
-      "id, message, page_path, page_url, user_id, user_agent, status, admin_note, reviewed_by, reviewed_at, created_at, github_issue_url, autofix_requested_at",
+      "id, message, page_path, page_url, user_id, user_agent, status, admin_note, reviewed_by, reviewed_at, created_at, github_issue_url, autofix_requested_at, autofix_summary, autofix_pr_url",
     )
     .order("created_at", { ascending: false })
     .limit(200);
@@ -188,6 +190,8 @@ export async function listErrorReportsAction(input?: {
       createdAt: row.created_at,
       githubIssueUrl: row.github_issue_url,
       autofixRequestedAt: row.autofix_requested_at,
+      autofixSummary: row.autofix_summary,
+      autofixPrUrl: row.autofix_pr_url,
     })),
   };
 }

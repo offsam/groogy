@@ -128,6 +128,7 @@ export async function probeCatalogHealthAction(): Promise<
       lechu: 0,
       transfers: 0,
       churches: 0,
+      coupons: 0,
     })),
     timeProbe("hub-stats-all", "Hub stats (all)", async () => {
       const stats = await getHubResourceStatsUncached(null);

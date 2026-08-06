@@ -2,8 +2,9 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Shield, ShieldOff } from "lucide-react";
+import { Shield, ShieldOff, Tag } from "lucide-react";
 import { adminSetUserRoleAction } from "@/lib/admin/actions";
+import { adminSetCouponCuratorAction } from "@/lib/coupons/actions";
 import type { AdminUserRow } from "@/lib/admin/queries";
 import { AuthAlert } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/Button";
@@ -19,19 +20,43 @@ const ROLE_LABELS: Record<AdminUserRow["role"], string> = {
 type AdminUsersPanelProps = {
   users: AdminUserRow[];
   currentUserId: string;
+  couponCuratorIds?: string[];
 };
 
-export function AdminUsersPanel({ users, currentUserId }: AdminUsersPanelProps) {
+export function AdminUsersPanel({
+  users,
+  currentUserId,
+  couponCuratorIds = [],
+}: AdminUsersPanelProps) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const curatorSet = new Set(couponCuratorIds);
 
   function setRole(userId: string, role: AdminUserRow["role"]) {
     setError(null);
     setMessage(null);
     startTransition(async () => {
       const result = await adminSetUserRoleAction({ userId, role });
+      if (!result.ok) {
+        setError(result.message);
+        return;
+      }
+      setMessage(result.message ?? "Готово");
+      router.refresh();
+    });
+  }
+
+  function toggleCurator(userId: string, displayName: string | null, remove: boolean) {
+    setError(null);
+    setMessage(null);
+    startTransition(async () => {
+      const result = await adminSetCouponCuratorAction({
+        userId,
+        displayName,
+        remove,
+      });
       if (!result.ok) {
         setError(result.message);
         return;
@@ -105,6 +130,33 @@ export function AdminUsersPanel({ users, currentUserId }: AdminUsersPanelProps) 
                             <ShieldOff className="size-4" />
                           )}
                           Снять админа
+                        </Button>
+                      )}
+                      {curatorSet.has(user.id) ? (
+                        <Button
+                          className="gap-1.5"
+                          disabled={pending}
+                          type="button"
+                          variant="secondary"
+                          onClick={() =>
+                            toggleCurator(user.id, user.display_name, true)
+                          }
+                        >
+                          {pending ? <BrandPinLoader size="sm" /> : <Tag className="size-4" />}
+                          Снять куратора Купонинга
+                        </Button>
+                      ) : (
+                        <Button
+                          className="gap-1.5"
+                          disabled={pending}
+                          type="button"
+                          variant="secondary"
+                          onClick={() =>
+                            toggleCurator(user.id, user.display_name, false)
+                          }
+                        >
+                          {pending ? <BrandPinLoader size="sm" /> : <Tag className="size-4" />}
+                          Сделать куратором Купонинга
                         </Button>
                       )}
                     </div>

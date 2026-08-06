@@ -28,7 +28,9 @@ import {
 import type { PlatformSectionKey } from "@/lib/platform/sections";
 import type { Database } from "@/types/database";
 
-export type MoveSectionKey = Exclude<PlatformSectionKey, "vehicles"> | "services";
+export type MoveSectionKey =
+  | Exclude<PlatformSectionKey, "vehicles" | "coupons">
+  | "services";
 
 export type MoveEntitySectionResult =
   | { ok: true; message: string; redirectTo: string; toId: string; toSlug: string }

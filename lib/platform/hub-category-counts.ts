@@ -188,6 +188,7 @@ async function computeHubCategoryCounts(
     lechu,
     transfers,
     churches,
+    coupons,
   ] = await Promise.all([
     countHubScoped(catalog, "businesses", hubId, "approved"),
     countListingCatalogHub(client, "marketplace_catalog", hubId),
@@ -199,6 +200,8 @@ async function computeHubCategoryCounts(
     countListingCatalogHub(client, "lechu_catalog", hubId),
     countListingCatalogHub(client, "transfers_catalog", hubId),
     countHubScoped(catalog, "churches", hubId, "approved").catch(() => 0),
+    // Not hub-scoped by design — nationwide feed, same count on every hub.
+    exactCount(catalog, "coupons", "published"),
   ]);
 
   return {
@@ -212,6 +215,7 @@ async function computeHubCategoryCounts(
     lechu,
     transfers,
     churches,
+    coupons,
   };
 }
 
@@ -262,6 +266,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     lechu,
     transfers,
     churches,
+    coupons,
   ] = await Promise.all([
     exactCount(catalog, "businesses", "approved"),
     exactCount(catalog, "professionals", "approved"),
@@ -273,6 +278,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     exactCount(catalog, "lechu_catalog"),
     exactCount(catalog, "transfers_catalog"),
     exactCount(catalog, "churches", "approved"),
+    exactCount(catalog, "coupons", "published"),
   ]);
 
   return {
@@ -286,6 +292,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     lechu,
     transfers,
     churches,
+    coupons,
   };
 }
 

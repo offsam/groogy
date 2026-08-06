@@ -1588,6 +1588,116 @@ export type Database = {
         >;
         Relationships: [];
       };
+      coupon_curators: {
+        Row: {
+          profile_id: string;
+          display_name: string | null;
+          created_at: string;
+        };
+        Insert: {
+          profile_id: string;
+          display_name?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["coupon_curators"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      coupons: {
+        Row: {
+          id: string;
+          curator_profile_id: string;
+          curator_display_name: string | null;
+          category_id: string | null;
+          title: string;
+          body: string;
+          image_url: string | null;
+          link_url: string | null;
+          promo_code: string | null;
+          status: "published" | "archived";
+          source: "direct" | "submission";
+          source_submission_id: string | null;
+          published_at: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          curator_profile_id: string;
+          curator_display_name?: string | null;
+          category_id?: string | null;
+          title: string;
+          body: string;
+          image_url?: string | null;
+          link_url?: string | null;
+          promo_code?: string | null;
+          status?: "published" | "archived";
+          source?: "direct" | "submission";
+          source_submission_id?: string | null;
+          published_at?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["coupons"]["Insert"]>;
+        Relationships: [];
+      };
+      coupon_submissions: {
+        Row: {
+          id: string;
+          submitted_by_profile_id: string;
+          title: string;
+          body: string;
+          image_url: string | null;
+          link_url: string | null;
+          status: "pending" | "approved" | "rejected";
+          reviewed_by: string | null;
+          reviewed_at: string | null;
+          review_note: string | null;
+          resulting_coupon_id: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          submitted_by_profile_id: string;
+          title: string;
+          body: string;
+          image_url?: string | null;
+          link_url?: string | null;
+          status?: "pending" | "approved" | "rejected";
+          reviewed_by?: string | null;
+          reviewed_at?: string | null;
+          review_note?: string | null;
+          resulting_coupon_id?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["coupon_submissions"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      coupon_comments: {
+        Row: {
+          id: string;
+          coupon_id: string;
+          profile_id: string;
+          body: string;
+          status: "visible" | "hidden";
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          coupon_id: string;
+          profile_id: string;
+          body: string;
+          status?: "visible" | "hidden";
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["coupon_comments"]["Insert"]
+        >;
+        Relationships: [];
+      };
       entity_enrich_runs: {
         Row: {
           admin_id: string | null;
@@ -2141,6 +2251,7 @@ export type Database = {
     };
     Functions: {
       is_admin: { Args: Record<string, never>; Returns: boolean };
+      is_coupon_curator: { Args: Record<string, never>; Returns: boolean };
       owns_business: { Args: { p_business_id: string }; Returns: boolean };
       hide_own_review: { Args: { p_review_id: string }; Returns: undefined };
       create_verification_session: {

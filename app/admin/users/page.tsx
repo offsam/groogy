@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { AdminUsersPanel } from "@/components/admin/AdminUsersPanel";
 import { getAdminUsers } from "@/lib/admin/queries";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import { userIsAdmin } from "@/lib/reviews/queries";
 
 export const metadata: Metadata = {
@@ -32,6 +33,15 @@ export default async function AdminUsersPage() {
     loadError = err instanceof Error ? err.message : "Не удалось загрузить";
   }
 
+  let couponCuratorIds: string[] = [];
+  try {
+    const catalog = createServiceRoleClient();
+    const { data } = await catalog.from("coupon_curators").select("profile_id");
+    couponCuratorIds = (data ?? []).map((r) => r.profile_id);
+  } catch {
+    couponCuratorIds = [];
+  }
+
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
@@ -39,8 +49,9 @@ export default async function AdminUsersPage() {
           Админы и пользователи
         </h1>
         <p className="mt-2 text-slate-500">
-          Назначьте или снимите роль администратора. Нельзя снять права у себя
-          и нельзя удалить последнего админа.
+          Назначьте или снимите роль администратора, или права куратора
+          раздела «Купонинг». Нельзя снять права у себя и нельзя удалить
+          последнего админа.
         </p>
       </div>
 
@@ -49,7 +60,11 @@ export default async function AdminUsersPage() {
           {loadError}
         </div>
       ) : (
-        <AdminUsersPanel currentUserId={user.id} users={users} />
+        <AdminUsersPanel
+          couponCuratorIds={couponCuratorIds}
+          currentUserId={user.id}
+          users={users}
+        />
       )}
     </div>
   );

@@ -1,0 +1,41 @@
+name: Claude auto-fix (error reports)
+
+# Triggered by the admin "Почини" button (lib/error-reports/actions.ts):
+# it opens a GitHub issue from a user-submitted error report, then posts a
+# follow-up comment mentioning @claude. This workflow picks that up, reads
+# the codebase, makes a minimal fix, and opens a PR for human review.
+# It never merges or deploys anything itself — see the system prompt below.
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened, assigned]
+
+jobs:
+  claude:
+    if: |
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code
+        id: claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 30
+            --system-prompt "This is a live production app (groogy.vercel.app) with real user data in Supabase. Investigate the bug reported in this issue, make the smallest safe fix, and open a Pull Request. Do NOT merge, do NOT push directly to main, do NOT deploy. If the fix touches RLS, auth, visibility/status filters, or payment/contact-reveal logic, stop and explain in the PR description instead of guessing. Match existing code conventions (see CLAUDE.md if present). Run `npx tsc --noEmit` before opening the PR and mention the result in the PR description."

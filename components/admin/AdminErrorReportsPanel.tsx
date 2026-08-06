@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import {
+  triggerErrorReportAutofixAction,
   updateErrorReportStatusAction,
   type PlatformErrorReportRow,
 } from "@/lib/error-reports/actions";
@@ -40,6 +41,7 @@ export function AdminErrorReportsPanel({
   const [busyId, setBusyId] = useState<string | null>(null);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
+  const [autofixMessage, setAutofixMessage] = useState<string | null>(null);
 
   function setStatus(id: string, status: PlatformErrorReportStatus) {
     setError(null);
@@ -59,6 +61,22 @@ export function AdminErrorReportsPanel({
     });
   }
 
+  function autofix(id: string) {
+    setError(null);
+    setAutofixMessage(null);
+    setBusyId(id);
+    startTransition(async () => {
+      const result = await triggerErrorReportAutofixAction({ id });
+      setBusyId(null);
+      if (!result.ok) {
+        setError(result.message);
+        return;
+      }
+      setAutofixMessage(result.message ?? "Issue создан.");
+      router.refresh();
+    });
+  }
+
   if (reports.length === 0) {
     return (
       <p className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
@@ -74,6 +92,11 @@ export function AdminErrorReportsPanel({
       {error ? (
         <p className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
           {error}
+        </p>
+      ) : null}
+      {autofixMessage ? (
+        <p className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+          {autofixMessage}
         </p>
       ) : null}
       <ul className="space-y-4">
@@ -143,6 +166,29 @@ export function AdminErrorReportsPanel({
                   }
                 />
               </label>
+
+              {report.githubIssueUrl ? (
+                <p className="mt-3 text-sm">
+                  <Link
+                    className="text-brand-blue hover:underline"
+                    href={report.githubIssueUrl}
+                    target="_blank"
+                  >
+                    Issue на GitHub →
+                  </Link>
+                </p>
+              ) : (
+                <div className="mt-3">
+                  <Button
+                    disabled={busy}
+                    type="button"
+                    variant="secondary"
+                    onClick={() => autofix(report.id)}
+                  >
+                    {busy ? "Создаю issue…" : "Почини (Claude → PR)"}
+                  </Button>
+                </div>
+              )}
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {report.status !== "reviewed" ? (

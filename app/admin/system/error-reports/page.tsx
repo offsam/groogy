@@ -57,6 +57,19 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
           Сообщения с плавающей кнопки «Ошибка»: текст и страница, с которой
           отправили.
         </p>
+        <p className="mt-2 max-w-2xl text-sm text-slate-500">
+          Кнопка «Почини» создаёт GitHub Issue с текстом репорта и упоминанием{" "}
+          <code className="text-xs">@claude</code> — это запускает воркфлоу{" "}
+          <code className="text-xs">.github/workflows/claude-fix.yml</code>,
+          который читает код, вносит правку и открывает Pull Request на
+          ревью. Ничего не мержится и не деплоится автоматически. Чтобы
+          кнопка заработала: 1) поставьте GitHub-приложение Claude на
+          репозиторий (github.com/apps/claude), 2) добавьте секрет{" "}
+          <code className="text-xs">ANTHROPIC_API_KEY</code> в GitHub Actions,
+          3) добавьте переменную{" "}
+          <code className="text-xs">GITHUB_ISSUES_TOKEN</code> (fine-grained
+          PAT с правом Issues: write на этот репозиторий) в Vercel.
+        </p>
       </div>
 
       <div className="flex flex-wrap gap-2">

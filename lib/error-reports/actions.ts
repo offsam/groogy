@@ -23,7 +23,12 @@ export type PlatformErrorReportRow = {
   reviewedBy: string | null;
   reviewedAt: string | null;
   createdAt: string;
+  githubIssueUrl: string | null;
+  autofixRequestedAt: string | null;
 };
+
+/** owner/repo this app's source lives in — used only for the auto-fix issue. */
+const AUTOFIX_REPO = "offsam/groogy";
 
 const STATUSES: PlatformErrorReportStatus[] = [
   "open",
@@ -148,7 +153,7 @@ export async function listErrorReportsAction(input?: {
   let query = supabase
     .from("platform_error_reports")
     .select(
-      "id, message, page_path, page_url, user_id, user_agent, status, admin_note, reviewed_by, reviewed_at, created_at",
+      "id, message, page_path, page_url, user_id, user_agent, status, admin_note, reviewed_by, reviewed_at, created_at, github_issue_url, autofix_requested_at",
     )
     .order("created_at", { ascending: false })
     .limit(200);
@@ -181,8 +186,112 @@ export async function listErrorReportsAction(input?: {
       reviewedBy: row.reviewed_by,
       reviewedAt: row.reviewed_at,
       createdAt: row.created_at,
+      githubIssueUrl: row.github_issue_url,
+      autofixRequestedAt: row.autofix_requested_at,
     })),
   };
+}
+
+/**
+ * Admin clicks "Почини" on a report: files a GitHub issue + a follow-up
+ * comment mentioning @claude, which triggers the claude-code-action
+ * workflow (.github/workflows/claude-fix.yml) to investigate and open a
+ * PR. Nothing here touches production directly — it only ever produces a
+ * PR for a human to review and merge.
+ *
+ * Requires the GITHUB_ISSUES_TOKEN env var (fine-grained PAT, Issues:
+ * write, scoped to this repo only) — see docs/architecture or the admin
+ * page copy for setup steps. Missing token fails loudly but never crashes
+ * the page (same "missing env must never take the whole site down"
+ * pattern used elsewhere in this app).
+ */
+export async function triggerErrorReportAutofixAction(input: {
+  id: string;
+}): Promise<ErrorReportActionResult> {
+  const { supabase, user, error } = await requireAdmin();
+  if (error || !user) return error ?? fail("Нужно войти в аккаунт.");
+
+  const token = process.env.GITHUB_ISSUES_TOKEN?.trim();
+  if (!token) {
+    return fail(
+      "GITHUB_ISSUES_TOKEN не настроен в переменных окружения Vercel. См. инструкцию на этой странице.",
+    );
+  }
+
+  const { data: report, error: fetchError } = await supabase
+    .from("platform_error_reports")
+    .select("id, message, page_path, page_url, github_issue_url")
+    .eq("id", input.id)
+    .maybeSingle();
+  if (fetchError || !report) return fail("Репорт не найден.");
+  if (report.github_issue_url) {
+    return fail("Issue уже создан для этого репорта.");
+  }
+
+  const rateKey = `error-report-autofix:${user.id}`;
+  const limited = consumeRateLimit(rateKey, { limit: 20, windowMs: 60 * 60 * 1000 });
+  if (!limited.ok) {
+    return fail("Слишком много запросов на автопочинку. Подождите немного.");
+  }
+
+  const title = `[auto-fix] ${report.message.slice(0, 80).replace(/\s+/g, " ").trim()}`;
+  const body = [
+    `Репорт с сайта, страница: \`${report.page_path}\``,
+    report.page_url ? `URL: ${report.page_url}` : null,
+    "",
+    "Описание от пользователя:",
+    "> " + report.message.replace(/\n/g, "\n> "),
+    "",
+    `_Admin error-report id: ${report.id}_`,
+  ]
+    .filter((x): x is string => x !== null)
+    .join("\n");
+
+  const ghHeaders = {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    "Content-Type": "application/json",
+  };
+
+  try {
+    const issueRes = await fetch(
+      `https://api.github.com/repos/${AUTOFIX_REPO}/issues`,
+      { method: "POST", headers: ghHeaders, body: JSON.stringify({ title, body }) },
+    );
+    if (!issueRes.ok) {
+      const text = await issueRes.text().catch(() => "");
+      return fail(`GitHub API отказал (${issueRes.status}): ${text.slice(0, 300)}`);
+    }
+    const issue = (await issueRes.json()) as { html_url: string; number: number };
+
+    // Separate comment (not the issue body) so the @claude mention lands
+    // as an issue_comment event, matching the documented default trigger.
+    await fetch(
+      `https://api.github.com/repos/${AUTOFIX_REPO}/issues/${issue.number}/comments`,
+      {
+        method: "POST",
+        headers: ghHeaders,
+        body: JSON.stringify({
+          body: "@claude почини эту ошибку. Разберись в причине, внеси минимально необходимую правку и открой Pull Request — не мержи и не деплой сам.",
+        }),
+      },
+    );
+
+    await supabase
+      .from("platform_error_reports")
+      .update({
+        github_issue_url: issue.html_url,
+        autofix_requested_by: user.id,
+        autofix_requested_at: new Date().toISOString(),
+      })
+      .eq("id", report.id);
+
+    revalidatePath("/admin/system/error-reports");
+    return ok(`Issue создан: ${issue.html_url}`);
+  } catch (e) {
+    return fail(e instanceof Error ? e.message : "Не удалось создать issue.");
+  }
 }
 
 export async function updateErrorReportStatusAction(input: {

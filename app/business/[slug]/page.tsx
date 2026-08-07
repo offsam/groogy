@@ -24,7 +24,7 @@ import {
 import {
   getActiveCategories,
   getApprovedBusinesses,
-  getBusinessBySlug,
+  getCachedBusinessBySlug,
   searchBusinesses,
 } from "@/lib/supabase/queries";
 import {
@@ -55,8 +55,7 @@ export async function generateMetadata({
   params,
 }: BusinessPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const catalog = createServiceRoleClient();
-  const business = await getBusinessBySlug(catalog, slug);
+  const business = await getCachedBusinessBySlug(slug);
   if (!business) return { title: "Бизнес не найден" };
 
   const description =
@@ -89,7 +88,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
   const hubIds = serializeHubIds(activeHubs.map((h) => h.id));
   const client = await createServerClient();
   const catalog = createServiceRoleClient();
-  const fullBusiness = await getBusinessBySlug(catalog, slug);
+  const fullBusiness = await getCachedBusinessBySlug(slug);
   if (!fullBusiness) notFound();
 
   const {

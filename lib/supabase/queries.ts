@@ -13,7 +13,10 @@ import {
 import {
   CATALOG_CACHE_TAGS,
   CATALOG_CACHE_TTL,
+  ENTITY_DETAIL_TTL,
+  businessDetailTag,
 } from "@/lib/platform/catalog-cache";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import {
   getRegionHubsByIds,
   locationFieldsMatchHub,
@@ -817,6 +820,29 @@ export async function getBusinessBySlug(
 
   if (error) throw error;
   return data ? mapBusinessDetail(data as unknown as BusinessWithCategory) : null;
+}
+
+/**
+ * Cached read for the public `/business/[slug]` route (approved-only, same
+ * shape as getBusinessBySlug). Own service-role client + slug-only key so
+ * generateMetadata and the page body share one Data Cache entry instead of
+ * hitting Postgres twice per request. Owner/admin mutations must call
+ * revalidateTag(businessDetailTag(slug)) so edits show up immediately —
+ * the 45s TTL is just the fallback if a call site is ever missed.
+ */
+export function getCachedBusinessBySlug(slug: string): Promise<Business | null> {
+  const normalized = normalizeRouteSlug(slug);
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getBusinessBySlug(catalog, normalized);
+    },
+    ["business-detail-v1", normalized],
+    {
+      revalidate: ENTITY_DETAIL_TTL,
+      tags: [businessDetailTag(normalized)],
+    },
+  )();
 }
 
 /** Owner/admin read — any status (RLS-gated). */

@@ -1,6 +1,7 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { professionalDetailTag } from "@/lib/platform/catalog-cache";
 import { normalizeTelegramInput } from "@/lib/business/presence";
 import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
 import { slugifyProfessionalName } from "@/lib/professional/mappers";
@@ -202,6 +203,7 @@ export async function createProfessionalAction(
 
   revalidatePath("/professionals");
   revalidatePath(`/professional/${data.slug}`);
+  revalidateTag(professionalDetailTag(data.slug));
   return { ok: true, slug: data.slug };
 }
 
@@ -286,6 +288,7 @@ export async function updateProfessionalAction(
 
   revalidatePath("/professionals");
   revalidatePath(`/professional/${data.slug}`);
+  revalidateTag(professionalDetailTag(data.slug));
   return { ok: true, slug: data.slug };
 }
 

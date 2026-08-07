@@ -5,8 +5,8 @@ import { listPublishedCommunityMentionsForProfessional } from "@/lib/community-m
 import { thirdPartySourceUrlsFromMentions } from "@/lib/community-mentions/source-urls";
 import { getCityCenter } from "@/lib/geo/city-center";
 import {
+  getCachedProfessionalBySlug,
   getOwnedProfessionalBySlug,
-  getProfessionalBySlug,
   getProfessionalServices,
   userOwnsProfessional,
 } from "@/lib/professional/queries";
@@ -31,8 +31,7 @@ const SITE_URL =
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const catalog = createServiceRoleClient();
-  const professional = await getProfessionalBySlug(catalog, slug);
+  const professional = await getCachedProfessionalBySlug(slug);
   if (!professional) return { title: "Специалист не найден" };
   return {
     title: `${professional.displayName} — КРУГИ`,
@@ -56,7 +55,7 @@ export default async function ProfessionalPage({ params, searchParams }: PagePro
     initialProfessional,
   ] = await Promise.all([
     client.auth.getUser(),
-    getProfessionalBySlug(catalog, slug),
+    getCachedProfessionalBySlug(slug),
   ]);
 
   let professional = initialProfessional;

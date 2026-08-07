@@ -1,10 +1,16 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import {
   mapProfessionalOwner,
   mapProfessionalPublic,
   mapProfessionalService,
   deriveProfessionalSourceKind,
 } from "@/lib/professional/mappers";
+import {
+  ENTITY_DETAIL_TTL,
+  professionalDetailTag,
+} from "@/lib/platform/catalog-cache";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import {
   getRegionHubsByIds,
   isUsaOverviewHub,
@@ -248,6 +254,30 @@ export async function getProfessionalBySlug(
   }
 
   return professional;
+}
+
+/**
+ * Cached read for the public `/professional/[slug]` route. Own service-role
+ * client + slug-only key so generateMetadata and the page body share one
+ * Data Cache entry. Owner/admin mutations must call
+ * revalidateTag(professionalDetailTag(slug)) for immediate reflection —
+ * the 45s TTL is only the fallback.
+ */
+export function getCachedProfessionalBySlug(
+  slug: string,
+): Promise<Professional | null> {
+  const normalized = normalizeRouteSlug(slug);
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getProfessionalBySlug(catalog, normalized);
+    },
+    ["professional-detail-v1", normalized],
+    {
+      revalidate: ENTITY_DETAIL_TTL,
+      tags: [professionalDetailTag(normalized)],
+    },
+  )();
 }
 
 async function enrichEmployerFromBusinessId(

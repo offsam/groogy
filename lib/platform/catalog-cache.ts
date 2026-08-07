@@ -41,3 +41,19 @@ export function catalogAggregateCacheControl(
 ): string {
   return `public, s-maxage=${sMaxAge}, stale-while-revalidate=${swr}`;
 }
+
+/**
+ * Per-entity detail-page cache tags (business/professional `/[slug]` routes).
+ * Short TTL is the safety net; owner/admin mutations should also call
+ * revalidateTag(...) with these so edits reflect immediately instead of
+ * waiting out the TTL.
+ */
+export const ENTITY_DETAIL_TTL = 45;
+
+export function businessDetailTag(slug: string): string {
+  return `business-detail:${slug}`;
+}
+
+export function professionalDetailTag(slug: string): string {
+  return `professional-detail:${slug}`;
+}

@@ -1,7 +1,8 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
+import { businessDetailTag } from "@/lib/platform/catalog-cache";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import {
   normalizeStructuredAddress,
@@ -104,6 +105,7 @@ export async function adminDeleteBusinessAction(input: {
   revalidatePath("/search");
   if (input.slug) {
     revalidatePath(`/business/${input.slug}`);
+    revalidateTag(businessDetailTag(input.slug));
   }
   return ok("Бизнес скрыт (архив).");
 }
@@ -220,6 +222,7 @@ export async function adminUpsertBusinessAction(input: {
   revalidatePath("/admin");
   revalidatePath("/");
   revalidatePath(`/business/${input.slug}`);
+  revalidateTag(businessDetailTag(input.slug));
   return ok(
     input.id ? "Бизнес обновлён." : "Бизнес создан.",
     typeof data === "string" ? data : undefined,

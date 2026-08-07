@@ -96,7 +96,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, isAdmin, alreadyClaimed, similarPool, communityMentions, locations, categories, promotions, updates, following, events] =
+  const [offers, published, owns, isAdmin, alreadyClaimed, similarPool, communityMentions, locations, categories, promotions, updates, following, events, publicJobs, employees] =
     await Promise.all([
     getPublicOffersForBusiness(client, fullBusiness.id, {
       businessSlug: fullBusiness.slug,
@@ -122,16 +122,22 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         )
       : Promise.resolve(false),
     listPublishedEventsForBusiness(catalog, fullBusiness.id).catch(() => []),
+    // Public-only jobs fetched here so the common (non-owner) path never
+    // waits on a second sequential round trip after this batch resolves.
+    listJobsForBusiness(catalog, fullBusiness.id, { includeDrafts: false }).catch(
+      () => [],
+    ),
+    listEmployeesForBusiness(catalog, fullBusiness.id).catch(() => []),
   ]);
 
   const canManageEarly = owns || isAdmin;
-  const jobs = await listJobsForBusiness(catalog, fullBusiness.id, {
-    includeDrafts: canManageEarly,
-  }).catch(() => []);
-  const employees = await listEmployeesForBusiness(
-    catalog,
-    fullBusiness.id,
-  ).catch(() => []);
+  // Owners/admins additionally see drafts — one extra round trip, but only
+  // for that small slice of traffic instead of every visitor.
+  const jobs = canManageEarly
+    ? await listJobsForBusiness(catalog, fullBusiness.id, {
+        includeDrafts: true,
+      }).catch(() => publicJobs)
+    : publicJobs;
 
   let myReview = null;
   let mySession: ReviewVerificationSession | null = null;

@@ -361,7 +361,7 @@ export async function POST(request: Request) {
   }
 
   const ip = clientIpFromRequest(request);
-  const limited = consumeRateLimit(`ai-search:${ip}`, {
+  const limited = await consumeRateLimit(`ai-search:${ip}`, {
     limit: AI_RATE_LIMIT,
     windowMs: AI_RATE_WINDOW_MS,
   });

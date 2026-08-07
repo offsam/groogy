@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
   // Coarse abuse guard — this is a fixed secret, but rotate-and-forget
   // beats an unbounded loop against the DB if the secret ever leaks.
-  const limited = consumeRateLimit("claude-fix-webhook", {
+  const limited = await consumeRateLimit("claude-fix-webhook", {
     limit: 60,
     windowMs: 60 * 60 * 1000,
   });

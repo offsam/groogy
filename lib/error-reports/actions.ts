@@ -110,7 +110,7 @@ export async function submitErrorReportAction(input: {
   } = await supabase.auth.getUser();
 
   const rateKey = `error-report:${user?.id ?? "anon"}:${pagePath.slice(0, 80)}`;
-  const limited = consumeRateLimit(rateKey, {
+  const limited = await consumeRateLimit(rateKey, {
     limit: 5,
     windowMs: 10 * 60 * 1000,
   });
@@ -233,7 +233,7 @@ export async function triggerErrorReportAutofixAction(input: {
   }
 
   const rateKey = `error-report-autofix:${user.id}`;
-  const limited = consumeRateLimit(rateKey, { limit: 20, windowMs: 60 * 60 * 1000 });
+  const limited = await consumeRateLimit(rateKey, { limit: 20, windowMs: 60 * 60 * 1000 });
   if (!limited.ok) {
     return fail("Слишком много запросов на автопочинку. Подождите немного.");
   }

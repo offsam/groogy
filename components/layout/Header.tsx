@@ -5,6 +5,7 @@ import { Shield } from "lucide-react";
 import { BrandMark } from "@/components/brand/BrandMark";
 import { HeaderAuth, HeaderGuestAuth } from "@/components/auth/HeaderAuth";
 import { HeaderRegionChip } from "@/components/layout/HeaderRegionChip";
+import { HeaderSupportButton } from "@/components/support/HeaderSupportButton";
 import { SearchBar } from "@/components/search/SearchBar";
 import { BRAND_NAME } from "@/lib/brand";
 import { getBrandLocationForProfile } from "@/lib/brand/location";
@@ -100,6 +101,9 @@ export async function Header() {
               <span className="hidden sm:inline">Админ</span>
             </Link>
           ) : null}
+          <Suspense fallback={null}>
+            <HeaderSupportButton />
+          </Suspense>
           {isAuthenticated ? (
             <HeaderAuth
               displayName={displayName}

@@ -11,6 +11,7 @@ import { normalizeUsZip } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 import { isPlaceholderBusinessImage } from "@/lib/business/media";
 import { trackResourceOpen } from "@/lib/platform/engagement";
+import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { Business } from "@/types/business";
 
 type BusinessCardProps = {
@@ -156,19 +157,27 @@ export function BusinessCard({
   }
 
   return (
-    <Link
-      className={className}
-      href={`/business/${business.slug}`}
-      onClick={() => {
-        trackResourceOpen({
-          kind: "business",
-          id: business.id,
-          pathId: business.slug,
-        });
-        onSelect?.(business.id);
-      }}
-    >
-      {body}
-    </Link>
+    <div className="relative">
+      <Link
+        className={className}
+        href={`/business/${business.slug}`}
+        onClick={() => {
+          trackResourceOpen({
+            kind: "business",
+            id: business.id,
+            pathId: business.slug,
+          });
+          onSelect?.(business.id);
+        }}
+      >
+        {body}
+      </Link>
+      <ReportEntityButton
+        className="absolute right-2 top-2"
+        entityId={business.id}
+        entityName={business.name}
+        entityType="business"
+      />
+    </div>
   );
 }

@@ -15,6 +15,7 @@ import {
   jobHref,
 } from "@/lib/jobs/mappers";
 import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
+import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { Job } from "@/types/job";
 
 type JobCardProps = {
@@ -85,10 +86,16 @@ export function JobCard({ job, preview = false }: JobCardProps) {
   }
 
   return (
-    <article className="overflow-hidden rounded-xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+    <article className="relative overflow-hidden rounded-xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
       <Link className="block" href={href}>
         {body}
       </Link>
+      <ReportEntityButton
+        className="absolute right-2 top-2"
+        entityId={job.id}
+        entityName={job.title}
+        entityType="job"
+      />
     </article>
   );
 }

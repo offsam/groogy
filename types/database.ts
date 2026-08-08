@@ -1564,6 +1564,10 @@ export type Database = {
           autofix_requested_at: string | null;
           autofix_summary: string | null;
           autofix_pr_url: string | null;
+          report_type: string;
+          entity_type: string | null;
+          entity_id: string | null;
+          entity_name: string | null;
         };
         Insert: {
           id?: string;
@@ -1582,6 +1586,10 @@ export type Database = {
           autofix_requested_at?: string | null;
           autofix_summary?: string | null;
           autofix_pr_url?: string | null;
+          report_type?: string;
+          entity_type?: string | null;
+          entity_id?: string | null;
+          entity_name?: string | null;
         };
         Update: Partial<
           Database["public"]["Tables"]["platform_error_reports"]["Insert"]

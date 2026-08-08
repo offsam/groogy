@@ -11,6 +11,14 @@ export type ErrorReportActionResult =
   | { ok: true; message?: string }
   | { ok: false; message: string };
 
+export type PlatformErrorReportType = "error" | "question" | "complaint";
+
+export const REPORT_TYPES: PlatformErrorReportType[] = [
+  "error",
+  "question",
+  "complaint",
+];
+
 export type PlatformErrorReportRow = {
   id: string;
   message: string;
@@ -27,6 +35,10 @@ export type PlatformErrorReportRow = {
   autofixRequestedAt: string | null;
   autofixSummary: string | null;
   autofixPrUrl: string | null;
+  reportType: PlatformErrorReportType;
+  entityType: string | null;
+  entityId: string | null;
+  entityName: string | null;
 };
 
 /** owner/repo this app's source lives in — used only for the auto-fix issue. */
@@ -85,15 +97,36 @@ async function requireAdmin() {
   return { supabase, user, error: null };
 }
 
-/** Anyone (anon or signed-in) can submit a site error report. */
+function sanitizeEntityType(raw: string | null | undefined): string | null {
+  const value = raw?.trim().slice(0, 60);
+  if (!value) return null;
+  // Loose allowlist of chars used by our route-segment/kind identifiers
+  // (e.g. "business", "professional", "real-estate") — never freeform text.
+  if (!/^[a-z0-9_-]+$/i.test(value)) return null;
+  return value;
+}
+
+function sanitizeUuid(raw: string | null | undefined): string | null {
+  const value = raw?.trim();
+  if (!value) return null;
+  const uuidRe =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  return uuidRe.test(value) ? value : null;
+}
+
+/** Anyone (anon or signed-in) can submit a site error report, question, or complaint. */
 export async function submitErrorReportAction(input: {
   message: string;
   pagePath: string;
   pageUrl?: string | null;
+  reportType?: PlatformErrorReportType;
+  entityType?: string | null;
+  entityId?: string | null;
+  entityName?: string | null;
 }): Promise<ErrorReportActionResult> {
   const message = input.message.trim();
   if (message.length < 3) {
-    return fail("Опишите ошибку чуть подробнее.");
+    return fail("Опишите чуть подробнее.");
   }
   if (message.length > 4000) {
     return fail("Сообщение слишком длинное.");
@@ -103,6 +136,14 @@ export async function submitErrorReportAction(input: {
   if (!pagePath) return fail("Некорректная страница.");
 
   const pageUrl = sanitizeUrl(input.pageUrl);
+  const reportType: PlatformErrorReportType = REPORT_TYPES.includes(
+    input.reportType as PlatformErrorReportType,
+  )
+    ? (input.reportType as PlatformErrorReportType)
+    : "error";
+  const entityType = sanitizeEntityType(input.entityType);
+  const entityId = sanitizeUuid(input.entityId);
+  const entityName = input.entityName?.trim().slice(0, 200) || null;
 
   const supabase = await createServerClient();
   const {
@@ -127,6 +168,10 @@ export async function submitErrorReportAction(input: {
     page_url: pageUrl,
     user_id: user?.id ?? null,
     user_agent: userAgent,
+    report_type: reportType,
+    entity_type: entityType,
+    entity_id: entityId,
+    entity_name: entityName,
   });
 
   if (error) {
@@ -139,6 +184,7 @@ export async function submitErrorReportAction(input: {
 
 export async function listErrorReportsAction(input?: {
   status?: PlatformErrorReportStatus | "all";
+  reportType?: PlatformErrorReportType | "all";
 }): Promise<
   | { ok: true; reports: PlatformErrorReportRow[] }
   | { ok: false; message: string; reports: [] }
@@ -155,7 +201,7 @@ export async function listErrorReportsAction(input?: {
   let query = supabase
     .from("platform_error_reports")
     .select(
-      "id, message, page_path, page_url, user_id, user_agent, status, admin_note, reviewed_by, reviewed_at, created_at, github_issue_url, autofix_requested_at, autofix_summary, autofix_pr_url",
+      "id, message, page_path, page_url, user_id, user_agent, status, admin_note, reviewed_by, reviewed_at, created_at, github_issue_url, autofix_requested_at, autofix_summary, autofix_pr_url, report_type, entity_type, entity_id, entity_name",
     )
     .order("created_at", { ascending: false })
     .limit(200);
@@ -163,6 +209,11 @@ export async function listErrorReportsAction(input?: {
   const status = input?.status ?? "open";
   if (status !== "all" && STATUSES.includes(status)) {
     query = query.eq("status", status);
+  }
+
+  const reportType = input?.reportType ?? "all";
+  if (reportType !== "all" && REPORT_TYPES.includes(reportType)) {
+    query = query.eq("report_type", reportType);
   }
 
   const { data, error: queryError } = await query;
@@ -192,6 +243,10 @@ export async function listErrorReportsAction(input?: {
       autofixRequestedAt: row.autofix_requested_at,
       autofixSummary: row.autofix_summary,
       autofixPrUrl: row.autofix_pr_url,
+      reportType: (row.report_type as PlatformErrorReportType) ?? "error",
+      entityType: row.entity_type,
+      entityId: row.entity_id,
+      entityName: row.entity_name,
     })),
   };
 }

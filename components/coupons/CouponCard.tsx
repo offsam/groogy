@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Tag, ExternalLink } from "lucide-react";
+import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { Coupon } from "@/types/coupon";
 
 export function CouponCard({ coupon }: { coupon: Coupon }) {
   return (
-    <li className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-brand-blue/40 hover:shadow-sm">
+    <li className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-brand-blue/40 hover:shadow-sm">
+      <ReportEntityButton
+        className="absolute right-2 top-2 z-10"
+        entityId={coupon.id}
+        entityName={coupon.title}
+        entityType="coupon"
+      />
       <Link className="block" href={`/coupons/${coupon.id}`}>
         {coupon.imageUrl ? (
           <div className="relative aspect-[4/3] w-full bg-slate-100">

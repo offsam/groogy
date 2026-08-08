@@ -8,6 +8,7 @@ import {
   triggerErrorReportAutofixAction,
   updateErrorReportStatusAction,
   type PlatformErrorReportRow,
+  type PlatformErrorReportType,
 } from "@/lib/error-reports/actions";
 import { Button } from "@/components/ui/Button";
 import type { PlatformErrorReportStatus } from "@/types/database";
@@ -27,6 +28,18 @@ const STATUS_STYLES: Record<PlatformErrorReportStatus, string> = {
   resolved: "bg-emerald-50 text-emerald-800 border-emerald-200",
   dismissed: "bg-slate-100 text-slate-600 border-slate-200",
   needs_attention: "bg-orange-50 text-orange-800 border-orange-200",
+};
+
+const TYPE_LABELS: Record<PlatformErrorReportType, string> = {
+  error: "Ошибка",
+  question: "Вопрос",
+  complaint: "Жалоба",
+};
+
+const TYPE_STYLES: Record<PlatformErrorReportType, string> = {
+  error: "bg-red-50 text-red-700 border-red-200",
+  question: "bg-blue-50 text-blue-700 border-blue-200",
+  complaint: "bg-purple-50 text-purple-700 border-purple-200",
 };
 
 type AdminErrorReportsPanelProps = {
@@ -116,6 +129,14 @@ export function AdminErrorReportsPanel({
                     <span
                       className={cn(
                         "inline-flex rounded-full border px-2 py-0.5 text-xs font-medium",
+                        TYPE_STYLES[report.reportType],
+                      )}
+                    >
+                      {TYPE_LABELS[report.reportType]}
+                    </span>
+                    <span
+                      className={cn(
+                        "inline-flex rounded-full border px-2 py-0.5 text-xs font-medium",
                         STATUS_STYLES[report.status],
                       )}
                     >
@@ -125,6 +146,11 @@ export function AdminErrorReportsPanel({
                       {new Date(report.createdAt).toLocaleString("ru-RU")}
                     </span>
                   </div>
+                  {report.entityName ? (
+                    <p className="truncate text-xs text-slate-500">
+                      Карточка ({report.entityType}): {report.entityName}
+                    </p>
+                  ) : null}
                   <Link
                     className="inline-flex max-w-full items-center gap-1 truncate text-sm font-medium text-brand-blue hover:underline"
                     href={report.pagePath}
@@ -199,7 +225,7 @@ export function AdminErrorReportsPanel({
                     </Link>
                   ) : null}
                 </p>
-              ) : (
+              ) : report.reportType === "error" ? (
                 <div className="mt-3">
                   <Button
                     disabled={busy}
@@ -210,7 +236,7 @@ export function AdminErrorReportsPanel({
                     {busy ? "Создаю issue…" : "Почини (Claude → PR)"}
                   </Button>
                 </div>
-              )}
+              ) : null}
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {report.status !== "reviewed" ? (

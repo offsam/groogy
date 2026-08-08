@@ -110,11 +110,15 @@ CITY_EN = {
 }
 
 CAT_RULES: list[tuple[str, re.Pattern[str]]] = [
+    # Groceries must be checked before restaurants: names like "Food Market",
+    # "European Market & Deli" or "Supermarket ... Halal Food" contain
+    # restaurant-ish words ("food", "deli", "bakery") but are grocery stores.
+    # A market/grocery word wins over those generic food words.
+    ("groceries", re.compile(r"магазин|grocery|продукт|market\b|супермаркет", re.I)),
     ("restaurants", re.compile(r"ресторан|кафе|пицц|bakery|deli|еда|food|sushi|кухн", re.I)),
     ("beauty", re.compile(r"салон|beauty|маникюр|парикмахер|nail|косметолог|барбер", re.I)),
     ("auto", re.compile(r"авто|auto|ремонт машин|автосервис|детейлинг", re.I)),
     ("medical", re.compile(r"аптек|pharmacy|clinic|медицин|стомат|dental|doctor", re.I)),
-    ("groceries", re.compile(r"магазин|grocery|продукт|market\b|супермаркет", re.I)),
     ("education", re.compile(r"школ|school|обучен|репетитор|курс", re.I)),
     ("fitness", re.compile(r"фитнес|gym|йога|спорт|танц|rhythmic", re.I)),
     ("legal", re.compile(r"юрист|адвокат|legal|нотариус", re.I)),

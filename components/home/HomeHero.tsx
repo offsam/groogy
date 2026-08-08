@@ -31,7 +31,7 @@ export function HomeHero({
   onChangeHubs,
 }: HomeHeroProps) {
   return (
-    <section className="home-hero relative isolate z-20 w-full overflow-hidden">
+    <section className="home-hero relative isolate z-20 w-full">
       <div className="home-hero-photo relative min-h-[220px] w-full sm:min-h-0 sm:h-[260px] md:h-[280px] lg:h-[300px]">
         <Image
           alt={hub.panoramaAlt}

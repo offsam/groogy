@@ -115,12 +115,45 @@ CAT_RULES: list[tuple[str, re.Pattern[str]]] = [
     # restaurant-ish words ("food", "deli", "bakery") but are grocery stores.
     # A market/grocery word wins over those generic food words.
     ("groceries", re.compile(r"магазин|grocery|продукт|market\b|супермаркет", re.I)),
-    ("restaurants", re.compile(r"ресторан|кафе|пицц|bakery|deli|еда|food|sushi|кухн", re.I)),
-    ("beauty", re.compile(r"салон|beauty|маникюр|парикмахер|nail|косметолог|барбер", re.I)),
+    # Auto must be checked before the home-renovation rule below: "ремонт
+    # машин" / "автосервис" also contain the generic "ремонт" (repair) root.
     ("auto", re.compile(r"авто|auto|ремонт машин|автосервис|детейлинг", re.I)),
+    # Home renovation / construction / interior-design / furniture must be
+    # checked before restaurants and education: contractors routinely write
+    # "ремонт кухни" (kitchen remodel) or "сборка кухни" (kitchen/cabinet
+    # assembly), and interior designers list restaurants among the client
+    # types they decorate. "кухня" alone is ambiguous — it means both
+    # "cuisine" and "kitchen the room" — so a construction/furniture signal
+    # must win before the bare word is read as a restaurant.
+    (
+        "services",
+        re.compile(
+            r"ремонт|строительн|отделк|перепланировк|подрядчик|сантехник|"
+            r"электрик|плитк|шпаклев|гипсокартон|сборк|мебел|кабинет|шкаф|"
+            r"remodel|renovation|contractor|construction|handyman|"
+            r"дизайн интерьер|интерьерн|cabinet|furniture",
+            re.I,
+        ),
+    ),
+    (
+        "restaurants",
+        re.compile(
+            r"ресторан|restaurant|кафе|пицц|bakery|deli|\bеда\b|food|sushi|"
+            r"кухн|cuisine",
+            re.I,
+        ),
+    ),
+    ("beauty", re.compile(r"салон|beauty|маникюр|парикмахер|nail|косметолог|барбер", re.I)),
     ("medical", re.compile(r"аптек|pharmacy|clinic|медицин|стомат|dental|doctor", re.I)),
-    ("education", re.compile(r"школ|school|обучен|репетитор|курс", re.I)),
-    ("fitness", re.compile(r"фитнес|gym|йога|спорт|танц|rhythmic", re.I)),
+    (
+        "education",
+        re.compile(
+            r"школ|school|обучен|репетитор|курс|детск.{0,10}сад|daycare|"
+            r"kids academy",
+            re.I,
+        ),
+    ),
+    ("fitness", re.compile(r"фитнес|gym|йога|\bспорт|танц|rhythmic", re.I)),
     ("legal", re.compile(r"юрист|адвокат|legal|нотариус", re.I)),
     ("finance", re.compile(r"бухгалтер|tax|налог|консалтинг|consult", re.I)),
     ("real_estate", re.compile(r"риелтор|недвижим|realtor", re.I)),

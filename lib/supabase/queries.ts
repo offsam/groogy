@@ -31,6 +31,7 @@ import { distanceKm } from "@/lib/geo/distance";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
+import { normalizeUsStateCode } from "@/lib/geo/us-state-centroids";
 
 type Client = SupabaseClient<Database>;
 
@@ -674,30 +675,33 @@ export async function getHomeMapPins(
 
   if (hubs && hubs.length > 0) {
     const limitPerHub = options.limitPerHub ?? 500;
-    const hubKey = hubs.map((h) => h.id).join(",");
 
-    return unstable_cache(
-      async () => {
+    // Cache each hub's slice separately (not one combined blob) — a 5-hub
+    // combined payload can exceed Next's 2MB per-item data-cache limit, which
+    // silently fails to cache and forces every request to redo the full
+    // 5-hub x 3-table Supabase fan-out + re-serialize ~3MB of JSON. That
+    // repeated work was spiking function memory to the point of OOM kills
+    // on "/", which is why the map sometimes loads slow with no pins.
+    const batches = await Promise.all(
+      hubs.map((hub) =>
         // Caller should pass a catalog-capable client (service role on server pages).
-        const batches = await Promise.all(
-          hubs.map((hub) =>
-            fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
-          ),
-        );
-        const byKey = new Map<string, HomeMapPin>();
-        for (const batch of batches) {
-          for (const pin of batch) {
-            byKey.set(`${pin.kind}:${pin.id}`, pin);
-          }
-        }
-        return [...byKey.values()];
-      },
-      ["home-map-pins-v1", hubKey, String(limitPerHub)],
-      {
-        revalidate: CATALOG_CACHE_TTL.homeMapPins,
-        tags: [CATALOG_CACHE_TAGS.homeMapPins],
-      },
-    )();
+        unstable_cache(
+          () => fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+          ["home-map-pins-v2", hub.id, String(limitPerHub)],
+          {
+            revalidate: CATALOG_CACHE_TTL.homeMapPins,
+            tags: [CATALOG_CACHE_TAGS.homeMapPins],
+          },
+        )(),
+      ),
+    );
+    const byKey = new Map<string, HomeMapPin>();
+    for (const batch of batches) {
+      for (const pin of batch) {
+        byKey.set(`${pin.kind}:${pin.id}`, pin);
+      }
+    }
+    return [...byKey.values()];
   }
 
   return fetchHomeMapPinsSlice(client, options.limit ?? 800);
@@ -776,6 +780,91 @@ export async function getAllHomeMapPins(
     if (pin) pins.push(pin);
   }
   return pins;
+}
+
+type StateCodeOnlyRow = { state_code: string | null };
+
+async function fetchStateCodesOnly(
+  client: Client,
+  table: "businesses" | "professionals" | "churches",
+  addressColumn: string,
+  limit: number,
+  offset: number,
+): Promise<StateCodeOnlyRow[]> {
+  const untyped = client as unknown as SupabaseClient;
+  const { data, error } = await untyped
+    .from(table)
+    .select("state_code")
+    .eq("status", "approved")
+    .not(addressColumn, "is", null)
+    .not("latitude", "is", null)
+    .not("longitude", "is", null)
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) throw error;
+  return (data ?? []) as StateCodeOnlyRow[];
+}
+
+export type HomeMapStateCount = { stateCode: string; count: number };
+
+/**
+ * Nationwide pin counts per state — only the `state_code` column, no
+ * listing-card fields. Lets the guest USA-overview map paint accurate
+ * cluster bubbles instantly instead of waiting on `getAllHomeMapPins`,
+ * which ships full business/professional/church detail for every row
+ * and can take several seconds nationwide.
+ */
+export async function getHomeMapStateCounts(
+  client: Client,
+): Promise<HomeMapStateCount[]> {
+  return unstable_cache(
+    async () => {
+      const pageSize = 1000;
+      const maxRows = 20000;
+      const [bizRows, proRows, churchRows] = await Promise.all([
+        fetchAllRows(
+          (limit, offset) =>
+            fetchStateCodesOnly(client, "businesses", "address_line", limit, offset),
+          pageSize,
+          maxRows,
+        ),
+        fetchAllRows(
+          (limit, offset) =>
+            fetchStateCodesOnly(
+              client,
+              "professionals",
+              "private_address_line",
+              limit,
+              offset,
+            ),
+          pageSize,
+          maxRows,
+        ),
+        fetchAllRows(
+          (limit, offset) =>
+            fetchStateCodesOnly(client, "churches", "address_line", limit, offset),
+          pageSize,
+          maxRows,
+        ),
+      ]);
+
+      const counts = new Map<string, number>();
+      for (const row of [...bizRows, ...proRows, ...churchRows]) {
+        const code = normalizeUsStateCode(row.state_code);
+        if (!code) continue;
+        counts.set(code, (counts.get(code) ?? 0) + 1);
+      }
+      return [...counts.entries()].map(([stateCode, count]) => ({
+        stateCode,
+        count,
+      }));
+    },
+    ["home-map-state-counts-v1"],
+    {
+      revalidate: CATALOG_CACHE_TTL.homeMapStateCounts,
+      tags: [CATALOG_CACHE_TAGS.homeMapStateCounts],
+    },
+  )();
 }
 
 /** @deprecated prefer getHomeMapPins */

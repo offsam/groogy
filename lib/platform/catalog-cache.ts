@@ -7,6 +7,7 @@ export const CATALOG_CACHE_TAGS = {
   hubResourceStats: "hub-resource-stats",
   popularHome: "popular-home",
   homeMapPins: "home-map-pins",
+  homeMapStateCounts: "home-map-state-counts",
   hubCategoryCounts: "hub-category-counts",
 } as const;
 
@@ -26,6 +27,7 @@ export const CATALOG_CACHE_TTL = {
   hubResourceStats: 60,
   popularHome: 300,
   homeMapPins: 300,
+  homeMapStateCounts: 300,
   hubCategoryCounts: 60,
 } as const;
 

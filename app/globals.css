@@ -341,27 +341,40 @@ a {
   filter: drop-shadow(0 2px 6px rgba(31, 111, 229, 0.45));
 }
 
-.home-map-state-cluster {
+.home-map-state-count {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
-  border: 2.5px solid rgba(255, 255, 255, 0.95);
-  background: color-mix(in srgb, var(--brand-blue) 92%, white);
-  color: #fff;
+  height: 22px;
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
   line-height: 1;
-  box-shadow:
-    0 4px 14px rgba(15, 23, 42, 0.22),
-    0 0 0 1px color-mix(in srgb, var(--brand-blue) 35%, transparent);
+  white-space: nowrap;
+  color: #12468f;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff,
+    0 0 6px rgba(255, 255, 255, 0.9);
   cursor: pointer;
   transition: transform 120ms ease;
 }
 
-.home-map-state-cluster:hover {
-  transform: scale(1.06);
-  background: var(--brand-blue);
+.home-map-state-count--light {
+  color: #fff;
+  text-shadow:
+    -1px -1px 0 #12468f,
+    1px -1px 0 #12468f,
+    -1px 1px 0 #12468f,
+    1px 1px 0 #12468f,
+    0 0 6px rgba(18, 70, 143, 0.9);
+}
+
+.home-map-state-count:hover {
+  transform: scale(1.1);
 }
 
 /* Keep zoom controls above the soft edge fade */

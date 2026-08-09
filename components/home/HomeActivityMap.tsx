@@ -12,7 +12,7 @@ import {
   zoomToFitBounds,
 } from "@/lib/regions/hubs";
 import { MapAttribution } from "@/components/map/MapAttribution";
-import type { HomeMapPin } from "@/lib/supabase/queries";
+import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
 import { cn } from "@/lib/utils";
 
 type HomeActivityMapProps = {
@@ -61,6 +61,9 @@ export function HomeActivityMap({
     top: number;
   } | null>(null);
   const [nationalPins, setNationalPins] = useState<HomeMapPin[] | null>(null);
+  const [stateCounts, setStateCounts] = useState<HomeMapStateCount[] | null>(
+    null,
+  );
   const selectedHubs = hubs && hubs.length > 0 ? hubs : [hub];
   const hubsKey = nationalOverview
     ? "usa-overview"
@@ -70,6 +73,25 @@ export function HomeActivityMap({
 
   const needsNationwidePins =
     nationalOverview || selectedHubs.some((h) => isStateHub(h));
+
+  // Tiny per-state counts land first so the map paints cluster bubbles
+  // immediately instead of sitting blank while the full nationwide fetch
+  // (below) — which ships full listing-card data for every pin — resolves.
+  useEffect(() => {
+    if (!needsNationwidePins || stateCounts) return;
+    let cancelled = false;
+    fetch("/api/home-map-state-counts")
+      .then((res) => (res.ok ? res.json() : { counts: [] }))
+      .then((data: { counts?: HomeMapStateCount[] }) => {
+        if (!cancelled) setStateCounts(data.counts ?? []);
+      })
+      .catch(() => {
+        if (!cancelled) setStateCounts([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [needsNationwidePins, stateCounts]);
 
   // SSR ships metro hub pins; USA / whole-state views need the full catalog.
   useEffect(() => {
@@ -87,6 +109,10 @@ export function HomeActivityMap({
       cancelled = true;
     };
   }, [needsNationwidePins, nationalPins]);
+
+  // True once the nationwide pin fetch has resolved (or was never needed) —
+  // until then the canvas falls back to the lightweight state-count clusters.
+  const pinsLoaded = !needsNationwidePins || nationalPins !== null;
 
   const mergedHub = useMemo(
     () => (nationalOverview ? hub : mergeHubsForMap(selectedHubs)),
@@ -151,6 +177,8 @@ export function HomeActivityMap({
               onCardPoint={setCardPoint}
               onSelect={onSelect}
               pins={hubPins}
+              pinsLoaded={pinsLoaded}
+              stateCountsFallback={needsNationwidePins ? stateCounts : null}
               selectedPin={selectedInHub}
             />
 

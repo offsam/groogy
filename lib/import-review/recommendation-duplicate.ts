@@ -59,6 +59,35 @@ function normName(raw: string | null | undefined): string {
     .slice(0, 80);
 }
 
+function normCity(raw: string | null | undefined): string {
+  return (raw || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^\p{L}\p{N}]+/gu, "")
+    .trim();
+}
+
+/**
+ * True when two city strings are both present and clearly refer to
+ * different places (no shared token either way). Common Russian first
+ * names/surnames repeat across every diaspora metro — a name-only "weak"
+ * match with no other overlapping signal must not pair a card in one
+ * city/state with an unrelated card hundreds of miles away just because
+ * they share a name. Missing city on either side is not treated as a
+ * conflict (we don't have enough info to rule the pair out).
+ */
+export function citiesConflict(
+  a: string | null | undefined,
+  b: string | null | undefined,
+): boolean {
+  const ka = normCity(a);
+  const kb = normCity(b);
+  if (!ka || !kb) return false;
+  if (ka === kb) return false;
+  if (ka.includes(kb) || kb.includes(ka)) return false;
+  return true;
+}
+
 function hostsFromRecommendation(item: CommentRecommendation): string[] {
   const out: string[] = [];
   for (const w of item.websites || []) {
@@ -191,7 +220,7 @@ async function findWeakByName(
   const db = untyped(client);
   const { data: pros } = await db
     .from("professionals")
-    .select("id, slug, display_name, status")
+    .select("id, slug, display_name, city, status")
     .eq("status", "approved")
     .ilike("display_name", `%${(item.display_name || "").trim().slice(0, 40)}%`)
     .limit(8);
@@ -199,8 +228,9 @@ async function findWeakByName(
     id: string;
     slug: string;
     display_name: string;
+    city: string | null;
   }>) {
-    if (normName(row.display_name) === nameKey) {
+    if (normName(row.display_name) === nameKey && !citiesConflict(item.city, row.city)) {
       return {
         entityType: "professional",
         entityId: row.id,
@@ -214,7 +244,7 @@ async function findWeakByName(
 
   const { data: biz } = await db
     .from("businesses")
-    .select("id, slug, name, status")
+    .select("id, slug, name, city, status")
     .eq("status", "approved")
     .ilike("name", `%${(item.display_name || "").trim().slice(0, 40)}%`)
     .limit(8);
@@ -222,8 +252,9 @@ async function findWeakByName(
     id: string;
     slug: string;
     name: string;
+    city: string | null;
   }>) {
-    if (normName(row.name) === nameKey) {
+    if (normName(row.name) === nameKey && !citiesConflict(item.city, row.city)) {
       return {
         entityType: "business",
         entityId: row.id,

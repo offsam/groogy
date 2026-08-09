@@ -5,6 +5,7 @@
 
 import { repeatedBrandFromText } from "@/lib/import-review/display-name";
 import {
+  citiesConflict,
   phoneDigits,
   websiteHost,
 } from "@/lib/import-review/recommendation-duplicate";
@@ -170,6 +171,8 @@ export type SelfScanSignals = {
   identityNames: string[];
   /** Normalized description blob for equality checks. */
   descKey: string;
+  /** Raw city text — gates name-only weak matches against distant cities. */
+  city: string | null;
 };
 
 /** Identity slots used for overlap % (biz/pro). */
@@ -217,6 +220,7 @@ export function buildBizProSelfSignals(
     nameKeys: new Set(identityNames.map(normName)),
     identityNames,
     descKey: descKey.length >= 40 ? descKey : "",
+    city: (self.city as string | null) ?? null,
   };
 }
 
@@ -298,6 +302,15 @@ export function compareBizProCandidate(
     }
   }
 
+  // Common Russian first names/surnames repeat across every diaspora metro —
+  // a name-only match against a card in a clearly different city is almost
+  // always a coincidence, not a duplicate. Only gates the weak, name-derived
+  // signals below; exact contact/address/description matches are unaffected.
+  const candCityConflicts = citiesConflict(
+    signals.city,
+    (candidate.city as string | null) ?? null,
+  );
+
   const candTitle = String(
     candidate.display_name || candidate.name || "",
   ).trim();
@@ -308,12 +321,13 @@ export function compareBizProCandidate(
     const key = normName(display);
     if (key.length < 4) continue;
     if (!nameHit && candTitleKey === key) {
-      nameHit = true;
-      consider(
-        display === signals.selfName ? "weak" : "exact",
-        "name",
-        `name:${display}`,
-      );
+      const strength = display === signals.selfName ? "weak" : "exact";
+      if (strength === "weak" && candCityConflicts) {
+        // Skip: name-only match, different cities — no other signal.
+      } else {
+        nameHit = true;
+        consider(strength, "name", `name:${display}`);
+      }
     }
     const blob = String(candidate.description || "");
     const blobKey = normName(blob);
@@ -321,7 +335,8 @@ export function compareBizProCandidate(
       !descNameHit &&
       key.length >= 4 &&
       blobKey.includes(key) &&
-      candTitleKey !== key
+      candTitleKey !== key &&
+      !candCityConflicts
     ) {
       descNameHit = true;
       consider("weak", "description", `description:${display}`);

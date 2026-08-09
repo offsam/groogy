@@ -10,6 +10,7 @@ import {
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 import { repeatedBrandFromText } from "@/lib/import-review/display-name";
 import {
+  citiesConflict,
   phoneDigits,
   websiteHost,
 } from "@/lib/import-review/recommendation-duplicate";
@@ -348,6 +349,7 @@ async function scanBizProDuplicates(
   const selfIdentityNames = identityNamesFromCard(self);
   const selfNameKeys = new Set(selfIdentityNames.map(normName));
   const selfFill = nonemptyCount(self, [...FILL_KEYS]);
+  const selfCity = (self.city as string | null) ?? null;
 
   // Extra streets from business_locations (multi-office cards).
   const selfAddressKeys = new Set<string>();
@@ -661,18 +663,29 @@ async function scanBizProDuplicates(
         .ilike(nameCol, `%${needle}%`)
         .limit(20);
       if (error) noteQueryError(scanNotes, `name/${entityType}`, error.message);
+      const nameStrength = display === selfName ? "weak" : "exact";
       const matched = ((data ?? []) as Array<Record<string, unknown>>).filter(
-        (r) =>
-          normName(
-            String(r.display_name || r.name || ""),
-          ) === key,
+        (r) => {
+          if (
+            normName(
+              String(r.display_name || r.name || ""),
+            ) !== key
+          ) {
+            return false;
+          }
+          // Common Russian names repeat across every diaspora metro — a
+          // name-only ("weak") hit against a clearly different city is
+          // almost always a coincidence, not a duplicate.
+          if (
+            nameStrength === "weak" &&
+            citiesConflict(selfCity, (r.city as string | null) ?? null)
+          ) {
+            return false;
+          }
+          return true;
+        },
       );
-      await collectCatalog(
-        entityType,
-        matched,
-        `name:${display}`,
-        display === selfName ? "weak" : "exact",
-      );
+      await collectCatalog(entityType, matched, `name:${display}`, nameStrength);
 
       // Other card's description names our brand / title.
       const { data: byDesc, error: descErr } = await anyFrom(catalog, tableName)
@@ -686,11 +699,15 @@ async function scanBizProDuplicates(
       const descMatched = (
         (byDesc ?? []) as Array<Record<string, unknown>>
       ).filter((r) => {
+        if (selfNameKeys.has(normName(String(r.display_name || r.name || "")))) {
+          return false;
+        }
+        if (citiesConflict(selfCity, (r.city as string | null) ?? null)) {
+          return false;
+        }
         const blob = String(r.description || "");
         const blobKey = normName(blob);
-        return selfNameKeys.has(normName(String(r.display_name || r.name || "")))
-          ? false
-          : [...selfNameKeys].some((k) => k.length >= 4 && blobKey.includes(k));
+        return [...selfNameKeys].some((k) => k.length >= 4 && blobKey.includes(k));
       });
       await collectCatalog(
         entityType,

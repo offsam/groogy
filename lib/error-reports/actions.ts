@@ -13,7 +13,7 @@ export type ErrorReportActionResult =
 
 export type PlatformErrorReportType = "error" | "question" | "complaint";
 
-export const REPORT_TYPES: PlatformErrorReportType[] = [
+const REPORT_TYPES: PlatformErrorReportType[] = [
   "error",
   "question",
   "complaint",

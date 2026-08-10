@@ -2,7 +2,6 @@
 
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
-import type { FeatureCollection } from "geojson";
 import {
   CircleMarker,
   MapContainer,
@@ -28,13 +27,12 @@ import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
 const CARD_WIDTH = 352;
 const CARD_HEIGHT_EST = 168;
 const CARD_GAP = 14;
+const STATE_CALLOUT_STROKE = "#12468F";
 
 type StateCluster = {
   code: string;
   count: number;
   centroid: UsStateCentroid;
-  /** When count === 1, keep the real pin instead of a circle. */
-  solePin: HomeMapPin | null;
 };
 
 function createHomePinIcon(active: boolean) {
@@ -46,39 +44,6 @@ function createHomePinIcon(active: boolean) {
     iconAnchor: [size / 2, size - 2],
     tooltipAnchor: [0, -(size - 4)],
   });
-}
-
-const US_STATES_GEOJSON_URL = "/data/us-states.geo.json";
-let usStatesGeoJsonPromise: Promise<FeatureCollection> | null = null;
-
-/** Fetched once per page load and shared across every map instance. */
-function loadUsStatesGeoJson(): Promise<FeatureCollection> {
-  if (!usStatesGeoJsonPromise) {
-    usStatesGeoJsonPromise = fetch(US_STATES_GEOJSON_URL).then((res) =>
-      res.json(),
-    );
-  }
-  return usStatesGeoJsonPromise;
-}
-
-/** Brand-blue sequential ramp — light tint (few listings) to deep navy (most). */
-const STATE_FILL_RAMP = [
-  "#E4EEFC",
-  "#BCD4F7",
-  "#84B0F1",
-  "#1F6FE5",
-  "#12468F",
-] as const;
-const STATE_STROKE = "#12468F";
-
-function stateFillBucket(count: number, max: number): number {
-  if (max <= 0) return 0;
-  const ratio = count / max;
-  if (ratio > 0.65) return 4;
-  if (ratio > 0.35) return 3;
-  if (ratio > 0.15) return 2;
-  if (ratio > 0.05) return 1;
-  return 0;
 }
 
 /**
@@ -94,24 +59,18 @@ const STATE_CALLOUTS: Record<string, { lat: number; lng: number }> = {
   "US-DC": { lat: 39.0, lng: -68.2 },
 };
 
-function createStateDigitIcon(count: number, bucket: number): L.DivIcon {
-  const light = bucket >= 3;
+function createStateDigitIcon(count: number): L.DivIcon {
   const width = Math.max(26, 15 + String(count).length * 9);
   return L.divIcon({
     className: "",
-    html: `<div class="home-map-state-count${light ? " home-map-state-count--light" : ""}" style="width:${width}px">${count}</div>`,
+    html: `<div class="home-map-state-count" style="width:${width}px">${count}</div>`,
     iconSize: [width, 22],
     iconAnchor: [width / 2, 11],
   });
 }
 
-/**
- * Real state borders — filled with the brand-blue ramp where we have
- * listings, left blank (just a hairline) where we don't. A number sits on
- * each populated state; tiny Northeast states callout offshore.
- * Single-listing states skip the label — `PinMarker` shows the real pin.
- */
-function StateChoropleth({
+/** Per-state card counts only — no fill, no pins until the user zooms in. */
+function StateCountLabels({
   clusters,
   onSelect,
 }: {
@@ -119,28 +78,6 @@ function StateChoropleth({
   onSelect: (pin: HomeMapPin | null) => void;
 }) {
   const map = useMap();
-  const [geo, setGeo] = useState<FeatureCollection | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    loadUsStatesGeoJson().then((data) => {
-      if (!cancelled) setGeo(data);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const byCode = useMemo(() => {
-    const m = new Map<string, StateCluster>();
-    for (const cluster of clusters) m.set(cluster.code, cluster);
-    return m;
-  }, [clusters]);
-
-  const maxCount = useMemo(
-    () => clusters.reduce((max, c) => Math.max(max, c.count), 0),
-    [clusters],
-  );
 
   const pick = useMemo(
     () => (cluster: StateCluster) => {
@@ -154,46 +91,9 @@ function StateChoropleth({
     [map, onSelect],
   );
 
-  useEffect(() => {
-    if (!geo) return;
-    const layer = L.geoJSON(geo, {
-      style: (feature) => {
-        const code = feature?.properties?.code as string | undefined;
-        const cluster = code ? byCode.get(code) : undefined;
-        if (!cluster) {
-          return { fillOpacity: 0, color: "var(--border)", weight: 1 };
-        }
-        const bucket = stateFillBucket(cluster.count, maxCount);
-        return {
-          fillColor: STATE_FILL_RAMP[bucket],
-          fillOpacity: 0.92,
-          color: STATE_STROKE,
-          weight: 1,
-        };
-      },
-      onEachFeature: (feature, featureLayer) => {
-        const code = feature?.properties?.code as string | undefined;
-        const cluster = code ? byCode.get(code) : undefined;
-        if (!cluster || cluster.solePin) return;
-        featureLayer.on("click", (event) => {
-          L.DomEvent.stopPropagation(event);
-          pick(cluster);
-        });
-      },
-    });
-    layer.addTo(map);
-    layer.bringToBack();
-    return () => {
-      layer.remove();
-    };
-  }, [geo, byCode, maxCount, map, pick]);
-
-  const labelClusters = clusters.filter((c) => !c.solePin);
-
   return (
     <>
-      {labelClusters.map((cluster) => {
-        const bucket = stateFillBucket(cluster.count, maxCount);
+      {clusters.map((cluster) => {
         const callout = STATE_CALLOUTS[cluster.code];
         const labelPos = callout ?? {
           lat: cluster.centroid.lat,
@@ -204,7 +104,7 @@ function StateChoropleth({
             {callout ? (
               <Polyline
                 interactive={false}
-                pathOptions={{ color: STATE_STROKE, weight: 1 }}
+                pathOptions={{ color: STATE_CALLOUT_STROKE, weight: 1 }}
                 positions={[
                   [cluster.centroid.lat, cluster.centroid.lng],
                   [callout.lat, callout.lng],
@@ -216,8 +116,8 @@ function StateChoropleth({
                 center={[cluster.centroid.lat, cluster.centroid.lng]}
                 interactive={false}
                 pathOptions={{
-                  color: STATE_STROKE,
-                  fillColor: STATE_STROKE,
+                  color: STATE_CALLOUT_STROKE,
+                  fillColor: STATE_CALLOUT_STROKE,
                   fillOpacity: 1,
                 }}
                 radius={3}
@@ -230,7 +130,7 @@ function StateChoropleth({
                   pick(cluster);
                 },
               }}
-              icon={createStateDigitIcon(cluster.count, bucket)}
+              icon={createStateDigitIcon(cluster.count)}
               position={[labelPos.lat, labelPos.lng]}
               zIndexOffset={200}
             >
@@ -273,7 +173,6 @@ function groupPinsByState(pins: HomeMapPin[]): StateCluster[] {
       code,
       count: list.length,
       centroid,
-      solePin: list.length === 1 ? list[0] : null,
     });
   }
   return clusters;
@@ -282,15 +181,13 @@ function groupPinsByState(pins: HomeMapPin[]): StateCluster[] {
 /**
  * Same cluster shape as `groupPinsByState`, built from the lightweight
  * counts-only payload — used before the full nationwide pins have loaded.
- * Single-listing states just show a "1" bubble instead of the real pin
- * (no business detail to show yet); it upgrades once real pins arrive.
  */
 function clustersFromStateCounts(counts: HomeMapStateCount[]): StateCluster[] {
   const clusters: StateCluster[] = [];
   for (const { stateCode, count } of counts) {
     const centroid = getUsStateCentroid(stateCode);
     if (!centroid) continue;
-    clusters.push({ code: stateCode, count, centroid, solePin: null });
+    clusters.push({ code: stateCode, count, centroid });
   }
   return clusters;
 }
@@ -480,15 +377,6 @@ export default function HomeActivityMapCanvas({
     return clustersFromStateCounts(stateCountsFallback);
   }, [pins, pinsLoaded, showStateClusters, stateCountsFallback]);
 
-  /** Pins without a known state stay visible even when clustered. */
-  const orphanPins = useMemo(() => {
-    if (!showStateClusters) return pins;
-    return pins.filter((pin) => {
-      const code = normalizeUsStateCode(pin.stateCode);
-      return !code || !getUsStateCentroid(code);
-    });
-  }, [pins, showStateClusters]);
-
   return (
     <div className="relative z-[450] h-full w-full">
       <MapContainer
@@ -519,34 +407,7 @@ export default function HomeActivityMapCanvas({
         ) : null}
 
         {showStateClusters ? (
-          <>
-            <StateChoropleth clusters={stateClusters} onSelect={onSelect} />
-            {stateClusters
-              .filter(
-                (cluster): cluster is StateCluster & { solePin: HomeMapPin } =>
-                  cluster.solePin !== null,
-              )
-              .map((cluster) => (
-                <PinMarker
-                  active={selectedId === cluster.solePin.id}
-                  activeIcon={activeIcon}
-                  idleIcon={idleIcon}
-                  key={`sole-${cluster.code}`}
-                  onSelect={onSelect}
-                  pin={cluster.solePin}
-                />
-              ))}
-            {orphanPins.map((pin) => (
-              <PinMarker
-                active={selectedId === pin.id}
-                activeIcon={activeIcon}
-                idleIcon={idleIcon}
-                key={`orphan-${pin.kind}-${pin.id}`}
-                onSelect={onSelect}
-                pin={pin}
-              />
-            ))}
-          </>
+          <StateCountLabels clusters={stateClusters} onSelect={onSelect} />
         ) : (
           pins.map((pin) => (
             <PinMarker

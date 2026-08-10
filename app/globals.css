@@ -363,16 +363,6 @@ a {
   transition: transform 120ms ease;
 }
 
-.home-map-state-count--light {
-  color: #fff;
-  text-shadow:
-    -1px -1px 0 #12468f,
-    1px -1px 0 #12468f,
-    -1px 1px 0 #12468f,
-    1px 1px 0 #12468f,
-    0 0 6px rgba(18, 70, 143, 0.9);
-}
-
 .home-map-state-count:hover {
   transform: scale(1.1);
 }

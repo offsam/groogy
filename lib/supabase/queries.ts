@@ -32,6 +32,7 @@ import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
 import { normalizeUsStateCode } from "@/lib/geo/us-state-centroids";
+import { reconcileStateCode } from "@/lib/geo/us-zip-state";
 
 type Client = SupabaseClient<Database>;
 
@@ -782,19 +783,23 @@ export async function getAllHomeMapPins(
   return pins;
 }
 
-type StateCodeOnlyRow = { state_code: string | null };
+type StateCountSourceRow = {
+  state_code: string | null;
+  postal_code: string | null;
+  city: string | null;
+};
 
-async function fetchStateCodesOnly(
+async function fetchStateCountSourceRows(
   client: Client,
   table: "businesses" | "professionals" | "churches",
   addressColumn: string,
   limit: number,
   offset: number,
-): Promise<StateCodeOnlyRow[]> {
+): Promise<StateCountSourceRow[]> {
   const untyped = client as unknown as SupabaseClient;
   const { data, error } = await untyped
     .from(table)
-    .select("state_code")
+    .select("state_code, postal_code, city")
     .eq("status", "approved")
     .not(addressColumn, "is", null)
     .not("latitude", "is", null)
@@ -802,17 +807,30 @@ async function fetchStateCodesOnly(
     .order("created_at", { ascending: false })
     .range(offset, offset + limit - 1);
   if (error) throw error;
-  return (data ?? []) as StateCodeOnlyRow[];
+  return (data ?? []) as StateCountSourceRow[];
+}
+
+function resolveMapStateCode(row: {
+  state_code?: string | null;
+  postal_code?: string | null;
+  city?: string | null;
+}): string | null {
+  return (
+    reconcileStateCode({
+      stateCode: row.state_code,
+      postalCode: row.postal_code,
+      city: row.city,
+    }) ?? normalizeUsStateCode(row.state_code)
+  );
 }
 
 export type HomeMapStateCount = { stateCode: string; count: number };
 
 /**
- * Nationwide pin counts per state — only the `state_code` column, no
- * listing-card fields. Lets the guest USA-overview map paint accurate
- * cluster bubbles instantly instead of waiting on `getAllHomeMapPins`,
- * which ships full business/professional/church detail for every row
- * and can take several seconds nationwide.
+ * Nationwide pin counts per state — lightweight fields only (no listing
+ * card payloads). Same gate as map pins: approved + address + lat/lng.
+ * Resolves missing `state_code` via ZIP/city so bubbles match what
+ * appears after zoom.
  */
 export async function getHomeMapStateCounts(
   client: Client,
@@ -824,13 +842,19 @@ export async function getHomeMapStateCounts(
       const [bizRows, proRows, churchRows] = await Promise.all([
         fetchAllRows(
           (limit, offset) =>
-            fetchStateCodesOnly(client, "businesses", "address_line", limit, offset),
+            fetchStateCountSourceRows(
+              client,
+              "businesses",
+              "address_line",
+              limit,
+              offset,
+            ),
           pageSize,
           maxRows,
         ),
         fetchAllRows(
           (limit, offset) =>
-            fetchStateCodesOnly(
+            fetchStateCountSourceRows(
               client,
               "professionals",
               "private_address_line",
@@ -842,7 +866,13 @@ export async function getHomeMapStateCounts(
         ),
         fetchAllRows(
           (limit, offset) =>
-            fetchStateCodesOnly(client, "churches", "address_line", limit, offset),
+            fetchStateCountSourceRows(
+              client,
+              "churches",
+              "address_line",
+              limit,
+              offset,
+            ),
           pageSize,
           maxRows,
         ),
@@ -850,7 +880,7 @@ export async function getHomeMapStateCounts(
 
       const counts = new Map<string, number>();
       for (const row of [...bizRows, ...proRows, ...churchRows]) {
-        const code = normalizeUsStateCode(row.state_code);
+        const code = resolveMapStateCode(row);
         if (!code) continue;
         counts.set(code, (counts.get(code) ?? 0) + 1);
       }
@@ -859,7 +889,7 @@ export async function getHomeMapStateCounts(
         count,
       }));
     },
-    ["home-map-state-counts-v1"],
+    ["home-map-state-counts-v2"],
     {
       revalidate: CATALOG_CACHE_TTL.homeMapStateCounts,
       tags: [CATALOG_CACHE_TAGS.homeMapStateCounts],

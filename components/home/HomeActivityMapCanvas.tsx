@@ -20,6 +20,7 @@ import {
   normalizeUsStateCode,
   type UsStateCentroid,
 } from "@/lib/geo/us-state-centroids";
+import { reconcileStateCode } from "@/lib/geo/us-zip-state";
 import { OSM_ATTRIBUTION, OSM_TILE_URL } from "@/lib/map/tiles";
 import type { RegionHub } from "@/lib/regions/hubs";
 import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
@@ -60,12 +61,14 @@ const STATE_CALLOUTS: Record<string, { lat: number; lng: number }> = {
 };
 
 function createStateDigitIcon(count: number): L.DivIcon {
-  const width = Math.max(26, 15 + String(count).length * 9);
+  const digits = String(count).length;
+  const size = Math.min(52, Math.max(34, 26 + digits * 7));
   return L.divIcon({
     className: "",
-    html: `<div class="home-map-state-count" style="width:${width}px">${count}</div>`,
-    iconSize: [width, 22],
-    iconAnchor: [width / 2, 11],
+    html: `<div class="home-map-state-count" style="width:${size}px;height:${size}px;font-size:${digits >= 4 ? 11 : 13}px">${count}</div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    tooltipAnchor: [0, -size / 2 + 2],
   });
 }
 
@@ -158,7 +161,12 @@ function StateCountLabels({
 function groupPinsByState(pins: HomeMapPin[]): StateCluster[] {
   const buckets = new Map<string, HomeMapPin[]>();
   for (const pin of pins) {
-    const code = normalizeUsStateCode(pin.stateCode);
+    const code =
+      reconcileStateCode({
+        stateCode: pin.stateCode,
+        postalCode: pin.postalCode,
+        city: pin.city,
+      }) ?? normalizeUsStateCode(pin.stateCode);
     if (!code) continue;
     const list = buckets.get(code);
     if (list) list.push(pin);
@@ -340,9 +348,9 @@ function PinMarker({
 type HomeActivityMapCanvasProps = {
   hub: RegionHub;
   pins: HomeMapPin[];
-  /** False while the (heavier) nationwide pin fetch is still in flight. */
+  /** Kept for callers; overview bubbles prefer `stateCountsFallback`. */
   pinsLoaded: boolean;
-  /** Lightweight per-state counts shown until `pinsLoaded` is true. */
+  /** Lightweight per-state counts for the national overview. */
   stateCountsFallback: HomeMapStateCount[] | null;
   selectedPin: HomeMapPin | null;
   cardPoint: { left: number; top: number } | null;
@@ -354,7 +362,6 @@ type HomeActivityMapCanvasProps = {
 export default function HomeActivityMapCanvas({
   hub,
   pins,
-  pinsLoaded,
   stateCountsFallback,
   selectedPin,
   cardPoint,
@@ -373,9 +380,13 @@ export default function HomeActivityMapCanvas({
 
   const stateClusters = useMemo(() => {
     if (!showStateClusters) return [];
-    if (pinsLoaded || !stateCountsFallback) return groupPinsByState(pins);
-    return clustersFromStateCounts(stateCountsFallback);
-  }, [pins, pinsLoaded, showStateClusters, stateCountsFallback]);
+    // Prefer the lightweight counts API — it matches map-ready cards and
+    // stays stable while the heavier nationwide pin payload is still loading.
+    if (stateCountsFallback && stateCountsFallback.length > 0) {
+      return clustersFromStateCounts(stateCountsFallback);
+    }
+    return groupPinsByState(pins);
+  }, [pins, showStateClusters, stateCountsFallback]);
 
   return (
     <div className="relative z-[450] h-full w-full">

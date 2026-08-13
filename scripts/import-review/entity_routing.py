@@ -535,12 +535,15 @@ def route_card(
             person_name=pn,
         )
     # Brand / trade name alone is NOT a map business — pros use brands too.
+    # But like every other gate above, a real street pin is still a business
+    # signal: don't default a brand with a concrete street address to specialist.
     if bn and not pn:
         conf = "high" if has_contact else "medium"
-        return _hit(
-            "private_specialist",
-            conf,
-            "gate2:brand_name_default_specialist",
+        return _business_or_specialist_for_import(
+            has_street=street,
+            confidence=conf,
+            reason="gate2:brand_name_default_specialist",
+            person_name=pn,
         )
     if pn and not bn:
         conf = "high" if has_contact else "medium"

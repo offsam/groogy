@@ -369,9 +369,11 @@ export function routeCard(input: {
     );
   }
   // Brand / trade name alone is NOT a map business — pros use brands too.
+  // But like every other gate above, a real street pin is still a business
+  // signal: don't default a brand with a concrete street address to specialist.
   if (bn && !pn) {
-    return hit(
-      "private_specialist",
+    return businessOrSpecialistForImport(
+      street,
       hasContact ? "high" : "medium",
       "gate2:brand_name_default_specialist",
     );

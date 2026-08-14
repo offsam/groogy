@@ -677,23 +677,40 @@ export async function getHomeMapPins(
   if (hubs && hubs.length > 0) {
     const limitPerHub = options.limitPerHub ?? 500;
 
-    // Cache each hub's slice separately (not one combined blob) — a 5-hub
+    // Cache each hub's slice separately (not one combined blob) — a
     // combined payload can exceed Next's 2MB per-item data-cache limit, which
     // silently fails to cache and forces every request to redo the full
-    // 5-hub x 3-table Supabase fan-out + re-serialize ~3MB of JSON. That
-    // repeated work was spiking function memory to the point of OOM kills
-    // on "/", which is why the map sometimes loads slow with no pins.
+    // hub x 3-table Supabase fan-out (now ~40 hubs, e.g. all metros +
+    // diaspora states from getMapPinRegionHubs) + re-serialize several MB
+    // of JSON. That repeated work was spiking function memory to the point
+    // of OOM kills on "/".
+    //
+    // Each hub's fetch also gets its own timeout below (instead of only a
+    // single timeout around the whole batch in the caller). A page-level
+    // timeout around Promise.all([...all hubs]) is all-or-nothing: if any
+    // one hub's cache is cold, the whole batch can miss the deadline and
+    // every hub — not just the slow one — falls back to an empty pin list,
+    // which is what made the home map render with zero pins regardless of
+    // which region a visitor landed on (default hub Orange County is just
+    // the most commonly viewed one, so it read as an OC-specific bug).
+    // Racing each hub individually means a slow hub only blanks itself.
+    const HUB_FETCH_TIMEOUT_MS = 3500;
     const batches = await Promise.all(
       hubs.map((hub) =>
         // Caller should pass a catalog-capable client (service role on server pages).
-        unstable_cache(
-          () => fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
-          ["home-map-pins-v2", hub.id, String(limitPerHub)],
-          {
-            revalidate: CATALOG_CACHE_TTL.homeMapPins,
-            tags: [CATALOG_CACHE_TAGS.homeMapPins],
-          },
-        )(),
+        Promise.race([
+          unstable_cache(
+            () => fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+            ["home-map-pins-v2", hub.id, String(limitPerHub)],
+            {
+              revalidate: CATALOG_CACHE_TTL.homeMapPins,
+              tags: [CATALOG_CACHE_TAGS.homeMapPins],
+            },
+          )(),
+          new Promise<HomeMapPin[]>((resolve) =>
+            setTimeout(() => resolve([]), HUB_FETCH_TIMEOUT_MS),
+          ),
+        ]).catch(() => [] as HomeMapPin[]),
       ),
     );
     const byKey = new Map<string, HomeMapPin>();

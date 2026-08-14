@@ -43,15 +43,19 @@ export default async function HomePage() {
     const [userResult, pins] = await Promise.all([
       client.auth.getUser(),
       // Per-hub bounding boxes — national newest-800 left LA empty while counts showed ~300.
-      // Capped at 150/hub (actual counts are ~300 nationally) to avoid the 15-way
-      // fan-out (5 hubs x 3 tables) spiking memory/timeout on cache-miss requests.
-      // Hard timeout so a slow Supabase response can't hang the whole homepage.
+      // Capped at 150/hub (actual counts are ~300 nationally) to avoid the
+      // full hub x 3-table fan-out (getMapPinRegionHubs() covers every metro
+      // + diaspora state, ~40 hubs) spiking memory/timeout on cache-miss
+      // requests. getHomeMapPins() already races each hub's own fetch
+      // against a 3.5s timeout so one slow hub only drops its own pins; this
+      // outer timeout is just a backstop for the whole batch (should rarely
+      // fire) so a slow Supabase response still can't hang the homepage.
       withTimeout(
         getHomeMapPins(catalog, {
           hubs: getMapPinRegionHubs(),
           limitPerHub: 150,
         }).catch(() => [] as typeof mapPins),
-        4000,
+        5000,
         [] as typeof mapPins,
       ),
     ]);

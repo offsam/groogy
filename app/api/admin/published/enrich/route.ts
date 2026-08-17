@@ -9,7 +9,8 @@ import {
   type PublishedEnrichKind,
   type PublishedEnrichQueueTarget,
 } from "@/lib/admin/published-enrich-run";
-import { resolvePythonBin } from "@/lib/admin/resolve-python";
+import { pythonIsRunnable } from "@/lib/admin/resolve-python";
+import { runPublishedEnrichNode } from "@/lib/admin/published-enrich-node";
 import { attachEnrichBeforeSnapshot, restoreEntityEnrichSnapshot } from "@/lib/admin/published-enrich-history";
 import {
   finalizePublishedEnrich,
@@ -209,23 +210,36 @@ export async function POST(request: Request) {
   }
 
   const encoder = new TextEncoder();
-  let child: ReturnType<typeof spawnPublishedEnrich>["child"];
-  try {
-    child = spawnPublishedEnrich({
-      kind: kind as PublishedEnrichKind,
-      slug: slug || undefined,
-      id: id || undefined,
-      queue: queue || undefined,
-      mode: queue ? "apply" : "dry-run",
-    }).child;
-  } catch (err) {
+  const usePython = pythonIsRunnable();
+  let child: ReturnType<typeof spawnPublishedEnrich>["child"] | null = null;
+  if (usePython) {
+    try {
+      child = spawnPublishedEnrich({
+        kind: kind as PublishedEnrichKind,
+        slug: slug || undefined,
+        id: id || undefined,
+        queue: queue || undefined,
+        mode: queue ? "apply" : "dry-run",
+      }).child;
+    } catch (err) {
+      return NextResponse.json(
+        {
+          message:
+            err instanceof Error ? err.message : "Не удалось запустить обогащение",
+        },
+        { status: 400 },
+      );
+    }
+  } else if (queue) {
     return NextResponse.json(
       {
         message:
-          err instanceof Error ? err.message : "Не удалось запустить обогащение",
+          "Очередь на сайте без Python пока не обогащается — открой карточку на localhost или Enrich у опубликованной.",
       },
-      { status: 400 },
+      { status: 501 },
     );
+  } else if (!id) {
+    return NextResponse.json({ message: "Нужен id карточки" }, { status: 400 });
   }
 
   const supportsNdjson = true;
@@ -303,6 +317,228 @@ export async function POST(request: Request) {
         }
       }, 8_000);
 
+      const finishAfterCrawl = async () => {
+        if (aborted) {
+          await rollbackAbort();
+          push({
+            type: "error",
+            message: "Остановлено — изменения отменены",
+          });
+          try {
+            controller.close();
+          } catch {
+            /* closed */
+          }
+          return;
+        }
+
+        if (!finishedResult) {
+          finishedResult = {
+            id: id || undefined,
+            label: labels[kind],
+            skipped: false,
+            patch: {},
+            resources: [],
+            resources_ok: 0,
+            resources_failed: 0,
+            reason: "Готово — новых полей не нашлось (fill-empty).",
+          };
+          push({ type: "finished", result: finishedResult });
+        }
+
+        if (!queue && id && isFinalizableKind(kind)) {
+          push({
+            type: "step",
+            step: "cleanup",
+            status: "running",
+            detail: "Разбор описания…",
+          });
+          try {
+            const catalog = createServiceRoleClient();
+            const finalized = await finalizePublishedEnrich(
+              catalog,
+              kind,
+              id,
+              finishedResult,
+              { dryRun: true },
+            );
+            if (aborted) {
+              await rollbackAbort();
+              try {
+                controller.close();
+              } catch {
+                /* closed */
+              }
+              return;
+            }
+            finishedResult = finalized.result;
+            const sectionNote = finalized.sectionMismatch
+              ? `похоже на другой раздел: ${SECTION_TITLES[finalized.sectionMismatch] ?? finalized.sectionMismatch} — перенос в «Не тот раздел»`
+              : null;
+            const parsed = finalized.found.length
+              ? finalized.found.map(fieldLabel).join(", ")
+              : "в описании нечего разбирать";
+            push({
+              type: "step",
+              step: "cleanup",
+              status: "done",
+              detail: sectionNote ? `${parsed}; ${sectionNote}` : parsed,
+              found: finalized.found,
+            });
+            push({ type: "finished", result: finishedResult });
+          } catch (err) {
+            if (aborted) {
+              await rollbackAbort();
+              try {
+                controller.close();
+              } catch {
+                /* closed */
+              }
+              return;
+            }
+            push({
+              type: "step",
+              step: "cleanup",
+              status: "error",
+              detail: err instanceof Error ? err.message : "Ошибка разбора",
+            });
+          }
+        } else if (queue) {
+          push({
+            type: "step",
+            step: "cleanup",
+            status: "running",
+            detail: "Адрес и разбор…",
+          });
+          try {
+            const catalog = createServiceRoleClient();
+            let found = Object.keys(finishedResult?.patch || {});
+            if (queue.source === "import_review") {
+              const fin = await finalizePrePublishEnrich(
+                catalog,
+                queue.id,
+                finishedResult,
+              );
+              finishedResult = fin.result;
+              found = [...new Set([...found, ...fin.found])];
+            } else {
+              const addrFound = await peelRecommendationQueueAddress(
+                catalog,
+                queue.id,
+              );
+              found = [...new Set([...found, ...addrFound])];
+              if (finishedResult && addrFound.length) {
+                finishedResult = {
+                  ...finishedResult,
+                  patch: {
+                    ...(finishedResult.patch || {}),
+                    ...Object.fromEntries(
+                      addrFound.map((k) => [k, true] as const),
+                    ),
+                  },
+                };
+              }
+            }
+            push({
+              type: "step",
+              step: "cleanup",
+              status: "done",
+              detail: found.length
+                ? found.map(fieldLabel).join(", ")
+                : finishedResult?.patch
+                  ? "Очередь обновлена"
+                  : "Новых полей нет",
+              found,
+            });
+          } catch (err) {
+            push({
+              type: "step",
+              step: "cleanup",
+              status: "error",
+              detail:
+                err instanceof Error ? err.message : "Ошибка разбора адреса",
+            });
+          }
+        }
+
+        if (aborted) {
+          await rollbackAbort();
+          try {
+            controller.close();
+          } catch {
+            /* closed */
+          }
+          return;
+        }
+
+        if (!queue && finishedResult && id) {
+          try {
+            const historyResult = attachEnrichBeforeSnapshot(
+              finishedResult,
+              beforeSnapshot,
+            );
+            Object.assign(finishedResult, historyResult);
+            finishedResult.pending_review = true;
+          } catch (err) {
+            console.error("enrich before snapshot failed", err);
+          }
+        }
+
+        if (queue) {
+          revalidatePath("/admin/review");
+          revalidatePath(
+            `/admin/review/${encodeURIComponent(
+              `${queue.source === "recommendation" ? "recommendation" : "import_review"}:${queue.id}`,
+            )}`,
+          );
+          revalidatePath("/admin/community/recommendations");
+        }
+        try {
+          controller.close();
+        } catch {
+          /* closed */
+        }
+      };
+
+      if (!child) {
+        void (async () => {
+          try {
+            const catalog = createServiceRoleClient();
+            finishedResult = await runPublishedEnrichNode({
+              client: catalog,
+              kind: kind as PublishedEnrichKind,
+              id,
+              push: (ev) => {
+                pushTracked(ev as unknown as Record<string, unknown>);
+              },
+              signal: request.signal,
+            });
+            sawNdjson = true;
+            pushTracked({
+              type: "step",
+              step: "bfs",
+              status: "done",
+              detail: `Сайт без Python · ${finishedResult.resources_ok ?? 0} ресурсов`,
+            });
+            clearInterval(keepAlive);
+            await finishAfterCrawl();
+          } catch (err) {
+            clearInterval(keepAlive);
+            push({
+              type: "error",
+              message:
+                err instanceof Error ? err.message : "Ошибка обогащения",
+            });
+            try {
+              controller.close();
+            } catch {
+              /* closed */
+            }
+          }
+        })();
+        return;
+      }
+
       const pushLine = (line: string) => {
         const trimmed = line.trim();
         if (!trimmed) return;
@@ -336,26 +572,64 @@ export async function POST(request: Request) {
       });
 
       child.on("error", (err) => {
-        clearInterval(keepAlive);
-        if (aborted) {
-          void rollbackAbort().finally(() => {
+        if (!err.message.includes("ENOENT")) {
+          clearInterval(keepAlive);
+          if (aborted) {
+            void rollbackAbort().finally(() => {
+              try {
+                controller.close();
+              } catch {
+                /* closed */
+              }
+            });
+            return;
+          }
+          push({ type: "error", message: err.message });
+          try {
+            controller.close();
+          } catch {
+            /* closed */
+          }
+          return;
+        }
+        // Host has no python3 (Vercel) — same Node crawl as pythonIsRunnable() === false.
+        void (async () => {
+          try {
+            const catalog = createServiceRoleClient();
+            finishedResult = await runPublishedEnrichNode({
+              client: catalog,
+              kind: kind as PublishedEnrichKind,
+              id,
+              push: (ev) => {
+                pushTracked(ev as unknown as Record<string, unknown>);
+              },
+              signal: request.signal,
+            });
+            sawNdjson = true;
+            pushTracked({
+              type: "step",
+              step: "bfs",
+              status: "done",
+              detail: `Сайт без Python · ${finishedResult.resources_ok ?? 0} ресурсов`,
+            });
+            clearInterval(keepAlive);
+            await finishAfterCrawl();
+          } catch (nodeErr) {
+            clearInterval(keepAlive);
+            push({
+              type: "error",
+              message:
+                nodeErr instanceof Error
+                  ? nodeErr.message
+                  : "Ошибка обогащения",
+            });
             try {
               controller.close();
             } catch {
               /* closed */
             }
-          });
-          return;
-        }
-        const message = err.message.includes("ENOENT")
-          ? `Python не найден (${resolvePythonBin()}). Нужен python3 в PATH или PYTHON=/путь/к/python.`
-          : err.message;
-        push({ type: "error", message });
-        try {
-          controller.close();
-        } catch {
-          /* closed */
-        }
+          }
+        })();
       });
 
       child.on("close", (code) => {
@@ -394,224 +668,14 @@ export async function POST(request: Request) {
             return;
           }
 
-          if (aborted) {
-            await rollbackAbort();
-            try {
-              controller.close();
-            } catch {
-              /* closed */
-            }
-            return;
-          }
-
-          if (!supportsNdjson || !sawNdjson || !finishedResult) {
-            if (!finishedResult) {
-              if (supportsNdjson && !sawNdjson) {
-                push({
-                  type: "started",
-                  label: labels[kind] || `Обогащение «${slug || id}»`,
-                });
-              }
-              if (!supportsNdjson) {
-                push({ type: "step", step: "bfs", status: "done" });
-              }
-              const noPatch =
-                /→ no patch/i.test(stdoutBuf) ||
-                /"with_patch": 0/.test(stdoutBuf) ||
-                /новых полей не было/i.test(stdoutBuf);
-              finishedResult = {
-                id: id || undefined,
-                label: labels[kind],
-                skipped: false,
-                patch: {},
-                resources: [],
-                resources_ok: 0,
-                resources_failed: 0,
-                reason: noPatch
-                  ? "Готово — новых полей не нашлось (fill-empty)."
-                  : null,
-              };
-              push({ type: "finished", result: finishedResult });
-            }
-          }
-
-          if (aborted) {
-            await rollbackAbort();
-            try {
-              controller.close();
-            } catch {
-              /* closed */
-            }
-            return;
-          }
-
-          // Resource crawl is done; now parse the card copy into услуги /
-          // акции / обновления and leave «О нас» as narrative.
-          // Queue cards already wrote fill-empty via enrich_queue_card.py —
-          // skip live finalize (that targets businesses/professionals tables).
-          if (!queue && id && isFinalizableKind(kind)) {
-            push({
-              type: "step",
-              step: "cleanup",
-              status: "running",
-              detail: "Разбор описания…",
-            });
-            try {
-              const catalog = createServiceRoleClient();
-              const finalized = await finalizePublishedEnrich(
-                catalog,
-                kind,
-                id,
-                finishedResult,
-                { dryRun: true },
-              );
-              if (aborted) {
-                await rollbackAbort();
-                try {
-                  controller.close();
-                } catch {
-                  /* closed */
-                }
-                return;
-              }
-              finishedResult = finalized.result;
-              const sectionNote = finalized.sectionMismatch
-                ? `похоже на другой раздел: ${SECTION_TITLES[finalized.sectionMismatch] ?? finalized.sectionMismatch} — перенос в «Не тот раздел»`
-                : null;
-              const parsed = finalized.found.length
-                ? finalized.found.map(fieldLabel).join(", ")
-                : "в описании нечего разбирать";
-              push({
-                type: "step",
-                step: "cleanup",
-                status: "done",
-                detail: sectionNote ? `${parsed}; ${sectionNote}` : parsed,
-                found: finalized.found,
-              });
-              push({ type: "finished", result: finishedResult });
-            } catch (err) {
-              if (aborted) {
-                await rollbackAbort();
-                try {
-                  controller.close();
-                } catch {
-                  /* closed */
-                }
-                return;
-              }
-              push({
-                type: "step",
-                step: "cleanup",
-                status: "error",
-                detail: err instanceof Error ? err.message : "Ошибка разбора",
-              });
-            }
-          } else if (queue) {
-            // Same peel (+ geo for recommendations) as live finalize — Python
-            // crawl alone leaves directory dumps crooked and without a pin.
-            push({
-              type: "step",
-              step: "cleanup",
-              status: "running",
-              detail: "Адрес и разбор…",
-            });
-            try {
-              const catalog = createServiceRoleClient();
-              let found = Object.keys(finishedResult?.patch || {});
-              if (queue.source === "import_review") {
-                const fin = await finalizePrePublishEnrich(
-                  catalog,
-                  queue.id,
-                  finishedResult,
-                );
-                finishedResult = fin.result;
-                found = [...new Set([...found, ...fin.found])];
-              } else {
-                const addrFound = await peelRecommendationQueueAddress(
-                  catalog,
-                  queue.id,
-                );
-                found = [...new Set([...found, ...addrFound])];
-                if (finishedResult && addrFound.length) {
-                  finishedResult = {
-                    ...finishedResult,
-                    patch: {
-                      ...(finishedResult.patch || {}),
-                      ...Object.fromEntries(
-                        addrFound.map((k) => [k, true] as const),
-                      ),
-                    },
-                  };
-                }
-              }
-              push({
-                type: "step",
-                step: "cleanup",
-                status: "done",
-                detail: found.length
-                  ? found.map(fieldLabel).join(", ")
-                  : finishedResult?.patch
-                    ? "Очередь обновлена"
-                    : "Новых полей нет",
-                found,
-              });
-            } catch (err) {
-              push({
-                type: "step",
-                step: "cleanup",
-                status: "error",
-                detail:
-                  err instanceof Error ? err.message : "Ошибка разбора адреса",
-              });
-            }
-          }
-
-          if (aborted) {
-            await rollbackAbort();
-            try {
-              controller.close();
-            } catch {
-              /* closed */
-            }
-            return;
-          }
-
-          if (!queue && finishedResult && id) {
-            try {
-              const historyResult = attachEnrichBeforeSnapshot(
-                finishedResult,
-                beforeSnapshot,
-              );
-              Object.assign(finishedResult, historyResult);
-              finishedResult.pending_review = true;
-              // History is written when admin Saves selected fields — not on dry-run.
-            } catch (err) {
-              console.error("enrich before snapshot failed", err);
-            }
-          }
-
-          if (queue) {
-            revalidatePath("/admin/review");
-            revalidatePath(
-              `/admin/review/${encodeURIComponent(
-                `${queue.source === "recommendation" ? "recommendation" : "import_review"}:${queue.id}`,
-              )}`,
-            );
-            revalidatePath("/admin/community/recommendations");
-          }
-          // Published dry-run: no revalidate until Save applies the patch.
-          try {
-            controller.close();
-          } catch {
-            /* closed */
-          }
+          await finishAfterCrawl();
         })();
       });
     },
     cancel() {
       aborted = true;
       try {
-        child.kill("SIGTERM");
+        child?.kill("SIGTERM");
       } catch {
         /* already dead */
       }

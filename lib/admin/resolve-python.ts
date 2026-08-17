@@ -24,6 +24,14 @@ export function resolvePythonBin(root: string = process.cwd()): string {
   return "python3";
 }
 
+/** Vercel Node runtime has no Python; only spawn when a real binary exists. */
+export function pythonIsRunnable(root: string = process.cwd()): boolean {
+  if (process.env.VERCEL) return false;
+  const bin = resolvePythonBin(root);
+  if (!bin || bin === "python3") return false;
+  return existsSync(bin);
+}
+
 /** PATH so child scripts that call `python3` still find it. */
 export function pythonSpawnEnv(
   extra: NodeJS.ProcessEnv = process.env,

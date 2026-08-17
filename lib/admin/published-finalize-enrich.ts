@@ -228,7 +228,7 @@ function extractMetaText(html: string): string[] {
  * Visible page text plus SPA/JSON-LD office lines (React sites hide addresses
  * in /static/js bundles — plain HTML fetch alone misses them).
  */
-async function fetchWebsiteVisibleText(
+export async function fetchWebsiteVisibleText(
   website: string | null | undefined,
   path = "/",
 ): Promise<string | null> {

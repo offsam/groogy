@@ -169,7 +169,7 @@ export function HomeHubCategoryCounts({
               <Link
                 key={item.key}
                 className={cn(
-                  "group relative flex min-w-[7.75rem] shrink-0 flex-col gap-0.5 rounded-2xl border border-white/15 bg-white/10 px-2.5 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md transition sm:min-w-[8.25rem] sm:max-w-[10rem] sm:justify-between sm:gap-1",
+                  "group relative flex min-w-[6.25rem] max-w-[42vw] shrink-0 flex-col gap-0.5 rounded-2xl border border-white/15 bg-white/10 px-2 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md transition sm:min-w-[8.25rem] sm:max-w-[10rem] sm:justify-between sm:gap-1 sm:px-2.5",
                   "hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/18",
                   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow",
                   "motion-safe:animate-[hubCountIn_420ms_ease-out_both]",

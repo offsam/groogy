@@ -4,7 +4,7 @@ import { BRAND_NAME } from "@/lib/brand";
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-2 px-4 py-6 text-sm text-slate-500 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-w-0 max-w-[1400px] flex-wrap items-center justify-between gap-2 px-3 py-6 text-sm text-slate-500 sm:px-6 lg:px-8">
         <span>
           © {new Date().getFullYear()} {BRAND_NAME}
         </span>

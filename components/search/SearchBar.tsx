@@ -72,7 +72,7 @@ function SearchBarFields({
         <Sparkles aria-hidden="true" className="ml-3 size-5 shrink-0 text-brand-orange" />
         <input
           aria-label="AI-поиск компаний"
-          className="w-full bg-transparent py-2.5 text-base outline-none placeholder:text-slate-400 sm:py-3"
+          className="w-full min-w-0 bg-transparent py-2.5 text-base outline-none placeholder:text-slate-400 sm:py-3"
           name="query"
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Например: детский стоматолог в Irvine…"
@@ -95,7 +95,7 @@ function SearchBarFields({
         <Search aria-hidden="true" className="size-4 shrink-0 text-slate-400" />
         <input
           aria-label="Поиск компаний"
-          className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
+          className="w-full min-w-0 bg-transparent text-base outline-none placeholder:text-slate-400 sm:text-sm"
           name="query"
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Найти компанию"

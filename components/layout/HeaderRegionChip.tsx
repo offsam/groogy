@@ -56,6 +56,7 @@ export function HeaderRegionChip({ hubs }: HeaderRegionChipProps) {
 
   return (
     <RegionHubPicker
+      className="min-w-0 max-w-full"
       onChange={applyHubs}
       onPlaceSelect={applyPlace}
       selected={hubs}

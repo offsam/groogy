@@ -268,7 +268,7 @@ export function RegionHubPicker({
   }
 
   return (
-    <div className={cn("relative", className)} ref={rootRef}>
+    <div className={cn("relative min-w-0 max-w-full", className)} ref={rootRef}>
       {trigger({
         open,
         toggle: () => {
@@ -285,7 +285,7 @@ export function RegionHubPicker({
           aria-label="Выбор регионов"
           aria-multiselectable
           className={cn(
-            "absolute left-0 top-full z-[1100] mt-2 min-w-[300px] overflow-hidden rounded-xl shadow-xl",
+            "absolute left-0 right-0 top-full z-[1100] mt-2 min-w-0 overflow-hidden rounded-xl shadow-xl sm:right-auto sm:w-[18.75rem]",
             dark
               ? "border border-white/15 bg-slate-950/95 backdrop-blur-md"
               : "border border-slate-200 bg-white",

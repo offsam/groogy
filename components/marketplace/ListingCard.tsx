@@ -129,9 +129,9 @@ export function ListingCard({
       <div className="space-y-2 p-4">
         <CategoryChip theme="marketplace" />
 
-        <div className="flex items-start justify-between gap-2">
+        <div className="flex min-w-0 items-start justify-between gap-2">
           <MaybeLink
-            className="line-clamp-2 font-semibold text-slate-900 hover:underline"
+            className="min-w-0 line-clamp-2 font-semibold text-slate-900 hover:underline"
             href={href}
             preview={preview}
             onClick={() =>

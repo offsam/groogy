@@ -32,7 +32,7 @@ export function CommunityRecommendationBadge({
     : "rounded-lg px-2 py-1 text-xs font-semibold";
   return (
     <span
-      className={`inline-flex items-center bg-brand-green/15 text-emerald-800 ${badgeClass} ${className ?? ""}`}
+      className={`inline-flex max-w-full items-center truncate bg-brand-green/15 text-emerald-800 ${badgeClass} ${className ?? ""}`}
       title="Рекомендовали другие в открытых источниках"
     >
       {recommendationsLabel(count)}

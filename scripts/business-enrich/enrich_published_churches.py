@@ -49,10 +49,11 @@ from enrich_published_businesses import (  # noqa: E402
     scraped_address,
 )
 from shared_hosts import is_shared_non_identity_host  # noqa: E402
-from web_enrichment import (  # noqa: E402
-    extract_instagram_profile,
-    extract_website_profile,
-    extract_website_profile_deep,
+from website_assets import (  # noqa: E402
+    linked_content_paths,
+    merge_gallery,
+    photo_from_website_profile,
+    should_replace_cover,
 )
 
 MINISTRY_RULES: list[tuple[re.Pattern[str], str]] = [
@@ -251,8 +252,16 @@ def enrich_one(row: dict[str, Any], *, on_event: Any = None) -> dict[str, Any]:
 
     html_blob = ""
     ministries: list[dict[str, Any]] = []
-    for path in SERVICE_PATHS:
-        url = website.rstrip("/") + path if path else website
+    home_html = http_get(website)
+    page_urls = [website]
+    if home_html:
+        html_blob += "\n" + strip_tags(home_html)
+        ministries = merge_ministries(ministries, extract_ministries(home_html, website))
+        parsed = urlparse(website)
+        origin = f"{parsed.scheme}://{parsed.netloc}"
+        for path in linked_content_paths(home_html, website):
+            page_urls.append(origin + path)
+    for url in page_urls[1:]:
         html = http_get(url)
         if not html:
             continue
@@ -333,10 +342,16 @@ def enrich_one(row: dict[str, Any], *, on_event: Any = None) -> dict[str, Any]:
                 patch["description"] = richer[:4000]
                 sources["description"] = "website"
 
-    # Image
-    image = profile.get("image") or profile.get("image_url") or profile.get("og_image")
-    if image and empty(row.get("image_url")):
-        fill_empty_patch(row, "image_url", str(image).strip(), patch, sources)
+    # Image + certificates from the homepage (never a logo file as cover).
+    portrait, certs = photo_from_website_profile(profile)
+    if portrait and should_replace_cover(str(row.get("image_url") or "")):
+        fill_empty_patch(row, "image_url", portrait, patch, sources)
+        patch["image_url"] = portrait[:500]
+        sources["image_url"] = "website"
+    gallery = merge_gallery(row.get("gallery_urls"), certs)
+    if gallery and gallery != list(row.get("gallery_urls") or []):
+        patch["gallery_urls"] = gallery
+        sources["gallery_urls"] = "website"
 
     # Address
     street_line, parts = scraped_address(profile.get("address") or profile.get("street"))
@@ -464,7 +479,7 @@ def fetch_targets(
     select = (
         "id,name,slug,website,instagram_url,phone,email,city,region,state_code,"
         "address_line,postal_code,description,google_maps_url,latitude,longitude,"
-        "location_precision,opening_hours,schedule_text,ministries,image_url,"
+        "location_precision,opening_hours,schedule_text,ministries,image_url,gallery_urls,"
         "source_url,status"
     )
     if id_ or slug:

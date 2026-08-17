@@ -8,6 +8,8 @@ import {
 } from "@/lib/business/presence";
 import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import { parseContactLinks } from "@/lib/contacts/channels";
+import { parseGalleryUrls } from "@/lib/business/media";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 import type {
   Professional,
   ProfessionalPublicRow,
@@ -87,6 +89,7 @@ export function mapProfessionalPublic(row: ProfessionalPublicRow): Professional 
     ),
     cardSummary: redactContactsFromPublicText(row.card_summary ?? null),
     imageUrl: row.image_url || PLACEHOLDER,
+    galleryUrls: parseGalleryUrls(row.gallery_urls),
     status: row.status,
     experienceYears: row.experience_years,
     languages: row.languages ?? ["ru"],
@@ -295,14 +298,7 @@ export function formatProfessionalDuration(
 }
 
 export function slugifyProfessionalName(input: string): string {
-  const base = input
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[^\w\s-]/g, "")
-    .trim()
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 48);
+  const base = catalogCardSlug({ name: input, fallback: "pro" }).slice(0, 48);
   const stamp = Date.now().toString(36).slice(-4);
-  return `${base || "pro"}-${stamp}`;
+  return `${base}-${stamp}`;
 }

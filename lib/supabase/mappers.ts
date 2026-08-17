@@ -7,6 +7,7 @@ import {
 } from "@/lib/address/normalize";
 import { parseOpeningHours } from "@/lib/business/opening-hours";
 import { parseContactLinks } from "@/lib/contacts/channels";
+import { parseGalleryUrls } from "@/lib/business/media";
 import {
   computePresenceFlags,
   type BusinessPresenceFlags,
@@ -126,6 +127,9 @@ function baseBusiness(
         ).payment_methods!.filter(Boolean)
       : [],
     imageUrl: row.image_url || PLACEHOLDER_IMAGE,
+    galleryUrls: parseGalleryUrls(
+      (row as BusinessWithCategory & { gallery_urls?: unknown }).gallery_urls,
+    ),
     city,
     region: row.region,
     stateCode: row.state_code ?? null,

@@ -8,7 +8,7 @@ import {
   pasteEnrichFillEmptyPatch,
   type PasteEnrichExisting,
 } from "@/lib/admin/paste-enrich";
-import { fetchWebsiteVisibleText } from "@/lib/admin/published-finalize-enrich";
+import { fetchWebsitePage } from "@/lib/admin/published-finalize-enrich";
 import type { PublishedEnrichKind } from "@/lib/admin/published-enrich-run";
 import type {
   EnrichResourceState,
@@ -16,10 +16,14 @@ import type {
   EnrichStreamEvent,
 } from "@/lib/import-review/enrich-progress";
 import { parseContactLinks } from "@/lib/contacts/channels";
+import {
+  extractImageUrlsFromHtml,
+  linkedContentPaths,
+  looksLikeLogoUrl,
+  pickSiteMedia,
+} from "@/lib/admin/website-assets";
 
 type Push = (event: EnrichStreamEvent) => void;
-
-const EXTRA_PATHS = ["/", "/contact", "/contacts", "/about", "/menu"];
 
 function untyped(client: SupabaseClient) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,10 +41,10 @@ function tableFor(kind: PublishedEnrichKind): string {
 
 function selectFor(kind: PublishedEnrichKind): string {
   if (kind === "business") {
-    return "id, slug, name, phone, email, website, instagram_url, telegram_url, yelp_url, google_maps_url, google_rating, google_reviews_count, city, state_code, address_line, postal_code, description, short_description, opening_hours, source_url";
+    return "id, slug, name, phone, email, website, instagram_url, telegram_url, yelp_url, google_maps_url, google_rating, google_reviews_count, city, state_code, address_line, postal_code, description, short_description, opening_hours, source_url, image_url, gallery_urls";
   }
   if (kind === "professional") {
-    return "id, slug, display_name, phone, email, website, instagram_url, telegram_url, city, state_code, private_address_line, postal_code, description, short_description, opening_hours, source_url";
+    return "id, slug, display_name, phone, email, website, instagram_url, telegram_url, city, state_code, private_address_line, postal_code, description, short_description, opening_hours, source_url, image_url, gallery_urls";
   }
   return "*";
 }
@@ -187,32 +191,49 @@ export async function runPublishedEnrichNode(input: {
   const texts: string[] = [];
   let menuText: string | null = null;
 
-  const visit = async (url: string, resKind: string, path = "/") => {
+  const visitPage = async (
+    pageUrl: string,
+    resKind: string,
+    html?: string | null,
+    text?: string | null,
+  ) => {
     if (signal?.aborted) return;
     push({
       type: "resource",
-      url: path === "/" ? url : `${url.replace(/\/$/, "")}${path}`,
+      url: pageUrl,
       kind: resKind,
       status: "running",
     });
-    const text = await fetchWebsiteVisibleText(url, path);
+    let pageHtml = html ?? null;
+    let pageText = text ?? null;
+    if (pageHtml == null && pageText == null) {
+      const page = await fetchWebsitePage(pageUrl, "/");
+      pageHtml = page?.html ?? null;
+      pageText = page?.text ?? null;
+    }
     const fields: string[] = [];
-    if (text && text.length >= 80) {
-      texts.push(text);
-      const parsed = parsePasteEnrichText(text);
+    if (pageText && pageText.length >= 80) {
+      texts.push(pageText);
+      const parsed = parsePasteEnrichText(pageText);
       if (parsed.phone.length) fields.push("phone");
       if (parsed.email.length) fields.push("email");
       if (parsed.website.length) fields.push("website");
       if (parsed.instagram.length) fields.push("instagram");
       if (parsed.addressLine) fields.push("address");
       if (parsed.openingHours) fields.push("hours");
-      if (path === "/menu") menuText = text;
+      try {
+        if (new URL(pageUrl).pathname.replace(/\/+$/, "") === "/menu") {
+          menuText = pageText;
+        }
+      } catch {
+        /* ignore */
+      }
     }
-    const outcome = text && text.length >= 80 ? "ok" : "empty";
+    const outcome = pageText && pageText.length >= 80 ? "ok" : "empty";
     const state: EnrichResourceState = {
-      url: path === "/" ? url : `${url.replace(/\/$/, "")}${path}`,
+      url: pageUrl,
       kind: resKind,
-      status: outcome === "ok" ? "done" : "done",
+      status: "done",
       outcome,
       fields,
     };
@@ -225,6 +246,7 @@ export async function runPublishedEnrichNode(input: {
       outcome,
       fields,
     });
+    return { html: pageHtml, text: pageText, url: pageUrl };
   };
 
   if (cardCopy.length >= 40) {
@@ -246,14 +268,35 @@ export async function runPublishedEnrichNode(input: {
     });
   }
 
+  let homeHtml: string | null = null;
+  let homeUrl: string | null = null;
   if (website) {
-    for (const path of EXTRA_PATHS) {
+    const home = await fetchWebsitePage(website, "/");
+    homeHtml = home?.html ?? null;
+    homeUrl = home?.url ?? website;
+    await visitPage(
+      homeUrl,
+      "website",
+      home?.html,
+      home?.text,
+    );
+    const extraPaths = homeHtml && homeUrl
+      ? linkedContentPaths(homeHtml, homeUrl)
+      : [];
+    for (const path of extraPaths) {
       if (signal?.aborted) break;
-      await visit(website, path === "/menu" ? "menu" : "website", path);
+      const extraUrl = `${String(homeUrl).replace(/\/$/, "")}${path}`;
+      const extra = await fetchWebsitePage(extraUrl, "/");
+      await visitPage(
+        extra?.url ?? extraUrl,
+        path.replace(/\/+$/, "") === "/menu" ? "menu" : "website",
+        extra?.html,
+        extra?.text,
+      );
     }
   }
   if (sourceUrl && sourceUrl !== website) {
-    await visit(sourceUrl, "source", "/");
+    await visitPage(sourceUrl, "source");
   }
 
   const blob = texts.join("\n\n").slice(0, 80_000);
@@ -261,6 +304,31 @@ export async function runPublishedEnrichNode(input: {
   const logical = pasteEnrichFillEmptyPatch(existing, extracted, null);
   const patch = logicalToDbPatch(kind, logical);
   delete patch.updated_at;
+
+  if (
+    homeHtml &&
+    homeUrl &&
+    (kind === "business" || kind === "professional" || kind === "church")
+  ) {
+    const media = pickSiteMedia(extractImageUrlsFromHtml(homeHtml, homeUrl));
+    const currentImage = String(row.image_url || "").trim();
+    if (
+      media.portrait &&
+      (!currentImage || looksLikeLogoUrl(currentImage))
+    ) {
+      patch.image_url = media.portrait;
+    }
+    const existingGallery = Array.isArray(row.gallery_urls)
+      ? (row.gallery_urls as unknown[]).map((x) => String(x || "").trim()).filter(Boolean)
+      : [];
+    const nextGallery = [...existingGallery];
+    for (const url of media.certificates) {
+      if (!nextGallery.includes(url)) nextGallery.push(url);
+    }
+    if (nextGallery.length > existingGallery.length) {
+      patch.gallery_urls = nextGallery.slice(0, 6);
+    }
+  }
 
   const conflicts: NonNullable<EnrichRunResult["field_conflicts"]> = [];
   const maybeConflict = (

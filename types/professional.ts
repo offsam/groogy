@@ -40,6 +40,8 @@ export type Professional = {
   /** Listing-card pitch (synthesized / LLM) — prefer over raw post. */
   cardSummary?: string | null;
   imageUrl: string | null;
+  /** Extra public photos (certificates, work samples) besides imageUrl. */
+  galleryUrls?: string[];
   status: ProfessionalStatus;
   experienceYears: number | null;
   languages: string[];
@@ -131,6 +133,7 @@ export type ProfessionalPublicRow = {
   description_original?: string | null;
   card_summary?: string | null;
   image_url: string | null;
+  gallery_urls?: string[] | null;
   status: ProfessionalStatus;
   experience_years: number | null;
   languages: string[] | null;

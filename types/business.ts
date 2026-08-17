@@ -67,6 +67,8 @@ export type Business = {
   /** Channels without a dedicated column — gated like other contacts. */
   contactLinks: ContactLink[];
   imageUrl: string | null;
+  /** Extra public photos (certificates, interior) besides imageUrl. */
+  galleryUrls?: string[];
   /** Street / suite only — no city, state, ZIP, or county. */
   addressLine: string | null;
   city: string | null;

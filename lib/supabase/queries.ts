@@ -28,6 +28,7 @@ import {
 } from "@/lib/regions/hubs";
 import { ENTITY_DESCRIPTION_ORIGINAL_READY } from "@/lib/content/description-original";
 import { CONTACT_LINKS_COLUMN_READY } from "@/lib/contacts/channels";
+import { GALLERY_URLS_COLUMN_READY } from "@/lib/business/media";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
 import { distanceKm } from "@/lib/geo/distance";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
@@ -99,6 +100,7 @@ const BUSINESS_DETAIL_SELECT = (() => {
   const extras: string[] = [];
   if (CONTACT_LINKS_COLUMN_READY) extras.push("contact_links");
   if (ENTITY_DESCRIPTION_ORIGINAL_READY) extras.push("description_original");
+  if (GALLERY_URLS_COLUMN_READY) extras.push("gallery_urls");
   if (extras.length === 0) return BUSINESS_DETAIL_SELECT_BASE;
   // Insert before the nested `categories (...)` block.
   const marker = "categories (";

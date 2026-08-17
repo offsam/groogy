@@ -144,6 +144,7 @@ function collectGallery(business: Business, offers: BusinessOffer[]): string[] {
     out.push(url);
   };
   push(business.imageUrl);
+  for (const url of business.galleryUrls ?? []) push(url);
   for (const offer of offers) {
     push(offerCoverUrl(offer));
     for (const media of offer.media ?? []) push(media.publicUrl);

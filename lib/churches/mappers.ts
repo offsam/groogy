@@ -7,6 +7,8 @@ import {
 import { isOpeningHours } from "@/lib/business/opening-hours";
 import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import { parseContactLinks } from "@/lib/contacts/channels";
+import { parseGalleryUrls } from "@/lib/business/media";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 import type {
   Church,
   ChurchMinistry,
@@ -71,6 +73,7 @@ export function mapChurchPublic(row: ChurchPublicRow): Church {
       row.description_original ?? null,
     ),
     imageUrl: row.image_url || PLACEHOLDER,
+    galleryUrls: parseGalleryUrls(row.gallery_urls),
     status: row.status,
     addressLine: row.address_line?.trim() || null,
     city: row.city,
@@ -129,6 +132,7 @@ export function mapChurchOwner(row: ChurchRow): Church {
     description: row.description,
     descriptionOriginal: row.description_original ?? null,
     imageUrl: row.image_url || PLACEHOLDER,
+    galleryUrls: parseGalleryUrls(row.gallery_urls),
     status: row.status,
     addressLine: row.address_line?.trim() || null,
     city: row.city,
@@ -171,10 +175,5 @@ export function mapChurchOwner(row: ChurchRow): Church {
 }
 
 export function slugifyChurchName(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9а-яё]+/gi, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 80);
+  return catalogCardSlug({ name: input, fallback: "church" }).slice(0, 80);
 }

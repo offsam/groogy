@@ -25,6 +25,11 @@ from enrich_follow_policy import (  # noqa: E402
     CMS_CHROME_HOST_PARTS,
     is_cms_chrome_url,
 )
+from website_assets import (  # noqa: E402
+    extract_image_urls_from_html,
+    looks_like_logo_url,
+    pick_site_media,
+)
 
 SOURCE_WEBSITE = "website"
 SOURCE_INSTAGRAM = "instagram"
@@ -887,12 +892,16 @@ def extract_website_profile(url: str) -> dict[str, Any]:
         parser.meta.get("description"),
         parser.meta.get("twitter:description"),
     )
-    logo = _abs(
-        norm,
-        parser.meta.get("og:image")
-        or parser.logo
-        or parser.meta.get("twitter:image"),
-    )
+    raw_logo = _abs(norm, parser.logo)
+    logo = raw_logo if raw_logo and looks_like_logo_url(raw_logo) else None
+    media = pick_site_media(extract_image_urls_from_html(raw_html, norm))
+    portrait = media.get("portrait")
+    gallery = list(media.get("certificates") or [])
+    og_image = _abs(norm, parser.meta.get("og:image") or parser.meta.get("twitter:image"))
+    if not portrait and og_image and not looks_like_logo_url(og_image):
+        portrait = og_image
+    if not logo and og_image and looks_like_logo_url(og_image):
+        logo = og_image
 
     phones: list[str] = []
     emails: list[str] = []
@@ -1075,6 +1084,8 @@ def extract_website_profile(url: str) -> dict[str, Any]:
             "booking_url": spa_booking,
             "hours": hours,
             "logo": logo,
+            "image_url": portrait,
+            "gallery_urls": gallery[:6],
             "social_links": _uniq(social)[:15],
             "services": [o["title"] for o in offers if o.get("title")],
             "service_offers": offers,
@@ -1239,8 +1250,8 @@ def website_profile_gaps(profile: dict[str, Any] | None) -> list[str]:
     desc = (profile.get("description") or "").strip()
     if len(desc) < 40:
         gaps.append("description")
-    if not (profile.get("logo") or "").strip():
-        gaps.append("logo")
+    if not (profile.get("image_url") or "").strip():
+        gaps.append("image_url")
     social = " ".join(str(s).lower() for s in (profile.get("social_links") or []))
     if "instagram.com" not in social and "instagr.am" not in social:
         gaps.append("instagram")
@@ -1255,10 +1266,9 @@ def extract_website_profile_deep(
 ) -> dict[str, Any]:
     """BFS crawl of same-host pages until card gaps are filled or budget ends.
 
-    Seeds: the given URL, common contact/services paths, then internal links
-    discovered on each fetched page. Does **not** stop early just because
-    phone+address+hours appeared — keeps going while services / description /
-    email / logo / social are still missing and pages remain.
+    Seeds: the given URL and site origin, then internal links discovered on
+    each fetched page. Does **not** guess /about /contact /menu — those paths
+    are crawled only when the site actually links them.
 
     on_page(event) optional: live progress for admin enrich UI
       {url, status: running|done|error, outcome?: ok|empty|error, fields?, error?}
@@ -1307,9 +1317,6 @@ def extract_website_profile_deep(
 
     enqueue(base)
     enqueue(root + "/")
-    for path in CONTACT_PATHS:
-        if path:
-            enqueue(urllib.parse.urljoin(root + "/", path.lstrip("/")))
 
     merged: dict[str, Any] | None = None
     pages_tried: list[dict[str, Any]] = []
@@ -1327,12 +1334,13 @@ def extract_website_profile_deep(
             "services",
             "service_offers",
             "payment_methods",
-            "logo",
+            "image_url",
+            "gallery_urls",
             "social_links",
         ):
             vv = profile.get(kk)
             if vv not in (None, "", [], {}):
-                useful.append(kk if kk != "logo" else "image_url")
+                useful.append(kk)
         page_status = profile.get("status")
         if page_status == "ok" and useful:
             outcome = "ok"
@@ -1988,7 +1996,7 @@ def merge_website_profiles(
     if not secondary or secondary.get("status") != "ok":
         return primary
     merged = dict(primary)
-    for key in ("name", "description", "address", "hours", "logo"):
+    for key in ("name", "description", "address", "hours", "logo", "image_url"):
         cur = merged.get(key)
         alt = secondary.get(key)
         if not cur and alt:
@@ -1996,6 +2004,12 @@ def merge_website_profiles(
         elif key in ("description", "name") and cur and alt:
             if len(str(alt).strip()) > len(str(cur).strip()) + 20:
                 merged[key] = alt
+        elif key == "image_url" and cur and alt:
+            if looks_like_logo_url(str(cur)) and not looks_like_logo_url(str(alt)):
+                merged[key] = alt
+    gallery_a = [str(x).strip() for x in (merged.get("gallery_urls") or []) if str(x).strip()]
+    gallery_b = [str(x).strip() for x in (secondary.get("gallery_urls") or []) if str(x).strip()]
+    merged["gallery_urls"] = _uniq(gallery_a + gallery_b)[:6]
     addr_a = [str(x).strip() for x in (merged.get("addresses") or []) if str(x).strip()]
     addr_b = [str(x).strip() for x in (secondary.get("addresses") or []) if str(x).strip()]
     if merged.get("address"):

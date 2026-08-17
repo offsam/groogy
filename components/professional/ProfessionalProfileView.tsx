@@ -11,6 +11,8 @@ import {
 import { AddProfessionalServiceButton } from "@/components/professional/AddProfessionalServiceButton";
 import { ClaimProfessionalButton } from "@/components/professional/ClaimProfessionalButton";
 import { BusinessMiniMap } from "@/components/business/profile/BusinessMiniMap";
+import { BusinessGallery } from "@/components/business/profile/BusinessGallery";
+import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { formatProfessionalPrice } from "@/lib/professional/mappers";
 import { ServiceListRow, ServiceTileRow } from "@/components/shared/ServiceListRow";
 import { serviceTitleForDisplay } from "@/lib/professional/service-title-ru";
@@ -150,6 +152,9 @@ export function ProfessionalProfileView({
   const photo = hasPhoto(professional.imageUrl)
     ? professional.imageUrl
     : null;
+  const extraPhotos = (professional.galleryUrls ?? []).filter(
+    (url) => url && hasRealBusinessPhoto(url) && url !== photo,
+  );
 
   const publicProfessional: Professional =
     isAdmin && !preview && viewAs === "visitor"
@@ -326,6 +331,14 @@ export function ProfessionalProfileView({
           />
         </div>
       </header>
+
+      {extraPhotos.length > 0 ? (
+        <BusinessGallery
+          images={extraPhotos}
+          name={professional.displayName}
+          showLogoBadge={false}
+        />
+      ) : null}
 
       <ProfessionalWorkplaceCard professional={professional} />
 

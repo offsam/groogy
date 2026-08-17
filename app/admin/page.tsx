@@ -12,6 +12,7 @@ import {
   Sparkles,
   Tags,
   Users,
+  Library,
 } from "lucide-react";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
@@ -146,6 +147,12 @@ export default async function AdminPage() {
       title: "Каталог",
       description: "По штату / округу / категории",
       icon: Building2,
+    },
+    {
+      href: "/admin/resources",
+      title: "Ресурсы",
+      description: "Telegram, Facebook, каталоги — откуда парсим",
+      icon: Library,
     },
     {
       href: "/admin/to4ka-enrich",

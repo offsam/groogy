@@ -132,7 +132,7 @@ export async function TelegramImportsIndex({
 
       <section className="space-y-3">
         <h2 className="text-lg font-semibold text-slate-900">
-          California · Sacramento / SF / San Diego
+          California
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {citySources.map((source) => (
@@ -148,7 +148,9 @@ export async function TelegramImportsIndex({
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-slate-900">Другие группы</h2>
+        <h2 className="text-lg font-semibold text-slate-900">
+          США · другие города
+        </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {otherSources.map((source) => (
             <SourceCard

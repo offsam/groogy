@@ -33,6 +33,10 @@ function adminCrumbs(pathname: string): Crumb[] {
     return [{ href: "/admin", label: "← Админка" }];
   }
 
+  if (pathname.startsWith("/admin/resources")) {
+    return [{ href: "/admin", label: "← Админка" }];
+  }
+
   if (
     pathname.startsWith("/admin/catalog/") &&
     pathname !== "/admin/catalog"

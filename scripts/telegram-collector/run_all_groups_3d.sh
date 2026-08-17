@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Collect last 3 days from all 8 Telegram sources → reviewer_v1 → admin queue.
+# Collect last 3 days from all allowlisted Telegram sources → reviewer_v1 → admin queue.
 # Incremental: extract uses --no-replace so existing pending backlog is kept.
 # One Telethon session: sequential only.
 set -euo pipefail
@@ -22,16 +22,37 @@ MODEL="${MODEL:-gpt-4o-mini}"
 WORKERS="${WORKERS:-4}"
 
 # TSV: prefix <TAB> chat_id <TAB> group_label <TAB> chat_title
-# Matches lib/import-review/telegram-sources.ts (all 8)
+# Matches lib/import-review/telegram-sources.ts
 GROUPS_TSV=$(cat <<'EOF'
 sacramento_adaptation	-1001733592780	Sacramento_Adaptation	Sacramento adaptation
 sacramento_rusrek	-1001677357732	Sacramento_RusRek	Sacramento RusRek work
+sacramento_rent_rusrek	-1001822893749	Sacramento_Rent_RusRek	Sacramento rent RusRek
 sf_rusrek	-1001573930932	SF_RusRek	SF RusRek work
 sf_general	-1001252383425	SF_General	SF general chat
 sd_rusrek	-1001877641731	SD_RusRek	SD RusRek work
 sd_general	-1001261966562	SD_General	SD general chat
 fun_for_mom	-1001333533747	Fun for Mom	Fun for Mom
 la_orange_county	-1001955320601	LA_OrangeCounty	LA Orange County
+irvine_friends	-1001880131921	Irvine_Friends	Irvine Friends
+la_rent_rusrek	-1001731302416	LA_Rent_RusRek	LA rent RusRek
+russians_in_la	-1001432677353	Russians_in_LA	Russians in LA
+ny_rusrek_chat	-1001464240281	NY_RusRek_Chat	NY RusRek work/rent
+ny_chat	-1002850187194	NY_Chat	NY chat
+ny_rusrek_general	-1003825095230	NY_RusRek_General	NY RusRek general
+ny_group	-1002064800703	NY_Group	NY group chat
+ny_for_everyone	-1001430570565	NY_For_Everyone	NY for everyone
+ny_svoi	-1001898722612	NY_Svoi	NY Svoi
+seattle_rusrek	-1001868225046	Seattle_RusRek	Seattle RusRek
+miami_rusrek	-1001611457559	Miami_RusRek	Miami RusRek
+miami_ru	-1001555481989	Miami_Ru	Russians in Miami
+houston_rusrek	-1001785045165	Houston_RusRek	Houston RusRek
+chicago_rusrek	-1001175902107	Chicago_RusRek	Chicago RusRek
+atlanta_chat	-1001889280623	Atlanta_Chat	Atlanta chat
+atlanta_rent_work	-1001876028760	Atlanta_Rent_Work	Atlanta rent/work
+denver_rusrek	-1001725647772	Denver_RusRek	Denver RusRek
+philadelphia_rusrek	-1001600919901	Philadelphia_RusRek	Philadelphia RusRek
+phoenix_rusrek	-1001832048676	Phoenix_RusRek	Phoenix RusRek
+boston_rusrek	-1001615012228	Boston_RusRek	Boston RusRek
 EOF
 )
 
@@ -134,4 +155,4 @@ while IFS=$'\t' read -r PREFIX CHAT_ID GROUP_LABEL TITLE; do
   echo "=== DONE $PREFIX $(date -u +%Y-%m-%dT%H:%M:%SZ) ===" | tee -a "$LOG_DIR/master.log"
 done <<< "$GROUPS_TSV"
 
-echo "=== ALL 8 groups finished $(date -u +%Y-%m-%dT%H:%M:%SZ) ===" | tee -a "$LOG_DIR/master.log"
+echo "=== ALL groups finished $(date -u +%Y-%m-%dT%H:%M:%SZ) ===" | tee -a "$LOG_DIR/master.log"

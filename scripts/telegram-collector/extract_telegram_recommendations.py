@@ -41,103 +41,90 @@ from eligibility import (  # noqa: E402
 )
 from recommendation_subject import recommended_subject_name  # noqa: E402
 
-REVIEWER_PATHS = [
-    (
-        "Fun for Mom",
-        ROOT
-        / "scripts/telegram-collector/data/full/fun_for_mom_reviewer_v1.json",
-    ),
-    (
-        "LA_OrangeCounty",
-        ROOT
-        / "scripts/telegram-collector/data/la_orange_county/full/la_orange_county_reviewer_v1.json",
-    ),
-    (
-        "Sacramento_Adaptation",
-        ROOT
-        / "scripts/telegram-collector/data/sacramento_adaptation/full/sacramento_adaptation_reviewer_v1.json",
-    ),
-    (
-        "Sacramento_RusRek",
-        ROOT
-        / "scripts/telegram-collector/data/sacramento_rusrek/full/sacramento_rusrek_reviewer_v1.json",
-    ),
-    (
-        "SF_RusRek",
-        ROOT
-        / "scripts/telegram-collector/data/sf_rusrek/full/sf_rusrek_reviewer_v1.json",
-    ),
-    (
-        "SF_General",
-        ROOT
-        / "scripts/telegram-collector/data/sf_general/full/sf_general_reviewer_v1.json",
-    ),
-    (
-        "SD_RusRek",
-        ROOT
-        / "scripts/telegram-collector/data/sd_rusrek/full/sd_rusrek_reviewer_v1.json",
-    ),
-    (
-        "SD_General",
-        ROOT
-        / "scripts/telegram-collector/data/sd_general/full/sd_general_reviewer_v1.json",
-    ),
-    (
-        "Irvine_Friends",
-        ROOT
-        / "scripts/telegram-collector/data/irvine_friends/full/irvine_friends_reviewer_v1.json",
-    ),
+# (groupLabel, prefix, directory_source) — keep in sync with telegram-sources.ts
+EXTRACT_GROUPS: list[tuple[str, str, str]] = [
+    ("Fun for Mom", "fun_for_mom", "tg_fun_for_mom"),
+    ("LA_OrangeCounty", "la_orange_county", "tg_la_orange_county"),
+    ("Sacramento_Adaptation", "sacramento_adaptation", "tg_sacramento_adaptation"),
+    ("Sacramento_RusRek", "sacramento_rusrek", "tg_sacramento_rusrek"),
+    ("Sacramento_Rent_RusRek", "sacramento_rent_rusrek", "tg_sacramento_rent_rusrek"),
+    ("SF_RusRek", "sf_rusrek", "tg_sf_rusrek"),
+    ("SF_General", "sf_general", "tg_sf_general"),
+    ("SD_RusRek", "sd_rusrek", "tg_sd_rusrek"),
+    ("SD_General", "sd_general", "tg_sd_general"),
+    ("Irvine_Friends", "irvine_friends", "tg_irvine_friends"),
+    ("LA_Rent_RusRek", "la_rent_rusrek", "tg_la_rent_rusrek"),
+    ("Russians_in_LA", "russians_in_la", "tg_russians_in_la"),
+    ("NY_RusRek_Chat", "ny_rusrek_chat", "tg_ny_rusrek_chat"),
+    ("NY_Chat", "ny_chat", "tg_ny_chat"),
+    ("NY_RusRek_General", "ny_rusrek_general", "tg_ny_rusrek_general"),
+    ("NY_Group", "ny_group", "tg_ny_group"),
+    ("NY_For_Everyone", "ny_for_everyone", "tg_ny_for_everyone"),
+    ("NY_Svoi", "ny_svoi", "tg_ny_svoi"),
+    ("Seattle_RusRek", "seattle_rusrek", "tg_seattle_rusrek"),
+    ("Miami_RusRek", "miami_rusrek", "tg_miami_rusrek"),
+    ("Miami_Ru", "miami_ru", "tg_miami_ru"),
+    ("Houston_RusRek", "houston_rusrek", "tg_houston_rusrek"),
+    ("Chicago_RusRek", "chicago_rusrek", "tg_chicago_rusrek"),
+    ("Atlanta_Chat", "atlanta_chat", "tg_atlanta_chat"),
+    ("Atlanta_Rent_Work", "atlanta_rent_work", "tg_atlanta_rent_work"),
+    ("Denver_RusRek", "denver_rusrek", "tg_denver_rusrek"),
+    ("Philadelphia_RusRek", "philadelphia_rusrek", "tg_philadelphia_rusrek"),
+    ("Phoenix_RusRek", "phoenix_rusrek", "tg_phoenix_rusrek"),
+    ("Boston_RusRek", "boston_rusrek", "tg_boston_rusrek"),
 ]
-RAW_BATCH_DIRS = [
-    (
-        "Fun for Mom",
-        ROOT / "scripts/telegram-collector/data/full/batches",
-    ),
-    (
-        "LA_OrangeCounty",
-        ROOT / "scripts/telegram-collector/data/la_orange_county/full/batches",
-    ),
-    (
-        "Sacramento_Adaptation",
-        ROOT / "scripts/telegram-collector/data/sacramento_adaptation/full/batches",
-    ),
-    (
-        "Sacramento_RusRek",
-        ROOT / "scripts/telegram-collector/data/sacramento_rusrek/full/batches",
-    ),
-    (
-        "SF_RusRek",
-        ROOT / "scripts/telegram-collector/data/sf_rusrek/full/batches",
-    ),
-    (
-        "SF_General",
-        ROOT / "scripts/telegram-collector/data/sf_general/full/batches",
-    ),
-    (
-        "SD_RusRek",
-        ROOT / "scripts/telegram-collector/data/sd_rusrek/full/batches",
-    ),
-    (
-        "SD_General",
-        ROOT / "scripts/telegram-collector/data/sd_general/full/batches",
-    ),
-    (
-        "Irvine_Friends",
-        ROOT / "scripts/telegram-collector/data/irvine_friends/full/batches",
-    ),
-]
+
+
+def _reviewer_path(prefix: str) -> Path:
+    if prefix == "fun_for_mom":
+        return ROOT / "scripts/telegram-collector/data/full/fun_for_mom_reviewer_v1.json"
+    return ROOT / f"scripts/telegram-collector/data/{prefix}/full/{prefix}_reviewer_v1.json"
+
+
+def _batch_dir(prefix: str) -> Path:
+    if prefix == "fun_for_mom":
+        return ROOT / "scripts/telegram-collector/data/full/batches"
+    return ROOT / f"scripts/telegram-collector/data/{prefix}/full/batches"
+
+
+REVIEWER_PATHS = [(label, _reviewer_path(prefix)) for label, prefix, _ in EXTRACT_GROUPS]
+RAW_BATCH_DIRS = [(label, _batch_dir(prefix)) for label, prefix, _ in EXTRACT_GROUPS]
 
 # Maps extract groupLabel → directory_source id for admin panels
 GROUP_DIRECTORY_SOURCE: dict[str, str] = {
-    "Fun for Mom": "tg_fun_for_mom",
-    "LA_OrangeCounty": "tg_la_orange_county",
-    "Sacramento_Adaptation": "tg_sacramento_adaptation",
-    "Sacramento_RusRek": "tg_sacramento_rusrek",
-    "SF_RusRek": "tg_sf_rusrek",
-    "SF_General": "tg_sf_general",
-    "SD_RusRek": "tg_sd_rusrek",
-    "SD_General": "tg_sd_general",
-    "Irvine_Friends": "tg_irvine_friends",
+    label: source_id for label, _prefix, source_id in EXTRACT_GROUPS
+}
+
+CITY_FOR_GROUP: dict[str, str] = {
+    "Fun for Mom": "Orange County",
+    "LA_OrangeCounty": "Orange County / LA",
+    "Sacramento_Adaptation": "Sacramento, CA",
+    "Sacramento_RusRek": "Sacramento, CA",
+    "Sacramento_Rent_RusRek": "Sacramento, CA",
+    "SF_RusRek": "San Francisco, CA",
+    "SF_General": "San Francisco, CA",
+    "SD_RusRek": "San Diego, CA",
+    "SD_General": "San Diego, CA",
+    "Irvine_Friends": "Orange County",
+    "LA_Rent_RusRek": "Los Angeles, CA",
+    "Russians_in_LA": "Los Angeles, CA",
+    "NY_RusRek_Chat": "New York, NY",
+    "NY_Chat": "New York, NY",
+    "NY_RusRek_General": "New York, NY",
+    "NY_Group": "New York, NY",
+    "NY_For_Everyone": "New York, NY",
+    "NY_Svoi": "New York, NY",
+    "Seattle_RusRek": "Seattle, WA",
+    "Miami_RusRek": "Miami, FL",
+    "Miami_Ru": "Miami, FL",
+    "Houston_RusRek": "Houston, TX",
+    "Chicago_RusRek": "Chicago, IL",
+    "Atlanta_Chat": "Atlanta, GA",
+    "Atlanta_Rent_Work": "Atlanta, GA",
+    "Denver_RusRek": "Denver, CO",
+    "Philadelphia_RusRek": "Philadelphia, PA",
+    "Phoenix_RusRek": "Phoenix, AZ",
+    "Boston_RusRek": "Boston, MA",
 }
 OUT_JSON = (
     ROOT
@@ -321,17 +308,7 @@ def guess_category(text: str, entity_category: str | None = None) -> str:
 
 
 def city_for_group(group: str) -> str:
-    if "Irvine" in group or "Orange" in group or "LA_" in group:
-        return "Orange County / LA" if "LA_" in group else "Orange County"
-    if "Fun for Mom" in group:
-        return "Orange County"
-    if "Sacramento" in group:
-        return "Sacramento, CA"
-    if group.startswith("SF_"):
-        return "San Francisco, CA"
-    if group.startswith("SD_"):
-        return "San Diego, CA"
-    return "California"
+    return CITY_FOR_GROUP.get(group, "United States")
 
 
 def directory_source_for_group(group: str) -> str | None:

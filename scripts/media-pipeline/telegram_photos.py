@@ -20,11 +20,31 @@ ALLOWED_CHATS = {
     -1001955320601,  # LA Orange County
     -1001733592780,  # Sacramento adaptation
     -1001677357732,  # Sacramento RusRek
+    -1001822893749,  # Sacramento rent RusRek
     -1001573930932,  # SF RusRek
     -1001252383425,  # SF general
     -1001877641731,  # SD RusRek
     -1001261966562,  # SD general
     -1001880131921,  # Irvine Friends
+    -1001731302416,  # LA rent RusRek
+    -1001432677353,  # Russians in LA
+    -1001464240281,  # NY RusRek chat
+    -1002850187194,  # NY Chat
+    -1003825095230,  # NY RusRek general
+    -1002064800703,  # NY group
+    -1001430570565,  # NY for everyone
+    -1001898722612,  # NY Svoi
+    -1001868225046,  # Seattle RusRek
+    -1001611457559,  # Miami RusRek
+    -1001555481989,  # Russians in Miami
+    -1001785045165,  # Houston RusRek
+    -1001175902107,  # Chicago RusRek
+    -1001889280623,  # Atlanta chat
+    -1001876028760,  # Atlanta rent/work
+    -1001725647772,  # Denver RusRek
+    -1001600919901,  # Philadelphia RusRek
+    -1001832048676,  # Phoenix RusRek
+    -1001615012228,  # Boston RusRek
 }
 
 

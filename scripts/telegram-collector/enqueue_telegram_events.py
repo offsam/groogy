@@ -31,9 +31,25 @@ from common import SupabaseRest, load_env  # noqa: E402
 CITY_BY_GROUP = {
     "fun_for_mom": "Лос-Анджелес",
     "la_orange_county": "Лос-Анджелес",
+    "irvine": "Ирвайн",
+    "russians_in_la": "Лос-Анджелес",
+    "la_rent": "Лос-Анджелес",
     "sacramento": "Сакраменто",
     "san_francisco": "Сан-Франциско",
+    "sf_": "Сан-Франциско",
     "san_diego": "Сан-Диего",
+    "sd_": "Сан-Диего",
+    "ny_": "Нью-Йорк",
+    "newyork": "Нью-Йорк",
+    "seattle": "Сиэтл",
+    "miami": "Майами",
+    "houston": "Хьюстон",
+    "chicago": "Чикаго",
+    "atlanta": "Атланта",
+    "denver": "Денвер",
+    "philadelphia": "Филадельфия",
+    "phoenix": "Финикс",
+    "boston": "Бостон",
 }
 
 

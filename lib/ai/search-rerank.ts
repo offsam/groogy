@@ -78,6 +78,8 @@ Rules:
 - Водитель-переводчик / chaperone / driver's services is NOT a translator.
 - Language courses / tutored English is NOT a translator.
 - A generic lawyer is NOT a translator unless the card offers translation/interpreting.
+- Business tours / seminars / «с переводом» as an amenity is NOT a translator.
+- Money transfers (денежный перевод) are NOT translators.
 - A nail/beauty studio is NOT ballet/dance.
 - Prefer cards whose name or about-text is the requested trade.`,
       },

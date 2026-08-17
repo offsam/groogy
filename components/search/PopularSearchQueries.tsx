@@ -2,13 +2,18 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type PopularQuery = {
   query: string;
   hits: number;
 };
 
-export function PopularSearchQueries() {
+type PopularSearchQueriesProps = {
+  tone?: "light" | "dark";
+};
+
+export function PopularSearchQueries({ tone = "light" }: PopularSearchQueriesProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [queries, setQueries] = useState<PopularQuery[] | null>(null);
@@ -35,24 +40,53 @@ export function PopularSearchQueries() {
   }, [open, queries]);
 
   return (
-    <div className="w-full">
+    <div className="relative w-full">
       <button
         type="button"
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 sm:w-auto"
+        className={cn(
+          "inline-flex min-h-11 w-full items-center justify-center rounded-xl border px-4 text-sm font-medium sm:w-auto",
+          tone === "dark"
+            ? "border-white/35 bg-white/15 text-white hover:bg-white/25"
+            : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50",
+        )}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
         {open ? "Скрыть топ-50 запросов" : "Посмотреть топ-50 запросов"}
       </button>
       {open ? (
-        <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
-          <p className="text-sm font-medium text-slate-800">
+        <div
+          className={cn(
+            "absolute left-0 right-0 z-30 mt-2 max-h-72 overflow-y-auto rounded-xl border p-3 shadow-lg sm:right-auto sm:w-[22rem] sm:p-4",
+            tone === "dark"
+              ? "border-white/20 bg-slate-950/95 text-white"
+              : "border-slate-200 bg-white text-slate-800",
+          )}
+        >
+          <p
+            className={cn(
+              "text-sm font-medium",
+              tone === "dark" ? "text-white" : "text-slate-800",
+            )}
+          >
             Что чаще всего ищут
           </p>
           {loading ? (
-            <p className="mt-2 text-sm text-slate-500">Загружаем…</p>
+            <p
+              className={cn(
+                "mt-2 text-sm",
+                tone === "dark" ? "text-white/70" : "text-slate-500",
+              )}
+            >
+              Загружаем…
+            </p>
           ) : !queries || queries.length === 0 ? (
-            <p className="mt-2 text-sm text-slate-500">
+            <p
+              className={cn(
+                "mt-2 text-sm",
+                tone === "dark" ? "text-white/70" : "text-slate-500",
+              )}
+            >
               Пока мало поисков, чтобы показать топ. Список появится, когда
               люди начнут искать.
             </p>
@@ -62,15 +96,31 @@ export function PopularSearchQueries() {
                 <li key={item.query}>
                   <Link
                     href={`/search?q=${encodeURIComponent(item.query)}`}
-                    className="flex min-h-11 items-center justify-between gap-3 rounded-lg px-2 py-1.5 text-sm text-slate-800 hover:bg-white"
+                    className={cn(
+                      "flex min-h-11 items-center justify-between gap-3 rounded-lg px-2 py-1.5 text-sm",
+                      tone === "dark"
+                        ? "text-white hover:bg-white/10"
+                        : "text-slate-800 hover:bg-slate-50",
+                    )}
+                    onClick={() => setOpen(false)}
                   >
                     <span className="min-w-0 truncate">
-                      <span className="tabular-nums text-slate-400">
+                      <span
+                        className={cn(
+                          "tabular-nums",
+                          tone === "dark" ? "text-white/45" : "text-slate-400",
+                        )}
+                      >
                         {index + 1}.
                       </span>{" "}
                       {item.query}
                     </span>
-                    <span className="shrink-0 tabular-nums text-slate-400">
+                    <span
+                      className={cn(
+                        "shrink-0 tabular-nums",
+                        tone === "dark" ? "text-white/45" : "text-slate-400",
+                      )}
+                    >
                       {item.hits}
                     </span>
                   </Link>

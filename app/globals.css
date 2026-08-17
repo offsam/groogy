@@ -537,11 +537,6 @@ body:has(.home-fullwidth) .header-search {
   display: none;
 }
 
-/* Businesses (/search): no header search — AI search lives on home only. */
-body:has(.search-page) .header-search {
-  display: none;
-}
-
 /* Businesses title sits closer to the header */
 body:has(.search-page) main {
   padding-top: 1rem;

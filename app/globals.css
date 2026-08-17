@@ -107,6 +107,196 @@ body {
   }
 }
 
+/* AI search: pin scans the catalog like a radar. */
+.ai-search-scene {
+  position: relative;
+  width: min(100%, 17.5rem);
+  height: 11.5rem;
+  margin-inline: auto;
+}
+
+.ai-search-field {
+  position: absolute;
+  inset: 0.35rem;
+  overflow: hidden;
+  border-radius: 1.15rem;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 48%, rgb(31 111 229 / 0.08), transparent 62%),
+    linear-gradient(180deg, rgb(248 250 252) 0%, rgb(241 245 249) 100%);
+}
+
+.ai-search-ring {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1.5px solid rgb(31 111 229 / 0.38);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(0.35);
+  opacity: 0;
+  animation: ai-search-ring 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.ai-search-ring:nth-child(2) {
+  animation-delay: 0.85s;
+  border-color: rgb(240 138 26 / 0.32);
+}
+
+.ai-search-ring:nth-child(3) {
+  animation-delay: 1.7s;
+  border-color: rgb(63 175 58 / 0.32);
+}
+
+.ai-search-pin {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 2;
+  transform: translate(-50%, -58%);
+  filter: drop-shadow(0 8px 14px rgb(15 23 42 / 0.18));
+  animation: ai-search-pin-bob 1.8s ease-in-out infinite;
+}
+
+.ai-search-dot {
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: var(--brand-blue);
+  opacity: 0.22;
+  animation: ai-search-dot 2.2s ease-in-out infinite;
+}
+
+.ai-search-card {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  width: 3.35rem;
+  align-items: center;
+  gap: 0.28rem;
+  border-radius: 0.55rem;
+  border: 1px solid rgb(226 232 240);
+  background: rgb(255 255 255 / 0.94);
+  padding: 0.32rem 0.38rem;
+  box-shadow: 0 6px 14px rgb(15 23 42 / 0.08);
+  animation: ai-search-card 2.8s ease-in-out infinite;
+}
+
+.ai-search-card__mark {
+  width: 0.42rem;
+  height: 0.42rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.ai-search-card__lines {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.ai-search-card__lines > span {
+  display: block;
+  height: 0.18rem;
+  border-radius: 9999px;
+  background: rgb(226 232 240);
+}
+
+.ai-search-card__lines > span:last-child {
+  width: 62%;
+  background: rgb(241 245 249);
+}
+
+@keyframes ai-search-ring {
+  0% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.15);
+  }
+}
+
+@keyframes ai-search-pin-bob {
+  0%,
+  100% {
+    transform: translate(-50%, -58%);
+  }
+  50% {
+    transform: translate(-50%, -64%);
+  }
+}
+
+@keyframes ai-search-dot {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(0.85);
+  }
+  45% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes ai-search-card {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateY(3px) scale(0.96);
+  }
+  40%,
+  62% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 640px) {
+  .ai-search-scene {
+    width: min(100%, 20rem);
+    height: 13rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-search-ring,
+  .ai-search-pin,
+  .ai-search-dot,
+  .ai-search-card {
+    animation: none;
+  }
+
+  .ai-search-ring {
+    opacity: 0.22;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+
+  .ai-search-ring:nth-child(2) {
+    transform: translate(-50%, -50%) scale(2.4);
+  }
+
+  .ai-search-ring:nth-child(3) {
+    transform: translate(-50%, -50%) scale(2.95);
+  }
+
+  .ai-search-pin {
+    transform: translate(-50%, -58%);
+  }
+
+  .ai-search-dot,
+  .ai-search-card {
+    opacity: 0.7;
+  }
+}
+
 /* Apple-like liquid glass pin bubble (neutral — no brand fill) */
 .krugi-glass-bubble {
   overflow: hidden;

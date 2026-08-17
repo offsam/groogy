@@ -6,6 +6,7 @@ import { BusinessList } from "@/components/business/BusinessList";
 import { OfferSearchResults } from "@/components/search/OfferSearchResults";
 import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
 import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
+import { AiSearchLoader } from "@/components/search/AiSearchLoader";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
 import type { Business, Category } from "@/types/business";
@@ -387,7 +388,11 @@ export function SearchResults({
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate-500">
             {loading ? (
-              "Загрузка…"
+              <>
+                Ищем «
+                <span className="font-medium text-slate-900">{initialQuery}</span>
+                »
+              </>
             ) : matchKind === "similar" ? (
               <>
                 Похожие:{" "}
@@ -452,9 +457,11 @@ export function SearchResults({
             message="Не удалось загрузить результаты поиска"
           />
         ) : loading ? (
-          <LoadingState
-            label={hasQuery ? "AI ищет компании…" : "Загружаем компании…"}
-          />
+          hasQuery ? (
+            <AiSearchLoader query={initialQuery} />
+          ) : (
+            <LoadingState label="Загружаем компании…" />
+          )
         ) : (
           <>
             {hasQuery ? (

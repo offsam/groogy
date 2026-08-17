@@ -828,7 +828,7 @@ async function fetchCatalogCountRows(
     .order("created_at", { ascending: false })
     .range(offset, offset + limit - 1);
   if (error) throw error;
-  return (data ?? []) as CatalogCountRow[];
+  return (data ?? []) as unknown as CatalogCountRow[];
 }
 
 function resolveMapStateCode(row: {

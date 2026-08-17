@@ -3,6 +3,7 @@
  * one, and treat placeholders / junk as empty so stronger data can fill in.
  */
 
+import { looksLikeLogoUrl } from "@/lib/admin/website-assets";
 import { hasRealBusinessPhoto } from "@/lib/business/media";
 import {
   isJunkImportTitle,
@@ -11,18 +12,20 @@ import {
 
 export { hasRealBusinessPhoto };
 
-/** Real photo URL, or null when empty / category SVG / placeholder. */
+/** Real photo URL, or null when empty / category SVG / placeholder / logo. */
 export function realImageUrl(
   url: string | null | undefined,
 ): string | null {
   const trimmed = String(url || "").trim();
   if (!trimmed || !hasRealBusinessPhoto(trimmed)) return null;
+  if (looksLikeLogoUrl(trimmed)) return null;
   return trimmed;
 }
 
 /**
- * Prefer donor image when the current slot is empty or only a category
- * placeholder — never drop a real photo for a weaker one.
+ * Prefer donor image when the current slot is empty, a category placeholder,
+ * or only a logo file — never drop a real photo for a weaker one, and keep
+ * a logo if that is the only image we have.
  */
 export function preferRicherImage(
   current: string | null | undefined,
@@ -30,7 +33,11 @@ export function preferRicherImage(
 ): string | null {
   const mine = realImageUrl(current);
   if (mine) return mine;
-  return realImageUrl(donor);
+  const next = realImageUrl(donor);
+  if (next) return next;
+  const cur = String(current || "").trim();
+  if (cur && hasRealBusinessPhoto(cur)) return cur;
+  return null;
 }
 
 /** Identity string that is junk / snake handle / role word. */

@@ -24,9 +24,15 @@ export function resolvePythonBin(root: string = process.cwd()): string {
   return "python3";
 }
 
-/** Vercel Node runtime has no Python; only spawn when a real binary exists. */
+/** Serverless hosts have no usable Python for enrich scripts. */
 export function pythonIsRunnable(root: string = process.cwd()): boolean {
-  if (process.env.VERCEL) return false;
+  if (
+    process.env.VERCEL ||
+    process.env.AWS_LAMBDA_FUNCTION_NAME ||
+    process.env.NETLIFY
+  ) {
+    return false;
+  }
   const bin = resolvePythonBin(root);
   if (!bin || bin === "python3") return false;
   return existsSync(bin);

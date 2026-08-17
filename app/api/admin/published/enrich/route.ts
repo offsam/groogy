@@ -210,7 +210,9 @@ export async function POST(request: Request) {
   }
 
   const encoder = new TextEncoder();
-  const usePython = pythonIsRunnable();
+  // Published UI must not spawn python3 (Vercel / online has none).
+  // Queue crawl still uses the Python CLI when a real binary exists.
+  const usePython = Boolean(queue) && pythonIsRunnable();
   let child: ReturnType<typeof spawnPublishedEnrich>["child"] | null = null;
   if (usePython) {
     try {
@@ -303,7 +305,9 @@ export async function POST(request: Request) {
         type: "step",
         step: "bfs",
         status: "running",
-        detail: "Обход ресурсов… обычно 30–90 сек",
+        detail: usePython
+          ? "Обход ресурсов… обычно 30–90 сек"
+          : "Обход сайта (онлайн, без Python)…",
       });
 
       const keepAlive = setInterval(() => {

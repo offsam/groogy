@@ -11,6 +11,11 @@ export type ErrorReportActionResult =
   | { ok: true; message?: string }
   | { ok: false; message: string };
 
+/** Mirrors the platform_error_reports.report_type CHECK constraint. */
+export type PlatformErrorReportType = "error" | "question" | "complaint";
+
+const REPORT_TYPES: PlatformErrorReportType[] = ["error", "question", "complaint"];
+
 export type PlatformErrorReportRow = {
   id: string;
   message: string;
@@ -85,11 +90,31 @@ async function requireAdmin() {
   return { supabase, user, error: null };
 }
 
+function sanitizeEntityName(raw: string | null | undefined): string | null {
+  const value = raw?.trim();
+  if (!value) return null;
+  return value.slice(0, 300);
+}
+
+function sanitizeEntityType(raw: string | null | undefined): string | null {
+  const value = raw?.trim();
+  if (!value || value.length > 60) return null;
+  return value;
+}
+
 /** Anyone (anon or signed-in) can submit a site error report. */
 export async function submitErrorReportAction(input: {
   message: string;
   pagePath: string;
   pageUrl?: string | null;
+  /** platform_error_reports.report_type is NOT NULL — default preserves the
+   * previous (implicit "site error") behavior for any older caller. */
+  reportType?: PlatformErrorReportType;
+  /** Route-segment-style identifier, e.g. "business", "professional" — set
+   * when the report was filed from a specific card (ReportEntityButton). */
+  entityType?: string | null;
+  entityId?: string | null;
+  entityName?: string | null;
 }): Promise<ErrorReportActionResult> {
   const message = input.message.trim();
   if (message.length < 3) {
@@ -103,6 +128,21 @@ export async function submitErrorReportAction(input: {
   if (!pagePath) return fail("Некорректная страница.");
 
   const pageUrl = sanitizeUrl(input.pageUrl);
+  const reportType = REPORT_TYPES.includes(
+    input.reportType as PlatformErrorReportType,
+  )
+    ? (input.reportType as PlatformErrorReportType)
+    : "error";
+  const entityType = sanitizeEntityType(input.entityType);
+  const entityName = sanitizeEntityName(input.entityName);
+  // entity_id is a uuid column — a malformed/foreign id must not 400 the insert.
+  const entityId =
+    typeof input.entityId === "string" &&
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
+      input.entityId,
+    )
+      ? input.entityId
+      : null;
 
   const supabase = await createServerClient();
   const {
@@ -127,6 +167,10 @@ export async function submitErrorReportAction(input: {
     page_url: pageUrl,
     user_id: user?.id ?? null,
     user_agent: userAgent,
+    report_type: reportType,
+    entity_type: entityType,
+    entity_id: entityId,
+    entity_name: entityName,
   });
 
   if (error) {

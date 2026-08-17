@@ -341,27 +341,35 @@ a {
   filter: drop-shadow(0 2px 6px rgba(31, 111, 229, 0.45));
 }
 
-.home-map-state-cluster {
+.leaflet-div-icon.home-map-count-icon {
+  background: none;
+  border: none;
+}
+
+.home-map-state-count {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
-  border: 2.5px solid rgba(255, 255, 255, 0.95);
-  background: color-mix(in srgb, var(--brand-blue) 92%, white);
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  box-shadow:
-    0 4px 14px rgba(15, 23, 42, 0.22),
-    0 0 0 1px color-mix(in srgb, var(--brand-blue) 35%, transparent);
+  box-sizing: border-box;
   cursor: pointer;
-  transition: transform 120ms ease;
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.home-map-state-cluster:hover {
-  transform: scale(1.06);
-  background: var(--brand-blue);
+.home-map-state-count:hover {
+  transform: scale(1.08);
+}
+
+.home-map-state-count__n {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #12468f;
+  text-shadow: 0 0.5px 0 rgb(255 255 255 / 0.8);
 }
 
 /* Keep zoom controls above the soft edge fade */

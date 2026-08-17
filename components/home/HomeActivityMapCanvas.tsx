@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import {
+  CircleMarker,
   MapContainer,
   Marker,
+  Polyline,
   TileLayer,
   Tooltip,
   ZoomControl,
@@ -13,26 +15,21 @@ import {
 } from "react-leaflet";
 import { HomeMapPinCard } from "@/components/home/HomeMapPinCard";
 import {
-  HOME_MAP_STATE_CLUSTER_MAX_ZOOM,
-  getUsStateCentroid,
-  normalizeUsStateCode,
-  type UsStateCentroid,
-} from "@/lib/geo/us-state-centroids";
+  clustersFromStateCounts,
+  groupPinsByHub,
+  groupPinsByMetroGroup,
+  groupPinsByState,
+  homeMapLayerForZoom,
+  type HomeMapPlaceCluster,
+} from "@/lib/geo/home-map-clusters";
 import { OSM_ATTRIBUTION, OSM_TILE_URL } from "@/lib/map/tiles";
 import type { RegionHub } from "@/lib/regions/hubs";
-import type { HomeMapPin } from "@/lib/supabase/queries";
+import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
 
 const CARD_WIDTH = 352;
 const CARD_HEIGHT_EST = 168;
 const CARD_GAP = 14;
-
-type StateCluster = {
-  code: string;
-  count: number;
-  centroid: UsStateCentroid;
-  /** When count === 1, keep the real pin instead of a circle. */
-  solePin: HomeMapPin | null;
-};
+const STATE_CALLOUT_STROKE = "#12468F";
 
 function createHomePinIcon(active: boolean) {
   const size = active ? 28 : 22;
@@ -45,40 +42,115 @@ function createHomePinIcon(active: boolean) {
   });
 }
 
-function createStateClusterIcon(count: number) {
-  const size = Math.min(58, Math.max(34, Math.round(28 + Math.sqrt(count) * 3.2)));
-  const fontSize = count >= 1000 ? 11 : count >= 100 ? 12 : 13;
+/**
+ * Tiny, crowded Northeast states get their count pulled out over the
+ * Atlantic with a leader line back to the real state, instead of stacking
+ * illegibly on top of each other at national zoom.
+ */
+const STATE_CALLOUTS: Record<string, { lat: number; lng: number }> = {
+  "US-RI": { lat: 42.6, lng: -68.2 },
+  "US-CT": { lat: 41.7, lng: -68.2 },
+  "US-NJ": { lat: 40.8, lng: -68.2 },
+  "US-DE": { lat: 39.9, lng: -68.2 },
+  "US-DC": { lat: 39.0, lng: -68.2 },
+};
+
+function createStateDigitIcon(count: number): L.DivIcon {
+  const digits = String(count).length;
+  const size = Math.min(56, Math.max(40, 30 + digits * 7));
+  const fontSize = digits >= 4 ? 12 : digits >= 3 ? 13 : 15;
   return L.divIcon({
-    className: "",
-    html: `<div class="home-map-state-cluster" style="width:${size}px;height:${size}px;font-size:${fontSize}px">${count}</div>`,
+    className: "home-map-count-icon",
+    html: `<div class="home-map-state-count krugi-glass-bubble" style="width:${size}px;height:${size}px"><span class="krugi-glass-bubble__shine"></span><span class="krugi-glass-bubble__spec"></span><span class="home-map-state-count__n" style="font-size:${fontSize}px">${count}</span></div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     tooltipAnchor: [0, -size / 2 + 2],
   });
 }
 
-function groupPinsByState(pins: HomeMapPin[]): StateCluster[] {
-  const buckets = new Map<string, HomeMapPin[]>();
-  for (const pin of pins) {
-    const code = normalizeUsStateCode(pin.stateCode);
-    if (!code) continue;
-    const list = buckets.get(code);
-    if (list) list.push(pin);
-    else buckets.set(code, [pin]);
-  }
+function countLabelRu(count: number): string {
+  if (count === 1) return "точка на карте";
+  if (count < 5) return "точки на карте";
+  return "точек на карте";
+}
 
-  const clusters: StateCluster[] = [];
-  for (const [code, list] of buckets) {
-    const centroid = getUsStateCentroid(code);
-    if (!centroid) continue;
-    clusters.push({
-      code,
-      count: list.length,
-      centroid,
-      solePin: list.length === 1 ? list[0] : null,
-    });
-  }
-  return clusters;
+/** Count circles for state / metro / hub layers. */
+function PlaceCountLabels({
+  clusters,
+  callouts,
+  onSelect,
+}: {
+  clusters: HomeMapPlaceCluster[];
+  callouts?: Record<string, { lat: number; lng: number }>;
+  onSelect: (pin: HomeMapPin | null) => void;
+}) {
+  const map = useMap();
+
+  const pick = useMemo(
+    () => (cluster: HomeMapPlaceCluster) => {
+      onSelect(null);
+      map.flyTo([cluster.lat, cluster.lng], cluster.flyZoom, {
+        animate: true,
+        duration: 0.55,
+      });
+    },
+    [map, onSelect],
+  );
+
+  return (
+    <>
+      {clusters.map((cluster) => {
+        const callout = callouts?.[cluster.id];
+        const labelPos = callout ?? { lat: cluster.lat, lng: cluster.lng };
+        return (
+          <Fragment key={cluster.id}>
+            {callout ? (
+              <Polyline
+                interactive={false}
+                pathOptions={{ color: STATE_CALLOUT_STROKE, weight: 1 }}
+                positions={[
+                  [cluster.lat, cluster.lng],
+                  [callout.lat, callout.lng],
+                ]}
+              />
+            ) : null}
+            {callout ? (
+              <CircleMarker
+                center={[cluster.lat, cluster.lng]}
+                interactive={false}
+                pathOptions={{
+                  color: STATE_CALLOUT_STROKE,
+                  fillColor: STATE_CALLOUT_STROKE,
+                  fillOpacity: 1,
+                }}
+                radius={3}
+              />
+            ) : null}
+            <Marker
+              eventHandlers={{
+                click: (event) => {
+                  L.DomEvent.stopPropagation(event.originalEvent);
+                  pick(cluster);
+                },
+              }}
+              icon={createStateDigitIcon(cluster.count)}
+              position={[labelPos.lat, labelPos.lng]}
+              zIndexOffset={200}
+            >
+              <Tooltip direction="top" opacity={1}>
+                <span className="text-sm font-semibold text-slate-900">
+                  {cluster.label}
+                  <span className="mt-0.5 block text-xs font-normal text-slate-500">
+                    {cluster.count} {countLabelRu(cluster.count)}
+                  </span>
+                </span>
+              </Tooltip>
+            </Marker>
+          </Fragment>
+        );
+      })}
+    </>
+  );
 }
 
 function ResizeHandler() {
@@ -86,14 +158,19 @@ function ResizeHandler() {
   useEffect(() => {
     let timer = 0;
     const settle = () => map.invalidateSize({ animate: false, pan: false });
-    const observer = new ResizeObserver(() => {
+    const schedule = () => {
       window.clearTimeout(timer);
-      timer = window.setTimeout(settle, 120);
-    });
+      timer = window.setTimeout(settle, 80);
+    };
+    const observer = new ResizeObserver(schedule);
     observer.observe(map.getContainer());
-    const t = window.setTimeout(settle, 160);
+    window.addEventListener("resize", schedule);
+    window.visualViewport?.addEventListener("resize", schedule);
+    const t = window.setTimeout(settle, 80);
     return () => {
       observer.disconnect();
+      window.removeEventListener("resize", schedule);
+      window.visualViewport?.removeEventListener("resize", schedule);
       window.clearTimeout(timer);
       window.clearTimeout(t);
     };
@@ -226,56 +303,13 @@ function PinMarker({
   );
 }
 
-function StateClusterMarker({
-  cluster,
-  icon,
-  onSelect,
-}: {
-  cluster: StateCluster;
-  icon: L.DivIcon;
-  onSelect: (pin: HomeMapPin | null) => void;
-}) {
-  const map = useMap();
-  return (
-    <Marker
-      eventHandlers={{
-        click: (event) => {
-          L.DomEvent.stopPropagation(event.originalEvent);
-          onSelect(null);
-          map.flyTo(
-            [cluster.centroid.lat, cluster.centroid.lng],
-            Math.max(
-              cluster.centroid.zoom,
-              HOME_MAP_STATE_CLUSTER_MAX_ZOOM + 0.25,
-            ),
-            { animate: true, duration: 0.55 },
-          );
-        },
-      }}
-      icon={icon}
-      position={[cluster.centroid.lat, cluster.centroid.lng]}
-      zIndexOffset={200}
-    >
-      <Tooltip direction="top" opacity={1}>
-        <span className="text-sm font-semibold text-slate-900">
-          {cluster.centroid.labelRu}
-          <span className="mt-0.5 block text-xs font-normal text-slate-500">
-            {cluster.count}{" "}
-            {cluster.count === 1
-              ? "точка на карте"
-              : cluster.count < 5
-                ? "точки на карте"
-                : "точек на карте"}
-          </span>
-        </span>
-      </Tooltip>
-    </Marker>
-  );
-}
-
 type HomeActivityMapCanvasProps = {
   hub: RegionHub;
   pins: HomeMapPin[];
+  /** Kept for callers; overview bubbles prefer `stateCountsFallback`. */
+  pinsLoaded: boolean;
+  /** Lightweight per-state counts for the national overview. */
+  stateCountsFallback: HomeMapStateCount[] | null;
   selectedPin: HomeMapPin | null;
   cardPoint: { left: number; top: number } | null;
   onSelect: (pin: HomeMapPin | null) => void;
@@ -286,6 +320,8 @@ type HomeActivityMapCanvasProps = {
 export default function HomeActivityMapCanvas({
   hub,
   pins,
+  pinsLoaded,
+  stateCountsFallback,
   selectedPin,
   cardPoint,
   onSelect,
@@ -295,34 +331,24 @@ export default function HomeActivityMapCanvas({
   const activeIcon = useMemo(() => createHomePinIcon(true), []);
   const selectedId = selectedPin?.id ?? null;
   const [zoom, setZoom] = useState(hub.mapZoom);
-  const showStateClusters = zoom < HOME_MAP_STATE_CLUSTER_MAX_ZOOM;
+  const layer = homeMapLayerForZoom(zoom, pinsLoaded);
+  const showPins = layer === "pins";
 
   useEffect(() => {
-    if (showStateClusters && selectedPin) onSelect(null);
-  }, [showStateClusters, selectedPin, onSelect]);
+    if (!showPins && selectedPin) onSelect(null);
+  }, [showPins, selectedPin, onSelect]);
 
-  const stateClusters = useMemo(
-    () => (showStateClusters ? groupPinsByState(pins) : []),
-    [pins, showStateClusters],
-  );
-
-  const clusterIcons = useMemo(() => {
-    const map = new Map<string, L.DivIcon>();
-    for (const cluster of stateClusters) {
-      if (cluster.solePin) continue;
-      map.set(cluster.code, createStateClusterIcon(cluster.count));
+  const placeClusters = useMemo(() => {
+    if (layer === "pins") return [];
+    if (layer === "state") {
+      if (stateCountsFallback && stateCountsFallback.length > 0) {
+        return clustersFromStateCounts(stateCountsFallback);
+      }
+      return groupPinsByState(pins);
     }
-    return map;
-  }, [stateClusters]);
-
-  /** Pins without a known state stay visible even when clustered. */
-  const orphanPins = useMemo(() => {
-    if (!showStateClusters) return pins;
-    return pins.filter((pin) => {
-      const code = normalizeUsStateCode(pin.stateCode);
-      return !code || !getUsStateCentroid(code);
-    });
-  }, [pins, showStateClusters]);
+    if (layer === "metro-group") return groupPinsByMetroGroup(pins);
+    return groupPinsByHub(pins);
+  }, [layer, pins, stateCountsFallback]);
 
   return (
     <div className="relative z-[450] h-full w-full">
@@ -349,61 +375,31 @@ export default function HomeActivityMapCanvas({
           zoom={hub.mapZoom}
         />
         <MapClickClear onClear={() => onSelect(null)} />
-        {selectedPin && !showStateClusters ? (
+        {selectedPin && showPins ? (
           <PinCardAnchor onPoint={onCardPoint} pin={selectedPin} />
         ) : null}
 
-        {showStateClusters
-          ? stateClusters.map((cluster) => {
-              if (cluster.solePin) {
-                return (
-                  <PinMarker
-                    active={selectedId === cluster.solePin.id}
-                    activeIcon={activeIcon}
-                    idleIcon={idleIcon}
-                    key={`sole-${cluster.code}`}
-                    onSelect={onSelect}
-                    pin={cluster.solePin}
-                  />
-                );
-              }
-              const icon = clusterIcons.get(cluster.code);
-              if (!icon) return null;
-              return (
-                <StateClusterMarker
-                  cluster={cluster}
-                  icon={icon}
-                  key={`state-${cluster.code}`}
-                  onSelect={onSelect}
-                />
-              );
-            })
-          : pins.map((pin) => (
-              <PinMarker
-                active={selectedId === pin.id}
-                activeIcon={activeIcon}
-                idleIcon={idleIcon}
-                key={`${pin.kind}-${pin.id}`}
-                onSelect={onSelect}
-                pin={pin}
-              />
-            ))}
-
-        {showStateClusters
-          ? orphanPins.map((pin) => (
-              <PinMarker
-                active={selectedId === pin.id}
-                activeIcon={activeIcon}
-                idleIcon={idleIcon}
-                key={`orphan-${pin.kind}-${pin.id}`}
-                onSelect={onSelect}
-                pin={pin}
-              />
-            ))
-          : null}
+        {showPins ? (
+          pins.map((pin) => (
+            <PinMarker
+              active={selectedId === pin.id}
+              activeIcon={activeIcon}
+              idleIcon={idleIcon}
+              key={`${pin.kind}-${pin.id}`}
+              onSelect={onSelect}
+              pin={pin}
+            />
+          ))
+        ) : (
+          <PlaceCountLabels
+            callouts={layer === "state" ? STATE_CALLOUTS : undefined}
+            clusters={placeClusters}
+            onSelect={onSelect}
+          />
+        )}
       </MapContainer>
 
-      {selectedPin && cardPoint && !showStateClusters ? (
+      {selectedPin && cardPoint && showPins ? (
         <div
           className="pointer-events-auto absolute z-[660]"
           style={{ left: cardPoint.left, top: cardPoint.top }}

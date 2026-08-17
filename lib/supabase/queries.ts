@@ -28,6 +28,8 @@ import { distanceKm } from "@/lib/geo/distance";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import { PROFESSIONAL_CATEGORY_SLUGS } from "@/lib/professional/categories";
+import { normalizeUsStateCode } from "@/lib/geo/us-state-centroids";
+import { reconcileStateCode } from "@/lib/geo/us-zip-state";
 
 type Client = SupabaseClient<Database>;
 
@@ -671,30 +673,50 @@ export async function getHomeMapPins(
 
   if (hubs && hubs.length > 0) {
     const limitPerHub = options.limitPerHub ?? 500;
-    const hubKey = hubs.map((h) => h.id).join(",");
 
-    return unstable_cache(
-      async () => {
+    // Cache each hub's slice separately (not one combined blob) — a
+    // combined payload can exceed Next's 2MB per-item data-cache limit, which
+    // silently fails to cache and forces every request to redo the full
+    // hub x 3-table Supabase fan-out (now ~40 hubs, e.g. all metros +
+    // diaspora states from getMapPinRegionHubs) + re-serialize several MB
+    // of JSON. That repeated work was spiking function memory to the point
+    // of OOM kills on "/".
+    //
+    // Each hub's fetch also gets its own timeout below (instead of only a
+    // single timeout around the whole batch in the caller). A page-level
+    // timeout around Promise.all([...all hubs]) is all-or-nothing: if any
+    // one hub's cache is cold, the whole batch can miss the deadline and
+    // every hub — not just the slow one — falls back to an empty pin list,
+    // which is what made the home map render with zero pins regardless of
+    // which region a visitor landed on (default hub Orange County is just
+    // the most commonly viewed one, so it read as an OC-specific bug).
+    // Racing each hub individually means a slow hub only blanks itself.
+    const HUB_FETCH_TIMEOUT_MS = 3500;
+    const batches = await Promise.all(
+      hubs.map((hub) =>
         // Caller should pass a catalog-capable client (service role on server pages).
-        const batches = await Promise.all(
-          hubs.map((hub) =>
-            fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+        Promise.race([
+          unstable_cache(
+            () => fetchHomeMapPinsSlice(client, limitPerHub, hub.mapBounds),
+            ["home-map-pins-v2", hub.id, String(limitPerHub)],
+            {
+              revalidate: CATALOG_CACHE_TTL.homeMapPins,
+              tags: [CATALOG_CACHE_TAGS.homeMapPins],
+            },
+          )(),
+          new Promise<HomeMapPin[]>((resolve) =>
+            setTimeout(() => resolve([]), HUB_FETCH_TIMEOUT_MS),
           ),
-        );
-        const byKey = new Map<string, HomeMapPin>();
-        for (const batch of batches) {
-          for (const pin of batch) {
-            byKey.set(`${pin.kind}:${pin.id}`, pin);
-          }
-        }
-        return [...byKey.values()];
-      },
-      ["home-map-pins-v1", hubKey, String(limitPerHub)],
-      {
-        revalidate: CATALOG_CACHE_TTL.homeMapPins,
-        tags: [CATALOG_CACHE_TAGS.homeMapPins],
-      },
-    )();
+        ]).catch(() => [] as HomeMapPin[]),
+      ),
+    );
+    const byKey = new Map<string, HomeMapPin>();
+    for (const batch of batches) {
+      for (const pin of batch) {
+        byKey.set(`${pin.kind}:${pin.id}`, pin);
+      }
+    }
+    return [...byKey.values()];
   }
 
   return fetchHomeMapPinsSlice(client, options.limit ?? 800);
@@ -773,6 +795,120 @@ export async function getAllHomeMapPins(
     if (pin) pins.push(pin);
   }
   return pins;
+}
+
+type StateCountSourceRow = {
+  state_code: string | null;
+  postal_code: string | null;
+  city: string | null;
+};
+
+async function fetchStateCountSourceRows(
+  client: Client,
+  table: "businesses" | "professionals" | "churches",
+  addressColumn: string,
+  limit: number,
+  offset: number,
+): Promise<StateCountSourceRow[]> {
+  const untyped = client as unknown as SupabaseClient;
+  const { data, error } = await untyped
+    .from(table)
+    .select("state_code, postal_code, city")
+    .eq("status", "approved")
+    .not(addressColumn, "is", null)
+    .not("latitude", "is", null)
+    .not("longitude", "is", null)
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+  if (error) throw error;
+  return (data ?? []) as StateCountSourceRow[];
+}
+
+function resolveMapStateCode(row: {
+  state_code?: string | null;
+  postal_code?: string | null;
+  city?: string | null;
+}): string | null {
+  return (
+    reconcileStateCode({
+      stateCode: row.state_code,
+      postalCode: row.postal_code,
+      city: row.city,
+    }) ?? normalizeUsStateCode(row.state_code)
+  );
+}
+
+export type HomeMapStateCount = { stateCode: string; count: number };
+
+/**
+ * Nationwide pin counts per state — lightweight fields only (no listing
+ * card payloads). Same gate as map pins: approved + address + lat/lng.
+ * Resolves missing `state_code` via ZIP/city so bubbles match what
+ * appears after zoom.
+ */
+export async function getHomeMapStateCounts(
+  client: Client,
+): Promise<HomeMapStateCount[]> {
+  return unstable_cache(
+    async () => {
+      const pageSize = 1000;
+      const maxRows = 20000;
+      const [bizRows, proRows, churchRows] = await Promise.all([
+        fetchAllRows(
+          (limit, offset) =>
+            fetchStateCountSourceRows(
+              client,
+              "businesses",
+              "address_line",
+              limit,
+              offset,
+            ),
+          pageSize,
+          maxRows,
+        ),
+        fetchAllRows(
+          (limit, offset) =>
+            fetchStateCountSourceRows(
+              client,
+              "professionals",
+              "private_address_line",
+              limit,
+              offset,
+            ),
+          pageSize,
+          maxRows,
+        ),
+        fetchAllRows(
+          (limit, offset) =>
+            fetchStateCountSourceRows(
+              client,
+              "churches",
+              "address_line",
+              limit,
+              offset,
+            ),
+          pageSize,
+          maxRows,
+        ),
+      ]);
+
+      const counts = new Map<string, number>();
+      for (const row of [...bizRows, ...proRows, ...churchRows]) {
+        const code = resolveMapStateCode(row);
+        if (!code) continue;
+        counts.set(code, (counts.get(code) ?? 0) + 1);
+      }
+      return [...counts.entries()].map(([stateCode, count]) => ({
+        stateCode,
+        count,
+      }));
+    },
+    ["home-map-state-counts-v2"],
+    {
+      revalidate: CATALOG_CACHE_TTL.homeMapStateCounts,
+      tags: [CATALOG_CACHE_TAGS.homeMapStateCounts],
+    },
+  )();
 }
 
 /** @deprecated prefer getHomeMapPins */

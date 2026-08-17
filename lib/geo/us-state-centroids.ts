@@ -93,7 +93,12 @@ export function normalizeUsStateCode(
 }
 
 /**
- * Below this zoom, home map shows one count circle per state
- * (single-pin states stay as pins). At or above — every pin.
+ * Home map zoom bands:
+ *   < STATE_MAX        — one circle per US state
+ *   STATE_MAX–GROUP_MAX — metro groups (Greater LA, SF, NY, …)
+ *   GROUP_MAX–HUB_MAX   — individual hubs (LA / OC / Inland Empire)
+ *   ≥ HUB_MAX           — pins
  */
 export const HOME_MAP_STATE_CLUSTER_MAX_ZOOM = 5.75;
+export const HOME_MAP_METRO_GROUP_MAX_ZOOM = 8.25;
+export const HOME_MAP_HUB_CLUSTER_MAX_ZOOM = 10;

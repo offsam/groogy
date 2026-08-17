@@ -1,12 +1,7 @@
 import { DIRECTORY_SOURCE_LIST } from "@/lib/import-review/directory-sources";
 import { TELEGRAM_SOURCE_LIST } from "@/lib/import-review/telegram-sources";
 
-export type ParseResourceCategoryId =
-  | "telegram"
-  | "facebook"
-  | "directories"
-  | "events"
-  | "other";
+export type ParseResourceCategoryId = "telegram" | "facebook" | "websites";
 
 /** pipeline = already wired in collect/import. listed = known source, not in allowlist yet. */
 export type ParseResourceStatus = "pipeline" | "listed";
@@ -258,25 +253,6 @@ const EVENT_SOURCES: ParseResource[] = [
   },
 ];
 
-const OTHER_SOURCES: ParseResource[] = [
-  {
-    id: "other_csv",
-    title: "CSV / one-off импорт",
-    region: "—",
-    href: "/admin/imports/csv",
-    note: "Разовые загрузки в очередь",
-    status: "pipeline",
-  },
-  {
-    id: "other_google_places",
-    title: "Google Places / Maps",
-    region: "USA",
-    href: null,
-    note: "Обогащение карточек, не первичная лента",
-    status: "pipeline",
-  },
-];
-
 export const PARSE_RESOURCE_STATUS_LABEL: Record<ParseResourceStatus, string> =
   {
     pipeline: "в пайплайне",
@@ -289,50 +265,47 @@ export function getParseResourceCategories(): ParseResourceCategory[] {
     title: s.title,
     region: s.regionHint,
     href: s.username ? s.homepage : null,
-    note: s.username ? `@${s.username}` : "без публичного @",
+    note: s.username ? `@${s.username}` : undefined,
     status: "pipeline",
   }));
 
-  const directories: ParseResource[] = DIRECTORY_SOURCE_LIST.map((s) => ({
-    id: s.id,
-    title: s.title,
-    region: s.regionHint,
-    href: s.homepage,
-    status: "pipeline",
-  }));
+  const websites: ParseResource[] = [
+    ...DIRECTORY_SOURCE_LIST.map((s) => ({
+      id: s.id,
+      title: s.title,
+      region: s.regionHint,
+      href: s.homepage,
+      status: "pipeline" as const,
+    })),
+    ...EVENT_SOURCES,
+  ];
 
   return [
     {
       id: "telegram",
       title: "Telegram",
-      description:
-        "Чаты, из которых собираем объявления. «В пайплайне» — уже в allowlist коллектора.",
+      description: "Группы и чаты",
       items: [...telegramWired, ...EXTRA_TELEGRAM],
     },
     {
       id: "facebook",
       title: "Facebook",
-      description:
-        "Городские группы. Коллектор умеет одну группу за раз; отдельного allowlist в админке пока нет.",
+      description: "Группы",
       items: FACEBOOK_GROUPS,
     },
     {
-      id: "directories",
-      title: "Онлайн-каталоги",
-      description: "Справочники, которые скрейпим в очередь Yellow Pages.",
-      items: directories,
-    },
-    {
-      id: "events",
-      title: "Афиша",
-      description: "Сайты событий → очередь Events.",
-      items: EVENT_SOURCES,
-    },
-    {
-      id: "other",
-      title: "Другое",
-      description: "Разовые загрузки и обогащение, не отдельная лента групп.",
-      items: OTHER_SOURCES,
+      id: "websites",
+      title: "Сайты",
+      description: "Каталоги и афиша",
+      items: websites,
     },
   ];
+}
+
+export function getParseResourceCategory(
+  id: string,
+): ParseResourceCategory | null {
+  return (
+    getParseResourceCategories().find((cat) => cat.id === id) ?? null
+  );
 }

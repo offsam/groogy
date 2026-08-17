@@ -149,9 +149,9 @@ export default async function AdminPage() {
       icon: Building2,
     },
     {
-      href: "/admin/resources",
-      title: "Ресурсы",
-      description: "Telegram, Facebook, каталоги — откуда парсим",
+      href: "/admin/sources",
+      title: "Источники",
+      description: "Telegram, Facebook, сайты",
       icon: Library,
     },
     {

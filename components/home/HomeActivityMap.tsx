@@ -12,7 +12,7 @@ import {
   zoomToFitBounds,
 } from "@/lib/regions/hubs";
 import { MapAttribution } from "@/components/map/MapAttribution";
-import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
+import type { HomeMapPin, HomeMapStateCount, HomeMapHubCount } from "@/lib/supabase/queries";
 import { cn } from "@/lib/utils";
 
 type HomeActivityMapProps = {
@@ -64,6 +64,7 @@ export function HomeActivityMap({
   const [stateCounts, setStateCounts] = useState<HomeMapStateCount[] | null>(
     null,
   );
+  const [hubCounts, setHubCounts] = useState<HomeMapHubCount[] | null>(null);
   const selectedHubs = hubs && hubs.length > 0 ? hubs : [hub];
   const hubsKey = nationalOverview
     ? "usa-overview"
@@ -81,12 +82,21 @@ export function HomeActivityMap({
     if (!needsNationwidePins || stateCounts) return;
     let cancelled = false;
     fetch("/api/home-map-state-counts")
-      .then((res) => (res.ok ? res.json() : { counts: [] }))
-      .then((data: { counts?: HomeMapStateCount[] }) => {
-        if (!cancelled) setStateCounts(data.counts ?? []);
-      })
+      .then((res) => (res.ok ? res.json() : { counts: [], hubs: [] }))
+      .then(
+        (data: {
+          counts?: HomeMapStateCount[];
+          hubs?: HomeMapHubCount[];
+        }) => {
+          if (cancelled) return;
+          setStateCounts(data.counts ?? []);
+          setHubCounts(data.hubs ?? []);
+        },
+      )
       .catch(() => {
-        if (!cancelled) setStateCounts([]);
+        if (cancelled) return;
+        setStateCounts([]);
+        setHubCounts([]);
       });
     return () => {
       cancelled = true;
@@ -179,6 +189,7 @@ export function HomeActivityMap({
               pins={hubPins}
               pinsLoaded={pinsLoaded}
               stateCountsFallback={needsNationwidePins ? stateCounts : null}
+              hubCountsFallback={needsNationwidePins ? hubCounts : null}
               selectedPin={selectedInHub}
             />
 

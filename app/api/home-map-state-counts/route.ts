@@ -5,16 +5,15 @@ import { getHomeMapStateCounts } from "@/lib/supabase/queries";
 export const dynamic = "force-dynamic";
 
 /**
- * Tiny nationwide pin-count-per-state payload — used to paint the guest
- * USA-overview map's cluster bubbles instantly, ahead of the much heavier
- * /api/home-map-pins full-detail fetch.
+ * Catalog card counts per state / metro hub — used for home map bubbles.
+ * Counts published cards, not only rows with coordinates.
  */
 export async function GET() {
   try {
     const catalog = createServiceRoleClient();
-    const counts = await getHomeMapStateCounts(catalog);
+    const data = await getHomeMapStateCounts(catalog);
     return NextResponse.json(
-      { counts },
+      { counts: data.states, hubs: data.hubs },
       {
         headers: {
           "Cache-Control": "public, s-maxage=300, stale-while-revalidate=900",
@@ -22,6 +21,6 @@ export async function GET() {
       },
     );
   } catch {
-    return NextResponse.json({ counts: [] });
+    return NextResponse.json({ counts: [], hubs: [] });
   }
 }

@@ -6,13 +6,18 @@ import {
   normalizeUsStateCode,
 } from "@/lib/geo/us-state-centroids";
 import { reconcileStateCode } from "@/lib/geo/us-zip-state";
+import { DIASPORA_STATE_GROUPS } from "@/lib/regions/diaspora-states";
 import {
   METRO_HUB_IDS,
   REGION_HUBS,
   locationFieldsMatchHub,
   type RegionHub,
 } from "@/lib/regions/hubs";
-import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
+import type {
+  HomeMapHubCount,
+  HomeMapPin,
+  HomeMapStateCount,
+} from "@/lib/supabase/queries";
 
 export type HomeMapLayer = "state" | "metro-group" | "hub" | "pins";
 
@@ -103,11 +108,8 @@ export function matchPinToMetroHub(pin: HomeMapPin): RegionHub | null {
   return null;
 }
 
-export function homeMapLayerForZoom(
-  zoom: number,
-  pinsReady: boolean,
-): HomeMapLayer {
-  if (zoom < HOME_MAP_STATE_CLUSTER_MAX_ZOOM || !pinsReady) return "state";
+export function homeMapLayerForZoom(zoom: number): HomeMapLayer {
+  if (zoom < HOME_MAP_STATE_CLUSTER_MAX_ZOOM) return "state";
   if (zoom < HOME_MAP_METRO_GROUP_MAX_ZOOM) return "metro-group";
   if (zoom < HOME_MAP_HUB_CLUSTER_MAX_ZOOM) return "hub";
   return "pins";
@@ -131,6 +133,95 @@ export function clustersFromStateCounts(
         HOME_MAP_STATE_CLUSTER_MAX_ZOOM + 0.35,
       ),
     });
+  }
+  return clusters;
+}
+
+export function leftoverClusters(
+  leftovers: HomeMapStateCount[],
+): HomeMapPlaceCluster[] {
+  const clusters: HomeMapPlaceCluster[] = [];
+  for (const { stateCode, count } of leftovers) {
+    const rest = remainderCluster(stateCode, count);
+    if (rest) clusters.push(rest);
+  }
+  return clusters;
+}
+
+export function leftoverStateCounts(
+  states: HomeMapStateCount[],
+  hubs: HomeMapHubCount[],
+): HomeMapStateCount[] {
+  const usedByState = new Map<string, number>();
+  const hubCount = new Map(hubs.map((h) => [h.hubId, h.count]));
+  for (const group of DIASPORA_STATE_GROUPS) {
+    const stateHub = REGION_HUBS[group.stateHubId as keyof typeof REGION_HUBS];
+    const iso =
+      stateHub?.stateCodes?.find((code) => code.startsWith("US-")) ?? null;
+    if (!iso) continue;
+    let used = 0;
+    for (const hubId of group.cityHubIds) {
+      used += hubCount.get(hubId) ?? 0;
+    }
+    usedByState.set(iso, used);
+  }
+  return states
+    .map(({ stateCode, count }) => ({
+      stateCode,
+      count: Math.max(0, count - (usedByState.get(stateCode) ?? 0)),
+    }))
+    .filter((row) => row.count > 0);
+}
+
+export function clustersFromHubCounts(
+  hubs: HomeMapHubCount[],
+): HomeMapPlaceCluster[] {
+  const byId = new Map(hubs.map((h) => [h.hubId, h.count]));
+  const clusters: HomeMapPlaceCluster[] = [];
+  for (const id of METRO_HUB_IDS) {
+    const count = byId.get(id) ?? 0;
+    if (count <= 0) continue;
+    const hub = REGION_HUBS[id];
+    clusters.push({
+      id,
+      label: hub.shortLabel,
+      count,
+      lat: hub.mapCenter.lat,
+      lng: hub.mapCenter.lng,
+      flyZoom: Math.max(hub.mapZoom, HOME_MAP_HUB_CLUSTER_MAX_ZOOM + 0.25),
+    });
+  }
+  return clusters;
+}
+
+export function clustersFromMetroGroupCounts(
+  hubs: HomeMapHubCount[],
+  leftovers: HomeMapStateCount[],
+): HomeMapPlaceCluster[] {
+  const byId = new Map(hubs.map((h) => [h.hubId, h.count]));
+  const clusters: HomeMapPlaceCluster[] = [];
+  for (const group of getHomeMapMetroGroups()) {
+    const count = group.hubIds.reduce(
+      (sum, id) => sum + (byId.get(id) ?? 0),
+      0,
+    );
+    if (count <= 0) continue;
+    const flyZoom =
+      group.hubIds.length > 1
+        ? Math.max(group.zoom, HOME_MAP_METRO_GROUP_MAX_ZOOM + 0.35)
+        : Math.max(group.zoom, HOME_MAP_HUB_CLUSTER_MAX_ZOOM + 0.25);
+    clusters.push({
+      id: group.id,
+      label: group.labelRu,
+      count,
+      lat: group.lat,
+      lng: group.lng,
+      flyZoom,
+    });
+  }
+  for (const { stateCode, count } of leftovers) {
+    const rest = remainderCluster(stateCode, count);
+    if (rest) clusters.push(rest);
   }
   return clusters;
 }

@@ -13,8 +13,13 @@ import {
 import {
   CATALOG_CACHE_TAGS,
   CATALOG_CACHE_TTL,
+  ENTITY_DETAIL_TTL,
+  businessDetailTag,
 } from "@/lib/platform/catalog-cache";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import {
+  METRO_HUB_IDS,
+  REGION_HUBS,
   getRegionHubsByIds,
   locationFieldsMatchHub,
   parseHubIds,
@@ -797,113 +802,193 @@ export async function getAllHomeMapPins(
   return pins;
 }
 
-type StateCountSourceRow = {
+type CatalogCountRow = {
   state_code: string | null;
-  postal_code: string | null;
+  postal_code?: string | null;
   city: string | null;
+  region?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  county_geoid?: string | null;
 };
 
-async function fetchStateCountSourceRows(
+async function fetchCatalogCountRows(
   client: Client,
-  table: "businesses" | "professionals" | "churches",
-  addressColumn: string,
+  table: string,
+  status: string,
+  columns: string,
   limit: number,
   offset: number,
-): Promise<StateCountSourceRow[]> {
+): Promise<CatalogCountRow[]> {
   const untyped = client as unknown as SupabaseClient;
   const { data, error } = await untyped
     .from(table)
-    .select("state_code, postal_code, city")
-    .eq("status", "approved")
-    .not(addressColumn, "is", null)
-    .not("latitude", "is", null)
-    .not("longitude", "is", null)
+    .select(columns)
+    .eq("status", status)
     .order("created_at", { ascending: false })
     .range(offset, offset + limit - 1);
   if (error) throw error;
-  return (data ?? []) as StateCountSourceRow[];
+  return (data ?? []) as CatalogCountRow[];
 }
 
 function resolveMapStateCode(row: {
   state_code?: string | null;
   postal_code?: string | null;
   city?: string | null;
+  region?: string | null;
 }): string | null {
   return (
     reconcileStateCode({
       stateCode: row.state_code,
       postalCode: row.postal_code,
       city: row.city,
+      region: row.region,
     }) ?? normalizeUsStateCode(row.state_code)
   );
 }
 
+function asMapCoord(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim()) {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : null;
+  }
+  return null;
+}
+
+const MAP_COUNT_HUBS = METRO_HUB_IDS.map((id) => REGION_HUBS[id]).sort(
+  (a, b) => {
+    const area = (hub: RegionHub) => {
+      const { north, south, east, west } = hub.mapBounds;
+      return Math.max(0.0001, (north - south) * (east - west));
+    };
+    return area(a) - area(b);
+  },
+);
+
+function matchCountRowToHub(row: CatalogCountRow): RegionHub | null {
+  const fields = {
+    city: row.city,
+    region: row.region ?? null,
+    latitude: asMapCoord(row.latitude),
+    longitude: asMapCoord(row.longitude),
+    county_geoid: row.county_geoid ?? null,
+    state_code: resolveMapStateCode(row),
+  };
+  for (const hub of MAP_COUNT_HUBS) {
+    if (locationFieldsMatchHub(fields, hub)) return hub;
+  }
+  return null;
+}
+
 export type HomeMapStateCount = { stateCode: string; count: number };
+export type HomeMapHubCount = { hubId: string; count: number };
+export type HomeMapCatalogCounts = {
+  states: HomeMapStateCount[];
+  hubs: HomeMapHubCount[];
+};
 
 /**
- * Nationwide pin counts per state — lightweight fields only (no listing
- * card payloads). Same gate as map pins: approved + address + lat/lng.
- * Resolves missing `state_code` via ZIP/city so bubbles match what
- * appears after zoom.
+ * Nationwide card counts per state / metro hub — same published catalog
+ * as the home category totals (no lat/lng required). Bubbles show how
+ * many cards live in the place; pins still only appear for rows with
+ * coordinates after zoom.
  */
 export async function getHomeMapStateCounts(
   client: Client,
-): Promise<HomeMapStateCount[]> {
+): Promise<HomeMapCatalogCounts> {
   return unstable_cache(
     async () => {
       const pageSize = 1000;
       const maxRows = 20000;
-      const [bizRows, proRows, churchRows] = await Promise.all([
+      const bizCols =
+        "state_code, postal_code, city, region, latitude, longitude, county_geoid";
+      const proCols =
+        "state_code, postal_code, city, latitude, longitude, county_geoid";
+      const listingCols = "state_code, city, state, latitude, longitude";
+      const empty: CatalogCountRow[] = [];
+      const [bizRows, proRows, churchRows, listingRows] = await Promise.all([
         fetchAllRows(
           (limit, offset) =>
-            fetchStateCountSourceRows(
+            fetchCatalogCountRows(
               client,
               "businesses",
-              "address_line",
+              "approved",
+              bizCols,
               limit,
               offset,
             ),
           pageSize,
           maxRows,
-        ),
+        ).catch(() => empty),
         fetchAllRows(
           (limit, offset) =>
-            fetchStateCountSourceRows(
+            fetchCatalogCountRows(
               client,
               "professionals",
-              "private_address_line",
+              "approved",
+              proCols,
               limit,
               offset,
             ),
           pageSize,
           maxRows,
-        ),
+        ).catch(() => empty),
         fetchAllRows(
           (limit, offset) =>
-            fetchStateCountSourceRows(
+            fetchCatalogCountRows(
               client,
               "churches",
-              "address_line",
+              "approved",
+              proCols,
               limit,
               offset,
             ),
           pageSize,
           maxRows,
-        ),
+        ).catch(() => empty),
+        fetchAllRows(
+          (limit, offset) =>
+            fetchCatalogCountRows(
+              client,
+              "listings",
+              "active",
+              listingCols,
+              limit,
+              offset,
+            ),
+          pageSize,
+          maxRows,
+        ).catch(() => empty),
       ]);
 
-      const counts = new Map<string, number>();
-      for (const row of [...bizRows, ...proRows, ...churchRows]) {
-        const code = resolveMapStateCode(row);
-        if (!code) continue;
-        counts.set(code, (counts.get(code) ?? 0) + 1);
-      }
-      return [...counts.entries()].map(([stateCode, count]) => ({
-        stateCode,
-        count,
+      const listingNormalized: CatalogCountRow[] = listingRows.map((row) => ({
+        ...row,
+        region: row.region ?? (row as { state?: string | null }).state ?? null,
       }));
+
+      const states = new Map<string, number>();
+      const hubs = new Map<string, number>();
+      for (const row of [
+        ...bizRows,
+        ...proRows,
+        ...churchRows,
+        ...listingNormalized,
+      ]) {
+        const code = resolveMapStateCode(row);
+        if (code) states.set(code, (states.get(code) ?? 0) + 1);
+        const hub = matchCountRowToHub(row);
+        if (hub) hubs.set(hub.id, (hubs.get(hub.id) ?? 0) + 1);
+      }
+      return {
+        states: [...states.entries()].map(([stateCode, count]) => ({
+          stateCode,
+          count,
+        })),
+        hubs: [...hubs.entries()].map(([hubId, count]) => ({ hubId, count })),
+      };
     },
-    ["home-map-state-counts-v2"],
+    ["home-map-state-counts-v3"],
     {
       revalidate: CATALOG_CACHE_TTL.homeMapStateCounts,
       tags: [CATALOG_CACHE_TAGS.homeMapStateCounts],
@@ -953,6 +1038,29 @@ export async function getBusinessBySlug(
 
   if (error) throw error;
   return data ? mapBusinessDetail(data as unknown as BusinessWithCategory) : null;
+}
+
+/**
+ * Cached read for the public `/business/[slug]` route (approved-only, same
+ * shape as getBusinessBySlug). Own service-role client + slug-only key so
+ * generateMetadata and the page body share one Data Cache entry instead of
+ * hitting Postgres twice per request. Owner/admin mutations must call
+ * revalidateTag(businessDetailTag(slug)) so edits show up immediately —
+ * the 45s TTL is just the fallback if a call site is ever missed.
+ */
+export function getCachedBusinessBySlug(slug: string): Promise<Business | null> {
+  const normalized = normalizeRouteSlug(slug);
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getBusinessBySlug(catalog, normalized);
+    },
+    ["business-detail-v1", normalized],
+    {
+      revalidate: ENTITY_DETAIL_TTL,
+      tags: [businessDetailTag(normalized)],
+    },
+  )();
 }
 
 /** Owner/admin read — any status (RLS-gated). */

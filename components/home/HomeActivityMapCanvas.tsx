@@ -15,16 +15,24 @@ import {
 } from "react-leaflet";
 import { HomeMapPinCard } from "@/components/home/HomeMapPinCard";
 import {
+  clustersFromHubCounts,
+  clustersFromMetroGroupCounts,
   clustersFromStateCounts,
   groupPinsByHub,
   groupPinsByMetroGroup,
   groupPinsByState,
   homeMapLayerForZoom,
+  leftoverStateCounts,
+  leftoverClusters,
   type HomeMapPlaceCluster,
 } from "@/lib/geo/home-map-clusters";
 import { OSM_ATTRIBUTION, OSM_TILE_URL } from "@/lib/map/tiles";
 import type { RegionHub } from "@/lib/regions/hubs";
-import type { HomeMapPin, HomeMapStateCount } from "@/lib/supabase/queries";
+import type {
+  HomeMapHubCount,
+  HomeMapPin,
+  HomeMapStateCount,
+} from "@/lib/supabase/queries";
 
 const CARD_WIDTH = 352;
 const CARD_HEIGHT_EST = 168;
@@ -69,9 +77,9 @@ function createStateDigitIcon(count: number): L.DivIcon {
 }
 
 function countLabelRu(count: number): string {
-  if (count === 1) return "точка на карте";
-  if (count < 5) return "точки на карте";
-  return "точек на карте";
+  if (count === 1) return "карточка";
+  if (count < 5) return "карточки";
+  return "карточек";
 }
 
 /** Count circles for state / metro / hub layers. */
@@ -308,8 +316,9 @@ type HomeActivityMapCanvasProps = {
   pins: HomeMapPin[];
   /** Kept for callers; overview bubbles prefer `stateCountsFallback`. */
   pinsLoaded: boolean;
-  /** Lightweight per-state counts for the national overview. */
+  /** Catalog card counts per state (not only rows with coordinates). */
   stateCountsFallback: HomeMapStateCount[] | null;
+  hubCountsFallback: HomeMapHubCount[] | null;
   selectedPin: HomeMapPin | null;
   cardPoint: { left: number; top: number } | null;
   onSelect: (pin: HomeMapPin | null) => void;
@@ -322,6 +331,7 @@ export default function HomeActivityMapCanvas({
   pins,
   pinsLoaded,
   stateCountsFallback,
+  hubCountsFallback,
   selectedPin,
   cardPoint,
   onSelect,
@@ -331,7 +341,7 @@ export default function HomeActivityMapCanvas({
   const activeIcon = useMemo(() => createHomePinIcon(true), []);
   const selectedId = selectedPin?.id ?? null;
   const [zoom, setZoom] = useState(hub.mapZoom);
-  const layer = homeMapLayerForZoom(zoom, pinsLoaded);
+  const layer = homeMapLayerForZoom(zoom);
   const showPins = layer === "pins";
 
   useEffect(() => {
@@ -340,15 +350,30 @@ export default function HomeActivityMapCanvas({
 
   const placeClusters = useMemo(() => {
     if (layer === "pins") return [];
+    const leftovers =
+      stateCountsFallback && hubCountsFallback
+        ? leftoverStateCounts(stateCountsFallback, hubCountsFallback)
+        : [];
     if (layer === "state") {
       if (stateCountsFallback && stateCountsFallback.length > 0) {
         return clustersFromStateCounts(stateCountsFallback);
       }
       return groupPinsByState(pins);
     }
-    if (layer === "metro-group") return groupPinsByMetroGroup(pins);
+    if (layer === "metro-group") {
+      if (hubCountsFallback && hubCountsFallback.length > 0) {
+        return clustersFromMetroGroupCounts(hubCountsFallback, leftovers);
+      }
+      return groupPinsByMetroGroup(pins);
+    }
+    if (hubCountsFallback && hubCountsFallback.length > 0) {
+      return [
+        ...clustersFromHubCounts(hubCountsFallback),
+        ...leftoverClusters(leftovers),
+      ];
+    }
     return groupPinsByHub(pins);
-  }, [layer, pins, stateCountsFallback]);
+  }, [hubCountsFallback, layer, pins, stateCountsFallback]);
 
   return (
     <div className="relative z-[450] h-full w-full">

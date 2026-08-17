@@ -122,7 +122,10 @@ export function normalizeInboxSource(
     s.includes("ruspages") ||
     s.includes("boston") ||
     s.includes("our_texas") ||
-    s.includes("russian_seattle")
+    s.includes("russian_seattle") ||
+    s.includes("bazar_club") ||
+    s.includes("bazar") ||
+    s.includes("russian_bazaar")
   ) {
     return "directories";
   }

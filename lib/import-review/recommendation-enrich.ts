@@ -1,7 +1,6 @@
 import "server-only";
 
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
 import path from "node:path";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import {
@@ -10,6 +9,7 @@ import {
   extractPhonesFromText,
   extractWebsitesFromText,
 } from "@/lib/admin/paste-enrich";
+import { pythonSpawnEnv, resolvePythonBin } from "@/lib/admin/resolve-python";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 import type { EnrichResourceState } from "@/lib/import-review/enrich-progress";
 import { cleanAdminStreetAddress } from "@/lib/geo/geocode-street";
@@ -284,20 +284,12 @@ async function fetchWebsiteProfile(
     "import-review",
     "fetch_website_profile.py",
   );
-  const collectorPython = path.join(
-    root,
-    "scripts",
-    "telegram-collector",
-    ".venv",
-    "bin",
-    "python",
-  );
-  const python = existsSync(collectorPython) ? collectorPython : "python3";
+  const python = resolvePythonBin(root);
 
   return new Promise((resolve) => {
     const child = spawn(python, [script, "--url", url], {
       cwd: root,
-      env: process.env,
+      env: pythonSpawnEnv(),
       stdio: ["ignore", "pipe", "pipe"],
     });
     let stdout = "";

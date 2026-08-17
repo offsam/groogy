@@ -5,6 +5,7 @@ import {
   spawnPrePublishEnrichNdjson,
   writePrePublishEnrichAudit,
 } from "@/lib/import-review/enrich-run";
+import { resolvePythonBin } from "@/lib/admin/resolve-python";
 import { finalizePrePublishEnrich } from "@/lib/import-review/finalize-enrich";
 import type {
   EnrichRunResult,
@@ -120,7 +121,7 @@ export async function POST(request: Request) {
       child.on("error", (err) => {
         const message =
           err.message.includes("ENOENT")
-            ? "python3 не найден — обогащение из UI работает на машине с Python и .env"
+            ? `Python не найден (${resolvePythonBin()}). Нужен python3 в PATH или PYTHON=/путь/к/python.`
             : err.message;
         controller.enqueue(
           encoder.encode(

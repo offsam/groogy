@@ -9,6 +9,7 @@ import {
   type PublishedEnrichKind,
   type PublishedEnrichQueueTarget,
 } from "@/lib/admin/published-enrich-run";
+import { resolvePythonBin } from "@/lib/admin/resolve-python";
 import { attachEnrichBeforeSnapshot, restoreEntityEnrichSnapshot } from "@/lib/admin/published-enrich-history";
 import {
   finalizePublishedEnrich,
@@ -347,7 +348,7 @@ export async function POST(request: Request) {
           return;
         }
         const message = err.message.includes("ENOENT")
-          ? "python3 не найден — обогащение из UI работает на машине с Python и .env"
+          ? `Python не найден (${resolvePythonBin()}). Нужен python3 в PATH или PYTHON=/путь/к/python.`
           : err.message;
         push({ type: "error", message });
         try {

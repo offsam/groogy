@@ -2,6 +2,7 @@ import "server-only";
 
 import { spawn } from "node:child_process";
 import path from "node:path";
+import { pythonSpawnEnv, resolvePythonBin } from "@/lib/admin/resolve-python";
 
 export type PublishedEnrichKind =
   | "business"
@@ -67,9 +68,9 @@ export function spawnPublishedEnrich(input: {
     } else {
       args.push("--import-review-id", input.queue.id);
     }
-    const child = spawn("python3", args, {
+    const child = spawn(resolvePythonBin(root), args, {
       cwd: root,
-      env: process.env,
+      env: pythonSpawnEnv(),
       stdio: ["ignore", "pipe", "pipe"],
     });
     return { child, script };
@@ -100,9 +101,9 @@ export function spawnPublishedEnrich(input: {
     throw new Error("enrich requires id or slug");
   }
 
-  const child = spawn("python3", args, {
+  const child = spawn(resolvePythonBin(root), args, {
     cwd: root,
-    env: process.env,
+    env: pythonSpawnEnv(),
     stdio: ["ignore", "pipe", "pipe"],
   });
   return { child, script };

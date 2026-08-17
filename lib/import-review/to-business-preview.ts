@@ -22,6 +22,7 @@ import {
   sanitizeInstagramHandles,
 } from "@/lib/import-review/display-name";
 import { mergeLocationWithGroupFallback } from "@/lib/geo/source-group-location";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 
 /** Fields enough to render a public BusinessCard / profile teaser. */
 export type ImportReviewPreviewFields = {
@@ -113,14 +114,7 @@ export function resolvePreviewPaymentMethods(
 }
 
 function slugify(text: string): string {
-  return (
-    text
-      .toLowerCase()
-      .replace(/[^a-z0-9а-яё]+/gi, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "")
-      .slice(0, 60) || "service"
-  );
+  return catalogCardSlug({ name: text, fallback: "service" }).slice(0, 60);
 }
 
 /** Map an import-review row (or live form) → public Business for card preview. */

@@ -22,6 +22,7 @@ import {
   isYelpUrl,
   normalizeYelpBizUrl,
 } from "@/lib/business/presence";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 
 type CategoryOption = { id: string; name: string; slug: string };
@@ -55,12 +56,7 @@ type AdminBusinessFormProps = {
 };
 
 function slugify(value: string): string {
-  return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9а-яё]+/gi, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 80);
+  return catalogCardSlug({ name: value, fallback: "business" }).slice(0, 80);
 }
 
 export function AdminBusinessForm({ categories, initial }: AdminBusinessFormProps) {

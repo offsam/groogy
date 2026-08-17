@@ -19,6 +19,7 @@ import {
   type RouteResult,
 } from "@/lib/import-review/entity-routing";
 import type { ImportReviewTargetCollection } from "@/types/import-review";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 
 const JUNK_HEADLINE_RE = /^(?:услуга|специалист|услуги?)(?:\s*\/\s*(?:услуга|специалист|услуги?))?$/i;
 
@@ -62,17 +63,7 @@ function nameKey(value: string): string {
 
 /** URL slug from a brand / shop name (not for person display names alone). */
 export function slugifyBusinessBrand(name: string): string {
-  return (
-    name
-      .toLowerCase()
-      .normalize("NFKD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[''`´]/g, "")
-      .replace(/[^\p{L}\p{N}]+/gu, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .slice(0, 72) || "business"
-  );
+  return catalogCardSlug({ name, fallback: "business" });
 }
 
 const PERSON_SLUG_SHOP_RE =

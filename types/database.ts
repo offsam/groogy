@@ -2358,6 +2358,13 @@ export type Database = {
           score: number;
         }[];
       };
+      get_popular_search_queries: {
+        Args: { p_limit?: number };
+        Returns: {
+          query: string;
+          hits: number;
+        }[];
+      };
       admin_set_listing_status: {
         Args: {
           p_listing_id: string;

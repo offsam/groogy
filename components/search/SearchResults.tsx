@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BusinessList } from "@/components/business/BusinessList";
 import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
 import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
+import { PopularSearchQueries } from "@/components/search/PopularSearchQueries";
 import { AiSearchLoader, endAiSearch } from "@/components/search/AiSearchLoader";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
@@ -339,9 +340,12 @@ export function SearchResults({
 
   return (
     <div className="search-page space-y-4 sm:space-y-5">
-      <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
-        Бизнесы
-      </h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+          Бизнесы
+        </h1>
+        <PopularSearchQueries />
+      </div>
 
       {isOverview ? (
         <>

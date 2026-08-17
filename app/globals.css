@@ -279,6 +279,7 @@ body {
 
 .business-card-slot {
   height: 9.25rem;
+  overflow: hidden;
 }
 
 @media (min-width: 640px) {
@@ -537,6 +538,11 @@ body:has(.home-fullwidth) .header-search {
   display: none;
 }
 
+/* While AI search runs, keep the header search so the bar does not vanish. */
+body.ai-search-active:has(.home-fullwidth) .header-search {
+  display: block;
+}
+
 /* Businesses title sits closer to the header */
 body:has(.search-page) main {
   padding-top: 1rem;
@@ -554,7 +560,7 @@ body:has(.search-page) main {
  * Hero photo → map: photo soft-fades at the bottom; map tucks under with a
  * wide elliptical reveal (horizon / looking-down onto the map).
  */
-.home-hero-photo {
+.home-hero-photo-fade {
   -webkit-mask-image: linear-gradient(
     to bottom,
     #000 0%,

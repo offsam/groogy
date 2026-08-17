@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
+import { SearchPendingTiles } from "@/components/search/SearchPendingTiles";
 import { cn } from "@/lib/utils";
 
 export const AI_SEARCH_START_EVENT = "krugi:ai-search-start";
@@ -10,18 +11,27 @@ export const AI_SEARCH_END_EVENT = "krugi:ai-search-end";
 const OVERLAY_MAX_MS = 20_000;
 const FADE_MS = 480;
 
+/** Survives layout remounts during / → /search. */
+let searchBusy = false;
+let searchQuery = "";
+
 /** Show the radar overlay immediately — before the search route paints. */
 export function signalAiSearch(query: string): void {
   if (typeof window === "undefined") return;
+  searchBusy = true;
+  searchQuery = query.trim().slice(0, 2000);
+  document.body.classList.add("ai-search-active");
   window.dispatchEvent(
     new CustomEvent(AI_SEARCH_START_EVENT, {
-      detail: { query: query.trim().slice(0, 2000) },
+      detail: { query: searchQuery },
     }),
   );
 }
 
 export function endAiSearch(): void {
   if (typeof window === "undefined") return;
+  searchBusy = false;
+  document.body.classList.remove("ai-search-active");
   window.dispatchEvent(new CustomEvent(AI_SEARCH_END_EVENT));
 }
 
@@ -59,7 +69,7 @@ export function AiSearchRadar({ query }: AiSearchRadarProps) {
   }, []);
 
   return (
-    <div className="ai-search-radar-front pointer-events-none text-center">
+    <div className="ai-search-radar-front text-center">
       <div className="ai-search-scene" aria-hidden>
         <div className="ai-search-field">
           <span className="ai-search-ring" />
@@ -95,15 +105,16 @@ export function AiSearchRadar({ query }: AiSearchRadarProps) {
   );
 }
 
-/** Radar in front of the result tiles until search finishes. */
+/** Equal-size result tiles behind the radar; header search stays visible. */
 export function AiSearchOverlay() {
-  const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState(searchQuery);
+  const [open, setOpen] = useState(searchBusy);
+  const [headerH, setHeaderH] = useState(72);
 
   useEffect(() => {
     function onStart(event: Event) {
       const detail = (event as CustomEvent<{ query?: string }>).detail;
-      setQuery(typeof detail?.query === "string" ? detail.query : "");
+      setQuery(typeof detail?.query === "string" ? detail.query : searchQuery);
       setOpen(true);
     }
     function onEnd() {
@@ -111,6 +122,10 @@ export function AiSearchOverlay() {
     }
     window.addEventListener(AI_SEARCH_START_EVENT, onStart);
     window.addEventListener(AI_SEARCH_END_EVENT, onEnd);
+    if (searchBusy) {
+      setQuery(searchQuery);
+      setOpen(true);
+    }
     return () => {
       window.removeEventListener(AI_SEARCH_START_EVENT, onStart);
       window.removeEventListener(AI_SEARCH_END_EVENT, onEnd);
@@ -119,11 +134,31 @@ export function AiSearchOverlay() {
 
   useEffect(() => {
     if (!open) return;
-    const id = window.setTimeout(() => setOpen(false), OVERLAY_MAX_MS);
+    const id = window.setTimeout(() => {
+      searchBusy = false;
+      document.body.classList.remove("ai-search-active");
+      setOpen(false);
+    }, OVERLAY_MAX_MS);
     return () => window.clearTimeout(id);
   }, [open, query]);
 
-  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const header = document.querySelector("header");
+    function sync() {
+      setHeaderH(header ? Math.ceil(header.getBoundingClientRect().height) : 72);
+    }
+    sync();
+    const ro = header ? new ResizeObserver(sync) : null;
+    if (header && ro) ro.observe(header);
+    window.addEventListener("resize", sync);
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener("resize", sync);
+    };
+  }, [open]);
+
+  const [mounted, setMounted] = useState(searchBusy);
   useEffect(() => {
     if (open) {
       setMounted(true);
@@ -140,12 +175,20 @@ export function AiSearchOverlay() {
       aria-busy={open}
       aria-live="polite"
       className={cn(
-        "pointer-events-none fixed inset-0 z-[1100] flex items-center justify-center transition-opacity duration-500",
-        open ? "opacity-100" : "opacity-0",
+        "fixed inset-0 z-[1000] bg-white transition-opacity duration-500",
+        open ? "opacity-100" : "opacity-0 pointer-events-none",
       )}
       role="status"
+      style={{ paddingTop: headerH }}
     >
-      <AiSearchRadar query={query} />
+      <div className="mx-auto h-full w-full max-w-6xl overflow-y-auto px-4 py-4 sm:py-5">
+        <div className="relative">
+          <SearchPendingTiles />
+          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+            <AiSearchRadar query={query} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

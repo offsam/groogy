@@ -4,7 +4,10 @@ import { Suspense, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Search, Sparkles } from "lucide-react";
 import { signalAppNavigation } from "@/components/layout/NavigationProgress";
-import { signalAiSearch } from "@/components/search/AiSearchLoader";
+import {
+  AI_SEARCH_START_EVENT,
+  signalAiSearch,
+} from "@/components/search/AiSearchLoader";
 import { PopularSearchQueries } from "@/components/search/PopularSearchQueries";
 
 type SearchBarProps = {
@@ -39,6 +42,15 @@ function SearchBarFields({
   useEffect(() => {
     if (variant === "compact") setQuery(urlQuery);
   }, [urlQuery, variant]);
+
+  useEffect(() => {
+    function onStart(event: Event) {
+      const detail = (event as CustomEvent<{ query?: string }>).detail;
+      if (typeof detail?.query === "string") setQuery(detail.query);
+    }
+    window.addEventListener(AI_SEARCH_START_EVENT, onStart);
+    return () => window.removeEventListener(AI_SEARCH_START_EVENT, onStart);
+  }, []);
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();

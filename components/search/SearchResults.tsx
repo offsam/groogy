@@ -6,7 +6,7 @@ import { BusinessList } from "@/components/business/BusinessList";
 import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
 import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
 import { PopularSearchQueries } from "@/components/search/PopularSearchQueries";
-import { AiSearchLoader, endAiSearch } from "@/components/search/AiSearchLoader";
+import { endAiSearch } from "@/components/search/AiSearchLoader";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
 import type { Business, Category } from "@/types/business";
@@ -314,7 +314,10 @@ export function SearchResults({
   ]);
 
   useEffect(() => {
-    if (!hasQuery || !loading) endAiSearch();
+    if (hasQuery && loading) return;
+    const wait = hasQuery ? 160 : 0;
+    const id = window.setTimeout(() => endAiSearch(), wait);
+    return () => window.clearTimeout(id);
   }, [hasQuery, loading]);
 
   const listResults = useMemo(() => {
@@ -463,16 +466,14 @@ export function SearchResults({
             detail={error}
             message="Не удалось загрузить результаты поиска"
           />
-        ) : loading ? (
-          hasQuery ? (
-            <AiSearchLoader query={initialQuery} />
-          ) : (
-            <LoadingState label="Загружаем компании…" />
-          )
+        ) : loading && !hasQuery ? (
+          <LoadingState label="Загружаем компании…" />
         ) : (
           <BusinessList
             businesses={listResults}
             onSelect={setSelectedId}
+            pending={hasQuery && loading}
+            reveal={hasQuery}
             selectedId={selectedId}
           />
         )

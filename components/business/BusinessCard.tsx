@@ -11,6 +11,7 @@ import { normalizeUsZip } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 import { isPlaceholderBusinessImage } from "@/lib/business/media";
 import { trackResourceOpen } from "@/lib/platform/engagement";
+import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { Business } from "@/types/business";
 
 type BusinessCardProps = {
@@ -48,11 +49,11 @@ export function BusinessCard({
   const isPlaceholder = isPlaceholderBusinessImage(business.imageUrl);
 
   const className = cn(
-    "flex gap-3 rounded-xl border bg-white p-3 transition-all sm:gap-4 sm:p-4",
+    "flex gap-3 overflow-hidden rounded-xl border bg-white p-3 sm:gap-4 sm:p-4",
     // Admin preview on phone: stack so the card fits the viewport width
     preview &&
       "max-sm:w-full max-sm:max-w-full max-sm:min-w-0 max-sm:flex-col max-sm:gap-2 max-sm:overflow-hidden",
-    !preview && "cursor-pointer",
+    !preview && "h-full cursor-pointer",
     selected
       ? "border-slate-900 shadow-md ring-1 ring-slate-900"
       : "border-slate-200 hover:border-slate-300 hover:shadow-sm",
@@ -83,11 +84,11 @@ export function BusinessCard({
         )}
       </div>
 
-      <div className="min-w-0 flex-1 overflow-hidden">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
         <div className="flex items-start justify-between gap-2">
           <h3
             className={cn(
-              "font-semibold text-slate-900",
+              "min-w-0 flex-1 font-semibold text-slate-900",
               preview ? "max-sm:line-clamp-2 sm:truncate" : "truncate",
             )}
           >
@@ -101,13 +102,13 @@ export function BusinessCard({
           )}
         </div>
 
-        <p className="mt-0.5 text-xs font-medium uppercase tracking-wide text-slate-400">
+        <p className="mt-0.5 truncate text-xs font-medium uppercase tracking-wide text-slate-400">
           {business.categoryName ?? "Без категории"}
           {business.reviewsCount > 0 && ` · ${business.reviewsCount} отзывов`}
         </p>
 
         {(business.thirdPartyMentionCount ?? 0) > 0 ? (
-          <div className="mt-1.5">
+          <div className="mt-1">
             <CommunityRecommendationBadge
               compact
               count={Number(business.thirdPartyMentionCount)}
@@ -115,38 +116,44 @@ export function BusinessCard({
           </div>
         ) : null}
 
-        {blurb ? (
-          <p className="mt-1.5 line-clamp-2 text-sm text-slate-600">{blurb}</p>
-        ) : null}
+        <p className="mt-1.5 line-clamp-2 min-h-[2.5rem] text-sm text-slate-600">
+          {blurb || "\u00a0"}
+        </p>
 
-        {locationLabel ? (
-          <p className="mt-2 flex min-w-0 items-center gap-1.5 text-sm text-slate-600">
-            <MapPin aria-hidden="true" className="size-3.5 shrink-0 text-slate-400" />
-            <span className="truncate">{locationLabel}</span>
-          </p>
-        ) : null}
+        <p className="mt-auto flex min-h-5 min-w-0 items-center gap-1.5 text-sm text-slate-600">
+          {locationLabel ? (
+            <>
+              <MapPin aria-hidden="true" className="size-3.5 shrink-0 text-slate-400" />
+              <span className="truncate">{locationLabel}</span>
+            </>
+          ) : (
+            <span className="truncate text-slate-300">{"\u00a0"}</span>
+          )}
+        </p>
 
-        <BusinessCardContactIcons
-          className={preview ? "max-sm:mt-2" : undefined}
-          flags={business.presenceFlags}
-          googleRating={business.googleRating}
-          googleReviewsCount={business.googleReviewsCount}
-          instagramFollowersCount={business.instagramFollowersCount}
-          slug={business.slug}
-          trustpilotRating={business.trustpilotRating}
-          trustpilotReviewsCount={business.trustpilotReviewsCount}
-          facebookRecommendPct={business.facebookRecommendPct}
-          facebookReviewsCount={business.facebookReviewsCount}
-          yelpRating={business.yelpRating}
-          yelpReviewsCount={business.yelpReviewsCount}
-        />
-        {business.paymentMethods?.length ? (
-          <PaymentMethodIcons
-            className="mt-2 w-full justify-end"
-            methods={business.paymentMethods}
-            size="sm"
+        <div className="mt-1 flex h-6 items-center justify-between gap-2 overflow-hidden">
+          <BusinessCardContactIcons
+            className={preview ? "max-sm:mt-0" : undefined}
+            flags={business.presenceFlags}
+            googleRating={business.googleRating}
+            googleReviewsCount={business.googleReviewsCount}
+            instagramFollowersCount={business.instagramFollowersCount}
+            slug={business.slug}
+            trustpilotRating={business.trustpilotRating}
+            trustpilotReviewsCount={business.trustpilotReviewsCount}
+            facebookRecommendPct={business.facebookRecommendPct}
+            facebookReviewsCount={business.facebookReviewsCount}
+            yelpRating={business.yelpRating}
+            yelpReviewsCount={business.yelpReviewsCount}
           />
-        ) : null}
+          {business.paymentMethods?.length ? (
+            <PaymentMethodIcons
+              className="shrink-0"
+              methods={business.paymentMethods}
+              size="sm"
+            />
+          ) : null}
+        </div>
       </div>
     </>
   );
@@ -156,19 +163,27 @@ export function BusinessCard({
   }
 
   return (
-    <Link
-      className={className}
-      href={`/business/${business.slug}`}
-      onClick={() => {
-        trackResourceOpen({
-          kind: "business",
-          id: business.id,
-          pathId: business.slug,
-        });
-        onSelect?.(business.id);
-      }}
-    >
-      {body}
-    </Link>
+    <div className="relative h-full">
+      <Link
+        className={className}
+        href={`/business/${business.slug}`}
+        onClick={() => {
+          trackResourceOpen({
+            kind: "business",
+            id: business.id,
+            pathId: business.slug,
+          });
+          onSelect?.(business.id);
+        }}
+      >
+        {body}
+      </Link>
+      <ReportEntityButton
+        className="absolute right-2 top-2"
+        entityId={business.id}
+        entityName={business.name}
+        entityType="business"
+      />
+    </div>
   );
 }

@@ -121,8 +121,7 @@ body {
   overflow: hidden;
   border-radius: 1.15rem;
   background:
-    radial-gradient(ellipse 70% 55% at 50% 48%, rgb(31 111 229 / 0.08), transparent 62%),
-    linear-gradient(180deg, rgb(248 250 252) 0%, rgb(241 245 249) 100%);
+    radial-gradient(ellipse 70% 55% at 50% 48%, rgb(255 255 255 / 0.72), rgb(248 250 252 / 0.28) 62%, transparent 78%);
 }
 
 .ai-search-ring {
@@ -278,9 +277,24 @@ body {
   }
 }
 
+.business-card-slot {
+  height: 9.25rem;
+}
+
+@media (min-width: 640px) {
+  .business-card-slot {
+    height: 11.25rem;
+  }
+}
+
+.ai-search-radar-front {
+  width: min(100%, 20rem);
+}
+
 .ai-search-skel {
   position: relative;
   display: flex;
+  height: 100%;
   gap: 0.75rem;
   overflow: hidden;
   border-radius: 0.75rem;
@@ -297,10 +311,15 @@ body {
   background-size: 220% 100%;
   padding: 0.75rem;
   opacity: 0;
-  filter: blur(5px) saturate(0.55);
+  filter: blur(4px) saturate(0.55);
   animation:
-    ai-search-skel-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-    ai-search-skel-flow 2.4s ease-in-out infinite 0.7s;
+    ai-search-skel-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    ai-search-skel-flow 2.4s ease-in-out infinite 0.65s;
+}
+
+.ai-search-card-reveal {
+  height: 100%;
+  animation: ai-search-fill 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .ai-search-skel__photo {
@@ -358,12 +377,10 @@ body {
 @keyframes ai-search-skel-in {
   from {
     opacity: 0;
-    transform: translateY(14px) scale(0.97);
     filter: blur(8px) saturate(0.4);
   }
   to {
     opacity: 1;
-    transform: none;
     filter: blur(1.5px) saturate(0.7);
   }
 }
@@ -387,6 +404,17 @@ body {
   }
 }
 
+@keyframes ai-search-fill {
+  from {
+    opacity: 0.2;
+    filter: blur(8px) saturate(0.4);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
 @media (min-width: 640px) {
   .ai-search-skel {
     padding: 1rem;
@@ -404,7 +432,8 @@ body {
   .ai-search-dot,
   .ai-search-card,
   .ai-search-skel,
-  .ai-search-skel__shine {
+  .ai-search-skel__shine,
+  .ai-search-card-reveal {
     animation: none;
   }
 

@@ -69,7 +69,8 @@ const CHEAP_PAID_ALLOWLIST = new Set<string>([
   "openai/gpt-4o-mini",
 ]);
 
-const DEFAULT_TIMEOUT_MS = 12_000;
+// Was 12s — the model chain (getCheapPaidModelChain()) has 5 entries and fails over sequentially, so a 12s-per-model timeout meant a worst case of ~60s before the caller ever saw a response.
+const DEFAULT_TIMEOUT_MS = 7_000;
 
 const unavailableModels = new Set<string>();
 

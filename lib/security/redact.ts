@@ -19,5 +19,18 @@ export function redactSecrets(text: string): string {
 
 export function safeErrorMessage(err: unknown): string {
   if (err instanceof Error) return redactSecrets(err.message);
-  return redactSecrets(String(err));
+  if (
+    err &&
+    typeof err === "object" &&
+    "message" in err &&
+    typeof (err as { message: unknown }).message === "string"
+  ) {
+    return redactSecrets((err as { message: string }).message);
+  }
+  if (typeof err === "string") return redactSecrets(err);
+  try {
+    return redactSecrets(JSON.stringify(err));
+  } catch {
+    return redactSecrets(String(err));
+  }
 }

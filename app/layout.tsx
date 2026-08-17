@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { MobilePreview } from "@/components/layout/MobilePreview";
 import { NavigationProgress } from "@/components/layout/NavigationProgress";
 import { ErrorReportButton } from "@/components/error-report/ErrorReportButton";
+import { AiSearchOverlay } from "@/components/search/AiSearchLoader";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { BRAND_NAME } from "@/lib/brand";
@@ -55,6 +56,7 @@ export default function RootLayout({
         <MicrosoftClarity />
         <Suspense fallback={null}>
           <NavigationProgress />
+          <AiSearchOverlay />
         </Suspense>
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-[1001]">

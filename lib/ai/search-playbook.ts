@@ -119,6 +119,12 @@ If one mysterious token (possible brand) → business_name with that token.
 - plumber, electrician, flooring, handyman, cleaning, remodel, moving → services
 - dentist, doctor, clinic, pediatrics → medical
 - lawyer, attorney, immigration, notary → legal
+- translator, interpreter, переводчик → mustHints translator/interpreter/переводчик only.
+  Do NOT add юрист/lawyer unless the user also asked for a lawyer. Prefer cards that
+  mention translation, not the whole legal category.
+  "водитель-переводчик" / chaperone / driver's services is a DIFFERENT job (driver who
+  also interprets). Do NOT return those for a plain translator query. Only if the user
+  asked for водитель-переводчик / chaperone.
 - restaurant, cafe, bakery, sushi → restaurants
 - grocery, products, market → groceries
 - tutor, school, courses, daycare → education

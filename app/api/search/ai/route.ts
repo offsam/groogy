@@ -31,6 +31,7 @@ import { safeErrorMessage } from "@/lib/security/redact";
 import { createServiceRoleClient } from "@/lib/supabase/service";
 import { createServerClient } from "@/lib/supabase/server";
 import { getActiveCategories, getBusinessBySlug, searchBusinesses } from "@/lib/supabase/queries";
+import { rerankSearchMatches } from "@/lib/ai/search-rerank";
 import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { hasCoordinates, type Business } from "@/types/business";
 
@@ -134,24 +135,28 @@ const TRANSLATOR_TOPIC_HINTS = new Set([
   "interpreting",
 ]);
 
+const DRIVER_COMPANION_HINTS = new Set([
+  "водитель",
+  "водителя",
+  "водителем",
+  "chaperone",
+  "chauffeur",
+]);
+
 const BEAUTY_OFFTOPIC_RE =
   /\b(nail|nails|manicure|pedicure|маникюр\w*|педикюр\w*|ногт\w*|брови|lash(?:es)?|ресниц\w*|косметолог\w*)\b/iu;
 
-/** Categories that are noise for a court/Zoom translator request. */
-const TRANSLATOR_OFFTOPIC_CATEGORIES = new Set([
-  "medical",
-  "beauty",
-  "fitness",
-  "auto",
-  "insurance",
-  "real_estate",
-  "groceries",
-  "restaurants",
-  "pets",
-  "travel",
-  "events",
-  "education",
-]);
+/** Driver who also interprets — not a professional translator. */
+const DRIVER_COMPANION_CARD_RE =
+  /chaperone|chauffeur|водитель\s*[-–/,]?\s*переводчик|переводчик\s*[-–/,]?\s*водитель|driver'?s?\s+services?|услуг\w*\s+водител|сопровожда\w*\s+с\s+переводом/iu;
+
+function hintsWantDriverCompanion(hints: string[]): boolean {
+  return hints.some((h) => DRIVER_COMPANION_HINTS.has(h.toLowerCase()));
+}
+
+function isDriverCompanionCard(hay: string): boolean {
+  return DRIVER_COMPANION_CARD_RE.test(hay);
+}
 
 function isOffTopicForHints(business: Business, hints: string[]): boolean {
   const wantsDance = hints.some((h) => DANCE_TOPIC_HINTS.has(h.toLowerCase()));
@@ -185,23 +190,16 @@ function isOffTopicForHints(business: Business, hints: string[]): boolean {
       TRANSLATOR_TOPIC_HINTS.has(h.toLowerCase()),
     );
     const tScore = hintScore(business, tHints);
-    // Keep real translator cards in any category.
-    if (tScore >= 3) return false;
-    // Lawyers without translator signal are weak but tolerable; drop unrelated hubs.
-    if (
-      business.categorySlug &&
-      TRANSLATOR_OFFTOPIC_CATEGORIES.has(business.categorySlug)
-    ) {
-      return true;
+    // Keep real translator cards in any category — except driver-chaperone
+    // ("водитель-переводчик"), which is a different profession.
+    if (tScore >= 3) {
+      if (isDriverCompanionCard(hay) && !hintsWantDriverCompanion(hints)) {
+        return true;
+      }
+      return false;
     }
-    // Generic services that only matched via soft noise (flooring/daycare).
-    if (
-      /\b(flooring|plumbing|daycare|страхован|insurance|аренд\w*\s+машин|rent\s*a\s*car|фитнес|gym|клиник\w*|clinic)\b/iu.test(
-        hay,
-      )
-    ) {
-      return true;
-    }
+    // No translator signal on the card → drop, including generic lawyers.
+    return true;
   }
 
   return false;
@@ -210,6 +208,45 @@ function isOffTopicForHints(business: Business, hints: string[]): boolean {
 function filterOnTopic(businesses: Business[], hints: string[]): Business[] {
   if (hints.length === 0) return businesses;
   return businesses.filter((b) => !isOffTopicForHints(b, hints));
+}
+
+const LAWYER_HINTS = new Set([
+  "юрист",
+  "адвокат",
+  "lawyer",
+  "attorney",
+  "legal",
+  "юридический",
+]);
+
+function hintsWantTranslator(hints: string[]): boolean {
+  return hints.some((h) => TRANSLATOR_TOPIC_HINTS.has(h.toLowerCase()));
+}
+
+function queryAsksForLawyer(raw: string): boolean {
+  return /юрист|адвокат|\blawyer\b|\battorney\b/iu.test(raw);
+}
+
+/**
+ * "переводчик" is not "show every lawyer". Keep translator terms only
+ * unless the user also asked for a lawyer.
+ */
+function focusTranslatorIntent(intent: SearchIntent, rawQuery: string): SearchIntent {
+  if (!hintsWantTranslator([...intent.mustHints, ...intent.keywords])) {
+    return intent;
+  }
+  if (queryAsksForLawyer(rawQuery)) return intent;
+
+  const keep = (token: string) => !LAWYER_HINTS.has(token.toLowerCase());
+  return {
+    ...intent,
+    mustHints: intent.mustHints.filter(keep),
+    keywords: intent.keywords.filter(keep),
+    // Search by translator text across the catalog — don't browse «Юристы».
+    preferCategory: false,
+    categorySlug: null,
+    queryMode: "service_need",
+  };
 }
 
 /** Nearest-first when coords present; then soft hint boost; then completeness. */
@@ -361,7 +398,7 @@ export async function POST(request: Request) {
   }
 
   const ip = clientIpFromRequest(request);
-  const limited = consumeRateLimit(`ai-search:${ip}`, {
+  const limited = await consumeRateLimit(`ai-search:${ip}`, {
     limit: AI_RATE_LIMIT,
     windowMs: AI_RATE_WINDOW_MS,
   });
@@ -457,6 +494,25 @@ export async function POST(request: Request) {
     });
   }
 
+  const logQuery = normalized.original.trim().slice(0, 80);
+  if (
+    logQuery.length >= 2 &&
+    !isAddressPaste &&
+    !/^https?:\/\//i.test(logQuery) &&
+    !/[0-9]{7,}/.test(logQuery)
+  ) {
+    void catalog
+      .from("platform_events")
+      .insert({
+        event_type: "search",
+        path: "/search",
+        meta: { q: logQuery },
+      })
+      .then(({ error }) => {
+        if (error) console.warn("[ai-search] log failed:", error.message);
+      });
+  }
+
   // Deterministic understanding of messy input (handles, phones, translit, cities…).
   // Always run on the original paste so nearMe/city survive address normalization.
   const preparse = preparseSearchQuery(
@@ -545,6 +601,7 @@ export async function POST(request: Request) {
   if (!isAddressPaste) {
     const allowedSlugs = new Set(categories.map((c) => c.slug));
     intent = mergePreparseIntoIntent(intent, preparse, allowedSlugs);
+    intent = focusTranslatorIntent(intent, normalized.original || q);
   }
 
   // Address / Maps paste: force structured location intent even if LLM flaked.
@@ -624,6 +681,7 @@ export async function POST(request: Request) {
   // Address/identity pastes keep structured tokens — don't synonym-dilute them.
   if (!isAddressPaste && !isIdentityPaste) {
     intent = enrichSearchIntent(intent);
+    intent = focusTranslatorIntent(intent, normalized.original || q);
   }
 
   let searchQuery = buildSearchQueryFromIntent(intent, qForLlm, fallback, {
@@ -759,7 +817,8 @@ export async function POST(request: Request) {
     businesses.length === 0 &&
     categorySlug &&
     intent.queryMode !== "business_name" &&
-    !isAddressPaste
+    !isAddressPaste &&
+    !hintsWantTranslator(intent.mustHints)
   ) {
     businesses = await safeSearchBusinesses(catalog, searchParams);
   }
@@ -889,13 +948,14 @@ export async function POST(request: Request) {
 
   // Similar fallback: category browse ranked by hints when exact search failed.
   if (ranked.length === 0) {
-    const similarCategory =
-      categoryOverride ??
-      intent.categorySlug ??
-      (isSlugPaste ? preparse.categorySlug : null) ??
-      (softHints.some((h) => DANCE_TOPIC_HINTS.has(h.toLowerCase()))
-        ? "fitness"
-        : null);
+    const similarCategory = hintsWantTranslator(softHints)
+      ? null
+      : categoryOverride ??
+        intent.categorySlug ??
+        (isSlugPaste ? preparse.categorySlug : null) ??
+        (softHints.some((h) => DANCE_TOPIC_HINTS.has(h.toLowerCase()))
+          ? "fitness"
+          : null);
 
     if (similarCategory || softHints.length > 0) {
       // Prefer a distinctive topic term — never search bare "studio"/"студия".
@@ -968,6 +1028,41 @@ export async function POST(request: Request) {
       matchKind = "empty";
       matchMessage =
         "Ничего не нашли по этому запросу. Попробуйте название услуги или категории.";
+    }
+  }
+
+  const canRerank =
+    !isAddressPaste &&
+    !isIdentityPaste &&
+    !fallback &&
+    ranked.length > 1 &&
+    intent.queryMode !== "business_name" &&
+    Boolean(qForLlm.trim());
+
+  if (canRerank) {
+    try {
+      const picked = await rerankSearchMatches(
+        normalized.original || qForLlm,
+        ranked,
+      );
+      if (picked) {
+        if (picked.keep.length > 0) {
+          ranked = [...picked.keep, ...picked.similar];
+          matchKind = "exact";
+          if (picked.similar.length > 0 && picked.keep.length < 3) {
+            matchMessage =
+              matchMessage ??
+              "Сначала точные совпадения, ниже — похожие по смыслу.";
+          }
+        } else {
+          ranked = picked.similar;
+          matchKind = "similar";
+          matchMessage =
+            "Точного совпадения нет — вот похожие варианты по смыслу запроса.";
+        }
+      }
+    } catch (err) {
+      console.warn("[ai-search] rerank skipped:", safeErrorMessage(err));
     }
   }
 

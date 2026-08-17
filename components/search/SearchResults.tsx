@@ -3,10 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { BusinessList } from "@/components/business/BusinessList";
-import { OfferSearchResults } from "@/components/search/OfferSearchResults";
 import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
 import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
-import { AiSearchLoader } from "@/components/search/AiSearchLoader";
+import { AiSearchLoader, endAiSearch } from "@/components/search/AiSearchLoader";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
 import type { Business, Category } from "@/types/business";
@@ -313,6 +312,10 @@ export function SearchResults({
     hasQuery,
   ]);
 
+  useEffect(() => {
+    if (!hasQuery || !loading) endAiSearch();
+  }, [hasQuery, loading]);
+
   const listResults = useMemo(() => {
     if (hasQuery) return results;
     // Category view: API already filtered. Uncategorized never appear here.
@@ -463,16 +466,11 @@ export function SearchResults({
             <LoadingState label="Загружаем компании…" />
           )
         ) : (
-          <>
-            {hasQuery ? (
-              <OfferSearchResults city={initialCity} query={initialQuery} />
-            ) : null}
-            <BusinessList
-              businesses={listResults}
-              onSelect={setSelectedId}
-              selectedId={selectedId}
-            />
-          </>
+          <BusinessList
+            businesses={listResults}
+            onSelect={setSelectedId}
+            selectedId={selectedId}
+          />
         )
       ) : null}
     </div>

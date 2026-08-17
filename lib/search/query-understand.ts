@@ -250,6 +250,13 @@ const SERVICE_PATTERNS: ReadonlyArray<{
   },
   {
     re: rx(
+      "водитель\\s*[-–/]?\\s*переводчик\\p{L}*|переводчик\\s*[-–/]?\\s*водитель\\p{L}*|chaperone|водитель\\p{L}*\\s+переводчик\\p{L}*",
+    ),
+    categorySlug: "services",
+    hints: ["водитель", "chaperone", "переводчик", "translator"],
+  },
+  {
+    re: rx(
       "translator|translators|interpreter|interpreters|interpreting|переводчик\\p{L}*|устн\\p{L}*\\s+перевод|перевод\\s+для\\s+суд",
     ),
     categorySlug: "legal",

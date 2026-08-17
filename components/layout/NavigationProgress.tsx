@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
+import {
+  AI_SEARCH_START_EVENT,
+  signalAiSearch,
+} from "@/components/search/AiSearchLoader";
 
 const APP_NAV_START_EVENT = "krugi:app-nav-start";
 
@@ -99,9 +103,16 @@ export function NavigationProgress({ pathPrefix }: Props) {
     function onProgrammatic() {
       begin();
     }
+    function onAiSearch() {
+      clearBusy();
+      clearTimers();
+      setActive(false);
+    }
     window.addEventListener(APP_NAV_START_EVENT, onProgrammatic);
+    window.addEventListener(AI_SEARCH_START_EVENT, onAiSearch);
     return () => {
       window.removeEventListener(APP_NAV_START_EVENT, onProgrammatic);
+      window.removeEventListener(AI_SEARCH_START_EVENT, onAiSearch);
     };
   }, []);
 
@@ -132,7 +143,18 @@ export function NavigationProgress({ pathPrefix }: Props) {
       if (e.defaultPrevented) return;
       if (e.button !== 0) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      if (!isAppNavAnchor(e.target)) return;
+      const a = isAppNavAnchor(e.target);
+      if (!a) return;
+      try {
+        const url = new URL(a.href, window.location.href);
+        const q = url.searchParams.get("q")?.trim() ?? "";
+        if (url.pathname === "/search" && q) {
+          signalAiSearch(q);
+          return;
+        }
+      } catch {
+        // fall through to generic nav pin
+      }
       begin();
     }
 

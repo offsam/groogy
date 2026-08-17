@@ -287,6 +287,10 @@ Worked examples (follow the pattern):
    {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"services","mustHints":["сантехник","plumber","plumbing"],"preferCategory":true,"nearMe":true}
 14) "муж на час / handyman Costa Mesa" →
    {"queryMode":"service_need","keywords":[],"city":"Costa Mesa","categorySlug":"services","mustHints":["handyman","мастер","ремонт","repair"],"preferCategory":true,"nearMe":false}
+15) "переводчик" / "нужен переводчик для суда по Zoom" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":null,"mustHints":["переводчик","translator","interpreter"],"preferCategory":false,"nearMe":false}
+16) "водитель-переводчик" / "chaperone" →
+   {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"services","mustHints":["водитель","chaperone","переводчик","translator"],"preferCategory":true,"nearMe":false}
 
 ${SEARCH_CATALOG_PLAYBOOK}
 

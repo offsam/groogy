@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobilePreview } from "@/components/layout/MobilePreview";
 import { NavigationProgress } from "@/components/layout/NavigationProgress";
+import { ErrorReportButton } from "@/components/error-report/ErrorReportButton";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { BRAND_NAME } from "@/lib/brand";
@@ -65,6 +66,9 @@ export default function RootLayout({
           <Footer />
         </div>
         <MobilePreview />
+        <Suspense fallback={null}>
+          <ErrorReportButton />
+        </Suspense>
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>

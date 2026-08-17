@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
 import { ReportListingForm } from "@/components/marketplace/ReportListingForm";
 import { ClaimListingButton } from "@/components/claims/ClaimListingButton";
 import { LechuOwnerActions } from "@/components/lechu/LechuOwnerActions";
-import { LechuRoutePlaque } from "@/components/lechu/LechuRoutePlaque";
 import { ListingSourceCard } from "@/components/listings/ListingSourceCard";
 import { AdminLensBar } from "@/components/admin/AdminLensBar";
 import { DescriptionWithOriginal } from "@/components/shared/DescriptionWithOriginal";
@@ -82,16 +81,6 @@ export function LechuProfileView({
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
             {listing.title}
           </h1>
-          {lechu?.departureCountry && lechu?.destinationCountry ? (
-            <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-4 sm:px-5">
-              <LechuRoutePlaque
-                departure={lechu.departureCountry}
-                destination={lechu.destinationCountry}
-                departureDate={lechu.departureDate}
-                size="profile"
-              />
-            </div>
-          ) : null}
           {!isPublic && isOwner && (
             <p className="mt-1 text-sm text-amber-700">
               Статус: {LISTING_STATUS_LABELS[listing.status]}
@@ -146,6 +135,17 @@ export function LechuProfileView({
 
       <div className="grid gap-8 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
+          {lechu && (
+            <p className="flex flex-wrap items-center gap-2 text-2xl font-bold text-slate-900">
+              <span>{lechu.departureCountry}</span>
+              <ArrowRight
+                aria-hidden="true"
+                className="size-5 text-slate-400"
+              />
+              <span>{lechu.destinationCountry}</span>
+            </p>
+          )}
+
           <p className="text-3xl font-bold text-slate-900">
             {lechu?.rewardType
               ? LECHU_REWARD_LABELS[lechu.rewardType]

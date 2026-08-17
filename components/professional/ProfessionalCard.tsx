@@ -8,7 +8,6 @@ import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import { normalizeUsZip } from "@/lib/brand";
 import { resolvePublicCityPostal } from "@/lib/address/normalize";
 import { professionalCardBlurb } from "@/lib/professional/card-blurb";
-import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { Professional } from "@/types/professional";
 
 type ProfessionalCardProps = {
@@ -109,7 +108,7 @@ export function ProfessionalCard({
   );
 
   return (
-    <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
       {preview ? (
         <div className="flex h-full flex-col">{body}</div>
       ) : (
@@ -120,14 +119,6 @@ export function ProfessionalCard({
           {body}
         </Link>
       )}
-      {!preview ? (
-        <ReportEntityButton
-          className="absolute right-2 top-2"
-          entityId={professional.id}
-          entityName={professional.displayName}
-          entityType="professional"
-        />
-      ) : null}
     </article>
   );
 }

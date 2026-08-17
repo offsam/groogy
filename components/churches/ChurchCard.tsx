@@ -6,7 +6,6 @@ import { MapPin } from "lucide-react";
 import { normalizeUsZip } from "@/lib/brand";
 import { resolvePublicCityPostal } from "@/lib/address/normalize";
 import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
-import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { Church } from "@/types/church";
 
 type ChurchCardProps = {
@@ -86,19 +85,11 @@ export function ChurchCard({ church, preview = false }: ChurchCardProps) {
   }
 
   return (
-    <div className="relative h-full">
-      <Link
-        className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md"
-        href={`/churches/${church.slug}`}
-      >
-        {body}
-      </Link>
-      <ReportEntityButton
-        className="absolute right-2 top-2"
-        entityId={church.id}
-        entityName={church.name}
-        entityType="church"
-      />
-    </div>
+    <Link
+      className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md"
+      href={`/churches/${church.slug}`}
+    >
+      {body}
+    </Link>
   );
 }

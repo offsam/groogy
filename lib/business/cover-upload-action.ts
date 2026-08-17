@@ -1,8 +1,7 @@
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
-import { businessDetailTag } from "@/lib/platform/catalog-cache";
 import {
   BUSINESS_COVER_MAX_UPLOAD_BYTES,
   BUSINESS_IMAGES_BUCKET,
@@ -125,6 +124,5 @@ export async function uploadBusinessCoverAction(input: {
   revalidatePath(`/business/${input.businessSlug}`);
   revalidatePath(`/business/${input.businessSlug}/manage`);
   revalidatePath("/");
-  revalidateTag(businessDetailTag(input.businessSlug));
   return { ok: true, message: "Фото обновлено.", imageUrl };
 }

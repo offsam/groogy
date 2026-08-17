@@ -10,7 +10,6 @@ import {
   CategoryMediaFallback,
 } from "@/components/platform/CategoryCardChrome";
 import { FavoriteButton } from "@/components/marketplace/FavoriteButton";
-import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
 import type { Listing } from "@/types/listing";
 import {
@@ -159,21 +158,12 @@ export function TransferCard({
           >
             {listing.title}
           </MaybeLink>
-          {!preview ? (
-            <div className="flex shrink-0 items-center gap-1.5">
-              {showFavorite ? (
-                <FavoriteButton
-                  favoritesCount={listing.favoritesCount}
-                  initialFavorited={listing.favoritedByMe ?? false}
-                  listingId={listing.id}
-                />
-              ) : null}
-              <ReportEntityButton
-                entityId={listing.id}
-                entityName={listing.title}
-                entityType="transfer"
-              />
-            </div>
+          {!preview && showFavorite ? (
+            <FavoriteButton
+              favoritesCount={listing.favoritesCount}
+              initialFavorited={listing.favoritedByMe ?? false}
+              listingId={listing.id}
+            />
           ) : null}
         </div>
 

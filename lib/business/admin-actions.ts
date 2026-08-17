@@ -1,7 +1,6 @@
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
-import { businessDetailTag } from "@/lib/platform/catalog-cache";
+import { revalidatePath } from "next/cache";
 import {
   buildCatalogMergeBaggage,
   CATALOG_MERGE_BAGGAGE_SELECT,
@@ -56,12 +55,10 @@ function revalidateBusinessAdmin(keepSlug?: string | null, dropSlug?: string | n
   if (keepSlug) {
     revalidatePath(`/business/${keepSlug}`);
     revalidatePath(`/businesses/${keepSlug}`);
-    revalidateTag(businessDetailTag(keepSlug));
   }
   if (dropSlug) {
     revalidatePath(`/business/${dropSlug}`);
     revalidatePath(`/businesses/${dropSlug}`);
-    revalidateTag(businessDetailTag(dropSlug));
   }
 }
 

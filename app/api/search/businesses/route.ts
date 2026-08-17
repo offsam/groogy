@@ -62,7 +62,7 @@ export async function GET(request: Request) {
   }
 
   const ip = clientIpFromRequest(request);
-  const limited = await consumeRateLimit(`search-businesses:${ip}`, {
+  const limited = consumeRateLimit(`search-businesses:${ip}`, {
     limit: RATE_LIMIT,
     windowMs: RATE_WINDOW_MS,
   });
@@ -110,7 +110,7 @@ export async function POST(request: Request) {
   }
 
   const ip = clientIpFromRequest(request);
-  const limited = await consumeRateLimit(`search-businesses:${ip}`, {
+  const limited = consumeRateLimit(`search-businesses:${ip}`, {
     limit: RATE_LIMIT,
     windowMs: RATE_WINDOW_MS,
   });

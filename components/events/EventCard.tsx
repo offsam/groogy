@@ -7,7 +7,6 @@ import {
   CategoryMediaFallback,
 } from "@/components/platform/CategoryCardChrome";
 import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
-import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 import type { PlatformEvent } from "@/lib/events/queries";
 import { eventTimingLabel } from "@/lib/events/timing";
 
@@ -107,16 +106,8 @@ export function EventCard({
   }
 
   return (
-    <div className="relative h-full">
-      <Link href={`/events/${event.slug}`} className={className}>
-        {body}
-      </Link>
-      <ReportEntityButton
-        className="absolute right-2 top-2"
-        entityId={event.id}
-        entityName={event.title}
-        entityType="event"
-      />
-    </div>
+    <Link href={`/events/${event.slug}`} className={className}>
+      {body}
+    </Link>
   );
 }

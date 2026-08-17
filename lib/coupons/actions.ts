@@ -69,7 +69,7 @@ export async function createCouponAction(input: {
   if (title.length < 3) return fail("Заголовок слишком короткий.");
   if (body.length < 10) return fail("Опишите акцию чуть подробнее.");
 
-  const limited = await consumeRateLimit(`coupon-create:${user.id}`, {
+  const limited = consumeRateLimit(`coupon-create:${user.id}`, {
     limit: 30,
     windowMs: 60 * 60 * 1000,
   });
@@ -125,7 +125,7 @@ export async function submitCouponAction(input: {
   if (title.length < 3) return fail("Заголовок слишком короткий.");
   if (body.length < 10) return fail("Опишите акцию чуть подробнее.");
 
-  const limited = await consumeRateLimit(`coupon-submit:${user.id}`, {
+  const limited = consumeRateLimit(`coupon-submit:${user.id}`, {
     limit: 10,
     windowMs: 60 * 60 * 1000,
   });
@@ -243,7 +243,7 @@ export async function postCouponCommentAction(input: {
   if (body.length < 1) return fail("Пустой комментарий.");
   if (body.length > 1000) return fail("Слишком длинный комментарий.");
 
-  const limited = await consumeRateLimit(`coupon-comment:${user.id}`, {
+  const limited = consumeRateLimit(`coupon-comment:${user.id}`, {
     limit: 30,
     windowMs: 10 * 60 * 1000,
   });

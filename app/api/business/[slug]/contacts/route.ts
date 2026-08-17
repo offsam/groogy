@@ -45,7 +45,7 @@ export async function GET(request: Request, context: RouteContext) {
   }
 
   const ip = clientIpFromRequest(request);
-  const limited = await consumeRateLimit(`business-contacts:${ip}`, {
+  const limited = consumeRateLimit(`business-contacts:${ip}`, {
     limit: RATE_LIMIT,
     windowMs: RATE_WINDOW_MS,
   });

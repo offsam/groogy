@@ -5,8 +5,8 @@ import { listPublishedCommunityMentionsForProfessional } from "@/lib/community-m
 import { thirdPartySourceUrlsFromMentions } from "@/lib/community-mentions/source-urls";
 import { getCityCenter } from "@/lib/geo/city-center";
 import {
-  getCachedProfessionalBySlug,
   getOwnedProfessionalBySlug,
+  getProfessionalBySlug,
   getProfessionalServices,
   userOwnsProfessional,
 } from "@/lib/professional/queries";
@@ -31,7 +31,8 @@ const SITE_URL =
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const professional = await getCachedProfessionalBySlug(slug);
+  const catalog = createServiceRoleClient();
+  const professional = await getProfessionalBySlug(catalog, slug);
   if (!professional) return { title: "Специалист не найден" };
   return {
     title: `${professional.displayName} — КРУГИ`,
@@ -48,17 +49,11 @@ export default async function ProfessionalPage({ params, searchParams }: PagePro
   const { claim } = await searchParams;
   const client = await createServerClient();
   const catalog = createServiceRoleClient();
-  const [
-    {
-      data: { user },
-    },
-    initialProfessional,
-  ] = await Promise.all([
-    client.auth.getUser(),
-    getCachedProfessionalBySlug(slug),
-  ]);
+  const {
+    data: { user },
+  } = await client.auth.getUser();
 
-  let professional = initialProfessional;
+  let professional = await getProfessionalBySlug(catalog, slug);
   let ownsProfessional = false;
   let isAdmin = false;
 
@@ -87,15 +82,7 @@ export default async function ProfessionalPage({ params, searchParams }: PagePro
   const isOwner = ownsProfessional || isAdmin;
   const autoClaim = claim === "1" && Boolean(user) && !ownsProfessional && !isAdmin;
 
-  const hasStreetCoords =
-    typeof professional.latitude === "number" &&
-    typeof professional.longitude === "number" &&
-    Number.isFinite(professional.latitude) &&
-    Number.isFinite(professional.longitude) &&
-    professional.locationPrecision === "street" &&
-    Boolean(professional.addressLine?.trim());
-
-  const [services, categories, communityMentions, promotions, updates, following, cityMapCenter] =
+  const [services, categories, communityMentions, promotions, updates, following] =
     await Promise.all([
     getProfessionalServices(catalog, professional.id).catch(() => []),
     isAdmin
@@ -111,12 +98,6 @@ export default async function ProfessionalPage({ params, searchParams }: PagePro
           () => false,
         )
       : Promise.resolve(false),
-    hasStreetCoords
-      ? Promise.resolve(null)
-      : getCityCenter(professional.city, professional.stateCode, {
-          postalCode: professional.postalCode,
-          region: professional.region,
-        }).catch(() => null),
   ]);
 
   const communitySourceUrls = thirdPartySourceUrlsFromMentions(
@@ -125,6 +106,21 @@ export default async function ProfessionalPage({ params, searchParams }: PagePro
       kind: m.kind,
     })),
   );
+
+  const hasStreetCoords =
+    typeof professional.latitude === "number" &&
+    typeof professional.longitude === "number" &&
+    Number.isFinite(professional.latitude) &&
+    Number.isFinite(professional.longitude) &&
+    professional.locationPrecision === "street" &&
+    Boolean(professional.addressLine?.trim());
+
+  const cityMapCenter = !hasStreetCoords
+    ? await getCityCenter(professional.city, professional.stateCode, {
+        postalCode: professional.postalCode,
+        region: professional.region,
+      }).catch(() => null)
+    : null;
 
   return (
     <ProfessionalProfileView

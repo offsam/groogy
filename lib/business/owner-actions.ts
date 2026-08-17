@@ -1,8 +1,7 @@
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
-import { businessDetailTag } from "@/lib/platform/catalog-cache";
 import type { OpeningHours } from "@/lib/business/opening-hours";
 import {
   normalizeStructuredAddress,
@@ -214,6 +213,5 @@ export async function patchBusinessProfileAction(input: {
   revalidatePath(`/business/${input.businessSlug}`);
   revalidatePath(`/business/${input.businessSlug}/manage`);
   revalidatePath("/");
-  revalidateTag(businessDetailTag(input.businessSlug));
   return ok("Сохранено.");
 }

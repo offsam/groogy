@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminErrorReportsPanel } from "@/components/admin/AdminErrorReportsPanel";
-import {
-  listErrorReportsAction,
-  type PlatformErrorReportType,
-} from "@/lib/error-reports/actions";
+import { listErrorReportsAction } from "@/lib/error-reports/actions";
 import { createServerClient } from "@/lib/supabase/server";
 import { userIsAdmin } from "@/lib/reviews/queries";
 import type { PlatformErrorReportStatus } from "@/types/database";
@@ -27,16 +24,8 @@ const FILTERS: Array<{ id: PlatformErrorReportStatus | "all"; label: string }> =
     { id: "all", label: "Все" },
   ];
 
-const TYPE_FILTERS: Array<{ id: PlatformErrorReportType | "all"; label: string }> =
-  [
-    { id: "all", label: "Все типы" },
-    { id: "error", label: "Ошибки" },
-    { id: "question", label: "Вопросы" },
-    { id: "complaint", label: "Жалобы" },
-  ];
-
 type PageProps = {
-  searchParams: Promise<{ status?: string; type?: string }>;
+  searchParams: Promise<{ status?: string }>;
 };
 
 export default async function AdminErrorReportsPage({ searchParams }: PageProps) {
@@ -55,27 +44,8 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
   const filter = (
     FILTERS.some((f) => f.id === raw) ? raw : "open"
   ) as PlatformErrorReportStatus | "all";
-  const rawType = params.type ?? "all";
-  const typeFilter = (
-    TYPE_FILTERS.some((t) => t.id === rawType) ? rawType : "all"
-  ) as PlatformErrorReportType | "all";
 
-  function buildHref(next: { status?: string; type?: string }) {
-    const qs = new URLSearchParams();
-    const status = next.status ?? filter;
-    const type = next.type ?? typeFilter;
-    if (status !== "open") qs.set("status", status);
-    if (type !== "all") qs.set("type", type);
-    const query = qs.toString();
-    return query
-      ? `/admin/system/error-reports?${query}`
-      : "/admin/system/error-reports";
-  }
-
-  const result = await listErrorReportsAction({
-    status: filter,
-    reportType: typeFilter,
-  });
+  const result = await listErrorReportsAction({ status: filter });
 
   return (
     <div className="mx-auto max-w-4xl space-y-6">
@@ -85,13 +55,11 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
           Error Reports
         </h1>
         <p className="mt-2 text-slate-500">
-          Обращения от пользователей трёх типов: ошибки и вопросы — из меню
-          поддержки в шапке сайта; жалобы — с кнопки-флажка на карточках
-          бизнесов, специалистов и других разделов.
+          Сообщения с плавающей кнопки «Ошибка»: текст и страница, с которой
+          отправили.
         </p>
         <p className="mt-2 max-w-2xl text-sm text-slate-500">
-          Кнопка «Почини» (только для ошибок) создаёт GitHub Issue с текстом
-          репорта и упоминанием{" "}
+          Кнопка «Почини» создаёт GitHub Issue с текстом репорта и упоминанием{" "}
           <code className="text-xs">@claude</code> — это запускает воркфлоу{" "}
           <code className="text-xs">.github/workflows/claude-fix.yml</code>,
           который читает код и вносит правку. Когда Claude заканчивает,
@@ -113,23 +81,6 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
       </div>
 
       <div className="flex flex-wrap gap-2">
-        {TYPE_FILTERS.map((item) => (
-          <Link
-            key={item.id}
-            className={cn(
-              "rounded-lg border px-3 py-1.5 text-sm font-medium transition",
-              typeFilter === item.id
-                ? "border-slate-900 bg-slate-900 text-white"
-                : "border-slate-200 bg-white text-slate-700 hover:border-slate-300",
-            )}
-            href={buildHref({ type: item.id })}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap gap-2">
         {FILTERS.map((item) => (
           <Link
             key={item.id}
@@ -139,7 +90,11 @@ export default async function AdminErrorReportsPage({ searchParams }: PageProps)
                 ? "border-brand-blue bg-brand-blue text-white"
                 : "border-slate-200 bg-white text-slate-700 hover:border-slate-300",
             )}
-            href={buildHref({ status: item.id })}
+            href={
+              item.id === "open"
+                ? "/admin/system/error-reports"
+                : `/admin/system/error-reports?status=${item.id}`
+            }
           >
             {item.label}
           </Link>

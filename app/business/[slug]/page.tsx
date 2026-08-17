@@ -24,7 +24,7 @@ import {
 import {
   getActiveCategories,
   getApprovedBusinesses,
-  getCachedBusinessBySlug,
+  getBusinessBySlug,
   searchBusinesses,
 } from "@/lib/supabase/queries";
 import {
@@ -55,7 +55,8 @@ export async function generateMetadata({
   params,
 }: BusinessPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const business = await getCachedBusinessBySlug(slug);
+  const catalog = createServiceRoleClient();
+  const business = await getBusinessBySlug(catalog, slug);
   if (!business) return { title: "Бизнес не найден" };
 
   const description =
@@ -88,14 +89,14 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
   const hubIds = serializeHubIds(activeHubs.map((h) => h.id));
   const client = await createServerClient();
   const catalog = createServiceRoleClient();
-  const fullBusiness = await getCachedBusinessBySlug(slug);
+  const fullBusiness = await getBusinessBySlug(catalog, slug);
   if (!fullBusiness) notFound();
 
   const {
     data: { user },
   } = await client.auth.getUser();
 
-  const [offers, published, owns, isAdmin, alreadyClaimed, similarPool, communityMentions, locations, categories, promotions, updates, following, events, publicJobs, employees] =
+  const [offers, published, owns, isAdmin, alreadyClaimed, similarPool, communityMentions, locations, categories, promotions, updates, following, events] =
     await Promise.all([
     getPublicOffersForBusiness(client, fullBusiness.id, {
       businessSlug: fullBusiness.slug,
@@ -121,22 +122,16 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
         )
       : Promise.resolve(false),
     listPublishedEventsForBusiness(catalog, fullBusiness.id).catch(() => []),
-    // Public-only jobs fetched here so the common (non-owner) path never
-    // waits on a second sequential round trip after this batch resolves.
-    listJobsForBusiness(catalog, fullBusiness.id, { includeDrafts: false }).catch(
-      () => [],
-    ),
-    listEmployeesForBusiness(catalog, fullBusiness.id).catch(() => []),
   ]);
 
   const canManageEarly = owns || isAdmin;
-  // Owners/admins additionally see drafts — one extra round trip, but only
-  // for that small slice of traffic instead of every visitor.
-  const jobs = canManageEarly
-    ? await listJobsForBusiness(catalog, fullBusiness.id, {
-        includeDrafts: true,
-      }).catch(() => publicJobs)
-    : publicJobs;
+  const jobs = await listJobsForBusiness(catalog, fullBusiness.id, {
+    includeDrafts: canManageEarly,
+  }).catch(() => []);
+  const employees = await listEmployeesForBusiness(
+    catalog,
+    fullBusiness.id,
+  ).catch(() => []);
 
   let myReview = null;
   let mySession: ReviewVerificationSession | null = null;

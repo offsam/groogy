@@ -7,7 +7,6 @@ export const CATALOG_CACHE_TAGS = {
   hubResourceStats: "hub-resource-stats",
   popularHome: "popular-home",
   homeMapPins: "home-map-pins",
-  homeMapStateCounts: "home-map-state-counts",
   hubCategoryCounts: "hub-category-counts",
 } as const;
 
@@ -27,7 +26,6 @@ export const CATALOG_CACHE_TTL = {
   hubResourceStats: 60,
   popularHome: 300,
   homeMapPins: 300,
-  homeMapStateCounts: 300,
   hubCategoryCounts: 60,
 } as const;
 
@@ -42,20 +40,4 @@ export function catalogAggregateCacheControl(
   swr: number = CATALOG_CDN_SWR,
 ): string {
   return `public, s-maxage=${sMaxAge}, stale-while-revalidate=${swr}`;
-}
-
-/**
- * Per-entity detail-page cache tags (business/professional `/[slug]` routes).
- * Short TTL is the safety net; owner/admin mutations should also call
- * revalidateTag(...) with these so edits reflect immediately instead of
- * waiting out the TTL.
- */
-export const ENTITY_DETAIL_TTL = 45;
-
-export function businessDetailTag(slug: string): string {
-  return `business-detail:${slug}`;
-}
-
-export function professionalDetailTag(slug: string): string {
-  return `professional-detail:${slug}`;
 }

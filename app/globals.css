@@ -341,31 +341,25 @@ a {
   filter: drop-shadow(0 2px 6px rgba(31, 111, 229, 0.45));
 }
 
-.home-map-state-count {
+.home-map-state-cluster {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
   border-radius: 9999px;
   border: 2.5px solid rgba(255, 255, 255, 0.95);
   background: color-mix(in srgb, var(--brand-blue) 92%, white);
   color: #fff;
-  font-family: var(--font-display);
   font-weight: 700;
-  font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   line-height: 1;
-  white-space: nowrap;
   box-shadow:
     0 4px 14px rgba(15, 23, 42, 0.22),
     0 0 0 1px color-mix(in srgb, var(--brand-blue) 35%, transparent);
   cursor: pointer;
-  transition:
-    transform 120ms ease,
-    background 120ms ease;
+  transition: transform 120ms ease;
 }
 
-.home-map-state-count:hover {
+.home-map-state-cluster:hover {
   transform: scale(1.06);
   background: var(--brand-blue);
 }

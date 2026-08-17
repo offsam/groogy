@@ -7,7 +7,6 @@ import {
   CategoryMediaFallback,
 } from "@/components/platform/CategoryCardChrome";
 import { PaymentMethodIcons } from "@/components/shared/PaymentMethodIcons";
-import { ReportEntityButton } from "@/components/support/ReportEntityButton";
 
 export type RealEstateCardItem = {
   id: string;
@@ -111,16 +110,10 @@ export function RealEstateCard({
   }
 
   return (
-    <article className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
+    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-md">
       <Link className="block" href={href}>
         {body}
       </Link>
-      <ReportEntityButton
-        className="absolute right-2 top-2"
-        entityId={item.id}
-        entityName={item.title}
-        entityType="real-estate"
-      />
     </article>
   );
 }

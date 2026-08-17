@@ -120,8 +120,9 @@ If one mysterious token (possible brand) → business_name with that token.
 - dentist, doctor, clinic, pediatrics → medical
 - lawyer, attorney, immigration, notary → legal
 - translator, interpreter, переводчик → mustHints translator/interpreter/переводчик only.
-  Do NOT add юрист/lawyer unless the user also asked for a lawyer. Prefer cards that
-  mention translation, not the whole legal category.
+  Do NOT add юрист/lawyer unless the user also asked for a lawyer. Prefer cards whose
+  job is translator — not the whole legal category, not tours «с переводом», not
+  денежный перевод. Do NOT put bare «перевод» in mustHints (too many false hits).
   "водитель-переводчик" / chaperone / driver's services is a DIFFERENT job (driver who
   also interprets). Do NOT return those for a plain translator query. Only if the user
   asked for водитель-переводчик / chaperone.

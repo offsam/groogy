@@ -127,12 +127,14 @@ const TRANSLATOR_TOPIC_HINTS = new Set([
   "переводчик",
   "переводчика",
   "переводчики",
-  "перевод",
+  "переводчица",
   "translator",
   "translators",
   "interpreter",
   "interpreters",
   "interpreting",
+  "устный перевод",
+  "письменный перевод",
 ]);
 
 const DRIVER_COMPANION_HINTS = new Set([
@@ -145,6 +147,10 @@ const DRIVER_COMPANION_HINTS = new Set([
 
 const BEAUTY_OFFTOPIC_RE =
   /\b(nail|nails|manicure|pedicure|маникюр\w*|педикюр\w*|ногт\w*|брови|lash(?:es)?|ресниц\w*|косметолог\w*)\b/iu;
+
+/** Job is translator — not a side mention of «перевод» (tours, money wires). */
+const TRANSLATOR_PROFESSION_RE =
+  /переводчик\w*|бюро\s+перевод\w*|translators?\b|interpreters?\b|\binterpreting\b|certified\s+translat\w*|translation\s+(?:agency|service|services|office)|устн\w{0,10}\s+перевод|письменн\w{0,10}\s+перевод|судебн\w{0,10}\s+перевод|перевод\s+документ/iu;
 
 /** Driver who also interprets — not a professional translator. */
 const DRIVER_COMPANION_CARD_RE =
@@ -186,20 +192,14 @@ function isOffTopicForHints(business: Business, hints: string[]): boolean {
   }
 
   if (wantsTranslator) {
-    const tHints = hints.filter((h) =>
-      TRANSLATOR_TOPIC_HINTS.has(h.toLowerCase()),
-    );
-    const tScore = hintScore(business, tHints);
     // Keep real translator cards in any category — except driver-chaperone
     // ("водитель-переводчик"), which is a different profession.
-    if (tScore >= 3) {
-      if (isDriverCompanionCard(hay) && !hintsWantDriverCompanion(hints)) {
-        return true;
-      }
-      return false;
+    // Bare «перевод» is not enough (tours «с переводом», money transfers).
+    if (!TRANSLATOR_PROFESSION_RE.test(hay)) return true;
+    if (isDriverCompanionCard(hay) && !hintsWantDriverCompanion(hints)) {
+      return true;
     }
-    // No translator signal on the card → drop, including generic lawyers.
-    return true;
+    return false;
   }
 
   return false;
@@ -227,20 +227,34 @@ function queryAsksForLawyer(raw: string): boolean {
   return /юрист|адвокат|\blawyer\b|\battorney\b/iu.test(raw);
 }
 
+function queryAsksForTranslator(raw: string): boolean {
+  return /переводчик\w*|translators?\b|interpreters?\b|\binterpreting\b|устн\w{0,10}\s+перевод|письменн\w{0,10}\s+перевод/iu.test(
+    raw,
+  );
+}
+
 /**
  * "переводчик" is not "show every lawyer". Keep translator terms only
  * unless the user also asked for a lawyer.
  */
 function focusTranslatorIntent(intent: SearchIntent, rawQuery: string): SearchIntent {
-  if (!hintsWantTranslator([...intent.mustHints, ...intent.keywords])) {
-    return intent;
-  }
+  const asked =
+    hintsWantTranslator([...intent.mustHints, ...intent.keywords]) ||
+    queryAsksForTranslator(rawQuery);
+  if (!asked) return intent;
   if (queryAsksForLawyer(rawQuery)) return intent;
 
   const keep = (token: string) => !LAWYER_HINTS.has(token.toLowerCase());
   return {
     ...intent,
-    mustHints: intent.mustHints.filter(keep),
+    mustHints: [
+      ...new Set([
+        ...intent.mustHints.filter(keep),
+        "переводчик",
+        "translator",
+        "interpreter",
+      ]),
+    ],
     keywords: intent.keywords.filter(keep),
     // Search by translator text across the catalog — don't browse «Юристы».
     preferCategory: false,
@@ -1046,8 +1060,12 @@ export async function POST(request: Request) {
         ranked,
       );
       if (picked) {
+        const merged =
+          picked.keep.length > 0
+            ? [...picked.keep, ...picked.similar]
+            : picked.similar;
+        ranked = filterOnTopic(merged, softHints);
         if (picked.keep.length > 0) {
-          ranked = [...picked.keep, ...picked.similar];
           matchKind = "exact";
           if (picked.similar.length > 0 && picked.keep.length < 3) {
             matchMessage =
@@ -1055,10 +1073,11 @@ export async function POST(request: Request) {
               "Сначала точные совпадения, ниже — похожие по смыслу.";
           }
         } else {
-          ranked = picked.similar;
-          matchKind = "similar";
+          matchKind = ranked.length > 0 ? "similar" : "empty";
           matchMessage =
-            "Точного совпадения нет — вот похожие варианты по смыслу запроса.";
+            ranked.length > 0
+              ? "Точного совпадения нет — вот похожие варианты по смыслу запроса."
+              : matchMessage;
         }
       }
     } catch (err) {

@@ -212,6 +212,8 @@ export function ReviewInboxPanel({
     if (src && src !== "all") next.set("source", src);
     const lane = preset.filters.lane;
     if (lane && lane !== "all") next.set("lane", lane);
+    const status = preset.filters.status;
+    if (status && status !== "all") next.set("status", status);
     const q = next.toString();
     return q ? `${pathname}?${q}` : pathname;
   }
@@ -523,27 +525,35 @@ export function ReviewInboxPanel({
       {/* Views + mobile tools (not sticky on mobile — frees scroll) */}
       <div className="space-y-2 sm:sticky sm:top-0 sm:z-20 sm:-mx-1 sm:space-y-3 sm:bg-slate-50/95 sm:px-1 sm:py-2 sm:backdrop-blur sm:supports-[backdrop-filter]:bg-slate-50/85">
         <div className="flex items-start gap-2">
-          <div className="grid min-w-0 flex-1 grid-cols-2 gap-1.5 sm:grid-cols-4 lg:grid-cols-7">
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-1.5 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8">
             {INBOX_SYSTEM_VIEWS.map((view) => {
               const active = activeView === view.id;
               const laneId = view.id.startsWith("lane_")
                 ? (view.id.slice(5) as AdminLaneId)
                 : null;
+              const isVerifiedReady = view.id === "ready_to_publish";
               const count =
-                laneId && ADMIN_LANE_IDS.includes(laneId)
-                  ? laneChipCounts[laneId]
-                  : view.id === "all"
-                    ? totalUnfiltered
-                    : null;
+                isVerifiedReady || (laneId && laneId === "ready")
+                  ? laneChipCounts.ready
+                  : laneId && ADMIN_LANE_IDS.includes(laneId)
+                    ? laneChipCounts[laneId]
+                    : view.id === "all"
+                      ? totalUnfiltered
+                      : null;
+              const readyChrome = isVerifiedReady && !active;
               return (
                 <Link
                   key={view.id}
                   href={viewHref(view.id)}
                   title={view.description}
                   className={`flex min-h-[2.75rem] flex-col justify-center rounded-lg px-2 py-1.5 transition sm:min-h-[3.25rem] sm:px-2.5 ${
-                    active
-                      ? "bg-slate-900 text-white"
-                      : "border border-slate-200 bg-white text-slate-700 hover:border-brand-blue/40"
+                    active && isVerifiedReady
+                      ? "bg-brand-green text-white"
+                      : active
+                        ? "bg-slate-900 text-white"
+                        : readyChrome
+                          ? "border-2 border-brand-green bg-brand-green/10 text-slate-900 hover:border-brand-green"
+                          : "border border-slate-200 bg-white text-slate-700 hover:border-brand-blue/40"
                   }`}
                 >
                   <span className="text-[11px] font-semibold leading-tight sm:text-xs">

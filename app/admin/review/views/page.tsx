@@ -25,6 +25,8 @@ export default function AdminReviewViewsPage() {
               ? "/admin/review/inbox"
               : `/admin/review/inbox?view=${view.id}${
                   view.filters.source ? `&source=${view.filters.source}` : ""
+                }${view.filters.lane ? `&lane=${view.filters.lane}` : ""}${
+                  view.filters.status ? `&status=${view.filters.status}` : ""
                 }`;
           return (
             <li key={view.id}>

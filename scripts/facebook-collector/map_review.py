@@ -16,6 +16,7 @@ if str(IMPORT_REVIEW) not in sys.path:
 
 from common import as_list, first_price  # noqa: E402
 from facebook_decision_policy import choose_facebook_title  # noqa: E402
+from ready_to_publish_gate import status_after_ready_gate  # noqa: E402
 
 ENTITY_TYPES = {
     "business",
@@ -101,7 +102,7 @@ def map_facebook_post(
         "media_note": "facebook_cdn_urls_ephemeral_do_not_publish",
     }
 
-    return {
+    row = {
         "source": "facebook",
         "source_group": post.get("chat_title") or post.get("source_group_name"),
         "source_chat_id": str(post.get("source_chat_id") or "") or None,
@@ -152,3 +153,10 @@ def map_facebook_post(
         "raw_payload": raw_payload,
         "review_status": review_status,
     }
+    decision = str(row.get("ai_decision") or "").lower()
+    row["review_status"] = status_after_ready_gate(
+        row,
+        review_status,
+        prefer_ready=decision == "accepted",
+    )
+    return row

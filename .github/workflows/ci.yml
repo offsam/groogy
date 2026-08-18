@@ -23,6 +23,8 @@ jobs:
         run: npx tsx lib/admin/paste-enrich-contract.test.ts
       - name: Display-name person→brand contract
         run: npx tsx lib/import-review/display-name-contract.test.ts
+      - name: Ready-to-publish quality gate
+        run: npx tsx lib/import-review/ready-to-publish-gate.test.ts
       - name: Professional categories contract
         run: npx tsx lib/professional/categories-contract.test.ts
       - name: Lint
@@ -49,6 +51,7 @@ jobs:
         run: |
           python3 scripts/import-review/test_category_map.py
           python3 scripts/import-review/test_eligibility.py
+          python3 scripts/import-review/test_ready_to_publish_gate.py
           python3 scripts/business-enrich/test_enrich_follow_policy.py
           python3 scripts/business-enrich/test_person_brand_name.py
           python3 scripts/facebook-collector/test_web_enrichment.py

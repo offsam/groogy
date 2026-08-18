@@ -36,6 +36,13 @@ import { compareBusinessesByCompleteness } from "@/lib/business/completeness";
 import { hasCoordinates, type Business } from "@/types/business";
 
 export const runtime = "nodejs";
+// Intent-parse and rerank each run their own multi-model LLM failover chain
+// (documented worst case: ~35s each if every model in the chain times out).
+// Vercel's platform default was silently killing that before it could
+// finish - the NDJSON heartbeat in createSearchStream() keeps the
+// connection alive, but only if the function itself is allowed to run long
+// enough to use it.
+export const maxDuration = 90;
 
 /** Tight limits so the shared OpenRouter key cannot be farmed as a general LLM. */
 const AI_RATE_LIMIT = 12;
@@ -1157,7 +1164,6 @@ export async function POST(request: Request) {
   const canRerank =
     !isAddressPaste &&
     !isIdentityPaste &&
-    !fallback &&
     ranked.length > 1 &&
     intent.queryMode !== "business_name" &&
     Boolean(qForLlm.trim());

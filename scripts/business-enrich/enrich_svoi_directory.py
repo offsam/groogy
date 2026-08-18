@@ -125,6 +125,101 @@ CAT_RULES: list[tuple[str, re.Pattern[str]]] = [
 
 BATCH = "svoi_directory_enrich_v1"
 
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+TRANSLATE_MODELS = ("openai/gpt-4.1-nano", "google/gemini-2.5-flash-lite")
+TRANSLATE_SYSTEM_PROMPT = (
+    "You translate directory listings for a Russian-speaking California "
+    "community app (\u041a\u0420\u0423\u0413\u0418). "
+    'Return ONLY JSON: {"descriptionRu": "..." or null, "detectedLanguage": '
+    '"en"|"ru"|"mixed"|"unknown"}. '
+    "Translate the description into natural Russian. Keep proper nouns, "
+    "brand names, venue names, street addresses, prices ($), and URLs "
+    "unchanged. Do not add phones, emails, or calls-to-action that were "
+    "not in the source. descriptionRu must be narrative only (no contact "
+    "dump). If the description is empty, return null."
+)
+
+
+def _looks_mostly_cyrillic(text: str) -> bool:
+    letters = re.sub(r"[^a-zA-Z\u0430-\u044f\u0410-\u042f\u0451\u0401]", "", text)
+    if len(letters) < 8:
+        return False
+    cyr = len(re.findall(r"[\u0430-\u044f\u0410-\u042f\u0451\u0401]", letters))
+    return cyr / len(letters) >= 0.55
+
+
+def _needs_translation_to_ru(text: str) -> bool:
+    trimmed = (text or "").strip()
+    if not trimmed:
+        return False
+    if _looks_mostly_cyrillic(trimmed):
+        return False
+    letters = re.sub(r"[^a-zA-Z\u0430-\u044f\u0410-\u042f\u0451\u0401]", "", trimmed)
+    return len(letters) >= 8
+
+
+def translate_description_to_ru(
+    description: str | None,
+) -> tuple[str | None, str | None]:
+    """EN -> RU for a card description before publish (fill-empty style).
+
+    Returns (description_for_card, description_original). description_original
+    is only set when a real translation happened, so DB rows that were
+    already Russian (or untranslatable) keep it NULL and the site's
+    \u00abShow original\u00bb toggle only appears where there really is one.
+    Fails open on any network/parse error \u2014 publish must never block on
+    a translation hiccup, the card just goes out with the source text and
+    can be swept up later by scripts/content/backfill_description_translations.ts.
+    """
+    text = (description or "").strip()
+    if not _needs_translation_to_ru(text):
+        return description, None
+    api_key = (os.environ.get("OPENROUTER_API_KEY") or "").strip()
+    if not api_key:
+        return description, None
+    user_payload = json.dumps({"description": text[:4000]})
+    for model in TRANSLATE_MODELS:
+        try:
+            req = urllib.request.Request(
+                OPENROUTER_URL,
+                method="POST",
+                data=json.dumps(
+                    {
+                        "model": model,
+                        "temperature": 0.2,
+                        "response_format": {"type": "json_object"},
+                        "messages": [
+                            {"role": "system", "content": TRANSLATE_SYSTEM_PROMPT},
+                            {"role": "user", "content": user_payload},
+                        ],
+                    }
+                ).encode("utf-8"),
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://krugi.app",
+                    "X-Title": "KRUGI svoi-directory publish translate",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            content_str = (
+                ((data.get("choices") or [{}])[0].get("message") or {}).get(
+                    "content"
+                )
+                or "{}"
+            )
+            parsed = json.loads(content_str)
+            ru = parsed.get("descriptionRu")
+            if isinstance(ru, str) and ru.strip() and ru.strip() != text:
+                return ru.strip()[:4000], text
+            return description, None
+        except Exception as exc:  # noqa: BLE001 - fail open, never block publish
+            print(f"  translate warn ({model}): {exc}", flush=True)
+            continue
+    return description, None
+
+
 
 def note_field(notes: str | None, key: str) -> str | None:
     if not notes:
@@ -804,7 +899,10 @@ def publish_business(
         for t in (rec.get("comment_texts") or [])[:3]
         if t and not is_svoi_seo_blurb(str(t))
     ]
-    description = "\n\n".join(desc_parts)[:4000] or None
+    description_source = "\n\n".join(desc_parts)[:4000] or None
+    description, description_original = translate_description_to_ru(
+        description_source
+    )
     now = datetime.now(timezone.utc).isoformat()
     region = note_field(rec.get("notes"), "region")
     state = REGION_STATE.get(region or "") or None
@@ -814,6 +912,7 @@ def publish_business(
         "name": name,
         "short_description": (description or "")[:240] or None,
         "description": description,
+        "description_original": description_original,
         "phone": phone,
         "website": website,
         "city": city,
@@ -922,7 +1021,10 @@ def publish_professional(
         for t in (rec.get("comment_texts") or [])[:3]
         if t and not is_svoi_seo_blurb(str(t))
     ]
-    description = "\n\n".join(desc_parts)[:4000] or None
+    description_source = "\n\n".join(desc_parts)[:4000] or None
+    description, description_original = translate_description_to_ru(
+        description_source
+    )
     now = datetime.now(timezone.utc).isoformat()
     region = note_field(rec.get("notes"), "region")
     state = patch.get("state_code") or REGION_STATE.get(region or "") or None
@@ -934,6 +1036,7 @@ def publish_professional(
         "slug": slug,
         "short_description": (description or "")[:280] or None,
         "description": description,
+        "description_original": description_original,
         "phone": phone,
         "website": website,
         "city": city,

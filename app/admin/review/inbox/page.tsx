@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-dynamic";
-/** Working-set fetch (capped per source) — keep under a short serverless budget. */
-export const maxDuration = 30;
+/** Ready tab may rewrite a few junk titles via LLM. */
+export const maxDuration = 60;
 
 type PageProps = {
   searchParams: Promise<Record<string, string | undefined>>;
@@ -87,7 +87,8 @@ export default async function AdminReviewInboxPage({ searchParams }: PageProps) 
         </h1>
         <p className="mt-1 max-w-3xl text-sm text-slate-500 sm:mt-2 sm:text-base">
           Постоянный разбор → каталог. Полосы: прикрепить, разложить, готово,
-          я ищу, помойка, разбор. По 20 на странице.
+          я ищу, помойка, разбор. Вкладка «Готово к публикации (проверено)» —
+          все карточки со статусом ready_to_publish, без лимита 20.
         </p>
         <div className="mt-3">
           <ScanRecommendationDuplicatesButton />

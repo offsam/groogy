@@ -37,6 +37,14 @@ export const INBOX_SYSTEM_VIEWS: InboxViewPreset[] = [
     filters: {},
   },
   {
+    id: "ready_to_publish",
+    label: "Готово к публикации (проверено)",
+    description:
+      "Только review_status = ready_to_publish — телефон или город, без дубля",
+    system: true,
+    filters: { status: "ready_to_publish" },
+  },
+  {
     id: "lane_attach",
     label: ADMIN_LANE_LABELS.attach,
     description: ADMIN_LANE_HINTS.attach,

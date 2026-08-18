@@ -38,6 +38,7 @@ from eligibility import (
     has_direct_contact,
     normalize_phone,
 )
+from ready_to_publish_gate import status_after_ready_gate
 from source_kind import resolve_source_kind
 from entity_routing import has_street_address
 
@@ -199,6 +200,8 @@ def build_candidates(
         map_post(p, review_status="ready_to_publish", source_key=source_key)
         for p in posts
     ]
+    for row in rows:
+        row["review_status"] = status_after_ready_gate(row, "ready_to_publish")
     return _evaluate_rows(rows, client, mode=mode)
 
 
@@ -509,7 +512,7 @@ def upsert_ready_rows(
         if row.get("id"):
             fp_to_id[fp] = row["id"]
             continue
-        row["review_status"] = "ready_to_publish"
+        row["review_status"] = status_after_ready_gate(row, "ready_to_publish")
         for k in list(row.keys()):
             if k.startswith("_"):
                 row.pop(k, None)
@@ -527,10 +530,11 @@ def upsert_ready_rows(
                 fp_to_id[fp] = existing[fp]["id"]
                 status = (existing[fp].get("review_status") or "").lower()
                 if status not in {"approved", "rejected", "duplicate"}:
+                    ready_status = status_after_ready_gate(row, "ready_to_publish")
                     client.patch(
                         "import_review_items",
                         {"id": f"eq.{existing[fp]['id']}"},
-                        {"review_status": "ready_to_publish"},
+                        {"review_status": ready_status},
                     )
             else:
                 clean = {
@@ -941,7 +945,9 @@ def main() -> int:
             ):
                 continue
             if not item["result"]["eligible"]:
-                item["row"]["review_status"] = "ready_to_publish"
+                item["row"]["review_status"] = status_after_ready_gate(
+                    item["row"], "ready_to_publish"
+                )
             safe_items.append(item)
         fp_to_id = upsert_ready_rows(client, safe_items)
         for item in eligible:

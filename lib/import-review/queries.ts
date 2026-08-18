@@ -206,3 +206,45 @@ export async function getNextPendingImportReviewItem(
   if (idx >= 0 && idx + 1 < items.length) return items[idx + 1];
   return items.find((i) => i.id !== afterId) ?? null;
 }
+
+const BY_STATUS_PAGE = 200;
+
+/**
+ * Load every open row for one review_status (bypasses the list RPC 100-row cap).
+ * Inbox «Готово к публикации» needs the real set, not a 20-per-status slice.
+ */
+export async function listImportReviewItemsByStatus(
+  client: Client,
+  reviewStatus: ImportReviewStatus,
+  maxRows = 500,
+): Promise<{ items: ImportReviewListItem[]; total: number }> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const anyClient = client as SupabaseClient<any>;
+  const collected: ImportReviewItem[] = [];
+  let total = 0;
+  let from = 0;
+  const cap = Math.max(1, maxRows);
+
+  for (let page = 0; page < 20; page += 1) {
+    const to = Math.min(from + BY_STATUS_PAGE - 1, cap - 1);
+    const { data, error, count } = await anyClient
+      .from("import_review_items")
+      .select("*", { count: "exact" })
+      .eq("review_status", reviewStatus)
+      .order("created_at", { ascending: false })
+      .range(from, to);
+    if (error) throw error;
+    if (typeof count === "number") total = count;
+    const rows = (data ?? []) as ImportReviewItem[];
+    collected.push(...rows);
+    if (rows.length === 0 || collected.length >= cap || collected.length >= total) {
+      break;
+    }
+    from += BY_STATUS_PAGE;
+  }
+
+  return {
+    items: collected.slice(0, cap).map((row) => enrichItem(row)),
+    total,
+  };
+}

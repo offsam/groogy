@@ -83,6 +83,7 @@ export type InboxSystemViewId =
   | "eventbrite"
   | "needs_review"
   | "recently_imported"
+  | "ready_to_publish"
   | "lane_attach"
   | "lane_route"
   | "lane_ready"

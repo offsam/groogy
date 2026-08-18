@@ -1035,10 +1035,63 @@ export async function setImportReviewStatusAction(input: {
 
   const { data: itemRow } = await supabase
     .from("import_review_items")
-    .select("id, raw_payload")
+    .select(
+      "id, raw_payload, title, business_name, person_name, description, source_text, phone, city, duplicate_status",
+    )
     .eq("id", input.id)
     .maybeSingle();
   const cleanup = parseProfessionalCleanupPayload(itemRow?.raw_payload);
+
+  if (input.status === "ready_to_publish") {
+    if (!itemRow) return fail("Запись не найдена.");
+    let title = itemRow.title as string | null;
+    const { titleNeedsGeneratedHeadline, generateShortQueueTitle } =
+      await import("@/lib/import-review/generate-queue-title");
+    const { qualifiesReadyToPublish } = await import(
+      "@/lib/import-review/ready-to-publish-gate"
+    );
+    if (
+      titleNeedsGeneratedHeadline({
+        title,
+        business_name: itemRow.business_name,
+        person_name: itemRow.person_name,
+        description: itemRow.description,
+        source_text: itemRow.source_text,
+      })
+    ) {
+      const next = await generateShortQueueTitle({
+        title,
+        description: itemRow.description,
+        sourceText: itemRow.source_text,
+      });
+      if (next) {
+        title = next;
+        await supabase
+          .from("import_review_items")
+          .update({ title: next })
+          .eq("id", input.id);
+      }
+    }
+    const gate = qualifiesReadyToPublish({
+      title,
+      business_name: itemRow.business_name,
+      person_name: itemRow.person_name,
+      description: itemRow.description,
+      source_text: itemRow.source_text,
+      phone: itemRow.phone,
+      city: itemRow.city,
+      duplicate_status: itemRow.duplicate_status,
+    });
+    if (!gate.ok) {
+      if (gate.reason === "no_phone_or_city") {
+        return fail("Нужен телефон или город, чтобы пометить «готово к публикации».");
+      }
+      if (gate.reason === "duplicate") {
+        return fail("Дубль (recurring_ad / exact / likely) нельзя пометить как готовое.");
+      }
+      return fail("Сначала нужен осмысленный заголовок (не username и не весь пост).");
+    }
+  }
 
   const { error: rpcError } = await supabase.rpc(
     "admin_import_review_set_status",

@@ -3,7 +3,11 @@ import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 import type { ImportReviewItem } from "@/types/import-review";
-import { listImportReviewItems } from "@/lib/import-review/queries";
+import {
+  getImportReviewCounts,
+  listImportReviewItems,
+  listImportReviewItemsByStatus,
+} from "@/lib/import-review/queries";
 import {
   listCommentRecommendations,
   type CommentRecommendation,
@@ -39,6 +43,7 @@ import {
   RECOMMENDATION_OPEN_STATUSES,
 } from "@/lib/admin/inbox/queue-universe";
 import { getAdminLaneCounts } from "@/lib/admin/lanes/counts";
+import { repairReadyQueueTitles } from "@/lib/import-review/generate-queue-title";
 import type { AdminLaneCounts } from "@/lib/admin/lanes/counts";
 import type { AdminLaneId } from "@/lib/admin/lanes/types";
 
@@ -62,13 +67,26 @@ async function fetchImportReviewByStatuses(
   statuses: string[],
   pageSize: number,
 ): Promise<{ items: InboxItem[]; total: number }> {
-  const perStatus = Math.max(20, Math.floor(pageSize / Math.max(1, statuses.length)));
+  const other = statuses.filter((s) => s !== "ready_to_publish");
+  const perOther = Math.max(
+    20,
+    Math.floor(pageSize / Math.max(1, other.length || 1)),
+  );
   const chunks = await Promise.all(
     statuses.map(async (reviewStatus) => {
+      // Ready cards: load the full set (not 20 of 87). RPC list is capped at 100.
+      if (reviewStatus === "ready_to_publish") {
+        const { items, total } = await listImportReviewItemsByStatus(
+          client,
+          "ready_to_publish",
+          500,
+        );
+        return { items: items.map(fromImportReviewItem), total };
+      }
       const { items, total } = await listImportReviewItems(client, {
         reviewStatus: reviewStatus as never,
         page: 1,
-        pageSize: perStatus,
+        pageSize: perOther,
         sort: "priority",
       });
       return { items: items.map(fromImportReviewItem), total };
@@ -78,6 +96,26 @@ async function fetchImportReviewByStatuses(
     items: chunks.flatMap((c) => c.items),
     total: chunks.reduce((s, c) => s + c.total, 0),
   };
+}
+
+async function loadReadyToPublishInbox(
+  client: Client,
+): Promise<{ items: InboxItem[]; total: number }> {
+  const { items, total } = await listImportReviewItemsByStatus(
+    client,
+    "ready_to_publish",
+    500,
+  );
+  const rewritten = await repairReadyQueueTitles(client, items).catch(
+    () => new Map<string, string>(),
+  );
+  const mapped = items.map((row) => {
+    const nextTitle = rewritten.get(row.id);
+    return fromImportReviewItem(
+      nextTitle ? { ...row, title: nextTitle } : row,
+    );
+  });
+  return { items: mapped, total };
 }
 
 /**
@@ -405,8 +443,11 @@ export async function loadInboxItems(
   let byReviewType: Record<string, number> = {};
   let merged: InboxItem[] = [];
   let queueTotal = 0;
+  const readyOnly =
+    filters.status === "ready_to_publish" ||
+    filters.view === "ready_to_publish";
 
-  const [laneCounts, feedUniverse] = await Promise.all([
+  const [laneCounts, feedUniverse, statusCounts] = await Promise.all([
     getAdminLaneCounts(client).catch(() => ({
       attach: 0,
       route: 0,
@@ -422,9 +463,28 @@ export async function loadInboxItems(
       recommendations: 0,
       total: 0,
     })),
+    getImportReviewCounts(client)
+      .then((c) => c.by_status)
+      .catch(() => ({} as Record<string, number>)),
   ]);
 
-  if (isSourceScoped(filters)) {
+  if (readyOnly && !isSourceScoped(filters)) {
+    try {
+      const ready = await loadReadyToPublishInbox(client);
+      merged = sortInboxItems(applyComputedPriority(ready.items));
+      queueTotal = ready.total;
+      byReviewType = { import_review: ready.total };
+    } catch (err) {
+      const message =
+        err && typeof err === "object" && "message" in err
+          ? String((err as { message: unknown }).message)
+          : "load failed";
+      errors.push({ source: "Import Review", message });
+      merged = [];
+      queueTotal = laneCounts.ready ?? 0;
+      byReviewType = { import_review: 0 };
+    }
+  } else if (isSourceScoped(filters)) {
     const scoped = await loadSourceScopedItems(client, filters);
     errors.push(...scoped.errors);
     merged = sortInboxItems(applyComputedPriority(scoped.items));
@@ -476,9 +536,21 @@ export async function loadInboxItems(
     filters.minConfidence != null ||
     filters.maxAgeHours != null;
 
-  if (lane) {
+  if (readyOnly) {
+    metrics.total =
+      Number(statusCounts.ready_to_publish) ||
+      queueTotal ||
+      laneCounts.ready ||
+      filtered.length;
+  } else if (lane) {
     // Tile on /admin/queue ↔ chip ↔ «В очереди»
     metrics.total = laneCounts[lane] ?? filtered.length;
+  } else if (
+    filters.status &&
+    filters.status !== "all" &&
+    typeof statusCounts[filters.status] === "number"
+  ) {
+    metrics.total = Number(statusCounts[filters.status]);
   } else if (extraNarrowed) {
     metrics.total = filtered.length;
   } else {

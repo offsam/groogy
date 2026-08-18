@@ -27,6 +27,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from common import as_list, load_env, map_post
+from ready_to_publish_gate import status_after_ready_gate
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LOC_SOURCE = (
@@ -462,6 +463,13 @@ def main() -> int:
         posts = posts[: args.limit]
 
     rows = [map_post(p, source_key=source_key) for p in posts]
+    for row in rows:
+        decision = str(row.get("ai_decision") or "").lower()
+        row["review_status"] = status_after_ready_gate(
+            row,
+            row.get("review_status"),
+            prefer_ready=decision == "accepted",
+        )
     # Safety: every row must carry the dedicated source key
     bad_source = [r for r in rows if r.get("source") != source_key]
     if bad_source:

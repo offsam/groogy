@@ -45,6 +45,7 @@ from web_enrichment import (  # noqa: E402
     extract_website_profile,
     is_plausible_service_title,
 )
+from website_assets import merge_gallery, photo_from_website_profile  # noqa: E402
 from enrich_resource_queue import (  # noqa: E402
     classify_resource,
     host_of,
@@ -376,7 +377,7 @@ def mine_website(url: str) -> dict[str, Any]:
         )
         if og:
             img = og.group(1).strip()
-            if img and not any(b in img.lower() for b in ("avatar", "emoji", "1x1")):
+            if img and not any(b in img.lower() for b in ("avatar", "emoji", "1x1", "logo", "favicon")):
                 out.setdefault("image_url", img)
     out["website"] = fetch_url  # prefer working URL
 
@@ -390,8 +391,11 @@ def mine_website(url: str) -> dict[str, Any]:
         em = str(emails[0]).lower()
         if "@" in em and not em.endswith((".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg")):
             out["email"] = em
-    if prof.get("logo") and "image_url" not in out:
-        out["image_url"] = prof["logo"]
+    portrait, certs = photo_from_website_profile(prof)
+    if portrait:
+        out["image_url"] = portrait
+    if certs:
+        out["gallery_urls"] = certs
     desc = (prof.get("description") or "").strip()
     if desc and len(desc) >= 40:
         out["description"] = desc[:4000]
@@ -852,6 +856,15 @@ def build_patch(
         if img.startswith("http") and not is_placeholder_image(img):
             patch["image_url"] = img[:500]
 
+    # Certificates/work samples mined from the site (found["gallery_urls"],
+    # accumulated in run_resource_bfs via _merge_fill_empty) previously
+    # stopped here and never reached the patch — professionals.gallery_urls
+    # exists on the table but nothing ever wrote to it.
+    if found.get("gallery_urls"):
+        gallery = merge_gallery(pro.get("gallery_urls"), found["gallery_urls"])
+        if gallery and gallery != list(pro.get("gallery_urls") or []):
+            patch["gallery_urls"] = gallery
+
     # Website/og/BFS bio → description. Weak card copy is auto-replaced;
     # stronger card copy vs different site bio → conflict.
     site_desc = (found.get("description") or "").strip()
@@ -940,7 +953,7 @@ def fetch_pros(
     params: dict[str, str] = {
         "select": (
             "id,slug,display_name,description,short_description,website,booking_url,phone,email,"
-            "city,postal_code,private_address_line,image_url,instagram_url,telegram_url,"
+            "city,postal_code,private_address_line,image_url,gallery_urls,instagram_url,telegram_url,"
             "source_url,region,state_code,payment_methods,opening_hours,category_id,status"
         ),
         "status": "eq.approved",

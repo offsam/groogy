@@ -27,6 +27,7 @@ import {
 } from "@/lib/business/presence";
 import type { PlatformSectionKey } from "@/lib/platform/sections";
 import type { Database } from "@/types/database";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 
 export type MoveSectionKey =
   | Exclude<PlatformSectionKey, "vehicles" | "coupons">
@@ -107,15 +108,7 @@ function str(v: unknown): string | null {
 }
 
 function slugify(text: string): string {
-  const s = text
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9а-яё]+/gi, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 60);
-  return s || "card";
+  return catalogCardSlug({ name: text, fallback: "card" }).slice(0, 60);
 }
 
 type Untyped = {

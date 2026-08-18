@@ -34,6 +34,8 @@ export type Church = {
   description: string | null;
   descriptionOriginal?: string | null;
   imageUrl: string | null;
+  /** Extra public photos besides imageUrl. */
+  galleryUrls?: string[];
   status: ChurchStatus;
   addressLine: string | null;
   city: string | null;
@@ -68,6 +70,7 @@ export type ChurchPublicRow = {
   description: string | null;
   description_original?: string | null;
   image_url: string | null;
+  gallery_urls?: string[] | null;
   status: ChurchStatus;
   address_line: string | null;
   city: string | null;

@@ -6,7 +6,10 @@ import type { Business } from "@/types/business";
 const MAX_CANDIDATES = 36;
 const MAX_KEEP = 12;
 const MAX_SIMILAR = 8;
-const RERANK_TIMEOUT_MS = 8_000;
+// Was 8s — same reasoning as DEFAULT_TIMEOUT_MS in lib/ai/openrouter.ts:
+// this runs AFTER the intent call and search fallback cascade, so it's the
+// last thing standing between the model chain and the response going out.
+const RERANK_TIMEOUT_MS = 5_000;
 
 export type SearchRerankResult = {
   keep: Business[];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { BusinessList } from "@/components/business/BusinessList";
 import { BusinessCategoryTabs } from "@/components/search/BusinessCategoryTabs";
@@ -8,7 +8,14 @@ import { PopularMiniCarousel } from "@/components/search/PopularMiniCarousel";
 import { endAiSearch } from "@/components/search/AiSearchLoader";
 import { ErrorState, LoadingState } from "@/components/ui/DataState";
 import { createBrowserClient } from "@/lib/supabase/client";
+import type {
+  AiSearchIntentSummary,
+  AiSearchStreamEvent,
+} from "@/lib/search/ai-search-stream";
 import type { Business, Category } from "@/types/business";
+
+/** Shown while we don't yet know the real result count (before `meta` arrives). */
+const DEFAULT_SEARCH_SKELETON_SLOTS = 6;
 
 async function fetchActiveBusinessCategories(
   client: ReturnType<typeof createBrowserClient>,
@@ -30,28 +37,7 @@ async function fetchActiveBusinessCategories(
   }));
 }
 
-type SearchIntentSummary = {
-  keywords: string[];
-  city: string | null;
-  categorySlug: string | null;
-  mustHints: string[];
-  preferCategory?: boolean;
-  nearMe?: boolean;
-  queryMode?: string;
-};
-
-type AiSearchResponse = {
-  businesses: Business[];
-  intent: SearchIntentSummary;
-  modelUsed: string | null;
-  fallback: boolean;
-  sortedByDistance?: boolean;
-  preferCategory?: boolean;
-  corrections?: Array<{ from: string; to: string }>;
-  correctedQuery?: string | null;
-  message?: string | null;
-  matchKind?: "exact" | "similar" | "empty";
-};
+type SearchIntentSummary = AiSearchIntentSummary;
 
 type UserCoords = { lat: number; lng: number };
 
@@ -166,6 +152,11 @@ export function SearchResults({
   const [matchKind, setMatchKind] = useState<"exact" | "similar" | "empty" | null>(
     null,
   );
+  const [totalSlots, setTotalSlots] = useState(0);
+  const [streamingCards, setStreamingCards] = useState(false);
+  const streamReaderRef = useRef<ReadableStreamDefaultReader<Uint8Array> | null>(
+    null,
+  );
 
   useEffect(() => {
     const cached = readCachedCoords();
@@ -212,6 +203,10 @@ export function SearchResults({
           : null;
 
         if (hasQuery) {
+          setResults([]);
+          setTotalSlots(0);
+          setStreamingCards(false);
+
           const [cats, aiRes] = await Promise.all([
             catsPromise,
             fetch("/api/search/ai", {
@@ -228,7 +223,9 @@ export function SearchResults({
           ]);
 
           if (cancelled) return;
-          if (!aiRes.ok) {
+          setCategories(cats);
+
+          if (!aiRes.ok || !aiRes.body) {
             const status = aiRes.status;
             if (status === 429) {
               throw new Error("Слишком много запросов — подождите немного");
@@ -239,27 +236,71 @@ export function SearchResults({
             throw new Error("Не удалось выполнить поиск");
           }
 
-          const data = (await aiRes.json()) as AiSearchResponse;
-          setCategories(cats);
-          setResults(data.businesses ?? []);
-          setMatchKind(data.matchKind ?? null);
-          setMatchMessage(data.message ?? null);
-          setAiHint(
-            intentHintLabel(data.intent, cats, data.fallback, {
-              sortedByDistance: Boolean(data.sortedByDistance && near),
-            }),
-          );
-          setSortedByDistance(Boolean(data.sortedByDistance && near));
-          if (data.corrections && data.corrections.length > 0) {
-            const bits = data.corrections
-              .slice(0, 3)
-              .map((c) => `«${c.from}» → «${c.to}»`);
-            setSpellHint(`Исправили опечатку: ${bits.join(", ")}`);
-          } else if (data.message) {
-            // Prefer match message over generic correctedQuery for empty/similar.
-            setSpellHint(null);
-          } else if (data.correctedQuery) {
-            setSpellHint(`Ищем: ${data.correctedQuery}`);
+          // Real backend streaming (NDJSON): cards land one at a time as the
+          // search pipeline finishes, instead of one big batch at the end.
+          const reader = aiRes.body.getReader();
+          streamReaderRef.current = reader;
+          const decoder = new TextDecoder();
+          let buf = "";
+          let streamErrorMessage: string | null = null;
+          let sawMeta = false;
+
+          while (true) {
+            const { done: streamDone, value } = await reader.read();
+            if (streamDone) break;
+            if (cancelled) {
+              void reader.cancel().catch(() => {});
+              return;
+            }
+            buf += decoder.decode(value, { stream: true });
+            const lines = buf.split("\n");
+            buf = lines.pop() ?? "";
+            for (const line of lines) {
+              const trimmed = line.trim();
+              if (!trimmed) continue;
+              let event: AiSearchStreamEvent;
+              try {
+                event = JSON.parse(trimmed) as AiSearchStreamEvent;
+              } catch {
+                continue;
+              }
+              if (event.type === "meta") {
+                sawMeta = true;
+                setMatchKind(event.matchKind ?? null);
+                setMatchMessage(event.message ?? null);
+                setAiHint(
+                  intentHintLabel(event.intent, cats, event.fallback, {
+                    sortedByDistance: Boolean(event.sortedByDistance && near),
+                  }),
+                );
+                setSortedByDistance(Boolean(event.sortedByDistance && near));
+                if (event.corrections && event.corrections.length > 0) {
+                  const bits = event.corrections
+                    .slice(0, 3)
+                    .map((c) => `«${c.from}» → «${c.to}»`);
+                  setSpellHint(`Исправили опечатку: ${bits.join(", ")}`);
+                } else if (event.message) {
+                  // Prefer match message over generic correctedQuery for empty/similar.
+                  setSpellHint(null);
+                } else if (event.correctedQuery) {
+                  setSpellHint(`Ищем: ${event.correctedQuery}`);
+                }
+                setTotalSlots(event.total);
+                setStreamingCards(event.total > 0);
+                setLoading(false);
+              } else if (event.type === "card") {
+                setResults((prev) => [...prev, event.business]);
+              } else if (event.type === "error") {
+                streamErrorMessage = event.message || "Не удалось выполнить поиск";
+              }
+            }
+          }
+
+          streamReaderRef.current = null;
+          setStreamingCards(false);
+          endAiSearch();
+          if (streamErrorMessage && !sawMeta) {
+            throw new Error(streamErrorMessage);
           }
           return;
         }
@@ -302,6 +343,8 @@ export function SearchResults({
     void load();
     return () => {
       cancelled = true;
+      streamReaderRef.current?.cancel().catch(() => {});
+      streamReaderRef.current = null;
     };
   }, [
     initialQuery,
@@ -313,11 +356,12 @@ export function SearchResults({
   ]);
 
   useEffect(() => {
-    if (hasQuery && loading) return;
-    const wait = hasQuery ? 160 : 0;
-    const id = window.setTimeout(() => endAiSearch(), wait);
-    return () => window.clearTimeout(id);
-  }, [hasQuery, loading]);
+    // The query flow calls endAiSearch() itself once its stream finishes
+    // (see load() above). This only covers landing on /search without a
+    // query, so a stuck radar from a mid-search back-navigation clears.
+    if (hasQuery) return;
+    endAiSearch();
+  }, [hasQuery]);
 
   const listResults = useMemo(() => {
     if (hasQuery) return results;
@@ -339,6 +383,15 @@ export function SearchResults({
     }
     return counts;
   }, [results]);
+
+  // Trailing shimmer slots while AI search results are still streaming in —
+  // exact count once we know it (meta.total), a guess before that.
+  const pendingSlots = useMemo(() => {
+    if (!hasQuery) return 0;
+    if (loading) return DEFAULT_SEARCH_SKELETON_SLOTS;
+    if (streamingCards) return Math.max(totalSlots - results.length, 0);
+    return 0;
+  }, [hasQuery, loading, streamingCards, totalSlots, results.length]);
 
   return (
     <div className="search-page space-y-4 sm:space-y-5">
@@ -468,7 +521,7 @@ export function SearchResults({
           <BusinessList
             businesses={listResults}
             onSelect={setSelectedId}
-            pending={hasQuery && loading}
+            pendingSlots={pendingSlots}
             reveal={hasQuery}
             selectedId={selectedId}
           />

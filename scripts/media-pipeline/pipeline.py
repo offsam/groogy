@@ -9,7 +9,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from fetch_instagram import fetch_instagram_image_bytes, normalize_username
-from fetch_website import discover_website_images, download_image
+from fetch_website import cover_image_urls, discover_website_images, download_image
 from storage_client import MediaSupabase
 from telegram_photos import TelegramPhotoClient
 from validate import (
@@ -302,11 +302,7 @@ def resolve_candidate(
         disc = discover_website_images(web)
         if disc.error:
             plan.unavailable.append(f"website:{disc.domain}:{disc.error}")
-        candidates = [
-            ("website_og", disc.og_image),
-            ("website_logo", disc.logo),
-            ("favicon", disc.favicon),
-        ]
+        candidates = cover_image_urls(disc)
         for source_type, url in candidates:
             if not url:
                 continue

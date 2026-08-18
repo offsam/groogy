@@ -57,7 +57,7 @@ export function PopularSearchQueries({ tone = "light" }: PopularSearchQueriesPro
       {open ? (
         <div
           className={cn(
-            "absolute left-0 right-0 z-30 mt-2 max-h-72 overflow-y-auto rounded-xl border p-3 shadow-lg sm:right-auto sm:w-[22rem] sm:p-4",
+            "absolute left-0 right-0 z-30 mt-2 max-h-72 overflow-y-auto overflow-x-hidden rounded-xl border p-3 shadow-lg sm:right-auto sm:w-[min(22rem,calc(100vw-1.5rem))] sm:p-4",
             tone === "dark"
               ? "border-white/20 bg-slate-950/95 text-white"
               : "border-slate-200 bg-white text-slate-800",

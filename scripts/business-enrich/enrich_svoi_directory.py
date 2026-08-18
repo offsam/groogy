@@ -581,13 +581,39 @@ def guess_category_slug(rec: dict[str, Any]) -> str:
     return "services"
 
 
+_DIR_SLUG_PREFIX = re.compile(
+    r"^(?:svoi|rop|to4ka|echoru|zerkalo|zerkalomn|ruspagesusa|ruspages|"
+    r"kroogy|krugi|orange-pages|yellow-pages|boston-pages|"
+    r"russian-seattle|slavic-seattle|our-texas)-",
+    re.I,
+)
+_DIR_SLUG_EXACT = {
+    "svoi",
+    "rop",
+    "to4ka",
+    "echoru",
+    "zerkalo",
+    "zerkalomn",
+    "ruspages",
+    "ruspagesusa",
+    "kroogy",
+    "krugi",
+    "orange-pages",
+    "yellow-pages",
+}
+
+
 def slugify(name: str) -> str:
     s = unicodedata.normalize("NFKD", name)
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
     s = s.lower()
     s = re.sub(r"[^a-z0-9]+", "-", s)
-    s = re.sub(r"-+", "-", s).strip("-")[:48]
-    return s or "biz"
+    s = re.sub(r"-+", "-", s).strip("-")[:72]
+    while s and _DIR_SLUG_PREFIX.match(s):
+        s = _DIR_SLUG_PREFIX.sub("", s).strip("-")
+    if not s or s in _DIR_SLUG_EXACT:
+        return "biz"
+    return s[:48]
 
 
 def unique_slug(client: SupabaseRest, base: str) -> str:
@@ -854,8 +880,7 @@ def publish_business(
         )
         return {"action": "merge", "id": existing["id"], "patch": merge}
 
-    prefix = "rop" if (rec.get("directory_source") or "") == "orange_pages" else "svoi"
-    base = f"{prefix}-{slugify(name)}"
+    base = slugify(name)
     slug = base if dry_run else unique_slug(client, base)
     body["slug"] = slug
     body["created_at"] = now
@@ -902,7 +927,7 @@ def publish_professional(
     region = note_field(rec.get("notes"), "region")
     state = patch.get("state_code") or REGION_STATE.get(region or "") or None
     city = patch.get("city") or english_city(rec.get("city"))
-    base = f"svoi-{slugify(name)}"
+    base = slugify(name)
     slug = base if dry_run else unique_slug_table(client, "professionals", base)
     body: dict[str, Any] = {
         "display_name": name,

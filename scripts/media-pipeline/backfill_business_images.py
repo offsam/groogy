@@ -25,7 +25,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "import-review"))
 
 from common import load_env  # noqa: E402
 from fetch_instagram import fetch_instagram_image_bytes  # noqa: E402
-from fetch_website import discover_website_images, download_image  # noqa: E402
+from fetch_website import cover_image_urls, discover_website_images, download_image  # noqa: E402
 from storage_client import MediaSupabase  # noqa: E402
 from validate import reencode_webp, validate_image_bytes  # noqa: E402
 
@@ -152,8 +152,7 @@ def try_website(website: str) -> tuple[bytes | None, str | None, str | None]:
     disc = discover_website_images(website)
     # Prefer OG (photo) then logo / apple-touch — never tiny favicon.ico.
     attempts: list[tuple[str, str | None, int]] = [
-        ("website_og", disc.og_image, MIN_EDGE_PHOTO),
-        ("website_logo", disc.logo, MIN_EDGE_LOGO),
+        (label, url, MIN_EDGE_PHOTO) for label, url in cover_image_urls(disc)
     ]
     fav = (disc.favicon or "").lower()
     if fav and ("apple-touch" in fav or "android-chrome" in fav or "192" in fav or "512" in fav):

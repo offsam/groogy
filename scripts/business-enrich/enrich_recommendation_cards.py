@@ -389,7 +389,7 @@ def should_use_author_avatar(rec: dict[str, Any], item: dict[str, Any]) -> bool:
 
 def try_web_or_ig_image(rec: dict[str, Any]) -> bytes | None:
     from fetch_instagram import fetch_instagram_image_bytes
-    from fetch_website import discover_website_images, download_image
+    from fetch_website import cover_image_urls, discover_website_images, download_image
     from validate import validate_image_bytes
 
     for w in rec.get("websites") or []:
@@ -400,7 +400,7 @@ def try_web_or_ig_image(rec: dict[str, Any]) -> bytes | None:
         if host in SKIP_WEB_HOSTS or "instagram.com" in host:
             continue
         disc = discover_website_images(web)
-        for url in (disc.og_image, disc.logo):
+        for _label, url in cover_image_urls(disc):
             if not url:
                 continue
             data, err = download_image(url)

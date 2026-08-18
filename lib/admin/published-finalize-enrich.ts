@@ -9,6 +9,7 @@ import {
   extractUsStreetAddresses,
   preferWebsiteStreet,
 } from "@/lib/admin/paste-enrich";
+import { linkedContentPaths } from "@/lib/admin/website-assets";
 import { narrativeWithContactPointer } from "@/lib/content/structure-business-profile";
 import { cleanEnrichDescription } from "@/lib/content/sanitize-public-description";
 import {
@@ -224,14 +225,20 @@ function extractMetaText(html: string): string[] {
   return out;
 }
 
+export type FetchedWebsitePage = {
+  url: string;
+  html: string;
+  text: string | null;
+};
+
 /**
- * Visible page text plus SPA/JSON-LD office lines (React sites hide addresses
- * in /static/js bundles — plain HTML fetch alone misses them).
+ * Homepage HTML plus visible text / SPA JSON-LD. HTML is kept even when the
+ * visible text is short (Wix/React) so photos can still be classified.
  */
-export async function fetchWebsiteVisibleText(
+export async function fetchWebsitePage(
   website: string | null | undefined,
   path = "/",
-): Promise<string | null> {
+): Promise<FetchedWebsitePage | null> {
   const raw = (website || "").trim();
   if (!raw) return null;
   const base = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
@@ -285,16 +292,35 @@ export async function fetchWebsiteVisibleText(
       .map((p) => p.trim())
       .filter(Boolean)
       .join("\n\n");
-    if (text.length < 80) return null;
-    return text.slice(0, 40_000);
+    return {
+      url,
+      html,
+      text: text.length >= 80 ? text.slice(0, 40_000) : null,
+    };
   } catch {
     return null;
   }
 }
 
+/**
+ * Visible page text plus SPA/JSON-LD office lines (React sites hide addresses
+ * in /static/js bundles — plain HTML fetch alone misses them).
+ */
+export async function fetchWebsiteVisibleText(
+  website: string | null | undefined,
+  path = "/",
+): Promise<string | null> {
+  const page = await fetchWebsitePage(website, path);
+  return page?.text ?? null;
+}
+
 async function fetchWebsiteMenuText(
   website: string | null | undefined,
 ): Promise<string | null> {
+  const home = await fetchWebsitePage(website, "/");
+  if (!home) return null;
+  const linked = linkedContentPaths(home.html, home.url);
+  if (!linked.some((p) => p.replace(/\/+$/, "") === "/menu")) return null;
   return fetchWebsiteVisibleText(website, "/menu");
 }
 

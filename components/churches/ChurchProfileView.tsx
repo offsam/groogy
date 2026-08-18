@@ -78,8 +78,10 @@ export function ChurchProfileView({
     church.descriptionOriginal,
   );
 
-  const gallery = [church.imageUrl]
-    .filter((url): url is string => Boolean(url && hasRealBusinessPhoto(url)));
+  const gallery = [church.imageUrl, ...(church.galleryUrls ?? [])].filter(
+    (url, i, arr): url is string =>
+      Boolean(url && hasRealBusinessPhoto(url) && arr.indexOf(url) === i),
+  );
 
   const showAdminChrome = isAdmin && !preview;
   const showOwnerContacts =

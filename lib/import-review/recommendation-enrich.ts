@@ -13,6 +13,7 @@ import { pythonSpawnEnv, resolvePythonBin } from "@/lib/admin/resolve-python";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 import type { EnrichResourceState } from "@/lib/import-review/enrich-progress";
 import { cleanAdminStreetAddress } from "@/lib/geo/geocode-street";
+import { looksLikeLogoUrl } from "@/lib/admin/website-assets";
 
 const FREE_EMAIL_HOSTS = new Set([
   "gmail.com",
@@ -246,6 +247,8 @@ type WebsiteProfileJson = {
   name?: string | null;
   description?: string | null;
   logo?: string | null;
+  image_url?: string | null;
+  gallery_urls?: string[] | null;
   phone?: string | string[] | null;
   email?: string | string[] | null;
   address?: string | null;
@@ -444,9 +447,13 @@ export async function buildRecommendationEnrichPatch(
       });
     } else {
       const siteFields: string[] = [];
+      const portrait = (profile.image_url || "").trim();
       const logo = (profile.logo || "").trim();
-      if (logo && !item.cover_image_url?.trim()) {
-        patch.cover_image_url = logo;
+      const cover =
+        (portrait && !looksLikeLogoUrl(portrait) ? portrait : "") ||
+        (logo && !looksLikeLogoUrl(logo) ? logo : "");
+      if (cover && !item.cover_image_url?.trim()) {
+        patch.cover_image_url = cover;
         filled.push("фото");
         siteFields.push("фото");
       }

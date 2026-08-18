@@ -2,11 +2,23 @@
 
 from __future__ import annotations
 
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from html.parser import HTMLParser
+from pathlib import Path
+
+_BE = Path(__file__).resolve().parents[1] / "business-enrich"
+if str(_BE) not in sys.path:
+    sys.path.insert(0, str(_BE))
+
+from website_assets import (  # noqa: E402
+    extract_image_urls_from_html,
+    looks_like_logo_url,
+    pick_site_media,
+)
 
 USER_AGENT = (
     "Mozilla/5.0 (compatible; KrugiMediaBot/1.0; +https://krugi.local/bot)"
@@ -22,9 +34,11 @@ class WebsiteDiscovery:
     domain: str
     og_image: str | None = None
     logo: str | None = None
+    photo: str | None = None
     favicon: str | None = None
     error: str | None = None
     html_fetched: bool = False
+    gallery: list[str] = field(default_factory=list)
 
 
 class _MetaParser(HTMLParser):
@@ -108,8 +122,13 @@ def discover_website_images(website: str) -> WebsiteDiscovery:
         except Exception:
             pass
         disc.og_image = absolute_url(root, parser.og_image)
+        if disc.og_image and looks_like_logo_url(disc.og_image):
+            disc.og_image = None
         if parser.logo_candidates:
             disc.logo = absolute_url(root, parser.logo_candidates[0])
+        media = pick_site_media(extract_image_urls_from_html(text, root))
+        disc.photo = media.get("portrait")
+        disc.gallery = list(media.get("certificates") or [])
         if parser.icons:
             disc.favicon = absolute_url(root, parser.icons[0])
         if not disc.favicon:
@@ -118,6 +137,21 @@ def discover_website_images(website: str) -> WebsiteDiscovery:
         disc.error = type(exc).__name__
     _domain_cache[domain] = disc
     return disc
+
+
+def cover_image_urls(disc: WebsiteDiscovery) -> list[tuple[str, str]]:
+    """Portrait first; never logo/favicon as a card cover."""
+    out: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for label, url in (
+        ("website_photo", disc.photo),
+        ("website_og", disc.og_image),
+    ):
+        if not url or url in seen or looks_like_logo_url(url):
+            continue
+        seen.add(url)
+        out.append((label, url))
+    return out
 
 
 def download_image(url: str, *, max_bytes: int = MAX_BYTES) -> tuple[bytes | None, str | None]:

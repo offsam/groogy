@@ -51,6 +51,7 @@ from enrich_follow_policy import (  # noqa: E402
     is_directory_host,
     is_directory_sidebar_host,
 )
+from website_assets import looks_like_logo_url, photo_from_website_profile  # noqa: E402
 
 ResourceKind = str  # source | website | instagram | tiktok | facebook | yelp | telegram | youtube | trustpilot | other
 
@@ -595,20 +596,14 @@ def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
     def _junk_image(url: Any) -> bool:
         if not isinstance(url, str) or not url.strip():
             return True
-        low = url.lower().split("?")[0]
-        if low.endswith((".ico", ".svg")):
+        if looks_like_logo_url(url):
             return True
+        low = url.lower().split("?")[0]
         return any(
             x in low
             for x in (
                 "telegram.org/img",
                 "website_icon",
-                "/emoji",
-                "1x1",
-                "pixel.gif",
-                "spacer.",
-                "favicon",
-                "default-favicon",
                 "assets.squarespace.com/universal/",
                 "/static/images/wix",
             )
@@ -693,6 +688,16 @@ def _merge_fill_empty(found: dict[str, Any], patch: dict[str, Any]) -> None:
             found[k] = v
         elif k == "image_url" and _junk_image(cur) and not _junk_image(v):
             found[k] = v
+        elif k == "gallery_urls" and isinstance(v, list):
+            cur_list = list(cur) if isinstance(cur, list) else []
+            seen = {str(x).strip() for x in cur_list}
+            for s in v:
+                t = str(s).strip()
+                if t.startswith("http") and t not in seen:
+                    cur_list.append(t)
+                    seen.add(t)
+            if cur_list:
+                found[k] = cur_list[:6]
         elif k == "services" and isinstance(cur, list) and isinstance(v, list):
             seen = {str(x).strip().lower() for x in cur if not isinstance(x, dict)}
             for s in v:
@@ -1057,18 +1062,11 @@ def mine_resource(
         desc = (prof.get("description") or "").strip()
         if desc and not _weak_desc(desc):
             out["description"] = desc[:4000]
-        if prof.get("logo"):
-            logo = str(prof["logo"]).strip()[:500]
-            low = logo.lower()
-            if (
-                logo
-                and "telegram.org/img" not in low
-                and "favicon" not in low
-                and "default-favicon" not in low
-                and not low.endswith((".ico", ".svg"))
-                and "assets.squarespace.com/universal/" not in low
-            ):
-                out["image_url"] = logo
+        portrait, certs = photo_from_website_profile(prof)
+        if portrait:
+            out["image_url"] = portrait[:500]
+        if certs:
+            out["gallery_urls"] = certs
         street = sanitize_street_line(prof.get("address"))
         if street:
             out["address"] = street
@@ -1328,6 +1326,7 @@ _USEFUL_RESOURCE_FIELDS = frozenset(
         "offers",
         "opening_hours",
         "image_url",
+        "gallery_urls",
         "address",
         "address_line",
         "hours",

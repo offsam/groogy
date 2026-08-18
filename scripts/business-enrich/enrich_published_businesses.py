@@ -52,6 +52,13 @@ from web_enrichment import (  # noqa: E402
     extract_website_profile_deep,
     is_plausible_service_title,
 )
+from website_assets import (  # noqa: E402
+    linked_content_paths,
+    looks_like_logo_url,
+    merge_gallery,
+    photo_from_website_profile,
+    should_replace_cover,
+)
 from enrich_resource_queue import (  # noqa: E402
     _merge_fill_empty,
     _resource_outcome,
@@ -160,19 +167,26 @@ def html_visible_text(html: str) -> str:
     return "\n".join(lines)
 
 
-def fetch_menu_page_text(website: str | None) -> str | None:
-    """GET {website}/menu and return visible text when it looks like a menu."""
+def fetch_menu_page_text(
+    website: str | None, homepage_html: str | None = None
+) -> str | None:
+    """GET {website}/menu only when the homepage actually links it."""
     base = normalize_website(website)
     if not base:
         return None
-    menu_url = base.rstrip("/") + "/menu"
-    html = http_get(menu_url)
-    if not html or len(html) < 200:
+    html = homepage_html if homepage_html is not None else http_get(base)
+    if not html:
         return None
-    text = html_visible_text(html)
+    paths = linked_content_paths(html, base)
+    if not any((p.rstrip("/") or "/") == "/menu" for p in paths):
+        return None
+    menu_url = base.rstrip("/") + "/menu"
+    menu_html = http_get(menu_url)
+    if not menu_html or len(menu_html) < 200:
+        return None
+    text = html_visible_text(menu_html)
     if len(text) < 80:
         return None
-    # Need several price-ish lines or menu keywords
     priced = sum(1 for ln in text.splitlines() if "$" in ln or re.search(r"\d+[.,]\d{2}", ln))
     if priced < 2 and not re.search(r"\b(?:menu|меню|breakfast|salad|soup|coffee)\b", text, re.I):
         return None
@@ -473,23 +487,17 @@ def is_junk_email(email: str) -> bool:
 
 
 def is_junk_image_url(url: Any) -> bool:
-    """Favicons / builder defaults are not profile photos."""
+    """Favicons / builder defaults / logo files are not profile photos."""
     u = str(url or "").strip().lower().split("?")[0]
     if not u:
         return True
-    if u.endswith((".ico", ".svg")):
+    if looks_like_logo_url(u):
         return True
     return any(
         x in u
         for x in (
-            "favicon",
-            "default-favicon",
             "telegram.org/img",
             "website_icon",
-            "/emoji",
-            "1x1",
-            "pixel.gif",
-            "spacer.",
             "/static/images/wix",
             "assets.squarespace.com/universal/",
         )
@@ -990,18 +998,22 @@ def extract_services_from_html(html: str) -> list[dict[str, Any]]:
 
 
 def discover_service_pages(base_url: str) -> list[str]:
+    """Homepage plus same-origin content paths that the site actually links."""
     base = normalize_website(base_url)
     if not base:
         return []
     parsed = urllib.parse.urlparse(base)
     root = f"{parsed.scheme}://{parsed.netloc}"
-    urls = []
-    for path in SERVICE_PATHS:
-        urls.append(urllib.parse.urljoin(root + "/", path.lstrip("/")) if path else root + "/")
-    # also keep original path
+    home = root + "/"
+    html = http_get(base)
+    urls = [home]
+    if html:
+        for path in linked_content_paths(html, base):
+            u = urllib.parse.urljoin(root + "/", path.lstrip("/"))
+            if u not in urls:
+                urls.append(u)
     if base.rstrip("/") not in {u.rstrip("/") for u in urls}:
         urls.insert(0, base)
-    # unique preserve order
     out: list[str] = []
     for u in urls:
         if u not in out:
@@ -1871,9 +1883,25 @@ def enrich_one(
         report["patch"]["opening_hours"] = found["opening_hours"]
         report["sources"]["opening_hours"] = "bfs"
 
+    portrait, certs = photo_from_website_profile(profile if profile.get("status") == "ok" else None)
+    current_image = str(
+        report["patch"].get("image_url") or biz.get("image_url") or ""
+    ).strip()
+    if portrait and should_replace_cover(current_image):
+        report["patch"]["image_url"] = portrait[:500]
+        report["sources"]["image_url"] = "website"
+        current_image = portrait
+    gallery = merge_gallery(
+        biz.get("gallery_urls"),
+        list(certs) + [str(x).strip() for x in (found.get("gallery_urls") or []) if str(x).strip()],
+    )
+    if gallery and gallery != list(biz.get("gallery_urls") or []):
+        report["patch"]["gallery_urls"] = gallery
+        report["sources"]["gallery_urls"] = "website"
+
     if (
         found.get("image_url")
-        and not (biz.get("image_url") or "").strip()
+        and should_replace_cover(current_image)
         and not is_junk_image_url(found.get("image_url"))
     ):
         report["patch"]["image_url"] = str(found["image_url"])[:500]
@@ -2006,7 +2034,7 @@ def fetch_targets(client: SupabaseRest, *, limit: int | None, slug: str | None, 
         "google_reviews_count,yelp_url,yelp_rating,yelp_reviews_count,"
         "trustpilot_url,trustpilot_rating,trustpilot_reviews_count,"
         "latitude,longitude,"
-        "location_precision,opening_hours,image_url,booking_url,source_url,payment_methods,"
+        "location_precision,opening_hours,image_url,gallery_urls,booking_url,source_url,payment_methods,"
         "status,category_id,contact_links"
     )
     if id_ or slug:

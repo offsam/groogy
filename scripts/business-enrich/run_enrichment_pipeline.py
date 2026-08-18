@@ -767,7 +767,7 @@ def step_website(
     on_resource: optional callback for admin UI NDJSON resource events.
     """
     cur_websites = websites_of(item, patch)
-    from completeness_score import is_weak_description
+    from completeness_score import description_is_richer, is_weak_description
 
     def _emit_resource(ev: dict[str, Any]) -> None:
         if not on_resource:
@@ -904,7 +904,7 @@ def step_website(
             or (
                 empty_str(item.get("preview_image_url"))
                 and "preview_image_url" not in patch
-                and "logo" in gaps
+                and "image_url" in gaps
             )
             or (
                 empty_list(item.get("services"))
@@ -958,23 +958,36 @@ def step_website(
                 filled.append("instagram")
                 break
 
-    # Description / photo / services — fill empty or replace weak (links/comments)
+    # Description / photo / services — fill empty, replace weak (links/
+    # comments), or take a richer website bio over a real-but-thin one
+    # already on the card (mirrors enrich_published_businesses.py /
+    # enrich_resource_queue.py, which already compare richness instead of
+    # only checking "is the current text weak").
     desc = (profile.get("description") or "").strip()
     if (
         "description" not in patch
         and len(desc) >= 40
-        and is_weak_description(item.get("description"))
         and not is_weak_description(desc)
+        and description_is_richer(
+            desc, item.get("description"), new_source="website"
+        )
     ):
         patch["description"] = desc[:2000]
         filled.append("description")
-    logo = (profile.get("logo") or "").strip()
+    from website_assets import photo_from_website_profile, should_replace_cover
+
+    # _certs (site certificates/diplomas) has nowhere to go: import_review_items
+    # has no gallery_urls column, unlike the published-card tables. Once a card
+    # is approved, enrich_published_businesses.py picks up certificates for the
+    # gallery via the same photo_from_website_profile() call.
+    portrait, _certs = photo_from_website_profile(profile)
     if (
-        empty_str(item.get("preview_image_url"))
-        and "preview_image_url" not in patch
-        and logo.startswith("http")
+        "preview_image_url" not in patch
+        and portrait
+        and portrait.startswith("http")
+        and should_replace_cover(item.get("preview_image_url"))
     ):
-        patch["preview_image_url"] = logo[:500]
+        patch["preview_image_url"] = portrait[:500]
         filled.append("preview_image_url")
     if empty_list(item.get("services")) and "services" not in patch:
         svcs = [str(s).strip() for s in (profile.get("services") or []) if str(s).strip()]

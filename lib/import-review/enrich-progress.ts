@@ -274,6 +274,7 @@ export function fieldLabel(key: string): string {
     social_links: "соцсети",
     description: "описание",
     image_url: "фото",
+    gallery_urls: "галерея",
     address: "адрес",
     address_line: "адрес",
     address_multi: "несколько адресов — оставлены в тексте",

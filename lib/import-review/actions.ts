@@ -28,6 +28,7 @@ import {
   normalizePersonName,
 } from "@/lib/professional/thin-card-policy";
 import { resolveImportDisplayName } from "@/lib/import-review/display-name";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 import {
   hasRealBusinessPhoto,
   isWeakIdentityName,
@@ -956,16 +957,9 @@ async function requireAdmin() {
 }
 
 function slugify(input: string): string {
-  const base = input
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[^\w\s-]/g, "")
-    .trim()
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 60);
+  const base = catalogCardSlug({ name: input, fallback: "import" }).slice(0, 60);
   const stamp = Date.now().toString(36).slice(-4);
-  return `${base || "import"}-${stamp}`;
+  return `${base}-${stamp}`;
 }
 
 export type ImportReviewEditableFields = {

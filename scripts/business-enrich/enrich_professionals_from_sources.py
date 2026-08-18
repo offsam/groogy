@@ -551,7 +551,7 @@ def upload_professional_image(
 
 def try_web_or_ig_image(pro: dict[str, Any]) -> tuple[bytes | None, str | None]:
     from fetch_instagram import fetch_instagram_image_bytes
-    from fetch_website import discover_website_images, download_image
+    from fetch_website import cover_image_urls, discover_website_images, download_image
     from validate import validate_image_bytes
 
     website = (pro.get("website") or "").strip()
@@ -561,7 +561,7 @@ def try_web_or_ig_image(pro: dict[str, Any]) -> tuple[bytes | None, str | None]:
         host = (urlparse(website).hostname or "").lower()
         if host and host not in SKIP_WEB_HOSTS and "instagram.com" not in host:
             disc = discover_website_images(website)
-            for url in (disc.og_image, disc.logo):
+            for _label, url in cover_image_urls(disc):
                 if not url:
                     continue
                 data, err = download_image(url)

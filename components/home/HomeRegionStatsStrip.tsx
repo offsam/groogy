@@ -191,7 +191,7 @@ export function HomeRegionActivityLine({
   return (
     <p
       className={cn(
-        "mt-2 text-[11px] leading-snug text-white/60 sm:mt-2.5 sm:text-xs",
+        "mt-2 break-words text-[11px] leading-snug text-white/60 sm:mt-2.5 sm:text-xs",
         className,
       )}
     >
@@ -310,7 +310,7 @@ export function HomePlatformActivityLine({
   return (
     <p
       className={cn(
-        "mt-2 text-[11px] leading-snug text-white/60 sm:mt-2.5 sm:text-xs",
+        "mt-2 break-words text-[11px] leading-snug text-white/60 sm:mt-2.5 sm:text-xs",
         className,
       )}
     >

@@ -20,6 +20,7 @@ import {
   businessSlugFromGuess,
   professionalSlugFromGuess,
 } from "@/lib/import-review/recommendation-category";
+import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 import type { CommentRecommendation } from "@/lib/import-review/recommendation-queries";
 import {
   findRecommendationExactDuplicate,
@@ -99,16 +100,9 @@ async function requireAdmin() {
 }
 
 function slugify(input: string): string {
-  const base = input
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[^\w\s-]/g, "")
-    .trim()
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 60);
+  const base = catalogCardSlug({ name: input, fallback: "item" }).slice(0, 60);
   const stamp = Date.now().toString(36).slice(-4);
-  return `${base || "item"}-${stamp}`;
+  return `${base}-${stamp}`;
 }
 
 function firstPhone(phones: string[]): string | null {

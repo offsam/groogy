@@ -35,6 +35,9 @@ export type PlatformErrorReportStatus =
   | "dismissed"
   | "needs_attention";
 
+/** Mirrors platform_error_reports.report_type CHECK constraint. */
+export type PlatformErrorReportKind = "error" | "question" | "complaint";
+
 export type ReviewModerationStatus =
   | "verification_pending"
   | "verification_in_progress"
@@ -178,6 +181,7 @@ export type Database = {
           self_ad_mention_count: number;
           third_party_mention_count: number;
           image_url: string | null;
+          gallery_urls: string[];
           address_line: string | null;
           city: string | null;
           region: string | null;
@@ -231,6 +235,7 @@ export type Database = {
           self_ad_mention_count?: number;
           third_party_mention_count?: number;
           image_url?: string | null;
+          gallery_urls?: string[];
           address_line?: string | null;
           city?: string | null;
           state_code?: string | null;
@@ -1564,6 +1569,10 @@ export type Database = {
           autofix_requested_at: string | null;
           autofix_summary: string | null;
           autofix_pr_url: string | null;
+          report_type: PlatformErrorReportKind;
+          entity_type: string | null;
+          entity_id: string | null;
+          entity_name: string | null;
         };
         Insert: {
           id?: string;
@@ -1582,6 +1591,11 @@ export type Database = {
           autofix_requested_at?: string | null;
           autofix_summary?: string | null;
           autofix_pr_url?: string | null;
+          // NOT NULL, no DB default — every insert must set this.
+          report_type: PlatformErrorReportKind;
+          entity_type?: string | null;
+          entity_id?: string | null;
+          entity_name?: string | null;
         };
         Update: Partial<
           Database["public"]["Tables"]["platform_error_reports"]["Insert"]

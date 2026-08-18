@@ -16,6 +16,7 @@ import {
   parsePlaceTokens,
 } from "@/lib/geo/place-tokens";
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
+import { parseGalleryUrls } from "@/lib/business/media";
 import type { Database } from "@/types/database";
 import type {
   Professional,
@@ -187,6 +188,17 @@ export async function getProfessionalBySlug(
 
   const publicRow = data as ProfessionalPublicRow;
   let professional = mapProfessionalPublic(publicRow);
+  if (!professional.galleryUrls?.length) {
+    const { data: extra } = await db(client)
+      .from("professionals")
+      .select("gallery_urls")
+      .eq("id", professional.id)
+      .maybeSingle();
+    const galleryUrls = parseGalleryUrls(
+      (extra as { gallery_urls?: unknown } | null)?.gallery_urls,
+    );
+    if (galleryUrls.length) professional = { ...professional, galleryUrls };
+  }
 
   // Always refresh employer company card fields from businesses when linked
   // (city / Google rating) — works even before view migration.

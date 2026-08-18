@@ -38,6 +38,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "business-enrich"))
 
 from common import SupabaseRest, load_env  # noqa: E402
 from web_enrichment import extract_website_profile  # noqa: E402
+from website_assets import linked_content_paths  # noqa: E402
 
 OUT = Path(__file__).resolve().parent / "data" / "fill_addresses"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -240,12 +241,21 @@ def address_from_website(url: str | None) -> str | None:
         if cleaned:
             return cleaned
         # JSON-LD sometimes city-only — ignore
-    # Contact/about pages
+    # Homepage plus same-origin contact/about/location pages that are actually linked.
     base = url if "://" in url else f"https://{url}"
     base = base.rstrip("/")
-    for path in ("", "/contact", "/contact-us", "/about", "/location", "/locations"):
-        page = base if path == "" else base + path
-        html = http_get_text(page)
+    home_html = http_get_text(base)
+    pages = [base]
+    if home_html:
+        try:
+            parsed = urllib.parse.urlparse(base)
+            origin = f"{parsed.scheme}://{parsed.netloc}"
+        except Exception:
+            origin = base
+        for path in linked_content_paths(home_html, base):
+            pages.append(origin + path)
+    for page in pages:
+        html = home_html if page == base and home_html else http_get_text(page)
         if not html:
             continue
         # Prefer JSON-LD on page

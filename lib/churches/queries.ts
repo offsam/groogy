@@ -13,6 +13,7 @@ import {
 } from "@/lib/geo/place-tokens";
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import { mapChurchOwner, mapChurchPublic } from "@/lib/churches/mappers";
+import { parseGalleryUrls } from "@/lib/business/media";
 import type { Database } from "@/types/database";
 import type { Church, ChurchPublicRow, ChurchRow } from "@/types/church";
 
@@ -23,7 +24,7 @@ function db(client: Client) {
 }
 
 const CHURCH_OWNER_SELECT =
-  "id, slug, name, description, description_original, image_url, status, address_line, city, state_code, postal_code, region, county_geoid, latitude, longitude, location_precision, phone, email, website, instagram_url, telegram_url, google_maps_url, contact_links, source_url, source_kind, opening_hours, schedule_text, ministries, published_at, created_at, updated_at, archived_at";
+  "id, slug, name, description, description_original, image_url, gallery_urls, status, address_line, city, state_code, postal_code, region, county_geoid, latitude, longitude, location_precision, phone, email, website, instagram_url, telegram_url, google_maps_url, contact_links, source_url, source_kind, opening_hours, schedule_text, ministries, published_at, created_at, updated_at, archived_at";
 
 export async function listApprovedChurches(
   client: Client,
@@ -106,7 +107,17 @@ export async function getChurchBySlug(
 
   if (error) throw error;
   if (!data) return null;
-  return mapChurchPublic(data as ChurchPublicRow);
+  const church = mapChurchPublic(data as ChurchPublicRow);
+  if (church.galleryUrls && church.galleryUrls.length > 0) return church;
+  const { data: extra } = await db(client)
+    .from("churches")
+    .select("gallery_urls")
+    .eq("id", church.id)
+    .maybeSingle();
+  const galleryUrls = parseGalleryUrls(
+    (extra as { gallery_urls?: unknown } | null)?.gallery_urls,
+  );
+  return galleryUrls.length ? { ...church, galleryUrls } : church;
 }
 
 export async function getChurchOwnerBySlug(

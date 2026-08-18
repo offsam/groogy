@@ -3,9 +3,14 @@ import "server-only";
 import { completeJsonWithFailover } from "@/lib/ai/openrouter";
 import type { Business } from "@/types/business";
 
-const MAX_CANDIDATES = 36;
-const MAX_KEEP = 12;
-const MAX_SIMILAR = 8;
+// Broad-recall trades (e.g. "\u043f\u0435\u0440\u0435\u0432\u043e\u0434\u0447\u0438\u043a") can
+// legitimately have 25-30+ real matches - the old caps (36/12/8) were tight
+// enough that the model silently dropped genuine cards. This is also the
+// LAST filter standing between raw substring/hint matches and the user, so
+// it needs headroom rather than a tight top-N.
+const MAX_CANDIDATES = 60;
+const MAX_KEEP = 24;
+const MAX_SIMILAR = 12;
 // Was 8s — same reasoning as DEFAULT_TIMEOUT_MS in lib/ai/openrouter.ts:
 // this runs AFTER the intent call and search fallback cascade, so it's the
 // last thing standing between the model chain and the response going out.

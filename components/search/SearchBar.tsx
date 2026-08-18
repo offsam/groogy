@@ -90,6 +90,7 @@ function SearchBarFields({
     ) : (
       <form
         className="flex w-full items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 focus-within:border-slate-400 focus-within:bg-white"
+        data-ai-search-anchor=""
         onSubmit={handleSubmit}
       >
         <Search aria-hidden="true" className="size-4 shrink-0 text-slate-400" />

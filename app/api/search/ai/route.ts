@@ -402,6 +402,112 @@ async function safeSearchBusinesses(
   }
 }
 
+type SearchStreamPush = (obj: Record<string, unknown>) => void;
+
+/**
+ * Same NDJSON-over-ReadableStream shape as
+ * app/api/admin/published/enrich/route.ts: `run` computes the result and
+ * pushes `meta`/`card` events; this wrapper owns the heartbeat (keeps the
+ * connection alive through the up-to ~7s x 5 model LLM failover chain) and
+ * always closes with `finished` (or `error`).
+ */
+function createSearchStream(
+  run: (push: SearchStreamPush, isAborted: () => boolean) => Promise<void>,
+): Response {
+  const encoder = new TextEncoder();
+  let aborted = false;
+  const stream = new ReadableStream<Uint8Array>({
+    start(controller) {
+      const push: SearchStreamPush = (obj) => {
+        if (aborted) return;
+        try {
+          controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
+        } catch {
+          // Controller already closed (client navigated away / aborted).
+        }
+      };
+      let lastPushAt = Date.now();
+      const pushTracked: SearchStreamPush = (obj) => {
+        push(obj);
+        lastPushAt = Date.now();
+      };
+      const keepAlive = setInterval(() => {
+        if (aborted) return;
+        if (Date.now() - lastPushAt < 12_000) return;
+        try {
+          controller.enqueue(encoder.encode("\n"));
+          lastPushAt = Date.now();
+        } catch {
+          /* closed */
+        }
+      }, 8_000);
+
+      pushTracked({ type: "started" });
+
+      void (async () => {
+        try {
+          await run(pushTracked, () => aborted);
+          if (!aborted) pushTracked({ type: "finished" });
+        } catch (err) {
+          if (!aborted) {
+            push({ type: "error", message: safeErrorMessage(err) });
+          }
+        } finally {
+          clearInterval(keepAlive);
+          try {
+            controller.close();
+          } catch {
+            /* already closed */
+          }
+        }
+      })();
+    },
+    cancel() {
+      aborted = true;
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "application/x-ndjson; charset=utf-8",
+      "Cache-Control": "no-store",
+    },
+  });
+}
+
+/**
+ * Emit `meta` once, then one `card` event per business in final rank order,
+ * staggered a little so the grid visibly fills in one card at a time instead
+ * of the whole batch landing in a single paint.
+ */
+async function streamResults(
+  push: SearchStreamPush,
+  isAborted: () => boolean,
+  businesses: Business[],
+  meta: {
+    intent: SearchIntent;
+    modelUsed: string | null;
+    fallback: boolean;
+    sortedByDistance?: boolean;
+    preferCategory?: boolean;
+    corrections?: SpellCorrection[];
+    correctedQuery?: string | null;
+    matchKind?: "exact" | "similar" | "empty";
+    message?: string | null;
+  },
+): Promise<void> {
+  push({ type: "meta", ...meta, total: businesses.length });
+  const STAGGER_MS = 70;
+  const STAGGER_MAX_CARDS = 18;
+  for (let i = 0; i < businesses.length; i++) {
+    if (isAborted()) return;
+    push({ type: "card", index: i, business: businesses[i] });
+    if (i < businesses.length - 1 && i < STAGGER_MAX_CARDS) {
+      await new Promise((resolve) => setTimeout(resolve, STAGGER_MS));
+    }
+  }
+}
+
 export async function POST(request: Request) {
   const originGate = assertAiSearchRequestAllowed(request);
   if (!originGate.ok) {
@@ -471,17 +577,18 @@ export async function POST(request: Request) {
 
   // Short goo.gl links can't be resolved without an outbound fetch — don't crash/search the URL.
   if (mapsLinkUnresolved) {
-    return NextResponse.json({
-      businesses: [],
-      intent: emptyIntent("business_name"),
-      modelUsed: null,
-      fallback: false,
-      sortedByDistance: false,
-      preferCategory: false,
-      corrections: [],
-      correctedQuery: null,
-      message:
-        "Короткая ссылка Google Maps не раскрывается. Вставьте полный адрес или название места.",
+    return createSearchStream(async (push, isAborted) => {
+      await streamResults(push, isAborted, [], {
+        intent: emptyIntent("business_name"),
+        modelUsed: null,
+        fallback: false,
+        sortedByDistance: false,
+        preferCategory: false,
+        corrections: [],
+        correctedQuery: null,
+        message:
+          "Короткая ссылка Google Maps не раскрывается. Вставьте полный адрес или название места.",
+      });
     });
   }
 
@@ -491,23 +598,25 @@ export async function POST(request: Request) {
 
   // No query: plain catalog listing (no LLM, no key use).
   if (!q) {
-    const businesses = await safeSearchBusinesses(catalog, {
-      categorySlug: categoryOverride,
-      city: cityOverride,
-      hubId,
-      nearLat,
-      nearLng,
-    });
-    return NextResponse.json({
-      businesses,
-      intent: emptyIntent(),
-      modelUsed: null,
-      fallback: false,
-      sortedByDistance: Boolean(near),
-      corrections: [],
+    return createSearchStream(async (push, isAborted) => {
+      const businesses = await safeSearchBusinesses(catalog, {
+        categorySlug: categoryOverride,
+        city: cityOverride,
+        hubId,
+        nearLat,
+        nearLng,
+      });
+      await streamResults(push, isAborted, businesses, {
+        intent: emptyIntent(),
+        modelUsed: null,
+        fallback: false,
+        sortedByDistance: Boolean(near),
+        corrections: [],
+      });
     });
   }
 
+  return createSearchStream(async (push, isAborted) => {
   const logQuery = normalized.original.trim().slice(0, 80);
   if (
     logQuery.length >= 2 &&
@@ -1094,9 +1203,8 @@ export async function POST(request: Request) {
     return c.from.toLowerCase() !== c.to.toLowerCase();
   });
 
-  return NextResponse.json({
-    businesses: ranked,
-    intent: fallback && !isAddressPaste
+  const metaIntent =
+    fallback && !isAddressPaste
       ? {
           ...emptyIntent(),
           keywords: qForLlm
@@ -1105,19 +1213,24 @@ export async function POST(request: Request) {
             .filter((t) => t.length >= 2)
             .slice(0, 8),
         }
-      : intent,
+      : intent;
+  const metaCorrectedQuery =
+    isAddressPaste && normalized.query !== normalized.original.slice(0, 200)
+      ? normalized.query
+      : uniqueCorrections.length > 0
+        ? qForLlm
+        : null;
+
+  await streamResults(push, isAborted, ranked, {
+    intent: metaIntent,
     modelUsed,
     fallback: fallback && !isAddressPaste,
     sortedByDistance: Boolean(near || intent.nearMe),
     preferCategory: intent.preferCategory,
     corrections: uniqueCorrections,
-    correctedQuery:
-      isAddressPaste && normalized.query !== normalized.original.slice(0, 200)
-        ? normalized.query
-        : uniqueCorrections.length > 0
-          ? qForLlm
-          : null,
+    correctedQuery: metaCorrectedQuery,
     matchKind,
     message: matchMessage,
+  });
   });
 }

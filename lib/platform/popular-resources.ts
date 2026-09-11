@@ -22,7 +22,7 @@ import {
   isLatLngInHubBounds,
   parseHubIds,
 } from "@/lib/regions/hubs";
-import { createServiceRoleClient } from "@/lib/supabase/service";
+import { tryCreateServiceRoleClient } from "@/lib/supabase/service";
 import { searchBusinesses } from "@/lib/supabase/queries";
 import { hasCoordinates } from "@/types/business";
 
@@ -226,7 +226,8 @@ export async function getPopularHomeResources(
 
   return unstable_cache(
     async () => {
-      const catalog = createServiceRoleClient();
+      const catalog = tryCreateServiceRoleClient();
+      if (!catalog) return [];
       return getPopularHomeResourcesUncached(catalog, {
         hubId: opts.hubId ?? null,
         limit,

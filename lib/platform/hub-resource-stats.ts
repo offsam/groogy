@@ -97,13 +97,28 @@ async function loadStampRows(
 ): Promise<EntityStamp[]> {
   try {
     const status = opts?.status ?? "published";
+    // Prefer *_public views for catalog entities — anon can read them; base
+    // tables only allow owners/admins after anti-scrape.
+    const publicTable =
+      table === "businesses"
+        ? "businesses_public"
+        : table === "professionals"
+          ? "professionals_public"
+          : table === "churches"
+            ? "churches_public"
+            : table;
     // businesses/professionals/churches: full geo for canon match. jobs/events: city + county only.
     const richGeo =
       table === "businesses" ||
       table === "professionals" ||
       table === "churches";
+    const usePublicView = publicTable !== table;
+    // businesses_public has no county_geoid — omit it or the whole select fails.
+    const hasCountyGeoid = !(usePublicView && table === "businesses");
     const geoCols = richGeo
-      ? "id, city, region, state_code, latitude, longitude, county_geoid, created_at, updated_at"
+      ? hasCountyGeoid
+        ? "id, city, region, state_code, latitude, longitude, county_geoid, created_at, updated_at"
+        : "id, city, region, state_code, latitude, longitude, created_at, updated_at"
       : "id, city, state_code, county_geoid, created_at, updated_at";
     const baseCols = opts?.preferPublishedAt
       ? `${geoCols}, published_at`
@@ -113,8 +128,14 @@ async function loadStampRows(
       : baseCols;
 
     const buildQuery = () => {
-      let query = db(client).from(table).select(columns).eq("status", status);
-      if (hubId) {
+      let query = db(client).from(publicTable).select(columns);
+      // Public views already filter to approved/published; status col may still exist.
+      if (!usePublicView) {
+        query = query.eq("status", status);
+      } else if (opts?.status) {
+        query = query.eq("status", opts.status);
+      }
+      if (hubId && hasCountyGeoid) {
         const hubs = getRegionHubsByIds(parseHubIds(hubId));
         const geoids = hubs.flatMap((h) => [...h.countyGeoids]);
         // Prefer county filter when possible; still over-fetch null county for text/coord fallback.
@@ -325,8 +346,9 @@ async function loadNationalCounts(
     transfers,
     churches,
   ] = await Promise.all([
-    exactCount(catalog, "businesses", { status: "approved" }),
-    exactCount(catalog, "professionals", { status: "approved" }),
+    // Public views — anon-safe after anti-scrape (base tables hide approved rows).
+    exactCount(anon, "businesses_public"),
+    exactCount(anon, "professionals_public"),
     exactCount(catalog, "business_offers", {
       status: "active",
       visibility: "public",
@@ -340,7 +362,7 @@ async function loadNationalCounts(
     exactCount(anon, "services_catalog"),
     exactCount(anon, "lechu_catalog"),
     exactCount(anon, "transfers_catalog"),
-    exactCount(catalog, "churches", { status: "approved" }),
+    exactCount(anon, "churches_public"),
   ]);
 
   return {
@@ -468,7 +490,7 @@ async function computeHubResourceStats(
   try {
     catalog = createServiceRoleClient();
   } catch {
-    // Local misconfig — keep anon (may return 0 after RLS harden).
+    // Missing SUPABASE_SERVICE_ROLE_KEY — keep anon; *_public counts still work.
   }
 
   const todayKey = laDateKey(new Date());

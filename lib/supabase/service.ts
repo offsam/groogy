@@ -17,3 +17,12 @@ export function createServiceRoleClient(): SupabaseClient<Database> {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
+
+/** Same as createServiceRoleClient, or null when the env key is missing. */
+export function tryCreateServiceRoleClient(): SupabaseClient<Database> | null {
+  try {
+    return createServiceRoleClient();
+  } catch {
+    return null;
+  }
+}

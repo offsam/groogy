@@ -12,7 +12,7 @@ import {
   resolveRegionHub,
 } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
-import { createServiceRoleClient } from "@/lib/supabase/service";
+import { tryCreateServiceRoleClient } from "@/lib/supabase/service";
 import {
   getHomeMapPins,
   getProfileById,
@@ -33,7 +33,8 @@ export default async function HomePage() {
 
   try {
     const client = await createServerClient();
-    const catalog = createServiceRoleClient();
+    // Pins / popular need service role (address + contacts). Counts work via *_public.
+    const catalog = tryCreateServiceRoleClient() ?? client;
     const withTimeout = <T,>(promise: Promise<T>, ms: number, fallback: T): Promise<T> =>
       Promise.race([
         promise,

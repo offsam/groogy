@@ -13,7 +13,7 @@ import { hasRealBusinessPhoto } from "@/lib/business/media";
 import { resolveRequestHubs } from "@/lib/regions/request-hub";
 import { serializeHubIds } from "@/lib/regions/hubs";
 import { createServerClient } from "@/lib/supabase/server";
-import { createServiceRoleClient } from "@/lib/supabase/service";
+import { tryCreateServiceRoleClient } from "@/lib/supabase/service";
 import { formatAddress, stripBusinessContacts } from "@/lib/supabase/mappers";
 import { redactContactsFromPublicText } from "@/lib/content/structure-business-profile";
 import { listOwnerPromotions } from "@/lib/promotions/queries";
@@ -55,8 +55,9 @@ export async function generateMetadata({
   params,
 }: BusinessPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const catalog = createServiceRoleClient();
-  const business = await getBusinessBySlug(catalog, slug);
+  const catalog = tryCreateServiceRoleClient();
+  if (!catalog) return { title: "Бизнес" };
+  const business = await getBusinessBySlug(catalog, slug).catch(() => null);
   if (!business) return { title: "Бизнес не найден" };
 
   const description =
@@ -88,7 +89,8 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
   const activeHubs = await resolveRequestHubs(hub);
   const hubIds = serializeHubIds(activeHubs.map((h) => h.id));
   const client = await createServerClient();
-  const catalog = createServiceRoleClient();
+  const catalog = tryCreateServiceRoleClient();
+  if (!catalog) notFound();
   const fullBusiness = await getBusinessBySlug(catalog, slug);
   if (!fullBusiness) notFound();
 

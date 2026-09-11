@@ -903,8 +903,9 @@ export async function getHomeMapStateCounts(
     async () => {
       const pageSize = 1000;
       const maxRows = 20000;
+      // *_public views: anon-readable after anti-scrape. businesses_public has no county_geoid.
       const bizCols =
-        "state_code, postal_code, city, region, latitude, longitude, county_geoid";
+        "state_code, postal_code, city, region, latitude, longitude";
       const proCols =
         "state_code, postal_code, city, latitude, longitude, county_geoid";
       const listingCols = "state_code, city, state, latitude, longitude";
@@ -914,7 +915,7 @@ export async function getHomeMapStateCounts(
           (limit, offset) =>
             fetchCatalogCountRows(
               client,
-              "businesses",
+              "businesses_public",
               "approved",
               bizCols,
               limit,
@@ -927,7 +928,7 @@ export async function getHomeMapStateCounts(
           (limit, offset) =>
             fetchCatalogCountRows(
               client,
-              "professionals",
+              "professionals_public",
               "approved",
               proCols,
               limit,
@@ -940,7 +941,7 @@ export async function getHomeMapStateCounts(
           (limit, offset) =>
             fetchCatalogCountRows(
               client,
-              "churches",
+              "churches_public",
               "approved",
               proCols,
               limit,
@@ -990,7 +991,7 @@ export async function getHomeMapStateCounts(
         hubs: [...hubs.entries()].map(([hubId, count]) => ({ hubId, count })),
       };
     },
-    ["home-map-state-counts-v3"],
+    ["home-map-state-counts-v4"],
     {
       revalidate: CATALOG_CACHE_TTL.homeMapStateCounts,
       tags: [CATALOG_CACHE_TAGS.homeMapStateCounts],

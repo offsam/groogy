@@ -1256,14 +1256,12 @@ export function getSelectableRegionHubs(): RegionHub[] {
   return [USA_OVERVIEW_HUB, ...local];
 }
 
-/** Hubs used to load home map pins (metros + state frames). */
+/** Hubs used to load home map pins on SSR — metros only.
+ * Whole-state / USA overview views fetch the nationwide catalog client-side
+ * (`/api/home-map-pins`); including diaspora state hubs here ~doubled the
+ * hub×table fan-out and burned Fluid Active CPU on every `/` render. */
 export function getMapPinRegionHubs(): RegionHub[] {
-  return [
-    ...METRO_HUB_IDS.map((id) => REGION_HUBS[id]),
-    ...DIASPORA_STATE_GROUPS.map(
-      (g) => REGION_HUBS[g.stateHubId as ActiveRegionHubId],
-    ),
-  ];
+  return METRO_HUB_IDS.map((id) => REGION_HUBS[id]);
 }
 
 /** @deprecated */

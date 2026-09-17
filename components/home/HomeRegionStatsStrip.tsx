@@ -65,10 +65,11 @@ export function useHubRegionStats(
 
     async function load() {
       try {
-        // Bypass CDN/browser cache — hub totals change after import/archive.
+        // Allow CDN s-maxage from the route — server unstable_cache already
+        // refreshes totals about once a minute; no-store was forcing a Function
+        // invocation on every home mount and burning Fluid Active CPU.
         const res = await fetch(
           `/api/hub-resource-stats?hub=${encodeURIComponent(hubId)}`,
-          { cache: "no-store" },
         );
         if (!res.ok) return;
         const data = (await res.json()) as HubResourceStats;

@@ -59,7 +59,6 @@ export function HomeHubCategoryCounts({
       try {
         const res = await fetch(
           `/api/hub-category-counts?hub=${encodeURIComponent(hubId)}`,
-          { cache: "no-store" },
         );
         if (!res.ok) return;
         const data = (await res.json()) as HubCategoryCounts;

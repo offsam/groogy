@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ChurchProfileView } from "@/components/churches/ChurchProfileView";
 import { getCityCenter } from "@/lib/geo/city-center";
 import {
-  getChurchBySlug,
+  getCachedChurchBySlug,
   getChurchOwnerBySlug,
 } from "@/lib/churches/queries";
 import { userIsAdmin } from "@/lib/reviews/queries";
@@ -19,8 +19,7 @@ const SITE_URL =
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const catalog = createServiceRoleClient();
-  const church = await getChurchBySlug(catalog, slug);
+  const church = await getCachedChurchBySlug(slug);
   if (!church) return { title: "Церковь не найдена" };
   return {
     title: `${church.name} — КРУГИ`,
@@ -39,7 +38,7 @@ export default async function ChurchPage({ params }: PageProps) {
     data: { user },
   } = await client.auth.getUser();
 
-  let church = await getChurchBySlug(catalog, slug);
+  let church = await getCachedChurchBySlug(slug);
   let isAdmin = false;
 
   if (user) {

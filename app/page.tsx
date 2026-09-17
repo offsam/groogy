@@ -18,7 +18,9 @@ import {
   getProfileById,
 } from "@/lib/supabase/queries";
 
-export const dynamic = "force-dynamic";
+/** Auth still makes this dynamic per request; dropping force-dynamic restores
+ * Data Cache for hub map pins / popular / stats under unstable_cache. */
+export const revalidate = 60;
 
 export default async function HomePage() {
   let popularFeed: Awaited<ReturnType<typeof getPopularHomeResources>> = [];
@@ -41,24 +43,8 @@ export default async function HomePage() {
         new Promise<T>((resolve) => setTimeout(() => resolve(fallback), ms)),
       ]);
 
-    const [userResult, pins] = await Promise.all([
-      client.auth.getUser(),
-      // Per-hub bounding boxes — national newest-800 left LA empty while counts showed ~300.
-      // Capped at 150/hub (actual counts are ~300 nationally) to avoid the 15-way
-      // fan-out (5 hubs x 3 tables) spiking memory/timeout on cache-miss requests.
-      // Hard timeout so a slow Supabase response can't hang the whole homepage.
-      withTimeout(
-        getHomeMapPins(catalog, {
-          hubs: getMapPinRegionHubs(),
-          limitPerHub: 150,
-        }).catch(() => [] as typeof mapPins),
-        4000,
-        [] as typeof mapPins,
-      ),
-    ]);
-
-    mapPins = pins;
-
+    // Resolve auth/hub first so locked users only pay for one hub's pins.
+    const userResult = await client.auth.getUser();
     const user = userResult.data.user;
     if (user) {
       const profile = await getProfileById(client, user.id);
@@ -76,7 +62,21 @@ export default async function HomePage() {
       }
     }
 
-    const [feed, regionStats] = await Promise.all([
+    const pinHubs = lockedFromProfile
+      ? [initialHub].filter((h) => Boolean(h.mapBounds))
+      : getMapPinRegionHubs();
+
+    const [pins, feed, regionStats] = await Promise.all([
+      pinHubs.length > 0
+        ? withTimeout(
+            getHomeMapPins(catalog, {
+              hubs: pinHubs,
+              limitPerHub: lockedFromProfile ? 200 : 120,
+            }).catch(() => [] as typeof mapPins),
+            lockedFromProfile ? 3500 : 4000,
+            [] as typeof mapPins,
+          )
+        : Promise.resolve([] as typeof mapPins),
       getPopularHomeResources(catalog, {
         hubId: lockedFromProfile ? initialHub.id : null,
         limit: 6,
@@ -85,6 +85,7 @@ export default async function HomePage() {
         ? getHubResourceStats(initialHub.id).catch(() => null)
         : getHubResourceStats(null).catch(() => null),
     ]);
+    mapPins = pins;
     popularFeed = feed;
     initialRegionStats = regionStats;
   } catch (err) {

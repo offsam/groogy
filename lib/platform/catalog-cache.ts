@@ -56,6 +56,10 @@ export function businessDetailTag(slug: string): string {
   return `business-detail:${slug}`;
 }
 
+export function churchDetailTag(slug: string): string {
+  return `church-detail:${slug}`;
+}
+
 export function professionalDetailTag(slug: string): string {
   return `professional-detail:${slug}`;
 }

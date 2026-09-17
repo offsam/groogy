@@ -1,5 +1,6 @@
 import "server-only";
 
+import { unstable_cache } from "next/cache";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import {
   getRegionHubsByIds,
@@ -14,6 +15,11 @@ import {
 import { normalizeRouteSlug } from "@/lib/routing/normalize-route-slug";
 import { mapChurchOwner, mapChurchPublic } from "@/lib/churches/mappers";
 import { parseGalleryUrls } from "@/lib/business/media";
+import {
+  ENTITY_DETAIL_TTL,
+  churchDetailTag,
+} from "@/lib/platform/catalog-cache";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import type { Database } from "@/types/database";
 import type { Church, ChurchPublicRow, ChurchRow } from "@/types/church";
 
@@ -118,6 +124,23 @@ export async function getChurchBySlug(
     (extra as { gallery_urls?: unknown } | null)?.gallery_urls,
   );
   return galleryUrls.length ? { ...church, galleryUrls } : church;
+}
+
+/** Cached public church read — shared by generateMetadata + page body. */
+export function getCachedChurchBySlug(slug: string): Promise<Church | null> {
+  const normalized = normalizeRouteSlug(slug);
+  if (!normalized) return Promise.resolve(null);
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getChurchBySlug(catalog, normalized);
+    },
+    ["church-detail-v1", normalized],
+    {
+      revalidate: ENTITY_DETAIL_TTL,
+      tags: [churchDetailTag(normalized)],
+    },
+  )();
 }
 
 export async function getChurchOwnerBySlug(

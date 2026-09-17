@@ -196,6 +196,18 @@ export async function getActiveCategories(client: Client): Promise<Category[]> {
   return (data ?? []).map(mapCategory);
 }
 
+/** Shared Data Cache for category lists on public pages. */
+export function getCachedActiveCategories(): Promise<Category[]> {
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getActiveCategories(catalog);
+    },
+    ["active-categories-v1"],
+    { revalidate: 600, tags: ["active-categories"] },
+  )();
+}
+
 /** Categories used on /professionals — only professional sphere slugs (not business «Рестораны» etc.). */
 export async function getProfessionalCategories(
   client: Client,
@@ -802,6 +814,21 @@ export async function getAllHomeMapPins(
     if (pin) pins.push(pin);
   }
   return pins;
+}
+
+/** Cached nationwide pin catalog for `/api/home-map-pins` (USA overview). */
+export function getCachedAllHomeMapPins(): Promise<HomeMapPin[]> {
+  return unstable_cache(
+    async () => {
+      const catalog = createServiceRoleClient();
+      return getAllHomeMapPins(catalog);
+    },
+    ["all-home-map-pins-v1"],
+    {
+      revalidate: CATALOG_CACHE_TTL.homeMapPins,
+      tags: [CATALOG_CACHE_TAGS.homeMapPins],
+    },
+  )();
 }
 
 type CatalogCountRow = {

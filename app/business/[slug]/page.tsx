@@ -22,9 +22,9 @@ import {
   listOwnerUpdates,
 } from "@/lib/updates/queries";
 import {
-  getActiveCategories,
+  getCachedActiveCategories,
   getApprovedBusinesses,
-  getBusinessBySlug,
+  getCachedBusinessBySlug,
   searchBusinesses,
 } from "@/lib/supabase/queries";
 import {
@@ -55,9 +55,7 @@ export async function generateMetadata({
   params,
 }: BusinessPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const catalog = tryCreateServiceRoleClient();
-  if (!catalog) return { title: "Бизнес" };
-  const business = await getBusinessBySlug(catalog, slug).catch(() => null);
+  const business = await getCachedBusinessBySlug(slug).catch(() => null);
   if (!business) return { title: "Бизнес не найден" };
 
   const description =
@@ -91,7 +89,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
   const client = await createServerClient();
   const catalog = tryCreateServiceRoleClient();
   if (!catalog) notFound();
-  const fullBusiness = await getBusinessBySlug(catalog, slug);
+  const fullBusiness = await getCachedBusinessBySlug(slug);
   if (!fullBusiness) notFound();
 
   const {
@@ -115,7 +113,7 @@ export default async function BusinessPage({ params, searchParams }: BusinessPag
       () => [],
     ),
     listPublishedBusinessLocations(catalog, fullBusiness.id).catch(() => []),
-    getActiveCategories(catalog).catch(() => [] as Category[]),
+    getCachedActiveCategories().catch(() => [] as Category[]),
     listOwnerPromotions(catalog, "business", fullBusiness.id).catch(() => []),
     listOwnerUpdates(catalog, "business", fullBusiness.id).catch(() => []),
     user

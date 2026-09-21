@@ -8,7 +8,9 @@ export type DirectorySourceId =
   | "to4ka"
   | "slavic_seattle"
   | "our_texas"
-  | "echoru";
+  | "echoru"
+  | "bazar_club"
+  | "russian_bazaar";
 
 export type DirectorySourceMeta = {
   id: DirectorySourceId;
@@ -121,6 +123,26 @@ export const DIRECTORY_SOURCES: Record<DirectorySourceId, DirectorySourceMeta> =
         "Справочник русских бизнесов LA / San Diego / Phoenix (echoru.com)",
       homepage: "https://www.echoru.com/russian-business-directory/",
       regionHint: "SoCal / Arizona",
+    },
+    bazar_club: {
+      id: "bazar_club",
+      slug: "bazar-club",
+      title: "BAZAR.club",
+      shortTitle: "BAZAR.club",
+      description:
+        "Каталог услуг и бизнесов bazar.club (пилот обогащения)",
+      homepage: "https://www.bazar.club/business",
+      regionHint: "USA",
+    },
+    russian_bazaar: {
+      id: "russian_bazaar",
+      slug: "russian-bazaar",
+      title: "Русский базар",
+      shortTitle: "Русский базар",
+      description:
+        "Объявления услуг russian-bazaar.com (пилот обогащения)",
+      homepage: "http://russian-bazaar.com/ru/ad-view-cat.htm",
+      regionHint: "NY / USA",
     },
   };
 

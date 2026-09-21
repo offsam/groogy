@@ -11,11 +11,14 @@ import re
 FACEBOOK_URL_RE = re.compile(r"facebook\.com|fb\.com", re.I)
 TELEGRAM_URL_RE = re.compile(r"t\.me/|telegram\.me", re.I)
 DIRECTORY_URL_RE = re.compile(
-    r"svoi\.us|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo", re.I
+    r"svoi\.us|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|"
+    r"bazar\.club|russian-bazaar\.com|rusbazaar",
+    re.I,
 )
 DIRECTORY_HINT_RE = re.compile(
     r"directory|svoi|orange.?pages|yellow.?pages|to4ka|echoru|zerkalo|ruspages"
-    r"|slavic.?seattle|russian.?seattle|boston.?pages|our.?texas",
+    r"|slavic.?seattle|russian.?seattle|boston.?pages|our.?texas"
+    r"|bazar.?club|russian.?bazaar",
     re.I,
 )
 PLATFORM_HINTS = {"platform", "krugi", "user", "owner", "admin", "manual"}

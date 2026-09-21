@@ -1,0 +1,95 @@
+{
+  "source": "http://russian-bazaar.com/ru/ad-view-cat.htm",
+  "directory_source": "russian_bazaar",
+  "generated_at": "2026-07-30T22:52:01.020898+00:00",
+  "count": 3,
+  "errors": [],
+  "cards": [
+    {
+      "cluster_key": "rbz-32b9b83791cd7881",
+      "display_name": "Gershfeld Law Offices",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "russian_bazaar",
+      "category_slug": "legal",
+      "category_guess": "юристы / иммиграция",
+      "city": "New York, NY",
+      "address": null,
+      "phones": [
+        "+12125093100",
+        "+17183448484"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Gershfeld Law Offices. юристы / иммиграция. Источник: Русский базар.",
+      "description": "Gershfeld Law Offices. Категория: юристы / иммиграция. Телефон: +12125093100, +17183448484.",
+      "source_url": "http://russian-bazaar.com/ru/ad-list/595/105526.htm",
+      "source_channel": "other",
+      "source_groups": [
+        "Русский базар"
+      ],
+      "region": "New York",
+      "scraped_at": "2026-07-30T22:51:55.343492+00:00"
+    },
+    {
+      "cluster_key": "rbz-2a8a38e6de050654",
+      "display_name": "Grishpan Law Office",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "russian_bazaar",
+      "category_slug": "legal",
+      "category_guess": "юристы / иммиграция",
+      "city": "New York, NY",
+      "address": null,
+      "phones": [
+        "+19175682804"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "Grishpan Law Office. юристы / иммиграция. Источник: Русский базар.",
+      "description": "Grishpan Law Office. Категория: юристы / иммиграция. Телефон: +19175682804.",
+      "source_url": "http://russian-bazaar.com/ru/ad-list/595/105526.htm",
+      "source_channel": "other",
+      "source_groups": [
+        "Русский базар"
+      ],
+      "region": "New York",
+      "scraped_at": "2026-07-30T22:51:55.343539+00:00"
+    },
+    {
+      "cluster_key": "rbz-bb0cd7182d548b10",
+      "display_name": "All kind of repair",
+      "entity_type_guess": "business",
+      "target_bucket": "yellow_pages",
+      "directory_source": "russian_bazaar",
+      "category_slug": "home_services",
+      "category_guess": "ремонт",
+      "city": "New York, NY",
+      "address": null,
+      "phones": [
+        "+17188099666"
+      ],
+      "emails": [],
+      "instagram": [],
+      "websites": [],
+      "cover_image_url": null,
+      "images": [],
+      "short_description": "All kind of repair. ремонт. Источник: Русский базар.",
+      "description": "All kind of repair. Категория: ремонт. Телефон: +17188099666.",
+      "source_url": "http://russian-bazaar.com/ru/ad-list/595/778.htm",
+      "source_channel": "other",
+      "source_groups": [
+        "Русский базар"
+      ],
+      "region": "New York",
+      "scraped_at": "2026-07-30T22:51:56.452389+00:00"
+    }
+  ],
+  "note": "Many RB featured ads are phone-only GIFs; pilot keeps only cards with a parseable name + phone. Jobs skipped."
+}

@@ -230,6 +230,7 @@ export type PublicProfileCard = {
   username: string | null;
   displayName: string | null;
   avatarUrl: string | null;
+  coverUrl: string | null;
   bio: string | null;
   city: string | null;
   state: string | null;

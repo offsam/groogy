@@ -331,6 +331,7 @@ export function mapPublicProfile(
     username: (raw.username as string | null) ?? null,
     displayName: (raw.display_name as string | null) ?? null,
     avatarUrl: (raw.avatar_url as string | null) ?? null,
+    coverUrl: (raw.cover_url as string | null) ?? null,
     bio: (raw.bio as string | null) ?? null,
     city: (raw.city as string | null) ?? null,
     state: (raw.state as string | null) ?? null,

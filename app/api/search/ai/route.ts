@@ -18,6 +18,7 @@ import {
   type SpellCorrection,
 } from "@/lib/search/spellcheck";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
+import { recordUserSearchHistory } from "@/lib/profile/search-history-queries";
 import {
   assertAiSearchRequestAllowed,
   clampSearchQuery,
@@ -601,6 +602,9 @@ export async function POST(request: Request) {
 
   const client = await createServerClient();
   const catalog = createServiceRoleClient();
+  const {
+    data: { user: searchUser },
+  } = await client.auth.getUser();
   const categories = await getActiveCategories(client);
 
   // No query: plain catalog listing (no LLM, no key use).
@@ -636,11 +640,15 @@ export async function POST(request: Request) {
       .insert({
         event_type: "search",
         path: "/search",
+        user_id: searchUser?.id ?? null,
         meta: { q: logQuery },
       })
       .then(({ error }) => {
         if (error) console.warn("[ai-search] log failed:", error.message);
       });
+    if (searchUser?.id) {
+      void recordUserSearchHistory(searchUser.id, logQuery);
+    }
   }
 
   // Deterministic understanding of messy input (handles, phones, translit, cities…).

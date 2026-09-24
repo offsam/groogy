@@ -1,0 +1,297 @@
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/types/database";
+import type { Listing } from "@/types/listing";
+import { mapListing, mapMedia } from "@/lib/listings/mappers";
+import { signListingMediaUrls } from "@/lib/listings/media";
+import { tryCreateServiceRoleClient } from "@/lib/supabase/service";
+import type { UserSearchHistoryFrame } from "@/types/profile-cabinet";
+
+type Client = SupabaseClient<Database>;
+
+function untyped(client: Client) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- new tables lag Database types
+  return client as unknown as import("@supabase/supabase-js").SupabaseClient<any>;
+}
+
+const LISTING_CARD_SELECT = `
+  id, owner_id, listing_type, status, visibility, author_visibility,
+  title, description, price_amount, price_currency, is_negotiable,
+  city, state, state_code, city_geoid, county_geoid,
+  publisher_type, publisher_business_id,
+  published_at, created_at, updated_at, expires_at,
+  marketplace_listing_details (
+    category_id, condition, transaction_type,
+    delivery_available, pickup_available, quantity
+  ),
+  service_listing_details (
+    service_category_id, pricing_type, price_from, price_to,
+    price_unit, service_modes, service_area
+  ),
+  listing_media (
+    id, listing_id, storage_path, sort_order, media_type, width, height, created_at
+  )
+`;
+
+function normalizeQuery(q: string): string {
+  return q.trim().toLowerCase().slice(0, 80);
+}
+
+/** Persist a search for the cabinet feed (table if present; always ok if only platform_events). */
+export async function recordUserSearchHistory(
+  userId: string,
+  query: string,
+): Promise<void> {
+  const q = query.trim().slice(0, 80);
+  if (q.length < 2) return;
+  if (/^https?:\/\//i.test(q) || /[0-9]{7,}/.test(q)) return;
+
+  const catalog = tryCreateServiceRoleClient();
+  if (!catalog) return;
+
+  const norm = normalizeQuery(q);
+  const db = untyped(catalog);
+
+  const { data: existing } = await db
+    .from("user_search_history")
+    .select("id, hit_count")
+    .eq("user_id", userId)
+    .eq("query_normalized", norm)
+    .maybeSingle();
+
+  if (existing?.id) {
+    const { error } = await db
+      .from("user_search_history")
+      .update({
+        query: q,
+        hit_count: (existing.hit_count ?? 0) + 1,
+        last_searched_at: new Date().toISOString(),
+        dismissed_at: null,
+      })
+      .eq("id", existing.id);
+    if (error) {
+      console.warn("[search-history] update failed:", error.message);
+    }
+    return;
+  }
+
+  const { error } = await db.from("user_search_history").insert({
+    user_id: userId,
+    query: q,
+    query_normalized: norm,
+    hit_count: 1,
+    last_searched_at: new Date().toISOString(),
+    dismissed_at: null,
+  });
+  if (error) {
+    // Table may not exist yet — platform_events still logs the search.
+    console.warn("[search-history] insert failed:", error.message);
+  }
+}
+
+async function listFromUserSearchHistoryTable(
+  client: Client,
+  userId: string,
+  limit: number,
+): Promise<UserSearchHistoryFrame[] | null> {
+  const { data, error } = await untyped(client)
+    .from("user_search_history")
+    .select("id, query, query_normalized, hit_count, last_searched_at")
+    .eq("user_id", userId)
+    .is("dismissed_at", null)
+    .order("last_searched_at", { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.warn("[search-history] table read failed:", error.message);
+    return null;
+  }
+  return (data ?? []).map(
+    (row: {
+      id: string;
+      query: string;
+      query_normalized: string;
+      hit_count: number;
+      last_searched_at: string;
+    }) => ({
+      id: row.id,
+      query: row.query,
+      queryNormalized: row.query_normalized,
+      hitCount: row.hit_count,
+      lastSearchedAt: row.last_searched_at,
+    }),
+  );
+}
+
+/** Fallback while migration is not applied: aggregate platform_events searches. */
+async function listFromPlatformEvents(
+  userId: string,
+  limit: number,
+  dismissedNorms: Set<string>,
+): Promise<UserSearchHistoryFrame[]> {
+  const catalog = tryCreateServiceRoleClient();
+  if (!catalog) return [];
+
+  const { data, error } = await untyped(catalog)
+    .from("platform_events")
+    .select("id, meta, created_at")
+    .eq("event_type", "search")
+    .eq("user_id", userId)
+    .order("created_at", { ascending: false })
+    .limit(200);
+
+  if (error) {
+    console.warn("[search-history] platform_events read failed:", error.message);
+    return [];
+  }
+
+  const byNorm = new Map<
+    string,
+    { query: string; hitCount: number; lastSearchedAt: string; id: string }
+  >();
+
+  for (const row of data ?? []) {
+    const meta = (row.meta ?? {}) as Record<string, unknown>;
+    const raw = typeof meta.q === "string" ? meta.q.trim() : "";
+    if (raw.length < 2) continue;
+    const norm = normalizeQuery(raw);
+    if (dismissedNorms.has(norm)) continue;
+    const prev = byNorm.get(norm);
+    if (prev) {
+      prev.hitCount += 1;
+    } else {
+      byNorm.set(norm, {
+        id: `pe:${norm}`,
+        query: raw.slice(0, 80),
+        hitCount: 1,
+        lastSearchedAt: row.created_at as string,
+      });
+    }
+  }
+
+  return [...byNorm.values()]
+    .sort(
+      (a, b) =>
+        new Date(b.lastSearchedAt).getTime() -
+        new Date(a.lastSearchedAt).getTime(),
+    )
+    .slice(0, limit)
+    .map((row) => ({
+      id: row.id,
+      query: row.query,
+      queryNormalized: normalizeQuery(row.query),
+      hitCount: row.hitCount,
+      lastSearchedAt: row.lastSearchedAt,
+    }));
+}
+
+export async function listActiveSearchHistory(
+  client: Client,
+  userId: string,
+  limit = 12,
+  dismissedNorms: string[] = [],
+): Promise<UserSearchHistoryFrame[]> {
+  const dismissed = new Set(dismissedNorms.map(normalizeQuery));
+
+  const fromTable = await listFromUserSearchHistoryTable(client, userId, limit);
+  if (fromTable && fromTable.length > 0) {
+    return fromTable.filter((f) => !dismissed.has(f.queryNormalized));
+  }
+
+  // Empty table or missing migration → use logged platform_events (user_id set on search).
+  return listFromPlatformEvents(userId, limit, dismissed);
+}
+
+export async function searchListingsForQuery(
+  client: Client,
+  query: string,
+  limit = 8,
+): Promise<Listing[]> {
+  const q = query.trim().replace(/[%_,]/g, " ");
+  if (q.length < 2) return [];
+
+  const catalog = tryCreateServiceRoleClient() ?? client;
+  const { data, error } = await untyped(catalog)
+    .from("listings")
+    .select(LISTING_CARD_SELECT)
+    .eq("status", "active")
+    .eq("visibility", "public")
+    .in("listing_type", ["marketplace_item", "service"])
+    .or(`title.ilike.%${q}%,description.ilike.%${q}%`)
+    .order("published_at", { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.warn("[search-history] listings lookup failed:", error.message);
+    return [];
+  }
+
+  const listings: Listing[] = [];
+  for (const row of data ?? []) {
+    const mediaRows = ((row.listing_media ?? []) as Array<{
+      id: string;
+      listing_id: string;
+      storage_path: string;
+      sort_order: number;
+    }>)
+      .slice()
+      .sort((a, b) => a.sort_order - b.sort_order)
+      .map((m) => ({
+        id: m.id,
+        listingId: m.listing_id,
+        storagePath: m.storage_path,
+        sortOrder: m.sort_order,
+      }));
+    const signed = await signListingMediaUrls(catalog, mediaRows);
+    listings.push(
+      mapListing(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        row as any,
+        signed.length
+          ? signed
+          : mediaRows.map((m) =>
+              mapMedia(
+                {
+                  id: m.id,
+                  listing_id: m.listingId,
+                  storage_path: m.storagePath,
+                  media_type: "image",
+                  sort_order: m.sortOrder,
+                  width: null,
+                  height: null,
+                  created_at: "",
+                },
+                null,
+              ),
+            ),
+        null,
+        false,
+        "",
+      ),
+    );
+  }
+  return listings;
+}
+
+export type SearchFrameWithListings = UserSearchHistoryFrame & {
+  listings: Listing[];
+};
+
+export async function listSearchFramesWithListings(
+  client: Client,
+  userId: string,
+  dismissedNorms: string[] = [],
+): Promise<SearchFrameWithListings[]> {
+  const frames = await listActiveSearchHistory(
+    client,
+    userId,
+    10,
+    dismissedNorms,
+  );
+  const withListings = await Promise.all(
+    frames.map(async (frame) => ({
+      ...frame,
+      listings: await searchListingsForQuery(client, frame.query, 8),
+    })),
+  );
+  return withListings;
+}

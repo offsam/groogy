@@ -10,10 +10,14 @@ import {
   getPublicProfileListings,
   getPublicProfileServiceListings,
 } from "@/lib/listings/queries";
-import { getUsStates } from "@/lib/master-data/queries";
 import { getMyProfessional } from "@/lib/professional/queries";
+import {
+  listPublicSkillFrames,
+  listSkillFramesForOwner,
+} from "@/lib/profile/skill-frame-queries";
+import { listSearchFramesWithListings } from "@/lib/profile/search-history-queries";
+import { getDismissedSearchNormsAction } from "@/lib/profile/search-history-actions";
 import { createServerClient } from "@/lib/supabase/server";
-import { getProfileById } from "@/lib/supabase/queries";
 
 type PageProps = {
   params: Promise<{ username: string }>;
@@ -48,6 +52,7 @@ export default async function PublicProfilePage({ params }: PageProps) {
   let listings: Awaited<ReturnType<typeof getPublicProfileListings>> = [];
   let services: Awaited<ReturnType<typeof getPublicProfileServiceListings>> =
     [];
+  let publicSkillFrames: Awaited<ReturnType<typeof listPublicSkillFrames>> = [];
   let loadError: string | null = null;
 
   try {
@@ -57,6 +62,12 @@ export default async function PublicProfilePage({ params }: PageProps) {
         getPublicProfileListings(supabase, username),
         getPublicProfileServiceListings(supabase, username),
       ]);
+    }
+    if (profile?.ownerId && profile.mode === "public" && !profile.isSelf) {
+      publicSkillFrames = await listPublicSkillFrames(
+        supabase,
+        profile.ownerId,
+      ).catch(() => []);
     }
   } catch (err) {
     loadError =
@@ -71,20 +82,49 @@ export default async function PublicProfilePage({ params }: PageProps) {
     notFound();
   }
 
+  // Enrich cover when column exists but RPC not yet migrated.
+  if (!profile.coverUrl && profile.ownerId) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: coverRow } = await (supabase as any)
+      .from("profiles")
+      .select("cover_url")
+      .eq("id", profile.ownerId)
+      .maybeSingle();
+    if (coverRow?.cover_url) {
+      profile = { ...profile, coverUrl: coverRow.cover_url as string };
+    }
+  }
+
+  // Public card: owner_id hidden — try username lookup for cover only when public.
+  if (
+    !profile.coverUrl &&
+    !profile.isSelf &&
+    profile.mode === "public" &&
+    profile.username
+  ) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data: coverRow } = await (supabase as any)
+      .from("profiles")
+      .select("cover_url")
+      .eq("username", profile.username)
+      .maybeSingle();
+    if (coverRow?.cover_url) {
+      profile = { ...profile, coverUrl: coverRow.cover_url as string };
+    }
+  }
+
   let self: ComponentProps<typeof PublicUserProfileView>["self"] = null;
 
   if (profile.isSelf && profile.ownerId) {
     const [
-      profileRow,
-      usStates,
       myListings,
       myServices,
       businesses,
       professional,
       auth,
+      skillFrames,
+      searchFrames,
     ] = await Promise.all([
-      getProfileById(supabase, profile.ownerId),
-      getUsStates().catch(() => []),
       getMyListings(supabase, profile.ownerId, null, "marketplace_item").catch(
         () => [],
       ),
@@ -92,25 +132,30 @@ export default async function PublicProfilePage({ params }: PageProps) {
       getOwnedBusinessesForPublisher(supabase, profile.ownerId).catch(() => []),
       getMyProfessional(supabase, profile.ownerId).catch(() => null),
       supabase.auth.getUser(),
+      listSkillFramesForOwner(supabase, profile.ownerId).catch(() => []),
+      getDismissedSearchNormsAction()
+        .then((dismissed) =>
+          listSearchFramesWithListings(supabase, profile.ownerId!, dismissed),
+        )
+        .catch(() => []),
     ]);
 
-    if (profileRow) {
-      self = {
-        profileRow,
-        usStates,
-        email: auth.data.user?.email ?? null,
-        myListings,
-        myServices,
-        businesses,
-        professional,
-      };
-    }
+    self = {
+      email: auth.data.user?.email ?? null,
+      myListings,
+      myServices,
+      businesses,
+      professional,
+      skillFrames,
+      searchFrames,
+    };
   }
 
   return (
     <PublicUserProfileView
       listings={listings}
       profile={profile}
+      publicSkillFrames={publicSkillFrames}
       self={self}
       services={services}
     />

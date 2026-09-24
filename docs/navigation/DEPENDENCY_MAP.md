@@ -187,6 +187,16 @@ Depends on:
 - Migrations / Supabase
 - (foundation for nearly all subsystems)
 
+### Team Agent (internal)
+
+Depends on:
+
+- Database (`team_agent_*` — service_role only; migration may be pending apply)
+- Repository context (local git / future GitHub) — read-only
+- Future: Telegram adapter + LLM provider
+
+Does **not** depend on product messaging, public profiles, or community chat.
+
 ### Entity Model (design)
 
 Depends on:

@@ -1,0 +1,54 @@
+/**
+ * Team Agent runtime configuration (env names only — no secrets required for V1).
+ */
+
+export type TeamAgentConfig = {
+  enabled: boolean;
+  botUsername: string | null;
+  allowedChatId: string | null;
+  provider: "mock" | "openai" | "openrouter";
+  mentionTokens: string[];
+  explicitCommands: string[];
+  maxContextMessages: number;
+  requireWebhookSecret: boolean;
+};
+
+/** Explicit invocation commands only — never bare words like «агент». */
+const DEFAULT_COMMANDS = ["/agent", "/team_agent", "/team-agent"] as const;
+
+export function loadTeamAgentConfig(
+  env: NodeJS.ProcessEnv = process.env,
+): TeamAgentConfig {
+  const botUsername =
+    (env.TELEGRAM_BOT_USERNAME ?? "").trim().replace(/^@/, "") || null;
+  const mentionTokens = botUsername ? [`@${botUsername.toLowerCase()}`] : [];
+
+  return {
+    enabled: env.TEAM_AGENT_ENABLED === "1" || env.TEAM_AGENT_ENABLED === "true",
+    botUsername,
+    allowedChatId: (env.TELEGRAM_ALLOWED_CHAT_ID ?? "").trim() || null,
+    provider: normalizeProvider(env.TEAM_AGENT_PROVIDER),
+    mentionTokens,
+    explicitCommands: [...DEFAULT_COMMANDS],
+    maxContextMessages: 30,
+    requireWebhookSecret: true,
+  };
+}
+
+function normalizeProvider(
+  value: string | undefined,
+): TeamAgentConfig["provider"] {
+  const v = (value ?? "mock").trim().toLowerCase();
+  if (v === "openai" || v === "openrouter") return v;
+  return "mock";
+}
+
+export function resolveTeamAgentPublicBaseUrl(
+  env: NodeJS.ProcessEnv = process.env,
+): string | null {
+  const explicit = (env.TEAM_AGENT_PUBLIC_BASE_URL ?? "").trim().replace(/\/$/, "");
+  if (explicit) return explicit;
+  const site = (env.NEXT_PUBLIC_SITE_URL ?? "").trim().replace(/\/$/, "");
+  if (site) return site;
+  return null;
+}

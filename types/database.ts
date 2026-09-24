@@ -2041,6 +2041,309 @@ export type Database = {
         >;
         Relationships: [];
       };
+      /** Internal Team Agent — service_role only (see team_agent foundation migration). */
+      team_agent_members: {
+        Row: {
+          id: string;
+          display_name: string;
+          telegram_user_id: number | null;
+          telegram_username: string | null;
+          github_username: string | null;
+          role_title: string | null;
+          responsibilities: Json;
+          skills: Json;
+          working_preferences: string | null;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          display_name: string;
+          telegram_user_id?: number | null;
+          telegram_username?: string | null;
+          github_username?: string | null;
+          role_title?: string | null;
+          responsibilities?: Json;
+          skills?: Json;
+          working_preferences?: string | null;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_members"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_conversations: {
+        Row: {
+          id: string;
+          source_type: "telegram" | "manual" | "test";
+          external_conversation_id: string | null;
+          title: string;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          source_type: "telegram" | "manual" | "test";
+          external_conversation_id?: string | null;
+          title?: string;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_conversations"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_messages: {
+        Row: {
+          id: string;
+          conversation_id: string;
+          member_id: string | null;
+          external_message_id: string | null;
+          reply_to_message_id: string | null;
+          message_type: "text" | "system" | "bot" | "edited";
+          body: string;
+          metadata: Json;
+          occurred_at: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          conversation_id: string;
+          member_id?: string | null;
+          external_message_id?: string | null;
+          reply_to_message_id?: string | null;
+          message_type?: "text" | "system" | "bot" | "edited";
+          body?: string;
+          metadata?: Json;
+          occurred_at?: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_messages"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_decisions: {
+        Row: {
+          id: string;
+          title: string;
+          description: string;
+          status:
+            | "proposed"
+            | "confirmed"
+            | "rejected"
+            | "superseded"
+            | "cancelled";
+          source_message_id: string | null;
+          decided_by: string | null;
+          supersedes_decision_id: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description?: string;
+          status?:
+            | "proposed"
+            | "confirmed"
+            | "rejected"
+            | "superseded"
+            | "cancelled";
+          source_message_id?: string | null;
+          decided_by?: string | null;
+          supersedes_decision_id?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_decisions"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_tasks: {
+        Row: {
+          id: string;
+          title: string;
+          description: string;
+          status:
+            | "proposed"
+            | "approved"
+            | "in_progress"
+            | "blocked"
+            | "review"
+            | "completed"
+            | "cancelled";
+          priority: "low" | "normal" | "high" | "urgent";
+          assigned_member_id: string | null;
+          created_by_member_id: string | null;
+          source_message_id: string | null;
+          branch_name: string | null;
+          scope_paths: string[];
+          protected_paths: string[];
+          excluded_paths: string[];
+          acceptance_criteria: Json;
+          dependency_task_ids: string[];
+          started_at: string | null;
+          completed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description?: string;
+          status?:
+            | "proposed"
+            | "approved"
+            | "in_progress"
+            | "blocked"
+            | "review"
+            | "completed"
+            | "cancelled";
+          priority?: "low" | "normal" | "high" | "urgent";
+          assigned_member_id?: string | null;
+          created_by_member_id?: string | null;
+          source_message_id?: string | null;
+          branch_name?: string | null;
+          scope_paths?: string[];
+          protected_paths?: string[];
+          excluded_paths?: string[];
+          acceptance_criteria?: Json;
+          dependency_task_ids?: string[];
+          started_at?: string | null;
+          completed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_tasks"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_git_activity: {
+        Row: {
+          id: string;
+          task_id: string | null;
+          member_id: string | null;
+          repository: string;
+          branch_name: string | null;
+          commit_sha: string | null;
+          commit_message: string | null;
+          event_type:
+            | "branch_created"
+            | "commit_pushed"
+            | "pr_opened"
+            | "pr_updated"
+            | "merged";
+          metadata: Json;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          task_id?: string | null;
+          member_id?: string | null;
+          repository?: string;
+          branch_name?: string | null;
+          commit_sha?: string | null;
+          commit_message?: string | null;
+          event_type:
+            | "branch_created"
+            | "commit_pushed"
+            | "pr_opened"
+            | "pr_updated"
+            | "merged";
+          metadata?: Json;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_git_activity"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_memory: {
+        Row: {
+          id: string;
+          memory_type:
+            | "project_fact"
+            | "team_fact"
+            | "decision"
+            | "constraint"
+            | "preference"
+            | "summary";
+          subject: string;
+          content: string;
+          source_message_id: string | null;
+          confidence: "low" | "medium" | "high";
+          status: "active" | "superseded" | "invalid";
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          memory_type:
+            | "project_fact"
+            | "team_fact"
+            | "decision"
+            | "constraint"
+            | "preference"
+            | "summary";
+          subject: string;
+          content: string;
+          source_message_id?: string | null;
+          confidence?: "low" | "medium" | "high";
+          status?: "active" | "superseded" | "invalid";
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_memory"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_approvals: {
+        Row: {
+          id: string;
+          approval_type:
+            | "task_assignment"
+            | "task_batch"
+            | "decision_confirm"
+            | "memory_confirm";
+          status: "pending" | "approved" | "rejected" | "expired";
+          payload: Json;
+          proposed_by_member_id: string | null;
+          decided_by_member_id: string | null;
+          source_message_id: string | null;
+          created_at: string;
+          decided_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          approval_type:
+            | "task_assignment"
+            | "task_batch"
+            | "decision_confirm"
+            | "memory_confirm";
+          status?: "pending" | "approved" | "rejected" | "expired";
+          payload?: Json;
+          proposed_by_member_id?: string | null;
+          decided_by_member_id?: string | null;
+          source_message_id?: string | null;
+          created_at?: string;
+          decided_at?: string | null;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_approvals"]["Insert"]
+        >;
+        Relationships: [];
+      };
     };
     Views: {
       businesses_public: {

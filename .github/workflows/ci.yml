@@ -27,6 +27,12 @@ jobs:
         run: npx tsx lib/import-review/ready-to-publish-gate.test.ts
       - name: Professional categories contract
         run: npx tsx lib/professional/categories-contract.test.ts
+      - name: Team Agent foundation
+        run: npx tsx lib/team-agent/team-agent.test.ts
+      - name: Team Agent Telegram normalize
+        run: npx tsx lib/team-agent/telegram/normalize.test.ts
+      - name: Team Agent Telegram integration
+        run: npx tsx lib/team-agent/telegram/integration.test.ts
       - name: Lint
         run: npx eslint . --quiet
 

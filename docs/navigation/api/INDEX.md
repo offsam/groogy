@@ -48,6 +48,15 @@ Related lib: [`../../../lib/platform/`](../../../lib/platform/)
 
 ---
 
+## Webhooks
+
+| Route | File |
+|---|---|
+| Claude fix callback | [`../../../app/api/webhooks/claude-fix/route.ts`](../../../app/api/webhooks/claude-fix/route.ts) |
+| Team Agent Telegram (internal) | [`../../../app/api/webhooks/team-agent-telegram/route.ts`](../../../app/api/webhooks/team-agent-telegram/route.ts) — see [`../../team-agent/TELEGRAM_ADAPTER_V1.md`](../../team-agent/TELEGRAM_ADAPTER_V1.md) |
+
+---
+
 ## Note
 
 Most admin/import/publish actions are **Server Actions** under `lib/**/actions.ts`, not REST routes. See runtime entry-points.

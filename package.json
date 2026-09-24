@@ -7,7 +7,13 @@
     "dev:3000": "NEXT_DIST_DIR=.next-dev next dev --turbopack --port 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "team-agent:test": "npx tsx lib/team-agent/team-agent.test.ts && npx tsx lib/team-agent/telegram/normalize.test.ts && npx tsx lib/team-agent/telegram/integration.test.ts",
+    "team-agent:simulate": "npx tsx lib/team-agent/simulate.ts",
+    "team-agent:telegram:bootstrap": "npx tsx lib/team-agent/telegram/discover-chat.ts",
+    "team-agent:telegram:poll": "npx tsx lib/team-agent/telegram/poll.ts",
+    "team-agent:telegram:setup": "npx tsx lib/team-agent/telegram/set-webhook.ts",
+    "team-agent:telegram:status": "npx tsx lib/team-agent/telegram/status.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

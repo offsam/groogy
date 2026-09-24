@@ -69,7 +69,7 @@ export async function Header() {
   const inLabel = formatHubsInLabel(hubs);
 
   return (
-    <header className="w-full min-w-0 overflow-x-hidden border-b border-slate-200 bg-white/90 backdrop-blur">
+    <header className="w-full min-w-0 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex w-full min-w-0 max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-2 px-3 py-2.5 sm:gap-x-4 sm:gap-y-3 sm:px-6 sm:py-3 lg:px-8">
         <div className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none sm:gap-2.5">
           <Link

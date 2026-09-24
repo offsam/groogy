@@ -240,6 +240,118 @@ export async function isFollowingOwner(
   return Boolean(data);
 }
 
+export type CircleEntity = {
+  ownerType: UpdateOwnerType;
+  ownerId: string;
+  name: string;
+  slug: string;
+  href: string;
+  imageUrl: string | null;
+  followedAt: string;
+};
+
+/** Cards the user added via «Добавить в круги». */
+export async function listMyCircles(
+  client: SupabaseClient,
+  userId: string,
+): Promise<CircleEntity[]> {
+  const { data: follows, error } = await untyped(client)
+    .from("entity_follows")
+    .select("owner_type, owner_id, created_at")
+    .eq("user_id", userId)
+    .order("created_at", { ascending: false })
+    .limit(200);
+
+  if (error || !follows?.length) return [];
+
+  const rows = follows as Array<{
+    owner_type: UpdateOwnerType;
+    owner_id: string;
+    created_at: string;
+  }>;
+
+  const businessIds = rows
+    .filter((r) => r.owner_type === "business")
+    .map((r) => r.owner_id);
+  const professionalIds = rows
+    .filter((r) => r.owner_type === "professional")
+    .map((r) => r.owner_id);
+
+  const businessMap = new Map<
+    string,
+    { name: string; slug: string; imageUrl: string | null }
+  >();
+  const professionalMap = new Map<
+    string,
+    { name: string; slug: string; imageUrl: string | null }
+  >();
+
+  if (businessIds.length) {
+    const { data: businesses } = await client
+      .from("businesses")
+      .select("id, name, slug, image_url")
+      .in("id", businessIds)
+      .eq("status", "approved");
+    for (const b of businesses ?? []) {
+      businessMap.set(b.id, {
+        name: b.name,
+        slug: b.slug,
+        imageUrl: b.image_url,
+      });
+    }
+  }
+
+  if (professionalIds.length) {
+    const { data: pros } = await untyped(client)
+      .from("professionals")
+      .select("id, display_name, slug, image_url")
+      .in("id", professionalIds)
+      .eq("status", "approved");
+    for (const p of (pros ?? []) as Array<{
+      id: string;
+      display_name: string;
+      slug: string;
+      image_url: string | null;
+    }>) {
+      professionalMap.set(p.id, {
+        name: p.display_name,
+        slug: p.slug,
+        imageUrl: p.image_url,
+      });
+    }
+  }
+
+  const out: CircleEntity[] = [];
+  for (const row of rows) {
+    if (row.owner_type === "business") {
+      const o = businessMap.get(row.owner_id);
+      if (!o) continue;
+      out.push({
+        ownerType: "business",
+        ownerId: row.owner_id,
+        name: o.name,
+        slug: o.slug,
+        href: `/business/${o.slug}`,
+        imageUrl: o.imageUrl,
+        followedAt: row.created_at,
+      });
+    } else if (row.owner_type === "professional") {
+      const o = professionalMap.get(row.owner_id);
+      if (!o) continue;
+      out.push({
+        ownerType: "professional",
+        ownerId: row.owner_id,
+        name: o.name,
+        slug: o.slug,
+        href: `/professional/${o.slug}`,
+        imageUrl: o.imageUrl,
+        followedAt: row.created_at,
+      });
+    }
+  }
+  return out;
+}
+
 /** Insert missing updates for an owner (dedupe by title). */
 export async function addMissingEntityUpdates(
   client: SupabaseClient,

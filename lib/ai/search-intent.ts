@@ -289,7 +289,9 @@ Worked examples (follow the pattern):
    {"queryMode":"service_need","keywords":[],"city":"Costa Mesa","categorySlug":"services","mustHints":["handyman","мастер","ремонт","repair"],"preferCategory":true,"nearMe":false}
 15) "переводчик" / "нужен переводчик для суда по Zoom" →
    {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":null,"mustHints":["переводчик","translator","interpreter"],"preferCategory":false,"nearMe":false}
-16) "водитель-переводчик" / "chaperone" →
+16) "репетитор по испанскому" / "spanish tutor" →
+   {"queryMode":"specialty","keywords":["испанский","spanish","репетитор","tutor"],"city":null,"categorySlug":"education","mustHints":["испанский","spanish","репетитор","tutor","tutoring"],"preferCategory":false,"nearMe":false}
+17) "водитель-переводчик" / "chaperone" →
    {"queryMode":"service_need","keywords":[],"city":null,"categorySlug":"services","mustHints":["водитель","chaperone","переводчик","translator"],"preferCategory":true,"nearMe":false}
 
 ${SEARCH_CATALOG_PLAYBOOK}

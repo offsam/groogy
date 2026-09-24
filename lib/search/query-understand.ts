@@ -3,6 +3,8 @@
  * Runs before (and as failover after) the LLM intent parser.
  */
 
+import { extractSubjectAnchors } from "@/lib/search/subject-anchors";
+
 export type PreparsedKind =
   | "text"
   | "maps_url"
@@ -636,14 +638,35 @@ export function preparseSearchQuery(raw: string): PreparsedQuery {
     !NEAR_ME_RE.test(raw);
 
   if (service) {
-    queryMode = modifierHints.length > 0 && service.mode === "browse"
-      ? "specialty"
-      : service.mode;
+    queryMode =
+      modifierHints.length > 0 && service.mode === "browse"
+        ? "specialty"
+        : service.mode;
     categorySlug = service.categorySlug;
     mustHints = [...new Set([...mustHints, ...service.hints])];
-    preferCategory =
-      queryMode === "service_need" || queryMode === "browse";
-    keywords = preferCategory ? [] : [...service.hints, ...modifierHints];
+    const subjects = extractSubjectAnchors(raw, [
+      ...mustHints,
+      ...translit.hints,
+    ]);
+    if (subjects.length > 0) {
+      mustHints = [...new Set([...mustHints, ...subjects])];
+      // Tutor + subject: specialty mode so ranking uses subject text, not bare category.
+      if (service.categorySlug === "education") {
+        queryMode = "specialty";
+        preferCategory = false;
+        keywords = [
+          ...new Set([...subjects, ...service.hints, ...modifierHints]),
+        ];
+      }
+      notes.push(`subject:${subjects.join(",")}`);
+    }
+    if (preferCategory === null) {
+      preferCategory =
+        queryMode === "service_need" || queryMode === "browse";
+    }
+    if (keywords.length === 0) {
+      keywords = preferCategory ? [] : [...service.hints, ...modifierHints];
+    }
     notes.push(`service:${service.categorySlug}`);
   } else if (looksLikePersonOrBrand) {
     queryMode = "business_name";
@@ -748,6 +771,16 @@ export function mergePreparseIntoIntent<
     preferCategory =
       pre.preferCategory ??
       (pre.queryMode === "service_need" || pre.queryMode === "browse");
+  }
+
+  // Tutor + subject from preparse wins over LLM browse-of-all-education.
+  if (
+    pre.preferCategory === false &&
+    pre.queryMode === "specialty" &&
+    extractSubjectAnchors("", mustHints).length > 0
+  ) {
+    queryMode = "specialty";
+    preferCategory = false;
   }
 
   return {

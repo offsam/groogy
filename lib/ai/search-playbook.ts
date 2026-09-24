@@ -129,6 +129,10 @@ If one mysterious token (possible brand) → business_name with that token.
 - restaurant, cafe, bakery, sushi → restaurants
 - grocery, products, market → groceries
 - tutor, school, courses, daycare → education
+- Tutor + subject precision: «репетитор по испанскому» / spanish tutor → mustHints MUST
+  include bilingual tutor terms AND the subject (испанский/spanish). queryMode=specialty,
+  preferCategory=false. Same for math/математика, physics/физика, piano/фортепиано, etc.
+  Do NOT return tutors of other subjects just because they are tutors.
 - insurance / страховка → insurance
 - accountant, taxes → finance
 - realtor → real_estate

@@ -2,11 +2,14 @@
 
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
+  type CSSProperties,
   type MouseEvent,
   type ReactNode,
 } from "react";
+import { createPortal } from "react-dom";
 import { Check, Plus } from "lucide-react";
 import {
   getRegionPickerGroups,
@@ -72,13 +75,50 @@ export function RegionHubPicker({
   const [searching, setSearching] = useState(false);
   const draftRef = useRef(draft);
   const rootRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [panelStyle, setPanelStyle] = useState<CSSProperties>({});
   const dark = variant === "dark";
 
   draftRef.current = draft;
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (!open) setDraft(idsOf(selected));
   }, [selected, open]);
+
+  useLayoutEffect(() => {
+    if (!open) return;
+
+    function placePanel() {
+      const anchor = rootRef.current;
+      if (!anchor) return;
+      const rect = anchor.getBoundingClientRect();
+      const width = Math.min(300, Math.max(rect.width, 280));
+      let left = rect.left;
+      if (left + width > window.innerWidth - 8) {
+        left = Math.max(8, window.innerWidth - width - 8);
+      }
+      setPanelStyle({
+        position: "fixed",
+        top: rect.bottom + 8,
+        left,
+        width,
+        zIndex: 2200,
+      });
+    }
+
+    placePanel();
+    window.addEventListener("resize", placePanel);
+    window.addEventListener("scroll", placePanel, true);
+    return () => {
+      window.removeEventListener("resize", placePanel);
+      window.removeEventListener("scroll", placePanel, true);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -136,9 +176,10 @@ export function RegionHubPicker({
   useEffect(() => {
     if (!open) return;
     function onPointerDown(event: globalThis.MouseEvent) {
-      if (!rootRef.current?.contains(event.target as Node)) {
-        closeWithDraft();
-      }
+      const target = event.target as Node;
+      if (rootRef.current?.contains(target)) return;
+      if (panelRef.current?.contains(target)) return;
+      closeWithDraft();
     }
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") closeWithDraft();
@@ -267,6 +308,155 @@ export function RegionHubPicker({
     );
   }
 
+  const panel =
+    open && mounted
+      ? createPortal(
+          <div
+            aria-label="Выбор регионов"
+            aria-multiselectable
+            className={cn(
+              "overflow-hidden rounded-xl shadow-xl",
+              dark
+                ? "border border-white/15 bg-slate-950/95 backdrop-blur-md"
+                : "border border-slate-200 bg-white",
+            )}
+            ref={panelRef}
+            role="listbox"
+            style={panelStyle}
+          >
+            <div
+              className={cn(
+                "border-b px-3 py-2",
+                dark ? "border-white/10" : "border-slate-100",
+              )}
+            >
+              <input
+                aria-label="Поиск города или округа США"
+                className={cn(
+                  "w-full rounded-lg border px-2.5 py-2 text-sm outline-none",
+                  dark
+                    ? "border-white/15 bg-white/5 text-white placeholder:text-white/40"
+                    : "border-slate-200 bg-white text-slate-900 placeholder:text-slate-400",
+                )}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Город или округ США…"
+                type="search"
+                value={query}
+              />
+              {query.trim().length >= 2 ? (
+                <ul className="mt-2 max-h-40 overflow-y-auto">
+                  {searching ? (
+                    <li
+                      className={cn(
+                        "px-1 py-1.5 text-xs",
+                        dark ? "text-white/50" : "text-slate-500",
+                      )}
+                    >
+                      Поиск…
+                    </li>
+                  ) : hits.length === 0 ? (
+                    <li
+                      className={cn(
+                        "px-1 py-1.5 text-xs",
+                        dark ? "text-white/50" : "text-slate-500",
+                      )}
+                    >
+                      Ничего не найдено
+                    </li>
+                  ) : (
+                    hits.map((hit) => (
+                      <li key={`${hit.kind}-${hit.geoid}`}>
+                        <button
+                          className={cn(
+                            "w-full rounded-lg px-2 py-1.5 text-left text-sm transition",
+                            dark
+                              ? "text-white/90 hover:bg-white/10"
+                              : "text-slate-800 hover:bg-slate-100",
+                          )}
+                          onClick={() => pickPlace(hit)}
+                          type="button"
+                        >
+                          <span className="font-medium">{hit.label}</span>
+                          <span
+                            className={cn(
+                              "ml-1.5 text-[11px]",
+                              dark ? "text-white/45" : "text-slate-400",
+                            )}
+                          >
+                            {hit.kind === "county" ? "округ" : "город"}
+                          </span>
+                        </button>
+                      </li>
+                    ))
+                  )}
+                </ul>
+              ) : null}
+            </div>
+            <p
+              className={cn(
+                "border-b px-3 py-2 text-[11px] leading-snug",
+                dark
+                  ? "border-white/10 text-white/50"
+                  : "border-slate-100 text-slate-500",
+              )}
+            >
+              Штаты по алфавиту. Можно выбрать весь штат или город с диаспорой.
+            </p>
+            <ul className="max-h-[min(70vh,480px)] overflow-y-auto py-1">
+              {renderRow(USA_OVERVIEW_HUB)}
+              {stateGroups.map((group) => (
+                <li key={group.label} className="list-none">
+                  <p
+                    className={cn(
+                      "px-3 pb-0.5 pt-2.5 text-[11px] font-semibold tracking-wide",
+                      dark ? "text-white/45" : "text-slate-500",
+                    )}
+                  >
+                    {group.label}
+                  </p>
+                  <ul>
+                    {renderRow(group.stateHub, {
+                      indent: true,
+                      wholeState: true,
+                    })}
+                    {group.cityHubs.map((city) =>
+                      renderRow(city, { indent: true }),
+                    )}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+            {multiDraft.length > 1 ? (
+              <div
+                className={cn(
+                  "border-t px-3 py-2",
+                  dark ? "border-white/10" : "border-slate-100",
+                )}
+              >
+                <button
+                  className={cn(
+                    "w-full rounded-lg px-3 py-2 text-sm font-medium transition",
+                    dark
+                      ? "bg-white/15 text-white hover:bg-white/20"
+                      : "bg-slate-900 text-white hover:bg-slate-800",
+                  )}
+                  onClick={() => closeWithDraft()}
+                  type="button"
+                >
+                  Готово · {multiDraft.length}{" "}
+                  {multiDraft.length === 1
+                    ? "район"
+                    : multiDraft.length < 5
+                      ? "района"
+                      : "районов"}
+                </button>
+              </div>
+            ) : null}
+          </div>,
+          document.body,
+        )
+      : null;
+
   return (
     <div className={cn("relative min-w-0 max-w-full", className)} ref={rootRef}>
       {trigger({
@@ -279,149 +469,7 @@ export function RegionHubPicker({
           }
         },
       })}
-
-      {open ? (
-        <div
-          aria-label="Выбор регионов"
-          aria-multiselectable
-          className={cn(
-            "absolute left-0 right-0 top-full z-[1100] mt-2 min-w-0 overflow-hidden rounded-xl shadow-xl sm:right-auto sm:w-[18.75rem]",
-            dark
-              ? "border border-white/15 bg-slate-950/95 backdrop-blur-md"
-              : "border border-slate-200 bg-white",
-          )}
-          role="listbox"
-        >
-          <div
-            className={cn(
-              "border-b px-3 py-2",
-              dark ? "border-white/10" : "border-slate-100",
-            )}
-          >
-            <input
-              aria-label="Поиск города или округа США"
-              className={cn(
-                "w-full rounded-lg border px-2.5 py-2 text-sm outline-none",
-                dark
-                  ? "border-white/15 bg-white/5 text-white placeholder:text-white/40"
-                  : "border-slate-200 bg-white text-slate-900 placeholder:text-slate-400",
-              )}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Город или округ США…"
-              type="search"
-              value={query}
-            />
-            {query.trim().length >= 2 ? (
-              <ul className="mt-2 max-h-40 overflow-y-auto">
-                {searching ? (
-                  <li
-                    className={cn(
-                      "px-1 py-1.5 text-xs",
-                      dark ? "text-white/50" : "text-slate-500",
-                    )}
-                  >
-                    Поиск…
-                  </li>
-                ) : hits.length === 0 ? (
-                  <li
-                    className={cn(
-                      "px-1 py-1.5 text-xs",
-                      dark ? "text-white/50" : "text-slate-500",
-                    )}
-                  >
-                    Ничего не найдено
-                  </li>
-                ) : (
-                  hits.map((hit) => (
-                    <li key={`${hit.kind}-${hit.geoid}`}>
-                      <button
-                        className={cn(
-                          "w-full rounded-lg px-2 py-1.5 text-left text-sm transition",
-                          dark
-                            ? "text-white/90 hover:bg-white/10"
-                            : "text-slate-800 hover:bg-slate-100",
-                        )}
-                        onClick={() => pickPlace(hit)}
-                        type="button"
-                      >
-                        <span className="font-medium">{hit.label}</span>
-                        <span
-                          className={cn(
-                            "ml-1.5 text-[11px]",
-                            dark ? "text-white/45" : "text-slate-400",
-                          )}
-                        >
-                          {hit.kind === "county" ? "округ" : "город"}
-                        </span>
-                      </button>
-                    </li>
-                  ))
-                )}
-              </ul>
-            ) : null}
-          </div>
-          <p
-            className={cn(
-              "border-b px-3 py-2 text-[11px] leading-snug",
-              dark
-                ? "border-white/10 text-white/50"
-                : "border-slate-100 text-slate-500",
-            )}
-          >
-            Штаты по алфавиту. Можно выбрать весь штат или город с диаспорой.
-          </p>
-          <ul className="max-h-[min(70vh,480px)] overflow-y-auto py-1">
-            {renderRow(USA_OVERVIEW_HUB)}
-            {stateGroups.map((group) => (
-              <li key={group.label} className="list-none">
-                <p
-                  className={cn(
-                    "px-3 pb-0.5 pt-2.5 text-[11px] font-semibold tracking-wide",
-                    dark ? "text-white/45" : "text-slate-500",
-                  )}
-                >
-                  {group.label}
-                </p>
-                <ul>
-                  {renderRow(group.stateHub, {
-                    indent: true,
-                    wholeState: true,
-                  })}
-                  {group.cityHubs.map((city) =>
-                    renderRow(city, { indent: true }),
-                  )}
-                </ul>
-              </li>
-            ))}
-          </ul>
-          {multiDraft.length > 1 ? (
-            <div
-              className={cn(
-                "border-t px-3 py-2",
-                dark ? "border-white/10" : "border-slate-100",
-              )}
-            >
-              <button
-                className={cn(
-                  "w-full rounded-lg px-3 py-2 text-sm font-medium transition",
-                  dark
-                    ? "bg-white/15 text-white hover:bg-white/20"
-                    : "bg-slate-900 text-white hover:bg-slate-800",
-                )}
-                onClick={() => closeWithDraft()}
-                type="button"
-              >
-                Готово · {multiDraft.length}{" "}
-                {multiDraft.length === 1
-                  ? "район"
-                  : multiDraft.length < 5
-                    ? "района"
-                    : "районов"}
-              </button>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      {panel}
     </div>
   );
 }

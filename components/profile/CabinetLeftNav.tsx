@@ -89,6 +89,7 @@ function resolveTarget(
 ): NavTarget {
   if (key === "profile") return { kind: "link", href: profileHref };
   if (key === "settings") return { kind: "link", href: "/me/settings" };
+  if (key === "circles") return { kind: "link", href: "/me/circles" };
   return { kind: "span" };
 }
 
@@ -119,14 +120,17 @@ export function CabinetLeftNav({ username, active = "profile" }: Props) {
     }
   }, []);
 
-  function startLongPress(key: CabinetNavKey) {
+  function startLongPress(
+    key: CabinetNavKey,
+    opts: { revealOverflow: boolean },
+  ) {
     longPressFired.current = false;
     clearLongPress();
     longPressTimer.current = setTimeout(() => {
       longPressFired.current = true;
       suppressClick.current = true;
       setReorderMode(true);
-      setMoreOpen(true);
+      if (opts.revealOverflow) setMoreOpen(true);
       setDragging(key);
       if (typeof navigator !== "undefined" && "vibrate" in navigator) {
         try {
@@ -151,9 +155,13 @@ export function CabinetLeftNav({ username, active = "profile" }: Props) {
     });
   }
 
-  function onIconPointerDown(key: CabinetNavKey, e: ReactPointerEvent) {
+  function onIconPointerDown(
+    key: CabinetNavKey,
+    e: ReactPointerEvent,
+    opts: { revealOverflow: boolean },
+  ) {
     if (e.button !== 0) return;
-    startLongPress(key);
+    startLongPress(key, opts);
   }
 
   function onIconPointerUp() {
@@ -192,7 +200,7 @@ export function CabinetLeftNav({ username, active = "profile" }: Props) {
 
   function renderIconButton(
     key: CabinetNavKey,
-    opts: { size?: "dock" | "rail" },
+    opts: { size?: "dock" | "rail"; revealOverflow?: boolean },
   ) {
     const meta = itemMeta(key);
     const Icon = NAV_ICONS[key];
@@ -201,6 +209,7 @@ export function CabinetLeftNav({ username, active = "profile" }: Props) {
     const isOver = Boolean(dragOver === key && dragging && dragging !== key);
     const target = resolveTarget(key, profileHref);
     const size = opts.size ?? "dock";
+    const revealOverflow = opts.revealOverflow ?? true;
 
     const className = cn(
       "inline-flex items-center justify-center rounded-xl transition select-none",
@@ -221,7 +230,8 @@ export function CabinetLeftNav({ username, active = "profile" }: Props) {
     );
 
     const handlers = {
-      onPointerDown: (e: ReactPointerEvent) => onIconPointerDown(key, e),
+      onPointerDown: (e: ReactPointerEvent) =>
+        onIconPointerDown(key, e, { revealOverflow }),
       onPointerUp: onIconPointerUp,
       onPointerCancel: onIconPointerCancel,
       onClick: (e: React.MouseEvent) => onIconClick(key, e),
@@ -271,41 +281,106 @@ export function CabinetLeftNav({ username, active = "profile" }: Props) {
     );
   }
 
+  function renderDesktopRow(key: CabinetNavKey) {
+    const meta = itemMeta(key);
+    const Icon = NAV_ICONS[key];
+    const isActive = key === active;
+    const isDragging = dragging === key;
+    const isOver = Boolean(dragOver === key && dragging && dragging !== key);
+    const target = resolveTarget(key, profileHref);
+
+    const className = cn(
+      "inline-flex min-h-11 w-full select-none items-center gap-2 rounded-lg px-3 text-sm font-medium transition",
+      isActive && !reorderMode
+        ? "bg-slate-900 text-white"
+        : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
+      reorderMode && "ring-brand-blue/40",
+      isDragging && "scale-[1.02] ring-2 ring-brand-blue",
+      isOver && "ring-2 ring-brand-orange bg-orange-50",
+    );
+
+    const content = (
+      <>
+        <Icon aria-hidden className="size-4 shrink-0" />
+        {meta.label}
+      </>
+    );
+
+    const handlers = {
+      onPointerDown: (e: ReactPointerEvent) =>
+        onIconPointerDown(key, e, { revealOverflow: false }),
+      onPointerUp: onIconPointerUp,
+      onPointerCancel: onIconPointerCancel,
+      onClick: (e: React.MouseEvent) => onIconClick(key, e),
+      onDragOver: (e: React.DragEvent) => {
+        if (!reorderMode) return;
+        e.preventDefault();
+        setDragOver(key);
+      },
+      onDragEnter: () => {
+        if (!reorderMode) return;
+        setDragOver(key);
+      },
+      onDrop: (e: React.DragEvent) => {
+        if (!reorderMode || !dragging) return;
+        e.preventDefault();
+        swapKeys(dragging, key);
+        setDragOver(null);
+      },
+      draggable: reorderMode,
+      onDragStart: (e: React.DragEvent) => {
+        if (!reorderMode) {
+          e.preventDefault();
+          return;
+        }
+        setDragging(key);
+        e.dataTransfer.effectAllowed = "move";
+      },
+      onDragEnd: () => {
+        setDragOver(null);
+      },
+      title: reorderMode
+        ? "Нажмите другой пункт, чтобы поменять местами"
+        : meta.label,
+      "aria-label": meta.label,
+    };
+
+    if (reorderMode || target.kind === "span") {
+      return (
+        <button className={className} key={key} type="button" {...handlers}>
+          {content}
+        </button>
+      );
+    }
+
+    return (
+      <Link className={className} href={target.href} key={key} {...handlers}>
+        {content}
+      </Link>
+    );
+  }
+
   const desktopNav = (
     <nav
       aria-label="Кабинет"
       className="hidden md:flex md:w-44 md:shrink-0 md:flex-col md:gap-1"
     >
-      {order.map((key) => {
-        const meta = itemMeta(key);
-        const Icon = NAV_ICONS[key];
-        const isActive = key === active;
-        const target = resolveTarget(key, profileHref);
-        const className = cn(
-          "inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition",
-          isActive
-            ? "bg-slate-900 text-white"
-            : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
-        );
-        const content = (
-          <>
-            <Icon aria-hidden className="size-4 shrink-0" />
-            {meta.label}
-          </>
-        );
-        if (target.kind === "link") {
-          return (
-            <Link className={className} href={target.href} key={key}>
-              {content}
-            </Link>
-          );
-        }
-        return (
-          <span className={className} key={key}>
-            {content}
-          </span>
-        );
-      })}
+      {reorderMode ? (
+        <p className="mb-1 px-1 text-[10px] font-medium leading-snug text-slate-500">
+          Удерживайте 2 сек · нажмите другой пункт, чтобы поменять местами
+        </p>
+      ) : null}
+      {order.map((key) => renderDesktopRow(key))}
+      {reorderMode ? (
+        <button
+          className="mt-1 inline-flex min-h-10 items-center justify-center rounded-lg bg-brand-blue px-3 text-xs font-semibold text-white"
+          onClick={finishReorder}
+          style={{ color: "#ffffff" }}
+          type="button"
+        >
+          Готово
+        </button>
+      ) : null}
     </nav>
   );
 

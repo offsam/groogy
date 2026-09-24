@@ -3,6 +3,11 @@ import type { Database } from "@/types/database";
 import type { Listing } from "@/types/listing";
 import { mapListing, mapMedia } from "@/lib/listings/mappers";
 import { signListingMediaUrls } from "@/lib/listings/media";
+import {
+  expandSearchToken,
+  haystackMatchesToken,
+} from "@/lib/search/synonyms";
+import { extractSubjectAnchors } from "@/lib/search/subject-anchors";
 import { tryCreateServiceRoleClient } from "@/lib/supabase/service";
 import type { UserSearchHistoryFrame } from "@/types/profile-cabinet";
 
@@ -201,38 +206,185 @@ export async function listActiveSearchHistory(
   return listFromPlatformEvents(userId, limit, dismissed);
 }
 
+/** Filler words — not useful alone for listing recall. */
+const LISTING_QUERY_STOP = new Set([
+  "по",
+  "для",
+  "в",
+  "на",
+  "с",
+  "и",
+  "или",
+  "the",
+  "a",
+  "an",
+  "of",
+  "to",
+  "for",
+  "in",
+  "on",
+  "near",
+  "me",
+  "need",
+  "нужен",
+  "нужна",
+  "нужно",
+  "нужны",
+  "ищу",
+  "найти",
+  "хочу",
+  "looking",
+  "find",
+  "want",
+]);
+
+function escapeIlike(value: string): string {
+  return value.replace(/[%_,.()]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Content tokens for soft listing match: drop stopwords, keep stems ≥3 chars.
+ * Prefer distinctive tokens (longer first) so OR-query stays small.
+ */
+function listingQueryTokens(query: string): string[] {
+  const raw = query
+    .toLowerCase()
+    .split(/[^\p{L}\p{N}]+/u)
+    .map((t) => t.trim())
+    .filter((t) => t.length >= 3 && !LISTING_QUERY_STOP.has(t));
+
+  const unique = [...new Set(raw)];
+  // Prefer longer / more specific tokens first (испанскому before по…).
+  unique.sort((a, b) => b.length - a.length || a.localeCompare(b));
+  return unique.slice(0, 6);
+}
+
+/** Variants to OR into PostgREST ilike (token + a few synonyms). */
+function listingIlikeVariants(tokens: string[]): string[] {
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const token of tokens) {
+    // Cap synonyms per token so .or() stays under URL limits.
+    for (const v of expandSearchToken(token).slice(0, 4)) {
+      const clean = escapeIlike(v);
+      if (clean.length < 3 || seen.has(clean)) continue;
+      seen.add(clean);
+      out.push(clean);
+      if (out.length >= 12) return out;
+    }
+  }
+  return out;
+}
+
+function scoreListingAgainstQuery(
+  title: string,
+  description: string,
+  tokens: string[],
+  subjects: string[],
+): number {
+  const hay = `${title} ${description}`.toLowerCase();
+  if (!hay.trim()) return 0;
+
+  let score = 0;
+  let matchedTokens = 0;
+  for (const token of tokens) {
+    if (haystackMatchesToken(hay, token)) {
+      matchedTokens += 1;
+      // Longer tokens (subject / specialty) weigh more than short generics.
+      score += Math.min(token.length, 12);
+      if (title.toLowerCase().includes(token) || haystackMatchesToken(title, token)) {
+        score += 4;
+      }
+    }
+  }
+
+  if (matchedTokens === 0) return 0;
+
+  // Soft subject boost: prefer Spanish tutors over unrelated «репетитор»,
+  // but do not zero-out cards that only match the trade word.
+  if (subjects.length > 0) {
+    const subjectHit = subjects.some((s) => haystackMatchesToken(hay, s));
+    score += subjectHit ? 20 : -4;
+  }
+
+  // Multi-token overlap (репетитор + испанский) beats single weak hit.
+  score += matchedTokens * 6;
+  return score;
+}
+
 export async function searchListingsForQuery(
   client: Client,
   query: string,
   limit = 8,
 ): Promise<Listing[]> {
-  const q = query.trim().replace(/[%_,]/g, " ");
+  const q = query.trim();
   if (q.length < 2) return [];
 
+  const tokens = listingQueryTokens(q);
+  if (tokens.length === 0) return [];
+
+  const variants = listingIlikeVariants(tokens);
+  if (variants.length === 0) return [];
+
+  const subjects = extractSubjectAnchors(q, tokens);
   const catalog = tryCreateServiceRoleClient() ?? client;
+
+  // OR across tokens/synonyms — phrase-exact was too strict for real ads.
+  const orFilter = variants
+    .flatMap((v) => [`title.ilike.%${v}%`, `description.ilike.%${v}%`])
+    .join(",");
+
+  const fetchLimit = Math.min(Math.max(limit * 5, 24), 40);
   const { data, error } = await untyped(catalog)
     .from("listings")
     .select(LISTING_CARD_SELECT)
     .eq("status", "active")
     .eq("visibility", "public")
     .in("listing_type", ["marketplace_item", "service"])
-    .or(`title.ilike.%${q}%,description.ilike.%${q}%`)
+    .or(orFilter)
     .order("published_at", { ascending: false })
-    .limit(limit);
+    .limit(fetchLimit);
 
   if (error) {
     console.warn("[search-history] listings lookup failed:", error.message);
     return [];
   }
 
-  const listings: Listing[] = [];
-  for (const row of data ?? []) {
-    const mediaRows = ((row.listing_media ?? []) as Array<{
+  type Row = {
+    id: string;
+    title?: string | null;
+    description?: string | null;
+    listing_media?: Array<{
       id: string;
       listing_id: string;
       storage_path: string;
       sort_order: number;
-    }>)
+    }>;
+    published_at?: string | null;
+  };
+
+  const scored = ((data ?? []) as Row[])
+    .map((row) => ({
+      row,
+      score: scoreListingAgainstQuery(
+        row.title ?? "",
+        row.description ?? "",
+        tokens,
+        subjects,
+      ),
+    }))
+    .filter((x) => x.score > 0)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      const ta = a.row.published_at ? Date.parse(a.row.published_at) : 0;
+      const tb = b.row.published_at ? Date.parse(b.row.published_at) : 0;
+      return tb - ta;
+    })
+    .slice(0, limit);
+
+  const listings: Listing[] = [];
+  for (const { row } of scored) {
+    const mediaRows = (row.listing_media ?? [])
       .slice()
       .sort((a, b) => a.sort_order - b.sort_order)
       .map((m) => ({

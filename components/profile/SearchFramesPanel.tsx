@@ -1,7 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import {
+  useCallback,
+  useRef,
+  useTransition,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+} from "react";
 import { X } from "lucide-react";
 import { ListingCard } from "@/components/marketplace/ListingCard";
 import { ServiceCard } from "@/components/services/ServiceCard";
@@ -11,6 +17,103 @@ import type { SearchFrameWithListings } from "@/lib/profile/search-history-queri
 type Props = {
   frames: SearchFrameWithListings[];
 };
+
+/**
+ * Bounded horizontal scroller. Ancestors use overflow-x-hidden, so the row
+ * must have min-w-0 + explicit overflow; pointer-drag covers touch + mouse.
+ */
+function TouchScrollRow({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const drag = useRef<{
+    pointerId: number;
+    startX: number;
+    startY: number;
+    startScroll: number;
+    axis: "undecided" | "x" | "y";
+    captured: boolean;
+  } | null>(null);
+  const suppressClick = useRef(false);
+
+  const onPointerDown = useCallback((e: ReactPointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+    const el = ref.current;
+    if (!el) return;
+    drag.current = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      startScroll: el.scrollLeft,
+      axis: "undecided",
+      captured: false,
+    };
+  }, []);
+
+  const onPointerMove = useCallback((e: ReactPointerEvent<HTMLDivElement>) => {
+    const state = drag.current;
+    const el = ref.current;
+    if (!state || !el || state.pointerId !== e.pointerId) return;
+
+    const dx = e.clientX - state.startX;
+    const dy = e.clientY - state.startY;
+
+    if (state.axis === "undecided") {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      state.axis = Math.abs(dx) >= Math.abs(dy) ? "x" : "y";
+      if (state.axis === "y") {
+        drag.current = null;
+        return;
+      }
+      if (!state.captured) {
+        el.setPointerCapture(e.pointerId);
+        state.captured = true;
+      }
+    }
+
+    if (state.axis !== "x") return;
+
+    el.scrollLeft = state.startScroll - dx;
+    e.preventDefault();
+  }, []);
+
+  const endDrag = useCallback((e: ReactPointerEvent<HTMLDivElement>) => {
+    const state = drag.current;
+    if (!state || state.pointerId !== e.pointerId) return;
+    const wasX = state.axis === "x";
+    if (state.captured) {
+      try {
+        ref.current?.releasePointerCapture(e.pointerId);
+      } catch {
+        /* already released */
+      }
+    }
+    drag.current = null;
+    if (wasX) {
+      suppressClick.current = true;
+      window.setTimeout(() => {
+        suppressClick.current = false;
+      }, 40);
+    }
+  }, []);
+
+  return (
+    <div
+      className="flex w-full min-w-0 cursor-grab snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-3 pb-1 select-none active:cursor-grabbing [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] touch-pan-x"
+      onClickCapture={(e) => {
+        if (!suppressClick.current) return;
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      onPointerCancel={endDrag}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      ref={ref}
+      style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}
+    >
+      {children}
+    </div>
+  );
+}
 
 export function SearchFramesPanel({ frames }: Props) {
   const router = useRouter();
@@ -25,7 +128,7 @@ export function SearchFramesPanel({ frames }: Props) {
 
   if (frames.length === 0) {
     return (
-      <aside className="space-y-3">
+      <aside className="min-w-0 space-y-3 px-3 md:px-0">
         <h2 className="text-base font-semibold text-slate-900">Ваши поиски</h2>
         <p className="text-sm text-slate-500">
           Здесь появятся подборки по вашим запросам в поиске.
@@ -35,12 +138,12 @@ export function SearchFramesPanel({ frames }: Props) {
   }
 
   return (
-    <aside className="space-y-4">
+    <aside className="min-w-0 space-y-4 px-3 md:px-0">
       <h2 className="text-base font-semibold text-slate-900">Ваши поиски</h2>
-      <div className="space-y-4">
+      <div className="min-w-0 space-y-4">
         {frames.map((frame) => (
           <article
-            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+            className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
             key={frame.id}
           >
             <div className="border-b border-slate-100 px-3 py-2.5">
@@ -50,19 +153,26 @@ export function SearchFramesPanel({ frames }: Props) {
               <p className="text-[11px] text-slate-400">искали недавно</p>
             </div>
 
-            <div className="max-h-72 space-y-3 overflow-y-auto px-3 py-3">
+            <div className="min-w-0 py-3">
               {frame.listings.length === 0 ? (
-                <p className="text-xs text-slate-500">
+                <p className="px-3 text-xs text-slate-500">
                   Пока нет подходящих объявлений.
                 </p>
               ) : (
-                frame.listings.map((listing) =>
-                  listing.listingType === "service" ? (
-                    <ServiceCard key={listing.id} listing={listing} />
-                  ) : (
-                    <ListingCard key={listing.id} listing={listing} />
-                  ),
-                )
+                <TouchScrollRow>
+                  {frame.listings.map((listing) => (
+                    <div
+                      className="w-56 max-w-[75vw] shrink-0 snap-start"
+                      key={listing.id}
+                    >
+                      {listing.listingType === "service" ? (
+                        <ServiceCard listing={listing} />
+                      ) : (
+                        <ListingCard listing={listing} />
+                      )}
+                    </div>
+                  ))}
+                </TouchScrollRow>
               )}
             </div>
 

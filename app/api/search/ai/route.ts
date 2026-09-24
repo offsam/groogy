@@ -18,12 +18,19 @@ import {
   type SpellCorrection,
 } from "@/lib/search/spellcheck";
 import { expandSearchToken, haystackMatchesToken } from "@/lib/search/synonyms";
-import { recordUserSearchHistory } from "@/lib/profile/search-history-queries";
+import {
+  businessHaystack,
+  extractSubjectAnchors,
+  GENERIC_SERVICE_HINTS,
+  haystackMatchesAnySubject,
+  isSubjectAnchorToken,
+} from "@/lib/search/subject-anchors";
 import {
   assertAiSearchRequestAllowed,
   clampSearchQuery,
   readAiSearchJsonBody,
 } from "@/lib/security/ai-search-guard";
+import { recordUserSearchHistory } from "@/lib/profile/search-history-queries";
 import {
   clientIpFromRequest,
   consumeRateLimit,
@@ -308,6 +315,32 @@ function emptyIntent(queryMode: SearchQueryMode = "specialty"): SearchIntent {
   };
 }
 
+/** Subjects from query + hints (e.g. испанский in «репетитор по испанскому»). */
+function resolveSubjectAnchors(rawQuery: string, hints: string[]): string[] {
+  return extractSubjectAnchors(rawQuery, hints);
+}
+
+function cardMatchesSubjects(business: Business, subjects: string[]): boolean {
+  if (subjects.length === 0) return true;
+  const hay = businessHaystack([
+    business.name,
+    business.slug,
+    business.shortDescription,
+    business.description,
+    business.categoryName,
+    business.categorySlug,
+  ]);
+  return haystackMatchesAnySubject(hay, subjects);
+}
+
+function filterBySubjects(
+  businesses: Business[],
+  subjects: string[],
+): Business[] {
+  if (subjects.length === 0) return businesses;
+  return businesses.filter((b) => cardMatchesSubjects(b, subjects));
+}
+
 /**
  * DB text search AND-matches every whitespace token. Bilingual hint lists like
  * "масло oil oil change" would require the literal word "change" on every card.
@@ -325,22 +358,33 @@ function pickPrimarySearchTerm(terms: string[]): string {
 
   const scoreTerm = (term: string): number => {
     const parts = term.split(/\s+/).filter(Boolean);
-    // Prefer single tokens that sit in a synonym group (strong bilingual recall).
+    const head = parts[0] ?? term;
+    // Prefer subject anchors (испанский) over generic trade words (репетитор).
+    const subjectBoost = isSubjectAnchorToken(head) ? 80 : 0;
+    const genericPenalty = GENERIC_SERVICE_HINTS.has(head) ? -20 : 0;
     if (parts.length === 1) {
       const expanded = expandSearchToken(parts[0]);
       const bilingual = expanded.length > 1 ? 40 : 0;
-      return bilingual + Math.min(parts[0].length, 12);
+      return (
+        subjectBoost +
+        genericPenalty +
+        bilingual +
+        Math.min(parts[0].length, 12)
+      );
     }
-    // Multi-word phrases: score by first content word’s synonym strength.
-    const head = parts[0];
     const expanded = expandSearchToken(head);
-    return (expanded.length > 1 ? 25 : 0) + Math.min(term.length, 16);
+    return (
+      subjectBoost +
+      genericPenalty +
+      (expanded.length > 1 ? 25 : 0) +
+      Math.min(term.length, 16)
+    );
   };
 
   const best = [...cleaned].sort((a, b) => scoreTerm(b) - scoreTerm(a))[0];
-  // If best is a phrase, use its head token so AND-search doesn't require "change".
   if (best.includes(" ")) {
-    const head = best.split(/\s+/).find((p) => p.length >= 3) ?? best.split(/\s+/)[0];
+    const head =
+      best.split(/\s+/).find((p) => p.length >= 3) ?? best.split(/\s+/)[0];
     return head;
   }
   return best;
@@ -1039,9 +1083,12 @@ export async function POST(request: Request) {
     ),
   ];
 
-  let ranked = filterOnTopic(
-    rankBusinesses(businesses, softHints, near),
-    softHints,
+  // «репетитор по испанскому» → keep only cards that mention the subject.
+  const subjectAnchors = resolveSubjectAnchors(qForLlm, softHints);
+
+  let ranked = filterBySubjects(
+    filterOnTopic(rankBusinesses(businesses, softHints, near), softHints),
+    subjectAnchors,
   );
   let matchKind: "exact" | "similar" | "empty" = ranked.length > 0 ? "exact" : "empty";
   let matchMessage: string | null = null;
@@ -1050,8 +1097,12 @@ export async function POST(request: Request) {
   // If NOTHING matches the hints, clear noise instead of showing random "студия" hits.
   if (softHints.length > 0 && !isAddressPaste && !isIdentityPaste) {
     const withScores = ranked.map((b) => ({ b, s: hintScore(b, softHints) }));
-    const strong = withScores.filter((x) => x.s >= 3).map((x) => x.b);
-    const any = withScores.filter((x) => x.s > 0).map((x) => x.b);
+    const strong = withScores
+      .filter((x) => x.s >= 3 && cardMatchesSubjects(x.b, subjectAnchors))
+      .map((x) => x.b);
+    const any = withScores
+      .filter((x) => x.s > 0 && cardMatchesSubjects(x.b, subjectAnchors))
+      .map((x) => x.b);
     if (strong.length > 0) {
       ranked = strong;
       matchKind = "exact";
@@ -1066,8 +1117,12 @@ export async function POST(request: Request) {
     }
   } else if (softHints.length > 0 && (isAddressPaste || isIdentityPaste)) {
     const withScores = ranked.map((b) => ({ b, s: hintScore(b, softHints) }));
-    const strong = withScores.filter((x) => x.s >= 3).map((x) => x.b);
-    const any = withScores.filter((x) => x.s > 0).map((x) => x.b);
+    const strong = withScores
+      .filter((x) => x.s >= 3 && cardMatchesSubjects(x.b, subjectAnchors))
+      .map((x) => x.b);
+    const any = withScores
+      .filter((x) => x.s > 0 && cardMatchesSubjects(x.b, subjectAnchors))
+      .map((x) => x.b);
     if (strong.length > 0) {
       ranked = strong;
       matchKind = "exact";
@@ -1129,10 +1184,13 @@ export async function POST(request: Request) {
       );
       let similar =
         softHints.length > 0
-          ? rankBusinesses(similarPool, softHints, near).filter(
-              (b) => hintScore(b, softHints) >= 3,
+          ? filterBySubjects(
+              rankBusinesses(similarPool, softHints, near).filter(
+                (b) => hintScore(b, softHints) >= 3,
+              ),
+              subjectAnchors,
             )
-          : similarPool;
+          : filterBySubjects(similarPool, subjectAnchors);
 
       // Still empty → category browse, but only cards that match topic hints.
       if (similar.length === 0 && similarCategory && softHints.length > 0) {
@@ -1146,9 +1204,12 @@ export async function POST(request: Request) {
           }),
           softHints,
         );
-        similar = rankBusinesses(browse, softHints, near)
-          .filter((b) => hintScore(b, softHints) >= 3)
-          .slice(0, 12);
+        similar = filterBySubjects(
+          rankBusinesses(browse, softHints, near)
+            .filter((b) => hintScore(b, softHints) >= 3)
+            .slice(0, 12),
+          subjectAnchors,
+        );
       }
 
       if (similar.length > 0) {

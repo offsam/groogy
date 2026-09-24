@@ -352,7 +352,7 @@ export function PublicUserProfileView({
       <div className="cabinet-wide mx-auto flex max-w-[1400px] flex-col gap-4 px-0 pb-20 md:flex-row md:items-start md:pb-0">
         <CabinetLeftNav active="profile" username={profile.username} />
         <div className="min-w-0 flex-1 space-y-6">{centerSelf}</div>
-        <div className="w-full shrink-0 md:w-80 lg:w-96">
+        <div className="min-w-0 w-full shrink-0 md:w-80 lg:w-96">
           <SearchFramesPanel frames={self.searchFrames} />
         </div>
       </div>

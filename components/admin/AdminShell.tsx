@@ -30,7 +30,10 @@ function adminCrumbs(pathname: string): Crumb[] {
   }
 
   if (pathname.startsWith("/admin/queue")) {
-    return [{ href: "/admin", label: "← Админка" }];
+    return [
+      { href: "/admin/cards", label: "← Карточки" },
+      { href: "/admin", label: "Админка" },
+    ];
   }
 
   if (
@@ -39,12 +42,12 @@ function adminCrumbs(pathname: string): Crumb[] {
   ) {
     return [
       { href: "/admin/sources", label: "← Источники" },
-      { href: "/admin", label: "Админка" },
+      { href: "/admin/system", label: "Служебное" },
     ];
   }
 
   if (pathname.startsWith("/admin/sources")) {
-    return [{ href: "/admin", label: "← Админка" }];
+    return [{ href: "/admin/system", label: "← Служебное" }];
   }
 
   if (pathname.startsWith("/admin/resources")) {
@@ -81,12 +84,52 @@ function adminCrumbs(pathname: string): Crumb[] {
     return [{ href: "/admin/queue", label: "← На обработку" }];
   }
 
-  if (pathname.startsWith("/admin/system/")) {
+  if (pathname === "/admin/system") {
     return [{ href: "/admin", label: "← Админка" }];
   }
 
-  if (pathname.startsWith("/admin/community/")) {
+  if (pathname.startsWith("/admin/system/")) {
+    return [
+      { href: "/admin/system", label: "← Служебное" },
+      { href: "/admin", label: "Админка" },
+    ];
+  }
+
+  if (
+    pathname.startsWith("/admin/cards") ||
+    pathname.startsWith("/admin/claims") ||
+    pathname.startsWith("/admin/to4ka-enrich")
+  ) {
     return [{ href: "/admin", label: "← Админка" }];
+  }
+
+  if (pathname.startsWith("/admin/people")) {
+    return [{ href: "/admin", label: "← Админка" }];
+  }
+
+  if (
+    pathname.startsWith("/admin/users") ||
+    pathname.startsWith("/admin/blogger-directory") ||
+    pathname.startsWith("/admin/community/")
+  ) {
+    return [
+      { href: "/admin/people", label: "← Люди" },
+      { href: "/admin", label: "Админка" },
+    ];
+  }
+
+  if (pathname.startsWith("/admin/activity")) {
+    return [{ href: "/admin", label: "← Админка" }];
+  }
+
+  if (
+    pathname.startsWith("/admin/analytics") ||
+    pathname.startsWith("/admin/contact-reveals")
+  ) {
+    return [
+      { href: "/admin/activity", label: "← Активность" },
+      { href: "/admin", label: "Админка" },
+    ];
   }
 
   // Default: always back to home

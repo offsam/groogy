@@ -8,6 +8,7 @@ import { NavigationProgress } from "@/components/layout/NavigationProgress";
 import { ErrorReportButton } from "@/components/error-report/ErrorReportButton";
 import { AiSearchOverlay } from "@/components/search/AiSearchLoader";
 import { PageViewTracker } from "@/components/admin/PageViewTracker";
+import { UiClickTracker } from "@/components/platform/UiClickTracker";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import { BRAND_NAME } from "@/lib/brand";
 import "leaflet/dist/leaflet.css";
@@ -73,6 +74,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>
+        <UiClickTracker />
       </body>
     </html>
   );

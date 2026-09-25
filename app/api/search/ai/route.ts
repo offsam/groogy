@@ -631,11 +631,15 @@ export async function POST(request: Request) {
     !/^https?:\/\//i.test(logQuery) &&
     !/[0-9]{7,}/.test(logQuery)
   ) {
+    const {
+      data: { user: searchUser },
+    } = await client.auth.getUser();
     void catalog
       .from("platform_events")
       .insert({
         event_type: "search",
         path: "/search",
+        user_id: searchUser?.id ?? null,
         meta: { q: logQuery },
       })
       .then(({ error }) => {

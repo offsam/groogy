@@ -4,10 +4,10 @@ import { searchAdminSection } from "@/lib/admin/section-search";
 import { getAdminSection } from "@/lib/admin/sections";
 import { createServerClient } from "@/lib/supabase/server";
 
-export const metadata: Metadata = { title: "Служебное — Admin" };
+export const metadata: Metadata = { title: "Карточки — Admin" };
 export const dynamic = "force-dynamic";
 
-export default async function AdminSystemIndexPage({
+export default async function AdminCardsPage({
   searchParams,
 }: {
   searchParams: Promise<{ q?: string }>;
@@ -15,13 +15,13 @@ export default async function AdminSystemIndexPage({
   const { q = "" } = await searchParams;
   const supabase = await createServerClient();
   const hits = q.trim()
-    ? await searchAdminSection(supabase, "system", q)
+    ? await searchAdminSection(supabase, "cards", q)
     : [];
   return (
     <AdminSectionHub
       hits={hits}
       query={q}
-      section={getAdminSection("system")}
+      section={getAdminSection("cards")}
     />
   );
 }

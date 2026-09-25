@@ -129,6 +129,7 @@ export async function probeCatalogHealthAction(): Promise<
       transfers: 0,
       churches: 0,
       coupons: 0,
+      games: 0,
     })),
     timeProbe("hub-stats-all", "Hub stats (all)", async () => {
       const stats = await getHubResourceStatsUncached(null);

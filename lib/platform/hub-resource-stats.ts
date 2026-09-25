@@ -814,6 +814,17 @@ async function computeHubResourceStats(
     addedSince: sinceOk != null ? churchesSince : churchesToday,
   });
 
+  cards.push({
+    key: "games",
+    kind: "resource",
+    label: "Игры",
+    unit: shortUnit(0, "группа", "группы", "групп"),
+    slug: null,
+    count: 0,
+    addedToday: 0,
+    addedSince: 0,
+  });
+
   const bySlug = new Map<string, { total: number; today: number; since: number }>();
   for (const b of businessStamps) {
     const slug = b.categorySlug;
@@ -891,8 +902,8 @@ export async function getHubResourceStats(
 
   return unstable_cache(
     () => computeHubResourceStats(hubId, options),
-    // v6: bust stale OC/LA counts after no-street business → pro migration
-    ["hub-resource-stats-v7", hubKey, sinceKey],
+    // v8: include the empty games hub card
+    ["hub-resource-stats-v8", hubKey, sinceKey],
     {
       revalidate: CATALOG_CACHE_TTL.hubResourceStats,
       tags: [CATALOG_CACHE_TAGS.hubResourceStats],

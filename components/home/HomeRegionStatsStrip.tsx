@@ -25,6 +25,7 @@ const SECTION_STAT_KEY: Record<PlatformSectionKey, string> = {
   transfers: "transfers",
   churches: "churches",
   coupons: "coupons",
+  games: "games",
 };
 
 export function sectionStatFromHub(

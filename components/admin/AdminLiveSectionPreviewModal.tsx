@@ -15,6 +15,7 @@ import { BrandPinLoader } from "@/components/brand/BrandPinLoader";
 const FROZEN: Partial<Record<string, string>> = {
   real_estate: "Таблица недвижимости заморожена (Phase 3).",
   vehicles: "Раздел авто заморожен (stub).",
+  games: "Раздел игр пока пустой.",
 };
 
 const SECTION_OPTIONS: {

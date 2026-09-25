@@ -30,7 +30,7 @@ import type { Database } from "@/types/database";
 import { catalogCardSlug } from "@/lib/routing/ascii-slug";
 
 export type MoveSectionKey =
-  | Exclude<PlatformSectionKey, "vehicles" | "coupons">
+  | Exclude<PlatformSectionKey, "vehicles" | "coupons" | "games">
   | "services";
 
 export type MoveEntitySectionResult =

@@ -1,5 +1,5 @@
 /**
- * Nine platform hubs on the home page (not business leaf categories).
+ * Platform hubs on the home page (not business leaf categories).
  * Leaf categories (restaurants, beauty, …) live under /search.
  */
 
@@ -14,7 +14,8 @@ export type PlatformSectionKey =
   | "lechu"
   | "transfers"
   | "churches"
-  | "coupons";
+  | "coupons"
+  | "games";
 
 export type PlatformSectionPin =
   | "businesses"
@@ -27,7 +28,8 @@ export type PlatformSectionPin =
   | "lechu"
   | "transfers"
   | "churches"
-  | "promos";
+  | "promos"
+  | "games";
 
 export type PlatformSection = {
   key: PlatformSectionKey;
@@ -151,6 +153,16 @@ export const PLATFORM_SECTIONS: readonly PlatformSection[] = [
     unitFew: "акции",
     unitMany: "акций",
   },
+  {
+    key: "games",
+    title: "Игры",
+    href: "/games",
+    pin: "games",
+    hint: "совместные игры",
+    unitOne: "группа",
+    unitFew: "группы",
+    unitMany: "групп",
+  },
 ] as const;
 
 export type PlatformSectionCounts = Record<PlatformSectionKey, number>;
@@ -168,6 +180,7 @@ export function emptyPlatformSectionCounts(): PlatformSectionCounts {
     transfers: 0,
     churches: 0,
     coupons: 0,
+    games: 0,
   };
 }
 

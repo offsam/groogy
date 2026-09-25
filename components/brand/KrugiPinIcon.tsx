@@ -30,6 +30,7 @@ export const KRUGI_PIN_NAMES = [
   "help",
   "settings",
   "logout",
+  "games",
 ] as const;
 
 export type KrugiPinName = (typeof KRUGI_PIN_NAMES)[number];

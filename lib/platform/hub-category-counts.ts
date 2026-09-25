@@ -216,6 +216,7 @@ async function computeHubCategoryCounts(
     transfers,
     churches,
     coupons,
+    games: 0,
   };
 }
 
@@ -225,8 +226,8 @@ export async function getHubCategoryCounts(
   const key = hubId.trim() || "default";
   return unstable_cache(
     () => computeHubCategoryCounts(key),
-    // v5: bust stale hub counters after catalog migration (no-street → pros)
-    ["hub-category-counts-v6", key],
+    // v7: games section is always present (empty)
+    ["hub-category-counts-v7", key],
     {
       revalidate: CATALOG_CACHE_TTL.hubCategoryCounts,
       tags: [CATALOG_CACHE_TAGS.hubCategoryCounts],
@@ -293,6 +294,7 @@ export async function getNationalSectionCounts(): Promise<PlatformSectionCounts>
     transfers,
     churches,
     coupons,
+    games: 0,
   };
 }
 

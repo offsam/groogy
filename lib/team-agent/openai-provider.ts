@@ -192,7 +192,7 @@ export class TeamAgentModelError extends Error {
 function redactSecrets(text: string): string {
   return text
     .replace(
-      /(?:OPENAI_API_KEY|OPENROUTER_API_KEY|TELEGRAM_BOT_TOKEN|TELEGRAM_WEBHOOK_SECRET|SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY|GITHUB_TEAM_AGENT_TOKEN)\s*[:=]\s*\S+/gi,
+      /(?:OPENAI_API_KEY|OPENROUTER_API_KEY|TELEGRAM_BOT_TOKEN|TELEGRAM_WEBHOOK_SECRET|SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY|GITHUB_TEAM_AGENT_TOKEN|GITHUB_TEAM_AGENT_WEBHOOK_SECRET|VERCEL_TEAM_AGENT_TOKEN|SUPABASE_ACCESS_TOKEN|TEAM_AGENT_REPORTER_TOKEN|TEAM_AGENT_RECONCILE_SECRET)\s*[:=]\s*\S+/gi,
       "[redacted]",
     )
     .replace(/\bsk-[A-Za-z0-9_-]{8,}\b/g, "[redacted]")
@@ -284,6 +284,10 @@ export function buildTeamAgentModelInput(
       ],
     },
     {
+      label: "project_state",
+      lines: (context.projectLines ?? []).slice(0, 12).map((line) => redactSecrets(line)),
+    },
+    {
       label: "recent_messages",
       lines: context.recentMessages
         .filter((m) => m.message_type !== "system")
@@ -297,7 +301,7 @@ export function buildTeamAgentModelInput(
       .map((s) => `# ${s.label}\n${s.lines.join("\n")}`)
       .join("\n\n");
 
-  const shrink = ["recent_messages", "memory", "project", "topics"];
+  const shrink = ["recent_messages", "memory", "project", "project_state", "topics"];
   for (const label of shrink) {
     const section = sections.find((s) => s.label === label);
     if (!section) continue;

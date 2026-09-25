@@ -155,6 +155,7 @@ export async function buildTeamAgentContext(
     topics: selected.filter((t) => t.status !== "archived"),
     topicSummaries,
     retrieval,
+    projectLines: [],
   };
 }
 

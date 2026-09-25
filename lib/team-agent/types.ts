@@ -306,6 +306,8 @@ export type TeamAgentContext = {
   topics: TeamAgentTopic[];
   topicSummaries: string[];
   retrieval: "unscoped" | "topic" | "overview";
+  /** Short evidence lines from the last project snapshot. Empty when none was taken. */
+  projectLines?: string[];
 };
 
 export const ACTIVE_TASK_STATUSES: readonly TeamAgentTaskStatus[] = [

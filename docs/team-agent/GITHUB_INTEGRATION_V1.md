@@ -1,6 +1,6 @@
 # GitHub Integration V1 (contract)
 
-**Status:** read-only client in `lib/team-agent/github-repository.ts`. No GitHub writes, no auto-merge. Runtime stays «не подключён», пока нет `GITHUB_TEAM_AGENT_TOKEN` и `GITHUB_TEAM_AGENT_REPO`.
+**Status:** read-only client in `lib/team-agent/github-repository.ts` and the project snapshot in `lib/team-agent/control/`. No GitHub writes, no auto-merge. Runtime stays «не подключён», пока нет `GITHUB_TEAM_AGENT_TOKEN` и `GITHUB_TEAM_AGENT_REPO`. Setup: [`INTEGRATIONS_SETUP_V1.md`](./INTEGRATIONS_SETUP_V1.md).
 
 Goal: connect `PLAN → TASK → ASSIGNEE → BRANCH → COMMITS → RESULT` without auto-merge.
 

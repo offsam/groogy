@@ -1,0 +1,17 @@
+---
+description: When a Cursor session is doing a Kroogy Team Agent task, keep the work on a feature branch and report progress without secrets.
+globs: lib/team-agent/**,docs/team-agent/**,scripts/team-agent-local-report.ts
+alwaysApply: false
+---
+
+# Team Agent task workflow
+
+When the task comes from Kroogy Team Agent:
+
+- Start from an up-to-date main and a separate feature branch. Do not commit on main.
+- Link the task and the branch in the local report: `npx tsx scripts/team-agent-local-report.ts`.
+- Report paths and SHAs only. Do not send file contents, diffs, or anything from `.env` or `.env.local`.
+- After a commit, report the new SHA. After a push, say that the branch is on GitHub.
+- Do not force-push. Do not merge into main. Do not deploy production.
+- Open a pull request only when the task workflow says to.
+- A local commit, a push, and a Preview deploy are different facts. Say which one happened.

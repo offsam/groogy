@@ -98,6 +98,9 @@ Collector LLM:
 | GitHub contract | [`../../team-agent/GITHUB_INTEGRATION_V1.md`](../../team-agent/GITHUB_INTEGRATION_V1.md) |
 | Capabilities | [`../../team-agent/AGENT_CAPABILITIES_V1.md`](../../team-agent/AGENT_CAPABILITIES_V1.md) |
 | Operations | [`../../team-agent/OPERATIONS_RUNBOOK_V1.md`](../../team-agent/OPERATIONS_RUNBOOK_V1.md) |
+| Project control | [`../../team-agent/PROJECT_CONTROL_CENTER_V1.md`](../../team-agent/PROJECT_CONTROL_CENTER_V1.md) |
+| Integration setup | [`../../team-agent/INTEGRATIONS_SETUP_V1.md`](../../team-agent/INTEGRATIONS_SETUP_V1.md) |
+| Developer workflow | [`../../team-agent/DEVELOPER_WORKFLOW_V1.md`](../../team-agent/DEVELOPER_WORKFLOW_V1.md) |
 | Domain code | [`../../../lib/team-agent/`](../../../lib/team-agent/) |
 | Tests | `npx tsx lib/team-agent/team-agent.test.ts` |
 | Simulator | `npx tsx lib/team-agent/simulate.ts` |

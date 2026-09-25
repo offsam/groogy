@@ -2,12 +2,15 @@
  * Deterministic Telegram commands. These do not call the model.
  */
 
+import type { ProjectTopic } from "./control/report";
+
 export type LocalCommand =
   | { kind: "help" }
   | { kind: "status" }
   | { kind: "github_unavailable" }
   | { kind: "approve_invalid" }
-  | { kind: "approve"; approvalId: string };
+  | { kind: "approve"; approvalId: string }
+  | { kind: "project"; topic: ProjectTopic };
 
 const UUID =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -51,18 +54,38 @@ export function parseLocalCommand(
     return { kind: "status" };
   }
 
-  if (isGithubQuestion(lower)) return { kind: "github_unavailable" };
+  const topic = projectTopic(lower);
+  if (topic) return { kind: "project", topic };
   return null;
 }
 
-function isGithubQuestion(lower: string): boolean {
-  return (
-    lower.includes("активные ветки") ||
-    lower.includes("какие pr") ||
-    lower.includes("какие pull") ||
-    lower.includes("не попали в main") ||
-    lower.includes("пересечься по файлам")
-  );
+function projectTopic(lower: string): ProjectTopic | null {
+  if (lower.includes("проверь все подключения") || lower.includes("проверь подключения")) return "connections";
+  if (lower.includes("полный статус") || lower.includes("статус проекта")) return "full";
+  if (lower.includes("что сейчас делает")) return "people";
+  if (lower.includes("не запуш")) return "unpushed";
+  if (lower.includes("активные ветки") || lower.includes("какие ветки")) return "branches";
+  if (lower.includes("какие pr") || lower.includes("какие pull") || lower.includes("ждут проверки")) return "prs";
+  if (lower.includes("для просмотра")) return "preview";
+  if (
+    lower.includes("опубликовано на сайте") ||
+    lower.includes("выложено на сайт") ||
+    lower.includes("что сейчас на сайте")
+  ) {
+    return "production";
+  }
+  if (lower.includes("ещё не выложено") || lower.includes("еще не выложено") || lower.includes("готово, но")) {
+    return "ready_not_live";
+  }
+  if (lower.includes("есть в main")) return "main_not_prod";
+  if (lower.includes("не попали в main") || lower.includes("не попало в main")) return "not_in_main";
+  if (lower.includes("миграц")) return "migrations";
+  if (lower.includes("проблемы в проекте") || lower.includes("где сейчас проблемы") || lower.includes("пересечься")) {
+    return "issues";
+  }
+  if (lower.includes("последний раз проверял")) return "sync";
+  if (lower.includes("что мешает закончить")) return "blockers";
+  return null;
 }
 
 function escapeRegExp(value: string): string {

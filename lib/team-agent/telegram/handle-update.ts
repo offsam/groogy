@@ -9,6 +9,8 @@ import type { TeamAgentProvider } from "../agent-provider";
 import { approvePendingAssignment, executeValidatedAction } from "../actions";
 import { formatCapabilitiesReply, formatStatusReply, type CapabilityFacts } from "../capabilities";
 import { loadTeamAgentConfig } from "../config";
+import { formatProjectAnswer, snapshotBrief } from "../control/report";
+import { cachedProjectSnapshot, observeProject } from "../control/live";
 import { buildTeamAgentContext } from "../context";
 import {
   GitHubRepositoryContextProvider,
@@ -53,6 +55,7 @@ export async function handleTelegramUpdate(input: {
   /** When false, skip privileged action execution for unknown members (default). */
   allowUnknownPrivilegedActions?: boolean;
   topicClassifier?: TopicClassifier;
+  observe?: () => Promise<import("../control/types").ProjectSnapshot>;
 }): Promise<HandleTelegramUpdateResult> {
   const env = input.env ?? process.env;
   const config = loadTeamAgentConfig(env);
@@ -127,6 +130,7 @@ export async function handleTelegramUpdate(input: {
     memberId: ingest.member?.id ?? null,
     conversationId: ingest.conversation.id,
     facts: capabilityFacts(env, config),
+    observe: input.observe,
     });
     const sent = await sendReply(normalized.ingest.conversationExternalId, text, normalized.ingest.messageExternalId, env);
     const persisted = await persistAgentReply(input.store, {
@@ -194,6 +198,10 @@ export async function handleTelegramUpdate(input: {
       repositoryProvider: repositoryProvider(env),
       maxMessages: config.maxContextMessages,
     });
+    const cached = cachedProjectSnapshot();
+    context.projectLines = cached
+      ? snapshotBrief(cached)
+      : ["Свежего снимка проекта нет. Команда для проверки: дай статус проекта."];
 
     const provider = input.provider ?? createTeamAgentProvider(env);
     providerCalls += 1;
@@ -362,8 +370,17 @@ async function localReply(
     memberId: string | null;
     conversationId: string;
     facts: CapabilityFacts;
+    observe?: () => Promise<import("../control/types").ProjectSnapshot>;
   },
 ): Promise<string> {
+  if (command.kind === "project") {
+    try {
+      const snapshot = input.observe ? await input.observe() : await loadSnapshot(input.store, input.env);
+      return formatProjectAnswer(command.topic, snapshot);
+    } catch {
+      return "Не удалось собрать статус проекта. Подключённые источники при этом не объявляются сломанными все сразу.";
+    }
+  }
   if (command.kind === "help") return formatCapabilitiesReply(input.facts);
   if (command.kind === "github_unavailable") {
     return "GitHub не подключён. Я не вижу ветки, коммиты и pull request и не буду их выдумывать.";
@@ -411,6 +428,21 @@ async function localReply(
     confirmedDecisions: decisions.filter((decision) => decision.status === "confirmed").length,
     lastAiAt: lastAi?.occurred_at ?? null,
     lastError: lastError ? "последний AI-запрос не выполнен" : null,
+  });
+}
+
+async function loadSnapshot(store: TeamAgentStore, env: NodeJS.ProcessEnv) {
+  const [tasks, members] = await Promise.all([store.listTasks(), store.listActiveMembers()]);
+  return observeProject(env, {
+    tasks: tasks.map((task) => ({
+      id: task.id,
+      title: task.title,
+      status: task.status,
+      branchName: task.branch_name,
+      assignedMemberId: task.assigned_member_id,
+      scopePaths: task.scope_paths,
+    })),
+    members: members.map((member) => ({ id: member.id, displayName: member.display_name })),
   });
 }
 

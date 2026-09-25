@@ -39,13 +39,13 @@ function seatPoint(index: number, yourSeat: number | null) {
   const shift = yourSeat ?? 0;
   const angle = Math.PI / 2 + ((index - shift) * 2 * Math.PI) / 7;
   return {
-    left: `${50 + Math.cos(angle) * 34}%`,
-    top: `${58 + Math.sin(angle) * 24}%`,
+    left: `${50 + Math.cos(angle) * 38}%`,
+    top: `${58 + Math.sin(angle) * 34}%`,
   };
 }
 
-const DECK_FROM = { left: "50%", top: "18%" };
-const TABLE_AT = { left: "50%", top: "58%" };
+const DECK_FROM = { left: "50%", top: "12%" };
+const TABLE_AT = { left: "50%", top: "50%" };
 
 type Flight = {
   key: string;
@@ -351,10 +351,9 @@ export function DurakTable({
   }
 
   const playable = view.canAttack || view.canDefend || view.canThrow;
-  const modeLabel = view.mode === "podkidnoy" ? "Подкидной" : "Переводной";
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <style>{`
         @keyframes durak-fly {
           from { left: var(--from-x); top: var(--from-y); opacity: 1; }
@@ -365,37 +364,16 @@ export function DurakTable({
           to { transform: none; opacity: 1; }
         }
       `}</style>
-      <div>
-        <Link className="text-sm font-medium text-brand-blue" href="/games/durak">
+      <div className="relative flex min-h-11 items-center justify-center">
+        <Link className="absolute left-0 text-sm font-medium text-brand-blue" href="/games/durak">
           Столы
         </Link>
-        <div className="mt-1">
-          <h1 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Стол {tableId}
-          </h1>
-          <p className="mt-1 text-sm text-slate-600">{view.status}</p>
-          <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500">
-            {modeLabel}
-            {view.deckKind ? ` · колода ${view.deckKind}` : ""}
-            {view.nextDeckKind && view.nextDeckKind !== view.deckKind
-              ? ` · следующий кон ${view.nextDeckKind}`
-              : ""}
-          </p>
-        </div>
+        <h1 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-slate-900">
+          Стол {tableId}
+        </h1>
       </div>
 
-      {view.notice ? (
-        <p className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600">
-          {view.notice}
-        </p>
-      ) : null}
-      {message ? (
-        <p className="rounded-xl border border-brand-orange/30 bg-brand-orange/10 px-3 py-2 text-sm text-slate-800">
-          {message}
-        </p>
-      ) : null}
-
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-xl">
+      <div className="relative mx-auto aspect-[2/3] w-full max-w-xl">
         <div className="absolute inset-x-8 inset-y-10 rounded-[2rem] bg-gradient-to-b from-[#8d5a32] via-[#5c3a1e] to-[#3a2414] p-1.5 shadow-[0_16px_30px_rgba(40,22,8,0.28)] sm:inset-x-10 sm:inset-y-12 sm:p-2">
           <div className="relative h-full overflow-hidden rounded-[1.6rem] bg-[radial-gradient(ellipse_at_50%_42%,#3eaf72_0%,#1d7c4a_46%,#0e5532_78%,#083d24_100%)] shadow-[inset_0_0_48px_rgba(0,0,0,0.45)]">
             <div
@@ -408,7 +386,7 @@ export function DurakTable({
             <div className="pointer-events-none absolute inset-2 rounded-[1.3rem] border border-[#e7c98a]/45" />
 
             {view.table.length === 0 && view.phase !== "play" ? (
-              <div className="absolute left-1/2 top-[58%] h-16 w-28 -translate-x-1/2 -translate-y-1/2">
+              <div className="absolute left-1/2 top-1/2 h-16 w-28 -translate-x-1/2 -translate-y-1/2">
                 {IDLE_CARDS.map((card) => (
                   <span
                     className="absolute left-1/2 top-1/2"
@@ -422,7 +400,7 @@ export function DurakTable({
                 ))}
               </div>
             ) : (
-              <div className="absolute left-1/2 top-[58%] flex max-w-[70%] -translate-x-1/2 -translate-y-1/2 flex-wrap items-center justify-center">
+              <div className="absolute left-1/2 top-1/2 flex max-w-[62%] -translate-x-1/2 -translate-y-1/2 flex-wrap items-center justify-center">
                 {view.table.map((pair, index) => (
                   <div
                     className="relative mx-0.5"
@@ -502,7 +480,7 @@ export function DurakTable({
                   aria-hidden
                   className={cn(
                     "pointer-events-none absolute top-1 flex",
-                    seatLeft < 46 ? "left-7" : "-left-3",
+                    seatLeft < 50 ? "-left-3" : "left-7",
                   )}
                 >
                   {Array.from({ length: Math.min(seat.cardCount, 2) }, (_, layer) => (
@@ -528,6 +506,43 @@ export function DurakTable({
           );
         })}
       </div>
+
+      {view.yourCards.length > 0 ? (
+        <div className="flex justify-center overflow-x-auto pb-1">
+          <div className="flex items-end pl-1" data-hand={handStamp}>
+            {view.yourCards.map((card, index) => (
+              <span
+                className="-ml-3 first:ml-0"
+                key={card.id}
+                style={
+                  freshCards.current.has(card.id)
+                    ? {
+                        animation: `durak-hand 480ms ease-out ${index * 70}ms both`,
+                      }
+                    : undefined
+                }
+              >
+                <PlayingCard
+                  card={card}
+                  playable={playable && !pending}
+                  onPlay={() => play(card)}
+                />
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {view.notice ? (
+        <p className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600">
+          {view.notice}
+        </p>
+      ) : null}
+      {message ? (
+        <p className="rounded-xl border border-brand-orange/30 bg-brand-orange/10 px-3 py-2 text-sm text-slate-800">
+          {message}
+        </p>
+      ) : null}
 
       <div className="flex flex-wrap gap-2">
         {view.canTake ? (
@@ -601,51 +616,17 @@ export function DurakTable({
         </div>
       ) : null}
 
-      <section className="rounded-2xl border border-[#d7c4a3] bg-[#fffaf3] p-3 shadow-sm sm:p-4">
-        <h2 className="text-sm font-semibold text-slate-900">Ваши карты</h2>
-        {view.yourCards.length === 0 ? (
-          <p className="mt-2 text-sm text-slate-500">
-            {view.you
-              ? "Когда сядете и начнётся кон, карты будут здесь. Чужие карты не показываются."
-              : "Можно смотреть стол без входа. Чтобы сесть, войдите в аккаунт."}
-          </p>
-        ) : (
-          <div className="mt-3 flex justify-center overflow-x-auto pb-2">
-            <div className="flex items-end pl-1" data-hand={handStamp}>
-              {view.yourCards.map((card, index) => (
-                <span
-                  className="-ml-3 first:ml-0"
-                  key={card.id}
-                  style={
-                    freshCards.current.has(card.id)
-                      ? {
-                          animation: `durak-hand 480ms ease-out ${index * 70}ms both`,
-                        }
-                      : undefined
-                  }
-                >
-                  <PlayingCard
-                    card={card}
-                    playable={playable && !pending}
-                    onPlay={() => play(card)}
-                  />
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-        {!view.you ? (
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Button className="min-h-11" onClick={() => router.push(`/login?next=${returnPath}`)}>Войти</Button>
-            <Button className="min-h-11"
-              variant="secondary"
-              onClick={() => router.push(`/register?next=${returnPath}`)}
-            >
-              Регистрация
-            </Button>
-          </div>
-        ) : null}
-      </section>
+      {!view.you ? (
+        <div className="flex flex-wrap gap-2">
+          <Button className="min-h-11" onClick={() => router.push(`/login?next=${returnPath}`)}>Войти</Button>
+          <Button className="min-h-11"
+            variant="secondary"
+            onClick={() => router.push(`/register?next=${returnPath}`)}
+          >
+            Регистрация
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 }

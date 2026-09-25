@@ -58,6 +58,7 @@ export type DurakView = {
     isBot: boolean;
     occupied: boolean;
     isYou: boolean;
+    userId: string | null;
     cardCount: number;
     thinking: boolean;
     avatarUrl: string | null;
@@ -783,6 +784,7 @@ export function presentDurak(
       isBot: seat.isBot,
       occupied: Boolean(seat.userId || seat.isBot),
       isYou: yourSeat === seat.index,
+      userId: seat.userId,
       cardCount: hand(state, seat.index).length,
       avatarUrl: null,
       thinking:

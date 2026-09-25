@@ -413,8 +413,13 @@ export class InMemoryTeamAgentStore implements TeamAgentStore {
       memoryIds: [] as string[],
     };
     for (const key of this.topicLinks) {
-      const [kind, subjectId, tid] = key.split(":");
-      if (tid !== topicId || !subjectId) continue;
+      const kindEnd = key.indexOf(":");
+      const kind = key.slice(0, kindEnd);
+      const rest = key.slice(kindEnd + 1);
+      const suffix = `:${topicId}`;
+      if (!rest.endsWith(suffix)) continue;
+      const subjectId = rest.slice(0, -suffix.length);
+      if (!subjectId) continue;
       if (kind === "message") out.messageIds.push(subjectId);
       if (kind === "task") out.taskIds.push(subjectId);
       if (kind === "decision") out.decisionIds.push(subjectId);

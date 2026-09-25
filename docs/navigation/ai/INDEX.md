@@ -96,6 +96,8 @@ Collector LLM:
 | LLM provider | [`../../team-agent/LLM_PROVIDER_V1.md`](../../team-agent/LLM_PROVIDER_V1.md) |
 | Telegram contract | [`../../team-agent/TELEGRAM_ADAPTER_V1.md`](../../team-agent/TELEGRAM_ADAPTER_V1.md) |
 | GitHub contract | [`../../team-agent/GITHUB_INTEGRATION_V1.md`](../../team-agent/GITHUB_INTEGRATION_V1.md) |
+| Capabilities | [`../../team-agent/AGENT_CAPABILITIES_V1.md`](../../team-agent/AGENT_CAPABILITIES_V1.md) |
+| Operations | [`../../team-agent/OPERATIONS_RUNBOOK_V1.md`](../../team-agent/OPERATIONS_RUNBOOK_V1.md) |
 | Domain code | [`../../../lib/team-agent/`](../../../lib/team-agent/) |
 | Tests | `npx tsx lib/team-agent/team-agent.test.ts` |
 | Simulator | `npx tsx lib/team-agent/simulate.ts` |

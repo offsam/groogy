@@ -172,7 +172,7 @@ async function main() {
         telegram_user_id: 1,
         telegram_username: "sam",
         github_username: null,
-        role_title: "owner",
+        role_title: "партнёр, участник разработки",
         responsibilities: [],
         skills: [],
         working_preferences: null,

@@ -8,7 +8,7 @@ import { join } from "node:path";
 import type { RepositoryContext } from "./types";
 
 export interface RepositoryContextProvider {
-  getContext(): RepositoryContext;
+  getContext(): RepositoryContext | Promise<RepositoryContext>;
 }
 
 const IMPORTANT_DIRS = [

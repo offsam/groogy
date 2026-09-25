@@ -6,6 +6,7 @@
 import OpenAI from "openai";
 import { isAllowedAction, isForbiddenAction, validateAgentAction } from "./actions";
 import { loadTeamAgentConfig } from "./config";
+import { KROOGY_PROJECT_BRIEF } from "./project-brief";
 import { isGlobalConstraint } from "./topics";
 import type { TeamAgentProvider } from "./agent-provider";
 import {
@@ -22,6 +23,51 @@ import {
 } from "./types";
 
 export const PUBLIC_AI_FAILURE_TEXT = "Не удалось получить ответ AI. Попробуйте ещё раз.";
+
+export function publicFailureText(code: string): string {
+  if (code === "billing_credits") {
+    return "Недостаточно средств на OpenRouter. Нужно пополнить баланс.";
+  }
+  if (code === "billing_key_limit") {
+    return "Достигнут лимит API-ключа OpenRouter.";
+  }
+  if (code === "billing_inflight") {
+    return "OpenRouter временно ограничил траты этого ключа. Повторите позже.";
+  }
+  if (code === "billing_unknown") {
+    return "OpenRouter отклонил запрос по биллингу. Проверьте баланс и лимит ключа.";
+  }
+  return PUBLIC_AI_FAILURE_TEXT;
+}
+
+/** OpenRouter 402 is not one reason. Do not retry, and do not assume the wallet is empty. */
+export function classifyBillingFailure(
+  status: number,
+  message: string,
+): TeamAgentModelErrorCode | null {
+  if (status !== 402) return null;
+  const text = message.toLowerCase();
+  if (
+    text.includes("key limit") ||
+    text.includes("monthly limit") ||
+    text.includes("spending limit") ||
+    text.includes("limit exceeded")
+  ) {
+    return "billing_key_limit";
+  }
+  if (text.includes("in-flight") || text.includes("inflight")) {
+    return "billing_inflight";
+  }
+  if (
+    text.includes("credit") ||
+    text.includes("insufficient") ||
+    text.includes("balance") ||
+    text.includes("afford")
+  ) {
+    return "billing_credits";
+  }
+  return "billing_unknown";
+}
 
 const REPLY_CAP = 8000;
 
@@ -127,7 +173,11 @@ export type TeamAgentModelErrorCode =
   | "malformed"
   | "empty"
   | "not_configured"
-  | "request_failed";
+  | "request_failed"
+  | "billing_credits"
+  | "billing_key_limit"
+  | "billing_inflight"
+  | "billing_unknown";
 
 export class TeamAgentModelError extends Error {
   readonly code: TeamAgentModelErrorCode;
@@ -142,10 +192,12 @@ export class TeamAgentModelError extends Error {
 function redactSecrets(text: string): string {
   return text
     .replace(
-      /(?:OPENAI_API_KEY|OPENROUTER_API_KEY|TELEGRAM_BOT_TOKEN|TELEGRAM_WEBHOOK_SECRET|SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY)\s*[:=]\s*\S+/gi,
+      /(?:OPENAI_API_KEY|OPENROUTER_API_KEY|TELEGRAM_BOT_TOKEN|TELEGRAM_WEBHOOK_SECRET|SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY|GITHUB_TEAM_AGENT_TOKEN)\s*[:=]\s*\S+/gi,
       "[redacted]",
     )
-    .replace(/\bsk-[A-Za-z0-9_-]{8,}\b/g, "[redacted]");
+    .replace(/\bsk-[A-Za-z0-9_-]{8,}\b/g, "[redacted]")
+    .replace(/\bghp_[A-Za-z0-9_]+\b/g, "[redacted]")
+    .replace(/\bgithub_pat_[A-Za-z0-9_]+\b/g, "[redacted]");
 }
 
 function clip(text: string, max: number): string {
@@ -175,6 +227,10 @@ export function buildTeamAgentModelInput(
     {
       label: "request",
       lines: [clip(request.userText, Math.max(500, maxChars))],
+    },
+    {
+      label: "project",
+      lines: [clip(KROOGY_PROJECT_BRIEF, 1200)],
     },
     {
       label: "members",
@@ -221,7 +277,9 @@ export function buildTeamAgentModelInput(
     {
       label: "repository",
       lines: [
+        `provider=${context.repository.provider}`,
         `branch=${context.repository.currentBranch ?? ""}`,
+        ...context.repository.notes.slice(0, 8).map((note) => redactSecrets(note)),
         ...context.repository.changedFiles.slice(0, 20).map((f) => redactSecrets(f)),
       ],
     },
@@ -239,7 +297,7 @@ export function buildTeamAgentModelInput(
       .map((s) => `# ${s.label}\n${s.lines.join("\n")}`)
       .join("\n\n");
 
-  const shrink = ["recent_messages", "memory", "topics"];
+  const shrink = ["recent_messages", "memory", "project", "topics"];
   for (const label of shrink) {
     const section = sections.find((s) => s.label === label);
     if (!section) continue;
@@ -352,7 +410,10 @@ function classifyCallerError(err: unknown): TeamAgentModelError {
     typeof err === "object" && err && "status" in err
       ? Number((err as { status: unknown }).status)
       : 0;
+  const message = errorText(err);
   const name = err instanceof Error ? err.name : "";
+  const billing = classifyBillingFailure(status, message);
+  if (billing) return new TeamAgentModelError(billing);
   if (status === 401 || status === 403) return new TeamAgentModelError("invalid_api_key");
   if (status === 429) return new TeamAgentModelError("rate_limited");
   if (status >= 500) return new TeamAgentModelError("upstream");
@@ -367,6 +428,14 @@ function classifyCallerError(err: unknown): TeamAgentModelError {
   return new TeamAgentModelError("request_failed");
 }
 
+function errorText(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  if (typeof err === "object" && err && "message" in err) return String((err as { message: unknown }).message);
+  return "";
+}
+
+const RETRYABLE = new Set<TeamAgentModelErrorCode>(["rate_limited", "upstream"]);
+
 async function callWithLimit(caller: TeamAgentModelCaller, request: TeamAgentModelRequest) {
   let last: TeamAgentModelError | null = null;
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -374,7 +443,7 @@ async function callWithLimit(caller: TeamAgentModelCaller, request: TeamAgentMod
       return await caller(request);
     } catch (err) {
       last = classifyCallerError(err);
-      const retry = last.code === "rate_limited" || last.code === "upstream";
+      const retry = RETRYABLE.has(last.code);
       if (!retry || attempt === 1) throw last;
     }
   }

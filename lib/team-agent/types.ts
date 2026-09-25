@@ -274,7 +274,7 @@ export type PotentialDecision = {
 };
 
 export type RepositoryContext = {
-  provider: "local" | "mock" | "unavailable";
+  provider: "local" | "mock" | "github" | "unavailable";
   repositoryName: string | null;
   currentBranch: string | null;
   recentCommits: Array<{ sha: string; message: string; date: string }>;
@@ -283,6 +283,12 @@ export type RepositoryContext = {
   importantDirectories: string[];
   architectureDocPaths: string[];
   notes: string[];
+  github?: {
+    configured: boolean;
+    defaultBranch: string | null;
+    branches: string[];
+    openPullRequests: Array<{ number: number; title: string; head: string }>;
+  } | null;
 };
 
 export type TeamAgentContext = {

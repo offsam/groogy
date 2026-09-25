@@ -28,8 +28,8 @@ export const TEAM_MEMBER_BOOTSTRAP_TEMPLATE: MemberBootstrapTemplate[] = [
     telegram_user_id: null, // TODO: set after Telegram connect
     telegram_username: null, // TODO
     github_username: null, // TODO
-    role_title: "Founder / product",
-    responsibilities: ["product", "priorities", "docs/navigation"],
+    role_title: "партнёр, участник разработки",
+    responsibilities: ["разработка", "team agent"],
     skills: ["product", "architecture"],
     working_preferences: null,
   },
@@ -39,7 +39,7 @@ export const TEAM_MEMBER_BOOTSTRAP_TEMPLATE: MemberBootstrapTemplate[] = [
     telegram_user_id: null, // TODO
     telegram_username: null, // TODO
     github_username: null, // TODO
-    role_title: "Backend / data",
+    role_title: "партнёр, участник разработки",
     responsibilities: ["lib", "supabase/migrations", "api"],
     skills: ["typescript", "supabase", "sql"],
     working_preferences: null,
@@ -50,7 +50,7 @@ export const TEAM_MEMBER_BOOTSTRAP_TEMPLATE: MemberBootstrapTemplate[] = [
     telegram_user_id: null, // TODO
     telegram_username: null, // TODO
     github_username: null, // TODO
-    role_title: "Frontend / UI",
+    role_title: "партнёр, участник разработки",
     responsibilities: ["app", "components", "ui"],
     skills: ["react", "nextjs", "css"],
     working_preferences: null,

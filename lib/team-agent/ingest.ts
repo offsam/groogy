@@ -184,6 +184,57 @@ export function agentReplyExternalId(
  * member_id stays null — the bot is not a team member.
  * message_type=bot + metadata.role=agent distinguishes it from humans.
  */
+export async function claimAgentReply(
+  store: TeamAgentStore,
+  input: {
+    conversationId: string;
+    triggerMessage: { id: string; external_message_id: string | null };
+    requestId: string;
+  },
+): Promise<{ claimed: boolean; message: TeamAgentMessage | null }> {
+  const externalId = agentReplyExternalId(input.triggerMessage.external_message_id);
+  if (!externalId) return { claimed: false, message: null };
+  const existing = await store.findMessageByExternal(input.conversationId, externalId);
+  if (existing) {
+    const state = existing.metadata.agent_state;
+    const stale =
+      state === "processing" &&
+      !existing.body &&
+      Date.now() - new Date(existing.occurred_at).getTime() > 45_000;
+    if (stale) {
+      const taken = await store.updateMessage(existing.id, {
+        metadata: { ...existing.metadata, request_id: input.requestId, agent_state: "processing" },
+      });
+      return { claimed: true, message: taken };
+    }
+    return { claimed: false, message: existing };
+  }
+  try {
+    const row = await store.insertMessage({
+      conversation_id: input.conversationId,
+      member_id: null,
+      external_message_id: externalId,
+      reply_to_message_id: input.triggerMessage.id,
+      message_type: "bot",
+      body: "",
+      occurred_at: new Date().toISOString(),
+      metadata: {
+        role: "agent",
+        source: "bot",
+        agent_state: "processing",
+        request_id: input.requestId,
+      },
+    });
+    if (row.metadata.request_id !== input.requestId) {
+      return { claimed: false, message: row };
+    }
+    return { claimed: true, message: row };
+  } catch {
+    const raced = await store.findMessageByExternal(input.conversationId, externalId);
+    return { claimed: false, message: raced };
+  }
+}
+
 export async function persistAgentReply(
   store: TeamAgentStore,
   input: {
@@ -197,15 +248,39 @@ export async function persistAgentReply(
     usage?: Record<string, unknown> | null;
     topicIds?: string[];
     updateId?: number | null;
+    requestId?: string | null;
+    agentState?: string;
   },
 ): Promise<{ message: TeamAgentMessage; created: boolean }> {
   const externalId = agentReplyExternalId(input.triggerMessage.external_message_id);
+  const metadata = {
+    role: "agent",
+    source: "bot",
+    provider: input.provider ?? null,
+    model: input.model ?? null,
+    response_id: input.responseId ?? null,
+    usage: input.usage ?? null,
+    topic_ids: input.topicIds ?? [],
+    created_at: new Date().toISOString(),
+    trigger_message_id: input.triggerMessage.id,
+    trigger_external_message_id: input.triggerMessage.external_message_id,
+    trigger_update_id: input.updateId ?? null,
+    telegram_message_ids: input.telegramMessageIds ?? [],
+    agent_state: input.agentState ?? "completed",
+    request_id: input.requestId ?? null,
+  };
   if (externalId) {
     const existing = await store.findMessageByExternal(
       input.conversationId,
       externalId,
     );
-    if (existing) return { message: existing, created: false };
+    if (existing) {
+      const message = await store.updateMessage(existing.id, {
+        body: input.replyText,
+        metadata,
+      });
+      return { message, created: false };
+    }
   }
 
   const message = await store.insertMessage({
@@ -216,20 +291,7 @@ export async function persistAgentReply(
     message_type: "bot",
     body: input.replyText,
     occurred_at: new Date().toISOString(),
-    metadata: {
-      role: "agent",
-      source: "bot",
-      provider: input.provider ?? null,
-      model: input.model ?? null,
-      response_id: input.responseId ?? null,
-      usage: input.usage ?? null,
-      topic_ids: input.topicIds ?? [],
-      created_at: new Date().toISOString(),
-      trigger_message_id: input.triggerMessage.id,
-      trigger_external_message_id: input.triggerMessage.external_message_id,
-      trigger_update_id: input.updateId ?? null,
-      telegram_message_ids: input.telegramMessageIds ?? [],
-    },
+    metadata,
   });
   return { message, created: true };
 }

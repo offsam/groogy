@@ -105,6 +105,8 @@ Compact TOC only. No explanations.
 - LLM provider: [`../team-agent/LLM_PROVIDER_V1.md`](../team-agent/LLM_PROVIDER_V1.md)
 - Telegram adapter contract: [`../team-agent/TELEGRAM_ADAPTER_V1.md`](../team-agent/TELEGRAM_ADAPTER_V1.md)
 - GitHub integration contract: [`../team-agent/GITHUB_INTEGRATION_V1.md`](../team-agent/GITHUB_INTEGRATION_V1.md)
+- Capabilities: [`../team-agent/AGENT_CAPABILITIES_V1.md`](../team-agent/AGENT_CAPABILITIES_V1.md)
+- Operations: [`../team-agent/OPERATIONS_RUNBOOK_V1.md`](../team-agent/OPERATIONS_RUNBOOK_V1.md)
 - Code: [`../../lib/team-agent/`](../../lib/team-agent/)
 - **Not** product messaging / community chat.
 

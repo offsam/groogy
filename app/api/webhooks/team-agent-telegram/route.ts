@@ -81,5 +81,8 @@ export async function GET() {
     model: config.model,
     hasOpenAIKey: Boolean(process.env.OPENAI_API_KEY?.trim()),
     hasOpenRouterKey: Boolean(process.env.OPENROUTER_API_KEY?.trim()),
+    githubConfigured: Boolean(
+      process.env.GITHUB_TEAM_AGENT_TOKEN?.trim() && process.env.GITHUB_TEAM_AGENT_REPO?.trim(),
+    ),
   });
 }

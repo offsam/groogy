@@ -9,6 +9,7 @@ import type { RepositoryContextProvider } from "./repository-context";
 import { MockRepositoryContextProvider } from "./repository-context";
 import type { TeamAgentStore } from "./store-port";
 import { isActiveTaskStatus } from "./tasks";
+import { lexicalScore, pickUnlinkedMessages } from "./retrieval";
 import { inferTopicIds, isGlobalConstraint, isOverviewQuestion } from "./topics";
 import type {
   PathConflict,
@@ -79,21 +80,33 @@ export async function buildTeamAgentContext(
 
   if (retrieval === "topic" || retrieval === "overview") {
     const messageIds = new Set<string>();
+    const relevantMessageIds = new Set<string>();
     const taskIds = new Set<string>();
     const decisionIds = new Set<string>();
     const memoryIds = new Set<string>();
     for (const topic of selected) {
       const links = await store.listSubjectIdsForTopic(topic.id);
-      for (const id of links.messageIds) messageIds.add(id);
+      const topicMatches = lexicalScore(text, `${topic.title} ${topic.summary}`) > 0;
+      for (const id of links.messageIds) {
+        messageIds.add(id);
+        if (retrieval !== "overview" || topicMatches) relevantMessageIds.add(id);
+      }
       for (const id of links.taskIds) taskIds.add(id);
       for (const id of links.decisionIds) decisionIds.add(id);
       for (const id of links.memoryIds) memoryIds.add(id);
     }
-    const allMessages = await store.listRecentMessages(opts.conversationId, 500);
-    recentMessages =
-      retrieval === "overview"
-        ? []
-        : allMessages.filter((m) => messageIds.has(m.id)).slice(-maxMessages);
+    const allMessages = await store.listRecentMessages(opts.conversationId, 120);
+    const linked = allMessages.filter((m) => relevantMessageIds.has(m.id));
+    const unlinked = pickUnlinkedMessages(
+      allMessages,
+      messageIds,
+      text,
+      opts.triggerMessage?.reply_to_message_id ?? null,
+      8,
+      opts.triggerMessage?.id,
+    );
+    const combined = [...linked, ...unlinked.filter((m) => !linked.some((row) => row.id === m.id))];
+    recentMessages = combined.slice(-maxMessages);
     activeDecisions = activeDecisions.filter((d) => decisionIds.has(d.id));
     allTasks = allTasks.filter((t) => taskIds.has(t.id));
     const topical = memory.filter(
@@ -136,7 +149,7 @@ export async function buildTeamAgentContext(
     activeTasks: allActiveTasks,
     blockedTasks,
     relevantMemory,
-    repository: repoProvider.getContext(),
+    repository: await Promise.resolve(repoProvider.getContext()),
     potentialConflicts,
     openQuestions,
     topics: selected.filter((t) => t.status !== "archived"),

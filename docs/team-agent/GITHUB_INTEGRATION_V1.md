@@ -1,6 +1,6 @@
 # GitHub Integration V1 (contract)
 
-**Status:** contract only — no GitHub App / webhooks in Foundation V1.
+**Status:** read-only client in `lib/team-agent/github-repository.ts`. No GitHub writes, no auto-merge. Runtime stays «не подключён», пока нет `GITHUB_TEAM_AGENT_TOKEN` и `GITHUB_TEAM_AGENT_REPO`.
 
 Goal: connect `PLAN → TASK → ASSIGNEE → BRANCH → COMMITS → RESULT` without auto-merge.
 

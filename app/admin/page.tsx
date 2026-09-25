@@ -41,7 +41,7 @@ export default async function AdminPage() {
   if (!(await userIsAdmin(supabase))) redirect("/");
 
   let counts: AdminDashboardCounts | null = null;
-  let analytics: AdminAnalytics | null = null;
+  let analytics: Awaited<ReturnType<typeof getAdminAnalytics>> | null = null;
   let searches7d = 0;
   try {
     [counts, analytics, searches7d] = await Promise.all([

@@ -39,13 +39,13 @@ function seatPoint(index: number, yourSeat: number | null) {
   const shift = yourSeat ?? 0;
   const angle = Math.PI / 2 + ((index - shift) * 2 * Math.PI) / 7;
   return {
-    left: `${50 + Math.cos(angle) * 40}%`,
-    top: `${50 + Math.sin(angle) * 42}%`,
+    left: `${50 + Math.cos(angle) * 34}%`,
+    top: `${58 + Math.sin(angle) * 24}%`,
   };
 }
 
-const DECK_FROM = { left: "68%", top: "50%" };
-const TABLE_AT = { left: "50%", top: "46%" };
+const DECK_FROM = { left: "50%", top: "18%" };
+const TABLE_AT = { left: "50%", top: "58%" };
 
 type Flight = {
   key: string;
@@ -369,14 +369,16 @@ export function DurakTable({
         <Link className="text-sm font-medium text-brand-blue" href="/games/durak">
           Столы
         </Link>
-        <div className="mt-1 flex flex-wrap items-end justify-between gap-2">
+        <div className="mt-1">
           <h1 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             Стол {tableId}
           </h1>
-          <p className="text-sm text-slate-600">
-            {view.status}
+          <p className="mt-1 text-sm text-slate-600">{view.status}</p>
+          <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500">
+            {modeLabel}
+            {view.deckKind ? ` · колода ${view.deckKind}` : ""}
             {view.nextDeckKind && view.nextDeckKind !== view.deckKind
-              ? ` Следующий кон: колода ${view.nextDeckKind}.`
+              ? ` · следующий кон ${view.nextDeckKind}`
               : ""}
           </p>
         </div>
@@ -393,8 +395,8 @@ export function DurakTable({
         </p>
       ) : null}
 
-      <div className="relative mx-auto aspect-[5/4] w-full max-w-xl">
-        <div className="absolute inset-x-7 inset-y-6 rounded-[2rem] bg-gradient-to-b from-[#8d5a32] via-[#5c3a1e] to-[#3a2414] p-1.5 shadow-[0_16px_30px_rgba(40,22,8,0.28)] sm:inset-x-9 sm:inset-y-7 sm:p-2">
+      <div className="relative mx-auto aspect-[4/5] w-full max-w-xl">
+        <div className="absolute inset-x-8 inset-y-10 rounded-[2rem] bg-gradient-to-b from-[#8d5a32] via-[#5c3a1e] to-[#3a2414] p-1.5 shadow-[0_16px_30px_rgba(40,22,8,0.28)] sm:inset-x-10 sm:inset-y-12 sm:p-2">
           <div className="relative h-full overflow-hidden rounded-[1.6rem] bg-[radial-gradient(ellipse_at_50%_42%,#3eaf72_0%,#1d7c4a_46%,#0e5532_78%,#083d24_100%)] shadow-[inset_0_0_48px_rgba(0,0,0,0.45)]">
             <div
               className="pointer-events-none absolute inset-0 opacity-30"
@@ -405,13 +407,8 @@ export function DurakTable({
             />
             <div className="pointer-events-none absolute inset-2 rounded-[1.3rem] border border-[#e7c98a]/45" />
 
-            <p className="absolute left-3 top-3 text-[11px] font-medium uppercase tracking-wide text-[#f3e2b3]">
-              {modeLabel}
-              {view.deckKind ? ` · ${view.deckKind}` : ""}
-            </p>
-
             {view.table.length === 0 && view.phase !== "play" ? (
-              <div className="absolute left-1/2 top-1/2 h-16 w-28 -translate-x-1/2 -translate-y-1/2">
+              <div className="absolute left-1/2 top-[58%] h-16 w-28 -translate-x-1/2 -translate-y-1/2">
                 {IDLE_CARDS.map((card) => (
                   <span
                     className="absolute left-1/2 top-1/2"
@@ -425,7 +422,7 @@ export function DurakTable({
                 ))}
               </div>
             ) : (
-              <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+              <div className="absolute left-1/2 top-[58%] flex max-w-[70%] -translate-x-1/2 -translate-y-1/2 flex-wrap items-center justify-center">
                 {view.table.map((pair, index) => (
                   <div
                     className="relative mx-0.5"
@@ -444,18 +441,18 @@ export function DurakTable({
               </div>
             )}
 
-            <div className="absolute left-[68%] top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-end">
-              {view.trumpSuit ? (
-                <span
-                  className={cn(
-                    "mb-1 mr-2 flex h-11 w-8 -rotate-90 items-center justify-center rounded-md border border-slate-200 bg-white text-lg font-semibold shadow",
-                    suitTone(view.trumpSuit),
-                  )}
-                >
-                  {suitLabel(view.trumpSuit)}
-                </span>
-              ) : null}
+            <div className="absolute left-1/2 top-2 flex -translate-x-1/2 flex-col items-center">
               <span className="relative h-16 w-11">
+                {view.trumpSuit ? (
+                  <span
+                    className={cn(
+                      "absolute -bottom-3 left-0.5 flex h-11 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-lg font-semibold shadow",
+                      suitTone(view.trumpSuit),
+                    )}
+                  >
+                    {suitLabel(view.trumpSuit)}
+                  </span>
+                ) : null}
                 <span className="absolute left-0.5 top-1">
                   <CardBack />
                 </span>
@@ -463,7 +460,7 @@ export function DurakTable({
                   <CardBack />
                 </span>
                 {view.stockCount > 0 ? (
-                  <span className="absolute -right-2 -top-2 flex size-5 items-center justify-center rounded-full bg-[#f3e2b3] text-[10px] font-semibold text-[#3a2414]">
+                  <span className="absolute -right-2 -top-2 z-10 flex size-5 items-center justify-center rounded-full bg-[#f3e2b3] text-[10px] font-semibold text-[#3a2414]">
                     {view.stockCount}
                   </span>
                 ) : null}
@@ -488,22 +485,31 @@ export function DurakTable({
           </span>
         ))}
 
-        {view.seats.map((seat) => (
+        {view.seats.map((seat) => {
+          const point = seatPoint(seat.index, view.yourSeat);
+          const seatLeft = Number.parseFloat(point.left);
+          return (
           <button
-            className="absolute z-10 flex w-[4.5rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+            className="absolute z-10 flex w-16 -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
             key={seat.index}
-            style={seatPoint(seat.index, view.yourSeat)}
+            style={point}
             type="button"
             onClick={() => occupy(seat.index, seat.occupied)}
           >
             <span className="relative">
               {seat.occupied && !seat.isYou && seat.cardCount > 0 ? (
-                <span className="absolute -left-3 top-2 flex" aria-hidden>
-                  {Array.from({ length: Math.min(seat.cardCount, 3) }, (_, layer) => (
+                <span
+                  aria-hidden
+                  className={cn(
+                    "pointer-events-none absolute top-1 flex",
+                    seatLeft < 46 ? "left-7" : "-left-3",
+                  )}
+                >
+                  {Array.from({ length: Math.min(seat.cardCount, 2) }, (_, layer) => (
                     <span
-                      className="h-7 w-5 rounded border border-[#d7b56a]/80 bg-[#143056] shadow-sm"
+                      className="h-6 w-4 rounded border border-[#d7b56a]/80 bg-[#143056] shadow-sm"
                       key={layer}
-                      style={{ marginLeft: layer === 0 ? 0 : -10 }}
+                      style={{ marginLeft: layer === 0 ? 0 : -8 }}
                     />
                   ))}
                 </span>
@@ -519,7 +525,8 @@ export function DurakTable({
               {seat.occupied ? seat.name : "Занять"}
             </span>
           </button>
-        ))}
+          );
+        })}
       </div>
 
       <div className="flex flex-wrap gap-2">

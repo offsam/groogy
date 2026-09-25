@@ -10,6 +10,9 @@ export type TeamAgentConfig = {
   mentionTokens: string[];
   explicitCommands: string[];
   maxContextMessages: number;
+  maxTopicCandidates: number;
+  maxSelectedTopics: number;
+  maxOverviewTopics: number;
   requireWebhookSecret: boolean;
 };
 
@@ -31,8 +34,17 @@ export function loadTeamAgentConfig(
     mentionTokens,
     explicitCommands: [...DEFAULT_COMMANDS],
     maxContextMessages: 30,
+    maxTopicCandidates: positiveInt(env.TEAM_AGENT_MAX_TOPIC_CANDIDATES, 20),
+    maxSelectedTopics: positiveInt(env.TEAM_AGENT_MAX_SELECTED_TOPICS, 3),
+    maxOverviewTopics: positiveInt(env.TEAM_AGENT_MAX_OVERVIEW_TOPICS, 5),
     requireWebhookSecret: true,
   };
+}
+
+function positiveInt(value: string | undefined, fallback: number): number {
+  const n = Number(value);
+  if (!Number.isFinite(n) || n < 1) return fallback;
+  return Math.floor(n);
 }
 
 function normalizeProvider(

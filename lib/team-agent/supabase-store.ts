@@ -19,6 +19,7 @@ import type {
   TeamAgentMessage,
   TeamAgentSourceType,
   TeamAgentTask,
+  TeamAgentTopic,
   TeamAgentTaskPriority,
   TeamAgentTaskStatus,
   TeamAgentDecisionStatus,
@@ -146,6 +147,30 @@ function mapMemory(
     source_message_id: row.source_message_id,
     confidence: row.confidence,
     status: row.status as TeamAgentMemoryStatus,
+    category: row.category,
+    metadata:
+      row.metadata && typeof row.metadata === "object" && !Array.isArray(row.metadata)
+        ? (row.metadata as Record<string, unknown>)
+        : {},
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  };
+}
+
+function mapTopic(
+  row: Database["public"]["Tables"]["team_agent_topics"]["Row"],
+): TeamAgentTopic {
+  return {
+    id: row.id,
+    title: row.title,
+    slug: row.slug,
+    summary: row.summary,
+    status: row.status,
+    last_activity_at: row.last_activity_at,
+    metadata:
+      row.metadata && typeof row.metadata === "object" && !Array.isArray(row.metadata)
+        ? (row.metadata as Record<string, unknown>)
+        : {},
     created_at: row.created_at,
     updated_at: row.updated_at,
   };
@@ -471,6 +496,8 @@ export class SupabaseTeamAgentStore implements TeamAgentStore {
           source_message_id: input.source_message_id,
           confidence: input.confidence,
           status: input.status,
+          category: input.category ?? null,
+          metadata: (input.metadata ?? {}) as Json,
           updated_at: nowIso(),
         },
         { onConflict: "id" },
@@ -544,6 +571,218 @@ export class SupabaseTeamAgentStore implements TeamAgentStore {
     const { data, error } = await this.db.from("team_agent_approvals").select("*");
     if (error) throw new Error(error.message);
     return (data ?? []).map(mapApproval);
+  }
+
+  async upsertTopic(
+    input: Omit<TeamAgentTopic, "id" | "created_at" | "updated_at"> & {
+      id?: string;
+    },
+  ): Promise<TeamAgentTopic> {
+    const id = input.id ?? randomUUID();
+    const { data, error } = await this.db
+      .from("team_agent_topics")
+      .upsert(
+        {
+          id,
+          title: input.title,
+          slug: input.slug,
+          summary: input.summary,
+          status: input.status,
+          last_activity_at: input.last_activity_at,
+          metadata: input.metadata as Json,
+          updated_at: nowIso(),
+        },
+        { onConflict: "id" },
+      )
+      .select("*")
+      .single();
+    if (error || !data) throw new Error(error?.message ?? "upsertTopic failed");
+    return mapTopic(data);
+  }
+
+  async listTopics(): Promise<TeamAgentTopic[]> {
+    const { data, error } = await this.db.from("team_agent_topics").select("*");
+    if (error) throw new Error(error.message);
+    return (data ?? []).map(mapTopic);
+  }
+
+  async getTopicById(id: string): Promise<TeamAgentTopic | null> {
+    const { data, error } = await this.db
+      .from("team_agent_topics")
+      .select("*")
+      .eq("id", id)
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    return data ? mapTopic(data) : null;
+  }
+
+  async findTopicBySlug(slug: string): Promise<TeamAgentTopic | null> {
+    const { data, error } = await this.db
+      .from("team_agent_topics")
+      .select("*")
+      .eq("slug", slug)
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    return data ? mapTopic(data) : null;
+  }
+
+  async listActiveTopics(): Promise<TeamAgentTopic[]> {
+    const { data, error } = await this.db
+      .from("team_agent_topics")
+      .select("*")
+      .eq("status", "active");
+    if (error) throw new Error(error.message);
+    return (data ?? []).map(mapTopic);
+  }
+
+  async linkSubjectToTopic(input: {
+    topicId: string;
+    messageId?: string;
+    taskId?: string;
+    decisionId?: string;
+    memoryId?: string;
+  }): Promise<void> {
+    const writes: Array<PromiseLike<{ error: { message: string } | null }>> = [];
+    if (input.messageId) {
+      writes.push(
+        this.db.from("team_agent_message_topics").upsert(
+          { message_id: input.messageId, topic_id: input.topicId },
+          { onConflict: "message_id,topic_id" },
+        ),
+      );
+    }
+    if (input.taskId) {
+      writes.push(
+        this.db.from("team_agent_task_topics").upsert(
+          { task_id: input.taskId, topic_id: input.topicId },
+          { onConflict: "task_id,topic_id" },
+        ),
+      );
+    }
+    if (input.decisionId) {
+      writes.push(
+        this.db.from("team_agent_decision_topics").upsert(
+          { decision_id: input.decisionId, topic_id: input.topicId },
+          { onConflict: "decision_id,topic_id" },
+        ),
+      );
+    }
+    if (input.memoryId) {
+      writes.push(
+        this.db.from("team_agent_memory_topics").upsert(
+          { memory_id: input.memoryId, topic_id: input.topicId },
+          { onConflict: "memory_id,topic_id" },
+        ),
+      );
+    }
+    const results = await Promise.all(writes);
+    const failed = results.find((r) => r.error);
+    if (failed?.error) throw new Error(failed.error.message);
+  }
+
+  async listTopicIdsForSubject(input: {
+    messageId?: string;
+    taskId?: string;
+    decisionId?: string;
+    memoryId?: string;
+  }): Promise<string[]> {
+    if (input.messageId) {
+      const { data, error } = await this.db
+        .from("team_agent_message_topics")
+        .select("topic_id")
+        .eq("message_id", input.messageId);
+      if (error) throw new Error(error.message);
+      return (data ?? []).map((row) => row.topic_id);
+    }
+    if (input.taskId) {
+      const { data, error } = await this.db
+        .from("team_agent_task_topics")
+        .select("topic_id")
+        .eq("task_id", input.taskId);
+      if (error) throw new Error(error.message);
+      return (data ?? []).map((row) => row.topic_id);
+    }
+    if (input.decisionId) {
+      const { data, error } = await this.db
+        .from("team_agent_decision_topics")
+        .select("topic_id")
+        .eq("decision_id", input.decisionId);
+      if (error) throw new Error(error.message);
+      return (data ?? []).map((row) => row.topic_id);
+    }
+    if (input.memoryId) {
+      const { data, error } = await this.db
+        .from("team_agent_memory_topics")
+        .select("topic_id")
+        .eq("memory_id", input.memoryId);
+      if (error) throw new Error(error.message);
+      return (data ?? []).map((row) => row.topic_id);
+    }
+    return [];
+  }
+
+  async listSubjectIdsForTopic(topicId: string): Promise<{
+    messageIds: string[];
+    taskIds: string[];
+    decisionIds: string[];
+    memoryIds: string[];
+  }> {
+    const [messages, tasks, decisions, memories] = await Promise.all([
+      this.db.from("team_agent_message_topics").select("message_id").eq("topic_id", topicId),
+      this.db.from("team_agent_task_topics").select("task_id").eq("topic_id", topicId),
+      this.db.from("team_agent_decision_topics").select("decision_id").eq("topic_id", topicId),
+      this.db.from("team_agent_memory_topics").select("memory_id").eq("topic_id", topicId),
+    ]);
+    if (messages.error) throw new Error(messages.error.message);
+    if (tasks.error) throw new Error(tasks.error.message);
+    if (decisions.error) throw new Error(decisions.error.message);
+    if (memories.error) throw new Error(memories.error.message);
+    return {
+      messageIds: (messages.data ?? []).map((row) => row.message_id),
+      taskIds: (tasks.data ?? []).map((row) => row.task_id),
+      decisionIds: (decisions.data ?? []).map((row) => row.decision_id),
+      memoryIds: (memories.data ?? []).map((row) => row.memory_id),
+    };
+  }
+
+  async rewireTopicLinks(fromTopicId: string, toTopicId: string): Promise<void> {
+    const links = await this.listSubjectIdsForTopic(fromTopicId);
+    for (const messageId of links.messageIds) {
+      const { error } = await this.db.from("team_agent_message_topics").upsert(
+        { message_id: messageId, topic_id: toTopicId },
+        { onConflict: "message_id,topic_id" },
+      );
+      if (error) throw new Error(error.message);
+    }
+    for (const taskId of links.taskIds) {
+      const { error } = await this.db.from("team_agent_task_topics").upsert(
+        { task_id: taskId, topic_id: toTopicId },
+        { onConflict: "task_id,topic_id" },
+      );
+      if (error) throw new Error(error.message);
+    }
+    for (const decisionId of links.decisionIds) {
+      const { error } = await this.db.from("team_agent_decision_topics").upsert(
+        { decision_id: decisionId, topic_id: toTopicId },
+        { onConflict: "decision_id,topic_id" },
+      );
+      if (error) throw new Error(error.message);
+    }
+    for (const memoryId of links.memoryIds) {
+      const { error } = await this.db.from("team_agent_memory_topics").upsert(
+        { memory_id: memoryId, topic_id: toTopicId },
+        { onConflict: "memory_id,topic_id" },
+      );
+      if (error) throw new Error(error.message);
+    }
+    const deletes = await Promise.all([
+      this.db.from("team_agent_message_topics").delete().eq("topic_id", fromTopicId),
+      this.db.from("team_agent_task_topics").delete().eq("topic_id", fromTopicId),
+      this.db.from("team_agent_decision_topics").delete().eq("topic_id", fromTopicId),
+      this.db.from("team_agent_memory_topics").delete().eq("topic_id", fromTopicId),
+    ]);
+    const failed = deletes.find((row) => row.error);
+    if (failed?.error) throw new Error(failed.error.message);
   }
 
   async insertGitActivity(

@@ -5,6 +5,7 @@
 import assert from "node:assert/strict";
 import { InMemoryTeamAgentStore } from "../store";
 import { seedMembersFromTemplate } from "../members";
+import { buildTeamAgentContext } from "../context";
 import { handleTelegramUpdate } from "./handle-update";
 import { normalizeTelegramUpdate } from "./normalize";
 import { verifyTelegramWebhookSecret } from "./webhook-auth";
@@ -395,6 +396,56 @@ async function run() {
       env: envForTests(),
     });
     assert.equal(provider.calls, 1);
+  }
+
+  // 18. mention persists one human + one agent reply; retry duplicates neither
+  {
+    const store = setupStore();
+    const provider = new CountingProvider();
+    const u = msgUpdate({
+      text: "@kroogy_bot webhook test",
+      messageId: 210,
+      entities: [{ type: "mention", offset: 0, length: 11 }],
+    });
+    const first = await handleTelegramUpdate({
+      update: u,
+      store,
+      provider,
+      botUserId: 777,
+      env: envForTests(),
+    });
+    assert.equal(first.shouldRespond, true);
+    assert.equal(first.replySent, true);
+    assert.equal(provider.calls, 1);
+
+    const second = await handleTelegramUpdate({
+      update: { ...u, update_id: 211 },
+      store,
+      provider,
+      botUserId: 777,
+      env: envForTests(),
+    });
+    assert.equal(second.providerCalls, 0);
+    assert.equal(provider.calls, 1);
+
+    const conv = [...store.conversations.values()][0];
+    const msgs = store.listRecentMessages(conv.id, 50);
+    const human = msgs.filter((m) => m.message_type !== "bot");
+    const agent = msgs.filter((m) => m.message_type === "bot");
+    assert.equal(human.length, 1);
+    assert.equal(agent.length, 1);
+    assert.equal(human[0].member_id != null, true);
+    assert.equal(agent[0].member_id, null);
+    assert.equal(agent[0].reply_to_message_id, human[0].id);
+    assert.equal(agent[0].external_message_id, "agent:210");
+    assert.equal(agent[0].metadata.role, "agent");
+    assert.equal(agent[0].metadata.source, "bot");
+    assert.equal(agent[0].body, "mock reply");
+
+    const ctx = await buildTeamAgentContext(store, {
+      conversationId: conv.id,
+    });
+    assert.ok(ctx.recentMessages.some((m) => m.message_type === "bot"));
   }
 
   // 17. ordinary conversation does NOT call provider

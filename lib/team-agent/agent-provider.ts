@@ -108,6 +108,10 @@ export class MockTeamAgentProvider implements TeamAgentProvider {
       replyText: lines.join("\n"),
       proposedActions,
       needsHumanApproval,
+      provider: "mock",
+      model: null,
+      responseId: null,
+      usage: null,
     };
   }
 }

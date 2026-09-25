@@ -2283,6 +2283,17 @@ export type Database = {
           source_message_id: string | null;
           confidence: "low" | "medium" | "high";
           status: "active" | "superseded" | "invalid";
+          category:
+            | "idea"
+            | "fact"
+            | "decision"
+            | "task"
+            | "constraint"
+            | "question"
+            | "preference"
+            | "summary"
+            | null;
+          metadata: Json;
           created_at: string;
           updated_at: string;
         };
@@ -2300,11 +2311,114 @@ export type Database = {
           source_message_id?: string | null;
           confidence?: "low" | "medium" | "high";
           status?: "active" | "superseded" | "invalid";
+          category?:
+            | "idea"
+            | "fact"
+            | "decision"
+            | "task"
+            | "constraint"
+            | "question"
+            | "preference"
+            | "summary"
+            | null;
+          metadata?: Json;
           created_at?: string;
           updated_at?: string;
         };
         Update: Partial<
           Database["public"]["Tables"]["team_agent_memory"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_topics: {
+        Row: {
+          id: string;
+          title: string;
+          slug: string;
+          summary: string;
+          status: "active" | "dormant" | "archived";
+          last_activity_at: string;
+          metadata: Json;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          slug: string;
+          summary?: string;
+          status?: "active" | "dormant" | "archived";
+          last_activity_at?: string;
+          metadata?: Json;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_topics"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_message_topics: {
+        Row: {
+          message_id: string;
+          topic_id: string;
+          created_at: string;
+        };
+        Insert: {
+          message_id: string;
+          topic_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_message_topics"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_task_topics: {
+        Row: {
+          task_id: string;
+          topic_id: string;
+          created_at: string;
+        };
+        Insert: {
+          task_id: string;
+          topic_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_task_topics"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_decision_topics: {
+        Row: {
+          decision_id: string;
+          topic_id: string;
+          created_at: string;
+        };
+        Insert: {
+          decision_id: string;
+          topic_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_decision_topics"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      team_agent_memory_topics: {
+        Row: {
+          memory_id: string;
+          topic_id: string;
+          created_at: string;
+        };
+        Insert: {
+          memory_id: string;
+          topic_id: string;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["team_agent_memory_topics"]["Insert"]
         >;
         Relationships: [];
       };

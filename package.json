@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "team-agent:test": "npx tsx lib/team-agent/team-agent.test.ts && npx tsx lib/team-agent/telegram/normalize.test.ts && npx tsx lib/team-agent/telegram/integration.test.ts",
+    "team-agent:test": "npx tsx lib/team-agent/team-agent.test.ts && npx tsx lib/team-agent/telegram/normalize.test.ts && npx tsx lib/team-agent/telegram/integration.test.ts && npx tsx lib/team-agent/topics.test.ts && npx tsx lib/team-agent/topic-intelligence.test.ts",
     "team-agent:simulate": "npx tsx lib/team-agent/simulate.ts",
     "team-agent:telegram:bootstrap": "npx tsx lib/team-agent/telegram/discover-chat.ts",
     "team-agent:telegram:poll": "npx tsx lib/team-agent/telegram/poll.ts",

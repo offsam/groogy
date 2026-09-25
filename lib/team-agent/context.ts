@@ -9,11 +9,13 @@ import type { RepositoryContextProvider } from "./repository-context";
 import { MockRepositoryContextProvider } from "./repository-context";
 import type { TeamAgentStore } from "./store-port";
 import { isActiveTaskStatus } from "./tasks";
+import { inferTopicIds, isGlobalConstraint, isOverviewQuestion } from "./topics";
 import type {
   PathConflict,
   TeamAgentContext,
   TeamAgentMember,
   TeamAgentMessage,
+  TeamAgentTopic,
 } from "./types";
 
 export type BuildContextOptions = {
@@ -34,18 +36,81 @@ export async function buildTeamAgentContext(
     opts.repositoryProvider ?? new MockRepositoryContextProvider();
 
   const members = await store.listActiveMembers();
-  const recentMessages = await store.listRecentMessages(
+
+  const memory = await store.listMemory();
+  const topics = await store.listTopics();
+  const text = opts.triggerMessage?.body ?? "";
+  const hasTopics = topics.length > 0;
+
+  let retrieval: TeamAgentContext["retrieval"] = "unscoped";
+  let selected: TeamAgentTopic[] = [];
+
+  if (hasTopics && opts.triggerMessage && isOverviewQuestion(text)) {
+    retrieval = "overview";
+    selected = topics
+      .filter((t) => t.status === "active")
+      .sort((a, b) => b.last_activity_at.localeCompare(a.last_activity_at))
+      .slice(0, config.maxOverviewTopics);
+  } else if (hasTopics && opts.triggerMessage) {
+    const linked = await store.listTopicIdsForSubject({
+      messageId: opts.triggerMessage.id,
+    });
+    const inferred = linked.length
+      ? linked
+      : await inferTopicIds(store, {
+          text,
+          replyToMessageId: opts.triggerMessage.reply_to_message_id,
+        });
+    const byId = new Map(topics.map((t) => [t.id, t]));
+    selected = inferred
+      .map((id) => byId.get(id))
+      .filter((t): t is TeamAgentTopic => Boolean(t))
+      .filter((t) => t.status !== "archived" || textIncludesLabel(text, t.title));
+    if (selected.length > 0) retrieval = "topic";
+  }
+
+  let recentMessages = await store.listRecentMessages(
     opts.conversationId,
     maxMessages,
   );
+  let activeDecisions = await listAuthoritativeDecisions(store);
+  let allTasks = await store.listTasks();
+  let relevantMemory = memory.filter((m) => m.status === "active").slice(-20);
 
-  const activeDecisions = await listAuthoritativeDecisions(store);
-  const allTasks = await store.listTasks();
+  if (retrieval === "topic" || retrieval === "overview") {
+    const messageIds = new Set<string>();
+    const taskIds = new Set<string>();
+    const decisionIds = new Set<string>();
+    const memoryIds = new Set<string>();
+    for (const topic of selected) {
+      const links = await store.listSubjectIdsForTopic(topic.id);
+      for (const id of links.messageIds) messageIds.add(id);
+      for (const id of links.taskIds) taskIds.add(id);
+      for (const id of links.decisionIds) decisionIds.add(id);
+      for (const id of links.memoryIds) memoryIds.add(id);
+    }
+    const allMessages = await store.listRecentMessages(opts.conversationId, 500);
+    recentMessages =
+      retrieval === "overview"
+        ? []
+        : allMessages.filter((m) => messageIds.has(m.id)).slice(-maxMessages);
+    activeDecisions = activeDecisions.filter((d) => decisionIds.has(d.id));
+    allTasks = allTasks.filter((t) => taskIds.has(t.id));
+    const topical = memory.filter(
+      (m) => m.status === "active" && memoryIds.has(m.id),
+    );
+    const globalConstraints = memory.filter(
+      (m) => isGlobalConstraint(m) && !memoryIds.has(m.id),
+    );
+    relevantMemory = [...topical, ...globalConstraints].slice(-20);
+  }
+
+  const topicSummaries = selected
+    .filter((t) => t.status !== "archived")
+    .map((t) => `${t.title}: ${t.summary || "(без summary)"}`);
+
   const allActiveTasks = allTasks.filter((t) => isActiveTaskStatus(t.status));
   const blockedTasks = allActiveTasks.filter((t) => t.status === "blocked");
-
-  const memory = await store.listMemory();
-  const relevantMemory = memory.filter((m) => m.status === "active").slice(-20);
 
   const potentialConflicts: PathConflict[] = [];
   for (let i = 0; i < allActiveTasks.length; i++) {
@@ -74,5 +139,14 @@ export async function buildTeamAgentContext(
     repository: repoProvider.getContext(),
     potentialConflicts,
     openQuestions,
+    topics: selected.filter((t) => t.status !== "archived"),
+    topicSummaries,
+    retrieval,
   };
+}
+
+function textIncludesLabel(text: string, label: string): boolean {
+  const needle = label.trim().toLowerCase();
+  if (needle.length < 3) return false;
+  return text.toLowerCase().includes(needle);
 }

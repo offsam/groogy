@@ -15,11 +15,14 @@ import type {
   TeamAgentMessage,
   TeamAgentSourceType,
   TeamAgentTask,
+  TeamAgentTopic,
 } from "./types";
 
 function nowIso(): string {
   return new Date().toISOString();
 }
+
+type TopicLinkKind = "message" | "task" | "decision" | "memory";
 
 export type TeamAgentStoreSnapshot = {
   members: TeamAgentMember[];
@@ -30,6 +33,7 @@ export type TeamAgentStoreSnapshot = {
   gitActivity: TeamAgentGitActivity[];
   memory: TeamAgentMemory[];
   approvals: TeamAgentApproval[];
+  topics: TeamAgentTopic[];
 };
 
 export class InMemoryTeamAgentStore implements TeamAgentStore {
@@ -41,6 +45,8 @@ export class InMemoryTeamAgentStore implements TeamAgentStore {
   gitActivity = new Map<string, TeamAgentGitActivity>();
   memory = new Map<string, TeamAgentMemory>();
   approvals = new Map<string, TeamAgentApproval>();
+  topics = new Map<string, TeamAgentTopic>();
+  topicLinks = new Set<string>();
 
   clear(): void {
     this.members.clear();
@@ -51,6 +57,8 @@ export class InMemoryTeamAgentStore implements TeamAgentStore {
     this.gitActivity.clear();
     this.memory.clear();
     this.approvals.clear();
+    this.topics.clear();
+    this.topicLinks.clear();
   }
 
   snapshot(): TeamAgentStoreSnapshot {
@@ -63,6 +71,7 @@ export class InMemoryTeamAgentStore implements TeamAgentStore {
       gitActivity: [...this.gitActivity.values()],
       memory: [...this.memory.values()],
       approvals: [...this.approvals.values()],
+      topics: [...this.topics.values()],
     };
   }
 
@@ -265,6 +274,8 @@ export class InMemoryTeamAgentStore implements TeamAgentStore {
     const row: TeamAgentMemory = {
       ...input,
       id,
+      category: input.category ?? existing?.category ?? null,
+      metadata: input.metadata ?? existing?.metadata ?? {},
       created_at: existing?.created_at ?? ts,
       updated_at: ts,
     };
@@ -306,6 +317,124 @@ export class InMemoryTeamAgentStore implements TeamAgentStore {
 
   listApprovals(): TeamAgentApproval[] {
     return [...this.approvals.values()];
+  }
+
+  upsertTopic(
+    input: Omit<TeamAgentTopic, "id" | "created_at" | "updated_at"> & {
+      id?: string;
+    },
+  ): TeamAgentTopic {
+    const ts = nowIso();
+    const id = input.id ?? randomUUID();
+    const existing = this.topics.get(id);
+    const row: TeamAgentTopic = {
+      ...input,
+      id,
+      created_at: existing?.created_at ?? ts,
+      updated_at: ts,
+    };
+    this.topics.set(id, row);
+    return row;
+  }
+
+  listTopics(): TeamAgentTopic[] {
+    return [...this.topics.values()];
+  }
+
+  getTopicById(id: string): TeamAgentTopic | null {
+    return this.topics.get(id) ?? null;
+  }
+
+  findTopicBySlug(slug: string): TeamAgentTopic | null {
+    return this.listTopics().find((t) => t.slug === slug) ?? null;
+  }
+
+  listActiveTopics(): TeamAgentTopic[] {
+    return this.listTopics().filter((t) => t.status === "active");
+  }
+
+  private linkKey(kind: TopicLinkKind, subjectId: string, topicId: string): string {
+    return `${kind}:${subjectId}:${topicId}`;
+  }
+
+  linkSubjectToTopic(input: {
+    topicId: string;
+    messageId?: string;
+    taskId?: string;
+    decisionId?: string;
+    memoryId?: string;
+  }): void {
+    const pairs: Array<[TopicLinkKind, string | undefined]> = [
+      ["message", input.messageId],
+      ["task", input.taskId],
+      ["decision", input.decisionId],
+      ["memory", input.memoryId],
+    ];
+    for (const [kind, subjectId] of pairs) {
+      if (!subjectId) continue;
+      this.topicLinks.add(this.linkKey(kind, subjectId, input.topicId));
+    }
+  }
+
+  listTopicIdsForSubject(input: {
+    messageId?: string;
+    taskId?: string;
+    decisionId?: string;
+    memoryId?: string;
+  }): string[] {
+    const kind: TopicLinkKind | null = input.messageId
+      ? "message"
+      : input.taskId
+        ? "task"
+        : input.decisionId
+          ? "decision"
+          : input.memoryId
+            ? "memory"
+            : null;
+    const subjectId =
+      input.messageId ?? input.taskId ?? input.decisionId ?? input.memoryId;
+    if (!kind || !subjectId) return [];
+    const prefix = `${kind}:${subjectId}:`;
+    return [...this.topicLinks]
+      .filter((k) => k.startsWith(prefix))
+      .map((k) => k.slice(prefix.length));
+  }
+
+  listSubjectIdsForTopic(topicId: string): {
+    messageIds: string[];
+    taskIds: string[];
+    decisionIds: string[];
+    memoryIds: string[];
+  } {
+    const out = {
+      messageIds: [] as string[],
+      taskIds: [] as string[],
+      decisionIds: [] as string[],
+      memoryIds: [] as string[],
+    };
+    for (const key of this.topicLinks) {
+      const [kind, subjectId, tid] = key.split(":");
+      if (tid !== topicId || !subjectId) continue;
+      if (kind === "message") out.messageIds.push(subjectId);
+      if (kind === "task") out.taskIds.push(subjectId);
+      if (kind === "decision") out.decisionIds.push(subjectId);
+      if (kind === "memory") out.memoryIds.push(subjectId);
+    }
+    return out;
+  }
+
+  rewireTopicLinks(fromTopicId: string, toTopicId: string): void {
+    const next = new Set<string>();
+    for (const key of this.topicLinks) {
+      const [kind, subjectId, tid] = key.split(":");
+      if (tid !== fromTopicId) {
+        next.add(key);
+        continue;
+      }
+      next.add(this.linkKey(kind as TopicLinkKind, subjectId, toTopicId));
+    }
+    this.topicLinks.clear();
+    for (const key of next) this.topicLinks.add(key);
   }
 
   insertGitActivity(

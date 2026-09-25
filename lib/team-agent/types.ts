@@ -35,6 +35,46 @@ export type TeamAgentMemoryType =
 
 export type TeamAgentMemoryStatus = "active" | "superseded" | "invalid";
 
+/** Knowledge label. Not a substitute for team_agent_tasks / team_agent_decisions. */
+export type TeamAgentMemoryCategory =
+  | "idea"
+  | "fact"
+  | "decision"
+  | "task"
+  | "constraint"
+  | "question"
+  | "preference"
+  | "summary";
+
+export type TeamAgentTopicStatus = "active" | "dormant" | "archived";
+
+export type TopicCandidate = {
+  id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  status: TeamAgentTopicStatus;
+};
+
+export type SuggestedTopic = {
+  title: string;
+  description?: string;
+  reason: string;
+};
+
+export type TopicClassificationResult = {
+  selectedTopicIds: string[];
+  primaryTopicId?: string;
+  suggestedNewTopics: SuggestedTopic[];
+  reasoningSummary?: string;
+};
+
+export type TopicSelection = {
+  primaryTopicId: string | null;
+  secondaryTopicIds: string[];
+  createdTopicId: string | null;
+};
+
 export type TeamAgentGitEventType =
   | "branch_created"
   | "commit_pushed"
@@ -143,11 +183,25 @@ export type TeamAgentGitActivity = {
 export type TeamAgentMemory = {
   id: string;
   memory_type: TeamAgentMemoryType;
+  category: TeamAgentMemoryCategory | null;
   subject: string;
   content: string;
   source_message_id: string | null;
   confidence: "low" | "medium" | "high";
   status: TeamAgentMemoryStatus;
+  metadata: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+};
+
+export type TeamAgentTopic = {
+  id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  status: TeamAgentTopicStatus;
+  last_activity_at: string;
+  metadata: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 };
@@ -242,6 +296,10 @@ export type TeamAgentContext = {
   repository: RepositoryContext;
   potentialConflicts: PathConflict[];
   openQuestions: string[];
+  /** Topics actually loaded into this context. Empty when retrieval is unscoped. */
+  topics: TeamAgentTopic[];
+  topicSummaries: string[];
+  retrieval: "unscoped" | "topic" | "overview";
 };
 
 export const ACTIVE_TASK_STATUSES: readonly TeamAgentTaskStatus[] = [
@@ -296,4 +354,12 @@ export type AgentRespondResult = {
   replyText: string;
   proposedActions: AgentActionProposal[];
   needsHumanApproval: boolean;
+  /** Optional provider telemetry. Stored on the bot message when present. */
+  provider?: string | null;
+  model?: string | null;
+  responseId?: string | null;
+  usage?: Record<string, unknown> | null;
+  /** Optional topic hints from the same provider call. Invalid ids are ignored. */
+  topicIds?: string[];
+  summaryUpdates?: Array<{ topicId: string; summary: string }>;
 };

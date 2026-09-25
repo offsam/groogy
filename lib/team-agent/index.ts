@@ -63,6 +63,27 @@ export {
   TEAM_MEMBER_BOOTSTRAP_TEMPLATE,
   seedMembersFromTemplate,
 } from "./members";
+export {
+  archiveTopic,
+  createTopic,
+  findTopicBySlug,
+  getTopicById,
+  inferTopicIds,
+  linkDecisionToTopic,
+  linkInferredTopics,
+  linkMemoryToTopic,
+  linkMessageToTopics,
+  linkTaskToTopic,
+  listActiveTopics,
+  mergeTopics,
+  renameTopic,
+  setTopicSummary,
+} from "./topics";
+export {
+  DeterministicTopicClassifier,
+  LLMTopicClassifier,
+  resolveInvocationTopics,
+} from "./topic-classifier";
 export { normalizeTelegramUpdate } from "./telegram/normalize";
 export { handleTelegramUpdate } from "./telegram/handle-update";
 export type * from "./types";

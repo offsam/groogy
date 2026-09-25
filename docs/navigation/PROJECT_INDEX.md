@@ -101,6 +101,7 @@ Compact TOC only. No explanations.
 
 - Architecture SoT: [`../team-agent/TEAM_AGENT_ARCHITECTURE_V1.md`](../team-agent/TEAM_AGENT_ARCHITECTURE_V1.md)
 - Memory policy: [`../team-agent/TEAM_AGENT_MEMORY_POLICY_V1.md`](../team-agent/TEAM_AGENT_MEMORY_POLICY_V1.md)
+- Topic packets: [`../team-agent/TOPIC_MEMORY_V1.md`](../team-agent/TOPIC_MEMORY_V1.md)
 - Telegram adapter contract: [`../team-agent/TELEGRAM_ADAPTER_V1.md`](../team-agent/TELEGRAM_ADAPTER_V1.md)
 - GitHub integration contract: [`../team-agent/GITHUB_INTEGRATION_V1.md`](../team-agent/GITHUB_INTEGRATION_V1.md)
 - Code: [`../../lib/team-agent/`](../../lib/team-agent/)

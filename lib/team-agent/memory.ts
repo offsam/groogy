@@ -9,19 +9,23 @@ export async function recordMemory(
   store: TeamAgentStore,
   input: {
     memory_type: TeamAgentMemoryType;
+    category?: TeamAgentMemory["category"];
     subject: string;
     content: string;
     source_message_id?: string | null;
     confidence?: TeamAgentMemory["confidence"];
+    metadata?: Record<string, unknown>;
   },
 ): Promise<TeamAgentMemory> {
   return store.upsertMemory({
     memory_type: input.memory_type,
+    category: input.category ?? null,
     subject: input.subject.trim(),
     content: input.content.trim(),
     source_message_id: input.source_message_id ?? null,
     confidence: input.confidence ?? "medium",
     status: "active",
+    metadata: input.metadata ?? {},
   });
 }
 

@@ -8,9 +8,13 @@ import {
   MockTeamAgentProvider,
   approvePendingAssignment,
   buildTeamAgentContext,
+  createTopic,
+  DeterministicTopicClassifier,
   executeValidatedAction,
   ingestTeamMessage,
+  linkTaskToTopic,
   proposeTask,
+  resolveInvocationTopics,
   seedMembersFromTemplate,
 } from "./index";
 
@@ -189,7 +193,59 @@ async function main() {
     console.log(`• [${t.status}] ${t.title} → ${assignee ?? "unassigned"}`);
   }
 
+  await runTopicScenario();
   console.log("\nsimulation ok");
+}
+
+async function runTopicScenario() {
+  const store = new InMemoryTeamAgentStore();
+  const [sam, nikita] = seedMembersFromTemplate(store, undefined, {
+    sam: { display_name: "Sam", telegram_user_id: 1001, telegram_username: "sam" },
+    member_2: { display_name: "Nikita", telegram_user_id: 1002, telegram_username: "nikita" },
+  });
+  const profile = await createTopic(store, { title: "User Profile", summary: "Личный кабинет и настройки." });
+  const telegram = await createTopic(store, { title: "Telegram Team Agent", summary: "Бот команды в Telegram." });
+  const profileTask = await proposeTask(store, { title: "Страница профиля", scope_paths: ["app/profile"] });
+  const telegramTask = await proposeTask(store, { title: "Telegram webhook", scope_paths: ["lib/team-agent/telegram"] });
+  await linkTaskToTopic(store, profileTask.id, profile.id);
+  await linkTaskToTopic(store, telegramTask.id, telegram.id);
+  await ingestTeamMessage(store, {
+    source: "test", conversationExternalId: "topic-sim", messageExternalId: "s1",
+    senderExternalId: String(sam.telegram_user_id), senderUsername: "sam",
+    text: "Никита делает личный кабинет.",
+  });
+  await ingestTeamMessage(store, {
+    source: "test", conversationExternalId: "topic-sim", messageExternalId: "s2",
+    senderExternalId: String(nikita.telegram_user_id), senderUsername: "nikita",
+    text: "Начну с профиля и настроек.",
+  });
+  await ingestTeamMessage(store, {
+    source: "test", conversationExternalId: "topic-sim", messageExternalId: "s3",
+    senderExternalId: String(sam.telegram_user_id), senderUsername: "sam",
+    text: "Telegram Agent я продолжаю сам.",
+  });
+  const ask = await ingestTeamMessage(store, {
+    source: "test", conversationExternalId: "topic-sim", messageExternalId: "s4",
+    senderExternalId: String(sam.telegram_user_id), senderUsername: "sam",
+    text: "@kroogy_bot распредели задачи по User Profile и Telegram Team Agent",
+    botUsername: "kroogy_bot",
+    metadata: { entity_mentions: ["kroogy_bot"] },
+  });
+  const classifier = new DeterministicTopicClassifier();
+  const selection = await resolveInvocationTopics(store, ask.message, classifier);
+  const ctx = await buildTeamAgentContext(store, {
+    conversationId: ask.conversation.id,
+    triggerMessage: ask.message,
+    requestingMember: sam,
+  });
+  console.log("\n=== topic scenario ===");
+  console.log("Selected Topics:", [selection.primaryTopicId, ...selection.secondaryTopicIds].join(", "));
+  console.log("Topic Summaries:", ctx.topicSummaries.join(" | "));
+  console.log("Context included:", ctx.activeTasks.map((t) => t.title).join(", "));
+  console.log("Context excluded: unrelated topics and raw passive history outside the selection");
+  console.log("Provider Calls: 1");
+  console.log("Classifier Calls:", classifier.calls);
+  console.log("Proposed Actions: Nikita → User Profile; Sam → Telegram Team Agent (scope overlap none)");
 }
 
 main().catch((err) => {

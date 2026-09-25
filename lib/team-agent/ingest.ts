@@ -9,6 +9,7 @@ import type {
   IngestTeamMessageInput,
   IngestTeamMessageResult,
   TeamAgentMember,
+  TeamAgentMessage,
 } from "./types";
 
 function parseSenderId(raw: string | null): number | null {
@@ -157,8 +158,75 @@ export async function ingestTeamMessage(
 export async function markMessageAgentReplied(
   store: TeamAgentStore,
   messageId: string,
+  agentReplyMessageId?: string | null,
 ): Promise<void> {
   await store.updateMessage(messageId, {
-    metadata: { agent_replied: true, agent_replied_at: new Date().toISOString() },
+    metadata: {
+      agent_replied: true,
+      agent_replied_at: new Date().toISOString(),
+      ...(agentReplyMessageId
+        ? { agent_reply_message_id: agentReplyMessageId }
+        : {}),
+    },
   });
+}
+
+/** Stable id so a webhook retry cannot insert a second bot row. */
+export function agentReplyExternalId(
+  triggerExternalMessageId: string | null | undefined,
+): string | null {
+  if (!triggerExternalMessageId) return null;
+  return `agent:${triggerExternalMessageId}`;
+}
+
+/**
+ * Persist the bot reply in the same conversation.
+ * member_id stays null — the bot is not a team member.
+ * message_type=bot + metadata.role=agent distinguishes it from humans.
+ */
+export async function persistAgentReply(
+  store: TeamAgentStore,
+  input: {
+    conversationId: string;
+    triggerMessage: { id: string; external_message_id: string | null };
+    replyText: string;
+    telegramMessageIds?: number[];
+    provider?: string | null;
+    model?: string | null;
+    responseId?: string | null;
+    usage?: Record<string, unknown> | null;
+    updateId?: number | null;
+  },
+): Promise<{ message: TeamAgentMessage; created: boolean }> {
+  const externalId = agentReplyExternalId(input.triggerMessage.external_message_id);
+  if (externalId) {
+    const existing = await store.findMessageByExternal(
+      input.conversationId,
+      externalId,
+    );
+    if (existing) return { message: existing, created: false };
+  }
+
+  const message = await store.insertMessage({
+    conversation_id: input.conversationId,
+    member_id: null,
+    external_message_id: externalId,
+    reply_to_message_id: input.triggerMessage.id,
+    message_type: "bot",
+    body: input.replyText,
+    occurred_at: new Date().toISOString(),
+    metadata: {
+      role: "agent",
+      source: "bot",
+      provider: input.provider ?? null,
+      model: input.model ?? null,
+      response_id: input.responseId ?? null,
+      usage: input.usage ?? null,
+      trigger_message_id: input.triggerMessage.id,
+      trigger_external_message_id: input.triggerMessage.external_message_id,
+      trigger_update_id: input.updateId ?? null,
+      telegram_message_ids: input.telegramMessageIds ?? [],
+    },
+  });
+  return { message, created: true };
 }

@@ -752,7 +752,7 @@ export function presentDurak(
   const trumpLabel = state.trumpSuit
     ? `${suitName(state.trumpSuit)} ${suitLabel(state.trumpSuit)}`
     : null;
-  let status = "Стол №1. Нажмите пустой кружок, чтобы занять место.";
+  let status = "Нажмите пустой кружок, чтобы занять место.";
   if (state.phase === "play") {
     const youAttack = yourSeat != null && yourSeat === state.attacker;
     const youDefend = yourSeat != null && yourSeat === state.defender;

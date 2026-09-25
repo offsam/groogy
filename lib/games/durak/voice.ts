@@ -3,7 +3,7 @@ import "server-only";
 import { AccessToken } from "livekit-server-sdk";
 import { createServerClient } from "@/lib/supabase/server";
 
-const ROOM = "durak-table-1";
+import type { DurakTableId } from "@/lib/games/durak/store";
 
 export type DurakVoiceTicket =
   | { ok: true; token: string; url: string }
@@ -17,6 +17,7 @@ function websocketUrl(raw: string): string | null {
 
 /** Short-lived join token for the table room. API secret stays on the server. */
 export async function issueDurakVoiceToken(
+  tableId: DurakTableId,
   guestId: string,
 ): Promise<DurakVoiceTicket> {
   const apiKey = process.env.LIVEKIT_API_KEY?.trim();
@@ -58,7 +59,7 @@ export async function issueDurakVoiceToken(
     ttl: "2h",
   });
   token.addGrant({
-    room: ROOM,
+    room: `durak-table-${tableId}`,
     roomJoin: true,
     canPublish: true,
     canSubscribe: true,

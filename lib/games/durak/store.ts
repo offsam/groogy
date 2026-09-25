@@ -12,7 +12,14 @@ import {
 import { createServerClient } from "@/lib/supabase/server";
 import { tryCreateServiceRoleClient } from "@/lib/supabase/service";
 
-const TABLE_ID = 1;
+export const DURAK_TABLE_IDS = [1, 2, 3] as const;
+export type DurakTableId = (typeof DURAK_TABLE_IDS)[number];
+
+export function parseDurakTableId(value: unknown): DurakTableId | null {
+  const id = typeof value === "number" ? value : Number(value);
+  if (id === 1 || id === 2 || id === 3) return id;
+  return null;
+}
 
 type DurakRow = {
   id: number;
@@ -80,18 +87,19 @@ async function viewer(): Promise<{ id: string; name: string } | null> {
 
 async function readRow(
   client: SupabaseClient,
+  tableId: DurakTableId,
 ): Promise<{ state: DurakState; updatedAt: string } | { error: string }> {
   const table = db(client).from("durak_tables");
   const { data, error } = await table
     .select("id, state, updated_at")
-    .eq("id", TABLE_ID)
+    .eq("id", tableId)
     .maybeSingle();
   if (error) return { error: error.message };
   if (!data) {
     const state = emptyState();
     const updatedAt = new Date().toISOString();
     const inserted = await table.insert({
-      id: TABLE_ID,
+      id: tableId,
       state,
       updated_at: updatedAt,
     });
@@ -106,6 +114,7 @@ async function readRow(
 
 async function writeRow(
   client: SupabaseClient,
+  tableId: DurakTableId,
   state: DurakState,
   previousUpdatedAt: string,
 ): Promise<boolean> {
@@ -113,7 +122,7 @@ async function writeRow(
   const { data, error } = await db(client)
     .from("durak_tables")
     .update({ state, updated_at: updatedAt })
-    .eq("id", TABLE_ID)
+    .eq("id", tableId)
     .eq("updated_at", previousUpdatedAt)
     .select("id, state, updated_at")
     .maybeSingle();
@@ -127,7 +136,32 @@ function offlineView(
   return presentDurak(emptyState(), you, { connected: false, notice });
 }
 
-export async function loadDurakView(): Promise<DurakView> {
+export type DurakTableSummary = {
+  id: DurakTableId;
+  seated: number;
+};
+
+export async function listDurakTables(): Promise<DurakTableSummary[]> {
+  const client = tryCreateServiceRoleClient();
+  const summaries: DurakTableSummary[] = [];
+  for (const id of DURAK_TABLE_IDS) {
+    if (!client) {
+      summaries.push({ id, seated: 0 });
+      continue;
+    }
+    const row = await readRow(client, id);
+    summaries.push({
+      id,
+      seated:
+        "error" in row
+          ? 0
+          : row.state.seats.filter((seat) => seat.userId || seat.isBot).length,
+    });
+  }
+  return summaries;
+}
+
+export async function loadDurakView(tableId: DurakTableId): Promise<DurakView> {
   const you = await viewer();
   const client = tryCreateServiceRoleClient();
   if (!client) {
@@ -136,7 +170,7 @@ export async function loadDurakView(): Promise<DurakView> {
       "Стол виден, но места пока не сохраняются: нет серверного ключа базы.",
     );
   }
-  const row = await readRow(client);
+  const row = await readRow(client, tableId);
   if ("error" in row) {
     return offlineView(
       you,
@@ -147,6 +181,7 @@ export async function loadDurakView(): Promise<DurakView> {
 }
 
 export async function mutateDurak(
+  tableId: DurakTableId,
   action: DurakAction,
 ): Promise<{ view: DurakView; message: string | null }> {
   const you = await viewer();
@@ -165,7 +200,7 @@ export async function mutateDurak(
   }
 
   for (let attempt = 0; attempt < 3; attempt += 1) {
-    const row = await readRow(client);
+    const row = await readRow(client, tableId);
     if ("error" in row) {
       return {
         view: offlineView(you, row.error),
@@ -181,11 +216,11 @@ export async function mutateDurak(
         message: err instanceof Error ? err.message : "Ход не принят.",
       };
     }
-    const saved = await writeRow(client, next, row.updatedAt);
+    const saved = await writeRow(client, tableId, next, row.updatedAt);
     if (saved) return { view: presentDurak(next, you), message: null };
   }
   return {
-    view: await loadDurakView(),
+    view: await loadDurakView(tableId),
     message: "Стол только что изменился. Повторите ход.",
   };
 }

@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { DurakTable } from "@/components/games/DurakTable";
-import { loadDurakView } from "@/lib/games/durak/store";
+import { CardFanMark, LobbyCircle, LobbyGrid } from "@/components/games/LobbyCircle";
 
 export const metadata: Metadata = {
   title: "Игры — КРУГИ",
-  description: "Совместные игры. Стол дурака.",
+  description: "Совместные игры.",
 };
 
-export const dynamic = "force-dynamic";
-
-export default async function GamesPage() {
-  const view = await loadDurakView();
-
+export default function GamesPage() {
   return (
     <div className="space-y-6">
       <div>
@@ -20,12 +15,17 @@ export default async function GamesPage() {
         </h1>
         <p className="mt-1 text-sm text-slate-600">Совместные игры</p>
       </div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Игры">
-        <span className="inline-flex min-h-11 items-center rounded-full bg-brand-blue px-4 text-sm font-semibold text-white">
-          Дурак
-        </span>
-      </div>
-      <DurakTable initial={view} />
+      <LobbyGrid>
+        <LobbyCircle
+          caption="Карточный стол"
+          felt
+          href="/games/durak"
+          mark={<CardFanMark />}
+          title="Дурак"
+        />
+        <LobbyCircle caption="Скоро" mark={<CardFanMark />} title="Преферанс" />
+        <LobbyCircle caption="Скоро" mark={<CardFanMark />} title="Козёл" />
+      </LobbyGrid>
     </div>
   );
 }

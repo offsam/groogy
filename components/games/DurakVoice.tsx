@@ -22,7 +22,7 @@ function guestId(): string {
   return next;
 }
 
-export function DurakVoice() {
+export function DurakVoice({ tableId }: { tableId: number }) {
   const roomRef = useRef<Room | null>(null);
   const audioRef = useRef<HTMLDivElement>(null);
   const [on, setOn] = useState(false);
@@ -56,7 +56,7 @@ export function DurakVoice() {
     setBusy(true);
     setMessage(null);
     try {
-      const ticket = await durakVoiceTokenAction(guestId());
+      const ticket = await durakVoiceTokenAction(tableId, guestId());
       if (!ticket.ok) {
         setMessage(ticket.message);
         return;

@@ -21,7 +21,28 @@ import type {
 } from "./types";
 
 const TRANSIENT =
-  /^(тест|привет|что нового|ответь|проверка бота|что думаешь|hi|hello|webhook test)[.!?\s]*$/i;
+  /^(тест|привет|что нового|ответь|проверка бота|что думаешь|hi|hello|webhook test|ок|ok|спасибо)[.!?\s]*$/i;
+
+const META =
+  /ответь|одним словом|что ты умеешь|как тобой|статус агента|проверь подключ|какие подключения|\/agent\b|help|webhook|ping/i;
+
+const GENERIC_TOPIC_WORDS = new Set([
+  "kroogy",
+  "круги",
+  "бот",
+  "агент",
+  "ответь",
+  "одним",
+  "словом",
+  "статус",
+  "умеешь",
+  "сейчас",
+  "работает",
+  "делает",
+  "пожалуйста",
+  "просто",
+  "скажи",
+]);
 
 const STOP = new Set([
   "что",
@@ -66,6 +87,16 @@ export function isTransientTopicText(text: string): boolean {
   return TRANSIENT.test(text.trim());
 }
 
+/** A new topic needs a durable subject. Meta questions and one-off lines do not qualify. */
+export function shouldCreateTopic(text: string): boolean {
+  const clean = text.trim();
+  if (clean.length < 24) return false;
+  if (isTransientTopicText(clean) || META.test(clean)) return false;
+  if (/^(что ты умеешь|как тобой пользоваться|проверь все подключения)/i.test(clean)) return false;
+  const words = tokens(clean).filter((word) => !GENERIC_TOPIC_WORDS.has(word));
+  return words.length >= 2;
+}
+
 export class DeterministicTopicClassifier implements TopicClassifier {
   calls = 0;
 
@@ -81,7 +112,7 @@ export class DeterministicTopicClassifier implements TopicClassifier {
 
     const suggestedNewTopics: SuggestedTopic[] = [];
     const blocked = /(?:^|[^\p{L}])(тест|test|webhook|привет|ping|hello)(?=$|[^\p{L}])/iu.test(input.text);
-    if (selected.size === 0 && !isTransientTopicText(input.text) && !blocked) {
+    if (selected.size === 0 && shouldCreateTopic(input.text) && !blocked) {
       const words = tokens(input.text);
       if (words.length >= 2) {
         suggestedNewTopics.push({
@@ -172,7 +203,7 @@ export async function resolveInvocationTopics(
   if (
     selected.length === 0 &&
     result.suggestedNewTopics.length > 0 &&
-    !isTransientTopicText(message.body)
+    shouldCreateTopic(message.body)
   ) {
     const suggestion = result.suggestedNewTopics[0];
     const slug = slugifyTopicTitle(suggestion.title);

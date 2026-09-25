@@ -37,7 +37,31 @@ export function publicFailureText(code: string): string {
   if (code === "billing_unknown") {
     return "OpenRouter отклонил запрос по биллингу. Проверьте баланс и лимит ключа.";
   }
+  if (code === "timeout") {
+    return "OpenRouter не ответил вовремя. Повторите вопрос один раз.";
+  }
+  if (code === "rate_limited") {
+    return "OpenRouter ограничил частоту запросов. Подождите минуту и повторите.";
+  }
+  if (code === "upstream") {
+    return "OpenRouter временно недоступен. Повторите позже.";
+  }
+  if (code === "malformed" || code === "empty") {
+    return "Ответ модели пришёл в неверном виде. Повторите вопрос.";
+  }
   return PUBLIC_AI_FAILURE_TEXT;
+}
+
+/** Pull a JSON object out of a model reply. Fences and a short preface are ignored. */
+export function extractModelJson(raw: string): string {
+  const trimmed = raw.trim();
+  const fenced = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const body = (fenced?.[1] ?? trimmed).trim();
+  if (body.startsWith("{")) return body;
+  const start = body.indexOf("{");
+  const end = body.lastIndexOf("}");
+  if (start >= 0 && end > start) return body.slice(start, end + 1);
+  return body;
 }
 
 /** OpenRouter 402 is not one reason. Do not retry, and do not assume the wallet is empty. */
@@ -239,8 +263,17 @@ export function buildTeamAgentModelInput(
         const duty = m.responsibilities.length
           ? `: ${m.responsibilities.join(", ")}`
           : "";
-        return `${m.display_name}${role}${duty}`;
+        const telegramId = m.telegram_user_id ?? "нет в базе";
+        return `${m.display_name}${role} telegram_id=${telegramId}${duty}`;
       }),
+    },
+    {
+      label: "speaker",
+      lines: [
+        context.requestingMember
+          ? `${context.requestingMember.display_name} telegram_id=${context.requestingMember.telegram_user_id ?? "нет в базе"}`
+          : "отправитель не сопоставлен с участником по telegram id",
+      ],
     },
     {
       label: "topics",
@@ -301,11 +334,18 @@ export function buildTeamAgentModelInput(
       .map((s) => `# ${s.label}\n${s.lines.join("\n")}`)
       .join("\n\n");
 
-  const shrink = ["recent_messages", "memory", "project", "project_state", "topics"];
-  for (const label of shrink) {
+  const shrink = [
+    ["recent_messages", 4],
+    ["memory", 0],
+    ["project", 0],
+    ["project_state", 0],
+    ["recent_messages", 0],
+    ["topics", 0],
+  ] as const;
+  for (const [label, floor] of shrink) {
     const section = sections.find((s) => s.label === label);
     if (!section) continue;
-    while (render().length > maxChars && section.lines.length > 0) {
+    while (render().length > maxChars && section.lines.length > floor) {
       section.lines.shift();
     }
   }
@@ -342,7 +382,7 @@ export function parseTeamAgentModelOutput(
 ): Omit<AgentRespondResult, "provider" | "model" | "responseId" | "usage"> {
   let parsed: unknown;
   try {
-    parsed = JSON.parse(raw) as unknown;
+    parsed = JSON.parse(extractModelJson(raw)) as unknown;
   } catch {
     throw new TeamAgentModelError("malformed");
   }
@@ -419,6 +459,7 @@ function classifyCallerError(err: unknown): TeamAgentModelError {
   const billing = classifyBillingFailure(status, message);
   if (billing) return new TeamAgentModelError(billing);
   if (status === 401 || status === 403) return new TeamAgentModelError("invalid_api_key");
+  if (status === 400) return new TeamAgentModelError("malformed");
   if (status === 429) return new TeamAgentModelError("rate_limited");
   if (status >= 500) return new TeamAgentModelError("upstream");
   if (
@@ -472,7 +513,7 @@ export function teamAgentSdkClientOptions(
   env: NodeJS.ProcessEnv,
 ): TeamAgentSdkClientOptions | null {
   const config = loadTeamAgentConfig(env);
-  const timeout = 20_000;
+  const timeout = 28_000;
   if (config.provider === "openrouter") {
     const apiKey = (env.OPENROUTER_API_KEY ?? "").trim();
     if (!apiKey) return null;
@@ -490,6 +531,22 @@ export function teamAgentSdkClientOptions(
   const apiKey = (env.OPENAI_API_KEY ?? "").trim();
   if (!apiKey) return null;
   return { apiKey, timeout, maxRetries: 0 };
+}
+
+function visibleOutputText(response: {
+  output_text?: string | null;
+  output?: Array<{ type?: string; content?: Array<{ type?: string; text?: string }> }>;
+}): string {
+  const direct = response.output_text?.trim() ?? "";
+  if (direct) return direct;
+  const parts: string[] = [];
+  for (const item of response.output ?? []) {
+    if (item.type !== "message") continue;
+    for (const block of item.content ?? []) {
+      if (block.text) parts.push(block.text);
+    }
+  }
+  return parts.join("\n").trim();
 }
 
 function defaultCaller(env: NodeJS.ProcessEnv): TeamAgentModelCaller {
@@ -512,7 +569,7 @@ function defaultCaller(env: NodeJS.ProcessEnv): TeamAgentModelCaller {
     });
     return {
       id: response.id,
-      output_text: response.output_text,
+      output_text: visibleOutputText(response),
       usage: response.usage
         ? {
             input_tokens: response.usage.input_tokens,

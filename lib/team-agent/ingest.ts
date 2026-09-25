@@ -27,7 +27,17 @@ export async function resolveMemberFromExternalIdentity(
   const tid = parseSenderId(senderExternalId);
   if (tid != null) {
     const byId = await store.findMemberByTelegramUserId(tid);
-    if (byId) return { member: byId, unknownSender: false };
+    if (!byId) return { member: null, unknownSender: true };
+    const username = senderUsername?.replace(/^@/, "") ?? null;
+    const current = byId.telegram_username?.replace(/^@/, "") ?? null;
+    if (username && username.toLowerCase() !== current?.toLowerCase()) {
+      const updated = await store.upsertMember({
+        ...byId,
+        telegram_username: username,
+      });
+      return { member: updated, unknownSender: false };
+    }
+    return { member: byId, unknownSender: false };
   }
   if (senderUsername) {
     const byName = await store.findMemberByTelegramUsername(senderUsername);

@@ -4,7 +4,7 @@
  */
 
 import { randomUUID } from "node:crypto";
-import { consumeAiBudget } from "../ai-budget";
+import { consumeAiBudget, storedAiBudgetDecision } from "../ai-budget";
 import type { TeamAgentProvider } from "../agent-provider";
 import { approvePendingAssignment, executeValidatedAction } from "../actions";
 import { formatCapabilitiesReply, formatStatusReply, type CapabilityFacts } from "../capabilities";
@@ -155,28 +155,37 @@ export async function handleTelegramUpdate(input: {
     };
   }
 
-  if (!input.provider) {
-    const budget = consumeAiBudget();
-    if (!budget.ok) {
-      const text = "Слишком много запросов к AI подряд. Подождите несколько минут.";
-      await sendReply(normalized.ingest.conversationExternalId, text, normalized.ingest.messageExternalId, env);
-      return {
-        status: "ingested",
-        reason: "ai_budget",
-        shouldRespond: true,
-        replySent: true,
-        providerCalls: 0,
-        stored: true,
-      };
-    }
-  }
-
   const claim = await claimAgentReply(input.store, {
     conversationId: ingest.conversation.id,
     triggerMessage: ingest.message,
     requestId,
   });
   if (!claim.claimed) {
+    const saved = claim.message;
+    const deliveredIds = saved?.metadata.telegram_message_ids;
+    const delivered = Array.isArray(deliveredIds) && deliveredIds.length > 0;
+    if (saved?.body && saved.metadata.agent_state === "completed" && !delivered) {
+      const sent = await sendReply(
+        normalized.ingest.conversationExternalId,
+        saved.body,
+        normalized.ingest.messageExternalId,
+        env,
+      );
+      if (sent.ids.length) {
+        await input.store.updateMessage(saved.id, {
+          metadata: { ...saved.metadata, telegram_message_ids: sent.ids },
+        });
+      }
+      await markMessageAgentReplied(input.store, ingest.message.id, saved.id);
+      return {
+        status: sent.ok ? "replied" : "provider_error",
+        reason: sent.ok ? "redelivered" : sent.error,
+        shouldRespond: true,
+        replySent: sent.ok,
+        providerCalls: 0,
+        stored: true,
+      };
+    }
     if (claim.message) {
       await markMessageAgentReplied(input.store, ingest.message.id, claim.message.id);
     }
@@ -187,6 +196,48 @@ export async function handleTelegramUpdate(input: {
       providerCalls: 0,
       stored: true,
     };
+  }
+
+  if (!input.provider) {
+    const recent = await input.store.listRecentMessages(ingest.conversation.id, 80);
+    const stored = storedAiBudgetDecision({
+      messages: recent,
+      memberId: ingest.member?.id ?? null,
+    });
+    const memory = consumeAiBudget(`ai:${ingest.member?.id ?? "unknown"}`, {
+      limit: 6,
+      windowMs: 10 * 60 * 1000,
+    });
+    if (!stored.ok || !memory.ok) {
+      const text = stored.ok
+        ? "Слишком много запросов к AI подряд. Подождите несколько минут."
+        : stored.scope === "member"
+          ? "Для этого участника сейчас слишком много запросов к AI. Подождите несколько минут. Остальные могут писать."
+          : "Слишком много запросов к AI подряд. Подождите несколько минут.";
+      await persistAgentReply(input.store, {
+        conversationId: ingest.conversation.id,
+        triggerMessage: ingest.message,
+        replyText: text,
+        provider: null,
+        model: null,
+        requestId,
+      });
+      const sent = await sendReply(
+        normalized.ingest.conversationExternalId,
+        text,
+        normalized.ingest.messageExternalId,
+        env,
+      );
+      await markMessageAgentReplied(input.store, ingest.message.id, claim.message?.id);
+      return {
+        status: sent.ok ? "replied" : "provider_error",
+        reason: "ai_budget",
+        shouldRespond: true,
+        replySent: sent.ok,
+        providerCalls: 0,
+        stored: true,
+      };
+    }
   }
 
   let providerCalls = 0;
@@ -294,9 +345,21 @@ export async function handleTelegramUpdate(input: {
       await input.store.updateMessage(claim.message.id, {
         metadata: { telegram_message_ids: sent.ids },
       });
+    } else if (!sent.ok) {
+      console.error(
+        JSON.stringify({
+          error_type: sent.error ?? "telegram_send_failed",
+          provider: reply.provider ?? config.provider,
+          model: reply.model ?? config.model,
+          request_id: requestId,
+          telegram_message_id: ingest.message.external_message_id,
+          stage: "telegram_send",
+          timestamp: new Date().toISOString(),
+        }),
+      );
     }
     await linkMessageToTopics(input.store, claim.message!.id, selectedTopicIds);
-    await markMessageAgentReplied(input.store, ingest.message.id, claim.message!.id);
+    if (sent.ok) await markMessageAgentReplied(input.store, ingest.message.id, claim.message!.id);
 
     return {
       status: sent.ok ? "replied" : "provider_error",
@@ -308,7 +371,17 @@ export async function handleTelegramUpdate(input: {
     };
   } catch (err) {
     const code = err instanceof TeamAgentModelError ? err.code : "provider_error";
-    console.error("[team-agent]", requestId, code);
+    console.error(
+      JSON.stringify({
+        error_type: code,
+        provider: config.provider,
+        model: config.model,
+        request_id: requestId,
+        telegram_message_id: ingest.message.external_message_id,
+        stage: "provider_call",
+        timestamp: new Date().toISOString(),
+      }),
+    );
     const text = publicFailureText(code);
     if (claim.message) {
       await persistAgentReply(input.store, {
@@ -320,14 +393,16 @@ export async function handleTelegramUpdate(input: {
         requestId,
         updateId: input.update.update_id,
       });
+    }
+    const sent = await sendReply(normalized.ingest.conversationExternalId, text, normalized.ingest.messageExternalId, env);
+    if (sent.ok && claim.message) {
       await markMessageAgentReplied(input.store, ingest.message.id, claim.message.id);
     }
-    await sendReply(normalized.ingest.conversationExternalId, text, normalized.ingest.messageExternalId, env);
     return {
       status: "provider_error",
       reason: code,
       shouldRespond: true,
-      replySent: false,
+      replySent: sent.ok,
       providerCalls,
       stored: true,
     };
@@ -393,12 +468,12 @@ async function localReply(
     try {
       const result = await approvePendingAssignment(input.store, command.approvalId, input.memberId);
       const approval = result.approval as { id?: string; status?: string };
-      return `Подтверждено ${approval.id ?? command.approvalId}. Статус: ${approval.status ?? "approved"}.`;
+      return `Предложение подтверждено. Задача записана. id ${approval.id ?? command.approvalId}.`;
     } catch (err) {
       const message = err instanceof Error ? err.message : "approval_failed";
-      if (message.includes("not found")) return "Такого предложения нет.";
-      if (message.includes("not pending")) return "Это предложение уже обработано.";
-      return "Не удалось подтвердить это предложение.";
+      if (message.includes("not found")) return "Не удалось подтвердить: такого предложения нет.";
+      if (message.includes("not pending")) return "Не удалось подтвердить: это предложение уже обработано.";
+      return "Не удалось подтвердить: проверьте id предложения.";
     }
   }
   const [tasks, decisions, topics, messages] = await Promise.all([

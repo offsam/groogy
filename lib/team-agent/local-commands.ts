@@ -60,7 +60,13 @@ export function parseLocalCommand(
 }
 
 function projectTopic(lower: string): ProjectTopic | null {
-  if (lower.includes("проверь все подключения") || lower.includes("проверь подключения")) return "connections";
+  if (
+    lower.includes("проверь все подключения") ||
+    lower.includes("проверь подключения") ||
+    lower.includes("какие подключения")
+  ) {
+    return "connections";
+  }
   if (lower.includes("полный статус") || lower.includes("статус проекта")) return "full";
   if (lower.includes("что сейчас делает")) return "people";
   if (lower.includes("не запуш")) return "unpushed";

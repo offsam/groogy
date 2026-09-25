@@ -6,7 +6,7 @@
 import { detectPathConflicts } from "./conflicts";
 import { confirmDecision, proposeDecision, supersedeDecision } from "./decisions";
 import type { TeamAgentStore } from "./store-port";
-import { assignTask, proposeTask } from "./tasks";
+import { approveTask, assignTask, proposeTask } from "./tasks";
 import type {
   AgentActionProposal,
   AllowedAgentAction,
@@ -253,6 +253,8 @@ export async function approvePendingAssignment(
   if (approval.approval_type === "task_assignment") {
     const taskId = String(approval.payload.taskId);
     const memberId = String(approval.payload.memberId);
+    const task = await store.getTask(taskId);
+    if (task?.status === "proposed") await approveTask(store, taskId);
     appliedTasks.push(await assignTask(store, taskId, memberId));
   } else if (approval.approval_type === "task_batch") {
     const assignments = approval.payload.assignments as Array<{
@@ -260,6 +262,8 @@ export async function approvePendingAssignment(
       memberId: string;
     }>;
     for (const a of assignments ?? []) {
+      const task = await store.getTask(a.taskId);
+      if (task?.status === "proposed") await approveTask(store, a.taskId);
       appliedTasks.push(await assignTask(store, a.taskId, a.memberId));
     }
   } else if (approval.approval_type === "decision_confirm") {

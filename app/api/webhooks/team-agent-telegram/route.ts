@@ -8,6 +8,7 @@ import type { TelegramUpdate } from "@/lib/team-agent/telegram/types";
 import { verifyTelegramWebhookSecret } from "@/lib/team-agent/telegram/webhook-auth";
 
 export const runtime = "nodejs";
+export const maxDuration = 60;
 
 /**
  * Telegram Bot webhook for internal Team Agent (@kroogy_bot).

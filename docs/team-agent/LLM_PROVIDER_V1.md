@@ -8,8 +8,9 @@ Team Agent talks to a model only on an explicit invocation. Ordinary chat is sto
 
 | Value | Behavior |
 |---|---|
-| `mock` | Local reply. Default for tests. |
-| `openai` | OpenAI Responses API, model `TEAM_AGENT_MODEL` (default `gpt-6-luna`). |
+| `mock` | Local reply. Default for tests. No API key. |
+| `openai` | Direct OpenAI Responses API. Key: `OPENAI_API_KEY`. Default model `gpt-6-luna`. |
+| `openrouter` | Same request through `https://openrouter.ai/api/v1`. Key: `OPENROUTER_API_KEY`. Default model `deepseek/deepseek-v4-flash`. |
 
 Mock stays in the repo. There is no LangChain, Agents SDK, or Assistant API.
 
@@ -49,6 +50,14 @@ The chat reply on failure is: «Не удалось получить ответ 
 
 `OPENAI_API_KEY` is server-only. It is not a `NEXT_PUBLIC_` variable and it is not placed in the model input. Assignments of known secret names and `sk-…` tokens in chat text are redacted before the request.
 
+## OpenRouter
+
+OpenRouter uses the same official OpenAI SDK and the same Responses request. The client sets `baseURL` to `https://openrouter.ai/api/v1` and reads `OPENROUTER_API_KEY`. It does not read `OPENAI_API_KEY`.
+
+OpenRouter's Responses API is stateless. `store: true` and `previous_response_id` return HTTP 400. This provider sends `store: false` and does not send `previous_response_id`. There is no model fallback list.
+
+`deepseek/deepseek-v4-flash` is the default only when `TEAM_AGENT_MODEL` is empty and the provider is `openrouter`. The catalog lists structured outputs, `response_format`, and `reasoning_effort`, so the request still uses JSON schema and reasoning effort `low`. Set `TEAM_AGENT_MODEL` to another slug to switch. Prices stay out of application code.
+
 ## Switch the model
 
-Set `TEAM_AGENT_MODEL` and `TEAM_AGENT_PROVIDER=openai` on the Preview environment. Production is unchanged until a separate approval.
+Set `TEAM_AGENT_MODEL`. For Preview, use `TEAM_AGENT_PROVIDER=openrouter` or `openai`. Production is unchanged until a separate approval.

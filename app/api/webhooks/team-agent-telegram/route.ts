@@ -80,5 +80,6 @@ export async function GET() {
     provider: config.provider,
     model: config.model,
     hasOpenAIKey: Boolean(process.env.OPENAI_API_KEY?.trim()),
+    hasOpenRouterKey: Boolean(process.env.OPENROUTER_API_KEY?.trim()),
   });
 }

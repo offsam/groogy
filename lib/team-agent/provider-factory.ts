@@ -1,5 +1,5 @@
 /**
- * Picks mock or OpenAI from TEAM_AGENT_PROVIDER. Tests inject a provider instead.
+ * Picks mock, direct OpenAI, or OpenRouter from TEAM_AGENT_PROVIDER.
  */
 
 import { MockTeamAgentProvider, type TeamAgentProvider } from "./agent-provider";
@@ -10,7 +10,7 @@ export function createTeamAgentProvider(
   env: NodeJS.ProcessEnv = process.env,
 ): TeamAgentProvider {
   const config = loadTeamAgentConfig(env);
-  if (config.provider === "openai") {
+  if (config.provider === "openai" || config.provider === "openrouter") {
     return new OpenAITeamAgentProvider({ env });
   }
   return new MockTeamAgentProvider();

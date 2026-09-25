@@ -10,10 +10,14 @@ import { proposeDecision } from "./decisions";
 import { proposeTask } from "./tasks";
 import { recordMemory } from "./memory";
 import { createTopic, linkDecisionToTopic, linkMemoryToTopic, linkTaskToTopic } from "./topics";
+import { MockTeamAgentProvider } from "./agent-provider";
+import { createTeamAgentProvider } from "./provider-factory";
 import {
+  OPENROUTER_API_BASE_URL,
   OpenAITeamAgentProvider,
   buildTeamAgentModelInput,
   parseTeamAgentModelOutput,
+  teamAgentSdkClientOptions,
   type TeamAgentModelCaller,
   type TeamAgentModelRequest,
 } from "./openai-provider";
@@ -456,6 +460,74 @@ async function main() {
   const afterTopic = await store.getTopicById(liveTopic.id);
   assert.equal(afterTopic?.summary, "Профиль и настройки. Задача будто закрыта.");
   passed += 3;
+
+  const teamEnv = (over: Record<string, string>): NodeJS.ProcessEnv => ({ ...process.env, ...over });
+  const openrouterOpts = teamAgentSdkClientOptions(teamEnv({
+    TEAM_AGENT_PROVIDER: "openrouter",
+    OPENROUTER_API_KEY: "or-test-key",
+    OPENAI_API_KEY: "sk-direct-only",
+  }));
+  assert.equal(openrouterOpts?.baseURL, OPENROUTER_API_BASE_URL);
+  assert.equal(openrouterOpts?.apiKey, "or-test-key");
+  assert.equal(openrouterOpts?.maxRetries, 0);
+  assert.equal(
+    teamAgentSdkClientOptions(teamEnv({
+      TEAM_AGENT_PROVIDER: "openrouter",
+      OPENAI_API_KEY: "sk-direct-only",
+      OPENROUTER_API_KEY: "",
+    })),
+    null,
+  );
+  const directOpts = teamAgentSdkClientOptions(teamEnv({
+    TEAM_AGENT_PROVIDER: "openai",
+    OPENAI_API_KEY: "sk-direct-only",
+    OPENROUTER_API_KEY: "or-test-key",
+  }));
+  assert.equal(directOpts?.apiKey, "sk-direct-only");
+  assert.equal(directOpts?.baseURL, undefined);
+  assert.ok(createTeamAgentProvider(teamEnv({ TEAM_AGENT_PROVIDER: "mock" })) instanceof MockTeamAgentProvider);
+  assert.ok(
+    createTeamAgentProvider(teamEnv({ TEAM_AGENT_PROVIDER: "openai", OPENAI_API_KEY: "sk-direct-only" }))
+      instanceof OpenAITeamAgentProvider,
+  );
+  const routed = callerFor(modelJson);
+  const openrouter = new OpenAITeamAgentProvider({
+    env: {
+      ...env(),
+      TEAM_AGENT_PROVIDER: "openrouter",
+      TEAM_AGENT_MODEL: "deepseek/deepseek-v4-flash",
+      OPENROUTER_API_KEY: "or-test-key",
+    },
+    caller: routed.caller,
+  });
+  const openrouterReply = await openrouter.respond(base, {
+    triggerMessage: message("@kroogy_bot статус"),
+    userText: "@kroogy_bot статус",
+  });
+  assert.equal(routed.calls.length, 1);
+  assert.equal(routed.calls[0].model, "deepseek/deepseek-v4-flash");
+  assert.equal(routed.calls[0].store, false);
+  assert.equal("tools" in routed.calls[0], false);
+  assert.ok(!routed.calls[0].input.includes("or-test-key"));
+  assert.equal(openrouterReply.provider, "openrouter");
+  assert.equal(openrouterReply.model, "deepseek/deepseek-v4-flash");
+  const missing = new OpenAITeamAgentProvider({
+    env: teamEnv({ TEAM_AGENT_PROVIDER: "openrouter", OPENROUTER_API_KEY: "", OPENAI_API_KEY: "sk-direct-only" }),
+  });
+  await assert.rejects(
+    () => missing.respond(base, { triggerMessage: message("a"), userText: "a" }),
+    /not_configured/,
+  );
+  const redacted = buildTeamAgentModelInput(
+    base,
+    {
+      triggerMessage: message("OPENROUTER_API_KEY=sk-notarealsecretvalue"),
+      userText: "OPENROUTER_API_KEY=sk-notarealsecretvalue",
+    },
+    2000,
+  );
+  assert.ok(!redacted.text.includes("sk-notarealsecretvalue"));
+  passed += 6;
 
   console.log(`team-agent openai provider: ok (${passed})`);
 }

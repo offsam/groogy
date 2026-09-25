@@ -42,7 +42,7 @@ export function loadTeamAgentConfig(
     maxOverviewTopics: positiveInt(env.TEAM_AGENT_MAX_OVERVIEW_TOPICS, 5),
     maxContextChars: positiveInt(env.TEAM_AGENT_MAX_CONTEXT_CHARS, 40_000),
     maxOutputTokens: positiveInt(env.TEAM_AGENT_MAX_OUTPUT_TOKENS, 1200),
-    model: (env.TEAM_AGENT_MODEL ?? "").trim() || "gpt-6-luna",
+    model: resolveModel(env),
     requireWebhookSecret: true,
   };
 }
@@ -51,6 +51,18 @@ function positiveInt(value: string | undefined, fallback: number): number {
   const n = Number(value);
   if (!Number.isFinite(n) || n < 1) return fallback;
   return Math.floor(n);
+}
+
+/** Chosen after the OpenRouter catalog check. Env overrides it. */
+const OPENROUTER_DEFAULT_MODEL = "deepseek/deepseek-v4-flash";
+
+function resolveModel(env: NodeJS.ProcessEnv): string {
+  const explicit = (env.TEAM_AGENT_MODEL ?? "").trim();
+  if (explicit) return explicit;
+  if (normalizeProvider(env.TEAM_AGENT_PROVIDER) === "openrouter") {
+    return OPENROUTER_DEFAULT_MODEL;
+  }
+  return "gpt-6-luna";
 }
 
 function normalizeProvider(

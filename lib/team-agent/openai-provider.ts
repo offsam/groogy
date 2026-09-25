@@ -142,7 +142,7 @@ export class TeamAgentModelError extends Error {
 function redactSecrets(text: string): string {
   return text
     .replace(
-      /(?:OPENAI_API_KEY|TELEGRAM_BOT_TOKEN|TELEGRAM_WEBHOOK_SECRET|SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY)\s*[:=]\s*\S+/gi,
+      /(?:OPENAI_API_KEY|OPENROUTER_API_KEY|TELEGRAM_BOT_TOKEN|TELEGRAM_WEBHOOK_SECRET|SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY)\s*[:=]\s*\S+/gi,
       "[redacted]",
     )
     .replace(/\bsk-[A-Za-z0-9_-]{8,}\b/g, "[redacted]");
@@ -381,14 +381,52 @@ async function callWithLimit(caller: TeamAgentModelCaller, request: TeamAgentMod
   throw last ?? new TeamAgentModelError("request_failed");
 }
 
-function defaultCaller(env: NodeJS.ProcessEnv): TeamAgentModelCaller {
+export const OPENROUTER_API_BASE_URL = "https://openrouter.ai/api/v1";
+
+export type TeamAgentSdkClientOptions = {
+  apiKey: string;
+  timeout: number;
+  maxRetries: 0;
+  baseURL?: string;
+  defaultHeaders?: Record<string, string>;
+};
+
+/**
+ * Direct OpenAI and OpenRouter share one caller.
+ * OpenRouter rejects store:true and previous_response_id. The request keeps store:false and never sends previous_response_id.
+ */
+export function teamAgentSdkClientOptions(
+  env: NodeJS.ProcessEnv,
+): TeamAgentSdkClientOptions | null {
+  const config = loadTeamAgentConfig(env);
+  const timeout = 20_000;
+  if (config.provider === "openrouter") {
+    const apiKey = (env.OPENROUTER_API_KEY ?? "").trim();
+    if (!apiKey) return null;
+    return {
+      apiKey,
+      timeout,
+      maxRetries: 0,
+      baseURL: OPENROUTER_API_BASE_URL,
+      defaultHeaders: {
+        "HTTP-Referer": "https://www.kroogy.com",
+        "X-OpenRouter-Title": "Kroogy Team Agent",
+      },
+    };
+  }
   const apiKey = (env.OPENAI_API_KEY ?? "").trim();
-  if (!apiKey) {
+  if (!apiKey) return null;
+  return { apiKey, timeout, maxRetries: 0 };
+}
+
+function defaultCaller(env: NodeJS.ProcessEnv): TeamAgentModelCaller {
+  const options = teamAgentSdkClientOptions(env);
+  if (!options) {
     return async () => {
       throw new TeamAgentModelError("not_configured");
     };
   }
-  const client = new OpenAI({ apiKey, timeout: 20_000, maxRetries: 0 });
+  const client = new OpenAI(options);
   return async (request) => {
     const response = await client.responses.create({
       model: request.model,
@@ -466,7 +504,7 @@ export class OpenAITeamAgentProvider implements TeamAgentProvider {
       (inputTokens != null && outputTokens != null ? inputTokens + outputTokens : null);
     return {
       ...parsed,
-      provider: "openai",
+      provider: loadTeamAgentConfig(env).provider === "openrouter" ? "openrouter" : "openai",
       model,
       responseId: response.id ?? null,
       usage: {

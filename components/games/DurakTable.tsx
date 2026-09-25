@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { DurakVoice } from "@/components/games/DurakVoice";
+import { LogOut, Mic, MicOff, Volume2, VolumeX } from "lucide-react";
+import { BrandMark } from "@/components/brand/BrandMark";
+import { DurakChat } from "@/components/games/DurakChat";
+import { useDurakVoice, type SeatVoice } from "@/components/games/DurakVoice";
 import { Button } from "@/components/ui/Button";
 import {
   leaveDurakAction,
@@ -39,13 +42,13 @@ function seatPoint(index: number, yourSeat: number | null) {
   const shift = yourSeat ?? 0;
   const angle = Math.PI / 2 + ((index - shift) * 2 * Math.PI) / 7;
   return {
-    left: `${50 + Math.cos(angle) * 38}%`,
-    top: `${58 + Math.sin(angle) * 34}%`,
+    left: `${50 + Math.cos(angle) * 40}%`,
+    top: `${50 + Math.sin(angle) * 40}%`,
   };
 }
 
-const DECK_FROM = { left: "50%", top: "12%" };
-const TABLE_AT = { left: "50%", top: "50%" };
+const DECK_FROM = { left: "50%", top: "30%" };
+const TABLE_AT = { left: "50%", top: "52%" };
 
 type Flight = {
   key: string;
@@ -161,18 +164,23 @@ function suitTone(suit: Suit) {
 function PlayingCard({
   card,
   playable,
+  picked,
   onPlay,
 }: {
   card: Card;
   playable: boolean;
+  picked: boolean;
   onPlay?: (id: string) => void;
 }) {
   const tone = suitTone(card.suit);
   return (
     <button
       className={cn(
-        "relative flex h-[6.5rem] w-[4.4rem] shrink-0 flex-col justify-between rounded-xl border border-slate-200 bg-white px-1.5 py-1.5 text-left shadow-[0_8px_16px_rgba(15,40,20,0.28)]",
-        playable ? "hover:-translate-y-2" : "",
+        "relative flex h-[6.5rem] w-[4.4rem] shrink-0 flex-col justify-between rounded-xl border bg-white px-1.5 py-1.5 text-left shadow-[0_10px_18px_rgba(15,40,20,0.28)]",
+        picked
+          ? "-translate-y-3 border-brand-blue ring-2 ring-brand-blue"
+          : "border-slate-200",
+        playable ? "" : "opacity-90",
       )}
       disabled={!playable}
       type="button"
@@ -214,7 +222,7 @@ function SeatFace({
   return (
     <span
       className={cn(
-        "flex size-11 items-center justify-center overflow-hidden rounded-full border-2 text-xs font-semibold shadow-md",
+        "flex size-10 items-center justify-center overflow-hidden rounded-full border-2 text-xs font-semibold shadow-md",
         seat.isYou
           ? "border-[#f3e2b3] bg-brand-blue text-white"
           : seat.occupied
@@ -268,6 +276,8 @@ export function DurakTable({
   const [flights, setFlights] = useState<Flight[]>([]);
   const [handStamp, setHandStamp] = useState(0);
   const [pending, startTransition] = useTransition();
+  const [picked, setPicked] = useState<string | null>(null);
+  const voice = useDurakVoice(tableId);
   const returnPath = `/games/durak/${tableId}`;
   const previous = useRef<DurakView | null>(null);
   const freshCards = useRef(new Set<string>());
@@ -333,6 +343,16 @@ export function DurakTable({
     run(() => sitDurakAction(tableId, index));
   }
 
+  function choose(card: Card) {
+    if (!playable || pending) return;
+    if (picked !== card.id) {
+      setPicked(card.id);
+      return;
+    }
+    setPicked(null);
+    play(card);
+  }
+
   function play(card: Card) {
     seenCards.current.add(`fly-${card.id}`);
     const from = { left: "50%", top: "108%" };
@@ -351,9 +371,22 @@ export function DurakTable({
   }
 
   const playable = view.canAttack || view.canDefend || view.canThrow;
+  const youSeat = view.seats.find((seat) => seat.isYou);
+
+  function exitTable() {
+    if (view.yourSeat == null) {
+      router.push("/games/durak");
+      return;
+    }
+    startTransition(async () => {
+      await leaveDurakAction(tableId);
+      router.push("/games/durak");
+    });
+  }
 
   return (
-    <div className="space-y-2">
+    <div className="game-shell fixed inset-y-0 left-1/2 z-[1100] flex h-dvh w-full max-w-xl -translate-x-1/2 flex-col bg-[#f4efe8]">
+      {voice.audio}
       <style>{`
         @keyframes durak-fly {
           from { left: var(--from-x); top: var(--from-y); opacity: 1; }
@@ -364,18 +397,35 @@ export function DurakTable({
           to { transform: none; opacity: 1; }
         }
       `}</style>
-      <div className="relative flex min-h-11 items-center justify-center">
-        <Link className="absolute left-0 text-sm font-medium text-brand-blue" href="/games/durak">
-          Столы
+      <header className="flex min-h-11 items-center gap-2 px-3 pt-[max(0.35rem,env(safe-area-inset-top))]">
+        <Link className="inline-flex size-11 items-center justify-center" href="/" title="КРУГИ">
+          <BrandMark priority size={32} />
         </Link>
-        <h1 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-slate-900">
-          Стол {tableId}
+        <h1 className="font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900">
+          Дурак
         </h1>
-      </div>
+        <div className="ml-auto flex items-center gap-1">
+          <span
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-white px-2.5 text-sm font-semibold text-slate-800 shadow-sm"
+            title="Очки"
+          >
+            <span aria-hidden className="size-4 rounded-full bg-brand-yellow shadow-inner" />
+            1 250
+          </span>
+          <button
+            aria-label="Покинуть стол"
+            className="flex size-11 items-center justify-center rounded-full text-slate-700"
+            type="button"
+            onClick={exitTable}
+          >
+            <LogOut aria-hidden className="size-5" />
+          </button>
+        </div>
+      </header>
 
-      <div className="relative mx-auto aspect-[2/3] w-full max-w-xl">
-        <div className="absolute inset-x-8 inset-y-10 rounded-[2rem] bg-gradient-to-b from-[#8d5a32] via-[#5c3a1e] to-[#3a2414] p-1.5 shadow-[0_16px_30px_rgba(40,22,8,0.28)] sm:inset-x-10 sm:inset-y-12 sm:p-2">
-          <div className="relative h-full overflow-hidden rounded-[1.6rem] bg-[radial-gradient(ellipse_at_50%_42%,#3eaf72_0%,#1d7c4a_46%,#0e5532_78%,#083d24_100%)] shadow-[inset_0_0_48px_rgba(0,0,0,0.45)]">
+      <div className="relative min-h-0 flex-1">
+        <div className="absolute inset-x-[7%] inset-y-[4%] rounded-[50%] bg-gradient-to-b from-[#a56b3d] via-[#6b4124] to-[#3a2414] p-[7px] shadow-[0_18px_28px_rgba(40,22,8,0.28)]">
+          <div className="relative h-full overflow-hidden rounded-[50%] bg-[radial-gradient(ellipse_at_50%_42%,#3eaf72_0%,#1d7c4a_46%,#0e5532_78%,#083d24_100%)] shadow-[inset_0_0_48px_rgba(0,0,0,0.45)]">
             <div
               className="pointer-events-none absolute inset-0 opacity-30"
               style={{
@@ -400,7 +450,7 @@ export function DurakTable({
                 ))}
               </div>
             ) : (
-              <div className="absolute left-1/2 top-1/2 flex max-w-[62%] -translate-x-1/2 -translate-y-1/2 flex-wrap items-center justify-center">
+              <div className="absolute left-1/2 top-[58%] flex max-w-[70%] -translate-x-1/2 -translate-y-1/2 flex-wrap items-center justify-center">
                 {view.table.map((pair, index) => (
                   <div
                     className="relative mx-0.5"
@@ -419,12 +469,12 @@ export function DurakTable({
               </div>
             )}
 
-            <div className="absolute left-1/2 top-2 flex -translate-x-1/2 flex-col items-center">
+            <div className="absolute left-1/2 top-[22%] flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
               <span className="relative h-16 w-11">
                 {view.trumpSuit ? (
                   <span
                     className={cn(
-                      "absolute -bottom-3 left-0.5 flex h-11 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-lg font-semibold shadow",
+                      "absolute -bottom-2 -left-6 flex h-12 w-8 rotate-[-14deg] items-center justify-center rounded-md border border-slate-200 bg-white text-lg font-semibold shadow",
                       suitTone(view.trumpSuit),
                     )}
                   >
@@ -443,6 +493,11 @@ export function DurakTable({
                   </span>
                 ) : null}
               </span>
+              {view.trumpLabel ? (
+                <span className="mt-1 w-11 text-center text-[10px] font-medium leading-tight text-white">
+                  {view.trumpLabel}
+                </span>
+              ) : null}
             </div>
           </div>
         </div>
@@ -466,9 +521,20 @@ export function DurakTable({
         {view.seats.map((seat) => {
           const point = seatPoint(seat.index, view.yourSeat);
           const seatLeft = Number.parseFloat(point.left);
+          const mark: SeatVoice | "muted" | null = !seat.occupied || seat.isBot
+            ? null
+            : seat.isYou
+              ? voice.micOn
+                ? voice.selfSpeaking
+                  ? "speaking"
+                  : "on"
+                : "muted"
+              : seat.userId
+                ? (voice.voices[seat.userId] ?? null)
+                : null;
           return (
           <button
-            className="absolute z-10 flex w-16 -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+            className="absolute z-10 flex w-14 -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-0.5"
             key={seat.index}
             style={point}
             type="button"
@@ -479,27 +545,45 @@ export function DurakTable({
                 <span
                   aria-hidden
                   className={cn(
-                    "pointer-events-none absolute top-1 flex",
-                    seatLeft < 50 ? "-left-3" : "left-7",
+                    "pointer-events-none absolute top-0.5 flex",
+                    seatLeft < 50 ? "-left-4" : "left-7",
                   )}
                 >
-                  {Array.from({ length: Math.min(seat.cardCount, 2) }, (_, layer) => (
+                  {Array.from({ length: Math.min(seat.cardCount, 3) }, (_, layer) => (
                     <span
-                      className="h-6 w-4 rounded border border-[#d7b56a]/80 bg-[#143056] shadow-sm"
+                      className="h-7 w-5 rounded border border-[#d7b56a]/80 bg-[#143056] shadow-sm"
                       key={layer}
-                      style={{ marginLeft: layer === 0 ? 0 : -8 }}
+                      style={{ marginLeft: layer === 0 ? 0 : -10, transform: `rotate(${(layer - 1) * 8}deg)` }}
                     />
                   ))}
                 </span>
               ) : null}
               <SeatFace seat={seat} />
-              {seat.occupied && !seat.isYou && view.phase !== "waiting" ? (
+              {seat.occupied && view.phase !== "waiting" ? (
                 <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-[#f3e2b3] text-[10px] font-semibold text-[#3a2414]">
                   {seat.cardCount}
                 </span>
               ) : null}
+              {mark ? (
+                <span
+                  className={cn(
+                    "absolute -bottom-1 -right-1 flex size-4 items-center justify-center rounded-full text-white",
+                    mark === "speaking"
+                      ? "bg-brand-green"
+                      : mark === "on"
+                        ? "bg-brand-blue"
+                        : "bg-slate-500",
+                  )}
+                >
+                  {mark === "muted" ? (
+                    <MicOff aria-hidden className="size-2.5" />
+                  ) : (
+                    <Mic aria-hidden className="size-2.5" />
+                  )}
+                </span>
+              ) : null}
             </span>
-            <span className="max-w-full truncate rounded-full bg-white/90 px-1.5 text-[11px] leading-tight text-slate-700">
+            <span className="max-w-full truncate rounded-full bg-black/55 px-1.5 text-[10px] leading-tight text-white">
               {seat.occupied ? seat.name : "Занять"}
             </span>
           </button>
@@ -508,11 +592,11 @@ export function DurakTable({
       </div>
 
       {view.yourCards.length > 0 ? (
-        <div className="flex justify-center overflow-x-auto pb-1">
+        <div className="flex justify-center overflow-x-auto px-3 pb-1">
           <div className="flex items-end pl-1" data-hand={handStamp}>
             {view.yourCards.map((card, index) => (
               <span
-                className="-ml-3 first:ml-0"
+                className="-ml-4 first:ml-0"
                 key={card.id}
                 style={
                   freshCards.current.has(card.id)
@@ -524,8 +608,9 @@ export function DurakTable({
               >
                 <PlayingCard
                   card={card}
+                  picked={picked === card.id}
                   playable={playable && !pending}
-                  onPlay={() => play(card)}
+                  onPlay={() => choose(card)}
                 />
               </span>
             ))}
@@ -534,99 +619,86 @@ export function DurakTable({
       ) : null}
 
       {view.notice ? (
-        <p className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600">
-          {view.notice}
-        </p>
+        <p className="px-3 pb-1 text-center text-xs text-slate-600">{view.notice}</p>
       ) : null}
-      {message ? (
-        <p className="rounded-xl border border-brand-orange/30 bg-brand-orange/10 px-3 py-2 text-sm text-slate-800">
-          {message}
-        </p>
+      {message || voice.message ? (
+        <p className="px-3 pb-1 text-center text-xs text-slate-700">{message ?? voice.message}</p>
       ) : null}
 
-      <div className="flex flex-wrap gap-2">
-        {view.canTake ? (
-          <Button className="min-h-11" disabled={pending} onClick={() => run(() => takeDurakAction(tableId))}>
-            Беру
-          </Button>
-        ) : null}
-        {view.canPass ? (
-          <Button className="min-h-11"
-            disabled={pending}
-            variant="secondary"
-            onClick={() => run(() => passDurakAction(tableId))}
-          >
-            Бито
-          </Button>
-        ) : null}
-        {view.canRedeal ? (
-          <Button className="min-h-11" disabled={pending} onClick={() => run(() => redealDurakAction(tableId))}>
-            Сдать заново
-          </Button>
-        ) : null}
-        {view.yourSeat != null ? (
-          <Button className="min-h-11"
-            disabled={pending}
-            variant="secondary"
-            onClick={() => run(() => leaveDurakAction(tableId))}
-          >
-            Встать
-          </Button>
-        ) : null}
-      </div>
-      <DurakVoice tableId={tableId} />
-
-      {view.canVoteMode ? (
-        <div className="space-y-2">
-          <p className="text-sm text-slate-700">Режим следующего кона</p>
-          <div className="flex flex-wrap gap-2">
-            <Button className="min-h-11"
-              disabled={pending}
-              variant="secondary"
-              onClick={() => run(() => voteDurakModeAction(tableId, "podkidnoy"))}
-            >
-              Подкидной
+      {view.canTake || view.canPass || view.canRedeal || view.canVoteMode || view.canVoteBot ? (
+        <div className="flex flex-wrap justify-center gap-2 px-3 pb-2">
+          {view.canTake ? (
+            <Button className="min-h-11 rounded-full shadow-sm" disabled={pending} onClick={() => run(() => takeDurakAction(tableId))}>
+              Беру
             </Button>
-            <Button className="min-h-11"
-              disabled={pending}
-              variant="secondary"
-              onClick={() => run(() => voteDurakModeAction(tableId, "perevodnoy"))}
-            >
-              Переводной
+          ) : null}
+          {view.canPass ? (
+            <Button className="min-h-11 rounded-full" disabled={pending} variant="secondary" onClick={() => run(() => passDurakAction(tableId))}>
+              Бито
             </Button>
-          </div>
+          ) : null}
+          {view.canRedeal ? (
+            <Button className="min-h-11 rounded-full" disabled={pending} variant="secondary" onClick={() => run(() => redealDurakAction(tableId))}>
+              Сдать заново
+            </Button>
+          ) : null}
+          {view.canVoteMode ? (
+            <>
+              <Button className="min-h-11 rounded-full" disabled={pending} variant="secondary" onClick={() => run(() => voteDurakModeAction(tableId, "podkidnoy"))}>
+                Подкидной
+              </Button>
+              <Button className="min-h-11 rounded-full" disabled={pending} variant="secondary" onClick={() => run(() => voteDurakModeAction(tableId, "perevodnoy"))}>
+                Переводной
+              </Button>
+            </>
+          ) : null}
+          {view.canVoteBot ? (
+            <>
+              <Button className="min-h-11 rounded-full" disabled={pending} variant="secondary" onClick={() => run(() => voteDurakBotAction(tableId, "keep"))}>
+                Оставить бота
+              </Button>
+              <Button className="min-h-11 rounded-full" disabled={pending} onClick={() => run(() => voteDurakBotAction(tableId, "drop"))}>
+                Убрать бота
+              </Button>
+            </>
+          ) : null}
         </div>
       ) : null}
 
-      {view.canVoteBot ? (
-        <div className="space-y-2">
-          <p className="text-sm text-slate-700">Бот</p>
-          <div className="flex flex-wrap gap-2">
-            <Button className="min-h-11"
-              disabled={pending}
-              variant="secondary"
-              onClick={() => run(() => voteDurakBotAction(tableId, "keep"))}
+      <DurakChat
+        avatarUrl={youSeat?.avatarUrl ?? null}
+        name={view.you?.name ?? "Гость"}
+        side={
+          <>
+            <button
+              aria-label={voice.micOn ? "Выключить микрофон" : "Включить микрофон"}
+              aria-pressed={voice.micOn}
+              className={cn(
+                "flex size-11 items-center justify-center rounded-full",
+                voice.micOn ? "bg-brand-blue text-white" : "text-slate-600",
+              )}
+              disabled={voice.busy}
+              type="button"
+              onClick={voice.toggleMic}
             >
-              Оставить
-            </Button>
-            <Button className="min-h-11" disabled={pending} onClick={() => run(() => voteDurakBotAction(tableId, "drop"))}>
-              Убрать
-            </Button>
-          </div>
-        </div>
-      ) : null}
-
-      {!view.you ? (
-        <div className="flex flex-wrap gap-2">
-          <Button className="min-h-11" onClick={() => router.push(`/login?next=${returnPath}`)}>Войти</Button>
-          <Button className="min-h-11"
-            variant="secondary"
-            onClick={() => router.push(`/register?next=${returnPath}`)}
-          >
-            Регистрация
-          </Button>
-        </div>
-      ) : null}
+              {voice.micOn ? <Mic aria-hidden className="size-5" /> : <MicOff aria-hidden className="size-5" />}
+            </button>
+            <button
+              aria-label={voice.hearing ? "Не слышать стол" : "Слышать стол"}
+              aria-pressed={voice.hearing}
+              className={cn(
+                "flex size-11 items-center justify-center rounded-full",
+                voice.hearing ? "text-slate-800" : "text-slate-400",
+              )}
+              disabled={voice.busy}
+              type="button"
+              onClick={voice.toggleHearing}
+            >
+              {voice.hearing ? <Volume2 aria-hidden className="size-5" /> : <VolumeX aria-hidden className="size-5" />}
+            </button>
+          </>
+        }
+      />
     </div>
   );
 }

@@ -58,11 +58,11 @@ export default function RootLayout({
           <NavigationProgress />
           <AiSearchOverlay />
         </Suspense>
-        <div className="flex min-h-screen min-w-0 flex-col overflow-x-hidden">
+        <div className="flex min-h-screen min-w-0 flex-col overflow-x-hidden [&:has(.game-shell)>div:first-child]:hidden [&:has(.game-shell)>footer]:hidden">
           <div className="sticky top-0 z-[1001]">
             <Header />
           </div>
-          <main className="mx-auto min-w-0 w-full max-w-6xl flex-1 overflow-x-hidden px-3 py-6 sm:px-4 sm:py-10 has-[.home-fullwidth]:max-w-none has-[.home-fullwidth]:px-0 has-[.home-fullwidth]:py-0 has-[.admin-shell]:max-w-none has-[.admin-shell]:px-3 has-[.admin-shell]:py-4 sm:has-[.admin-shell]:px-6 sm:has-[.admin-shell]:py-6">
+          <main className="mx-auto min-w-0 w-full max-w-6xl flex-1 overflow-x-hidden px-3 py-6 sm:px-4 sm:py-10 has-[.home-fullwidth]:max-w-none has-[.home-fullwidth]:px-0 has-[.home-fullwidth]:py-0 has-[.admin-shell]:max-w-none has-[.admin-shell]:px-3 has-[.admin-shell]:py-4 sm:has-[.admin-shell]:px-6 sm:has-[.admin-shell]:py-6 has-[.game-shell]:h-dvh has-[.game-shell]:max-w-none has-[.game-shell]:overflow-hidden has-[.game-shell]:px-0 has-[.game-shell]:py-0">
             {children}
           </main>
           <Footer />

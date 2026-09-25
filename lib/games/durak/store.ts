@@ -161,6 +161,43 @@ export async function listDurakTables(): Promise<DurakTableSummary[]> {
   return summaries;
 }
 
+function safeAvatar(value: string | null | undefined): string | null {
+  if (!value) return null;
+  if (value.startsWith("https://") || value.startsWith("http://")) return value;
+  return null;
+}
+
+async function showTable(
+  client: SupabaseClient,
+  state: DurakState,
+  you: { id: string; name: string } | null,
+  extras?: { connected?: boolean; notice?: string | null },
+): Promise<DurakView> {
+  const view = presentDurak(state, you, extras);
+  const ids = [
+    ...new Set(
+      state.seats
+        .map((seat) => seat.userId)
+        .filter((id): id is string => Boolean(id)),
+    ),
+  ];
+  if (ids.length === 0) return view;
+  const { data } = await client
+    .from("profiles")
+    .select("id, avatar_url")
+    .in("id", ids);
+  const photos = new Map(
+    (data ?? []).map((row) => [row.id, safeAvatar(row.avatar_url)]),
+  );
+  return {
+    ...view,
+    seats: view.seats.map((seat, index) => ({
+      ...seat,
+      avatarUrl: photos.get(state.seats[index]?.userId ?? "") ?? null,
+    })),
+  };
+}
+
 export async function loadDurakView(tableId: DurakTableId): Promise<DurakView> {
   const you = await viewer();
   const client = tryCreateServiceRoleClient();
@@ -177,7 +214,7 @@ export async function loadDurakView(tableId: DurakTableId): Promise<DurakView> {
       "Стол ещё не создан в базе. После миграции места начнут сохраняться.",
     );
   }
-  return presentDurak(row.state, you, { connected: true, notice: null });
+  return showTable(client, row.state, you, { connected: true, notice: null });
 }
 
 export async function mutateDurak(
@@ -212,12 +249,12 @@ export async function mutateDurak(
       next = applyDurakAction(row.state, action);
     } catch (err) {
       return {
-        view: presentDurak(row.state, you),
+        view: await showTable(client, row.state, you),
         message: err instanceof Error ? err.message : "Ход не принят.",
       };
     }
     const saved = await writeRow(client, tableId, next, row.updatedAt);
-    if (saved) return { view: presentDurak(next, you), message: null };
+    if (saved) return { view: await showTable(client, next, you), message: null };
   }
   return {
     view: await loadDurakView(tableId),

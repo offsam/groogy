@@ -53,6 +53,8 @@ export {
 export type { RepositoryContextProvider } from "./repository-context";
 export { MockTeamAgentProvider } from "./agent-provider";
 export type { TeamAgentProvider } from "./agent-provider";
+export { createTeamAgentProvider } from "./provider-factory";
+export { OpenAITeamAgentProvider, PUBLIC_AI_FAILURE_TEXT } from "./openai-provider";
 export {
   invalidateMemory,
   listActiveMemory,

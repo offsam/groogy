@@ -195,6 +195,7 @@ export async function persistAgentReply(
     model?: string | null;
     responseId?: string | null;
     usage?: Record<string, unknown> | null;
+    topicIds?: string[];
     updateId?: number | null;
   },
 ): Promise<{ message: TeamAgentMessage; created: boolean }> {
@@ -222,6 +223,8 @@ export async function persistAgentReply(
       model: input.model ?? null,
       response_id: input.responseId ?? null,
       usage: input.usage ?? null,
+      topic_ids: input.topicIds ?? [],
+      created_at: new Date().toISOString(),
       trigger_message_id: input.triggerMessage.id,
       trigger_external_message_id: input.triggerMessage.external_message_id,
       trigger_update_id: input.updateId ?? null,

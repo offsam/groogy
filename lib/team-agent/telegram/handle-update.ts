@@ -3,8 +3,9 @@
  * Production path uses Supabase store; tests inject InMemory.
  */
 
-import { MockTeamAgentProvider } from "../agent-provider";
 import type { TeamAgentProvider } from "../agent-provider";
+import { TeamAgentModelError, PUBLIC_AI_FAILURE_TEXT } from "../openai-provider";
+import { createTeamAgentProvider } from "../provider-factory";
 import { loadTeamAgentConfig } from "../config";
 import { buildTeamAgentContext } from "../context";
 import { executeValidatedAction } from "../actions";
@@ -146,7 +147,7 @@ export async function handleTelegramUpdate(input: {
       maxMessages: config.maxContextMessages,
     });
 
-    const provider = input.provider ?? new MockTeamAgentProvider();
+    const provider = input.provider ?? createTeamAgentProvider(env);
     providerCalls += 1;
     const reply = await provider.respond(
       context,
@@ -159,20 +160,20 @@ export async function handleTelegramUpdate(input: {
 
     const canApplyActions =
       Boolean(ingest.member) || Boolean(input.allowUnknownPrivilegedActions);
-    const extraTopicIds = (reply.topicIds ?? []).filter(
-      (id) => selectedTopicIds.includes(id) || Boolean(id),
-    );
-    const knownIds = new Set((await input.store.listTopics()).map((t) => t.id));
-    for (const id of extraTopicIds) {
-      if (knownIds.has(id) && !selectedTopicIds.includes(id) && selectedTopicIds.length < 3) {
-        selectedTopicIds.push(id);
-      }
+    const allowedTopicIds = new Set<string>([
+      ...selectedTopicIds,
+      ...context.topics.map((t) => t.id),
+    ]);
+    for (const id of reply.topicIds ?? []) {
+      if (!allowedTopicIds.has(id) || selectedTopicIds.includes(id)) continue;
+      if (selectedTopicIds.length >= config.maxSelectedTopics) break;
+      selectedTopicIds.push(id);
     }
     if (selectedTopicIds.length) {
       await linkMessageToTopics(input.store, ingest.message.id, selectedTopicIds);
     }
     for (const update of reply.summaryUpdates ?? []) {
-      if (!knownIds.has(update.topicId)) continue;
+      if (!allowedTopicIds.has(update.topicId)) continue;
       const topic = await input.store.getTopicById(update.topicId);
       if (!topic) continue;
       await input.store.upsertTopic({
@@ -244,6 +245,7 @@ export async function handleTelegramUpdate(input: {
       model: reply.model ?? null,
       responseId: reply.responseId ?? null,
       usage: reply.usage ?? null,
+      topicIds: selectedTopicIds,
       updateId: input.update.update_id,
     });
     await linkMessageToTopics(
@@ -265,16 +267,16 @@ export async function handleTelegramUpdate(input: {
       stored: true,
     };
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
+    const code = err instanceof TeamAgentModelError ? err.code : "provider_error";
     await telegramSendMessage({
       chatId: normalized.ingest.conversationExternalId,
-      text: "Team Agent временно недоступен. Попробуйте ещё раз чуть позже.",
+      text: PUBLIC_AI_FAILURE_TEXT,
       replyToMessageId: Number(normalized.ingest.messageExternalId) || null,
       env,
     });
     return {
       status: "provider_error",
-      reason: msg,
+      reason: code,
       shouldRespond: true,
       replySent: false,
       providerCalls,

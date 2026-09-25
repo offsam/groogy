@@ -93,6 +93,7 @@ Collector LLM:
 | Architecture SoT | [`../../team-agent/TEAM_AGENT_ARCHITECTURE_V1.md`](../../team-agent/TEAM_AGENT_ARCHITECTURE_V1.md) |
 | Memory policy | [`../../team-agent/TEAM_AGENT_MEMORY_POLICY_V1.md`](../../team-agent/TEAM_AGENT_MEMORY_POLICY_V1.md) |
 | Topic packets | [`../../team-agent/TOPIC_MEMORY_V1.md`](../../team-agent/TOPIC_MEMORY_V1.md) |
+| LLM provider | [`../../team-agent/LLM_PROVIDER_V1.md`](../../team-agent/LLM_PROVIDER_V1.md) |
 | Telegram contract | [`../../team-agent/TELEGRAM_ADAPTER_V1.md`](../../team-agent/TELEGRAM_ADAPTER_V1.md) |
 | GitHub contract | [`../../team-agent/GITHUB_INTEGRATION_V1.md`](../../team-agent/GITHUB_INTEGRATION_V1.md) |
 | Domain code | [`../../../lib/team-agent/`](../../../lib/team-agent/) |

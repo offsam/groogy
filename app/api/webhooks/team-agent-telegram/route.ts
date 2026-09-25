@@ -77,5 +77,8 @@ export async function GET() {
     hasWebhookSecret: Boolean(process.env.TELEGRAM_WEBHOOK_SECRET?.trim()),
     hasAllowedChat: Boolean(config.allowedChatId),
     botUsername: config.botUsername,
+    provider: config.provider,
+    model: config.model,
+    hasOpenAIKey: Boolean(process.env.OPENAI_API_KEY?.trim()),
   });
 }

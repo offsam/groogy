@@ -13,6 +13,9 @@ export type TeamAgentConfig = {
   maxTopicCandidates: number;
   maxSelectedTopics: number;
   maxOverviewTopics: number;
+  maxContextChars: number;
+  maxOutputTokens: number;
+  model: string;
   requireWebhookSecret: boolean;
 };
 
@@ -37,6 +40,9 @@ export function loadTeamAgentConfig(
     maxTopicCandidates: positiveInt(env.TEAM_AGENT_MAX_TOPIC_CANDIDATES, 20),
     maxSelectedTopics: positiveInt(env.TEAM_AGENT_MAX_SELECTED_TOPICS, 3),
     maxOverviewTopics: positiveInt(env.TEAM_AGENT_MAX_OVERVIEW_TOPICS, 5),
+    maxContextChars: positiveInt(env.TEAM_AGENT_MAX_CONTEXT_CHARS, 40_000),
+    maxOutputTokens: positiveInt(env.TEAM_AGENT_MAX_OUTPUT_TOKENS, 1200),
+    model: (env.TEAM_AGENT_MODEL ?? "").trim() || "gpt-6-luna",
     requireWebhookSecret: true,
   };
 }

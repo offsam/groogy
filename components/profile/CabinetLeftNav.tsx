@@ -12,7 +12,6 @@ import {
 import {
   Briefcase,
   Calendar,
-  Gamepad2,
   Heart,
   Inbox,
   MapPinned,
@@ -50,7 +49,6 @@ const NAV_ICONS: Record<CabinetNavKey, LucideIcon> = {
   messenger: MessageCircle,
   events: Calendar,
   dating: Heart,
-  games: Gamepad2,
   settings: Settings,
 };
 

@@ -35,7 +35,6 @@ export const CABINET_NAV_ITEMS = [
   { key: "messenger", label: "Мессенджер", href: "/me/messenger" },
   { key: "events", label: "События", href: "/events" },
   { key: "dating", label: "Знакомства", href: "/me/dating" },
-  { key: "games", label: "Игры", href: "/me/games" },
   { key: "settings", label: "Настройки", href: "/me/settings" },
 ] as const;
 

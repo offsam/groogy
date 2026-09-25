@@ -56,7 +56,7 @@ export default async function NewProfessionalPage() {
       {!canDraft ? (
         <div className="space-y-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-4 text-sm text-amber-950">
           <p>Сначала заполните имя и ZIP в профиле аккаунта.</p>
-          <Link className="font-semibold text-brand-blue" href="/profile">
+          <Link className="font-semibold text-brand-blue" href="/me/settings">
             Открыть настройки профиля
           </Link>
         </div>

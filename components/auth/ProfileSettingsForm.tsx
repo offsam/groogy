@@ -132,7 +132,6 @@ export function ProfileSettingsForm({
               inputMode="numeric"
               maxLength={10}
               name="postal_code"
-              pattern="\d{5}(-\d{4})?"
               placeholder="92618"
               type="text"
             />

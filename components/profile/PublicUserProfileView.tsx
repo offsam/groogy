@@ -1,17 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { ListingCard } from "@/components/marketplace/ListingCard";
-import { OwnListingArchiveButton } from "@/components/profile/OwnListingArchiveButton";
+import { BusinessCard } from "@/components/business/BusinessCard";
+import { EventCard } from "@/components/events/EventCard";
+import { MyListingsFrame } from "@/components/profile/MyListingsFrame";
+import { MyServicesFrame } from "@/components/profile/MyServicesFrame";
 import { CabinetLeftNav } from "@/components/profile/CabinetLeftNav";
 import { ProfileAvatarUpload } from "@/components/profile/ProfileAvatarUpload";
 import { ProfileCoverBanner } from "@/components/profile/ProfileCoverBanner";
 import { SkillFramesPanel } from "@/components/profile/SkillFramesPanel";
 import { SearchFramesPanel } from "@/components/profile/SearchFramesPanel";
-import { ServiceCard } from "@/components/services/ServiceCard";
 import type { ProfileSkillFrame } from "@/types/profile-cabinet";
 import type { SearchFrameWithListings } from "@/lib/profile/search-history-queries";
-import type { Listing, OwnedBusinessOption, PublicProfileCard } from "@/types/listing";
+import type { PlatformEvent } from "@/lib/events/queries";
+import type { Listing, PublicProfileCard } from "@/types/listing";
+import type { Business } from "@/types/business";
 import type { Professional } from "@/types/professional";
 import { cn } from "@/lib/utils";
 
@@ -51,23 +54,113 @@ type Props = {
   profile: PublicProfileCard;
   listings: Listing[];
   services: Listing[];
+  businesses?: Business[];
+  events?: PlatformEvent[];
   publicSkillFrames?: ProfileSkillFrame[];
   /** Self-only: owned entities + cabinet panels */
   self?: {
     email: string | null;
-    myListings: Listing[];
-    myServices: Listing[];
-    businesses: OwnedBusinessOption[];
+    pendingBusinessClaims: Array<{
+      claimId: string;
+      businessId: string;
+      name: string;
+      slug: string;
+    }>;
     professional: Professional | null;
     skillFrames: ProfileSkillFrame[];
     searchFrames: SearchFrameWithListings[];
   } | null;
 };
 
+function ProfileActivitySections({
+  listings,
+  services,
+  businesses,
+  events,
+  listingsTitle = "Объявления",
+  listingsAllHref = null,
+  showListingStatus = false,
+  servicesTitle = "Услуги",
+  servicesAllHref = null,
+  showServiceStatus = false,
+}: {
+  listings: Listing[];
+  services: Listing[];
+  businesses: Business[];
+  events: PlatformEvent[];
+  listingsTitle?: string;
+  listingsAllHref?: string | null;
+  showListingStatus?: boolean;
+  servicesTitle?: string;
+  servicesAllHref?: string | null;
+  showServiceStatus?: boolean;
+}) {
+  if (
+    listings.length === 0 &&
+    services.length === 0 &&
+    businesses.length === 0 &&
+    events.length === 0
+  ) {
+    return null;
+  }
+
+  return (
+    <>
+      <MyListingsFrame
+        allHref={listingsAllHref}
+        listings={listings}
+        showStatus={showListingStatus}
+        title={listingsTitle}
+      />
+
+      <MyServicesFrame
+        allHref={servicesAllHref}
+        services={services}
+        showStatus={showServiceStatus}
+        title={servicesTitle}
+      />
+
+      {businesses.length > 0 ? (
+        <section className="space-y-4">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Бизнесы
+            <span className="ml-2 text-sm font-normal tabular-nums text-slate-500">
+              {businesses.length}
+            </span>
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            {businesses.map((business) => (
+              <BusinessCard business={business} key={business.id} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {events.length > 0 ? (
+        <section className="space-y-4">
+          <h2 className="text-lg font-semibold text-slate-900">
+            События
+            <span className="ml-2 text-sm font-normal tabular-nums text-slate-500">
+              {events.length}
+            </span>
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            {events.map((event) => (
+              <EventCard event={event} key={event.id} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </>
+  );
+}
+
 export function PublicUserProfileView({
   profile,
   listings,
   services,
+  businesses = [],
+  events = [],
   publicSkillFrames = [],
   self = null,
 }: Props) {
@@ -240,27 +333,35 @@ export function PublicUserProfileView({
       <>
         {headerCard}
 
-        <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
-          <h2 className="text-lg font-semibold text-slate-900">Мои бизнесы</h2>
-          {self.businesses.length === 0 ? (
+        {self.pendingBusinessClaims.length > 0 ? (
+          <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
+            <h2 className="text-lg font-semibold text-slate-900">
+              Мои бизнесы
+            </h2>
             <p className="text-sm text-slate-500">
-              Пока нет привязанных бизнесов.
+              Заявки на владение — ждут проверки. Подтверждённые бизнесы — в
+              меню слева.
             </p>
-          ) : (
             <ul className="space-y-2">
-              {self.businesses.map((b) => (
-                <li key={b.id}>
+              {self.pendingBusinessClaims.map((b) => (
+                <li
+                  className="flex flex-wrap items-center gap-2"
+                  key={b.claimId}
+                >
                   <Link
                     className="inline-flex min-h-11 items-center text-sm font-medium text-brand-blue hover:underline"
                     href={`/business/${b.slug}`}
                   >
                     {b.name}
                   </Link>
+                  <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800 ring-1 ring-amber-200">
+                    На проверке
+                  </span>
                 </li>
               ))}
             </ul>
-          )}
-        </section>
+          </section>
+        ) : null}
 
         <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-slate-900">
@@ -274,67 +375,16 @@ export function PublicUserProfileView({
               {self.professional.displayName}
             </Link>
           ) : (
-            <p className="text-sm text-slate-500">
-              Специалист к аккаунту не привязан.
-            </p>
-          )}
-        </section>
-
-        <section className="space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-semibold text-slate-900">
-              Мои объявления
-            </h2>
-            <Link
-              className="inline-flex min-h-11 items-center rounded-lg bg-brand-blue px-3 text-sm font-medium text-white"
-              href="/marketplace/new"
-              style={{ color: "#ffffff" }}
-            >
-              Разместить
-            </Link>
-          </div>
-          {self.myListings.length === 0 ? (
-            <p className="text-sm text-slate-500">Нет объявлений.</p>
-          ) : (
-            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-              {self.myListings.map((listing) => (
-                <div key={listing.id}>
-                  <ListingCard listing={listing} showStatus />
-                  {listing.status !== "archived" &&
-                  listing.status !== "removed" ? (
-                    <OwnListingArchiveButton listingId={listing.id} />
-                  ) : null}
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-
-        <section className="space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-semibold text-slate-900">
-              Мои услуги
-            </h2>
-            <Link
-              className="inline-flex min-h-11 items-center rounded-lg border border-slate-200 px-3 text-sm font-medium text-slate-900 hover:bg-slate-50"
-              href="/services/new"
-            >
-              Добавить услугу
-            </Link>
-          </div>
-          {self.myServices.length === 0 ? (
-            <p className="text-sm text-slate-500">Нет услуг.</p>
-          ) : (
-            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-              {self.myServices.map((listing) => (
-                <div key={listing.id}>
-                  <ServiceCard listing={listing} showStatus />
-                  {listing.status !== "archived" &&
-                  listing.status !== "removed" ? (
-                    <OwnListingArchiveButton listingId={listing.id} />
-                  ) : null}
-                </div>
-              ))}
+            <div className="space-y-2">
+              <p className="text-sm text-slate-500">
+                Специалист к аккаунту не привязан. Нужны имя и ZIP в настройках.
+              </p>
+              <Link
+                className="inline-flex min-h-11 items-center text-sm font-medium text-brand-blue hover:underline"
+                href="/professional/new"
+              >
+                Создать профиль специалиста
+              </Link>
             </div>
           )}
         </section>
@@ -343,6 +393,19 @@ export function PublicUserProfileView({
           editable
           frames={self.skillFrames}
           userId={profile.ownerId}
+        />
+
+        <ProfileActivitySections
+          businesses={businesses}
+          events={events}
+          listings={listings}
+          listingsAllHref="/me/listings"
+          listingsTitle="Мои объявления"
+          services={services}
+          servicesAllHref="/me/services"
+          servicesTitle="Мои услуги"
+          showListingStatus
+          showServiceStatus
         />
       </>
     ) : null;
@@ -363,48 +426,17 @@ export function PublicUserProfileView({
     <div className="mx-auto max-w-3xl space-y-6">
       {headerCard}
 
-      {!strangerPrivate && profile.showListings ? (
-        <>
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">
-              Объявления
-              <span className="ml-2 text-sm font-normal tabular-nums text-slate-500">
-                {profile.listingsActiveCount}
-              </span>
-            </h2>
-            {listings.length === 0 ? (
-              <p className="text-sm text-slate-500">Нет публичных объявлений.</p>
-            ) : (
-              <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                {listings.map((listing) => (
-                  <ListingCard key={listing.id} listing={listing} />
-                ))}
-              </div>
-            )}
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-900">
-              Услуги
-              <span className="ml-2 text-sm font-normal tabular-nums text-slate-500">
-                {profile.servicesActiveCount}
-              </span>
-            </h2>
-            {services.length === 0 ? (
-              <p className="text-sm text-slate-500">Нет публичных услуг.</p>
-            ) : (
-              <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                {services.map((listing) => (
-                  <ServiceCard key={listing.id} listing={listing} />
-                ))}
-              </div>
-            )}
-          </section>
-        </>
-      ) : null}
-
       {!strangerPrivate && publicSkillFrames.length > 0 ? (
         <SkillFramesPanel editable={false} frames={publicSkillFrames} />
+      ) : null}
+
+      {!strangerPrivate ? (
+        <ProfileActivitySections
+          businesses={businesses}
+          events={events}
+          listings={profile.showListings ? listings : []}
+          services={profile.showListings ? services : []}
+        />
       ) : null}
     </div>
   );

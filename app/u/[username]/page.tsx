@@ -5,12 +5,14 @@ import { PublicUserProfileView } from "@/components/profile/PublicUserProfileVie
 import { ErrorState } from "@/components/ui/DataState";
 import {
   getMyListings,
-  getOwnedBusinessesForPublisher,
   getPublicProfileByUsername,
   getPublicProfileListings,
   getPublicProfileServiceListings,
 } from "@/lib/listings/queries";
+import { listPublishedEventsForOwner } from "@/lib/events/queries";
+import { listApprovedBusinessesForProfileOwner } from "@/lib/supabase/queries";
 import { getMyProfessional } from "@/lib/professional/queries";
+import { listMyPendingBusinessClaims } from "@/lib/claims/queries";
 import {
   listPublicSkillFrames,
   listSkillFramesForOwner,
@@ -18,10 +20,28 @@ import {
 import { listSearchFramesWithListings } from "@/lib/profile/search-history-queries";
 import { getDismissedSearchNormsAction } from "@/lib/profile/search-history-actions";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
+import type { Listing } from "@/types/listing";
+import type { Business } from "@/types/business";
+import type { PlatformEvent } from "@/lib/events/queries";
 
 type PageProps = {
   params: Promise<{ username: string }>;
 };
+
+function onlyActive(listings: Listing[]): Listing[] {
+  return listings.filter((l) => l.status === "active");
+}
+
+/** Same “current” set as /me/listings — not archived/removed. */
+function currentMarketplaceListings(listings: Listing[]): Listing[] {
+  return listings.filter(
+    (l) =>
+      l.status !== "archived" &&
+      l.status !== "removed" &&
+      l.status !== "rejected",
+  );
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { username } = await params;
@@ -49,25 +69,78 @@ export default async function PublicProfilePage({ params }: PageProps) {
   const supabase = await createServerClient();
 
   let profile: Awaited<ReturnType<typeof getPublicProfileByUsername>> = null;
-  let listings: Awaited<ReturnType<typeof getPublicProfileListings>> = [];
-  let services: Awaited<ReturnType<typeof getPublicProfileServiceListings>> =
-    [];
+  let listings: Listing[] = [];
+  let services: Listing[] = [];
+  let businesses: Business[] = [];
+  let events: PlatformEvent[] = [];
   let publicSkillFrames: Awaited<ReturnType<typeof listPublicSkillFrames>> = [];
   let loadError: string | null = null;
 
   try {
     profile = await getPublicProfileByUsername(supabase, username);
-    if (profile?.showListings && profile.mode === "public" && !profile.isSelf) {
-      [listings, services] = await Promise.all([
-        getPublicProfileListings(supabase, username),
-        getPublicProfileServiceListings(supabase, username),
-      ]);
-    }
-    if (profile?.ownerId && profile.mode === "public" && !profile.isSelf) {
-      publicSkillFrames = await listPublicSkillFrames(
-        supabase,
-        profile.ownerId,
-      ).catch(() => []);
+
+    if (profile?.isSelf && profile.ownerId) {
+      const [myListings, myServices, myBusinesses, myEvents] =
+        await Promise.all([
+          getMyListings(supabase, profile.ownerId, null, "marketplace_item")
+            .then(currentMarketplaceListings)
+            .catch(() => []),
+          getMyListings(supabase, profile.ownerId, null, "service")
+            .then(currentMarketplaceListings)
+            .catch(() => []),
+          listApprovedBusinessesForProfileOwner(profile.ownerId).catch(() => []),
+          listPublishedEventsForOwner(supabase, profile.ownerId).catch(() => []),
+        ]);
+      listings = myListings;
+      services = myServices;
+      businesses = myBusinesses;
+      events = myEvents;
+    } else if (profile?.mode === "public") {
+      const loadListings = Boolean(profile.showListings);
+      let ownerId = profile.ownerId;
+      if (!ownerId && profile.username) {
+        // Public RPC hides owner_id from strangers; resolve for activity blocks only.
+        try {
+          const catalog = createServiceRoleClient();
+          const { data: idRow } = await catalog
+            .from("profiles")
+            .select("id")
+            .eq("username", profile.username)
+            .maybeSingle();
+          ownerId = (idRow?.id as string | undefined) ?? null;
+        } catch {
+          ownerId = null;
+        }
+      }
+      const [publicListings, publicServices, publicBusinesses, publicEvents] =
+        await Promise.all([
+          loadListings
+            ? getPublicProfileListings(supabase, username)
+                .then(onlyActive)
+                .catch(() => [])
+            : Promise.resolve([] as Listing[]),
+          loadListings
+            ? getPublicProfileServiceListings(supabase, username)
+                .then(onlyActive)
+                .catch(() => [])
+            : Promise.resolve([] as Listing[]),
+          ownerId
+            ? listApprovedBusinessesForProfileOwner(ownerId).catch(() => [])
+            : Promise.resolve([] as Business[]),
+          ownerId
+            ? listPublishedEventsForOwner(supabase, ownerId).catch(() => [])
+            : Promise.resolve([] as PlatformEvent[]),
+        ]);
+      listings = publicListings;
+      services = publicServices;
+      businesses = publicBusinesses;
+      events = publicEvents;
+
+      if (ownerId) {
+        publicSkillFrames = await listPublicSkillFrames(supabase, ownerId).catch(
+          () => [],
+        );
+      }
     }
   } catch (err) {
     loadError =
@@ -117,19 +190,13 @@ export default async function PublicProfilePage({ params }: PageProps) {
 
   if (profile.isSelf && profile.ownerId) {
     const [
-      myListings,
-      myServices,
-      businesses,
+      pendingBusinessClaims,
       professional,
       auth,
       skillFrames,
       searchFrames,
     ] = await Promise.all([
-      getMyListings(supabase, profile.ownerId, null, "marketplace_item").catch(
-        () => [],
-      ),
-      getMyListings(supabase, profile.ownerId, null, "service").catch(() => []),
-      getOwnedBusinessesForPublisher(supabase, profile.ownerId).catch(() => []),
+      listMyPendingBusinessClaims(supabase, profile.ownerId).catch(() => []),
       getMyProfessional(supabase, profile.ownerId).catch(() => null),
       supabase.auth.getUser(),
       listSkillFramesForOwner(supabase, profile.ownerId).catch(() => []),
@@ -142,9 +209,7 @@ export default async function PublicProfilePage({ params }: PageProps) {
 
     self = {
       email: auth.data.user?.email ?? null,
-      myListings,
-      myServices,
-      businesses,
+      pendingBusinessClaims,
       professional,
       skillFrames,
       searchFrames,
@@ -153,6 +218,8 @@ export default async function PublicProfilePage({ params }: PageProps) {
 
   return (
     <PublicUserProfileView
+      businesses={businesses}
+      events={events}
       listings={listings}
       profile={profile}
       publicSkillFrames={publicSkillFrames}

@@ -240,6 +240,36 @@ export async function getApprovedBusinesses(
   return ((data ?? []) as unknown as BusinessWithCategory[]).map(mapBusinessList);
 }
 
+/** Approved businesses owned by a profile — for the profile activity block. */
+export async function listApprovedBusinessesForProfileOwner(
+  ownerUserId: string,
+  opts: { limit?: number } = {},
+): Promise<Business[]> {
+  const limit = Math.min(48, Math.max(1, opts.limit ?? 24));
+  const catalog = createServiceRoleClient();
+  const { data: links, error: linkError } = await catalog
+    .from("business_owners")
+    .select("business_id")
+    .eq("user_id", ownerUserId);
+  if (linkError) throw linkError;
+  const ids = [
+    ...new Set(
+      ((links ?? []) as Array<{ business_id: string }>).map((r) => r.business_id),
+    ),
+  ];
+  if (ids.length === 0) return [];
+
+  const { data, error } = await catalog
+    .from("businesses")
+    .select(BUSINESS_LIST_SELECT)
+    .in("id", ids)
+    .eq("status", "approved")
+    .order("name", { ascending: true })
+    .limit(limit);
+  if (error) throw error;
+  return ((data ?? []) as unknown as BusinessWithCategory[]).map(mapBusinessList);
+}
+
 /** Newest + popular businesses with coordinates for the home activity map. */
 /** Home map pin — business or professional with an address + coordinates. */
 export type HomeMapPin = {

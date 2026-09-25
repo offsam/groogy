@@ -10,6 +10,7 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import {
+  Briefcase,
   Calendar,
   Gamepad2,
   Heart,
@@ -19,6 +20,9 @@ import {
   MoreVertical,
   Search,
   Settings,
+  ShoppingBag,
+  Store,
+  Tag,
   UserRound,
   UsersRound,
   type LucideIcon,
@@ -36,6 +40,10 @@ const LONG_PRESS_MS = 2000;
 const NAV_ICONS: Record<CabinetNavKey, LucideIcon> = {
   profile: UserRound,
   circles: UsersRound,
+  businesses: Store,
+  listings: Tag,
+  services: Briefcase,
+  marketplace: ShoppingBag,
   surroundings: MapPinned,
   searches: Search,
   requests: Inbox,
@@ -90,7 +98,13 @@ function resolveTarget(
   if (key === "profile") return { kind: "link", href: profileHref };
   if (key === "settings") return { kind: "link", href: "/me/settings" };
   if (key === "circles") return { kind: "link", href: "/me/circles" };
+  if (key === "businesses") return { kind: "link", href: "/me/businesses" };
+  if (key === "listings") return { kind: "link", href: "/me/listings" };
+  if (key === "services") return { kind: "link", href: "/me/services" };
   return { kind: "span" };
+  if (key === "surroundings") return { kind: "link", href: "/me/surroundings" };
+  if (key === "events") return { kind: "link", href: "/events" };
+  if (key === "searches") return { kind: "link", href: "/me/searches" };
 }
 
 export function CabinetLeftNav({ username, active = "profile" }: Props) {

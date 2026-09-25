@@ -91,6 +91,7 @@ export async function dismissSearchHistoryAction(
     .maybeSingle();
 
   revalidatePath("/profile");
+  revalidatePath("/me/searches");
   if (profile?.username) {
     revalidatePath(`/u/${profile.username}`);
   }

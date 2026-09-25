@@ -144,6 +144,23 @@ function sortEvents(events: PlatformEvent[], sort: EventSort): PlatformEvent[] {
   return copy;
 }
 
+/** Published events owned by a profile (profile page activity). */
+export async function listPublishedEventsForOwner(
+  client: Client,
+  ownerProfileId: string,
+  opts: { limit?: number } = {},
+): Promise<PlatformEvent[]> {
+  const limit = Math.min(48, Math.max(1, opts.limit ?? 24));
+  const { data, error } = await eventsTable(client)
+    .select(EVENT_SELECT)
+    .eq("status", "published")
+    .eq("owner_profile_id", ownerProfileId)
+    .order("starts_at", { ascending: true, nullsFirst: false })
+    .limit(limit);
+  if (error) throw error;
+  return (data ?? []) as PlatformEvent[];
+}
+
 /** Published events linked to a business via provider_business_id. */
 export async function listPublishedEventsForBusiness(
   client: Client,

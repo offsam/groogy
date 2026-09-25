@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createServerClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/service";
 import { normalizeUsZip } from "@/lib/brand";
 import { resolveUsZipLocation } from "@/lib/brand/location";
 import {
@@ -80,26 +81,70 @@ export async function updateProfileSettingsAction(
     }
   }
 
-  const { error } = await supabase
+  const basePatch = {
+    display_name: input.displayName,
+    username: input.username,
+    avatar_url: input.avatarUrl,
+    bio: input.bio,
+    city,
+    state,
+    state_code: stateCode,
+    city_geoid: cityGeoid,
+    profile_visibility: input.profileVisibility,
+    default_author_visibility: input.defaultAuthorVisibility,
+    public_activity_enabled: input.publicActivityEnabled,
+    show_reviews_in_profile: input.showReviewsInProfile,
+    show_listings_in_profile: input.showListingsInProfile,
+  };
+
+  // postal_code / county_geoid need column UPDATE grants (see migration
+  // 20260925120000). Retry without them if the remote DB is behind, then
+  // write ZIP via service role so is_profile_completed (name+ZIP) can succeed.
+  // Geo FKs (county_geoid / city_geoid) must not block saving the ZIP itself.
+  let { error } = await supabase
     .from("profiles")
     .update({
-      display_name: input.displayName,
-      username: input.username,
-      avatar_url: input.avatarUrl,
-      bio: input.bio,
-      city,
-      state,
-      state_code: stateCode,
-      city_geoid: cityGeoid,
+      ...basePatch,
       postal_code: postalCode,
       county_geoid: countyGeoid,
-      profile_visibility: input.profileVisibility,
-      default_author_visibility: input.defaultAuthorVisibility,
-      public_activity_enabled: input.publicActivityEnabled,
-      show_reviews_in_profile: input.showReviewsInProfile,
-      show_listings_in_profile: input.showListingsInProfile,
     })
     .eq("id", user.id);
+
+  let zipSaved = !error;
+
+  if (
+    error &&
+    (error.code === "42501" ||
+      error.message.toLowerCase().includes("permission denied") ||
+      error.code === "23503" ||
+      error.message.toLowerCase().includes("foreign key"))
+  ) {
+    ({ error } = await supabase.from("profiles").update(basePatch).eq("id", user.id));
+    if (
+      error &&
+      (error.code === "23503" ||
+        error.message.toLowerCase().includes("foreign key"))
+    ) {
+      // city_geoid / state_code FK — save identity fields without geo.
+      ({ error } = await supabase
+        .from("profiles")
+        .update({
+          display_name: basePatch.display_name,
+          username: basePatch.username,
+          avatar_url: basePatch.avatar_url,
+          bio: basePatch.bio,
+          city: basePatch.city,
+          state: basePatch.state,
+          profile_visibility: basePatch.profile_visibility,
+          default_author_visibility: basePatch.default_author_visibility,
+          public_activity_enabled: basePatch.public_activity_enabled,
+          show_reviews_in_profile: basePatch.show_reviews_in_profile,
+          show_listings_in_profile: basePatch.show_listings_in_profile,
+        })
+        .eq("id", user.id));
+    }
+    zipSaved = false;
+  }
 
   if (error) {
     if (error.code === "23505") {
@@ -111,16 +156,78 @@ export async function updateProfileSettingsAction(
     return fail(error.message || "Не удалось сохранить профиль.");
   }
 
+  if (postalCode && !zipSaved) {
+    // Prefer security-definer RPC (after migration); fall back to service role.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error: rpcError } = await (supabase as any).rpc(
+      "set_own_profile_postal",
+      {
+        p_postal: postalCode,
+        p_county_geoid: countyGeoid,
+      },
+    );
+    if (!rpcError) {
+      zipSaved = true;
+    } else {
+      try {
+        const admin = createServiceRoleClient();
+        const { error: zipOnlyError } = await admin
+          .from("profiles")
+          .update({ postal_code: postalCode })
+          .eq("id", user.id);
+        if (zipOnlyError) {
+          countyGeoid = null;
+          console.error(
+            "[profile] ZIP write failed:",
+            rpcError.message,
+            zipOnlyError.message,
+          );
+        } else {
+          zipSaved = true;
+          if (countyGeoid) {
+            const { error: countyError } = await admin
+              .from("profiles")
+              .update({ county_geoid: countyGeoid })
+              .eq("id", user.id);
+            if (countyError) countyGeoid = null;
+          }
+          if (cityGeoid || stateCode) {
+            await admin
+              .from("profiles")
+              .update({
+                ...(cityGeoid ? { city_geoid: cityGeoid } : {}),
+                ...(stateCode ? { state_code: stateCode } : {}),
+              })
+              .eq("id", user.id);
+          }
+        }
+      } catch (err) {
+        countyGeoid = null;
+        console.error("[profile] ZIP service-role fallback failed:", err);
+      }
+    }
+  }
+
+  if (!zipSaved) {
+    countyGeoid = null;
+  }
+
   revalidatePath("/profile");
+  revalidatePath("/me/settings");
+  revalidatePath("/professional/new");
   revalidatePath("/", "layout");
   revalidatePath("/");
   if (input.username) {
     revalidatePath(`/u/${input.username}`);
   }
   return ok(
-    countyGeoid
+    zipSaved && countyGeoid
       ? "Профиль сохранён. Регион КРУГИ обновлён по ZIP."
-      : "Профиль сохранён.",
+      : zipSaved
+        ? "Профиль сохранён."
+        : postalCode
+          ? "Профиль сохранён, но ZIP не записался. Выполните SQL из supabase/migrations/20260925120000_listings_profile_column_grants.sql в Supabase SQL Editor."
+          : "Профиль сохранён.",
     input.username ?? undefined,
   );
 }

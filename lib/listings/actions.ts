@@ -126,6 +126,19 @@ function mapDbError(error: { message?: string; code?: string } | null): string {
   if (message.includes("reserved username")) {
     return "Этот username зарезервирован.";
   }
+  if (
+    message.includes("permission denied") ||
+    message.includes("42501") ||
+    error?.code === "42501"
+  ) {
+    console.error("[listings] permission denied:", error?.message ?? message);
+    return "Нет прав на это действие. Обновите страницу или войдите снова.";
+  }
+  if (error?.message) {
+    console.error("[listings] unmapped db error:", error.code, error.message);
+    const short = error.message.trim().slice(0, 180);
+    if (short) return short;
+  }
   return "Не удалось выполнить действие.";
 }
 
@@ -341,8 +354,6 @@ export async function createListingDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
-      source_kind: "platform",
-      source_url: null,
     })
     .select("id")
     .single();
@@ -572,8 +583,6 @@ export async function createServiceDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
-      source_kind: "platform",
-      source_url: null,
     })
     .select("id")
     .single();
@@ -910,8 +919,6 @@ export async function createTransferDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
-      source_kind: "platform",
-      source_url: null,
     })
     .select("id")
     .single();
@@ -1139,8 +1146,6 @@ export async function createLechuDraftAction(
       city_geoid: input.cityGeoid ?? null,
       publisher_type: input.publisherType,
       publisher_business_id: input.publisherBusinessId,
-      source_kind: "platform",
-      source_url: null,
     })
     .select("id")
     .single();

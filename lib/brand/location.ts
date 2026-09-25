@@ -44,9 +44,12 @@ async function countyFromLatLng(
     .eq("geoid", fcc.countyGeoid)
     .maybeSingle();
 
+  // Only return geoids that exist in our table — profiles.county_geoid has an FK.
+  if (!county?.geoid) return null;
+
   return {
-    countyGeoid: fcc.countyGeoid,
-    countyName: county?.name ?? fcc.countyName,
+    countyGeoid: county.geoid,
+    countyName: county.name ?? fcc.countyName,
   };
 }
 

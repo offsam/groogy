@@ -524,12 +524,12 @@ export function DurakTable({
 
       <div className="flex flex-wrap gap-2">
         {view.canTake ? (
-          <Button disabled={pending} onClick={() => run(() => takeDurakAction(tableId))}>
+          <Button className="min-h-11" disabled={pending} onClick={() => run(() => takeDurakAction(tableId))}>
             Беру
           </Button>
         ) : null}
         {view.canPass ? (
-          <Button
+          <Button className="min-h-11"
             disabled={pending}
             variant="secondary"
             onClick={() => run(() => passDurakAction(tableId))}
@@ -538,12 +538,12 @@ export function DurakTable({
           </Button>
         ) : null}
         {view.canRedeal ? (
-          <Button disabled={pending} onClick={() => run(() => redealDurakAction(tableId))}>
+          <Button className="min-h-11" disabled={pending} onClick={() => run(() => redealDurakAction(tableId))}>
             Сдать заново
           </Button>
         ) : null}
         {view.yourSeat != null ? (
-          <Button
+          <Button className="min-h-11"
             disabled={pending}
             variant="secondary"
             onClick={() => run(() => leaveDurakAction(tableId))}
@@ -558,14 +558,14 @@ export function DurakTable({
         <div className="space-y-2">
           <p className="text-sm text-slate-700">Режим следующего кона</p>
           <div className="flex flex-wrap gap-2">
-            <Button
+            <Button className="min-h-11"
               disabled={pending}
               variant="secondary"
               onClick={() => run(() => voteDurakModeAction(tableId, "podkidnoy"))}
             >
               Подкидной
             </Button>
-            <Button
+            <Button className="min-h-11"
               disabled={pending}
               variant="secondary"
               onClick={() => run(() => voteDurakModeAction(tableId, "perevodnoy"))}
@@ -580,14 +580,14 @@ export function DurakTable({
         <div className="space-y-2">
           <p className="text-sm text-slate-700">Бот</p>
           <div className="flex flex-wrap gap-2">
-            <Button
+            <Button className="min-h-11"
               disabled={pending}
               variant="secondary"
               onClick={() => run(() => voteDurakBotAction(tableId, "keep"))}
             >
               Оставить
             </Button>
-            <Button disabled={pending} onClick={() => run(() => voteDurakBotAction(tableId, "drop"))}>
+            <Button className="min-h-11" disabled={pending} onClick={() => run(() => voteDurakBotAction(tableId, "drop"))}>
               Убрать
             </Button>
           </div>
@@ -629,8 +629,8 @@ export function DurakTable({
         )}
         {!view.you ? (
           <div className="mt-3 flex flex-wrap gap-2">
-            <Button onClick={() => router.push(`/login?next=${returnPath}`)}>Войти</Button>
-            <Button
+            <Button className="min-h-11" onClick={() => router.push(`/login?next=${returnPath}`)}>Войти</Button>
+            <Button className="min-h-11"
               variant="secondary"
               onClick={() => router.push(`/register?next=${returnPath}`)}
             >

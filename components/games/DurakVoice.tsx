@@ -115,12 +115,12 @@ export function DurakVoice({ tableId }: { tableId: number }) {
             >
               {talking ? "Говорите" : "Сказать"}
             </button>
-            <Button disabled={busy} variant="secondary" onClick={() => void disable()}>
+            <Button className="min-h-11" disabled={busy} variant="secondary" onClick={() => void disable()}>
               Выключить голос
             </Button>
           </>
         ) : (
-          <Button disabled={busy} loading={busy} onClick={() => void enable()}>
+          <Button className="min-h-11" disabled={busy} loading={busy} onClick={() => void enable()}>
             Включить голос
           </Button>
         )}

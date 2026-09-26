@@ -111,7 +111,6 @@ async function main(): Promise<void> {
     const screen = await proposeTask(store, { title: "Главный экран", assigned_member_id: sam.id });
     await approveTask(store, screen.id);
     await startTask(store, screen.id);
-    const before = (await store.getTask(screen.id))?.status;
     await handleTelegramUpdate({
       update: update("Я закончил главный экран", 728807017, 2),
       store,
@@ -119,7 +118,7 @@ async function main(): Promise<void> {
       provider,
       botUserId: 1,
     });
-    assert.equal((await store.getTask(screen.id))?.status, before);
+    assert.equal((await store.getTask(screen.id))?.status, "in_progress");
     assert.equal(provider.calls, 0);
 
     await ingestTeamMessage(store, {

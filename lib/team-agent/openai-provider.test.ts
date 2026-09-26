@@ -357,8 +357,23 @@ async function main() {
   }
   passed += 2;
 
+  const prose = parseTeamAgentModelOutput("не json", [good]);
+  assert.equal(prose.replyText, "не json");
+  assert.equal(prose.proposedActions.length, 0);
+  const brokenAction = parseTeamAgentModelOutput(
+    '{"reply":"Жека спросил про подтверждение.","topicIds":[],"proposedActions":[{"type":"create_task","payloadJson":"{"}],"memoryProposals":[],"topicSummaryUpdates":[]}',
+    [good],
+  );
+  assert.equal(brokenAction.replyText, "Жека спросил про подтверждение.");
+  assert.equal(brokenAction.proposedActions.length, 0);
+  const truncated = parseTeamAgentModelOutput(
+    '{"reply":"Подтверждение — отдельным сообщением.","proposedActions":[{"type":"create_task"',
+    [good],
+  );
+  assert.match(truncated.replyText, /Подтверждение/);
+  assert.equal(truncated.proposedActions.length, 0);
   assert.throws(
-    () => parseTeamAgentModelOutput("не json", [good]),
+    () => parseTeamAgentModelOutput("{", [good]),
     (err: unknown) => err instanceof Error && err.message === "malformed",
   );
   const timeout = provider(modelJson, ["timeout"]);

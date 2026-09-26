@@ -13,6 +13,7 @@ import { TEAM_AGENT_SYSTEM_PROMPT_V1 } from "./prompts/team-agent-system-v1";
 import { seedMembersFromTemplate } from "./members";
 import { InMemoryTeamAgentStore } from "./store";
 import { proposeDecision } from "./decisions";
+import { proposeTask } from "./tasks";
 import { createTopic } from "./topics";
 import type { AgentRespondResult } from "./types";
 import type { TeamAgentProvider } from "./agent-provider";
@@ -212,9 +213,9 @@ async function main() {
     botUserId: 1,
   });
   assert.equal(taskRun.providerCalls, 1);
-  const created = (await taskStore.listTasks())[0];
-  assert.equal(created?.status, "proposed");
-  assert.match(created?.title ?? "", /Личный кабинет/);
+  assert.equal((await taskStore.listTasks()).length, 0);
+  const created = await proposeTask(taskStore, { title: "Личный кабинет", description: "профиль и настройки" });
+  assert.equal(created.status, "proposed");
   passed += 1;
 
   const approval = await taskStore.insertApproval({

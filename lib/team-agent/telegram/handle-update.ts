@@ -6,7 +6,7 @@
 import { randomUUID } from "node:crypto";
 import { consumeAiBudget, storedAiBudgetDecision } from "../ai-budget";
 import type { TeamAgentProvider } from "../agent-provider";
-import { approvePendingAssignment, executeValidatedAction } from "../actions";
+import { approvePendingAssignment } from "../actions";
 import { formatCapabilitiesReply, formatStatusReply, type CapabilityFacts } from "../capabilities";
 import { loadTeamAgentConfig } from "../config";
 import { formatProjectAnswer, snapshotBrief } from "../control/report";
@@ -19,6 +19,7 @@ import {
 } from "../github-repository";
 import { claimAgentReply, ingestTeamMessage, markMessageAgentReplied, persistAgentReply } from "../ingest";
 import { parseLocalCommand } from "../local-commands";
+import { quotePartnerSpeech, runTaskIntent } from "../task-intent";
 import { TeamAgentModelError, describeProviderFailure, publicFailureText } from "../openai-provider";
 import { createTeamAgentProvider } from "../provider-factory";
 import type { TeamAgentStore } from "../store-port";
@@ -94,6 +95,66 @@ export async function handleTelegramUpdate(input: {
     explicitCommands: config.explicitCommands,
   });
 
+  const requestId = randomUUID();
+  const quietEarly = await quietReply({
+    store: input.store,
+    text: ingest.message.body,
+    member: ingest.member,
+    conversationId: ingest.conversation.id,
+  });
+  if (quietEarly) {
+    const sent = await sendReply(
+      normalized.ingest.conversationExternalId,
+      quietEarly.text,
+      normalized.ingest.messageExternalId,
+      env,
+      threadFrom(ingest.message.metadata),
+    );
+    const persisted = await persistAgentReply(input.store, {
+      conversationId: ingest.conversation.id,
+      triggerMessage: ingest.message,
+      replyText: quietEarly.text,
+      telegramMessageIds: sent.ids,
+      provider: null,
+      model: null,
+      updateId: input.update.update_id,
+      requestId,
+    });
+    await markMessageAgentReplied(input.store, ingest.message.id, persisted.message.id);
+    if (quietEarly.taskId) {
+      const selection = await resolveInvocationTopics(
+        input.store,
+        ingest.message,
+        input.topicClassifier ?? new DeterministicTopicClassifier(),
+      );
+      const topicIds = [
+        ...(selection.primaryTopicId ? [selection.primaryTopicId] : []),
+        ...selection.secondaryTopicIds,
+      ];
+      for (const topicId of topicIds) {
+        await input.store.linkSubjectToTopic({ topicId, taskId: quietEarly.taskId });
+      }
+    }
+    if (quietEarly.changed) {
+      await syncPinnedStatus({
+        store: input.store,
+        conversationId: ingest.conversation.id,
+        chatId: normalized.ingest.conversationExternalId,
+        threadId: threadFrom(ingest.message.metadata),
+        env,
+        botUserId: input.botUserId ?? null,
+      });
+    }
+    return {
+      status: sent.ok ? "replied" : "provider_error",
+      reason: sent.ok ? "task_intent" : sent.error,
+      shouldRespond: true,
+      replySent: sent.ok,
+      providerCalls: 0,
+      stored: true,
+    };
+  }
+
   if (!ingest.shouldRespond) {
     return {
       status: "ingested",
@@ -130,7 +191,6 @@ export async function handleTelegramUpdate(input: {
     ];
   }
 
-  const requestId = randomUUID();
   const local = parseLocalCommand(ingest.message.body, config.botUsername);
   const githubReady = Boolean(githubConfigFromEnv(env));
   if (local && !(local.kind === "github_unavailable" && githubReady)) {
@@ -263,6 +323,7 @@ export async function handleTelegramUpdate(input: {
 
   let providerCalls = 0;
   let handlerStage = "before_http";
+  let spoken: Awaited<ReturnType<NonNullable<typeof input.provider>["respond"]>> | null = null;
   try {
     const context = await buildTeamAgentContext(input.store, {
       conversationId: ingest.conversation.id,
@@ -286,10 +347,9 @@ export async function handleTelegramUpdate(input: {
       },
       input.store,
     );
+    spoken = reply;
     handlerStage = "after_model";
 
-    const canApplyActions =
-      Boolean(ingest.member) || Boolean(input.allowUnknownPrivilegedActions);
     const allowedTopicIds = new Set<string>([
       ...selectedTopicIds,
       ...context.topics.map((t) => t.id),
@@ -318,41 +378,7 @@ export async function handleTelegramUpdate(input: {
       });
     }
 
-    const notes: string[] = [];
-    let structuredChange = false;
-    if (canApplyActions) {
-      for (const action of reply.proposedActions) {
-        const executed = await executeValidatedAction(input.store, action);
-        notes.push(...actionNote(action.type, executed));
-        if (
-          executed.applied &&
-          (action.type === "create_task" || action.type === "update_task" || action.type === "assign_task")
-        ) {
-          structuredChange = true;
-        }
-        const result = executed.result as { id?: string } | null;
-        if (!result?.id || selectedTopicIds.length === 0) continue;
-        if (action.type === "create_task") {
-          for (const topicId of selectedTopicIds) {
-            await input.store.linkSubjectToTopic({ topicId, taskId: result.id });
-          }
-        }
-        if (action.type === "record_decision") {
-          for (const topicId of selectedTopicIds) {
-            await input.store.linkSubjectToTopic({ topicId, decisionId: result.id });
-          }
-        }
-        if (action.type === "record_memory") {
-          for (const topicId of selectedTopicIds) {
-            await input.store.linkSubjectToTopic({ topicId, memoryId: result.id });
-          }
-        }
-      }
-    } else if (reply.proposedActions.length) {
-      notes.push("Ничего не записано: отправитель не из списка участников.");
-    }
-
-    const replyText = [reply.replyText, ...notes].filter(Boolean).join("\n");
+    const replyText = reply.replyText;
     handlerStage = "persist";
     await persistAgentReply(input.store, {
       conversationId: ingest.conversation.id,
@@ -393,16 +419,6 @@ export async function handleTelegramUpdate(input: {
     }
     await linkMessageToTopics(input.store, claim.message!.id, selectedTopicIds);
     if (sent.ok) await markMessageAgentReplied(input.store, ingest.message.id, claim.message!.id);
-    if (structuredChange) {
-      await syncPinnedStatus({
-        store: input.store,
-        conversationId: ingest.conversation.id,
-        chatId: normalized.ingest.conversationExternalId,
-        threadId: threadFrom(ingest.message.metadata),
-        env,
-        botUserId: input.botUserId ?? null,
-      });
-    }
 
     return {
       status: sent.ok ? "replied" : "provider_error",
@@ -433,6 +449,41 @@ export async function handleTelegramUpdate(input: {
         timestamp: new Date().toISOString(),
       }),
     );
+    if (spoken?.replyText) {
+      const text = spoken.replyText;
+      if (claim.message) {
+        await persistAgentReply(input.store, {
+          conversationId: ingest.conversation.id,
+          triggerMessage: ingest.message,
+          replyText: text,
+          provider: spoken.provider ?? null,
+          model: spoken.model ?? null,
+          responseId: spoken.responseId ?? null,
+          usage: spoken.usage ?? null,
+          requestId,
+          updateId: input.update.update_id,
+          errorType: "post_model",
+        });
+      }
+      const sent = await sendReply(
+        normalized.ingest.conversationExternalId,
+        text,
+        normalized.ingest.messageExternalId,
+        env,
+        threadFrom(ingest.message.metadata),
+      );
+      if (sent.ok && claim.message) {
+        await markMessageAgentReplied(input.store, ingest.message.id, claim.message.id);
+      }
+      return {
+        status: sent.ok ? "replied" : "provider_error",
+        reason: code,
+        shouldRespond: true,
+        replySent: sent.ok,
+        providerCalls,
+        stored: true,
+      };
+    }
     const text = publicFailureText(code);
     if (claim.message) {
       await persistAgentReply(input.store, {
@@ -443,6 +494,8 @@ export async function handleTelegramUpdate(input: {
         model: null,
         requestId,
         updateId: input.update.update_id,
+        errorType: code,
+        responseId: err instanceof TeamAgentModelError ? err.providerResponseId : null,
       });
     }
     const sent = await sendReply(
@@ -612,24 +665,29 @@ async function loadSnapshot(store: TeamAgentStore, env: NodeJS.ProcessEnv) {
   });
 }
 
-function actionNote(
-  type: string,
-  executed: { applied: boolean; result: unknown; error?: string },
-): string[] {
-  const result = executed.result as { id?: string; title?: string; status?: string } | null;
-  if (!result?.id) return [];
-  if (type === "create_task") {
-    return [
-      `Записано предложение задачи «${result.title ?? result.id}» (статус ${result.status ?? "proposed"}, id ${result.id}). Это ещё не утверждённая работа.`,
-    ];
-  }
-  if (type === "record_decision") {
-    return [`Записано предложение решения (id ${result.id}). Оно не подтверждено.`];
-  }
-  if (type === "assign_task" || type === "propose_assignment_batch") {
-    return [`Назначение ждёт подтверждения. Команда: /agent approve ${result.id}`];
-  }
-  return [];
+async function quietReply(input: {
+  store: TeamAgentStore;
+  text: string;
+  member: import("../types").TeamAgentMember | null;
+  conversationId: string;
+}): Promise<{ text: string; changed: boolean; taskId: string | null } | null> {
+  const [members, messages, tasks] = await Promise.all([
+    input.store.listActiveMembers(),
+    input.store.listRecentMessages(input.conversationId, 40),
+    input.store.listTasks(),
+  ]);
+  const quoted = quotePartnerSpeech(input.text, messages, members);
+  if (quoted) return { text: quoted, changed: false, taskId: null };
+  const result = await runTaskIntent({
+    store: input.store,
+    text: input.text,
+    member: input.member,
+    tasks,
+    members,
+  });
+  if (!result) return null;
+  const changed = /Записал предложение|Подтвердил задачу|теперь в работе|отмечена выполненной/.test(result.text);
+  return { text: result.text, changed, taskId: result.taskId };
 }
 
 function threadFrom(metadata: Record<string, unknown> | undefined): number | null {

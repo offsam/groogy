@@ -260,6 +260,7 @@ export async function persistAgentReply(
     updateId?: number | null;
     requestId?: string | null;
     agentState?: string;
+    errorType?: string | null;
   },
 ): Promise<{ message: TeamAgentMessage; created: boolean }> {
   const externalId = agentReplyExternalId(input.triggerMessage.external_message_id);
@@ -278,6 +279,7 @@ export async function persistAgentReply(
     telegram_message_ids: input.telegramMessageIds ?? [],
     agent_state: input.agentState ?? "completed",
     request_id: input.requestId ?? null,
+    error_type: input.errorType ?? null,
   };
   if (externalId) {
     const existing = await store.findMessageByExternal(

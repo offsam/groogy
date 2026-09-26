@@ -226,7 +226,7 @@ export type ProviderFailureLog = {
 
 const PROVIDER_STAGE_KEY = "teamAgentProviderStage";
 const PROVIDER_RESPONSE_KEY = "teamAgentProviderResponseId";
-const ID_RE = /^(?:req|gen)-[A-Za-z0-9_-]{6,}$/;
+const ID_RE = /^(?:req|gen|resp)[_-][A-Za-z0-9_-]{6,}$/;
 
 export class TeamAgentModelError extends Error {
   readonly code: TeamAgentModelErrorCode;
@@ -266,6 +266,16 @@ function clip(text: string, max: number): string {
   const clean = redactSecrets(text);
   if (clean.length <= max) return clean;
   return `${clean.slice(0, max)}…`;
+}
+
+function speakerName(
+  context: TeamAgentContext,
+  memberId: string | null,
+  messageType: string,
+): string {
+  if (messageType === "bot") return "бот";
+  const member = context.members.find((item) => item.id === memberId);
+  return member?.display_name ?? "участник";
 }
 
 export function buildTeamAgentModelInput(
@@ -365,7 +375,16 @@ export function buildTeamAgentModelInput(
       label: "RECENT CHAT — UNCONFIRMED",
       lines: context.recentMessages
         .filter((m) => m.message_type !== "system" && m.external_message_id !== "project-status")
-        .map((m) => clip(m.body, 500)),
+        .map((m) => {
+          const author = speakerName(context, m.member_id, m.message_type);
+          const replied = m.reply_to_message_id
+            ? context.recentMessages.find((item) => item.id === m.reply_to_message_id)
+            : null;
+          const replyMark = replied
+            ? ` reply_to=${speakerName(context, replied.member_id, replied.message_type)}`
+            : "";
+          return `${author}${replyMark}: ${clip(m.body, 500)}`;
+        }),
     },
   ];
 
@@ -417,20 +436,68 @@ function acceptAction(type: string, payload: Record<string, unknown>): AgentActi
   return proposal;
 }
 
+/** Pull a reply string out of truncated JSON. Optional actions stay behind. */
+export function extractReplyField(raw: string): string | null {
+  const key = raw.indexOf('"reply"');
+  if (key < 0) return null;
+  const colon = raw.indexOf(":", key + 7);
+  if (colon < 0) return null;
+  let index = colon + 1;
+  while (raw[index] === " " || raw[index] === "\n") index += 1;
+  if (raw[index] !== '"') return null;
+  index += 1;
+  let out = "";
+  while (index < raw.length) {
+    const ch = raw[index];
+    if (ch === "\\") {
+      const next = raw[index + 1];
+      if (next === "n") out += "\n";
+      else if (next === "t") out += "\t";
+      else if (next) out += next;
+      index += 2;
+      continue;
+    }
+    if (ch === '"') return out.trim() || null;
+    out += ch;
+    index += 1;
+  }
+  const trimmed = out.trim();
+  return trimmed.length >= 8 ? trimmed : null;
+}
+
+function usableProse(raw: string): string | null {
+  const trimmed = raw.trim();
+  if (trimmed.length < 2 || trimmed.startsWith("{") || trimmed.startsWith("[")) return null;
+  if (trimmed.includes('"proposedActions"') || trimmed.includes('"reply"')) return null;
+  return trimmed.slice(0, REPLY_CAP);
+}
+
 export function parseTeamAgentModelOutput(
   raw: string,
   allowedTopicIds: string[],
 ): Omit<AgentRespondResult, "provider" | "model" | "responseId" | "usage"> {
-  let parsed: unknown;
+  let parsed: unknown = null;
   try {
     parsed = JSON.parse(extractModelJson(raw)) as unknown;
   } catch {
-    throw new TeamAgentModelError("malformed");
+    parsed = null;
   }
-  if (!parsed || typeof parsed !== "object") throw new TeamAgentModelError("malformed");
-  const body = parsed as Record<string, unknown>;
-  const reply = typeof body.reply === "string" ? body.reply.trim() : "";
-  if (!reply) throw new TeamAgentModelError("empty");
+  const structured = parsed && typeof parsed === "object" && !Array.isArray(parsed)
+    ? (parsed as Record<string, unknown>)
+    : null;
+  const reply = typeof structured?.reply === "string" ? structured.reply.trim() : "";
+  if (!reply) {
+    const salvaged = extractReplyField(raw) ?? usableProse(raw);
+    if (!salvaged) throw new TeamAgentModelError(structured ? "empty" : "malformed");
+    return {
+      replyText: salvaged.slice(0, REPLY_CAP),
+      proposedActions: [],
+      needsHumanApproval: false,
+      topicIds: [],
+      summaryUpdates: [],
+    };
+  }
+  const body = structured!;
 
   const allowed = new Set(allowedTopicIds);
   const topicIds = Array.isArray(body.topicIds)

@@ -64,7 +64,6 @@ export function connectionFacts(env: NodeJS.ProcessEnv): BriefConnections {
 }
 
 function countLine(mark: string, label: string, count: number): string {
-  if (count === 0) return `${mark} ${label}: нет подтверждённых задач в этом статусе.`;
   return `${mark} ${label}: ${count}`;
 }
 
@@ -73,7 +72,12 @@ function memberByTelegram(members: TeamAgentMember[], telegramUserId: number): T
 }
 
 function tasksFor(tasks: TeamAgentTask[], memberId: string | null): TeamAgentTask[] {
-  return tasks.filter((task) => task.assigned_member_id === memberId && task.status !== "cancelled");
+  return tasks.filter(
+    (task) =>
+      task.assigned_member_id === memberId &&
+      task.status !== "cancelled" &&
+      task.status !== "proposed",
+  );
 }
 
 export function formatProjectBrief(input: {
@@ -97,9 +101,7 @@ export function formatProjectBrief(input: {
     countLine("▶", "В работе", active.length),
     countLine("○", "Запланировано", planned.length),
     countLine("!", "Заблокировано", blocked.length),
-    proposed.length
-      ? `Предложения, ещё не утверждены: ${proposed.length}`
-      : "Предложения, ещё не утверждены: нет",
+    `Предложено: ${proposed.length}`,
     "",
     "Команда",
   ];
@@ -126,10 +128,9 @@ export function formatProjectBrief(input: {
     lines.push(`• ${task.title} — ${STATUS_LABEL[task.status]}`);
   }
 
-  const discussed = unconfirmedLines(input.recentMessages ?? [], open);
-  if (discussed.length) {
-    lines.push("", "Из недавнего обсуждения, ещё не оформлено как задача:");
-    for (const line of discussed) lines.push(`• ${line}`);
+  if (proposed.length) {
+    lines.push("", "Требует внимания");
+    for (const task of proposed.slice(0, 8)) lines.push(`• ${task.title} — предложение, не утверждено`);
   }
 
   lines.push(
@@ -186,28 +187,6 @@ export function formatPinnedProjectStatus(input: {
     `Обновлено: ${formatStamp(input.now ?? new Date())}`,
   );
   return lines.join("\n");
-}
-
-function unconfirmedLines(messages: TeamAgentMessage[], tasks: TeamAgentTask[]): string[] {
-  const titles = tasks.map((task) => task.title.trim().toLowerCase());
-  const humans = messages.filter(
-    (message) =>
-      message.message_type !== "bot" &&
-      message.message_type !== "system" &&
-      message.external_message_id !== PROJECT_STATUS_EXTERNAL_ID &&
-      message.body.trim().length >= 24 &&
-      !message.body.trim().startsWith("/agent"),
-  );
-  const fresh = humans.slice(-6).reverse();
-  const out: string[] = [];
-  for (const message of fresh) {
-    const text = message.body.replace(/\s+/g, " ").trim();
-    const lower = text.toLowerCase();
-    if (titles.some((title) => title.length > 3 && lower.includes(title))) continue;
-    out.push(text.slice(0, 160));
-    if (out.length === 3) break;
-  }
-  return out;
 }
 
 function formatStamp(now: Date): string {

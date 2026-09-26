@@ -169,8 +169,8 @@ async function main(): Promise<void> {
       provider,
       botUserId: 1,
     });
-    assert.equal(proposed.providerCalls, 1);
-    const task = (await store.listTasks()).find((item) => item.title === "Карточка клиента");
+    assert.equal(proposed.providerCalls, 0);
+    const task = (await store.listTasks()).find((item) => /карточк/i.test(item.title));
     assert.equal(task?.status, "proposed");
     const approval = await store.insertApproval({
       approval_type: "task_assignment",

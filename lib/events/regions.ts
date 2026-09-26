@@ -37,8 +37,10 @@ export function parseEventSort(raw: string | undefined): EventSort {
 }
 
 export function parseEventWhen(raw: string | undefined): EventWhen {
-  if (raw === "upcoming" || raw === "past") return raw;
-  return "all";
+  if (raw === "all" || raw === "past") return raw;
+  // Default: upcoming — past events do not clutter the main feed.
+  if (raw === "upcoming") return "upcoming";
+  return "upcoming";
 }
 
 export function parseEventRegions(

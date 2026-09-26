@@ -52,11 +52,12 @@ export type PlatformEvent = {
   audience_label?: string | null;
   external_source?: string | null;
   external_id?: string | null;
+  owner_profile_id?: string | null;
   created_at: string;
 };
 
 const EVENT_SELECT =
-  "id, title, slug, description, status, starts_at, ends_at, event_at_label, city, state_code, venue_name, latitude, longitude, cover_image_url, registration_url, source_url, source_posted_at, source_body, format, payment_methods, category, tags, source_language, title_original, description_original, audience_label, external_source, external_id, created_at" as const;
+  "id, title, slug, description, status, starts_at, ends_at, event_at_label, city, state_code, address_line, venue_name, latitude, longitude, cover_image_url, registration_url, source_url, source_posted_at, source_body, format, price_label, phone, telegram_url, payment_methods, category, tags, source_language, title_original, description_original, audience_label, external_source, external_id, owner_profile_id, created_at" as const;
 
 export async function listPendingEventRecommendations(
   client: Client,
@@ -284,6 +285,49 @@ export async function getPublishedEventBySlug(
     .select(EVENT_SELECT)
     .eq("slug", normalized)
     .eq("status", "published")
+    .maybeSingle();
+  if (error) throw error;
+  return (data as PlatformEvent | null) ?? null;
+}
+
+export async function getEventByIdForAdmin(
+  client: Client,
+  id: string,
+): Promise<PlatformEvent | null> {
+  const { data, error } = await eventsTable(client)
+    .select(EVENT_SELECT)
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  return (data as PlatformEvent | null) ?? null;
+}
+
+/** Owner's events (any status) for «Мои события». */
+export async function listEventsForOwner(
+  client: Client,
+  ownerId: string,
+  opts: { limit?: number } = {},
+): Promise<PlatformEvent[]> {
+  const limit = Math.min(100, Math.max(1, opts.limit ?? 60));
+  const { data, error } = await eventsTable(client)
+    .select(EVENT_SELECT)
+    .eq("owner_profile_id", ownerId)
+    .order("starts_at", { ascending: true, nullsFirst: false })
+    .limit(limit);
+  if (error) throw error;
+  return (data ?? []) as PlatformEvent[];
+}
+
+export async function getEventBySlugForOwner(
+  client: Client,
+  slug: string,
+  ownerId: string,
+): Promise<PlatformEvent | null> {
+  const normalized = normalizeRouteSlug(slug);
+  const { data, error } = await eventsTable(client)
+    .select(EVENT_SELECT)
+    .eq("slug", normalized)
+    .eq("owner_profile_id", ownerId)
     .maybeSingle();
   if (error) throw error;
   return (data as PlatformEvent | null) ?? null;

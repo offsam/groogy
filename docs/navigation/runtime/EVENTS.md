@@ -7,12 +7,14 @@ Event entity lifecycle (publish, admin, public pages).
 ## Source of Truth
 
 - Live: [`PLATFORM_LIFECYCLE_V1.md`](../../architecture/runtime/PLATFORM_LIFECYCLE_V1.md) § Events
+- Entity canon: [`EVENT_ENTITY_V1.md`](../../architecture/entity-model-v1/EVENT_ENTITY_V1.md)
 - Mapping: [`ENTITY_TYPE_MAPPING_V1.md`](../../architecture/entity-model-v1/ENTITY_TYPE_MAPPING_V1.md) (`event`)
 - Data audit: [`ENTITY_AUDIT_V1.md`](../../audits/ENTITY_AUDIT_V1.md)
 
 ## Primary documents
 
-- No dedicated `EVENT_ENTITY_V1.md` found — use lifecycle + audit
+- Entity: [`EVENT_ENTITY_V1.md`](../../architecture/entity-model-v1/EVENT_ENTITY_V1.md)
+- Team plan (RU): [`../../plans/EVENTS_FULL_WORK_PLAN_V1.md`](../../plans/EVENTS_FULL_WORK_PLAN_V1.md) (+ PDF рядом)
 
 ## Primary code location
 
@@ -28,8 +30,9 @@ Event entity lifecycle (publish, admin, public pages).
 
 ## Entry points
 
-- `/events`, `/events/new`, `/events/[slug]`
-- `/admin/events`
+- `/events`, `/events/new`, `/events/mine`, `/events/[slug]`, `/events/[slug]/edit`
+- `/admin/catalog/events`, `/admin/catalog/events/[id]/edit`
+- `/admin/events` → Inbox Events view
 - Import-review approve → event
 
 ## Main RPC
@@ -43,6 +46,7 @@ Event entity lifecycle (publish, admin, public pages).
 ## Related documents
 
 - [`PUBLISH.md`](./PUBLISH.md), [`../entities/INDEX.md`](../entities/INDEX.md)
+- Team plan (RU): [`../../plans/EVENTS_FULL_WORK_PLAN_V1.md`](../../plans/EVENTS_FULL_WORK_PLAN_V1.md) (+ PDF рядом)
 
 ## Deprecated paths
 

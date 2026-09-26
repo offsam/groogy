@@ -32,6 +32,11 @@ export default async function NewEventPage() {
         <p className="mt-2 text-sm text-slate-500 sm:text-base">
           Встреча, эфир, митап или мастер-класс для сообщества.
         </p>
+        <p className="mt-2 text-sm">
+          <Link href="/events/mine" className="text-brand-blue hover:underline">
+            Мои события
+          </Link>
+        </p>
       </div>
 
       <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">

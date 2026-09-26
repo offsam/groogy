@@ -3066,6 +3066,9 @@ export async function approveImportReviewItemAction(input: {
     } = await supabase.auth.getUser();
     if (!user) return fail("Нужно войти в аккаунт.");
 
+    const { TAG_EVENT_DATE_CONFIRMED } = await import(
+      "@/lib/import-review/review-tags"
+    );
     const eventTitle = String(title).trim();
     const blob = [item.description, item.source_text, item.title]
       .filter((x): x is string => Boolean(x?.trim()))
@@ -3101,6 +3104,23 @@ export async function approveImportReviewItemAction(input: {
       (typeof stored.starts_at === "string" && stored.starts_at.trim()) ||
       structured.startsAt ||
       null;
+    const dateConfirmed = (item.review_notes || "").includes(
+      TAG_EVENT_DATE_CONFIRMED,
+    );
+    const dateUnknown =
+      (eventAtLabel || "").toLowerCase().includes("уточн") ||
+      (item.review_notes || "").toLowerCase().includes("дата уточняется");
+    if (!startsAt && !dateConfirmed && !dateUnknown) {
+      return fail(
+        "Нет подтверждённой даты. Укажите дату в «Обогатить», поставьте тег [event_date_confirmed] или явно «Дата уточняется».",
+      );
+    }
+    const resolvedEventAtLabel =
+      startsAt || eventAtLabel
+        ? eventAtLabel
+        : dateUnknown
+          ? "Дата уточняется"
+          : eventAtLabel;
     const priceLabel =
       (typeof stored.price_label === "string" && stored.price_label.trim()) ||
       structured.priceLabel ||
@@ -3161,7 +3181,9 @@ export async function approveImportReviewItemAction(input: {
       null;
 
     let eventPublishedTitle = eventTitle;
-    let eventPublishedDescription = description;
+    let eventPublishedDescription = description
+      ? (redactContactsFromPublicText(description) ?? "").trim() || null
+      : null;
 
     // English (or mostly-Latin) affiches → Russian copy for the public card;
     // keep the author's original behind «Показать оригинал».
@@ -3212,7 +3234,7 @@ export async function approveImportReviewItemAction(input: {
       description: eventPublishedDescription,
       status: "published",
       starts_at: session.startsAt ?? startsAt,
-      event_at_label: session.label || eventAtLabel,
+      event_at_label: session.label || resolvedEventAtLabel,
       city: loc.city ?? city,
       state_code: loc.stateCode || null,
       county_geoid: loc.countyGeoid,

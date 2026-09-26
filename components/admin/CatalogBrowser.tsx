@@ -8,6 +8,7 @@ import { AdminEntitySourcesButton } from "@/components/admin/AdminEntitySourcesB
 import { AdminPublishedEnrichButton } from "@/components/admin/AdminPublishedEnrichButton";
 import { AdminPasteEnrichButton } from "@/components/admin/AdminPasteEnrichButton";
 import { CatalogEnrichAllButton } from "@/components/admin/CatalogEnrichAllButton";
+import { CatalogEventArchiveButton } from "@/components/admin/CatalogEventArchiveButton";
 import { CatalogFindDuplicatesButton } from "@/components/admin/CatalogFindDuplicatesButton";
 import { signalAppNavigation } from "@/components/layout/NavigationProgress";
 import type { PublishedEnrichKind } from "@/lib/admin/published-enrich-run";
@@ -22,6 +23,8 @@ import {
 export type CatalogBrowserItem = {
   id: string;
   statusLabel: string;
+  /** Raw status for archive toggle (events). */
+  status?: string;
   publicHref: string | null;
   editHref: string | null;
   archiveAvailable: boolean;
@@ -189,6 +192,14 @@ function ItemActions({
         >
           Archive
         </button>
+      ) : null}
+      {meta.archiveAvailable &&
+      meta.enrichKind === "event" &&
+      !meta.onArchive ? (
+        <CatalogEventArchiveButton
+          eventId={meta.id}
+          status={meta.status ?? meta.statusLabel}
+        />
       ) : null}
     </>
   );

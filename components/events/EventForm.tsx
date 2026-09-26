@@ -9,6 +9,7 @@ export function EventForm() {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
+  const [dateUnknown, setDateUnknown] = useState(false);
   const [format, setFormat] = useState<
     "online" | "offline" | "hybrid" | "unknown"
   >("unknown");
@@ -40,7 +41,8 @@ export function EventForm() {
         description,
         city: city || undefined,
         addressLine: addressLine || undefined,
-        startsAt: startsAt || undefined,
+        startsAt: dateUnknown ? undefined : startsAt || undefined,
+        dateUnknown,
         registrationUrl: registrationUrl || undefined,
         phone: phone || undefined,
         telegramUrl: telegramUrl || undefined,
@@ -98,14 +100,32 @@ export function EventForm() {
           </select>
         </label>
 
-        <label className="block space-y-1.5 text-sm">
-          <span className="font-medium text-slate-700">Дата и время</span>
-          <input
-            name="startsAt"
-            type="datetime-local"
-            className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-slate-900"
-          />
-        </label>
+        <div className="space-y-2 text-sm">
+          <label className="flex items-center gap-2 font-medium text-slate-700">
+            <input
+              type="checkbox"
+              checked={dateUnknown}
+              onChange={(e) => setDateUnknown(e.target.checked)}
+              className="size-4 rounded border-slate-300"
+            />
+            Дата уточняется
+          </label>
+          {!dateUnknown ? (
+            <label className="block space-y-1.5">
+              <span className="font-medium text-slate-700">Дата и время *</span>
+              <input
+                name="startsAt"
+                type="datetime-local"
+                required={!dateUnknown}
+                className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-slate-900"
+              />
+            </label>
+          ) : (
+            <p className="text-xs text-slate-500">
+              На карточке будет написано «Дата уточняется».
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">

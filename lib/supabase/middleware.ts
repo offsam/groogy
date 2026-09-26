@@ -29,6 +29,14 @@ function isProtectedPath(pathname: string) {
     return true;
   }
 
+  if (pathname === "/events/mine" || pathname.startsWith("/events/mine/")) {
+    return true;
+  }
+
+  if (/^\/events\/[^/]+\/edit\/?$/.test(pathname)) {
+    return true;
+  }
+
   return PROTECTED_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );

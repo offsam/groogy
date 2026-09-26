@@ -1,0 +1,30 @@
+---
+description: Keep docs/navigation in sync when code has something nav missed, or when adding a new major UI/feature piece
+alwaysApply: true
+---
+
+# Navigation sync (КРУГИ)
+
+Navigation lives in `docs/navigation/`. It only **points** to docs and code — it does not invent architecture ([`NAVIGATION_RULES.md`](docs/navigation/NAVIGATION_RULES.md)).
+
+## When you must update navigation in the same change
+
+1. **Found in code, missing in nav** — You needed a real path (route, `lib/` area, admin screen, API group, collector, entity surface) that is not linked from `PROJECT_INDEX.md` / the matching subsystem INDEX / runtime entry-point. Add the pointer there before finishing.
+2. **Created a new major piece** — New public or admin page under `app/`, new feature folder under `components/` or `lib/`, new `app/api/` group, new collector under `scripts/`, or a new documented entity/runtime subsystem. Update the same navigation files in that task.
+
+## How to update (minimal)
+
+- Prefer an existing entry-point (`runtime/*.md`, `entities/INDEX.md`, `admin/INDEX.md`, `api/INDEX.md`, `ai/INDEX.md`).
+- New major subsystem → also add to [`PROJECT_INDEX.md`](docs/navigation/PROJECT_INDEX.md) per Navigation Rules.
+- Link the **primary code path** and, if one exists, the Source of Truth. If no SoT exists, write `Unknown` / note the gap — do not invent a new architecture doc.
+- Keep links working. Do not rewrite architecture specs as a side effect.
+
+## Do not
+
+- Scan or rewrite the whole `docs/navigation/` tree “while we’re here”.
+- Create fake SoT / ADR pages just to satisfy this rule.
+- Update navigation for tiny private helpers, one-off CSS, or renames that stay inside an already-linked folder.
+
+## Order of work
+
+Code fix or new feature first → then the smallest navigation edit that makes the next agent find it without a full-repo search.

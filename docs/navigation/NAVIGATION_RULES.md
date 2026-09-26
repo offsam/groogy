@@ -28,6 +28,8 @@ These rules apply to humans and AI agents. They govern **navigation docs only**.
 | New API route group | Update [`api/INDEX.md`](./api/INDEX.md) |
 | New admin area | Update [`admin/INDEX.md`](./admin/INDEX.md) |
 | New collector / AI pipeline | Update [`ai/INDEX.md`](./ai/INDEX.md) |
+| New major `app/` page, `components/` or `lib/` feature folder | Point from the matching entry-point / INDEX in the **same** change |
+| Agent found a primary code path that nav does not link | Add the pointer in the same session (do not invent SoT if none exists — mark `Unknown`) |
 | Deprecated implementation | Mark under **Deprecated paths** on the entry-point; keep link to replacement |
 | Removed / moved doc | Fix or remove navigation links in the same change |
 | Architectural contradiction resolved | Update freeze/lifecycle links only as those docs change — nav stays pointers |

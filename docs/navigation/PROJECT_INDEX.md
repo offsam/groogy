@@ -151,6 +151,12 @@ Compact TOC only. No explanations.
 
 ---
 
+## Team plans
+
+- Events full work plan (RU): [`../plans/EVENTS_FULL_WORK_PLAN_V1.md`](../plans/EVENTS_FULL_WORK_PLAN_V1.md) · PDF: [`../plans/EVENTS_FULL_WORK_PLAN_V1.pdf`](../plans/EVENTS_FULL_WORK_PLAN_V1.pdf)
+
+---
+
 ## Data quality / audits (supporting)
 
 Folder: [`../audits/`](../audits/)

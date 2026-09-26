@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CatalogBrowser } from "@/components/admin/CatalogBrowser";
+import { CatalogArchivePastEventsButton } from "@/components/admin/CatalogArchivePastEventsButton";
 import { listCatalogEvents } from "@/lib/admin/catalog/queries";
 import type {
   CatalogSort,
@@ -77,9 +78,11 @@ export default async function AdminCatalogEventsPage({
   }
 
   return (
-    <CatalogBrowser
-      title="Events"
-      description="Опубликованные события. Очередь верификации кандидатов — в Review Center / legacy Events."
+    <div className="space-y-4">
+      <CatalogArchivePastEventsButton />
+      <CatalogBrowser
+      title="События"
+      description="Живые события на сайте. Править и архивировать можно здесь. Новые из чатов — в очереди Inbox."
       basePath="/admin/catalog/events"
       layout="list"
       total={result.total}
@@ -89,25 +92,27 @@ export default async function AdminCatalogEventsPage({
       status={status}
       sort={sort}
       legacyHref="/admin/review/inbox?view=events"
-      legacyLabel="Events in Inbox"
+      legacyLabel="Очередь событий (Inbox)"
       sectionEnrichKind="event"
       error={loadError}
       items={result.items.map((event) => ({
         meta: {
           id: event.id,
           title: event.title,
+          status: event.status,
           statusLabel: STATUS_LABELS[event.status] ?? event.status,
           locationLine: event.city?.trim() || "Без локации",
           categoryLabel: event.format,
           createdAt: event.created_at,
           publicHref:
             event.status === "published" ? `/events/${event.slug}` : null,
-          editHref: null,
-          archiveAvailable: false,
+          editHref: `/admin/catalog/events/${event.id}/edit`,
+          archiveAvailable: true,
           enrichKind: "event" as const,
           slug: event.slug,
         },
       }))}
     />
+    </div>
   );
 }

@@ -40,7 +40,7 @@ function buildHref(opts: {
     params.set("regions", serializeEventRegions(opts.regions));
   }
   if (opts.sort !== "soon") params.set("sort", opts.sort);
-  if (opts.when !== "all") params.set("when", opts.when);
+  if (opts.when !== "upcoming") params.set("when", opts.when);
   if (opts.category) params.set("category", opts.category);
   if (opts.date) params.set("date", opts.date);
   if (opts.month) params.set("month", opts.month);

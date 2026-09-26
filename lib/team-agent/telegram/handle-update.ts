@@ -28,7 +28,17 @@ import {
   resolveInvocationTopics,
   type TopicClassifier,
 } from "../topic-classifier";
-import { splitTelegramText, telegramSendMessage } from "./bot-api";
+import {
+  canPinMessages,
+  splitTelegramText,
+  telegramEditMessageText,
+  telegramGetChatMember,
+  telegramGetMe,
+  telegramPinChatMessage,
+  telegramSendMessage,
+} from "./bot-api";
+import { connectionFacts, formatProjectBrief } from "../project-brief";
+import { refreshPinnedProjectStatus } from "../project-status";
 import { normalizeTelegramUpdate } from "./normalize";
 import type { TelegramUpdate } from "./types";
 
@@ -127,12 +137,21 @@ export async function handleTelegramUpdate(input: {
     const text = await localReply(local, {
       store: input.store,
       env,
-    memberId: ingest.member?.id ?? null,
-    conversationId: ingest.conversation.id,
-    facts: capabilityFacts(env, config),
-    observe: input.observe,
+      memberId: ingest.member?.id ?? null,
+      conversationId: ingest.conversation.id,
+      chatId: normalized.ingest.conversationExternalId,
+      threadId: threadFrom(ingest.message.metadata),
+      botUserId: input.botUserId ?? null,
+      facts: capabilityFacts(env, config),
+      observe: input.observe,
     });
-    const sent = await sendReply(normalized.ingest.conversationExternalId, text, normalized.ingest.messageExternalId, env);
+    const sent = await sendReply(
+      normalized.ingest.conversationExternalId,
+      text,
+      normalized.ingest.messageExternalId,
+      env,
+      threadFrom(ingest.message.metadata),
+    );
     const persisted = await persistAgentReply(input.store, {
       conversationId: ingest.conversation.id,
       triggerMessage: ingest.message,
@@ -170,6 +189,7 @@ export async function handleTelegramUpdate(input: {
         saved.body,
         normalized.ingest.messageExternalId,
         env,
+        threadFrom(ingest.message.metadata),
       );
       if (sent.ids.length) {
         await input.store.updateMessage(saved.id, {
@@ -227,6 +247,7 @@ export async function handleTelegramUpdate(input: {
         text,
         normalized.ingest.messageExternalId,
         env,
+        threadFrom(ingest.message.metadata),
       );
       await markMessageAgentReplied(input.store, ingest.message.id, claim.message?.id);
       return {
@@ -298,10 +319,17 @@ export async function handleTelegramUpdate(input: {
     }
 
     const notes: string[] = [];
+    let structuredChange = false;
     if (canApplyActions) {
       for (const action of reply.proposedActions) {
         const executed = await executeValidatedAction(input.store, action);
         notes.push(...actionNote(action.type, executed));
+        if (
+          executed.applied &&
+          (action.type === "create_task" || action.type === "update_task" || action.type === "assign_task")
+        ) {
+          structuredChange = true;
+        }
         const result = executed.result as { id?: string } | null;
         if (!result?.id || selectedTopicIds.length === 0) continue;
         if (action.type === "create_task") {
@@ -344,6 +372,7 @@ export async function handleTelegramUpdate(input: {
       replyText,
       normalized.ingest.messageExternalId,
       env,
+      threadFrom(ingest.message.metadata),
     );
     if (sent.ids.length && claim.message) {
       await input.store.updateMessage(claim.message.id, {
@@ -364,6 +393,16 @@ export async function handleTelegramUpdate(input: {
     }
     await linkMessageToTopics(input.store, claim.message!.id, selectedTopicIds);
     if (sent.ok) await markMessageAgentReplied(input.store, ingest.message.id, claim.message!.id);
+    if (structuredChange) {
+      await syncPinnedStatus({
+        store: input.store,
+        conversationId: ingest.conversation.id,
+        chatId: normalized.ingest.conversationExternalId,
+        threadId: threadFrom(ingest.message.metadata),
+        env,
+        botUserId: input.botUserId ?? null,
+      });
+    }
 
     return {
       status: sent.ok ? "replied" : "provider_error",
@@ -406,7 +445,13 @@ export async function handleTelegramUpdate(input: {
         updateId: input.update.update_id,
       });
     }
-    const sent = await sendReply(normalized.ingest.conversationExternalId, text, normalized.ingest.messageExternalId, env);
+    const sent = await sendReply(
+      normalized.ingest.conversationExternalId,
+      text,
+      normalized.ingest.messageExternalId,
+      env,
+      threadFrom(ingest.message.metadata),
+    );
     if (sent.ok && claim.message) {
       await markMessageAgentReplied(input.store, ingest.message.id, claim.message.id);
     }
@@ -456,6 +501,9 @@ async function localReply(
     env: NodeJS.ProcessEnv;
     memberId: string | null;
     conversationId: string;
+    chatId: string;
+    threadId: number | null;
+    botUserId: number | null;
     facts: CapabilityFacts;
     observe?: () => Promise<import("../control/types").ProjectSnapshot>;
   },
@@ -475,11 +523,42 @@ async function localReply(
   if (command.kind === "approve_invalid") {
     return "Подтверждение принимает только /agent approve и id предложения.";
   }
+  if (command.kind === "brief" || command.kind === "brief_refresh") {
+    const [tasks, members, recent] = await Promise.all([
+      input.store.listTasks(),
+      input.store.listActiveMembers(),
+      input.store.listRecentMessages(input.conversationId, 40),
+    ]);
+    const brief = formatProjectBrief({
+      tasks,
+      members,
+      recentMessages: recent,
+      connections: connectionFacts(input.env),
+    });
+    if (command.kind === "brief") return brief;
+    const refreshed = await syncPinnedStatus({
+      store: input.store,
+      conversationId: input.conversationId,
+      chatId: input.chatId,
+      threadId: input.threadId,
+      env: input.env,
+      botUserId: input.botUserId,
+    });
+    return refreshed?.note ? `${brief}\n\n${refreshed.note}` : brief;
+  }
   if (command.kind === "approve") {
     if (!input.memberId) return "Не могу подтвердить: отправитель не из списка участников.";
     try {
       const result = await approvePendingAssignment(input.store, command.approvalId, input.memberId);
       const approval = result.approval as { id?: string; status?: string };
+      await syncPinnedStatus({
+        store: input.store,
+        conversationId: input.conversationId,
+        chatId: input.chatId,
+        threadId: input.threadId,
+        env: input.env,
+        botUserId: input.botUserId,
+      });
       return `Предложение подтверждено. Задача записана. id ${approval.id ?? command.approvalId}.`;
     } catch (err) {
       const message = err instanceof Error ? err.message : "approval_failed";
@@ -553,11 +632,82 @@ function actionNote(
   return [];
 }
 
+function threadFrom(metadata: Record<string, unknown> | undefined): number | null {
+  const value = metadata?.telegram_thread_id;
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+async function syncPinnedStatus(input: {
+  store: TeamAgentStore;
+  conversationId: string;
+  chatId: string;
+  threadId: number | null;
+  env: NodeJS.ProcessEnv;
+  botUserId: number | null;
+}) {
+  try {
+    return await refreshPinnedProjectStatus({
+      store: input.store,
+      conversationId: input.conversationId,
+      threadId: input.threadId,
+      env: input.env,
+      transport: pinTransport(input.chatId, input.threadId, input.env, input.botUserId),
+    });
+  } catch (err) {
+    console.error(
+      JSON.stringify({
+        error_type: "project_status",
+        stage: "persist",
+        exception_name: err instanceof Error ? err.name : "Error",
+        exception_message: err instanceof Error ? err.message.slice(0, 180) : "status_failed",
+        timestamp: new Date().toISOString(),
+      }),
+    );
+    return null;
+  }
+}
+
+function pinTransport(
+  chatId: string,
+  threadId: number | null,
+  env: NodeJS.ProcessEnv,
+  botUserId: number | null,
+) {
+  return {
+    async send(text: string) {
+      const sent = await telegramSendMessage({ chatId, text, messageThreadId: threadId, env });
+      if (!sent.ok || typeof sent.result.message_id !== "number") {
+        return { ok: false as const, error: sent.ok ? "no_message_id" : sent.error };
+      }
+      return { ok: true as const, messageId: sent.result.message_id };
+    },
+    async edit(messageId: number, text: string) {
+      const edited = await telegramEditMessageText({ chatId, messageId, text, env });
+      return edited.ok ? { ok: true as const } : { ok: false as const, error: edited.error };
+    },
+    async pin(messageId: number) {
+      const pinned = await telegramPinChatMessage({ chatId, messageId, env });
+      return pinned.ok ? { ok: true as const } : { ok: false as const, error: pinned.error };
+    },
+    async canPin() {
+      let userId = botUserId;
+      if (!userId) {
+        const me = await telegramGetMe(env);
+        userId = me.ok ? me.result.id : null;
+      }
+      if (!userId) return false;
+      const member = await telegramGetChatMember({ chatId, userId, env });
+      return member.ok && canPinMessages(member.result);
+    },
+  };
+}
+
 async function sendReply(
   chatId: string,
   text: string,
   replyTo: string,
   env: NodeJS.ProcessEnv,
+  threadId?: number | null,
 ): Promise<{ ok: boolean; error?: string; ids: number[] }> {
   const chunks = splitTelegramText(text);
   const ids: number[] = [];
@@ -566,6 +716,7 @@ async function sendReply(
       chatId,
       text: chunk,
       replyToMessageId: index === 0 ? Number(replyTo) || null : null,
+      messageThreadId: threadId,
       env,
     });
     if (!send.ok) return { ok: false, error: send.error, ids };

@@ -10,6 +10,8 @@ export type LocalCommand =
   | { kind: "github_unavailable" }
   | { kind: "approve_invalid" }
   | { kind: "approve"; approvalId: string }
+  | { kind: "brief" }
+  | { kind: "brief_refresh" }
   | { kind: "project"; topic: ProjectTopic };
 
 const UUID =
@@ -33,6 +35,8 @@ export function parseLocalCommand(
   if (/^\/agent(?:@\S+)?\s+approve\b/.test(lower)) {
     return { kind: "approve_invalid" };
   }
+  if (/^\/agent(?:@\S+)?\s+brief\s+refresh\b/.test(lower)) return { kind: "brief_refresh" };
+  if (/^\/agent(?:@\S+)?\s+brief\b/.test(lower)) return { kind: "brief" };
 
   if (
     lower === "/agent help" ||

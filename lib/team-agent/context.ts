@@ -107,12 +107,13 @@ export async function buildTeamAgentContext(
     );
     const combined = [...linked, ...unlinked.filter((m) => !linked.some((row) => row.id === m.id))];
     recentMessages = combined.slice(-maxMessages);
-    if (isPeopleWorkQuestion(text)) {
+    if (retrieval === "topic") {
       const humans = allMessages.filter(
         (message) =>
           message.id !== opts.triggerMessage?.id &&
           message.message_type !== "bot" &&
-          message.message_type !== "system",
+          message.message_type !== "system" &&
+          message.external_message_id !== "project-status",
       );
       const extra = humans.slice(-12).filter((message) => !recentMessages.some((row) => row.id === message.id));
       recentMessages = [...recentMessages, ...extra].slice(-maxMessages);
@@ -167,10 +168,6 @@ export async function buildTeamAgentContext(
     retrieval,
     projectLines: [],
   };
-}
-
-function isPeopleWorkQuestion(text: string): boolean {
-  return /кто\s+над\s+чем|над\s+чем\s+сейчас|кто\s+чем\s+занят|кто\s+над\s+чем\s+работает/i.test(text);
 }
 
 function textIncludesLabel(text: string, label: string): boolean {

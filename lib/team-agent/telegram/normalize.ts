@@ -130,6 +130,8 @@ export function normalizeTelegramUpdate(
         from_last_name: from?.last_name ?? null,
         edited,
         reply_to_bot: replyToOurBot,
+        telegram_thread_id:
+          typeof message.message_thread_id === "number" ? message.message_thread_id : null,
       },
       botUsername: config.botUsername,
       mentionTokens: [

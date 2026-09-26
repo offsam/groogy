@@ -314,7 +314,7 @@ export function buildTeamAgentModelInput(
       ],
     },
     {
-      label: "topics",
+      label: "TOPIC SUMMARY",
       lines: context.topics.map(
         (t) => `${t.id} | ${t.title} | ${t.status} | ${clip(t.summary, 500)}`,
       ),
@@ -324,20 +324,23 @@ export function buildTeamAgentModelInput(
       lines: constraints.map((m) => `${m.subject}: ${clip(m.content, 400)}`),
     },
     {
-      label: "decisions",
+      label: "MEMORY",
+      lines: otherMemory.map((m) => `${m.memory_type}/${m.subject}: ${clip(m.content, 300)}`),
+    },
+    {
+      label: "DECISION",
       lines: decisions.map((d) => `${d.title}: ${clip(d.description, 400)}`),
     },
     {
-      label: "tasks",
+      label: "CONFIRMED TASK",
       lines: tasks.map((t) => {
-        const who = t.assigned_member_id ?? "unassigned";
+        const member = context.members.find((item) => item.id === t.assigned_member_id);
+        const who = member
+          ? `${member.display_name} telegram_id=${member.telegram_user_id ?? "нет в базе"}`
+          : "Не назначено";
         const scope = t.scope_paths.join(", ");
         return `${t.title} [${t.status}] assignee=${who} scope=${scope}`;
       }),
-    },
-    {
-      label: "memory",
-      lines: otherMemory.map((m) => `${m.memory_type}/${m.subject}: ${clip(m.content, 300)}`),
     },
     {
       label: "conflicts",
@@ -355,13 +358,13 @@ export function buildTeamAgentModelInput(
       ],
     },
     {
-      label: "project_state",
+      label: "PROJECT STATUS",
       lines: (context.projectLines ?? []).slice(0, 12).map((line) => redactSecrets(line)),
     },
     {
-      label: "recent_messages",
+      label: "RECENT CHAT — UNCONFIRMED",
       lines: context.recentMessages
-        .filter((m) => m.message_type !== "system")
+        .filter((m) => m.message_type !== "system" && m.external_message_id !== "project-status")
         .map((m) => clip(m.body, 500)),
     },
   ];
@@ -373,12 +376,12 @@ export function buildTeamAgentModelInput(
       .join("\n\n");
 
   const shrink = [
-    ["recent_messages", 4],
-    ["memory", 0],
+    ["RECENT CHAT — UNCONFIRMED", 4],
+    ["MEMORY", 0],
     ["project", 0],
-    ["project_state", 0],
-    ["recent_messages", 0],
-    ["topics", 0],
+    ["PROJECT STATUS", 0],
+    ["RECENT CHAT — UNCONFIRMED", 0],
+    ["TOPIC SUMMARY", 0],
   ] as const;
   for (const [label, floor] of shrink) {
     const section = sections.find((s) => s.label === label);

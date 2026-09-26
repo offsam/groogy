@@ -100,7 +100,7 @@ export function formatCapabilitiesReply(facts: CapabilityFacts): string {
     "Не могу самостоятельно делать merge, deploy, менять production, применять миграции или выполнять shell.",
     "Задача и решение, которые я записываю из разговора, остаются предложением, пока человек их не подтвердит.",
     "",
-    "Для работы напишите @kroogy_bot и свой запрос. Команды: /agent help, /agent status, /agent approve <id>.",
+    "Для работы напишите @kroogy_bot и свой запрос. Команды: /agent help, /agent status, /agent brief, /agent brief refresh, /agent approve <id>.",
   ];
   return lines.join("\n");
 }

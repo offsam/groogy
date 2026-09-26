@@ -94,6 +94,7 @@ export async function telegramSendMessage(input: {
   chatId: string | number;
   text: string;
   replyToMessageId?: number | null;
+  messageThreadId?: number | null;
   env?: NodeJS.ProcessEnv;
 }): Promise<TelegramApiResult<{ message_id: number }>> {
   const text = input.text.slice(0, 4096);
@@ -105,9 +106,61 @@ export async function telegramSendMessage(input: {
       ...(input.replyToMessageId
         ? { reply_to_message_id: input.replyToMessageId }
         : {}),
+      ...(input.messageThreadId ? { message_thread_id: input.messageThreadId } : {}),
     },
     input.env ?? process.env,
   );
+}
+
+export async function telegramEditMessageText(input: {
+  chatId: string | number;
+  messageId: number;
+  text: string;
+  env?: NodeJS.ProcessEnv;
+}): Promise<TelegramApiResult<{ message_id?: number } | true>> {
+  return callApi(
+    "editMessageText",
+    {
+      chat_id: input.chatId,
+      message_id: input.messageId,
+      text: input.text.slice(0, 4096),
+    },
+    input.env ?? process.env,
+  );
+}
+
+export async function telegramPinChatMessage(input: {
+  chatId: string | number;
+  messageId: number;
+  env?: NodeJS.ProcessEnv;
+}): Promise<TelegramApiResult<true>> {
+  return callApi(
+    "pinChatMessage",
+    {
+      chat_id: input.chatId,
+      message_id: input.messageId,
+      disable_notification: true,
+    },
+    input.env ?? process.env,
+  );
+}
+
+export async function telegramGetChatMember(input: {
+  chatId: string | number;
+  userId: number;
+  env?: NodeJS.ProcessEnv;
+}): Promise<TelegramApiResult<{ status?: string; can_pin_messages?: boolean }>> {
+  return callApi(
+    "getChatMember",
+    { chat_id: input.chatId, user_id: input.userId },
+    input.env ?? process.env,
+  );
+}
+
+export function canPinMessages(member: { status?: string; can_pin_messages?: boolean } | null): boolean {
+  if (!member?.status) return false;
+  if (member.status === "creator") return true;
+  return member.status === "administrator" && member.can_pin_messages === true;
 }
 
 export type TelegramBotIdentity = {

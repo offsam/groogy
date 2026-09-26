@@ -31,6 +31,7 @@ export type RefreshStatusResult = {
 };
 
 const MISSING = /message to edit not found|message_id_invalid|message can't be edited|message to be edited not found/i;
+const UNCHANGED = /message is not modified/i;
 
 export function placementKey(threadId: number | null): string {
   return threadId == null ? "chat" : `thread:${threadId}`;
@@ -114,6 +115,10 @@ export async function refreshPinnedProjectStatus(input: {
   if (!current) return publish();
 
   const edited = await input.transport.edit(current.telegram_message_id, text);
+  if (!edited.ok && UNCHANGED.test(edited.error)) {
+    await save(current);
+    return { text, action: "edited", pinned: current.pinned, note: null };
+  }
   if (!edited.ok && MISSING.test(edited.error)) return publish();
   if (!edited.ok) {
     return { text, action: "failed", pinned: current.pinned, note: `Не обновил статус: ${edited.error}` };

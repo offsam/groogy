@@ -275,6 +275,7 @@ async function main(): Promise<void> {
     });
     const calls: string[] = [];
     let missing = false;
+    let unchanged = false;
     let sentIds = 500;
     const transport = (canPin: boolean): PinTransport => ({
       async send(text) {
@@ -284,6 +285,7 @@ async function main(): Promise<void> {
       },
       async edit(messageId) {
         calls.push(`edit:${messageId}`);
+        if (unchanged) return { ok: false, error: "Bad Request: message is not modified" };
         if (missing && messageId === 501) return { ok: false, error: "message to edit not found" };
         return { ok: true };
       },
@@ -314,6 +316,18 @@ async function main(): Promise<void> {
     });
     assert.equal(second.action, "edited");
     assert.deepEqual(calls, ["edit:501"]);
+    unchanged = true;
+    calls.length = 0;
+    const same = await refreshPinnedProjectStatus({
+      store: pinStore,
+      conversationId: conversation.id,
+      env: env(),
+      now: new Date("2026-09-25T23:10:00Z"),
+      transport: transport(true),
+    });
+    assert.equal(same.action, "edited");
+    assert.deepEqual(calls, ["edit:501"]);
+    unchanged = false;
     missing = true;
     calls.length = 0;
     const recovered = await refreshPinnedProjectStatus({

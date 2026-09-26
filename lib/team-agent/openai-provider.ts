@@ -203,13 +203,51 @@ export type TeamAgentModelErrorCode =
   | "billing_inflight"
   | "billing_unknown";
 
+export type ProviderCallStage =
+  | "before_http"
+  | "connect"
+  | "await_response"
+  | "http_response"
+  | "parse"
+  | "after_model"
+  | "persist"
+  | "telegram_send";
+
+export type ProviderFailureLog = {
+  exception_name: string | null;
+  exception_message: string | null;
+  cause_name: string | null;
+  cause_message: string | null;
+  http_status: number | null;
+  stage: string;
+  provider_request_id: string | null;
+  provider_response_id: string | null;
+};
+
+const PROVIDER_STAGE_KEY = "teamAgentProviderStage";
+const PROVIDER_RESPONSE_KEY = "teamAgentProviderResponseId";
+const ID_RE = /^(?:req|gen)-[A-Za-z0-9_-]{6,}$/;
+
 export class TeamAgentModelError extends Error {
   readonly code: TeamAgentModelErrorCode;
+  readonly origin: unknown;
+  readonly providerStage: string | null;
+  readonly httpStatus: number | null;
+  readonly providerRequestId: string | null;
+  readonly providerResponseId: string | null;
 
-  constructor(code: TeamAgentModelErrorCode) {
-    super(code);
+  constructor(code: TeamAgentModelErrorCode, detail?: { cause?: unknown; stage?: string; responseId?: string | null }) {
+    const cause = detail?.cause;
+    super(code, cause instanceof Error ? { cause } : undefined);
     this.name = "TeamAgentModelError";
     this.code = code;
+    this.origin = cause ?? null;
+    const tagged = readProviderTag(cause);
+    const ids = providerIdsOf(cause);
+    this.providerStage = detail?.stage ?? tagged.stage;
+    this.httpStatus = httpStatusOf(cause);
+    this.providerRequestId = ids.requestId;
+    this.providerResponseId = detail?.responseId ?? tagged.responseId ?? ids.responseId;
   }
 }
 
@@ -450,27 +488,164 @@ export function parseTeamAgentModelOutput(
 
 function classifyCallerError(err: unknown): TeamAgentModelError {
   if (err instanceof TeamAgentModelError) return err;
-  const status =
-    typeof err === "object" && err && "status" in err
-      ? Number((err as { status: unknown }).status)
-      : 0;
+  const status = httpStatusOf(err) ?? 0;
   const message = errorText(err);
   const name = err instanceof Error ? err.name : "";
   const billing = classifyBillingFailure(status, message);
-  if (billing) return new TeamAgentModelError(billing);
-  if (status === 401 || status === 403) return new TeamAgentModelError("invalid_api_key");
-  if (status === 400) return new TeamAgentModelError("malformed");
-  if (status === 429) return new TeamAgentModelError("rate_limited");
-  if (status >= 500) return new TeamAgentModelError("upstream");
+  const wrap = (code: TeamAgentModelErrorCode) => new TeamAgentModelError(code, { cause: err });
+  if (billing) return wrap(billing);
+  if (status === 401 || status === 403) return wrap("invalid_api_key");
+  if (status === 400) return wrap("malformed");
+  if (status === 429) return wrap("rate_limited");
+  if (status >= 500) return wrap("upstream");
   if (
     name === "APIConnectionTimeoutError" ||
     name === "TimeoutError" ||
     name === "AbortError" ||
     name === "APIConnectionError"
   ) {
-    return new TeamAgentModelError("timeout");
+    return wrap("timeout");
   }
-  return new TeamAgentModelError("request_failed");
+  return wrap("request_failed");
+}
+
+function httpStatusOf(err: unknown): number | null {
+  if (!err || typeof err !== "object" || !("status" in err)) return null;
+  const status = Number((err as { status: unknown }).status);
+  if (!Number.isInteger(status) || status < 100 || status > 599) return null;
+  return status;
+}
+
+function pickProviderId(value: unknown): string | null {
+  return typeof value === "string" && ID_RE.test(value) ? value : null;
+}
+
+function providerIdsOf(err: unknown): { requestId: string | null; responseId: string | null } {
+  if (!err || typeof err !== "object") return { requestId: null, responseId: null };
+  const rec = err as Record<string, unknown>;
+  const direct =
+    pickProviderId(rec.request_id) ??
+    pickProviderId(rec.requestID) ??
+    pickProviderId(rec.requestId);
+  let headerId: string | null = null;
+  const headers = rec.headers;
+  if (headers instanceof Headers) {
+    headerId = pickProviderId(headers.get("x-request-id"));
+  } else if (headers && typeof headers === "object") {
+    const bag = headers as Record<string, unknown>;
+    headerId = pickProviderId(bag["x-request-id"]);
+  }
+  const responseId = pickProviderId(rec.id) ?? pickProviderId(rec.response_id);
+  return { requestId: direct ?? headerId, responseId };
+}
+
+function readProviderTag(err: unknown): { stage: string | null; responseId: string | null } {
+  if (!err || typeof err !== "object") return { stage: null, responseId: null };
+  const rec = err as Record<string, unknown>;
+  const stage = typeof rec[PROVIDER_STAGE_KEY] === "string" ? String(rec[PROVIDER_STAGE_KEY]) : null;
+  const responseId = pickProviderId(rec[PROVIDER_RESPONSE_KEY]);
+  return { stage, responseId };
+}
+
+function tagProviderError(err: unknown, stage: string, responseId: string | null): void {
+  if (!err || typeof err !== "object") return;
+  Object.defineProperty(err, PROVIDER_STAGE_KEY, { value: stage, configurable: true });
+  if (responseId) {
+    Object.defineProperty(err, PROVIDER_RESPONSE_KEY, { value: responseId, configurable: true });
+  }
+}
+
+/** Stage of an exception thrown while the SDK call is running. Status means an HTTP response arrived. */
+export function inferInFlightStage(err: unknown): ProviderCallStage {
+  const name = err instanceof Error ? err.name : "";
+  const message = errorText(err).toLowerCase();
+  if (httpStatusOf(err)) return "http_response";
+  if (
+    name === "APIConnectionTimeoutError" ||
+    name === "TimeoutError" ||
+    name === "AbortError" ||
+    message.includes("timed out") ||
+    message.includes("timeout")
+  ) {
+    return "await_response";
+  }
+  if (
+    name === "APIConnectionError" ||
+    message.includes("fetch failed") ||
+    message.includes("econnrefused") ||
+    message.includes("econnreset") ||
+    message.includes("enotfound") ||
+    message.includes("socket") ||
+    message.includes("connection")
+  ) {
+    return "connect";
+  }
+  return "await_response";
+}
+
+function safeErrorText(text: string): string {
+  const clean = redactSecrets(text)
+    .replace(/bearer\s+\S+/gi, "Bearer [redacted]")
+    .replace(/bot\d+:[A-Za-z0-9_-]+/g, "bot[redacted]")
+    .replace(/https?:\/\/\S+/g, "[url]");
+  if (clean.length <= 240) return clean;
+  return `${clean.slice(0, 240)}…`;
+}
+
+function namedError(err: unknown): { name: string | null; message: string | null } {
+  if (err instanceof Error) {
+    return { name: err.name || "Error", message: safeErrorText(err.message) };
+  }
+  if (typeof err === "string") return { name: "string", message: safeErrorText(err) };
+  if (err && typeof err === "object") {
+    const rec = err as { name?: unknown; message?: unknown; constructor?: { name?: string } };
+    const name = typeof rec.name === "string" ? rec.name : rec.constructor?.name ?? "object";
+    const message = "message" in rec ? safeErrorText(String(rec.message)) : null;
+    return { name, message };
+  }
+  return { name: err == null ? null : typeof err, message: null };
+}
+
+/** Safe fields for a provider failure. Does not include prompts, headers, or secrets. */
+export function describeProviderFailure(err: unknown, fallbackStage: string): ProviderFailureLog {
+  const named = namedError(err);
+  const tagged = readProviderTag(err);
+  const ids = providerIdsOf(err);
+  let causeName: string | null = null;
+  let causeMessage: string | null = null;
+  let stage = tagged.stage ?? fallbackStage;
+  let httpStatus = httpStatusOf(err);
+  let requestId = ids.requestId;
+  let responseId = tagged.responseId ?? ids.responseId;
+
+  const origin =
+    err instanceof TeamAgentModelError
+      ? err.origin
+      : err instanceof Error
+        ? err.cause
+        : null;
+  if (origin != null && origin !== err) {
+    const cause = namedError(origin);
+    causeName = cause.name;
+    causeMessage = cause.message;
+  }
+  if (err instanceof TeamAgentModelError) {
+    stage = err.providerStage ?? stage;
+    httpStatus = err.httpStatus;
+    requestId = err.providerRequestId;
+    responseId = err.providerResponseId;
+  }
+
+  return {
+    exception_name: named.name,
+    exception_message: named.message,
+    cause_name: causeName,
+    cause_message: causeMessage,
+    http_status: httpStatus,
+    stage,
+    provider_request_id: requestId,
+    provider_response_id: responseId,
+  };
 }
 
 function errorText(err: unknown): string {
@@ -487,6 +662,7 @@ async function callWithLimit(caller: TeamAgentModelCaller, request: TeamAgentMod
     try {
       return await caller(request);
     } catch (err) {
+      if (!readProviderTag(err).stage) tagProviderError(err, inferInFlightStage(err), null);
       last = classifyCallerError(err);
       const retry = RETRYABLE.has(last.code);
       if (!retry || attempt === 1) throw last;
@@ -551,36 +727,52 @@ function visibleOutputText(response: {
 
 function defaultCaller(env: NodeJS.ProcessEnv): TeamAgentModelCaller {
   const options = teamAgentSdkClientOptions(env);
-  if (!options) {
+    if (!options) {
     return async () => {
-      throw new TeamAgentModelError("not_configured");
+      const err = new TeamAgentModelError("not_configured");
+      tagProviderError(err, "before_http", null);
+      throw err;
     };
   }
   const client = new OpenAI(options);
   return async (request) => {
-    const response = await client.responses.create({
-      model: request.model,
-      instructions: request.instructions,
-      input: request.input,
-      max_output_tokens: request.max_output_tokens,
-      reasoning: request.reasoning,
-      store: false,
-      text: request.text,
-    });
-    return {
-      id: response.id,
-      output_text: visibleOutputText(response),
-      usage: response.usage
-        ? {
-            input_tokens: response.usage.input_tokens,
-            output_tokens: response.usage.output_tokens,
-            total_tokens: response.usage.total_tokens,
-            input_tokens_details: {
-              cached_tokens: response.usage.input_tokens_details?.cached_tokens,
-            },
-          }
-        : undefined,
-    };
+    let responseId: string | null = null;
+    try {
+      const response = await client.responses.create({
+        model: request.model,
+        instructions: request.instructions,
+        input: request.input,
+        max_output_tokens: request.max_output_tokens,
+        reasoning: request.reasoning,
+        store: false,
+        text: request.text,
+      });
+      responseId = typeof response.id === "string" ? response.id : null;
+      let outputText = "";
+      try {
+        outputText = visibleOutputText(response);
+      } catch (err) {
+        tagProviderError(err, "parse", responseId);
+        throw err;
+      }
+      return {
+        id: response.id,
+        output_text: outputText,
+        usage: response.usage
+          ? {
+              input_tokens: response.usage.input_tokens,
+              output_tokens: response.usage.output_tokens,
+              total_tokens: response.usage.total_tokens,
+              input_tokens_details: {
+                cached_tokens: response.usage.input_tokens_details?.cached_tokens,
+              },
+            }
+          : undefined,
+      };
+    } catch (err) {
+      if (!readProviderTag(err).stage) tagProviderError(err, inferInFlightStage(err), responseId);
+      throw err;
+    }
   };
 }
 
@@ -624,8 +816,18 @@ export class OpenAITeamAgentProvider implements TeamAgentProvider {
     const caller = this.opts.caller ?? defaultCaller(env);
     const response = await callWithLimit(caller, body);
     const raw = (response.output_text ?? "").trim();
-    if (!raw) throw new TeamAgentModelError("empty");
-    const parsed = parseTeamAgentModelOutput(raw, packed.allowedTopicIds);
+    const responseId = response.id ?? null;
+    if (!raw) throw new TeamAgentModelError("empty", { stage: "parse", responseId });
+    let parsed: ReturnType<typeof parseTeamAgentModelOutput>;
+    try {
+      parsed = parseTeamAgentModelOutput(raw, packed.allowedTopicIds);
+    } catch (err) {
+      if (err instanceof TeamAgentModelError) {
+        throw new TeamAgentModelError(err.code, { cause: err, stage: "parse", responseId });
+      }
+      tagProviderError(err, "parse", responseId);
+      throw err;
+    }
     const inputTokens = response.usage?.input_tokens ?? null;
     const outputTokens = response.usage?.output_tokens ?? null;
     const cached = response.usage?.input_tokens_details?.cached_tokens ?? null;

@@ -10,6 +10,8 @@ import {
   extractModelJson,
   publicFailureText,
   classifyBillingFailure,
+  describeProviderFailure,
+  TeamAgentModelError,
 } from "./openai-provider";
 import { InMemoryTeamAgentStore } from "./store";
 import { seedMembersFromTemplate } from "./members";
@@ -308,6 +310,79 @@ async function main(): Promise<void> {
     assert.equal(second.providerCalls, 0);
     assert.equal(sendProvider.calls, 1);
     assert.equal(second.replySent, true);
+
+    const leaked = describeProviderFailure(
+      new TypeError("connect failed sk-supersecret OPENROUTER_API_KEY=sk-abcdefghij bot12345:AAAbbb"),
+      "before_http",
+    );
+    assert.equal(leaked.exception_name, "TypeError");
+    assert.equal(leaked.stage, "before_http");
+    assert.equal(leaked.exception_message?.includes("sk-"), false);
+    assert.equal(leaked.exception_message?.includes("AAAbbb"), false);
+    assert.equal(leaked.provider_request_id, null);
+
+    const upstream = Object.assign(new Error("provider down"), {
+      status: 503,
+      request_id: "req-123456-abcdef",
+      cause: new Error("socket hang up"),
+    });
+    const wrapped = new OpenAITeamAgentProvider({
+      env: env(),
+      caller: async () => {
+        throw upstream;
+      },
+    });
+    await assert.rejects(
+      () => wrapped.respond(ctx, { triggerMessage: asked.message, userText: "x" }),
+      (err: unknown) => {
+        assert.ok(err instanceof TeamAgentModelError);
+        assert.equal(err.code, "upstream");
+        const log = describeProviderFailure(err, "before_http");
+        assert.equal(log.stage, "http_response");
+        assert.equal(log.http_status, 503);
+        assert.equal(log.provider_request_id, "req-123456-abcdef");
+        assert.equal(log.cause_name, "Error");
+        assert.match(log.cause_message ?? "", /provider down/);
+        return true;
+      },
+    );
+
+    const logs: string[] = [];
+    const originalError = console.error;
+    console.error = (...args: unknown[]) => {
+      logs.push(args.map(String).join(" "));
+    };
+    try {
+      const boom = new CountingProvider();
+      boom.reply = "не должен уйти";
+      const failing = {
+        ...boom,
+        async respond() {
+          throw Object.assign(new TypeError("fetch failed before body"), { cause: new Error("ECONNREFUSED") });
+        },
+      };
+      const hidden = await handleTelegramUpdate({
+        update: update("@kroogy_bot диагностика", 728807017, 30, "CEBEP51pyc"),
+        store,
+        env: env(),
+        provider: failing,
+        botUserId: 1,
+      });
+      assert.equal(hidden.providerCalls, 1);
+      const row = logs.map((line) => {
+        try {
+          return JSON.parse(line) as { error_type?: string; exception_name?: string; stage?: string; cause_name?: string; exception_message?: string };
+        } catch {
+          return null;
+        }
+      }).find((item) => item?.error_type === "provider_error");
+      assert.equal(row?.exception_name, "TypeError");
+      assert.equal(row?.cause_name, "Error");
+      assert.equal(row?.stage, "before_http");
+      assert.match(row?.exception_message ?? "", /fetch failed/);
+    } finally {
+      console.error = originalError;
+    }
 
     console.log("team-agent reliability: ok");
   } finally {

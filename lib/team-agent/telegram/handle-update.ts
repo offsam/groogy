@@ -19,7 +19,7 @@ import {
 } from "../github-repository";
 import { claimAgentReply, ingestTeamMessage, markMessageAgentReplied, persistAgentReply } from "../ingest";
 import { parseLocalCommand } from "../local-commands";
-import { TeamAgentModelError, publicFailureText } from "../openai-provider";
+import { TeamAgentModelError, describeProviderFailure, publicFailureText } from "../openai-provider";
 import { createTeamAgentProvider } from "../provider-factory";
 import type { TeamAgentStore } from "../store-port";
 import { linkMessageToTopics } from "../topics";
@@ -241,6 +241,7 @@ export async function handleTelegramUpdate(input: {
   }
 
   let providerCalls = 0;
+  let handlerStage = "before_http";
   try {
     const context = await buildTeamAgentContext(input.store, {
       conversationId: ingest.conversation.id,
@@ -264,6 +265,7 @@ export async function handleTelegramUpdate(input: {
       },
       input.store,
     );
+    handlerStage = "after_model";
 
     const canApplyActions =
       Boolean(ingest.member) || Boolean(input.allowUnknownPrivilegedActions);
@@ -323,6 +325,7 @@ export async function handleTelegramUpdate(input: {
     }
 
     const replyText = [reply.replyText, ...notes].filter(Boolean).join("\n");
+    handlerStage = "persist";
     await persistAgentReply(input.store, {
       conversationId: ingest.conversation.id,
       triggerMessage: ingest.message,
@@ -335,6 +338,7 @@ export async function handleTelegramUpdate(input: {
       updateId: input.update.update_id,
       requestId,
     });
+    handlerStage = "telegram_send";
     const sent = await sendReply(
       normalized.ingest.conversationExternalId,
       replyText,
@@ -371,6 +375,7 @@ export async function handleTelegramUpdate(input: {
     };
   } catch (err) {
     const code = err instanceof TeamAgentModelError ? err.code : "provider_error";
+    const failure = describeProviderFailure(err, handlerStage);
     console.error(
       JSON.stringify({
         error_type: code,
@@ -378,7 +383,14 @@ export async function handleTelegramUpdate(input: {
         model: config.model,
         request_id: requestId,
         telegram_message_id: ingest.message.external_message_id,
-        stage: "provider_call",
+        stage: failure.stage,
+        exception_name: failure.exception_name,
+        exception_message: failure.exception_message,
+        cause_name: failure.cause_name,
+        cause_message: failure.cause_message,
+        http_status: failure.http_status,
+        provider_request_id: failure.provider_request_id,
+        provider_response_id: failure.provider_response_id,
         timestamp: new Date().toISOString(),
       }),
     );

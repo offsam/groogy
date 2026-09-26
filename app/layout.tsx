@@ -51,13 +51,13 @@ export default function RootLayout({
       className={`${manrope.variable} ${literata.variable}`}
       lang="ru"
     >
-      <body className="overflow-x-hidden font-[family-name:var(--font-sans)]">
+        <body className="overflow-x-hidden font-[family-name:var(--font-sans)] has-[.game-shell]:h-dvh has-[.game-shell]:overflow-hidden">
         <MicrosoftClarity />
         <Suspense fallback={null}>
           <NavigationProgress />
           <AiSearchOverlay />
         </Suspense>
-        <div className="flex min-h-screen min-w-0 flex-col overflow-x-hidden [&:has(.game-shell)>div:first-child]:hidden [&:has(.game-shell)>footer]:hidden">
+        <div className="flex min-h-screen min-w-0 flex-col overflow-x-hidden [&:has(.game-shell)]:h-dvh [&:has(.game-shell)]:overflow-hidden [&:has(.game-shell)>div:first-child]:hidden [&:has(.game-shell)>footer]:hidden">
           <div className="sticky top-0 z-[1001]">
             <Header />
           </div>

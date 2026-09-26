@@ -57,7 +57,7 @@ function positiveInt(value: string | undefined, fallback: number): number {
 const OPENROUTER_DEFAULT_MODEL = "deepseek/deepseek-v4-flash";
 
 function resolveModel(env: NodeJS.ProcessEnv): string {
-  const explicit = (env.TEAM_AGENT_MODEL ?? "").trim();
+  const explicit = (env.TEAM_AGENT_MODEL ?? "").trim().replace(/^=+/, "");
   if (explicit) return explicit;
   if (normalizeProvider(env.TEAM_AGENT_PROVIDER) === "openrouter") {
     return OPENROUTER_DEFAULT_MODEL;

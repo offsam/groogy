@@ -138,7 +138,7 @@ export function ErrorReportButton() {
   }
 
   if (!ready || embedded) return null;
-  if (pathname?.startsWith("/admin")) return null;
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/games")) return null;
 
   return (
     <>
